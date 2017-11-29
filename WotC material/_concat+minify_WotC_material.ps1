@@ -3,7 +3,7 @@
 $java='C:\Java_port\bin\java.exe'
 $yui='C:\Java_port\lib\yuicompressor-2.4.8.jar'
 $outArr = @("all_WotC_published", "all_WotC_Unearthed_Arcana")
-$matchArr = @("pub_*.js", "UA_*.js")
+$matchArr = @("pub_*.js", "ua_*.js")
 for ($i=0 ; $i -lt $outArr.length; $i++) {
 	$out = $outArr[$i]
 #	if (Test-Path “$out.js“) { ri “$out.js“ }
