@@ -145,10 +145,10 @@ RunFunctionAtEnd(function() {
 		if (!dSource) dSource = [["UA:MC", 8]];
 		
 		var suffix = 1;
-		var entryDoNm = cDomain.subname;
+		var entryDoNm = aDomain.subname;
 		while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
 			suffix += 1;
-			entryDoNm = cDomain.subname + " (" + suffix + ")";
+			entryDoNm = aDomain.subname + " (" + suffix + ")";
 		};
 		MTfeat["subclassfeature2"].choices.push(entryDoNm);
 		MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
