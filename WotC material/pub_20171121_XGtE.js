@@ -73,3 +73,57 @@ AddSubClass("cleric", "grave domain2", {
 		}
 	}
 });
+
+
+
+/* SpellsList["catnap"]
+SpellsList["cause fear"] // UA:SS
+SpellsList["ceremony"] // UA:SS
+SpellsList["chaos bolt"] // UA:SS
+SpellsList["charm monster"]
+SpellsList["create homunculus"]
+SpellsList["crown of stars"]
+SpellsList["dance macabre"]
+SpellsList["dawn"]
+SpellsList["dragon's breath"]
+SpellsList["druid grove"]
+SpellsList["enemies abound"]
+SpellsList["far step"]
+SpellsList["find greater steed"]
+SpellsList["guardian of nature"]
+SpellsList["healing spirit"]
+SpellsList["holy weapon"]
+SpellsList["illusory dragon"]
+SpellsList["infernal calling"]
+SpellsList["infestation"] // UA:SS
+SpellsList["invulnerability"]
+SpellsList["life transferece"]
+SpellsList["maddening darkness"]
+SpellsList["mass polymorph"]
+SpellsList["mental prison"]
+SpellsList["mighty fortress"]
+SpellsList["mind spike"]
+SpellsList["negative energy flood"]
+SpellsList["power word pain"]
+SpellsList["primal savagery"] // UA:SS
+SpellsList["psychic scream"]
+SpellsList["scatter"]
+SpellsList["shadow blade"]
+SpellsList["sickening radiance"]
+SpellsList["skill empowerment"]
+SpellsList["snare"] // UA:SS
+SpellsList["soul cage"]
+SpellsList["sleet wind strike"]
+SpellsList["summon greater demon"]
+SpellsList["summon lesser demon"]
+SpellsList["synaptic static"]
+SpellsList["temple of the gods"]
+SpellsList["tenser's transformation"]
+SpellsList["thunder step"]
+SpellsList["tiny servant"]
+SpellsList["toll the dead"] // UA:SS
+SpellsList["wall of light"]
+SpellsList["word of radiance"]
+SpellsList["wrath of nature"]
+SpellsList["zephyr strike"] // UA:SS
+ */

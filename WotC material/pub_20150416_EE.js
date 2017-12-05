@@ -291,7 +291,7 @@ SpellsList["abi-dalzim's horrid wilting"] = {
 	nameShort : "Abi-D's Horrid Wilting",
 	nameAlt : "Horrid Wilting",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 15],
+	source : [["X", 150], ["E", 15]],
 	level : 8,
 	school : "Necro",
 	time : "1 a",
@@ -303,11 +303,24 @@ SpellsList["abi-dalzim's horrid wilting"] = {
 	description : "30-ft cube all crea 10d8 Necrotic dmg; save halves; plants/water elem. dis. const/undead immune",
 	descriptionFull : "You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren't affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 10d8 necrotic damage on a failed save, or half as much damage on a successful one."
 };
+SpellsList["absorb elements"] = {
+	name : "Absorb Elements",
+	classes : ["druid", "ranger", "wizard"],
+	source : [["X", 150], ["E", 15]],
+	level : 1,
+	school : "Abjur",
+	time : "1 rea",
+	range : "Self",
+	components : "S",
+	duration : "1 rnd",
+	description : "Acid, Cold, Fire, Lightning, or Thunder resistance vs. 1 atk; first melee hit next rnd +1d6+1d6/SL dmg",
+	descriptionFull : "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st."
+};
 SpellsList["aganazzar's scorcher"] = {
 	name : "Aganazzar's Scorcher",
 	nameAlt : "Scorch", //as per the Spell Compandium's (DnD 3.5e) alternative name
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 15],
+	source : [["X", 150], ["E", 15]],
 	level : 2,
 	school : "Evoc",
 	time : "1 a",
@@ -322,7 +335,7 @@ SpellsList["aganazzar's scorcher"] = {
 SpellsList["beast bond"] = {
 	name : "Beast Bond",
 	classes : ["druid", "ranger"],
-	source : ["E", 15],
+	source : [["X", 150], ["E", 15]],
 	level : 1,
 	school : "Div",
 	time : "1 a",
@@ -333,23 +346,10 @@ SpellsList["beast bond"] = {
 	description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea you can see",
 	descriptionFull : "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beast's Intelligence is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on attack rolls against any creature within 5 feet of you that you can see."
 };
-SpellsList["absorb elements"] = {
-	name : "Absorb Elements",
-	classes : ["druid", "ranger", "wizard"],
-	source : ["E", 15],
-	level : 1,
-	school : "Abjur",
-	time : "1 rea",
-	range : "Self",
-	components : "S",
-	duration : "1 rnd",
-	description : "Acid, Cold, Fire, Lightning, or Thunder resistance vs. 1 atk; first melee hit next rnd +1d6+1d6/SL dmg",
-	descriptionFull : "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st."
-};
 SpellsList["bones of the earth"] = {
 	name : "Bones of the Earth",
 	classes : ["druid"],
-	source : ["E", 15],
+	source : [["X", 150], ["E", 15]],
 	level : 6,
 	school : "Trans",
 	time : "1 a",
@@ -363,7 +363,7 @@ SpellsList["bones of the earth"] = {
 SpellsList["catapult"] = {
 	name : "Catapult",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 15],
+	source : [["X", 150], ["E", 15]],
 	level : 1,
 	school : "Trans",
 	time : "1 a",
@@ -377,7 +377,7 @@ SpellsList["catapult"] = {
 SpellsList["control flames"] = {
 	name : "Control Flames",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 16],
+	source : [["X", 152], ["E", 16]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -390,7 +390,7 @@ SpellsList["control flames"] = {
 SpellsList["control winds"] = {
 	name : "Control Winds",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 16],
+	source : [["X", 152], ["E", 16]],
 	level : 5,
 	school : "Trans",
 	time : "1 a",
@@ -403,7 +403,7 @@ SpellsList["control winds"] = {
 SpellsList["create bonfire"] = {
 	name : "Create Bonfire",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 16],
+	source : [["X", 152], ["E", 16]],
 	level : 0,
 	school : "Conj",
 	time : "1 a",
@@ -417,7 +417,7 @@ SpellsList["create bonfire"] = {
 SpellsList["dust devil"] = {
 	name : "Dust Devil",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 17],
+	source : [["X", 154], ["E", 17]],
 	level : 2,
 	school : "Conj",
 	time : "1 a",
@@ -429,24 +429,10 @@ SpellsList["dust devil"] = {
 	description : "5-ft cube; all in 5-ft 1d8+1d8/SL Bludg. dmg and pushed 10 ft away; save halves, no push; see book",
 	descriptionFull : "Choose an unoccupied 5-foot cube of air that you can see within range. An elemental force that resembles a dust devil appears in the cube and lasts for the spell's duration." + "\n   " + "Any creature that ends its turn within 5 feet of the dust devil must make a Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning damage and is pushed 10 feet away. On a successful save, the creature takes half as much damage and isn't pushed." + "\n   " + "As a bonus action, you can move the dust devil up to 30 feet in any direction. If the dust devil moves over sand, dust, loose dirt, or small gravel, it sucks up the material and forms a 10-foot-radius cloud of debris around itself that lasts until the start of your next turn. The cloud heavily obscures its area." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
 };
-SpellsList["earth tremor"] = {
-	name : "Earth Tremor",
-	classes : ["bard", "druid", "sorcerer", "wizard"],
-	source : ["E", 17],
-	level : 1,
-	school : "Evoc",
-	time : "1 a",
-	range : "10-ft rad",
-	components : "V,S",
-	duration : "Instantaneous",
-	save : "Dex",
-	description : "All crea in area except you save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
-	descriptionFull : "You cause a tremor in the ground in a 10-foot radius. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
-};
 SpellsList["earthbind"] = {
 	name : "Earthbind",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 17],
+	source : [["X", 154], ["E", 17]],
 	level : 2,
 	school : "Trans",
 	time : "1 a",
@@ -457,10 +443,24 @@ SpellsList["earthbind"] = {
 	description : "1 creatures save or fly speed is reduced to 0; airborne creatures descend at 60 ft per round",
 	descriptionFull : "Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw or its flying speed (if any) is reduced to 0 feet for the spell's duration. An airborne creature affected by this spell descends at 60 feet per round until it reaches the ground or the spell ends."
 };
+SpellsList["earth tremor"] = {
+	name : "Earth Tremor",
+	classes : ["bard", "druid", "sorcerer", "wizard"],
+	source : [["X", 155], ["E", 17]],
+	level : 1,
+	school : "Evoc",
+	time : "1 a",
+	range : "10-ft rad",
+	components : "V,S",
+	duration : "Instantaneous",
+	save : "Dex",
+	description : "All crea in area except you save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
+	descriptionFull : "You cause a tremor in the ground in a 10-foot radius. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
+};
 SpellsList["elemental bane"] = {
 	name : "Elemental Bane",
 	classes : ["druid", "warlock", "wizard"],
-	source : ["E", 17],
+	source : [["X", 155], ["E", 17]],
 	level : 4,
 	school : "Trans",
 	time : "1 a",
@@ -474,7 +474,7 @@ SpellsList["elemental bane"] = {
 SpellsList["erupting earth"] = {
 	name : "Erupting Earth",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 17],
+	source : [["X", 155], ["E", 17]],
 	level : 3,
 	school : "Trans",
 	time : "1 a",
@@ -489,7 +489,7 @@ SpellsList["erupting earth"] = {
 SpellsList["flame arrows"] = {
 	name : "Flame Arrows",
 	classes : ["druid", "ranger", "sorcerer", "wizard"],
-	source : ["E", 18],
+	source : [["X", 156], ["E", 18]],
 	level : 3,
 	school : "Trans",
 	time : "1 a",
@@ -502,7 +502,7 @@ SpellsList["flame arrows"] = {
 SpellsList["frostbite"] = {
 	name : "Frostbite",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 18],
+	source : [["X", 156], ["E", 18]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -516,7 +516,7 @@ SpellsList["frostbite"] = {
 SpellsList["gust"] = {
 	name : "Gust",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 19],
+	source : [["X", 157], ["E", 19]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -530,7 +530,7 @@ SpellsList["gust"] = {
 SpellsList["ice knife"] = {
 	name : "Ice Knife",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 19],
+	source : [["X", 157], ["E", 19]],
 	level : 1,
 	school : "Conj",
 	time : "1 a",
@@ -545,7 +545,7 @@ SpellsList["ice knife"] = {
 SpellsList["immolation"] = {
 	name : "Immolation",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 19],
+	source : [["X", 158], ["E", 19]],
 	level : 5,
 	school : "Evoc",
 	time : "1 a",
@@ -559,7 +559,7 @@ SpellsList["immolation"] = {
 SpellsList["investiture of flame"] = {
 	name : "Investiture of Flame",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 19],
+	source : [["X", 159], ["E", 19]],
 	level : 6,
 	school : "Trans",
 	time : "1 a",
@@ -573,7 +573,7 @@ SpellsList["investiture of flame"] = {
 SpellsList["investiture of ice"] = {
 	name : "Investiture of Ice",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 19],
+	source : [["X", 159], ["E", 19]],
 	level : 6,
 	school : "Trans",
 	time : "1 a",
@@ -587,7 +587,7 @@ SpellsList["investiture of ice"] = {
 SpellsList["investiture of stone"] = {
 	name : "Investiture of Stone",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 19],
+	source : [["X", 159], ["E", 19]],
 	level : 6,
 	school : "Trans",
 	time : "1 a",
@@ -601,7 +601,7 @@ SpellsList["investiture of stone"] = {
 SpellsList["investiture of wind"] = {
 	name : "Investiture of Wind",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 20],
+	source : [["X", 160], ["E", 20]],
 	level : 6,
 	school : "Trans",
 	time : "1 a",
@@ -615,7 +615,7 @@ SpellsList["investiture of wind"] = {
 SpellsList["maelstrom"] = {
 	name : "Maelstrom",
 	classes : ["druid"],
-	source : ["E", 20],
+	source : [["X", 160], ["E", 20]],
 	level : 5,
 	school : "Evoc",
 	time : "1 a",
@@ -630,7 +630,7 @@ SpellsList["maelstrom"] = {
 SpellsList["magic stone"] = {
 	name : "Magic Stone",
 	classes : ["druid", "warlock"],
-	source : ["E", 20],
+	source : [["X", 160], ["E", 20]],
 	level : 0,
 	school : "Trans",
 	time : "1 bns",
@@ -645,7 +645,7 @@ SpellsList["maximilian's earthen grasp"] = {
 	nameShort : "Max's Earthen Grasp",
 	nameAlt : "Earthen Grasp",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 20],
+	source : [["X", 161], ["E", 20]],
 	level : 2,
 	school : "Trans",
 	time : "1 a",
@@ -661,7 +661,7 @@ SpellsList["melf's minute meteors"] = {
 	name : "Melf's Minute Meteors",
 	nameAlt : "Minute Meteors",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 20],
+	source : [["X", 161], ["E", 20]],
 	level : 3,
 	school : "Evoc",
 	time : "1 a",
@@ -676,7 +676,7 @@ SpellsList["melf's minute meteors"] = {
 SpellsList["mold earth"] = {
 	name : "Mold Earth",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 21],
+	source : [["X", 162], ["E", 21]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -689,7 +689,7 @@ SpellsList["mold earth"] = {
 SpellsList["primordial ward"] = {
 	name : "Primordial Ward",
 	classes : ["druid"],
-	source : ["E", 21],
+	source : [["X", 163], ["E", 21]],
 	level : 6,
 	school : "Abjur",
 	time : "1 a",
@@ -702,7 +702,7 @@ SpellsList["primordial ward"] = {
 SpellsList["pyrotechnics"] = {
 	name : "Pyrotechnics",
 	classes : ["bard", "sorcerer", "wizard"],
-	source : ["E", 21],
+	source : [["X", 163], ["E", 21]],
 	level : 2,
 	school : "Trans",
 	time : "1 a",
@@ -716,7 +716,7 @@ SpellsList["pyrotechnics"] = {
 SpellsList["shape water"] = {
 	name : "Shape Water",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 21],
+	source : [["X", 164], ["E", 21]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -729,7 +729,7 @@ SpellsList["shape water"] = {
 SpellsList["skywrite"] = {
 	name : "Skywrite",
 	classes : ["bard", "druid", "wizard"],
-	source : ["E", 22],
+	source : [["X", 165], ["E", 22]],
 	ritual : true,
 	level : 2,
 	school : "Trans",
@@ -744,7 +744,7 @@ SpellsList["snilloc's snowball swarm"] = {
 	name : "Snilloc's Snowball Swarm",
 	nameAlt : "Snowball Swarm",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 22],
+	source : [["X", 165], ["E", 22]],
 	level : 2,
 	school : "Evoc",
 	time : "1 a",
@@ -758,7 +758,7 @@ SpellsList["snilloc's snowball swarm"] = {
 SpellsList["storm sphere"] = {
 	name : "Storm Sphere",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 22],
+	source : [["X", 166], ["E", 22]],
 	level : 4,
 	school : "Evoc",
 	time : "1 a",
@@ -772,7 +772,7 @@ SpellsList["storm sphere"] = {
 SpellsList["thunderclap"] = {
 	name : "Thunderclap",
 	classes : ["bard", "druid", "sorcerer", "warlock", "wizard"],
-	source : ["E", 22],
+	source : [["X", 168], ["E", 22]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -786,7 +786,7 @@ SpellsList["thunderclap"] = {
 SpellsList["tidal wave"] = {
 	name : "Tidal Wave",
 	classes : ["druid", "wizard"],
-	source : ["E", 22],
+	source : [["X", 168], ["E", 22]],
 	level : 3,
 	school : "Conj",
 	time : "1 a",
@@ -801,7 +801,7 @@ SpellsList["tidal wave"] = {
 SpellsList["transmute rock"] = {
 	name : "Transmute Rock",
 	classes : ["druid", "wizard"],
-	source : ["E", 22],
+	source : [["X", 169], ["E", 22]],
 	level : 5,
 	school : "Trans",
 	time : "1 a",
@@ -815,7 +815,7 @@ SpellsList["transmute rock"] = {
 SpellsList["vitriolic sphere"] = {
 	name : "Vitriolic Sphere",
 	classes : ["sorcerer", "wizard"],
-	source : ["E", 23],
+	source : [["X", 170], ["E", 23]],
 	level : 4,
 	school : "Evoc",
 	time : "1 a",
@@ -830,7 +830,7 @@ SpellsList["vitriolic sphere"] = {
 SpellsList["wall of sand"] = {
 	name : "Wall of Sand",
 	classes : ["wizard"],
-	source : ["E", 23],
+	source : [["X", 170], ["E", 23]],
 	level : 3,
 	school : "Evoc",
 	time : "1 a",
@@ -845,7 +845,7 @@ SpellsList["wall of sand"] = {
 SpellsList["wall of water"] = {
 	name : "Wall of Water",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 23],
+	source : [["X", 170], ["E", 23]],
 	level : 3,
 	school : "Evoc",
 	time : "1 a",
@@ -860,7 +860,7 @@ SpellsList["wall of water"] = {
 SpellsList["warding wind"] = {
 	name : "Warding Wind",
 	classes : ["bard", "druid", "sorcerer"],
-	source : ["E", 23],
+	source : [["X", 170], ["E", 23]],
 	level : 2,
 	school : "Evoc",
 	time : "1 a",
@@ -873,7 +873,7 @@ SpellsList["warding wind"] = {
 SpellsList["watery sphere"] = {
 	name : "Watery Sphere",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : ["E", 23],
+	source : [["X", 170], ["E", 23]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -888,7 +888,7 @@ SpellsList["watery sphere"] = {
 SpellsList["whirlwind"] = {
 	name : "Whirlwind",
 	classes : ["druid", "wizard"],
-	source : ["E", 24],
+	source : [["X", 171], ["E", 24]],
 	level : 7,
 	school : "Evoc",
 	time : "1 a",

@@ -22,7 +22,7 @@ BackgroundFeatureList["underdark experience"] = {
 };
 
 // Creatures
-CreatureList["steeder, female"] = {
+CreatureList["steeder"] = { // "Steeder, Female" entry so that just "steeder" also matches this entry
 	name : "Steeder, Female",
 	source : ["OotA", 231],
 	size : 2, //Large
@@ -114,5 +114,3 @@ CreatureList["steeder, male"] = {
 		}
 	]
 };
-// make a default 'steeder' entry to point to the 'steeder, female' entry
-CreatureList["steeder"] = CreatureList["steeder, female"];
