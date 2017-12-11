@@ -73,7 +73,7 @@ AddSubClass("bard", "college of swords2", {
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with medium armor and scimitars",
-				"I can a simple or martial melee weapon that I'm proficient with as spellcasting focus"
+				"I can use a simple or martial melee weapon that I'm proficient with as spellcasting focus"
 			]),
 			armor : [false, true, false, false],
 			weapons : [false, false, ["scimitar"]]

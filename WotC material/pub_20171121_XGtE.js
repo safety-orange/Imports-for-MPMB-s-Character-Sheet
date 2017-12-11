@@ -296,6 +296,184 @@ AddSubClass("barbarian", "zealot", {
 });
 
 // Add 3 subclasses for the Bard
+AddSubClass("bard", "college of glamour-xgte", {
+	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
+	subname : "College of Glamour",
+	source : ["X", 14],
+	features : {
+		"subclassfeature3" : {
+			name : "Mantle of Inspiration",
+			source : ["X", 14],
+			minlevel : 3,
+			description : desc([
+				"As a bonus action, I expend one Bardic Inspiration die to aid those within 60 ft of me",
+				"My Cha mod (min 1) of creatures that I can see and can see me gain temporary HP",
+				"They can immediately use a reaction to move their speed, without opportunity attacks"
+			]),
+			additional : levels.map(function (n) { return n < 3 ? "" : "1 inspiration die; " + (n < 5 ? 5 : n < 10 ? 8 : n < 15 ? 11 : 14) + " temp HP"; }),
+			action : ["bonus action", ""]
+		},
+		"subclassfeature3.1" : {
+			name : "Enthralling Performance",
+			source : ["X", 14],
+			minlevel : 3,
+			recovery : "short rest",
+			usages : 1,
+			description : desc([
+				"By performing for at least 1 minute, I can charm humanoids within 60 ft of me",
+				"After the performance, my Cha mod (min 1) number of targets must make a Wis save",
+				"On a fail, a target is charmed for 1 hour; If success, it doesn't knows I tried to charm it",
+				"While charmed, the target idolizes me, hinders those opposing me, and avoids violence",
+				"This lasts until a target takes damage, I attack it, or if it sees me attacking its allies"
+			])
+		},
+		"subclassfeature6" : {
+			name : "Mantle of Majesty",
+			source : ["X", 14],
+			minlevel : 6,
+			recovery : "long rest",
+			usages : 1,
+			action : ["bonus action", ""],
+			description : desc([
+				"As a bonus action, I appear unearthly beautiful while I concentrate, up to 1 minute",
+				"At the same time, and as a bonus action during, I can cast Command without a spell slot",
+				"Creatures charmed by me automatically fail their saves against these Command spells"
+			]),
+			spellcastingBonus : [{
+				name : "Mantle of Majesty",
+				spells : ["command"],
+				selection : ["command"],
+				oncelr : true
+			}]
+		},
+		"subclassfeature14" : {
+			name : "Unbreakable Majesty",
+			source : ["X", 14],
+			minlevel : 14,
+			recovery : "short rest",
+			usages : 1,
+			action : ["bonus action", ""],
+			description : desc([
+				"As a bonus action, I gain a magically majestic presence for 1 min or until incapacitated",
+				"During this, the first time a creature attacks me each turn they must make a Cha save",
+				"If failed, it can't attack me this turn and must choose another target or lose its attack",
+				"If successful, it can attack, but has disadv. on all saves against my spells on my next turn"
+			])
+		}
+	}
+});
+AddSubClass("bard", "college of swords-xgte", {
+	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
+	subname : "College of Swords",
+	source : ["X", 15],
+	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+	features : {
+		"subclassfeature3" : {
+			name : "Bonus Proficiencies",
+			source : ["X", 15],
+			minlevel : 3,
+			description : desc([
+				"I gain proficiency with medium armor and scimitars",
+				"My bardic spellcasting focus can be any simple or martial weapon I'm proficient with"
+			]),
+			armor : [false, true, false, false],
+			weapons : [false, false, ["scimitar"]]
+		},
+		"subclassfeature3.1" : {
+			name : "Fighting Style",
+			source : ["X", 15],
+			minlevel : 3,
+			description : "\n   " + "Select a Fighting Style for the college of swords using the \"Choose Feature\" button above",
+			choices : ["Dueling", "Two-Weapon Fighting"],
+			"dueling" : FightingStyles.dueling,
+			"two-weapon fighting" : FightingStyles.two_weapon
+		},
+		"subclassfeature3.2" : {
+			name : "Blade Flourish",
+			source : ["X", 15],
+			minlevel : 3,
+			description : desc([
+				"When I take the Attack action on my turn, I gain bonus speed and special attack options",
+				"I gain +10 ft to my walking speed until the end of the current turn",
+				"Once per turn when I hit with a weapon attack, I can expend a Bardic Inspiration die",
+				"The roll of that die is added to the weapon's damage, in addition to one of the following:",
+				"\u2022 Defensive Flourish: the result is also added to my AC until the start of my next turn",
+				"\u2022 Slashing Flourish: the extra damage is also dealt to any of my choosing in 5 ft of me",
+				"\u2022 Mobile Flourish: the target is also pushed 5 plus the die result in feet away from me",
+				"  As a reaction after this push, I can move my speed to a space within 5 ft of the target"
+			])
+		},
+		"subclassfeature14" : {
+			name : "Master Flourish",
+			source : ["X", 16],
+			minlevel : 14,
+			description : "\n   " + "When I do a Blade Flourish, I can use a d6 instead of expending a Bardic Inspiration die"
+		}
+	}
+});
+AddSubClass("bard", "college of whispers-xgte", {
+	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
+	subname : "College of Whispers",
+	source : ["X", 16],
+	features : {
+		"subclassfeature3" : {
+			name : "Psychic Blades",
+			source : ["X", 16],
+			minlevel : 3,
+			description : desc([
+				"When I hit a creature with a weapon attack, I can expend one use of Bardic Inspiration",
+				"If so, the attack does extra psychic damage; I can do so only once per round, on my turn"
+			]),
+			additional : levels.map(function (n) { return n < 3 ? "" : "1 Bardic Inspiration for +" + (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 5 : 8) + "d6 damage"; }),
+		},
+		"subclassfeature3.1" : {
+			name : "Words of Terror",
+			source : ["X", 16],
+			minlevel : 3,
+			recovery : "short rest",
+			usages : 1,
+			description : desc([
+				"By speaking privately with a humanoid for at least 1 minute, I can try to inspire terror",
+				"After the talk, it must make a Wis save or be frightened of me or someone of my choice",
+				"If the save is successful, the target doesn't know I tried to frighten it",
+				"This lasts for 1 hour, or until it sees its allies or itself being attacked or damaged"
+			])
+		},
+		"subclassfeature6" : {
+			name : "Mantle of Whispers",
+			source : ["X", 16],
+			minlevel : 6,
+			recovery : "short rest",
+			usages : 1,
+			action : ["reaction", ""],
+			description : desc([
+				"As a reaction when a humanoid dies within 30 ft of me, I can capture its shadow",
+				"As an action, I can use it to make me look just like the dead person did while it was alive",
+				"While disguised, I know general information about it and its memories, but not its secrets",
+				"Others can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5",
+				"A shadow lasts until used or next long rest; The disguise ends as a bonus action or 1 hour"
+			]),
+			eval : "AddAction('action', 'Shadow Disguise (start)', 'Bard (College of Whispers)'); AddAction('bonus action', 'Shadow Disguise (end)', 'Bard (College of Whispers)');",
+			removeeval : "RemoveAction('action', 'Shadow Disguise (start)'); RemoveAction('bonus action', 'Shadow Disguise (end)');"
+		},
+		"subclassfeature14" : {
+			name : "Shadow Lore",
+			source : ["X", 16],
+			minlevel : 14,
+			recovery : "long rest",
+			usages : 1,
+			action : ["action", ""],
+			description : desc([
+				"As an action, I whisper to a creature within 30 ft that can hear and understand me",
+				"Only the target can hear me; It must make a Wis save or be charmed by me for 8 hours",
+				"If failed, it thinks I know its most mortifying secret, otherwise it only hears mumbling",
+				"While charmed, the target obeys my commands, but won't fight or risk its life for me",
+				"This lasts for 8 hours, or until I or my allies attack it, damage it, or have it make a save"
+				//"When the effect ends, the target has no idea why it was so afraid of me"
+			])
+		}
+	}
+});
 
 // Add 2 subclasses for the Cleric
 AddSubClass("cleric", "forge domain-xgte", {
@@ -384,7 +562,10 @@ AddSubClass("cleric", "grave domain-xgte", {
 			source : ["X", 20],
 			minlevel : 1,
 			action : ["bonus action", ""],
-			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "I learn Spare the Dying, which I can cast as a bonus action with a range of 30 ft",
+			description : desc([
+				"Spells I cast to heal a living creature at 0 HP have their dice count as their max result",
+				"I learn Spare the Dying, which I can cast as a bonus action with a range of 30 ft"
+			]),
 			spellcastingBonus : {
 				name : "Circle of Mortality",
 				spells : ["spare the dying"],
@@ -399,14 +580,20 @@ AddSubClass("cleric", "grave domain-xgte", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
 			recovery : "long rest",
-			description : "\n   " + "As an action, I sense undead within 60 ft that aren't protected from divination magic" + "\n   " + "Until the end of my next turn, I sense the location of any undead not behind total cover"
+			description : desc([
+				"As an action, I sense undead within 60 ft that aren't protected from divination magic",
+				"Until the end of my next turn, I sense the location of any undead not behind total cover"
+			])
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Path to the Grave",
 			source : ["X", 20],
 			minlevel : 2,
 			action : ["action", ""],
-			description : "\n   " + "As an action, I can curse a creature within 30 ft until the end of my next turn" + "\n   " + "It is vulnerable to all the damage from the next attack by me or my allies that hits it"
+			description : desc([
+				"As an action, I can curse a creature within 30 ft until the end of my next turn",
+				"It is vulnerable to all the damage from the next attack by me or my allies that hits it"
+			])
 		},
 		"subclassfeature6" : {
 			name : "Sentinel at Death's Door",
@@ -431,12 +618,118 @@ AddSubClass("cleric", "grave domain-xgte", {
 			name : "Keeper of Souls",
 			source : ["X", 20],
 			minlevel : 17,
-			description : "\n   " + "Once per round, if I'm not incapacitated, I can manipulate the energy of the dying" + "\n   " + "When an enemy I can see dies within 60 ft of me, I or an ally within 60 ft regain HP" + "\n   " + "The HP regained is equal to the enemy's number of Hit Dice"
+			description : desc([
+				"Once per round, if I'm not incapacitated, I can manipulate the energy of the dying",
+				"When an enemy I can see dies within 60 ft of me, I or an ally within 60 ft regain HP",
+				"The HP regained is equal to the enemy's number of Hit Dice"
+			])
 		}
 	}
 });
 
-
+// Add 2 subclasses for the Druid
+AddSubClass("druid", "circle of dreams-xgte", {
+	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
+	subname : "Circle of Dreams",
+	source : ["UA:DC", 1],
+	features : {
+		"subclassfeature2" : {
+			name : "Balm of the Summer Court",
+			source : ["UA:DC", 1],
+			minlevel : 2,
+			description : "\n   " + "I have a pool of fey energy represented by a number of d6s equal to my druid level" + "\n   " + "As a bonus action, I can spend dice to heal an ally within 120 ft of me that I can see " + "\n   " + "I can spend up to half my druid level worth of dice from the pool at once" + "\n   " + "The ally heals an amount equal to the total rolled and gains 1 temp HP per die spent" + "\n   " + "In addition, the ally gains +5 ft speed per die spent, which lasts for 1 minute",
+			usages : ["", "2d6 per ", "3d6 per ", "4d6 per ", "5d6 per ", "6d6 per ", "7d6 per ", "8d6 per ", "9d6 per ", "10d6 per ", "11d6 per ", "12d6 per ", "13d6 per ", "14d6 per ", "15d6 per ", "16d6 per ", "17d6 per ", "18d6 per ", "19d6 per ", "20d6 per "],
+			recovery : "long rest"
+		},
+		"subclassfeature6" : {
+			name : "Hearth of Moonlight and Shadow",
+			source : ["UA:DC", 1],
+			minlevel : 6,
+			description : "\n   " + "At the start of a short or long rest, I can create a warded area of 30-ft radius" + "\n   " + "Within this area, my allies and I gain +5 on Wis (Perception) checks to detect creatures" + "\n   " + "Also, any light from open flames is not visible from outside the area" + "\n   " + "This effect lasts until the end of the rest or when I leave the area"
+		},
+		"subclassfeature10" : {
+			name : "Hidden Paths",
+			source : ["UA:DC", 1],
+			minlevel : 10,
+			description : "\n   " + "On my turn, I can teleport up to 30 ft to where I can see; Moved distance costs speed" + "\n   " + "As an action, I can teleport a willing ally I touch up to 30 ft to a spot I can see" + "\n   " + "Once I used either option, I can't use this feature again until 1d4 rounds have passed",
+			usages : 1,
+			recovery : "1d4 rounds",
+			action : ["action", " (on ally)"]
+		},
+		"subclassfeature14" : {
+			name : "Purifying Light",
+			source : ["UA:DC", 1],
+			minlevel : 14,
+			description : "\n   " + "When I use a spell slot with a spell to restores HP, I can use Dispel Magic on the target" + "\n   " + "The Dispel Magic counts as if being cast with the same spell slot as the healing spell" + "\n   " + "Each creature effected by the Dispel Magic costs as one use of this feature",
+			usages : 3,
+			recovery : "long rest"
+		}
+	}
+});
+AddSubClass("druid", "circle of the shepherd-xgte", {
+	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
+	subname : "Circle of the Shepherd",
+	source : ["UA:RCO", 1],
+	features : {
+		"subclassfeature2" : {
+			name : "Speech of the Woods",
+			source : ["UA:RCO", 1],
+			minlevel : 2,
+			description : desc([
+				"I can talk with beasts, they understand me and I them, to the limit of their intelligence",
+				"This doesn't automatically make me friends with all beasts; Additionally, I learn Sylvan"
+			]),
+			languageProfs : ["Sylvan"]
+		},
+		"subclassfeature2.1" : {
+			name : "Spirit Totem",
+			source : ["UA:RCO", 1],
+			minlevel : 2,
+			description : desc([
+				"As a bonus action, I can summon, or move, a spirit to a point I can see within 60 ft",
+				"The spirit is a Bear, Hawk, or Unicorn (see below), which has a 30-ft radius aura",
+				"It is incorporeal, immobile, doesn't counts as a creature or object, and persists for 1 min",
+				" - " + "Bear: my allies in the area and I instantly gain 5 + my druid level in temp HP",
+				"    " + "While in the aura, my allies and I gain advantage on Strength checks and saves",
+				" - " + "Hawk: As a reaction, I can grant advantage on an attack vs. a target in the aura",
+				" - " + "Unicorn: my allies and I gain advantage on ability checks to detect targets in the aura",
+				"    " + "If I cast a healing spell with a spell slot, allies in the aura heal my druid level in HP"
+			]),
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		},
+		"subclassfeature6" : {
+			name : "Mighty Summoner",
+			source : ["UA:RCO", 2],
+			minlevel : 6,
+			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical"
+		},
+		"subclassfeature10" : {
+			name : "Guardian Spirit",
+			source : ["UA:RCO", 2],
+			minlevel : 10,
+			description : "\n   " + "When a Beast or Fey that I summoned ends its turn in my Spirit Totem aura, it heals",
+			additional : levels.map(function (n) {
+				if (n < 10) return "";
+				return "heals " + Math.floor(n / 2) + " HP";
+			})
+		},
+		"subclassfeature14" : {
+			name : "Faithful Summons",
+			source : ["UA:RCO", 2],
+			minlevel : 14,
+			description : desc([
+				"When I am reduced to 0 HP or incapacitated against my will, I can summon protectors",
+				"I gain the benefits of a Conjure Animals spell as if cast with a 9th-level spell slot",
+				"It summons 4 beast of my choice with CR 2 or lower within 20 ft of me for 1 hour",
+				"If they receive no commands from me, they protect me from harm and attack my foes"
+			]),
+			usages : 1,
+			recovery : "long rest"
+		}
+	}
+});
 
 /* SpellsList["catnap"]
 SpellsList["cause fear"] // UA:SS
