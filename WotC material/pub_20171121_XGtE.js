@@ -2162,14 +2162,221 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 	});
 };
 
-// Add 3 subclasses for the Warlock
-
+// Add 2 subclasses for the Warlock
+AddSubClass("warlock", "the celestal-xgte", {
+	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
+	subname : "the Celestial",
+	source : ["X", 54],
+	spellcastingExtra : ["cure wounds", "guiding bolt", "flaming sphere", "lesser restoration", "daylight", "revivify", "guardian of faith", "wall of fire", "flame strike", "greater restoration"],
+	features : {
+		"subclassfeature1" : {
+			name : "Bonus Cantrips",
+			source : ["X", 54],
+			minlevel : 1,
+			description : "\n   " + "I learn the Light and Sacred Flame cantrips, not counting for the number I can know",
+			spellcastingBonus : [{
+				name : "Bonus Cantrips",
+				spells : ["light"],
+				selection : ["light"]
+			}, {
+				name : "Bonus Cantrips",
+				spells : ["sacred flame"],
+				selection : ["sacred flame"]
+			}]
+		},
+		"subclassfeature1.1" : {
+			name : "Healing Light",
+			source : ["X", 54],
+			minlevel : 1,
+			description : desc([
+				"As a bonus action, I can heal a creature I can see within 60 ft by expending dice",
+				"I can expend up to my Charisma modifier (min 1) of dice from my pool at a time",
+				"The target heals HP equal to the roll of the dice; I regain all expended dice on a long rest"
+			]),
+			usages : levels.map(function (n) { return (n + 1) + "d6 per "; }),
+			usagescalc : "event.value = !classes.known.warlock ? '' : (1 + classes.known.warlock.level) + 'd6';",
+			recovery : "long rest",
+			action : ["bonus action", ""]
+		},
+		"subclassfeature6" : {
+			name : "Radiant Soul",
+			source : ["X", 55],
+			minlevel : 6,
+			description : desc([
+				"I add my Cha modifier once to the fire or radiant damage of cantrips and spells I cast",
+				"This bonus only applies to one damage roll; Also, I have resistance to radiant damage"
+			]),
+			dmgres : ["Radiant"],
+			calcChanges : {
+				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage once."]
+			}
+		},
+		"subclassfeature10" : {
+			name : "Celestial Resilience",
+			source : ["X", 55],
+			minlevel : 10,
+			description : desc([
+				"When I finish a short or long rest, I and up to five allies gain temporary hit points",
+				"I get my warlock level + Cha mod, while my allies get half my warlock level + Cha mod"
+			]),
+			additional : levels.map(function (n) { return n < 10 ? "" : "Me: " + n + "+Cha mod; Allies: " + Math.floor(n / 2) + "+Cha mod"; })
+		},
+		"subclassfeature14" : {
+			name : "Searing Vengeance",
+			source : ["X", 55],
+			minlevel : 14,
+			description : desc([
+				"At the start of my turn when I would make a death save, I can instead spring back up",
+				"I recover HP equal to half my current HP maximum, and can then stand up if I choose",
+				"When I do, creatures of my choice within 30 ft take 2d8 + Cha mod in radiant damage",
+				"Damaged creatures are blinded until the end of my current turn"
+			]),
+			usages : 1,
+			recovery : "long rest"
+		}
+	}
+});
+AddSubClass("warlock", "the hexblade-xgte", { // this code includes contributions by SoilentBrad
+	regExpSearch : /^(?=.*hexblade)(?=.*warlock).*$/i,
+	subname : "the Hexblade",
+	source : ["X", 55],
+	spellcastingExtra : ["shield", "wrathful smite", "blur", "branding smite", "blink", "elemental weapon", "phantasmal killer", "staggering smite", "banishing smite", "cone of cold"],
+	features : {
+		"subclassfeature1" : {
+			name : "Hexblade's Curse",
+			source : ["X", 55],
+			minlevel : 1,
+			description : desc([
+				"As a bonus action, I can curse a creature I can see within 30 ft of me for 1 minute",
+				"\u2022 I add my proficiency bonus to damage rolls against the cursed target",
+				"\u2022 My attack rolls against the curse target score a critical hit on a roll of 19 and 20",
+				"\u2022 If the target dies while cursed, I regain HP equal to my warlock level + Cha mod",
+				"The curse ends after 1 minute, when the target dies, I die, or I'm incapacitated"
+			]),
+			recovery : "short rest",
+			usages : 1,
+			action : ["bonus action", ""],
+			calcChanges : {
+				atkAdd : ["if (!isDC && (/curse/i).test(WeaponText) && !CritChance) {var CritChance = 19; fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20'; }; ", "If I include the word 'Curse' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."],
+				atkCalc : ["if ((/curse/i).test(WeaponText)) {output.extraDmg += output.prof; }; ", ""]
+			}
+		},
+		"subclassfeature1.1" : {
+			name : "Hex Warrior",
+			source : ["X", 55],
+			minlevel : 1,
+			description : desc([
+				"I gain proficiency with medium armor, shields, and martial weapons",
+				"When I finish a long rest, I can imbue one weapon I touch with my will",
+				"Until my next long rest, I can use it with Charisma instead of Strength or Dexterity",
+				"I have to be proficient with the weapon and that is can't have the two-handed property",
+				"This benefit also works with every weapon from Pact of the Blade, with no restriction"
+			]),
+			armor : [false, true, false, true],
+			weapons : [false, true],
+			calcChanges : {
+				atkAdd : ["if (WeaponName === 'moon bow' || (isMeleeWeapon && (/\\bpact\\b/i).test(inputText)) || ((/hexblade/i).test(inputText) && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText))) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "If I include either the word 'Hexblade' or 'Pact' in a weapon's name, it gets treated as my the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than it would otherwise use. For a 'Pact' weapon, this will with any type. For 'Hexblade', this will only work if the weapon doesn't have the two-handed property."]
+			}
+		},
+		"subclassfeature6" : {
+			name : "Accursed Specter",
+			source : ["X", 56],
+			minlevel : 6,
+			description : desc([
+				"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
+				"It has the stats of a specter (MM 279) with temporary HP equal to half my warlock level",
+				"It rolls initiative and has its own turns, obeying my verbal commands",
+				"It gains a bonus to attack rolls equal to my Charisma modifier (min +0)",
+				"The specter remains until the end of my next long rest, at which point it vanishes"
+			]),
+			additional : levels.map( function(n) { return n < 6 ? "" : Math.floor(n/2) + " temp HP"; }),
+			usages : 1,
+			recovery : "long rest"
+		},
+		"subclassfeature10" : {
+			name : "Armor of Hexes",
+			source : ["X", 56],
+			minlevel : 10,
+			description : desc([
+				"As a reaction when a Hexblade's Curse recipient hits me with an attack, I can roll a d6",
+				"On a result of 4 or higher, the attacks misses me instead, regardless of its d20 roll"
+			])
+		},
+		"subclassfeature14" : {
+			name : "Master of Hexes",
+			source : ["X", 56],
+			minlevel : 14,
+			description : desc([
+				"When the target of my Hexblade's Curse dies, I can curse another I can see within 30 ft",
+				"I can't do this while incapacitated and I don't regain HP from the death of the previous"
+			])
+		}
+	}
+});
 
 // Add 1 subclass for the Wizard
+AddSubClass("wizard", "war magic-xgte", {
+	regExpSearch : /^(?=.*war)(?=.*(wizard|magic|mage)).*$/i,
+	subname : "War Magic",
+	source : ["X", 59],
+	fullname : "War Mage",
+	features : {
+		"subclassfeature2" : { //has to be identical to a feature named in the ClassList
+			name : "Arcane Deflection",
+			source : ["X", 59],
+			minlevel : 2,
+			description : desc([
+				"As a reaction when I'm hit by an attack, I can gain +2 to my AC against that attack",
+				"As a reaction when I fail a save, I can gain +4 bonus to that saving throw",
+				"After I do either, I can't cast spells other than cantrips until the end of my next turn"
+			]),
+			action : ["reaction", ""]
+		},
+		"subclassfeature2.1" : {
+			name : "Tactical Wit",
+			source : ["X", 60],
+			minlevel : 2,
+			description : "\n   " + "I gain a bonus to my initiative rolls equal to my Intelligence modifier",
+			addMod : { type : "skill", field : "Init", mod : "Int", text : "I can add my Intelligence modifier to initiative rolls." }
+		},
+		"subclassfeature6" : {
+			name : "Power Surge",
+			source : ["X", 60],
+			minlevel : 6,
+			description : desc([
+				"I have a pool of stored power surges that I can use to empower my damaging spells",
+				"I gain a power surge whenever I successfully end a spell with Dispel Magic or Counterspell",
+				"This pool can store a number of power surges equal to my Intelligence modifier (min 1)",
+				"It resets to 1 power surge after a long rest or when I have 0 surges left after a short rest",
+				"When I deal damage with a wizard spell, I can spend a power surge to do extra damage",
+				"One target takes half my wizard level in force damage; I can do this only once per turn"
+			]),
+			usages : "Resets to 1 after ",
+			usagescalc : "event.value = !event.value || event.value == 'Resets to 1 after ' ? 1 : event.value;",
+			recovery : "long rest",
+			additional : levels.map( function(n) { return n < 6 ? "" : "+" + Math.floor(n/2) + " force damage"; })
+		},
+		"subclassfeature10" : {
+			name : "Durable Magic",
+			source : ["X", 60],
+			minlevel : 10,
+			description : "\n   " + "While I'm maintaining concentration on a spell, I gain +2 to AC and all saving throws"
+		},
+		"subclassfeature14" : {
+			name : "Deflecting Shroud",
+			source : ["X", 60],
+			minlevel : 14,
+			description : desc([
+				"When I use my Arcane Deflection feature, magical energy arcs from me to creatures",
+				"Up to 3 targets I can see within 60 ft of me take half my wizard level in force damage"
+			]),
+			additional : levels.map( function(n) { return n < 14 ? "" : Math.floor(n/2) + " force damage"; })
+		}
+	}
+});
 
-
-// Add creature stats for the Sorcerer (Shadow Magic) feature
-CreatureList["hound of ill omen"] = {
+// Add creatures
+CreatureList["hound of ill omen"] = { // Stats for the Sorcerer (Shadow Magic) feature
 	name : "Hound of Ill Omen",
 	source : ["X", 51],
 	size : 3,
@@ -2222,6 +2429,8 @@ CreatureList["hound of ill omen"] = {
 			description : "While the hound is within 5 ft of its target, that target has disadvantage on saving throws versus my spells."
 		}
 	]
+};
+CreatureList["accursed specter"] = { // Stats for the Warlock (the Hexblade) feature
 };
 
 /* SpellsList["catnap"]
