@@ -189,7 +189,7 @@ AddSubClass("paladin", "oath of conquest2", {
 			minlevel : 7,
 			description : desc([
 				"Enemies that are frightened of me have their speed reduced to 0 while in my aura",
-				"Additionally, if they start their turn within my aura, the take psychic damage"
+				"They also take psychic damage whenever they start theirs turn within my aura"
 			]),
 			additional : levels.map(function (n) {
 				if (n < 7) return "";
@@ -200,7 +200,10 @@ AddSubClass("paladin", "oath of conquest2", {
 			name : "Scornful Rebuke",
 			source : ["UA:RCO", 4],
 			minlevel : 15,
-			description : "\n   " + "Whenever I'm hit with an attack, the attacker takes my Cha mod in psychic damage"
+			description : desc([
+				"Whenever I'm hit with an attack while I'm not incapacitated, the attacker takes damage",
+				"This is psychic damage equal to my Charisma modifier (minimum of 0)"
+			])
 		},
 		"subclassfeature20" : {
 			name : "Invincible Conqueror",
@@ -208,7 +211,7 @@ AddSubClass("paladin", "oath of conquest2", {
 			minlevel : 20,
 			description : desc([
 				"As an action, I can gain the following benefits for 1 minute:",
-				" - I have resistance all damage",
+				" - I have resistance to all damage",
 				" - I can make an additional attack as part of my Attack action",
 				" - My melee weapons score critical hits on a roll of 19 or 20"
 			]),

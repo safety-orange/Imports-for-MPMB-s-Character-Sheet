@@ -175,7 +175,7 @@ AddSubClass("fighter", "arcane archer2", {
 			"bursting arrow [evocation]" : {
 				name : "Bursting Arrow [Evocation]",
 				source : ["UA:RS", 3],
-				description : "" + "\n   " + "The target, in addition to the shot, and all creatures within 10 ft of it take damage",
+				description : "\n   " + "The target, in addition to the shot, and all creatures within 10 ft of it take damage",
 				additional : levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; })
 			},
 			"grasping arrow [conjuration]" : {
@@ -266,7 +266,7 @@ AddSubClass("monk", "way of the kensei2", {
 			source : ["UA:RS", 4],
 			minlevel : 3,
 			description : desc([
-				"Some weapons, that don't have heavy or special property, are kensei weapons for me",
+				"Some weapons, that don't have the heavy or special property, are kensei weapons for me",
 				"At least one ranged and one melee weapon, more at higher levels (longbow does qualify)",
 				"With these: proficient, count as a monk weapons, special bonuses while holding them:",
 				" - If I do an unarmed strike during an Attack action, +2 AC until my next turn starts",
@@ -293,8 +293,8 @@ AddSubClass("monk", "way of the kensei2", {
 			"precise strike" : {
 				name : "Precise Strike",
 				source : ["UA:RS", 5],
-				description : " [1 ki point]" + "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
-				action : ["bonus action", ""]
+				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
+				additional : "1 ki point"
 			},
 			eval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra']);",
 			removeeval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra'], 'remove');"
@@ -303,12 +303,16 @@ AddSubClass("monk", "way of the kensei2", {
 			name : "Unerring Accuracy",
 			source : ["UA:RS", 5],
 			minlevel : 17,
-			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses",
+			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
 			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
 				source : ["UA:RS", 5],
-				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
+				description : desc([
+					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
+					"This bonus is equal to the number of ki points I spend; It lasts for 1 minute"
+				]),
+				additional : "1 to 3 ki points",
 				action : ["bonus action", ""]
 			},
 			changeeval : "if (newClassLvl.monk >= 11 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('sharpen the blade') === -1) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'])} else if (newClassLvl.monk <= 11 && oldClassLvl.monk >= 11) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], 'remove')}"
@@ -405,7 +409,10 @@ AddSubClass("sorcerer", "favoured soul2", {
 			name : "Unearthly Recovery",
 			source : ["UA:RS", 6],
 			minlevel : 18,
-			description : "\n   " + "As a bonus action when I have less than half of my max HP, I can heal myself" + "\n   " + "I regain a number of HP equal to half my maximum Hit Points",
+			description : desc([
+				"As a bonus action when I have less than half of my max HP remaining, I can heal myself",
+				"I regain a number of HP equal to half my hit point maximum"
+			]),
 			action : ["bonus action", ""],
 			recovery : "long rest",
 			usages : 1

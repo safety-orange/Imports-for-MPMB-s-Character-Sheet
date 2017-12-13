@@ -23,21 +23,32 @@ var theHorizonWalkerSubclass = {
 			name : "Planar magic",
 			source : ["UA:RnR", 1],
 			minlevel : 3,
-			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
+			description : desc([
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"These count as ranger spells, but do not count against the number of spells I can know"
+			]),
 			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
 		},
 		"subclassfeature3.1" : {
 			name : "Planar Walker",
 			source : ["UA:RnR", 1],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I choose an enemy within 30 ft of me that I can see" + "\n   " + "Until the end of this turn, my attack against that enemy ignore damage resistances" + "\n   " + "In addition, the first time I hit it this turn, it takes an extra 1d6 force damage",
+			description : desc([
+				"As a bonus action, I choose an enemy within 30 ft of me that I can see",
+				"Until the end of this turn, my attack against that enemy ignore damage resistances",
+				"In addition, the first time I hit it this turn, it takes an extra 1d6 force damage"
+			]),
 			action : ["bonus action", ""]
 		},
 		"subclassfeature3.2" : {
 			name : "Portal Lore",
 			source : ["UA:RnR", 1],
 			minlevel : 3,
-			description : "\n   " + "As an action, I sense the distance and direction to any planar portals within 1000 ft" + "\n   " + "I also sense to which plane the portal leads to; I can't sense details if obscured by magic" + "\n   " + "I can use this feature additional times by expending spell slots of 2nd level or higher",
+			description : desc([
+				"As an action, I sense the distance and direction to any planar portals within 1000 ft",
+				"I also sense to which plane the portal leads to; I can't sense details if obscured by magic",
+				"I can use this feature additional times by expending spell slots of 2nd level or higher"
+			]),
 			usages : 1,
 			recovery : "short rest",
 			action : ["action", ""]
@@ -46,16 +57,25 @@ var theHorizonWalkerSubclass = {
 			name : "Ethereal Step",
 			source : ["UA:RnR", 1],
 			minlevel : 7,
-			description : "\n   " + "As a bonus action, I cast the Etherealness spell, which lasts until the end of the turn",
+			description : "\n   " + "As a bonus action, I can cast the Etherealness spell, which lasts until the end of the turn",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : ["bonus action", ""],
+			spellcastingBonus : {
+				name : "Ethereal Step",
+				spells : ["etherealness"],
+				selection : ["etherealness"],
+				oncesr : true
+			}
 		},
 		"subclassfeature11" : {
 			name : "Distant Strike",
 			source : ["UA:RnR", 1],
 			minlevel : 11,
-			description : "\n   " + "With the Attack action, I can teleport 10 ft before each attack, to a spot I can see" + "\n   " + "If I attack two or more creatures with this action, I get an extra attack against a third"
+			description : desc([
+				"With the Attack action, I can teleport 10 ft before each attack, to a place I can see",
+				"If I attack two different creatures with this action, I get an extra attack against a third"
+			])
 		},
 		"subclassfeature15" : {
 			name : "Spectral Defense",

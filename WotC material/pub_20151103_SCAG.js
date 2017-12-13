@@ -464,8 +464,8 @@ AddSubClass("fighter", "purple dragon knight", {
 			minlevel : 3,
 			description : "\n   " + "When I use Second Wind, I also heal three allies within 60 ft that can see or hear me",
 			additional : ["", "", "3 HP", "4 HP", "5 HP", "6 HP", "7 HP", "8 HP", "9 HP", "10 HP", "11 HP", "12 HP", "13 HP", "14 HP", "15 HP", "16 HP", "17 HP", "18 HP", "19 HP", "20 HP"],
-			eval : "RemoveAction(\"bonus action\", \"Second Wind\"); AddAction(\"bonus action\", \"Second Wind (+ Rallying Cry)\", \"Purple Dragon Knight\")",
-			removeeval : "RemoveAction(\"bonus action\", \"Second Wind (+ Rallying Cry)\"); AddAction(\"bonus action\", \"Second Wind\", \"Fighter\")"
+			eval : "RemoveAction('bonus action', 'Second Wind'); AddAction('bonus action', 'Second Wind (+ Rallying Cry)', 'Purple Dragon Knight')",
+			removeeval : "RemoveAction('bonus action', 'Second Wind (+ Rallying Cry)'); AddAction('bonus action', 'Second Wind', 'Fighter')"
 		},
 		"subclassfeature7" : {
 			name : "Royal Envoy",
@@ -473,8 +473,8 @@ AddSubClass("fighter", "purple dragon knight", {
 			minlevel : 7,
 			description : "\n   " + "I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Perform",
 			skillstxt : "\n\n" + toUni("Purple Dragon Knight (Royal Envoy)") + ": Persuasion proficiency and expertise; if already proficient, choose one from Animal Handling, Insight, Intimidation, and Performance.",
-			eval : "AddSkillProf(\"Persuasion\", true, true);",
-			removeeval : "AddSkillProf(\"Persuasion\", false, true);"
+			eval : "AddSkillProf('Persuasion', true, true);",
+			removeeval : "AddSkillProf('Persuasion', false, true);"
 		},
 		"subclassfeature10" : {
 			name : "Inspiring Surge",
@@ -516,7 +516,7 @@ AddSubClass("monk", "way of the long death", {
 			additional : "1 ki point",
 			description : "\n   " + "When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead",
 			extraname : "Way of the Long Death 17",
-			changeeval : "if (newClassLvl.monk >= 17 && (What(\"Extra.Notes\") + What(\"Class Features\")).toLowerCase().indexOf(\"touch of the long death\") === -1) {ClassFeatureOptions([\"monk\", \"subclassfeature11\", \"touch of the long death\", \"extra\"])} else if (newClassLvl.monk < 17 && oldClassLvl.monk >= 17) {ClassFeatureOptions([\"monk\", \"subclassfeature11\", \"touch of the long death\", \"extra\"], \"remove\")};",
+			changeeval : "if (newClassLvl.monk >= 17 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('touch of the long death') === -1) {ClassFeatureOptions(['monk', 'subclassfeature11', 'touch of the long death', 'extra'])} else if (newClassLvl.monk < 17 && oldClassLvl.monk >= 17) {ClassFeatureOptions(['monk', 'subclassfeature11', 'touch of the long death', 'extra'], 'remove')};",
 			"touch of the long death" : {
 				name : "Touch of the Long Death",
 				source : ["S", 131],
@@ -529,43 +529,61 @@ AddSubClass("monk", "way of the long death", {
 AddSubClass("monk", "way of the sun soul", {
 	regExpSearch : /^(?=.*\bsun)(?=.*\b(soul|spirit))((?=.*(warrior|monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Sun Soul",
-	source : ["S", 131],
+	source : [["S", 131], ["X", 35]],
 	features : {
 		"subclassfeature3" : {
 			name : "Radiant Sun Bolt",
-			source : ["S", 131],
+			source : [["S", 131], ["X", 35]],
 			minlevel : 3,
 			additional : "1 ki point for 2 extra attacks",
-			description : "\n   " + "I gain a ranged spell attack that I can use as part of the Attack action" + "\n   " + "If I do this and spend 1 ki point, I can make two extra attacks as a bonus action",
+			description : desc([
+				"I gain a ranged spell attack that I can use as an attack in the Attack action",
+				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
+			]),
 			action : ["bonus action", " (2\u00D7 with Attack action)"],
 			eval : "AddWeapon('Radiant Sun Bolt');",
 			removeeval : "RemoveWeapon('Radiant Sun Bolt');",
 			extraname : "Way of the Sun Soul 6",
-			changeeval : "if (newClassLvl.monk >= 6 && (What(\"Extra.Notes\") + What(\"Class Features\")).toLowerCase().indexOf(\"searing arc strike\") === -1) {ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"searing arc strike\", \"extra\"])} else if (newClassLvl.monk < 6 && oldClassLvl.monk >= 6) {ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"searing arc strike\", \"extra\"], \"remove\")};",
+			changeeval : "if (newClassLvl.monk >= 6 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('searing arc strike') === -1) {ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'])} else if (newClassLvl.monk < 6 && oldClassLvl.monk >= 6) {ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'], 'remove')};",
 			"searing arc strike" : {
 				name : "Searing Arc Strike",
-				source : ["S", 131],
-				description : " [2 ki points + additional]" + "\n   " + "After taking the Attack action, I can cast Burning Hands as a bonus action [PHB 220]" + "\n   " + "For every additional ki point I spend, Burning hands is cast at 1 higher spell level" + "\n   " + "The maximum total ki points I can spend for this (including the 2) is half my Monk level",
+				source : [["S", 131], ["X", 35]],
+				description : desc([
+					"After taking the Attack action, I can cast Burning Hands as a bonus action [PHB 220]",
+					"For every additional ki point I spend, Burning hands is cast at 1 higher spell level",
+					"The maximum total ki points I can spend for this (including the 2) is half my Monk level"
+				]),
+				additional : levels.map(function (n) { 
+					if (n < 3) return "";
+					var xtrKi = Math.max(0,Math.floor(n/2) - 2);
+					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
+				}),
 				action : ["bonus action", " (after Attack action)"]
 			}
 		},
 		"subclassfeature11" : {
 			name : "Searing Sunburst",
-			source : ["S", 131],
+			source : [["S", 131], ["X", 35]],
 			minlevel : 11,
-			description : "\n   " + "As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save" + "\n   " + "If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) radiant damage",
+			description : desc([
+				"As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save",
+				"If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) radiant damage"
+			]),
 			action : ["action", ""],
 			additional : "0 ki points + max 3 ki points"
 		},
 		"subclassfeature17" : {
 			name : "Sun Shield",
-			source : ["S", 131],
+			source : [["S", 131], ["X", 35]],
 			minlevel : 17,
-			description : "\n   " + "As a reaction, when I'm hit by a melee attack, I can deal 5 + Wis mod radiant damage" + "\n   " + "I can only do this while my light aura is on; I can turn it on/off as a bonus action",
+			description : desc([
+				"As a reaction, when I'm hit by a melee attack, I can deal 5 + Wis mod radiant damage",
+				"I can only do this while my light aura is on; I can turn it on/off as a bonus action"
+			]),
 			action : ["bonus action", " (start/stop)"],
 			additional : "30-ft rad bright + 30-ft dim light",
-			eval : "AddAction(\"reaction\", \"Sun Shield (hit in melee)\", \"Monk (Way of the Sun Soul)\")",
-			removeeval : "RemoveAction(\"reaction\", \"Sun Shield\");"
+			eval : "AddAction('reaction', 'Sun Shield (hit in melee)', 'Monk (Way of the Sun Soul)')",
+			removeeval : "RemoveAction('reaction', 'Sun Shield');"
 		}
 	}
 });
@@ -618,42 +636,58 @@ AddSubClass("rogue", "mastermind", {
 	regExpSearch : /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*(mastermind|strategist)).*$/i,
 	subname : "Mastermind",
 	fullname : "Mastermind",
-	source : ["S", 135],
+	source : [["S", 135], ["X", 46]],
 	features : {
 		"subclassfeature3" : {
 			name : "Master of Intrigue",
-			source : ["S", 135],
+			source : [["S", 135], ["X", 46]],
 			minlevel : 3,
-			description : "\n   " + "I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages" + "\n   " + "I can mimic speech patterns and accents if I've heard them for at least 1 minute",
+			description : desc([
+				"I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages",
+				"I can mimic speech patterns and accents if I've heard them for at least 1 minute"
+			]),
 			languageProfs : [2],
 			toolProfs : ["Disguise kit", "Forgery kit", ["Gaming set", 1]]
 		},
 		"subclassfeature3.1" : {
 			name : "Master of Tactics",
-			source : ["S", 135],
+			source : [["S", 135], ["X", 46]],
 			minlevel : 3,
-			description : "\n   " + "I can use the Help action as a bonus action" + "\n   " + "This even works if the ally attacks a target within 30 ft of me that can see or hear me",
+			description : desc([
+				"I can use the Help action as a bonus action",
+				"This even works if the ally attacks a target within 30 ft of me that can see or hear me"
+			]),
 			action : ["bonus action", ""]
 		},
 		"subclassfeature9" : {
 			name : "Insightful Manipulator",
-			source : ["S", 135],
+			source : [["S", 135], ["X", 46]],
 			minlevel : 9,
-			description : "\n   " + "By spending 1 minute observing/interacting outside of combat I can learn capabilities" + "\n   " + "The DM tells me if the target is my equal, superior, or inferior in regard to two things:" + "\n   " + " - Intelligence score    - Wisdom score    - Charisma score    - Class levels (if any)",
-			action : ["action", ""]
+			description : desc([
+				"By spending 1 minute observing/interacting outside of combat I can learn capabilities",
+				"The DM tells me if the target is my equal, superior, or inferior in regard to two things:",
+				" - Intelligence score    - Wisdom score    - Charisma score    - Class levels (if any)"
+			])
 		},
 		"subclassfeature13" : {
 			name : "Misdirection",
-			source : ["S", 135],
+			source : [["S", 135], ["X", 46]],
 			minlevel : 13,
-			description : "\n   " + "As a reaction, I can redirect an attack meant for me to a creature within 5 ft of me" + "\n   " + "This only works if the creature is providing me with cover against the attack",
+			description : desc([
+				"As a reaction, I can redirect an attack meant for me to a creature within 5 ft of me",
+				"This only works if the creature is providing me with cover against the attack"
+			]),
 			action : ["reaction", ""]
 		},
 		"subclassfeature17" : {
-			name : "Sould of Deceit",
-			source : ["S", 135],
+			name : "Soul of Deceit",
+			source : [["S", 135], ["X", 46]],
 			minlevel : 17,
-			description : "\n   " + "My thoughts can't be read by telepathy or similar means; I can project false thoughts" + "\n   " + "For that, I must pass a Cha (Deception) vs. Wis (Insight) check to fool the mind reader" + "\n   " + "Magic always determines I'm truthful; I can't be magically compelled to tell the truth"
+			description : desc([
+				"My thoughts can't be read by telepathy or similar means; I can project false thoughts",
+				"For that, I must pass a Cha (Deception) vs. Wis (Insight) check to fool the mind reader",
+				"Magic always determines I'm truthful; I can't be magically compelled to tell the truth"
+			])
 		}
 	}
 });
@@ -661,38 +695,51 @@ AddSubClass("rogue", "swashbuckler", {
 	regExpSearch : /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*swashbuckl).*$/i,
 	subname : "Swashbuckler",
 	fullname : "Swashbuckler",
-	source : ["S", 135],
+	source : [["S", 135], ["X", 47]],
 	features : {
 		"subclassfeature3" : {
 			name : "Fancy Footwork",
-			source : ["S", 135],
+			source : [["S", 135], ["X", 47]],
 			minlevel : 3,
-			description : "\n   " + "Enemies I make a melee attack against in my turn can't use opportunity attacks on me" + "\n   " + "This lasts until the end of my turn"
+			description : desc([
+				"Enemies I make a melee attack against in my turn can't use opportunity attacks on me",
+				"This lasts until the end of my current turn"
+			])
 		},
 		"subclassfeature3.1" : {
 			name : "Rakish Audacity",
-			source : ["S", 136],
+			source : [["S", 136], ["X", 47]],
 			minlevel : 3,
-			description : "\n   " + "I don't need advantage to sneak attack if my target is the only one within 5 ft of me" + "\n   " + "I can add my Charisma modifier to initiative rolls",
+			description : desc([
+				"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
+				"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
+			]),
 			addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
 		},
 		"subclassfeature9" : {
 			name : "Panache",
-			source : ["S", 136],
+			source : [["S", 136], ["X", 47]],
 			minlevel : 9,
-			description : "\n   " + "As an action, I can beguile a creature that hears and understands me, for 1 minute" + "\n   " + "It must make a Wisdom (Insight) check opposed by my Charisma (Persuasion)" + "\n   - " + "A hostile target gains disadv. on attacks and can't do opportunity attacks vs. not-me" + "\n     " + "This effect ends if an ally attacks or casts a spell vs. it, or if it and I are 60 ft apart" + "\n   - " + "Targets that are not hostile are charmed and regard me as a friendly acquaintance" + "\n     " + "This effect ends if me or and ally do anything harmful to it",
+			description : desc([
+				"As an action, I can beguile a creature that hears and understands me, for 1 minute",
+				"It must succeed a Wis (Insight) check opposed by my Cha (Persuasion) or be affected as:",
+				"\u2022 A hostile target gains disadv. on attacks and can't do opportunity attacks vs. not-me",
+				"  This effect ends if an ally attacks or casts a spell vs. it, or if it and I are 60 ft apart",
+				"\u2022 Targets that are not hostile are charmed and regard me as a friendly acquaintance",
+				"  This effect ends if me or an ally do anything harmful to it"
+			]),
 			action : ["action", ""]
 		},
 		"subclassfeature13" : {
 			name : "Elegant Maneuver",
-			source : ["S", 136],
+			source : [["S", 136], ["X", 47]],
 			minlevel : 13,
 			description : "\n   " + "As a bonus action, I can gain adv. on my next Dex (Acrobatics) or Str (Athletics) check",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature17" : {
 			name : "Master Duelist",
-			source : ["S", 136],
+			source : [["S", 136], ["X", 47]],
 			minlevel : 17,
 			description : "\n   " + "Once per short rest, when I miss with an attack roll, I can roll again with advantage",
 			recovery : "short rest",
@@ -704,53 +751,71 @@ AddSubClass("sorcerer", "storm sorcery", {
 	regExpSearch : /^(?=.*(sorcerer|witch))((?=.*(storm|tempest|hurricane))|((?=.*air)(?=.*element))).*$/i,
 	subname : "Storm Sorcery",
 	fullname : "Storm Sorcerer",
-	source : ["S", 137],
+	source : [["S", 137], ["X", 51]],
 	features : {
 		"subclassfeature1" : {
 			name : "Wind Speaker",
-			source : ["S", 137],
+			source : [["S", 137], ["X", 52]],
 			minlevel : 1,
 			description : "\n   " + "I can speak, read, and write Primordial (and its dialects Aquan, Auran, Ignan, Terran)",
 			languageProfs : ["Primordial"]
 		},
 		"subclassfeature1.1" : {
 			name : "Tempestuous Magic",
-			source : ["S", 137],
+			source : [["S", 137], ["X", 52]],
 			minlevel : 1,
-			description : "\n   " + "As a bonus action, after casting a 1st-level or higher spell, I can control elemental air" + "\n   " + "I can use this control to fly up to 10 feet without provoking opportunity attacks",
+			description : desc([
+				"As a bonus action, after casting a 1st-level or higher spell, I can control elemental air",
+				"I can use this control to fly up to 10 feet without provoking opportunity attacks"
+			]),
 			action : ["bonus action", " (after casting)"]
 		},
 		"subclassfeature6" : {
 			name : "Heart of the Storm",
-			source : ["S", 137],
+			source : [["S", 137], ["X", 52]],
 			minlevel : 6,
-			description : "\n   " + "I have resistance to lightning and thunder damage" + "\n   " + "When I start casting a 1st-level or higher spell that deals lightning or thunder damage," + "\n   " + "I deal lightning or thunder damage to a creature within 10 ft of me that I can see",
-			additional : ["", "", "", "", " ", "3 damage", "3 damage", "4 damage", "4 damage", "5 damage", "5 damage", "6 damage", "6 damage", "7 damage", "7 damage", "8 damage", "8 damage", "9 damage", "9 damage", "10 damage"],
+			description : desc([
+				"I have resistance to lightning and thunder damage",
+				"When I start casting a 1st-level or higher spell that deals lightning or thunder damage,",
+				"I deal lightning or thunder damage to a creature within 10 ft of me that I can see"
+			]),
+			additional : levels.map(function (n) { return n < 6 ? "" : Math.floor(n/2) + " damage"; }),
 			dmgres : ["Lightning", "Thunder"]
 		},
 		"subclassfeature6.1" : {
 			name : "Storm Guide",
-			source : ["S", 137],
+			source : [["S", 137], ["X", 52]],
 			minlevel : 6,
-			description : "\n   " + "As an action, I can stop rain around me in 20-ft radius; bonus action for it to resume" + "\n   " + "As a bonus action, I can choose the direction of wind around me in a 100-ft radius" + "\n   " + "This lasts until the end of my next turn and doesn't alter the wind's speed",
+			description : desc([
+				"As an action, I can stop rain around me in 20-ft radius; bonus action for it to resume",
+				"As a bonus action, I can choose the direction of wind around me in a 100-ft radius",
+				"This lasts until the end of my next turn and doesn't alter the wind's speed"
+			]),
 			action : ["bonus action", ""]
 		},
 		"subclassfeature14" : {
 			name : "Storm's Fury",
-			source : ["S", 137],
+			source : [["S", 137], ["X", 52]],
 			minlevel : 14,
-			description : "\n   " + "As a reaction when hit by a melee attack, I can deal lightning damage to the attacker" + "\n   " + "The attacker must also make a Strength save or be pushed up to 20 ft away from me",
+			description : desc([
+				"As a reaction when hit by a melee attack, I can deal lightning damage to the attacker",
+				"The attacker must also make a Strength save or be pushed up to 20 ft away from me"
+			]),
 			action : ["reaction", ""],
-			additional : ["", "", "", "", "", "", "", "", "", "", "", "", "", "14 lightning damage", "15 lightning damage", "16 lightning damage", "17 lightning damage", "18 lightning damage", "19 lightning damage", "20 lightning damage"]
+			additional : levels.map(function (n) { return n < 14 ? "" : n + " lightning damage"; })
 		},
 		"subclassfeature18" : {
 			name : "Wind Soul",
-			source : ["S", 137],
+			source : [["S", 137], ["X", 52]],
 			minlevel : 18,
-			description : "\n   " + "I have immunity to lightning and thunder damage and gain magical 60 ft fly speed" + "\n   " + "As an action, I reduce my fly speed to 30 ft and give allies 30 ft fly speed for 1 hour" + "\n   " + "I can do this once per short rest for up to 3 + my Charisma modifier allies within 30 ft",
+			description : desc([
+				"I have immunity to lightning and thunder damage and gain magical 60 ft fly speed",
+				"As an action, I reduce my fly speed to 30 ft and give allies 30 ft fly speed for 1 hour",
+				"I can do this once per short rest for up to 3 + my Charisma modifier allies within 30 ft"
+			]),
 			action : ["action", ""],
 			savetxt : { immune : ["lightning", "thunder"] },
-			speed : { fly : { spd : "fixed60", enc : "fixed60" } },
+			speed : { fly : { spd : "fixed 60", enc : "fixed 60" } },
 			usages : 1,
 			recovery : "short rest"
 		}
@@ -1295,7 +1360,7 @@ WeaponsList["armor spikes"] = {
 WeaponsList["radiant sun bolt"] = {
 	regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
 	name : "Radiant Sun Bolt",
-	source : ["S", 131],
+	source : [["S", 131], ["X", 35]],
 	ability : 2,
 	type : "Spell",
 	damage : [1, 4, "radiant"],

@@ -316,7 +316,8 @@ AddSubClass("rogue", "inquisitive", {
 			name : "Unerring Eye",
 			source : ["UA:GH", 3],
 			minlevel : 13,
-			description : "\n   " + "As an action, I can sense magical deceptions within 30 feet of me, but not what it does" + "\n   " + "I know the presence of illusions, shapechanged creatures, or magic designed to deceive"
+			description : "\n   " + "As an action, I can sense magical deceptions within 30 feet of me, but not what it does" + "\n   " + "I learn the presence of illusions, shapechanged creatures, or magic designed to deceive",
+			action : ["action", ""]
 		},
 		"subclassfeature17" : {
 			name : "Eye for Weakness",

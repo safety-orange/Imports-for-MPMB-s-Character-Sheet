@@ -33,9 +33,7 @@ AddSubClass("monk", "way of the drunken master", {
 			name : "Tipsy Sway",
 			source : ["UA:AToS", 1],
 			minlevel : 6,
-			description : desc([
-				"As a reaction when missed in melee, attacker instead hits another I can see within 5 ft"
-			]),
+			description : "\n   " + "As a reaction when missed in melee, attacker instead hits another I can see within 5 ft",
 			usages : 1,
 			recovery : "short rest",
 			action : ["reaction", ""]
@@ -44,18 +42,14 @@ AddSubClass("monk", "way of the drunken master", {
 			name : "Drunkard's Luck",
 			source : ["UA:AToS", 1],
 			minlevel : 11,
-			description : desc([
-				"Before I roll for a save, I can spend 1 ki to give myself advantage on it"
-			]),
+			description : "\n   " + "Before I roll for a save, I can spend 1 ki to give myself advantage on it",
 			additional : "1 ki point"
 		},
 		"subclassfeature17" : {
 			name : "Intoxicated Frenzy",
 			source : ["UA:AToS", 1],
 			minlevel : 17,
-			description : desc([
-				"I can make 3 extra attacks with Flurry of Blows if each is used on a different target"
-			])
+			description : "\n   " + "I can make 3 extra attacks with Flurry of Blows if each is used on a different target"
 		}
 	}
 });
@@ -69,17 +63,13 @@ AddSubClass("paladin", "oath of redemption", {
 			name : "Armor of Peace",
 			source : ["UA:AToS", 2],
 			minlevel : 3,
-			description : desc([
-				"When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier"
-			])
+			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier"
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",
 			source : ["UA:AToS", 2],
 			minlevel : 3,
-			description : desc([
-				"As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min"
-			]),
+			description : "\n   " + "As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature3.2" : {
@@ -107,7 +97,8 @@ AddSubClass("paladin", "oath of redemption", {
 			source : ["UA:AToS", 2],
 			minlevel : 7,
 			description : desc([
-				"As a reaction when an ally within 10 ft takes damage, I instead take the damage"
+				"As a reaction when an ally within 10 ft takes damage, I instead take the damage",
+				"This damage can't be reduced in any way; Other effects might still apply to my ally"
 			]),
 			action : ["reaction", ""]
 		},
@@ -115,13 +106,8 @@ AddSubClass("paladin", "oath of redemption", {
 			name : "Protective Spirit",
 			source : ["UA:AToS", 2],
 			minlevel : 15,
-			description : desc([
-				"At the end of my turn when I'm below half HP and not incapacitated, I regain HP"
-			]),
-			additional : levels.map(function (n) {
-				if (n < 15) return "";
-				return "1d6+" + Math.floor(n/2) + " HP";
-			})
+			description : "\n   " + "At the end of my turn when I'm below half HP and not incapacitated, I regain HP",
+			additional : levels.map(function (n) { return n < 15 ? "" : "1d6+" + Math.floor(n/2) + " HP"; })
 		},
 		"subclassfeature20" : {
 			name : "Emissary of Redemption",
@@ -129,7 +115,7 @@ AddSubClass("paladin", "oath of redemption", {
 			minlevel : 20,
 			description : desc([
 				"When taking damage from a creature, I take only half and it takes the other half",
-				"If I attack or force a save on another, neither benefit work on it until I have a long rest"
+				"This stops working on any that I attack or force to make a save, until I have a long rest"
 			]),
 			dmgres : ["All from creatures"]
 		}
