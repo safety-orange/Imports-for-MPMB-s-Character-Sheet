@@ -1233,7 +1233,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 						"For every additional ki point I spend, Burning hands is cast at 1 higher spell level",
 						"The maximum total ki points I can spend for this (including the 2) is half my Monk level"
 					]),
-					additional : levels.map(function (n) { 
+					additional : levels.map(function (n) {
 						if (n < 3) return "";
 						var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 						return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
@@ -1750,7 +1750,7 @@ AddSubClass("rogue", "scout-xgte", {
 			source : ["X", 47],
 			minlevel : 9,
 			description : "\n   " + "I gain +10 ft to my walking speed (and swimming/climbing speed, if applicable)",
-			speed : { 
+			speed : {
 				walk : { spd : "+10", enc : "+10" },
 				climb : { spd : "_10", enc : "_10" },
 				swim : { spd : "_10", enc : "_10" }
@@ -2275,7 +2275,7 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			armor : [false, true, false, true],
 			weapons : [false, true],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'moon bow' || (isMeleeWeapon && (/\\bpact\\b/i).test(inputText)) || ((/hexblade/i).test(inputText) && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText))) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "If I include either the word 'Hexblade' or 'Pact' in a weapon's name, it gets treated as my the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than it would otherwise use. For a 'Pact' weapon, this will with any type. For 'Hexblade', this will only work if the weapon doesn't have the two-handed property."]
+				atkAdd : ["if ((/\\bpact\\b/i).test(inputText) || ((/hexblade/i).test(inputText) && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText))) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "If I include either the word 'Hexblade' or 'Pact' in a weapon's name, it gets treated as my the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than it would otherwise use. For a 'Pact' weapon, this will with any type. For 'Hexblade', this will only work if the weapon doesn't have the two-handed property."]
 			}
 		},
 		"subclassfeature6" : {
@@ -2312,6 +2312,166 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			])
 		}
 	}
+});
+
+// Add Warlock Invocations
+AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
+	name : "Aspect of the Moon",
+	description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
+	source : [["X", 56], ["UA:RCO", 5]],
+	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the tome') !== -1",
+	savetxt : { text : ["Nothing can force me to sleep"] }
+});
+AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
+	name : "Cloak of Flies",
+	description : desc([
+		"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
+		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
+		"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
+		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
+	]),
+	source : [["X", 56], ["UA:RCO", 5]],
+	prereqeval : "classes.known.warlock.level >= 5",
+	recovery : "short rest",
+	usages : 1,
+	action : ["bonus action", " (start/stop)"]
+});
+AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
+	name : "Eldritch Smite",
+	description : desc([
+		"Once per turn when I hit a creature with my pact weapon, I can empower the strike",
+		"By expending a warlock spell slot, the creature takes extra damage and is knocked prone",
+		"It takes 1d8 force damage and another 1d8 force damage per level of the spell slot",
+		"The target is only knocked prone if it is Huge or smaller"
+	]),
+	source : ["X", 56],
+	prereqeval : "classes.known.warlock.level >= 5 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1"
+});
+AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
+	name : "Ghostly Gaze",
+	description : desc([
+		"As an action, I can gain darkvision, and the ability to see through solid objects, out to 30 ft",
+		"Objects appear ghostly to me; This lasts up to 1 minute, while I'm concentrating on this"
+	]),
+	source : ["X", 56],
+	prereqeval : "classes.known.warlock.level >= 7",
+	recovery : "short rest",
+	usages : 1,
+	action : ["action", ""]
+});
+AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
+	name : "Gift of the Depths",
+	description : desc([
+		"I can breathe underwater and I have a swim speed equal to my walking speed",
+		"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
+	]),
+	source : [["X", 57], ["UA:RCO", 6]],
+	spellcastingBonus : {
+		name : "Gift of the Depths",
+		spells : ["water breathing"],
+		selection : ["water breathing"],
+		oncelr : true
+	},
+	prereqeval : "classes.known.warlock.level >= 5",
+	speed : { swim : { spd : "walk", enc : "walk" } }
+});
+AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
+	name : "Gift of the Ever-Living Ones",
+	description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
+	source : [["X", 57], ["UA:RCO", 6]],
+	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the chain') !== -1"
+});
+AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
+	name : "Grasp of Hadar",
+	description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
+	source : [["X", 57], ["UA:RCO", 6]],
+	prereqeval : "hasEldritchBlast",
+	calcChanges : {
+		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
+	}
+});
+AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
+	name : "Improved Pact Weapon",
+	description : desc([
+		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
+		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon",
+		"I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon"
+	]),
+	source : ["X", 57],
+	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	calcChanges : {
+		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(inputText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(WeaponName) && (/\\bpact\\b/i).test(inputText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", "If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+	}
+});
+AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
+	name : "Lance of Lethargy",
+	description : desc([
+		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
+		"This speed reduction lasts until the end of my next turn"
+	]),
+	source : ["X", 57],
+	prereqeval : "hasEldritchBlast",
+	calcChanges : {
+		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; 1 target -10 ft speed'; }; ", "Once on each of my turns when I hit a creature with my Eldritch Blast cantrip, I can reduce its speed by 10 ft until the end of my next turn."]
+	}
+});
+AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlock feature that curses)", {
+	name : "Maddening Hex",
+	description : desc([
+		"As a bonus action, I cause pain around a target affected by a hex of mine (spell/feature)",
+		"The target and any of my choice within 5 ft of it take my Cha mod in psychic damage"
+	]),
+	source : ["X", 57],
+	prereqeval : "classes.known.warlock.level >= 5 && ()",
+	action : ["bonus action", ""]
+});
+AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
+	name : "Relentless Hex",
+	description : desc([
+		"As a bonus action, I can teleport next to a target affected by a hex of mine (spell/feature)",
+		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
+	]),
+	source : ["X", 57],
+	prereqeval : "classes.known.warlock.level >= 7",
+	action : ["bonus action", ""]
+});
+AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
+	name : "Shroud of Shadow",
+	description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
+	source : [["X", 57], ["UA:RCO", 6]],
+	spellcastingBonus : {
+		name : "Shroud of Shadow",
+		spells : ["invisibility"],
+		selection : ["invisibility"],
+		atwill : true
+	},
+	prereqeval : "classes.known.warlock.level >= 15"
+});
+AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
+	name : "Tomb of Levistus",
+	description : desc([
+		"As a reaction when I take damage, I can entomb myself in ice until the end of my turn",
+		"I get 10 temp. HP per warlock level, which can be used to absorb the triggering damage",
+		"Until the ice is gone, I have vulnerability to fire damage, 0 speed, and am incapacitated"
+	]),
+	source : [["X", 57], ["UA:RCO", 6]],
+	prereqeval : "classes.known.warlock.level >= 5",
+	recovery : "short rest",
+	usages : 1,
+	action : ["reaction", ""],
+	additional : levels.map( function(n) { return (n * 10) + " temporary HP"; })
+});
+AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
+	name : "Trickster's Escape",
+	description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
+	source : [["X", 57], ["UA:RCO", 7]],
+	spellcastingBonus : {
+		name : "Trickster's Escape",
+		spells : ["freedom of movement"],
+		selection : ["freedom of movement"],
+		oncelr : true
+	},
+	prereqeval : "classes.known.warlock.level >= 7"
 });
 
 // Add 1 subclass for the Wizard
@@ -2375,6 +2535,261 @@ AddSubClass("wizard", "war magic-xgte", {
 	}
 });
 
+// Add feats
+FeatsList["bountiful luck-xgte"] = {
+	name : "Bountiful Luck",
+	source : ["X", 73],
+	prerequisite : "Being a Halfling",
+	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	description : "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
+	action : ["reaction", ""]
+};
+FeatsList["dragon fear-xgte"] = {
+	name : "Dragon Fear",
+	source : ["X", 74],
+	prerequisite : "Being a Dragonborn",
+	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
+	improvements : "Dragon Fear (feat): +1 Strength, Constitution, or Charisma;",
+	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
+	removeeval : "AddAction('action', 'Breath Weapon', 'Dragonborn (Draconic Ancestry)', 'Breath Weapon or Dragon Fear'); if (CurrentRace.known !== 'dragonborn') { RemoveAction('action', 'Breath Weapon'); }; "
+};
+FeatsList["dragon hide-xgte"] = {
+	name : "Dragon Hide",
+	source : ["X", 74],
+	prerequisite : "Being a Dragonborn",
+	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
+	improvements : "Dragon Hide (feat): +1 Strength, Constitution, or Charisma;",
+	eval : "AddWeapon('Retractable Claws');",
+	removeeval : "RemoveWeapon('Retractable Claws');"
+};
+FeatsList["drow high magic-xgte"] = {
+	name : "Drow High Magic",
+	source : ["X", 74],
+	prerequisite : "Being a Drow (Dark Elf)",
+	prereqeval : "CurrentRace.known.indexOf('dark elf') !== -1",
+	description : "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
+	spellcastingBonus : [{
+		name : "At will",
+		spellcastingAbility : 6,
+		spells : ["detect magic"],
+		selection : ["detect magic"],
+		atwill : true
+	}, {
+		name : "Once per long rest",
+		spells : ["levitate"],
+		selection : ["levitate"],
+		oncelr : true
+	}, {
+		name : "Once per long rest",
+		spells : ["dispel magic"],
+		selection : ["dispel magic"],
+		oncelr : true
+	}]
+};
+FeatsList["dwarven fortitude-xgte"] = {
+	name : "Dwarven Fortitude",
+	source : ["X", 74],
+	prerequisite : "Being a Dwarf",
+	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
+	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
+	improvements : "Dwarf Fortitude (feat): +1 Constitution;",
+	scores : [0, 0, 1, 0, 0, 0]
+};
+FeatsList["elven accuracy-xgte"] = {
+	name : "Elven Accuracy",
+	source : ["X", 74],
+	prerequisite : "Being an Elf or a Half-Elf",
+	prereqeval : "(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known)",
+	description : "Whenever I have advantage on an attack roll that uses Dexterity, Intelligence, Wisdom, or Charisma, I can reroll one of the dice once. [+1 Dexterity, Intelligence, Wisdom, or Charisma]",
+	improvements : "Elven Accuracy (feat): +1 Dexterity, Intelligence, Wisdom, or Charisma;"
+};
+FeatsList["fade away-xgte"] = {
+	name : "Fade Away",
+	source : ["X", 74],
+	prerequisite : "Being a Gnome",
+	prereqeval : "CurrentRace.known.indexOf('gnome') !== -1",
+	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Dexterity or Intelligence]",
+	improvements : "Fade Away (feat): +1 Dexterity or Intelligence;",
+	action : ["reaction", ""],
+	usages : 1,
+	recovery : "short rest"
+};
+FeatsList["fey teleportation-xgte"] = { // this code includes contributions by SoilentBrad
+	name : "Fey Teleportation",
+	source : ["X", 74],
+	prerequisite : "Being a High Elf",
+	prereqeval : "CurrentRace.known.indexOf('high elf') !== -1",
+	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. I also learn to speak, read, and write Sylvan. [+1 Intelligence or Charisma]",
+	improvements : "Fey Teleportation (feat): +1 Intelligence or Charisma;",
+	spellcastingBonus : {
+		name : "Once per short rest",
+		spellcastingAbility : 4,
+		spells : ["misty step"],
+		selection : ["misty step"],
+		oncesr : true
+	},
+	languageProfs : ["Sylvan"],
+	usages : 1,
+	recovery : "short rest"
+};
+FeatsList["flames of phlegethos-xgte"] = {
+	name : "Flames of Phlegethos",
+	source : ["X", 74],
+	prerequisite : "Being a Tiefling",
+	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice once. I then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee to take 1d4 fire damage. [+1 Int or Cha]",
+	improvements : "Flames of Phlegethos (feat): +1 Intelligence or Charisma;"	
+};
+FeatsList["infernal constitution-xgte"] = {
+	name : "Infernal Constitution",
+	source : ["X", 75],
+	prerequisite : "Being a Tiefling",
+	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	description : "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
+	improvements : "Infernal Constitution (feat): +1 Constitution;",
+	scores : [0, 0, 1, 0, 0, 0],
+	dmgres : ["Cold", "Poison"],
+	savetxt : { adv_vs : ["poison"] }
+};
+FeatsList["orcish fury-xgte"] = {
+	name : "Orcish Fury",
+	source : ["X", 75],
+	prerequisite : "Being a Half-Orc",
+	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
+	improvements : "Orcish Fury (feat): +1 Strength or Constitution;",
+	action : ["reaction", " (after Relentless Endurance)"],
+	usages : 1,
+	recovery : "short rest",
+	additional : "extra damage"
+};
+FeatsList["prodigy-xgte"] = {
+	name : "Prodigy",
+	source : ["X", 75],
+	prerequisite : "Being a Half-Elf or a Human",
+	prereqeval : "(/human|^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
+	description : "I gain proficiency with one skill of my choice, expertise with one skill of my choice that I'm already proficient with, proficiency with one tool of my choice, fluency in one language of my choice, and +1 to one ability score of my choice. [+1 to one ability score]",
+	improvements : "Prodigy (feat): +1 to one ability score of your choice;",
+	skills : "\n\n" + toUni("Prodigy (feat)") + ": Proficiency with any one skill and Expertise with any one skill that you are already proficient with.",
+	languageProfs : [1],
+	toolProfs : [["Any tool", 1]]
+};
+FeatsList["second chance-xgte"] = {
+	name : "Second Chance",
+	source : ["X", 75],
+	prerequisite : "Being a Halfling",
+	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a short rest. [+1 Dexterity, Constitution, or Charisma]",
+	improvements : "Second Chance (feat): +1 Dexterity, Constitution, or Charisma;",
+	action : ["reaction", ""],
+	usages : 1,
+	recovery : "Combat"
+};
+FeatsList["squat nimbleness-xgte"] = {
+	name : "Squat Nimbleness",
+	source : ["X", 75],
+	prerequisite : "Being a Dwarf or a small race",
+	prereqeval : "(/dwarf/i).test(CurrentRace.known) || tDoc.getField('Size Category').currentValueIndices === 4",
+	description : "My walking speed increases by 5 ft. I gain proficiency in either the Acrobatics or the Athletics skill. I have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks I make to escape from being grappled. [+1 Strength or Dexterity]",
+	improvements : "Squat Nimbleness (feat): +1 Strength or Dexterity;",
+	skills : "\n\n" + toUni("Squat Nimbleness (feat)") + ": Acrobatics or Athletics.",
+	speed : { walk : {spd : "+5", enc : "+5" } }
+};
+FeatsList["wood elf magic-xgte"] = {
+	name : "Wood Elf Magic",
+	source : ["X", 75],
+	prerequisite : "Being a Wood Elf",
+	prereqeval : "CurrentRace.known.indexOf('wood elf') !== -1",
+	description : "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
+	spellcastingBonus : [{
+		name : "Druid Cantrip",
+		spellcastingAbility : 5,
+		"class" : "druid",
+		level : [0, 0],
+		atwill : true
+	}, {
+		name : "Once per long rest",
+		spells : ["longstrider"],
+		selection : ["longstrider"],
+		oncelr : true
+	}, {
+		name : "Once per long rest",
+		spells : ["pass without trace"],
+		selection : ["pass without trace"],
+		oncelr : true
+	}]
+};
+
+// Add weapon for the Dragon Hide feat
+WeaponsList["claws"] = {
+	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
+	name : "Sharp Claws",
+	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
+	ability : 1,
+	type : "Natural",
+	damage : [1, 4, "slashing"],
+	range : "Melee",
+	description : "",
+	abilitytodamage : true,
+	monkweapon : true
+};
+
+
+/* SpellsList["catnap"]
+SpellsList["cause fear"] // UA:SS
+SpellsList["ceremony"] // UA:SS
+SpellsList["chaos bolt"] // UA:SS
+SpellsList["charm monster"]
+SpellsList["create homunculus"]
+SpellsList["crown of stars"]
+SpellsList["dance macabre"]
+SpellsList["dawn"]
+SpellsList["dragon's breath"]
+SpellsList["druid grove"]
+SpellsList["enemies abound"]
+SpellsList["far step"]
+SpellsList["find greater steed"]
+SpellsList["guardian of nature"]
+SpellsList["healing spirit"]
+SpellsList["holy weapon"]
+SpellsList["illusory dragon"]
+SpellsList["infernal calling"]
+SpellsList["infestation"] // UA:SS
+SpellsList["invulnerability"]
+SpellsList["life transferece"]
+SpellsList["maddening darkness"]
+SpellsList["mass polymorph"]
+SpellsList["mental prison"]
+SpellsList["mighty fortress"]
+SpellsList["mind spike"]
+SpellsList["negative energy flood"]
+SpellsList["power word pain"]
+SpellsList["primal savagery"] // UA:SS
+SpellsList["psychic scream"]
+SpellsList["scatter"]
+SpellsList["shadow blade"]
+SpellsList["sickening radiance"]
+SpellsList["skill empowerment"]
+SpellsList["snare"] // UA:SS
+SpellsList["soul cage"]
+SpellsList["sleet wind strike"]
+SpellsList["summon greater demon"]
+SpellsList["summon lesser demon"]
+SpellsList["synaptic static"]
+SpellsList["temple of the gods"]
+SpellsList["tenser's transformation"]
+SpellsList["thunder step"]
+SpellsList["tiny servant"]
+SpellsList["toll the dead"] // UA:SS
+SpellsList["wall of light"]
+SpellsList["word of radiance"]
+SpellsList["wrath of nature"]
+SpellsList["zephyr strike"] // UA:SS
+ */
+
+
 // Add creatures
 CreatureList["hound of ill omen"] = { // Stats for the Sorcerer (Shadow Magic) feature
 	name : "Hound of Ill Omen",
@@ -2431,56 +2846,83 @@ CreatureList["hound of ill omen"] = { // Stats for the Sorcerer (Shadow Magic) f
 	]
 };
 CreatureList["accursed specter"] = { // Stats for the Warlock (the Hexblade) feature
+	name : "Accursed Specter",
+	source : ["X", 56],
+	size : 3,
+	type : "Undead",
+	subtype : "",
+	alignment : "Chaotic Evil",
+	ac : 12,
+	hp : 22,
+	hd : [5, 8],
+	speed : "fly 50 ft (hover)",
+	scores : [1, 14, 11, 10, 10, 12],
+	saves : ["", "", "", "", "", ""],
+	damage_resistances : "acid; cold; fire; lightning; thunder; bludgeoning, piercing, and slashing from nonmagical weapons",
+	damage_immunities : "necrotic, poison",
+	condition_immunities : "charmed, exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious",
+	senses : "Darkvision 60 ft",
+	passivePerception : 10,
+	languages : "all languages it knew in life, but can't speak",
+	challengeRating : "1",
+	proficiencyBonus : 2,
+	attacksAction : 2,
+	attacks : [{
+			name : "Life Drain",
+			ability : 2,
+			damage : [3, 6, "necrotic"],
+			range : "Melee (5 ft)",
+			description : "DC 10 Con save or HP max reduced by same as damage taken until a long rest",
+			modifiers : ["oCha", "", false],
+			tooltip : "Life Drain\n\nThe target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+		}
+	],
+	traits : [{
+			name : "Incorporeal Movement",
+			description : "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
+		}, {
+			name : "Sunlight Sensitivity",
+			description : "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+		}, {
+			name : "Life Drain",
+			description : "The target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+		}
+	],
+	features : [{
+			name : "Temporary Hit Points",
+			description : "When the accursed specter rises from a corpse, it gains temporary HP equal to half my warlock level."
+		}, {
+			name : "Attack Bonus",
+			description : "The accursed specter adds the warlock's Charisma modifier (minimum +0) to its attack rolls."
+		}
+	]
 };
-
-/* SpellsList["catnap"]
-SpellsList["cause fear"] // UA:SS
-SpellsList["ceremony"] // UA:SS
-SpellsList["chaos bolt"] // UA:SS
-SpellsList["charm monster"]
-SpellsList["create homunculus"]
-SpellsList["crown of stars"]
-SpellsList["dance macabre"]
-SpellsList["dawn"]
-SpellsList["dragon's breath"]
-SpellsList["druid grove"]
-SpellsList["enemies abound"]
-SpellsList["far step"]
-SpellsList["find greater steed"]
-SpellsList["guardian of nature"]
-SpellsList["healing spirit"]
-SpellsList["holy weapon"]
-SpellsList["illusory dragon"]
-SpellsList["infernal calling"]
-SpellsList["infestation"] // UA:SS
-SpellsList["invulnerability"]
-SpellsList["life transferece"]
-SpellsList["maddening darkness"]
-SpellsList["mass polymorph"]
-SpellsList["mental prison"]
-SpellsList["mighty fortress"]
-SpellsList["mind spike"]
-SpellsList["negative energy flood"]
-SpellsList["power word pain"]
-SpellsList["primal savagery"] // UA:SS
-SpellsList["psychic scream"]
-SpellsList["scatter"]
-SpellsList["shadow blade"]
-SpellsList["sickening radiance"]
-SpellsList["skill empowerment"]
-SpellsList["snare"] // UA:SS
-SpellsList["soul cage"]
-SpellsList["sleet wind strike"]
-SpellsList["summon greater demon"]
-SpellsList["summon lesser demon"]
-SpellsList["synaptic static"]
-SpellsList["temple of the gods"]
-SpellsList["tenser's transformation"]
-SpellsList["thunder step"]
-SpellsList["tiny servant"]
-SpellsList["toll the dead"] // UA:SS
-SpellsList["wall of light"]
-SpellsList["word of radiance"]
-SpellsList["wrath of nature"]
-SpellsList["zephyr strike"] // UA:SS
- */
+CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains contributions by SoilentBrad)
+	name : "Tiny Servant",
+	source : ["X", 169],
+	size : 5,
+	type : "Construct",
+	subtype : "",
+	alignment : "Unaligned",
+	ac : 15,
+	hp : 10,
+	hd : [4, 4],
+	speed : "30 ft, climb 30 ft",
+	scores : [4, 16, 10, 2, 10, 1],
+	saves : ["", "", "", "", "", ""],
+	damage_immunities : "poison, psychic",
+	condition_immunities : "blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
+	senses : "Blindsight 60 ft (blind beyond this radius)",
+	passivePerception : 10,
+	languages : "",
+	challengeRating : "0",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Slam",
+		ability : 2,
+		damage : [1, 4, "bludgeoning"],
+		range : "Melee (5 ft)",
+		description : ""
+	}]
+};

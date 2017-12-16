@@ -223,8 +223,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",
 	source : ["UA:WnW", 3],
 	prereqeval : "classes.known.warlock.subclass === 'the archfey'",
-	eval : "AddString('Saving Throw advantages \/ disadvantages', \"Magic can't put me to sleep\", '; ');",
-	removeeval : "RemoveString('Saving Throw advantages \/ disadvantages', \"Magic can't put me to sleep\");"
+	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
 	name : "Burning Hex",

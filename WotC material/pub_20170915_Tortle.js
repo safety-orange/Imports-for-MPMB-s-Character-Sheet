@@ -58,7 +58,7 @@ ArmourList["tortle shell"] = {
 WeaponsList["claws"] = {
 	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
 	name : "Sharp Claws",
-	source : [["V", 115], ["UA:FR", 2], ["TP", 4]],
+	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
 	ability : 1,
 	type : "Natural",
 	damage : [1, 4, "slashing"],

@@ -147,8 +147,8 @@ FeatsList["fade away"] = {
 	improvements : "Fade Away (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
 	action : ["reaction", ""],
-	eval : "AddFeature('Fade Away', 1, '', 'short rest', 'the Fade Away feat');",
-	removeeval : "RemoveFeature('Fade Away');"
+	usages : 1,
+	recovery : "short rest"
 };
 FeatsList["fey teleportation"] = {
 	name : "Fey Teleportation",
@@ -165,8 +165,8 @@ FeatsList["fey teleportation"] = {
 		selection : ["misty step"],
 		oncesr : true
 	},
-	eval : "AddFeature('Fey Teleportation', 1, '', 'short rest', 'Fey Teleportation feat');",
-	removeeval : "RemoveFeature('Fey Teleportation');"
+	usages : 1,
+	recovery : "short rest"
 };
 FeatsList["flames of phlegethos"] = {
 	name : "Flames of Phlegethos",
@@ -210,8 +210,9 @@ FeatsList["human determination"] = {
 	prereqeval : "CurrentRace.known.indexOf('human') !== -1",
 	description : "When I make an attack roll, an ability check, or a saving throw, I can do so with advantage. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 to one ability score]",
 	improvements : "Human Determination (feat): +1 to one ability score of your choice;",
-	eval : "AddFeature('Human Determination (attack/check/save)', 1, '', 'short rest', 'Human Determination feat');",
-	removeeval : "RemoveFeature('Human Determination (attack/check/save)');"
+	usages : 1,
+	recovery : "short rest",
+	additional : "attack/check/save"
 };
 FeatsList["infernal constitution"] = {
 	name : "Infernal Constitution",
@@ -240,8 +241,9 @@ FeatsList["orcish fury"] = {
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	improvements : "Orcish Fury (feat): +1 Strength or Constitution;",
 	action : ["reaction", " (after Relentless Endurance)"],
-	eval : "AddFeature('Orcish Fury (extra damage)', 1, '', 'short rest', 'Orcish Fury feat');",
-	removeeval : "RemoveFeature('Orcish Fury (extra damage)');"
+	usages : 1,
+	recovery : "short rest",
+	additional : "extra damage"
 };
 FeatsList["prodigy"] = {
 	name : "Prodigy",
@@ -261,9 +263,9 @@ FeatsList["second chance"] = {
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 Dexterity, Constitution, or Charisma]",
 	improvements : "Second Chance (feat): +1 Dexterity, Constitution, or Charisma;",
-	eval : "AddFeature('Second Chance', 1, '', 'short rest', 'Second Chance feat');",
-	removeeval : "RemoveFeature('Second Chance');",
-	action : ["reaction", ""]
+	action : ["reaction", ""],
+	usages : 1,
+	recovery : "short rest"
 };
 FeatsList["squat nimbleness"] = {
 	name : "Squat Nimbleness",
@@ -310,3 +312,16 @@ FeatsList["wood elf magic"] = {
 	}]
 };
 
+// Add weapon for the Dragon Hide feat
+WeaponsList["claws"] = {
+	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
+	name : "Sharp Claws",
+	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
+	ability : 1,
+	type : "Natural",
+	damage : [1, 4, "slashing"],
+	range : "Melee",
+	description : "",
+	abilitytodamage : true,
+	monkweapon : true
+};

@@ -303,23 +303,20 @@ AddSubClass("warlock", "the celestal", {
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
 AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 	name : "Aspect of the Moon",
-	description : desc([
-		"I don't need sleep nor can be forced to by any means; I can rest while doing light activity"
-	]),
-	source : ["UA:RCO", 5],
+	description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
+	source : [["X", 56], ["UA:RCO", 5]],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the tome') !== -1",
-	eval : "AddString('Saving Throw advantages \/ disadvantages', 'Nothing can force me to sleep', '; ');",
-	removeeval : "RemoveString('Saving Throw advantages \/ disadvantages', 'Nothing can force me to sleep');"
+	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	name : "Cloak of Flies",
 	description : desc([
-		"As a bonus action, I can surround myself and a 5-ft radius with a magical aura of flies",
+		"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
 		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
 		"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
 		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 	]),
-	source : ["UA:RCO", 5],
+	source : [["X", 56], ["UA:RCO", 5]],
 	prereqeval : "classes.known.warlock.level >= 5",
 	recovery : "short rest",
 	usages : 1,
@@ -329,7 +326,8 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	name : "Eldritch Smite",
 	description : desc([
 		"Once per turn when I hit a creature with my pact weapon, I can do extra damage",
-		"For this I have to expend a warlock spell slot; I do +1d8 force damage per level of the slot",
+		"By expending a warlock spell slot, the creature takes extra damage and is knocked prone",
+		"It takes 1d8 force damage and another 1d8 force damage per level of the spell slot",
 		"If the target takes any of this bonus damage, it is knocked prone if it is Huge or smaller"
 	]),
 	source : ["UA:RCO", 6],
@@ -338,13 +336,13 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	name : "Frost Lance",
 	description : desc([
-		"When my Eldritch Blast hits a creature once or more, I can reduce its speed by 10 ft",
+		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:RCO", 6],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; 1 target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
 	}
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
@@ -365,7 +363,7 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		"I can breathe underwater and I have a swim speed equal to my walking speed",
 		"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["X", 57], ["UA:RCO", 6]],
 	spellcastingBonus : {
 		name : "Gift of the Depths",
 		spells : ["water breathing"],
@@ -377,18 +375,14 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 });
 AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
 	name : "Gift of the Ever-Living Ones",
-	description : desc([
-		"When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll"
-	]),
-	source : ["UA:RCO", 6],
+	description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
+	source : [["X", 57], ["UA:RCO", 6]],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the chain') !== -1"
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
-	description : desc([
-		"When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me"
-	]),
-	source : ["UA:RCO", 6],
+	description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
+	source : [["X", 57], ["UA:RCO", 6]],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
 		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
@@ -397,7 +391,8 @@ AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
-		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
+		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
+		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
@@ -437,10 +432,8 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 	name : "Shroud of Shadow",
-	description : desc([
-		"I can cast Invisibility at will, without using spell slots (PHB 254)"
-	]),
-	source : ["UA:RCO", 6],
+	description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
+	source : [["X", 57], ["UA:RCO", 6]],
 	spellcastingBonus : {
 		name : "Shroud of Shadow",
 		spells : ["invisibility"],
@@ -465,10 +458,8 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 });
 AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	name : "Trickster's Escape",
-	description : desc([
-		"Once per long rest, I can cast Freedom of Movement on myself without using a spell slot"
-	]),
-	source : ["UA:RCO", 7],
+	description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
+	source : [["X", 57], ["UA:RCO", 7]],
 	spellcastingBonus : {
 		name : "Trickster's Escape",
 		spells : ["freedom of movement"],

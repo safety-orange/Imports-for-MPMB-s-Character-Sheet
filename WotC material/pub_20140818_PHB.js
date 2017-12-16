@@ -3040,8 +3040,9 @@ FeatsList["lucky"] = {
 	name : "Lucky",
 	source : ["P", 167],
 	description : "Use one of three luck points to roll an extra d20 for attacking, being attacked, an ability check, or a saving throw before the outcome is determined. If more than one creature uses luck, no extra dice are rolled. I regain expended luck points when I finish a long rest.",
-	eval : "AddFeature('Lucky (attack/check/save)', 3, '', 'long rest', 'the Lucky feat');",
-	removeeval : "RemoveFeature('Lucky (attack/check/save)');"
+	usages : 3,
+	recovery : "long rest",
+	additional : "attack/check/save"
 };
 FeatsList["mage slayer"] = {
 	name : "Mage Slayer",
@@ -3097,8 +3098,10 @@ FeatsList["martial adept"] = {
 	name : "Martial Adept",
 	source : ["P", 168],
 	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.'",
-	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
-	removeeval : "RemoveFeature('Combat Superiority ', 1);"
+	UpdateOrReplace : "bonus",
+	usages : 1,
+	additional : "d6",
+	recovery : "short rest"
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
