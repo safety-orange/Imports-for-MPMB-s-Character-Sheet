@@ -1,10 +1,10 @@
 var iFileName = "pub_20150416_EE.js";
 RequiredSheetVersion(12.999);
-// This file adds all the player-material from the Elemental Evil Player's Companion to MPMB's Character Record Sheet
+// This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.E={
-	name : "Elemental Evil Player's Companion",
+	name : "Elemental Evil Player's Companion", // November 2017 version
 	abbreviation : "EE",
 	group : "Primary Sources",
 	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
@@ -300,12 +300,12 @@ SpellsList["abi-dalzim's horrid wilting"] = {
 	compMaterial : "A bit of sponge",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "30-ft cube all crea 10d8 Necrotic dmg; save halves; plants/water elem. dis. const/undead immune",
-	descriptionFull : "You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren't affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 10d8 necrotic damage on a failed save, or half as much damage on a successful one."
+	description : "30-ft cube all crea 12d8 Necrotic dmg; save halves; plants/water elem. dis. const/undead immune",
+	descriptionFull : "You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren't affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 12d8 necrotic damage on a failed save, or half as much damage on a successful one." + "\n   " + "Nonmagical plants in the area that aren't creatures, such as trees and shrubs, wither and die instantly."
 };
 SpellsList["absorb elements"] = {
 	name : "Absorb Elements",
-	classes : ["druid", "ranger", "wizard"],
+	classes : ["druid", "ranger", "sorcerer", "wizard"],
 	source : [["X", 150], ["E", 15]],
 	level : 1,
 	school : "Abjur",
@@ -357,8 +357,8 @@ SpellsList["bones of the earth"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "6+2/SL 2.5-ft rad 30-ft high stone pillars burst upward; med. or smaller crea save or lifted; see book",
-	descriptionFull : "You cause up to six pillars of stone to burst from places on the ground that you can see within range. Each pillar is a cylinder that has a diameter of 5 feet and a height of up to 30 feet. The ground where a pillar appears must be wide enough for its diameter, and you can target ground under a creature if that creature is Medium or smaller. Each pillar has AC 5 and 30 hit points. When reduced to 0 hit points, a pillar crumbles into rubble, which creates an area of difficult terrain with a 10-foot radius. The rubble lasts until cleared." + "\n   " + "If a pillar is created under a creature, that creature must succeed on a Dexterity saving throw or be lifted by the pillar. A creature can choose to fail the save." + AtHigherLevels + "When you cast this spell using a spell slot of 7th level or higher, you can create."
+	description : "6+2/SL 2.5-ft rad ground burst up 30-ft, \u2265 Med. creas save or lifted, 6d6 bludg. dmg if ceiling; see B",
+	descriptionFull : "You cause up to six pillars of stone to burst from places on the ground that you can see within range. Each pillar is a cylinder that has a diameter of 5 feet and a height of up to 30 feet. The ground where a pillar appears must be wide enough for its diameter, and you can target the ground under a creature if that creature is Medium or smaller. Each pillar has AC 5 and 30 hit points. When reduced to 0 hit points, a pillar crumbles into rubble, which creates an area of difficult terrain with a 10-foot radius that lasts until the rubble is cleared. Each 5-foot-diameter portion of the area requires at least 1 minute to clear by hand." + "\n   " + "If a pillar is created under a creature, that creature must succeed on a Dexterity saving throw or be lifted by the pillar. A creature can choose to fail the save." + "\n   " + "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar takes 6d6 bludgeoning damage and is restrained, pinched between the pillar and the obstacle. The restrained creature can use an action to make a Strength or Dexterity check (the creature's choice) against the spell's save DC. On a success, the creature is no longer restrained and must either move off the pillar or fall off it." + AtHigherLevels + "When you cast this spell using a spell slot of 7th level or higher, you can create."
 };
 SpellsList["catapult"] = {
 	name : "Catapult",
@@ -367,12 +367,12 @@ SpellsList["catapult"] = {
 	level : 1,
 	school : "Trans",
 	time : "1 a",
-	range : "150 ft",
+	range : "60 ft",
 	components : "S",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "Send 5+5/SL lb unattended object in 90 ft straight line; if hit crea save or 3d8+1d8/SL Bludg. dmg",
-	descriptionFull : "Choose one object weighing 1 to 5 pounds within range that isn't being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. In either case, both the object and the creature or solid surface take 3d8 bludgeoning damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage."
+	description : "Send 5+5/SL lb unattended object in 90 ft straight line; if hits crea, save or 3d8+1d8/SL Bludg. dmg",
+	descriptionFull : "Choose one object weighing 1 to 5 pounds within range that isn't being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage."
 };
 SpellsList["control flames"] = {
 	name : "Control Flames",
@@ -385,7 +385,7 @@ SpellsList["control flames"] = {
 	components : "S",
 	duration : "Instant. or 1 h",
 	description : "Nonmagical flame up to 5 cu ft; instant: expand/exinguish, 1h: brighten/dim/color/create shapes",
-	descriptionFull : "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways." + "\n   " + "You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location." + "\n   " + "You instantaneously extinguish the flames within the cube." + "\n   " + "You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour." + "\n   " + "You cause simple shapes-such as the vague form of a creature, an inanimate object, or a location-to appear within the flames and animate as you like. The shapes last for 1 hour." + "\n   " + "If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
+	descriptionFull : "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways." + "\n \u2022 " + "You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location." + "\n \u2022 " + "You instantaneously extinguish the flames within the cube." + "\n \u2022 " + "You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour." + "\n \u2022 " + "You cause simple shapes-such as the vague form of a creature, an inanimate object, or a location-to appear within the flames and animate as you like. The shapes last for 1 hour." + "\n   " + "If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
 };
 SpellsList["control winds"] = {
 	name : "Control Winds",
@@ -398,7 +398,7 @@ SpellsList["control winds"] = {
 	components : "V,S",
 	duration : "Conc, 1 h",
 	description : "100-ft cube of air either gusts, downdraft, or updraft; affects flying/jump/ranged; 1 a change; see B",
-	descriptionFull : "You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted." + "\n   " + toUni("Gusts") + ": A wind picks up within the cube, continually blowing in a horizontal direction that you choose. You choose the intensity of the wind - calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that pass through it or that are made against targets within the cube have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved." + "\n   " + toUni("Downdraft") + ": You cause a sustained blast of strong wind to blow downward from the top of the cube. Ranged weapon attacks that pass through the cube or that are made against targets within it have disadvantage on their attack rolls. A creature must make a Strength saving throw if it flies into the cube for the first time on a turn or starts its turn there flying. On a failed save, the creature is knocked prone." + "\n   " + toUni("Updraft") + ": You cause a sustained updraft within the cube, rising upward from the cube's bottom edge. Creatures that end a fall within the cube take only half damage from the fall. When a creature in the cube makes a vertical jump, the creature can jump up to 10 feet higher than normal."
+	descriptionFull : "You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted." + "\n   " + toUni("Gusts") + ": A wind picks up within the cube, continually blowing in a horizontal direction you designate. You choose the intensity of the wind: calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that enter or leave the cube or pass through it have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved." + "\n   " + toUni("Downdraft") + ": You cause a sustained blast of strong wind to blow downward from the top of the cube. Ranged weapon attacks that pass through the cube or that are made against targets within it have disadvantage on their attack rolls. A creature must make a Strength saving throw if it flies into the cube for the first time on a turn or starts its turn there flying. On a failed save, the creature is knocked prone." + "\n   " + toUni("Updraft") + ": You cause a sustained updraft within the cube, rising upward from the cube's bottom side. Creatures that end a fall within the cube take only half damage from the fall. When a creature in the cube makes a vertical jump, the creature can jump up to 10 feet higher than normal."
 };
 SpellsList["create bonfire"] = {
 	name : "Create Bonfire",
@@ -411,8 +411,8 @@ SpellsList["create bonfire"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "5-ft cube all creatures at casting, or entering save or 1d8 Fire dmg; +1d8 at CL 5, 11, and 17",
-	descriptionFull : "You create a bonfire on ground that you can see within range. Until the spells ends, the bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it enters the bonfire's space for the first time on a turn or ends its turn there." + "\n   " + "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
+	description : "5-ft cube all crea at casting or entering save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+	descriptionFull : "You create a bonfire on ground that you can see within range. Until the spell ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it moves into the bonfire's space for the first time on a turn or ends its turn there." + "\n   " + "The bonfire ignites flammable objects in its area that aren't being worn or carried." + "\n   " + "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
 SpellsList["dust devil"] = {
 	name : "Dust Devil",
@@ -427,7 +427,7 @@ SpellsList["dust devil"] = {
 	duration : "Conc, 1 min",
 	save : "Str",
 	description : "5-ft cube; all in 5-ft 1d8+1d8/SL Bludg. dmg and pushed 10 ft away; save halves, no push; see book",
-	descriptionFull : "Choose an unoccupied 5-foot cube of air that you can see within range. An elemental force that resembles a dust devil appears in the cube and lasts for the spell's duration." + "\n   " + "Any creature that ends its turn within 5 feet of the dust devil must make a Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning damage and is pushed 10 feet away. On a successful save, the creature takes half as much damage and isn't pushed." + "\n   " + "As a bonus action, you can move the dust devil up to 30 feet in any direction. If the dust devil moves over sand, dust, loose dirt, or small gravel, it sucks up the material and forms a 10-foot-radius cloud of debris around itself that lasts until the start of your next turn. The cloud heavily obscures its area." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
+	descriptionFull : "Choose an unoccupied 5-foot cube of air that you can see within range. An elemental force that resembles a dust devil appears in the cube and lasts for the spell's duration." + "\n   " + "Any creature that ends its turn within 5 feet of the dust devil must make a Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning damage and is pushed 10 feet away from the dust devil. On a successful save, the creature takes half as much damage and isn't pushed." + "\n   " + "As a bonus action, you can move the dust devil up to 30 feet in any direction. If the dust devil moves over sand, dust, loose dirt, or light gravel, it sucks up the material and forms a 10-foot-radius cloud of debris around itself that lasts until the start of your next turn. The cloud heavily obscures its area." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
 };
 SpellsList["earthbind"] = {
 	name : "Earthbind",
@@ -440,8 +440,8 @@ SpellsList["earthbind"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Str",
-	description : "1 creatures save or fly speed is reduced to 0; airborne creatures descend at 60 ft per round",
-	descriptionFull : "Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw or its flying speed (if any) is reduced to 0 feet for the spell's duration. An airborne creature affected by this spell descends at 60 feet per round until it reaches the ground or the spell ends."
+	description : "1 creatures save or fly speed is reduced to 0; airborne creatures safely descend at 60 ft per round",
+	descriptionFull : "Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw, or its flying speed (if any) is reduced to 0 feet for the spell's duration. An airborne creature affected by this spell safely descends at 60 feet per round until it reaches the ground or the spell ends."
 };
 SpellsList["earth tremor"] = {
 	name : "Earth Tremor",
@@ -450,12 +450,12 @@ SpellsList["earth tremor"] = {
 	level : 1,
 	school : "Evoc",
 	time : "1 a",
-	range : "10-ft rad",
+	range : "10 ft",
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "All crea in area except you save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
-	descriptionFull : "You cause a tremor in the ground in a 10-foot radius. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
+	description : "All crea in range except you save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
+	descriptionFull : "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
 };
 SpellsList["elemental bane"] = {
 	name : "Elemental Bane",
@@ -484,7 +484,7 @@ SpellsList["erupting earth"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "20-ft cube all crea 3d12+1d12/SL Bludgeoning dmg; save halves; area becomes difficult terrain",
-	descriptionFull : "Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes 3d12 bludgeoning damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared away. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d12 for each slot level above 3rd."
+	descriptionFull : "Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes 3d12 bludgeoning damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d12 for each slot level above 3rd."
 };
 SpellsList["flame arrows"] = {
 	name : "Flame Arrows",
@@ -540,7 +540,7 @@ SpellsList["ice knife"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "Ranged atk for 1d10 Piercing dmg; hit/miss 5-ft rad on target all crea save or 2d6+1d6/SL Cold dmg",
-	descriptionFull : "You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of the point where the ice exploded must succeed on a Dexterity saving throw or take 2d6 cold damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the cold damage increases by 1d6 for each slot level above 1st."
+	descriptionFull : "You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the cold damage increases by 1d6 for each slot level above 1st."
 };
 SpellsList["immolation"] = {
 	name : "Immolation",
@@ -553,8 +553,8 @@ SpellsList["immolation"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "1 crea save or 7d6 Fire dmg and burns for 3d6 Fire dmg/rnd; save each rnd to end; half dmg on save",
-	descriptionFull : "Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 7d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes 3d6 fire damage on a failed save, and the spell ends on a successful one. These magical flames can't be extinguished through nonmagical means." + "\n   " + "If damage from this spell reduces a target to 0 hit points, the target is turned to ash."
+	description : "1 crea save or 8d6 Fire dmg and burns for 4d6 Fire dmg/rnd; save each rnd to end; half dmg on save",
+	descriptionFull : "Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes 4d6 fire damage on a failed save, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means." + "\n   " + "If damage from this spell kills a target, the target is turned to ash."
 };
 SpellsList["investiture of flame"] = {
 	name : "Investiture of Flame",
@@ -596,7 +596,7 @@ SpellsList["investiture of stone"] = {
 	duration : "Conc, 10 min",
 	save : "Dex",
 	description : "Nonmagical Bludg/Pierc/Slash resist.; 1 a 15-ft rad all crea save or prone; move through earth/stone",
-	descriptionFull : "Until the spell ends, bits of rock spread across your body, and you gain the following benefits." + "\n " + "\u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons." + "\n " + "\u2022 You can use your action to create a small earthquake on the ground in a 15-foot radius centered on you. Other creatures on that ground must succeed on a Dexterity saving throw or be knocked prone." + "\n " + "\u2022 You can move across difficult terrain made of earth or stone without spending extra movement. You can move through solid earth or stone as if it was air and without destabilizing it, but you can't end your movement there. If you do so, you are ejected to the nearest unoccupied space, this spell ends, and you are stunned until the end of your next turn."
+	descriptionFull : "Until the spell ends, bits of rock spread across your body, and you gain the following benefits:" + "\n \u2022 " + "You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks." + "\n \u2022 " + "You can use your action to create a small earthquake on the ground in a 15-foot radius centered on you. Other creatures on that ground must succeed on a Dexterity saving throw or be knocked prone." + "\n \u2022 " + "You can move across difficult terrain made of earth or stone without spending extra movement. You can move through solid earth or stone as if it was air and without destabilizing it, but you can't end your movement there. If you do so, you are ejected to the nearest unoccupied space, this spell ends, and you are stunned until the end of your next turn."
 };
 SpellsList["investiture of wind"] = {
 	name : "Investiture of Wind",
@@ -654,8 +654,8 @@ SpellsList["maximilian's earthen grasp"] = {
 	compMaterial : "A miniature hand sculpted from clay",
 	duration : "Conc, 1 min",
 	save : "Str",
-	description : "Medium hand atks 1 crea; save or 2d6 Bludg. dmg and restrained; 1 a hand moves/atks; see book",
-	descriptionFull : "You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The target must make a Strength saving throw. On a failed save, the target takes 2d6 bludgeoning damage and is restrained for the spell's duration." + "\n   " + "As an action, you can cause the hand to crush the restrained target, who must make a Strength saving throw. It takes 2d6 bludgeoning damage on a failed save, or half as much damage on a successful one." + "\n   " + "To break out, the restrained target can make a Strength check against your spell save DC. On a success, the target escapes and is no longer restrained by the hand." + "\n   " + "As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a restrained target if you do either."
+	description : "Medium hand atks 1 crea: save or 2d6 Bludg. dmg \u0026 restrained; 1 a hand moves/atks, releases; see B",
+	descriptionFull : "You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The target must make a Strength saving throw. On a failed save, the target takes 2d6 bludgeoning damage and is restrained for the spell's duration." + "\n   " + "As an action, you can cause the hand to crush the restrained target, which must make a Strength saving throw. The target takes 2d6 bludgeoning damage on a failed save, or half as much damage on a successful one." + "\n   " + "To break out, the restrained target can use its action to make a Strength check against your spell save DC. On a success, the target escapes and is no longer restrained by the hand." + "\n   " + "As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a restrained target if you do either."
 };
 SpellsList["melf's minute meteors"] = {
 	name : "Melf's Minute Meteors",
@@ -710,8 +710,8 @@ SpellsList["pyrotechnics"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "5 cu ft flames extinguish, or 10-ft rad all crea save or blind 1 rnd, or 20-ft rad heavy obsc. for 1 min",
-	descriptionFull : "Choose an area of flame that you can see and that can fit within a 5-foot cube within range. You can extinguish the fire in that area, and you create either fireworks or smoke." + "\n   " + toUni("Fireworks") + ": The target explodes with a dazzling display of colors. Each creature within 10 feet of the target must succeed on a Constitution saving throw or become blinded until the end of your next turn." + "\n   " + toUni("Smoke") + ": Thick black smoke spreads out from the target in a 20-foot radius, moving around corners. The area of the smoke is heavily obscured. The smoke persists for 1 minute or until a strong wind disperses it."
+	description : "5 cu ft nonma. flame extinguish, or 10-ft rad all crea save or blind 1 rnd, or 20-ft rad hvy obsc. 1 min",
+	descriptionFull : "Choose an area of nonmagical flame that you can see and that fits within a 5-foot cube within range. You can extinguish the fire in that area, and you create either fireworks or smoke when you do so." + "\n   " + toUni("Fireworks") + ": The target explodes with a dazzling display of colors. Each creature within 10 feet of the target must succeed on a Constitution saving throw or become blinded until the end of your next turn." + "\n   " + toUni("Smoke") + ": Thick black smoke spreads out from the target in a 20-foot radius, moving around corners. The area of the smoke is heavily obscured. The smoke persists for 1 minute or until a strong wind disperses it."
 };
 SpellsList["shape water"] = {
 	name : "Shape Water",
@@ -776,16 +776,16 @@ SpellsList["thunderclap"] = {
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
-	range : "5-ft rad",
+	range : "5 ft",
 	components : "S",
 	duration : "Instantaneous",
 	save : "Con",
 	description : "100-ft rad audible; all crea but you in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
-	descriptionFull : "You create a burst of thunderous sound, which can be heard 100 feet away. Each creature other than you within 5 feet of you must make a Constitution saving throw. On a failed save, the creature takes 1d6 thunder damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+	descriptionFull : "You create a burst of thunderous sound that can be heard up to 100 feet away. Each creature within range, other than you, must succeed on a Constitution saving throw or take 1d6 thunder damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["tidal wave"] = {
 	name : "Tidal Wave",
-	classes : ["druid", "wizard"],
+	classes : ["druid", "sorcerer", "wizard"],
 	source : [["X", 168], ["E", 22]],
 	level : 3,
 	school : "Conj",
@@ -796,7 +796,7 @@ SpellsList["tidal wave"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "30-ft x 10-ft, 10-ft high all crea 4d8 Bludg. dmg and prone; save halves not prone; extinguish flames",
-	descriptionFull : "You conjure up a wave of water that crashes down on an area within range. The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall. Each creature in that area must make a Dexterity saving throw. On a failure, a creature takes 4d8 bludgeoning damage and is knocked prone. On a success, a creature takes half as much damage and isn't knocked prone. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it."
+	descriptionFull : "You conjure up a wave of water that crashes down on an area within range. The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 4d8 bludgeoning damage and is knocked prone. On a successful save, a creature takes half as much damage and isn't knocked prone. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes."
 };
 SpellsList["transmute rock"] = {
 	name : "Transmute Rock",
@@ -808,9 +808,9 @@ SpellsList["transmute rock"] = {
 	range : "120 ft",
 	components : "V,S,M",
 	compMaterial : "Clay and water",
-	duration : "Instantaneous",
+	duration : "Until dispelled",
 	description : "40 cu ft stone to mud or mud to stone; mud and stone restrains; mud from ceiling falls; see book",
-	descriptionFull : "You choose an area of stone or mud that you can see that fits within a 40-foot cube and that is within range, and choose one of the following effects." + "\n   " + toUni("Transmute Rock to Mud") + ": Nonmagical rock of any sort in the area becomes an equal volume of thick and flowing mud that remains for the spell's duration." + "\n   " + "If you cast the spell on an area of ground, it becomes muddy enough that creatures can sink into it. Each foot that a creature moves through the mud costs 4 feet of movement, and any creature on the ground when you cast the spell must make a Strength saving throw. A creature must also make this save the first time it enters the area on a turn or ends its turn there. On a failed save, a creature sinks into the mud and is restrained, though it can use an action to end the restrained condition on itself by pulling itself free of the mud." + "\n   " + "If you cast the spell on a ceiling, the mud falls. Any creature under the mud when it falls must make a Dexterity saving throw. A creature takes 4d8 bludgeoning damage on a failed save, or half as much damage on a successful one." + "\n   " + toUni("Transmute Mud to Rock") + ": Nonmagical mud or quicksand in the area no more than 10 feet deep transforms into soft stone for the spell's duration. Any creature in the mud when it transforms must make a Dexterity saving throw. On a failed save, a creature becomes restrained by the rock. The restrained creature can use an action to try to break free by succeeding on a Strength check (DC 20) or by dealing 25 damage to the rock around it. On a successful save, a creature is shunted safely to the surface to an unoccupied space."
+	descriptionFull : "You choose an area of stone or mud that you can see that fits within a 40-foot cube and is within range, and choose one of the following effects." + "\n   " + toUni("Transmute Rock to Mud") + ": Nonmagical rock of any sort in the area becomes an equal volume of thick, flowing mud that remains for the spell's duration." + "\n   " + "The ground in the spell's area becomes muddy enough that creatures can sink into it. Each foot that a creature moves through the mud costs 4 feet of movement, and any creature on the ground when you cast the spell must make a Strength saving throw. A creature must also make the saving throw when it moves into the area for the first time on a turn or ends its turn there. On a failed save, a creature sinks into the mud and is restrained, though it can use an action to end the restrained condition on itself by pulling itself free of the mud." + "\n   " + "If you cast the spell on a ceiling, the mud falls. Any creature under the mud when it falls must make a Dexterity saving throw. A creature takes 4d8 bludgeoning damage on a failed save, or half as much damage on a successful one." + "\n   " + toUni("Transmute Mud to Rock") + ": Nonmagical mud or quicksand in the area no more than 10 feet deep transforms into soft stone for the spell's duration. Any creature in the mud when it transforms must make a Dexterity saving throw. On a successful save, a creature is shunted safely to the surface in an unoccupied space. On a failed save, a creature becomes restrained by the rock. A restrained creature, or another creature within reach, can use an action to try to break the rock by succeeding on a DC 20 Strength check or by dealing damage to it. The rock has AC 15 and 25 hit points, and it is immune to poison and psychic damage."
 };
 SpellsList["vitriolic sphere"] = {
 	name : "Vitriolic Sphere",
@@ -825,7 +825,7 @@ SpellsList["vitriolic sphere"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "20-ft rad all crea 10d4+2d4/SL now and 5d4 Acid dmg at end next turn; save half \u0026 no dmg next rnd",
-	descriptionFull : "You point at a place within range, and a glowing 1-foot ball of emerald acid streaks there and explodes in a 20-foot radius. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage and 5d4 acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the initial damage increases by 2d4 for each slot level above 4th."
+	descriptionFull : "You point at a location within range, and a glowing, 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage and another 5d4 acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the initial damage increases by 2d4 for each slot level above 4th."
 };
 SpellsList["wall of sand"] = {
 	name : "Wall of Sand",
@@ -859,7 +859,7 @@ SpellsList["wall of water"] = {
 };
 SpellsList["warding wind"] = {
 	name : "Warding Wind",
-	classes : ["bard", "druid", "sorcerer"],
+	classes : ["bard", "druid", "sorcerer", "wizard"],
 	source : [["X", 170], ["E", 23]],
 	level : 2,
 	school : "Evoc",
@@ -882,12 +882,12 @@ SpellsList["watery sphere"] = {
 	compMaterial : "A droplet of water",
 	duration : "Conc, 1 min",
 	save : "Str",
-	description : "10-ft rad all crea < Huge save or restrained; on save ejected; save each rnd; 1 a move sphere 30 ft",
-	descriptionFull : "You conjure up a sphere of water with a 10-foot radius on a point you can see within range. The sphere can hover in the air, but no more than 10 feet off the ground. The sphere remains for the spell's duration." + "\n   " + "Any creature in the sphere's space must make a Strength saving throw. On a successful save, a creature is ejected from that space to the nearest unoccupied space outside it. A Huge or larger creature succeeds on the saving throw automatically. On a failed save, a creature is restrained by the sphere and is engulfed by the water. At the end of each of its turns, a restrained target can repeat the saving throw." + "\n   " + "The sphere can restrain a maximum of four Medium or smaller creatures or one Large creature. If the sphere restrains a creature in excess of these numbers, a random creature that was already restrained by the sphere falls out of it and lands prone in a space within 5 feet of it." + "\n   " + "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, cliff, or other drop, it safely descends until it is hovering 10 feet over ground. Any creature restrained by the sphere moves with it. You can ram the sphere into creatures, forcing them to make the saving throw, but no more than once per turn." + "\n   " + "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature restrained by the sphere is knocked prone in the space where it falls."
+	description : "5-ft rad all crea < Huge save or restrained; on save ejected; save each rnd; 1 a move sphere 30 ft",
+	descriptionFull : "You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell’s duration." + "\n   " + "Any creature in the sphere’s space must make a Strength saving throw. On a successful save, a creature is ejected from that space to the nearest unoccupied space of the creature’s choice outside the sphere. A Huge or larger creature succeeds on the saving throw automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is restrained by the sphere and is engulfed by the water. At the end of each of its turns, a restrained target can repeat the saving throw, ending the effect on itself on a success." + "\n   " + "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already restrained by the sphere falls out of it and lands prone in a space within 5 feet of it." + "\n   " + "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature restrained by the sphere moves with it. You can ram the sphere into creatures, forcing them to make the saving throw." + "\n   " + "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature restrained by the sphere is knocked prone in the space where it falls. The water then vanishes."
 };
 SpellsList["whirlwind"] = {
 	name : "Whirlwind",
-	classes : ["druid", "wizard"],
+	classes : ["druid", "sorcerer", "wizard"],
 	source : [["X", 171], ["E", 24]],
 	level : 7,
 	school : "Evoc",
@@ -905,20 +905,20 @@ SpellsList["whirlwind"] = {
 WeaponsList["create bonfire"] = {
 	regExpSearch : /^(?=.*create)(?=.*bonfire).*$/i,
 	name : "Create Bonfire",
-	source : ["E", 16],
+	source : [["X", 152], ["E", 16]],
 	list : "spell",
 	ability : 6,
 	type : "Cantrip",
 	damage : ["C", 8, "fire"],
 	range : "60 ft",
-	description : "5-ft cube; Dex save at casting or when re-entering, success - no damage; Conc, 1 min (EE 16)",
+	description : "5-ft cube; Dex save at casting or when moved into, success - no damage; Conc, 1 min (EE 16)",
 	abilitytodamage : false,
 	dc : true
 };
 WeaponsList["frostbite"] = {
 	regExpSearch : /frostbite/i,
 	name : "Frostbite",
-	source : ["E", 18],
+	source : [["X", 156], ["E", 18]],
 	list : "spell",
 	ability : 6,
 	type : "Cantrip",
@@ -931,7 +931,7 @@ WeaponsList["frostbite"] = {
 WeaponsList["magic stone"] = {
 	regExpSearch : /^(?=.*magic)(?=.*stone).*$/i,
 	name : "Magic Stone",
-	source : ["E", 20],
+	source : [["X", 160], ["E", 20]],
 	list : "spell",
 	ability : 5,
 	type : "Cantrip",
@@ -943,7 +943,7 @@ WeaponsList["magic stone"] = {
 WeaponsList["thunderclap"] = {
 	regExpSearch : /thunderclap/i,
 	name : "Thunderclap",
-	source : ["E", 22],
+	source : [["X", 168], ["E", 22]],
 	list : "spell",
 	ability : 6,
 	type : "Cantrip",

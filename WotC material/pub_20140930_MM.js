@@ -218,3 +218,52 @@ CreatureList["crawling claw"] = {
 		}
 	]
 };
+CreatureList["peryton"] = {
+	name : "Peryton",
+	source : ["M", 251],
+	size : 3, //Medium
+	type : "Monstrosity",
+	subtype : "",
+	companion : "steed",
+	alignment : "Chaotic Evil",
+	ac : 13,
+	hp : 33,
+	hd : [6, 8], //[#, die]
+	speed : "20 ft, fly 60 ft",
+	scores : [16, 12, 13, 9, 12, 10], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	skills : {
+		"perception" : 5
+	},
+	senses : "Adv. on Wis (Perception) checks using sight/smell",
+	passivePerception : 16,
+	languages : "understands Common and Elvish, but can't speak",
+	challengeRating : "2",
+	proficiencyBonus : 2,
+	attacksAction : 2,
+	attacks : [{
+			name : "Gore",
+			ability : 1,
+			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "One gore and one talons attack as an Attack action; +2d8 after 30 ft dive straight down"
+		}, {
+			name : "Talons",
+			ability : 1,
+			damage : [2, 4, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "One talons and one gore attack as an Attack action; +2d8 after 30 ft dive straight down"
+		}
+	],
+	traits : [{
+			name : "Dive Attack",
+			description : "If the peryton is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target."
+		}, {
+			name : "Flyby",
+			description : "The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach."
+		}, {
+			name : "Keen Sight and Smell",
+			description : "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell."
+		}
+	]
+};

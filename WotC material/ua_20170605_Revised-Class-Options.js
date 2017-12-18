@@ -414,7 +414,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	name : "Maddening Hex",
 	description : desc([
 		"As a bonus action, I cause pain around a target affected by a hex of mine (spell/feature)",
-		"The target and any of my choice within 5 ft of it take my Cha mod in psychic damage"
+		"It and any of my choice within 5 ft of it take my Cha mod (min 0) in psychic damage"
 	]),
 	source : ["UA:RCO", 6],
 	prereqeval : "classes.known.warlock.level >= 5",
@@ -446,15 +446,15 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	name : "Tomb of Levistus",
 	description : desc([
 		"As a reaction when I take damage, I can entomb myself in ice until the end of my turn",
-		"I get 10 temp. HP per warlock level, which can be used to absorb the triggering damage",
-		"Until the ice is gone, I have vulnerability to fire damage, 0 speed, and am incapacitated"
+		"During, I get 10 temp. HP per warlock level, which I use to absorb the triggering damage",
+		"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["X", 57], ["UA:RCO", 6]],
 	prereqeval : "classes.known.warlock.level >= 5",
 	recovery : "short rest",
 	usages : 1,
 	action : ["reaction", ""],
-	additional : levels.map( function(n) { return (n * 10) + " temporary HP"; })
+	additional : levels.map( function(n) { return (n * 10) + " temp HP"; })
 });
 AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	name : "Trickster's Escape",

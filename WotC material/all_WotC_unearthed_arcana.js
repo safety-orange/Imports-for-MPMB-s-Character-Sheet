@@ -1520,7 +1520,7 @@ AddSubClass("sorcerer", "shadow sorcerer", {
 			source : ["UA:LDU", 2],
 			minlevel : 6,
 			additional : "3 sorcery points",
-			description : "\n   " + "As a bonus action, I target a creature I can see and summon a hound within 30 ft of it" + "\n   " + "The hound has all the stats of a medium sized dire wolf with the following exceptions:" + "\n    - " + "At the start of its turn, it automatically knows where the target is" + "\n    - " + "It can only move towards and make (opportunity) attack against the target" + "\n    - " + "It can move through other creatures and objects as if they were difficult terrain" + "\n    - " + "It take 5 force damage if it ends its turn inside an object" + "\n   " + "The target has disadvantage on saves vs. my spells while the hound is within 5 ft of it",
+			description : "\n   " + "As a bonus action, I target a creature I can see and summon a hound within 30 ft of it" + "\n   " + "The hound has all the stats of a medium sized dire wolf with the following exceptions:" + "\n    - " + "At the start of its turn, it automatically knows where the target is" + "\n    - " + "It can only move towards and make (opportunity) attack against the target" + "\n    - " + "It can move through other creatures and objects as if they were difficult terrain" + "\n    - " + "It takes 5 force damage if it ends its turn inside an object" + "\n   " + "The target has disadvantage on saves vs. my spells while the hound is within 5 ft of it",
 			action : ["bonus action", " (3 sorcery points)"]
 		},
 		"subclassfeature14" : {
@@ -2291,7 +2291,8 @@ AddSubClass("rogue", "inquisitive", {
 			name : "Unerring Eye",
 			source : ["UA:GH", 3],
 			minlevel : 13,
-			description : "\n   " + "As an action, I can sense magical deceptions within 30 feet of me, but not what it does" + "\n   " + "I know the presence of illusions, shapechanged creatures, or magic designed to deceive"
+			description : "\n   " + "As an action, I can sense magical deceptions within 30 feet of me, but not what it does" + "\n   " + "I learn the presence of illusions, shapechanged creatures, or magic designed to deceive",
+			action : ["action", ""]
 		},
 		"subclassfeature17" : {
 			name : "Eye for Weakness",
@@ -2547,10 +2548,10 @@ RunFunctionAtEnd(function() {
 		if (!dSource) dSource = [["UA:MC", 8]];
 		
 		var suffix = 1;
-		var entryDoNm = cDomain.subname;
+		var entryDoNm = aDomain.subname;
 		while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
 			suffix += 1;
-			entryDoNm = cDomain.subname + " (" + suffix + ")";
+			entryDoNm = aDomain.subname + " (" + suffix + ")";
 		};
 		MTfeat["subclassfeature2"].choices.push(entryDoNm);
 		MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
@@ -3050,7 +3051,7 @@ AddSubClass("barbarian", "storm herald", {
 				name : "Storm of Fury: Desert",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Any enemy that ends its turn in my aura takes fire damage",
 				additional : ["", "", "2 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "7 fire damage"],
-				eval : "var ToAdd = [\"barbarian\", \"subclassfeature6\", \"desert\"]; if (classes.known.barbarian.level >= 6 && this.getField(\"Class Features Remember\").value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = \"subclassfeature14\"; if (classes.known.barbarian.level >= 14 && this.getField(\"Class Features Remember\").value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'desert']; if (classes.known.barbarian.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (classes.known.barbarian.level >= 14 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			},
 			"sea" : {
 				name : "Storm of Fury: Sea",
@@ -3058,13 +3059,13 @@ AddSubClass("barbarian", "storm herald", {
 				additional : ["", "", "2d6", "2d6", "2d6", "2d6", "2d6", "2d6", "2d6", "3d6", "3d6", "3d6", "3d6", "3d6", "4d6", "4d6", "4d6", "4d6", "4d6", "4d6"],
 				usages : 1,
 				recovery : "turn",
-				eval : "var ToAdd = [\"barbarian\", \"subclassfeature6\", \"sea\"]; if (classes.known.barbarian.level >= 6 && this.getField(\"Class Features Remember\").value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = \"subclassfeature14\"; if (classes.known.barbarian.level >= 14 && this.getField(\"Class Features Remember\").value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'sea']; if (classes.known.barbarian.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (classes.known.barbarian.level >= 14 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			},
 			"tundra" : {
 				name : "Storm of Fury: Tundra",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Any enemy that ends its turn in my aura takes cold damage",
 				additional : ["", "", "2 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "7 cold damage"],
-				eval : "var ToAdd = [\"barbarian\", \"subclassfeature6\", \"tundra\"]; if (classes.known.barbarian.level >= 6 && this.getField(\"Class Features Remember\").value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = \"subclassfeature14\"; if (classes.known.barbarian.level >= 14 && this.getField(\"Class Features Remember\").value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'tundra']; if (classes.known.barbarian.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (classes.known.barbarian.level >= 14 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			}
 		},
 		"subclassfeature6" : {
@@ -3091,7 +3092,7 @@ AddSubClass("barbarian", "storm herald", {
 				dmgres : ["Cold"],
 				savetxt : { immune : ["effects of extreme cold"] }
 			},
-			eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?barbarian,subclassfeature3,(desert|sea|tundra).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"barbarian,subclassfeature6,\" + FeaChoice, false);};};"
+			eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?barbarian,subclassfeature3,(desert|sea|tundra).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'barbarian,subclassfeature6,' + FeaChoice, false);};};"
 		},
 		"subclassfeature10" : {
 			name : "Shield of the Storm",
@@ -3121,7 +3122,7 @@ AddSubClass("barbarian", "storm herald", {
 				name : "Raging Storm: Tundra",
 				description : "\n   " + "The area within my aura is difficult terrain for my enemies"
 			},
-			eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?barbarian,subclassfeature3,(desert|sea|tundra).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"barbarian,subclassfeature14,\" + FeaChoice, false);};};"
+			eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?barbarian,subclassfeature3,(desert|sea|tundra).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'barbarian,subclassfeature14,' + FeaChoice, false);};};"
 		}
 	}
 });
@@ -3223,7 +3224,7 @@ AddSubClass("bard", "college of glamour", {
 			recovery : "long rest",
 			usages : 1,
 			action : ["bonus action", ""],
-			description : "\n   " + "As a bonus action, I take on an appearance of unearthly beauty for 1 minute" + "\n   " + "As a bonus action during this time, I can cast command without using a spell slot" + "\n   " + "Creatures charmed by me automatically fail their saves against these command spells",
+			description : "\n   " + "As a bonus action, I take on an appearance of unearthly beauty for 1 minute" + "\n   " + "As a bonus action during this time, I can cast Command without using a spell slot" + "\n   " + "Creatures charmed by me automatically fail their saves against these Command spells",
 			spellcastingBonus : [{
 				name : "Mantle of Majesty",
 				spells : ["command"],
@@ -3232,7 +3233,7 @@ AddSubClass("bard", "college of glamour", {
 			}]
 		},
 		"subclassfeature14" : {
-			name : "Unspeakable Majesty",
+			name : "Unbreakable Majesty",
 			source : ["UA:BC", 2],
 			minlevel : 14,
 			recovery : "short rest",
@@ -3240,7 +3241,7 @@ AddSubClass("bard", "college of glamour", {
 			action : ["action", ""],
 			description : "\n   " + "As an action, I can cast Sanctuary on myself without using a spell slot" + "\n   " + "If a creature fails its save to this, I gain adv. on all Cha checks against it for 1 min" + "\n   " + "In addition, the target has disadv. on saves it makes against my spells on my next turn",
 			spellcastingBonus : [{
-				name : "Unspeakable Majesty",
+				name : "Unbreakable Majesty",
 				spells : ["sanctuary"],
 				selection : ["sanctuary"],
 				oncesr : true
@@ -3279,7 +3280,7 @@ AddSubClass("bard", "college of whispers", {
 				name : "Shadow Disguise",
 				source : ["UA:BC", 2],
 				action : ["action", " (start)"],
-				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass yourself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends",
+				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends",
 				eval : "AddAction(\"bonus action\", \"Shadow Disguise (end)\", \"Bard (College of Whispers)\");",
 				removeeval : "RemoveAction(\"bonus action\", \"Shadow Disguise (end)\");"
 			},
@@ -3520,21 +3521,37 @@ AddSubClass("druid", "circle of dreams", {
 			name : "Balm of the Summer Court",
 			source : ["UA:DC", 1],
 			minlevel : 2,
-			description : "\n   " + "I have a pool of fey energy represented by a number of d6s equal to my druid level" + "\n   " + "As a bonus action, I can spend dice to heal an ally within 120 ft of me that I can see " + "\n   " + "I can spend up to half my druid level worth of dice from the pool at once" + "\n   " + "The ally heals an amount equal to the total rolled and gains 1 temp HP per die spent" + "\n   " + "In addition, the ally gains +5 ft speed per die spent, which lasts for 1 minute",
-			usages : ["", "2d6 per ", "3d6 per ", "4d6 per ", "5d6 per ", "6d6 per ", "7d6 per ", "8d6 per ", "9d6 per ", "10d6 per ", "11d6 per ", "12d6 per ", "13d6 per ", "14d6 per ", "15d6 per ", "16d6 per ", "17d6 per ", "18d6 per ", "19d6 per ", "20d6 per "],
-			recovery : "long rest"
+			description : desc([
+				"I have a pool of fey energy represented by a number of d6s equal to my druid level",
+				"As a bonus action, I can spend dice to heal an ally within 120 ft of me that I can see",
+				"I can spend up to half my druid level worth of dice from the pool at once",
+				"The ally heals an amount equal to the total rolled and gains 1 temp HP per die spent",
+				"In addition, the ally gains +5 ft speed per die spent, which lasts for 1 minute"
+			]),
+			usages : levels.map(function (n) { return n < 2 ? "" : n + "d6 per "; }),
+			recovery : "long rest",
+			action : ["bonus action", ""]
 		},
 		"subclassfeature6" : {
 			name : "Hearth of Moonlight and Shadow",
 			source : ["UA:DC", 1],
 			minlevel : 6,
-			description : "\n   " + "At the start of a short or long rest, I can create a warded area of 30-ft radius" + "\n   " + "Within this area, my allies and I gain +5 on Wis (Perception) checks to detect creatures" + "\n   " + "Also, any light from open flames is not visible from outside the area" + "\n   " + "This effect lasts until the end of the rest or when I leave the area"
+			description : desc([
+				"At the start of a short or long rest, I can create a warded area of 30-ft radius",
+				"Within this area, my allies and I gain +5 on Wis (Perception) checks to detect creatures",
+				"Also, any light from open flames is not visible from outside the area",
+				"This effect lasts until the end of the rest or when I leave the area"
+			])
 		},
 		"subclassfeature10" : {
 			name : "Hidden Paths",
 			source : ["UA:DC", 1],
 			minlevel : 10,
-			description : "\n   " + "On my turn, I can teleport up to 30 ft to where I can see; Moved distance costs speed" + "\n   " + "As an action, I can teleport a willing ally I touch up to 30 ft to a spot I can see" + "\n   " + "Once I used either option, I can't use this feature again until 1d4 rounds have passed",
+			description : desc([
+				"On my turn, I can teleport up to 30 ft to where I can see; Moved distance costs speed",
+				"As an action, I can teleport a willing ally I touch up to 30 ft to a spot I can see",
+				"Once I used either option, I can't use this feature again until 1d4 rounds have passed"
+			]),
 			usages : 1,
 			recovery : "1d4 rounds",
 			action : ["action", " (on ally)"]
@@ -3543,7 +3560,11 @@ AddSubClass("druid", "circle of dreams", {
 			name : "Purifying Light",
 			source : ["UA:DC", 1],
 			minlevel : 14,
-			description : "\n   " + "When I use a spell slot with a spell to restores HP, I can use Dispel Magic on the target" + "\n   " + "The Dispel Magic counts as if being cast with the same spell slot as the healing spell" + "\n   " + "Each creature effected by the Dispel Magic costs as one use of this feature",
+			description : desc([
+				"When I use a spell slot with a spell to restores HP, I can use Dispel Magic on the target",
+				"The Dispel Magic counts as if being cast with the same spell slot as the healing spell",
+				"Each creature effected by the Dispel Magic costs as one use of this feature"
+			]),
 			usages : 3,
 			recovery : "long rest"
 		}
@@ -5054,6 +5075,63 @@ WeaponsList["arcane magazine"] = {
 	invName : "Thunder Cannon Rounds",
 	alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
 };
+
+// Set the Artificer class for its spells
+var SetArtificerSpells = function(){
+	var artSp = [
+		// level 1
+		"alarm",
+		"cure wounds",
+		"disguise self",
+		"expeditious retreat",
+		"false life",
+		"jump",
+		"longstrider",
+		"sanctuary",
+		"shield of faith",
+		// level 2
+		"aid",
+		"alter self",
+		"arcane lock",
+		"blur",
+		"continual flame",
+		"darkvision",
+		"enhance ability",
+		"enlarge/reduce",
+		"invisibility",
+		"lesser restoration",
+		"levitate",
+		"magic weapon",
+		"protection from poison",
+		"rope trick",
+		"see invisibility",
+		"spider climb",
+		// level 3
+		"blink",
+		"fly",
+		"gaseous form",
+		"glyph of warding",
+		"haste",
+		"protection from energy",
+		"revivify",
+		"water breathing",
+		"water walk",
+		// level 4
+		"arcane eye",
+		"death ward",
+		"fabricate",
+		"freedom of movement",
+		"leomund's secret chest",
+		"mordenkainen's faithful hound",
+		"mordenkainen's private sanctum",
+		"otiluke's resilient sphere",
+		"stone shape",
+		"stoneskin"
+	];
+	for (var a = 0; a < artSp.length; a++) {
+		if (SpellsList[artSp[a]]) SpellsList[artSp[a]].classes.push("artificer");
+	};
+}();
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
@@ -5079,21 +5157,32 @@ var theHorizonWalkerSubclass = {
 			name : "Planar magic",
 			source : ["UA:RnR", 1],
 			minlevel : 3,
-			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
+			description : desc([
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"These count as ranger spells, but do not count against the number of spells I can know"
+			]),
 			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
 		},
 		"subclassfeature3.1" : {
 			name : "Planar Walker",
 			source : ["UA:RnR", 1],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I choose an enemy within 30 ft of me that I can see" + "\n   " + "Until the end of this turn, my attack against that enemy ignore damage resistances" + "\n   " + "In addition, the first time I hit it this turn, it takes an extra 1d6 force damage",
+			description : desc([
+				"As a bonus action, I choose an enemy within 30 ft of me that I can see",
+				"Until the end of this turn, my attack against that enemy ignore damage resistances",
+				"In addition, the first time I hit it this turn, it takes an extra 1d6 force damage"
+			]),
 			action : ["bonus action", ""]
 		},
 		"subclassfeature3.2" : {
 			name : "Portal Lore",
 			source : ["UA:RnR", 1],
 			minlevel : 3,
-			description : "\n   " + "As an action, I sense the distance and direction to any planar portals within 1000 ft" + "\n   " + "I also sense to which plane the portal leads to; I can't sense details if obscured by magic" + "\n   " + "I can use this feature additional times by expending spell slots of 2nd level or higher",
+			description : desc([
+				"As an action, I sense the distance and direction to any planar portals within 1000 ft",
+				"I also sense to which plane the portal leads to; I can't sense details if obscured by magic",
+				"I can use this feature additional times by expending spell slots of 2nd level or higher"
+			]),
 			usages : 1,
 			recovery : "short rest",
 			action : ["action", ""]
@@ -5102,16 +5191,25 @@ var theHorizonWalkerSubclass = {
 			name : "Ethereal Step",
 			source : ["UA:RnR", 1],
 			minlevel : 7,
-			description : "\n   " + "As a bonus action, I cast the Etherealness spell, which lasts until the end of the turn",
+			description : "\n   " + "As a bonus action, I can cast the Etherealness spell, which lasts until the end of the turn",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : ["bonus action", ""],
+			spellcastingBonus : {
+				name : "Ethereal Step",
+				spells : ["etherealness"],
+				selection : ["etherealness"],
+				oncesr : true
+			}
 		},
 		"subclassfeature11" : {
 			name : "Distant Strike",
 			source : ["UA:RnR", 1],
 			minlevel : 11,
-			description : "\n   " + "With the Attack action, I can teleport 10 ft before each attack, to a spot I can see" + "\n   " + "If I attack two or more creatures with this action, I get an extra attack against a third"
+			description : desc([
+				"With the Attack action, I can teleport 10 ft before each attack, to a place I can see",
+				"If I attack two different creatures with this action, I get an extra attack against a third"
+			])
 		},
 		"subclassfeature15" : {
 			name : "Spectral Defense",
@@ -5788,8 +5886,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",
 	source : ["UA:WnW", 3],
 	prereqeval : "classes.known.warlock.subclass === 'the archfey'",
-	eval : "AddString('Saving Throw advantages \/ disadvantages', \"Magic can't put me to sleep\", '; ');",
-	removeeval : "RemoveString('Saving Throw advantages \/ disadvantages', \"Magic can't put me to sleep\");"
+	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
 	name : "Burning Hex",
@@ -10119,10 +10216,10 @@ if (!SourceList["UA:TF"]) {
 			if (!dSource) dSource = [["UA:MC", 8]];
 			
 			var suffix = 1;
-			var entryDoNm = cDomain.subname;
+			var entryDoNm = aDomain.subname;
 			while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
 				suffix += 1;
-				entryDoNm = cDomain.subname + " (" + suffix + ")";
+				entryDoNm = aDomain.subname + " (" + suffix + ")";
 			};
 			MTfeat["subclassfeature2"].choices.push(entryDoNm);
 			MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
@@ -10222,9 +10319,7 @@ AddSubClass("monk", "way of the drunken master", {
 			name : "Tipsy Sway",
 			source : ["UA:AToS", 1],
 			minlevel : 6,
-			description : desc([
-				"As a reaction when missed in melee, attacker instead hits another I can see within 5 ft"
-			]),
+			description : "\n   " + "As a reaction when missed in melee, attacker instead hits another I can see within 5 ft",
 			usages : 1,
 			recovery : "short rest",
 			action : ["reaction", ""]
@@ -10233,18 +10328,14 @@ AddSubClass("monk", "way of the drunken master", {
 			name : "Drunkard's Luck",
 			source : ["UA:AToS", 1],
 			minlevel : 11,
-			description : desc([
-				"Before I roll for a save, I can spend 1 ki to give myself advantage on it"
-			]),
+			description : "\n   " + "Before I roll for a save, I can spend 1 ki to give myself advantage on it",
 			additional : "1 ki point"
 		},
 		"subclassfeature17" : {
 			name : "Intoxicated Frenzy",
 			source : ["UA:AToS", 1],
 			minlevel : 17,
-			description : desc([
-				"I can make 3 extra attacks with Flurry of Blows if each is used on a different target"
-			])
+			description : "\n   " + "I can make 3 extra attacks with Flurry of Blows if each is used on a different target"
 		}
 	}
 });
@@ -10258,17 +10349,13 @@ AddSubClass("paladin", "oath of redemption", {
 			name : "Armor of Peace",
 			source : ["UA:AToS", 2],
 			minlevel : 3,
-			description : desc([
-				"When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier"
-			])
+			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier"
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",
 			source : ["UA:AToS", 2],
 			minlevel : 3,
-			description : desc([
-				"As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min"
-			]),
+			description : "\n   " + "As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature3.2" : {
@@ -10296,7 +10383,8 @@ AddSubClass("paladin", "oath of redemption", {
 			source : ["UA:AToS", 2],
 			minlevel : 7,
 			description : desc([
-				"As a reaction when an ally within 10 ft takes damage, I instead take the damage"
+				"As a reaction when an ally within 10 ft takes damage, I instead take the damage",
+				"This damage can't be reduced in any way; Other effects might still apply to my ally"
 			]),
 			action : ["reaction", ""]
 		},
@@ -10304,13 +10392,8 @@ AddSubClass("paladin", "oath of redemption", {
 			name : "Protective Spirit",
 			source : ["UA:AToS", 2],
 			minlevel : 15,
-			description : desc([
-				"At the end of my turn when I'm below half HP and not incapacitated, I regain HP"
-			]),
-			additional : levels.map(function (n) {
-				if (n < 15) return "";
-				return "1d6+" + Math.floor(n/2) + " HP";
-			})
+			description : "\n   " + "At the end of my turn when I'm below half HP and not incapacitated, I regain HP",
+			additional : levels.map(function (n) { return n < 15 ? "" : "1d6+" + Math.floor(n/2) + " HP"; })
 		},
 		"subclassfeature20" : {
 			name : "Emissary of Redemption",
@@ -10318,7 +10401,7 @@ AddSubClass("paladin", "oath of redemption", {
 			minlevel : 20,
 			description : desc([
 				"When taking damage from a creature, I take only half and it takes the other half",
-				"If I attack or force a save on another, neither benefit work on it until I have a long rest"
+				"This stops working on any that I attack or force to make a save, until I have a long rest"
 			]),
 			dmgres : ["All from creatures"]
 		}
@@ -10449,7 +10532,7 @@ SpellsList["chaos bolt"] = {
 	range : "120 ft",
 	components : "V,S",
 	duration : "Instantaneous",
-	description : "Spell atk 2d8+1d6/SL dmg, d8s set dmg type, see B; double on d8s, new atk vs. crea in 30 ft of target",
+	description : "Spell atk 2d8+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft of target",
 	descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by this mass of chaotic energy." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st."
 };
 SpellsList["guiding hand"] = {
@@ -11102,8 +11185,8 @@ FeatsList["fade away"] = {
 	improvements : "Fade Away (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
 	action : ["reaction", ""],
-	eval : "AddFeature('Fade Away', 1, '', 'short rest', 'the Fade Away feat');",
-	removeeval : "RemoveFeature('Fade Away');"
+	usages : 1,
+	recovery : "short rest"
 };
 FeatsList["fey teleportation"] = {
 	name : "Fey Teleportation",
@@ -11120,8 +11203,8 @@ FeatsList["fey teleportation"] = {
 		selection : ["misty step"],
 		oncesr : true
 	},
-	eval : "AddFeature('Fey Teleportation', 1, '', 'short rest', 'Fey Teleportation feat');",
-	removeeval : "RemoveFeature('Fey Teleportation');"
+	usages : 1,
+	recovery : "short rest"
 };
 FeatsList["flames of phlegethos"] = {
 	name : "Flames of Phlegethos",
@@ -11165,8 +11248,9 @@ FeatsList["human determination"] = {
 	prereqeval : "CurrentRace.known.indexOf('human') !== -1",
 	description : "When I make an attack roll, an ability check, or a saving throw, I can do so with advantage. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 to one ability score]",
 	improvements : "Human Determination (feat): +1 to one ability score of your choice;",
-	eval : "AddFeature('Human Determination (attack/check/save)', 1, '', 'short rest', 'Human Determination feat');",
-	removeeval : "RemoveFeature('Human Determination (attack/check/save)');"
+	usages : 1,
+	recovery : "short rest",
+	additional : "attack/check/save"
 };
 FeatsList["infernal constitution"] = {
 	name : "Infernal Constitution",
@@ -11195,8 +11279,9 @@ FeatsList["orcish fury"] = {
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	improvements : "Orcish Fury (feat): +1 Strength or Constitution;",
 	action : ["reaction", " (after Relentless Endurance)"],
-	eval : "AddFeature('Orcish Fury (extra damage)', 1, '', 'short rest', 'Orcish Fury feat');",
-	removeeval : "RemoveFeature('Orcish Fury (extra damage)');"
+	usages : 1,
+	recovery : "short rest",
+	additional : "extra damage"
 };
 FeatsList["prodigy"] = {
 	name : "Prodigy",
@@ -11216,9 +11301,9 @@ FeatsList["second chance"] = {
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 Dexterity, Constitution, or Charisma]",
 	improvements : "Second Chance (feat): +1 Dexterity, Constitution, or Charisma;",
-	eval : "AddFeature('Second Chance', 1, '', 'short rest', 'Second Chance feat');",
-	removeeval : "RemoveFeature('Second Chance');",
-	action : ["reaction", ""]
+	action : ["reaction", ""],
+	usages : 1,
+	recovery : "short rest"
 };
 FeatsList["squat nimbleness"] = {
 	name : "Squat Nimbleness",
@@ -11265,6 +11350,19 @@ FeatsList["wood elf magic"] = {
 	}]
 };
 
+// Add weapon for the Dragon Hide feat
+WeaponsList["claws"] = {
+	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
+	name : "Sharp Claws",
+	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
+	ability : 1,
+	type : "Natural",
+	damage : [1, 4, "slashing"],
+	range : "Melee",
+	description : "",
+	abilitytodamage : true,
+	monkweapon : true
+};
 var iFileName = "ua_20170501_Revised-Subclasses.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
@@ -11340,7 +11438,7 @@ AddSubClass("bard", "college of swords2", {
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with medium armor and scimitars",
-				"I can a simple or martial melee weapon that I'm proficient with as spellcasting focus"
+				"I can use a simple or martial melee weapon that I'm proficient with as spellcasting focus"
 			]),
 			armor : [false, true, false, false],
 			weapons : [false, false, ["scimitar"]]
@@ -11442,7 +11540,7 @@ AddSubClass("fighter", "arcane archer2", {
 			"bursting arrow [evocation]" : {
 				name : "Bursting Arrow [Evocation]",
 				source : ["UA:RS", 3],
-				description : "" + "\n   " + "The target, in addition to the shot, and all creatures within 10 ft of it take damage",
+				description : "\n   " + "The target, in addition to the shot, and all creatures within 10 ft of it take damage",
 				additional : levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; })
 			},
 			"grasping arrow [conjuration]" : {
@@ -11533,7 +11631,7 @@ AddSubClass("monk", "way of the kensei2", {
 			source : ["UA:RS", 4],
 			minlevel : 3,
 			description : desc([
-				"Some weapons, that don't have heavy or special property, are kensei weapons for me",
+				"Some weapons, that don't have the heavy or special property, are kensei weapons for me",
 				"At least one ranged and one melee weapon, more at higher levels (longbow does qualify)",
 				"With these: proficient, count as a monk weapons, special bonuses while holding them:",
 				" - If I do an unarmed strike during an Attack action, +2 AC until my next turn starts",
@@ -11560,8 +11658,8 @@ AddSubClass("monk", "way of the kensei2", {
 			"precise strike" : {
 				name : "Precise Strike",
 				source : ["UA:RS", 5],
-				description : " [1 ki point]" + "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
-				action : ["bonus action", ""]
+				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
+				additional : "1 ki point"
 			},
 			eval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra']);",
 			removeeval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra'], 'remove');"
@@ -11570,12 +11668,16 @@ AddSubClass("monk", "way of the kensei2", {
 			name : "Unerring Accuracy",
 			source : ["UA:RS", 5],
 			minlevel : 17,
-			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses",
+			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
 			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
 				source : ["UA:RS", 5],
-				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
+				description : desc([
+					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
+					"This bonus is equal to the number of ki points I spend; It lasts for 1 minute"
+				]),
+				additional : "1 to 3 ki points",
 				action : ["bonus action", ""]
 			},
 			changeeval : "if (newClassLvl.monk >= 11 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('sharpen the blade') === -1) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'])} else if (newClassLvl.monk <= 11 && oldClassLvl.monk >= 11) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], 'remove')}"
@@ -11672,7 +11774,10 @@ AddSubClass("sorcerer", "favoured soul2", {
 			name : "Unearthly Recovery",
 			source : ["UA:RS", 6],
 			minlevel : 18,
-			description : "\n   " + "As a bonus action when I have less than half of my max HP, I can heal myself" + "\n   " + "I regain a number of HP equal to half my maximum Hit Points",
+			description : desc([
+				"As a bonus action when I have less than half of my max HP remaining, I can heal myself",
+				"I regain a number of HP equal to half my hit point maximum"
+			]),
 			action : ["bonus action", ""],
 			recovery : "long rest",
 			usages : 1
@@ -11870,7 +11975,7 @@ AddSubClass("paladin", "oath of conquest2", {
 			minlevel : 7,
 			description : desc([
 				"Enemies that are frightened of me have their speed reduced to 0 while in my aura",
-				"Additionally, if they start their turn within my aura, the take psychic damage"
+				"They also take psychic damage whenever they start theirs turn within my aura"
 			]),
 			additional : levels.map(function (n) {
 				if (n < 7) return "";
@@ -11881,7 +11986,10 @@ AddSubClass("paladin", "oath of conquest2", {
 			name : "Scornful Rebuke",
 			source : ["UA:RCO", 4],
 			minlevel : 15,
-			description : "\n   " + "Whenever I'm hit with an attack, the attacker takes my Cha mod in psychic damage"
+			description : desc([
+				"Whenever I'm hit with an attack while I'm not incapacitated, the attacker takes damage",
+				"This is psychic damage equal to my Charisma modifier (minimum of 0)"
+			])
 		},
 		"subclassfeature20" : {
 			name : "Invincible Conqueror",
@@ -11889,7 +11997,7 @@ AddSubClass("paladin", "oath of conquest2", {
 			minlevel : 20,
 			description : desc([
 				"As an action, I can gain the following benefits for 1 minute:",
-				" - I have resistance all damage",
+				" - I have resistance to all damage",
 				" - I can make an additional attack as part of my Attack action",
 				" - My melee weapons score critical hits on a roll of 19 or 20"
 			]),
@@ -11981,23 +12089,20 @@ AddSubClass("warlock", "the celestal", {
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
 AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 	name : "Aspect of the Moon",
-	description : desc([
-		"I don't need sleep nor can be forced to by any means; I can rest while doing light activity"
-	]),
-	source : ["UA:RCO", 5],
+	description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
+	source : [["X", 56], ["UA:RCO", 5]],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the tome') !== -1",
-	eval : "AddString('Saving Throw advantages \/ disadvantages', 'Nothing can force me to sleep', '; ');",
-	removeeval : "RemoveString('Saving Throw advantages \/ disadvantages', 'Nothing can force me to sleep');"
+	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	name : "Cloak of Flies",
 	description : desc([
-		"As a bonus action, I can surround myself and a 5-ft radius with a magical aura of flies",
+		"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
 		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
 		"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
 		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 	]),
-	source : ["UA:RCO", 5],
+	source : [["X", 56], ["UA:RCO", 5]],
 	prereqeval : "classes.known.warlock.level >= 5",
 	recovery : "short rest",
 	usages : 1,
@@ -12007,7 +12112,8 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	name : "Eldritch Smite",
 	description : desc([
 		"Once per turn when I hit a creature with my pact weapon, I can do extra damage",
-		"For this I have to expend a warlock spell slot; I do +1d8 force damage per level of the slot",
+		"By expending a warlock spell slot, the creature takes extra damage and is knocked prone",
+		"It takes 1d8 force damage and another 1d8 force damage per level of the spell slot",
 		"If the target takes any of this bonus damage, it is knocked prone if it is Huge or smaller"
 	]),
 	source : ["UA:RCO", 6],
@@ -12016,13 +12122,13 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	name : "Frost Lance",
 	description : desc([
-		"When my Eldritch Blast hits a creature once or more, I can reduce its speed by 10 ft",
+		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:RCO", 6],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; 1 target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
 	}
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
@@ -12043,7 +12149,7 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		"I can breathe underwater and I have a swim speed equal to my walking speed",
 		"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["X", 57], ["UA:RCO", 6]],
 	spellcastingBonus : {
 		name : "Gift of the Depths",
 		spells : ["water breathing"],
@@ -12055,18 +12161,14 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 });
 AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
 	name : "Gift of the Ever-Living Ones",
-	description : desc([
-		"When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll"
-	]),
-	source : ["UA:RCO", 6],
+	description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
+	source : [["X", 57], ["UA:RCO", 6]],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the chain') !== -1"
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
-	description : desc([
-		"When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me"
-	]),
-	source : ["UA:RCO", 6],
+	description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
+	source : [["X", 57], ["UA:RCO", 6]],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
 		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
@@ -12075,7 +12177,8 @@ AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
-		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
+		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
+		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
@@ -12097,7 +12200,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	name : "Maddening Hex",
 	description : desc([
 		"As a bonus action, I cause pain around a target affected by a hex of mine (spell/feature)",
-		"The target and any of my choice within 5 ft of it take my Cha mod in psychic damage"
+		"It and any of my choice within 5 ft of it take my Cha mod (min 0) in psychic damage"
 	]),
 	source : ["UA:RCO", 6],
 	prereqeval : "classes.known.warlock.level >= 5",
@@ -12115,10 +12218,8 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 	name : "Shroud of Shadow",
-	description : desc([
-		"I can cast Invisibility at will, without using spell slots (PHB 254)"
-	]),
-	source : ["UA:RCO", 6],
+	description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
+	source : [["X", 57], ["UA:RCO", 6]],
 	spellcastingBonus : {
 		name : "Shroud of Shadow",
 		spells : ["invisibility"],
@@ -12131,22 +12232,20 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	name : "Tomb of Levistus",
 	description : desc([
 		"As a reaction when I take damage, I can entomb myself in ice until the end of my turn",
-		"I get 10 temp. HP per warlock level, which can be used to absorb the triggering damage",
-		"Until the ice is gone, I have vulnerability to fire damage, 0 speed, and am incapacitated"
+		"During, I get 10 temp. HP per warlock level, which I use to absorb the triggering damage",
+		"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["X", 57], ["UA:RCO", 6]],
 	prereqeval : "classes.known.warlock.level >= 5",
 	recovery : "short rest",
 	usages : 1,
 	action : ["reaction", ""],
-	additional : levels.map( function(n) { return (n * 10) + " temporary HP"; })
+	additional : levels.map( function(n) { return (n * 10) + " temp HP"; })
 });
 AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	name : "Trickster's Escape",
-	description : desc([
-		"Once per long rest, I can cast Freedom of Movement on myself without using a spell slot"
-	]),
-	source : ["UA:RCO", 7],
+	description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
+	source : [["X", 57], ["UA:RCO", 7]],
 	spellcastingBonus : {
 		name : "Trickster's Escape",
 		spells : ["freedom of movement"],
