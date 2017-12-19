@@ -73,7 +73,7 @@ RaceList["abyssal tiefling"] = {
 			}
 		}
 	},
-	variants : RaceList.tiefling.variants ? RaceList.tiefling.variants : []
+	variants : RaceList.tiefling && RaceList.tiefling.variants ? RaceList.tiefling.variants : []
 };
 //now do the variants
 var addAbyssalTiefling = function(){

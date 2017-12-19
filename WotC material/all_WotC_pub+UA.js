@@ -6947,6 +6947,7 @@ AddRacialVariant("tiefling", "winged", {
 	spellcastingBonus : ""
 });
 var AddTieflingSCAG = function(){
+	if (!RaceList.tiefling) return;
 	var tRace = {
 		objname : "feral tiefling",
 		replaceTraitTxt : ["+1 Intelligence, +2 Charisma", "+2 Dexterity, +1 Intelligence"],
@@ -16952,7 +16953,7 @@ RaceList["abyssal tiefling"] = {
 			}
 		}
 	},
-	variants : RaceList.tiefling.variants ? RaceList.tiefling.variants : []
+	variants : RaceList.tiefling && RaceList.tiefling.variants ? RaceList.tiefling.variants : []
 };
 //now do the variants
 var addAbyssalTiefling = function(){
