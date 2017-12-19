@@ -6,10 +6,17 @@ $outArr = @("all_WotC_published", "all_WotC_unearthed_arcana")
 $matchArr = @("pub_*.js", "ua_*.js")
 for ($i=0 ; $i -lt $outArr.length; $i++) {
 	$out = $outArr[$i]
-#	if (Test-Path “$out.js“) { ri “$out.js“ }
+	ni “$out.temp.js“
+	cat $matchArr[$i] | ac “$out.temp.js“
+	& $java -jar $yui “$out.temp.js“ '-o' “$out.min.temp.js“
+
+	# now make the files with the correct iFileName
 	ni “$out.js“ -force -value “var iFileName = `"$out.js`";`n“
-	cat $matchArr[$i] | ac “$out.js“
-	& $java -jar $yui “$out.js“ '-o' “$out.min.js“
+	gc “$out.temp.js“ | ac “$out.js“ 
+	ri “$out.temp.js“
+	ni “$out.min.js“ -force -value “var iFileName=`"$out.min.js`";“
+	gc “$out.min.temp.js“ | ac “$out.min.js“ 
+	ri “$out.min.temp.js“
 }
 ni 'all_WotC_pub+UA.js' -force -value “var iFileName = `"all_WotC_pub+UA.js`";`n“
 ni 'all_WotC_pub+UA.min.js' -force -value “var iFileName = `"all_WotC_pub+UA.min.js`";`n“

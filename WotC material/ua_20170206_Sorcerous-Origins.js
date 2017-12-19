@@ -267,11 +267,12 @@ AddSubClass("sorcerer", "stone sorcery", {
 				"This AC lasts until I don armor, I'm incapacitated, or use a bonus action to end it"
 			]),
 			action : ["action", " (start)"],
-			eval : "AddAction(\"bonus action\", \"Stone's Durability (end)\", \"Stone's Durability (Stone Sorcerer)\");",
-			removeeval : "RemoveAction(\"bonus action\", \"Stone's Durability (end)\");",
+			eval : "AddAction('bonus action', \"Stone's Durability (end)\", \"Stone's Durability (Stone Sorcerer)\");",
+			removeeval : "RemoveAction('bonus action', \"Stone's Durability (end)\");",
 			calcChanges : {
 				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Stone\\'s Durability (Sorcerer)'; }; "
-			}
+			},
+			addarmor : "Stone's Durability (Con)"
 		},
 		"subclassfeature6" : {
 			name : "Stone Aegis",

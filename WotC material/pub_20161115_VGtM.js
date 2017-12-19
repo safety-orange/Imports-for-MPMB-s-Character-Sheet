@@ -413,6 +413,7 @@ RaceList["lizardfolk"] = {
 	skillstxt : "Choose two from Animal Handling, Nature, Perception, Stealth, and Survival.",
 	languageProfs : ["Common", "Draconic"],
 	weapons : ["bite"],
+	addarmor : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
 	weight : " weigh around 200 lb (120 + 2d10 \xD7 2d6 lb)",

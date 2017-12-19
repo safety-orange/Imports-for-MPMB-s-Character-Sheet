@@ -63,7 +63,8 @@ AddSubClass("paladin", "oath of redemption", {
 			name : "Armor of Peace",
 			source : ["UA:AToS", 2],
 			minlevel : 3,
-			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier"
+			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
+			addarmor : "Armor of Peace"
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",

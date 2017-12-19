@@ -1335,7 +1335,7 @@ BackgroundFeatureList["watcher's eye"] = {
 
 // Armour
 ArmourList["spiked armor"] = { // battlerager armour
-	regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s)).*$/i,
+	regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
 	name : "Spiked armor",
 	source : ["S", 121],
 	type : "medium",

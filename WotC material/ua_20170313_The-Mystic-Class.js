@@ -320,7 +320,8 @@ ClassSubList["mystic-immortal"] = {
 			]),
 			calcChanges : {
 				hp : "if (classes.known.mystic) {extrahp += classes.known.mystic.level; extrastring += '\\n + ' + classes.known.mystic.level + ' from Immortal Durability (Mystic)'; }; "
-			}
+			},
+			addarmor : "Immortal Durability (Con)"
 		},
 		"subclassfeature3" : {
 			name : "Psionic Resilience",

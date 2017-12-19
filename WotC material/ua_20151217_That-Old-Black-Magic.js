@@ -11,75 +11,82 @@ SourceList["UA:TOBM"] = {
 	date : "2015/12/17"
 };
 
-//adds a racial variant: the Abyssal Tiefling
-var addAbyssalTiefling = function(){
-	var tRace = {
-		objname : "abyssal tiefling",
-		replaceTraitTxt : ["+1 Intelligence, +2 Charisma", "+1 Constitution, +2 Charisma"],
-		replaceNameTxt : ["tiefling", "abyssal tiefling"],
-		regExpSearch : /^(?=.*abyssal)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
-		name : "Abyssal tiefling",
-		source : ["UA:TOBM", 1],
-		plural : "Abyssal tieflings",
-		sortname : "Tiefling, Abyssal",
-		dmgres : "",
-		improvements : "Abyssal Tiefling: +1 Constitution, +2 Charisma;",
-		scores : [0, 0, 1, 0, 0, 2],
-		trait : "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Toughness: My hit point maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
-		languageProfs : ["Common", "Abyssal"],
-		spellcastingBonus : {
-			name : "Abyssal Arcana (level 1)",
-			spells : ["dancing lights", "true strike", "light", "message", "spare the dying", "prestidigitation"],
-			atwill : true
+// Adds the Abyssal Tiefling
+RaceList["abyssal tiefling"] = {
+	regExpSearch : /^(?=.*abyssal)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
+	name : "Abyssal tiefling",
+	sortname : "Tiefling, Abyssal",
+	source : ["UA:TOBM", 1],
+	plural : "Abyssal tieflings",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Abyssal"],
+	vision : [["Darkvision", 60]],
+	dmgres : ["Fire"],
+	age : " reach adulthood in their late teens and live around 100 years",
+	height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
+	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	improvements : "Abyssal Tiefling: +1 Constitution, +2 Charisma;",
+	scores : [0, 0, 1, 0, 0, 2],
+	trait : "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Toughness: My hit point maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
+	abilitySave : 6,
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Abyssal Arcana (level 1)",
+		spells : ["dancing lights", "true strike", "light", "message", "spare the dying", "prestidigitation"],
+		atwill : true
+	},
+	features : {
+		"abyssal fortitude" : {
+			name : "Abyssal Fortitude",
+			minlevel : 1,
+			calcChanges : {
+				hp : "extrahp += Math.max(1,Math.floor(totalhd/2)); extrastring += \"\\n + \" + Math.max(1,Math.floor(totalhd/2)) + \" from Abyssal Fortitude\";"
+			}
 		},
-		features : {
-			"abyssal fortitude" : {
-				name : "Abyssal Fortitude",
-				minlevel : 1,
-				calcChanges : {
-					hp : "extrahp += Math.max(1,Math.floor(totalhd/2)); extrastring += \"\\n + \" + Math.max(1,Math.floor(totalhd/2)) + \" from Abyssal Fortitude\";"
-				}
-			},
-			"abyssal arcana (level 3)" : {
+		"abyssal arcana (level 3)" : {
+			name : "Abyssal Arcana (level 3)",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			action : ["action", ""],
+			spellcastingBonus : {
 				name : "Abyssal Arcana (level 3)",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				action : ["action", ""],
-				spellcastingBonus : {
-					name : "Abyssal Arcana (level 3)",
-					spells : ["burning hands", "charm person", "magic missile", "cure wounds", "tasha's hideous laughter", "thunderwave"],
-					oncelr : true
-				}
-			},
-			"abyssal arcana (level 5)" : {
+				spells : ["burning hands", "charm person", "magic missile", "cure wounds", "tasha's hideous laughter", "thunderwave"],
+				oncelr : true
+			}
+		},
+		"abyssal arcana (level 5)" : {
+			name : "Abyssal Arcana (level 5)",
+			minlevel : 5,
+			usages : 1,
+			recovery : "long rest",
+			action : ["action", ""],
+			spellcastingBonus : {
 				name : "Abyssal Arcana (level 5)",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				action : ["action", ""],
-				spellcastingBonus : {
-					name : "Abyssal Arcana (level 5)",
-					spells : ["alter self", "darkness", "invisibility", "levitate", "mirror image", "spider climb"],
-					oncelr : true
-				}
+				spells : ["alter self", "darkness", "invisibility", "levitate", "mirror image", "spider climb"],
+				oncelr : true
 			}
 		}
-	};
-	//make a new RaceList object for each race
-	RaceList[tRace.objname] = eval(RaceList.tiefling.toSource());
-	for (var rFea in tRace) {
-		if ((/objname|replaceTraitTxt|replaceNameTxt/).test(rFea)) continue;
-		RaceList[tRace.objname][rFea] = tRace[rFea];
-	};
-	//now do the variants
-	RaceList[tRace.objname].variants.forEach( function(nVar) {
-		RaceSubList[tRace.objname + "-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
-		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
-		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
-		thisVar.trait = thisVar.trait.replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
-		thisVar.name = thisVar.name.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
-		thisVar.plural = thisVar.plural.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
+	},
+	variants : RaceList.tiefling.variants ? RaceList.tiefling.variants : []
+};
+//now do the variants
+var addAbyssalTiefling = function(){
+	var replaceTraitTxt = ["+1 Intelligence, +2 Charisma", "+1 Constitution, +2 Charisma"];
+	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
+	RaceList["abyssal tiefling"].variants.forEach( function(nVar) {
+		if (!RaceSubList["tiefling-" + nVar]) return;
+		RaceSubList["abyssal tiefling-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		var thisVar = RaceSubList["abyssal tiefling-" + nVar];
+		thisVar.trait = thisVar.trait.replace(replaceTraitTxt[0], replaceTraitTxt[1]);
+		thisVar.trait = thisVar.trait.replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
+		thisVar.name = thisVar.name.replace(replaceNameTxt[0], replaceNameTxt[1]);
+		thisVar.plural = thisVar.plural.replace(replaceNameTxt[0], replaceNameTxt[1]);
 	});
 }();
 
