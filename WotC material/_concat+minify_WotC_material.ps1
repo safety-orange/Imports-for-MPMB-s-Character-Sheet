@@ -4,10 +4,16 @@ $java='C:\Java_port\bin\java.exe'
 $yui='C:\Java_port\lib\yuicompressor-2.4.8.jar'
 $outArr = @("all_WotC_published", "all_WotC_unearthed_arcana")
 $matchArr = @("pub_*.js", "ua_*.js")
-for ($i=0 ; $i -lt $outArr.length; $i++) {
+for ($i=0; $i -lt $outArr.length; $i++) {
 	$out = $outArr[$i]
 	ni “$out.temp.js“
-	cat $matchArr[$i] | ac “$out.temp.js“
+
+	# make sure the files are looped through alphabetically
+	$thefiles = gci -filter $matchArr[$i]
+	$sorted = $thefiles | sort
+	for ($a=0; $a -lt $sorted.length; $a++) {
+		gc $sorted[$a] | ac “$out.temp.js“
+	}
 	& $java -jar $yui “$out.temp.js“ '-o' “$out.min.temp.js“
 
 	# now make the files with the correct iFileName

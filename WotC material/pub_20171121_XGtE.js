@@ -885,7 +885,7 @@ AddSubClass("fighter", "arcane archer-xgte", {
 		"subclassfeature7" : {
 			name : "Magic Arrow",
 			source : ["X", 28],
-			minlevel : 3,
+			minlevel : 7,
 			description : "\n   " + "Whenever I fire a nonmagical arrow from a short- or longbow, I can make it magical"
 		},
 		"subclassfeature7.1" : {

@@ -913,6 +913,7 @@ AddSubClass("wizard", "bladesinging", {
 
 // New Totem Warrior options
 var AmendTotemWarriorSCAG = function() {
+	if (!ClassSubList["barbarian-totem warrior"] || ClassSubList["barbarian-totem warrior"].source.indexOf("P") === -1) return;
 	var TWadds = [{
 		name : "Elk",
 		addto : "subclassfeature3.1",
