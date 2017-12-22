@@ -3100,10 +3100,8 @@ FeatsList["martial adept"] = {
 	name : "Martial Adept",
 	source : ["P", 168],
 	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.'",
-	UpdateOrReplace : "bonus",
-	usages : 1,
-	additional : "d6",
-	recovery : "short rest"
+	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
+	removeeval : "RemoveFeature('Combat Superiority ', 1);"
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
@@ -4537,7 +4535,7 @@ WeaponsList["pistol"] = {
 	name : "Pistol",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [1, 10, "piercing"],
 	range : "30/90 ft",
@@ -4551,7 +4549,7 @@ WeaponsList["musket"] = {
 	name : "Musket",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [1, 12, "piercing"],
 	range : "40/120 ft",
@@ -4565,7 +4563,7 @@ WeaponsList["pistol automatic"] = {
 	name : "Pistol, automatic",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [2, 6, "piercing"],
 	range : "50/150 ft",
@@ -4579,7 +4577,7 @@ WeaponsList["revolver"] = {
 	name : "Revolver",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [2, 8, "piercing"],
 	range : "40/120 ft",
@@ -4593,7 +4591,7 @@ WeaponsList["rifle hunting"] = {
 	name : "Hunting Rifle",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [2, 10, "piercing"],
 	range : "80/240 ft",
@@ -4607,7 +4605,7 @@ WeaponsList["rifle automatic"] = {
 	name : "Automatic Rifle",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [2, 8, "piercing"],
 	range : "80/240 ft",
@@ -4621,7 +4619,7 @@ WeaponsList["shotgun"] = {
 	name : "Shotgun",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [2, 8, "piercing"],
 	range : "30/90 ft",
@@ -4635,42 +4633,42 @@ WeaponsList["laser pistol"] = {
 	name : "Laser Pistol",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [3, 6, "radiant"],
 	range : "40/120 ft",
 	weight : 2,
 	description : "Ammunition, reload (50 shots), two handed",
 	abilitytodamage : true,
-	ammo : "energy cell" 
+	ammo : "energy cell"
 };
 WeaponsList["antimatter rifle"] = {
 	regExpSearch : /^(?!.*laser)(?=.*antimatter)(?=.*rifle).*$/i,
 	name : "Antimatter Rifle",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [6, 8, "necrotic"],
 	range : "120/360 ft",
 	weight : 10,
 	description : "Ammunition, reload (2 shots), two handed",
 	abilitytodamage : true,
-	ammo : "energy cell" 
+	ammo : "energy cell"
 };
 WeaponsList["laser rifle"] = {
 	regExpSearch : /^(?!.*antimatter)(?=.*laser)(?=.*rifle).*$/i,
 	name : "Laser Rifle",
 	source : ["D", 268],
 	list : "firearm",
-	ability : 2, 
+	ability : 2,
 	type: "Martial",
 	damage : [3, 8, "radiant"],
 	range : "100/300 ft",
 	weight : 7,
 	description : "Ammunition, reload (30 shots), two handed",
 	abilitytodamage : true,
-	ammo : "energy cell" 
+	ammo : "energy cell"
 };
 AmmoList["renaissance bullet"] = {
 	name : "Bullets, Renaissance",
