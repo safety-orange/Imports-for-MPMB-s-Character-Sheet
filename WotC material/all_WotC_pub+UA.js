@@ -3033,7 +3033,7 @@ FeatsList["lightly armored"] = {
 FeatsList["linguist"] = {
 	name : "Linguist",
 	source : ["P", 167],
-	calculate : "event.value = 'I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC ' + (What('Int') + What('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]'",
+	calculate : "event.value = 'I can ably create written ciphers that others can\'t decipher unless I teach them, they succeed on an Intelligence check DC ' + (What('Int') + What('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	improvements : "Linguist (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
 	languageProfs : [3]
