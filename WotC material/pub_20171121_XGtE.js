@@ -2669,8 +2669,7 @@ FeatsList["prodigy-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Half-Elf or a Human",
 	prereqeval : "(/human|^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
-	description : "I gain proficiency with one skill of my choice, expertise with one skill of my choice that I'm already proficient with, proficiency with one tool of my choice, fluency in one language of my choice, and +1 to one ability score of my choice. [+1 to one ability score]",
-	improvements : "Prodigy (feat): +1 to one ability score of your choice;",
+	description : "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skills : "\n\n" + toUni("Prodigy (feat)") + ": Proficiency with any one skill and Expertise with any one skill that you are already proficient with.",
 	languageProfs : [1],
 	toolProfs : [["Any tool", 1]]
