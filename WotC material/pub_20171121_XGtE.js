@@ -2669,8 +2669,8 @@ FeatsList["orcish fury-xgte"] = {
 FeatsList["prodigy-xgte"] = {
 	name : "Prodigy",
 	source : ["X", 75],
-	prerequisite : "Being a Half-Elf or a Human",
-	prereqeval : "(/human|^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
+	prerequisite : "Being a Half-Elf, Half-Orc, or Human",
+	prereqeval : "(/human|^(?=.*half)(?=.*(elf|orc)).*$/i).test(CurrentRace.known)",
 	description : "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skills : "\n\n" + toUni("Prodigy (feat)") + ": Proficiency with any one skill and Expertise with any one skill that you are already proficient with.",
 	languageProfs : [1],
