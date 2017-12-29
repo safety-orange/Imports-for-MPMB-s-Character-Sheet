@@ -1405,9 +1405,11 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 			source : ["X", 42],
 			minlevel : 3,
 			description : desc([
+				"I can add my Wisdom modifier to my initiative rolls",
 				"In the first turn of combat I get +10 ft speed and an extra attack with the Attack action",
 				"If I take the Attack action and that extra attack hits, it does +1d8 damage"
-			])
+			]),
+			addMod : { type : "skill", field : "Init", mod : "Wis", text : "I can add my Wisdom modifier to my initiative rolls." }
 		},
 		"subclassfeature3.1" : {
 			name : "Gloom Stalker Magic",
