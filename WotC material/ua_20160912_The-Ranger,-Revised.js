@@ -366,3 +366,17 @@ ClassSubList["rangerua-deep stalker"] = {
 		}
 	}
 };
+
+// By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
+// Note that there are no rules by WotC that support doing this!
+var AddXGtErangerSubclassesToRevisedRanger = function() {
+	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
+	var theXGtErangerSubs = ["ranger-gloom stalker-xgte", "ranger-horizon walker-xgte", "ranger-monster slayer-xgte"];
+	for (var i = 0; i < theXGtErangerSubs.length; i++) {
+		var aSub = theXGtErangerSubs[i];
+		if (ClassSubList[aSub]) {
+			ClassSubList[aSub].attacks = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
+			ClassList.rangerua.subclasses[1].push(aSub);
+		};
+	};
+}();
