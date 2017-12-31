@@ -12936,7 +12936,7 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 		"subclassfeature3" : {
 			name : "Darkness",
 			source : ["X", 51],
-			minlevel : 1,
+			minlevel : 3,
 			description : desc([
 				"I learn Darkness, which doesn't count against my number of spells known",
 				"I can also cast it by spending 2 sorcery points and then I can see through it normally"
