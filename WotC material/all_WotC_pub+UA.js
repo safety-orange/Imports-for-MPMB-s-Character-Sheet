@@ -12317,9 +12317,11 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 			source : ["X", 42],
 			minlevel : 3,
 			description : desc([
+				"I can add my Wisdom modifier to my initiative rolls",
 				"In the first turn of combat I get +10 ft speed and an extra attack with the Attack action",
 				"If I take the Attack action and that extra attack hits, it does +1d8 damage"
-			])
+			]),
+			addMod : { type : "skill", field : "Init", mod : "Wis", text : "I can add my Wisdom modifier to my initiative rolls." }
 		},
 		"subclassfeature3.1" : {
 			name : "Gloom Stalker Magic",
@@ -13579,10 +13581,9 @@ FeatsList["orcish fury-xgte"] = {
 FeatsList["prodigy-xgte"] = {
 	name : "Prodigy",
 	source : ["X", 75],
-	prerequisite : "Being a Half-Elf or a Human",
-	prereqeval : "(/human|^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
-	description : "I gain proficiency with one skill of my choice, expertise with one skill of my choice that I'm already proficient with, proficiency with one tool of my choice, fluency in one language of my choice, and +1 to one ability score of my choice. [+1 to one ability score]",
-	improvements : "Prodigy (feat): +1 to one ability score of your choice;",
+	prerequisite : "Being a Half-Elf, Half-Orc, or Human",
+	prereqeval : "(/human|^(?=.*half)(?=.*(elf|orc)).*$/i).test(CurrentRace.known)",
+	description : "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skills : "\n\n" + toUni("Prodigy (feat)") + ": Proficiency with any one skill and Expertise with any one skill that you are already proficient with.",
 	languageProfs : [1],
 	toolProfs : [["Any tool", 1]]
@@ -18274,6 +18275,20 @@ ClassSubList["rangerua-deep stalker"] = {
 		}
 	}
 };
+
+// By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
+// Note that there are no rules by WotC that support doing this!
+var AddXGtErangerSubclassesToRevisedRanger = function() {
+	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
+	var theXGtErangerSubs = ["ranger-gloom stalker-xgte", "ranger-horizon walker-xgte", "ranger-monster slayer-xgte"];
+	for (var i = 0; i < theXGtErangerSubs.length; i++) {
+		var aSub = theXGtErangerSubs[i];
+		if (ClassSubList[aSub]) {
+			ClassSubList[aSub].attacks = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
+			ClassList.rangerua.subclasses[1].push(aSub);
+		};
+	};
+}();
 var iFileName = "ua_20161107_Barbarian-Primal-Paths.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from the Unearthed Arcana: Barbarian Primal Paths article to MPMB's Character Record Sheet
@@ -28312,7 +28327,7 @@ RaceList["grugach"] = {
 	eval : "RemoveLangTool('language', 'Common');"
 };
 // Edit the Wood Elf PHB entry, if available, to not match on Grugach
-if (RaceList["wood elf"]) RaceList["wood elf"].regExpSearch = /^(?!.*half)((?=.*kagonesti)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?||green)\b))).*$/i;
+if (RaceList["wood elf"]) RaceList["wood elf"].regExpSearch = /^(?!.*half)((?=.*kagonesti)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|green)\b))).*$/i;
 RaceList["sea elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 	name : "Sea elf",

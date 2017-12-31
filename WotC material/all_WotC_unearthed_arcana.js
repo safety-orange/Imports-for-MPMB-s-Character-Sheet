@@ -2990,6 +2990,20 @@ ClassSubList["rangerua-deep stalker"] = {
 		}
 	}
 };
+
+// By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
+// Note that there are no rules by WotC that support doing this!
+var AddXGtErangerSubclassesToRevisedRanger = function() {
+	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
+	var theXGtErangerSubs = ["ranger-gloom stalker-xgte", "ranger-horizon walker-xgte", "ranger-monster slayer-xgte"];
+	for (var i = 0; i < theXGtErangerSubs.length; i++) {
+		var aSub = theXGtErangerSubs[i];
+		if (ClassSubList[aSub]) {
+			ClassSubList[aSub].attacks = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
+			ClassList.rangerua.subclasses[1].push(aSub);
+		};
+	};
+}();
 var iFileName = "ua_20161107_Barbarian-Primal-Paths.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from the Unearthed Arcana: Barbarian Primal Paths article to MPMB's Character Record Sheet
@@ -13028,7 +13042,7 @@ RaceList["grugach"] = {
 	eval : "RemoveLangTool('language', 'Common');"
 };
 // Edit the Wood Elf PHB entry, if available, to not match on Grugach
-if (RaceList["wood elf"]) RaceList["wood elf"].regExpSearch = /^(?!.*half)((?=.*kagonesti)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?||green)\b))).*$/i;
+if (RaceList["wood elf"]) RaceList["wood elf"].regExpSearch = /^(?!.*half)((?=.*kagonesti)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|green)\b))).*$/i;
 RaceList["sea elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 	name : "Sea elf",
