@@ -8842,6 +8842,7 @@ RaceList["fallen aasimar"] = {
 	scores : [1, 0, 0, 0, 0, 2],
 	trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof bonus) or be frightened of me until the end of my next turn This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
 	abilitySave : 6,
+	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Light Bearer",
 		spells : ["light"],
@@ -8890,6 +8891,7 @@ RaceList["protector aasimar"] = {
 	improvements : "Protector Aasimar: +1 Wisdom, +2 Charisma;",
 	scores : [0, 0, 0, 0, 1, 2],
 	trait : "Protector Aasimar (+1 Wisdom, +2 Charisma)\nLight Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Soul: Once per long rest when I'm 3rd level, I can use an action to transform, gaining glimmer in my eyes and two incorporeal wings. For 1 minute or until I end it as a bonus action, I have 30 feet fly speed; once on my turn I can have one of my attacks or spells deal my level in extra radiant damage to one target.",
+	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Light Bearer",
 		spells : ["light"],
@@ -8938,6 +8940,7 @@ RaceList["scourge aasimar"] = {
 	improvements : "Scourge Aasimar: +1 Constitution, +2 Charisma;",
 	scores : [0, 0, 1, 0, 0, 2],
 	trait : "Scourge Aasimar (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Consumption: Once per long rest when I'm 3rd level, I can use an action to radiate bright light in 10-ft radius and dim light for another 10-ft, for 1 minute or until I end it as a bonus action. Once on my turn my attack or spell deals my level in extra radiant damage to one target, and at the end of my turns all creatures within 10 ft of me, including myself, take half my level in radiant damage.",
+	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Light Bearer",
 		spells : ["light"],
@@ -9018,7 +9021,6 @@ RaceList["firbolg"] = {
 	improvements : "Firbolg: +1 Strength, +2 Wisdom;",
 	scores : [1, 0, 0, 0, 2, 0],
 	trait : "Firbolg (+1 Strength, +2 Wisdom)" + (typePF ? "\n" : " ") + "Hidden Step: Once per short rest, as a bonus action, I turn invisible until the start of my next turn as per the invisibility spell.\nPowerful Build: I count as one size larger for the weight I can carry.\nFirbolg Magic: I can cast the Detect Magic and Disguise Self spells each once per short rest. With Disguise Self I can seem up to 3 feet shorter. Wisdom is my ability for these spells.\nSpeech of Beast and Leaf: I can make my words understood, in a limited manner, by beasts and plants. I have advantage on Charisma checks to influence them.",
-	abilitySave : 5,
 	spellcastingAbility : 5,
 	features : {
 		"firbolg magic (detect magic)" : {
@@ -9400,6 +9402,7 @@ RaceList["yuan-ti pureblood"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Yuan-Ti Pureblood: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
+	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)\n\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast the spell Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -9434,8 +9437,7 @@ RaceList["yuan-ti pureblood"] = {
 				oncelr : true
 			}
 		}
-	},
-	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)\n\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast the spell Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells."
+	}
 };
 
 // Racial weapons (lizardfolk bite and tabaxi claw)
