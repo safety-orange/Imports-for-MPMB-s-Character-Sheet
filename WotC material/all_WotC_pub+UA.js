@@ -993,7 +993,7 @@ AddSubClass("monk", "way of the four elements", {
 				source : ["P", 81],
 				description : " [1 ki point]" + "\n   " + "With Attack action, my unarmed strikes +10 ft reach and deal fire damage this turn" + "\n   " + "Also, I can spent an additional 1 ki point to cause an attack to deal +1d10 fire damage",
 				calcChanges : {
-					atkAdd : ["if ((/unarmed strike/i).test(WeaponName) && (/^(?=.*fire)(?=.*snake).*$/i).test(inputText)) {fields.Description += (fields.Description ? '; ' : '') + 'After hit, spend 1 ki point for +1d10 fire damage'; fields.Range = 'Melee (15 ft reach)'; fields.Damage_Type = 'fire'; }; ", "If I include the words 'Fire Snake' in the name of an unarmed strike, it gets +10 ft reach, does fire damage, and gains the option to deal +1d10 fire damage by spending 1 additional ki point."]
+					atkAdd : ["if ((/unarmed strike/i).test(WeaponName) && (/^(?=.*fire)(?=.*snake).*$/i).test(WeaponText)) {fields.Description += (fields.Description ? '; ' : '') + 'After hit, spend 1 ki point for +1d10 fire damage'; fields.Range = 'Melee (15 ft reach)'; fields.Damage_Type = 'fire'; }; ", "If I include the words 'Fire Snake' in the name of an unarmed strike, it gets +10 ft reach, does fire damage, and gains the option to deal +1d10 fire damage by spending 1 additional ki point."]
 				}
 			},
 			"fist of four thunders" : {
@@ -11318,7 +11318,7 @@ AddSubClass("barbarian", "zealot", {
 				additional : levels.map(function (n) { return n < 3 ? "" : "+1d6+" + Math.floor(n/2) + " radiant damage"; })
 			},
 			calcChanges : {
-				atkAdd : ["if(!isSpell&&classes.known.barbarian&&classes.known.barbarian.level>2&&(/\\brage\\b/i).test(inputText)){var CFrem=What('Class Features Remember');var tReg=/.*?barbarian,subclassfeature3,(necrotic damage|radiant damage).*/i;var FeaChoice=(tReg).test(CFrem)?CFrem.replace(tReg,'$1'):'damage';fields.Description+=(fields.Description?'; ':'')+'+1d6+'+Math.floor(classes.known.barbarian.level/2)+' '+FeaChoice+' on first hit each turn';};", "If I include the word 'Rage' in a melee weapon's name, it will show in its description that its first hit does extra damage."],
+				atkAdd : ["if(!isSpell&&classes.known.barbarian&&classes.known.barbarian.level>2&&(/\\brage\\b/i).test(WeaponText)){var CFrem=What('Class Features Remember');var tReg=/.*?barbarian,subclassfeature3,(necrotic damage|radiant damage).*/i;var FeaChoice=(tReg).test(CFrem)?CFrem.replace(tReg,'$1'):'damage';fields.Description+=(fields.Description?'; ':'')+'+1d6+'+Math.floor(classes.known.barbarian.level/2)+' '+FeaChoice+' on first hit each turn';};", "If I include the word 'Rage' in a melee weapon's name, it will show in its description that its first hit does extra damage."],
 			}
 		},
 		"subclassfeature3.1" : {
@@ -12225,7 +12225,7 @@ AddSubClass("monk", "way of the kensei-xgte", {
 			toolProfs : ["calligrapher's or painter's supplies"],
 			calcChanges : {
 				atkAdd : [
-					"var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && theWea && !isSpell && !theWea.monkweapon && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow') && inputText.toLowerCase().indexOf('kensei') !== -1) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; if (theWea.ability === 1) {fields.Mod = StrDex; }; if (isRangedWeapon) {fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage'; }; fields.Proficiency = true; }; ",
+					"var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && theWea && !isSpell && !theWea.monkweapon && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow') && WeaponText.toLowerCase().indexOf('kensei') !== -1) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; if (theWea.ability === 1) {fields.Mod = StrDex; }; if (isRangedWeapon) {fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage'; }; fields.Proficiency = true; }; ",
 					"If I inlcude the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
 				]
 			}
@@ -12236,7 +12236,7 @@ AddSubClass("monk", "way of the kensei-xgte", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (inputText.toLowerCase().indexOf('kensei') !== -1  && theWea && !isSpell && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (WeaponText.toLowerCase().indexOf('kensei') !== -1  && theWea && !isSpell && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."]
 			},
 			extraname : "Way of the Kensei 6",
 			"deft strike" : {
@@ -13342,7 +13342,7 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			armor : [false, true, false, true],
 			weapons : [false, true],
 			calcChanges : {
-				atkAdd : ["if ((/\\bpact\\b/i).test(inputText) || ((/hexblade/i).test(inputText) && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText))) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "If I include either the word 'Hexblade' or 'Pact' in a weapon's name, it gets treated as my the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than it would otherwise use. For a 'Pact' weapon, this will with any type. For 'Hexblade', this will only work if the weapon doesn't have the two-handed property."]
+				atkAdd : ["if ((/\\bpact\\b/i).test(WeaponText) || ((/hexblade/i).test(WeaponText) && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText))) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "If I include either the word 'Hexblade' or 'Pact' in a weapon's name, it gets treated as my the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than it would otherwise use. For a 'Pact' weapon, this will with any type. For 'Hexblade', this will only work if the weapon doesn't have the two-handed property."]
 			}
 		},
 		"subclassfeature6" : {
@@ -13467,7 +13467,8 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	source : ["X", 57],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(inputText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(WeaponName) && (/\\bpact\\b/i).test(inputText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", "If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n - If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."],
+		atkAdd : ["if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(WeaponName) && (/\\bpact\\b/i).test(WeaponText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", ""]
 	}
 });
 AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
@@ -16453,7 +16454,7 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 	source : ["UA:MM", 3],
 	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
 	calcChanges : {
-		atkAdd : ["if (isRangedWeapon &&  && (/\\bpact\\b/i).test(inputText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", "If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."]
+		atkAdd : ["if (isRangedWeapon &&  && (/\\bpact\\b/i).test(WeaponText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", "If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."]
 	}
 });
 
@@ -18743,7 +18744,7 @@ AddSubClass("barbarian", "storm herald", {
 				name : "Raging Storm: Sea",
 				description : "\n   " + "Creatures in my aura hit by my attack must make a Str save or be knocked prone" + "\n   " + "The DC for this save is 8 + my proficiency bonus + my Strength modifier",
 				calcChanges : {
-					atkAdd : ["if (isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\\brage\\b/i).test(inputText)) {fields.Description += (fields.Description ? '; ' : '') + 'Str save or knocked prone'; }; ", "If I include the word 'Rage' in a melee weapon's name, it will show in its description that it forces targets that are hit to make a Strength saving throw or be knocked prone."]
+					atkAdd : ["if (isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\\brage\\b/i).test(WeaponText)) {fields.Description += (fields.Description ? '; ' : '') + 'Str save or knocked prone'; }; ", "If I include the word 'Rage' in a melee weapon's name, it will show in its description that it forces targets that are hit to make a Strength saving throw or be knocked prone."]
 				}
 			},
 			"tundra" : {
@@ -19325,7 +19326,7 @@ AddSubClass("fighter", "arcane archer", {
 			eval : "AddAction(\"bonus action\", \"Create Magical Arrow\", \"Arcane Archer (Arcane Arrow)\");",
 			removeeval : "RemoveAction(\"bonus action\", \"Create Magical Arrow\")",
 			calcChanges : {
-				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(inputText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
+				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(WeaponText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -19549,7 +19550,7 @@ AddSubClass("fighter", "sharpshooter", {
 			}),
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(inputText)) { fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover'; }; ", "If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."],
+				atkAdd : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover'; }; ", "If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."],
 				atkCalc : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); }; ", ""]
 			}
 		},
@@ -19793,7 +19794,7 @@ AddSubClass("paladin", "oath of treachery", {
 				return n < 3 ? "" : "2d10+" + n + " damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (!isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(inputText)) {fields.Description += (fields.Description ? '; +' : '+') + '2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)'; }; ", "If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."]
+				atkAdd : ["if (!isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(WeaponText)) {fields.Description += (fields.Description ? '; +' : '+') + '2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)'; }; ", "If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."]
 			}
 		},
 		"subclassfeature7" : {
@@ -27272,7 +27273,7 @@ AddSubClass("monk", "way of the kensei2", {
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 			calcChanges : {
 				atkAdd : [
-					"var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && theWea && !isSpell && !theWea.monkweapon && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow') && inputText.toLowerCase().indexOf('kensei') !== -1) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; if (theWea.ability === 1) {fields.Mod = StrDex; }; if (isRangedWeapon) {fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage'; }; fields.Proficiency = true; }; ",
+					"var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && theWea && !isSpell && !theWea.monkweapon && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow') && WeaponText.toLowerCase().indexOf('kensei') !== -1) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; if (theWea.ability === 1) {fields.Mod = StrDex; }; if (isRangedWeapon) {fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage'; }; fields.Proficiency = true; }; ",
 					"If I inlcude the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
 				]
 			}
@@ -27283,7 +27284,7 @@ AddSubClass("monk", "way of the kensei2", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (inputText.toLowerCase().indexOf('kensei') !== -1  && theWea && !isSpell && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (WeaponText.toLowerCase().indexOf('kensei') !== -1  && theWea && !isSpell && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."]
 			},
 			extraname : "Way of the Kensei 6",
 			"precise strike" : {

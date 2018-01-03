@@ -33,7 +33,7 @@ AddSubClass("fighter", "arcane archer", {
 			eval : "AddAction(\"bonus action\", \"Create Magical Arrow\", \"Arcane Archer (Arcane Arrow)\");",
 			removeeval : "RemoveAction(\"bonus action\", \"Create Magical Arrow\")",
 			calcChanges : {
-				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(inputText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
+				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(WeaponText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -257,7 +257,7 @@ AddSubClass("fighter", "sharpshooter", {
 			}),
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(inputText)) { fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover'; }; ", "If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."],
+				atkAdd : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover'; }; ", "If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."],
 				atkCalc : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); }; ", ""]
 			}
 		},
