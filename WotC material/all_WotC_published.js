@@ -860,7 +860,7 @@ AddSubClass("fighter", "eldritch knight", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Evoc", "Abjur"],
-		level : [0, 4], //lower and higher limit
+		level : [0, 4] //lower and higher limit
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -1370,7 +1370,7 @@ AddSubClass("rogue", "arcane trickster", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Ench", "Illus"],
-		level : [0, 4], //lower and higher limit
+		level : [0, 4] //lower and higher limit
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -4304,6 +4304,160 @@ CreatureList["peryton"] = {
 			description : "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell."
 		}
 	]
+};
+
+// Blights and spores
+CreatureList["needle blight"] = {
+	name : "Needle Blight",
+	source : ["M", 32],
+	size : 3, //Medium
+	type : "Plant",
+	subtype : "",
+	alignment : "Neutral Evil",
+	ac : 12,
+	hp : 11,
+	hd : [2, 8], //[#, die]
+	speed : "30 ft",
+	scores : [12, 12, 13, 4, 8, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	condition_immunities : "blinded, deafened",
+	senses : "Blindsight 60 ft (blind beyond this radius).",
+	passivePerception : 9,
+	languages : "understands Common but can't speak",
+	challengeRating : "1/4",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Claws",
+			ability : 2,
+			damage : [2, 4, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : ""
+		}, {
+			name : "Needles",
+			ability : 2,
+			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+			range : "30/60 ft",
+			description : ""
+		}
+	]
+};
+CreatureList["twig blight"] = {
+	name : "Twig Blight",
+	source : ["M", 32],
+	size : 4, //Small
+	type : "Plant",
+	subtype : "",
+	alignment : "Neutral Evil",
+	ac : 13,
+	hp : 4,
+	hd : [1, 6], //[#, die]
+	speed : "20 ft",
+	scores : [6, 13, 12, 4, 8, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	damage_vulnerabilities : "fire",
+	condition_immunities : "blinded, deafened",
+	senses : "Blindsight 60 ft (blind beyond this radius).",
+	passivePerception : 9,
+	languages : "understands Common but can't speak",
+	challengeRating : "1/8",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Claws",
+			ability : 2,
+			damage : [1, 4, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : ""
+		}
+	],
+	traits : [{
+			name : "False Appearance",
+			description : "While the blight remains motionless, it is indistinguishable from a dead shrub."
+		}
+	]
+};
+CreatureList["vine blight"] = {
+	name : "Vine Blight",
+	source : ["M", 32],
+	size : 3, //Medium
+	type : "Plant",
+	subtype : "",
+	alignment : "Neutral Evil",
+	ac : 12,
+	hp : 26,
+	hd : [4, 8], //[#, die]
+	speed : "10 ft",
+	scores : [15, 8, 14, 5, 10, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	skills : {
+		"stealth" : 1
+	},
+	condition_immunities : "blinded, deafened",
+	senses : "Blindsight 60 ft (blind beyond this radius).",
+	passivePerception : 9,
+	languages : "Common",
+	challengeRating : "1/2",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Constrict",
+			ability : 1,
+			damage : [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+			range : "Melee (10 ft)",
+			description : "Large or smaller target is grappled and restrained (escape DC 12); Can't use constrict again until grapple ends"
+		}
+	],
+	traits : [{
+			name : "False Appearance",
+			description : "While the blight remains motionless, it is indistinguishable from a tangle of vines."
+		}
+	],
+	actions : [{
+			name : "Entangling Plants (Recharge 5-6)",
+			description : "As an action, grasping roots and vines sprout in a 15-foot radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
+		}
+	],
+	wildshapeString : "Blindsight 60 ft (blind beyond)| Immune to blinded, deafened| Entangling Plants (Recharge 5-6): As an action, 15-ft radius is difficult terrain for nonplant creatures, for 1 minute. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to make a DC 12 Str check to free itself or another within reach| False Appearance: While motionless, it's indistinguishable from a tangle of vines."
+};
+CreatureList["gas spore"] = {
+	name : "Gas Spore",
+	source : ["M", 138],
+	size : 2, //Large
+	type : "Plant",
+	subtype : "",
+	alignment : "Unaligned",
+	ac : 5,
+	hp : 1,
+	hd : [1, 10], //[#, die]
+	speed : "fly 10 ft (hover)",
+	scores : [5, 1, 3, 1, 1, 1], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	condition_immunities : "blinded, deafened, frightened",
+	senses : "Blindsight 30 ft (blind beyond this radius).",
+	passivePerception : 5,
+	languages : "",
+	challengeRating : "1/2",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Touch",
+			ability : 1,
+			damage : [1, "", "poison"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "DC 10 Con save or infected with Death Burst disease, see traits",
+			modifiers : [1, "", false], //[to hit, to damage, add ability to damage] "" means ignore
+		}
+	],
+	traits : [{
+			name : "Death Burst",
+			description : "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
+		}, {
+			name : "Eerie Resemblance",
+			description : "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check."
+		}
+	],
+	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
 };
 var iFileName = "pub_20141209_DMG.js";
 RequiredSheetVersion(12.999);

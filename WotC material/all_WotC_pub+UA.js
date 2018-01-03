@@ -861,7 +861,7 @@ AddSubClass("fighter", "eldritch knight", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Evoc", "Abjur"],
-		level : [0, 4], //lower and higher limit
+		level : [0, 4] //lower and higher limit
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -1371,7 +1371,7 @@ AddSubClass("rogue", "arcane trickster", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Ench", "Illus"],
-		level : [0, 4], //lower and higher limit
+		level : [0, 4] //lower and higher limit
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -4305,6 +4305,160 @@ CreatureList["peryton"] = {
 			description : "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell."
 		}
 	]
+};
+
+// Blights and spores
+CreatureList["needle blight"] = {
+	name : "Needle Blight",
+	source : ["M", 32],
+	size : 3, //Medium
+	type : "Plant",
+	subtype : "",
+	alignment : "Neutral Evil",
+	ac : 12,
+	hp : 11,
+	hd : [2, 8], //[#, die]
+	speed : "30 ft",
+	scores : [12, 12, 13, 4, 8, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	condition_immunities : "blinded, deafened",
+	senses : "Blindsight 60 ft (blind beyond this radius).",
+	passivePerception : 9,
+	languages : "understands Common but can't speak",
+	challengeRating : "1/4",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Claws",
+			ability : 2,
+			damage : [2, 4, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : ""
+		}, {
+			name : "Needles",
+			ability : 2,
+			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+			range : "30/60 ft",
+			description : ""
+		}
+	]
+};
+CreatureList["twig blight"] = {
+	name : "Twig Blight",
+	source : ["M", 32],
+	size : 4, //Small
+	type : "Plant",
+	subtype : "",
+	alignment : "Neutral Evil",
+	ac : 13,
+	hp : 4,
+	hd : [1, 6], //[#, die]
+	speed : "20 ft",
+	scores : [6, 13, 12, 4, 8, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	damage_vulnerabilities : "fire",
+	condition_immunities : "blinded, deafened",
+	senses : "Blindsight 60 ft (blind beyond this radius).",
+	passivePerception : 9,
+	languages : "understands Common but can't speak",
+	challengeRating : "1/8",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Claws",
+			ability : 2,
+			damage : [1, 4, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : ""
+		}
+	],
+	traits : [{
+			name : "False Appearance",
+			description : "While the blight remains motionless, it is indistinguishable from a dead shrub."
+		}
+	]
+};
+CreatureList["vine blight"] = {
+	name : "Vine Blight",
+	source : ["M", 32],
+	size : 3, //Medium
+	type : "Plant",
+	subtype : "",
+	alignment : "Neutral Evil",
+	ac : 12,
+	hp : 26,
+	hd : [4, 8], //[#, die]
+	speed : "10 ft",
+	scores : [15, 8, 14, 5, 10, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	skills : {
+		"stealth" : 1
+	},
+	condition_immunities : "blinded, deafened",
+	senses : "Blindsight 60 ft (blind beyond this radius).",
+	passivePerception : 9,
+	languages : "Common",
+	challengeRating : "1/2",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Constrict",
+			ability : 1,
+			damage : [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+			range : "Melee (10 ft)",
+			description : "Large or smaller target is grappled and restrained (escape DC 12); Can't use constrict again until grapple ends"
+		}
+	],
+	traits : [{
+			name : "False Appearance",
+			description : "While the blight remains motionless, it is indistinguishable from a tangle of vines."
+		}
+	],
+	actions : [{
+			name : "Entangling Plants (Recharge 5-6)",
+			description : "As an action, grasping roots and vines sprout in a 15-foot radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
+		}
+	],
+	wildshapeString : "Blindsight 60 ft (blind beyond)| Immune to blinded, deafened| Entangling Plants (Recharge 5-6): As an action, 15-ft radius is difficult terrain for nonplant creatures, for 1 minute. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to make a DC 12 Str check to free itself or another within reach| False Appearance: While motionless, it's indistinguishable from a tangle of vines."
+};
+CreatureList["gas spore"] = {
+	name : "Gas Spore",
+	source : ["M", 138],
+	size : 2, //Large
+	type : "Plant",
+	subtype : "",
+	alignment : "Unaligned",
+	ac : 5,
+	hp : 1,
+	hd : [1, 10], //[#, die]
+	speed : "fly 10 ft (hover)",
+	scores : [5, 1, 3, 1, 1, 1], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	condition_immunities : "blinded, deafened, frightened",
+	senses : "Blindsight 30 ft (blind beyond this radius).",
+	passivePerception : 5,
+	languages : "",
+	challengeRating : "1/2",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+			name : "Touch",
+			ability : 1,
+			damage : [1, "", "poison"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "DC 10 Con save or infected with Death Burst disease, see traits",
+			modifiers : [1, "", false], //[to hit, to damage, add ability to damage] "" means ignore
+		}
+	],
+	traits : [{
+			name : "Death Burst",
+			description : "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
+		}, {
+			name : "Eerie Resemblance",
+			description : "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check."
+		}
+	],
+	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
 };
 var iFileName = "pub_20141209_DMG.js";
 RequiredSheetVersion(12.999);
@@ -16511,6 +16665,172 @@ SpellsList["system backdoor"] = {
 	duration : "Conc, 1 h",
 	description : "Gain admin access to 1 system; defeats 3rd or lower technomancy spells; SL5+: defeats same or lower",
 	descriptionFull : "[Technomagic]\n   This spell allows you to bypass system security in order to create a secure login on a foreign system. The login you create allows you administrator-level privileges in any computer system not enhanced through technomagic. The login defeats any technomagic spells of 3rd level or lower." + "\n   " + "Once the duration of the spell expires, the login and all privileges are wiped from the system." + "\n   " + "System logs still show the activity of the user, but the user identification cannot be found or traced." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you are able to bypass technomagic spells if the spell's level is equal to or less than the level of the spell slot you used."
+};
+// This code was contributed by Lewis Henderson
+//
+// Please note that the original .pdf has the hit dice as 2d6 per level.
+// There isn't any way to implement this, so the hit dice is recorded as a d12.
+// Also note that there is no automation for the companion page included in this.
+//
+// You will have to chose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
+var iFileName = "ua_20150909_Ranger.js";
+RequiredSheetVersion(12.999);
+// This file adds the content from the Unearthed Arcana: Ranger article to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["UA:R"] = {
+	name : "Unearthed Arcana: Ranger",
+	abbreviation : "UA:R",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2015/downloads/dnd/DX_0907_UA_RangerOptions.pdf",
+	date : "2015/09/09"
+};
+
+// Define a new class, called "Playtest Ranger" and its 3 subclasses
+ClassList["ua-playtest-ranger"] = {
+	regExpSearch : /^(?=.*playtest)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	name : "Playtest Ranger",
+	source : ["UA:R", 0],
+	primaryAbility : "\n \u2022 Playtest Ranger: Dexterity and Wisdom;",
+	prereqs : "\n \u2022 Playtest Ranger: Dexterity 13 and Wisdom 13;",
+	die : 12,
+	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
+	saves : ["Dex", "Wis"],
+	skills : ["\n\n" + toUni("Ranger") + ": Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "\n\n" + toUni("Multiclass Ranger") + ": Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
+	toolProfs : { primay : ["Herbalism kit"] },
+	armor : [
+		[true, false, false, true],
+		[true, false, false, true]
+	],
+	weapons : [
+		[true, true],
+		[true, true]
+	],
+	equipment : "Playtest Ranger starting equipment:\n \u2022 leather armor;\n \u2022 Two shortswords -or- two martial melee weapons -or- a martial weapon and a shield;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows -or- a martial weapon.",
+	subclasses : ["Ranger Path", ["ua-playtest-ranger-guardian", "ua-playtest-ranger-seeker", "ua-playtest-ranger-stalker"]],
+	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+	features : {
+		"ambuscade" : {
+			name : "Ambuscade",
+			source : ["UA:R", 2],
+			minlevel : 1,
+			description : desc([
+				"When I roll initiative, I gain a special turn before others can act",
+				"During this bonus turn, I can only use the Attack or Hide action",
+				"I can't be surprised, but if I would be surprised I don't get the bonus turn"
+			])
+		},
+		"natural explorer" : ClassList.ranger.features["natural explorer"],
+		"fighting style" : ClassList.ranger.features["fighting style"],
+		"skirmisher's stealth" : {
+			name : "Skirmisher's Stealth",
+			source : ["UA:R", 3],
+			minlevel : 2,
+			description : desc([
+				"At the start of my turn, I can chose a creature I'm hidden from",
+				"During that turn, I remain hidden from it, regardless of my actions",
+				"As a bonus action at the end of my turn, I can use the Hide action"
+			]),
+			action : ["bonus action", ""],
+		},
+		"subclassfeature3" : {
+			name : "Ranger Path",
+			source : ["UA:R", 3],
+			minlevel : 3,
+			description : desc([
+				"Choose a Ranger Path you wish to follow and put it in the \"Class\" field",
+				"Choose Guardian, Seeker, or Stalker"
+			])
+		},
+		"primeval awareness" : ClassList.ranger.features["primeval awareness"]
+	}
+};
+ClassSubList["ua-playtest-ranger-guardian"] = {
+	regExpSearch : /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	subname : "Guardian",
+	source : ["UA:R", 3],
+	features : {
+		"subclassfeature3" : {
+			name : "Brown Bear Spirit Companion",
+			source : ["UA:R", 3],
+			minlevel : 3,
+			description : desc([
+				"As a bonus action, I can have my brown bear spirit animal materialize or dismiss it",
+				"It has all the stats of a brown bear and adds my Wis mod to its attacks and saves",
+				"Its HP is half my ranger level or the total in its stat block, whichever is higher",
+				"It takes it turn right after my initiative and is under my complete control"
+			]),
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		},
+		"subclassfeature3.1" : {
+			name : "Guardian's Shroud",
+			source : ["UA:R", 4],
+			minlevel : 3,
+			description :"\n   " + "When I call my spirit animal, I grant me or an ally I can see 2d6 + Wis mod temp HP"
+		}
+	}
+};
+ClassSubList["ua-playtest-ranger-seeker"] = {
+	regExpSearch : /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	subname : "Seeker",
+	source : ["UA:R", 4],
+	features : {
+		"subclassfeature3" : {
+			name : "Giant Eagle Spirit Companion",
+			source : ["UA:R", 3],
+			minlevel : 3,
+			description : desc([
+				"As a bonus action, I can have my giant eagle spirit animal materialize or dismiss it",
+				"It has all the stats of a giant eagle and adds my Wis mod to its attacks and saves",
+				"Its HP is half my ranger level or the total in its stat block, whichever is higher",
+				"It takes it turn right after my initiative and is under my complete control"
+			]),
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		},
+		"subclassfeature3.1" : {
+			name : "Seeker's Eye",
+			source : ["UA:R", 4],
+			minlevel : 3,
+			description : desc([
+				"When I call my spirit animal, I can chose a creature that I can see",
+				"Until the end of my next turn, all attacks against the target have advantage"
+			])
+		}
+	}
+};
+ClassSubList["ua-playtest-ranger-stalker"] = {
+	regExpSearch : /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	subname : "Stalker",
+	source : ["UA:R", 4],
+	features : {
+		"subclassfeature3" : {
+			name : "Dire Wolf Spirit Companion",
+			source : ["UA:R", 3],
+			minlevel : 3,
+			description : desc([
+				"As a bonus action, I can have my dire wolf spirit animal materialize or dismiss it",
+				"It has all the stats of a dire wolf and adds my Wis mod to its attacks and saves",
+				"Its HP is half my ranger level or the total in its stat block, whichever is higher",
+				"It takes it turn right after my initiative and is under my complete control"
+			]),
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		},
+		"subclassfeature3.1" : {
+			name : "Stalker's Fangs",
+			source : ["UA:R", 4],
+			minlevel : 3,
+			description : desc([
+				"When I call my spirit animal, I can chose a creature that I can see",
+				"The target's next weapon attack hit deals 2d6 + Wis mod extra slashing damage"
+			])
+		}
+	}
 };
 var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
 RequiredSheetVersion(12.999);
