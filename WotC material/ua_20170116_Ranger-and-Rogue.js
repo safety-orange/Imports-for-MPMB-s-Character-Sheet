@@ -145,7 +145,7 @@ if (ClassList["rangerua"]) { // add them to the Revised Ranger as well, if it is
 	theHorizonConclaveSubclass.subname = "Horizon Conclave";
 	delete theHorizonConclaveSubclass.fullname;
 	AddSubClass("rangerua", "horizon conclave", theHorizonConclaveSubclass);
-	var thePrimevalGuardianConclaveSubclass = newObj(theHorizonWalkerSubclass);
+	var thePrimevalGuardianConclaveSubclass = newObj(thePrimevalGuardianSubclass);
 	thePrimevalGuardianConclaveSubclass.subname = "Primeval Guardian Conclave";
 	delete thePrimevalGuardianConclaveSubclass.fullname;
 	AddSubClass("rangerua", "primeval guardian conclave", thePrimevalGuardianConclaveSubclass);

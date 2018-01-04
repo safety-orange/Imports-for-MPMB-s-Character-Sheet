@@ -5466,7 +5466,7 @@ if (ClassList["rangerua"]) { // add them to the Revised Ranger as well, if it is
 	theHorizonConclaveSubclass.subname = "Horizon Conclave";
 	delete theHorizonConclaveSubclass.fullname;
 	AddSubClass("rangerua", "horizon conclave", theHorizonConclaveSubclass);
-	var thePrimevalGuardianConclaveSubclass = newObj(theHorizonWalkerSubclass);
+	var thePrimevalGuardianConclaveSubclass = newObj(thePrimevalGuardianSubclass);
 	thePrimevalGuardianConclaveSubclass.subname = "Primeval Guardian Conclave";
 	delete thePrimevalGuardianConclaveSubclass.fullname;
 	AddSubClass("rangerua", "primeval guardian conclave", thePrimevalGuardianConclaveSubclass);
@@ -6073,7 +6073,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",
 	source : ["UA:WnW", 3],
-	prereqeval : "classes.known.warlock.subclass === 'the archfey'",
+	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)",
 	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
@@ -6083,7 +6083,7 @@ AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
 		"It immediately takes fire damage equal to my Charisma modifier (min 1)"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "classes.known.warlock.subclass === 'warlock-the hexblade'",
+	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass)",
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
@@ -6093,7 +6093,7 @@ AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
 		"I have advantage on attack rolls against charmed creatures"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "classes.known.warlock.subclass === 'the great old one'",
+	prereqeval : "(/great old one/).test(classes.known.warlock.subclass)",
 	skills : ["Deception", "Stealth"],
 	skillstxt : "\n\n" + toUni("Warlock (Caiphon's Beacon)") + ": Deception and Stealth."
 });
@@ -6104,7 +6104,7 @@ AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
 		"All creatures within 5 ft of the target take cold damage equal to my Cha modifier (min 1)"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "classes.known.warlock.subclass === 'warlock-the hexblade'",
+	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass)",
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patron, Pact of the Tome)", {
@@ -6115,7 +6115,7 @@ AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patr
 		"Its spirit writes the answer, to the best of its knowledge, in blood in a language I choose"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "classes.known.warlock.subclass === 'warlock-the raven queen' && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the tome') !== -1",
+	prereqeval : "(/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the tome') !== -1",
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of the Blade)", {
@@ -6126,7 +6126,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 		"On a hit, I can expand a spell slot to have it do +2d8 necrotic damage per spell slot level"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "classes.known.warlock.subclass === 'the great old one' && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
 	eval : "AddWeapon('Claw of Acamar');",
 	removeeval : "RemoveWeapon('Claw of Acamar');"
 });
@@ -6138,7 +6138,7 @@ AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 		"Creatures starting their turn within 5 ft of me take poison damage equal to my Cha mod"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "classes.known.warlock.subclass === 'the fiend'",
+	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass)",
 	action : ["bonus action", " (start/end)"]
 });
 AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Blade)", {
@@ -6150,7 +6150,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		"On a hit, I can expand a spell slot to have it do +2d8 slashing damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.subclass === 'warlock-the hexblade' && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
 	eval : "AddWeapon('Curse Bringer');",
 	removeeval : "RemoveWeapon('Curse Bringer');"
 });
@@ -6161,7 +6161,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.level >= 5 && classes.known.warlock.subclass === 'the fiend'",
+	prereqeval : "hasEldritchBlast && classes.known.warlock.level >= 5 && (/\\bfiend\\b/).test(classes.known.warlock.subclass)",
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
@@ -6171,7 +6171,7 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.subclass === 'the archfey'",
+	prereqeval : "hasEldritchBlast && (/\\barchfey\\b/).test(classes.known.warlock.subclass)",
 	calcChanges : {
 		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
 	}
@@ -6182,7 +6182,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 		"As an action, I can see through solid object out to 30 ft until the end of my current turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.subclass === 'the great old one' && classes.known.warlock.level >= 7",
+	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7",
 	action : ["action", ""]
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
@@ -6191,7 +6191,7 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 		"When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.subclass === 'the great old one'",
+	prereqeval : "hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass)",
 	calcChanges : {
 		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
 	}
@@ -6202,7 +6202,7 @@ AddWarlockInvocation("Green Lord's Gift (prereq: the Archfey patron)", {
 		"When I regain HP, all dice for determining the HP I heal are treated as rolling maximum"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.subclass === 'the archfey'"
+	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)"
 });
 AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Improved Pact Weapon",
@@ -6223,7 +6223,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 		"On a hit, I can expand a spell slot to have it do +2d8 force damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.subclass === 'the fiend' && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
 	eval : "AddWeapon('Mace of Dispater');",
 	removeeval : "RemoveWeapon('Mace of Dispater');"
 });
@@ -6235,7 +6235,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 		"On a hit, I can expand a spell slot to have it do +2d8 radiant damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.subclass === 'the archfey' && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
 	eval : "AddWeapon('Moon Bow');",
 	removeeval : "RemoveWeapon('Moon Bow');"
 });
@@ -6246,7 +6246,7 @@ AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 		"I also have advantage on checks to escape a grapple, manacles, or rope bindings"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.subclass === 'the seeker'",
+	prereqeval : "(/\\bseeker\\b/).test(classes.known.warlock.subclass)",
 	eval : "AddString('Saving Throw advantages \/ disadvantages', 'Adv. vs. being paralyzed', '; ');",
 	removeeval : "RemoveString('Saving Throw advantages \/ disadvantages', 'Adv. vs. being paralyzed');"
 });
@@ -6257,7 +6257,7 @@ AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, El
 		"That ally can immediately expend one HD to regain HP, just like after a short rest"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.subclass === 'warlock-the raven queen' && hasEldritchBlast"
+	prereqeval : "(/raven queen/).test(classes.known.warlock.subclass) && hasEldritchBlast"
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patron)", {
 	name : "Relentless Hex",
@@ -6266,7 +6266,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patr
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.subclass === 'warlock-the hexblade' && classes.known.warlock.level >= 5",
+	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5",
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
@@ -6282,7 +6282,7 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 		oncelr : true
 	},
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.subclass === 'the archfey'",
+	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)",
 	speed : { swim : { spd : "walk", enc : "walk" } }
 });
 AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
@@ -6291,7 +6291,7 @@ AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
 		"When I finish a long rest, I pick two languages that I know until I finish my next long rest"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.subclass === 'the seeker'"
+	prereqeval : "(/\\bseeker\\b/).test(classes.known.warlock.subclass)"
 });
 AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old One patron)", {
 	name : "Shroud of Ulban",
@@ -6301,7 +6301,7 @@ AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old O
 		"However, I only become visible at the end of the current turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.subclass === 'the great old one' && classes.known.warlock.level >= 18",
+	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18",
 	action : ["action", ""]
 });
 AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the Blade)", {
@@ -6323,7 +6323,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
 		"Until the ice is gone, I have vulnerability to fire damage, 0 speed, and am incapacitated"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.subclass === 'the fiend'",
+	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass)",
 	recovery : "short rest",
 	usages : 1,
 	action : ["reaction", ""]

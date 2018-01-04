@@ -1454,7 +1454,7 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 	}
 });
 AddSubClass("ranger", "horizon walker-xgte", {
-	regExpSearch : /^(?=.*horizon)(?=.*(walker|conclave)).*$/i,
+	regExpSearch : /^(?=.*horizon)(?=.*walker).*$/i,
 	subname : "Horizon Walker",
 	source : ["X", 42],
 	fullname : "Horizon Walker",
@@ -1470,7 +1470,7 @@ AddSubClass("ranger", "horizon walker-xgte", {
 			action : ["action", ""]
 		},
 		"subclassfeature3.1" : {
-			name : "Horizon Walker magic",
+			name : "Horizon Walker Magic",
 			source : ["X", 42],
 			minlevel : 3,
 			description : desc([
@@ -1869,7 +1869,8 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 				]),
 				spellcastingBonus : {
 					name : "Divine Magic (Good)",
-					spells : ["cure wounds"],
+					"class" : "cleric",
+					level : [1,9],
 					selection : ["cure wounds"]
 				},
 				eval : "if (classes.known.sorcerer && classes.known.sorcerer.level >= 14 && !(/.*?sorcerer,subclassfeature14,eagle.*/i).test(What('Class Features Remember'))) { ClassFeatureOptions(['sorcerer', 'subclassfeature14', 'eagle']); };"
@@ -1883,7 +1884,8 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 				]),
 				spellcastingBonus : {
 					name : "Divine Magic (Evil)",
-					spells : ["inflict wounds"],
+					"class" : "cleric",
+					level : [1,9],
 					selection : ["inflict wounds"]
 				},
 				eval : "if (classes.known.sorcerer && classes.known.sorcerer.level >= 14 && !(/.*?sorcerer,subclassfeature14,bat.*/i).test(What('Class Features Remember'))) { ClassFeatureOptions(['sorcerer', 'subclassfeature14', 'bat']); };"
@@ -1897,7 +1899,8 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 				]),
 				spellcastingBonus : {
 					name : "Divine Magic (Law)",
-					spells : ["bless"],
+					"class" : "cleric",
+					level : [1,9],
 					selection : ["bless"]
 				},
 				eval : "if (classes.known.sorcerer && classes.known.sorcerer.level >= 14 && !(/.*?sorcerer,subclassfeature14,eagle.*/i).test(What('Class Features Remember'))) { ClassFeatureOptions(['sorcerer', 'subclassfeature14', 'eagle']); };"
@@ -1911,7 +1914,8 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 				]),
 				spellcastingBonus : {
 					name : "Divine Magic (Chaos)",
-					spells : ["bane"],
+					"class" : "cleric",
+					level : [1,9],
 					selection : ["bane"]
 				},
 				eval : "if (classes.known.sorcerer && classes.known.sorcerer.level >= 14 && !(/.*?sorcerer,subclassfeature14,bat.*/i).test(What('Class Features Remember'))) { ClassFeatureOptions(['sorcerer', 'subclassfeature14', 'bat']); };"
@@ -1925,7 +1929,8 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 				]),
 				spellcastingBonus : {
 					name : "Divine Magic (Neutrality)",
-					spells : ["protection from evil and good"],
+					"class" : "cleric",
+					level : [1,9],
 					selection : ["protection from evil and good"]
 				},
 				eval : "if (classes.known.sorcerer && classes.known.sorcerer.level >= 14) { ClassFeatureOptions(['sorcerer','subclassfeature14','dragonfly']); };"
