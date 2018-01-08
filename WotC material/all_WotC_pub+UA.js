@@ -15872,7 +15872,7 @@ RunFunctionAtEnd(function() {
 				name : "Divine Wings",
 				source : ["UA:MC", 8],
 				minlevel : 14,
-				description : "\n   " + "As a bonus action, unless armor is in the way, I can sprout dragon wings from my back" + "\n   " + "I gain a fly speed equal to my current speed until I dismiss the wings as a bonus action",
+				description : "\n   " + "As a bonus action, I sprout feathered or bat wings from my back unless blocked by armor" + "\n   " + "I gain a fly speed equal to my current speed until I dismiss the wings as a bonus action",
 				action : ["bonus action", " (start/stop)"],
 				speed : { fly : { spd : "walk", enc : "walk" } }
 			},
