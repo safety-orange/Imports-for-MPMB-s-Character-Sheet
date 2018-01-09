@@ -1,0 +1,37 @@
+#MorePurpleMoreBetter's 5e Character Record Sheet v12.999
+
+##Download here
+* ENworld [Download Page](http://www.enworld.org/forum/rpgdownloads.php?do=download&downloadid=1180)
+* Patreon [Patron Only Download](https://www.patreon.com/posts/14927098)
+
+&nbsp;
+
+##Add additional content to the sheets
+* Find code on this subreddit, [like in the top post](https://www.reddit.com/r/mpmb/comments/7gkmsp)
+* By creating your own [using the syntax found here](https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/tree/master/additional%20content%20syntax)
+
+&nbsp;
+
+##FAQ
+###Bug reporting
+* Please report all bugs for the **Character Sheets** on [MPMB GitHub page](https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/issues). We are not an official bug reporting location currently.
+* For reporting bugs **with the scripts themselves**, please direct those to the [safety-orange GitHub page](https://github.com/safety-orange/Imports-for-MPMB-s-Character-Sheet/issues). While /u/safety-orange will help and be involved in discussions on the subreddit, the GitHub is the intended bug reporting location.
+
+###Posting content
+&nbsp;&nbsp;Only post code using a [GitHub Gist](https://gist.github.com/), so that we do not have formatting issues. Keep in mind to do the following:
+
+* Use .js as the file extension - So that GitHub will use proper syntax highlighting.
+* Create a Private Gist - This keeps it private, but allows you to post the URL that we can access.
+* Include the URL in your post.
+
+###How to import a script
+1. Right-click a 'download' link to a .js file, [like from this post](https://www.reddit.com/r/mpmb/comments/7gkmsp), and select "Copy Link Location" (actual wording may differ, depending on your browser/language)
+2. Open the PDF and click on the bookmark that reads "Add Extra Materials"
+3. Select the option "Import a file with additional material"
+4. In the dialogue that appears, click "Add file", and have the "Open File" dialogue of your OS open
+5. In the "Open File" dialogue that opens, you can now paste the link that you copied in step 1 and select to open that file
+6. Click "Apply changes" in the 'Import files' dialogue in the PDF and the sheet will process the file(s) you added. You will get a pop-up message if it was successful
+7. ???
+8. Profit!
+
+* Note that you can also download a script file and then import it by navigating to it
