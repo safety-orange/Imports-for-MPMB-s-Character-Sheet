@@ -1537,7 +1537,7 @@ AddSubClass("sorcerer", "wild magic", {
 				"97-98 You are surrounded by faint, ethereal music for the next minute.",
 				"99-100 You regain all expended sorcery points."
 			]),
-			eval : "try {AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1, 'Wild Mage\\'s Wild Magic Surge table, part 1'); AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2, 'Wild Mage\\'s Wild Magic Surge table, part 2');} catch (er) {};",
+			eval : "try {AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1, \"Wild Mage's Wild Magic Surge table, part 1\"); AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2, \"Wild Mage's Wild Magic Surge table, part 2\");} catch (er) {};",
 			removeeval : "try {AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1); AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2);} catch (er) {};"
 		},
 		"subclassfeature1.1" : {
@@ -3073,7 +3073,7 @@ FeatsList["heavy armor master"] = {
 FeatsList["inspiring leader"] = {
 	name : "Inspiring Leader",
 	source : ["P", 167],
-	calculate : "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + ') temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.'",
+	calculate : "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + \") temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.\";",
 	prerequisite : "Charisma 13 or higher",
 	prereqeval : "What('Cha') >= 13"
 };
@@ -3094,7 +3094,7 @@ FeatsList["lightly armored"] = {
 FeatsList["linguist"] = {
 	name : "Linguist",
 	source : ["P", 167],
-	calculate : "event.value = 'I can ably create written ciphers that others can\'t decipher unless I teach them, they succeed on an Intelligence check DC ' + (What('Int') + What('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
+	calculate : "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (What('Int') + What('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	improvements : "Linguist (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
 	languageProfs : [3]
@@ -3160,7 +3160,7 @@ FeatsList["magic initiate [wizard]"] = {
 FeatsList["martial adept"] = {
 	name : "Martial Adept",
 	source : ["P", 168],
-	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.'",
+	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
 	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
 	removeeval : "RemoveFeature('Combat Superiority ', 1);"
 };

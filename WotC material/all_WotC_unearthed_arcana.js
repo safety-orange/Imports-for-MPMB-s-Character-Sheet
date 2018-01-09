@@ -1506,7 +1506,7 @@ ClassList["rune scribe"] = {
 					"   It 2d8+1d8/SL bludg. dmg \u0026 pushed 10 ft; DC 12+SL Str save for half \u0026 not pushed",
 					"- Wind Walker (complex): I can cast Levitate as a bonus action once per short rest"
 				]),
-				eval : "AddAction('bonus action', 'Vind Rune (Wind Walker)', 'Pennant of the Vind Rune'); AddAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)', 'Pennant of the Vind Rune'); AddAction('reaction', 'Vind Rune (Wind\\'s Grasp)', 'Pennant of the Vind Rune');",
+				eval : "AddAction('bonus action', 'Vind Rune (Wind Walker)', 'Pennant of the Vind Rune'); AddAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)', 'Pennant of the Vind Rune'); AddAction('reaction', \"Vind Rune (Wind's Grasp)\", 'Pennant of the Vind Rune');",
 				removeeval : "RemoveAction('bonus action', 'Vind Rune (Wind Walker)'); RemoveAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)'); RemoveAction('reaction', 'Vind Rune (Wind Step, Shrieking Bolt)');",
 				savetxt : { adv_vs : ["inhaled poison"] },
 				spellcastingBonus : {
@@ -5791,7 +5791,7 @@ AddSubClass("sorcerer", "stone sorcery", {
 			eval : "AddAction('bonus action', \"Stone's Durability (end)\", \"Stone's Durability (Stone Sorcerer)\");",
 			removeeval : "RemoveAction('bonus action', \"Stone's Durability (end)\");",
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Stone\\'s Durability (Sorcerer)'; }; "
+				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + \" from Stone's Durability (Sorcerer)\"; }; "
 			},
 			addarmor : "Stone's Durability (Con)"
 		},
@@ -13501,7 +13501,7 @@ AddSubClass("wizard", "school of invention", {
 				" 4\tFlame Strike\t    9\tWall of Stone",
 				" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted"
 			]),
-			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, 'School of Invention\\'s Reckless Casting tables');} catch (er) {};",
+			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, \"School of Invention's Reckless Casting tables\");} catch (er) {};",
 			removeeval : "try {AddToNotes('', '', ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable);} catch (er) {};"
 		},
 		"subclassfeature6" : {

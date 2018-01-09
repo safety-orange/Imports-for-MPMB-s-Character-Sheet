@@ -1538,7 +1538,7 @@ AddSubClass("sorcerer", "wild magic", {
 				"97-98 You are surrounded by faint, ethereal music for the next minute.",
 				"99-100 You regain all expended sorcery points."
 			]),
-			eval : "try {AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1, 'Wild Mage\\'s Wild Magic Surge table, part 1'); AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2, 'Wild Mage\\'s Wild Magic Surge table, part 2');} catch (er) {};",
+			eval : "try {AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1, \"Wild Mage's Wild Magic Surge table, part 1\"); AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2, \"Wild Mage's Wild Magic Surge table, part 2\");} catch (er) {};",
 			removeeval : "try {AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1); AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2);} catch (er) {};"
 		},
 		"subclassfeature1.1" : {
@@ -3074,7 +3074,7 @@ FeatsList["heavy armor master"] = {
 FeatsList["inspiring leader"] = {
 	name : "Inspiring Leader",
 	source : ["P", 167],
-	calculate : "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + ') temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.'",
+	calculate : "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + \") temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.\";",
 	prerequisite : "Charisma 13 or higher",
 	prereqeval : "What('Cha') >= 13"
 };
@@ -3095,7 +3095,7 @@ FeatsList["lightly armored"] = {
 FeatsList["linguist"] = {
 	name : "Linguist",
 	source : ["P", 167],
-	calculate : "event.value = 'I can ably create written ciphers that others can\'t decipher unless I teach them, they succeed on an Intelligence check DC ' + (What('Int') + What('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
+	calculate : "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (What('Int') + What('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	improvements : "Linguist (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
 	languageProfs : [3]
@@ -3161,7 +3161,7 @@ FeatsList["magic initiate [wizard]"] = {
 FeatsList["martial adept"] = {
 	name : "Martial Adept",
 	source : ["P", 168],
-	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.'",
+	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
 	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
 	removeeval : "RemoveFeature('Combat Superiority ', 1);"
 };
@@ -17067,7 +17067,7 @@ ClassList["rune scribe"] = {
 					"   It 2d8+1d8/SL bludg. dmg \u0026 pushed 10 ft; DC 12+SL Str save for half \u0026 not pushed",
 					"- Wind Walker (complex): I can cast Levitate as a bonus action once per short rest"
 				]),
-				eval : "AddAction('bonus action', 'Vind Rune (Wind Walker)', 'Pennant of the Vind Rune'); AddAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)', 'Pennant of the Vind Rune'); AddAction('reaction', 'Vind Rune (Wind\\'s Grasp)', 'Pennant of the Vind Rune');",
+				eval : "AddAction('bonus action', 'Vind Rune (Wind Walker)', 'Pennant of the Vind Rune'); AddAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)', 'Pennant of the Vind Rune'); AddAction('reaction', \"Vind Rune (Wind's Grasp)\", 'Pennant of the Vind Rune');",
 				removeeval : "RemoveAction('bonus action', 'Vind Rune (Wind Walker)'); RemoveAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)'); RemoveAction('reaction', 'Vind Rune (Wind Step, Shrieking Bolt)');",
 				savetxt : { adv_vs : ["inhaled poison"] },
 				spellcastingBonus : {
@@ -21352,7 +21352,7 @@ AddSubClass("sorcerer", "stone sorcery", {
 			eval : "AddAction('bonus action', \"Stone's Durability (end)\", \"Stone's Durability (Stone Sorcerer)\");",
 			removeeval : "RemoveAction('bonus action', \"Stone's Durability (end)\");",
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Stone\\'s Durability (Sorcerer)'; }; "
+				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + \" from Stone's Durability (Sorcerer)\"; }; "
 			},
 			addarmor : "Stone's Durability (Con)"
 		},
@@ -29062,7 +29062,7 @@ AddSubClass("wizard", "school of invention", {
 				" 4\tFlame Strike\t    9\tWall of Stone",
 				" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted"
 			]),
-			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, 'School of Invention\\'s Reckless Casting tables');} catch (er) {};",
+			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, \"School of Invention's Reckless Casting tables\");} catch (er) {};",
 			removeeval : "try {AddToNotes('', '', ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable);} catch (er) {};"
 		},
 		"subclassfeature6" : {

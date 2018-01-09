@@ -219,7 +219,7 @@ AddSubClass("wizard", "school of invention", {
 				" 4\tFlame Strike\t    9\tWall of Stone",
 				" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted"
 			]),
-			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, 'School of Invention\\'s Reckless Casting tables');} catch (er) {};",
+			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, \"School of Invention's Reckless Casting tables\");} catch (er) {};",
 			removeeval : "try {AddToNotes('', '', ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable);} catch (er) {};"
 		},
 		"subclassfeature6" : {
