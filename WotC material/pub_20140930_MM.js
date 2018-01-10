@@ -79,7 +79,7 @@ CreatureList["ankylosaurus"] = {
 			damage : [4, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
 			range : "Melee (10 ft)",
 			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
-			modifiers : [1, "", ""], //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [1, "", ""] //[to hit, to damage, add ability to damage] "" means ignore
 		}
 	]
 };
@@ -408,7 +408,7 @@ CreatureList["gas spore"] = {
 			damage : [1, "", "poison"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "DC 10 Con save or infected with Death Burst disease, see traits",
-			modifiers : [1, "", false], //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [1, "", false] //[to hit, to damage, add ability to damage] "" means ignore
 		}
 	],
 	traits : [{
