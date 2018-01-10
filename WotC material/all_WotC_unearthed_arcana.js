@@ -13208,7 +13208,11 @@ RaceList["grugach"] = {
 	eval : "RemoveLangTool('language', 'Common');"
 };
 // Edit the Wood Elf PHB entry, if available, to not match on Grugach
-if (RaceList["wood elf"]) RaceList["wood elf"].regExpSearch = /^(?!.*half)((?=.*kagonesti)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|green)\b))).*$/i;
+if (sheetVersion >= 13 && RaceList["wood elf"]) {
+	RaceList["wood elf"].regExpSearch = RaceList["wood elf"].regExpSearch.replace(/grugach\|?|wilds\?\|?/g, "");
+} else if (RaceList["wood elf"]) {
+	RaceList["wood elf"].regExpSearch = /^(?!.*half)((?=.*kagonesti)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|green)\b))).*$/i;
+};
 RaceList["sea elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 	name : "Sea elf",

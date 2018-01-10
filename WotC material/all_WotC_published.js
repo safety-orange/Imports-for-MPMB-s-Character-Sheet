@@ -152,7 +152,6 @@ RaceList["forest gnome"] = {
 	improvements : "Forest Gnome: +1 Dexterity, +2 Intelligence;",
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Forest Gnome (+1 Dexterity, +2 Intelligence)" + (typePF ? "\n" : " ") + "\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
-	abilitySave : 4,
 	spellcastingAbility : 4,
 	spellcastingBonus : {
 		name : "Natural Illusionist",
@@ -392,7 +391,10 @@ AddSubClass("cleric", "light domain", {
 			name : "Warding Flare",
 			source : ["P", 61],
 			minlevel : 1,
-			description : "\n   " + "When a creature within 30 ft attacks me and I can see it, I can interpose divine light" + "\n   " + "As a reaction, I impose disadv. on the attacker's attack roll (unless it can't be blinded)",
+			description : desc([
+				"When a creature within 30 ft attacks me and I can see it, I can interpose divine light",
+				"As a reaction, I impose disadv. on the attacker's attack roll (unless it can't be blinded)"
+			]),
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
 			recovery : "long rest",
@@ -566,11 +568,16 @@ AddSubClass("cleric", "trickery domain", {
 			name : "Channel Divinity: Invoke Duplicity",
 			source : ["P", 63],
 			minlevel : 2,
-			description : "\n   " + "As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)" + "\n   " + "As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me" + "\n   " + "I can cast spells as though I was in an duplicate's space, using my own senses" + "\n   " + "I have advantage on attacks if the target is within 5 ft of a duplicate and me",
-			additional : ["", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "4 illusory duplicates", "4 illusory duplicates", "4 illusory duplicates", "4 illusory duplicates"],
+			description : desc([
+				"As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)",
+				"As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me",
+				"I can cast spells as though I was in an duplicate's space, using my own senses",
+				"I have advantage on attacks if the target is within 5 ft of a duplicate and me"
+			]),
+			additional : levels.map(function (n) { return n < 2 ? "" : (n < 17 ? 1 : 2) + " illusory duplicate" + (n < 17 ? "" : "s"); }),
 			action : ["action", ""],
-			eval : "AddAction(\"bonus action\", \"Move Duplicate(s)\", \"Cleric (Trickery Domain) - Channel Divinity: Invoke Duplicity\")",
-			removeeval : "RemoveAction(\"bonus action\", \"Move Duplicate(s)\")"
+			eval : "AddAction('bonus action', 'Move Duplicate(s)', 'Cleric (Trickery Domain) - Channel Divinity: Invoke Duplicity')",
+			removeeval : "RemoveAction('bonus action', 'Move Duplicate(s)')"
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Cloak of Shadows",
@@ -584,10 +591,7 @@ AddSubClass("cleric", "trickery domain", {
 			source : ["P", 63],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
-			additional : levels.map(function (n) {
-				if (n < 8) return "";
-				return "+" + (n < 14 ? 1 : 2) + "d8 poison damage";
-			}),
+			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 poison damage"; }),
 			calcChanges : {
 				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 poison damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra poison damage."]
 			}
@@ -596,7 +600,10 @@ AddSubClass("cleric", "trickery domain", {
 			name : "Improved Duplicity",
 			source : ["P", 63],
 			minlevel : 17,
-			description : "\n   " + "When I use Invoke Duplicity, I make four illusory duplicates instead of one" + "\n   " + "I can move any number of the illusory duplicates as part of the same bonus action"
+			description : desc([
+				"When I use Invoke Duplicity, I make four illusory duplicates instead of one",
+				"I can move any number of the illusory duplicates as part of the same bonus action"
+			])
 		}
 	}
 });
@@ -634,7 +641,10 @@ AddSubClass("cleric", "war domain", {
 			name : "Channel Divinity: War God's Blessing",
 			source : ["P", 63],
 			minlevel : 6,
-			description : "\n   " + "As a reaction, when a creature within 30 ft makes an attack roll, I can grant a bonus" + "\n   " + "The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll",
+			description : desc([
+				"As a reaction, when a creature within 30 ft makes an attack roll, I can grant a ",
+				"The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
+			]),
 			action : ["reaction", ""]
 		},
 		"subclassfeature8" : {
@@ -4231,7 +4241,7 @@ CreatureList["ankylosaurus"] = {
 			damage : [4, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
 			range : "Melee (10 ft)",
 			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
-			modifiers : [1, "", ""], //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [1, "", ""] //[to hit, to damage, add ability to damage] "" means ignore
 		}
 	]
 };
@@ -4560,7 +4570,7 @@ CreatureList["gas spore"] = {
 			damage : [1, "", "poison"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "DC 10 Con save or infected with Death Burst disease, see traits",
-			modifiers : [1, "", false], //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [1, "", false] //[to hit, to damage, add ability to damage] "" means ignore
 		}
 	],
 	traits : [{
@@ -6212,7 +6222,7 @@ SpellsList["watery sphere"] = {
 	duration : "Conc, 1 min",
 	save : "Str",
 	description : "5-ft rad all crea < Huge save or restrained; on save ejected; save each rnd; 1 a move sphere 30 ft",
-	descriptionFull : "You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell’s duration." + "\n   " + "Any creature in the sphere’s space must make a Strength saving throw. On a successful save, a creature is ejected from that space to the nearest unoccupied space of the creature’s choice outside the sphere. A Huge or larger creature succeeds on the saving throw automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is restrained by the sphere and is engulfed by the water. At the end of each of its turns, a restrained target can repeat the saving throw, ending the effect on itself on a success." + "\n   " + "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already restrained by the sphere falls out of it and lands prone in a space within 5 feet of it." + "\n   " + "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature restrained by the sphere moves with it. You can ram the sphere into creatures, forcing them to make the saving throw." + "\n   " + "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature restrained by the sphere is knocked prone in the space where it falls. The water then vanishes."
+	descriptionFull : "You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell's duration." + "\n   " + "Any creature in the sphere's space must make a Strength saving throw. On a successful save, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the saving throw automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is restrained by the sphere and is engulfed by the water. At the end of each of its turns, a restrained target can repeat the saving throw, ending the effect on itself on a success." + "\n   " + "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already restrained by the sphere falls out of it and lands prone in a space within 5 feet of it." + "\n   " + "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature restrained by the sphere moves with it. You can ram the sphere into creatures, forcing them to make the saving throw." + "\n   " + "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature restrained by the sphere is knocked prone in the space where it falls. The water then vanishes."
 };
 SpellsList["whirlwind"] = {
 	name : "Whirlwind",
