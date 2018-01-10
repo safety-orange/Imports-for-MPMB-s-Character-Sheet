@@ -151,7 +151,6 @@ RaceList["forest gnome"] = {
 	improvements : "Forest Gnome: +1 Dexterity, +2 Intelligence;",
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Forest Gnome (+1 Dexterity, +2 Intelligence)" + (typePF ? "\n" : " ") + "\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
-	abilitySave : 4,
 	spellcastingAbility : 4,
 	spellcastingBonus : {
 		name : "Natural Illusionist",
@@ -391,7 +390,10 @@ AddSubClass("cleric", "light domain", {
 			name : "Warding Flare",
 			source : ["P", 61],
 			minlevel : 1,
-			description : "\n   " + "When a creature within 30 ft attacks me and I can see it, I can interpose divine light" + "\n   " + "As a reaction, I impose disadv. on the attacker's attack roll (unless it can't be blinded)",
+			description : desc([
+				"When a creature within 30 ft attacks me and I can see it, I can interpose divine light",
+				"As a reaction, I impose disadv. on the attacker's attack roll (unless it can't be blinded)"
+			]),
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
 			recovery : "long rest",
@@ -565,11 +567,16 @@ AddSubClass("cleric", "trickery domain", {
 			name : "Channel Divinity: Invoke Duplicity",
 			source : ["P", 63],
 			minlevel : 2,
-			description : "\n   " + "As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)" + "\n   " + "As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me" + "\n   " + "I can cast spells as though I was in an duplicate's space, using my own senses" + "\n   " + "I have advantage on attacks if the target is within 5 ft of a duplicate and me",
-			additional : ["", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "1 illusory duplicate", "4 illusory duplicates", "4 illusory duplicates", "4 illusory duplicates", "4 illusory duplicates"],
+			description : desc([
+				"As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)",
+				"As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me",
+				"I can cast spells as though I was in an duplicate's space, using my own senses",
+				"I have advantage on attacks if the target is within 5 ft of a duplicate and me"
+			]),
+			additional : levels.map(function (n) { return n < 2 ? "" : (n < 17 ? 1 : 2) + " illusory duplicate" + (n < 17 ? "" : "s"); }),
 			action : ["action", ""],
-			eval : "AddAction(\"bonus action\", \"Move Duplicate(s)\", \"Cleric (Trickery Domain) - Channel Divinity: Invoke Duplicity\")",
-			removeeval : "RemoveAction(\"bonus action\", \"Move Duplicate(s)\")"
+			eval : "AddAction('bonus action', 'Move Duplicate(s)', 'Cleric (Trickery Domain) - Channel Divinity: Invoke Duplicity')",
+			removeeval : "RemoveAction('bonus action', 'Move Duplicate(s)')"
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Cloak of Shadows",
@@ -583,10 +590,7 @@ AddSubClass("cleric", "trickery domain", {
 			source : ["P", 63],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
-			additional : levels.map(function (n) {
-				if (n < 8) return "";
-				return "+" + (n < 14 ? 1 : 2) + "d8 poison damage";
-			}),
+			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 poison damage"; }),
 			calcChanges : {
 				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 poison damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra poison damage."]
 			}
@@ -595,7 +599,10 @@ AddSubClass("cleric", "trickery domain", {
 			name : "Improved Duplicity",
 			source : ["P", 63],
 			minlevel : 17,
-			description : "\n   " + "When I use Invoke Duplicity, I make four illusory duplicates instead of one" + "\n   " + "I can move any number of the illusory duplicates as part of the same bonus action"
+			description : desc([
+				"When I use Invoke Duplicity, I make four illusory duplicates instead of one",
+				"I can move any number of the illusory duplicates as part of the same bonus action"
+			])
 		}
 	}
 });
@@ -633,7 +640,10 @@ AddSubClass("cleric", "war domain", {
 			name : "Channel Divinity: War God's Blessing",
 			source : ["P", 63],
 			minlevel : 6,
-			description : "\n   " + "As a reaction, when a creature within 30 ft makes an attack roll, I can grant a bonus" + "\n   " + "The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll",
+			description : desc([
+				"As a reaction, when a creature within 30 ft makes an attack roll, I can grant a ",
+				"The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
+			]),
 			action : ["reaction", ""]
 		},
 		"subclassfeature8" : {
