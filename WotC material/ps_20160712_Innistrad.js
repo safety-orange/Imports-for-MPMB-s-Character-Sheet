@@ -3,6 +3,7 @@ RequiredSheetVersion(12.999);
 // This file adds all material from the Plane Shift: Innistrad article (http://www.dragonmag.com/5.0/#!/article/106375/102161027) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 
+// Define the source
 SourceList["PS:I"] = {
 	name : "Plane Shift: Innistrad",
 	abbreviation : "PS:I",
@@ -11,6 +12,7 @@ SourceList["PS:I"] = {
 	date : "2016/07/12"
 };
 
+// Adds 4 human subraces
 RaceList["gavony human"] = {
 	regExpSearch : /^(?=.*\bgavonian?s?\b).*$/i,
 	name : "Gavonian",
@@ -104,13 +106,14 @@ RaceList["stensia human"] = {
 	}
 };
 
+// Adds 1 background
 BackgroundList["inquisitor"] = {
 	regExpSearch : /inquisitor/i,
 	name : "Inquisitor",
 	source : ["PS:I", 12],
 	skills : ["Investigation", "Religion"],
 	gold : 15,
-	equipleft : [
+	equipright : [
 		["Traveler's clothes", "", 3],
 		["Holy symbol", "", ""],
 		["Belt pouch (with coins)", "", 1]
