@@ -60,7 +60,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Aura",
 			source : ["UA:BPP", 2],
 			minlevel : 3,
-			description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the \"Choose Features\" button above to select the aura",
+			description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the \"Choose Feature\" button above to select the aura",
 			choices : ["Desert", "Sea", "Tundra"],
 			"desert" : {
 				name : "Storm of Fury: Desert",
@@ -87,7 +87,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Soul",
 			source : ["UA:BPP", 2],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -119,7 +119,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Raging Storm",
 			source : ["UA:BPP", 2],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {

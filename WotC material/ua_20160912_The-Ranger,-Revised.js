@@ -46,7 +46,7 @@ ClassList["rangerua"] = {
 			name : "Favored Enemy",
 			source : ["UA:RR", 2],
 			minlevel : 1,
-			description : "\n   " + "Use the \"Choose Features\" button above to select a favored enemy" + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select a favored enemy" + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
 			additional : levels.map(function (n) {
 				return (n < 6 ? "+2" : "+4") + " weapon attack damage";
 			}),
@@ -87,8 +87,8 @@ ClassList["rangerua"] = {
 				source : ["UA:RR", 3],
 				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
 			},
-			eval : "Checkbox(\"Init Adv\", true, \"Advantage to Initiative checks was gained from Ranger (Natural Explorer)\"); ClassFeatureOptions([\"rangerua\", \"natural explorer\", \"travel benefit\", \"extra\"]);",
-			removeeval : "Checkbox(\"Init Adv\", false, \"\"); ClassFeatureOptions([\"rangerua\", \"natural explorer\", \"travel benefit\", \"extra\"], \"remove\");"
+			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)'); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra']);",
+			removeeval : "Checkbox('Init Adv', false, ''); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra'], 'remove');"
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);
@@ -119,7 +119,7 @@ ClassList["rangerua"] = {
 			name : "Greater Favored Enemy",
 			source : ["UA:RR", 4],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Features\" button above to select a greater favored enemy" + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select a greater favored enemy" + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
 			additional : "+4 weapon attack damage",
 			choices : ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fiends", "Giants"],
 			"aberrations" : {

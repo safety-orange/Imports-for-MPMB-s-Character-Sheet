@@ -85,7 +85,7 @@ AddSubClass("barbarian", "storm herald", {
 			description : desc([
 				"While raging, I emanate a 10-ft radius aura, but not through total cover",
 				"The aura's features activate when I enter my rage or as a bonus action while raging",
-				"Use the \"Choose Features\" button above to select the type of aura"
+				"Use the \"Choose Feature\" button above to select the type of aura"
 			]),
 			choices : ["Desert", "Sea", "Tundra"],
 			action : ["bonus action", " (reactivate)"],
@@ -125,7 +125,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Soul",
 			source : ["X", 10],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -185,7 +185,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Raging Storm",
 			source : ["X", 11],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -797,7 +797,7 @@ AddSubClass("fighter", "arcane archer-xgte", {
 				"I can unleash magical effects when I fire an arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Features\" button above to add Arcane Shots Options to the third page"
+				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
 			]),
 			usages : 2,
 			recovery : "short rest",

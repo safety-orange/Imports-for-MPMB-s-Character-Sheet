@@ -146,7 +146,7 @@ AddSubClass("fighter", "arcane archer2", {
 				"I can unleash magical effects when I fire a magic arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Features\" button above to add Arcane Shots Options to the third page"
+				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
 			]),
 			usages : 2,
 			recovery : "short rest",

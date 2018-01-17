@@ -250,8 +250,8 @@ AddSubClass("barbarian", "totem warrior", {
 			"bear" : {
 				name : "Aspect of the Bear",
 				description : "\n   " + "Advantage on Strength checks to push/pull/lift/break; Carrying capacity is doubled",
-				eval : "tDoc.getField(\"Carrying Capacity Multiplier\").value *= 2;",
-				removeeval : "tDoc.getField(\"Carrying Capacity Multiplier\").value /= 2;"
+				eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
+				removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 			},
 			"eagle" : {
 				name : "Aspect of the Eagle",
@@ -743,7 +743,7 @@ AddSubClass("fighter", "battle master", {
 			name : "Maneuvers",
 			source : ["P", 73],
 			minlevel : 3,
-			description : "\n   " + "Use the \"Choose Features\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : ["", "", "3 known", "3 known", "3 known", "3 known", "5 known", "5 known", "5 known", "7 known", "7 known", "7 known", "7 known", "7 known", "9 known", "9 known", "9 known", "9 known", "9 known", "9 known"],
 			extraname : "Maneuver",
 			extrachoices : ["Commander's Strike", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Trip Attack"],
@@ -944,12 +944,12 @@ AddSubClass("monk", "way of the four elements", {
 			name : "Disciple of the Elements",
 			source : ["P", 80],
 			minlevel : 3,
-			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Features\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
+			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
 			additional : ["", "", "2 known", "2 known", "2 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 4 max ki", "3 known; 4 max ki", "4 known; 4 max ki", "4 known; 4 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki"],
 			extraname : "Elemental Discipline",
 			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
-			eval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"elemental attunement\", \"extra\"]);",
-			removeeval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"elemental attunement\", \"extra\"], \"remove\");",
+			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'elemental attunement', 'extra']);",
+			removeeval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'elemental attunement', 'extra'], 'remove');",
 			"elemental attunement" : {
 				name : "Elemental Attunement",
 				source : ["P", 81],
@@ -1167,8 +1167,8 @@ AddSubClass("monk", "way of shadow", {
 				atwill : true
 			},
 			extraname : "Shadow Art",
-			eval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkness\", \"extra\"]); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkvision\", \"extra\"]); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"pass without trace\", \"extra\"]); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"silence\", \"extra\"]);",
-			removeeval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkness\", \"extra\"], \"remove\"); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkvision\", \"extra\"], \"remove\"); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"pass without trace\", \"extra\"], \"remove\"); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"silence\", \"extra\"], \"remove\");",
+			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'darkness', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'darkvision', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'pass without trace', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'silence', 'extra']);",
+			removeeval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'darkness', 'extra'], 'remove'); ClassFeatureOptions(['monk', 'subclassfeature3', 'darkvision', 'extra'], 'remove'); ClassFeatureOptions(['monk', 'subclassfeature3', 'pass without trace', 'extra'], 'remove'); ClassFeatureOptions(['monk', 'subclassfeature3', 'silence', 'extra'], 'remove');",
 			"darkness" : {
 				name : "Darkness",
 				source : ["P", 80],
@@ -11277,7 +11277,7 @@ AddSubClass("barbarian", "storm herald", {
 			description : desc([
 				"While raging, I emanate a 10-ft radius aura, but not through total cover",
 				"The aura's features activate when I enter my rage or as a bonus action while raging",
-				"Use the \"Choose Features\" button above to select the type of aura"
+				"Use the \"Choose Feature\" button above to select the type of aura"
 			]),
 			choices : ["Desert", "Sea", "Tundra"],
 			action : ["bonus action", " (reactivate)"],
@@ -11317,7 +11317,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Soul",
 			source : ["X", 10],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -11377,7 +11377,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Raging Storm",
 			source : ["X", 11],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -11989,7 +11989,7 @@ AddSubClass("fighter", "arcane archer-xgte", {
 				"I can unleash magical effects when I fire an arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Features\" button above to add Arcane Shots Options to the third page"
+				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
 			]),
 			usages : 2,
 			recovery : "short rest",
@@ -16078,7 +16078,7 @@ ClassList["spell-less ranger"] = {
 			name : "Combat Maneuvers",
 			source : ["UA:MC", 6],
 			minlevel : 2,
-			description : "\n   " + "Use the \"Choose Features\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : levels.map( function(n) {
 				if (n < 2) return "";
 				return (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " maneuvers known";
@@ -18249,37 +18249,37 @@ RunFunctionAtEnd(function() {
 				name : "Channel Arcana: Domain",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature2.2,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature2.2,' + FeaChoice, false);};};"
 			},
 			"subclassfeature6" : {
 				name : "Arcane Acolyte",
 				source : [["UA:TF", 3], ["UA:WR", 1]],
 				minlevel : 6,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature6,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature6,' + FeaChoice, false);};};"
 			},
 			"subclassfeature10" : {
 				name : "Arcane Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 10,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature10,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature10,' + FeaChoice, false);};};"
 			},
 			"subclassfeature14" : {
 				name : "Arcane High Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 14,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature14,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature14,' + FeaChoice, false);};};"
 			}
 		}
 	});
@@ -18407,7 +18407,7 @@ ClassList["rangerua"] = {
 			name : "Favored Enemy",
 			source : ["UA:RR", 2],
 			minlevel : 1,
-			description : "\n   " + "Use the \"Choose Features\" button above to select a favored enemy" + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select a favored enemy" + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
 			additional : levels.map(function (n) {
 				return (n < 6 ? "+2" : "+4") + " weapon attack damage";
 			}),
@@ -18448,8 +18448,8 @@ ClassList["rangerua"] = {
 				source : ["UA:RR", 3],
 				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
 			},
-			eval : "Checkbox(\"Init Adv\", true, \"Advantage to Initiative checks was gained from Ranger (Natural Explorer)\"); ClassFeatureOptions([\"rangerua\", \"natural explorer\", \"travel benefit\", \"extra\"]);",
-			removeeval : "Checkbox(\"Init Adv\", false, \"\"); ClassFeatureOptions([\"rangerua\", \"natural explorer\", \"travel benefit\", \"extra\"], \"remove\");"
+			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)'); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra']);",
+			removeeval : "Checkbox('Init Adv', false, ''); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra'], 'remove');"
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);
@@ -18480,7 +18480,7 @@ ClassList["rangerua"] = {
 			name : "Greater Favored Enemy",
 			source : ["UA:RR", 4],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Features\" button above to select a greater favored enemy" + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select a greater favored enemy" + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
 			additional : "+4 weapon attack damage",
 			choices : ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fiends", "Giants"],
 			"aberrations" : {
@@ -18803,7 +18803,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Aura",
 			source : ["UA:BPP", 2],
 			minlevel : 3,
-			description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the \"Choose Features\" button above to select the aura",
+			description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the \"Choose Feature\" button above to select the aura",
 			choices : ["Desert", "Sea", "Tundra"],
 			"desert" : {
 				name : "Storm of Fury: Desert",
@@ -18830,7 +18830,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Soul",
 			source : ["UA:BPP", 2],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -18862,7 +18862,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Raging Storm",
 			source : ["UA:BPP", 2],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Features\" button above to select the effect",
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -19039,11 +19039,11 @@ AddSubClass("bard", "college of whispers", {
 				source : ["UA:BC", 2],
 				action : ["action", " (start)"],
 				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends",
-				eval : "AddAction(\"bonus action\", \"Shadow Disguise (end)\", \"Bard (College of Whispers)\");",
-				removeeval : "RemoveAction(\"bonus action\", \"Shadow Disguise (end)\");"
+				eval : "AddAction('bonus action', 'Shadow Disguise (end)', 'Bard (College of Whispers)');",
+				removeeval : "RemoveAction('bonus action', 'Shadow Disguise (end)');"
 			},
-			eval : "ClassFeatureOptions([\"bard\", \"subclassfeature6\", \"shadow disguise\", \"extra\"]);",
-			removeeval : "ClassFeatureOptions([\"bard\", \"subclassfeature6\", \"shadow disguise\", \"extra\"], \"remove\");"
+			eval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra']);",
+			removeeval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra'], 'remove');"
 		},
 		"subclassfeature14" : {
 			name : "Shadow Lore",
@@ -19105,8 +19105,8 @@ AddSubClass("cleric", "forge domain", {
 			additional : ["", "", "", "", "", "+6 force damage", "+7 force damage", "+8 force damage", "+9 force damage", "+10 force damage", "+11 force damage", "+12 force damage", "+13 force damage", "+14 force damage", "+15 force damage", "+16 force damage", "+17 force damage", "+18 force damage", "+19 force damage", "+20 force damage"],
 			description : "\n   " + "I gain a +1 AC while wearing medium or heavy armor, and resistance to fire damage" + "\n   " + "When I hit a construct with an attack, I deal my cleric level in additional force damage",
 			dmgres : ["Fire"],
-			eval : "AddACMisc(1, \"Soul of the Forge\", \"+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).\", \"!tDoc.getField('Medium Armor').isBoxChecked(0) && !tDoc.getField('Heavy Armor').isBoxChecked(0)\");",
-			removeeval : "AddACMisc(0, \"Soul of the Forge\", \"+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).\");"
+			eval : "AddACMisc(1, 'Soul of the Forge', '+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).', \"!tDoc.getField('Medium Armor').isBoxChecked(0) && !tDoc.getField('Heavy Armor').isBoxChecked(0)\");",
+			removeeval : "AddACMisc(0, 'Soul of the Forge', '+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).');"
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -19251,8 +19251,8 @@ AddSubClass("cleric", "protection domain", {
 			recovery : "short rest",
 			action : ["action", " (transfer)"],
 			description : "\n   " + "I gain resistance to two of: bludgeoning, necrotic, piercing, radiant, or slashing damage" + "\n   " + "Whenever I finish a short or long rest, I can change the damage types chosen" + "\n   " + "As an action, I can transfer both resistances to one creature I touch" + "\n   " + "As a bonus action, I can transfer the resistances back to myself" + "\n   " + "Otherwise, the creature keeps this resistance until the end of my next short or long rest",
-			eval : "AddAction(\"bonus action\", \"Indomitable Defense (return)\", \"Cleric (Protection Domain)\");",
-			removeeval : "RemoveAction(\"bonus action\", \"Indomitable Defense (return)\");"
+			eval : "AddAction('bonus action', 'Indomitable Defense (return)', 'Cleric (Protection Domain)');",
+			removeeval : "RemoveAction('bonus action', 'Indomitable Defense (return)');"
 		}
 	}
 });
@@ -19452,8 +19452,8 @@ AddSubClass("fighter", "arcane archer", {
 			additional : ["", "", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+4d6 force damage", "+4d6 force damage", "+4d6 force damage"],
 			usages : 2,
 			recovery : "short rest",
-			eval : "AddAction(\"bonus action\", \"Create Magical Arrow\", \"Arcane Archer (Arcane Arrow)\");",
-			removeeval : "RemoveAction(\"bonus action\", \"Create Magical Arrow\")",
+			eval : "AddAction('bonus action', 'Create Magical Arrow', 'Arcane Archer (Arcane Arrow)');",
+			removeeval : "RemoveAction('bonus action', 'Create Magical Arrow')",
 			calcChanges : {
 				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(WeaponText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
 			}
@@ -19462,7 +19462,7 @@ AddSubClass("fighter", "arcane archer", {
 			name : "Arcane Shot",
 			source : ["UA:FMA", 1],
 			minlevel : 3,
-			description : "\n   " + "Use the \"Choose Features\" button above to add Arcane Shots to the third page",
+			description : "\n   " + "Use the \"Choose Feature\" button above to add Arcane Shots to the third page",
 			additional : ["", "", "2 known", "2 known", "2 known", "2 known", "3 known", "3 known", "3 known", "4 known", "4 known", "4 known", "4 known", "4 known", "5 known", "5 known", "5 known", "6 known", "6 known", "6 known"],
 			extraname : "Arcane Shot",
 			extrachoices : ["Beguiling Arrow", "Brute Bane Arrow", "Bursting Arrow", "Defending Arrow", "Grasping Arrow", "Piercing Arrow", "Seeking Arrow", "Shadow Arrow"],
@@ -19743,8 +19743,8 @@ AddSubClass("monk", "way of the kensei", {
 				source : ["UA:MMT", 1],
 				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
 			},
-			eval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"kensei defense\", \"extra\"]);",
-			removeeval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"kensei defense\", \"extra\"], \"remove\");",
+			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra']);",
+			removeeval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra'], 'remove');",
 			calcChanges : {
 				atkAdd : ["var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && theWea && !isSpell && !(/shortsword/i).test(theWea.name) && (/martial/i).test(theWea.type)) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; fields.Mod = StrDex; fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage'; }; ", "I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."]
 			}
@@ -19827,7 +19827,7 @@ AddSubClass("monk", "way of tranquility", {
 				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
 				action : ["action", ""]
 			},
-			changeeval : "if (newClassLvl.monk >= 11 && (What(\"Extra.Notes\") + What(\"Class Features\")).toLowerCase().indexOf(\"douse the flames of war\") === -1) {ClassFeatureOptions([\"monk\", \"subclassfeature6\", \"douse the flames of war\", \"extra\"]);} else if (newClassLvl.monk <= 11 && oldClassLvl.monk >= 11) {ClassFeatureOptions([\"monk\", \"subclassfeature6\", \"douse the flames of war\", \"extra\"], \"remove\");}"
+			changeeval : "if (newClassLvl.monk >= 11 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('douse the flames of war') === -1) {ClassFeatureOptions(['monk', 'subclassfeature6', 'douse the flames of war', 'extra']);} else if (newClassLvl.monk <= 11 && oldClassLvl.monk >= 11) {ClassFeatureOptions(['monk', 'subclassfeature6', 'douse the flames of war', 'extra'], 'remove');}"
 		},
 		"subclassfeature17" : {
 			name : "Anger of a Gentle Soul",
@@ -19910,8 +19910,8 @@ AddSubClass("paladin", "oath of treachery", {
 			minlevel : 3,
 			description : "\n   " + "As an action, I create 1 illusory duplicate of myself within 30 ft of me for 1 min (conc)" + "\n   " + "As a bonus action, I can move it up to 30 ft to a space I can see within 120 ft of me" + "\n   " + "I can cast spells as though I was in its space, but still have to use my own senses" + "\n   " + "I have advantage on attacks if the target is within 5 ft of the duplicate and me",
 			action : ["action", ""],
-			eval : "AddAction(\"bonus action\", \"Move Duplicate\", \"Paladin (Oath of Treachery) - Channel Divinity: Conjure Duplicate\")",
-			removeeval : "RemoveAction(\"bonus action\", \"Move Duplicate\")"
+			eval : "AddAction('bonus action', 'Move Duplicate', 'Paladin (Oath of Treachery) - Channel Divinity: Conjure Duplicate')",
+			removeeval : "RemoveAction('bonus action', 'Move Duplicate')"
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Poison Strike",
@@ -19949,7 +19949,7 @@ AddSubClass("paladin", "oath of treachery", {
 			recovery : "short rest",
 			usages : 1,
 			action : ["reaction", ""],
-			changeeval : "if (newClassLvl.paladin >= 20 && (What(\"Extra.Notes\") + What(\"Class Features\")).toLowerCase().indexOf(\"icon of deceit\") === -1) {ClassFeatureOptions([\"paladin\", \"subclassfeature15\", \"icon of deceit\", \"extra\"])} else if (newClassLvl.paladin < 20 && oldClassLvl.paladin >= 20) {ClassFeatureOptions([\"paladin\", \"subclassfeature15\", \"icon of deceit\", \"extra\"], \"remove\")};",
+			changeeval : "if (newClassLvl.paladin >= 20 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('icon of deceit') === -1) {ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'])} else if (newClassLvl.paladin < 20 && oldClassLvl.paladin >= 20) {ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'], 'remove')};",
 			extraname : "Oath of Treachery 20",
 			"icon of deceit" : {
 				name : "Icon of Deceit",
@@ -20039,14 +20039,14 @@ ClassList.artificer = {
 			minlevel : 2,
 			description : desc(["I have expertise with any tool proficiencies I gain from the Artificer class"]),
 			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with with any tool proficiencies gained from the Artificer class.",
-			eval : "if ((/thieves.? tools/i).test(What(\"Too Text\"))) { Checkbox(\"Too Exp\", true); };",
-			removeeval : "if ((/thieves.? tools/i).test(What(\"Too Text\"))) { Checkbox(\"Too Exp\", false); };"
+			eval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
+			removeeval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"
 		},
 		"wondrous invention" : {
 			name : "Wondrous Invention",
 			source : ["UA:A", 3],
 			minlevel : 2,
-			description : desc(["I gain a magic item that I have crafted; Use the \"Choose Features\" button above"]),
+			description : desc(["I gain a magic item that I have crafted; Use the \"Choose Feature\" button above"]),
 			additional : levels.map(function (n) {
 				if (n < 2) return "";
 				if (n < 5) return "1 item";
@@ -20135,7 +20135,7 @@ ClassSubList["artificer-alchemist"] = {
 			description : desc([
 				"I learn Alchemical Formulae that I can use if I have my Alchemist's Satchel within reach",
 				"I learn the Alchemical Acid and Fire formulae, and additional depending on my level",
-				"Use the \"Choose Features\" button above to select additional Alchemical Formulae"
+				"Use the \"Choose Feature\" button above to select additional Alchemical Formulae"
 			]),
 			additional : levels.map(function (n) {
 				if (n < 3) return "1 additional formula";
@@ -25933,37 +25933,37 @@ if (!SourceList["UA:TF"]) {
 					name : "Channel Arcana: Domain",
 					source : [["UA:TF", 2], ["UA:WR", 1]],
 					minlevel : 2,
-					description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 					choices : [],
 					choicesNotInMenu : true,
-					eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature2.2,\" + FeaChoice, false);};};"
+					eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature2.2,' + FeaChoice, false);};};"
 				},
 				"subclassfeature6" : {
 					name : "Arcane Acolyte",
 					source : [["UA:TF", 3], ["UA:WR", 1]],
 					minlevel : 6,
-					description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 					choices : [],
 					choicesNotInMenu : true,
-					eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature6,\" + FeaChoice, false);};};"
+					eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature6,' + FeaChoice, false);};};"
 				},
 				"subclassfeature10" : {
 					name : "Arcane Priest",
 					source : [["UA:TF", 3], ["UA:WR", 2]],
 					minlevel : 10,
-					description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 					choices : [],
 					choicesNotInMenu : true,
-					eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature10,\" + FeaChoice, false);};};"
+					eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature10,' + FeaChoice, false);};};"
 				},
 				"subclassfeature14" : {
 					name : "Arcane High Priest",
 					source : [["UA:TF", 3], ["UA:WR", 2]],
 					minlevel : 14,
-					description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 					choices : [],
 					choicesNotInMenu : true,
-					eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature14,\" + FeaChoice, false);};};"
+					eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature14,' + FeaChoice, false);};};"
 				}
 			}
 		});
@@ -27272,7 +27272,7 @@ AddSubClass("fighter", "arcane archer2", {
 				"I can unleash magical effects when I fire a magic arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Features\" button above to add Arcane Shots Options to the third page"
+				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
 			]),
 			usages : 2,
 			recovery : "short rest",

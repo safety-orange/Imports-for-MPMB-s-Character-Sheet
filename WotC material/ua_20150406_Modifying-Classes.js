@@ -131,7 +131,7 @@ ClassList["spell-less ranger"] = {
 			name : "Combat Maneuvers",
 			source : ["UA:MC", 6],
 			minlevel : 2,
-			description : "\n   " + "Use the \"Choose Features\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : levels.map( function(n) {
 				if (n < 2) return "";
 				return (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " maneuvers known";

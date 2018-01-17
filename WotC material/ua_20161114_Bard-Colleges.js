@@ -97,11 +97,11 @@ AddSubClass("bard", "college of whispers", {
 				source : ["UA:BC", 2],
 				action : ["action", " (start)"],
 				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends",
-				eval : "AddAction(\"bonus action\", \"Shadow Disguise (end)\", \"Bard (College of Whispers)\");",
-				removeeval : "RemoveAction(\"bonus action\", \"Shadow Disguise (end)\");"
+				eval : "AddAction('bonus action', 'Shadow Disguise (end)', 'Bard (College of Whispers)');",
+				removeeval : "RemoveAction('bonus action', 'Shadow Disguise (end)');"
 			},
-			eval : "ClassFeatureOptions([\"bard\", \"subclassfeature6\", \"shadow disguise\", \"extra\"]);",
-			removeeval : "ClassFeatureOptions([\"bard\", \"subclassfeature6\", \"shadow disguise\", \"extra\"], \"remove\");"
+			eval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra']);",
+			removeeval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra'], 'remove');"
 		},
 		"subclassfeature14" : {
 			name : "Shadow Lore",

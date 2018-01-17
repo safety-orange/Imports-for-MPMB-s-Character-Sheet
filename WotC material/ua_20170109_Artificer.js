@@ -75,14 +75,14 @@ ClassList.artificer = {
 			minlevel : 2,
 			description : desc(["I have expertise with any tool proficiencies I gain from the Artificer class"]),
 			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with with any tool proficiencies gained from the Artificer class.",
-			eval : "if ((/thieves.? tools/i).test(What(\"Too Text\"))) { Checkbox(\"Too Exp\", true); };",
-			removeeval : "if ((/thieves.? tools/i).test(What(\"Too Text\"))) { Checkbox(\"Too Exp\", false); };"
+			eval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
+			removeeval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"
 		},
 		"wondrous invention" : {
 			name : "Wondrous Invention",
 			source : ["UA:A", 3],
 			minlevel : 2,
-			description : desc(["I gain a magic item that I have crafted; Use the \"Choose Features\" button above"]),
+			description : desc(["I gain a magic item that I have crafted; Use the \"Choose Feature\" button above"]),
 			additional : levels.map(function (n) {
 				if (n < 2) return "";
 				if (n < 5) return "1 item";
@@ -171,7 +171,7 @@ ClassSubList["artificer-alchemist"] = {
 			description : desc([
 				"I learn Alchemical Formulae that I can use if I have my Alchemist's Satchel within reach",
 				"I learn the Alchemical Acid and Fire formulae, and additional depending on my level",
-				"Use the \"Choose Features\" button above to select additional Alchemical Formulae"
+				"Use the \"Choose Feature\" button above to select additional Alchemical Formulae"
 			]),
 			additional : levels.map(function (n) {
 				if (n < 3) return "1 additional formula";

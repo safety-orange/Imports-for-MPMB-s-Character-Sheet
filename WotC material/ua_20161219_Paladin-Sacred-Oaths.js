@@ -67,8 +67,8 @@ AddSubClass("paladin", "oath of treachery", {
 			minlevel : 3,
 			description : "\n   " + "As an action, I create 1 illusory duplicate of myself within 30 ft of me for 1 min (conc)" + "\n   " + "As a bonus action, I can move it up to 30 ft to a space I can see within 120 ft of me" + "\n   " + "I can cast spells as though I was in its space, but still have to use my own senses" + "\n   " + "I have advantage on attacks if the target is within 5 ft of the duplicate and me",
 			action : ["action", ""],
-			eval : "AddAction(\"bonus action\", \"Move Duplicate\", \"Paladin (Oath of Treachery) - Channel Divinity: Conjure Duplicate\")",
-			removeeval : "RemoveAction(\"bonus action\", \"Move Duplicate\")"
+			eval : "AddAction('bonus action', 'Move Duplicate', 'Paladin (Oath of Treachery) - Channel Divinity: Conjure Duplicate')",
+			removeeval : "RemoveAction('bonus action', 'Move Duplicate')"
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Poison Strike",
@@ -106,7 +106,7 @@ AddSubClass("paladin", "oath of treachery", {
 			recovery : "short rest",
 			usages : 1,
 			action : ["reaction", ""],
-			changeeval : "if (newClassLvl.paladin >= 20 && (What(\"Extra.Notes\") + What(\"Class Features\")).toLowerCase().indexOf(\"icon of deceit\") === -1) {ClassFeatureOptions([\"paladin\", \"subclassfeature15\", \"icon of deceit\", \"extra\"])} else if (newClassLvl.paladin < 20 && oldClassLvl.paladin >= 20) {ClassFeatureOptions([\"paladin\", \"subclassfeature15\", \"icon of deceit\", \"extra\"], \"remove\")};",
+			changeeval : "if (newClassLvl.paladin >= 20 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('icon of deceit') === -1) {ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'])} else if (newClassLvl.paladin < 20 && oldClassLvl.paladin >= 20) {ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'], 'remove')};",
 			extraname : "Oath of Treachery 20",
 			"icon of deceit" : {
 				name : "Icon of Deceit",

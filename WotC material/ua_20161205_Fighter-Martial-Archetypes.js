@@ -30,8 +30,8 @@ AddSubClass("fighter", "arcane archer", {
 			additional : ["", "", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+4d6 force damage", "+4d6 force damage", "+4d6 force damage"],
 			usages : 2,
 			recovery : "short rest",
-			eval : "AddAction(\"bonus action\", \"Create Magical Arrow\", \"Arcane Archer (Arcane Arrow)\");",
-			removeeval : "RemoveAction(\"bonus action\", \"Create Magical Arrow\")",
+			eval : "AddAction('bonus action', 'Create Magical Arrow', 'Arcane Archer (Arcane Arrow)');",
+			removeeval : "RemoveAction('bonus action', 'Create Magical Arrow')",
 			calcChanges : {
 				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(WeaponText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
 			}
@@ -40,7 +40,7 @@ AddSubClass("fighter", "arcane archer", {
 			name : "Arcane Shot",
 			source : ["UA:FMA", 1],
 			minlevel : 3,
-			description : "\n   " + "Use the \"Choose Features\" button above to add Arcane Shots to the third page",
+			description : "\n   " + "Use the \"Choose Feature\" button above to add Arcane Shots to the third page",
 			additional : ["", "", "2 known", "2 known", "2 known", "2 known", "3 known", "3 known", "3 known", "4 known", "4 known", "4 known", "4 known", "4 known", "5 known", "5 known", "5 known", "6 known", "6 known", "6 known"],
 			extraname : "Arcane Shot",
 			extrachoices : ["Beguiling Arrow", "Brute Bane Arrow", "Bursting Arrow", "Defending Arrow", "Grasping Arrow", "Piercing Arrow", "Seeking Arrow", "Shadow Arrow"],

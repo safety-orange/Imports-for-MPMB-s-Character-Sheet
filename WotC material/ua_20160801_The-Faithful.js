@@ -102,37 +102,37 @@ RunFunctionAtEnd(function() {
 				name : "Channel Arcana: Domain",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature2.2,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature2.2,' + FeaChoice, false);};};"
 			},
 			"subclassfeature6" : {
 				name : "Arcane Acolyte",
 				source : [["UA:TF", 3], ["UA:WR", 1]],
 				minlevel : 6,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature6,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature6,' + FeaChoice, false);};};"
 			},
 			"subclassfeature10" : {
 				name : "Arcane Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 10,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature10,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature10,' + FeaChoice, false);};};"
 			},
 			"subclassfeature14" : {
 				name : "Arcane High Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 14,
-				description : "\n   " + "Use the \"Choose Features\" button above to select the domain",
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
 				choicesNotInMenu : true,
-				eval : "if (FeaChoice === \"\") {var CFrem = What(\"Class Features Remember\"); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, \"$1\"); AddString(\"Class Features Remember\", \"wizard,subclassfeature14,\" + FeaChoice, false);};};"
+				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature14,' + FeaChoice, false);};};"
 			}
 		}
 	});

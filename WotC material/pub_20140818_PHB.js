@@ -248,8 +248,8 @@ AddSubClass("barbarian", "totem warrior", {
 			"bear" : {
 				name : "Aspect of the Bear",
 				description : "\n   " + "Advantage on Strength checks to push/pull/lift/break; Carrying capacity is doubled",
-				eval : "tDoc.getField(\"Carrying Capacity Multiplier\").value *= 2;",
-				removeeval : "tDoc.getField(\"Carrying Capacity Multiplier\").value /= 2;"
+				eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
+				removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 			},
 			"eagle" : {
 				name : "Aspect of the Eagle",
@@ -741,7 +741,7 @@ AddSubClass("fighter", "battle master", {
 			name : "Maneuvers",
 			source : ["P", 73],
 			minlevel : 3,
-			description : "\n   " + "Use the \"Choose Features\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : ["", "", "3 known", "3 known", "3 known", "3 known", "5 known", "5 known", "5 known", "7 known", "7 known", "7 known", "7 known", "7 known", "9 known", "9 known", "9 known", "9 known", "9 known", "9 known"],
 			extraname : "Maneuver",
 			extrachoices : ["Commander's Strike", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Trip Attack"],
@@ -942,12 +942,12 @@ AddSubClass("monk", "way of the four elements", {
 			name : "Disciple of the Elements",
 			source : ["P", 80],
 			minlevel : 3,
-			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Features\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
+			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
 			additional : ["", "", "2 known", "2 known", "2 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 4 max ki", "3 known; 4 max ki", "4 known; 4 max ki", "4 known; 4 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki"],
 			extraname : "Elemental Discipline",
 			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
-			eval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"elemental attunement\", \"extra\"]);",
-			removeeval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"elemental attunement\", \"extra\"], \"remove\");",
+			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'elemental attunement', 'extra']);",
+			removeeval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'elemental attunement', 'extra'], 'remove');",
 			"elemental attunement" : {
 				name : "Elemental Attunement",
 				source : ["P", 81],
@@ -1165,8 +1165,8 @@ AddSubClass("monk", "way of shadow", {
 				atwill : true
 			},
 			extraname : "Shadow Art",
-			eval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkness\", \"extra\"]); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkvision\", \"extra\"]); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"pass without trace\", \"extra\"]); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"silence\", \"extra\"]);",
-			removeeval : "ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkness\", \"extra\"], \"remove\"); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"darkvision\", \"extra\"], \"remove\"); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"pass without trace\", \"extra\"], \"remove\"); ClassFeatureOptions([\"monk\", \"subclassfeature3\", \"silence\", \"extra\"], \"remove\");",
+			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'darkness', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'darkvision', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'pass without trace', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'silence', 'extra']);",
+			removeeval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'darkness', 'extra'], 'remove'); ClassFeatureOptions(['monk', 'subclassfeature3', 'darkvision', 'extra'], 'remove'); ClassFeatureOptions(['monk', 'subclassfeature3', 'pass without trace', 'extra'], 'remove'); ClassFeatureOptions(['monk', 'subclassfeature3', 'silence', 'extra'], 'remove');",
 			"darkness" : {
 				name : "Darkness",
 				source : ["P", 80],
