@@ -821,7 +821,7 @@ AddSubClass("cleric", "city domain", {
 				"I'm considered proficient with the appropriate skill for that one check"
 			]),
 			usages: "Wisdom modifier per ",
-			usagescalc: "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
 			recovery: "long rest"
 		},
 		"subclassfeature2" : {
@@ -989,7 +989,7 @@ AddSubClass("wizard", "technomancy", {
 				"The spell's range is determined from me to my device plus from the target to its device"
 			]),
 			usages: "Intelligence modifier per ",
-			usagescalc: "event.value = Math.max(1, tDoc.getField('Int Mod').value);",
+			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
 			recovery: "long rest"
 		},
 		"subclassfeature14": {

@@ -330,7 +330,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			minlevel : 1,
 			description : "\n   " + "When I do the Help action to aid an ally, I can make a weapon attack as a bonus action",
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["bonus action", " (with Help action)"]
 		},
@@ -457,7 +457,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 				"As a reaction, I impose disadv. on the attacker's attack roll (unless it can't be blinded)"
 			]),
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""]
 		},
@@ -523,7 +523,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			minlevel : 1,
 			description : "\n   " + "When I use the Attack action, I can make a weapon attack as a bonus action",
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["bonus action", " (with Attack action)"]
 		},

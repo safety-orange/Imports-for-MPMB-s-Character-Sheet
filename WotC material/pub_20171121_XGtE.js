@@ -578,7 +578,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 			source : ["X", 20],
 			minlevel : 1,
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			description : desc([
 				"As an action, I sense undead within 60 ft that aren't protected from divination magic",
@@ -600,7 +600,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 			source : ["X", 20],
 			minlevel : 6,
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""],
 			description : "\n   " + "As a reaction, I turn a critical hit to me or an ally I see within 30 ft to a normal hit"
@@ -668,7 +668,7 @@ AddSubClass("druid", "circle of dreams-xgte", {
 				"As an action, I can teleport a willing ally I touch up to 30 ft to a spot I can see"
 			]),
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["bonus action", ""],
 			eval : "AddAction('action', 'Hidden Paths (on ally)', 'Druid (Circle of Dreams)');",
@@ -955,7 +955,7 @@ AddSubClass("fighter", "cavalier-xgte", {
 				"A mark ends early if I'm incapacitated, die, or somebody else marks the target"
 			]),
 			usages : "Strength modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Str Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Str Mod'));",
 			recovery : "long rest",
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : "+" + Math.floor(n/2) + " damage";
@@ -974,7 +974,7 @@ AddSubClass("fighter", "cavalier-xgte", {
 				"I can only do this while wielding a melee weapon or a shield"
 			]),
 			usages : "Constitution modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Con Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Con Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""],
 		},
@@ -1540,7 +1540,7 @@ AddSubClass("ranger", "monster slayer-xgte", {
 			]),
 			action : ["action", ""],
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
 		},
 		"subclassfeature3.1" : {
@@ -1650,7 +1650,7 @@ AddSubClass("rogue", "inquisitive-xgte", {
 			]),
 			action : ["action", ""],
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
 		},
 		"subclassfeature17" : {

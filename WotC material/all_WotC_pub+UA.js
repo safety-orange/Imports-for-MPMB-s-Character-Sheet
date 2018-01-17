@@ -397,7 +397,7 @@ AddSubClass("cleric", "light domain", {
 				"As a reaction, I impose disadv. on the attacker's attack roll (unless it can't be blinded)"
 			]),
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""]
 		},
@@ -514,7 +514,7 @@ AddSubClass("cleric", "tempest domain", {
 			minlevel : 1,
 			description : "\n   " + "As a reaction, when a creature I can see within 5 ft hits me, I can thunderously rebuke" + "\n   " + "It takes 2d8 lightning or thunder damage (my choice) that a Dex save can halve",
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""]
 		},
@@ -628,7 +628,7 @@ AddSubClass("cleric", "war domain", {
 			minlevel : 1,
 			description : "\n   " + "When I use the Attack action, I can make a weapon attack as a bonus action",
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["bonus action", " (with Attack action)"]
 		},
@@ -11770,7 +11770,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 			source : ["X", 20],
 			minlevel : 1,
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			description : desc([
 				"As an action, I sense undead within 60 ft that aren't protected from divination magic",
@@ -11792,7 +11792,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 			source : ["X", 20],
 			minlevel : 6,
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""],
 			description : "\n   " + "As a reaction, I turn a critical hit to me or an ally I see within 30 ft to a normal hit"
@@ -11860,7 +11860,7 @@ AddSubClass("druid", "circle of dreams-xgte", {
 				"As an action, I can teleport a willing ally I touch up to 30 ft to a spot I can see"
 			]),
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["bonus action", ""],
 			eval : "AddAction('action', 'Hidden Paths (on ally)', 'Druid (Circle of Dreams)');",
@@ -12147,7 +12147,7 @@ AddSubClass("fighter", "cavalier-xgte", {
 				"A mark ends early if I'm incapacitated, die, or somebody else marks the target"
 			]),
 			usages : "Strength modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Str Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Str Mod'));",
 			recovery : "long rest",
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : "+" + Math.floor(n/2) + " damage";
@@ -12166,7 +12166,7 @@ AddSubClass("fighter", "cavalier-xgte", {
 				"I can only do this while wielding a melee weapon or a shield"
 			]),
 			usages : "Constitution modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Con Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Con Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""],
 		},
@@ -12732,7 +12732,7 @@ AddSubClass("ranger", "monster slayer-xgte", {
 			]),
 			action : ["action", ""],
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
 		},
 		"subclassfeature3.1" : {
@@ -12842,7 +12842,7 @@ AddSubClass("rogue", "inquisitive-xgte", {
 			]),
 			action : ["action", ""],
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
 		},
 		"subclassfeature17" : {
@@ -16392,7 +16392,7 @@ AddSubClass("cleric", "city domain", {
 				"I'm considered proficient with the appropriate skill for that one check"
 			]),
 			usages: "Wisdom modifier per ",
-			usagescalc: "event.value = Math.max(1, tDoc.getField('Wis Mod').value);",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
 			recovery: "long rest"
 		},
 		"subclassfeature2" : {
@@ -16560,7 +16560,7 @@ AddSubClass("wizard", "technomancy", {
 				"The spell's range is determined from me to my device plus from the target to its device"
 			]),
 			usages: "Intelligence modifier per ",
-			usagescalc: "event.value = Math.max(1, tDoc.getField('Int Mod').value);",
+			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
 			recovery: "long rest"
 		},
 		"subclassfeature14": {

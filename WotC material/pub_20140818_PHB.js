@@ -395,7 +395,7 @@ AddSubClass("cleric", "light domain", {
 				"As a reaction, I impose disadv. on the attacker's attack roll (unless it can't be blinded)"
 			]),
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""]
 		},
@@ -512,7 +512,7 @@ AddSubClass("cleric", "tempest domain", {
 			minlevel : 1,
 			description : "\n   " + "As a reaction, when a creature I can see within 5 ft hits me, I can thunderously rebuke" + "\n   " + "It takes 2d8 lightning or thunder damage (my choice) that a Dex save can halve",
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["reaction", ""]
 		},
@@ -626,7 +626,7 @@ AddSubClass("cleric", "war domain", {
 			minlevel : 1,
 			description : "\n   " + "When I use the Attack action, I can make a weapon attack as a bonus action",
 			usages : "Wisdom modifier per ",
-			usagescalc : "event.value = Math.max(1, tDoc.getField(\"Wis Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
 			action : ["bonus action", " (with Attack action)"]
 		},
