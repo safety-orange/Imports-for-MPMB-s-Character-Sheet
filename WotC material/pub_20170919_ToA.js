@@ -192,6 +192,32 @@ WeaponsList["yklwa"] = {
 	abilitytodamage : true
 };
 
+// Gear
+GearList["rain catcher"] = {
+	infoname : "Rain catcher [1 gp]",
+	name : "Rain catcher",
+	amount : 1,
+	weight : 5
+};
+GearList["insect repellent:"] = {
+	infoname: "Insect repellent:",
+	name: "-",
+	amount: "",
+	weight: ""
+};
+GearList["insect repellent: salve"] = {
+	infoname : "   Salve (vial) [5 sp]",
+	name : "Salve, applications of",
+	amount : 20,
+	weight : ""
+};
+GearList["insect repellent: incense"] = {
+	infoname : "   Incense (block) [1 gp]",
+	name : "Incense, blocks of",
+	amount : 1,
+	weight : ""
+};
+
 // Creatures
 CreatureList["brontosaurus"] = {
 	name : "Brontosaurus",
