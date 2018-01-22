@@ -2902,6 +2902,7 @@ AddBackgroundVariant("noble", "knight", {
 AddBackgroundVariant("sailor", "pirate", {
 	regExpSearch : /pirate/i,
 	name : "Pirate",
+	source : ["P", 139],
 	feature : "Bad Reputation"
 });
 
