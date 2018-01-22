@@ -4,7 +4,7 @@ RequiredSheetVersion(12.999);
 
 // Define the source
 SourceList.ToA={
-	name : "Tomb of Annihilation [backgrounds, beasts]",
+	name : "Tomb of Annihilation [backgrounds, beasts, equipment]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
 	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
@@ -190,6 +190,36 @@ WeaponsList["yklwa"] = {
 	description : "Thrown",
 	monkweapon : true,
 	abilitytodamage : true
+};
+
+// Gear
+GearList["rain catcher"] = {
+	infoname : "Rain catcher [1 gp]",
+	name : "Rain catcher",
+	source : ["ToA", 32],
+	amount : 1,
+	weight : 5
+};
+GearList["insect repellent:"] = {
+	infoname: "Insect repellent:",
+	name: "-",
+	source : ["ToA", 32],
+	amount: "",
+	weight: ""
+};
+GearList["insect repellent: salve"] = {
+	infoname : "   Salve (vial) [5 sp]",
+	name : "Salve, applications of",
+	source : ["ToA", 32],
+	amount : 20,
+	weight : ""
+};
+GearList["insect repellent: incense"] = {
+	infoname : "   Incense (block) [1 gp]",
+	name : "Incense, blocks of",
+	source : ["ToA", 32],
+	amount : 1,
+	weight : ""
 };
 
 // Creatures
