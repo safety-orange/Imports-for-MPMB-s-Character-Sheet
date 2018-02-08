@@ -4089,9 +4089,7 @@ SpellsList["wrathful smite"] = {
 };
 
 // Add a function if not already defined
-try {
-	AddToNotes.toString();
-} catch (err) {
+if (typeof AddToNotes === 'undefined') {
 	AddToNotes = function(noteStr, alertTxt, oldNoteStr) {
 		if (What("Unit System") === "metric") {
 			noteStr = ConvertToMetric(noteStr, 0.5);
