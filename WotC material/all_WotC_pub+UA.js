@@ -13145,7 +13145,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 				name : "Divine Magic: Neutrality",
 				description : desc([
 					"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
-					"I also learn Protection from Evil and Good; It isn't count to my number of spells known",
+					"I learn Protection from Evil and Good, but it isn't counted to my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
 				spellcastingBonus : {
