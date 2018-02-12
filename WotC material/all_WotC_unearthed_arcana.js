@@ -4784,7 +4784,7 @@ ClassSubList["artificer-gunsmith"] = {
 };
 
 //Magic Item additions 
-var MagicItemsList = {
+ArtMagicItemsList = {
 	"alchemy jug" : {
 		name : "Alchemy Jug",
 		source : ["D", 150],
@@ -5142,12 +5142,12 @@ var MagicItemsList = {
 // Create the magic items for the wondrous items class feature of the artificer
 ClassList.artificer.features["wondrous invention"].extrachoices.forEach(function (theI) {
 	var theItem = theI.replace(/ *\(.*\)/, "");
-	if (MagicItemsList[theItem.toLowerCase()]) {
+	if (ArtMagicItemsList[theItem.toLowerCase()]) {
 		ClassList.artificer.features["wondrous invention"][theI.toLowerCase()] = {
 			name : theItem,
 			description : "",
 			source : ["UA:A", 3],
-			eval : "var maI = MagicItemsList[\"" + theItem.toLowerCase() + "\"]; AddMagicItem(maI.name, maI.attunement, maI.description, maI.weight, maI.descriptionLong);",
+			eval : "var maI = ArtMagicItemsList[\"" + theItem.toLowerCase() + "\"]; AddMagicItem(maI.name, maI.attunement, maI.description, maI.weight, maI.descriptionLong);",
 			removeeval : "RemoveMagicItem(\"" + theItem.toLowerCase() + "\");"
 		};
 	};
