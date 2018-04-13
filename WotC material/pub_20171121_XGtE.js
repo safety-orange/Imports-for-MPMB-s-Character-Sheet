@@ -71,7 +71,7 @@ AddSubClass("barbarian", "ancestral guardian-xgte", {
 		}
 	}
 });
-AddSubClass("barbarian", "storm herald", {
+AddSubClass("barbarian", "storm herald-xgte", {
 	regExpSearch : /^(?=.*storm)(?=.*herald).*$/i,
 	subname : "Path of the Storm Herald",
 	source : ["X", 10],
@@ -216,7 +216,7 @@ AddSubClass("barbarian", "storm herald", {
 		}
 	}
 });
-AddSubClass("barbarian", "zealot", {
+AddSubClass("barbarian", "zealot-xgte", {
 	regExpSearch : /zealot/i,
 	subname : "Path of the Zealot",
 	source : ["X", 11],
