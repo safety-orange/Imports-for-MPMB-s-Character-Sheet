@@ -1808,15 +1808,15 @@ AddSubClass("wizard", "enchantment", {
 			source : ["P", 117],
 			minlevel : 2,
 			description : "\n   " + "As an action, a seen enemy within 5 ft must make a Wis save or be charmed" + "\n   " + "This doesn't work if it can't see/hear me; It's also incapacitated and reduced to 0 speed" + "\n   " + "This lasts until the end of my next turn, but I can use an action to extend the duration" + "\n   " + "It also ends if it takes damage, can't see or hear me, or is more than 5 ft from me" + "\n   " + "On success or once it ends, I can't use this on it again until after a long rest",
-			action : ["action", ""]
+			action : ["action", ""],
+			usages : 1,
+			recovery : "long rest"
 		},
 		"subclassfeature6" : {
 			name : "Instinctive Charm",
 			source : ["P", 117],
 			minlevel : 6,
-			description : "\n   " + "As a reaction, when someone I can see in 30 ft attacks me, it must make a Wis save" + "\n   " + "If failed, it must instead attack the closest creature within range (not me or self)" + "\n   " + "On success, I can't use it again until after a long rest; This is a charm effect",
-			usages : 1,
-			recovery : "long rest",
+			description : "\n   " + "As a reaction, when someone I can see in 30 ft attacks me, it must make a Wis save" + "\n   " + "If failed, it must instead attack the closest creature within range (not me or self)" + "\n   " + "On a success, the target is immune to this until after my long rest; This is a charm effect",
 			action : ["reaction", " (when attacked)"]
 		},
 		"subclassfeature10" : {
