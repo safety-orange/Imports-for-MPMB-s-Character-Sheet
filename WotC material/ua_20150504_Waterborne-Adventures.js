@@ -26,7 +26,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
 
 // Add the Minotaur (Krynn) race and its three variants
 RaceList["minotaur"] = {
-	regExpSearch : /(minotaur|krynn)/i,
+	regExpSearch : /minotaur/i,
 	name : "Minotaur",
 	source : ["UA:WA", 1],
 	plural : "Minotaurs",
@@ -36,8 +36,8 @@ RaceList["minotaur"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	weapons : ["horns"],
-	age : " rearch adulthood around age 17 and live up to 150 years",
+	weapons : ["Horns"],
+	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
 	heightMetric : " are well over 1,8 metres tall",
@@ -74,7 +74,7 @@ AddRacialVariant("minotaur", "strength", {
 });
 
 // Minotaur weapon
-WeaponsList["horns"] = {
+WeaponsList["horns-uawa"] = {
 	regExpSearch : /\bhorns?\b/i,
 	name : "Horns",
 	source : ["UA:WA", 1],
