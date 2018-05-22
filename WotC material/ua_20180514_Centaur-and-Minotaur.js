@@ -64,7 +64,8 @@ WeaponsList["hooves"] = {
 // Add the Minotaur race
 RaceList["minotaur-uacnm"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur",
+	name : tDoc.info.SheetVersion < 13 ? "Minotaur " : "Minotaur",
+	sortname : "Minotaur",
 	source : ["UA:CnM", 2],
 	plural : "Minotaurs",
 	size : 3,
@@ -72,7 +73,7 @@ RaceList["minotaur-uacnm"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weapons : ["Horns"],
+	weapons : ["Minotaur Horns"],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
@@ -103,8 +104,8 @@ RaceList["minotaur-uacnm"] = {
 };
 // Minotaur weapon
 WeaponsList["horns-uacnm"] = {
-	regExpSearch : /\bhorns?\b/i,
-	name : "Horns",
+	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
+	name : "Minotaur Horns",
 	source : ["UA:CnM", 2],
 	ability : 1,
 	type : "Natural",

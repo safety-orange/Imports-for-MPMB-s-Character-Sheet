@@ -46,7 +46,7 @@ RaceList["deep gnome"] = {
 	regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 	name : "Svirfneblin",
 	sortname : "Gnome, Deep (Svirfneblin)",
-	source : [["E", 7], ["S", 115]],
+	source : [["E", 7], ["S", 115], ["MToF", 113]],
 	plural : "Svirfneblin",
 	size : 4,
 	speed : {

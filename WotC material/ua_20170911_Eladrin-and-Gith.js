@@ -13,9 +13,9 @@ SourceList["UA:EnG"] = {
 
 // Adds three races:
 // Alternative version of the Eladrin
-RaceList["uaeladrin"] = {
+RaceList["eladrin-uaeng"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
-	name : "Eladrin ",
+	name : tDoc.info.SheetVersion < 13 ? "Eladrin " : "Eladrin",
 	sortname : "Elf, Fey (Eladrin)",
 	source : ["UA:EnG", 1],
 	plural : "Eladrin",
@@ -37,7 +37,7 @@ RaceList["uaeladrin"] = {
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	improvements : "Eladrin: +2 Dexterity, +1 Intelligence or Charisma;",
 	scores : [0, 2, 0, 0, 0, 0],
-	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me acces to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
+	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Shifting Seasons",
@@ -71,13 +71,19 @@ RaceList["githyanki"] = {
 	armor : [true, true, false, false],
 	skillstxt : "Choose any one skill or tool",
 	age : " reach adulthood in their late teens and live for about a century",
-	height : " are more leaner and taller than humans, most are a lean 6 feet tall (5'0\" + 2d12\")",
+	height : " are more leaner and taller than humans, most are a slender 6 feet tall (5'0\" + 2d12\")",
 	weight : " weigh around 135 lb (100 + 2d12 \xD7 2d4 lb)",
-	heightMetric : " are more leaner and taller than humans, most are a lean 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Githyanki: +2 Strength, +1 Intelligence;",
 	scores : [2, 0, 0, 1, 0, 0],
-	trait : "Githyanki (+2 Strength, +1 Intelligence)\n\nGithyanki Psionics:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Jump spell once per long rest.\n   At 5th level, I can also cast the Misty Step spell once per long rest.\n   Intelligence is my spellcasting ability for these spells.",
+	trait : "Githyanki (+2 Strength, +1 Intelligence)\nGithyanki Psionics:" + desc([
+		"I know the Mage Hand cantrip.",
+		"At 3rd level, I can cast the Jump spell once per long rest.",
+		"At 5th level, I can also cast the Misty Step spell once per long rest.",
+		"Intelligence is my spellcasting ability for these spells.",
+		"I don't require components to cast these spells."
+	]),
 	spellcastingAbility : 4,
 	spellcastingBonus : {
 		name : "Githyanki Psionics",
@@ -136,9 +142,9 @@ RaceList["githzerai"] = {
 	},
 	languageProfs : ["Common", "Gith"],
 	age : " reach adulthood in their late teens and live for about a century",
-	height : " are more leaner and taller than humans, most are a lean 6 feet tall (4'11\" + 2d12\")",
+	height : " are more leaner and taller than humans, most are a slender 6 feet tall (4'11\" + 2d12\")",
 	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
-	heightMetric : " are more leaner and taller than humans, most are a lean 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	improvements : "Githzerai: +1 Intelligence, +2 Wisdom;",
 	scores : [0, 0, 0, 1, 2, 0],

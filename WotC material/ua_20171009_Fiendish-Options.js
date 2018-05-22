@@ -18,7 +18,7 @@ RaceList["baalzebul tiefling"] = {
 	regExpSearch : /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
 	name : "Baalzebul tiefling",
 	sortname : "Tiefling, Baalzebul",
-	source : ["UA:FO", 1],
+	source : [["MToF", 21], ["UA:FO", 1]],
 	plural : "Baalzebul tieflings",
 	size : 3,
 	speed : {
@@ -139,7 +139,7 @@ RaceList["fierna tiefling"] = {
 	regExpSearch : /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
 	name : "Fierna tiefling",
 	sortname : "Tiefling, Fierna",
-	source : ["UA:FO", 1],
+	source : [["MToF", 21], ["UA:FO", 1]],
 	plural : "Fierna tieflings",
 	size : 3,
 	speed : {
@@ -200,7 +200,7 @@ RaceList["glasya tiefling"] = {
 	regExpSearch : /^(?=.*glasya)(?=.*tiefling|planetouched).*$/i,
 	name : "Glasya tiefling",
 	sortname : "Tiefling, Glasya",
-	source : ["UA:FO", 2],
+	source : [["MToF", 22], ["UA:FO", 2]],
 	plural : "Glasya tieflings",
 	size : 3,
 	speed : {
@@ -256,12 +256,12 @@ RaceList["glasya tiefling"] = {
 		}
 	}
 };
-RaceList["levistas tiefling"] = {
-	regExpSearch : /^(?=.*levistas)(?=.*tiefling|planetouched).*$/i,
-	name : "Levistas tiefling",
-	sortname : "Tiefling, Levistas",
-	source : ["UA:FO", 2],
-	plural : "Levistas tieflings",
+RaceList["levistus tiefling"] = {
+	regExpSearch : /^(?=.*levistus)(?=.*tiefling|planetouched).*$/i,
+	name : "Levistus tiefling",
+	sortname : "Tiefling, Levistus",
+	source : [["MToF", 22], ["UA:FO", 2]],
+	plural : "Levistus tieflings",
 	size : 3,
 	speed : {
 		walk : { spd : 30, enc : 20 }
@@ -274,9 +274,9 @@ RaceList["levistas tiefling"] = {
 	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-	improvements : "Levistas Tiefling: +1 Constitution, +2 Charisma;",
+	improvements : "Levistus Tiefling: +1 Constitution, +2 Charisma;",
 	scores : [0, 0, 1, 0, 0, 2],
-	trait : "Levistas Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -321,7 +321,7 @@ RaceList["mammon tiefling"] = {
 	regExpSearch : /^(?=.*mammon)(?=.*tiefling|planetouched).*$/i,
 	name : "Mammon tiefling",
 	sortname : "Tiefling, Mammon",
-	source : ["UA:FO", 2],
+	source : [["MToF", 22], ["UA:FO", 2]],
 	plural : "Mammon tieflings",
 	size : 3,
 	speed : {
@@ -442,7 +442,7 @@ RaceList["zariel tiefling"] = {
 	regExpSearch : /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
 	name : "Zariel tiefling",
 	sortname : "Tiefling, Zariel",
-	source : ["UA:FO", 2],
+	source : [["MToF", 23], ["UA:FO", 2]],
 	plural : "Zariel tieflings",
 	size : 3,
 	speed : {

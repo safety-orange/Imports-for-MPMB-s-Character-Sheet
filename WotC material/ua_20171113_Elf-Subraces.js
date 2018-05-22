@@ -85,7 +85,7 @@ RaceList["sea elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 	name : "Sea elf",
 	sortname : "Elf, Sea",
-	source : ["UA:ES", 1],
+	source : [["MToF", 62], ["UA:ES", 1]],
 	plural : "Sea elves",
 	size : 3,
 	speed : {
@@ -107,7 +107,11 @@ RaceList["sea elf"] = {
 	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	improvements : "Sea Elf: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
-	trait : "Sea Elf (+2 Dexterity, +1 Constitution)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nChild of the Sea. I have 30 ft swimming speed and can breathe air and water.\nFriend of the Sea: Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts that have an inborn swimming speed."
+	trait : "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
+		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
+		"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
+	]) // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
 };
 RaceList["shadar-kai"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,

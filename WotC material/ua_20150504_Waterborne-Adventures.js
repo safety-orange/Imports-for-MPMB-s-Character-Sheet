@@ -36,7 +36,7 @@ RaceList["minotaur"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	weapons : ["Horns"],
+	weapons : ["Minotaur Horns"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
@@ -45,8 +45,18 @@ RaceList["minotaur"] = {
 	improvements : "Minotaur: +1 Strength, and either +1 Intelligence, +1 Wisdom, or another +1 Strength;",
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur (+1 Strength, and either +1 Int, Wis, or Str) use \"Racial Options\" button\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
-	eval : "AddAction('bonus action', 'Horns attack (when taking dash action)', 'being a Minotaur'); AddAction('bonus action', 'Shove another (when taking attack action)', 'being a Minotaur');",
-	removeeval : "RemoveAction('bonus action', 'Horns attack (when taking dash action)'); RemoveAction('bonus action', 'Shove another (when taking attack action)');"
+	features : {
+		"goring rush" : {
+			name : "Goring Rush",
+			minlevel : 1,
+			action : ["bonus action", " (with Dash)"]
+		},
+		"hammering horns" : {
+			name : "Hammering Horns",
+			minlevel : 1,
+			action : ["bonus action", " (after hit)"]
+		}
+	}
 };
 AddRacialVariant("minotaur", "cunning", {
 	regExpSearch : /(cunning|wisdom)/i,
@@ -54,7 +64,7 @@ AddRacialVariant("minotaur", "cunning", {
 	source : ["UA:WA", 2],
 	improvements : "Minotaur [cunning]: +1 Strength, +1 Wisdom;",
 	scores : [1, 0, 0, 0, 1, 0],
-	trait : "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait : "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
 AddRacialVariant("minotaur", "intellect", {
 	regExpSearch : /(intellect|intelligence)/i,
@@ -62,7 +72,7 @@ AddRacialVariant("minotaur", "intellect", {
 	source : ["UA:WA", 2],
 	improvements : "Minotaur [intellect]: +1 Strength, +1 Intelligence;",
 	scores : [1, 0, 0, 1, 0, 0],
-	trait : "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait : "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
 AddRacialVariant("minotaur", "strength", {
 	regExpSearch : /(strength|strong|\bmight\b)/i,
@@ -70,13 +80,13 @@ AddRacialVariant("minotaur", "strength", {
 	source : ["UA:WA", 2],
 	improvements : "Minotaur [strength]: +2 Strength;",
 	scores : [1, 0, 0, 0, 0, 0],
-	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
 
 // Minotaur weapon
 WeaponsList["horns-uawa"] = {
-	regExpSearch : /\bhorns?\b/i,
-	name : "Horns",
+	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
+	name : "Minotaur Horns",
 	source : ["UA:WA", 1],
 	ability : 1,
 	type : "Natural",

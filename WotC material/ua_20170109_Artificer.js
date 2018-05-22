@@ -859,7 +859,7 @@ WeaponsList["thunder cannon-explosive round"] = {
 };
 
 // Artificer ammo
-WeaponsList["arcane magazine"] = {
+AmmoList["arcane magazine"] = {
 	name : "Arcane Magazine",
 	source : ["UA:A", 7],
 	weight : 0.2, // based on the weight of renaissance bullets from the DMG

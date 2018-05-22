@@ -5384,7 +5384,7 @@ RaceList["deep gnome"] = {
 	regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 	name : "Svirfneblin",
 	sortname : "Gnome, Deep (Svirfneblin)",
-	source : [["E", 7], ["S", 115]],
+	source : [["E", 7], ["S", 115], ["MToF", 113]],
 	plural : "Svirfneblin",
 	size : 4,
 	speed : {
@@ -6948,7 +6948,7 @@ RaceList["gray dwarf"] = {
 	regExpSearch : /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
 	name : "Duergar",
 	sortname : "Dwarf, Gray (Duergar)",
-	source : ["S", 104],
+	source : [["S", 104], ["MToF", 81]],
 	plural : "Duergar",
 	size : 3,
 	speed : {
@@ -7000,11 +7000,11 @@ RaceList["gray dwarf"] = {
 		}
 	}
 };
-RaceList["deep gnome"] = {
+RaceList["deep gnome"] = { // reprint from Elemental Evil Player's Companion
 	regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 	name : "Svirfneblin",
 	sortname : "Gnome, Deep (Svirfneblin)",
-	source : [["E", 7], ["S", 115]],
+	source : [["E", 7], ["S", 115], ["MToF", 113]],
 	plural : "Svirfneblin",
 	size : 4,
 	speed : {

@@ -724,7 +724,7 @@ RaceList["minotaur"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	weapons : ["Horns"],
+	weapons : ["Minotaur Horns"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
@@ -733,8 +733,18 @@ RaceList["minotaur"] = {
 	improvements : "Minotaur: +1 Strength, and either +1 Intelligence, +1 Wisdom, or another +1 Strength;",
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur (+1 Strength, and either +1 Int, Wis, or Str) use \"Racial Options\" button\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
-	eval : "AddAction('bonus action', 'Horns attack (when taking dash action)', 'being a Minotaur'); AddAction('bonus action', 'Shove another (when taking attack action)', 'being a Minotaur');",
-	removeeval : "RemoveAction('bonus action', 'Horns attack (when taking dash action)'); RemoveAction('bonus action', 'Shove another (when taking attack action)');"
+	features : {
+		"goring rush" : {
+			name : "Goring Rush",
+			minlevel : 1,
+			action : ["bonus action", " (with Dash)"]
+		},
+		"hammering horns" : {
+			name : "Hammering Horns",
+			minlevel : 1,
+			action : ["bonus action", " (after hit)"]
+		}
+	}
 };
 AddRacialVariant("minotaur", "cunning", {
 	regExpSearch : /(cunning|wisdom)/i,
@@ -742,7 +752,7 @@ AddRacialVariant("minotaur", "cunning", {
 	source : ["UA:WA", 2],
 	improvements : "Minotaur [cunning]: +1 Strength, +1 Wisdom;",
 	scores : [1, 0, 0, 0, 1, 0],
-	trait : "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait : "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
 AddRacialVariant("minotaur", "intellect", {
 	regExpSearch : /(intellect|intelligence)/i,
@@ -750,7 +760,7 @@ AddRacialVariant("minotaur", "intellect", {
 	source : ["UA:WA", 2],
 	improvements : "Minotaur [intellect]: +1 Strength, +1 Intelligence;",
 	scores : [1, 0, 0, 1, 0, 0],
-	trait : "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait : "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
 AddRacialVariant("minotaur", "strength", {
 	regExpSearch : /(strength|strong|\bmight\b)/i,
@@ -758,13 +768,13 @@ AddRacialVariant("minotaur", "strength", {
 	source : ["UA:WA", 2],
 	improvements : "Minotaur [strength]: +2 Strength;",
 	scores : [1, 0, 0, 0, 0, 0],
-	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
 
 // Minotaur weapon
 WeaponsList["horns-uawa"] = {
-	regExpSearch : /\bhorns?\b/i,
-	name : "Horns",
+	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
+	name : "Minotaur Horns",
 	source : ["UA:WA", 1],
 	ability : 1,
 	type : "Natural",
@@ -5252,7 +5262,7 @@ WeaponsList["thunder cannon-explosive round"] = {
 };
 
 // Artificer ammo
-WeaponsList["arcane magazine"] = {
+AmmoList["arcane magazine"] = {
 	name : "Arcane Magazine",
 	source : ["UA:A", 7],
 	weight : 0.2, // based on the weight of renaissance bullets from the DMG
@@ -12459,9 +12469,9 @@ SourceList["UA:EnG"] = {
 
 // Adds three races:
 // Alternative version of the Eladrin
-RaceList["uaeladrin"] = {
+RaceList["eladrin-uaeng"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
-	name : "Eladrin ",
+	name : tDoc.info.SheetVersion < 13 ? "Eladrin " : "Eladrin",
 	sortname : "Elf, Fey (Eladrin)",
 	source : ["UA:EnG", 1],
 	plural : "Eladrin",
@@ -12483,7 +12493,7 @@ RaceList["uaeladrin"] = {
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	improvements : "Eladrin: +2 Dexterity, +1 Intelligence or Charisma;",
 	scores : [0, 2, 0, 0, 0, 0],
-	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me acces to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
+	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Shifting Seasons",
@@ -12517,13 +12527,19 @@ RaceList["githyanki"] = {
 	armor : [true, true, false, false],
 	skillstxt : "Choose any one skill or tool",
 	age : " reach adulthood in their late teens and live for about a century",
-	height : " are more leaner and taller than humans, most are a lean 6 feet tall (5'0\" + 2d12\")",
+	height : " are more leaner and taller than humans, most are a slender 6 feet tall (5'0\" + 2d12\")",
 	weight : " weigh around 135 lb (100 + 2d12 \xD7 2d4 lb)",
-	heightMetric : " are more leaner and taller than humans, most are a lean 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Githyanki: +2 Strength, +1 Intelligence;",
 	scores : [2, 0, 0, 1, 0, 0],
-	trait : "Githyanki (+2 Strength, +1 Intelligence)\n\nGithyanki Psionics:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Jump spell once per long rest.\n   At 5th level, I can also cast the Misty Step spell once per long rest.\n   Intelligence is my spellcasting ability for these spells.",
+	trait : "Githyanki (+2 Strength, +1 Intelligence)\nGithyanki Psionics:" + desc([
+		"I know the Mage Hand cantrip.",
+		"At 3rd level, I can cast the Jump spell once per long rest.",
+		"At 5th level, I can also cast the Misty Step spell once per long rest.",
+		"Intelligence is my spellcasting ability for these spells.",
+		"I don't require components to cast these spells."
+	]),
 	spellcastingAbility : 4,
 	spellcastingBonus : {
 		name : "Githyanki Psionics",
@@ -12582,9 +12598,9 @@ RaceList["githzerai"] = {
 	},
 	languageProfs : ["Common", "Gith"],
 	age : " reach adulthood in their late teens and live for about a century",
-	height : " are more leaner and taller than humans, most are a lean 6 feet tall (4'11\" + 2d12\")",
+	height : " are more leaner and taller than humans, most are a slender 6 feet tall (4'11\" + 2d12\")",
 	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
-	heightMetric : " are more leaner and taller than humans, most are a lean 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	improvements : "Githzerai: +1 Intelligence, +2 Wisdom;",
 	scores : [0, 0, 0, 1, 2, 0],
@@ -12649,7 +12665,7 @@ RaceList["baalzebul tiefling"] = {
 	regExpSearch : /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
 	name : "Baalzebul tiefling",
 	sortname : "Tiefling, Baalzebul",
-	source : ["UA:FO", 1],
+	source : [["MToF", 21], ["UA:FO", 1]],
 	plural : "Baalzebul tieflings",
 	size : 3,
 	speed : {
@@ -12770,7 +12786,7 @@ RaceList["fierna tiefling"] = {
 	regExpSearch : /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
 	name : "Fierna tiefling",
 	sortname : "Tiefling, Fierna",
-	source : ["UA:FO", 1],
+	source : [["MToF", 21], ["UA:FO", 1]],
 	plural : "Fierna tieflings",
 	size : 3,
 	speed : {
@@ -12831,7 +12847,7 @@ RaceList["glasya tiefling"] = {
 	regExpSearch : /^(?=.*glasya)(?=.*tiefling|planetouched).*$/i,
 	name : "Glasya tiefling",
 	sortname : "Tiefling, Glasya",
-	source : ["UA:FO", 2],
+	source : [["MToF", 22], ["UA:FO", 2]],
 	plural : "Glasya tieflings",
 	size : 3,
 	speed : {
@@ -12887,12 +12903,12 @@ RaceList["glasya tiefling"] = {
 		}
 	}
 };
-RaceList["levistas tiefling"] = {
-	regExpSearch : /^(?=.*levistas)(?=.*tiefling|planetouched).*$/i,
-	name : "Levistas tiefling",
-	sortname : "Tiefling, Levistas",
-	source : ["UA:FO", 2],
-	plural : "Levistas tieflings",
+RaceList["levistus tiefling"] = {
+	regExpSearch : /^(?=.*levistus)(?=.*tiefling|planetouched).*$/i,
+	name : "Levistus tiefling",
+	sortname : "Tiefling, Levistus",
+	source : [["MToF", 22], ["UA:FO", 2]],
+	plural : "Levistus tieflings",
 	size : 3,
 	speed : {
 		walk : { spd : 30, enc : 20 }
@@ -12905,9 +12921,9 @@ RaceList["levistas tiefling"] = {
 	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-	improvements : "Levistas Tiefling: +1 Constitution, +2 Charisma;",
+	improvements : "Levistus Tiefling: +1 Constitution, +2 Charisma;",
 	scores : [0, 0, 1, 0, 0, 2],
-	trait : "Levistas Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -12952,7 +12968,7 @@ RaceList["mammon tiefling"] = {
 	regExpSearch : /^(?=.*mammon)(?=.*tiefling|planetouched).*$/i,
 	name : "Mammon tiefling",
 	sortname : "Tiefling, Mammon",
-	source : ["UA:FO", 2],
+	source : [["MToF", 22], ["UA:FO", 2]],
 	plural : "Mammon tieflings",
 	size : 3,
 	speed : {
@@ -13073,7 +13089,7 @@ RaceList["zariel tiefling"] = {
 	regExpSearch : /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
 	name : "Zariel tiefling",
 	sortname : "Tiefling, Zariel",
-	source : ["UA:FO", 2],
+	source : [["MToF", 23], ["UA:FO", 2]],
 	plural : "Zariel tieflings",
 	size : 3,
 	speed : {
@@ -13217,7 +13233,7 @@ RaceList["sea elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 	name : "Sea elf",
 	sortname : "Elf, Sea",
-	source : ["UA:ES", 1],
+	source : [["MToF", 62], ["UA:ES", 1]],
 	plural : "Sea elves",
 	size : 3,
 	speed : {
@@ -13239,7 +13255,11 @@ RaceList["sea elf"] = {
 	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	improvements : "Sea Elf: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
-	trait : "Sea Elf (+2 Dexterity, +1 Constitution)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nChild of the Sea. I have 30 ft swimming speed and can breathe air and water.\nFriend of the Sea: Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts that have an inborn swimming speed."
+	trait : "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
+		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
+		"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
+	]) // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
 };
 RaceList["shadar-kai"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
@@ -13698,7 +13718,8 @@ WeaponsList["hooves"] = {
 // Add the Minotaur race
 RaceList["minotaur-uacnm"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur",
+	name : tDoc.info.SheetVersion < 13 ? "Minotaur " : "Minotaur",
+	sortname : "Minotaur",
 	source : ["UA:CnM", 2],
 	plural : "Minotaurs",
 	size : 3,
@@ -13706,7 +13727,7 @@ RaceList["minotaur-uacnm"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weapons : ["Horns"],
+	weapons : ["Minotaur Horns"],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
@@ -13737,8 +13758,8 @@ RaceList["minotaur-uacnm"] = {
 };
 // Minotaur weapon
 WeaponsList["horns-uacnm"] = {
-	regExpSearch : /\bhorns?\b/i,
-	name : "Horns",
+	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
+	name : "Minotaur Horns",
 	source : ["UA:CnM", 2],
 	ability : 1,
 	type : "Natural",
