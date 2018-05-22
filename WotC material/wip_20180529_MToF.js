@@ -652,7 +652,7 @@ RaceList["githyanki-mtof"] = {
 	improvements : "Githyanki: +2 Strength, +1 Intelligence;",
 	scores : [2, 0, 0, 1, 0, 0],
 	trait : "Githyanki (+2 Strength, +1 Intelligence)\n" + (typePF ? "\n" : "") + "Githyanki Psionics:" + desc([
-		"I know the Mage Hand cantrip.",
+		"I know the Mage Hand cantrip, but the hand is invisible.",
 		"At 3rd level, I can cast the Jump spell once per long rest.",
 		"At 5th level, I can also cast the Misty Step spell once per long rest.",
 		"Intelligence is my spellcasting ability for these spells.",
@@ -722,7 +722,7 @@ RaceList["githzerai-mtof"] = {
 	improvements : "Githzerai: +1 Intelligence, +2 Wisdom;",
 	scores : [0, 0, 0, 1, 2, 0],
 	trait : "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Githzerai Psionics:" + desc([
-		"I know the Mage Hand cantrip.",
+		"I know the Mage Hand cantrip, but the hand is invisible.",
 		"At 3rd level, I can cast the Shield spell once per long rest.",
 		"At 5th level, I can also cast the Detect Thoughts spell once per long rest.",
 		"Wisdom is my spellcasting ability for these spells.",
