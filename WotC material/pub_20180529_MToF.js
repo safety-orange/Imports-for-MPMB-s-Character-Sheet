@@ -397,7 +397,7 @@ RaceList["mephistopheles tiefling-mtof"] = {
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Mephistopheles Tiefling: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Branding Smite spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Flame Blade spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -422,8 +422,8 @@ RaceList["mephistopheles tiefling-mtof"] = {
 				oncelr : true
 			}
 		},
-		"branding smite" : {
-			name : "Branding Smite",
+		"flame blade" : {
+			name : "Flame Blade",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
@@ -431,8 +431,8 @@ RaceList["mephistopheles tiefling-mtof"] = {
 			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Legacy of Cania (level 5)",
-				spells : ["branding smite"],
-				selection : ["branding smite"],
+				spells : ["flame blade"],
+				selection : ["flame blade"],
 				oncelr : true
 			}
 		}
