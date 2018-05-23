@@ -525,6 +525,7 @@ RaceList["eladrin-mtof"] = {
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	improvements : "Eladrin: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
+	abilitySave : 6,
 	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)" + desc([
 		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
 		"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, this gains an additional effect, based on the current season I'm aligned with. See the third page notes section for the effects.",
@@ -540,18 +541,19 @@ RaceList["eladrin-mtof"] = {
 			action : ["bonus action", ""]
 		}
 	},
-	notes : "Eladrin Season Features (MTof 62)" + "\n\u25C6 Autumn" + desc([
-		"",
-		""
-	]) + "\n\u25C6 Winter" + desc([
-		"",
-		""
-	]) + "\n\u25C6 Spring" + desc([
-		"",
-		""
-	]) + "\n\u25C6 Summer" + desc([
-		"",
-		""
+	notes : "\u25C6 Eladrin Season Features (MToF 62) [save DC 8 + Cha mod + prof bonus]"
+	+ "\n  \u2022 Autumn (Eladrin Season, MToF 62)" + desc([
+		" After using Fey Step, up to 2 creatures I can see within 10 ft of me must make a Wis save",
+		" If failed, a target is charmed by me for 1 minute, or until I or my allies damage it"
+	]) + "\n  \u2022 Winter (Eladrin Season, MToF 62)" + desc([
+		" When I use Fey Step, one target in 5 ft of where I teleported from must make a Wis save",
+		" If failed, it is frightened of me until the end of my next turn"
+	]) + "\n  \u2022 Spring (Eladrin Season, MToF 62)" + desc([
+		" When I use Fey Step, I can instead teleport one willing creature I touch within 5 ft of me",
+		" It teleports to an unoccupied space of my choice that I can see within 30 ft of me"
+	]) + "\n  \u2022 Summer (Eladrin Season, MToF 62)" + desc([
+		" After using Fey Step, each creature of my choice within 5 ft of me takes fire damage",
+		" This fire damage is equal to my Charisma modifier (minimum 1)"
 	]),
 	eval : "AddString('Extra.Notes', RaceList['eladrin-mtof'].notes, true); Value('Extra.Layers Remember', 'notes,' + What('Extra.Layers Remember').split(',')[1]); LayerVisibilityOptions(false);",
 	removeeval : "RemoveString('Extra.Notes', RaceList['eladrin-mtof'].notes, true);"
@@ -660,35 +662,35 @@ RaceList["githyanki-mtof"] = {
 	]),
 	spellcastingAbility : 4,
 	spellcastingBonus : {
-		name : "Githyanki Psionics",
+		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		atwill : true
 	},
 	features : {
-		"githyanki psionics (jump)" : {
-			name : "Githyanki Psionics (Jump)",
+		"jump" : {
+			name : "Jump",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githyanki Psionics)",
 			action : ["action", ""],
 			spellcastingBonus : {
-				name : "Githyanki Psionics",
+				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
 				selection : ["jump"],
 				oncelr : true
 			}
 		},
-		"githyanki psionics (misty step)" : {
-			name : "Githyanki Psionics (Misty Step)",
+		"misty step" : {
+			name : "Misty Step",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githyanki Psionics)",
 			action : ["bonus action", ""],
 			spellcastingBonus : {
-				name : "Githyanki Psionics",
+				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				oncelr : true
@@ -731,35 +733,35 @@ RaceList["githzerai-mtof"] = {
 	savetxt : { adv_vs : ["charmed", "frightened"] },
 	spellcastingAbility : 5,
 	spellcastingBonus : {
-		name : "Githzerai Psionics",
+		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		atwill : true
 	},
 	features : {
-		"githzerai psionics (shield)" : {
-			name : "Githzerai Psionics (Shield)",
+		"shield" : {
+			name : "Shield",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githzerai Psionics)",
 			action : ["reaction", ""],
 			spellcastingBonus : {
-				name : "Githzerai Psionics",
+				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
 				selection : ["shield"],
 				oncelr : true
 			}
 		},
-		"githzerai psionics (detect thoughts)" : {
-			name : "Githzerai Psionics (Detect Thoughts)",
+		"detect thoughts" : {
+			name : "Detect Thoughts",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githzerai Psionics)",
 			action : ["action", ""],
 			spellcastingBonus : {
-				name : "Githzerai Psionics",
+				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				oncelr : true

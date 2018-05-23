@@ -86,35 +86,35 @@ RaceList["githyanki"] = {
 	]),
 	spellcastingAbility : 4,
 	spellcastingBonus : {
-		name : "Githyanki Psionics",
+		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		atwill : true
 	},
 	features : {
-		"githyanki psionics (jump)" : {
-			name : "Githyanki Psionics (Jump)",
+		"jump" : {
+			name : "Jump",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githyanki Psionics)",
 			action : ["action", ""],
 			spellcastingBonus : {
-				name : "Githyanki Psionics",
+				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
 				selection : ["jump"],
 				oncelr : true
 			}
 		},
-		"githyanki psionics (misty step)" : {
-			name : "Githyanki Psionics (Misty Step)",
+		"misty step" : {
+			name : "Misty Step",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githyanki Psionics)",
 			action : ["bonus action", ""],
 			spellcastingBonus : {
-				name : "Githyanki Psionics",
+				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				oncelr : true
@@ -151,35 +151,35 @@ RaceList["githzerai"] = {
 	trait : "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Monastic Training: I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.\n\nGithzerai Psionics: I know the Mage Hand cantrip. At 3rd level, I can cast the Shield spell once per long rest. At 5th level, I can also cast the Detect Thoughts spell once per long rest. Wisdom is my spellcasting ability for these spells.",
 	spellcastingAbility : 5,
 	spellcastingBonus : {
-		name : "Githzerai Psionics",
+		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		atwill : true
 	},
 	features : {
-		"githzerai psionics (shield)" : {
-			name : "Githzerai Psionics (Shield)",
+		"shield" : {
+			name : "Shield",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githzerai Psionics)",
 			action : ["reaction", ""],
 			spellcastingBonus : {
-				name : "Githzerai Psionics",
+				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
 				selection : ["shield"],
 				oncelr : true
 			}
 		},
-		"githzerai psionics (detect thoughts)" : {
-			name : "Githzerai Psionics (Detect Thoughts)",
+		"detect thoughts" : {
+			name : "Detect Thoughts",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
 			tooltip : " (Githzerai Psionics)",
 			action : ["action", ""],
 			spellcastingBonus : {
-				name : "Githzerai Psionics",
+				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				oncelr : true
