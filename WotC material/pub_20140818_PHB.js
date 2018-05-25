@@ -317,7 +317,7 @@ AddSubClass("bard", "college of valor", {
 			name : "Battle Magic",
 			source : ["P", 55],
 			minlevel : 14,
-			description : "\n   " + "When I use my action to cast a Bard spell, I can make one bonus action weapon attack",
+			description : "\n   " + "As a bonus action when I use my action to cast a bard spell, I can make a weapon attack",
 			action : ["bonus action", " (with Bard spell)"]
 		}
 	}
