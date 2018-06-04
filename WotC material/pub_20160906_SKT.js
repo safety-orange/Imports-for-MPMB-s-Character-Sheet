@@ -14,7 +14,7 @@ SourceList.SKT={
 // Creatures
 CreatureList["crag cat"] = {
 	name : "Crag Cat",
-	source : ["SKT", 243],
+	source : ["SKT", 240],
 	size : 2, //Large
 	type : "Beast",
 	subtype : "",
@@ -64,7 +64,7 @@ CreatureList["crag cat"] = {
 };
 CreatureList["hulking crab"] = {
 	name : "Hulking Crab",
-	source : ["SKT", 243],
+	source : ["SKT", 240],
 	size : 1, //Huge
 	type : "Beast",
 	subtype : "",
@@ -104,10 +104,11 @@ CreatureList["hulking crab"] = {
 };
 CreatureList["tressym"] = {
 	name : "Tressym",
-	source : ["SKT", 245],
+	source : ["SKT", 242],
 	size : 5, //Tiny
 	type : "Beast",
 	subtype : "",
+	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 5,

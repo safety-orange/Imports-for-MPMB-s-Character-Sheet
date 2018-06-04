@@ -480,7 +480,7 @@ CreatureList["almiraj"] = {
 	size : 4, //Small
 	type : "Beast",
 	subtype : "",
-	companion : "familiar",
+	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 3,
@@ -518,7 +518,7 @@ CreatureList["flying monkey"] = {
 	size : 4, //Small
 	type : "Beast",
 	subtype : "",
-	companion : "familiar",
+	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 3,

@@ -8948,7 +8948,7 @@ SourceList.SKT={
 // Creatures
 CreatureList["crag cat"] = {
 	name : "Crag Cat",
-	source : ["SKT", 243],
+	source : ["SKT", 240],
 	size : 2, //Large
 	type : "Beast",
 	subtype : "",
@@ -8998,7 +8998,7 @@ CreatureList["crag cat"] = {
 };
 CreatureList["hulking crab"] = {
 	name : "Hulking Crab",
-	source : ["SKT", 243],
+	source : ["SKT", 240],
 	size : 1, //Huge
 	type : "Beast",
 	subtype : "",
@@ -9038,10 +9038,11 @@ CreatureList["hulking crab"] = {
 };
 CreatureList["tressym"] = {
 	name : "Tressym",
-	source : ["SKT", 245],
+	source : ["SKT", 242],
 	size : 5, //Tiny
 	type : "Beast",
 	subtype : "",
+	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 5,
@@ -11070,7 +11071,7 @@ CreatureList["almiraj"] = {
 	size : 4, //Small
 	type : "Beast",
 	subtype : "",
-	companion : "familiar",
+	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 3,
@@ -11108,7 +11109,7 @@ CreatureList["flying monkey"] = {
 	size : 4, //Small
 	type : "Beast",
 	subtype : "",
-	companion : "familiar",
+	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 3,
@@ -16059,7 +16060,7 @@ RaceList["zariel tiefling"] = {
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Zariel Tiefling: +1 Strength, +2 Charisma;",
 	scores : [1, 0, 0, 0, 0, 2],
-	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Searing Smite spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Web spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Searing Smite spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Branding Smite spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
