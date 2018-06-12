@@ -8,7 +8,7 @@ SourceList["UA:E"] = {
 	name : "Unearthed Arcana: Eberron",
 	abbreviation : "UA:E",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_Eberron_v1.1.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_Eberron_v1.1.pdf",
 	date : "2015/02/02"
 };
 
@@ -383,7 +383,7 @@ SourceList["UA:MC"] = {
 	name : "Unearthed Arcana: Modifying Classes",
 	abbreviation : "UA:MC",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA3_ClassDesignVariants.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA3_ClassDesignVariants.pdf",
 	date : "2015/04/06"
 };
 // Also needs the PHB source, as the spell-less ranger uses stuff from there
@@ -392,7 +392,7 @@ if (!SourceList.P) {
 		name : "Player's Handbook",
 		abbreviation : "PHB",
 		group : "Primary Sources",
-		url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
+		url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 		date : "2014/08/19"
 	};
 };
@@ -695,7 +695,7 @@ SourceList["UA:WA"] = {
 	name : "Unearthed Arcana: Waterborne Adventures",
 	abbreviation : "UA:WA",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_Waterborne_v3.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_Waterborne_v3.pdf",
 	date : "2015/05/04"
 };
 
@@ -792,7 +792,7 @@ SourceList["UA:MM"] = {
 	name : "Unearthed Arcana: Modern Magic",
 	abbreviation : "UA:MM",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_ModernMagic.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_ModernMagic.pdf",
 	date : "2015/08/03"
 };
 
@@ -1410,7 +1410,7 @@ SourceList["UA:PCRM"] = {
 	name : "Unearthed Arcana: Prestige Classes and Rune Magic",
 	abbreviation : "UA:PCRM",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_Rune_Magic_Prestige_Class.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_Rune_Magic_Prestige_Class.pdf",
 	date : "2015/10/05"
 };
 
@@ -1598,7 +1598,7 @@ SourceList["UA:LDU"] = {
 	name : "Unearthed Arcana: Light, Dark, Underdark!",
 	abbreviation : "UA:LDU",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/02_UA_Underdark_Characters.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/02_UA_Underdark_Characters.pdf",
 	date : "2015/11/02"
 };
 
@@ -1778,7 +1778,7 @@ SourceList["UA:TOBM"] = {
 	name : "Unearthed Arcana: That Old Black Magic",
 	abbreviation : "UA:TOBM",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/07_UA_That_Old_Black_Magic.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/07_UA_That_Old_Black_Magic.pdf",
 	date : "2015/12/17"
 };
 
@@ -1948,7 +1948,7 @@ SourceList["UA:KoO"] = {
 	name : "Unearthed Arcana: Kits of Old",
 	abbreviation : "UA:KoO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/04_UA_Classics_Revisited.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/04_UA_Classics_Revisited.pdf",
 	date : "2016/01/04"
 };
 
@@ -2165,7 +2165,7 @@ SourceList["UA:GH"] = {
 	name : "Unearthed Arcana: Gothic Heroes",
 	abbreviation : "UA:GH",
 	group : "Unearthed Arcana",
-	url : "http://dnd.wizards.com/sites/default/files/media/upload/articles/UA%20Gothic%20Characters.pdf",
+	url : "https://dnd.wizards.com/sites/default/files/media/upload/articles/UA%20Gothic%20Characters.pdf",
 	date : "2016/04/04"
 };
 
@@ -2494,7 +2494,7 @@ SourceList["UA:F"] = {
 	name : "Unearthed Arcana: Feats",
 	abbreviation : "UA:F",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/downloads/DND/UA-Feats-V1.pdf",
+	url : "https://media.wizards.com/2016/downloads/DND/UA-Feats-V1.pdf",
 	date : "2016/06/06"
 };
 
@@ -2593,7 +2593,7 @@ SourceList["UA:TF"] = {
 	name : "Unearthed Arcana: The Faithful",
 	abbreviation : "UA:TF",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA%20Non-Divine%20Faithful%20SFG.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA%20Non-Divine%20Faithful%20SFG.pdf",
 	date : "2016/08/01"
 };
 
@@ -2807,7 +2807,7 @@ SourceList["UA:RR"] = {
 	name : "Unearthed Arcana: The Ranger, Revised",
 	abbreviation : "UA:RR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_RevisedRanger.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_RevisedRanger.pdf",
 	date : "2016/09/12"
 };
 
@@ -3189,7 +3189,7 @@ SourceList["UA:BPP"] = {
 	name : "Unearthed Arcana: Barbarian Primal Paths",
 	abbreviation : "UA:BPP",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Barbarian.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Barbarian.pdf",
 	date : "2016/11/07"
 };
 
@@ -3388,7 +3388,7 @@ SourceList["UA:BC"] = {
 	name : "Unearthed Arcana: Bard Colleges",
 	abbreviation : "UA:BC",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Bard.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Bard.pdf",
 	date : "2016/11/14"
 };
 
@@ -3504,7 +3504,7 @@ SourceList["UA:CDD"] = {
 	name : "Unearthed Arcana: Cleric Divine Domains",
 	abbreviation : "UA:CDD",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Cleric.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Cleric.pdf",
 	date : "2016/11/21"
 };
 
@@ -3704,7 +3704,7 @@ SourceList["UA:DC"] = {
 	name : "Unearthed Arcana: Druid Circles",
 	abbreviation : "UA:DC",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Druid11272016_CAWS.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Druid11272016_CAWS.pdf",
 	date : "2016/11/28"
 };
 
@@ -3868,7 +3868,7 @@ SourceList["UA:FMA"] = {
 	name : "Unearthed Arcana: Fighter Martial Archetypes",
 	abbreviation : "UA:FMA",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/2016_Fighter_UA_1205_1.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/2016_Fighter_UA_1205_1.pdf",
 	date : "2016/12/05"
 };
 
@@ -4160,7 +4160,7 @@ SourceList["UA:MMT"] = {
 	name : "Unearthed Arcana: Monk Monastic Traditions",
 	abbreviation : "UA:MMT",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/M_2016_UAMonk1_12_12WKWT.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/M_2016_UAMonk1_12_12WKWT.pdf",
 	date : "2016/12/12"
 };
 
@@ -4289,7 +4289,7 @@ SourceList["UA:PSO"] = {
 	name : "Unearthed Arcana: Paladin Sacred Oaths",
 	abbreviation : "UA:PSO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UAPaladin_SO_20161219_1.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UAPaladin_SO_20161219_1.pdf",
 	date : "2016/12/19"
 };
 
@@ -4411,7 +4411,7 @@ SourceList["UA:A"] = {
 	name : "Unearthed Arcana: Artificer",
 	abbreviation : "UA:A",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/1_UA_Artificer_20170109.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/1_UA_Artificer_20170109.pdf",
 	date : "2017/01/09"
 };
 
@@ -5338,7 +5338,7 @@ SourceList["UA:RnR"] = {
 	name : "Unearthed Arcana: Ranger and Rogue",
 	abbreviation : "UA:RnR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/2017_01_UA_RangerRogue_0117JCMM.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/2017_01_UA_RangerRogue_0117JCMM.pdf",
 	date : "2017/01/16"
 };
 
@@ -5538,7 +5538,7 @@ SourceList["UA:SO"] = {
 	name : "Unearthed Arcana: Sorcerous Origins",
 	abbreviation : "UA:SO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/26_UASorcererUA020617s.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/26_UASorcererUA020617s.pdf",
 	date : "2017/02/06"
 };
 
@@ -5868,7 +5868,7 @@ SourceList["UA:WnW"] = {
 	name : "Unearthed Arcana: Warlock and Wizard",
 	abbreviation : "UA:WnW",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/20170213_Wizrd_Wrlck_UAv2_i48nf.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/20170213_Wizrd_Wrlck_UAv2_i48nf.pdf",
 	date : "2017/02/13"
 };
 
@@ -6410,7 +6410,7 @@ SourceList["UA:TMC"] = {
 	name : "Unearthed Arcana: The Mystic Class",
 	abbreviation : "UA:TMC",	
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UAMystic3.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UAMystic3.pdf",
 	date : "2017/03/13"
 };
 
@@ -10275,7 +10275,7 @@ SourceList["UA:WR"] = {
 	name : "Unearthed Arcana: Wizard Revisited",
 	abbreviation : "UA:WR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/MJ320UAWizardVF2017.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/MJ320UAWizardVF2017.pdf",
 	date : "2017/03/20"
 };
 
@@ -10492,7 +10492,7 @@ SourceList["UA:AToS"] = {
 	name : "Unearthed Arcana: A Trio of Subclasses",
 	abbreviation : "UA:AToS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UAThreeSubclasses.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UAThreeSubclasses.pdf",
 	date : "2017/03/27"
 };
 
@@ -10683,7 +10683,7 @@ SourceList["UA:SS"] = {
 	name : "Unearthed Arcana: Starter Spells",
 	abbreviation : "UA:SS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-Starter-Spells.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-Starter-Spells.pdf",
 	date : "2017/04/03"
 };
 
@@ -11002,7 +11002,7 @@ SourceList["UA:FS"] = {
 	name : "Unearthed Arcana: Feats for Skills",
 	abbreviation : "UA:FS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-SkillFeats.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-SkillFeats.pdf",
 	date : "2017/04/17"
 };
 
@@ -11245,7 +11245,7 @@ SourceList["UA:FR"] = {
 	name : "Unearthed Arcana: Feats for Races",
 	abbreviation : "UA:FR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/RJSJC2017_04UASkillFeats_24v10.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/RJSJC2017_04UASkillFeats_24v10.pdf",
 	date : "2017/04/24"
 };
 
@@ -11572,7 +11572,7 @@ SourceList["UA:RS"] = {
 	name : "Unearthed Arcana: Revised Subclasses",
 	abbreviation : "UA:RS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-RevisedSubclasses.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-RevisedSubclasses.pdf",
 	date : "2017/05/01"
 };
 
@@ -11993,7 +11993,7 @@ SourceList["UA:RCO"] = {
 	name : "Unearthed Arcana: Revised Class Options",
 	abbreviation : "UA:RCO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/June5UA_RevisedClassOptv1.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/June5UA_RevisedClassOptv1.pdf",
 	date : "2017/06/05"
 };
 
@@ -12463,7 +12463,7 @@ SourceList["UA:EnG"] = {
 	name : "Unearthed Arcana: Eladrin and Gith",
 	abbreviation : "UA:EnG",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-Eladrin-Gith.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-Eladrin-Gith.pdf",
 	date : "2017/09/11"
 };
 

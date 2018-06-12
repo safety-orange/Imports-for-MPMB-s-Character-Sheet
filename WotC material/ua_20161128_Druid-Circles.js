@@ -7,7 +7,7 @@ SourceList["UA:DC"] = {
 	name : "Unearthed Arcana: Druid Circles",
 	abbreviation : "UA:DC",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Druid11272016_CAWS.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Druid11272016_CAWS.pdf",
 	date : "2016/11/28"
 };
 

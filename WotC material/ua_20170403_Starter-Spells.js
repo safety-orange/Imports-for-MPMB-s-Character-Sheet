@@ -7,7 +7,7 @@ SourceList["UA:SS"] = {
 	name : "Unearthed Arcana: Starter Spells",
 	abbreviation : "UA:SS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-Starter-Spells.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-Starter-Spells.pdf",
 	date : "2017/04/03"
 };
 

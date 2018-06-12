@@ -7,7 +7,7 @@ SourceList.S={
 	name : "Sword Coast Adventure Guide",
 	abbreviation : "SCAG",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide",
 	date : "2015/11/03"
 };
 

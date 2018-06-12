@@ -7,7 +7,7 @@ SourceList["UA:TF"] = {
 	name : "Unearthed Arcana: The Faithful",
 	abbreviation : "UA:TF",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA%20Non-Divine%20Faithful%20SFG.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA%20Non-Divine%20Faithful%20SFG.pdf",
 	date : "2016/08/01"
 };
 

@@ -7,7 +7,7 @@ SourceList["UA:FMA"] = {
 	name : "Unearthed Arcana: Fighter Martial Archetypes",
 	abbreviation : "UA:FMA",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/2016_Fighter_UA_1205_1.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/2016_Fighter_UA_1205_1.pdf",
 	date : "2016/12/05"
 };
 

@@ -7,7 +7,7 @@ SourceList.HotDQ={
 	name : "Hoard of the Dragon Queen [background features]",
 	abbreviation : "HotDQ",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
 	date : "2014/08/19"
 };
 

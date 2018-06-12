@@ -9,7 +9,7 @@ SourceList.MToF={
 	name : "Mordenkainen's Tome of Foes",
 	abbreviation : "MToF",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/mordenkainens-tome-foes",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/mordenkainens-tome-foes",
 	date : "2018/05/29"
 };
 
@@ -555,7 +555,7 @@ RaceList["eladrin-mtof"] = {
 		" After using Fey Step, each creature of my choice within 5 ft of me takes fire damage",
 		" This fire damage is equal to my Charisma modifier (minimum 1)"
 	]),
-	eval : "AddString('Extra.Notes', RaceList['eladrin-mtof'].notes, true); Value('Extra.Layers Remember', 'notes,' + What('Extra.Layers Remember').split(',')[1]); LayerVisibilityOptions(false);",
+	eval : "AddString('Extra.Notes', RaceList['eladrin-mtof'].notes, true); if(sheetVersion < 13) { Value('Extra.Layers Remember', 'notes,' + What('Extra.Layers Remember').split(',')[1]); LayerVisibilityOptions(false); } else { show3rdPageNotes(); };",
 	removeeval : "RemoveString('Extra.Notes', RaceList['eladrin-mtof'].notes, true);"
 };
 RaceList["sea elf"] = {

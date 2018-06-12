@@ -7,7 +7,7 @@ SourceList["UA:RR"] = {
 	name : "Unearthed Arcana: The Ranger, Revised",
 	abbreviation : "UA:RR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_RevisedRanger.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_RevisedRanger.pdf",
 	date : "2016/09/12"
 };
 

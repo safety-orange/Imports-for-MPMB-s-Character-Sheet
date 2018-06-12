@@ -7,7 +7,7 @@ SourceList["UA:WnW"] = {
 	name : "Unearthed Arcana: Warlock and Wizard",
 	abbreviation : "UA:WnW",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/20170213_Wizrd_Wrlck_UAv2_i48nf.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/20170213_Wizrd_Wrlck_UAv2_i48nf.pdf",
 	date : "2017/02/13"
 };
 

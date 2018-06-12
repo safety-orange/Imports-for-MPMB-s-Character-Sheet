@@ -7,7 +7,7 @@ SourceList["UA:PSO"] = {
 	name : "Unearthed Arcana: Paladin Sacred Oaths",
 	abbreviation : "UA:PSO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UAPaladin_SO_20161219_1.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UAPaladin_SO_20161219_1.pdf",
 	date : "2016/12/19"
 };
 

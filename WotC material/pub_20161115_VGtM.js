@@ -7,7 +7,7 @@ SourceList.V={
 	name : "Volo's Guide to Monsters",
 	abbreviation : "VGtM",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters",
 	date : "2016/11/15"
 };
 

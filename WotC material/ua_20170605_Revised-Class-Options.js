@@ -7,7 +7,7 @@ SourceList["UA:RCO"] = {
 	name : "Unearthed Arcana: Revised Class Options",
 	abbreviation : "UA:RCO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/June5UA_RevisedClassOptv1.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/June5UA_RevisedClassOptv1.pdf",
 	date : "2017/06/05"
 };
 

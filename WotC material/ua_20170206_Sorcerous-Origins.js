@@ -7,7 +7,7 @@ SourceList["UA:SO"] = {
 	name : "Unearthed Arcana: Sorcerous Origins",
 	abbreviation : "UA:SO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/26_UASorcererUA020617s.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/26_UASorcererUA020617s.pdf",
 	date : "2017/02/06"
 };
 

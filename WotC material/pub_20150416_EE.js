@@ -7,7 +7,7 @@ SourceList.E={
 	name : "Elemental Evil Player's Companion", // November 2017 version
 	abbreviation : "EE",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
 	date : "2015/04/16"
 };
 

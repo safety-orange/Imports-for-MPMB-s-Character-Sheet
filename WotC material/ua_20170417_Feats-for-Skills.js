@@ -7,7 +7,7 @@ SourceList["UA:FS"] = {
 	name : "Unearthed Arcana: Feats for Skills",
 	abbreviation : "UA:FS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-SkillFeats.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-SkillFeats.pdf",
 	date : "2017/04/17"
 };
 

@@ -7,7 +7,7 @@ SourceList.OotA={
 	name : "Out of the Abyss [beasts, background features]",
 	abbreviation : "OotA",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
 	date : "2015/09/15"
 };
 

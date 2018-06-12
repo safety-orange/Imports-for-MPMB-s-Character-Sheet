@@ -7,7 +7,7 @@ SourceList["UA:EnG"] = {
 	name : "Unearthed Arcana: Eladrin and Gith",
 	abbreviation : "UA:EnG",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-Eladrin-Gith.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-Eladrin-Gith.pdf",
 	date : "2017/09/11"
 };
 

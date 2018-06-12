@@ -7,7 +7,7 @@ SourceList.P={
 	name : "Player's Handbook",
 	abbreviation : "PHB",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 	date : "2014/08/19"
 };
 

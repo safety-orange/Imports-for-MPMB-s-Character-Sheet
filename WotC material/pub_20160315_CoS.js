@@ -7,14 +7,14 @@ SourceList.CoS={
 	name : "Curse of Strahd [background, pack]",
 	abbreviation : "CoS",
 	group : "Adventure Books",
-	url : "http://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
+	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
 	date : "2016/03/15"
 };
 SourceList["AL:CoS"]={
 	name : "Curse of Strahd Backgrounds", // v1.1
 	abbreviation : "AL:CoS",
 	group : "Adventurers League",
-	url : "http://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf",
+	url : "https://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf",
 	date : "2016/04/07"
 };
 

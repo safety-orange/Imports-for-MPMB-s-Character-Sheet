@@ -7,7 +7,7 @@ SourceList.ToA={
 	name : "Tomb of Annihilation [backgrounds, beasts, equipment]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
 	date : "2017/09/19"
 };
 

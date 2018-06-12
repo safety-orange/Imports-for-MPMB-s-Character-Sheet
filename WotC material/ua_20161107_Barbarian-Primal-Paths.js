@@ -7,7 +7,7 @@ SourceList["UA:BPP"] = {
 	name : "Unearthed Arcana: Barbarian Primal Paths",
 	abbreviation : "UA:BPP",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Barbarian.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Barbarian.pdf",
 	date : "2016/11/07"
 };
 

@@ -7,7 +7,7 @@ SourceList["UA:RnR"] = {
 	name : "Unearthed Arcana: Ranger and Rogue",
 	abbreviation : "UA:RnR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/2017_01_UA_RangerRogue_0117JCMM.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/2017_01_UA_RangerRogue_0117JCMM.pdf",
 	date : "2017/01/16"
 };
 

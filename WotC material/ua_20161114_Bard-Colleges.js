@@ -7,7 +7,7 @@ SourceList["UA:BC"] = {
 	name : "Unearthed Arcana: Bard Colleges",
 	abbreviation : "UA:BC",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Bard.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Bard.pdf",
 	date : "2016/11/14"
 };
 

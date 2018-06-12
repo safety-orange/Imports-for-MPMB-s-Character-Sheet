@@ -7,7 +7,7 @@ SourceList["UA:MM"] = {
 	name : "Unearthed Arcana: Modern Magic",
 	abbreviation : "UA:MM",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_ModernMagic.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_ModernMagic.pdf",
 	date : "2015/08/03"
 };
 

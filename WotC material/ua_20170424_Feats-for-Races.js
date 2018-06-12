@@ -7,7 +7,7 @@ SourceList["UA:FR"] = {
 	name : "Unearthed Arcana: Feats for Races",
 	abbreviation : "UA:FR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/RJSJC2017_04UASkillFeats_24v10.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/RJSJC2017_04UASkillFeats_24v10.pdf",
 	date : "2017/04/24"
 };
 

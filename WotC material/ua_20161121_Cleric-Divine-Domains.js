@@ -7,7 +7,7 @@ SourceList["UA:CDD"] = {
 	name : "Unearthed Arcana: Cleric Divine Domains",
 	abbreviation : "UA:CDD",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/UA_Cleric.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/UA_Cleric.pdf",
 	date : "2016/11/21"
 };
 

@@ -7,7 +7,7 @@ SourceList.D={
 	name : "Dungeon Master's Guide",
 	abbreviation : "DMG",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide",
 	date : "2014/12/09"
 };
 

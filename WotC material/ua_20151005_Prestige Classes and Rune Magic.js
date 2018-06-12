@@ -7,7 +7,7 @@ SourceList["UA:PCRM"] = {
 	name : "Unearthed Arcana: Prestige Classes and Rune Magic",
 	abbreviation : "UA:PCRM",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_Rune_Magic_Prestige_Class.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_Rune_Magic_Prestige_Class.pdf",
 	date : "2015/10/05"
 };
 

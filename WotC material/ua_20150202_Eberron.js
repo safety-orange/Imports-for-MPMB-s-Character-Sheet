@@ -7,7 +7,7 @@ SourceList["UA:E"] = {
 	name : "Unearthed Arcana: Eberron",
 	abbreviation : "UA:E",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_Eberron_v1.1.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_Eberron_v1.1.pdf",
 	date : "2015/02/02"
 };
 

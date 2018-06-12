@@ -7,7 +7,7 @@ SourceList["UA:KoO"] = {
 	name : "Unearthed Arcana: Kits of Old",
 	abbreviation : "UA:KoO",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/04_UA_Classics_Revisited.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/04_UA_Classics_Revisited.pdf",
 	date : "2016/01/04"
 };
 

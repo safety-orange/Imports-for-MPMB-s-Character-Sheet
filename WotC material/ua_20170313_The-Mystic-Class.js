@@ -8,7 +8,7 @@ SourceList["UA:TMC"] = {
 	name : "Unearthed Arcana: The Mystic Class",
 	abbreviation : "UA:TMC",	
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UAMystic3.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UAMystic3.pdf",
 	date : "2017/03/13"
 };
 

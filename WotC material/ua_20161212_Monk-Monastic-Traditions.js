@@ -7,7 +7,7 @@ SourceList["UA:MMT"] = {
 	name : "Unearthed Arcana: Monk Monastic Traditions",
 	abbreviation : "UA:MMT",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/M_2016_UAMonk1_12_12WKWT.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/M_2016_UAMonk1_12_12WKWT.pdf",
 	date : "2016/12/12"
 };
 

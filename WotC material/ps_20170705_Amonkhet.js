@@ -1,6 +1,6 @@
 var iFileName = "ps_20170705_Amonkhet.js";
 RequiredSheetVersion(12.999);
-// This file adds all material from the Plane Shift: Amonkhet article (http://dnd.wizards.com/articles/features/plane-shift-amonkhet) to MPMB's Character Record Sheet
+// This file adds all material from the Plane Shift: Amonkhet article (https://dnd.wizards.com/articles/features/plane-shift-amonkhet) to MPMB's Character Record Sheet
 // This code contains contributions by /u/MILKB0T and /u/juju2569
 
 // Define the source

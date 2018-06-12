@@ -7,7 +7,7 @@ SourceList["UA:TOBM"] = {
 	name : "Unearthed Arcana: That Old Black Magic",
 	abbreviation : "UA:TOBM",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/07_UA_That_Old_Black_Magic.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/07_UA_That_Old_Black_Magic.pdf",
 	date : "2015/12/17"
 };
 

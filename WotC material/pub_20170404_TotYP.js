@@ -7,7 +7,7 @@ SourceList.TotYP={
 	name : "Tales of the Yawning Portal [beasts]",
 	abbreviation : "TotYP",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
 	date : "2017/04/04"
 };
 

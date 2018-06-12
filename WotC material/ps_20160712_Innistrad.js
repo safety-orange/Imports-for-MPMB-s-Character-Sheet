@@ -1,6 +1,6 @@
 var iFileName = "ps_20160712_Innistrad.js";
 RequiredSheetVersion(12.999);
-// This file adds all material from the Plane Shift: Innistrad article (http://www.dragonmag.com/5.0/#!/article/106375/102161027) to MPMB's Character Record Sheet
+// This file adds all material from the Plane Shift: Innistrad article (https://www.dragonmag.com/5.0/#!/article/106375/102161027) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 
 // Define the source
@@ -8,7 +8,7 @@ SourceList["PS:I"] = {
 	name : "Plane Shift: Innistrad",
 	abbreviation : "PS:I",
 	group : "Plane Shift",
-	url : "http://bit.ly/29GAcW1",
+	url : "https://bit.ly/29GAcW1",
 	date : "2016/07/12"
 };
 

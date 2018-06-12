@@ -7,7 +7,7 @@ SourceList.SKT={
 	name : "Storm King's Thunder [beasts]",
 	abbreviation : "SKT",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder",
 	date : "2016/09/06"
 };
 

@@ -7,7 +7,7 @@ SourceList["UA:RS"] = {
 	name : "Unearthed Arcana: Revised Subclasses",
 	abbreviation : "UA:RS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UA-RevisedSubclasses.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UA-RevisedSubclasses.pdf",
 	date : "2017/05/01"
 };
 

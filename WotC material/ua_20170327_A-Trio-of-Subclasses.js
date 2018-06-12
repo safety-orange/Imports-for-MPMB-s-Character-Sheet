@@ -7,7 +7,7 @@ SourceList["UA:AToS"] = {
 	name : "Unearthed Arcana: A Trio of Subclasses",
 	abbreviation : "UA:AToS",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/UAThreeSubclasses.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/UAThreeSubclasses.pdf",
 	date : "2017/03/27"
 };
 

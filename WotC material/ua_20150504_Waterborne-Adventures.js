@@ -7,7 +7,7 @@ SourceList["UA:WA"] = {
 	name : "Unearthed Arcana: Waterborne Adventures",
 	abbreviation : "UA:WA",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA_Waterborne_v3.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA_Waterborne_v3.pdf",
 	date : "2015/05/04"
 };
 

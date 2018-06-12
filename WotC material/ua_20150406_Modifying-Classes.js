@@ -7,7 +7,7 @@ SourceList["UA:MC"] = {
 	name : "Unearthed Arcana: Modifying Classes",
 	abbreviation : "UA:MC",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/UA3_ClassDesignVariants.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/UA3_ClassDesignVariants.pdf",
 	date : "2015/04/06"
 };
 // Also needs the PHB source, as the spell-less ranger uses stuff from there
@@ -16,7 +16,7 @@ if (!SourceList.P) {
 		name : "Player's Handbook",
 		abbreviation : "PHB",
 		group : "Primary Sources",
-		url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
+		url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 		date : "2014/08/19"
 	};
 };

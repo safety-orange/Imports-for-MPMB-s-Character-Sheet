@@ -7,7 +7,7 @@ SourceList.TP={
 	name : "Tortle Package",
 	abbreviation : "TP",
 	group : "Adventurers League",
-	url : "http://www.dmsguild.com/product/221716/",
+	url : "https://www.dmsguild.com/product/221716/",
 	date : "2017/09/15"
 };
 

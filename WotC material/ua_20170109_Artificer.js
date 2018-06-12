@@ -8,7 +8,7 @@ SourceList["UA:A"] = {
 	name : "Unearthed Arcana: Artificer",
 	abbreviation : "UA:A",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2016/dnd/downloads/1_UA_Artificer_20170109.pdf",
+	url : "https://media.wizards.com/2016/dnd/downloads/1_UA_Artificer_20170109.pdf",
 	date : "2017/01/09"
 };
 

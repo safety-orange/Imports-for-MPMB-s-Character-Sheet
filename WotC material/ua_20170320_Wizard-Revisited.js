@@ -7,7 +7,7 @@ SourceList["UA:WR"] = {
 	name : "Unearthed Arcana: Wizard Revisited",
 	abbreviation : "UA:WR",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2017/dnd/downloads/MJ320UAWizardVF2017.pdf",
+	url : "https://media.wizards.com/2017/dnd/downloads/MJ320UAWizardVF2017.pdf",
 	date : "2017/03/20"
 };
 

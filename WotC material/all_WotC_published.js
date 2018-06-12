@@ -8,7 +8,7 @@ SourceList.P={
 	name : "Player's Handbook",
 	abbreviation : "PHB",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 	date : "2014/08/19"
 };
 
@@ -4146,7 +4146,7 @@ SourceList.HotDQ={
 	name : "Hoard of the Dragon Queen [background features]",
 	abbreviation : "HotDQ",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
 	date : "2014/08/19"
 };
 
@@ -4168,7 +4168,7 @@ SourceList.M={
 	name : "Monster Manual",
 	abbreviation : "MM",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual",
 	date : "2014/09/30"
 };
 
@@ -4591,7 +4591,7 @@ SourceList.D={
 	name : "Dungeon Master's Guide",
 	abbreviation : "DMG",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide",
 	date : "2014/12/09"
 };
 
@@ -4986,7 +4986,7 @@ SourceList["AL:EE"]={
 	name : "Elemental Evil Backgrounds [Mulmaster]",
 	abbreviation : "AL:EE",
 	group : "Adventurers League",
-	url : "http://dndadventurersleague.org/wp-content/uploads/2015/04/Mulmaster-Bonds-and-Backgrounds.pdf",
+	url : "https://dndadventurersleague.org/wp-content/uploads/2015/04/Mulmaster-Bonds-and-Backgrounds.pdf",
 	date : "2015/04/15"
 };
 
@@ -5345,7 +5345,7 @@ SourceList.E={
 	name : "Elemental Evil Player's Companion", // November 2017 version
 	abbreviation : "EE",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
 	date : "2015/04/16"
 };
 
@@ -6301,7 +6301,7 @@ SourceList["AL:RoD"]={
 	name : "Rage of Demons Backgrounds [Hillsfar]",
 	abbreviation : "AL:RoD",
 	group : "Adventurers League",
-	url : "http://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf",
+	url : "https://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf",
 	date : "2015/07/14"
 };
 
@@ -6802,7 +6802,7 @@ SourceList.OotA={
 	name : "Out of the Abyss [beasts, background features]",
 	abbreviation : "OotA",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
 	date : "2015/09/15"
 };
 
@@ -6918,7 +6918,7 @@ SourceList.S={
 	name : "Sword Coast Adventure Guide",
 	abbreviation : "SCAG",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide",
 	date : "2015/11/03"
 };
 
@@ -8421,14 +8421,14 @@ SourceList.CoS={
 	name : "Curse of Strahd [background, pack]",
 	abbreviation : "CoS",
 	group : "Adventure Books",
-	url : "http://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
+	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
 	date : "2016/03/15"
 };
 SourceList["AL:CoS"]={
 	name : "Curse of Strahd Backgrounds", // v1.1
 	abbreviation : "AL:CoS",
 	group : "Adventurers League",
-	url : "http://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf",
+	url : "https://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf",
 	date : "2016/04/07"
 };
 
@@ -8941,7 +8941,7 @@ SourceList.SKT={
 	name : "Storm King's Thunder [beasts]",
 	abbreviation : "SKT",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder",
 	date : "2016/09/06"
 };
 
@@ -9093,7 +9093,7 @@ SourceList.V={
 	name : "Volo's Guide to Monsters",
 	abbreviation : "VGtM",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters",
 	date : "2016/11/15"
 };
 
@@ -10342,7 +10342,7 @@ SourceList.TotYP={
 	name : "Tales of the Yawning Portal [beasts]",
 	abbreviation : "TotYP",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
 	date : "2017/04/04"
 };
 
@@ -10529,7 +10529,7 @@ SourceList.TP={
 	name : "Tortle Package",
 	abbreviation : "TP",
 	group : "Adventurers League",
-	url : "http://www.dmsguild.com/product/221716/",
+	url : "https://www.dmsguild.com/product/221716/",
 	date : "2017/09/15"
 };
 
@@ -10598,7 +10598,7 @@ SourceList.ToA={
 	name : "Tomb of Annihilation [backgrounds, beasts, equipment]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
 	date : "2017/09/19"
 };
 
@@ -11229,7 +11229,7 @@ SourceList.X={
 	name : "Xanathar's Guide to Everything",
 	abbreviation : "XGtE",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
 	date : "2017/11/21"
 };
 
@@ -15611,7 +15611,7 @@ SourceList.MToF={
 	name : "Mordenkainen's Tome of Foes",
 	abbreviation : "MToF",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/mordenkainens-tome-foes",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/mordenkainens-tome-foes",
 	date : "2018/05/29"
 };
 
@@ -16157,7 +16157,7 @@ RaceList["eladrin-mtof"] = {
 		" After using Fey Step, each creature of my choice within 5 ft of me takes fire damage",
 		" This fire damage is equal to my Charisma modifier (minimum 1)"
 	]),
-	eval : "AddString('Extra.Notes', RaceList['eladrin-mtof'].notes, true); Value('Extra.Layers Remember', 'notes,' + What('Extra.Layers Remember').split(',')[1]); LayerVisibilityOptions(false);",
+	eval : "AddString('Extra.Notes', RaceList['eladrin-mtof'].notes, true); if(sheetVersion < 13) { Value('Extra.Layers Remember', 'notes,' + What('Extra.Layers Remember').split(',')[1]); LayerVisibilityOptions(false); } else { show3rdPageNotes(); };",
 	removeeval : "RemoveString('Extra.Notes', RaceList['eladrin-mtof'].notes, true);"
 };
 RaceList["sea elf"] = {

@@ -7,7 +7,7 @@ SourceList["UA:LDU"] = {
 	name : "Unearthed Arcana: Light, Dark, Underdark!",
 	abbreviation : "UA:LDU",
 	group : "Unearthed Arcana",
-	url : "http://media.wizards.com/2015/downloads/dnd/02_UA_Underdark_Characters.pdf",
+	url : "https://media.wizards.com/2015/downloads/dnd/02_UA_Underdark_Characters.pdf",
 	date : "2015/11/02"
 };
 

@@ -7,7 +7,7 @@ SourceList.M={
 	name : "Monster Manual",
 	abbreviation : "MM",
 	group : "Primary Sources",
-	url : "http://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual",
 	date : "2014/09/30"
 };
 
