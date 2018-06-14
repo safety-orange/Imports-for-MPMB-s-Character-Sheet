@@ -2273,7 +2273,7 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				"I gain proficiency with medium armor, shields, and martial weapons",
 				"When I finish a long rest, I can imbue one weapon I touch with my will",
 				"Until my next long rest, I can use it with Charisma instead of Strength or Dexterity",
-				"I have to be proficient with the weapon and that is can't have the two-handed property",
+				"I have to be proficient with the weapon and the weapon can't have the two-handed property",
 				"This benefit also works with every weapon from Pact of the Blade, with no restriction"
 			]),
 			armor : [false, true, false, true],
