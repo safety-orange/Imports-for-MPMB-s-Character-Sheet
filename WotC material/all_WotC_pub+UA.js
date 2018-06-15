@@ -15948,7 +15948,7 @@ RaceList["mammon tiefling"] = {
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Mammon Tiefling: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Tenster's Floating Disk spell once per short rest.\n   At 5th level, I can also cast the Arcane Lock spell wihtout a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Tenser's Floating Disk spell once per short rest.\n   At 5th level, I can also cast the Arcane Lock spell without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
