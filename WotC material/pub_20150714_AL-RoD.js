@@ -15,7 +15,7 @@ SourceList["AL:RoD"]={
 BackgroundList["cormanthor refugee"] = {
 	regExpSearch :  /^(?=.*cormanthor)(?=.*refugee).*$/i,
 	name : "Cormanthor Refugee",
-	source : ["AL:RoD", 5],
+	source : [["AL:RoD", 5], ["ALbackground", 0]],
 	skills : ["Nature", "Survival"],
 	gold : 5,
 	equipleft : [
@@ -81,7 +81,7 @@ BackgroundList["cormanthor refugee"] = {
 BackgroundList["gate urchin"] = {
 	regExpSearch :  /^(?=.*gate)(?=.*urchin).*$/i,
 	name : "Gate Urchin",
-	source : ["AL:RoD", 6],
+	source : [["AL:RoD", 6], ["ALbackground", 0]],
 	skills : ["Deception", "Sleight of Hand"],
 	gold : 10,
 	equipleft : [
@@ -146,7 +146,7 @@ BackgroundList["gate urchin"] = {
 BackgroundList["hillsfar merchant"] = {
 	regExpSearch :  /^(?=.*hillsfar)(?=.*merchant).*$/i,
 	name : "Hillsfar Merchant",
-	source : ["AL:RoD", 7],
+	source : [["AL:RoD", 7], ["ALbackground", 0]],
 	skills : ["Insight", "Persuasion"],
 	gold : 25,
 	equipright : [
@@ -209,7 +209,7 @@ BackgroundList["hillsfar merchant"] = {
 BackgroundList["hillsfar smuggler"] = {
 	regExpSearch :  /^(?=.*hillsfar)(?=.*smuggler).*$/i,
 	name : "Hillsfar Smuggler",
-	source : ["AL:RoD", 8],
+	source : [["AL:RoD", 8], ["ALbackground", 0]],
 	skills : ["Perception", "Stealth"],
 	gold : 5,
 	equipleft : [
@@ -273,7 +273,7 @@ BackgroundList["hillsfar smuggler"] = {
 BackgroundList["secret identity"] = {
 	regExpSearch : /^(?=.*secret)(?=.*identity).*$/i,
 	name : "Secret Identity",
-	source : ["AL:RoD", 9],
+	source : [["AL:RoD", 9], ["ALbackground", 0]],
 	skills : ["Deception", "Stealth"],
 	gold : 5,
 	equipleft : [
@@ -337,7 +337,7 @@ BackgroundList["secret identity"] = {
 BackgroundList["shade fanatic"] = {
 	regExpSearch : /^(?=.*shade)(?=.*fanatic).*$/i,
 	name : "Shade Fanatic",
-	source : ["AL:RoD", 10],
+	source : [["AL:RoD", 10], ["ALbackground", 0]],
 	skills : ["Deception", "Intimidation"],
 	gold : 15,
 	equipleft : [
@@ -403,7 +403,7 @@ BackgroundList["shade fanatic"] = {
 BackgroundList["trade sheriff"] = {
 	regExpSearch :  /^(?=.*trade)(?=.*sheriff).*$/i,
 	name : "Trade Sheriff",
-	source : ["AL:RoD", 11],
+	source : [["AL:RoD", 11], ["ALbackground", 0]],
 	skills : ["Investigation", "Persuasion"],
 	gold : 17,
 	equipleft : [
@@ -469,33 +469,33 @@ BackgroundList["trade sheriff"] = {
 // Background features
 BackgroundFeatureList["factor"] = {
 	description : "My family has assigned me the services of a loyal retainer from the business. This person can perform mundane tasks for me such as making purchases, delivering messages, and running errands. He or she will not fight for me or follow me into danger, and will leave if frequently endangered or abused. If killed, my family assigns me another within days.",
-	source : ["AL:RoD", 7]
+	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };
 BackgroundFeatureList["investigative services"] = {
 	description : "I have a way of communicating with others that puts them at ease. I can invoke my rank to allow me access to a crime scene or to requisition equipment or horses on a temporary basis. When entering a settlement around Hillsfar, I can identify a contact who will give me information and would help me because I want to stop anyone from disrupting trade.",
-	source : ["AL:RoD", 11]
+	source : [["AL:RoD", 11], ["ALbackground", 0]]
 };
 BackgroundFeatureList["red plume and mage guild contacts"] = {
 	description : "I made friends among the Red Plumes and Mage's Guild when I lived at the Hillsfar Gate. They remember me fondly and help me in little ways when they can. I can invoke their assistance in and around Hillsfar to obtain food, simple equipment for temporary use, and to gain access to the low-security areas of their garrisons, halls, and encampments.",
-	source : ["AL:RoD", 6]
+	source : [["AL:RoD", 6], ["ALbackground", 0]]
 };
 BackgroundFeatureList["secret identity"] = {
 	description : "I have created a secret identity that I use to conceal my true race and that offers a covering explanation for my presence in Hillsfar. In addition, I can forge documents, including official papers and personal letters, as long as I have seen an example of the kind of document or the handwriting I am trying to copy.",
-	source : ["AL:RoD", 9]
+	source : [["AL:RoD", 9], ["ALbackground", 0]]
 };
 BackgroundFeatureList["secret passage"] = {
 	description : "I can call on my smuggler contacts to secure secret passage into or out of Hillsfar for myself and my friends, no questions asked, and no Red Plume entanglements. Because I'm calling in a favor, I can't be certain when or if they can help. In return for passage, my companions and I may owe the Rogue's Guild a favor and/or may have to pay bribes.",
-	source : ["AL:RoD", 8]
+	source : [["AL:RoD", 8], ["ALbackground", 0]]
 };
 BackgroundFeatureList["secret society"] = {
 	description : "I have a special way of communicating with others who feel the same way I do about the Shade. When I enter a village or larger city, I can identify a contact who will give me information on those that would hinder my goals and those would help me simply because of my desire to see the Shade Enclave return in all its glory.",
-	source : ["AL:RoD", 10]
+	source : [["AL:RoD", 10], ["ALbackground", 0]]
 };
 BackgroundFeatureList["shelter of the elven clergy"] = {
 	description : "The clerics of Elventree have vowed to care for the Cormanthor refugees. They will help me when they can, including providing me and my companions with free healing and care at temples, shrines, and other established presences in Elventree. They will also provide me (but only me) with a poor lifestyle.",
-	source : ["AL:RoD", 5]
+	source : [["AL:RoD", 5], ["ALbackground", 0]]
 };
 BackgroundFeatureList["trade contact"] = {
 	description : "My family and I have trade contacts such as caravan masters, sailors, artisans, farmers, and shopkeepers throughout the Moonsea region and all along the Sword Coast. When adventuring in either of those areas, I can use those contacts to get information about the local area or to pass a message to someone in those areas, even across great distance.",
-	source : ["AL:RoD", 7]
+	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };

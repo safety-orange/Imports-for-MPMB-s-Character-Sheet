@@ -15,7 +15,7 @@ SourceList["AL:EE"]={
 BackgroundList["caravan specialist"] = {
 	regExpSearch :  /^(?=.*caravan)(?=.*specialist).*$/i,
 	name : "Caravan Specialist",
-	source : ["AL:EE", 2],
+	source : [["AL:EE", 2], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Survival"],
 	gold : 10,
 	equipleft : [
@@ -80,7 +80,7 @@ BackgroundList["caravan specialist"] = {
 BackgroundList["earthspur miner"] = {
 	regExpSearch :  /^(?=.*earthspur)(?=.*miner).*$/i,
 	name : "Earthspur Miner",
-	source : ["AL:EE", 3],
+	source : [["AL:EE", 3], ["ALbackground", 0]],
 	skills : ["Athletics", "Survival"],
 	gold : 5,
 	equipleft : [
@@ -145,7 +145,7 @@ BackgroundList["earthspur miner"] = {
 BackgroundList["harborfolk"] = {
 	regExpSearch :  /harborfolk/i,
 	name : "Harborfolk",
-	source : ["AL:EE", 4],
+	source : [["AL:EE", 4], ["ALbackground", 0]],
 	skills : ["Athletics", "Sleight of Hand"],
 	gold : 5,
 	equipleft : [
@@ -210,7 +210,7 @@ BackgroundList["harborfolk"] = {
 BackgroundList["mulmaster aristocrat"] = {
 	regExpSearch :  /^(?=.*mulmaster)(?=.*aristocrat).*$/i,
 	name : "Mulmaster Aristocrat",
-	source : ["AL:EE", 5],
+	source : [["AL:EE", 5], ["ALbackground", 0]],
 	skills : ["Deception", "Performance"],
 	gold : 10,
 	equipleft : [
@@ -273,7 +273,7 @@ BackgroundList["mulmaster aristocrat"] = {
 BackgroundList["phlan refugee"] = {
 	regExpSearch :  /^(?=.*phlan)(?=.*refugee).*$/i,
 	name : "Phlan Refugee",
-	source : ["AL:EE", 6],
+	source : [["AL:EE", 6], ["ALbackground", 0]],
 	skills : ["Insight", "Athletics"],
 	gold : 15,
 	equipleft : [
@@ -339,21 +339,21 @@ BackgroundList["phlan refugee"] = {
 // Background features
 BackgroundFeatureList["wagonmaster"] = {
 	description : "I'm used to being in charge. My reputation has me on a short list for critical jobs, allows me to attract two more loyal workers for caravaning, and causes others to look to me for direction. I can identify the most defensible locations for camping. I have a great memory for maps and geography. While travelling, I can always find my cardinal directions.",
-	source : ["AL:EE", 2]
+	source : [["AL:EE", 2], ["ALbackground", 0]]
 };
 BackgroundFeatureList["deep miner"] = {
 	description : "I am used to navigating the deep places of the earth. I never get lost in caves or mines if I have either seen an accurate map of them or have been through them before. Furthermore, I am able to scrounge fresh water and food for myself and as many as five other people each day if I am in a mine or natural caves.",
-	source : ["AL:EE", 3]
+	source : [["AL:EE", 3], ["ALbackground", 0]]
 };
 BackgroundFeatureList["harborfolk"] = {
 	description : "I grew up on the docks and waters of Mulmaster Harbor. The harborfolk remember me and still treat me as one of them. They welcome me and my companions. While they might charge me for it, they'll always offer what food and shelter they have; they'll even hide me if the City Watch is after me (but not if the Hawks are).",
-	source : ["AL:EE", 4]
+	source : [["AL:EE", 4], ["ALbackground", 0]]
 };
 BackgroundFeatureList["highborn"] = {
 	description : "Mulmaster is run by and for its aristoracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances.",
-	source : ["AL:EE", 5]
+	source : [["AL:EE", 5], ["ALbackground", 0]]
 };
 BackgroundFeatureList["phlan survivor"] = {
 	description : "Whatever my prior standing I'm now one of the many refugees that came to Mulmaster. I'm able to find refuge with others from Phlan and those who sympathize with my plight. Within Mulmaster this means that I can find a place to sleep, recover, and hide from the watch with either other refugees from Phlan, or the Zhents within the ghettos.",
-	source : ["AL:EE", 6]
+	source : [["AL:EE", 6], ["ALbackground", 0]]
 };

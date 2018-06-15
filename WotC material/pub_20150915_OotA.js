@@ -14,11 +14,11 @@ SourceList.OotA={
 // Background features
 BackgroundFeatureList["deep delver"] = {
 	description : "I have a knack for finding my way in the Underdark, recalling all twists and turns with ease, such that I can always retrace my steps underground. I can determine which sources of food and water are safe to consume. I can always find sufficient food and water for myself and up to five other people in the Underdark, if sustenance is available in the area.",
-	source : ["OotA", 221]
+	source : [["OotA", 221], ["ALbackground", 0]]
 };
 BackgroundFeatureList["underdark experience"] = {
 	description : "I'm no casual visitor to the Underdark, but have spent considerable time there learning its ways. I'm familiar with the various races, civilizations, settlements, and travel routes of the Underdark. If I fail an Intelligence check to recall some piece of Underdark lore, I know a source I can consult for the answer unless the DM rules that the lore is unknown.",
-	source : ["OotA", 221]
+	source : [["OotA", 221], ["ALbackground", 0]]
 };
 
 // Creatures

@@ -22,7 +22,7 @@ SourceList["AL:CoS"]={
 BackgroundList["haunted one"] = {
 	regExpSearch : /haunted/i,
 	name : "Haunted One",
-	source : ["CoS", 209],
+	source : [["CoS", 209], ["ALbackground", 0]],
 	skills : "",
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [1],
@@ -96,7 +96,7 @@ BackgroundList["haunted one"] = {
 BackgroundList["black fist double agent"] = {
 	regExpSearch : /black\W*fist/i,
 	name : "Black Fist Double Agent",
-	source : ["AL:CoS", 2],
+	source : [["AL:CoS", 2], ["ALbackground", 0]],
 	skills : ["Deception", "Insight"],
 	gold : 15,
 	equipleft : [
@@ -150,7 +150,7 @@ BackgroundList["black fist double agent"] = {
 BackgroundList["dragon casualty"] = {
 	regExpSearch : /^(?=.*dragon)(?=.*casualty).*$/i,
 	name : "Dragon Casualty",
-	source : ["AL:CoS", 3],
+	source : [["AL:CoS", 3], ["ALbackground", 0]],
 	skills : ["Intimidation", "Survival"],
 	toolProfs : ["Based on my origin"],
 	gold : 5,
@@ -229,7 +229,7 @@ BackgroundList["dragon casualty"] = {
 BackgroundList["iron route bandit"] = {
 	regExpSearch : /^(?=.*iron)(?=.*route)(?=.*bandit).*$/i,
 	name : "Iron Route Bandit",
-	source : ["AL:CoS", 5],
+	source : [["AL:CoS", 5], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Stealth"],
 	toolProfs : [["Gaming set", 1], "Vehicles (land)"],
 	gold : 5,
@@ -294,7 +294,7 @@ BackgroundList["iron route bandit"] = {
 BackgroundList["phlan insurgent"] = {
 	regExpSearch : /^(?=.*phlan)(?=.*insurgent).*$/i,
 	name : "Phlan Insurgent",
-	source : ["AL:CoS", 6],
+	source : [["AL:CoS", 6], ["ALbackground", 0]],
 	skills : ["Stealth", "Survival"],
 	toolProfs : [["Artisan's tools", 1], "Vehicles (land)"],
 	gold : 5,
@@ -366,7 +366,7 @@ BackgroundList["phlan insurgent"] = {
 BackgroundList["stojanow prisoner"] = {
 	regExpSearch : /^(?=.*stojanow)(?=.*prisoner).*$/i,
 	name : "Stojanow Prisoner",
-	source : ["AL:CoS", 8],
+	source : [["AL:CoS", 8], ["ALbackground", 0]],
 	skills : ["Deception", "Perception"],
 	toolProfs : [["Gaming set", 1], ["Thieves' tools", "Dex"]],
 	gold : 10,
@@ -418,7 +418,7 @@ BackgroundList["stojanow prisoner"] = {
 BackgroundList["ticklebelly nomad"] = {
 	regExpSearch : /^(?=.*ticklebelly)(?=.*nomad).*$/i,
 	name : "Ticklebelly Nomad",
-	source : ["AL:CoS", 9],
+	source : [["AL:CoS", 9], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Nature"],
 	toolProfs : ["Herbalism Kit"],
 	gold : 5,
@@ -473,31 +473,31 @@ BackgroundList["ticklebelly nomad"] = {
 // Background features
 BackgroundFeatureList["at home in the wild"] = {
 	description : "In the wilderness, my home, I can find a place to hide, rest, or recuperate that is secure enough to conceal me from most natural threats, but not all supernatural, magical, or threats that actively seek me out. However, this feature doesn't shield or conceal me from scrying, mental probing, nor from threats that don't need the five senses to find me.",
-	source : ["AL:CoS", 9]
+	source : [["AL:CoS", 9], ["ALbackground", 0]]
 };
 BackgroundFeatureList["black-market breeder"] = {
 	description : "I know how to find people who are always looking for stolen animals and vehicles, for pit fights or getaways during an illegal job. This provides me with information of what such animals & vehicles are in high demand in the area, but also offer to give me favors and information (DM choice) if I bring such animals and vehicles to them.",
-	source : ["AL:CoS", 5]
+	source : [["AL:CoS", 5], ["ALbackground", 0]]
 };
 BackgroundFeatureList["double agent"] = {
 	description : "I have a trusty contact in the Tears of Virulence garrison in Phlan to whom I pass information. In exchange, I get away with minor criminal offenses in Phlan. My Black Fists contacts can help me get an audience with the Lord Regent, the Lord Sage, Black Fists members, or deposed nobles who are sympathetic to the Phlan refugees and insurgents.",
-	source : ["AL:CoS", 2]
+	source : [["AL:CoS", 2], ["ALbackground", 0]]
 };
 BackgroundFeatureList["dragonscarred"] = {
 	description : "My extensive scars from being tortured by Vorgansharax give me fame and notoriety, but it is difficult to disguise my appearance and hide from prying eyes. I can use this to gain access to people and places I might not otherwise have, for me and my companions. However, I fear that my afflictions are not completely mundane, as they burn and writhe.",
-	source : ["AL:CoS", 3]
+	source : [["AL:CoS", 3], ["ALbackground", 0]]
 };
 BackgroundFeatureList["ex-convict"] = {
 	description : "The knowledge gained during my incarceration lets me gain insight into local guards and jailors. I know which will accept bribes, or look the other way for me. I can also seek shelter for myself from authorities with other criminals in the area.",
-	source : ["AL:CoS", 8]
+	source : [["AL:CoS", 8], ["ALbackground", 0]]
 };
 BackgroundFeatureList["guerilla"] = {
 	description : "I've come to know the surrounding other natural features in which I can take refuge--or set up ambushes. I can quickly survey my environment for advantageous features. Additionally, I can scavenge around my natural surroundings to cobble together simple supplies (such as improvised torches, rope, patches of fabric, etc.) that are consumed after use.",
-	source : ["AL:CoS", 6]
+	source : [["AL:CoS", 6], ["ALbackground", 0]]
 };
 BackgroundFeatureList["heart of darkness"] = {
 	description : "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone.",
-	source : ["CoS", 209]
+	source : [["CoS", 209], ["ALbackground", 0]]
 };
 
 // Equipment pack

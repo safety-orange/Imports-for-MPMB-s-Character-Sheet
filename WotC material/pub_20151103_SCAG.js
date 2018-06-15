@@ -979,7 +979,7 @@ var AmendTotemWarriorSCAG = function() {
 BackgroundList["far traveler"] = {
 	regExpSearch : /^(?=.*far)(?=.*traveler).*$/i,
 	name : "Far Traveler",
-	source : ["S", 148],
+	source : [["S", 148], ["ALbackground", 0]],
 	skills : ["Insight", "Perception"],
 	gold : 5,
 	equipleft : [
@@ -1054,7 +1054,7 @@ BackgroundList["far traveler"] = {
 AddBackgroundVariant("soldier", "city watch", {
 	regExpSearch : /^(?=.*city)(?=.*(watch|guard)).*$/i,
 	name : "City Watch",
-	source : ["S", 145],
+	source : [["S", 145], ["ALbackground", 0]],
 	skills : ["Athletics", "Insight"],
 	equipright : [
 		["Uniform of my unit", "", 3],
@@ -1072,7 +1072,7 @@ AddBackgroundVariant("soldier", "city watch", {
 AddBackgroundVariant("guild artisan", "clan crafter", {
 	regExpSearch : /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
 	name : "Clan Crafter",
-	source : ["S", 145],
+	source : [["S", 145], ["ALbackground", 0]],
 	skills : ["History", "Insight"],
 	equipleft : [
 		["Set of artisan's tools", "", ""],
@@ -1090,7 +1090,7 @@ AddBackgroundVariant("guild artisan", "clan crafter", {
 AddBackgroundVariant("sage", "cloistered scholar", {
 	regExpSearch : /^(?=.*cloistered)(?=.*scholar).*$/i,
 	name : "Cloistered Scholar",
-	source : ["S", 146],
+	source : [["S", 146], ["ALbackground", 0]],
 	skills : ["History"],
 	skillstxt : "History and choose one from Arcana, Nature, and Religion",
 	gold : 10,
@@ -1113,7 +1113,7 @@ AddBackgroundVariant("sage", "cloistered scholar", {
 AddBackgroundVariant("guild artisan", "courtier", {
 	regExpSearch : /courtier/i,
 	name : "Courtier",
-	source : ["S", 146],
+	source : [["S", 146], ["ALbackground", 0]],
 	skills : ["Insight", "Persuasion"],
 	gold : 5,
 	equipleft : "",
@@ -1130,7 +1130,7 @@ AddBackgroundVariant("guild artisan", "courtier", {
 AddBackgroundVariant("acolyte", "faction agent", {
 	regExpSearch : /^(?=.*agent)(?=.*(faction|harper|order of the gauntlet|emerald enclave|lord.?s alliance|zhentarim)).*$/i,
 	name : "Faction Agent",
-	source : ["S", 147],
+	source : [["S", 147], ["ALbackground", 0]],
 	skills : ["Insight"],
 	skillstxt : "Insight and choose one Intelligence, Wisdom, or Charisma skill",
 	gold : 15,
@@ -1157,7 +1157,7 @@ AddBackgroundVariant("acolyte", "faction agent", {
 AddBackgroundVariant("folk hero", "inheritor", {
 	regExpSearch : /inheritor/i,
 	name : "Inheritor",
-	source : ["S", 150],
+	source : [["S", 150], ["ALbackground", 0]],
 	skills : ["Survival"],
 	skillstxt : "Survival and choose one from Arcana, History, and Religion",
 	gold : 15,
@@ -1187,7 +1187,7 @@ AddBackgroundVariant("folk hero", "inheritor", {
 AddBackgroundVariant("soldier", "investigator", {
 	regExpSearch : /investigator/i,
 	name : "Investigator",
-	source : ["S", 145],
+	source : [["S", 145], ["ALbackground", 0]],
 	skills : ["Insight", "Investigation"],
 	equipright : [
 		["Uniform", "", 3],
@@ -1204,7 +1204,7 @@ AddBackgroundVariant("soldier", "investigator", {
 AddBackgroundVariant("soldier", "knight of the order", {
 	regExpSearch : /^(?=.*knight)(?=.*order).*$/i,
 	name : "Knight of the Order",
-	source : ["S", 151],
+	source : [["S", 151], ["ALbackground", 0]],
 	skills : ["Persuasion"],
 	skillstxt : "Persuasion and choose one from Arcana, History, Nature, and Religion",
 	equipright : [
@@ -1221,7 +1221,7 @@ AddBackgroundVariant("soldier", "knight of the order", {
 AddBackgroundVariant("soldier", "mercenary veteran", {
 	regExpSearch : /^(?=.*mercenary)(?=.*(veteran|soldier)).*$/i,
 	name : "Mercenary Veteran",
-	source : ["S", 152],
+	source : [["S", 152], ["ALbackground", 0]],
 	skills : ["Athletics", "Persuasion"],
 	equipright : [
 		["Uniform of my company", "", 4],
@@ -1236,7 +1236,7 @@ AddBackgroundVariant("soldier", "mercenary veteran", {
 AddBackgroundVariant("criminal", "urban bounty hunter", {
 	regExpSearch : /^(?=.*urban)(?=.*bounty)(?=.*hunter).*$/i,
 	name : "Urban Bounty Hunter",
-	source : ["S", 153],
+	source : [["S", 153], ["ALbackground", 0]],
 	skills : "",
 	skillstxt : "Choose two from Deception, Insight, Persuasion, and Stealth",
 	gold : 20,
@@ -1252,7 +1252,7 @@ AddBackgroundVariant("criminal", "urban bounty hunter", {
 AddBackgroundVariant("outlander", "uthgardt tribe member", {
 	regExpSearch : /^(?=.*(uthgardt|barbarian|nomad|clan))(?=.*tribe)(?=.*member).*$/i,
 	name : "Uthgardt Tribe Member",
-	source : ["S", 153],
+	source : [["S", 153], ["ALbackground", 0]],
 	equipright : [
 		["Traveler's clothes", "", 4],
 		["Hunting trap", "", 25],
@@ -1268,7 +1268,7 @@ AddBackgroundVariant("outlander", "uthgardt tribe member", {
 AddBackgroundVariant("noble", "waterdhavian noble", {
 	regExpSearch : /^(?=.*(waterdhavian|waterdeep))(?=.*noble).*$/i,
 	name : "Waterdhavian Noble",
-	source : ["S", 154],
+	source : [["S", 154], ["ALbackground", 0]],
 	gold : 20,
 	equipleft : [
 		["Scroll of pedigree", "", ""],
@@ -1288,51 +1288,51 @@ AddBackgroundVariant("noble", "waterdhavian noble", {
 // Background features
 BackgroundFeatureList["court functionary"] = {
 	description : "My knowledge of how bureaucracies function lets me gain access to the records and inner workings of any noble court or government I encounter. I know or can easily acquire the knowledge who the movers and shakers are, whom to go to for the favors I seek, and what the current intrigues of interest in the group are.",
-	source : ["S", 147]
+	source : [["S", 147], ["ALbackground", 0]]
 };
 BackgroundFeatureList["all eyes on you"] = {
 	description : "My accent, mannerisms, figures of speech all mark me as foreign. Curious glances are directed my way wherever I go. A nuisance, but I also gain the friendly interest of the curious. I can parley this attention into access I might not otherwise have, for me and my companions. Nobles, scholars, merchants, and guilds, might be among the interested.",
-	source : ["S", 149]
+	source : [["S", 149], ["ALbackground", 0]]
 };
 BackgroundFeatureList["ear to the ground"] = {
 	description : "I am in frequent contact with people in my chosen segment of society. These people might be associated with the criminal underworld, the rough-and-tumble folk of the streets, or members of high society. This connection comes in the form of a contact in any city I visit, a person who provides information about the people and places of the local area.",
-	source : ["S", 153]
+	source : [["S", 153], ["ALbackground", 0]]
 };
 BackgroundFeatureList["inheritance"] = {
 	description : "The item I inherited has a special significance, history, power, and/or important value. When I begin my adventuring career, I can decide whether to tell my companions about it right away. Rather than attracting attention to myself, I could decide to keep it a secret until I learn more about what it means to me and what it can do for me.",
-	source : ["S", 150]
+	source : [["S", 150], ["ALbackground", 0]]
 };
 BackgroundFeatureList["kept in style"] = {
 	description : "While I am in Waterdeep or elsewhere in the North my house sees to my everyday needs. My name and signet are sufficient to cover most of my expenses; the inns, taverns, and festhalls I frequent are glad to record my debt and send an accounting to my family's estate. This advantage enables me to take 2 gp of my daily lifestyle costs down to 0 gp.",
-	source : ["S", 154]
+	source : [["S", 154], ["ALbackground", 0]]
 };
 BackgroundFeatureList["knightly regard"] = {
 	description : "I receive shelter and succor from members of my knightly order and its sympathizers. Religious knightly orders get aid from temples and communities of my deity. Civic order knights get help from the community they serve. Philosophical order knights can find help from those they have aided in pursuit of their ideals, and those who share those ideals.",
-	source : ["S", 151]
+	source : [["S", 151], ["ALbackground", 0]]
 };
 BackgroundFeatureList["library access"] = {
 	description : "I have free access to most of the library I work at, though it might have repositories of lore that are too valuable, magical, or secret to permit anyone immediate access. I have a working knowledge of my cloister's personnel and bureaucracy, and I know how to navigate those connections. I am likely to gain preferential treatment at other libraries.",
-	source : ["S", 146]
+	source : [["S", 146], ["ALbackground", 0]]
 };
 BackgroundFeatureList["mercenary life"] = {
 	description : "I know the mercenary life well. I am able to identify mercenary company emblems, and I know a little about any such company, including the leaders, reputation, and who hired them recently. I can find the locales where mercenaries abide anywhere, as long as I speak the language. My mercenary work between adventures affords me a comfortable lifestyle.",
-	source : ["S", 152]
+	source : [["S", 152], ["ALbackground", 0]]
 };
 BackgroundFeatureList["respect of the stout folk"] = {
 	description : "No one esteems clan crafters quite so highly as dwarves do. I always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer you (and possibly your compatriots) the finest accommodations and assistance.",
-	source : ["S", 145]
+	source : [["S", 145], ["ALbackground", 0]]
 };
 BackgroundFeatureList["safe haven"] = {
 	description : "As a faction agent, I have access to a secret network of support and operatives who can provide assistance on my adventures. I know secret signs and passwords to identify such operatives, who can provide me with access to a hidden safe house, free room and board, or assistance in finding information. These agents never risk their lives or identity for me.",
-	source : ["S", 147]
+	source : [["S", 147], ["ALbackground", 0]]
 };
 BackgroundFeatureList["uthgardt heritage"] = {
 	description : "I have an excellent knowledge of my tribe's territory, and surrounding terrain and natural resources. I am familiar enough with any wilderness area that I can find twice as much food and water as one normally would. I can call upon the hospitality of my people, and those allied, often including members of druid circles, nomadic elves, and priesthoods.",
-	source : ["S", 154]
+	source : [["S", 154], ["ALbackground", 0]]
 };
 BackgroundFeatureList["watcher's eye"] = {
 	description : "My experience in enforcing the law, and dealing with lawbreakers, gives me a feel for local laws and criminals. I can easily find the local outpost of the watch, guards or a similar organization, and just as easily pick out the dens of criminal activity in a community. I am far more likely to be welcome in the former locations rather than the latter, however.",
-	source : ["S", 145]
+	source : [["S", 145], ["ALbackground", 0]]
 };
 
 // Armour

@@ -12,6 +12,14 @@ SourceList.P={
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 	date : "2014/08/19"
 };
+	// Sources for all official WotC backgrounds, so that they are easier to use with the AL +1 rule
+if (!SourceList.ALbackground) {
+	SourceList.ALbackground = {
+		name : "All official WotC backgrounds",
+		abbreviation : "WotC",
+		group : "Primary Sources"
+	}
+};
 
 // (sub)Races that are not in the SRD
 RaceList["mountain dwarf"] = {
@@ -1970,7 +1978,7 @@ AddSubClass("wizard", "transmutation", {
 BackgroundList["charlatan"] = {
 	regExpSearch : /charlatan/i,
 	name : "Charlatan",
-	source : ["P", 128],
+	source : [["P", 128], ["ALbackground", 0]],
 	skills : ["Deception", "Sleight of Hand"],
 	gold : 15,
 	equipleft : [
@@ -2043,7 +2051,7 @@ BackgroundList["charlatan"] = {
 BackgroundList["criminal"] = {
 	regExpSearch : /(criminal|blackmailer|burglar|fence|robber|killer|assassin|pickpocket|smuggler)/i,
 	name : "Criminal",
-	source : ["P", 129],
+	source : [["P", 129], ["ALbackground", 0]],
 	skills : ["Deception", "Stealth"],
 	gold : 15,
 	equipright : [
@@ -2116,7 +2124,7 @@ BackgroundList["criminal"] = {
 BackgroundList["entertainer"] = {
 	regExpSearch : /(entertainer|actor|dancer|fire.?eater|jester|juggler|instrumentalist|poet|singer|storyteller|tumbler)/i,
 	name : "Entertainer",
-	source : ["P", 130],
+	source : [["P", 130], ["ALbackground", 0]],
 	skills : ["Acrobatics", "Performance"],
 	gold : 15,
 	equipright : [
@@ -2191,7 +2199,7 @@ BackgroundList["entertainer"] = {
 BackgroundList["folk hero"] = {
 	regExpSearch : /^(?=.*folk)(?=.*hero).*$/i,
 	name : "Folk Hero",
-	source : ["P", 131],
+	source : [["P", 131], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Survival"],
 	gold : 10,
 	equipleft : [
@@ -2269,7 +2277,7 @@ BackgroundList["folk hero"] = {
 BackgroundList["guild artisan"] = {
 	regExpSearch : /^(?=.*guild)(?=.*artisan).*$/i,
 	name : "Guild Artisan",
-	source : ["P", 132],
+	source : [["P", 132], ["ALbackground", 0]],
 	skills : ["Insight", "Persuasion"],
 	gold : 15,
 	equipleft : [
@@ -2357,7 +2365,7 @@ BackgroundList["guild artisan"] = {
 BackgroundList["hermit"] = {
 	regExpSearch : /hermit/i,
 	name : "Hermit",
-	source : ["P", 134],
+	source : [["P", 134], ["ALbackground", 0]],
 	skills : ["Medicine", "Religion"],
 	gold : 5,
 	equipleft : [
@@ -2433,7 +2441,7 @@ BackgroundList["hermit"] = {
 BackgroundList["noble"] = {
 	regExpSearch : /^(?!.*(waterdhavian|waterdeep|knight))(?=.*noble).*$/i,
 	name : "Noble",
-	source : ["P", 135],
+	source : [["P", 135], ["ALbackground", 0]],
 	skills : ["History", "Persuasion"],
 	gold : 25,
 	equipleft : [
@@ -2498,7 +2506,7 @@ BackgroundList["noble"] = {
 BackgroundList["outlander"] = {
 	regExpSearch : /^(?!.*urban)(?=.*(outlander|forester|trapper|homesteader|guide|exile|outcast|bounty.?hunter|tribal nomad|hunter-gatherer|tribal.?marauder)).*$/i,
 	name : "Outlander",
-	source : ["P", 136],
+	source : [["P", 136], ["ALbackground", 0]],
 	skills : ["Athletics", "Survival"],
 	gold : 10,
 	equipright : [
@@ -2574,7 +2582,7 @@ BackgroundList["outlander"] = {
 BackgroundList["sage"] = {
 	regExpSearch : /(sage|alchemist|astronomer|academic|librarian|professor|researcher|apprentice|scribe)/i,
 	name : "Sage",
-	source : ["P", 137],
+	source : [["P", 137], ["ALbackground", 0]],
 	skills : ["Arcana", "History"],
 	gold : 10,
 	equipleft : [
@@ -2650,7 +2658,7 @@ BackgroundList["sage"] = {
 BackgroundList["sailor"] = {
 	regExpSearch : /sailor/i,
 	name : "Sailor",
-	source : ["P", 139],
+	source : [["P", 139], ["ALbackground", 0]],
 	skills : ["Athletics", "Perception"],
 	gold : 10,
 	equipleft : [
@@ -2715,7 +2723,7 @@ BackgroundList["sailor"] = {
 BackgroundList["soldier"] = {
 	regExpSearch : /^(?!.*mercenary)(?=.*soldier).*$/i,
 	name : "Soldier",
-	source : ["P", 140],
+	source : [["P", 140], ["ALbackground", 0]],
 	skills : ["Athletics", "Intimidation"],
 	gold : 10,
 	equipright : [
@@ -2788,7 +2796,7 @@ BackgroundList["soldier"] = {
 BackgroundList["urchin"] = {
 	regExpSearch : /urchin/i,
 	name : "Urchin",
-	source : ["P", 141],
+	source : [["P", 141], ["ALbackground", 0]],
 	skills : ["Sleight of Hand", "Stealth"],
 	gold : 10,
 	equipleft : [
@@ -2856,7 +2864,7 @@ BackgroundList["urchin"] = {
 AddBackgroundVariant("entertainer", "gladiator", {
 	regExpSearch : /gladiator/i,
 	name : "Gladiator",
-	source : ["P", 131],
+	source : [["P", 131], ["ALbackground", 0]],
 	equipright : [
 		["Costume", "", 4],
 		["Favor of an admirer", "", ""],
@@ -2869,7 +2877,7 @@ AddBackgroundVariant("entertainer", "gladiator", {
 AddBackgroundVariant("guild artisan", "guild merchant", {
 	regExpSearch : /^(?=.*guild)(?=.*merchant).*$/i,
 	name : "Guild Merchant",
-	source : ["P", 133],
+	source : [["P", 133], ["ALbackground", 0]],
 	equipleft : [
 		["Letter of introduction from guild", "", ""]
 	],
@@ -2890,7 +2898,7 @@ AddBackgroundVariant("guild artisan", "guild merchant", {
 AddBackgroundVariant("noble", "knight", {
 	regExpSearch : /^(?!.*order)(?=.*knight).*$/i,
 	name : "Knight",
-	source : ["P", 136],
+	source : [["P", 136], ["ALbackground", 0]],
 	equipright : [
 		["Fine clothes", "", 6],
 		["Signet ring", "", ""],
@@ -2902,70 +2910,70 @@ AddBackgroundVariant("noble", "knight", {
 AddBackgroundVariant("sailor", "pirate", {
 	regExpSearch : /pirate/i,
 	name : "Pirate",
-	source : ["P", 139],
+	source : [["P", 139], ["ALbackground", 0]],
 	feature : "Bad Reputation"
 });
 
 // Add the backgrounds features that are not in the SRD
 BackgroundFeatureList["are you entertained?"] = {
 	description : "I can always find a place to perform (arena/pit fight), where I receive free lodging and food of a modest or comfortable standard, as long as I perform each night. In addition, my performance makes me something of a local figure. When strangers recognize me in a town where I have performed, they typically take a liking to me.",
-	source : ["P", 131]
+	source : [["P", 131], ["ALbackground", 0]]
 };
 BackgroundFeatureList["bad reputation"] = {
 	description : "No matter where I go, people are afraid of me due to my reputation. When I am in a civilized settlement, I can get away with minor criminal offenses, such as refusing to pay for food at a tavern or breaking down doors at a local shop, since most people will not report my activity to the authorities.",
-	source : ["P", 139]
+	source : [["P", 139], ["ALbackground", 0]]
 };
 BackgroundFeatureList["by popular demand"] = {
 	description : "I can always find a place to perform (inn/tavern/circus/etc.), where I receive free lodging and food of a modest or comfortable standard, as long as I perform each night. In addition, my performance makes me something of a local figure. When strangers recognize me in a town where I have performed, they typically take a liking to me.",
-	source : ["P", 130]
+	source : [["P", 130], ["ALbackground", 0]],
 };
 BackgroundFeatureList["city secrets"] = {
 	description : "I know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When I am not in combat, I (and companions I lead) can travel between any two locations in the city twice as fast as my speed would normally allow.",
-	source : ["P", 141]
+	source : [["P", 141], ["ALbackground", 0]]
 };
 BackgroundFeatureList["criminal contact"] = {
 	description : "I have a reliable and trustworthy contact who acts as my liaison to a network of other criminals. I know how to get messages to and from my contact, even over great distances; specifically, I know the local messengers, corrupt caravan masters, and seedy sailors who can deliver my messages.",
-	source : ["P", 129]
+	source : [["P", 129], ["ALbackground", 0]]
 };
 BackgroundFeatureList["discovery"] = {
 	description : "The quiet seclusion of my extended hermitage gave me access to a unique and powerful discovery. The exact nature of this revelation depends on the nature of my seclusion. It might be a great truth, a hidden site, a long forgotten fact, or unearthed some relic of the past that could rewrite history.",
-	source : ["P", 134]
+	source : [["P", 134], ["ALbackground", 0]]
 };
 BackgroundFeatureList["false identity"] = {
 	description : "I have created a second identity that includes documentation, established acquaintances, and disguises that allow me to assume that persona. Additionally, I can forge documents, including official papers and personal letters, as long as I have seen an example of the kind of document or the handwriting I am trying to copy.",
-	source : ["P", 128]
+	source : [["P", 128], ["ALbackground", 0]]
 };
 BackgroundFeatureList["guild membership"] = {
 	description : "5 gp membership fees per month: The guild offers lodging if possible. In case of being accused of a crime, the guild will support me if a good case can be made for my innocence or the crime is justifiable. I can also gain access to powerful political figures through the guild, as long as I'm in good standing and the guild is paid enough.",
-	source : ["P", 133]
+	source : [["P", 133], ["ALbackground", 0]]
 };
 BackgroundFeatureList["military rank"] = {
 	description : "I have a military rank from my career as a soldier. Soldiers loyal to my former military organization still recognize my authority and influence. I can invoke my rank to influence soldiers and temporarily requisition simple equipment or horses. I can usually gain access to friendly military encampments and fortresses where my rank is recognized.",
-	source : ["P", 140]
+	source : [["P", 140], ["ALbackground", 0]],
 };
 BackgroundFeatureList["position of privilege"] = {
 	description : "I am welcome in high society, and people assume I have the right to be wherever I am. The common folk make every effort to accommodate me and avoid my displeasure, and other people of high birth treat me as a member of the same social sphere. I can secure an audience with a local noble if I need to.",
-	source : ["P", 135]
+	source : [["P", 135], ["ALbackground", 0]]
 };
 BackgroundFeatureList["researcher"] = {
 	description : "When I attempt to learn or recall a piece of lore, if I do not know that information, I often know where and from whom I can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.",
-	source : ["P", 138]
+	source : [["P", 138], ["ALbackground", 0]]
 };
 BackgroundFeatureList["retainers"] = {
 	description : "I have the service of three retainers loyal to me family, one of whom is another noble and my squire. My other retainers are commoners who can perform mundane tasks for me, but they do not fight for me, will not follow me into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.",
-	source : ["P", 136]
+	source : [["P", 136], ["ALbackground", 0]]
 };
 BackgroundFeatureList["rustic hospitality"] = {
 	description : "Since I come from the ranks of the common folk, I fit in among them with ease. I can find a place to hide, rest, or recuperate among other commoners, unless I have shown myself to be a danger to them. They will shield me from the law or anyone else searching for me, though they will not risk their lives for me.",
-	source : ["P", 131]
+	source : [["P", 131], ["ALbackground", 0]]
 };
 BackgroundFeatureList["ship's passage"] = {
 	description : "When I need to, I can secure free passage on a sailing ship for myself and my companions. I might sail on the ship I served on, or another ship I have good relations with. Because I'm calling in a favor, I can't be certain of a schedule or route that will meet my every need. My companions and I are expected to assist the crew during the voyage.",
-	source : ["P", 139]
+	source : [["P", 139], ["ALbackground", 0]]
 };
 BackgroundFeatureList["wanderer"] = {
 	description : "I have an excellent memory for maps and geography, and I can always recall the general layout of terrain, settlements, and other features around me. In addition, I can find food and fresh water for myself and up to five other people each day, provided that the land offers berries, small game, water, and so forth.",
-	source : ["P", 136]
+	source : [["P", 136], ["ALbackground", 0]]
 };
 
 // Add the feats that are not in the SRD
@@ -4154,11 +4162,11 @@ SourceList.HotDQ={
 // Background features
 BackgroundFeatureList["cult of the dragon infiltrator"] = {
 	description : "I have infiltrated the ranks of the Cult of the Dragon. Having spied on the organization for quite some time, I am familiar with its inner workings and customs. I have a second identity as an initiate of the cult, enough of a facade to blend in as a simple grunt or servant.",
-	source : ["HotDQ", 87]
+	source : [["HotDQ", 87], ["ALbackground", 0]]
 };
 BackgroundFeatureList["dragon scholar"] = {
 	description : "I have studied dragons and their lore for many years. I can automatically identify locations built or used by dragons, and I can identify dragon eggs and scales by sight. If I fail an Intelligence check to recall lore relating to dragons, I know someone or some book that I can consult for the answer unless the DM rules that the lore is unknown.",
-	source : ["HotDQ", 87]
+	source : [["HotDQ", 87], ["ALbackground", 0]]
 };
 var iFileName = "pub_20140930_MM.js";
 RequiredSheetVersion(12.999);
@@ -4995,7 +5003,7 @@ SourceList["AL:EE"]={
 BackgroundList["caravan specialist"] = {
 	regExpSearch :  /^(?=.*caravan)(?=.*specialist).*$/i,
 	name : "Caravan Specialist",
-	source : ["AL:EE", 2],
+	source : [["AL:EE", 2], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Survival"],
 	gold : 10,
 	equipleft : [
@@ -5060,7 +5068,7 @@ BackgroundList["caravan specialist"] = {
 BackgroundList["earthspur miner"] = {
 	regExpSearch :  /^(?=.*earthspur)(?=.*miner).*$/i,
 	name : "Earthspur Miner",
-	source : ["AL:EE", 3],
+	source : [["AL:EE", 3], ["ALbackground", 0]],
 	skills : ["Athletics", "Survival"],
 	gold : 5,
 	equipleft : [
@@ -5125,7 +5133,7 @@ BackgroundList["earthspur miner"] = {
 BackgroundList["harborfolk"] = {
 	regExpSearch :  /harborfolk/i,
 	name : "Harborfolk",
-	source : ["AL:EE", 4],
+	source : [["AL:EE", 4], ["ALbackground", 0]],
 	skills : ["Athletics", "Sleight of Hand"],
 	gold : 5,
 	equipleft : [
@@ -5190,7 +5198,7 @@ BackgroundList["harborfolk"] = {
 BackgroundList["mulmaster aristocrat"] = {
 	regExpSearch :  /^(?=.*mulmaster)(?=.*aristocrat).*$/i,
 	name : "Mulmaster Aristocrat",
-	source : ["AL:EE", 5],
+	source : [["AL:EE", 5], ["ALbackground", 0]],
 	skills : ["Deception", "Performance"],
 	gold : 10,
 	equipleft : [
@@ -5253,7 +5261,7 @@ BackgroundList["mulmaster aristocrat"] = {
 BackgroundList["phlan refugee"] = {
 	regExpSearch :  /^(?=.*phlan)(?=.*refugee).*$/i,
 	name : "Phlan Refugee",
-	source : ["AL:EE", 6],
+	source : [["AL:EE", 6], ["ALbackground", 0]],
 	skills : ["Insight", "Athletics"],
 	gold : 15,
 	equipleft : [
@@ -5319,23 +5327,23 @@ BackgroundList["phlan refugee"] = {
 // Background features
 BackgroundFeatureList["wagonmaster"] = {
 	description : "I'm used to being in charge. My reputation has me on a short list for critical jobs, allows me to attract two more loyal workers for caravaning, and causes others to look to me for direction. I can identify the most defensible locations for camping. I have a great memory for maps and geography. While travelling, I can always find my cardinal directions.",
-	source : ["AL:EE", 2]
+	source : [["AL:EE", 2], ["ALbackground", 0]]
 };
 BackgroundFeatureList["deep miner"] = {
 	description : "I am used to navigating the deep places of the earth. I never get lost in caves or mines if I have either seen an accurate map of them or have been through them before. Furthermore, I am able to scrounge fresh water and food for myself and as many as five other people each day if I am in a mine or natural caves.",
-	source : ["AL:EE", 3]
+	source : [["AL:EE", 3], ["ALbackground", 0]]
 };
 BackgroundFeatureList["harborfolk"] = {
 	description : "I grew up on the docks and waters of Mulmaster Harbor. The harborfolk remember me and still treat me as one of them. They welcome me and my companions. While they might charge me for it, they'll always offer what food and shelter they have; they'll even hide me if the City Watch is after me (but not if the Hawks are).",
-	source : ["AL:EE", 4]
+	source : [["AL:EE", 4], ["ALbackground", 0]]
 };
 BackgroundFeatureList["highborn"] = {
 	description : "Mulmaster is run by and for its aristoracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances.",
-	source : ["AL:EE", 5]
+	source : [["AL:EE", 5], ["ALbackground", 0]]
 };
 BackgroundFeatureList["phlan survivor"] = {
 	description : "Whatever my prior standing I'm now one of the many refugees that came to Mulmaster. I'm able to find refuge with others from Phlan and those who sympathize with my plight. Within Mulmaster this means that I can find a place to sleep, recover, and hide from the watch with either other refugees from Phlan, or the Zhents within the ghettos.",
-	source : ["AL:EE", 6]
+	source : [["AL:EE", 6], ["ALbackground", 0]]
 };
 var iFileName = "pub_20150416_EE.js";
 RequiredSheetVersion(12.999);
@@ -6310,7 +6318,7 @@ SourceList["AL:RoD"]={
 BackgroundList["cormanthor refugee"] = {
 	regExpSearch :  /^(?=.*cormanthor)(?=.*refugee).*$/i,
 	name : "Cormanthor Refugee",
-	source : ["AL:RoD", 5],
+	source : [["AL:RoD", 5], ["ALbackground", 0]],
 	skills : ["Nature", "Survival"],
 	gold : 5,
 	equipleft : [
@@ -6376,7 +6384,7 @@ BackgroundList["cormanthor refugee"] = {
 BackgroundList["gate urchin"] = {
 	regExpSearch :  /^(?=.*gate)(?=.*urchin).*$/i,
 	name : "Gate Urchin",
-	source : ["AL:RoD", 6],
+	source : [["AL:RoD", 6], ["ALbackground", 0]],
 	skills : ["Deception", "Sleight of Hand"],
 	gold : 10,
 	equipleft : [
@@ -6441,7 +6449,7 @@ BackgroundList["gate urchin"] = {
 BackgroundList["hillsfar merchant"] = {
 	regExpSearch :  /^(?=.*hillsfar)(?=.*merchant).*$/i,
 	name : "Hillsfar Merchant",
-	source : ["AL:RoD", 7],
+	source : [["AL:RoD", 7], ["ALbackground", 0]],
 	skills : ["Insight", "Persuasion"],
 	gold : 25,
 	equipright : [
@@ -6504,7 +6512,7 @@ BackgroundList["hillsfar merchant"] = {
 BackgroundList["hillsfar smuggler"] = {
 	regExpSearch :  /^(?=.*hillsfar)(?=.*smuggler).*$/i,
 	name : "Hillsfar Smuggler",
-	source : ["AL:RoD", 8],
+	source : [["AL:RoD", 8], ["ALbackground", 0]],
 	skills : ["Perception", "Stealth"],
 	gold : 5,
 	equipleft : [
@@ -6568,7 +6576,7 @@ BackgroundList["hillsfar smuggler"] = {
 BackgroundList["secret identity"] = {
 	regExpSearch : /^(?=.*secret)(?=.*identity).*$/i,
 	name : "Secret Identity",
-	source : ["AL:RoD", 9],
+	source : [["AL:RoD", 9], ["ALbackground", 0]],
 	skills : ["Deception", "Stealth"],
 	gold : 5,
 	equipleft : [
@@ -6632,7 +6640,7 @@ BackgroundList["secret identity"] = {
 BackgroundList["shade fanatic"] = {
 	regExpSearch : /^(?=.*shade)(?=.*fanatic).*$/i,
 	name : "Shade Fanatic",
-	source : ["AL:RoD", 10],
+	source : [["AL:RoD", 10], ["ALbackground", 0]],
 	skills : ["Deception", "Intimidation"],
 	gold : 15,
 	equipleft : [
@@ -6698,7 +6706,7 @@ BackgroundList["shade fanatic"] = {
 BackgroundList["trade sheriff"] = {
 	regExpSearch :  /^(?=.*trade)(?=.*sheriff).*$/i,
 	name : "Trade Sheriff",
-	source : ["AL:RoD", 11],
+	source : [["AL:RoD", 11], ["ALbackground", 0]],
 	skills : ["Investigation", "Persuasion"],
 	gold : 17,
 	equipleft : [
@@ -6764,35 +6772,35 @@ BackgroundList["trade sheriff"] = {
 // Background features
 BackgroundFeatureList["factor"] = {
 	description : "My family has assigned me the services of a loyal retainer from the business. This person can perform mundane tasks for me such as making purchases, delivering messages, and running errands. He or she will not fight for me or follow me into danger, and will leave if frequently endangered or abused. If killed, my family assigns me another within days.",
-	source : ["AL:RoD", 7]
+	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };
 BackgroundFeatureList["investigative services"] = {
 	description : "I have a way of communicating with others that puts them at ease. I can invoke my rank to allow me access to a crime scene or to requisition equipment or horses on a temporary basis. When entering a settlement around Hillsfar, I can identify a contact who will give me information and would help me because I want to stop anyone from disrupting trade.",
-	source : ["AL:RoD", 11]
+	source : [["AL:RoD", 11], ["ALbackground", 0]]
 };
 BackgroundFeatureList["red plume and mage guild contacts"] = {
 	description : "I made friends among the Red Plumes and Mage's Guild when I lived at the Hillsfar Gate. They remember me fondly and help me in little ways when they can. I can invoke their assistance in and around Hillsfar to obtain food, simple equipment for temporary use, and to gain access to the low-security areas of their garrisons, halls, and encampments.",
-	source : ["AL:RoD", 6]
+	source : [["AL:RoD", 6], ["ALbackground", 0]]
 };
 BackgroundFeatureList["secret identity"] = {
 	description : "I have created a secret identity that I use to conceal my true race and that offers a covering explanation for my presence in Hillsfar. In addition, I can forge documents, including official papers and personal letters, as long as I have seen an example of the kind of document or the handwriting I am trying to copy.",
-	source : ["AL:RoD", 9]
+	source : [["AL:RoD", 9], ["ALbackground", 0]]
 };
 BackgroundFeatureList["secret passage"] = {
 	description : "I can call on my smuggler contacts to secure secret passage into or out of Hillsfar for myself and my friends, no questions asked, and no Red Plume entanglements. Because I'm calling in a favor, I can't be certain when or if they can help. In return for passage, my companions and I may owe the Rogue's Guild a favor and/or may have to pay bribes.",
-	source : ["AL:RoD", 8]
+	source : [["AL:RoD", 8], ["ALbackground", 0]]
 };
 BackgroundFeatureList["secret society"] = {
 	description : "I have a special way of communicating with others who feel the same way I do about the Shade. When I enter a village or larger city, I can identify a contact who will give me information on those that would hinder my goals and those would help me simply because of my desire to see the Shade Enclave return in all its glory.",
-	source : ["AL:RoD", 10]
+	source : [["AL:RoD", 10], ["ALbackground", 0]]
 };
 BackgroundFeatureList["shelter of the elven clergy"] = {
 	description : "The clerics of Elventree have vowed to care for the Cormanthor refugees. They will help me when they can, including providing me and my companions with free healing and care at temples, shrines, and other established presences in Elventree. They will also provide me (but only me) with a poor lifestyle.",
-	source : ["AL:RoD", 5]
+	source : [["AL:RoD", 5], ["ALbackground", 0]]
 };
 BackgroundFeatureList["trade contact"] = {
 	description : "My family and I have trade contacts such as caravan masters, sailors, artisans, farmers, and shopkeepers throughout the Moonsea region and all along the Sword Coast. When adventuring in either of those areas, I can use those contacts to get information about the local area or to pass a message to someone in those areas, even across great distance.",
-	source : ["AL:RoD", 7]
+	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };
 var iFileName = "pub_20150915_OotA.js";
 RequiredSheetVersion(12.999);
@@ -6810,11 +6818,11 @@ SourceList.OotA={
 // Background features
 BackgroundFeatureList["deep delver"] = {
 	description : "I have a knack for finding my way in the Underdark, recalling all twists and turns with ease, such that I can always retrace my steps underground. I can determine which sources of food and water are safe to consume. I can always find sufficient food and water for myself and up to five other people in the Underdark, if sustenance is available in the area.",
-	source : ["OotA", 221]
+	source : [["OotA", 221], ["ALbackground", 0]]
 };
 BackgroundFeatureList["underdark experience"] = {
 	description : "I'm no casual visitor to the Underdark, but have spent considerable time there learning its ways. I'm familiar with the various races, civilizations, settlements, and travel routes of the Underdark. If I fail an Intelligence check to recall some piece of Underdark lore, I know a source I can consult for the answer unless the DM rules that the lore is unknown.",
-	source : ["OotA", 221]
+	source : [["OotA", 221], ["ALbackground", 0]]
 };
 
 // Creatures
@@ -7891,7 +7899,7 @@ var AmendTotemWarriorSCAG = function() {
 BackgroundList["far traveler"] = {
 	regExpSearch : /^(?=.*far)(?=.*traveler).*$/i,
 	name : "Far Traveler",
-	source : ["S", 148],
+	source : [["S", 148], ["ALbackground", 0]],
 	skills : ["Insight", "Perception"],
 	gold : 5,
 	equipleft : [
@@ -7966,7 +7974,7 @@ BackgroundList["far traveler"] = {
 AddBackgroundVariant("soldier", "city watch", {
 	regExpSearch : /^(?=.*city)(?=.*(watch|guard)).*$/i,
 	name : "City Watch",
-	source : ["S", 145],
+	source : [["S", 145], ["ALbackground", 0]],
 	skills : ["Athletics", "Insight"],
 	equipright : [
 		["Uniform of my unit", "", 3],
@@ -7984,7 +7992,7 @@ AddBackgroundVariant("soldier", "city watch", {
 AddBackgroundVariant("guild artisan", "clan crafter", {
 	regExpSearch : /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
 	name : "Clan Crafter",
-	source : ["S", 145],
+	source : [["S", 145], ["ALbackground", 0]],
 	skills : ["History", "Insight"],
 	equipleft : [
 		["Set of artisan's tools", "", ""],
@@ -8002,7 +8010,7 @@ AddBackgroundVariant("guild artisan", "clan crafter", {
 AddBackgroundVariant("sage", "cloistered scholar", {
 	regExpSearch : /^(?=.*cloistered)(?=.*scholar).*$/i,
 	name : "Cloistered Scholar",
-	source : ["S", 146],
+	source : [["S", 146], ["ALbackground", 0]],
 	skills : ["History"],
 	skillstxt : "History and choose one from Arcana, Nature, and Religion",
 	gold : 10,
@@ -8025,7 +8033,7 @@ AddBackgroundVariant("sage", "cloistered scholar", {
 AddBackgroundVariant("guild artisan", "courtier", {
 	regExpSearch : /courtier/i,
 	name : "Courtier",
-	source : ["S", 146],
+	source : [["S", 146], ["ALbackground", 0]],
 	skills : ["Insight", "Persuasion"],
 	gold : 5,
 	equipleft : "",
@@ -8042,7 +8050,7 @@ AddBackgroundVariant("guild artisan", "courtier", {
 AddBackgroundVariant("acolyte", "faction agent", {
 	regExpSearch : /^(?=.*agent)(?=.*(faction|harper|order of the gauntlet|emerald enclave|lord.?s alliance|zhentarim)).*$/i,
 	name : "Faction Agent",
-	source : ["S", 147],
+	source : [["S", 147], ["ALbackground", 0]],
 	skills : ["Insight"],
 	skillstxt : "Insight and choose one Intelligence, Wisdom, or Charisma skill",
 	gold : 15,
@@ -8069,7 +8077,7 @@ AddBackgroundVariant("acolyte", "faction agent", {
 AddBackgroundVariant("folk hero", "inheritor", {
 	regExpSearch : /inheritor/i,
 	name : "Inheritor",
-	source : ["S", 150],
+	source : [["S", 150], ["ALbackground", 0]],
 	skills : ["Survival"],
 	skillstxt : "Survival and choose one from Arcana, History, and Religion",
 	gold : 15,
@@ -8099,7 +8107,7 @@ AddBackgroundVariant("folk hero", "inheritor", {
 AddBackgroundVariant("soldier", "investigator", {
 	regExpSearch : /investigator/i,
 	name : "Investigator",
-	source : ["S", 145],
+	source : [["S", 145], ["ALbackground", 0]],
 	skills : ["Insight", "Investigation"],
 	equipright : [
 		["Uniform", "", 3],
@@ -8116,7 +8124,7 @@ AddBackgroundVariant("soldier", "investigator", {
 AddBackgroundVariant("soldier", "knight of the order", {
 	regExpSearch : /^(?=.*knight)(?=.*order).*$/i,
 	name : "Knight of the Order",
-	source : ["S", 151],
+	source : [["S", 151], ["ALbackground", 0]],
 	skills : ["Persuasion"],
 	skillstxt : "Persuasion and choose one from Arcana, History, Nature, and Religion",
 	equipright : [
@@ -8133,7 +8141,7 @@ AddBackgroundVariant("soldier", "knight of the order", {
 AddBackgroundVariant("soldier", "mercenary veteran", {
 	regExpSearch : /^(?=.*mercenary)(?=.*(veteran|soldier)).*$/i,
 	name : "Mercenary Veteran",
-	source : ["S", 152],
+	source : [["S", 152], ["ALbackground", 0]],
 	skills : ["Athletics", "Persuasion"],
 	equipright : [
 		["Uniform of my company", "", 4],
@@ -8148,7 +8156,7 @@ AddBackgroundVariant("soldier", "mercenary veteran", {
 AddBackgroundVariant("criminal", "urban bounty hunter", {
 	regExpSearch : /^(?=.*urban)(?=.*bounty)(?=.*hunter).*$/i,
 	name : "Urban Bounty Hunter",
-	source : ["S", 153],
+	source : [["S", 153], ["ALbackground", 0]],
 	skills : "",
 	skillstxt : "Choose two from Deception, Insight, Persuasion, and Stealth",
 	gold : 20,
@@ -8164,7 +8172,7 @@ AddBackgroundVariant("criminal", "urban bounty hunter", {
 AddBackgroundVariant("outlander", "uthgardt tribe member", {
 	regExpSearch : /^(?=.*(uthgardt|barbarian|nomad|clan))(?=.*tribe)(?=.*member).*$/i,
 	name : "Uthgardt Tribe Member",
-	source : ["S", 153],
+	source : [["S", 153], ["ALbackground", 0]],
 	equipright : [
 		["Traveler's clothes", "", 4],
 		["Hunting trap", "", 25],
@@ -8180,7 +8188,7 @@ AddBackgroundVariant("outlander", "uthgardt tribe member", {
 AddBackgroundVariant("noble", "waterdhavian noble", {
 	regExpSearch : /^(?=.*(waterdhavian|waterdeep))(?=.*noble).*$/i,
 	name : "Waterdhavian Noble",
-	source : ["S", 154],
+	source : [["S", 154], ["ALbackground", 0]],
 	gold : 20,
 	equipleft : [
 		["Scroll of pedigree", "", ""],
@@ -8200,51 +8208,51 @@ AddBackgroundVariant("noble", "waterdhavian noble", {
 // Background features
 BackgroundFeatureList["court functionary"] = {
 	description : "My knowledge of how bureaucracies function lets me gain access to the records and inner workings of any noble court or government I encounter. I know or can easily acquire the knowledge who the movers and shakers are, whom to go to for the favors I seek, and what the current intrigues of interest in the group are.",
-	source : ["S", 147]
+	source : [["S", 147], ["ALbackground", 0]]
 };
 BackgroundFeatureList["all eyes on you"] = {
 	description : "My accent, mannerisms, figures of speech all mark me as foreign. Curious glances are directed my way wherever I go. A nuisance, but I also gain the friendly interest of the curious. I can parley this attention into access I might not otherwise have, for me and my companions. Nobles, scholars, merchants, and guilds, might be among the interested.",
-	source : ["S", 149]
+	source : [["S", 149], ["ALbackground", 0]]
 };
 BackgroundFeatureList["ear to the ground"] = {
 	description : "I am in frequent contact with people in my chosen segment of society. These people might be associated with the criminal underworld, the rough-and-tumble folk of the streets, or members of high society. This connection comes in the form of a contact in any city I visit, a person who provides information about the people and places of the local area.",
-	source : ["S", 153]
+	source : [["S", 153], ["ALbackground", 0]]
 };
 BackgroundFeatureList["inheritance"] = {
 	description : "The item I inherited has a special significance, history, power, and/or important value. When I begin my adventuring career, I can decide whether to tell my companions about it right away. Rather than attracting attention to myself, I could decide to keep it a secret until I learn more about what it means to me and what it can do for me.",
-	source : ["S", 150]
+	source : [["S", 150], ["ALbackground", 0]]
 };
 BackgroundFeatureList["kept in style"] = {
 	description : "While I am in Waterdeep or elsewhere in the North my house sees to my everyday needs. My name and signet are sufficient to cover most of my expenses; the inns, taverns, and festhalls I frequent are glad to record my debt and send an accounting to my family's estate. This advantage enables me to take 2 gp of my daily lifestyle costs down to 0 gp.",
-	source : ["S", 154]
+	source : [["S", 154], ["ALbackground", 0]]
 };
 BackgroundFeatureList["knightly regard"] = {
 	description : "I receive shelter and succor from members of my knightly order and its sympathizers. Religious knightly orders get aid from temples and communities of my deity. Civic order knights get help from the community they serve. Philosophical order knights can find help from those they have aided in pursuit of their ideals, and those who share those ideals.",
-	source : ["S", 151]
+	source : [["S", 151], ["ALbackground", 0]]
 };
 BackgroundFeatureList["library access"] = {
 	description : "I have free access to most of the library I work at, though it might have repositories of lore that are too valuable, magical, or secret to permit anyone immediate access. I have a working knowledge of my cloister's personnel and bureaucracy, and I know how to navigate those connections. I am likely to gain preferential treatment at other libraries.",
-	source : ["S", 146]
+	source : [["S", 146], ["ALbackground", 0]]
 };
 BackgroundFeatureList["mercenary life"] = {
 	description : "I know the mercenary life well. I am able to identify mercenary company emblems, and I know a little about any such company, including the leaders, reputation, and who hired them recently. I can find the locales where mercenaries abide anywhere, as long as I speak the language. My mercenary work between adventures affords me a comfortable lifestyle.",
-	source : ["S", 152]
+	source : [["S", 152], ["ALbackground", 0]]
 };
 BackgroundFeatureList["respect of the stout folk"] = {
 	description : "No one esteems clan crafters quite so highly as dwarves do. I always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer you (and possibly your compatriots) the finest accommodations and assistance.",
-	source : ["S", 145]
+	source : [["S", 145], ["ALbackground", 0]]
 };
 BackgroundFeatureList["safe haven"] = {
 	description : "As a faction agent, I have access to a secret network of support and operatives who can provide assistance on my adventures. I know secret signs and passwords to identify such operatives, who can provide me with access to a hidden safe house, free room and board, or assistance in finding information. These agents never risk their lives or identity for me.",
-	source : ["S", 147]
+	source : [["S", 147], ["ALbackground", 0]]
 };
 BackgroundFeatureList["uthgardt heritage"] = {
 	description : "I have an excellent knowledge of my tribe's territory, and surrounding terrain and natural resources. I am familiar enough with any wilderness area that I can find twice as much food and water as one normally would. I can call upon the hospitality of my people, and those allied, often including members of druid circles, nomadic elves, and priesthoods.",
-	source : ["S", 154]
+	source : [["S", 154], ["ALbackground", 0]]
 };
 BackgroundFeatureList["watcher's eye"] = {
 	description : "My experience in enforcing the law, and dealing with lawbreakers, gives me a feel for local laws and criminals. I can easily find the local outpost of the watch, guards or a similar organization, and just as easily pick out the dens of criminal activity in a community. I am far more likely to be welcome in the former locations rather than the latter, however.",
-	source : ["S", 145]
+	source : [["S", 145], ["ALbackground", 0]]
 };
 
 // Armour
@@ -8437,7 +8445,7 @@ SourceList["AL:CoS"]={
 BackgroundList["haunted one"] = {
 	regExpSearch : /haunted/i,
 	name : "Haunted One",
-	source : ["CoS", 209],
+	source : [["CoS", 209], ["ALbackground", 0]],
 	skills : "",
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [1],
@@ -8511,7 +8519,7 @@ BackgroundList["haunted one"] = {
 BackgroundList["black fist double agent"] = {
 	regExpSearch : /black\W*fist/i,
 	name : "Black Fist Double Agent",
-	source : ["AL:CoS", 2],
+	source : [["AL:CoS", 2], ["ALbackground", 0]],
 	skills : ["Deception", "Insight"],
 	gold : 15,
 	equipleft : [
@@ -8565,7 +8573,7 @@ BackgroundList["black fist double agent"] = {
 BackgroundList["dragon casualty"] = {
 	regExpSearch : /^(?=.*dragon)(?=.*casualty).*$/i,
 	name : "Dragon Casualty",
-	source : ["AL:CoS", 3],
+	source : [["AL:CoS", 3], ["ALbackground", 0]],
 	skills : ["Intimidation", "Survival"],
 	toolProfs : ["Based on my origin"],
 	gold : 5,
@@ -8644,7 +8652,7 @@ BackgroundList["dragon casualty"] = {
 BackgroundList["iron route bandit"] = {
 	regExpSearch : /^(?=.*iron)(?=.*route)(?=.*bandit).*$/i,
 	name : "Iron Route Bandit",
-	source : ["AL:CoS", 5],
+	source : [["AL:CoS", 5], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Stealth"],
 	toolProfs : [["Gaming set", 1], "Vehicles (land)"],
 	gold : 5,
@@ -8709,7 +8717,7 @@ BackgroundList["iron route bandit"] = {
 BackgroundList["phlan insurgent"] = {
 	regExpSearch : /^(?=.*phlan)(?=.*insurgent).*$/i,
 	name : "Phlan Insurgent",
-	source : ["AL:CoS", 6],
+	source : [["AL:CoS", 6], ["ALbackground", 0]],
 	skills : ["Stealth", "Survival"],
 	toolProfs : [["Artisan's tools", 1], "Vehicles (land)"],
 	gold : 5,
@@ -8781,7 +8789,7 @@ BackgroundList["phlan insurgent"] = {
 BackgroundList["stojanow prisoner"] = {
 	regExpSearch : /^(?=.*stojanow)(?=.*prisoner).*$/i,
 	name : "Stojanow Prisoner",
-	source : ["AL:CoS", 8],
+	source : [["AL:CoS", 8], ["ALbackground", 0]],
 	skills : ["Deception", "Perception"],
 	toolProfs : [["Gaming set", 1], ["Thieves' tools", "Dex"]],
 	gold : 10,
@@ -8833,7 +8841,7 @@ BackgroundList["stojanow prisoner"] = {
 BackgroundList["ticklebelly nomad"] = {
 	regExpSearch : /^(?=.*ticklebelly)(?=.*nomad).*$/i,
 	name : "Ticklebelly Nomad",
-	source : ["AL:CoS", 9],
+	source : [["AL:CoS", 9], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Nature"],
 	toolProfs : ["Herbalism Kit"],
 	gold : 5,
@@ -8888,31 +8896,31 @@ BackgroundList["ticklebelly nomad"] = {
 // Background features
 BackgroundFeatureList["at home in the wild"] = {
 	description : "In the wilderness, my home, I can find a place to hide, rest, or recuperate that is secure enough to conceal me from most natural threats, but not all supernatural, magical, or threats that actively seek me out. However, this feature doesn't shield or conceal me from scrying, mental probing, nor from threats that don't need the five senses to find me.",
-	source : ["AL:CoS", 9]
+	source : [["AL:CoS", 9], ["ALbackground", 0]]
 };
 BackgroundFeatureList["black-market breeder"] = {
 	description : "I know how to find people who are always looking for stolen animals and vehicles, for pit fights or getaways during an illegal job. This provides me with information of what such animals & vehicles are in high demand in the area, but also offer to give me favors and information (DM choice) if I bring such animals and vehicles to them.",
-	source : ["AL:CoS", 5]
+	source : [["AL:CoS", 5], ["ALbackground", 0]]
 };
 BackgroundFeatureList["double agent"] = {
 	description : "I have a trusty contact in the Tears of Virulence garrison in Phlan to whom I pass information. In exchange, I get away with minor criminal offenses in Phlan. My Black Fists contacts can help me get an audience with the Lord Regent, the Lord Sage, Black Fists members, or deposed nobles who are sympathetic to the Phlan refugees and insurgents.",
-	source : ["AL:CoS", 2]
+	source : [["AL:CoS", 2], ["ALbackground", 0]]
 };
 BackgroundFeatureList["dragonscarred"] = {
 	description : "My extensive scars from being tortured by Vorgansharax give me fame and notoriety, but it is difficult to disguise my appearance and hide from prying eyes. I can use this to gain access to people and places I might not otherwise have, for me and my companions. However, I fear that my afflictions are not completely mundane, as they burn and writhe.",
-	source : ["AL:CoS", 3]
+	source : [["AL:CoS", 3], ["ALbackground", 0]]
 };
 BackgroundFeatureList["ex-convict"] = {
 	description : "The knowledge gained during my incarceration lets me gain insight into local guards and jailors. I know which will accept bribes, or look the other way for me. I can also seek shelter for myself from authorities with other criminals in the area.",
-	source : ["AL:CoS", 8]
+	source : [["AL:CoS", 8], ["ALbackground", 0]]
 };
 BackgroundFeatureList["guerilla"] = {
 	description : "I've come to know the surrounding other natural features in which I can take refuge--or set up ambushes. I can quickly survey my environment for advantageous features. Additionally, I can scavenge around my natural surroundings to cobble together simple supplies (such as improvised torches, rope, patches of fabric, etc.) that are consumed after use.",
-	source : ["AL:CoS", 6]
+	source : [["AL:CoS", 6], ["ALbackground", 0]]
 };
 BackgroundFeatureList["heart of darkness"] = {
 	description : "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone.",
-	source : ["CoS", 209]
+	source : [["CoS", 209], ["ALbackground", 0]]
 };
 
 // Equipment pack
@@ -10607,7 +10615,7 @@ SourceList.ToA={
 BackgroundList["anthropologist"] = {
 	regExpSearch : /anthropologist/i,
 	name : "Anthropologist",
-	source : ["ToA", 191],
+	source : [["ToA", 191], ["ALbackground", 0]],
 	skills : ["Insight", "Religion"],
 	gold : 10,
 	equipleft : [
@@ -10681,7 +10689,7 @@ BackgroundList["anthropologist"] = {
 BackgroundList["archaeologist"] = {
 	regExpSearch : /archa?eologist/i,
 	name : "Archaeologist",
-	source : ["ToA", 192],
+	source : [["ToA", 192], ["ALbackground", 0]],
 	skills : ["History", "Survival"],
 	gold : 25,
 	equipleft : [
@@ -10761,11 +10769,11 @@ BackgroundList["archaeologist"] = {
 // Background features (with contributions by SoilentBrad and @lowbrr)
 BackgroundFeatureList["adept linguist"] = {
 	description : "I can communicate with humanoids who don't speak any language I know. I must observe the humanoids interacting with one another for at least one day, after which I learn a handful of important words, expressions, and gestures \u2015 enough to communicate on a rudimentary level.",
-	source : ["ToA", 191]
+	source : [["ToA", 191], ["ALbackground", 0]]
 };
 BackgroundFeatureList["historical knowledge"] = {
 	description : "When I enter a ruin or dungeon, I can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, I can determine the monetary value of art objects more than a century old.",
-	source : ["ToA", 192]
+	source : [["ToA", 192], ["ALbackground", 0]]
 };
 
 // Weapon
@@ -30229,3 +30237,213 @@ WeaponsList["horns-uacnm"] = {
 	description : "One horns attack as a bonus action if taking the Dash action",
 	abilitytodamage : true
 };
+var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
+RequiredSheetVersion(12.999);
+// This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["UA:GSS"] = {
+	name : "Unearthed Arcana: Giant Soul Sorcerer",
+	abbreviation : "UA:GSS",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2018/dnd/downloads/UA_GiantSoul.pdf",
+	date : "2018/06/11"
+};
+
+// Add the Centaur race
+AddSubClass("sorcerer", "giant soul sorcerer", {
+	regExpSearch : /^(?=.*giant)(?=.*soul)(?=.*sorcerer).*$/i,
+	subname : "Giant Soul",
+	source : ["UA:GSS", 1],
+	fullname : "Giant Soul Sorcerer",
+	abilitySave : 3,
+	features : {
+		"subclassfeature1" : {
+			name : "Jotun Resilience",
+			source : ["UA:GSS", 1],
+			minlevel : 1,
+			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
+			calcChanges : {
+				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Jotun Resilience (Sorcerer)'; }; "
+			}
+		},
+		"subclassfeature1.1" : {
+			name : "Mark of Ordning",
+			source : ["UA:GSS", 1],
+			minlevel : 1,
+			description : desc([
+				"Choose a giant heritage using the \"Choose Feature\" button above",
+				"I learn spells based on my giant heritage, which I add to my known spells"
+			]),
+			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
+			"cloud giant" : {
+				name : "Mark of Ordning: Cloud Giant",
+				description : desc([
+					"I add Minor Illusion, Fog Cloud and Invisibility to my known sorcerer spells",
+					"These do not count against the number of cantrips/spells I can know"
+				]),
+				spellcastingBonus : {
+					name : "Mark of Ordning",
+					spells : ["minor illusion", "fog cloud", "invisibility"],
+					selection : ["minor illusion", "fog cloud", "invisibility"],
+					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+				},
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'cloud giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+			},
+			"fire giant" : {
+				name : "Mark of Ordning: Fire Giant",
+				description : desc([
+					"I add Fire Bolt, Burning Hands, and Flaming Sphere to my known sorcerer spells",
+					"These do not count against the number of cantrips/spells I can know"
+				]),
+				spellcastingBonus : {
+					name : "Mark of Ordning",
+					spells : ["fire bolt", "burning hands", "flaming sphere"],
+					selection : ["fire bolt", "burning hands", "flaming sphere"],
+					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+				},
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'fire giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+			},
+			"frost giant" : {
+				name : "Mark of Ordning: Frost Giant",
+				description : desc([
+					"I add Ray of Frost, Armor of Agathys, and Hold Person to my known sorcerer spells",
+					"These do not count against the number of cantrips/spells I can know"
+				]),
+				spellcastingBonus : {
+					name : "Mark of Ordning",
+					spells : ["ray of frost", "armor of agathys", "hold person"],
+					selection : ["ray of frost", "armor of agathys", "hold person"],
+					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+				},
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'frost giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+			},
+			"hill giant" : {
+				name : "Mark of Ordning: Hill Giant",
+				description : desc([
+					"I add Shillelagh, Heroism, and Enlarge/Reduce to my known sorcerer spells",
+					"These do not count against the number of cantrips/spells I can know"
+				]),
+				spellcastingBonus : {
+					name : "Mark of Ordning",
+					spells : ["shillelagh", "heroism", "enlarge/reduce"],
+					selection : ["shillelagh", "heroism", "enlarge/reduce"],
+					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+				},
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'hill giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+			},
+			"stone giant" : {
+				name : "Mark of Ordning: Stone Giant",
+				description : desc([
+					"I add Resistance, Entangle, and Spike Growth to my known sorcerer spells",
+					"These do not count against the number of cantrips/spells I can know"
+				]),
+				spellcastingBonus : {
+					name : "Mark of Ordning",
+					spells : ["resistance", "entangle", "spike growth"],
+					selection : ["resistance", "entangle", "spike growth"],
+					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+				},
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'stone giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+			},
+			"storm giant" : {
+				name : "Mark of Ordning: Storm Giant",
+				description : desc([
+					"I add Thunderwave, Shocking Grasp, and Gust of Wind to my known sorcerer spells",
+					"These do not count against the number of cantrips/spells I can know"
+				]),
+				spellcastingBonus : {
+					name : "Mark of Ordning",
+					spells : ["thunderwave", "shocking grasp", "gust of wind"],
+					selection : ["thunderwave", "shocking grasp", "gust of wind"],
+					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+				},
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'storm giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+			}
+		},
+		"subclassfeature6" : {
+			name : "Soul of Lost Ostoria",
+			source : ["UA:GSS", 1],
+			minlevel : 6,
+			description : "\n   " + "Use the \"Choose Feature\" button above to select the giant heritage",
+			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
+			choicesNotInMenu : true,
+			"cloud giant" : {
+				name : "Soul of Lost Ostoria: Cloud Giant",
+				description : desc([
+					"As a bonus action after casting any of my Mark of Ordning spells, I can teleport",
+					"I teleport to an unoccupied space that I can see up to my Con mod + 10 ft away"
+				]),
+				action : ["bonus action", ""]
+			},
+			"fire giant" : {
+				name : "Soul of Lost Ostoria: Fire Giant",
+				description : "\n   " + "I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells",
+				calcChanges : {
+					atkCalc : ["if (theWea && WeaponName == 'fire bolt') {output.extraDmg += Math.max(What('Con Mod'), 1); }; ", "I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"]
+				}
+			},
+			"frost giant" : {
+				name : "Soul of Lost Ostoria: Frost Giant",
+				description : desc([
+					"Immediately after casting any of my Mark of Ordning spells, I gain temporary HP",
+					"I gain my Con mod in temporary HP (min 1) and its added to that of the spell (if any)"
+				])
+			},
+			"hill giant" : {
+				name : "Soul of Lost Ostoria: Hill Giant",
+				source : ["UA:GSS", 2],
+				description : desc([
+					"Immediately after casting any of my Mark of Ordning spells, I can magically push others",
+					"I can select up to two creatures within 5 ft of me that each have to make a Str save",
+					"If failed, it is pushed my Con mod (min 1) + 5 ft away from me; It can choose to fail"
+				])
+			},
+			"stone giant" : {
+				name : "Soul of Lost Ostoria: Stone Giant",
+				source : ["UA:GSS", 2],
+				description : desc([
+					"Immediately after casting any of my Mark of Ordning spells, I gain a bonus to AC",
+					"My AC increases with my Constitution modifier (min +1) until the end of my next turn"
+				])
+			},
+			"storm giant" : {
+				name : "Soul of Lost Ostoria: Storm Giant",
+				source : ["UA:GSS", 2],
+				description : desc([
+					"Immediately after casting any of my Mark of Ordning spells, I shoot lightning",
+					"Up to 3 targets in 30 ft that I can see take my Con mod (min 1) in lightning damage"
+				])
+			},
+			eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?sorcerer,subclassfeature1.1,(cloud giant|fire giant|frost giant|hill giant|stone giant|storm giant).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'sorcerer,subclassfeature6,' + FeaChoice, false);};};"
+		},
+		"subclassfeature14" : {
+			name : "Rage of Fallen Ostoria",
+			source : ["UA:GSS", 2],
+			minlevel : 14,
+			description : desc([
+				"When I start casting a sorcerer spell using a spell slot on my turn, I can grow in size",
+				"It lasts for 1 min or until I die or am incapacitated; I can activate it only once per turn",
+				"While it lasts, I enjoy the following benefits (which are cumulative, except the damage):",
+				"\u2022 I increase size by one category (from Medium to Large, for example)",
+				"\u2022 My current HP and maximum HP increase by a number equal to my sorcerer level",
+				"\u2022 My reach and walking speed both increase by 5 ft",
+				"\u2022 I gain advantage on Strength checks and Strength saving throws",
+				"\u2022 I add my Constitution modifier to the damage of my melee weapon attacks (min +1)"
+			]),
+			additional : levels.map(function(n) {
+				return n < 14 ? "" : "+" + n + " HP";
+			}),
+			usages : levels.map(function(n) {
+				return n < 14 ? "" : n < 18 ? 1 : 2;
+			}),
+			recovery : "short rest"
+		},
+		"subclassfeature18" : {
+			name : "Blessing of the All Father",
+			source : ["UA:GSS", 2],
+			minlevel : 18,
+			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22"
+		}
+	}
+});

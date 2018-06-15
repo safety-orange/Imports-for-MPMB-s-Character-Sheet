@@ -15,7 +15,7 @@ SourceList.ToA={
 BackgroundList["anthropologist"] = {
 	regExpSearch : /anthropologist/i,
 	name : "Anthropologist",
-	source : ["ToA", 191],
+	source : [["ToA", 191], ["ALbackground", 0]],
 	skills : ["Insight", "Religion"],
 	gold : 10,
 	equipleft : [
@@ -89,7 +89,7 @@ BackgroundList["anthropologist"] = {
 BackgroundList["archaeologist"] = {
 	regExpSearch : /archa?eologist/i,
 	name : "Archaeologist",
-	source : ["ToA", 192],
+	source : [["ToA", 192], ["ALbackground", 0]],
 	skills : ["History", "Survival"],
 	gold : 25,
 	equipleft : [
@@ -169,11 +169,11 @@ BackgroundList["archaeologist"] = {
 // Background features (with contributions by SoilentBrad and @lowbrr)
 BackgroundFeatureList["adept linguist"] = {
 	description : "I can communicate with humanoids who don't speak any language I know. I must observe the humanoids interacting with one another for at least one day, after which I learn a handful of important words, expressions, and gestures \u2015 enough to communicate on a rudimentary level.",
-	source : ["ToA", 191]
+	source : [["ToA", 191], ["ALbackground", 0]]
 };
 BackgroundFeatureList["historical knowledge"] = {
 	description : "When I enter a ruin or dungeon, I can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, I can determine the monetary value of art objects more than a century old.",
-	source : ["ToA", 192]
+	source : [["ToA", 192], ["ALbackground", 0]]
 };
 
 // Weapon
