@@ -16136,7 +16136,7 @@ RaceList["eladrin-mtof"] = {
 	improvements : "Eladrin: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
 	abilitySave : 6,
-	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)" + desc([
+	trait : "Eladrin (+2 Dexterity, +1 Charisma)" + desc([
 		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
 		"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, this gains an additional effect, based on the current season I'm aligned with. See the third page notes section for the effects.",
 		"Shifting Seasons: After I finish a long rest, I can align myself with a season of my choice."
