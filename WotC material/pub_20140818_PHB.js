@@ -1692,7 +1692,7 @@ AddSubClass("wizard", "abjuration", {
 			recovery : "long rest"
 		},
 		"subclassfeature6" : {
-			name : "Protected Ward",
+			name : "Projected Ward",
 			source : ["P", 115],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, my Arcane Ward can absorb damage done to a creature within 30 ft",
