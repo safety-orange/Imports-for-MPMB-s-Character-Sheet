@@ -17068,8 +17068,8 @@ ClassList["spell-less ranger"] = {
 			source : ["UA:MC", 7],
 			minlevel : 3,
 			description : desc([
-				"In 1 hour, I can create a number of poultices equal to my Wisdom mod (min 1)",
-				"The amount of poultices I have with me cannot exceed my Wisdom mod (min 1)",
+				"In 1 hour, I can create a number of poultices equal to my Wisdom modifier (min 1)",
+				"The number of poultices I can have with me can't exceed my Wisdom modifier (min 1)",
 				"I can applying a poultice in 1 minute, healing a creature; Poultices last for 24 hours"
 			]),
 			additional : levels.map( function(n) {
