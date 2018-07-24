@@ -121,7 +121,7 @@ FeatsList["elven accuracy"] = {
 	name : "Elven Accuracy",
 	source : ["UA:FR", 2],
 	prerequisite : "Being an Elf or a Half-Elf",
-	prereqeval : "(/elf|eladrin/i).test(CurrentRace.known)",
+	prereqeval : "(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known)",
 	description : "Whenever I have advantage on an attack roll, I can reroll one of the dice once. [+1 Dexterity]",
 	improvements : "Elven Accuracy (feat): +1 Dexterity;",
 	scores : [0, 1, 0, 0, 0, 0]
