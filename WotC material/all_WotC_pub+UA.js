@@ -16459,10 +16459,11 @@ RaceList["deep gnome"] = { //reprint from Elemental Evil Player's Companion and 
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 };
+// INCOMPLETE - Dragonmarks chapter still to do!
+
 var iFileName = "pub_20180723_WGtE.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
-// Note that this content also appears in the script for the Unearthed Arcana: Races of Eberron article and thus both sources are included in both scripts
 
 // Define the sources
 SourceList["WGtE"] = {
@@ -16470,13 +16471,6 @@ SourceList["WGtE"] = {
 	abbreviation : "WGtE",
 	group : "Official Sources",
 	url : "https://www.dmsguild.com/product/247882/",
-	date : "2018/07/23"
-};
-SourceList["UA:RoE"] = {
-	name : "Unearthed Arcana: Races of Eberron",
-	abbreviation : "UA:RoE",
-	group : "Unearthed Arcana",
-	url : "https://media.wizards.com/2018/dnd/downloads/723UA_EberronRaces7232018.pdf",
 	date : "2018/07/23"
 };
 
@@ -16709,6 +16703,7 @@ RaceList["envoy warforged"] = {
 	},
 	languageProfs : ["Common", 1],
 	toolProfs : [["Expertise with any one tool", 1]],
+	skillstxt : "Choose any one skill",
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
 		immune : ["disease", "exhaustion from lack of rest"],
@@ -30932,7 +30927,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 var iFileName = "ua_20180723_Races-of-Eberron.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
-// Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included in both scripts
+// Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
 // Define the sources
 SourceList["UA:RoE"] = {
@@ -30940,13 +30935,6 @@ SourceList["UA:RoE"] = {
 	abbreviation : "UA:RoE",
 	group : "Unearthed Arcana",
 	url : "https://media.wizards.com/2018/dnd/downloads/723UA_EberronRaces7232018.pdf",
-	date : "2018/07/23"
-};
-SourceList["WGtE"] = {
-	name : "Wayfinder's Guide to Eberron",
-	abbreviation : "WGtE",
-	group : "Official Sources",
-	url : "https://www.dmsguild.com/product/247882/",
 	date : "2018/07/23"
 };
 
@@ -31178,6 +31166,7 @@ RaceList["envoy warforged"] = {
 	},
 	languageProfs : ["Common", 1],
 	toolProfs : [["Expertise with any one tool", 1]],
+	skillstxt : "Choose any one skill",
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
 		immune : ["disease", "exhaustion from lack of rest"],

@@ -242,6 +242,7 @@ RaceList["envoy warforged"] = {
 	},
 	languageProfs : ["Common", 1],
 	toolProfs : [["Expertise with any one tool", 1]],
+	skillstxt : "Choose any one skill",
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
 		immune : ["disease", "exhaustion from lack of rest"],
