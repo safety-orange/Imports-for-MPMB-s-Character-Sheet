@@ -3475,8 +3475,7 @@ FeatsList["war caster"] = {
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
 	description : "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
 	action : ["reaction", " - Opportunity Spell"],
-	eval : "AddString('Saving Throw advantages \/ disadvantages', 'Adv. on Con (Concentration) saves when damaged', '; ');",
-	removeeval : "RemoveString('Saving Throw advantages \/ disadvantages', 'Adv. on Con (Concentration) saves when damaged', false);"
+	savetxt : { text : "Adv. on Con (Concentration) saves when damaged" }
 };
 FeatsList["weapon master"] = {
 	name : "Weapon Master",
