@@ -1,5 +1,3 @@
-// INCOMPLETE - Dragonmarks chapter still to do!
-
 var iFileName = "pub_20180723_WGtE.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
@@ -1140,7 +1138,6 @@ RaceList["dragonmark warding dwarf"] = {
 	}
 };
 
-
 // Gust cantrip reprint
 SpellsList["gust"] = {
 	name : "Gust",
@@ -1155,4 +1152,250 @@ SpellsList["gust"] = {
 	save : "Str",
 	description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
 	descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
+};
+
+// Greater Dragonmark feats
+FeatsList["greater dragonmark [detection]"] = {
+	name : "Greater Dragonmark [Detection]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
+	improvements : "Greater Dragonmark [Detection]: +1 Charisma or Intelligence;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["see invisibility", "true seeing"],
+		selection : ["see invisibility", "true seeing"],
+		spellcastingAbility : 4,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [finding]"] = {
+	name : "Greater Dragonmark [Finding]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
+	improvements : "Greater Dragonmark [Finding]: +1 Strength, Dexterity, or Wisdom;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["locate creature", "find the path"],
+		selection : ["locate creature", "find the path"],
+		spellcastingAbility : 5,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [handling]"] = {
+	name : "Greater Dragonmark [Handling]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+	improvements : "Greater Dragonmark [Handling]: +1 Dexterity or Wisdom;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["beast sense", "dominate beast"],
+		selection : ["beast sense", "dominate beast"],
+		spellcastingAbility : 5,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [healing]"] = {
+	name : "Greater Dragonmark [Healing]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+	improvements : "Greater Dragonmark [Healing]: +1 Dexterity or Wisdom;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["mass healing word", "greater restoration"],
+		selection : ["mass healing word", "greater restoration"],
+		spellcastingAbility : 5,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [hospitality]"] = {
+	name : "Greater Dragonmark [Hospitality]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+	improvements : "Greater Dragonmark [Hospitality]: +1 Dexterity or Charisma;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["sanctuary", "mordenkainen's magnificent mansion"],
+		selection : ["sanctuary", "mordenkainen's magnificent mansion"],
+		spellcastingAbility : 6,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [making]"] = {
+	name : "Greater Dragonmark [Making]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
+	improvements : "Greater Dragonmark [Making]: +1 Dexterity or Intelligence;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["fabricate", "creation"],
+		selection : ["fabricate", "creation"],
+		spellcastingAbility : 4,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [passage]"] = {
+	name : "Greater Dragonmark [Passage]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
+	improvements : "Greater Dragonmark [Passage]: +1 Dexterity or Constitution;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["blink", "teleportation circle"],
+		selection : ["blink", "teleportation circle"],
+		spellcastingAbility : 3,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [scribing]"] = {
+	name : "Greater Dragonmark [Scribing]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
+	improvements : "Greater Dragonmark [Scribing]: +1 Intelligence or Charisma;",
+	spellcastingBonus : {
+		name : "1\u00D7 per short",
+		spells : ["sending", "tongues"],
+		selection : ["sending", "tongues"],
+		spellcastingAbility : 4,
+		oncesr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [sentinel]"] = {
+	name : "Greater Dragonmark [Sentinel]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
+	improvements : "Greater Dragonmark [Sentinel]: +1 Strength or Wisdom;",
+	spellcastingBonus : {
+		name : "1\u00D7 per short",
+		spells : ["compelled duel", "warding bond"],
+		selection : ["compelled duel", "warding bond"],
+		spellcastingAbility : 5,
+		oncesr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [shadow]"] = {
+	name : "Greater Dragonmark [Shadow]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+	improvements : "Greater Dragonmark [Shadow]: +1 Dexterity or Charisma;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["nondetection", "mislead"],
+		selection : ["nondetection", "mislead"],
+		spellcastingAbility : 6,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [storm]"] = {
+	name : "Greater Dragonmark [Storm]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Control Water and Control Wind each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+	improvements : "Greater Dragonmark [Storm]: +1 Dexterity or Charisma;",
+	spellcastingBonus : {
+		name : "1\u00D7 per long",
+		spells : ["control water", "control wind"],
+		selection : ["control water", "control wind"],
+		spellcastingAbility : 6,
+		oncelr : true,
+		times : 2
+	},
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+FeatsList["greater dragonmark [warding]"] = {
+	name : "Greater Dragonmark [Warding]",
+	source : ["WGtE", 110],
+	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
+	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known)",
+	description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
+	improvements : "Greater Dragonmark [Warding]: +1 Dexterity or Intelligence;",
+	spellcastingBonus : [{
+		name : "1\u00D7 per long",
+		spells : ["knock", "glyph of warding"],
+		selection : ["knock", "glyph of warding"],
+		spellcastingAbility : 4,
+		oncelr : true,
+		times : 2
+	}, {
+		name : "with Siberys dragonshard",
+		spells : ["leomund's secret chest"],
+		selection : ["leomund's secret chest"],
+		oncelr : true
+	}],
+	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
+	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+};
+
+// Aberrant Dragonmark feat
+FeatsList["aberrant dragonmark"] = {
+	name : "Aberrant Dragonmark",
+	source : ["WGtE", 112],
+	prerequisite : "Not having a dragonmark",
+	prereqeval : "!(/dragonmark/i).test(CurrentRace.known)",
+	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
+	improvements : "Aberrant Dragonmark (feat): +1 Constitution;",
+	scores : [0, 0, 1, 0, 0, 0],
+	spellcastingBonus : [{
+		name : "Sorcerer cantrip",
+		spellcastingAbility : 3,
+		'class' : 'sorcerer',
+		level : [0, 0],
+		atwill : true
+	}, {
+		name : "Sorcerer 1st-level spell",
+		'class' : 'sorcerer',
+		level : [1, 1],
+		oncelr : true
+	}]
 };

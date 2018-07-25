@@ -3136,44 +3136,110 @@ FeatsList["mage slayer"] = {
 FeatsList["magic initiate [bard]"] = {
 	name : "Magic Initiate [Bard]",
 	source : ["P", 168],
-	description : "I learn two cantrips and one 1st-level spell of my choice from the bard's spell list.\nI can cast the spell it at its lowest level once per long rest.\nCharisma is my spellcasting ability for these.",
-	eval : "CurrentSpells['magic initiate bard'] = {name : 'Magic Initiate [Bard]', ability : 6, list : {class : 'bard'}, known : {cantrips : 2}, bonus : {bonus1 : {name : '1st-Level Spell', class : 'bard', level : [1, 1], oncelr : true}}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['magic initiate bard']; SetStringifieds('spells');"
+	description : "I learn two cantrips and one 1st-level spell of my choice from the bard's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nCharisma is my spellcasting ability for these.",
+	spellcastingBonus : [{
+		name : "Bard cantrip",
+		spellcastingAbility : 6,
+		'class' : 'bard',
+		level : [0, 0],
+		atwill : true,
+		times : 2
+	}, {
+		name : "Bard 1st-level spell",
+		'class' : 'bard',
+		level : [1, 1],
+		oncelr : true
+	}]
 };
 FeatsList["magic initiate [cleric]"] = {
 	name : "Magic Initiate [Cleric]",
 	source : ["P", 168],
-	description : "I learn two cantrips and one 1st-level spell of my choice from the cleric's spell list.\nI can cast the spell it at its lowest level once per long rest.\nWisdom is my spellcasting ability for these.",
-	eval : "CurrentSpells['magic initiate cleric'] = {name : 'Magic Initiate [Cleric]', ability : 5, list : {class : 'cleric'}, known : {cantrips : 2}, bonus : {bonus1 : {name : '1st-Level Spell', class : 'cleric', level : [1, 1], oncelr : true}}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['magic initiate cleric']; SetStringifieds('spells');"
+	description : "I learn two cantrips and one 1st-level spell of my choice from the cleric's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nWisdom is my spellcasting ability for these.",
+	spellcastingBonus : [{
+		name : "Cleric cantrip",
+		spellcastingAbility : 5,
+		'class' : 'cleric',
+		level : [0, 0],
+		atwill : true,
+		times : 2
+	}, {
+		name : "Cleric 1st-level spell",
+		'class' : 'cleric',
+		level : [1, 1],
+		oncelr : true
+	}]
 };
 FeatsList["magic initiate [druid]"] = {
 	name : "Magic Initiate [Druid]",
 	source : ["P", 168],
-	description : "I learn two cantrips and one 1st-level spell of my choice from the druid's spell list.\nI can cast the spell it at its lowest level once per long rest.\nWisdom is my spellcasting ability for these.",
-	eval : "CurrentSpells['magic initiate druid'] = {name : 'Magic Initiate [Druid]', ability : 5, list : {class : 'druid'}, known : {cantrips : 2}, bonus : {bonus1 : {name : '1st-Level Spell', class : 'druid', level : [1, 1], oncelr : true}}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['magic initiate druid']; SetStringifieds('spells');"
+	description : "I learn two cantrips and one 1st-level spell of my choice from the druid's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nWisdom is my spellcasting ability for these.",
+	spellcastingBonus : [{
+		name : "Druid cantrip",
+		spellcastingAbility : 5,
+		'class' : 'druid',
+		level : [0, 0],
+		atwill : true,
+		times : 2
+	}, {
+		name : "Druid 1st-level spell",
+		'class' : 'druid',
+		level : [1, 1],
+		oncelr : true
+	}]
 };
 FeatsList["magic initiate [sorcerer]"] = {
 	name : "Magic Initiate [Sorcerer]",
 	source : ["P", 168],
-	description : "I learn two cantrips and one 1st-level spell of my choice from the sorcerer's spell list.\nI can cast the spell it at its lowest level once per long rest.\nCharisma is my spellcasting ability for these.",
-	eval : "CurrentSpells['magic initiate sorcerer'] = {name : 'Magic Initiate [Sorcerer]', ability : 6, list : {class : 'sorcerer'}, known : {cantrips : 2}, bonus : {bonus1 : {name : '1st-Level Spell', class : 'sorcerer', level : [1, 1], oncelr : true}}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['magic initiate sorcerer']; SetStringifieds('spells');"
+	description : "I learn two cantrips and one 1st-level spell of my choice from the sorcerer's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nCharisma is my spellcasting ability for these.",
+	spellcastingBonus : [{
+		name : "Sorcerer cantrip",
+		spellcastingAbility : 6,
+		'class' : 'sorcerer',
+		level : [0, 0],
+		atwill : true,
+		times : 2
+	}, {
+		name : "Sorcerer 1st-level spell",
+		'class' : 'sorcerer',
+		level : [1, 1],
+		oncelr : true
+	}]
 };
 FeatsList["magic initiate [warlock]"] = {
 	name : "Magic Initiate [Warlock]",
 	source : ["P", 168],
-	description : "I learn two cantrips and one 1st-level spell of my choice from the warlock's spell list.\nI can cast the spell it at its lowest level once per long rest.\nCharisma is my spellcasting ability for these.",
-	eval : "CurrentSpells['magic initiate warlock'] = {name : 'Magic Initiate [Warlock]', ability : 6, list : {class : 'warlock'}, known : {cantrips : 2}, bonus : {bonus1 : {name : '1st-Level Spell', class : 'warlock', level : [1, 1], oncelr : true}}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['magic initiate warlock']; SetStringifieds('spells');"
+	description : "I learn two cantrips and one 1st-level spell of my choice from the warlock's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nCharisma is my spellcasting ability for these.",
+	spellcastingBonus : [{
+		name : "Warlock cantrip",
+		spellcastingAbility : 6,
+		'class' : 'warlock',
+		level : [0, 0],
+		atwill : true,
+		times : 2
+	}, {
+		name : "Warlock 1st-level spell",
+		'class' : 'warlock',
+		level : [1, 1],
+		oncelr : true
+	}]
 };
 FeatsList["magic initiate [wizard]"] = {
 	name : "Magic Initiate [Wizard]",
 	source : ["P", 168],
-	description : "I learn two cantrips and one 1st-level spell of my choice from the wizard's spell list.\nI can cast the spell it at its lowest level once per long rest.\nIntelligence is my spellcasting ability for these.",
-	eval : "CurrentSpells['magic initiate wizard'] = {name : 'Magic Initiate  [Wizard]', ability : 4, list : {class : 'wizard'}, known : {cantrips : 2}, bonus : {bonus1 : {name : '1st-Level Spell', class : 'wizard', level : [1, 1], oncelr : true}}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['magic initiate wizard']; SetStringifieds('spells');"
+	description : "I learn two cantrips and one 1st-level spell of my choice from the wizard's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nIntelligence is my spellcasting ability for these.",
+	spellcastingBonus : [{
+		name : "Wizard cantrip",
+		spellcastingAbility : 4,
+		'class' : 'wizard',
+		level : [0, 0],
+		atwill : true,
+		times : 2
+	}, {
+		name : "Wizard 1st-level spell",
+		'class' : 'wizard',
+		level : [1, 1],
+		oncelr : true
+	}]
 };
 FeatsList["martial adept"] = {
 	name : "Martial Adept",
@@ -3233,7 +3299,6 @@ FeatsList["resilient [strength]"] = {
 	improvements : "Resilient (feat): +1 Strength;",
 	scores : [1, 0, 0, 0, 0, 0],
 	saves : ["Str"]
-
 };
 FeatsList["resilient [dexterity]"] = {
 	name : "Resilient [Dexterity]",
@@ -3242,7 +3307,6 @@ FeatsList["resilient [dexterity]"] = {
 	improvements : "Resilient (feat): +1 Dexterity;",
 	scores : [0, 1, 0, 0, 0, 0],
 	saves : ["Dex"]
-
 };
 FeatsList["resilient [constitution]"] = {
 	name : "Resilient [Constitution]",
@@ -3251,7 +3315,6 @@ FeatsList["resilient [constitution]"] = {
 	improvements : "Resilient (feat): +1 Constitution;",
 	scores : [0, 0, 1, 0, 0, 0],
 	saves : ["Con"]
-
 };
 FeatsList["resilient [intelligence]"] = {
 	name : "Resilient [Intelligence]",
@@ -3260,7 +3323,6 @@ FeatsList["resilient [intelligence]"] = {
 	improvements : "Resilient (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
 	saves : ["Int"]
-
 };
 FeatsList["resilient [wisdom]"] = {
 	name : "Resilient [Wisdom]",
@@ -3269,7 +3331,6 @@ FeatsList["resilient [wisdom]"] = {
 	improvements : "Resilient (feat): +1 Wisdom;",
 	scores : [0, 0, 0, 0, 1, 0],
 	saves : ["Wis"]
-
 };
 FeatsList["resilient [charisma]"] = {
 	name : "Resilient [Charisma]",
@@ -3278,7 +3339,6 @@ FeatsList["resilient [charisma]"] = {
 	improvements : "Resilient (feat): +1 Charisma;",
 	scores : [0, 0, 0, 0, 0, 1],
 	saves : ["Cha"]
-
 };
 FeatsList["ritual caster [bard]"] = {
 	name : "Ritual Caster [Bard]",
