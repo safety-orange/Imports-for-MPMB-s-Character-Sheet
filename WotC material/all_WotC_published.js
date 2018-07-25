@@ -72,7 +72,7 @@ RaceList["dark elf"] = {
 	weightMetric : " weigh around 45 kg (35 + 5d6 \xD7 2d6 / 10 kg)",
 	improvements : "Drow: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
-	trait : "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
+	trait : "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -1982,11 +1982,11 @@ BackgroundList["charlatan"] = {
 	gold : 15,
 	equipleft : [
 		["Disguise kit", "", 3],
-		["Tools for chosen con", "", ""],
+		["Tools for chosen con", "", ""]
 	],
 	equipright : [
 		["Fine clothes", "", 6],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "False Identity",
 	trait : [
@@ -2017,7 +2017,7 @@ BackgroundList["charlatan"] = {
 		],
 		["Aspiration",
 			"Aspiration: I'm determined to make something of myself. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.",
@@ -2056,7 +2056,7 @@ BackgroundList["criminal"] = {
 	equipright : [
 		["Dark, common clothes with hood", "", 3],
 		["Crowbar", "", 5],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Criminal Contact",
 	trait : [
@@ -2087,7 +2087,7 @@ BackgroundList["criminal"] = {
 		],
 		["Redemption",
 			"Redemption: There's a spark of good in everyone. (Good)"
-		],
+		]
 	],
 	bond : [
 		"I'm trying to pay off an old debt I owe to a generous benefactor.",
@@ -2130,7 +2130,7 @@ BackgroundList["entertainer"] = {
 		["Costume", "", 4],
 		["Favor of an admirer", "", ""],
 		["Belt pouch (with coins)", "", 1],
-		["Musical instrument of my choice", "", ""],
+		["Musical instrument of my choice", "", ""]
 	],
 	feature : "By Popular Demand",
 	trait : [
@@ -2161,7 +2161,7 @@ BackgroundList["entertainer"] = {
 		],
 		["Honesty",
 			"Honesty: Art should reflect the soul; it should come from within and reveal who we really are. (Any)"
-		],
+		]
 	],
 	bond : [
 		"My instrument is my most treasured possession, and it reminds me of someone I love.",
@@ -2204,11 +2204,11 @@ BackgroundList["folk hero"] = {
 	equipleft : [
 		["Set of artisan's tools", "", ""],
 		["Shovel", "", 5],
-		["Iron pot", "", 10],
+		["Iron pot", "", 10]
 	],
 	equipright : [
 		["Common clothes", "", 3],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Rustic Hospitality",
 	trait : [
@@ -2239,7 +2239,7 @@ BackgroundList["folk hero"] = {
 		],
 		["Destiny",
 			"Destiny: Nothing and no one can steer me away from my higher calling. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I have a family, but I have no idea where they are. One day, I hope to see them again.",
@@ -2281,11 +2281,11 @@ BackgroundList["guild artisan"] = {
 	gold : 15,
 	equipleft : [
 		["Set of artisan's tools", "", ""],
-		["Letter of introduction from guild", "", ""],
+		["Letter of introduction from guild", "", ""]
 	],
 	equipright : [
 		["Traveler's clothes", "", 4],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Guild Membership",
 	trait : [
@@ -2316,7 +2316,7 @@ BackgroundList["guild artisan"] = {
 		],
 		["Aspiration",
 			"Aspiration: I work hard to be the best there is at my craft. (Any)"
-		],
+		]
 	],
 	bond : [
 		"The workshop where I learned my trade is the most important place in the world to me.",
@@ -2369,11 +2369,11 @@ BackgroundList["hermit"] = {
 	gold : 5,
 	equipleft : [
 		["Winter blanket", "", 3],
-		["Herbalism kit", "", 3],
+		["Herbalism kit", "", 3]
 	],
 	equipright : [
 		["Common clothes", "", 3],
-		["Scroll case with notes", "", 1],
+		["Scroll case with notes", "", 1]
 	],
 	feature : "Discovery",
 	trait : [
@@ -2404,7 +2404,7 @@ BackgroundList["hermit"] = {
 		],
 		["Self-Knowledge",
 			"Self-Knowledge: If you know yourself, there's nothing left to know. (Any)"
-		],
+		]
 	],
 	bond : [
 		"Nothing is more important than the other members of my hermitage, order, or association.",
@@ -2444,12 +2444,12 @@ BackgroundList["noble"] = {
 	skills : ["History", "Persuasion"],
 	gold : 25,
 	equipleft : [
-		["Scroll of pedigree", "", ""],
+		["Scroll of pedigree", "", ""]
 	],
 	equipright : [
 		["Fine clothes", "", 6],
 		["Signet ring", "", ""],
-		["Purse (with coins)", "", 1],
+		["Purse (with coins)", "", 1]
 	],
 	feature : "Position of Privilege",
 	trait : [
@@ -2480,7 +2480,7 @@ BackgroundList["noble"] = {
 		],
 		["Noble Obligation",
 			"Noble Obligation: It is my duty to protect and care for the people beneath me. (Good)"
-		],
+		]
 	],
 	bond : [
 		"I will face any challenge to win the approval of my family.",
@@ -2513,7 +2513,7 @@ BackgroundList["outlander"] = {
 		["Staff", "", 4],
 		["Hunting trap", "", 25],
 		["Trophy from animal", "", ""],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Wanderer",
 	trait : [
@@ -2544,7 +2544,7 @@ BackgroundList["outlander"] = {
 		],
 		["Glory",
 			"Glory: I must earn glory in battle, for myself and my clan. (Any)"
-		],
+		]
 	],
 	bond : [
 		"My family, clan, or tribe is the most important thing in my life, even when they are far from me.",
@@ -2588,11 +2588,11 @@ BackgroundList["sage"] = {
 		["Ink, 1 ounce bottle of", 1, ""],
 		["Ink pen (quill)", "", ""],
 		["Small knife", "", 0.5],
-		["Letter from dead colleague", "", ""],
+		["Letter from dead colleague", "", ""]
 	],
 	equipright : [
 		["Common clothes", "", 3],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Researcher",
 	trait : [
@@ -2623,7 +2623,7 @@ BackgroundList["sage"] = {
 		],
 		["Self-Improvement",
 			"Self-Improvement: The goal of a life of study is the betterment of oneself. (Any)"
-		],
+		]
 	],
 	bond : [
 		"It is my duty to protect my students.",
@@ -2667,7 +2667,7 @@ BackgroundList["sailor"] = {
 		["Common clothes", "", 3],
 		["Belaying pin (club)", "", 2],
 		["Lucky charm", "", ""],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Ship's Passage",
 	trait : [
@@ -2698,7 +2698,7 @@ BackgroundList["sailor"] = {
 		],
 		["Aspiration",
 			"Aspiration: Someday I'll own my own ship and chart my own destiny. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I'm loyal to my captain first, everything else second.",
@@ -2730,7 +2730,7 @@ BackgroundList["soldier"] = {
 		["Insignia of rank", "", ""],
 		["Trophy from fallen enemy", "", ""],
 		["Bone dice or playing cards", "", ""],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Military Rank",
 	trait : [
@@ -2761,7 +2761,7 @@ BackgroundList["soldier"] = {
 		],
 		["Nation",
 			"Nation: My city, state, or people are the only things that matter. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I would still give my life for the people I have served with.",
@@ -2800,13 +2800,13 @@ BackgroundList["urchin"] = {
 	gold : 10,
 	equipleft : [
 		["Map of the city", "", ""],
-		["Small knife", "", 0.5],
+		["Small knife", "", 0.5]
 	],
 	equipright : [
 		["Common clothes", "", 3],
 		["Token from my parents", "", ""],
 		["Pet mouse", "", 0.1],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "City Secrets",
 	trait : [
@@ -2837,7 +2837,7 @@ BackgroundList["urchin"] = {
 		],
 		["Aspiration",
 			"Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
-		],
+		]
 	],
 	bond : [
 		"My town or city is my home, and I'll battle those that threaten it.",
@@ -5861,7 +5861,7 @@ SpellsList["frostbite"] = {
 SpellsList["gust"] = {
 	name : "Gust",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : [["X", 157], ["E", 19]],
+	source : [["WGtE", 107], ["X", 157], ["E", 19]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -14203,7 +14203,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["gust"] = {
 		name : "Gust",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 157], ["E", 19]],
+		source : [["WGtE", 107], ["X", 157], ["E", 19]],
 		level : 0,
 		school : "Trans",
 		time : "1 a",
@@ -16136,7 +16136,7 @@ RaceList["eladrin-mtof"] = {
 	scores : [0, 2, 0, 0, 0, 1],
 	abilitySave : 6,
 	trait : "Eladrin (+2 Dexterity, +1 Charisma)" + desc([
-		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
+		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
 		"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, this gains an additional effect, based on the current season I'm aligned with. See the third page notes section for the effects.",
 		"Shifting Seasons: After I finish a long rest, I can align myself with a season of my choice."
 	]),
@@ -16225,7 +16225,7 @@ RaceList["shadar-kai-mtof"] = {
 	improvements : "Shadar-kai: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
 	trait : "Shadar-kai (+2 Dexterity, +1 Constitution)" + desc([
-		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
+		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
 		"Blessing of the Raven Queen: Once per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
 		"Once I reach 3rd level, after I use the Blessing of the Raven Queen, I appear translucent and have resistance to all damage until the start of my next turn."
 	]),
@@ -16468,7 +16468,7 @@ RequiredSheetVersion(12.999);
 SourceList["WGtE"] = {
 	name : "Wayfinder's Guide to Eberron",
 	abbreviation : "WGtE",
-	group : "Official Sources",
+	group : "Primary Sources",
 	url : "https://www.dmsguild.com/product/247882/",
 	date : "2018/07/23"
 };
@@ -16820,7 +16820,7 @@ ArmourList["warforged heavy plating"] = {
 	stealthdis : true,
 	weight : 0,
 	strReq : 0,
-	dex : 0
+	dex : -10
 };
 
 // Elf Variants
@@ -16934,5 +16934,685 @@ CreatureList["clawfoot raptor"] = {
 	}]
 };
 
+// House Agent backgrounds
+BackgroundList["house agent"] = { // the default is House Cannith
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*(noble|cannith)).*$/i,
+	name : "Agent of House Cannith",
+	source : ["WGtE", 94],
+	skills : ["Investigation", "Persuasion"],
+	gold : 20,
+	equipright : [
+		["Fine clothes", "", 6],
+		["Signet ring of house Cannith", "", ""],
+		["ID papers", "", ""],
+		["Purse (with coins)", "", 1]
+	],
+	feature : "House Connections",
+	trait : [
+		"I never let emotion complicate work.",
+		"I'm always looking to improve efficiency.",
+		"I share trivia about my house's business (medicine, ships, warforged).",
+		"I hold myself and anyone I work with to extremely high standards.",
+		"I never forget an insult made against myself or my house.",
+		"I'm very excited and enthusiastic about everything my house does.",
+		"I'm representing my house and take great pride in my personal appearance.",
+		"I'm critical of monarchies and opposed to any restrictions on the houses."
+	],
+	ideal : [
+		["Common Good",
+			"Common Good: My house serves a vital function, and its properity will help everyone. (Good)"
+		],
+		["Tradition",
+			"Tradition: I uphold traditions of my house and bring honor to my family. (Lawful)"
+		],
+		["Innovation",
+			"Innovation: Abondon old traditions and find better ways to do things. (Chaotic)"
+		],
+		["Power",
+			"Power: I want to ensure the prosperity of my house and wield its power myself. (Evil)"
+		],
+		["Discovery",
+			"Discovery: I want to learn all I can, both for my house and for my own curiosity. (Any)"
+		],
+		["Comfort",
+			"Comfort: I want to ensure that me and friends of mine enjoy the best things in life. (Any)"
+		]
+	],
+	bond : [
+		"My house is my family, and I would do anything for my family.",
+		"I love someone from another house, but such relationships are forbidden.",
+		"Someone I love was killed by a rival faction within my house, and I will have revenge.",
+		"I don't care about the house as a whole, but I would do anything for my old mentor.",
+		"I believe my house needs to evolve to survive, and I need to lead that change.",
+		"I am determined to impress the leaders of my house, and to become a leader myself."
+	],
+	flaw : [
+		"I'm overly concerned with following established procedures and protocols.",
+		"I'm obsessed with conspiracy theories and worried about secret societies and hidden demons.",
+		"I believe that my house and bloodline makes me better than everyone else.",
+		"I'm concealing a secret that could get me driven from my house.",
+		"I have strong religious beliefs that aren't shared by others in my house.",
+		"I'm working for a hidden faction in my house that gives me secret assignments."
+	],
+	extra : [
+		"Select an House Agent Role",
+		"Acquisition",
+		"Investigation",
+		"Research \u0026 Development",
+		"Security",
+		"Intimidation",
+		"Exploration",
+		"Negotiation",
+		"Covert Operations"
+	],
+	toolProfs : ["Alchemist's supplies", "Tinker's tools"]
+};
+AddBackgroundVariant("house agent", "deneith", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*deneith).*$/i,
+	name : "Agent of House Deneith",
+	source : ["WGtE", 94],
+	toolProfs : [["Gaming set", 1], "Vehicles (land)"]
+});
+AddBackgroundVariant("house agent", "ghallanda", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*ghallanda).*$/i,
+	name : "Agent of House Ghallanda",
+	source : ["WGtE", 94],
+	toolProfs : ["Brewer's supplies", "Cook's utensils"]
+});
+AddBackgroundVariant("house agent", "jorasco", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*jorasco).*$/i,
+	name : "Agent of House Jorasco",
+	source : ["WGtE", 94],
+	toolProfs : ["Alchemist's supplies", "Herbalism kit"]
+});
+AddBackgroundVariant("house agent", "kundarak", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*kundarak).*$/i,
+	name : "Agent of House Kundarak",
+	source : ["WGtE", 94],
+	toolProfs : [["Thieves' tools", "Dex"], "Tinker's tools"]
+});
+AddBackgroundVariant("house agent", "lyrandar", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*lyrandar).*$/i,
+	name : "Agent of House Lyrandar",
+	source : ["WGtE", 94],
+	toolProfs : ["Navigator's tools", "Vehicles (sea/air)"]
+});
+AddBackgroundVariant("house agent", "medani", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*medani).*$/i,
+	name : "Agent of House Medani",
+	source : ["WGtE", 94],
+	toolProfs : ["Disguise kit", ["Thieves' tools", "Dex"]]
+});
+AddBackgroundVariant("house agent", "orien", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*orien).*$/i,
+	name : "Agent of House Orien",
+	source : ["WGtE", 94],
+	toolProfs : [["Gaming set", 1], "Vehicles (land)"]
+});
+AddBackgroundVariant("house agent", "phiarlan", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*phiarlan).*$/i,
+	name : "Agent of House Phiarlan",
+	source : ["WGtE", 94],
+	toolProfs : ["Disguise kit", ["Musical instrument", 1]]
+});
+AddBackgroundVariant("house agent", "sivis", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*sivis).*$/i,
+	name : "Agent of House Sivis",
+	source : ["WGtE", 94],
+	toolProfs : ["Calligrapher's tools", "Forgery kit"]
+});
+AddBackgroundVariant("house agent", "tharashk", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*tharashk).*$/i,
+	name : "Agent of House Tharashk",
+	source : ["WGtE", 94],
+	toolProfs : [["Gaming set", 1], ["Thieves' tools", "Dex"]]
+});
+AddBackgroundVariant("house agent", "thuranni", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*thuranni).*$/i,
+	name : "Agent of House Thuranni",
+	source : ["WGtE", 94],
+	toolProfs : [["Musical instrument", 1], "Poisoner's kit"]
+});
+AddBackgroundVariant("house agent", "vadalis", {
+	regExpSearch : /^(?=.*agent)(?=.*house)(?=.*vadalis).*$/i,
+	name : "Agent of House Vadalis",
+	source : ["WGtE", 94],
+	toolProfs : ["Herbalism kit", "Vehicles (land)"]
+});
+BackgroundFeatureList["house connections"] = {
+	description : "As an agent of my house, I can always get food and lodging for my friends at a house enclave. My house usually provides me with necessary supplies and transportation if it assigns me a mission. I have many old friends, mentors, and rivals in my house that I might run into and be willing to help me depending on my current standing in the house.",
+	source : ["WGtE", 95]
+};
 
-// The dargonmarks
+// Dragonmarks subraces
+RaceList["dragonmark detection half-elf"] = {
+	regExpSearch : /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
+	name : "Half-elf (dragonmark)",
+	sortname : "Dragonmark, Detection (Half-Elf)",
+	source : ["WGtE", 96],
+	plural : "Half-elves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	age : " reach adulthood around age 20 and often live over 180 years",
+	height : " range from 5 to 6 feet tall (4'9\" + 2d8\")",
+	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	improvements : "Half-Elf, Dragonmark of Detection: +1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice;",
+	scores : [0, 0, 0, 1, 0, 1],
+	trait : "Half-Elf, Dragonmark of Detection (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Deductive Intuition: I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.\n" + (typePF ? "\n" : "   ") + "Sense Threats: I can cast Detect Magic and Detect Poison and Disease as rituals using Intelligence as my spellcasting ability.",
+	spellcastingAbility : 4,
+	spellcastingBonus : {
+		name : "Sense Threats",
+		spells : ["detect magic", "detect poison and disease"],
+		selection : ["detect magic", "detect poison and disease"],
+		firstCol : "(R)",
+		times : 2
+	}
+};
+RaceList["dragonmark finding half-orc"] = {
+	regExpSearch : /^(?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
+	name : "Half-orc (dragonmark)",
+	sortname : "Dragonmark, Finding (Half-Orc)",
+	source : ["WGtE", 97],
+	plural : "Half-orcs (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Goblin"],
+	vision : [["Darkvision", 60]],
+	age : " reach adulthood around age 14 and rarely live longer than 75 years",
+	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
+	weight : " weigh around 215 lb (140 + 2d10 \xD7 2d6 lb)",
+	heightMetric : " range from 1,5 to well over 1,8 metres tall (150 + 5d10 cm)",
+	weightMetric : " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
+	improvements : "Half-Orc, Dragonmark of Finding: +1 Strength, +1 Wisdom, and +1 to any one ability score of my choice;",
+	scores : [1, 0, 0, 0, 1, 0],
+	trait : "Half-Orc, Dragonmark of Finding (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint to my mind a target I can see in 30 ft until it dies or leaves my sight. I can also do this with a Survival check for a creature I'm tracking. While imprinted, I double my Intuition Die for tracking it, can sense its exact location if within 60 ft, and my attacks vs. it ignore half cover.\n   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual.",
+	features : {
+		"imprint prey" : {
+			name : "Imprint Prey",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		},
+		"locate animals or plants" : {
+			name : "Locate Animals or Plants",
+			minlevel : 3,
+			spellcastingBonus : {
+				name : "Nature's Voice",
+				spells : ["locate animals or plants"],
+				selection : ["locate animals or plants"],
+				firstCol : "(R)"
+			}
+		}
+	}
+};
+RaceList["dragonmark finding human"] = {
+	regExpSearch : /^(?=.*human)((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Finding (Human)",
+	source : ["WGtE", 97],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Goblin"],
+	vision : [["Darkvision", 60]],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	improvements : "Human, Dragonmark of Finding: +1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice;",
+	scores : [0, 1, 0, 0, 1, 0],
+	trait : "Human, Dragonmark of Finding (+1 Dex" + (typePF ? ", +1 Wis, +1 to one ability" : "terity, +1 Wisdom, and +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint to my mind a target I can see in 30 ft until it dies or leaves my sight. I can also do this with a Survival check for a creature I'm tracking. While imprinted, I double my Intuition Die for tracking it, can sense its exact location if within 60 ft, and my attacks vs. it ignore half cover.\n   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual.",
+	features : {
+		"imprint prey" : {
+			name : "Imprint Prey",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		},
+		"locate animals or plants" : {
+			name : "Locate Animals or Plants",
+			minlevel : 3,
+			spellcastingBonus : {
+				name : "Nature's Voice",
+				spells : ["locate animals or plants"],
+				selection : ["locate animals or plants"],
+				firstCol : "(R)"
+			}
+		}
+	}
+};
+RaceList["dragonmark handling human"] = {
+	regExpSearch : /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Handling (Human)",
+	source : ["WGtE", 98],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	improvements : "Human, Dragonmark of Handling: +1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice;",
+	scores : [0, 1, 0, 0, 1, 0],
+	trait : "Human, Dragonmark of Handling (+1 Dexterity, +1 Wisdom, +1 to any one ability score)\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: I can cast Animal Friendship once per short rest using Wisdom as my spellcasting ability.",
+	spellcastingAbility : 5,
+	features : {
+		"animal friendship" : {
+			name : "Animal Friendship",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			tooltip : " (Primal Connection)",
+			spellcastingBonus : {
+				name : "Primal Connection",
+				spells : ["animal friendship"],
+				selection : ["animal friendship"],
+				oncesr : true
+			}
+		}
+	}
+};
+RaceList["dragonmark healing halfling"] = {
+	regExpSearch : /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
+	name : "Halfling (dragonmark)",
+	sortname : "Dragonmark, Healing (Halfling)",
+	source : ["WGtE", 99],
+	plural : "Halflings (dragonmark)",
+	size : 4,
+	speed : {
+		walk : { spd : 25, enc : 15 }
+	},
+	languageProfs : ["Common", "Halfling"],
+	savetxt : { adv_vs : ["frightened"] },
+	age : " reach adulthood at age 20 and live around 150 years",
+	height : " average about 3 feet tall (2'7\" + 2d4\")",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " average about 90 cm tall (80 + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	improvements : "Halfling, Dragonmark of Healing: +2 Dexterity, +1 Wisdom;",
+	scores : [0, 2, 0, 0, 1, 0],
+	trait : "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)\n   Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\n   Halfling Nimbleness: I can move through the space of Medium and larger creatures.\n   Medical Intuition: I can add my Intuition Die (1d4) to my Wisdom (Medicine) checks.\n   Healing Touch: As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
+	features : {
+		"healing touch" : {
+			name : "Healing Touch",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["Healing Touch", ""]
+		}
+	}
+};
+RaceList["dragonmark hospitality halfling"] = {
+	regExpSearch : /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
+	name : "Halfling (dragonmark)",
+	sortname : "Dragonmark, Hospitality (Halfling)",
+	source : ["WGtE", 100],
+	plural : "Halflings (dragonmark)",
+	size : 4,
+	speed : {
+		walk : { spd : 25, enc : 15 }
+	},
+	languageProfs : ["Common", "Halfling"],
+	savetxt : { adv_vs : ["frightened"] },
+	age : " reach adulthood at age 20 and live around 150 years",
+	height : " average about 3 feet tall (2'7\" + 2d4\")",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " average about 90 cm tall (80 + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	improvements : "Halfling, Dragonmark of Hospitality: +2 Dexterity, +1 Charisma;",
+	scores : [0, 2, 0, 0, 0, 1],
+	trait : "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nHalfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.\nInnkeeper's Charms: I know Friends and Prestidigitation with Cha as my spellcasting ability.",
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Innkeeper's Charms",
+		spells : ["friends", "prestidigitation"],
+		selection : ["friends", "prestidigitation"],
+		atwill : true,
+		times : 2
+	}
+};
+RaceList["dragonmark making human"] = {
+	regExpSearch : /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Making (Human)",
+	source : ["WGtE", 101],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	toolProfs : [["Artisan's tools", 1]],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	improvements : "Human, Dragonmark of Making: +1 Dexterity, +1 Intelligence, and +1 to any one ability score of my choice;",
+	scores : [0, 1, 0, 1, 0, 0],
+	trait : "Human, Dragonmark of Making (+1 Dex" + (typePF ? ", +1 Int, +1 to one ability" : "terity, +1 Intelligence, +1 to any one ability score") + ")\nArtisan's Intuition: I can add my Intuition Die (1d4) to ability checks with artisan's tools.\nMagecraft: I can create a magic item that gives me the ability to cast one wizard cantrip of my choice, using Intelligence as my spellcasting ability. This works while the item is in my possession. At the end of a long rest, I can replace it with a new item and cantrip.\nSpellsmith: Once per long rest, I can spend 1 minute to make a nonmagical armor or weapon gain a +1 bonus for the next hour. Maker's Gift: I know the mending cantrip.",
+	features : {
+		"spellsmith" : {
+			name : "Spellsmith",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest"
+		}
+	},
+	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { class : sheetVersion < 13 ? 'wizard' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : sheetVersion < 13 ? false : 'list'}, bonus : {bonus1 : {name : 'Maker\'s Gift', spells : ['mending'], selection : ['mending'], atwill : true}}}; SetStringifieds('spells');",
+	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells');"
+};
+RunFunctionAtEnd(function() { // make the spell list for the 'making dragonmark human' in v13 and later
+	if (sheetVersion < 13) return;
+	for (var sp in SpellsList) {
+		var aSp = SpellsList[sp];
+		if (aSp.level !== undefined && aSp.level === 0 && aSp.classes && aSp.classes.indexOf('wizard') !== -1) aSp.classes.push('dragonmark making human');
+	}
+});
+RaceList["dragonmark passage human"] = {
+	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Passage (Human)",
+	source : ["WGtE", 102],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 40, enc : 30 }
+	},
+	languageProfs : ["Common", 1],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	improvements : "Human, Dragonmark of Passage: +2 Dexterity and +1 to another ability score of my choice;",
+	scores : [0, 2, 0, 0, 0, 0],
+	trait : "Human, Dragonmark of Passage (+2 Dexterity and +1 to another ability score)\n   Intuitive Motion: I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Determined Stride: When I use the Dash action, difficult terrain doesn't cost me extra movement for that turn.\n   Shared Passage: As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
+	features : {
+		"shared passage" : {
+			name : "Shared Passage",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest",
+			action : ["bonus action", ""]
+		}
+	}
+};
+RaceList["dragonmark scribing gnome"] = {
+	regExpSearch : /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
+	name : "Gnome (dragonmark)",
+	sortname : "Dragonmark, Scribing (Gnome)",
+	source : ["WGtE", 103],
+	plural : "Gnomes (dragonmark)",
+	size : 4,
+	speed : {
+		walk : { spd : 25, enc : 15 }
+	},
+	languageProfs : ["Common", "Gnomish", 1],
+	toolProfs : ["Calligrapher's supplies", "Forgery kits"],
+	vision : [["Darkvision", 60]],
+	savetxt : { text : ["Adv. on Int/Wis/Cha saves vs. magic"] },
+	age : " start adult life around age 40 and can live 350 to almost 500 years",
+	height : " are 3 to 4 feet tall (2'11\" + 2d4\")",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	improvements : "Gnome, Dragonmark of Scribing: +2 Intelligence, +1 Charisma;",
+	scores : [0, 1, 0, 2, 0, 0],
+	trait : "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
+	spellcastingAbility : 4,
+	spellcastingBonus : {
+		name : "Whispering Wind",
+		spells : ["message"],
+		selection : ["message"],
+		atwill : true
+	},
+	features : {
+		"comprehend languages" : {
+			name : "Comprehend Languages",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest",
+			tooltip : " (Scribe's Insight)",
+			spellcastingBonus : {
+				name : "Scribe's Insight",
+				spells : ["comprehend languages"],
+				selection : ["comprehend languages"],
+				oncelr : true
+			}
+		}
+	}
+};
+RaceList["dragonmark sentinel human"] = {
+	regExpSearch : /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Sentinel (Human)",
+	source : ["WGtE", 104],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	improvements : "Human, Dragonmark of Sentinel: +1 Strength, +1 Wisdom, and +1 to any one ability score of my choice;",
+	scores : [1, 0, 0, 0, 1, 0],
+	trait : "Human, Dragonmark of Sentinel (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Sentinel's Intuition: I can add my Intuition Die (1d4) to Initiative rolls and my Wisdom (Perception) checks.\n   Sentinel's Shield: I know the Blade Ward cantrip. I can cast Shield once per short rest.\n   Vigilant Guardian: As an action, I can designate an ally as my ward, gaining adv. on Insight and Perception checks to spot threats to it. As a reaction when I see my ward being attacked while within 5 ft, I can swap places with it, becoming the target of the attack.",
+	features : {
+		"shield" : {
+			name : "Shield (spell)",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["reaction", ""],
+			tooltip : " (Sentinel's Shield)",
+			spellcastingBonus : [{
+				name : "Sentinel's Shield",
+				spells : ["blade ward"],
+				selection : ["blade ward"],
+				atwill : true
+			}, {
+				name : "Sentinel's Shield",
+				spells : ["shield"],
+				selection : ["shield"],
+				oncesr : true
+			}]
+		}
+	},
+	eval : "AddAction('action', 'Vigilant Guardian (designate ward)', 'being a Human, Dragonmark of Sentinel'); AddAction('reaction', 'Vigilant Guardian (swap with ward)', 'being a Human, Dragonmark of Sentinel');",
+	removeeval : "RemoveAction('action', 'Vigilant Guardian (designate ward)'); RemoveAction('reaction', 'Vigilant Guardian (swap with ward)');",
+};
+RaceList["dragonmark shadow elf"] = {
+	regExpSearch : /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
+	name : "Elf (dragonmark)",
+	sortname : "Dragonmark, Shadow (Elf)",
+	source : ["WGtE", 105],
+	plural : "Elves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	skills : ["Perception"],
+	skillstxt : "Perception and proficiency with either Performance or one musical instrument",
+	age : " typically claim adulthood around age 100 and can live to be 750 years old",
+	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
+	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
+	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
+	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
+	improvements : "Elf, Dragonmark of Shadow: +2 Dexterity, +1 Charisma;",
+	scores : [0, 2, 0, 0, 0, 1],
+	trait : "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nGift of the Shadows: I can add my Intuition Die (1d4) to Performance and Stealth checks.\nShape Shadows: I know the Minor Illusion cantrip using Charisma as my spellcasting ability.\nSlip Into Shadow: As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Shape Shadows",
+		spells : ["minor illusion"],
+		selection : ["minor illusion"],
+		atwill : true
+	},
+	features : {
+		"slip into shadow" : {
+			name : "Slip Into Shadow",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		}
+	}
+};
+AddRacialVariant("dragonmark shadow elf", "performance, ", {
+	regExpSearch : /performance/i,
+	source : ["WGtE", 105],
+	skills : ["Perception", "Performance"],
+	skillstxt : ""
+});
+AddRacialVariant("dragonmark shadow elf", "musical instrument, ", {
+	regExpSearch : /musical instrument/i,
+	source : ["WGtE", 105],
+	skillstxt : "",
+	toolProfs : [["Musical instrument", 1]]
+});
+RaceList["dragonmark storm half-elf"] = {
+	regExpSearch : /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
+	name : "Half-elf (dragonmark)",
+	sortname : "Dragonmark, Storm (Half-Elf)",
+	source : ["WGtE", 106],
+	plural : "Half-elves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 },
+		swim : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	dmgres : ["Lightning"],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	age : " reach adulthood around age 20 and often live over 180 years",
+	height : " range from 5 to 6 feet tall (4'9\" + 2d8\")",
+	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	improvements : "Half-Elf, Dragonmark of Storm: +1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice;",
+	scores : [0, 1, 0, 0, 0, 1],
+	trait : "Half-Elf, Dragonmark of Storm (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Windwright's Intuition: I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n" + (typePF ? "\n" : "   ") + "Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.",
+	spellcastingAbility : 6, // Not mentioned in WGtE, but essential!
+	spellcastingBonus : {
+		name : "Headwinds",
+		spells : ["gust"],
+		selection : ["gust"],
+		atwill : true
+	},
+	features : {
+		"gust of wind" : {
+			name : "Gust of Wind",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			tooltip : " (Headwinds)",
+			spellcastingBonus : {
+				name : "Headwinds (level 3)",
+				spells : ["gust of wind"],
+				selection : ["gust of wind"],
+				oncelr : true
+			}
+		}
+	}
+};
+RaceList["dragonmark warding dwarf"] = {
+	regExpSearch : /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
+	name : "Dwarf (dragonmark)",
+	sortname : "Dragonmark, Warding (Dwarf)",
+	source : ["WGtE", 108],
+	plural : "Dwarves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 25, enc : 25 }
+	},
+	languageProfs : ["Common", "Dwarvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : { adv_vs : ["poison"] },
+	dmgres : ["Poison"],
+	weaponprofs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
+	toolProfs : [["Smith, brewer, or mason tools", 1]],
+	age : " are considered young until they are 50 and live about 350 years",
+	height : " stand between 4 and 5 feet tall (4' + 2d4\")",
+	weight : " weigh around 150 lb (130 + 2d4 \xD7 2d6 lb)",
+	heightMetric : " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
+	weightMetric : " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
+	improvements : "Dwarf, Dragonmark of Warding: +1 Dexterity, +2 Constitution, +1 Intelligence;",
+	scores : [0, 1, 2, 1, 0, 0],
+	trait : "Dwarf, Dragonmark of Warding (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")\n   Stonecunning: When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.\n   Master of Locks: I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.\n   Wards and Seals: I can cast Alarm as a ritual. Once I reach 3rd level, I can cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these.",
+	spellcastingAbility : 4,
+	spellcastingBonus : {
+		name : "Wards and Seals",
+		spells : ["alarm"],
+		selection : ["alarm"],
+		firstCol : "(R)"
+	},
+	features : {
+		"arcane lock" : {
+			name : "Arcane Lock",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			tooltip : " (Wards and Seals)",
+			spellcastingBonus : {
+				name : "Wards and Seals (level 3)",
+				spells : ["arcane lock"],
+				selection : ["arcane lock"],
+				oncelr : true
+			}
+		}
+	}
+};
+
+
+// Gust cantrip reprint
+SpellsList["gust"] = {
+	name : "Gust",
+	classes : ["druid", "sorcerer", "wizard"],
+	source : [["WGtE", 107], ["X", 157], ["E", 19]],
+	level : 0,
+	school : "Trans",
+	time : "1 a",
+	range : "30 ft",
+	components : "V,S",
+	duration : "Instantaneous",
+	save : "Str",
+	description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
+	descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
+};

@@ -12500,7 +12500,7 @@ RaceList["eladrin-uaeng"] = {
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	improvements : "Eladrin: +2 Dexterity, +1 Intelligence or Charisma;",
 	scores : [0, 2, 0, 0, 0, 0],
-	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
+	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Shifting Seasons",
@@ -13292,7 +13292,7 @@ RaceList["shadar-kai"] = {
 	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	improvements : "Shadar-kai: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
-	trait : "Shadar-kai (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nBlessing of the Raven Queen: Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\n" : " ") + "Cantrip: I know one cantrip: Chill Touch, Spare the Dying, or Thaumaturgy. Charisma is my spellcasting ability for it.",
+	trait : "Shadar-kai (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nBlessing of the Raven Queen: Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\n" : " ") + "Cantrip: I know one cantrip: Chill Touch, Spare the Dying, or Thaumaturgy. Charisma is my spellcasting ability for it.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -14345,5 +14345,5 @@ ArmourList["warforged heavy plating"] = {
 	stealthdis : true,
 	weight : 0,
 	strReq : 0,
-	dex : 0
+	dex : -10
 };

@@ -2974,7 +2974,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["gust"] = {
 		name : "Gust",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 157], ["E", 19]],
+		source : [["WGtE", 107], ["X", 157], ["E", 19]],
 		level : 0,
 		school : "Trans",
 		time : "1 a",

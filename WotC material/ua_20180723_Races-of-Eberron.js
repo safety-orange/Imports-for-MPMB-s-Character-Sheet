@@ -358,5 +358,5 @@ ArmourList["warforged heavy plating"] = {
 	stealthdis : true,
 	weight : 0,
 	strReq : 0,
-	dex : 0
+	dex : -10
 };

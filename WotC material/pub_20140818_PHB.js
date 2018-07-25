@@ -71,7 +71,7 @@ RaceList["dark elf"] = {
 	weightMetric : " weigh around 45 kg (35 + 5d6 \xD7 2d6 / 10 kg)",
 	improvements : "Drow: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
-	trait : "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
+	trait : "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -1981,11 +1981,11 @@ BackgroundList["charlatan"] = {
 	gold : 15,
 	equipleft : [
 		["Disguise kit", "", 3],
-		["Tools for chosen con", "", ""],
+		["Tools for chosen con", "", ""]
 	],
 	equipright : [
 		["Fine clothes", "", 6],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "False Identity",
 	trait : [
@@ -2016,7 +2016,7 @@ BackgroundList["charlatan"] = {
 		],
 		["Aspiration",
 			"Aspiration: I'm determined to make something of myself. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.",
@@ -2055,7 +2055,7 @@ BackgroundList["criminal"] = {
 	equipright : [
 		["Dark, common clothes with hood", "", 3],
 		["Crowbar", "", 5],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Criminal Contact",
 	trait : [
@@ -2086,7 +2086,7 @@ BackgroundList["criminal"] = {
 		],
 		["Redemption",
 			"Redemption: There's a spark of good in everyone. (Good)"
-		],
+		]
 	],
 	bond : [
 		"I'm trying to pay off an old debt I owe to a generous benefactor.",
@@ -2129,7 +2129,7 @@ BackgroundList["entertainer"] = {
 		["Costume", "", 4],
 		["Favor of an admirer", "", ""],
 		["Belt pouch (with coins)", "", 1],
-		["Musical instrument of my choice", "", ""],
+		["Musical instrument of my choice", "", ""]
 	],
 	feature : "By Popular Demand",
 	trait : [
@@ -2160,7 +2160,7 @@ BackgroundList["entertainer"] = {
 		],
 		["Honesty",
 			"Honesty: Art should reflect the soul; it should come from within and reveal who we really are. (Any)"
-		],
+		]
 	],
 	bond : [
 		"My instrument is my most treasured possession, and it reminds me of someone I love.",
@@ -2203,11 +2203,11 @@ BackgroundList["folk hero"] = {
 	equipleft : [
 		["Set of artisan's tools", "", ""],
 		["Shovel", "", 5],
-		["Iron pot", "", 10],
+		["Iron pot", "", 10]
 	],
 	equipright : [
 		["Common clothes", "", 3],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Rustic Hospitality",
 	trait : [
@@ -2238,7 +2238,7 @@ BackgroundList["folk hero"] = {
 		],
 		["Destiny",
 			"Destiny: Nothing and no one can steer me away from my higher calling. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I have a family, but I have no idea where they are. One day, I hope to see them again.",
@@ -2280,11 +2280,11 @@ BackgroundList["guild artisan"] = {
 	gold : 15,
 	equipleft : [
 		["Set of artisan's tools", "", ""],
-		["Letter of introduction from guild", "", ""],
+		["Letter of introduction from guild", "", ""]
 	],
 	equipright : [
 		["Traveler's clothes", "", 4],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Guild Membership",
 	trait : [
@@ -2315,7 +2315,7 @@ BackgroundList["guild artisan"] = {
 		],
 		["Aspiration",
 			"Aspiration: I work hard to be the best there is at my craft. (Any)"
-		],
+		]
 	],
 	bond : [
 		"The workshop where I learned my trade is the most important place in the world to me.",
@@ -2368,11 +2368,11 @@ BackgroundList["hermit"] = {
 	gold : 5,
 	equipleft : [
 		["Winter blanket", "", 3],
-		["Herbalism kit", "", 3],
+		["Herbalism kit", "", 3]
 	],
 	equipright : [
 		["Common clothes", "", 3],
-		["Scroll case with notes", "", 1],
+		["Scroll case with notes", "", 1]
 	],
 	feature : "Discovery",
 	trait : [
@@ -2403,7 +2403,7 @@ BackgroundList["hermit"] = {
 		],
 		["Self-Knowledge",
 			"Self-Knowledge: If you know yourself, there's nothing left to know. (Any)"
-		],
+		]
 	],
 	bond : [
 		"Nothing is more important than the other members of my hermitage, order, or association.",
@@ -2443,12 +2443,12 @@ BackgroundList["noble"] = {
 	skills : ["History", "Persuasion"],
 	gold : 25,
 	equipleft : [
-		["Scroll of pedigree", "", ""],
+		["Scroll of pedigree", "", ""]
 	],
 	equipright : [
 		["Fine clothes", "", 6],
 		["Signet ring", "", ""],
-		["Purse (with coins)", "", 1],
+		["Purse (with coins)", "", 1]
 	],
 	feature : "Position of Privilege",
 	trait : [
@@ -2479,7 +2479,7 @@ BackgroundList["noble"] = {
 		],
 		["Noble Obligation",
 			"Noble Obligation: It is my duty to protect and care for the people beneath me. (Good)"
-		],
+		]
 	],
 	bond : [
 		"I will face any challenge to win the approval of my family.",
@@ -2512,7 +2512,7 @@ BackgroundList["outlander"] = {
 		["Staff", "", 4],
 		["Hunting trap", "", 25],
 		["Trophy from animal", "", ""],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Wanderer",
 	trait : [
@@ -2543,7 +2543,7 @@ BackgroundList["outlander"] = {
 		],
 		["Glory",
 			"Glory: I must earn glory in battle, for myself and my clan. (Any)"
-		],
+		]
 	],
 	bond : [
 		"My family, clan, or tribe is the most important thing in my life, even when they are far from me.",
@@ -2587,11 +2587,11 @@ BackgroundList["sage"] = {
 		["Ink, 1 ounce bottle of", 1, ""],
 		["Ink pen (quill)", "", ""],
 		["Small knife", "", 0.5],
-		["Letter from dead colleague", "", ""],
+		["Letter from dead colleague", "", ""]
 	],
 	equipright : [
 		["Common clothes", "", 3],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Researcher",
 	trait : [
@@ -2622,7 +2622,7 @@ BackgroundList["sage"] = {
 		],
 		["Self-Improvement",
 			"Self-Improvement: The goal of a life of study is the betterment of oneself. (Any)"
-		],
+		]
 	],
 	bond : [
 		"It is my duty to protect my students.",
@@ -2666,7 +2666,7 @@ BackgroundList["sailor"] = {
 		["Common clothes", "", 3],
 		["Belaying pin (club)", "", 2],
 		["Lucky charm", "", ""],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Ship's Passage",
 	trait : [
@@ -2697,7 +2697,7 @@ BackgroundList["sailor"] = {
 		],
 		["Aspiration",
 			"Aspiration: Someday I'll own my own ship and chart my own destiny. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I'm loyal to my captain first, everything else second.",
@@ -2729,7 +2729,7 @@ BackgroundList["soldier"] = {
 		["Insignia of rank", "", ""],
 		["Trophy from fallen enemy", "", ""],
 		["Bone dice or playing cards", "", ""],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "Military Rank",
 	trait : [
@@ -2760,7 +2760,7 @@ BackgroundList["soldier"] = {
 		],
 		["Nation",
 			"Nation: My city, state, or people are the only things that matter. (Any)"
-		],
+		]
 	],
 	bond : [
 		"I would still give my life for the people I have served with.",
@@ -2799,13 +2799,13 @@ BackgroundList["urchin"] = {
 	gold : 10,
 	equipleft : [
 		["Map of the city", "", ""],
-		["Small knife", "", 0.5],
+		["Small knife", "", 0.5]
 	],
 	equipright : [
 		["Common clothes", "", 3],
 		["Token from my parents", "", ""],
 		["Pet mouse", "", 0.1],
-		["Belt pouch (with coins)", "", 1],
+		["Belt pouch (with coins)", "", 1]
 	],
 	feature : "City Secrets",
 	trait : [
@@ -2836,7 +2836,7 @@ BackgroundList["urchin"] = {
 		],
 		["Aspiration",
 			"Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
-		],
+		]
 	],
 	bond : [
 		"My town or city is my home, and I'll battle those that threaten it.",
