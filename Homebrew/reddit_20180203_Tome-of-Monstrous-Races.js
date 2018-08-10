@@ -1,4 +1,12 @@
-/*	-ABOUT-
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
 	Subject:	Race: Gnoll
 	Effect:		This script adds the Gnoll race from the Tome of Monstrous Races by /u/revlid on /r/UnearthedArcana (https://redd.it/7uzdvb)
 				This homebrew was created by revlid and is available here: http://homebrewery.naturalcrit.com/share/S1x4kCFv-

@@ -1,4 +1,12 @@
-/*	-ABOUT-
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
 	Subject:	Race: Grung
 	Effect:		This script adds the Grung race from "One Grung Above" by Christopher Lindsay on DMs Guild (https://www.dmsguild.com/product/223738)
 				Please support this creator on DMs Guild: https://www.dmsguild.com/browse.php?x=0&y=0&author=Christopher%20Lindsay
