@@ -1,6 +1,6 @@
 /*	-ABOUT-
 	Subject:	Race: Gnoll
-	Effect:		This script adds the Gnoll race from the Tome of Monstrous Races by /u/revlid on /r/UnearthedArcana (https://reddit.com/7uzdvb)
+	Effect:		This script adds the Gnoll race from the Tome of Monstrous Races by /u/revlid on /r/UnearthedArcana (https://redd.it/7uzdvb)
 				This homebrew was created by revlid and is available here: http://homebrewery.naturalcrit.com/share/S1x4kCFv-
 	Code by:	/u/sea__ (edits by /u/safety-orange)
 	Date:		2018-02-12 (sheet v12.999)
