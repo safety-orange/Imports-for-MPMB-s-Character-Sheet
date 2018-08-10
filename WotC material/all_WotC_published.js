@@ -13584,7 +13584,9 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			]),
 			additional : levels.map( function(n) { return n < 6 ? "" : Math.floor(n/2) + " temp HP"; }),
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			eval : "xgte_hexblade_accursed_specter_functions.add();",
+			removeeval : "xgte_hexblade_accursed_specter_functions.remove();"
 		},
 		"subclassfeature10" : {
 			name : "Armor of Hexes",
@@ -13606,6 +13608,48 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 		}
 	}
 });
+xgte_hexblade_accursed_specter_functions = {
+	add : function() {
+		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+		var prefix = false;
+		if (AScompA) {
+			for (var a = 1; a < AScompA.length; a++) {
+				if (!What(AScompA[a] + 'Comp.Race')) {
+					prefix = AScompA[a];
+					break;
+				}
+			}
+		}
+		if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+		Value(prefix + 'Comp.Race', 'Specter');
+		var theType = tDoc.getField(prefix + 'Comp.Type');
+		theType.readonly = true;
+		theType.value = 'Accursed';
+		for (var a = 1; a <= 3; a++) {
+			AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
+		}
+		Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
+			"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
+			"It has its own turns and obeys my commands until my next long rest, when it vanishes",
+			"It uses the stats of a specter with the following bonuses:",
+			"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
+			"\u2022 It gains temporary hit points equal to half my warlock level when created"
+		]));
+		tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
+		AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
+	},
+	remove : function() {
+		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+		if (AScompA) {
+			for (var a = 1; a < AScompA.length; a++) {
+				if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
+					DoTemplate("AScomp", "Remove", AScompA[a]);
+					return;
+				}
+			}
+		}
+	}
+}
 
 // Add Warlock Invocations
 AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
@@ -15583,58 +15627,6 @@ CreatureList["hound of ill omen"] = { // Stats for the Sorcerer (Shadow Magic) f
 		}, {
 			name : "Sign of Ill Omen",
 			description : "While the hound is within 5 ft of its target, that target has disadvantage on saving throws versus my spells."
-		}
-	]
-};
-CreatureList["accursed specter"] = { // Stats for the Warlock (the Hexblade) feature
-	name : "Accursed Specter",
-	source : ["X", 56],
-	size : 3,
-	type : "Undead",
-	subtype : "",
-	alignment : "Chaotic Evil",
-	ac : 12,
-	hp : 22,
-	hd : [5, 8],
-	speed : "fly 50 ft (hover)",
-	scores : [1, 14, 11, 10, 10, 12],
-	saves : ["", "", "", "", "", ""],
-	damage_resistances : "acid; cold; fire; lightning; thunder; bludgeoning, piercing, and slashing from nonmagical weapons",
-	damage_immunities : "necrotic, poison",
-	condition_immunities : "charmed, exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious",
-	senses : "Darkvision 60 ft",
-	passivePerception : 10,
-	languages : "all languages it knew in life, but can't speak",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 2,
-	attacks : [{
-			name : "Life Drain",
-			ability : 2,
-			damage : [3, 6, "necrotic"],
-			range : "Melee (5 ft)",
-			description : "DC 10 Con save or HP max reduced by same as damage taken until a long rest",
-			modifiers : ["oCha", "", false],
-			tooltip : "Life Drain\n\nThe target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
-		}
-	],
-	traits : [{
-			name : "Incorporeal Movement",
-			description : "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
-		}, {
-			name : "Sunlight Sensitivity",
-			description : "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
-		}, {
-			name : "Life Drain",
-			description : "The target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
-		}
-	],
-	features : [{
-			name : "Temporary Hit Points",
-			description : "When the accursed specter rises from a corpse, it gains temporary HP equal to half my warlock level."
-		}, {
-			name : "Attack Bonus",
-			description : "The accursed specter adds the warlock's Charisma modifier (minimum +0) to its attack rolls."
 		}
 	]
 };
