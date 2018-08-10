@@ -859,7 +859,7 @@ RaceList["dragonmark making human"] = {
 			recovery : "long rest"
 		}
 	},
-	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { class : sheetVersion < 13 ? 'wizard' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : sheetVersion < 13 ? false : 'list'}, bonus : {bonus1 : {name : 'Maker\'s Gift', spells : ['mending'], selection : ['mending'], atwill : true}}}; SetStringifieds('spells');",
+	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : sheetVersion < 13 ? 'wizard' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : sheetVersion < 13 ? false : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], atwill : true}}}; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells');"
 };
 RunFunctionAtEnd(function() { // make the spell list for the 'making dragonmark human' in v13 and later
