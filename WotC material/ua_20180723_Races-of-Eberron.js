@@ -22,7 +22,7 @@ RaceList["changeling-wgte"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	skillstxt : "Choose two from Deception, Intimidation, Insight, and Persuasion.",
+	skillstxt : "Choose two from Deception, Intimidation, Insight, and Persuasion",
 	languageProfs : ["Common", 2],
 	toolProfs : [["Any tool", 1]],
 	age : " reach adulthood in their early teens and live around 80 years",
@@ -56,7 +56,7 @@ RaceList["kalashtar"] = { //this code includes contributions by /u/SoilentBrad
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	skillstxt : "Advantage with one: Insight, Intimidation, Performance, or Persuasion.",
+	skillstxt : "Advantage with one: Insight, Intimidation, Performance, or Persuasion",
 	languageProfs : ["Common", "Quori", 1],
 	savetxt : { immune : ["effects that require me to dream"] },
 	dmgres : ["Psychic"],
@@ -284,8 +284,8 @@ RaceList["juggernaut warforged"] = {
 	improvements : "Juggernaut Warforged: +2 Strength, +1 Constitution;",
 	scores : [2, 0, 1, 0, 0, 0],
 	trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
-	eval : "AddACMisc('Prof', 'Integrated Protection', 'Integrated Protection was gained from being a Warforged', '!(/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known) || (!tDoc.getField(\"Proficiency Armor Light\").isBoxChecked(0) && !tDoc.getField(\"Proficiency Armor Medium\").isBoxChecked(0) && !tDoc.getField(\"Proficiency Armor Heavy\").isBoxChecked(0))'); var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0); if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) { AddArmor('Warforged Heavy Plating', true); } else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) { AddArmor('Warforged Composite Plating', true); } else { AddArmor('Warforged Darkwood Core', true); };",
-	removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged');"
+	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2; AddACMisc('Prof', 'Integrated Protection', 'Integrated Protection was gained from being a Warforged', '!(/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known) || (!tDoc.getField(\"Proficiency Armor Light\").isBoxChecked(0) && !tDoc.getField(\"Proficiency Armor Medium\").isBoxChecked(0) && !tDoc.getField(\"Proficiency Armor Heavy\").isBoxChecked(0))'); var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0); if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) { AddArmor('Warforged Heavy Plating', true); } else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) { AddArmor('Warforged Composite Plating', true); } else { AddArmor('Warforged Darkwood Core', true); };",
+	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged');"
 };
 WeaponsList["warforged iron fists"] = { // Juggernaut warforged weapon
 	regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
