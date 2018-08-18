@@ -798,7 +798,7 @@ RaceList["dragonmark healing halfling"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["Healing Touch", ""]
+			action : ["action", ""]
 		}
 	}
 };
