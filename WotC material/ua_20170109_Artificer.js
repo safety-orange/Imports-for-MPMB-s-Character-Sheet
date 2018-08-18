@@ -870,7 +870,7 @@ AmmoList["arcane magazine"] = {
 	alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
 };
 
-// Set the Artificer class for its spells
+// Set the Artificer class spell list
 var SetArtificerSpells = function(){
 	var artSp = [
 		// level 1
@@ -923,6 +923,7 @@ var SetArtificerSpells = function(){
 		"stoneskin"
 	];
 	for (var a = 0; a < artSp.length; a++) {
-		if (SpellsList[artSp[a]]) SpellsList[artSp[a]].classes.push("artificer");
+		var aArtSp = SpellsList[artSp[a]];
+		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer") === -1) aArtSp.classes.push("artificer");
 	};
 }();
