@@ -16533,7 +16533,7 @@ RaceList["changeling-wgte"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	skillstxt : "Choose two from Deception, Intimidation, Insight, and Persuasion.",
+	skillstxt : "Choose two from Deception, Intimidation, Insight, and Persuasion",
 	languageProfs : ["Common", 2],
 	toolProfs : [["Any tool", 1]],
 	age : " reach adulthood in their early teens and live around 80 years",
@@ -16568,7 +16568,7 @@ RaceList["kalashtar"] = { //this code includes contributions by /u/SoilentBrad
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	skillstxt : "Advantage with one: Insight, Intimidation, Performance, or Persuasion.",
+	skillstxt : "Advantage with one: Insight, Intimidation, Performance, or Persuasion",
 	languageProfs : ["Common", "Quori", 1],
 	savetxt : { immune : ["effects that require me to dream"] },
 	dmgres : ["Psychic"],
@@ -17310,7 +17310,7 @@ RaceList["dragonmark healing halfling"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["Healing Touch", ""]
+			action : ["action", ""]
 		}
 	}
 };

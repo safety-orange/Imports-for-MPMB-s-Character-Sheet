@@ -31,7 +31,7 @@ RaceList["loxodon"] = {
 	heightMetric : " stand between 2 and 2,5 metres tall",
 	weightMetric : " weigh between 150 to 200 kg",
 	improvements : "Loxodon: +2 Constitution, +1 Wisdom;",
-	scores : [0, 2, 0, 0, 1, 0],
+	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Loxodon (+2 Constitution, +1 Wisdom)\n   Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift.\n   Stonecunning: I can add double my proficiency bonus to Intelligence (History) checks related to the origin of stonework, instead of my normal proficiency bonus.\n   Keen Smell: I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.\nNatural Armor: " + (typePF ? "I have and AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield.",
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
