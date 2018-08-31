@@ -12923,8 +12923,6 @@ AddSubClass("rogue", "inquisitive-xgte", {
 			name : "Steady Eye",
 			source : ["X", 46],
 			minlevel : 9,
-			usages : 1,
-			recovery : "long rest",
 			description : desc([
 				"I'm more perceptive when I don't move more than half my speed in the same turn",
 				"If so, I gain adv. on Wis (Perception) and Int (Investigation) checks during that turn"
