@@ -472,8 +472,8 @@ AddSubClass("fighter", "purple dragon knight", {
 			name : "Royal Envoy",
 			source : ["S", 128],
 			minlevel : 7,
-			description : "\n   " + "I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Perform",
-			skillstxt : "\n\n" + toUni("Purple Dragon Knight (Royal Envoy)") + ": Persuasion proficiency and expertise; if already proficient, choose one from Animal Handling, Insight, Intimidation, and Performance.",
+			description : "\n   " + "I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Performance",
+			skillstxt : "\n\n" + toUni("Purple Dragon Knight (Royal Envoy)") + ": Persuasion proficiency and expertise; if already proficient, choose one from Animal Handling, Insight, Intimidation, or Performance.",
 			eval : "AddSkillProf('Persuasion', true, true);",
 			removeeval : "AddSkillProf('Persuasion', false, true);"
 		},

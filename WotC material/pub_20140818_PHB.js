@@ -3513,7 +3513,7 @@ FeatsList["tavern brawler"] = {
 	improvements : "Tavern Brawler (feat): +1 Strength or Constitution;",
 	eval : "AddAction('bonus action', 'Grapple (on hit with unarmed/improv.)', 'the Tavern Brawler feat');",
 	removeeval : "RemoveAction('bonus action', 'Grapple (on hit with unarmed/improv.)');",
-	weapons : [false, false, ["improvised weapons"]],
+	weapons : [false, false, ["Improvised weapons"]],
 	calcChanges : {
 		atkAdd : ["if (isMeleeWeapon && ((/unarmed strike/i).test(WeaponName) || (/improvised/i).test(WeaponName) || (/improvised weapon/i).test(theWea.type))) {fields.Description += (fields.Description ? '; ' : '') + 'After hitting, can attempt to grapple as a bonus action'; fields.Proficiency = true; }; if ((/unarmed strike/i).test(WeaponName) && fields.Damage_Die == 1) {fields.Damage_Die = '1d4'; }; ", "My unarmed strikes do 1d4 damage instead of 1;\n - After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."]
 	}
