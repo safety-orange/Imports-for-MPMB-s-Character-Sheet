@@ -653,7 +653,7 @@ AddSubClass("druid", "circle of dreams-xgte", {
 			minlevel : 6,
 			description : desc([
 				"At the start of a rest, I can create a 30-ft radius invisible magical sphere",
-				"The sphere extends from a point in space I touch, but doesn't expend through total cover",
+				"The sphere extends from a point in space I touch, but doesn't extend through total cover",
 				"Within this area, my allies and I gain +5 on Wis (Perception) and Dex (Stealth) checks",
 				"Also, any light from open flames that are in the sphere is invisible from outside the area",
 				"This effect lasts until the end of the rest or when I leave the sphere"

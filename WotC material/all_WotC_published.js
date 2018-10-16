@@ -3514,7 +3514,7 @@ FeatsList["tavern brawler"] = {
 	improvements : "Tavern Brawler (feat): +1 Strength or Constitution;",
 	eval : "AddAction('bonus action', 'Grapple (on hit with unarmed/improv.)', 'the Tavern Brawler feat');",
 	removeeval : "RemoveAction('bonus action', 'Grapple (on hit with unarmed/improv.)');",
-	weapons : [false, false, ["improvised weapons"]],
+	weapons : [false, false, ["Improvised weapons"]],
 	calcChanges : {
 		atkAdd : ["if (isMeleeWeapon && ((/unarmed strike/i).test(WeaponName) || (/improvised/i).test(WeaponName) || (/improvised weapon/i).test(theWea.type))) {fields.Description += (fields.Description ? '; ' : '') + 'After hitting, can attempt to grapple as a bonus action'; fields.Proficiency = true; }; if ((/unarmed strike/i).test(WeaponName) && fields.Damage_Die == 1) {fields.Damage_Die = '1d4'; }; ", "My unarmed strikes do 1d4 damage instead of 1;\n - After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."]
 	}
@@ -7450,8 +7450,8 @@ AddSubClass("fighter", "purple dragon knight", {
 			name : "Royal Envoy",
 			source : ["S", 128],
 			minlevel : 7,
-			description : "\n   " + "I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Perform",
-			skillstxt : "\n\n" + toUni("Purple Dragon Knight (Royal Envoy)") + ": Persuasion proficiency and expertise; if already proficient, choose one from Animal Handling, Insight, Intimidation, and Performance.",
+			description : "\n   " + "I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Performance",
+			skillstxt : "\n\n" + toUni("Purple Dragon Knight (Royal Envoy)") + ": Persuasion proficiency and expertise; if already proficient, choose one from Animal Handling, Insight, Intimidation, or Performance.",
 			eval : "AddSkillProf('Persuasion', true, true);",
 			removeeval : "AddSkillProf('Persuasion', false, true);"
 		},
@@ -11942,7 +11942,7 @@ AddSubClass("druid", "circle of dreams-xgte", {
 			minlevel : 6,
 			description : desc([
 				"At the start of a rest, I can create a 30-ft radius invisible magical sphere",
-				"The sphere extends from a point in space I touch, but doesn't expend through total cover",
+				"The sphere extends from a point in space I touch, but doesn't extend through total cover",
 				"Within this area, my allies and I gain +5 on Wis (Perception) and Dex (Stealth) checks",
 				"Also, any light from open flames that are in the sphere is invisible from outside the area",
 				"This effect lasts until the end of the rest or when I leave the sphere"
