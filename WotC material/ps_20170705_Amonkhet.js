@@ -169,7 +169,7 @@ RaceList["ibis-headed aven"] = { // Includes contributions by /u/MILKB0T
 	size : 3,
 	speed : {
 		walk : { spd : 25, enc : 15 },
-		fly : { spd : 35, enc : 0 }
+		fly : { spd : 30, enc : 0 }
 	},
 	languageProfs : ["Common", "Aven"],
 	age : " age like humans and can live into their 80s",
@@ -189,7 +189,7 @@ RaceList["hawk-headed aven"] = { // Includes contributions by /u/MILKB0T
 	size : 3,
 	speed : {
 		walk : { spd : 25, enc : 15 },
-		fly : { spd : 35, enc : 0 }
+		fly : { spd : 30, enc : 0 }
 	},
 	languageProfs : ["Common", "Aven"],
 	skills : ["Perception"],
@@ -197,9 +197,9 @@ RaceList["hawk-headed aven"] = { // Includes contributions by /u/MILKB0T
 	height : " stand between 5 and 6 feet tall",
 	weight : " are very slender and their bones are partially hollow to facilitate their flight",
 	heightMetric : " stand between 1,5 and 1,8 metres tall",
-	improvements : "Hawk-Headed Aven: +1 Intelligence, +2 Wisdom;",
-	scores : [0, 0, 0, 1, 2, 0],
-	trait : "Hawk-Headed Aven (+1 Intelligence, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls."
+	improvements : "Hawk-Headed Aven: +2 Dexterity, +2 Wisdom;",
+	scores : [0, 2, 0, 0, 2, 0],
+	trait : "Hawk-Headed Aven (+2 Dexterity, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls."
 };
 RaceList["khenra"] = { // Includes contributions by /u/juju2569
 	regExpSearch : /khenra/i,
