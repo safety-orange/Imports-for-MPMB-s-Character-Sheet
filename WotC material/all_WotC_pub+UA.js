@@ -13760,7 +13760,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 		"The Hex spell and any of my warlock features that curse are considered a hex for this"
 	]),
 	source : ["X", 57],
-	prereqeval : "classes.known.warlock.level >= 5 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass) || (/sign of ill omen/i).test(toTestE))",
+	prereqeval : "classes.known.warlock.level >= 5 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass))",
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warlock feature that curses)", {
@@ -13770,7 +13770,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 		"I teleport up to 30 ft to an unoccupied space that I can see within 5 ft of the target"
 	]),
 	source : ["X", 57],
-	prereqeval : "classes.known.warlock.level >= 7 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass) || (/sign of ill omen/i).test(toTestE))",
+	prereqeval : "classes.known.warlock.level >= 7 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass))",
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
