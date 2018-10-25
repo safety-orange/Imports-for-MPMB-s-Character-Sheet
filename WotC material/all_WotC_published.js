@@ -5795,7 +5795,7 @@ SpellsList["control flames"] = {
 SpellsList["control winds"] = {
 	name : "Control Winds",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : [["X", 152], ["E", 16]],
+	source : [["X", 152], ["E", 16], ["UA:D", 8]],
 	level : 5,
 	school : "Trans",
 	time : "1 a",
@@ -5921,7 +5921,7 @@ SpellsList["frostbite"] = {
 SpellsList["gust"] = {
 	name : "Gust",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : [["WGtE", 107], ["X", 157], ["E", 19]],
+	source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -14179,7 +14179,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["control winds"] = {
 		name : "Control Winds",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 152], ["E", 16]],
+		source : [["X", 152], ["E", 16], ["UA:D", 8]],
 		level : 5,
 		school : "Trans",
 		time : "1 a",
@@ -14305,7 +14305,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["gust"] = {
 		name : "Gust",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["WGtE", 107], ["X", 157], ["E", 19]],
+		source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
 		level : 0,
 		school : "Trans",
 		time : "1 a",
@@ -16518,7 +16518,7 @@ SourceList.WGtE = {
 	abbreviation : "WGtE",
 	group : "Primary Sources",
 	url : "https://www.dmsguild.com/product/247882/",
-	date : "2018/07/23"
+	date : "2018/10/09" // the original is from 2018/07/23, but this script is based on the newer version that includes (most of) the UA:Dragonmark changes 
 };
 
 // The changeling
@@ -17137,7 +17137,7 @@ RaceList["dragonmark detection half-elf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
 	name : "Half-elf (dragonmark)",
 	sortname : "Dragonmark, Detection (Half-Elf)",
-	source : ["WGtE", 96],
+	source : [["WGtE", 96], ["UA:D", 2]],
 	plural : "Half-elves (dragonmark)",
 	size : 3,
 	speed : {
@@ -17170,13 +17170,13 @@ RaceList["dragonmark finding half-orc"] = {
 	regExpSearch : /^(?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
 	name : "Half-orc (dragonmark)",
 	sortname : "Dragonmark, Finding (Half-Orc)",
-	source : ["WGtE", 97],
+	source : [["WGtE", 97], ["UA:D", 2]],
 	plural : "Half-orcs (dragonmark)",
 	size : 3,
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", "Goblin"],
+	languageProfs : ["Common", "Orc"],
 	vision : [["Darkvision", 60]],
 	age : " reach adulthood around age 14 and rarely live longer than 75 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
@@ -17185,7 +17185,7 @@ RaceList["dragonmark finding half-orc"] = {
 	weightMetric : " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
 	improvements : "Half-Orc, Dragonmark of Finding: +1 Strength, +1 Wisdom, and +1 to any one ability score of my choice;",
 	scores : [1, 0, 0, 0, 1, 0],
-	trait : "Half-Orc, Dragonmark of Finding (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint to my mind a target I can see in 30 ft until it dies or leaves my sight. I can also do this with a Survival check for a creature I'm tracking. While imprinted, I double my Intuition Die for tracking it, can sense its exact location if within 60 ft, and my attacks vs. it ignore half cover.\n   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual.",
+	trait : "Half-Orc, Dragonmark of Finding (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint a target I can see in 30 ft or with a Survival check when tracking it, lasting until it dies or I use this again. I double my Intuition Die for tracking it, sense its general location in 60 ft, my attacks vs. it ignore half cover and don't have disadv. if I can't see it, and it has no adv. vs. me if I can't see it.\n" + (typePF ? "Nature's Voice: cast Locate Animals/Plants as a ritual from 3rd level." : "   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual."),
 	features : {
 		"imprint prey" : {
 			name : "Imprint Prey",
@@ -17206,6 +17206,7 @@ RaceList["dragonmark finding half-orc"] = {
 		}
 	}
 };
+/* removed with UA:Dragonmark changes
 RaceList["dragonmark finding human"] = {
 	regExpSearch : /^(?=.*human)((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
 	name : "Human (dragonmark)",
@@ -17246,11 +17247,12 @@ RaceList["dragonmark finding human"] = {
 		}
 	}
 };
+*/
 RaceList["dragonmark handling human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Handling (Human)",
-	source : ["WGtE", 98],
+	source : [["WGtE", 98], ["UA:D", 3]],
 	plural : "Humans (dragonmark)",
 	size : 3,
 	speed : {
@@ -17286,7 +17288,7 @@ RaceList["dragonmark healing halfling"] = {
 	regExpSearch : /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
 	name : "Halfling (dragonmark)",
 	sortname : "Dragonmark, Healing (Halfling)",
-	source : ["WGtE", 99],
+	source : [["WGtE", 99], ["UA:D", 3]],
 	plural : "Halflings (dragonmark)",
 	size : 4,
 	speed : {
@@ -17301,7 +17303,13 @@ RaceList["dragonmark healing halfling"] = {
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	improvements : "Halfling, Dragonmark of Healing: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
-	trait : "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)\n   Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\n   Halfling Nimbleness: I can move through the space of Medium and larger creatures.\n   Medical Intuition: I can add my Intuition Die (1d4) to my Wisdom (Medicine) checks.\n   Healing Touch: As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
+	trait : "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n  " : "") + 
+		" Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + desc([
+		"Halfling Nimbleness: I can move through the space of Medium and larger creatures.",
+		"Medical Intuition: I " + (typePF ? "" : "can") + " add my Intuition Die (1d4) to " + (typePF ? "Medicine" : "my Wisdom (Medicine)") + " checks.",
+		"Healing Touch: As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
+		"Jorasco's Blessing: I know the Spare the Dying cantrip."
+	]),
 	features : {
 		"healing touch" : {
 			name : "Healing Touch",
@@ -17310,13 +17318,20 @@ RaceList["dragonmark healing halfling"] = {
 			recovery : "short rest",
 			action : ["action", ""]
 		}
+	},
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Jorasco's Blessing",
+		spells : ["spare the dying"],
+		selection : ["spare the dying"],
+		atwill : true
 	}
 };
 RaceList["dragonmark hospitality halfling"] = {
 	regExpSearch : /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
 	name : "Halfling (dragonmark)",
 	sortname : "Dragonmark, Hospitality (Halfling)",
-	source : ["WGtE", 100],
+	source : [["WGtE", 100], ["UA:D", 4]],
 	plural : "Halflings (dragonmark)",
 	size : 4,
 	speed : {
@@ -17345,7 +17360,7 @@ RaceList["dragonmark making human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Making (Human)",
-	source : ["WGtE", 101],
+	source : [["WGtE", 101], ["UA:D", 4]],
 	plural : "Humans (dragonmark)",
 	size : 3,
 	speed : {
@@ -17369,7 +17384,7 @@ RaceList["dragonmark making human"] = {
 			recovery : "long rest"
 		}
 	},
-	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : sheetVersion < 13 ? 'wizard' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : sheetVersion < 13 ? false : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], atwill : true}}}; SetStringifieds('spells');",
+	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : sheetVersion < 13 ? 'wizard' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : sheetVersion < 13 ? false : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], atwill : true}}, typeList : 2 }; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells');"
 };
 RunFunctionAtEnd(function() { // make the spell list for the 'making dragonmark human' in v13 and later
@@ -17412,7 +17427,7 @@ RaceList["dragonmark scribing gnome"] = {
 	regExpSearch : /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
 	name : "Gnome (dragonmark)",
 	sortname : "Dragonmark, Scribing (Gnome)",
-	source : ["WGtE", 103],
+	source : [["WGtE", 103], ["UA:D", 5]],
 	plural : "Gnomes (dragonmark)",
 	size : 4,
 	speed : {
@@ -17457,7 +17472,7 @@ RaceList["dragonmark sentinel human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Sentinel (Human)",
-	source : ["WGtE", 104],
+	source : [["WGtE", 104], ["UA:D", 5]],
 	plural : "Humans (dragonmark)",
 	size : 3,
 	speed : {
@@ -17500,7 +17515,7 @@ RaceList["dragonmark shadow elf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
 	name : "Elf (dragonmark)",
 	sortname : "Dragonmark, Shadow (Elf)",
-	source : ["WGtE", 105],
+	source : [["WGtE", 105], ["UA:D", 6]],
 	plural : "Elves (dragonmark)",
 	size : 3,
 	speed : {
@@ -17541,13 +17556,13 @@ RaceList["dragonmark shadow elf"] = {
 };
 AddRacialVariant("dragonmark shadow elf", "performance, ", {
 	regExpSearch : /performance/i,
-	source : ["WGtE", 105],
+	source : [["WGtE", 105], ["UA:D", 6]],
 	skills : ["Perception", "Performance"],
 	skillstxt : ""
 });
 AddRacialVariant("dragonmark shadow elf", "musical instrument, ", {
 	regExpSearch : /musical instrument/i,
-	source : ["WGtE", 105],
+	source : [["WGtE", 105], ["UA:D", 6]],
 	skillstxt : "",
 	toolProfs : [["Musical instrument", 1]]
 });
@@ -17555,7 +17570,7 @@ RaceList["dragonmark storm half-elf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
 	name : "Half-elf (dragonmark)",
 	sortname : "Dragonmark, Storm (Half-Elf)",
-	source : ["WGtE", 106],
+	source : [["WGtE", 106], ["UA:D", 6]],
 	plural : "Half-elves (dragonmark)",
 	size : 3,
 	speed : {
@@ -17604,7 +17619,7 @@ RaceList["dragonmark warding dwarf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
 	name : "Dwarf (dragonmark)",
 	sortname : "Dragonmark, Warding (Dwarf)",
-	source : ["WGtE", 108],
+	source : [["WGtE", 108], ["UA:D", 7]],
 	plural : "Dwarves (dragonmark)",
 	size : 3,
 	speed : {
@@ -17649,25 +17664,27 @@ RaceList["dragonmark warding dwarf"] = {
 };
 
 // Gust cantrip reprint
-SpellsList["gust"] = {
-	name : "Gust",
-	classes : ["druid", "sorcerer", "wizard"],
-	source : [["WGtE", 107], ["X", 157], ["E", 19]],
-	level : 0,
-	school : "Trans",
-	time : "1 a",
-	range : "30 ft",
-	components : "V,S",
-	duration : "Instantaneous",
-	save : "Str",
-	description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
-	descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
-};
+if (!SpellsList["gust"]) {
+	SpellsList["gust"] = {
+		name : "Gust",
+		classes : ["druid", "sorcerer", "wizard"],
+		source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
+		level : 0,
+		school : "Trans",
+		time : "1 a",
+		range : "30 ft",
+		components : "V,S",
+		duration : "Instantaneous",
+		save : "Str",
+		description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
+		descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
+	};
+}
 
 // Greater Dragonmark feats
 FeatsList["greater dragonmark [detection]"] = {
 	name : "Greater Dragonmark [Detection]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
@@ -17685,7 +17702,7 @@ FeatsList["greater dragonmark [detection]"] = {
 };
 FeatsList["greater dragonmark [finding]"] = {
 	name : "Greater Dragonmark [Finding]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
@@ -17703,7 +17720,7 @@ FeatsList["greater dragonmark [finding]"] = {
 };
 FeatsList["greater dragonmark [handling]"] = {
 	name : "Greater Dragonmark [Handling]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
@@ -17721,7 +17738,7 @@ FeatsList["greater dragonmark [handling]"] = {
 };
 FeatsList["greater dragonmark [healing]"] = {
 	name : "Greater Dragonmark [Healing]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
@@ -17739,7 +17756,7 @@ FeatsList["greater dragonmark [healing]"] = {
 };
 FeatsList["greater dragonmark [hospitality]"] = {
 	name : "Greater Dragonmark [Hospitality]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
@@ -17757,7 +17774,7 @@ FeatsList["greater dragonmark [hospitality]"] = {
 };
 FeatsList["greater dragonmark [making]"] = {
 	name : "Greater Dragonmark [Making]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
@@ -17775,7 +17792,7 @@ FeatsList["greater dragonmark [making]"] = {
 };
 FeatsList["greater dragonmark [passage]"] = {
 	name : "Greater Dragonmark [Passage]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
@@ -17793,7 +17810,7 @@ FeatsList["greater dragonmark [passage]"] = {
 };
 FeatsList["greater dragonmark [scribing]"] = {
 	name : "Greater Dragonmark [Scribing]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
@@ -17811,7 +17828,7 @@ FeatsList["greater dragonmark [scribing]"] = {
 };
 FeatsList["greater dragonmark [sentinel]"] = {
 	name : "Greater Dragonmark [Sentinel]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
@@ -17829,7 +17846,7 @@ FeatsList["greater dragonmark [sentinel]"] = {
 };
 FeatsList["greater dragonmark [shadow]"] = {
 	name : "Greater Dragonmark [Shadow]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
@@ -17847,15 +17864,15 @@ FeatsList["greater dragonmark [shadow]"] = {
 };
 FeatsList["greater dragonmark [storm]"] = {
 	name : "Greater Dragonmark [Storm]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known)",
-	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Control Water and Control Wind each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+	description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 	improvements : "Greater Dragonmark [Storm]: +1 Dexterity or Charisma;",
 	spellcastingBonus : {
 		name : "1\u00D7 per long",
-		spells : ["control water", "control wind"],
-		selection : ["control water", "control wind"],
+		spells : ["control water", "control winds"],
+		selection : ["control water", "control winds"],
 		spellcastingAbility : 6,
 		oncelr : true,
 		times : 2
@@ -17865,7 +17882,7 @@ FeatsList["greater dragonmark [storm]"] = {
 };
 FeatsList["greater dragonmark [warding]"] = {
 	name : "Greater Dragonmark [Warding]",
-	source : ["WGtE", 110],
+	source : [["WGtE", 110], ["UA:D", 7]],
 	prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
 	prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known)",
 	description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
@@ -17890,7 +17907,7 @@ FeatsList["greater dragonmark [warding]"] = {
 // Aberrant Dragonmark feat
 FeatsList["aberrant dragonmark"] = {
 	name : "Aberrant Dragonmark",
-	source : ["WGtE", 112],
+	source : [["WGtE", 112], ["UA:D", 9]],
 	prerequisite : "Not having a dragonmark",
 	prereqeval : "!(/dragonmark/i).test(CurrentRace.known)",
 	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",

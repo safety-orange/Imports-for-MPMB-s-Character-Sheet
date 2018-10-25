@@ -2890,7 +2890,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["control winds"] = {
 		name : "Control Winds",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 152], ["E", 16]],
+		source : [["X", 152], ["E", 16], ["UA:D", 8]],
 		level : 5,
 		school : "Trans",
 		time : "1 a",
@@ -3016,7 +3016,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["gust"] = {
 		name : "Gust",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["WGtE", 107], ["X", 157], ["E", 19]],
+		source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
 		level : 0,
 		school : "Trans",
 		time : "1 a",
