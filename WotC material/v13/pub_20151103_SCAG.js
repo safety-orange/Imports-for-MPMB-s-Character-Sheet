@@ -532,7 +532,6 @@ AddSubClass("monk", "way of the sun soul", {
 			action : ["bonus action", " (2\u00D7 with Attack action)"],
 			addWeapons : ['Radiant Sun Bolt'],
 			extraname : "Way of the Sun Soul 6",
-			changeeval : "if (lvlH >= 6 && lvlL < 6) { ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'], lvlA[1] < 6 ? 'remove' : false); }; ",
 			"searing arc strike" : {
 				name : "Searing Arc Strike",
 				source : [["S", 131], ["X", 35]],
@@ -547,7 +546,8 @@ AddSubClass("monk", "way of the sun soul", {
 					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 				}),
 				action : ["bonus action", " (after Attack action)"]
-			}
+			},
+			changeeval : "if (lvlH >= 6 && lvlL < 6) { ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'], lvlA[1] < 6 ? 'remove' : false); }; "
 		},
 		"subclassfeature11" : {
 			name : "Searing Sunburst",
