@@ -1,5 +1,5 @@
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -65,7 +65,7 @@ var theHorizonWalkerSubclass = {
 				name : "Ethereal Step",
 				spells : ["etherealness"],
 				selection : ["etherealness"],
-				oncesr : true
+				firstCol : 'oncesr'
 			}
 		},
 		"subclassfeature11" : {
@@ -168,9 +168,7 @@ AddSubClass("rogue", "scout", {
 			source : ["UA:RnR", 3],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency and expertise with the Nature and Survival skills",
-			skillstxt : "\n\n" + toUni("Scout") + ": proficiency and expertise with Nature and Survival.",
-			eval : "AddSkillProf('Nature', true, true); AddSkillProf('Survival', true, true);",
-			removeeval : "AddSkillProf('Nature', false, true); AddSkillProf('Survival', false, true);"
+			skills : [['Nature', 'full'], ['Survival', 'full']]
 		},
 		"subclassfeature9" : {
 			name : "Superior Mobility",

@@ -1763,7 +1763,7 @@ AddSubClass("warlock", "the undying light", {
 			minlevel : 14,
 			description : "\n   " + "As a bonus action, I touch a creature and heal it by expending dice from my pool" + "\n   " + "I subtract the number of d6's used from my pool; I can expend up to 5d6 at a time" + "\n   " + "The target heals HP equal to the roll of the dice; I regain expended uses with a long rest",
 			usages : "15d6 per ",
-			usagescalc : "event.value = \"15d6\";",
+			usagescalc : "event.value = '15d6';",
 			recovery : "long rest",
 			action : ["bonus action", ""]
 		}
@@ -5352,7 +5352,7 @@ SourceList["UA:RnR"] = {
 
 // Adds 3 subclasses: 2 for the Ranger (and the Revised Ranger), and 1 for the Rogue
 var theHorizonWalkerSubclass = {
-	regExpSearch : /^(?=.*horizon)(?=.*(walker|conclave)).*$/i,
+	regExpSearch : /^(?=.*horizon)(?=.*walker).*$/i,
 	subname : "Horizon Walker",
 	source : ["UA:RnR", 1],
 	fullname : "Horizon Walker",
@@ -5482,6 +5482,7 @@ AddSubClass("ranger", "primeval guardian", thePrimevalGuardianSubclass);
 if (ClassList["rangerua"]) { // add them to the Revised Ranger as well, if it is defined
 	var theHorizonConclaveSubclass = newObj(theHorizonWalkerSubclass);
 	theHorizonConclaveSubclass.subname = "Horizon Conclave";
+	theHorizonConclaveSubclass.regExpSearch = /^(?=.*horizon)(?=.*conclave).*$/i
 	delete theHorizonConclaveSubclass.fullname;
 	AddSubClass("rangerua", "horizon conclave", theHorizonConclaveSubclass);
 	var thePrimevalGuardianConclaveSubclass = newObj(thePrimevalGuardianSubclass);
