@@ -655,7 +655,7 @@ RaceList["githyanki-mtof"] = {
 };
 AddRacialVariant("githyanki-mtof", "tool proficiency", {
 	regExpSearch : /tool proficiency/i,
-	skillstxt : ""
+	skillstxt : "",
 	toolProfs : [["Any tool", 1]]
 });
 AddRacialVariant("githyanki-mtof", "skill proficiency", {

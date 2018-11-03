@@ -450,7 +450,7 @@ AddSubClass("fighter", "purple dragon knight", {
 			minlevel : 3,
 			description : "\n   " + "When I use Second Wind, I also heal three allies within 60 ft that can see or hear me",
 			additional : levels.map(function (n) {
-				return n < 3 ? n + " HP";
+				return n < 3 ? "" : n + " HP";
 			}),
 			eval : "RemoveAction('bonus action', 'Second Wind'); AddAction('bonus action', 'Second Wind (+ Rallying Cry)', 'Purple Dragon Knight: Rallying Cry')",
 			removeeval : "RemoveAction('bonus action', 'Second Wind (+ Rallying Cry)'); AddAction('bonus action', 'Second Wind', 'Fighter: Second Wind')"
