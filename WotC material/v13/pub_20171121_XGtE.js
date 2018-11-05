@@ -158,7 +158,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 				dmgres : ["Cold"],
 				savetxt : { immune : ["effects of extreme cold"] }
 			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'sorcerer', 'subclassfeature3');"
+			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
 		},
 		"subclassfeature10" : {
 			name : "Shielding Storm",
@@ -179,7 +179,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 				name : "Shielding Storm: Tundra",
 				description : "\n   " + "While raging, creatures of my choice within my Storm Aura also gain resistance to cold"
 			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'sorcerer', 'subclassfeature3');"
+			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
 		},
 		"subclassfeature14" : {
 			name : "Raging Storm",
@@ -212,7 +212,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 					"It must make a Str save or have its speed reduced to 0 until the start of my next turn"
 				])
 			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'sorcerer', 'subclassfeature3');"
+			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
 		}
 	}
 });
