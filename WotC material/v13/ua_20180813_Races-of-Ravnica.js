@@ -25,6 +25,7 @@ RaceList["loxodon"] = {
 	savetxt : { adv_vs : ["frightened"] },
 	toolProfs : ["Mason's tools"],
 	addArmor : "Natural Armor",
+	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall",
 	weight : " weigh between 300 and 400 pounds",

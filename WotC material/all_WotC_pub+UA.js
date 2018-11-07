@@ -20118,7 +20118,7 @@ RaceList["aasimar revenant"] = { // Based on the VGtM Aasimar, made with /u/Rebe
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Aasimar Revenant: +1 Constitution, +2 Charisma;",
-	scores : [1, 0, 0, 0, 0, 2],
+	scores : [0, 0, 1, 0, 0, 2],
 	trait : "Aasimar Revenant (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip. Healing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -32307,6 +32307,7 @@ RaceList["loxodon"] = {
 	savetxt : { adv_vs : ["frightened"] },
 	toolProfs : ["Mason's tools"],
 	addarmor : "Natural Armor",
+	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall",
 	weight : " weigh between 300 and 400 pounds",
