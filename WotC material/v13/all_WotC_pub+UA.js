@@ -3321,8 +3321,8 @@ FeatsList["ritual caster [bard]"] = {
 	description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
-	eval : "CurrentSpells['ritual caster bard'] = {name : 'Ritual Book [Bard]', ability : 6, list : {class : 'bard', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['ritual caster bard']; SetStringifieds('spells');"
+	eval : "CurrentSpells['ritual caster bard'] = {name : 'Ritual Book [Bard]', ability : 6, list : {class : 'bard', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['ritual caster bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 };
 FeatsList["ritual caster [cleric]"] = {
 	name : "Ritual Caster [Cleric]",
@@ -3330,8 +3330,8 @@ FeatsList["ritual caster [cleric]"] = {
 	description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual cleric spells.\nI can copy ritual cleric spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
-	eval : "CurrentSpells['ritual caster cleric'] = {name : 'Ritual Book [Cleric]', ability : 5, list : {class : 'cleric', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['ritual caster cleric']; SetStringifieds('spells');"
+	eval : "CurrentSpells['ritual caster cleric'] = {name : 'Ritual Book [Cleric]', ability : 5, list : {class : 'cleric', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['ritual caster cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 };
 FeatsList["ritual caster [druid]"] = {
 	name : "Ritual Caster [Druid]",
@@ -3339,8 +3339,8 @@ FeatsList["ritual caster [druid]"] = {
 	description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual druid spells.\nI can copy ritual druid spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
-	eval : "CurrentSpells['ritual caster druid'] = {name : 'Ritual Book [Druid]', ability : 5, list : {class : 'druid', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['ritual caster druid']; SetStringifieds('spells');"
+	eval : "CurrentSpells['ritual caster druid'] = {name : 'Ritual Book [Druid]', ability : 5, list : {class : 'druid', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['ritual caster druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 };
 FeatsList["ritual caster [sorcerer]"] = {
 	name : "Ritual Caster [Sorcerer]",
@@ -3348,8 +3348,8 @@ FeatsList["ritual caster [sorcerer]"] = {
 	description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual sorcerer spells.\nI can copy ritual sorcerer spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
-	eval : "CurrentSpells['ritual caster sorcerer'] = {name : 'Ritual Book [Sorcerer]', ability : 6, list : {class : 'sorcerer', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['ritual caster sorcerer']; SetStringifieds('spells');"
+	eval : "CurrentSpells['ritual caster sorcerer'] = {name : 'Ritual Book [Sorcerer]', ability : 6, list : {class : 'sorcerer', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['ritual caster sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 };
 FeatsList["ritual caster [warlock]"] = {
 	name : "Ritual Caster [Warlock]",
@@ -3357,8 +3357,8 @@ FeatsList["ritual caster [warlock]"] = {
 	description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual warlock spells.\nI can copy ritual warlock spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
-	eval : "CurrentSpells['ritual caster warlock'] = {name : 'Ritual Book [Warlock]', ability : 6, list : {class : 'warlock', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['ritual caster warlock']; SetStringifieds('spells');"
+	eval : "CurrentSpells['ritual caster warlock'] = {name : 'Ritual Book [Warlock]', ability : 6, list : {class : 'warlock', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['ritual caster warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 };
 FeatsList["ritual caster [wizard]"] = {
 	name : "Ritual Caster [Wizard]",
@@ -3366,8 +3366,8 @@ FeatsList["ritual caster [wizard]"] = {
 	description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual wizard spells.\nI can copy ritual wizard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Intelligence is my spellcasting ability for these.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
-	eval : "CurrentSpells['ritual caster wizard'] = {name : 'Ritual Book [Wizard]', ability : 4, list : {class : 'wizard', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['ritual caster wizard']; SetStringifieds('spells');"
+	eval : "CurrentSpells['ritual caster wizard'] = {name : 'Ritual Book [Wizard]', ability : 4, list : {class : 'wizard', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['ritual caster wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 };
 FeatsList["savage attacker"] = {
 	name : "Savage Attacker",
@@ -3414,8 +3414,8 @@ FeatsList["spell sniper [bard]"] = {
 	description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one bard cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
-	eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['spell sniper bard']; SetStringifieds('spells');",
+	eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['spell sniper bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	calcChanges : {
 		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
@@ -3426,8 +3426,8 @@ FeatsList["spell sniper [cleric]"] = {
 	description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one cleric cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
-	eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['spell sniper cleric']; SetStringifieds('spells');",
+	eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['spell sniper cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	calcChanges : {
 		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
@@ -3438,8 +3438,8 @@ FeatsList["spell sniper [druid]"] = {
 	description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
-	eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['spell sniper druid']; SetStringifieds('spells');",
+	eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['spell sniper druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	calcChanges : {
 		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
@@ -3450,8 +3450,8 @@ FeatsList["spell sniper [sorcerer]"] = {
 	description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one sorcerer cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
-	eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['spell sniper sorcerer']; SetStringifieds('spells');",
+	eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['spell sniper sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	calcChanges : {
 		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
@@ -3462,8 +3462,8 @@ FeatsList["spell sniper [warlock]"] = {
 	description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
-	eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['spell sniper warlock']; SetStringifieds('spells');",
+	eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['spell sniper warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	calcChanges : {
 		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
@@ -3474,8 +3474,8 @@ FeatsList["spell sniper [wizard]"] = {
 	description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
-	eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['spell sniper wizard']; SetStringifieds('spells');",
+	eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+	removeeval : "delete CurrentSpells['spell sniper wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	calcChanges : {
 		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
@@ -17148,7 +17148,7 @@ RaceList["dragonmark making human"] = {
 		}
 	},
 	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], firstCol : 'atwill'}}, typeList : 2 }; SetStringifieds('spells'); CurrentUpdates.types.push('spells'); ",
-	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells');"
+	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 };
 RunFunctionAtEnd(function() {
 	for (var sp in SpellsList) {
@@ -22135,7 +22135,7 @@ ClassList.artificer = {
 			name : "Magic Item Analysis",
 			source : ["UA:A", 2],
 			minlevel : 1,
-			description : desc(["I can cast Detect Magic and Identify as rituals without requiring material components"]),
+			description : "\n   " + "I can cast Detect Magic and Identify as rituals without requiring material components",
 			spellcastingBonus : [{
 				name : "Magic Item Analysis",
 				spells : ["detect magic"],
@@ -22152,8 +22152,8 @@ ClassList.artificer = {
 			name : "Tool Expertise",
 			source : ["UA:A", 3],
 			minlevel : 2,
-			description : desc(["I have expertise with any tool proficiencies I gain from the Artificer class"]),
-			skillstxt : "expertise with with any tool proficiencies gained from the Artificer class",
+			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
+			skillstxt : "expertise with with any tool proficiencies gained from the artificer class",
 			eval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
 			removeeval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"
 		},
@@ -22161,17 +22161,12 @@ ClassList.artificer = {
 			name : "Wondrous Invention",
 			source : ["UA:A", 3],
 			minlevel : 2,
-			description : desc(["I gain a magic item that I have crafted; Use the \"Choose Feature\" button above"]),
+			description : "\n   " + "I gain a magic item that I have crafted; Use the \"Choose Feature\" button above",
 			additional : levels.map(function (n) {
-				if (n < 2) return "";
-				if (n < 5) return "1 item";
-				if (n < 10) return "2 items";
-				if (n < 15) return "3 items";
-				if (n < 20) return "4 items";
-				return "5 items";
+				return n < 2 ? "" : n < 5 ? "1 item" : (n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5) + " items";
 			}),
 			extraname : "Wondrous Invention",
-			extrachoices : ["Bag of Holding (prereq: level 2 artificer)", "Cap of Water Breathing (prereq: level 2 artificer)", "Driftglobe (prereq: level 2 artificer)", "Goggles of Night (prereq: level 2 artificer)", "Sending Stones (prereq: level 2 artificer)", "Alchemy Jug (prereq: level 5 artificer)", "Helm of Comprehending Languages (prereq: level 5 artificer)", "Lantern of Revealing (prereq: level 5 artificer)", "Ring of Swimming (prereq: level 5 artificer)", "Robe of Useful Items (prereq: level 5 artificer)", "Rope of Climbing (prereq: level 5 artificer)", "Wand of Magic Detection (prereq: level 5 artificer)", "Wand of Secrets (prereq: level 5 artificer)", "Bag of Beans (prereq: level 10 artificer)", "Chime of Opening (prereq: level 10 artificer)", "Decanter of Endless Water (prereq: level 10 artificer)", "Eyes of Minute Seeing (prereq: level 10 artificer)", "Folding Boat (prereq: level 10 artificer)", "Heward's Handy Haversack (prereq: level 10 artificer)", "Boots of Striding and Springing (prereq: level 15 artificer)", "Bracers of Archery (prereq: level 15 artificer)", "Brooch of Shielding (prereq: level 15 artificer)", "Broom of Flying (prereq: level 15 artificer)", "Hat of Disguise (prereq: level 15 artificer)", "Slippers of Spider Climbing (prereq: level 15 artificer)", "Eyes of the Eagle (prereq: level 20 artificer)", "Gem of Brightness (prereq: level 20 artificer)", "Gloves of Missile Snaring (prereq: level 20 artificer)", "Gloves of Swimming and Climbing (prereq: level 20 artificer)", "Ring of Jumping (prereq: level 20 artificer)", "Ring of Mind Shielding (prereq: level 20 artificer)", "Wings of Flying (prereq: level 20 artificer)"] //come back to this with the function to make the individual entries
+			extrachoices : ["Bag of Holding", "Cap of Water Breathing", "Driftglobe", "Goggles of Night", "Sending Stones", "Alchemy Jug (prereq: level 5 artificer)", "Helm of Comprehending Languages (prereq: level 5 artificer)", "Lantern of Revealing (prereq: level 5 artificer)", "Ring of Swimming (prereq: level 5 artificer)", "Robe of Useful Items (prereq: level 5 artificer)", "Rope of Climbing (prereq: level 5 artificer)", "Wand of Magic Detection (prereq: level 5 artificer)", "Wand of Secrets (prereq: level 5 artificer)", "Bag of Beans (prereq: level 10 artificer)", "Chime of Opening (prereq: level 10 artificer)", "Decanter of Endless Water (prereq: level 10 artificer)", "Eyes of Minute Seeing (prereq: level 10 artificer)", "Folding Boat (prereq: level 10 artificer)", "Heward's Handy Haversack (prereq: level 10 artificer)", "Boots of Striding and Springing (prereq: level 15 artificer)", "Bracers of Archery (prereq: level 15 artificer)", "Brooch of Shielding (prereq: level 15 artificer)", "Broom of Flying (prereq: level 15 artificer)", "Hat of Disguise (prereq: level 15 artificer)", "Slippers of Spider Climbing (prereq: level 15 artificer)", "Eyes of the Eagle (prereq: level 20 artificer)", "Gem of Brightness (prereq: level 20 artificer)", "Gloves of Missile Snaring (prereq: level 20 artificer)", "Gloves of Swimming and Climbing (prereq: level 20 artificer)", "Ring of Jumping (prereq: level 20 artificer)", "Ring of Mind Shielding (prereq: level 20 artificer)", "Wings of Flying (prereq: level 20 artificer)"] //come back to this with the function to make the individual entries
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
@@ -22180,7 +22175,10 @@ ClassList.artificer = {
 			description : desc([
 				"I can cast artificer spells that I know, using Intelligence as my spellcasting ability",
 				"I can use an arcane focus as a spellcasting focus"
-			])
+			]),
+			additional : levels.map(function (n, idx) {
+				return n < 3 ? "" : [0, 0, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13][idx] + " spells known";
+			})
 		},
 		"infuse magic" : {
 			name : "Infuse Magic",
@@ -22210,17 +22208,14 @@ ClassList.artificer = {
 			minlevel : 5,
 			description : "",
 			additional : levels.map(function (n) {
-				if (n < 5) return "";
-				if (n < 15) return "attune to 4 magic items instead of 3";
-				if (n < 20) return "attune to 5 magic items instead of 3";
-				return "attune to 6 magic items instead of 3";
+				return n < 5 ? "" : "attune to " + (n < 15 ? 4 : n < 20 ? 5 : 6) + " magic items instead of 3";
 			})
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
 			source : ["UA:A", 4],
 			minlevel : 20,
-			description : desc(["I gain a +1 bonus to all saving throws per magic item I am currently attuned to"]),
+			description : "\n   " + "I gain a +1 bonus to all saving throws per magic item I am currently attuned to",
 			savetxt : {
 				text : ["+1 to all saves per attuned magic item"]
 			}
@@ -22821,13 +22816,15 @@ ArtMagicItemsList = {
 // Create the magic items for the wondrous items class feature of the artificer
 ClassList.artificer.features["wondrous invention"].extrachoices.forEach(function (theI) {
 	var theItem = theI.replace(/ *\(.*\)/, "");
+	var minLevel = Number(theI.replace(/.*level (\d+) artificer.*/, "$1"));
 	if (ArtMagicItemsList[theItem.toLowerCase()]) {
 		ClassList.artificer.features["wondrous invention"][theI.toLowerCase()] = {
 			name : theItem,
 			description : "",
 			source : ["UA:A", 3],
 			eval : "var maI = ArtMagicItemsList[\"" + theItem.toLowerCase() + "\"]; AddMagicItem(maI.name, maI.attunement, maI.description, maI.weight, maI.descriptionLong);",
-			removeeval : "RemoveMagicItem(\"" + theItem.toLowerCase() + "\");"
+			removeeval : "RemoveMagicItem(\"" + theItem.toLowerCase() + "\");",
+			prereqeval : isNaN(minLevel) ? "" : "classes.known.artificer.level >= " + minLevel
 		};
 	};
 });
@@ -32374,7 +32371,7 @@ if (!SourceList.WGtE) {
 			}
 		},
 		eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], firstCol : 'atwill'}}, typeList : 2 }; SetStringifieds('spells'); CurrentUpdates.types.push('spells'); ",
-		removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells');"
+		removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	};
 	RunFunctionAtEnd(function() {
 		for (var sp in SpellsList) {

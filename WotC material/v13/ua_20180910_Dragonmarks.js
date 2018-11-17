@@ -222,7 +222,7 @@ if (!SourceList.WGtE) {
 			}
 		},
 		eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], firstCol : 'atwill'}}, typeList : 2 }; SetStringifieds('spells'); CurrentUpdates.types.push('spells'); ",
-		removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells');"
+		removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	};
 	RunFunctionAtEnd(function() {
 		for (var sp in SpellsList) {

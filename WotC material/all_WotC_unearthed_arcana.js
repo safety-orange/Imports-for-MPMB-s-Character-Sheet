@@ -4466,7 +4466,7 @@ ClassList.artificer = {
 			name : "Magic Item Analysis",
 			source : ["UA:A", 2],
 			minlevel : 1,
-			description : desc(["I can cast Detect Magic and Identify as rituals without requiring material components"]),
+			description : "\n   " + "I can cast Detect Magic and Identify as rituals without requiring material components",
 			spellcastingBonus : [{
 				name : "Magic Item Analysis",
 				spells : ["detect magic"],
@@ -4483,8 +4483,8 @@ ClassList.artificer = {
 			name : "Tool Expertise",
 			source : ["UA:A", 3],
 			minlevel : 2,
-			description : desc(["I have expertise with any tool proficiencies I gain from the Artificer class"]),
-			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with with any tool proficiencies gained from the Artificer class.",
+			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
+			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with with any tool proficiencies gained from the artificer class.",
 			eval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
 			removeeval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"
 		},
@@ -4492,17 +4492,12 @@ ClassList.artificer = {
 			name : "Wondrous Invention",
 			source : ["UA:A", 3],
 			minlevel : 2,
-			description : desc(["I gain a magic item that I have crafted; Use the \"Choose Feature\" button above"]),
+			description : "\n   " + "I gain a magic item that I have crafted; Use the \"Choose Feature\" button above",
 			additional : levels.map(function (n) {
-				if (n < 2) return "";
-				if (n < 5) return "1 item";
-				if (n < 10) return "2 items";
-				if (n < 15) return "3 items";
-				if (n < 20) return "4 items";
-				return "5 items";
+				return n < 2 ? "" : n < 5 ? "1 item" : (n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5) + " items";
 			}),
 			extraname : "Wondrous Invention",
-			extrachoices : ["Bag of Holding (prereq: level 2 artificer)", "Cap of Water Breathing (prereq: level 2 artificer)", "Driftglobe (prereq: level 2 artificer)", "Goggles of Night (prereq: level 2 artificer)", "Sending Stones (prereq: level 2 artificer)", "Alchemy Jug (prereq: level 5 artificer)", "Helm of Comprehending Languages (prereq: level 5 artificer)", "Lantern of Revealing (prereq: level 5 artificer)", "Ring of Swimming (prereq: level 5 artificer)", "Robe of Useful Items (prereq: level 5 artificer)", "Rope of Climbing (prereq: level 5 artificer)", "Wand of Magic Detection (prereq: level 5 artificer)", "Wand of Secrets (prereq: level 5 artificer)", "Bag of Beans (prereq: level 10 artificer)", "Chime of Opening (prereq: level 10 artificer)", "Decanter of Endless Water (prereq: level 10 artificer)", "Eyes of Minute Seeing (prereq: level 10 artificer)", "Folding Boat (prereq: level 10 artificer)", "Heward's Handy Haversack (prereq: level 10 artificer)", "Boots of Striding and Springing (prereq: level 15 artificer)", "Bracers of Archery (prereq: level 15 artificer)", "Brooch of Shielding (prereq: level 15 artificer)", "Broom of Flying (prereq: level 15 artificer)", "Hat of Disguise (prereq: level 15 artificer)", "Slippers of Spider Climbing (prereq: level 15 artificer)", "Eyes of the Eagle (prereq: level 20 artificer)", "Gem of Brightness (prereq: level 20 artificer)", "Gloves of Missile Snaring (prereq: level 20 artificer)", "Gloves of Swimming and Climbing (prereq: level 20 artificer)", "Ring of Jumping (prereq: level 20 artificer)", "Ring of Mind Shielding (prereq: level 20 artificer)", "Wings of Flying (prereq: level 20 artificer)"] //come back to this with the function to make the individual entries
+			extrachoices : ["Bag of Holding", "Cap of Water Breathing", "Driftglobe", "Goggles of Night", "Sending Stones", "Alchemy Jug (prereq: level 5 artificer)", "Helm of Comprehending Languages (prereq: level 5 artificer)", "Lantern of Revealing (prereq: level 5 artificer)", "Ring of Swimming (prereq: level 5 artificer)", "Robe of Useful Items (prereq: level 5 artificer)", "Rope of Climbing (prereq: level 5 artificer)", "Wand of Magic Detection (prereq: level 5 artificer)", "Wand of Secrets (prereq: level 5 artificer)", "Bag of Beans (prereq: level 10 artificer)", "Chime of Opening (prereq: level 10 artificer)", "Decanter of Endless Water (prereq: level 10 artificer)", "Eyes of Minute Seeing (prereq: level 10 artificer)", "Folding Boat (prereq: level 10 artificer)", "Heward's Handy Haversack (prereq: level 10 artificer)", "Boots of Striding and Springing (prereq: level 15 artificer)", "Bracers of Archery (prereq: level 15 artificer)", "Brooch of Shielding (prereq: level 15 artificer)", "Broom of Flying (prereq: level 15 artificer)", "Hat of Disguise (prereq: level 15 artificer)", "Slippers of Spider Climbing (prereq: level 15 artificer)", "Eyes of the Eagle (prereq: level 20 artificer)", "Gem of Brightness (prereq: level 20 artificer)", "Gloves of Missile Snaring (prereq: level 20 artificer)", "Gloves of Swimming and Climbing (prereq: level 20 artificer)", "Ring of Jumping (prereq: level 20 artificer)", "Ring of Mind Shielding (prereq: level 20 artificer)", "Wings of Flying (prereq: level 20 artificer)"] //come back to this with the function to make the individual entries
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
@@ -4511,7 +4506,10 @@ ClassList.artificer = {
 			description : desc([
 				"I can cast artificer spells that I know, using Intelligence as my spellcasting ability",
 				"I can use an arcane focus as a spellcasting focus"
-			])
+			]),
+			additional : levels.map(function (n, idx) {
+				return n < 3 ? "" : [0, 0, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13][idx] + " spells known";
+			})
 		},
 		"infuse magic" : {
 			name : "Infuse Magic",
@@ -4541,17 +4539,14 @@ ClassList.artificer = {
 			minlevel : 5,
 			description : "",
 			additional : levels.map(function (n) {
-				if (n < 5) return "";
-				if (n < 15) return "attune to 4 magic items instead of 3";
-				if (n < 20) return "attune to 5 magic items instead of 3";
-				return "attune to 6 magic items instead of 3";
+				return n < 5 ? "" : "attune to " + (n < 15 ? 4 : n < 20 ? 5 : 6) + " magic items instead of 3";
 			})
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
 			source : ["UA:A", 4],
 			minlevel : 20,
-			description : desc(["I gain a +1 bonus to all saving throws per magic item I am currently attuned to"]),
+			description : "\n   " + "I gain a +1 bonus to all saving throws per magic item I am currently attuned to",
 			savetxt : {
 				text : ["+1 to all saves per attuned magic item"]
 			}
@@ -5159,13 +5154,15 @@ ArtMagicItemsList = {
 // Create the magic items for the wondrous items class feature of the artificer
 ClassList.artificer.features["wondrous invention"].extrachoices.forEach(function (theI) {
 	var theItem = theI.replace(/ *\(.*\)/, "");
+	var minLevel = Number(theI.replace(/.*level (\d+) artificer.*/, "$1"));
 	if (ArtMagicItemsList[theItem.toLowerCase()]) {
 		ClassList.artificer.features["wondrous invention"][theI.toLowerCase()] = {
 			name : theItem,
 			description : "",
 			source : ["UA:A", 3],
 			eval : "var maI = ArtMagicItemsList[\"" + theItem.toLowerCase() + "\"]; AddMagicItem(maI.name, maI.attunement, maI.description, maI.weight, maI.descriptionLong);",
-			removeeval : "RemoveMagicItem(\"" + theItem.toLowerCase() + "\");"
+			removeeval : "RemoveMagicItem(\"" + theItem.toLowerCase() + "\");",
+			prereqeval : isNaN(minLevel) ? "" : "classes.known.artificer.level >= " + minLevel
 		};
 	};
 });

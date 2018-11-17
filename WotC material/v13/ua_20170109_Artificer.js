@@ -136,7 +136,7 @@ ClassList.artificer = {
 			name : "Soul of Artifice",
 			source : ["UA:A", 4],
 			minlevel : 20,
-			description : "\n   " + "I gain a +1 bonus to all saving throws per magic item I am currently attuned to"
+			description : "\n   " + "I gain a +1 bonus to all saving throws per magic item I am currently attuned to",
 			savetxt : {
 				text : ["+1 to all saves per attuned magic item"]
 			}
@@ -745,7 +745,7 @@ ClassList.artificer.features["wondrous invention"].extrachoices.forEach(function
 			source : ["UA:A", 3],
 			eval : "var maI = ArtMagicItemsList[\"" + theItem.toLowerCase() + "\"]; AddMagicItem(maI.name, maI.attunement, maI.description, maI.weight, maI.descriptionLong);",
 			removeeval : "RemoveMagicItem(\"" + theItem.toLowerCase() + "\");",
-			prereqeval : isNaN(minLevel) ? "" : prereqeval : "classes.known.artificer.level >= " + minLevel
+			prereqeval : isNaN(minLevel) ? "" : "classes.known.artificer.level >= " + minLevel
 		};
 	};
 });
