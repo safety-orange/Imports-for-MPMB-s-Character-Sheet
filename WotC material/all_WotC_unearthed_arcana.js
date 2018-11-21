@@ -4597,7 +4597,10 @@ ClassSubList["artificer-alchemist"] = {
 					"After being healed this way, a creature can't do so again until it finishes a long rest",
 					"While a Healing Draught exists, I can't use this formula to create another one"
 				]),
-				action : ["action", ""]
+				action : ["action", ""],
+				additional : levels.map(function (n) {
+					return "Heals " + Math.ceil(n / 2) + "d8";
+				})
 			},
 			"smoke stick" : {
 				name : "Smoke Stick",

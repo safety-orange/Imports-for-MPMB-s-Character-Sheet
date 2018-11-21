@@ -15495,8 +15495,6 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 		description : ""
 	}]
 };
-// WORK IN PROGRESS, NOT FINISHED, NOT TESTED!
-
 var iFileName = "pub_20180529_MToF.js";
 RequiredSheetVersion(13);
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet

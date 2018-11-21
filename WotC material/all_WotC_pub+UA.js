@@ -15658,8 +15658,6 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 		description : ""
 	}]
 };
-// WORK IN PROGRESS, NOT FINISHED, NOT TESTED!
-
 var iFileName = "pub_20180529_MToF.js";
 RequiredSheetVersion(12.999);
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
@@ -22526,7 +22524,10 @@ ClassSubList["artificer-alchemist"] = {
 					"After being healed this way, a creature can't do so again until it finishes a long rest",
 					"While a Healing Draught exists, I can't use this formula to create another one"
 				]),
-				action : ["action", ""]
+				action : ["action", ""],
+				additional : levels.map(function (n) {
+					return "Heals " + Math.ceil(n / 2) + "d8";
+				})
 			},
 			"smoke stick" : {
 				name : "Smoke Stick",
