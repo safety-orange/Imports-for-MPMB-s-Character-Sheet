@@ -24,7 +24,7 @@ BackgroundList["haunted one"] = {
 	name : "Haunted One",
 	source : [["CoS", 209], ["ALbackground", 0]],
 	skills : "",
-	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
+	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival", // As only one skill proficiency in Curse of Strahd, but that was corrected in Curse of Strahd: Character Options
 	languageProfs : [1],
 	gold : 0,
 	equipleft : [
