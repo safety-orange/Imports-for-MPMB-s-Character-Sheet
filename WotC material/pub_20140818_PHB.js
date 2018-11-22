@@ -3443,7 +3443,7 @@ FeatsList["spell sniper [bard]"] = {
 	eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['spell sniper bard']; SetStringifieds('spells');",
 	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
+		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
 };
 FeatsList["spell sniper [cleric]"] = {
@@ -3455,7 +3455,7 @@ FeatsList["spell sniper [cleric]"] = {
 	eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['spell sniper cleric']; SetStringifieds('spells');",
 	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
+		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
 };
 FeatsList["spell sniper [druid]"] = {
@@ -3467,7 +3467,7 @@ FeatsList["spell sniper [druid]"] = {
 	eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['spell sniper druid']; SetStringifieds('spells');",
 	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
+		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
 };
 FeatsList["spell sniper [sorcerer]"] = {
@@ -3479,7 +3479,7 @@ FeatsList["spell sniper [sorcerer]"] = {
 	eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['spell sniper sorcerer']; SetStringifieds('spells');",
 	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
+		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
 };
 FeatsList["spell sniper [warlock]"] = {
@@ -3491,7 +3491,7 @@ FeatsList["spell sniper [warlock]"] = {
 	eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['spell sniper warlock']; SetStringifieds('spells');",
 	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
+		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
 };
 FeatsList["spell sniper [wizard]"] = {
@@ -3503,7 +3503,7 @@ FeatsList["spell sniper [wizard]"] = {
 	eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells');",
 	removeeval : "delete CurrentSpells['spell sniper wizard']; SetStringifieds('spells');",
 	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+ ?(f.{0,2}t|m).*$/i).test(fields.Range)) {var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+/); rangeNmbr.forEach(function(dR) {fields.Range = fields.Range.replace(dR, Number(dR) * 2);});}; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
+		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
 	}
 };
 FeatsList["tavern brawler"] = {
