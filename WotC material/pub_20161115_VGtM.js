@@ -258,7 +258,7 @@ RaceList["firbolg"] = {
 RaceList["goblin"] = {
 	regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
 	name : "Goblin",
-	source : ["V", 119],
+	source : [["V", 119], ["G", 17]],
 	plural : "Goblins",
 	size : 4,
 	speed : {
@@ -268,9 +268,9 @@ RaceList["goblin"] = {
 	vision : [["Darkvision", 60]],
 	age : " rearch adulthood at age 8 and live up to 60 years",
 	height : " are between 3 and a half and 4 feet tall (3'5\" + 2d4\")",
-	weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1d4 lb)",
+	weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
 	heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
-	weightMetric : " weigh between 20 and 30 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
+	weightMetric : " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
 	improvements : "Goblin: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
 	features : {
@@ -279,8 +279,7 @@ RaceList["goblin"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			additional : ["+1 damage", "+2 damage", "+3 damage", "+4 damage", "+5 damage", "+6 damage", "+7 damage", "+8 damage", "+9 damage", "+10 damage", "+11 damage", "+12 damage", "+13 damage", "+14 damage", "+15 damage", "+16 damage", "+17 damage", "+18 damage", "+19 damage", "+20 damage"],
-			tooltip : ""
+			aadditional : levels.map(function (n) { return "+" + n + " damage"; })
 		},
 		"nimble escape" : {
 			name : "Nimble Escape",

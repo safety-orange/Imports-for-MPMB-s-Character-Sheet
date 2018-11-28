@@ -64,7 +64,7 @@ BackgroundList["anthropologist"] = {
 		"I want to learn more about a particular humanoid culture that fascinates me.",
 		"I seek to avenge a clan, tribe, kingdom, or empire that was wiped out.",
 		"I have a trinket that I believe is the key to finding a long-lost society."
-	], 	
+	],
 	flaw : [
 		"Boats make me seasick.",
 		"I talk to myself, and I don't make friends easily.",
@@ -72,7 +72,7 @@ BackgroundList["anthropologist"] = {
 		"I've picked up some unpleasant habits living among goblins, lizardfolk, or orcs.",
 		"I complain about everything.",
 		"I wear a tribal mask and never take it off."
-	], 
+	],
 	extra : [
 		"Select an Adopted Culture",
 		"Aarakocra",
@@ -150,7 +150,7 @@ BackgroundList["archaeologist"] = {
 		"I have no time for friends or family. I spend every waking moment thinking about and preparing for my next expedition.",
 		"When given the choice of going left or right, I always go left.",
 		"I can't sleep except in total darkness."
-	], 
+	],
 	extra : [
 		"Select a Signature Item",
 		"10-foot pole",
@@ -177,10 +177,10 @@ BackgroundFeatureList["historical knowledge"] = {
 };
 
 // Weapon
-WeaponsList["yklwa"] = { 
-	regExpSearch : /yklwa/i, 
-	name : "Yklwa", 
-	source : ["ToA", 32], 
+WeaponsList["yklwa"] = {
+	regExpSearch : /yklwa/i,
+	name : "Yklwa",
+	source : ["ToA", 32],
 	list : "melee",
 	ability : 1,
 	type : "Simple",

@@ -14254,7 +14254,12 @@ RaceList["loxodon"] = {
 	heightMetric : " stand between 2 and 2,5 metres tall",
 	weightMetric : " weigh between 150 to 200 kg",
 	scores : [0, 0, 2, 0, 1, 0],
-	trait : "Loxodon (+2 Constitution, +1 Wisdom)\n   Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift.\n   Stonecunning: I can add double my proficiency bonus to Intelligence (History) checks related to the origin of stonework, instead of my normal proficiency bonus.\n   Keen Smell: I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.\nNatural Armor: " + (typePF ? "I have and AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield.",
+	trait : "Loxodon (+2 Constitution, +1 Wisdom)" + desc([
+		"Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift.",
+		"Stonecunning: I can add double my proficiency bonus to Intelligence (History) checks related to the origin of stonework, instead of my normal proficiency bonus.",
+		"Keen Smell: I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.",
+		"Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield."
+	]),
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 };
@@ -14376,7 +14381,7 @@ AddRacialVariant("simic hybrid", "underwater adaptation", {
 WeaponsList["grappling appendages"] = {
 	regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
 	name : "Grappling Appendages",
-	source : ["UA:RoR", 3],
+	source : [["G", 20], ["UA:RoR", 3]],
 	ability : 1,
 	type : "Natural",
 	damage : [1, 6, "bludgeoning"],
@@ -14388,7 +14393,7 @@ WeaponsList["grappling appendages"] = {
 WeaponsList["acid spit"] = {
 	regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
 	name : "Acid Spit",
-	source : ["UA:RoR", 3],
+	source : [["G", 21], ["UA:RoR", 3]],
 	ability : 3,
 	type : "Natural",
 	damage : ["C", 10, "acid"],

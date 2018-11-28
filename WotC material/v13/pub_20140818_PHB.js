@@ -99,7 +99,7 @@ RaceList["dark elf"] = {
 	}
 };
 RaceList["wood elf"] = {
-	regExpSearch : /^(?!.*half)((?=.*(grugach|kagonesti))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|wilds?|green)\b))).*$/i,
+	regExpSearch : /^(?!.*half)((?=.*(grugach|kagonesti|silhana))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|wilds?|green)\b))).*$/i,
 	name : "Wood elf",
 	sortname : "Elf, Wood",
 	source : ["P", 24],
@@ -765,7 +765,7 @@ AddSubClass("fighter", "battle master", {
 			"feinting attack" : {
 				name : "Feinting Attack",
 				source : ["P", 74],
-				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack against a target within 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
+				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack this turn vs. a target in 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
 				action : ["bonus action", ""]
 			},
 			"goading attack" : {
@@ -946,7 +946,7 @@ AddSubClass("monk", "way of the four elements", {
 			"elemental attunement" : {
 				name : "Elemental Attunement",
 				source : ["P", 81],
-				description : "\n   " + "As an action, I can briefly control elemental forces nearby" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
+				description : "\n   " + "As an action, I can briefly control elemental forces within 30 ft of me" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
 				action : ["action", ""]
 			},
 			"breath of winter (prereq: level 17 monk)" : {

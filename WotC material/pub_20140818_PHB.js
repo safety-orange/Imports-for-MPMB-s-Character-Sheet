@@ -47,7 +47,7 @@ RaceList["mountain dwarf"] = {
 	trait : "Mountain Dwarf (+2 Strength, +2 Constitution)\n\nStonecunning:\n   Whenever I make an Intelligence (History) check related to the origin of stonework, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus."
 };
 RaceList["dark elf"] = {
-	regExpSearch : /^(?!.*half)((?=.*drow)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(dark|underdarks?|deep|depths?)\b))).*$/i,
+	regExpSearch : /^(?!.*half)((?=.*(drow|devkarin))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(dark|underdarks?|deep|depths?)\b))).*$/i,
 	name : "Drow",
 	sortname : "Elf, Dark (Drow)",
 	source : ["P", 24],
@@ -112,7 +112,7 @@ RaceList["dark elf"] = {
 	}
 };
 RaceList["wood elf"] = {
-	regExpSearch : /^(?!.*half)((?=.*(grugach|kagonesti))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|wilds?|green)\b))).*$/i,
+	regExpSearch : /^(?!.*half)((?=.*(grugach|kagonesti|silhana))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|wilds?|green)\b))).*$/i,
 	name : "Wood elf",
 	sortname : "Elf, Wood",
 	source : ["P", 24],
@@ -457,7 +457,7 @@ AddSubClass("cleric", "nature domain", {
 			source : ["P", 62],
 			minlevel : 1,
 			description : "\n   " + "I learn a druid cantrip and proficiency with a skill: Animal Handling, Nature, Survival",
-			skillstxt : "\n\n" + toUni("Nature Domain") + ": Choose one from Animal Handling, Nature, and Survival.",
+			skillstxt : "\n\n" + toUni("Nature Domain") + ": Choose one from Animal Handling, Nature, or Survival.",
 			spellcastingBonus : {
 				name : "Acolyte of Nature",
 				"class" : "druid",
@@ -777,7 +777,7 @@ AddSubClass("fighter", "battle master", {
 			"feinting attack" : {
 				name : "Feinting Attack",
 				source : ["P", 74],
-				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack against a target within 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
+				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack this turn vs. a target in 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
 				action : ["bonus action", ""]
 			},
 			"goading attack" : {
@@ -959,7 +959,7 @@ AddSubClass("monk", "way of the four elements", {
 			"elemental attunement" : {
 				name : "Elemental Attunement",
 				source : ["P", 81],
-				description : "\n   " + "As an action, I can briefly control elemental forces nearby" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
+				description : "\n   " + "As an action, I can briefly control elemental forces within 30 ft of me" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
 				action : ["action", ""]
 			},
 			"breath of winter (prereq: level 17 monk)" : {

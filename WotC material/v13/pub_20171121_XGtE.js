@@ -3442,7 +3442,7 @@ SpellsList["ceremony-xgte"] = {
 SpellsList["chaos bolt-xgte"] = {
 	name : "Chaos Bolt",
 	classes : ["sorcerer"],
-	source : ["X", 151],
+	source : [["X", 151], ["G", 67]],
 	ritual : false,
 	level : 1,
 	school : "Evoc",
