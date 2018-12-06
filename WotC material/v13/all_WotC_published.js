@@ -18070,8 +18070,8 @@ AddSubClass("cleric", "order domain-ggtr", {
 			source : ["G", 26],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill",
-			armorProfs : [false, false, true, false], // v12.999
-			skillstxt : "Choose one form Intimidation or Persuasion" // v12.999
+			armorProfs : [false, false, true, false],
+			skillstxt : "Choose one from Intimidation or Persuasion"
 		},
 		"subclassfeature1.1" : {
 			name : "Voice of Authority",

@@ -14,7 +14,7 @@ SourceList.G = {
 // Add the Centaur race
 RaceList["centaur-ggtr"] = {
 	regExpSearch : /centaur/i,
-	name : "Centaur" + (tDoc.info.SheetVersion < 13 ? " " : ""), // ! v13
+	name : "Centaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
 	sortname : "Centaur",
 	source : ["G", 15],
 	plural : "Centaurs",
@@ -23,14 +23,14 @@ RaceList["centaur-ggtr"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
-	weapons : ["Hooves"], // v13 : AddWeapons
+	weapons : ["Hooves"],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	age : " mature and age at about the same rate as humans",
 	height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
 	weight : " weigh around 670 lb (600 + 1d10 \xD7 2d12 lb)",
 	heightMetric : " stand around 2 metres tall, with their equine bodies reaching about 1,5 metres at the withers (183 + 3d8 cm)",
 	weightMetric : " weigh around 300 kg (270 + 3d8 \xD7 4d12 / 10 kg)",
-	improvements : "Centaur: +2 Strength, +1 Wisdom;", // v13: !
+	improvements : "Centaur: +2 Strength, +1 Wisdom;",
 	scores : [2, 0, 0, 0, 1, 0],
 	trait : "Centaur (+2 Strength +1 Wisdom)" + desc([
 		"Fey: My creature type is fey, rather than humanoid.",
@@ -42,7 +42,7 @@ RaceList["centaur-ggtr"] = {
 		"charge" : {
 			name : "Charge",
 			minlevel : 1,
-			action : ["bonus action", " (hooves attack)"] // v13 : "Hooves (after charge)"
+			action : ["bonus action", " (hooves attack)"]
 		}
 	},
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
@@ -51,7 +51,7 @@ RaceList["centaur-ggtr"] = {
 // Centaur weapon
 WeaponsList["hooves-ggtr"] = {
 	regExpSearch : /\b(hoofs?|hooves)\b/i,
-	name : "Hooves" + (tDoc.info.SheetVersion < 13 ? " " : ""), // ! v13
+	name : "Hooves" + (tDoc.info.SheetVersion < 13 ? " " : ""),
 	source : ["G", 15],
 	ability : 1,
 	type : "Natural",
@@ -79,7 +79,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 		weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
 		heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
 		weightMetric : " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
-		improvements : "Goblin: +2 Dexterity, +1 Constitution;", // v13: !
+		improvements : "Goblin: +2 Dexterity, +1 Constitution;",
 		scores : [0, 2, 1, 0, 0, 0],
 		features : {
 			"fury of the small" : {
@@ -102,7 +102,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 // Add Loxodon
 RaceList["loxodon-ggtr"] = {
 	regExpSearch : /loxodon/i,
-	name : "Loxodon" + (tDoc.info.SheetVersion < 13 ? " " : ""), // v13: !
+	name : "Loxodon" + (tDoc.info.SheetVersion < 13 ? " " : ""),
 	source : ["G", 18],
 	plural : "Loxodons",
 	size : 3,
@@ -111,14 +111,14 @@ RaceList["loxodon-ggtr"] = {
 	},
 	languageProfs : ["Common"],
 	savetxt : { adv_vs : ["charmed", "frightened"] },
-	addarmor : "Loxodon Natural Armor", // v13: AddArmor
+	addarmor : "Loxodon Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall (6'7\" + 2d10\")",
 	weight : " weigh between 300 and 400 pounds (295 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " stand between 2 and 2,5 metres tall (200 + 5d10 cm)",
 	weightMetric : " weigh between 135 and 200 kg (133 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Loxodon: +2 Constitution, +1 Wisdom;", // v13: !
+	improvements : "Loxodon: +2 Constitution, +1 Wisdom;",
 	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Loxodon (+2 Constitution, +1 Wisdom)" +
 		"\n  Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." +
@@ -144,7 +144,7 @@ ArmourList['loxodon natural armor'] = {
 // Add the Minotaur race
 RaceList["minotaur-ggtr"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur" + (tDoc.info.SheetVersion < 13 ? " " : ""), // v13: !
+	name : "Minotaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
 	sortname : "Minotaur",
 	source : ["G", 19],
 	plural : "Minotaurs",
@@ -153,14 +153,14 @@ RaceList["minotaur-ggtr"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weapons : ["Minotaur Horns"], // v13: AddWeapons
+	weapons : ["Minotaur Horns"],
 	skillstxt : "Choose one from Intimidation or Persuasion",
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " stand around 6 feet tall (5'4\" + 2d8\")",
 	weight : " weigh around 300 pounds (175 + 2d8 \xD7 2d6 lb)",
 	heightMetric : " stand around 175 cm tall (163 + 5d8 cm)",
 	weightMetric : " weigh around 135 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-	improvements : "Minotaur: +2 Strength +1 Constitution;", // v13: !
+	improvements : "Minotaur: +2 Strength +1 Constitution;",
 	scores : [2, 0, 1, 0, 0, 0],
 	abilitySave : 1,
 	trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
@@ -184,7 +184,7 @@ RaceList["minotaur-ggtr"] = {
 // Minotaur weapon
 WeaponsList["minotaur horns"] = {
 	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns" + (tDoc.info.SheetVersion < 13 ? " " : ""), // v13: !
+	name : "Minotaur Horns" + (tDoc.info.SheetVersion < 13 ? " " : ""),
 	source : ["G", 19],
 	ability : 1,
 	type : "Natural",
@@ -198,7 +198,7 @@ WeaponsList["minotaur horns"] = {
 // Add Simic Hybrid
 RaceList["simic hybrid-ggtr"] = {
 	regExpSearch : /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
-	name : "Simic hybrid" + (tDoc.info.SheetVersion < 13 ? " " : ""), // v13: !
+	name : "Simic hybrid" + (tDoc.info.SheetVersion < 13 ? " " : ""),
 	source : ["G", 20],
 	plural : "Simic hybrids",
 	size : 3,
@@ -210,7 +210,7 @@ RaceList["simic hybrid-ggtr"] = {
 	age : " age slightly faster than their base humanoid race and their maximum lifespan is somewhat reduced",
 	height : " are of the same height as typical for their humanoid race",
 	weight : " are of the same weight as typical for their humanoid race",
-	improvements : "Simic Hybrid: +2 Constitution and +1 to one other ability score of my choice;", // v13: scorestxt
+	improvements : "Simic Hybrid: +2 Constitution and +1 to one other ability score of my choice;",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (1st level): Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
 	features : {
@@ -338,7 +338,7 @@ WeaponsList["acid spit"] = {
 // Add Vedalken
 RaceList["vedalken-ggtr"] = {
 	regExpSearch : /vedalken/i,
-	name : "Vedalken" + (tDoc.info.SheetVersion < 13 ? " " : ""), // ! v13
+	name : "Vedalken" + (tDoc.info.SheetVersion < 13 ? " " : ""),
 	source : ["G", 21],
 	plural : "Vedalken",
 	size : 3,
@@ -354,7 +354,7 @@ RaceList["vedalken-ggtr"] = {
 	weight : " are slender, weighing around 200 pounds (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " stand between 1,8 and 2 metres tall (163 + 5d10 cm)",
 	weightMetric : " are slender, weighing around 100 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Vedalken: +2 Intelligence, +1 Wisdom;", // ! v13
+	improvements : "Vedalken: +2 Intelligence, +1 Wisdom;",
 	scores : [0, 0, 0, 2, 1, 0],
 	trait : "Vedalken (+2 Intelligence, +1 Wisdom)" + desc([
 		"Vedalken Dispassion: I have advantage on all Intelligence, Wisdom, and Charisma saves.",
@@ -384,7 +384,7 @@ AddSubClass("cleric", "order domain-ggtr", {
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill",
 			armor : [false, false, true, false],
-			skillstxt : "\n\n" + toUni("Order Domain") + ": Choose one form Intimidation or Persuasion"
+			skillstxt : "\n\n" + toUni("Order Domain") + ": Choose one from Intimidation or Persuasion"
 		},
 		"subclassfeature1.1" : {
 			name : "Voice of Authority",
