@@ -440,9 +440,7 @@ RunFunctionAtEnd(function() {
 		if (cDomain && cDomain.spellcastingExtra) {
 			var eSpells = eval(cDomain.spellcastingExtra.toSource());
 			eSpells[100] = "AddToKnown";
-			var dSource = parseSource(cDomain.source);
-			if (!dSource) dSource = parseSource(cDomain.features["subclassfeature1"].source);
-			if (!dSource) dSource = [["UA:MC", 8]];
+			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source :[["UA:MC", 8]];
 			
 			var suffix = 1;
 			var entryDoNm = cDomain.subname;
@@ -2725,9 +2723,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (!aDomain) continue;
-		var dSource = parseSource(aDomain.source);
-		if (!dSource) dSource = parseSource(aDomain.features["subclassfeature1"].source);
-		if (!dSource) dSource = [["UA:MC", 8]];
+		var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
 		
 		var suffix = 1;
 		var entryDoNm = aDomain.subname;
@@ -10377,9 +10373,7 @@ if (!SourceList["UA:TF"]) {
 		for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 			var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 			if (!aDomain) continue;
-			var dSource = parseSource(aDomain.source);
-			if (!dSource) dSource = parseSource(aDomain.features["subclassfeature1"].source);
-			if (!dSource) dSource = [["UA:MC", 8]];
+			var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
 			
 			var suffix = 1;
 			var entryDoNm = aDomain.subname;

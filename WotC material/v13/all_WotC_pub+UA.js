@@ -767,7 +767,7 @@ AddSubClass("fighter", "battle master", {
 			"feinting attack" : {
 				name : "Feinting Attack",
 				source : ["P", 74],
-				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack against a target within 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
+				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack this turn vs. a target in 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
 				action : ["bonus action", ""]
 			},
 			"goading attack" : {
@@ -948,7 +948,7 @@ AddSubClass("monk", "way of the four elements", {
 			"elemental attunement" : {
 				name : "Elemental Attunement",
 				source : ["P", 81],
-				description : "\n   " + "As an action, I can briefly control elemental forces nearby" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
+				description : "\n   " + "As an action, I can briefly control elemental forces within 30 ft of me" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
 				action : ["action", ""]
 			},
 			"breath of winter (prereq: level 17 monk)" : {
@@ -1340,15 +1340,24 @@ AddSubClass("ranger", "beast master", {
 			name : "Ranger's Companion",
 			source : ["P", 93],
 			minlevel : 3,
-			description : "\n   " + "It adds my proficiency bonus to AC, attacks, damage, and save/skill proficiencies" + "\n   " + "Its Hit Point maximum equals four times my ranger level if higher than its normal HP" + "\n   " + "It takes a turn on my initiative; It only takes an action if I command it to" + "\n   " + "As an action, I can have it do an Attack/Dash/Disengage/Dodge/Help action on its turn" + "\n   " + "Can attack while commanding with Extra Attack; Order movement at no action cost",
+			description : desc([
+				"It adds my proficiency bonus to AC, attacks, damage, and save/skill proficiencies",
+				"Its Hit Point maximum equals four times my ranger level if higher than its normal HP",
+				"It takes a turn on my initiative; It takes the Dodge action unless I command it otherwise",
+				"As an action, I can have it take the Attack, Dash, Disengage, or Help action on its turn",
+				"I can still use Extra Attack while commanding it to Attack; No action to order to move"
+			]),
 			additional : "1/4 CR up to medium sized beast",
-			action : ["action", " (Command)"]
+			action : ["action", "Command Companion"]
 		},
 		"subclassfeature7" : {
 			name : "Exceptional Training",
 			source : ["P", 93],
 			minlevel : 7,
-			description : "\n   " + "As a bonus action, I can have my beast Dash/Disengage/Dodge/Help on its turn",
+			description : desc([
+				"My beast's attacks count as magical for overcoming resistances and immunities",
+				"As a bonus action, I can command it to take the Dash/Disengage/Help action on its turn"
+			]),
 			action : ["bonus action", ""]
 		},
 		"subclassfeature11" : {
@@ -3015,10 +3024,10 @@ FeatsList["dual wielder"] = {
 FeatsList["dungeon delver"] = {
 	name : "Dungeon Delver",
 	source : ["P", 166],
-	description : "I have advantage on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I can search for traps while traveling at a normal pace. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps.",
+	description : "I have adv. on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
 	dmgres : ["Traps"],
 	savetxt : { adv_vs : ["traps"] },
-	vision : [["Adv. on Perception and Investigation for secret doors", 0]]
+	vision : [["Adv. on Perception and Investigation for secret doors", 0], ["No -5 for travelling at fast pace", 0]]
 };
 FeatsList["durable"] = {
 	name : "Durable",
@@ -3269,9 +3278,10 @@ FeatsList["observant"] = {
 FeatsList["polearm master"] = {
 	name : "Polearm Master",
 	source : ["P", 168],
-	description : "As a bonus action, when I take the Attack action with only a glaive/halberd/quarterstaff, I can make an attack with the butt end for 1d4 bludgeoning. While wielding a glaive/ halberd/pike/quarterstaff, I get an opportunity attack when a creature enters my reach.",
+	description : "As a bonus action when I do the Attack action with a glaive/" + (typePF ? " " : "") + "halberd/quarterstaff/spear, I can make a 1d4 bludgeoning attack with its butt end." + (typePF ? "\n" : " ") + "While wielding a glaive/halberd/" + (typePF ? "" : " ") + "pike/quarterstaff/spear, I get an opportunity attack when a creature enters my reach.",
 	addWeapons : ["Polearm butt end"],
-	action : ['bonus action', 'Butt end attack (after attack with polearm)']
+	action : ['bonus action', 'Butt end attack (after attack with polearm)'],
+	weaponProfs : [false, false, ["polearm butt end"]]
 };
 FeatsList["resilient [strength]"] = {
 	name : "Resilient [Strength]",
@@ -3517,14 +3527,14 @@ FeatsList["weapon master"] = {
 
 // Add equipment that is not in the SRD
 WeaponsList["polearm butt end"] = {
-	regExpSearch : /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)))(?=.*butt)(?=.*end).*$/i,
+	regExpSearch : /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)))(?=.*butt)(?=.*end).*$/i,
 	name : "Polearm butt end",
 	source : ["P", 168],
 	ability : 1,
 	type : "Other",
 	damage : [1, 4, "bludgeoning"],
 	range : "Melee",
-	description : "As bonus action after taking an attack action with only a glaive, halberd, or quarterstaff",
+	description : "As bonus action after Attack action with only a glaive, halberd, spear, or quarterstaff",
 	abilitytodamage : true
 };
 WeaponsList["thorn whip"] = {
@@ -5774,7 +5784,7 @@ SpellsList["elemental bane"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Con",
-	description : "1+1/SL crea in 30 ft save or first attack each rnd of chosen energy does +2d6 dmg; no resistance",
+	description : "1+1/SL crea in 15-ft rad save or first attack each rnd of chosen energy does +2d6 dmg; no resistance",
 	descriptionFull : "Choose one creature you can see within range, and choose one of the following damage types - acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["erupting earth"] = {
@@ -14096,7 +14106,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V,S",
 		duration : "Conc, 1 min",
 		save : "Con",
-		description : "1+1/SL crea in 30 ft save or first attack each rnd of chosen energy does +2d6 dmg; no resistance",
+		description : "1+1/SL crea in 15-ft rad save or first attack each rnd of chosen energy does +2d6 dmg; no resistance",
 		descriptionFull : "Choose one creature you can see within range, and choose one of the following damage types - acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
 	};
 	SpellsList["erupting earth"] = {
@@ -19357,9 +19367,7 @@ RunFunctionAtEnd(function() {
 		if (cDomain && cDomain.spellcastingExtra) {
 			var eSpells = eval(cDomain.spellcastingExtra.toSource());
 			eSpells[100] = "AddToKnown";
-			var dSource = parseSource(cDomain.source);
-			if (!dSource) dSource = parseSource(cDomain.features["subclassfeature1"].source);
-			if (!dSource) dSource = [["UA:MC", 8]];
+			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source :[["UA:MC", 8]];
 			
 			var suffix = 1;
 			var entryDoNm = cDomain.subname;
@@ -21642,9 +21650,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (!aDomain) continue;
-		var dSource = parseSource(aDomain.source);
-		if (!dSource) dSource = parseSource(aDomain.features["subclassfeature1"].source);
-		if (!dSource) dSource = [["UA:MC", 8]];
+		var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
 		
 		var suffix = 1;
 		var entryDoNm = aDomain.subname;
@@ -29294,9 +29300,7 @@ if (!SourceList["UA:TF"]) {
 		for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 			var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 			if (!aDomain) continue;
-			var dSource = parseSource(aDomain.source);
-			if (!dSource) dSource = parseSource(aDomain.features["subclassfeature1"].source);
-			if (!dSource) dSource = [["UA:MC", 8]];
+			var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
 			
 			var suffix = 1;
 			var entryDoNm = aDomain.subname;
