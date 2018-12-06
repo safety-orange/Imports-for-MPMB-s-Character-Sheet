@@ -17212,7 +17212,7 @@ RaceList["dragonmark scribing gnome"] = {
 	weight : " weigh around 40 lb (35 + 2d4 lb)",
 	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-	scores : [0, 1, 0, 2, 0, 0],
+	scores : [0, 0, 0, 2, 0, 1],
 	trait : "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
 	spellcastingAbility : 4,
 	spellcastingBonus : {
@@ -33671,7 +33671,7 @@ if (!SourceList.WGtE) {
 		weight : " weigh around 40 lb (35 + 2d4 lb)",
 		heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
 		weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-		scores : [0, 1, 0, 2, 0, 0],
+		scores : [0, 0, 0, 2, 0, 1],
 		trait : "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
 		spellcastingAbility : 4,
 		spellcastingBonus : {
