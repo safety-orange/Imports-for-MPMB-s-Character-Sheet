@@ -49,7 +49,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					selection : ["minor illusion", "fog cloud", "invisibility"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'cloud giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'cloud giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			},
 			"fire giant" : {
 				name : "Mark of Ordning: Fire Giant",
@@ -63,7 +63,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					selection : ["fire bolt", "burning hands", "flaming sphere"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'fire giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'fire giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			},
 			"frost giant" : {
 				name : "Mark of Ordning: Frost Giant",
@@ -77,7 +77,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					selection : ["ray of frost", "armor of agathys", "hold person"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'frost giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'frost giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			},
 			"hill giant" : {
 				name : "Mark of Ordning: Hill Giant",
@@ -91,7 +91,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					selection : ["shillelagh", "heroism", "enlarge/reduce"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'hill giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'hill giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			},
 			"stone giant" : {
 				name : "Mark of Ordning: Stone Giant",
@@ -105,7 +105,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					selection : ["resistance", "entangle", "spike growth"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'stone giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'stone giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			},
 			"storm giant" : {
 				name : "Mark of Ordning: Storm Giant",
@@ -119,7 +119,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					selection : ["thunderwave", "shocking grasp", "gust of wind"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'storm giant']; if (classes.known.sorcerer.level >= 6 && this.getField('Class Features Remember').value.indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'storm giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
 			}
 		},
 		"subclassfeature6" : {

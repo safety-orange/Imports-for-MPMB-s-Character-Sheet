@@ -68,9 +68,7 @@ RunFunctionAtEnd(function() {
 		if (cDomain && cDomain.spellcastingExtra) {
 			var eSpells = eval(cDomain.spellcastingExtra.toSource());
 			eSpells[100] = "AddToKnown";
-			var dSource = parseSource(cDomain.source);
-			if (!dSource) dSource = parseSource(cDomain.features["subclassfeature1"].source);
-			if (!dSource) dSource = [["UA:MC", 8]];
+			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source :[["UA:MC", 8]];
 			
 			var suffix = 1;
 			var entryDoNm = cDomain.subname;
