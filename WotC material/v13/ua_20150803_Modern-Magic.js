@@ -77,7 +77,14 @@ AddSubClass("cleric", "city domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -237,7 +244,14 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 	source : ["UA:MM", 3],
 	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkAdd : ["if (isRangedWeapon &&  && (/\\bpact\\b/i).test(WeaponText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", "If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponText)) {
+					fields.Proficiency = true;
+					fields.Description += v.thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; };
+			},
+			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
+		]
 	}
 });
 

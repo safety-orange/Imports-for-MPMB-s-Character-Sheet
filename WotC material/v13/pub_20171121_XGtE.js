@@ -250,7 +250,16 @@ AddSubClass("barbarian", "zealot-xgte", {
 				additional : levels.map(function (n) { return n < 3 ? "" : "+1d6+" + Math.floor(n/2) + " radiant damage"; })
 			},
 			calcChanges : {
-				atkAdd : ["if(!isSpell&&classes.known.barbarian&&classes.known.barbarian.level>2&&(/\\brage\\b/i).test(WeaponText)){var CFrem=What('Class Features Remember');var tReg=/.*?barbarian,subclassfeature3,(necrotic damage|radiant damage).*/i;var FeaChoice=(tReg).test(CFrem)?CFrem.replace(tReg,'$1'):'damage';fields.Description+=(fields.Description?'; ':'')+'+1d6+'+Math.floor(classes.known.barbarian.level/2)+' '+FeaChoice+' on first hit each turn';};", "If I include the word 'Rage' in a melee weapon's name, it will show in its description that its first hit does extra damage."],
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && classes.known.barbarian && classes.known.barbarian.level > 2 && (/\brage\b/i).test(v.WeaponText)) {
+							var theDMG = GetFeatureChoice('class', 'barbarian', 'subclassfeature3');
+							if (!theDMG) return;
+							fields.Description += (fields.Description ? '; ' : '') + '+1d6+' + Math.floor(classes.known.barbarian.level / 2) + ' ' + GetFeatureChoice('class', 'barbarian', 'subclassfeature3') + ' on first hit each turn';
+						};
+					},
+					"If I include the word 'Rage' in a melee weapon's name, it will show in its description that its first hit does extra damage."
+				]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -534,7 +543,14 @@ AddSubClass("cleric", "forge domain-xgte", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 fire damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra fire damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra fire damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -610,7 +626,14 @@ AddSubClass("cleric", "grave domain-xgte", {
 			minlevel : 8,
 			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
-				atkCalc : ["if (classes.known.cleric && classes.known.cleric.level > 7 && thisWeapon[4].indexOf('cleric') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Wis Mod'); }; ", "My cleric cantrips get my Wisdom modifier added to their damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -958,7 +981,14 @@ AddSubClass("fighter", "cavalier-xgte", {
 				return n < 3 ? "" : "+" + Math.floor(n/2) + " damage";
 			}),
 			calcChanges : {
-				atkCalc : ["if (isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\\b(unwavering.?mark|marked)\\b/i).test(WeaponText)) { output.extraDmg += Math.floor(classes.known.fighter.level/2); }; ", "If I include the words 'Unwavering Mark' or 'Marked' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(unwavering.?mark|marked)\b/i).test(v.WeaponText)) {
+							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
+						};
+					},
+					"If I include the words 'Unwavering Mark' or 'Marked' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -1153,7 +1183,26 @@ AddSubClass("monk", "way of the kensei-xgte", {
 			toolProfs : ["calligrapher's or painter's supplies"],
 			calcChanges : {
 				atkAdd : [
-					"var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && theWea && !isSpell && !theWea.monkweapon && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow') && WeaponText.toLowerCase().indexOf('kensei') !== -1) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; if (theWea.ability === 1) {fields.Mod = StrDex; }; if (isRangedWeapon) {fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage'; }; fields.Proficiency = true; }; ",
+					function (fields, v) {
+						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.WeaponName === 'longbow')) {
+							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							try {
+								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+							} catch (e) {
+								var curDie = 'x';
+							};
+							if (isNaN(curDie) || curDie < aMonkDie) {
+								fields.Damage_Die = '1d' + aMonkDie;
+							};
+							if (theWea.ability === 1) {
+								fields.Mod = v.StrDex;
+							};
+							if (isRangedWeapon) {
+								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
+							};
+							fields.Proficiency = true;
+						};
+					},
 					"If I include the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
 				]
 			}
@@ -1164,7 +1213,14 @@ AddSubClass("monk", "way of the kensei-xgte", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (WeaponText.toLowerCase().indexOf('kensei') !== -1  && theWea && !isSpell && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : [
+					function (fields, v) {
+						if (((/unarmed strike/i).test(v.WeaponName) || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+						};
+					},
+					"My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."
+				]
 			},
 			extraname : "Way of the Kensei 6",
 			"deft strike" : {
@@ -1213,6 +1269,18 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 				]),
 				action : ["bonus action", " (2\u00D7 with Attack action)"],
+				weaponOptions : {
+					regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
+					name : "Radiant Sun Bolt",
+					source : [["S", 131], ["X", 35]],
+					ability : 2,
+					type : "Spell",
+					damage : [1, 4, "radiant"],
+					range : "30 ft",
+					description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
+					monkweapon : true,
+					abilitytodamage : true
+				},
 				addWeapons : ['Radiant Sun Bolt'],
 				extraname : "Way of the Sun Soul 6",
 				"searing arc strike" : {
@@ -1256,18 +1324,6 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 			}
 		}
 	});
-	WeaponsList["radiant sun bolt"] = {
-		regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
-		name : "Radiant Sun Bolt",
-		source : [["S", 131], ["X", 35]],
-		ability : 2,
-		type : "Spell",
-		damage : [1, 4, "radiant"],
-		range : "30 ft",
-		description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
-		monkweapon : true,
-		abilitytodamage : true
-	};
 };
 
 // Add 2 subclasses for the Paladin
@@ -2204,7 +2260,14 @@ AddSubClass("warlock", "the celestal-xgte", {
 			]),
 			dmgres : ["Radiant"],
 			calcChanges : {
-				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage once."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) {
+							output.extraDmg += What('Cha Mod');
+						};
+					},
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage once."
+				]
 			}
 		},
 		"subclassfeature10" : {
@@ -2253,8 +2316,19 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			usages : 1,
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (!isDC && (/curse/i).test(WeaponText) && !CritChance) {var CritChance = 19; fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20'; }; ", "If I include the word 'Curse' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."],
-				atkCalc : ["if ((/curse/i).test(WeaponText)) {output.extraDmg += output.prof; }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isDC && (/curse/i).test(v.WeaponText) && !v.CritChance) {
+							v.CritChance = 19;
+							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
+						}
+					},
+					"If I include the word 'Curse' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if ((/curse/i).test(v.WeaponText)) output.extraDmg += output.prof;
+					}, ""]
 			}
 		},
 		"subclassfeature1.1" : {
@@ -2271,7 +2345,14 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			armorProfs : [false, true, false, true],
 			weaponProfs : [false, true],
 			calcChanges : {
-				atkAdd : ["if ((/\\bpact\\b/i).test(WeaponText) || ((/hexblade/i).test(WeaponText) && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText))) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "If I include either the word 'Hexblade' or 'Pact' in a weapon's name, it gets treated as the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than the ability it would otherwise use. For a 'Pact' weapon, this will work with any type. For 'Hexblade', this will only work if the weapon doesn't have the two-handed property."]
+				atkAdd : [
+					function (fields, v) {
+						if (((/\bpact\b/i).test(WeaponText) || ((/hexblade/i).test(WeaponText) && !(/\b(2|two).?hand(ed)?s?\b/i).test(WeaponText))) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
+							fields.Mod = 6;
+						};
+					},
+					"If I include either the word 'Hexblade' or 'Pact' in a weapon's name, it gets treated as the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than the ability it would otherwise use. For a 'Pact' weapon, this will work with any type. For 'Hexblade', this will only work if the weapon doesn't have the two-handed property."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -2427,7 +2508,12 @@ AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	source : [["X", 57], ["UA:RCO", 6]],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
+		]
 	}
 });
 AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
@@ -2440,8 +2526,22 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	source : ["X", 57],
 	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n - If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."],
-		atkAdd : ["if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(WeaponName) && (/\\bpact\\b/i).test(WeaponText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", ""]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n - If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+		],
+		atkAdd : [
+			function (fields, v) {
+				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.WeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
+					fields.Proficiency = true;
+					fields.Description += v.thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical';
+				};
+			}, ""]
 	}
 });
 AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
@@ -2453,7 +2553,12 @@ AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
 	source : ["X", 57],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; 1 target -10 ft speed'; }; ", "Once on each of my turns when I hit a creature with my Eldritch Blast cantrip, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
+			},
+			"Once on each of my turns when I hit a creature with my Eldritch Blast cantrip, I can reduce its speed by 10 ft until the end of my next turn."
+		]
 	}
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlock feature that curses)", {
@@ -2603,7 +2708,25 @@ FeatsList["dragon hide-xgte"] = {
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
-	addWeapons : 'Retractable Claws',
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bretractable\b)(?=.*\bclaws?\b).*$/i,
+		name : "Retractable Claws",
+		source : ["X", 74],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "slashing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	},
+	addWeapons : ['Retractable Claws'],
+	armorOptions : {
+		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
+		name : "Dragon Hide",
+		source : ["X", 74],
+		ac : 13
+	},
 	addArmor : "Dragon Hide"
 };
 FeatsList["drow high magic-xgte"] = {
@@ -2759,20 +2882,6 @@ FeatsList["wood elf magic-xgte"] = {
 		selection : ["pass without trace"],
 		firstCol : 'oncelr'
 	}]
-};
-
-// Add weapon for the Dragon Hide feat
-WeaponsList["claws"] = {
-	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
-	name : "Sharp Claws",
-	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "slashing"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
 };
 
 // Add spells, first those taken from the Elemental Evil Player's Companion, if not already present
@@ -2959,7 +3068,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V,S",
 		duration : "Conc, 1 min",
 		save : "Con",
-		description : "1+1/SL crea in 15-ft rad save or first attack each rnd of chosen energy does +2d6 dmg; no resistance",
+		description : "1+1/SL crea, each max 30 ft apart, save or 1 energy: lose resist. to it & +2d6 to first dmg with it/turn",
 		descriptionFull : "Choose one creature you can see within range, and choose one of the following damage types - acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
 	};
 	SpellsList["erupting earth"] = {
@@ -3421,7 +3530,7 @@ SpellsList["cause fear-xgte"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Wis",
-	description : "1+1/SL crea in 15-ft rad save or frightened; extra save at end of each turn; constr./undead immune",
+	description : "1+1/SL crea (not construct/undead), each max 30 ft apart, save or frightened; save end of each turn",
 	descriptionFull : "You awaken the sense of mortality in one creature you can see within range. A construct or an undead is immune to this effect. The target must succeed on a Wisdom saving throw or become frightened of you until the spell ends. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["ceremony-xgte"] = {
@@ -3465,7 +3574,7 @@ SpellsList["charm monster"] = {
 	components : "V,S",
 	duration : "1 h",
 	save : "Wis",
-	description : "1+1/SL crea in 15-ft rad save or charmed; adv. if you or allies fighting it; ends if your or allies harms",
+	description : "1+1/SL creatures, each max 30 ft apart, save or charmed; adv. on save if you/allies are fighting it",
 	descriptionFull : "You attempt to charm a creature you can see within range. It must make a Wisdom saving throw, and it does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature is friendly to you. When the spell ends, the creature knows it was charmed by you." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["create homunculus"] = {

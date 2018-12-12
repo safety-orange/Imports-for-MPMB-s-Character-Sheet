@@ -30,7 +30,14 @@ AddSubClass("warlock", "the hexblade", {
 			armorProfs : [false, true, false, true],
 			weaponProfs : [false, true],
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText)) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "For melee weapons that lack the two-handed property, I can use my Charisma instead of Strength or Dexterity."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && !(/\b(2|two).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
+							fields.Mod = 6;
+						};
+					},
+					"For melee weapons that lack the two-handed property, I can use my Charisma instead of Strength or Dexterity."
+				]
 			}
 		},
 		"subclassfeature1.1" : {
@@ -47,8 +54,19 @@ AddSubClass("warlock", "the hexblade", {
 			usages : levels.map( function(n) { return n < 14 ? 1 : ""; }),
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (!isDC && (/hexblade/i).test(WeaponText) && !CritChance) {var CritChance = 19; fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20'; }; ", "If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."],
-				atkCalc : ["if ((/hexblade/i).test(WeaponText)) {output.extraDmg += output.prof; }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isDC && (/hexblade/i).test(v.WeaponText) && !v.CritChance) {
+							v.CritChance = 19;
+							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
+						};
+					},
+					"If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if ((/hexblade/i).test(v.WeaponText)) output.extraDmg += output.prof;
+					}, ""]
 			}
 		},
 		"subclassfeature6" : {
@@ -271,6 +289,18 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	]),
 	source : ["UA:WnW", 3],
 	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
+		name : "Claw of Acamar",
+		source : ["UA:WnW", 3],
+		ability : 1,
+		type : "Martial",
+		damage : [1, 8, "bludgeoning"],
+		range : "Melee",
+		weight : 2,
+		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
+		abilitytodamage : true
+	},
 	addWeapons : 'Claw of Acamar'
 });
 AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
@@ -294,6 +324,18 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
+		name : "Curse Bringer",
+		source : ["UA:WnW", 4],
+		ability : 1,
+		type : "Martial",
+		damage : [2, 6, "slashing"],
+		range : "Melee",
+		weight : 6,
+		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
+		abilitytodamage : true
+	},
 	addWeapons : 'Curse Bringer'
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
@@ -315,7 +357,12 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 	source : ["UA:WnW", 4],
 	prereqeval : "hasEldritchBlast && (/\\barchfey\\b/).test(classes.known.warlock.subclass)",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target -10 ft speed';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
+		]
 	}
 });
 AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One patron)", {
@@ -335,7 +382,12 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 	source : ["UA:WnW", 4],
 	prereqeval : "hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass)",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
+		]
 	}
 });
 AddWarlockInvocation("Green Lord's Gift (prereq: the Archfey patron)", {
@@ -354,7 +406,15 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	source : ["UA:WnW", 4],
 	prereqeval : "classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Blade)", {
@@ -366,6 +426,19 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
+		name : "Mace of Dispater",
+		source : ["UA:WnW", 4],
+		ability : 1,
+		type : "Simple",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		weight : 4,
+		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
+		monkweapon : true,
+		abilitytodamage : true
+	},
 	addWeapons : 'Mace of Dispater'
 });
 AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)", {
@@ -377,6 +450,18 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
+		name : "Moon Bow",
+		source : ["UA:WnW", 4],
+		ability : 2,
+		type : "Martial",
+		damage : [1, 8, "piercing"],
+		range : "150/600 ft",
+		weight : 2,
+		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
+		abilitytodamage : true
+	},
 	addWeapons : 'Moon Bow'
 });
 AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
@@ -451,7 +536,15 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	source : ["UA:WnW", 5],
 	prereqeval : "classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 2 - pactMag : 2; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
@@ -475,57 +568,14 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	source : ["UA:WnW", 5],
 	prereqeval : "classes.known.warlock.level >= 15 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 3 - pactMag : 3; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."
+		]
 	}
 });
-
-// Weapons specific to Warlock Invocations
-WeaponsList["claw of acamar"] = {
-	regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
-	name : "Claw of Acamar",
-	source : ["UA:WnW", 3],
-	ability : 1,
-	type : "Martial",
-	damage : [1, 8, "bludgeoning"],
-	range : "Melee",
-	weight : 2,
-	description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
-	abilitytodamage : true
-};
-WeaponsList["curse bringer"] = {
-	regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
-	name : "Curse Bringer",
-	source : ["UA:WnW", 4],
-	ability : 1,
-	type : "Martial",
-	damage : [2, 6, "slashing"],
-	range : "Melee",
-	weight : 6,
-	description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
-	abilitytodamage : true
-};
-WeaponsList["mace of dispater"] = {
-	regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
-	name : "Mace of Dispater",
-	source : ["UA:WnW", 4],
-	ability : 1,
-	type : "Simple",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	weight : 4,
-	description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
-	monkweapon : true,
-	abilitytodamage : true
-};
-WeaponsList["moon bow"] = {
-	regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
-	name : "Moon Bow",
-	source : ["UA:WnW", 4],
-	ability : 2,
-	type : "Martial",
-	damage : [1, 8, "piercing"],
-	range : "150/600 ft",
-	weight : 2,
-	description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
-	abilitytodamage : true
-};

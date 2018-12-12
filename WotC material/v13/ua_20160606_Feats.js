@@ -18,8 +18,18 @@ FeatsList["fell handed"] = {
 	source : ["UA:F", 2],
 	description : "With a handaxe, battleaxe, greataxe, warhammer, or maul, I get +1 to hit, knock prone if I have adv. and hit with both rolls, with disadv. still do Str mod in bludg. damage if I miss but the other die would've hit, can use Help to give ally +2 to hit vs. enemy with a shield.",
 	calcChanges : {
-		atkAdd : ["if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(WeaponName)) {fields.Description += (fields.Description ? '; ' : '') + 'Adv: knock prone if both dice hit; Disadv: Str Mod bludg. damage on miss but 2nd die would hit';}; ", "With a handaxe, battleaxe, greataxe, warhammer, or maul, I get the following benefits:\n - +1 to hit;\n - When attacking with advantage, the target is knocked prone if both die would hit;\n - When attacking with disadvantage and missing, still do my Strength modifier in bludgeoning damage."],
-		atkCalc : ["if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(WeaponName)) {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Adv: knock prone if both dice hit; Disadv: Str Mod bludg. damage on miss but 2nd die would hit';
+				};
+			},
+			"With a handaxe, battleaxe, greataxe, warhammer, or maul, I get the following benefits:\n - +1 to hit;\n - When attacking with advantage, the target is knocked prone if both die would hit;\n - When attacking with disadvantage and missing, still do my Strength modifier in bludgeoning damage."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) output.extraHit += 1;
+			}, ""]
 	}
 };
 FeatsList["blade mastery"] = {
@@ -27,8 +37,18 @@ FeatsList["blade mastery"] = {
 	source : ["UA:F", 2],
 	description : "With a shortsword, longsword, greatsword, scimitar, or rapier, I get +1 to hit, advantage on opportunity attacks, and with the weapon in hand I can use my reaction to assume a parrying stance that gives me +1 AC until the start of my next turn.",
 	calcChanges : {
-		atkAdd : ["if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(WeaponName)) {fields.Description += (fields.Description ? '; ' : '') + 'Advantage on opportunity attacks';}; ", "With a shortsword, longsword, greatsword, scimitar, or rapier, I get the following benefits:\n - +1 to hit;\n - Advantage on opportunity attacks."],
-		atkCalc : ["if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(WeaponName)) {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Advantage on opportunity attacks';
+				};
+			},
+			"With a shortsword, longsword, greatsword, scimitar, or rapier, I get the following benefits:\n - +1 to hit;\n - Advantage on opportunity attacks."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) output.extraHit += 1;
+			}, ""]
 	},
 	action : ["reaction", " Parrying Stance"]
 };
@@ -37,8 +57,18 @@ FeatsList["flail mastery"] = {
 	source : ["UA:F", 3],
 	calculate : "event.value = 'With a flail, I get +1 to hit, and enemies hit by an opportunity attack with it have to make a Str save DC ' + (8 + Number(What('Proficiency Bonus')) + What('Str Mod')) + ' (8 + Prof. bonus + Str mod) or be knocked prone. As a bonus action, I can get +2 to hit with my flail vs. targets with shields until the end of my turn.';",
 	calcChanges : {
-		atkAdd : ["if (WeaponName === 'flail') {fields.Description += (fields.Description ? '; ' : '') + 'On opportunity attack hit, Strength save (DC 8 + Prof. bonus + Str mod) or knocked prone';}; ", "With a flail, I get the following benefits:\n - +1 to hit;\n - Targets hit with it must make a Strength saving throw (DC 8 + proficiency bonus + Strength modifier) or be knocked prone."],
-		atkCalc : ["if (WeaponName === 'flail') {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName === 'flail') {
+					fields.Description += (fields.Description ? '; ' : '') + 'On opportunity attack hit, Strength save (DC 8 + Prof. bonus + Str mod) or knocked prone';
+				};
+			},
+			"With a flail, I get the following benefits:\n - +1 to hit;\n - Targets hit with it must make a Strength saving throw (DC 8 + proficiency bonus + Strength modifier) or be knocked prone."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.WeaponName === 'flail') output.extraHit += 1;
+			}, ""]
 	},
 	action : ["bonus action", ""]
 };
@@ -47,8 +77,19 @@ FeatsList["spear mastery"] = {
 	source : ["UA:F", 3],
 	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the speer's reach with 5 ft.",
 	calcChanges : {
-		atkAdd : ["if (WeaponName === 'spear') { fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die; fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)'); }; ", "With a spear, I get the following benefits:\n - +1 to hit;\n - The spear damage die increases to d8 (versatile d10)."],
-		atkCalc : ["if (WeaponName === 'spear') {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName === 'spear') {
+					fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die;
+					fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)');
+				};
+			},
+			"With a spear, I get the following benefits:\n - +1 to hit;\n - The spear damage die increases to d8 (versatile d10)."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.WeaponName === 'spear') output.extraHit += 1;
+			}, ""]
 	},
 	action : [["bonus action", " (set vs. charge)"], ['bonus action', ' (increase reach)']]
 };

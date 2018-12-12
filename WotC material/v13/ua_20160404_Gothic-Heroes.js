@@ -151,6 +151,19 @@ RaceList["dragonborn revenant"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Draconic"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
+		name : "Breath weapon",
+		source : ["UA:GH", 1],
+		ability : 3,
+		type : "Natural",
+		damage : [2, 6, "necrotic"],
+		range : '5-ft \u00D7 30-ft line',
+		description : "Hits all in area; Con save, success - half damage; Usable only once per short rest",
+		abilitytodamage : false,
+		dc : true,
+		dbBreathWeapon : true
+	},
 	addWeapons : ["Breath Weapon"],
 	age : " reach adulthood by 15 and live around 80 years",
 	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -167,23 +180,15 @@ RaceList["dragonborn revenant"] = {
 			limfeaname : "Breath Weapon",
 			minlevel : 1,
 			usages : 1,
-			additional : ["2d6", "2d6", "2d6", "2d6", "2d6", "3d6", "3d6", "3d6", "3d6", "3d6", "4d6", "4d6", "4d6", "4d6", "4d6", "5d6", "5d6", "5d6", "5d6", "5d6"],
+			additional : levels.map(function (n) {
+				return (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + 'd6';
+			}),
 			recovery : "short rest",
 			action : ["action", ""],
 			calcChanges : {
-				atkAdd : [
-					function () {
-						if (WeaponName === 'breath weapon' && CurrentRace.known === 'dragonborn revenant') {
-							fields.Damage_Type = CurrentRace.dmgres[0];
-							fields.Description = fields.Description.replace(/con save/i, 'Dex save');
-							fields.Range = '5-ft \u00D7 30-ft line';
-						};
-					},
-					"As a Dragonborn I have a breath weapon. The damage type, range, and type of saving throw are dependent on which variant of Dragonborn I am. Furthermore, the amount of damage is dependent on my character level."
-				],
 				atkCalc : [
-					function () {
-						if (WeaponName === 'breath weapon' && CurrentRace.known === 'dragonborn revenant' && CurrentRace.level > 5) {
+					function (fields, v, output) {
+						if (v.theWea.dbBreathWeapon && CurrentRace.known === 'dragonborn revenant' && CurrentRace.level > 5) {
 							output.die = output.die.replace('2d6', (CurrentRace.level < 11 ? 3 : CurrentRace.level < 16 ? 4 : 5) + 'd6');
 						};
 					}

@@ -1,5 +1,5 @@
 var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source
@@ -17,7 +17,12 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", {
 	source : ["UA:LDU", 1],
 	description : "\n   " + "+1 bonus to attack rolls I make with ranged attacks" + "\n   " + "I don't have disadvantage when making a ranged attack while within 5 ft of a hostile" + "\n   " + "My ranged attacks ignore half and three-quarters cover against targets within 30 ft",
 	calcChanges : {
-		atkCalc : ["if (isRangedWeapon) {output.extraHit += 1; }; ", "My ranged weapons get a +1 bonus on the To Hit."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isRangedWeapon) output.extraHit += 1;
+			},
+			"My ranged weapons get a +1 bonus on the To Hit."
+		]
 	}
 });
 AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", {
@@ -149,7 +154,12 @@ AddSubClass("warlock", "the undying light", {
 			}],
 			dmgres : ["Radiant"],
 			calcChanges : {
-				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) output.extraDmg += What('Cha Mod');
+					},
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."
+				]
 			}
 		},
 		"subclassfeature6" : {

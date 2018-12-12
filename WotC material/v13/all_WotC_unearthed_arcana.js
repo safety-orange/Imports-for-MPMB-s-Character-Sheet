@@ -119,6 +119,17 @@ AddRacialVariant("shifter", "longtooth", {
 	source : ["UA:E", 2],
 	plural : "Longtooth shifters",
 	addWeapons : ["longtooth"],
+	weaponOptions : {
+		regExpSearch : /\blongtooth\b/i,
+		name : "Longtooth",
+		source : ["UA:E", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "Only while shifted; Target up to my size is grappled",
+		abilitytodamage : true
+	},
 	scorestxt : "",
 	scores : [1, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled."
@@ -129,6 +140,18 @@ AddRacialVariant("shifter", "razorclaw", {
 	source : ["UA:E", 2],
 	plural : "Razorclaw shifters",
 	addWeapons : ["razorclaw"],
+	weaponOptions : {
+		regExpSearch : /\brazorclaw\b/i,
+		name : "Razorclaw",
+		source : ["UA:E", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, "", "slashing"],
+		range : "Melee",
+		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
+		monkweapon : true,
+		abilitytodamage : true
+	},
 	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage."
@@ -142,31 +165,6 @@ AddRacialVariant("shifter", "wildhunt", {
 	scores : [0, 1, 0, 0, 1, 0],
 	trait : "Wildhunt Shifter (+1 Dexterity, +1 Wisdom)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain advantage on all Wisdom-based checks and saving throws."
 });
-
-// Shifter weapons
-WeaponsList["longtooth"] = {
-	regExpSearch : /\blongtooth\b/i,
-	name : "Longtooth",
-	source : ["UA:E", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "Only while shifted; Target up to my size is grappled",
-	abilitytodamage : true
-};
-WeaponsList["razorclaw"] = {
-	regExpSearch : /\brazorclaw\b/i,
-	name : "Razorclaw",
-	source : ["UA:E", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, "", "slashing"],
-	range : "Melee",
-	description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
-	monkweapon : true,
-	abilitytodamage : true
-};
 
 // 12 variants of the Dragonmark feat
 FeatsList["dragonmark [detection]"] = {
@@ -721,7 +719,18 @@ RaceList["minotaur"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	addWeapons : ["Minotaur Horns"],
+	weaponOptions : {
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : ["UA:WA", 1],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 10, "piercing"],
+		range : "Melee",
+		description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
+		abilitytodamage : true
+	},
+	addWeapons : ["Horns"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
@@ -767,19 +776,6 @@ AddRacialVariant("minotaur", "strength", {
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
-
-// Minotaur weapon
-WeaponsList["horns-uawa"] = {
-	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns",
-	source : ["UA:WA", 1],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 10, "piercing"],
-	range : "Melee",
-	description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
-	abilitytodamage : true
-};
 var iFileName = "ua_20150803_Modern-Magic.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Modern Magic article to MPMB's Character Record Sheet
@@ -859,7 +855,14 @@ AddSubClass("cleric", "city domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -1019,7 +1022,14 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 	source : ["UA:MM", 3],
 	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkAdd : ["if (isRangedWeapon &&  && (/\\bpact\\b/i).test(WeaponText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", "If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponText)) {
+					fields.Proficiency = true;
+					fields.Description += v.thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; };
+			},
+			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
+		]
 	}
 });
 
@@ -1574,7 +1584,7 @@ ClassList["rune scribe"] = {
 	}
 };
 var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source
@@ -1592,7 +1602,12 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", {
 	source : ["UA:LDU", 1],
 	description : "\n   " + "+1 bonus to attack rolls I make with ranged attacks" + "\n   " + "I don't have disadvantage when making a ranged attack while within 5 ft of a hostile" + "\n   " + "My ranged attacks ignore half and three-quarters cover against targets within 30 ft",
 	calcChanges : {
-		atkCalc : ["if (isRangedWeapon) {output.extraHit += 1; }; ", "My ranged weapons get a +1 bonus on the To Hit."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isRangedWeapon) output.extraHit += 1;
+			},
+			"My ranged weapons get a +1 bonus on the To Hit."
+		]
 	}
 });
 AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", {
@@ -1724,7 +1739,12 @@ AddSubClass("warlock", "the undying light", {
 			}],
 			dmgres : ["Radiant"],
 			calcChanges : {
-				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) output.extraDmg += What('Cha Mod');
+					},
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -2292,6 +2312,19 @@ RaceList["dragonborn revenant"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Draconic"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
+		name : "Breath weapon",
+		source : ["UA:GH", 1],
+		ability : 3,
+		type : "Natural",
+		damage : [2, 6, "necrotic"],
+		range : '5-ft \u00D7 30-ft line',
+		description : "Hits all in area; Con save, success - half damage; Usable only once per short rest",
+		abilitytodamage : false,
+		dc : true,
+		dbBreathWeapon : true
+	},
 	addWeapons : ["Breath Weapon"],
 	age : " reach adulthood by 15 and live around 80 years",
 	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -2308,23 +2341,15 @@ RaceList["dragonborn revenant"] = {
 			limfeaname : "Breath Weapon",
 			minlevel : 1,
 			usages : 1,
-			additional : ["2d6", "2d6", "2d6", "2d6", "2d6", "3d6", "3d6", "3d6", "3d6", "3d6", "4d6", "4d6", "4d6", "4d6", "4d6", "5d6", "5d6", "5d6", "5d6", "5d6"],
+			additional : levels.map(function (n) {
+				return (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + 'd6';
+			}),
 			recovery : "short rest",
 			action : ["action", ""],
 			calcChanges : {
-				atkAdd : [
-					function () {
-						if (WeaponName === 'breath weapon' && CurrentRace.known === 'dragonborn revenant') {
-							fields.Damage_Type = CurrentRace.dmgres[0];
-							fields.Description = fields.Description.replace(/con save/i, 'Dex save');
-							fields.Range = '5-ft \u00D7 30-ft line';
-						};
-					},
-					"As a Dragonborn I have a breath weapon. The damage type, range, and type of saving throw are dependent on which variant of Dragonborn I am. Furthermore, the amount of damage is dependent on my character level."
-				],
 				atkCalc : [
-					function () {
-						if (WeaponName === 'breath weapon' && CurrentRace.known === 'dragonborn revenant' && CurrentRace.level > 5) {
+					function (fields, v, output) {
+						if (v.theWea.dbBreathWeapon && CurrentRace.known === 'dragonborn revenant' && CurrentRace.level > 5) {
 							output.die = output.die.replace('2d6', (CurrentRace.level < 11 ? 3 : CurrentRace.level < 16 ? 4 : 5) + 'd6');
 						};
 					}
@@ -2508,8 +2533,18 @@ FeatsList["fell handed"] = {
 	source : ["UA:F", 2],
 	description : "With a handaxe, battleaxe, greataxe, warhammer, or maul, I get +1 to hit, knock prone if I have adv. and hit with both rolls, with disadv. still do Str mod in bludg. damage if I miss but the other die would've hit, can use Help to give ally +2 to hit vs. enemy with a shield.",
 	calcChanges : {
-		atkAdd : ["if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(WeaponName)) {fields.Description += (fields.Description ? '; ' : '') + 'Adv: knock prone if both dice hit; Disadv: Str Mod bludg. damage on miss but 2nd die would hit';}; ", "With a handaxe, battleaxe, greataxe, warhammer, or maul, I get the following benefits:\n - +1 to hit;\n - When attacking with advantage, the target is knocked prone if both die would hit;\n - When attacking with disadvantage and missing, still do my Strength modifier in bludgeoning damage."],
-		atkCalc : ["if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(WeaponName)) {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Adv: knock prone if both dice hit; Disadv: Str Mod bludg. damage on miss but 2nd die would hit';
+				};
+			},
+			"With a handaxe, battleaxe, greataxe, warhammer, or maul, I get the following benefits:\n - +1 to hit;\n - When attacking with advantage, the target is knocked prone if both die would hit;\n - When attacking with disadvantage and missing, still do my Strength modifier in bludgeoning damage."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) output.extraHit += 1;
+			}, ""]
 	}
 };
 FeatsList["blade mastery"] = {
@@ -2517,8 +2552,18 @@ FeatsList["blade mastery"] = {
 	source : ["UA:F", 2],
 	description : "With a shortsword, longsword, greatsword, scimitar, or rapier, I get +1 to hit, advantage on opportunity attacks, and with the weapon in hand I can use my reaction to assume a parrying stance that gives me +1 AC until the start of my next turn.",
 	calcChanges : {
-		atkAdd : ["if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(WeaponName)) {fields.Description += (fields.Description ? '; ' : '') + 'Advantage on opportunity attacks';}; ", "With a shortsword, longsword, greatsword, scimitar, or rapier, I get the following benefits:\n - +1 to hit;\n - Advantage on opportunity attacks."],
-		atkCalc : ["if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(WeaponName)) {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Advantage on opportunity attacks';
+				};
+			},
+			"With a shortsword, longsword, greatsword, scimitar, or rapier, I get the following benefits:\n - +1 to hit;\n - Advantage on opportunity attacks."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) output.extraHit += 1;
+			}, ""]
 	},
 	action : ["reaction", " Parrying Stance"]
 };
@@ -2527,8 +2572,18 @@ FeatsList["flail mastery"] = {
 	source : ["UA:F", 3],
 	calculate : "event.value = 'With a flail, I get +1 to hit, and enemies hit by an opportunity attack with it have to make a Str save DC ' + (8 + Number(What('Proficiency Bonus')) + What('Str Mod')) + ' (8 + Prof. bonus + Str mod) or be knocked prone. As a bonus action, I can get +2 to hit with my flail vs. targets with shields until the end of my turn.';",
 	calcChanges : {
-		atkAdd : ["if (WeaponName === 'flail') {fields.Description += (fields.Description ? '; ' : '') + 'On opportunity attack hit, Strength save (DC 8 + Prof. bonus + Str mod) or knocked prone';}; ", "With a flail, I get the following benefits:\n - +1 to hit;\n - Targets hit with it must make a Strength saving throw (DC 8 + proficiency bonus + Strength modifier) or be knocked prone."],
-		atkCalc : ["if (WeaponName === 'flail') {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName === 'flail') {
+					fields.Description += (fields.Description ? '; ' : '') + 'On opportunity attack hit, Strength save (DC 8 + Prof. bonus + Str mod) or knocked prone';
+				};
+			},
+			"With a flail, I get the following benefits:\n - +1 to hit;\n - Targets hit with it must make a Strength saving throw (DC 8 + proficiency bonus + Strength modifier) or be knocked prone."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.WeaponName === 'flail') output.extraHit += 1;
+			}, ""]
 	},
 	action : ["bonus action", ""]
 };
@@ -2537,8 +2592,19 @@ FeatsList["spear mastery"] = {
 	source : ["UA:F", 3],
 	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the speer's reach with 5 ft.",
 	calcChanges : {
-		atkAdd : ["if (WeaponName === 'spear') { fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die; fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)'); }; ", "With a spear, I get the following benefits:\n - +1 to hit;\n - The spear damage die increases to d8 (versatile d10)."],
-		atkCalc : ["if (WeaponName === 'spear') {output.extraHit += 1;}; ", ""]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName === 'spear') {
+					fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die;
+					fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)');
+				};
+			},
+			"With a spear, I get the following benefits:\n - +1 to hit;\n - The spear damage die increases to d8 (versatile d10)."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.WeaponName === 'spear') output.extraHit += 1;
+			}, ""]
 	},
 	action : [["bonus action", " (set vs. charge)"], ['bonus action', ' (increase reach)']]
 };
@@ -2871,7 +2937,14 @@ ClassList["rangerua"] = {
 			},
 			languageProfs : [1],
 			calcChanges : {
-				atkCalc : ["if (!isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(WeaponText)) { output.extraDmg += classes.known.rangerua.level < 6 ? 2 : 4; }; ", "If I include the words 'Favored Enemy' in the name or description of a weapon, it gets bonus damage, depending on my Ranger level."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (!v.isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(v.WeaponText)) {
+							output.extraDmg += classes.known.rangerua.level < 6 ? 2 : 4;
+						};
+					},
+					"If I include the words 'Favored Enemy' in the name or description of a weapon, it gets bonus damage, depending on my Ranger level."
+				]
 			}
 		},
 		"natural explorer" : {
@@ -3310,7 +3383,14 @@ AddSubClass("barbarian", "storm herald", {
 				name : "Raging Storm: Sea",
 				description : "\n   " + "Creatures in my aura hit by my attack must make a Str save or be knocked prone" + "\n   " + "The DC for this save is 8 + my proficiency bonus + my Strength modifier",
 				calcChanges : {
-					atkAdd : ["if (isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\\brage\\b/i).test(WeaponText)) {fields.Description += (fields.Description ? '; ' : '') + 'Str save or knocked prone'; }; ", "If I include the word 'Rage' in a melee weapon's name, it will show in its description that it forces targets that are hit to make a Strength saving throw or be knocked prone."]
+					atkAdd : [
+						function (fields, v) {
+							if (v.isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\brage\b/i).test(v.WeaponText)) {
+								fields.Description += (fields.Description ? '; ' : '') + 'Str save or knocked prone';
+							};
+						},
+						"If I include the word 'Rage' in a melee weapon's name, it will show in its description that it forces targets that are hit to make a Strength saving throw or be knocked prone."
+					]
 				}
 			},
 			"tundra" : {
@@ -3552,7 +3632,14 @@ AddSubClass("cleric", "forge domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 fire damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra fire damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra fire damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -3619,7 +3706,14 @@ AddSubClass("cleric", "grave domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 necrotic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -3674,7 +3768,14 @@ AddSubClass("cleric", "protection domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 radiant damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra radiant damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra radiant damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -3884,7 +3985,14 @@ AddSubClass("fighter", "arcane archer", {
 			recovery : "short rest",
 			action : ['bonus action', 'Create Magical Arrow'],
 			calcChanges : {
-				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(WeaponText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
+				atkAdd : [
+					function (fields, v) {
+						if ((/longbow|shortbow/i).test(v.WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
+							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (v.thisWeapon[1] ? '' : '; Counts as magical');
+						};
+					},
+					"If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."
+				]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -3984,7 +4092,14 @@ AddSubClass("fighter", "knight", {
 			}),
 			action : ["reaction", ""],
 			calcChanges : {
-				atkCalc : ["if (isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\\b(implacable.?mark|marked)\\b/i).test(WeaponText)) { output.extraDmg += classes.known.fighter.level; }; ", "If I include the words 'Implacable Mark' or 'Marked' in the name or description of a melee weapon, it gets my fighter level added to its Damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(implacable.?mark|marked)\b/i).test(v.WeaponText)) {
+							output.extraDmg += classes.known.fighter.level;
+						};
+					},
+					"If I include the words 'Implacable Mark' or 'Marked' in the name or description of a melee weapon, it gets my fighter level added to its Damage."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -4014,7 +4129,14 @@ AddSubClass("fighter", "knight", {
 			}),
 			action : ["reaction", ""],
 			calcChanges : {
-				atkCalc : ["if (isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 9 && (/holds?.the.line/i).test(WeaponText)) { output.extraDmg += Math.floor(classes.known.fighter.level / 2); }; ", "If I include the words 'Hold the Line' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 9 && (/holds?.the.line/i).test(v.WeaponText)) {
+							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
+						};
+					},
+					"If I include the words 'Hold the Line' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."
+				]
 			}
 		},
 		"subclassfeature15" : {
@@ -4108,8 +4230,18 @@ AddSubClass("fighter", "sharpshooter", {
 			}),
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover'; }; ", "If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."],
-				atkCalc : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(v.WeaponText)) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover';
+						};
+					},
+					"If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
+					}, ""]
 			}
 		},
 		"subclassfeature7" : {
@@ -4174,7 +4306,24 @@ AddSubClass("monk", "way of the kensei", {
 			},
 			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra']);",
 			calcChanges : {
-				atkAdd : ["var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && theWea && !isSpell && !(/shortsword/i).test(theWea.name) && (/martial/i).test(theWea.type)) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; fields.Mod = StrDex; fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage'; }; ", "I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.WeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
+							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							try {
+								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+							} catch (e) {
+								var curDie = 'x';
+							};
+							if (isNaN(curDie) || curDie < aMonkDie) {
+								fields.Damage_Die = '1d' + aMonkDie;
+							};
+							fields.Mod = v.StrDex;
+							fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage';
+						};
+					},
+					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
+				]
 			}
 		},
 		"ki-empowered strikes" : {
@@ -4183,7 +4332,14 @@ AddSubClass("monk", "way of the kensei", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (theWea && !isSpell && (/martial/i).test(theWea.type))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : [
+					function (fields, v) {
+						if (((/unarmed strike/i).test(WeaponName) || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+						};
+					},
+					"My unarmed strikes and Kensei Weapons count as magical for overcoming resistances and immunities."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -4195,7 +4351,14 @@ AddSubClass("monk", "way of the kensei", {
 			recovery : "short rest",
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkCalc : ["if (!isSpell && !isDC && (/precise.{0,3}strike/i).test(WeaponText)) {output.prof *= 2; }; ", "If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (!v.isSpell && !v.isDC && (/precise.{0,3}strike/i).test(v.WeaponText)) {
+							output.prof *= 2;
+						};
+					},
+					"If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -4349,7 +4512,14 @@ AddSubClass("paladin", "oath of treachery", {
 				return n < 3 ? "" : "2d10+" + n + " damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (!isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(WeaponText)) {fields.Description += (fields.Description ? '; +' : '+') + '2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)'; }; ", "If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(v.WeaponText) && classes.known.paladin && classes.known.paladin.level) {
+							fields.Description += (fields.Description ? '; ' : '') + '+2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)';
+						};
+					},
+					"If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -4636,10 +4806,29 @@ ClassSubList["artificer-alchemist"] = {
 			additional : levels.map(function (n) {
 				return Math.ceil(n / 2) + "d6 acid damage";
 			}),
-			action : ["action", ""],
+			action : ["action", ""],			weaponOptions : {
+				regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
+				name : "Alchemical Acid",
+				source : ["UA:A", 5],
+				list : "artificer",
+				ability : 4,
+				type : "Artificer",
+				damage : [1, 6, "acid"],
+				range : "30 ft",
+				description : "Dex save, success - no damage; Objects automatically take maximum damage",
+				abilitytodamage : false,
+				dc : true,
+				artAlcAcid : true
+			},
 			addWeapons : ['Alchemical Acid'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'alchemical acid' && classes.known.artificer && classes.known.artificer.level) {fields.Proficiency = true; fields.Damage_Die = function(n){return Math.ceil(n / 2) + 'd6';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artAlcAcid && classes.known.artificer && classes.known.artificer.level) {
+							fields.Proficiency = true;
+							fields.Damage_Die = Math.ceil(classes.known.artificer.level / 2) + 'd6';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature1.3" : {
@@ -4654,9 +4843,29 @@ ClassSubList["artificer-alchemist"] = {
 				return Math.ceil(n / 3) + "d6 fire damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*alchemical)(?=.*fire).*$/i,
+				name : "Alchemical Fire",
+				source : ["UA:A", 5],
+				list : "artificer",
+				ability : 4,
+				type : "Artificer",
+				damage : [1, 6, "fire"],
+				range : "30 ft",
+				description : "Dex save, success - no damage; All creatures within 5-ft of the point of impact have to save",
+				abilitytodamage : false,
+				dc : true,
+				artAlcFire : true
+			},
 			addWeapons : ['Alchemical Fire'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'alchemical fire' && classes.known.artificer && classes.known.artificer.level) {fields.Proficiency = true; fields.Damage_Die = function(n){return Math.ceil(n / 3) + 'd6';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artAlcFire && classes.known.artificer && classes.known.artificer.level) {
+							fields.Proficiency = true;
+							fields.Damage_Die = Math.ceil(classes.known.artificer.level / 3) + 'd6';
+						};
+					}, ""]
 			}
 		}
 	}
@@ -4667,7 +4876,7 @@ ClassSubList["artificer-gunsmith"] = {
 	subname : "Gunsmith",
 	source : ["UA:A", 6],
 	features : {
-		"subclassfeature1.1" : {
+		"subclassfeature1" : {
 			name : "Master Smith",
 			source : ["UA:A", 6],
 			minlevel : 1,
@@ -4679,7 +4888,7 @@ ClassSubList["artificer-gunsmith"] = {
 			},
 			toolProfs : ["Smith's tools"]
 		},
-		"subclassfeature1.2" : {
+		"subclassfeature1.1" : {
 			name : "Thunder Cannon",
 			source : ["UA:A", 6],
 			minlevel : 1,
@@ -4689,9 +4898,32 @@ ClassSubList["artificer-gunsmith"] = {
 			]),
 			weaponProfs : [false, false, ["thunder cannon"]],
 			action : ["bonus action", " (reload)"],
+			weaponOptions : {
+				regExpSearch : /^(?!.*(blast|monger|piercing|explosive|round))(?=.*\bthunder)(?=.*cannon\b).*$/i,
+				name : "Thunder Cannon",
+				source : ["UA:A", 6],
+				ability : 2,
+				type : "Thunder Cannon",
+				damage : [2, 6, "piercing"],
+				range : "150/500 ft",
+				weight : 12, // made up, based on the weight of real rifles
+				description : "Ammunition, loading, two-handed, bonus action to reload",
+				abilitytodamage : true,
+				ammo : "Arcane Magazine"
+			},
+			ammoOptions : {
+				name : "Arcane Magazine",
+				source : ["UA:A", 7],
+				weight : 0.2, // based on the weight of renaissance bullets from the DMG
+				icon : "Bullets",
+				checks : [".Bullet"],
+				display : 50,
+				invName : "Thunder Cannon Rounds",
+				alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
+			},
 			addWeapons : ['Thunder Cannon']
 		},
-		"subclassfeature1.3" : {
+		"subclassfeature1.2" : {
 			name : "Arcane Magazine",
 			source : ["UA:A", 6],
 			minlevel : 1,
@@ -4711,9 +4943,27 @@ ClassSubList["artificer-gunsmith"] = {
 				return "+" + Math.floor((n - 1) / 2) + "d6 thunder damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*monger\b).*$/i,
+				name : "Thunder Cannon (Monger)",
+				source : ["UA:A", 6],
+				ability : 2,
+				type : "Thunder Cannon",
+				damage : [2, 6, "piercing"],
+				range : "150/500 ft",
+				description : "Ammunition, loading, two-handed, bonus action to reload",
+				abilitytodamage : true,
+				ammo : "Arcane Magazine",
+				artTCmonger : true
+			},
 			addWeapons : ['Thunder Cannon (Monger)'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'thunder cannon-thunder monger' && classes.known.artificer && classes.known.artificer.level > 2) {fields.Description += '; +' + function(n){return Math.floor((n - 1) / 2) + 'd6 thunder damage';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artTCmonger && classes.known.artificer && classes.known.artificer.level > 2) {
+							fields.Description += '; +' + Math.floor((classes.known.artificer.level - 1) / 2) + 'd6 thunder damage';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature9" : {
@@ -4731,9 +4981,28 @@ ClassSubList["artificer-gunsmith"] = {
 				"4d6 force damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bblast)(?=.*wave\b).*$/i,
+				name : "Thunder Cannon (Blast Wave)",
+				source : ["UA:A", 6],
+				ability : 4,
+				type : "Thunder Cannon",
+				damage : [2, 6, "force"],
+				range : "15-ft cone",
+				description : "Ammunition, loading, two-handed, bonus action to reload; Str save or damage and pushed back 10 ft",
+				dc : true,
+				abilitytodamage : false,
+				ammo : "Arcane Magazine",
+				artTCblast : true
+			},
 			addWeapons : ['Thunder Cannon (Blast Wave)'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'thunder cannon-blast wave' && classes.known.artificer && classes.known.artificer.level >= 13) {fields.Damage_Die = function(n){return (n < 17 ? 3 : 4) + 'd6';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artTCblast && classes.known.artificer && classes.known.artificer.level >= 13) {
+							fields.Damage_Die = (classes.known.artificer.level < 17 ? 3 : 4) + 'd6';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature14" : {
@@ -4750,9 +5019,28 @@ ClassSubList["artificer-gunsmith"] = {
 				"6d6 lightning damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bpiercing)(?=.*round\b).*$/i,
+				name : "Thunder Cannon (Piercing Round)",
+				source : ["UA:A", 6],
+				ability : 4,
+				type : "Thunder Cannon",
+				damage : [4, 6, "lightning"],
+				range : "30-ft line",
+				description : "Ammunition, loading, two-handed, bonus action to reload; 5 ft wide line; Dex save or damage",
+				dc : true,
+				abilitytodamage : false,
+				ammo : "Arcane Magazine",
+				artTCpiercing : true
+			},
 			addWeapons : ['Thunder Cannon (Piercing Round)'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'thunder cannon-piercing round' && classes.known.artificer && classes.known.artificer.level >= 19) {fields.Damage_Die = '6d6'; }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artTCpiercing && classes.known.artificer && classes.known.artificer.level >= 19) {
+							fields.Damage_Die = '6d6';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature17" : {
@@ -4766,6 +5054,19 @@ ClassSubList["artificer-gunsmith"] = {
 			]),
 			additional : "4d8 fire damage",
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bexplosive)(?=.*round\b).*$/i,
+				name : "Thunder Cannon (Explosive Round)",
+				source : ["UA:A", 7],
+				ability : 4,
+				type : "Thunder Cannon",
+				damage : [4, 8, "fire"],
+				range : "500 ft",
+				description : "Ammunition, loading, two-handed, bonus action to reload; 30-ft radius sphere; Dex save or damage",
+				dc : true,
+				abilitytodamage : false,
+				ammo : "Arcane Magazine"
+			},
 			addWeapons : ['Thunder Cannon (Explosive Round)']
 		}
 	}
@@ -5143,116 +5444,6 @@ ClassList.artificer.features["wondrous invention"].extrachoices.forEach(function
 	};
 });
 
-// Artificer weapons
-WeaponsList["alchemical acid"] = {
-	regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
-	name : "Alchemical Acid",
-	source : ["UA:A", 5],
-	list : "artificer",
-	ability : 4,
-	type : "Artificer",
-	damage : [1, 6, "acid"],
-	range : "30 ft",
-	weight : 0,
-	description : "Dex save, success - no damage; Objects automatically take maximum damage",
-	abilitytodamage : false,
-	dc : true
-};
-WeaponsList["alchemical fire"] = {
-	regExpSearch : /^(?=.*alchemical)(?=.*fire).*$/i,
-	name : "Alchemical Fire",
-	source : ["UA:A", 5],
-	list : "artificer",
-	ability : 4,
-	type : "Artificer",
-	damage : [1, 6, "fire"],
-	range : "30 ft",
-	weight : 0,
-	description : "Dex save, success - no damage; All creatures within 5-ft of the point of impact have to save",
-	abilitytodamage : false,
-	dc : true
-};
-WeaponsList["thunder cannon-thunder cannon"] = {
-	regExpSearch : /^(?!.*(blast|monger|piercing|explosive|round))(?=.*\bthunder)(?=.*cannon\b).*$/i,
-	name : "Thunder Cannon",
-	source : ["UA:A", 6],
-	ability : 2,
-	type : "Thunder Cannon",
-	damage : [2, 6, "piercing"],
-	range : "150/500 ft",
-	weight : 12, // made up, based on the weight of real rifles
-	description : "Ammunition, loading, two-handed, bonus action to reload",
-	abilitytodamage : true,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-thunder monger"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*monger\b).*$/i,
-	name : "Thunder Cannon (Monger)",
-	source : ["UA:A", 6],
-	ability : 2,
-	type : "Thunder Cannon",
-	damage : [2, 6, "piercing"],
-	range : "150/500 ft",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload",
-	abilitytodamage : true,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-blast wave"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bblast)(?=.*wave\b).*$/i,
-	name : "Thunder Cannon (Blast Wave)",
-	source : ["UA:A", 6],
-	ability : 4,
-	type : "Thunder Cannon",
-	damage : [2, 6, "force"],
-	range : "15-ft cone",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload; Str save or damage and pushed back 10 ft",
-	dc : true,
-	abilitytodamage : false,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-piercing round"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bpiercing)(?=.*round\b).*$/i,
-	name : "Thunder Cannon (Piercing Round)",
-	source : ["UA:A", 6],
-	ability : 4,
-	type : "Thunder Cannon",
-	damage : [4, 6, "lightning"],
-	range : "30-ft line",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload; 5 ft wide line; Dex save or damage",
-	dc : true,
-	abilitytodamage : false,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-explosive round"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bexplosive)(?=.*round\b).*$/i,
-	name : "Thunder Cannon (Explosive Round)",
-	source : ["UA:A", 7],
-	ability : 4,
-	type : "Thunder Cannon",
-	damage : [4, 8, "fire"],
-	range : "500 ft",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload; 30-ft radius sphere; Dex save or damage",
-	dc : true,
-	abilitytodamage : false,
-	ammo : "arcane magazine"
-};
-
-// Artificer ammo
-AmmoList["arcane magazine"] = {
-	name : "Arcane Magazine",
-	source : ["UA:A", 7],
-	weight : 0.2, // based on the weight of renaissance bullets from the DMG
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Thunder Cannon Rounds",
-	alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
-};
-
 // Set the Artificer class spell list
 var SetArtificerSpells = function(){
 	var artSp = [
@@ -5426,7 +5617,12 @@ var thePrimevalGuardianSubclass = {
 			minlevel : 3,
 			description : "\n   " + "Once each turn, a hit from my weapon attack can deal 1d6 extra piercing damage",
 			calcChanges : {
-				atkAdd : ["if (!isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn, +1d6 piercing damage'; }; ", "My weapon attacks can deal 1d6 extra piercing damage once per turn."]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell) fields.Description += (fields.Description ? '; ' : '') + 'Once per turn, +1d6 piercing damage';
+					},
+					"My weapon attacks can deal 1d6 extra piercing damage once per turn."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -5780,6 +5976,14 @@ AddSubClass("sorcerer", "stone sorcery", {
 			calcChanges : {
 				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + \" from Stone's Durability (Sorcerer)\"; }; "
 			},
+			armourOptions : {
+				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
+				name : "Stone's Durability (Con)",
+				source : ["UA:SO", 4],
+				ac : 13,
+				dex : -10,
+				addMod : true
+			},
 			addArmor : "Stone's Durability (Con)"
 		},
 		"subclassfeature6" : {
@@ -5821,19 +6025,6 @@ AddSubClass("sorcerer", "stone sorcery", {
 		}
 	}
 });
-
-// Stone Sorcerer armour
-ArmourList["stone's durability"] = {
-	regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
-	name : "Stone's Durability (Con)",
-	source : ["UA:SO", 4],
-	type : "",
-	ac : 13,
-	stealthdis : false,
-	strReq : 0,
-	dex : -10,
-	addMod : true
-};
 var iFileName = "ua_20170213_Warlock-and-Wizard.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
@@ -5866,7 +6057,14 @@ AddSubClass("warlock", "the hexblade", {
 			armorProfs : [false, true, false, true],
 			weaponProfs : [false, true],
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText)) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "For melee weapons that lack the two-handed property, I can use my Charisma instead of Strength or Dexterity."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && !(/\b(2|two).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
+							fields.Mod = 6;
+						};
+					},
+					"For melee weapons that lack the two-handed property, I can use my Charisma instead of Strength or Dexterity."
+				]
 			}
 		},
 		"subclassfeature1.1" : {
@@ -5883,8 +6081,19 @@ AddSubClass("warlock", "the hexblade", {
 			usages : levels.map( function(n) { return n < 14 ? 1 : ""; }),
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (!isDC && (/hexblade/i).test(WeaponText) && !CritChance) {var CritChance = 19; fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20'; }; ", "If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."],
-				atkCalc : ["if ((/hexblade/i).test(WeaponText)) {output.extraDmg += output.prof; }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isDC && (/hexblade/i).test(v.WeaponText) && !v.CritChance) {
+							v.CritChance = 19;
+							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
+						};
+					},
+					"If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if ((/hexblade/i).test(v.WeaponText)) output.extraDmg += output.prof;
+					}, ""]
 			}
 		},
 		"subclassfeature6" : {
@@ -6107,6 +6316,18 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	]),
 	source : ["UA:WnW", 3],
 	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
+		name : "Claw of Acamar",
+		source : ["UA:WnW", 3],
+		ability : 1,
+		type : "Martial",
+		damage : [1, 8, "bludgeoning"],
+		range : "Melee",
+		weight : 2,
+		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
+		abilitytodamage : true
+	},
 	addWeapons : 'Claw of Acamar'
 });
 AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
@@ -6130,6 +6351,18 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
+		name : "Curse Bringer",
+		source : ["UA:WnW", 4],
+		ability : 1,
+		type : "Martial",
+		damage : [2, 6, "slashing"],
+		range : "Melee",
+		weight : 6,
+		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
+		abilitytodamage : true
+	},
 	addWeapons : 'Curse Bringer'
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
@@ -6151,7 +6384,12 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 	source : ["UA:WnW", 4],
 	prereqeval : "hasEldritchBlast && (/\\barchfey\\b/).test(classes.known.warlock.subclass)",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target -10 ft speed';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
+		]
 	}
 });
 AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One patron)", {
@@ -6171,7 +6409,12 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 	source : ["UA:WnW", 4],
 	prereqeval : "hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass)",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
+		]
 	}
 });
 AddWarlockInvocation("Green Lord's Gift (prereq: the Archfey patron)", {
@@ -6190,7 +6433,15 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	source : ["UA:WnW", 4],
 	prereqeval : "classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Blade)", {
@@ -6202,6 +6453,19 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
+		name : "Mace of Dispater",
+		source : ["UA:WnW", 4],
+		ability : 1,
+		type : "Simple",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		weight : 4,
+		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
+		monkweapon : true,
+		abilitytodamage : true
+	},
 	addWeapons : 'Mace of Dispater'
 });
 AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)", {
@@ -6213,6 +6477,18 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
+		name : "Moon Bow",
+		source : ["UA:WnW", 4],
+		ability : 2,
+		type : "Martial",
+		damage : [1, 8, "piercing"],
+		range : "150/600 ft",
+		weight : 2,
+		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
+		abilitytodamage : true
+	},
 	addWeapons : 'Moon Bow'
 });
 AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
@@ -6287,7 +6563,15 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	source : ["UA:WnW", 5],
 	prereqeval : "classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 2 - pactMag : 2; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
@@ -6311,60 +6595,17 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	source : ["UA:WnW", 5],
 	prereqeval : "classes.known.warlock.level >= 15 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 3 - pactMag : 3; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."
+		]
 	}
 });
-
-// Weapons specific to Warlock Invocations
-WeaponsList["claw of acamar"] = {
-	regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
-	name : "Claw of Acamar",
-	source : ["UA:WnW", 3],
-	ability : 1,
-	type : "Martial",
-	damage : [1, 8, "bludgeoning"],
-	range : "Melee",
-	weight : 2,
-	description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
-	abilitytodamage : true
-};
-WeaponsList["curse bringer"] = {
-	regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
-	name : "Curse Bringer",
-	source : ["UA:WnW", 4],
-	ability : 1,
-	type : "Martial",
-	damage : [2, 6, "slashing"],
-	range : "Melee",
-	weight : 6,
-	description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
-	abilitytodamage : true
-};
-WeaponsList["mace of dispater"] = {
-	regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
-	name : "Mace of Dispater",
-	source : ["UA:WnW", 4],
-	ability : 1,
-	type : "Simple",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	weight : 4,
-	description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
-	monkweapon : true,
-	abilitytodamage : true
-};
-WeaponsList["moon bow"] = {
-	regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
-	name : "Moon Bow",
-	source : ["UA:WnW", 4],
-	ability : 2,
-	type : "Martial",
-	damage : [1, 8, "piercing"],
-	range : "150/600 ft",
-	weight : 2,
-	description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
-	abilitytodamage : true
-};
 var iFileName = "ua_20170313_The-Mystic-Class.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
@@ -6492,8 +6733,20 @@ ClassList.mystic = {
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.mystic && classes.known.mystic.level > 7 && !isSpell) { fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.mystic.level < 14 ? 1 : 2) + 'd8 psychic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra psychic damage.\n - My psionic talents get my Intelligence modifier added to their damage roll."],
-				atkCalc : ["if (classes.known.mystic && classes.known.mystic.level > 7 && thisWeapon[4].indexOf('mystic') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Int Mod'); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.mystic && classes.known.mystic.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.mystic.level < 14 ? 1 : 2) + 'd8 psychic damage';
+						};
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra psychic damage.\n - My psionic talents get my Intelligence modifier added to their damage roll."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.mystic && classes.known.mystic.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('mystic') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Int Mod');
+						};
+					}, ""]
 			}
 		},
 		"consumptive power" : {
@@ -6687,6 +6940,13 @@ ClassSubList["mystic-immortal"] = {
 			]),
 			calcChanges : {
 				hp : "if (classes.known.mystic) {extrahp += classes.known.mystic.level; extrastring += '\\n + ' + classes.known.mystic.level + ' from Immortal Durability (Mystic)'; }; "
+			},
+			armourOptions : {
+				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
+				name : "Immortal Durability (Con)",
+				source : ["UA:TMC", 7],
+				ac : 10,
+				addMod : true
 			},
 			addArmor : "Immortal Durability (Con)"
 		},
@@ -10148,21 +10408,7 @@ ArmourList["inertial armor"] = {
 	regExpSearch : /^(?=.*(inertial|psychic|psionic))(?=.*armou?r).*$/i,
 	name : "Inertial armor",
 	source : ["UA:TMC", 18],
-	type : "",
-	ac : 14,
-	stealthdis : false,
-	strReq : 0
-};
-// Immortal Mystic armour
-ArmourList["immortal's durability"] = {
-	regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
-	name : "Immortal Durability (Con)",
-	source : ["UA:TMC", 7],
-	type : "",
-	ac : 10,
-	stealthdis : false,
-	strReq : 0,
-	addMod : true
+	ac : 14
 };
 
 // Psionic Talents that work like damage cantrips
@@ -10509,6 +10755,12 @@ AddSubClass("paladin", "oath of redemption", {
 			source : ["UA:AToS", 2],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
+			armourOptions : {
+				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
+				name : "Armor of Peace",
+				source : ["UA:AToS", 2],
+				ac : 16
+			},
 			addArmor : "Armor of Peace"
 		},
 		"subclassfeature3.1" : {
@@ -10567,16 +10819,6 @@ AddSubClass("paladin", "oath of redemption", {
 		}
 	}
 });
-// Oath of Redemption Paladin Armor of Peace
-ArmourList["armor of peace"] = {
-	regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
-	name : "Armor of Peace",
-	source : ["UA:AToS", 2],
-	type : "",
-	ac : 16,
-	stealthdis : false,
-	strReq : 0
-};
 // Add the Monster Slayer subclass to both the normal and Revised Ranger (if it is defined)
 var RangeSubclassMonsterSlayer = AddSubClass("ranger", "monster slayer", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
@@ -11213,6 +11455,18 @@ FeatsList["dragon hide"] = {
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me a +1 bonus to AC when I'm not wearing armor. [+1 Strength or Charisma]",
 	scorestxt : "+1 Strength or Charisma",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bretractable\b)(?=.*\bclaws?\b).*$/i,
+		name : "Retractable Claws",
+		source : ["UA:FR", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "slashing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	},
 	addWeapons : ['Retractable Claws'],
 	eval : "AddACMisc(1, 'Dragon Hide', 'While not wearing armor, the Dragon Hide feat gives a +1 bonus to AC', 'CurrentArmour.known && ArmourList[CurrentArmour.known].type');",
 	removeeval : "AddACMisc(0, 'Dragon Hide', 'While not wearing armor, the Dragon Hide feat gives a +1 bonus to AC');"
@@ -11443,20 +11697,6 @@ FeatsList["wood elf magic"] = {
 		firstCol : 'oncelr'
 	}]
 };
-
-// Add weapon for the Dragon Hide feat
-WeaponsList["claws"] = {
-	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
-	name : "Sharp Claws",
-	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "slashing"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
-};
 var iFileName = "ua_20170501_Revised-Subclasses.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
@@ -11594,7 +11834,12 @@ AddSubClass("fighter", "arcane archer2", {
 				"This magical arrow gives a +1 bonus to the attack and damage rolls for the one attack"
 			]),
 			calcChanges : {
-				atkCalc : ["if ((/longbow|shortbow/i).test(WeaponName) && !thisWeapon[1]) {output.magic += 1; }; ", "Any longbow or shortbow that doesn't include a magic bonus in its name gets a +1 magical bonus to damage and to hit as any arrows fired with it are automatically made magical."]
+				atkCalc : [
+					function (fields, v, output) {
+						if ((/longbow|shortbow/i).test(v.WeaponName) && !v.thisWeapon[1]) output.magic += 1;
+					},
+					"Any longbow or shortbow that doesn't include a magic bonus in its name gets a +1 magical bonus to damage and to hit as any arrows fired with it are automatically made magical."
+				]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -11735,8 +11980,27 @@ AddSubClass("monk", "way of the kensei2", {
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 			calcChanges : {
 				atkAdd : [
-					"var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && theWea && !isSpell && !theWea.monkweapon && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow') && WeaponText.toLowerCase().indexOf('kensei') !== -1) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; if (theWea.ability === 1) {fields.Mod = StrDex; }; if (isRangedWeapon) {fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage'; }; fields.Proficiency = true; }; ",
-					"If I inlcude the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
+					function (fields, v) {
+						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.WeaponName === 'longbow')) {
+							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							try {
+								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+							} catch (e) {
+								var curDie = 'x';
+							};
+							if (isNaN(curDie) || curDie < aMonkDie) {
+								fields.Damage_Die = '1d' + aMonkDie;
+							};
+							if (theWea.ability === 1) {
+								fields.Mod = v.StrDex;
+							};
+							if (isRangedWeapon) {
+								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
+							};
+							fields.Proficiency = true;
+						};
+					},
+					"If I include the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
 				]
 			}
 		},
@@ -11746,7 +12010,14 @@ AddSubClass("monk", "way of the kensei2", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (WeaponText.toLowerCase().indexOf('kensei') !== -1  && theWea && !isSpell && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : [
+					function (fields, v) {
+						if (((/unarmed strike/i).test(v.WeaponName) || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+						};
+					},
+					"My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."
+				]
 			},
 			extraname : "Way of the Kensei 6",
 			"precise strike" : {
@@ -11878,7 +12149,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 	}
 });
 var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12146,7 +12417,14 @@ AddSubClass("warlock", "the celestal", {
 			]),
 			dmgres : ["Radiant"],
 			calcChanges : {
-				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) {
+							output.extraDmg += What('Cha Mod');
+						}
+					},
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."
+				]
 			}
 		},
 		"subclassfeature10" : {
@@ -12229,7 +12507,12 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		source : [["X", 57], ["UA:RCO", 6]],
 		prereqeval : "hasEldritchBlast",
 		calcChanges : {
-			atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
+			atkAdd : [
+				function (fields, v) {
+					if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+				},
+				"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
+			]
 		}
 	});
 	AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
@@ -12291,7 +12574,12 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	source : ["UA:RCO", 6],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; 1 target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
+		]
 	}
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
@@ -12315,7 +12603,15 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	source : ["UA:RCO", 6],
 	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch Blast cantrip)", {
@@ -13220,7 +13516,14 @@ AddSubClass("druid", "circle of spores", {
 			}),
 			action : ["action", ""],
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && (/\\b(spore|symbiotic)\\b/i).test(WeaponText) && !isNaturalWeapon) {fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';}; ", "If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name or description, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 poison damage in the description."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+							fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';
+						};
+					},
+					"If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name or description, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 poison damage in the description."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -13268,7 +13571,14 @@ AddSubClass("fighter", "brute", {
 				return n < 3 ? "" : "+1d" + (n < 10 ? 4 : n < 16 ? 6 : n < 20 ? 8 : 10) + " weapon damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.fighter && classes.known.fighter.level > 2 && !isSpell && !isNaturalWeapon && fields.Proficiency) {fields.Description += (fields.Description ? '; ' : '') + '+1d' + (classes.known.fighter.level < 10 ? 4 : classes.known.fighter.level < 16 ? 6 : classes.known.fighter.level < 20 ? 8 : 10) + ' damage'}; ", "I do +1d4 damage with weapons that I'm proficient with. This increases to 1d6 at 10th level, 1d8 at 16th level, and 1d10 at 20th level."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.fighter && classes.known.fighter.level > 2 && !v.isSpell && !v.isNaturalWeapon && fields.Proficiency) {
+							fields.Description += (fields.Description ? '; ' : '') + '+1d' + (classes.known.fighter.level < 10 ? 4 : classes.known.fighter.level < 16 ? 6 : classes.known.fighter.level < 20 ? 8 : 10) + ' damage';
+						};
+					},
+					"I do +1d4 damage with weapons that I'm proficient with. This increases to 1d6 at 10th level, 1d8 at 16th level, and 1d10 at 20th level."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -13331,6 +13641,15 @@ AddSubClass("wizard", "school of invention", {
 				"Only I can attune to it; Creating a new one removes the magic from the previous"
 			]),
 			dmgres : ["Force"],
+			armourOptions : {
+				regExpSearch : /arcanomechanical/i,
+				name : "Arcanomechanical",
+				source : ["UA:TS", 3],
+				type : "light",
+				ac : 12,
+				weight : 8,
+				invName : "Arcanomechanical armor"
+			},
 			addArmor : "Arcanomechanical"
 		},
 		"subclassfeature2.2" : {
@@ -13416,18 +13735,6 @@ AddSubClass("wizard", "school of invention", {
 		}
 	}
 });
-// School of Invention's Arcanomechanical Armor
-ArmourList["arcanomechanical"] = {
-	regExpSearch : /arcanomechanical/i,
-	name : "Arcanomechanical",
-	source : ["UA:TS", 3],
-	type : "light",
-	ac : 12,
-	stealthdis : false,
-	weight : 8,
-	strReq : 0,
-	invName : "Arcanomechanical armor"
-};
 var iFileName = "ua_20180409_Order-Domain.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Order Domain article to MPMB's Character Record Sheet
@@ -13495,7 +13802,14 @@ AddSubClass("cleric", "order domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 force damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 force damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra force damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 force damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra force damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -13534,6 +13848,16 @@ RaceList["centaur"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
+	weaponOptions : {
+		regExpSearch : /\b(hoofs?|hooves)\b/i,
+		name : "Hooves",
+		source : ["UA:CnM", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		abilitytodamage : true
+	},
 	addWeapons : ["Hooves"],
 	skills : ["Survival"],
 	age : " reach adulthood in their late teens and live around 100 years",
@@ -13559,17 +13883,6 @@ RaceList["centaur"] = {
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 };
-// Centaur weapon
-WeaponsList["hooves"] = {
-	regExpSearch : /\b(hoofs?|hooves)\b/i,
-	name : "Hooves",
-	source : ["UA:CnM", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	abilitytodamage : true
-};
 
 // Add the Minotaur race
 RaceList["minotaur-uacnm"] = {
@@ -13583,7 +13896,18 @@ RaceList["minotaur-uacnm"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	addWeapons : ["Minotaur Horns"],
+	weaponOptions : {
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : ["UA:CnM", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "One horns attack as a bonus action if taking the Dash action",
+		abilitytodamage : true
+	},
+	addWeapons : ["Horns"],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
@@ -13610,18 +13934,6 @@ RaceList["minotaur-uacnm"] = {
 			action : ["reaction", " (after hit)"]
 		}
 	}
-};
-// Minotaur weapon
-WeaponsList["horns-uacnm"] = {
-	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns",
-	source : ["UA:CnM", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "One horns attack as a bonus action if taking the Dash action",
-	abilitytodamage : true
 };
 var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
 RequiredSheetVersion(13);
@@ -13766,7 +14078,12 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 				name : "Soul of Lost Ostoria: Fire Giant",
 				description : "\n   " + "I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells",
 				calcChanges : {
-					atkCalc : ["if (theWea && WeaponName == 'fire bolt') {output.extraDmg += Math.max(What('Con Mod'), 1); }; ", "I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"]
+					atkCalc : [
+						function (fields, v, output) {
+							if (v.WeaponName == 'fire bolt') output.extraDmg += Math.max(What('Con Mod'), 1);
+						},
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"
+					]
 				}
 			},
 			"frost giant" : {
@@ -13949,6 +14266,18 @@ if (!SourceList.WGtE) {
 			walk : { spd : 30, enc : 20 }
 		},
 		languageProfs : ["Common"],
+		weaponOptions : {
+			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
+			name : "Longtooth Fangs",
+			source : [["WGtE", 66], ["UA:RoE", 6]],
+			ability : 1,
+			type : "Natural",
+			damage : [1, 6, "piercing"],
+			range : "Melee",
+			description : "Only while shifted; One attack as bonus action",
+			monkweapon : true,
+			abilitytodamage : true
+		},
 		addWeapons : ["Longtooth Fangs"],
 		vision : [["Darkvision", 60]],
 		skills : ["Intimidation", "Perception"],
@@ -13969,18 +14298,6 @@ if (!SourceList.WGtE) {
 				action : ["bonus action", " (start/end)"]
 			}
 		}
-	};
-	WeaponsList["longtooth fangs"] = { // longtooth shifter weapon
-		regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-		name : "Longtooth Fangs",
-		source : [["WGtE", 66], ["UA:RoE", 6]],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 6, "piercing"],
-		range : "Melee",
-		description : "Only while shifted; One attack as bonus action",
-		monkweapon : true,
-		abilitytodamage : true
 	};
 	RaceList["swiftstride shifter"] = {
 		regExpSearch : /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
@@ -14090,7 +14407,26 @@ if (!SourceList.WGtE) {
 				AddArmor('Warforged Darkwood Core', true);
 			};
 		},
-		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
+		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		armourOptions : [{
+			regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+			name : "Warforged darkwood core",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 11,
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+			name : "Warforged composite plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 13,
+			dex : 2
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+			name : "Warforged heavy plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 16,
+			stealthdis : true,
+			dex : -10
+		}]
 	};
 	RaceList["juggernaut warforged"] = {
 		regExpSearch : /^(?=.*warforged)(?=.*juggernaut).*$/i,
@@ -14103,6 +14439,18 @@ if (!SourceList.WGtE) {
 			walk : { spd : 30, enc : 20 }
 		},
 		languageProfs : ["Common"],
+		weaponOptions : {
+			regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
+			name : "Warforged iron fists",
+			source : [["WGtE", 70], ["UA:RoE", 9]],
+			ability : 1,
+			type : "Natural",
+			damage : [1, 4, "bludgeoning"],
+			range : "Melee",
+			description : "",
+			abilitytodamage : true,
+			monkweapon : true
+		},
 		addWeapons : ["Warforged Iron Fists"],
 		savetxt : {
 			text : ["Magic can't put me to sleep"],
@@ -14129,21 +14477,28 @@ if (!SourceList.WGtE) {
 				AddArmor('Warforged Darkwood Core', true);
 			};
 		},
-		removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
+		removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		armourOptions : [{
+			regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+			name : "Warforged darkwood core",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 11,
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+			name : "Warforged composite plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 13,
+			dex : 2
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+			name : "Warforged heavy plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 16,
+			stealthdis : true,
+			dex : -10
+		}]
 	};
-	WeaponsList["warforged iron fists"] = { // Juggernaut warforged weapon
-		regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
-		name : "Warforged iron fists",
-		source : [["WGtE", 70], ["UA:RoE", 9]],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "bludgeoning"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
-	};
-	RaceList["Skirmisher warforged"] = {
+	RaceList["skirmisher warforged"] = {
 		regExpSearch : /^(?=.*warforged)(?=.*skirmisher).*$/i,
 		name : "Skirmisher warforged",
 		sortname : "Warforged, Skirmisher",
@@ -14178,40 +14533,26 @@ if (!SourceList.WGtE) {
 				AddArmor('Warforged Darkwood Core', true);
 			};
 		},
-		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
-	};
-	// Warforged armour
-	ArmourList["warforged darkwood core"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
-		name : "Warforged darkwood core",
-		source : [["WGtE", 69], ["UA:RoE", 9]],
-		type : "warforged",
-		ac : 11,
-		stealthdis : false,
-		weight : 0,
-		strReq : 0
-	};
-	ArmourList["warforged composite plating"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
-		name : "Warforged composite plating",
-		source : [["WGtE", 69], ["UA:RoE", 9]],
-		type : "warforged",
-		ac : 13,
-		stealthdis : false,
-		weight : 0,
-		strReq : 0,
-		dex : 2
-	};
-	ArmourList["warforged heavy plating"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
-		name : "Warforged heavy plating",
-		source : [["WGtE", 69], ["UA:RoE", 9]],
-		type : "warforged",
-		ac : 16,
-		stealthdis : true,
-		weight : 0,
-		strReq : 0,
-		dex : -10
+		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		armourOptions : [{
+			regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+			name : "Warforged darkwood core",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 11,
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+			name : "Warforged composite plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 13,
+			dex : 2
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+			name : "Warforged heavy plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 16,
+			stealthdis : true,
+			dex : -10
+		}]
 	};
 }
 var iFileName = "ua_20180813_Races-of-Ravnica.js";
@@ -14240,6 +14581,12 @@ RaceList["loxodon"] = {
 	languageProfs : ["Common"],
 	savetxt : { adv_vs : ["frightened"] },
 	toolProfs : ["Mason's tools"],
+	armorOptions : {
+		regExpSearch : /^((?=.*natural)(?=.*armou?r)|(?=.*loxodon)(?=.*(hide|skin))).*$/i,
+		name : "Natural Armor",
+		source : ["UA:RoR", 1],
+		ac : 13
+	},
 	addArmor : "Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
@@ -14257,7 +14604,6 @@ RaceList["loxodon"] = {
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 };
-ArmourList['natural armor'].source.push(["UA:RoR", 1]);
 
 // Add Simic Hybrid
 RaceList["simic hybrid"] = {
@@ -14271,6 +14617,29 @@ RaceList["simic hybrid"] = {
 	},
 	languageProfs : ["Common", "Elvish"],
 	vision : [["Darkvision", 60]],
+	weaponOptionsSp : [{
+		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
+		name : "Grappling Appendages",
+		source : ["UA:RoR", 3],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		description : "After hitting, start grapple on target as a bonus action",
+		abilitytodamage : true,
+		monkweapon : true
+	}, {
+		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
+		name : "Acid Spit",
+		source : ["UA:RoR", 3],
+		ability : 3,
+		type : "Natural",
+		damage : ["C", 10, "acid"],
+		range : "30 ft",
+		description : "Dex save, success - no damage",
+		abilitytodamage : false,
+		dc : true
+	}],
 	age : " age the same as the base humanoid race, although the maximum lifespan is somewhat reduced",
 	height : " are of the same height as another of its humanoid race",
 	weight : " are of the same weight as another of its humanoid race",
@@ -14306,6 +14675,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Grappling Appendages":
 				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+				processWeaponOptions(true, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[0]);
 				AddWeapon("Grappling Appendages");
 				AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
 				break;
@@ -14315,6 +14685,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Acid Spit":
 				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + prof bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+				processWeaponOptions(true, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[1]);
 				AddWeapon("Acid Spit");
 				break;
 		};
@@ -14337,6 +14708,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Grappling Appendages":
 				RemoveWeapon("Grappling Appendages");
+				processWeaponOptions(false, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[0]);
 				RemoveAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
 				break;
 			case "Carapace":
@@ -14344,6 +14716,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Acid Spit":
 				RemoveWeapon("Acid Spit");
+				processWeaponOptions(false, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[1]);
 				break;
 		};
 		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
@@ -14372,30 +14745,6 @@ AddRacialVariant("simic hybrid", "underwater adaptation", {
 	},
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split."
 });
-WeaponsList["grappling appendages"] = {
-	regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
-	name : "Grappling Appendages",
-	source : [["G", 20], ["UA:RoR", 3]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	description : "After hitting, start grapple on target as a bonus action",
-	abilitytodamage : true,
-	monkweapon : true
-};
-WeaponsList["acid spit"] = {
-	regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
-	name : "Acid Spit",
-	source : [["G", 21], ["UA:RoR", 3]],
-	ability : 3,
-	type : "Natural",
-	damage : ["C", 10, "acid"],
-	range : "30 ft",
-	description : "Dex save, success - no damage",
-	abilitytodamage : false,
-	dc : true
-};
 
 // Add Vedalken
 RaceList["vedalken"] = {
@@ -14432,37 +14781,36 @@ RaceList["viashino"] = {
 	},
 	skillstxt : "Choose one from Acrobatics or Stealth",
 	languageProfs : ["Common", "Draconic"],
-	addWeapons : ["viashino bite", "lashing tail"],
+	weaponOptions : [{
+		regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
+		name : "Viashino bite",
+		source : ["UA:RoR", 5],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "piercing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	}, {
+		regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
+		name : "Lashing tail",
+		source : ["UA:RoR", 5],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "slashing"],
+		range : "Melee",
+		description : "Only as reaction",
+		abilitytodamage : true,
+		monkweapon : true
+	}],
+	addWeapons : ["Viashino Bite", "Lashing Tail"],
 	age : " reach adulthood in their early teens and rarely live past 60 due to their violent lives",
 	height : " stand about as tall as humans",
 	weight : " have lithe, wiry frames and are thus lighter than a human of the same height",
 	scores : [1, 2, 0, 0, 0, 0],
 	action : ["reaction", "Lashing Tail (after being hit)"],
 	trait : "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage."
-};
-WeaponsList["viashino bite"] = {
-	regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
-	name : "Viashino bite",
-	source : ["UA:RoR", 5],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "piercing"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
-};
-WeaponsList["lashing tail"] = {
-	regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
-	name : "Lashing tail",
-	source : ["UA:RoR", 5],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "slashing"],
-	range : "Melee",
-	description : "Only as reaction",
-	abilitytodamage : true,
-	monkweapon : true
 };
 var iFileName = "ua_20180910_Dragonmarks.js";
 RequiredSheetVersion(13);
@@ -14995,8 +15343,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [finding]"] = {
 		name : "Greater Dragonmark [Finding]",
@@ -15013,8 +15361,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [handling]"] = {
 		name : "Greater Dragonmark [Handling]",
@@ -15031,8 +15379,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [healing]"] = {
 		name : "Greater Dragonmark [Healing]",
@@ -15049,8 +15397,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [hospitality]"] = {
 		name : "Greater Dragonmark [Hospitality]",
@@ -15067,8 +15415,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [making]"] = {
 		name : "Greater Dragonmark [Making]",
@@ -15085,8 +15433,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [passage]"] = {
 		name : "Greater Dragonmark [Passage]",
@@ -15103,8 +15451,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [scribing]"] = {
 		name : "Greater Dragonmark [Scribing]",
@@ -15121,8 +15469,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncesr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [sentinel]"] = {
 		name : "Greater Dragonmark [Sentinel]",
@@ -15139,8 +15487,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncesr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [shadow]"] = {
 		name : "Greater Dragonmark [Shadow]",
@@ -15157,8 +15505,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [storm]"] = {
 		name : "Greater Dragonmark [Storm]",
@@ -15175,8 +15523,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [warding]"] = {
 		name : "Greater Dragonmark [Warding]",
@@ -15198,8 +15546,8 @@ if (!SourceList.WGtE) {
 			selection : ["leomund's secret chest"],
 			firstCol : 'oncelr'
 		}],
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 
 	// Aberrant Dragonmark feat

@@ -60,7 +60,14 @@ AddSubClass("cleric", "forge domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 fire damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra fire damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra fire damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -127,7 +134,14 @@ AddSubClass("cleric", "grave domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 necrotic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -182,7 +196,14 @@ AddSubClass("cleric", "protection domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 radiant damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra radiant damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra radiant damage."
+				]
 			}
 		},
 		"subclassfeature17" : {

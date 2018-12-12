@@ -159,7 +159,14 @@ AddSubClass("cleric", "death domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 necrotic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {

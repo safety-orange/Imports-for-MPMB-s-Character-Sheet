@@ -31,7 +31,24 @@ AddSubClass("monk", "way of the kensei", {
 			},
 			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra']);",
 			calcChanges : {
-				atkAdd : ["var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && theWea && !isSpell && !(/shortsword/i).test(theWea.name) && (/martial/i).test(theWea.type)) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; fields.Mod = StrDex; fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage'; }; ", "I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.WeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
+							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							try {
+								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+							} catch (e) {
+								var curDie = 'x';
+							};
+							if (isNaN(curDie) || curDie < aMonkDie) {
+								fields.Damage_Die = '1d' + aMonkDie;
+							};
+							fields.Mod = v.StrDex;
+							fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage';
+						};
+					},
+					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
+				]
 			}
 		},
 		"ki-empowered strikes" : {
@@ -40,7 +57,14 @@ AddSubClass("monk", "way of the kensei", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (theWea && !isSpell && (/martial/i).test(theWea.type))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : [
+					function (fields, v) {
+						if (((/unarmed strike/i).test(WeaponName) || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+						};
+					},
+					"My unarmed strikes and Kensei Weapons count as magical for overcoming resistances and immunities."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -52,7 +76,14 @@ AddSubClass("monk", "way of the kensei", {
 			recovery : "short rest",
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkCalc : ["if (!isSpell && !isDC && (/precise.{0,3}strike/i).test(WeaponText)) {output.prof *= 2; }; ", "If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (!v.isSpell && !v.isDC && (/precise.{0,3}strike/i).test(v.WeaponText)) {
+							output.prof *= 2;
+						};
+					},
+					"If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."
+				]
 			}
 		},
 		"subclassfeature17" : {

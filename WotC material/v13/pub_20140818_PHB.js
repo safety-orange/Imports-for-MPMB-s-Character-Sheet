@@ -349,7 +349,14 @@ AddSubClass("cleric", "knowledge domain", {
 			minlevel : 8,
 			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
-				atkCalc : ["if (classes.known.cleric && classes.known.cleric.level > 7 && thisWeapon[4].indexOf('cleric') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Wis Mod'); }; ", "My cleric cantrips get my Wisdom modifier added to their damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -412,7 +419,14 @@ AddSubClass("cleric", "light domain", {
 			minlevel : 8,
 			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
-				atkCalc : ["if (classes.known.cleric && classes.known.cleric.level > 7 && thisWeapon[4].indexOf('cleric') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Wis Mod'); }; ", "My cleric cantrips get my Wisdom modifier added to their damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -472,7 +486,14 @@ AddSubClass("cleric", "nature domain", {
 				return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 cold/fire/lightning damage (choice)";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 cold/fire/lightning damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra cold, fire, or lightning damage (my choice)."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 cold/fire/lightning damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra cold, fire, or lightning damage (my choice)."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -530,7 +551,14 @@ AddSubClass("cleric", "tempest domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 thunder damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 thunder damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra thunder damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 thunder damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra thunder damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -582,7 +610,14 @@ AddSubClass("cleric", "trickery domain", {
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 poison damage"; }),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 poison damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra poison damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 poison damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra poison damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -646,7 +681,14 @@ AddSubClass("cleric", "war domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 damage of the weapon's type";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -996,7 +1038,16 @@ AddSubClass("monk", "way of the four elements", {
 				source : ["P", 81],
 				description : " [1 ki point]" + "\n   " + "With Attack action, my unarmed strikes +10 ft reach and deal fire damage this turn" + "\n   " + "Also, I can spent an additional 1 ki point to cause an attack to deal +1d10 fire damage",
 				calcChanges : {
-					atkAdd : ["if ((/unarmed strike/i).test(WeaponName) && (/^(?=.*fire)(?=.*snake).*$/i).test(WeaponText)) {fields.Description += (fields.Description ? '; ' : '') + 'After hit, spend 1 ki point for +1d10 fire damage'; fields.Range = 'Melee (15 ft reach)'; fields.Damage_Type = 'fire'; }; ", "If I include the words 'Fire Snake' in the name of an unarmed strike, it gets +10 ft reach, does fire damage, and gains the option to deal +1d10 fire damage by spending 1 additional ki point."]
+					atkAdd : [
+						function (fields, v) {
+							if ((/unarmed strike/i).test(v.WeaponName) && (/^(?=.*fire)(?=.*snake).*$/i).test(v.WeaponText)) {
+								fields.Description += (fields.Description ? '; ' : '') + 'After hit, spend 1 ki point for +1d10 fire damage';
+								fields.Range = 'Melee (15 ft reach)';
+								fields.Damage_Type = 'fire';
+							};
+						},
+						"If I include the words 'Fire Snake' in the name of an unarmed strike, it gets +10 ft reach, does fire damage, and gains the option to deal +1d10 fire damage by spending 1 additional ki point."
+					]
 				}
 			},
 			"fist of four thunders" : {
@@ -3001,7 +3052,14 @@ FeatsList["crossbow expert"] = {
 	description : "I ignore the loading quality of crossbows I'm proficient with. I don't suffer disadvantage on ranged attack rolls for being within 5 feet of a hostile. When I attack with a one-handed weapon, I can use a bonus action to attack with a hand crossbow I'm holding.",
 	action : ["bonus action", " (with Attack action)"],
 	calcChanges : {
-		atkAdd : ["if ((/crossbow/i).test(WeaponName) && fields.Proficiency) {fields.Description = fields.Description.replace(/(,? ?loading|loading,? ?)/i, '');};", "I ignore the loading quality of crossbows I'm proficient with."]
+		atkAdd : [
+			function (fields, v) {
+				if ((/crossbow/i).test(v.WeaponName) && fields.Proficiency) {
+					fields.Description = fields.Description.replace(/(,? ?loading|loading,? ?)/i, '');
+				};
+			},
+			"I ignore the loading quality of crossbows I'm proficient with."
+		]
 	}
 };
 FeatsList["defensive duelist"] = {
@@ -3054,7 +3112,15 @@ FeatsList["great weapon master"] = {
 	description : "If I score a critical hit or reduce a creature to 0 hit points with a melee weapon in my turn, I can make one melee weapon attack as a bonus action. With a heavy melee weapon, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
 	action : ["bonus action", " (after crit or take-down)"],
 	calcChanges : {
-		atkCalc : ["if (isMeleeWeapon && (/heavy/i).test(fields.Description) && (/power.{0,3}attack|great.{0,3}weapon.{0,3}master/i).test(WeaponText)) {output.extraDmg += 10; output.extraHit -= 5;};", "If I include the words 'Power Attack' or 'Great Weapon Master' in a heavy melee weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/heavy/i).test(fields.Description) && (/power.{0,3}attack|great.{0,3}weapon.{0,3}master/i).test(v.WeaponText)) {
+					output.extraDmg += 10;
+					output.extraHit -= 5;
+				};
+			},
+			"If I include the words 'Power Attack' or 'Great Weapon Master' in a heavy melee weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."
+		]
 	}
 };
 FeatsList["healer"] = {
@@ -3277,8 +3343,19 @@ FeatsList["polearm master"] = {
 	name : "Polearm Master",
 	source : ["P", 168],
 	description : "As a bonus action when I do the Attack action with a glaive/" + (typePF ? " " : "") + "halberd/quarterstaff/spear, I can make a 1d4 bludgeoning attack with its butt end." + (typePF ? "\n" : " ") + "While wielding a glaive/halberd/" + (typePF ? "" : " ") + "pike/quarterstaff/spear, I get an opportunity attack when a creature enters my reach.",
-	addWeapons : ["Polearm butt end"],
-	action : ['bonus action', 'Butt end attack (after attack with polearm)'],
+	weaponOptions : {
+		regExpSearch : /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)))(?=.*butt)(?=.*end).*$/i,
+		name : "Polearm butt end",
+		source : ["P", 168],
+		ability : 1,
+		type : "polearm butt end",
+		damage : [1, 4, "bludgeoning"],
+		range : "Melee",
+		description : "As bonus action after Attack action with only a glaive, halberd, spear, or quarterstaff",
+		abilitytodamage : true
+	},
+	addWeapons : ["Polearm Butt End"],
+	action : ['bonus action', 'Butt End Attack (after attack with polearm)'],
 	weaponProfs : [false, false, ["polearm butt end"]]
 };
 FeatsList["resilient [strength]"] = {
@@ -3393,7 +3470,15 @@ FeatsList["sharpshooter"] = {
 	source : ["P", 170],
 	description : "My ranged weapon attacks don't have disadvantage on long range and ignore half cover and three-quarters cover. With a ranged weapon that I am proficient with, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
 	calcChanges : {
-		atkCalc : ["if (isRangedWeapon && (/power.{0,3}attack|sharp.{0,3}shoo?t/i).test(WeaponText)) {output.extraDmg += 10; output.extraHit -= 5;};", "If I include the words 'Power Attack', 'Sharpshooter', or 'Sharpshot' in a ranged weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isRangedWeapon && (/power.{0,3}attack|sharp.{0,3}shoo?t/i).test(v.WeaponText)) {
+					output.extraDmg += 10;
+					output.extraHit -= 5;
+				};
+			},
+			"If I include the words 'Power Attack', 'Sharpshooter', or 'Sharpshot' in a ranged weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."
+		]
 	}
 };
 FeatsList["shield master"] = {
@@ -3416,6 +3501,7 @@ FeatsList["skulker"] = {
 	prereqeval : "What('Dex') >= 13",
 	vision : [["No disadv. on Perception in dim light", 0]]
 };
+// voor calcChanges gaan we v.rangeM gebruiken (als 'range multiplier')
 FeatsList["spell sniper [bard]"] = {
 	name : "Spell Sniper [Bard]",
 	source : ["P", 170],
@@ -3425,7 +3511,23 @@ FeatsList["spell sniper [bard]"] = {
 	eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	removeeval : "delete CurrentSpells['spell sniper bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
+		atkAdd : [
+			function (fields, v) {
+				if (!v.spellSniper && !v.isDC && v.isSpell && (/^(?!.*melee).*\d+(\.\d+|,\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) {
+					v.spellSniper = true;
+					var rangeNmbr = fields.Range.match(/\d+(\.\d+|,\d+)?/g);
+					var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|')));
+					fields.Range = '';
+					rangeNmbr.forEach(function (dR, idx) {
+						fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2));
+					});
+					if (notNmbrs.length > rangeNmbr.length) {
+						fields.Range += notNmbrs[notNmbrs.length - 1];
+					};
+				};
+			},
+			"My spells and cantrips that require a ranged attack roll have their range doubled."
+		]
 	}
 };
 FeatsList["spell sniper [cleric]"] = {
@@ -3436,9 +3538,7 @@ FeatsList["spell sniper [cleric]"] = {
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
 	eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	removeeval : "delete CurrentSpells['spell sniper cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
-	}
+	calcChanges : FeatsList["spell sniper [bard]"].calcChanges
 };
 FeatsList["spell sniper [druid]"] = {
 	name : "Spell Sniper [Druid]",
@@ -3448,9 +3548,7 @@ FeatsList["spell sniper [druid]"] = {
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
 	eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	removeeval : "delete CurrentSpells['spell sniper druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
-	}
+	calcChanges : FeatsList["spell sniper [bard]"].calcChanges
 };
 FeatsList["spell sniper [sorcerer]"] = {
 	name : "Spell Sniper [Sorcerer]",
@@ -3460,9 +3558,7 @@ FeatsList["spell sniper [sorcerer]"] = {
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
 	eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	removeeval : "delete CurrentSpells['spell sniper sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
-	}
+	calcChanges : FeatsList["spell sniper [bard]"].calcChanges
 };
 FeatsList["spell sniper [warlock]"] = {
 	name : "Spell Sniper [Warlock]",
@@ -3472,9 +3568,7 @@ FeatsList["spell sniper [warlock]"] = {
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
 	eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	removeeval : "delete CurrentSpells['spell sniper warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
-	}
+	calcChanges : FeatsList["spell sniper [bard]"].calcChanges
 };
 FeatsList["spell sniper [wizard]"] = {
 	name : "Spell Sniper [Wizard]",
@@ -3484,9 +3578,7 @@ FeatsList["spell sniper [wizard]"] = {
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
 	eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 	removeeval : "delete CurrentSpells['spell sniper wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-	calcChanges : {
-		atkAdd : ["if (!spellSniper && !isDC && isSpell && (/^(?!.*melee).*\\d+(\\.\\d+|,\\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) { var spellSniper = true; var rangeNmbr = fields.Range.match(/\\d+(\\.\\d+|,\\d+)?/g); var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|'))); fields.Range = ''; rangeNmbr.forEach(function (dR, idx) { fields.Range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2)); }); if (notNmbrs.length > rangeNmbr.length) { fields.Range += notNmbrs[notNmbrs.length - 1]; }; }; ", "My spells and cantrips that require a ranged attack roll, have their range doubled."]
-	}
+	calcChanges : FeatsList["spell sniper [bard]"].calcChanges
 };
 FeatsList["tavern brawler"] = {
 	name : "Tavern Brawler",
@@ -3496,7 +3588,18 @@ FeatsList["tavern brawler"] = {
 	action : ['bonus action', 'Grapple (on hit with unarmed/improv.)'],
 	weaponProfs : [false, false, ["Improvised weapons"]],
 	calcChanges : {
-		atkAdd : ["if (isMeleeWeapon && ((/unarmed strike/i).test(WeaponName) || (/improvised/i).test(WeaponName) || (/improvised weapon/i).test(theWea.type))) {fields.Description += (fields.Description ? '; ' : '') + 'After hitting, can attempt to grapple as a bonus action'; fields.Proficiency = true; }; if ((/unarmed strike/i).test(WeaponName) && fields.Damage_Die == 1) {fields.Damage_Die = '1d4'; }; ", "My unarmed strikes do 1d4 damage instead of 1;\n - After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."]
+		atkAdd : [
+			function (fields, v) {
+				if ((/unarmed strike/i).test(v.WeaponName) || (/improvised/i).test(v.WeaponName) || (/improvised weapon/i).test(v.theWea.type)) {
+					fields.Proficiency = true;
+					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + 'After hit, can attempt to grapple as a bonus action';
+				};
+				if ((/unarmed strike/i).test(v.WeaponName) && fields.Damage_Die == 1) {
+					fields.Damage_Die = '1d4';
+				};
+			},
+			"My unarmed strikes do 1d4 damage instead of 1;\n - After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
+		]
 	}
 };
 FeatsList["tough"] = {
@@ -3523,18 +3626,7 @@ FeatsList["weapon master"] = {
 	scorestxt : "+1 Strength or Dexterity"
 };
 
-// Add equipment that is not in the SRD
-WeaponsList["polearm butt end"] = {
-	regExpSearch : /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)))(?=.*butt)(?=.*end).*$/i,
-	name : "Polearm butt end",
-	source : ["P", 168],
-	ability : 1,
-	type : "Other",
-	damage : [1, 4, "bludgeoning"],
-	range : "Melee",
-	description : "As bonus action after Attack action with only a glaive, halberd, spear, or quarterstaff",
-	abilitytodamage : true
-};
+// Add attack entry that is not in the SRD
 WeaponsList["thorn whip"] = {
 	regExpSearch : /^(?=.*thorn)(?=.*whip).*$/i,
 	name : "Thorn Whip",

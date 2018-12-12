@@ -130,7 +130,14 @@ AddSubClass("barbarian", "storm herald", {
 				name : "Raging Storm: Sea",
 				description : "\n   " + "Creatures in my aura hit by my attack must make a Str save or be knocked prone" + "\n   " + "The DC for this save is 8 + my proficiency bonus + my Strength modifier",
 				calcChanges : {
-					atkAdd : ["if (isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\\brage\\b/i).test(WeaponText)) {fields.Description += (fields.Description ? '; ' : '') + 'Str save or knocked prone'; }; ", "If I include the word 'Rage' in a melee weapon's name, it will show in its description that it forces targets that are hit to make a Strength saving throw or be knocked prone."]
+					atkAdd : [
+						function (fields, v) {
+							if (v.isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\brage\b/i).test(v.WeaponText)) {
+								fields.Description += (fields.Description ? '; ' : '') + 'Str save or knocked prone';
+							};
+						},
+						"If I include the word 'Rage' in a melee weapon's name, it will show in its description that it forces targets that are hit to make a Strength saving throw or be knocked prone."
+					]
 				}
 			},
 			"tundra" : {

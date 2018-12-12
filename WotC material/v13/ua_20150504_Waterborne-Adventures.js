@@ -36,7 +36,18 @@ RaceList["minotaur"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	addWeapons : ["Minotaur Horns"],
+	weaponOptions : {
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : ["UA:WA", 1],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 10, "piercing"],
+		range : "Melee",
+		description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
+		abilitytodamage : true
+	},
+	addWeapons : ["Horns"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
@@ -82,16 +93,3 @@ AddRacialVariant("minotaur", "strength", {
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
-
-// Minotaur weapon
-WeaponsList["horns-uawa"] = {
-	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns",
-	source : ["UA:WA", 1],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 10, "piercing"],
-	range : "Melee",
-	description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
-	abilitytodamage : true
-};

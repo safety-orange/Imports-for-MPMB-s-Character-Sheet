@@ -114,7 +114,12 @@ var thePrimevalGuardianSubclass = {
 			minlevel : 3,
 			description : "\n   " + "Once each turn, a hit from my weapon attack can deal 1d6 extra piercing damage",
 			calcChanges : {
-				atkAdd : ["if (!isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn, +1d6 piercing damage'; }; ", "My weapon attacks can deal 1d6 extra piercing damage once per turn."]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell) fields.Description += (fields.Description ? '; ' : '') + 'Once per turn, +1d6 piercing damage';
+					},
+					"My weapon attacks can deal 1d6 extra piercing damage once per turn."
+				]
 			}
 		},
 		"subclassfeature7" : {

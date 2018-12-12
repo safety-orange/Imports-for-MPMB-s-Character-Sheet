@@ -339,8 +339,32 @@ AddSubClass("barbarian", "battlerager", {
 			name : "Battlerager Armor",
 			source : ["S", 121],
 			minlevel : 3,
-			description : "\n   " + "I gain proficiency with spiked armor as a weapon" + "\n   " + "As a bonus action while raging, I can attack once with my armor spikes",
-			action : ["bonus action", " attack (in rage)"],
+			description : desc([
+				"I gain proficiency with spiked armor both as an armor and as a weapon",
+				"As a bonus action while raging, I can attack once with my armor spikes",
+				"With my spiked armor I do 3 piercing damage when I use my Attack action to grapple"
+			]),
+			action : ["bonus action", "Armor Spikes attack (in rage)"],
+			armourOptions : {
+				regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
+				name : "Spiked armor",
+				source : ["S", 121],
+				type : "medium",
+				ac : 14,
+				stealthdis : true,
+				weight : 45
+			},
+			weaponOptions : {
+				regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
+				name : "Armor spikes",
+				source : ["S", 121],
+				ability : 1,
+				type : "armor spikes",
+				damage : [1, 4, "piercing"],
+				range : "Melee",
+				description : "Does 3 piercing damage when grappling during my Attack action",
+				abilitytodamage : true
+			},
 			weaponProfs : [false, false, ["armor spikes"]],
 			addWeapons : ['Armor Spikes'],
 			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');",
@@ -406,7 +430,14 @@ AddSubClass("cleric", "arcana domain", {
 			minlevel : 8,
 			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
-				atkCalc : ["if (classes.known.cleric && classes.known.cleric.level > 7 && thisWeapon[4].indexOf('cleric') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Wis Mod'); }; ", "My cleric cantrips get my Wisdom modifier added to their damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -530,6 +561,18 @@ AddSubClass("monk", "way of the sun soul", {
 				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 			]),
 			action : ["bonus action", " (2\u00D7 with Attack action)"],
+			weaponOptions : {
+				regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
+				name : "Radiant Sun Bolt",
+				source : [["S", 131], ["X", 35]],
+				ability : 2,
+				type : "Spell",
+				damage : [1, 4, "radiant"],
+				range : "30 ft",
+				description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
+				monkweapon : true,
+				abilitytodamage : true
+			},
 			addWeapons : ['Radiant Sun Bolt'],
 			extraname : "Way of the Sun Soul 6",
 			"searing arc strike" : {
@@ -889,7 +932,14 @@ AddSubClass("wizard", "bladesinging", {
 			minlevel : 14,
 			description : "\n   " + "While my bladesong is active, I can add my Int mod to melee weapon attack damage",
 			calcChanges : {
-				atkCalc : ["if (classes.known.wizard && classes.known.wizard.level > 13 && isMeleeWeapon && (/blade.?song/i).test(WeaponText)) { output.extraDmg += What('Int Mod'); }; ", "If I include the word 'Bladesong' in the name or description of a melee weapon, it gets my Intelligence modifier added to its Damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.wizard && classes.known.wizard.level > 13 && v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponText)) {
+							output.extraDmg += What('Int Mod');
+						};
+					},
+					"If I include the word 'Bladesong' in the name or description of a melee weapon, it gets my Intelligence modifier added to its Damage."
+				]
 			}
 		}
 	}
@@ -1319,42 +1369,6 @@ BackgroundFeatureList["watcher's eye"] = {
 	source : [["S", 145], ["ALbackground", 0]]
 };
 
-// Armour
-ArmourList["spiked armor"] = { // battlerager armour
-	regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
-	name : "Spiked armor",
-	source : ["S", 121],
-	type : "medium",
-	ac : 14,
-	stealthdis : true,
-	weight : 45,
-	strReq : 0
-};
-
-// Weapons
-WeaponsList["armor spikes"] = {
-	regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
-	name : "Armor spikes",
-	source : ["S", 121],
-	ability : 1,
-	type : "Other",
-	damage : [1, 4, "piercing"],
-	range : "Melee",
-	description : "Does 3 piercing damage when using your attack to grapple",
-	abilitytodamage : true
-};
-WeaponsList["radiant sun bolt"] = {
-	regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
-	name : "Radiant Sun Bolt",
-	source : [["S", 131], ["X", 35]],
-	ability : 2,
-	type : "Spell",
-	damage : [1, 4, "radiant"],
-	range : "30 ft",
-	description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
-	monkweapon : true,
-	abilitytodamage : true
-};
 WeaponsList["booming blade"] = {
 	regExpSearch : /^(?=.*booming)(?=.*blade).*$/i,
 	name : "Booming Blade",

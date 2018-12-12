@@ -111,6 +111,18 @@ RaceList["longtooth shifter"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
+		name : "Longtooth Fangs",
+		source : [["WGtE", 66], ["UA:RoE", 6]],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "Only while shifted; One attack as bonus action",
+		monkweapon : true,
+		abilitytodamage : true
+	},
 	addWeapons : ["Longtooth Fangs"],
 	vision : [["Darkvision", 60]],
 	skills : ["Intimidation", "Perception"],
@@ -131,18 +143,6 @@ RaceList["longtooth shifter"] = {
 			action : ["bonus action", " (start/end)"]
 		}
 	}
-};
-WeaponsList["longtooth fangs"] = { // longtooth shifter weapon
-	regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-	name : "Longtooth Fangs",
-	source : [["WGtE", 66], ["UA:RoE", 6]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "Only while shifted; One attack as bonus action",
-	monkweapon : true,
-	abilitytodamage : true
 };
 RaceList["swiftstride shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
@@ -252,7 +252,26 @@ RaceList["envoy warforged"] = {
 			AddArmor('Warforged Darkwood Core', true);
 		};
 	},
-	removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
+	removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	armourOptions : [{
+		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+		name : "Warforged darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11,
+	}, {
+		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+		name : "Warforged composite plating",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 13,
+		dex : 2
+	}, {
+		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+		name : "Warforged heavy plating",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 16,
+		stealthdis : true,
+		dex : -10
+	}]
 };
 RaceList["juggernaut warforged"] = {
 	regExpSearch : /^(?=.*warforged)(?=.*juggernaut).*$/i,
@@ -265,6 +284,18 @@ RaceList["juggernaut warforged"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
+		name : "Warforged iron fists",
+		source : [["WGtE", 70], ["UA:RoE", 9]],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "bludgeoning"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	},
 	addWeapons : ["Warforged Iron Fists"],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
@@ -291,21 +322,28 @@ RaceList["juggernaut warforged"] = {
 			AddArmor('Warforged Darkwood Core', true);
 		};
 	},
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
+	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	armourOptions : [{
+		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+		name : "Warforged darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11,
+	}, {
+		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+		name : "Warforged composite plating",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 13,
+		dex : 2
+	}, {
+		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+		name : "Warforged heavy plating",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 16,
+		stealthdis : true,
+		dex : -10
+	}]
 };
-WeaponsList["warforged iron fists"] = { // Juggernaut warforged weapon
-	regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
-	name : "Warforged iron fists",
-	source : [["WGtE", 70], ["UA:RoE", 9]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "bludgeoning"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
-};
-RaceList["Skirmisher warforged"] = {
+RaceList["skirmisher warforged"] = {
 	regExpSearch : /^(?=.*warforged)(?=.*skirmisher).*$/i,
 	name : "Skirmisher warforged",
 	sortname : "Warforged, Skirmisher",
@@ -340,52 +378,48 @@ RaceList["Skirmisher warforged"] = {
 			AddArmor('Warforged Darkwood Core', true);
 		};
 	},
-	removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
-};
-// Warforged armour
-ArmourList["warforged darkwood core"] = {
-	regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
-	name : "Warforged darkwood core",
-	source : [["WGtE", 69], ["UA:RoE", 9]],
-	type : "warforged",
-	ac : 11,
-	stealthdis : false,
-	weight : 0,
-	strReq : 0
-};
-ArmourList["warforged composite plating"] = {
-	regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
-	name : "Warforged composite plating",
-	source : [["WGtE", 69], ["UA:RoE", 9]],
-	type : "warforged",
-	ac : 13,
-	stealthdis : false,
-	weight : 0,
-	strReq : 0,
-	dex : 2
-};
-ArmourList["warforged heavy plating"] = {
-	regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
-	name : "Warforged heavy plating",
-	source : [["WGtE", 69], ["UA:RoE", 9]],
-	type : "warforged",
-	ac : 16,
-	stealthdis : true,
-	weight : 0,
-	strReq : 0,
-	dex : -10
+	removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	armourOptions : [{
+		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+		name : "Warforged darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11,
+	}, {
+		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+		name : "Warforged composite plating",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 13,
+		dex : 2
+	}, {
+		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+		name : "Warforged heavy plating",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 16,
+		stealthdis : true,
+		dex : -10
+	}]
 };
 
 // Elf Variants
-AddRacialVariant("wood elf", "aereni", {
-	regExpSearch : /aereni/i,
-	name : "Aereni wood elf",
-	source : ["WGtE", 73],
-	plural : "Aereni wood elves",
-	weaponProfs : "",
-	skillstxt : "Proficiency and expertise with any one skill or tool",
-	trait : "Aereni " + RaceList["wood elf"].trait
-});
+if (RaceList["wood elf"]) {
+	AddRacialVariant("wood elf", "aereni", {
+		regExpSearch : /aereni/i,
+		name : "Aereni wood elf",
+		source : ["WGtE", 73],
+		plural : "Aereni wood elves",
+		weaponProfs : "",
+		skillstxt : "Proficiency and expertise with any one skill or tool",
+		trait : "Aereni " + RaceList["wood elf"].trait
+	});
+	AddRacialVariant("wood elf", "valenar", {
+		regExpSearch : /valenar/i,
+		name : "Valenar wood elf",
+		source : ["WGtE", 73],
+		plural : "Valenar wood elves",
+		weaponProfs : [false, false, ["scimitar", "double-bladed scimitar", "longbow", "shortbow"]],
+		trait : "Valenar " + RaceList["wood elf"].trait
+	});
+}
 AddRacialVariant("high elf", "aereni", {
 	regExpSearch : /aereni/i,
 	name : "Aereni high elf",
@@ -394,14 +428,6 @@ AddRacialVariant("high elf", "aereni", {
 	weaponProfs : "",
 	skillstxt : "Proficiency and expertise with any one skill or tool",
 	trait : "Aereni " + RaceList["high elf"].trait
-});
-AddRacialVariant("wood elf", "valenar", {
-	regExpSearch : /valenar/i,
-	name : "Valenar wood elf",
-	source : ["WGtE", 73],
-	plural : "Valenar wood elves",
-	weaponProfs : [false, false, ["scimitar", "double-bladed scimitar", "longbow", "shortbow"]],
-	trait : "Valenar " + RaceList["wood elf"].trait
 });
 AddRacialVariant("high elf", "valenar", {
 	regExpSearch : /valenar/i,
@@ -413,7 +439,7 @@ AddRacialVariant("high elf", "valenar", {
 });
 
 // Double bladed scimitar
-WeaponsList["double-bladed scimitar"] = { // Juggernaut warforged weapon
+WeaponsList["double-bladed scimitar"] = {
 	regExpSearch : /^(?=.*double)(?=.*scimitar).*$/i,
 	name : "Double-bladed scimitar",
 	source : ["WGtE", 74],
@@ -437,7 +463,15 @@ FeatsList["revenant blade"] = {
 	scorestxt : "+1 Strength or Dexterity",
 	action : ["bonus action", " (with Attack action)"],
 	calcChanges : {
-		atkAdd : ["if ((/double-bladed scimitar/i).test(WeaponName) && fields.Proficiency) {fields.Description = fields.Description.replace('Two-handed; With Attack action, one attack as bonus action for 1d4', 'Finesse, two-handed; With Attack action, one attack as bonus action'); fields.Mod = StrDex; };", "Double-bladed weapons count as having finesse for me and I can make an extra attack with them as a bonus action when taking the Attack action."]
+		atkAdd : [
+			function (fields, v) {
+				if ((/double-bladed scimitar/i).test(v.WeaponName) && fields.Proficiency) {
+					fields.Description = fields.Description.replace('Two-handed; With Attack action, one attack as bonus action for 1d4', 'Finesse, two-handed; With Attack action, one attack as bonus action');
+					fields.Mod = StrDex;
+				};
+			},
+			"Double-bladed weapons count as having finesse for me and I can make an extra attack with them as a bonus action when taking the Attack action."
+		]
 	},
 	eval : "AddACMisc(1, 'Revenant Blade', 'When wielding a double-bladed weapon in two hands, the Revenant Blade feat gives a +1 bonus to AC', 'ACshield');",
 	removeeval : "AddACMisc(0, 'Revenant Blade', 'When wielding a double-bladed weapon in two hands, the Revenant Blade feat gives a +1 bonus to AC');"
@@ -1153,8 +1187,8 @@ FeatsList["greater dragonmark [detection]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [finding]"] = {
 	name : "Greater Dragonmark [Finding]",
@@ -1171,8 +1205,8 @@ FeatsList["greater dragonmark [finding]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [handling]"] = {
 	name : "Greater Dragonmark [Handling]",
@@ -1189,8 +1223,8 @@ FeatsList["greater dragonmark [handling]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [healing]"] = {
 	name : "Greater Dragonmark [Healing]",
@@ -1207,8 +1241,8 @@ FeatsList["greater dragonmark [healing]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [hospitality]"] = {
 	name : "Greater Dragonmark [Hospitality]",
@@ -1225,8 +1259,8 @@ FeatsList["greater dragonmark [hospitality]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [making]"] = {
 	name : "Greater Dragonmark [Making]",
@@ -1243,8 +1277,8 @@ FeatsList["greater dragonmark [making]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [passage]"] = {
 	name : "Greater Dragonmark [Passage]",
@@ -1261,8 +1295,8 @@ FeatsList["greater dragonmark [passage]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [scribing]"] = {
 	name : "Greater Dragonmark [Scribing]",
@@ -1279,8 +1313,8 @@ FeatsList["greater dragonmark [scribing]"] = {
 		firstCol : 'oncesr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [sentinel]"] = {
 	name : "Greater Dragonmark [Sentinel]",
@@ -1297,8 +1331,8 @@ FeatsList["greater dragonmark [sentinel]"] = {
 		firstCol : 'oncesr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [shadow]"] = {
 	name : "Greater Dragonmark [Shadow]",
@@ -1315,8 +1349,8 @@ FeatsList["greater dragonmark [shadow]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [storm]"] = {
 	name : "Greater Dragonmark [Storm]",
@@ -1333,8 +1367,8 @@ FeatsList["greater dragonmark [storm]"] = {
 		firstCol : 'oncelr',
 		times : 2
 	},
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 FeatsList["greater dragonmark [warding]"] = {
 	name : "Greater Dragonmark [Warding]",
@@ -1356,8 +1390,8 @@ FeatsList["greater dragonmark [warding]"] = {
 		selection : ["leomund's secret chest"],
 		firstCol : 'oncelr'
 	}],
-	eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-	removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+	eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+	removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 };
 
 // Aberrant Dragonmark feat

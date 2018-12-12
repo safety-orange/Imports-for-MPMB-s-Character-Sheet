@@ -78,7 +78,14 @@ AddSubClass("paladin", "oath of treachery", {
 				return n < 3 ? "" : "2d10+" + n + " damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (!isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(WeaponText)) {fields.Description += (fields.Description ? '; +' : '+') + '2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)'; }; ", "If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(v.WeaponText) && classes.known.paladin && classes.known.paladin.level) {
+							fields.Description += (fields.Description ? '; ' : '') + '+2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)';
+						};
+					},
+					"If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."
+				]
 			}
 		},
 		"subclassfeature7" : {

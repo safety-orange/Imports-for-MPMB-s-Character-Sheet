@@ -23,6 +23,16 @@ RaceList["centaur"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
+	weaponOptions : {
+		regExpSearch : /\b(hoofs?|hooves)\b/i,
+		name : "Hooves",
+		source : ["UA:CnM", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		abilitytodamage : true
+	},
 	addWeapons : ["Hooves"],
 	skills : ["Survival"],
 	age : " reach adulthood in their late teens and live around 100 years",
@@ -48,17 +58,6 @@ RaceList["centaur"] = {
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 };
-// Centaur weapon
-WeaponsList["hooves"] = {
-	regExpSearch : /\b(hoofs?|hooves)\b/i,
-	name : "Hooves",
-	source : ["UA:CnM", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	abilitytodamage : true
-};
 
 // Add the Minotaur race
 RaceList["minotaur-uacnm"] = {
@@ -72,7 +71,18 @@ RaceList["minotaur-uacnm"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	addWeapons : ["Minotaur Horns"],
+	weaponOptions : {
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : ["UA:CnM", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "One horns attack as a bonus action if taking the Dash action",
+		abilitytodamage : true
+	},
+	addWeapons : ["Horns"],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
@@ -99,16 +109,4 @@ RaceList["minotaur-uacnm"] = {
 			action : ["reaction", " (after hit)"]
 		}
 	}
-};
-// Minotaur weapon
-WeaponsList["horns-uacnm"] = {
-	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns",
-	source : ["UA:CnM", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "One horns attack as a bonus action if taking the Dash action",
-	abilitytodamage : true
 };

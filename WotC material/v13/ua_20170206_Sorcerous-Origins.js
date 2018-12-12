@@ -269,6 +269,14 @@ AddSubClass("sorcerer", "stone sorcery", {
 			calcChanges : {
 				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + \" from Stone's Durability (Sorcerer)\"; }; "
 			},
+			armourOptions : {
+				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
+				name : "Stone's Durability (Con)",
+				source : ["UA:SO", 4],
+				ac : 13,
+				dex : -10,
+				addMod : true
+			},
 			addArmor : "Stone's Durability (Con)"
 		},
 		"subclassfeature6" : {
@@ -310,16 +318,3 @@ AddSubClass("sorcerer", "stone sorcery", {
 		}
 	}
 });
-
-// Stone Sorcerer armour
-ArmourList["stone's durability"] = {
-	regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
-	name : "Stone's Durability (Con)",
-	source : ["UA:SO", 4],
-	type : "",
-	ac : 13,
-	stealthdis : false,
-	strReq : 0,
-	dex : -10,
-	addMod : true
-};

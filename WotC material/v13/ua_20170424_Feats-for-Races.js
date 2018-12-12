@@ -67,6 +67,18 @@ FeatsList["dragon hide"] = {
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me a +1 bonus to AC when I'm not wearing armor. [+1 Strength or Charisma]",
 	scorestxt : "+1 Strength or Charisma",
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bretractable\b)(?=.*\bclaws?\b).*$/i,
+		name : "Retractable Claws",
+		source : ["UA:FR", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "slashing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	},
 	addWeapons : ['Retractable Claws'],
 	eval : "AddACMisc(1, 'Dragon Hide', 'While not wearing armor, the Dragon Hide feat gives a +1 bonus to AC', 'CurrentArmour.known && ArmourList[CurrentArmour.known].type');",
 	removeeval : "AddACMisc(0, 'Dragon Hide', 'While not wearing armor, the Dragon Hide feat gives a +1 bonus to AC');"
@@ -296,18 +308,4 @@ FeatsList["wood elf magic"] = {
 		selection : ["pass without trace"],
 		firstCol : 'oncelr'
 	}]
-};
-
-// Add weapon for the Dragon Hide feat
-WeaponsList["claws"] = {
-	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
-	name : "Sharp Claws",
-	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "slashing"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
 };

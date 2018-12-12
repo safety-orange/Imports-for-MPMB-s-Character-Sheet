@@ -394,7 +394,25 @@ RaceList["lizardfolk"] = {
 	},
 	skillstxt : "Choose two from Animal Handling, Nature, Perception, Stealth, and Survival",
 	languageProfs : ["Common", "Draconic"],
+	weaponOptions : {
+		regExpSearch : /\bbite\b/i,
+		name : "Bite",
+		source : ["V", 113],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	},
 	addWeapons : ["Bite"],
+	armorOptions : {
+		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
+		name : "Natural Armor",
+		source : ["V", 113],
+		ac : 13
+	},
 	addArmor : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
@@ -461,6 +479,18 @@ RaceList["tabaxi"] = {
 	skills : ["Perception", "Stealth"],
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
+	weaponOptions : {
+		regExpSearch : /^(?=.*\bcat)(?=.*\bclaws?\b).*$/i,
+		name : "Cat's Claws",
+		source : ["V", 115],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "slashing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	},
 	addWeapons : ["Cat's Claws"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
@@ -592,32 +622,6 @@ RaceList["yuan-ti pureblood"] = {
 			}
 		}
 	}
-};
-
-// Racial weapons (lizardfolk bite and tabaxi claw)
-WeaponsList["bite"] = {
-	regExpSearch : /\bbite\b/i,
-	name : "Bite",
-	source : ["V", 112],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
-};
-WeaponsList["claws"] = {
-	regExpSearch : /^(?=.*\b(sharp|cat|dragon|retractable|tortle))(?=.*\bclaws?\b).*$/i,
-	name : "Sharp Claws",
-	source : [["V", 115], ["UA:FR", 2], ["TP", 4], ["X", 74]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "slashing"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
 };
 
 // Creatures

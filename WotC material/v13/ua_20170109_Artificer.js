@@ -246,10 +246,29 @@ ClassSubList["artificer-alchemist"] = {
 			additional : levels.map(function (n) {
 				return Math.ceil(n / 2) + "d6 acid damage";
 			}),
-			action : ["action", ""],
+			action : ["action", ""],			weaponOptions : {
+				regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
+				name : "Alchemical Acid",
+				source : ["UA:A", 5],
+				list : "artificer",
+				ability : 4,
+				type : "Artificer",
+				damage : [1, 6, "acid"],
+				range : "30 ft",
+				description : "Dex save, success - no damage; Objects automatically take maximum damage",
+				abilitytodamage : false,
+				dc : true,
+				artAlcAcid : true
+			},
 			addWeapons : ['Alchemical Acid'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'alchemical acid' && classes.known.artificer && classes.known.artificer.level) {fields.Proficiency = true; fields.Damage_Die = function(n){return Math.ceil(n / 2) + 'd6';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artAlcAcid && classes.known.artificer && classes.known.artificer.level) {
+							fields.Proficiency = true;
+							fields.Damage_Die = Math.ceil(classes.known.artificer.level / 2) + 'd6';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature1.3" : {
@@ -264,9 +283,29 @@ ClassSubList["artificer-alchemist"] = {
 				return Math.ceil(n / 3) + "d6 fire damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*alchemical)(?=.*fire).*$/i,
+				name : "Alchemical Fire",
+				source : ["UA:A", 5],
+				list : "artificer",
+				ability : 4,
+				type : "Artificer",
+				damage : [1, 6, "fire"],
+				range : "30 ft",
+				description : "Dex save, success - no damage; All creatures within 5-ft of the point of impact have to save",
+				abilitytodamage : false,
+				dc : true,
+				artAlcFire : true
+			},
 			addWeapons : ['Alchemical Fire'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'alchemical fire' && classes.known.artificer && classes.known.artificer.level) {fields.Proficiency = true; fields.Damage_Die = function(n){return Math.ceil(n / 3) + 'd6';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artAlcFire && classes.known.artificer && classes.known.artificer.level) {
+							fields.Proficiency = true;
+							fields.Damage_Die = Math.ceil(classes.known.artificer.level / 3) + 'd6';
+						};
+					}, ""]
 			}
 		}
 	}
@@ -277,7 +316,7 @@ ClassSubList["artificer-gunsmith"] = {
 	subname : "Gunsmith",
 	source : ["UA:A", 6],
 	features : {
-		"subclassfeature1.1" : {
+		"subclassfeature1" : {
 			name : "Master Smith",
 			source : ["UA:A", 6],
 			minlevel : 1,
@@ -289,7 +328,7 @@ ClassSubList["artificer-gunsmith"] = {
 			},
 			toolProfs : ["Smith's tools"]
 		},
-		"subclassfeature1.2" : {
+		"subclassfeature1.1" : {
 			name : "Thunder Cannon",
 			source : ["UA:A", 6],
 			minlevel : 1,
@@ -299,9 +338,32 @@ ClassSubList["artificer-gunsmith"] = {
 			]),
 			weaponProfs : [false, false, ["thunder cannon"]],
 			action : ["bonus action", " (reload)"],
+			weaponOptions : {
+				regExpSearch : /^(?!.*(blast|monger|piercing|explosive|round))(?=.*\bthunder)(?=.*cannon\b).*$/i,
+				name : "Thunder Cannon",
+				source : ["UA:A", 6],
+				ability : 2,
+				type : "Thunder Cannon",
+				damage : [2, 6, "piercing"],
+				range : "150/500 ft",
+				weight : 12, // made up, based on the weight of real rifles
+				description : "Ammunition, loading, two-handed, bonus action to reload",
+				abilitytodamage : true,
+				ammo : "Arcane Magazine"
+			},
+			ammoOptions : {
+				name : "Arcane Magazine",
+				source : ["UA:A", 7],
+				weight : 0.2, // based on the weight of renaissance bullets from the DMG
+				icon : "Bullets",
+				checks : [".Bullet"],
+				display : 50,
+				invName : "Thunder Cannon Rounds",
+				alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
+			},
 			addWeapons : ['Thunder Cannon']
 		},
-		"subclassfeature1.3" : {
+		"subclassfeature1.2" : {
 			name : "Arcane Magazine",
 			source : ["UA:A", 6],
 			minlevel : 1,
@@ -321,9 +383,27 @@ ClassSubList["artificer-gunsmith"] = {
 				return "+" + Math.floor((n - 1) / 2) + "d6 thunder damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*monger\b).*$/i,
+				name : "Thunder Cannon (Monger)",
+				source : ["UA:A", 6],
+				ability : 2,
+				type : "Thunder Cannon",
+				damage : [2, 6, "piercing"],
+				range : "150/500 ft",
+				description : "Ammunition, loading, two-handed, bonus action to reload",
+				abilitytodamage : true,
+				ammo : "Arcane Magazine",
+				artTCmonger : true
+			},
 			addWeapons : ['Thunder Cannon (Monger)'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'thunder cannon-thunder monger' && classes.known.artificer && classes.known.artificer.level > 2) {fields.Description += '; +' + function(n){return Math.floor((n - 1) / 2) + 'd6 thunder damage';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artTCmonger && classes.known.artificer && classes.known.artificer.level > 2) {
+							fields.Description += '; +' + Math.floor((classes.known.artificer.level - 1) / 2) + 'd6 thunder damage';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature9" : {
@@ -341,9 +421,28 @@ ClassSubList["artificer-gunsmith"] = {
 				"4d6 force damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bblast)(?=.*wave\b).*$/i,
+				name : "Thunder Cannon (Blast Wave)",
+				source : ["UA:A", 6],
+				ability : 4,
+				type : "Thunder Cannon",
+				damage : [2, 6, "force"],
+				range : "15-ft cone",
+				description : "Ammunition, loading, two-handed, bonus action to reload; Str save or damage and pushed back 10 ft",
+				dc : true,
+				abilitytodamage : false,
+				ammo : "Arcane Magazine",
+				artTCblast : true
+			},
 			addWeapons : ['Thunder Cannon (Blast Wave)'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'thunder cannon-blast wave' && classes.known.artificer && classes.known.artificer.level >= 13) {fields.Damage_Die = function(n){return (n < 17 ? 3 : 4) + 'd6';}(classes.known.artificer.level); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artTCblast && classes.known.artificer && classes.known.artificer.level >= 13) {
+							fields.Damage_Die = (classes.known.artificer.level < 17 ? 3 : 4) + 'd6';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature14" : {
@@ -360,9 +459,28 @@ ClassSubList["artificer-gunsmith"] = {
 				"6d6 lightning damage";
 			}),
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bpiercing)(?=.*round\b).*$/i,
+				name : "Thunder Cannon (Piercing Round)",
+				source : ["UA:A", 6],
+				ability : 4,
+				type : "Thunder Cannon",
+				damage : [4, 6, "lightning"],
+				range : "30-ft line",
+				description : "Ammunition, loading, two-handed, bonus action to reload; 5 ft wide line; Dex save or damage",
+				dc : true,
+				abilitytodamage : false,
+				ammo : "Arcane Magazine",
+				artTCpiercing : true
+			},
 			addWeapons : ['Thunder Cannon (Piercing Round)'],
 			calcChanges : {
-				atkAdd : ["if (WeaponName === 'thunder cannon-piercing round' && classes.known.artificer && classes.known.artificer.level >= 19) {fields.Damage_Die = '6d6'; }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.artTCpiercing && classes.known.artificer && classes.known.artificer.level >= 19) {
+							fields.Damage_Die = '6d6';
+						};
+					}, ""]
 			}
 		},
 		"subclassfeature17" : {
@@ -376,6 +494,19 @@ ClassSubList["artificer-gunsmith"] = {
 			]),
 			additional : "4d8 fire damage",
 			action : ["action", ""],
+			weaponOptions : {
+				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bexplosive)(?=.*round\b).*$/i,
+				name : "Thunder Cannon (Explosive Round)",
+				source : ["UA:A", 7],
+				ability : 4,
+				type : "Thunder Cannon",
+				damage : [4, 8, "fire"],
+				range : "500 ft",
+				description : "Ammunition, loading, two-handed, bonus action to reload; 30-ft radius sphere; Dex save or damage",
+				dc : true,
+				abilitytodamage : false,
+				ammo : "Arcane Magazine"
+			},
 			addWeapons : ['Thunder Cannon (Explosive Round)']
 		}
 	}
@@ -752,116 +883,6 @@ ClassList.artificer.features["wondrous invention"].extrachoices.forEach(function
 		};
 	};
 });
-
-// Artificer weapons
-WeaponsList["alchemical acid"] = {
-	regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
-	name : "Alchemical Acid",
-	source : ["UA:A", 5],
-	list : "artificer",
-	ability : 4,
-	type : "Artificer",
-	damage : [1, 6, "acid"],
-	range : "30 ft",
-	weight : 0,
-	description : "Dex save, success - no damage; Objects automatically take maximum damage",
-	abilitytodamage : false,
-	dc : true
-};
-WeaponsList["alchemical fire"] = {
-	regExpSearch : /^(?=.*alchemical)(?=.*fire).*$/i,
-	name : "Alchemical Fire",
-	source : ["UA:A", 5],
-	list : "artificer",
-	ability : 4,
-	type : "Artificer",
-	damage : [1, 6, "fire"],
-	range : "30 ft",
-	weight : 0,
-	description : "Dex save, success - no damage; All creatures within 5-ft of the point of impact have to save",
-	abilitytodamage : false,
-	dc : true
-};
-WeaponsList["thunder cannon-thunder cannon"] = {
-	regExpSearch : /^(?!.*(blast|monger|piercing|explosive|round))(?=.*\bthunder)(?=.*cannon\b).*$/i,
-	name : "Thunder Cannon",
-	source : ["UA:A", 6],
-	ability : 2,
-	type : "Thunder Cannon",
-	damage : [2, 6, "piercing"],
-	range : "150/500 ft",
-	weight : 12, // made up, based on the weight of real rifles
-	description : "Ammunition, loading, two-handed, bonus action to reload",
-	abilitytodamage : true,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-thunder monger"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*monger\b).*$/i,
-	name : "Thunder Cannon (Monger)",
-	source : ["UA:A", 6],
-	ability : 2,
-	type : "Thunder Cannon",
-	damage : [2, 6, "piercing"],
-	range : "150/500 ft",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload",
-	abilitytodamage : true,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-blast wave"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bblast)(?=.*wave\b).*$/i,
-	name : "Thunder Cannon (Blast Wave)",
-	source : ["UA:A", 6],
-	ability : 4,
-	type : "Thunder Cannon",
-	damage : [2, 6, "force"],
-	range : "15-ft cone",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload; Str save or damage and pushed back 10 ft",
-	dc : true,
-	abilitytodamage : false,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-piercing round"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bpiercing)(?=.*round\b).*$/i,
-	name : "Thunder Cannon (Piercing Round)",
-	source : ["UA:A", 6],
-	ability : 4,
-	type : "Thunder Cannon",
-	damage : [4, 6, "lightning"],
-	range : "30-ft line",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload; 5 ft wide line; Dex save or damage",
-	dc : true,
-	abilitytodamage : false,
-	ammo : "arcane magazine"
-};
-WeaponsList["thunder cannon-explosive round"] = {
-	regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bexplosive)(?=.*round\b).*$/i,
-	name : "Thunder Cannon (Explosive Round)",
-	source : ["UA:A", 7],
-	ability : 4,
-	type : "Thunder Cannon",
-	damage : [4, 8, "fire"],
-	range : "500 ft",
-	weight : 0,
-	description : "Ammunition, loading, two-handed, bonus action to reload; 30-ft radius sphere; Dex save or damage",
-	dc : true,
-	abilitytodamage : false,
-	ammo : "arcane magazine"
-};
-
-// Artificer ammo
-AmmoList["arcane magazine"] = {
-	name : "Arcane Magazine",
-	source : ["UA:A", 7],
-	weight : 0.2, // based on the weight of renaissance bullets from the DMG
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Thunder Cannon Rounds",
-	alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
-};
 
 // Set the Artificer class spell list
 var SetArtificerSpells = function(){

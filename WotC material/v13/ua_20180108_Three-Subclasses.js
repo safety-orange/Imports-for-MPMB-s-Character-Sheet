@@ -57,7 +57,14 @@ AddSubClass("druid", "circle of spores", {
 			}),
 			action : ["action", ""],
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && (/\\b(spore|symbiotic)\\b/i).test(WeaponText) && !isNaturalWeapon) {fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';}; ", "If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name or description, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 poison damage in the description."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+							fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';
+						};
+					},
+					"If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name or description, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 poison damage in the description."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -105,7 +112,14 @@ AddSubClass("fighter", "brute", {
 				return n < 3 ? "" : "+1d" + (n < 10 ? 4 : n < 16 ? 6 : n < 20 ? 8 : 10) + " weapon damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.fighter && classes.known.fighter.level > 2 && !isSpell && !isNaturalWeapon && fields.Proficiency) {fields.Description += (fields.Description ? '; ' : '') + '+1d' + (classes.known.fighter.level < 10 ? 4 : classes.known.fighter.level < 16 ? 6 : classes.known.fighter.level < 20 ? 8 : 10) + ' damage'}; ", "I do +1d4 damage with weapons that I'm proficient with. This increases to 1d6 at 10th level, 1d8 at 16th level, and 1d10 at 20th level."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.fighter && classes.known.fighter.level > 2 && !v.isSpell && !v.isNaturalWeapon && fields.Proficiency) {
+							fields.Description += (fields.Description ? '; ' : '') + '+1d' + (classes.known.fighter.level < 10 ? 4 : classes.known.fighter.level < 16 ? 6 : classes.known.fighter.level < 20 ? 8 : 10) + ' damage';
+						};
+					},
+					"I do +1d4 damage with weapons that I'm proficient with. This increases to 1d6 at 10th level, 1d8 at 16th level, and 1d10 at 20th level."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -168,6 +182,15 @@ AddSubClass("wizard", "school of invention", {
 				"Only I can attune to it; Creating a new one removes the magic from the previous"
 			]),
 			dmgres : ["Force"],
+			armourOptions : {
+				regExpSearch : /arcanomechanical/i,
+				name : "Arcanomechanical",
+				source : ["UA:TS", 3],
+				type : "light",
+				ac : 12,
+				weight : 8,
+				invName : "Arcanomechanical armor"
+			},
 			addArmor : "Arcanomechanical"
 		},
 		"subclassfeature2.2" : {
@@ -253,15 +276,3 @@ AddSubClass("wizard", "school of invention", {
 		}
 	}
 });
-// School of Invention's Arcanomechanical Armor
-ArmourList["arcanomechanical"] = {
-	regExpSearch : /arcanomechanical/i,
-	name : "Arcanomechanical",
-	source : ["UA:TS", 3],
-	type : "light",
-	ac : 12,
-	stealthdis : false,
-	weight : 8,
-	strReq : 0,
-	invName : "Arcanomechanical armor"
-};

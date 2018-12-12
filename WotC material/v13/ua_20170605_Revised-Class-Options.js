@@ -1,5 +1,5 @@
 var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -267,7 +267,14 @@ AddSubClass("warlock", "the celestal", {
 			]),
 			dmgres : ["Radiant"],
 			calcChanges : {
-				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) {
+							output.extraDmg += What('Cha Mod');
+						}
+					},
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."
+				]
 			}
 		},
 		"subclassfeature10" : {
@@ -350,7 +357,12 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		source : [["X", 57], ["UA:RCO", 6]],
 		prereqeval : "hasEldritchBlast",
 		calcChanges : {
-			atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
+			atkAdd : [
+				function (fields, v) {
+					if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+				},
+				"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
+			]
 		}
 	});
 	AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
@@ -412,7 +424,12 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	source : ["UA:RCO", 6],
 	prereqeval : "hasEldritchBlast",
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; 1 target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.WeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
+		]
 	}
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
@@ -436,7 +453,15 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	source : ["UA:RCO", 6],
 	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch Blast cantrip)", {

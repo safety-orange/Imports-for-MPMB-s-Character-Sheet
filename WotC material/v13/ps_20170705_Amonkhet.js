@@ -266,43 +266,40 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 	languageProfs : ["Common", "Naga"],
 	toolProfs : ["Poisoner's kit"],
 	savetxt : { immune : ["poison"] },
-	addWeapons : ["naga bite", "constrict"],
+	weaponOptions : [{ // Includes contributions by /u/juju2569
+		regExpSearch : /^(?=.*naga)(?=.*bite).*$/i,
+		name : "Naga Bite",
+		source : ["PS:A", 22],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "piercing"],
+		range : "Melee",
+		description : "Target must make Constitution save (DC 8 + Prof bonus + Con mod) or take +1d4 poison damage",
+		abilitytodamage : true
+	}, {
+		regExpSearch : /\bconstrict\b/i,
+		name : "Constrict",
+		source : ["PS:A", 22],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		description : "Target is grappled and restrained (escape DC 8+Prof+Str mod); Can't use constrict again until grapple ends",
+		abilitytodamage : true
+	}],
+	addWeapons : ["Naga Bite", "Constrict"],
 	age : " reach adulthood in their late teens and show no signs of aging beyond that point except for growing larger. They could live well over a century.",
 	height : " stand about 5 feet tall when upright, but the total length of their bodies, head to tail, ranges from 10 to as much as 20 feet",
 	weight : " weigh around 200 lb",
 	heightMetric : " stand about 1,5 metres tall when upright, but the total length of their bodies, head to tail, ranges from 3 to as much as 6 metres",
 	weightMetric : " weigh around 100 kg",
 	scores : [0, 0, 2, 1, 0, 0],
-	trait : "Naga (+1 Intelligence, +2 Constitution)\nSpeed Burst: As a bonus action on my turn, if I have both hands free, I can increase my walking speed by 5 ft until the end of my turn. By lowering my body to the ground and propelling myself with my arms, I can move more quickly for a time.\nNatural Weapons: I can bit with my fanged maw to poison a creature and constrict with my serpentine body. If I hit with a constrict attack, the target is grappled and restrained. Until this grapple ends, I can't use constrict on another target."
+	trait : "Naga (+1 Intelligence, +2 Constitution)\nSpeed Burst: As a bonus action on my turn, if I have both hands free, I can increase my walking speed by 5 ft until the end of my turn. By lowering my body to the ground and propelling myself with my arms, I can move more quickly for a time.\nNatural Weapons: I can bite with my fanged maw to poison a creature and constrict with my serpentine body. If I hit with a constrict attack, the target is grappled and restrained. Until this grapple ends, I can't use constrict on another target."
 };
 
 // Add weapons for races
-WeaponsList["khopesh"] = newObj(WeaponsList["longsword"]);
-WeaponsList["khopesh"].regExpSearch = /khopesh/i;
-WeaponsList["naga bite"] = { // Includes contributions by /u/juju2569
-	regExpSearch : /^(?=.*naga)(?=.*bite).*$/i,
-	name : "Naga Bite",
-	source : ["PS:A", 22],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "piercing"],
-	range : "Melee",
-	description : "Target must make Constitution save (DC 8 + Prof bonus + Con mod) or take +1d4 poison damage",
-	abilitytodamage : true,
-	monkweapon : false
-};
-WeaponsList["constrict"] = { // Includes contributions by /u/juju2569
-	regExpSearch : /\bconstrict\b/i,
-	name : "Constrict",
-	source : ["PS:A", 22],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	description : "Target is grappled and restrained (escape DC 8+Prof+Str mod); Can't use constrict again until grapple ends",
-	abilitytodamage : true,
-	monkweapon : false
-};
+WeaponsList.khopesh = newObj(WeaponsList["longsword"]);
+WeaponsList.khopesh.regExpSearch = /khopesh/i;
 
 // Adds 4 subclasses for the Cleric
 AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juju2569
@@ -479,7 +476,14 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 			minlevel : 8,
 			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
-				atkCalc : ["if (classes.known.cleric && classes.known.cleric.level > 7 && thisWeapon[4].indexOf('cleric') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Wis Mod'); }; ", "My cleric cantrips get my Wisdom modifier added to their damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature17" : {

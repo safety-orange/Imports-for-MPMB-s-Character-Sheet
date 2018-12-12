@@ -118,6 +118,17 @@ AddRacialVariant("shifter", "longtooth", {
 	source : ["UA:E", 2],
 	plural : "Longtooth shifters",
 	addWeapons : ["longtooth"],
+	weaponOptions : {
+		regExpSearch : /\blongtooth\b/i,
+		name : "Longtooth",
+		source : ["UA:E", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "Only while shifted; Target up to my size is grappled",
+		abilitytodamage : true
+	},
 	scorestxt : "",
 	scores : [1, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled."
@@ -128,6 +139,18 @@ AddRacialVariant("shifter", "razorclaw", {
 	source : ["UA:E", 2],
 	plural : "Razorclaw shifters",
 	addWeapons : ["razorclaw"],
+	weaponOptions : {
+		regExpSearch : /\brazorclaw\b/i,
+		name : "Razorclaw",
+		source : ["UA:E", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, "", "slashing"],
+		range : "Melee",
+		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
+		monkweapon : true,
+		abilitytodamage : true
+	},
 	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage."
@@ -141,31 +164,6 @@ AddRacialVariant("shifter", "wildhunt", {
 	scores : [0, 1, 0, 0, 1, 0],
 	trait : "Wildhunt Shifter (+1 Dexterity, +1 Wisdom)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain advantage on all Wisdom-based checks and saving throws."
 });
-
-// Shifter weapons
-WeaponsList["longtooth"] = {
-	regExpSearch : /\blongtooth\b/i,
-	name : "Longtooth",
-	source : ["UA:E", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "Only while shifted; Target up to my size is grappled",
-	abilitytodamage : true
-};
-WeaponsList["razorclaw"] = {
-	regExpSearch : /\brazorclaw\b/i,
-	name : "Razorclaw",
-	source : ["UA:E", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, "", "slashing"],
-	range : "Melee",
-	description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
-	monkweapon : true,
-	abilitytodamage : true
-};
 
 // 12 variants of the Dragonmark feat
 FeatsList["dragonmark [detection]"] = {

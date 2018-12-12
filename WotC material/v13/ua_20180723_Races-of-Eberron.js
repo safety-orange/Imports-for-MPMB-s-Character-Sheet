@@ -113,6 +113,18 @@ if (!SourceList.WGtE) {
 			walk : { spd : 30, enc : 20 }
 		},
 		languageProfs : ["Common"],
+		weaponOptions : {
+			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
+			name : "Longtooth Fangs",
+			source : [["WGtE", 66], ["UA:RoE", 6]],
+			ability : 1,
+			type : "Natural",
+			damage : [1, 6, "piercing"],
+			range : "Melee",
+			description : "Only while shifted; One attack as bonus action",
+			monkweapon : true,
+			abilitytodamage : true
+		},
 		addWeapons : ["Longtooth Fangs"],
 		vision : [["Darkvision", 60]],
 		skills : ["Intimidation", "Perception"],
@@ -133,18 +145,6 @@ if (!SourceList.WGtE) {
 				action : ["bonus action", " (start/end)"]
 			}
 		}
-	};
-	WeaponsList["longtooth fangs"] = { // longtooth shifter weapon
-		regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-		name : "Longtooth Fangs",
-		source : [["WGtE", 66], ["UA:RoE", 6]],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 6, "piercing"],
-		range : "Melee",
-		description : "Only while shifted; One attack as bonus action",
-		monkweapon : true,
-		abilitytodamage : true
 	};
 	RaceList["swiftstride shifter"] = {
 		regExpSearch : /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
@@ -254,7 +254,26 @@ if (!SourceList.WGtE) {
 				AddArmor('Warforged Darkwood Core', true);
 			};
 		},
-		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
+		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		armourOptions : [{
+			regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+			name : "Warforged darkwood core",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 11,
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+			name : "Warforged composite plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 13,
+			dex : 2
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+			name : "Warforged heavy plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 16,
+			stealthdis : true,
+			dex : -10
+		}]
 	};
 	RaceList["juggernaut warforged"] = {
 		regExpSearch : /^(?=.*warforged)(?=.*juggernaut).*$/i,
@@ -267,6 +286,18 @@ if (!SourceList.WGtE) {
 			walk : { spd : 30, enc : 20 }
 		},
 		languageProfs : ["Common"],
+		weaponOptions : {
+			regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
+			name : "Warforged iron fists",
+			source : [["WGtE", 70], ["UA:RoE", 9]],
+			ability : 1,
+			type : "Natural",
+			damage : [1, 4, "bludgeoning"],
+			range : "Melee",
+			description : "",
+			abilitytodamage : true,
+			monkweapon : true
+		},
 		addWeapons : ["Warforged Iron Fists"],
 		savetxt : {
 			text : ["Magic can't put me to sleep"],
@@ -293,21 +324,28 @@ if (!SourceList.WGtE) {
 				AddArmor('Warforged Darkwood Core', true);
 			};
 		},
-		removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
+		removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		armourOptions : [{
+			regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+			name : "Warforged darkwood core",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 11,
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+			name : "Warforged composite plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 13,
+			dex : 2
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+			name : "Warforged heavy plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 16,
+			stealthdis : true,
+			dex : -10
+		}]
 	};
-	WeaponsList["warforged iron fists"] = { // Juggernaut warforged weapon
-		regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
-		name : "Warforged iron fists",
-		source : [["WGtE", 70], ["UA:RoE", 9]],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "bludgeoning"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
-	};
-	RaceList["Skirmisher warforged"] = {
+	RaceList["skirmisher warforged"] = {
 		regExpSearch : /^(?=.*warforged)(?=.*skirmisher).*$/i,
 		name : "Skirmisher warforged",
 		sortname : "Warforged, Skirmisher",
@@ -342,39 +380,25 @@ if (!SourceList.WGtE) {
 				AddArmor('Warforged Darkwood Core', true);
 			};
 		},
-		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; "
-	};
-	// Warforged armour
-	ArmourList["warforged darkwood core"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
-		name : "Warforged darkwood core",
-		source : [["WGtE", 69], ["UA:RoE", 9]],
-		type : "warforged",
-		ac : 11,
-		stealthdis : false,
-		weight : 0,
-		strReq : 0
-	};
-	ArmourList["warforged composite plating"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
-		name : "Warforged composite plating",
-		source : [["WGtE", 69], ["UA:RoE", 9]],
-		type : "warforged",
-		ac : 13,
-		stealthdis : false,
-		weight : 0,
-		strReq : 0,
-		dex : 2
-	};
-	ArmourList["warforged heavy plating"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
-		name : "Warforged heavy plating",
-		source : [["WGtE", 69], ["UA:RoE", 9]],
-		type : "warforged",
-		ac : 16,
-		stealthdis : true,
-		weight : 0,
-		strReq : 0,
-		dex : -10
+		removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		armourOptions : [{
+			regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
+			name : "Warforged darkwood core",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 11,
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
+			name : "Warforged composite plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 13,
+			dex : 2
+		}, {
+			regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
+			name : "Warforged heavy plating",
+			source : [["WGtE", 69], ["UA:RoE", 9]],
+			ac : 16,
+			stealthdis : true,
+			dex : -10
+		}]
 	};
 }

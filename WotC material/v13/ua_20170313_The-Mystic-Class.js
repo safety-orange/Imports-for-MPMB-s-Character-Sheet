@@ -125,8 +125,20 @@ ClassList.mystic = {
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.mystic && classes.known.mystic.level > 7 && !isSpell) { fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.mystic.level < 14 ? 1 : 2) + 'd8 psychic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra psychic damage.\n - My psionic talents get my Intelligence modifier added to their damage roll."],
-				atkCalc : ["if (classes.known.mystic && classes.known.mystic.level > 7 && thisWeapon[4].indexOf('mystic') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Int Mod'); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.mystic && classes.known.mystic.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.mystic.level < 14 ? 1 : 2) + 'd8 psychic damage';
+						};
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra psychic damage.\n - My psionic talents get my Intelligence modifier added to their damage roll."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.mystic && classes.known.mystic.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('mystic') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Int Mod');
+						};
+					}, ""]
 			}
 		},
 		"consumptive power" : {
@@ -320,6 +332,13 @@ ClassSubList["mystic-immortal"] = {
 			]),
 			calcChanges : {
 				hp : "if (classes.known.mystic) {extrahp += classes.known.mystic.level; extrastring += '\\n + ' + classes.known.mystic.level + ' from Immortal Durability (Mystic)'; }; "
+			},
+			armourOptions : {
+				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
+				name : "Immortal Durability (Con)",
+				source : ["UA:TMC", 7],
+				ac : 10,
+				addMod : true
 			},
 			addArmor : "Immortal Durability (Con)"
 		},
@@ -3781,21 +3800,7 @@ ArmourList["inertial armor"] = {
 	regExpSearch : /^(?=.*(inertial|psychic|psionic))(?=.*armou?r).*$/i,
 	name : "Inertial armor",
 	source : ["UA:TMC", 18],
-	type : "",
-	ac : 14,
-	stealthdis : false,
-	strReq : 0
-};
-// Immortal Mystic armour
-ArmourList["immortal's durability"] = {
-	regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
-	name : "Immortal Durability (Con)",
-	source : ["UA:TMC", 7],
-	type : "",
-	ac : 10,
-	stealthdis : false,
-	strReq : 0,
-	addMod : true
+	ac : 14
 };
 
 // Psionic Talents that work like damage cantrips

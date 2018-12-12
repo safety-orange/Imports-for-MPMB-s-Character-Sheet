@@ -24,6 +24,12 @@ RaceList["loxodon"] = {
 	languageProfs : ["Common"],
 	savetxt : { adv_vs : ["frightened"] },
 	toolProfs : ["Mason's tools"],
+	armorOptions : {
+		regExpSearch : /^((?=.*natural)(?=.*armou?r)|(?=.*loxodon)(?=.*(hide|skin))).*$/i,
+		name : "Natural Armor",
+		source : ["UA:RoR", 1],
+		ac : 13
+	},
 	addArmor : "Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
@@ -41,7 +47,6 @@ RaceList["loxodon"] = {
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 };
-ArmourList['natural armor'].source.push(["UA:RoR", 1]);
 
 // Add Simic Hybrid
 RaceList["simic hybrid"] = {
@@ -55,6 +60,29 @@ RaceList["simic hybrid"] = {
 	},
 	languageProfs : ["Common", "Elvish"],
 	vision : [["Darkvision", 60]],
+	weaponOptionsSp : [{
+		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
+		name : "Grappling Appendages",
+		source : ["UA:RoR", 3],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		description : "After hitting, start grapple on target as a bonus action",
+		abilitytodamage : true,
+		monkweapon : true
+	}, {
+		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
+		name : "Acid Spit",
+		source : ["UA:RoR", 3],
+		ability : 3,
+		type : "Natural",
+		damage : ["C", 10, "acid"],
+		range : "30 ft",
+		description : "Dex save, success - no damage",
+		abilitytodamage : false,
+		dc : true
+	}],
 	age : " age the same as the base humanoid race, although the maximum lifespan is somewhat reduced",
 	height : " are of the same height as another of its humanoid race",
 	weight : " are of the same weight as another of its humanoid race",
@@ -90,6 +118,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Grappling Appendages":
 				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+				processWeaponOptions(true, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[0]);
 				AddWeapon("Grappling Appendages");
 				AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
 				break;
@@ -99,6 +128,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Acid Spit":
 				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + prof bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+				processWeaponOptions(true, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[1]);
 				AddWeapon("Acid Spit");
 				break;
 		};
@@ -121,6 +151,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Grappling Appendages":
 				RemoveWeapon("Grappling Appendages");
+				processWeaponOptions(false, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[0]);
 				RemoveAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
 				break;
 			case "Carapace":
@@ -128,6 +159,7 @@ RaceList["simic hybrid"] = {
 				break;
 			case "Acid Spit":
 				RemoveWeapon("Acid Spit");
+				processWeaponOptions(false, "simic hybrid", RaceList["simic hybrid"].weaponOptionsSp[1]);
 				break;
 		};
 		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
@@ -156,30 +188,6 @@ AddRacialVariant("simic hybrid", "underwater adaptation", {
 	},
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split."
 });
-WeaponsList["grappling appendages"] = {
-	regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
-	name : "Grappling Appendages",
-	source : [["G", 20], ["UA:RoR", 3]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	description : "After hitting, start grapple on target as a bonus action",
-	abilitytodamage : true,
-	monkweapon : true
-};
-WeaponsList["acid spit"] = {
-	regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
-	name : "Acid Spit",
-	source : [["G", 21], ["UA:RoR", 3]],
-	ability : 3,
-	type : "Natural",
-	damage : ["C", 10, "acid"],
-	range : "30 ft",
-	description : "Dex save, success - no damage",
-	abilitytodamage : false,
-	dc : true
-};
 
 // Add Vedalken
 RaceList["vedalken"] = {
@@ -216,35 +224,34 @@ RaceList["viashino"] = {
 	},
 	skillstxt : "Choose one from Acrobatics or Stealth",
 	languageProfs : ["Common", "Draconic"],
-	addWeapons : ["viashino bite", "lashing tail"],
+	weaponOptions : [{
+		regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
+		name : "Viashino bite",
+		source : ["UA:RoR", 5],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "piercing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	}, {
+		regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
+		name : "Lashing tail",
+		source : ["UA:RoR", 5],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "slashing"],
+		range : "Melee",
+		description : "Only as reaction",
+		abilitytodamage : true,
+		monkweapon : true
+	}],
+	addWeapons : ["Viashino Bite", "Lashing Tail"],
 	age : " reach adulthood in their early teens and rarely live past 60 due to their violent lives",
 	height : " stand about as tall as humans",
 	weight : " have lithe, wiry frames and are thus lighter than a human of the same height",
 	scores : [1, 2, 0, 0, 0, 0],
 	action : ["reaction", "Lashing Tail (after being hit)"],
 	trait : "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage."
-};
-WeaponsList["viashino bite"] = {
-	regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
-	name : "Viashino bite",
-	source : ["UA:RoR", 5],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "piercing"],
-	range : "Melee",
-	description : "",
-	abilitytodamage : true,
-	monkweapon : true
-};
-WeaponsList["lashing tail"] = {
-	regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
-	name : "Lashing tail",
-	source : ["UA:RoR", 5],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "slashing"],
-	range : "Melee",
-	description : "Only as reaction",
-	abilitytodamage : true,
-	monkweapon : true
 };

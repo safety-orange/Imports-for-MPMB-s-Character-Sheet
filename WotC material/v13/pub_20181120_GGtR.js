@@ -23,7 +23,19 @@ RaceList["centaur-ggtr"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
-	AddWeapons : ["Hooves"],
+	weaponOptions : {
+		regExpSearch : /\b(hoofs?|hooves)\b/i,
+		name : "Hooves",
+		source : ["G", 15],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "bludgeoning"],
+		range : "Melee",
+		description : "Use as bonus action after charge 30 ft",
+		abilitytodamage : true,
+		monkweapon : true
+	},
+	addWeapons : ["Hooves"],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	age : " mature and age at about the same rate as humans",
 	height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
@@ -46,19 +58,6 @@ RaceList["centaur-ggtr"] = {
 	},
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
-};
-// Centaur weapon
-WeaponsList["hooves-ggtr"] = {
-	regExpSearch : /\b(hoofs?|hooves)\b/i,
-	name : "Hooves",
-	source : ["G", 15],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "bludgeoning"],
-	range : "Melee",
-	description : "Use as bonus action after charge 30 ft",
-	abilitytodamage : true,
-	monkweapon : true
 };
 
 if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
@@ -109,7 +108,18 @@ RaceList["loxodon-ggtr"] = {
 	},
 	languageProfs : ["Common"],
 	savetxt : { adv_vs : ["charmed", "frightened"] },
-	AddArmor : "Loxodon Natural Armor",
+	armorOptions : {
+		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
+		name : "Loxodon Natural Armor (Con)",
+		source : ["G", 18],
+		type : "",
+		ac : 12,
+		stealthdis : false,
+		strReq : 0,
+		dex : -10,
+		addMod : true
+	},
+	addArmor : "Loxodon Natural Armor (Con)",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall (6'7\" + 2d10\")",
@@ -119,23 +129,11 @@ RaceList["loxodon-ggtr"] = {
 	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Loxodon (+2 Constitution, +1 Wisdom)" +
 		"\n  Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." +
-		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Constitution modifier + shield." +
+		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield." +
 		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5× my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
 		"\n  Keen Smell: I have " + (typePF ? "advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." : "adv. on Perception, Survival, and Investigation checks involving smell."),
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
-};
-// Loxodon armour
-ArmourList['loxodon natural armor'] = {
-	regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
-	name : "Loxodon Natural Armor (Con)",
-	source : ["G", 18],
-	type : "",
-	ac : 12,
-	stealthdis : false,
-	strReq : 0,
-	dex : -10,
-	addMod : true
 };
 
 // Add the Minotaur race
@@ -150,7 +148,19 @@ RaceList["minotaur-ggtr"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	AddWeapons : ["Minotaur Horns"],
+	weaponOptions : {
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : ["G", 19],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "Attack as a bonus action after moving 20 ft with the Dash action",
+		abilitytodamage : true,
+		monkweapon : true
+	},
+	addWeapons : ["Horns"],
 	skillstxt : "Choose one from Intimidation or Persuasion",
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " stand around 6 feet tall (5'4\" + 2d8\")",
@@ -177,19 +187,6 @@ RaceList["minotaur-ggtr"] = {
 		}
 	}
 };
-// Minotaur weapon
-WeaponsList["minotaur horns"] = {
-	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns",
-	source : ["G", 19],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "Use as a bonus action after moving 20 ft with the Dash action",
-	abilitytodamage : true,
-	monkweapon : true
-};
 
 // Add Simic Hybrid
 RaceList["simic hybrid-ggtr"] = {
@@ -203,6 +200,29 @@ RaceList["simic hybrid-ggtr"] = {
 	},
 	languageProfs : ["Common", ["Elvish or Vedalken", 1]],
 	vision : [["Darkvision", 60]],
+	weaponOptionsSp : [{
+		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
+		name : "Grappling Appendages",
+		source : ["G", 20],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		description : "After hitting, start grapple on target as a bonus action",
+		abilitytodamage : true,
+		monkweapon : true
+	}, {
+		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
+		name : "Acid Spit",
+		source : ["G", 21],
+		ability : 3,
+		type : "Natural",
+		damage : ["C", 10, "acid"],
+		range : "30 ft",
+		description : "Dex save, success - no damage",
+		abilitytodamage : false,
+		dc : true
+	}],
 	age : " age slightly faster than their base humanoid race and their maximum lifespan is somewhat reduced",
 	height : " are of the same height as typical for their humanoid race",
 	weight : " are of the same weight as typical for their humanoid race",
@@ -238,6 +258,7 @@ RaceList["simic hybrid-ggtr"] = {
 				break;
 			case "Grappling Appendages":
 				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+				processWeaponOptions(true, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[0]);
 				AddWeapon("Grappling Appendages");
 				AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
 				break;
@@ -248,6 +269,7 @@ RaceList["simic hybrid-ggtr"] = {
 			case "Acid Spit":
 				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
 				AddFeature("Acid Spit", "Con Mod", "", "long rest", "Simic Hybrid: Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
+				processWeaponOptions(true, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[1]);
 				AddWeapon("Acid Spit");
 				break;
 		};
@@ -270,6 +292,7 @@ RaceList["simic hybrid-ggtr"] = {
 				break;
 			case "Grappling Appendages":
 				RemoveWeapon("Grappling Appendages");
+				processWeaponOptions(false, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[0]);
 				RemoveAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
 				break;
 			case "Carapace":
@@ -278,6 +301,7 @@ RaceList["simic hybrid-ggtr"] = {
 			case "Acid Spit":
 				RemoveFeature("Acid Spit", "", "", "", "", "", "event.value = Math.max(1, What('Con Mod'));");
 				RemoveWeapon("Acid Spit");
+				processWeaponOptions(false, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[1]);
 				break;
 		};
 		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
@@ -306,30 +330,6 @@ AddRacialVariant("simic hybrid-ggtr", "underwater adaptation", {
 	},
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split."
 });
-WeaponsList["grappling appendages"] = {
-	regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
-	name : "Grappling Appendages",
-	source : [["G", 20], ["UA:RoR", 3]],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	description : "After hitting, start grapple on target as a bonus action",
-	abilitytodamage : true,
-	monkweapon : true
-};
-WeaponsList["acid spit"] = {
-	regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
-	name : "Acid Spit",
-	source : [["G", 21], ["UA:RoR", 3]],
-	ability : 3,
-	type : "Natural",
-	damage : ["C", 10, "acid"],
-	range : "30 ft",
-	description : "Dex save, success - no damage",
-	abilitytodamage : false,
-	dc : true
-};
 
 // Add Vedalken
 RaceList["vedalken-ggtr"] = {
@@ -424,7 +424,14 @@ AddSubClass("cleric", "order domain-ggtr", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -486,7 +493,14 @@ AddSubClass("druid", "circle of spores-ggtr", {
 			}),
 			action : ["action", ""],
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && (/\\b(spore|symbiotic)\\b/i).test(WeaponText) && !isNaturalWeapon) {fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';}; ", "If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name or description, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 poison damage in the description."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+							fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';
+						};
+					},
+					"If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 poison damage in the description."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -531,9 +545,17 @@ BackgroundList["azorius functionary"] = {
 	name : "Azorius Functionary",
 	source : ["G", 33],
 	skills : ["Insight", "Intimidation"],
-	injectSpellList : {
-		type : "class",
-		spells : ["friends", "message", "command", "ensnaring strike", "arcane lock", "calm emotions", "hold person", "clairvoyance", "counterspell", "compulsion", "divination", "dominate person"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["friends", "message", "command", "ensnaring strike", "arcane lock", "calm emotions", "hold person", "clairvoyance", "counterspell", "compulsion", "divination", "dominate person"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Friends, Message, Command, Ensnaring Strike, Arcane Lock, Calm Emotions, Hold Person, Clairvoyance, Counterspell, Compulsion, Divination, and Dominate Person."
+		]
 	},
 	gold : 10,
 	equipleft : [
@@ -593,9 +615,17 @@ BackgroundList["boros legionnaire"] = {
 	name : "Boros Legionnaire",
 	source : ["G", 40],
 	skills : ["Athletics", "Intimidation"],
-	injectSpellList : {
-		type : "class",
-		spells : ["fire bolt", "sacred flame", "guiding bolt", "heroism", "aid", "scorching ray", "beacon of hope", "blinding smite", "death ward", "wall of fire", "flame strike"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["fire bolt", "sacred flame", "guiding bolt", "heroism", "aid", "scorching ray", "beacon of hope", "blinding smite", "death ward", "wall of fire", "flame strike"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Fire Bolt, Sacred Flame, Guiding Bolt, Heroism, Aid, Scorching Ray, Beacon of Hope, Blinding Smite, Death Ward, Wall of Fire, and Flame Strike."
+		]
 	},
 	gold : 2,
 	equipleft : [
@@ -657,9 +687,17 @@ BackgroundList["dimir operative"] = {
 	name : "Dimir Operative",
 	source : ["G", 46],
 	skills : ["Deception", "Stealth"],
-	injectSpellList : {
-		type : "class",
-		spells : ["encode thoughts", "mage hand", "disguise self", "sleep", "detect thoughts", "pass without trace", "gaseous form", "meld into stone", "nondetection", "arcane eye", "freedom of movement", "modify memory"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["encode thoughts", "mage hand", "disguise self", "sleep", "detect thoughts", "pass without trace", "gaseous form", "meld into stone", "nondetection", "arcane eye", "freedom of movement", "modify memory"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Encode Thoughts, Mage Hand, Disguise Self, Sleep, Detect Thoughts, Pass Without Trace, Gaseous Form, Meld into Stone, Nondetection, Arcane Eye, Freedom of Movement, and Modify Memory."
+		]
 	},
 	gold : 0,
 	equipleft : [
@@ -730,9 +768,17 @@ BackgroundList["golgari agent"] = {
 	name : "Golgari Agent",
 	source : ["G", 53],
 	skills : ["Nature", "Survival"],
-	injectSpellList : {
-		type : "class",
-		spells : ["dancing lights", "spare the dying", "entangle", "ray of sickness", "protection from poison", "ray of enfeeblement", "spider climb", "animate dead", "plant growth", "giant insect", "grasping vine", "cloudkill", "insect plague"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["dancing lights", "spare the dying", "entangle", "ray of sickness", "protection from poison", "ray of enfeeblement", "spider climb", "animate dead", "plant growth", "giant insect", "grasping vine", "cloudkill", "insect plague"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Dancing Lights, Spare the Dying, Entangle, Ray of Sickness, Protection from Poison, Ray of Enfeeblement, Spider Climb, Animate Dead, Plant Growth, Giant Insect, Grasping Vine, Cloudkill, and Insect Plague."
+		]
 	},
 	gold : 10,
 	equipleft : [
@@ -792,9 +838,17 @@ BackgroundList["gruul anarch"] = {
 	name : "Gruul Anarch",
 	source : ["G", 60],
 	skills : ["Nature", "Survival"],
-	injectSpellList : {
-		type : "class",
-		spells : ["fire bolt", "produce flame", "compelled duel", "speak with animals", "thunderwave", "beast sense", "shatter", "conjure animals", "conjure barrage", "dominate beast", "stoneskin", "destructive wave"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["fire bolt", "produce flame", "compelled duel", "speak with animals", "thunderwave", "beast sense", "shatter", "conjure animals", "conjure barrage", "dominate beast", "stoneskin", "destructive wave"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Fire Bolt, Produce Flame, Compelled Duel, Speak with Animals, Thunderwave, Beast Sense, Shatter, Conjure Animals, Conjure Barrage, Dominate Beast, Stoneskin, and Destructive Wave."
+		]
 	},
 	gold : 10,
 	equipleft : [
@@ -867,9 +921,17 @@ BackgroundList["izzet engineer"] = {
 	name : "Izzet Engineer",
 	source : ["G", 66],
 	skills : ["Arcana", "Investigation"],
-	injectSpellList : {
-		type : "class",
-		spells : ["produce flame", "shocking grasp", "chaos bolt-xgte", "create or destroy water", "unseen servant", "heat metal", "rope trick", "call lightning", "elemental weapon", "glyph of warding", "conjure minor elementals", "divination", "otiluke's resilient sphere", "animate objects", "conjure elemental"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["produce flame", "shocking grasp", "chaos bolt-xgte", "create or destroy water", "unseen servant", "heat metal", "rope trick", "call lightning", "elemental weapon", "glyph of warding", "conjure minor elementals", "divination", "otiluke's resilient sphere", "animate objects", "conjure elemental"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Produce Flame, Shocking Grasp, Chaos Bolt, Create or Destroy Water, Unseen Servant, Heat Metal, Rope Trick, Call Lightning, Elemental Weapon, Glyph of Warding, Conjure Minor Elementals, Divination, Otiluke's Resilient Sphere, Animate Objects, and Conjure Elemental."
+		]
 	},
 	gold : 5,
 	equipleft : [
@@ -931,9 +993,17 @@ BackgroundList["orzhov representative"] = {
 	name : "Orzhov Representative",
 	source : ["G", 72],
 	skills : ["Intimidation", "Religion"],
-	injectSpellList : {
-		type : "class",
-		spells : ["friends", "guidance", "command", "illusory script", "enthrall", "ray of enfeeblement", "zone of truth", "bestow curse", "speak with dead", "spirit guardians", "blight", "death ward", "leomund's secret chest", "geas"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["friends", "guidance", "command", "illusory script", "enthrall", "ray of enfeeblement", "zone of truth", "bestow curse", "speak with dead", "spirit guardians", "blight", "death ward", "leomund's secret chest", "geas"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Friends, Guidance, Command, Illusory Script, Enthrall, Ray of Enfeeblement, Zone of Truth, Bestow Curse, Speak with Dead, Spirit Guardians, Blight, Death Ward, Leomund's Secret Chest, and Geas."
+		]
 	},
 	gold : 10,
 	equipright : [
@@ -990,9 +1060,17 @@ BackgroundList["rakdos cultist"] = {
 	name : "Rakdos Cultist",
 	source : ["G", 79],
 	skills : ["Acrobatics", "Performance"],
-	injectSpellList : {
-		type : "class",
-		spells : ["fire bolt", "vicious mockery", "burning hands", "dissonant whispers", "hellish rebuke", "crown of madness", "enthrall", "flaming sphere", "fear", "haste", "confusion", "wall of fire", "dominate person"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["fire bolt", "vicious mockery", "burning hands", "dissonant whispers", "hellish rebuke", "crown of madness", "enthrall", "flaming sphere", "fear", "haste", "confusion", "wall of fire", "dominate person"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Fire Bolt, Vicious Mockery, Burning Hands, Dissonant Whispers, Hellish Rebuke, Crown of Madness, Enthrall, Flaming Sphere, Fear, Haste, Confusion, Wall of Fire, and Dominate Person."
+		]
 	},
 	gold : 10,
 	equipleft : [
@@ -1063,14 +1141,25 @@ BackgroundFeatureList["fearsome reputation"] = {
 	source : ["G", 79]
 };
 
+// don't add if this is not a class or a list of spells is already given\r\n\t\t\t\tif \(!ClassList[spName] || spList.spells\) return;\r\n\t\t\t\t// if this is an 'extra spell', also test if it uses the class' spell list or not\r\n\t\t\t\tif (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;\r\n\t\t\t\t
+
+
 BackgroundList["selesnya initiate"] = {
 	regExpSearch :  /^(?=.*selesnya)(?=.*initiate).*$/i,
 	name : "Selesnya Initiate",
 	source : ["G", 86],
 	skills : ["Nature", "Persuasion"],
-	injectSpellList : {
-		type : "class",
-		spells : ["druidcraft", "friends", "aid", "animal friendship", "charm person", "animal messenger", "calm emotions", "warding bond", "plant growth", "speak with plants", "aura of life", "conjure minor elementals", "awaken", "commune with nature"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["druidcraft", "friends", "aid", "animal friendship", "charm person", "animal messenger", "calm emotions", "warding bond", "plant growth", "speak with plants", "aura of life", "conjure minor elementals", "awaken", "commune with nature"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Druidcraft, Friends, Aid, Animal Friendship, Charm Person, Animal Messenger, Calm Emotions, Warding Bond, Plant Growth, Speak with Plants, Aura of Life, Conjure Minor Elementals, Awaken, and Commune with Nature."
+		]
 	},
 	gold : 5,
 	equipleft : [
@@ -1130,9 +1219,17 @@ BackgroundList["simic scientist"] = {
 	name : "Simic Scientist",
 	source : ["G", 93],
 	skills : ["Arcana", "Medicine"],
-	injectSpellList : {
-		type : "class",
-		spells : ["acid splash", "druidcraft", "detect poison and disease", "expeditious retreat", "jump", "alter self", "enhance ability", "enlarge/reduce", "gaseous form", "water breathing", "wind wall", "freedom of movement", "polymorph", "creation"]
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// don't add if this is not a class or a list of spells is already given
+				if (!ClassList[spName] || spList.spells) return;
+				// if this is an 'extra spell', also test if it uses the class' spell list or not
+				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				spList.extraspells = spList.extraspells.concat(["acid splash", "druidcraft", "detect poison and disease", "expeditious retreat", "jump", "alter self", "enhance ability", "enlarge/reduce", "gaseous form", "water breathing", "wind wall", "freedom of movement", "polymorph", "creation"]);
+			},
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Acid Splash, Druidcraft, Detect Poison and Disease, Expeditious Retreat, Jump, Alter Self, Enhance Ability, Enlarge/reduce, Gaseous Form, Water Breathing, Wind Wall, Freedom of Movement, Polymorph, and Creation."
+		]
 	},
 	gold : 10,
 	equipleft : [

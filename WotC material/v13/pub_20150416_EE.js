@@ -23,6 +23,18 @@ RaceList["aarakocra"] = {
 		fly : { spd : 50, enc : 0 }
 	},
 	languageProfs : ["Common", "Aarakocra", "Auran"],
+	weaponOptions : {
+		regExpSearch : /talons?/i,
+		name : "Talons",
+		source : ["E", 5],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "slashing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true,
+		monkweapon : true
+	},
 	addWeapons : ["Talons"],
 	age : " rearch maturity by age 3 and live about 30 years",
 	height : " are about 5 feet tall",
@@ -30,16 +42,7 @@ RaceList["aarakocra"] = {
 	heightMetric : " are about 1,5 metres tall",
 	weightMetric : " weigh between 36 and 45 kg",
 	scores : [0, 2, 0, 0, 1, 0],
-	trait : "Aarakocra (+2 Dexterity, +1 Wisdom)\n\nFlight: I have a flying speed of 50 feet. To use this speed, I can't be wearing medium or heavy armor.\n\nTalons: My unarmed strikes deal 1d4 slashing damage on a hit.",
-	features : {
-		"talons" : {
-			name : "Talons",
-			minlevel : 1,
-			calcChanges : {
-				atkAdd : ["if ((/unarmed strike/i).test(WeaponName)) { fields.Damage_Type = 'slashing'; if (fields.Damage_Die == 1) {fields.Damage_Die = '1d4'; }; }; ", "I have talons, which cause my unarmed strikes to deal 1d4 slashing damage."]
-			}
-		}
-	}
+	trait : "Aarakocra (+2 Dexterity, +1 Wisdom)\n\nFlight: I have a flying speed of 50 feet. To use this speed, I can't be wearing medium or heavy armor.\n\nTalons: My unarmed strikes deal 1d4 slashing damage on a hit."
 };
 RaceList["deep gnome"] = {
 	regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
@@ -454,7 +457,7 @@ SpellsList["elemental bane"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Con",
-	description : "1+1/SL crea in 15-ft rad save or first attack each rnd of chosen energy does +2d6 dmg; no resistance",
+	description : "1+1/SL crea, each max 30 ft apart, save or 1 energy: lose resist. to it & +2d6 to first dmg with it/turn",
 	descriptionFull : "Choose one creature you can see within range, and choose one of the following damage types - acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["erupting earth"] = {

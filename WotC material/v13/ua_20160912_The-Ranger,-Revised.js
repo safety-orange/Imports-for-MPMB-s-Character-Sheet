@@ -76,7 +76,14 @@ ClassList["rangerua"] = {
 			},
 			languageProfs : [1],
 			calcChanges : {
-				atkCalc : ["if (!isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(WeaponText)) { output.extraDmg += classes.known.rangerua.level < 6 ? 2 : 4; }; ", "If I include the words 'Favored Enemy' in the name or description of a weapon, it gets bonus damage, depending on my Ranger level."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (!v.isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(v.WeaponText)) {
+							output.extraDmg += classes.known.rangerua.level < 6 ? 2 : 4;
+						};
+					},
+					"If I include the words 'Favored Enemy' in the name or description of a weapon, it gets bonus damage, depending on my Ranger level."
+				]
 			}
 		},
 		"natural explorer" : {

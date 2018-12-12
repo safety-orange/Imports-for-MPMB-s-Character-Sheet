@@ -63,6 +63,12 @@ AddSubClass("paladin", "oath of redemption", {
 			source : ["UA:AToS", 2],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
+			armourOptions : {
+				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
+				name : "Armor of Peace",
+				source : ["UA:AToS", 2],
+				ac : 16
+			},
 			addArmor : "Armor of Peace"
 		},
 		"subclassfeature3.1" : {
@@ -121,16 +127,6 @@ AddSubClass("paladin", "oath of redemption", {
 		}
 	}
 });
-// Oath of Redemption Paladin Armor of Peace
-ArmourList["armor of peace"] = {
-	regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
-	name : "Armor of Peace",
-	source : ["UA:AToS", 2],
-	type : "",
-	ac : 16,
-	stealthdis : false,
-	strReq : 0
-};
 // Add the Monster Slayer subclass to both the normal and Revised Ranger (if it is defined)
 var RangeSubclassMonsterSlayer = AddSubClass("ranger", "monster slayer", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,

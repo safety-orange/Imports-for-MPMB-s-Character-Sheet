@@ -529,8 +529,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [finding]"] = {
 		name : "Greater Dragonmark [Finding]",
@@ -547,8 +547,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [handling]"] = {
 		name : "Greater Dragonmark [Handling]",
@@ -565,8 +565,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [healing]"] = {
 		name : "Greater Dragonmark [Healing]",
@@ -583,8 +583,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [hospitality]"] = {
 		name : "Greater Dragonmark [Hospitality]",
@@ -601,8 +601,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [making]"] = {
 		name : "Greater Dragonmark [Making]",
@@ -619,8 +619,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [passage]"] = {
 		name : "Greater Dragonmark [Passage]",
@@ -637,8 +637,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [scribing]"] = {
 		name : "Greater Dragonmark [Scribing]",
@@ -655,8 +655,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncesr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [sentinel]"] = {
 		name : "Greater Dragonmark [Sentinel]",
@@ -673,8 +673,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncesr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [shadow]"] = {
 		name : "Greater Dragonmark [Shadow]",
@@ -691,8 +691,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [storm]"] = {
 		name : "Greater Dragonmark [Storm]",
@@ -709,8 +709,8 @@ if (!SourceList.WGtE) {
 			firstCol : 'oncelr',
 			times : 2
 		},
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 	FeatsList["greater dragonmark [warding]"] = {
 		name : "Greater Dragonmark [Warding]",
@@ -732,8 +732,8 @@ if (!SourceList.WGtE) {
 			selection : ["leomund's secret chest"],
 			firstCol : 'oncelr'
 		}],
-		eval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'); ) }; ",
-		removeeval : "var raceTrait = Value('Racial Traits'); if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) { What('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'); ) }; "
+		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
+		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
 	};
 
 	// Aberrant Dragonmark feat
