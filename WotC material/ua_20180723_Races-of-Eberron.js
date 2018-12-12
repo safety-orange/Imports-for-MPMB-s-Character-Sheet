@@ -300,7 +300,7 @@ if (!SourceList.WGtE) {
 		abilitytodamage : true,
 		monkweapon : true
 	};
-	RaceList["Skirmisher warforged"] = {
+	RaceList["skirmisher warforged"] = {
 		regExpSearch : /^(?=.*warforged)(?=.*skirmisher).*$/i,
 		name : "Skirmisher warforged",
 		sortname : "Warforged, Skirmisher",

@@ -354,7 +354,11 @@ AddSubClass("barbarian", "battlerager", {
 			name : "Battlerager Armor",
 			source : ["S", 121],
 			minlevel : 3,
-			description : "\n   " + "I gain proficiency with spiked armor as a weapon" + "\n   " + "As a bonus action while raging, I can attack once with my armor spikes",
+			description : desc([
+				"I gain proficiency with spiked armor both as an armor and as a weapon",
+				"As a bonus action while raging, I can attack once with my armor spikes",
+				"With my spiked armor I do 3 piercing damage when I use my Attack action to grapple"
+			]),
 			action : ["bonus action", " attack (in rage)"],
 			weapons : [false, false, ["armor spikes"]],
 			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', '); AddWeapon('Armor Spikes');",
@@ -1356,7 +1360,7 @@ WeaponsList["armor spikes"] = {
 	type : "Other",
 	damage : [1, 4, "piercing"],
 	range : "Melee",
-	description : "Does 3 piercing damage when using your attack to grapple",
+	description : "Does 3 piercing damage when grappling during my Attack action",
 	abilitytodamage : true
 };
 WeaponsList["radiant sun bolt"] = {
