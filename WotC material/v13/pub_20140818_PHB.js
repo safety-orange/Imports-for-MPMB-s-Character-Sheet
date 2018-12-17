@@ -3096,15 +3096,8 @@ FeatsList["elemental adept"] = {
 	source : ["P", 166],
 	description : "Choose one of the damage types: acid, cold, fire, lightning, or thunder. Spells I cast ignore resistance to damage from this damage type. For any spell I cast that deals this damage type, I can treat any 1 on a damage die as a 2.",
 	prerequisite : "The ability to cast at least one spell",
-	prereqeval : "CurrentSpells.toSource() !== '({})'"
-};
-FeatsList["grappler"] = {
-	name : "Grappler",
-	source : [["SRD", 75], ["P", 167]],
-	description : "I have advantage on attack rolls against a creature I am grappling. As an action, I can try to pin a creature grappled by me. If I succeed on a grapple check, both the creature and I are restrained until the grapple ends.",
-	prerequisite : "Strength 13 or higher",
-	prereqeval : "What('Str') >= 13",
-	action : ["action", " feat (pin grappled)"]
+	prereqeval : "CurrentSpells.toSource() !== '({})'",
+	allowDuplicates : true
 };
 FeatsList["great weapon master"] = {
 	name : "Great Weapon Master",
