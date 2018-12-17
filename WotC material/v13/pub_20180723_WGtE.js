@@ -242,33 +242,40 @@ RaceList["envoy warforged"] = {
 	scores : [0, 0, 1, 0, 0, 0],
 	trait : "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
 	eval : function() {
-		AddACMisc('Prof', 'Integrated Protection', 'Integrated Protection was gained from being a Warforged', '!(/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known) || (!tDoc.getField("Proficiency Armor Light").isBoxChecked(0) && !tDoc.getField("Proficiency Armor Medium").isBoxChecked(0) && !tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0))');
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			AddArmor('Warforged Heavy Plating', true);
+			AddArmor('Heavy Plating (Prof)', true);
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			AddArmor('Warforged Composite Plating', true);
+			AddArmor('Composite Plating (Prof)', true);
 		} else {
-			AddArmor('Warforged Darkwood Core', true);
+			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
 	armourOptions : [{
-		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
-		name : "Warforged darkwood core",
+		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
+		name : "Darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11
+	}, {
+		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
+		name : "Darkwood core (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 11,
+		addMod : true
 	}, {
-		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
-		name : "Warforged composite plating",
+		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
+		name : "Composite plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 13,
+		addMod : true,
 		dex : 2
 	}, {
-		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
-		name : "Warforged heavy plating",
+		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
+		name : "Heavy plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 16,
+		addMod : true,
 		stealthdis : true,
 		dex : -10
 	}]
@@ -311,34 +318,40 @@ RaceList["juggernaut warforged"] = {
 	scores : [2, 0, 1, 0, 0, 0],
 	trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
 	eval : function() {
-		tDoc.getField('Carrying Capacity Multiplier').value *= 2;
-		AddACMisc('Prof', 'Integrated Protection', 'Integrated Protection was gained from being a Warforged', '!(/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known) || (!tDoc.getField("Proficiency Armor Light").isBoxChecked(0) && !tDoc.getField("Proficiency Armor Medium").isBoxChecked(0) && !tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0))');
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			AddArmor('Warforged Heavy Plating', true);
+			AddArmor('Heavy Plating (Prof)', true);
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			AddArmor('Warforged Composite Plating', true);
+			AddArmor('Composite Plating (Prof)', true);
 		} else {
-			AddArmor('Warforged Darkwood Core', true);
+			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2; AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
 	armourOptions : [{
-		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
-		name : "Warforged darkwood core",
+		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
+		name : "Darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11
+	}, {
+		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
+		name : "Darkwood core (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 11,
+		addMod : true
 	}, {
-		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
-		name : "Warforged composite plating",
+		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
+		name : "Composite plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 13,
+		addMod : true,
 		dex : 2
 	}, {
-		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
-		name : "Warforged heavy plating",
+		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
+		name : "Heavy plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 16,
+		addMod : true,
 		stealthdis : true,
 		dex : -10
 	}]
@@ -368,33 +381,40 @@ RaceList["skirmisher warforged"] = {
 	scores : [0, 2, 1, 0, 0, 0],
 	trait : "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
 	eval : function() {
-		AddACMisc('Prof', 'Integrated Protection', 'Integrated Protection was gained from being a Warforged', '!(/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known) || (!tDoc.getField("Proficiency Armor Light").isBoxChecked(0) && !tDoc.getField("Proficiency Armor Medium").isBoxChecked(0) && !tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0))');
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			AddArmor('Warforged Heavy Plating', true);
+			AddArmor('Heavy Plating (Prof)', true);
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			AddArmor('Warforged Composite Plating', true);
+			AddArmor('Composite Plating (Prof)', true);
 		} else {
-			AddArmor('Warforged Darkwood Core', true);
+			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "AddACMisc(0, 'Integrated Protection', 'Integrated Protection was gained from being a Warforged'); if ((/warforged (darkwood core|composite plating|heavy plating)/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
 	armourOptions : [{
-		regExpSearch : /^(?=.*warforged)(?=.*darkwood)(?=.*core).*$/i,
-		name : "Warforged darkwood core",
+		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
+		name : "Darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11
+	}, {
+		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
+		name : "Darkwood core (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 11,
+		addMod : true
 	}, {
-		regExpSearch : /^(?=.*warforged)(?=.*composite)(?=.*plating).*$/i,
-		name : "Warforged composite plating",
+		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
+		name : "Composite plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 13,
+		addMod : true,
 		dex : 2
 	}, {
-		regExpSearch : /^(?=.*warforged)(?=.*heavy)(?=.*plating).*$/i,
-		name : "Warforged heavy plating",
+		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
+		name : "Heavy plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		ac : 16,
+		addMod : true,
 		stealthdis : true,
 		dex : -10
 	}]
