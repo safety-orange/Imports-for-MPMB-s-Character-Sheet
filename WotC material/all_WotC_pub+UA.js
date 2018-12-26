@@ -18142,7 +18142,7 @@ RaceList["simic hybrid-ggtr"] = {
 	height : " are of the same height as typical for their humanoid race",
 	weight : " are of the same weight as typical for their humanoid race",
 	improvements : "Simic Hybrid: +2 Constitution and +1 to one other ability score of my choice;",
-	scores : [0, 2, 0, 0, 0, 0],
+	scores : [0, 0, 2, 0, 0, 0],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (1st level): Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
 	features : {
 		"animal enhancement" : {
@@ -33537,7 +33537,7 @@ RaceList["simic hybrid"] = {
 	height : " are of the same height as another of its humanoid race",
 	weight : " are of the same weight as another of its humanoid race",
 	improvements : "Simic Hybrid: +2 Constitution and +1 to one other ability score of my choice;",
-	scores : [0, 2, 0, 0, 0, 0],
+	scores : [0, 0, 2, 0, 0, 0],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (1st level): Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
 	features : {
 		"animal enhancement" : {
