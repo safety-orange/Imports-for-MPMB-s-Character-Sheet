@@ -10404,14 +10404,14 @@ CreatureList["gazer"] = {
 		}
 	]
 };
-var iFileName = "pub_20170404_TotYP.js";
+var iFileName = "pub_20170404_TftYP.js";
 RequiredSheetVersion(12.999);
-// This file adds the beasts from the Tales of the Yawning Portal adventure book to MPMB's Character Record Sheet
+// This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.TotYP={
-	name : "Tales of the Yawning Portal [beasts]",
-	abbreviation : "TotYP",
+SourceList.TftYP={
+	name : "Tales from the Yawning Portal [beasts]",
+	abbreviation : "TftYP",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
 	date : "2017/04/04"
@@ -10420,7 +10420,7 @@ SourceList.TotYP={
 // Creatures
 CreatureList["giant crayfish"] = {
 	name : "Giant Crayfish",
-	source : ["TotYP", 235],
+	source : ["TftYP", 235],
 	size : 2, //Large
 	type : "Beast",
 	subtype : "",
@@ -10456,7 +10456,7 @@ CreatureList["giant crayfish"] = {
 };
 CreatureList["giant ice toad"] = {
 	name : "Giant Ice Toad",
-	source : ["TotYP", 235],
+	source : ["TftYP", 235],
 	size : 2, //Large
 	type : "Monstrosity",
 	subtype : "",
@@ -10502,7 +10502,7 @@ CreatureList["giant ice toad"] = {
 };
 CreatureList["giant lightning eel"] = {
 	name : "Giant Lightning Eel",
-	source : ["TotYP", 236],
+	source : ["TftYP", 236],
 	size : 2, //Large
 	type : "Beast",
 	subtype : "",
@@ -10550,7 +10550,7 @@ CreatureList["giant lightning eel"] = {
 };
 CreatureList["giant subterranean lizard"] = {
 	name : "Giant Subterranean Lizard",
-	source : ["TotYP", 236],
+	source : ["TftYP", 236],
 	size : 1, //Huge
 	type : "Beast",
 	subtype : "",
