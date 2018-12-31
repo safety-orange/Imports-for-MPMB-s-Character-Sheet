@@ -33519,7 +33519,7 @@ RaceList["loxodon"] = {
 	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
 	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
 };
-ArmourList['natural armor'].source.push(["UA:RoR", 1]);
+if (ArmourList['natural armor']) ArmourList['natural armor'].source.push(["UA:RoR", 1]);
 
 // Add Simic Hybrid
 RaceList["simic hybrid"] = {

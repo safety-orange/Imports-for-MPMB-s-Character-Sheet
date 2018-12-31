@@ -10584,7 +10584,7 @@ RaceList["tortle"] = {
 	},
 	languageProfs : ["Common", "Aquan"],
 	skills : ["Survival"],
-	armourOptions : {
+	armorOptions : {
 		regExpSearch : /^(?=.*tortle)(?=.*shell).*$/i,
 		name : "Tortle's Shell",
 		source : ["TP", 4],
