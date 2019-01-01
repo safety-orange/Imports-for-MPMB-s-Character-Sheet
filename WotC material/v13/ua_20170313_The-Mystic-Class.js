@@ -38,6 +38,10 @@ ClassList.mystic = {
 		cantrips : levels.map(function (n) { return n < 3 ? 1 : n < 10 ? 2 : n < 17 ? 3 : 4; }),
 		spells : levels.map(function (n) { return n < 3 ? 1 : n < 5 ? 2 : n < 7 ? 3 : n < 9 ? 4 : n < 12 ? 5 : n < 15 ? 6 : n < 18 ? 7 : 8; })
 	},
+	spellcastingList : {
+		"class" : "mystic",
+		psionic : true
+	},
 	features : {
 		"psi points" : {
 			name : "Psi Points",

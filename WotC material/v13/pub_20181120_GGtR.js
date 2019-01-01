@@ -549,9 +549,9 @@ BackgroundList["azorius functionary"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["friends", "message", "command", "ensnaring strike", "arcane lock", "calm emotions", "hold person", "clairvoyance", "counterspell", "compulsion", "divination", "dominate person"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Friends, Message, Command, Ensnaring Strike, Arcane Lock, Calm Emotions, Hold Person, Clairvoyance, Counterspell, Compulsion, Divination, and Dominate Person."
@@ -619,9 +619,9 @@ BackgroundList["boros legionnaire"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["fire bolt", "sacred flame", "guiding bolt", "heroism", "aid", "scorching ray", "beacon of hope", "blinding smite", "death ward", "wall of fire", "flame strike"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Fire Bolt, Sacred Flame, Guiding Bolt, Heroism, Aid, Scorching Ray, Beacon of Hope, Blinding Smite, Death Ward, Wall of Fire, and Flame Strike."
@@ -691,9 +691,9 @@ BackgroundList["dimir operative"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["encode thoughts", "mage hand", "disguise self", "sleep", "detect thoughts", "pass without trace", "gaseous form", "meld into stone", "nondetection", "arcane eye", "freedom of movement", "modify memory"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Encode Thoughts, Mage Hand, Disguise Self, Sleep, Detect Thoughts, Pass Without Trace, Gaseous Form, Meld into Stone, Nondetection, Arcane Eye, Freedom of Movement, and Modify Memory."
@@ -772,9 +772,9 @@ BackgroundList["golgari agent"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["dancing lights", "spare the dying", "entangle", "ray of sickness", "protection from poison", "ray of enfeeblement", "spider climb", "animate dead", "plant growth", "giant insect", "grasping vine", "cloudkill", "insect plague"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Dancing Lights, Spare the Dying, Entangle, Ray of Sickness, Protection from Poison, Ray of Enfeeblement, Spider Climb, Animate Dead, Plant Growth, Giant Insect, Grasping Vine, Cloudkill, and Insect Plague."
@@ -842,9 +842,9 @@ BackgroundList["gruul anarch"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["fire bolt", "produce flame", "compelled duel", "speak with animals", "thunderwave", "beast sense", "shatter", "conjure animals", "conjure barrage", "dominate beast", "stoneskin", "destructive wave"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Fire Bolt, Produce Flame, Compelled Duel, Speak with Animals, Thunderwave, Beast Sense, Shatter, Conjure Animals, Conjure Barrage, Dominate Beast, Stoneskin, and Destructive Wave."
@@ -925,9 +925,9 @@ BackgroundList["izzet engineer"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["produce flame", "shocking grasp", "chaos bolt-xgte", "create or destroy water", "unseen servant", "heat metal", "rope trick", "call lightning", "elemental weapon", "glyph of warding", "conjure minor elementals", "divination", "otiluke's resilient sphere", "animate objects", "conjure elemental"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Produce Flame, Shocking Grasp, Chaos Bolt, Create or Destroy Water, Unseen Servant, Heat Metal, Rope Trick, Call Lightning, Elemental Weapon, Glyph of Warding, Conjure Minor Elementals, Divination, Otiluke's Resilient Sphere, Animate Objects, and Conjure Elemental."
@@ -997,9 +997,9 @@ BackgroundList["orzhov representative"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["friends", "guidance", "command", "illusory script", "enthrall", "ray of enfeeblement", "zone of truth", "bestow curse", "speak with dead", "spirit guardians", "blight", "death ward", "leomund's secret chest", "geas"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Friends, Guidance, Command, Illusory Script, Enthrall, Ray of Enfeeblement, Zone of Truth, Bestow Curse, Speak with Dead, Spirit Guardians, Blight, Death Ward, Leomund's Secret Chest, and Geas."
@@ -1064,9 +1064,9 @@ BackgroundList["rakdos cultist"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["fire bolt", "vicious mockery", "burning hands", "dissonant whispers", "hellish rebuke", "crown of madness", "enthrall", "flaming sphere", "fear", "haste", "confusion", "wall of fire", "dominate person"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Fire Bolt, Vicious Mockery, Burning Hands, Dissonant Whispers, Hellish Rebuke, Crown of Madness, Enthrall, Flaming Sphere, Fear, Haste, Confusion, Wall of Fire, and Dominate Person."
@@ -1141,9 +1141,6 @@ BackgroundFeatureList["fearsome reputation"] = {
 	source : ["G", 79]
 };
 
-// don't add if this is not a class or a list of spells is already given\r\n\t\t\t\tif \(!ClassList[spName] || spList.spells\) return;\r\n\t\t\t\t// if this is an 'extra spell', also test if it uses the class' spell list or not\r\n\t\t\t\tif (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;\r\n\t\t\t\t
-
-
 BackgroundList["selesnya initiate"] = {
 	regExpSearch :  /^(?=.*selesnya)(?=.*initiate).*$/i,
 	name : "Selesnya Initiate",
@@ -1153,9 +1150,9 @@ BackgroundList["selesnya initiate"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["druidcraft", "friends", "aid", "animal friendship", "charm person", "animal messenger", "calm emotions", "warding bond", "plant growth", "speak with plants", "aura of life", "conjure minor elementals", "awaken", "commune with nature"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Druidcraft, Friends, Aid, Animal Friendship, Charm Person, Animal Messenger, Calm Emotions, Warding Bond, Plant Growth, Speak with Plants, Aura of Life, Conjure Minor Elementals, Awaken, and Commune with Nature."
@@ -1223,9 +1220,9 @@ BackgroundList["simic scientist"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
-				if (spType.indexOf("bonus") !== -1 && (!spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
+				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["acid splash", "druidcraft", "detect poison and disease", "expeditious retreat", "jump", "alter self", "enhance ability", "enlarge/reduce", "gaseous form", "water breathing", "wind wall", "freedom of movement", "polymorph", "creation"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Acid Splash, Druidcraft, Detect Poison and Disease, Expeditious Retreat, Jump, Alter Self, Enhance Ability, Enlarge/reduce, Gaseous Form, Water Breathing, Wind Wall, Freedom of Movement, Polymorph, and Creation."
