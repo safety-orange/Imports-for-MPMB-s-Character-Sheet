@@ -12446,10 +12446,10 @@ AddSubClass("monk", "way of the kensei-xgte", {
 							if (isNaN(curDie) || curDie < aMonkDie) {
 								fields.Damage_Die = '1d' + aMonkDie;
 							};
-							if (theWea.ability === 1) {
+							if (v.theWea.ability === 1) {
 								fields.Mod = v.StrDex;
 							};
-							if (isRangedWeapon) {
+							if (v.isRangedWeapon) {
 								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
 							};
 							fields.Proficiency = true;
@@ -18511,7 +18511,7 @@ BackgroundList["azorius functionary"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["friends", "message", "command", "ensnaring strike", "arcane lock", "calm emotions", "hold person", "clairvoyance", "counterspell", "compulsion", "divination", "dominate person"]);
@@ -18581,7 +18581,7 @@ BackgroundList["boros legionnaire"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["fire bolt", "sacred flame", "guiding bolt", "heroism", "aid", "scorching ray", "beacon of hope", "blinding smite", "death ward", "wall of fire", "flame strike"]);
@@ -18653,7 +18653,7 @@ BackgroundList["dimir operative"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["encode thoughts", "mage hand", "disguise self", "sleep", "detect thoughts", "pass without trace", "gaseous form", "meld into stone", "nondetection", "arcane eye", "freedom of movement", "modify memory"]);
@@ -18734,7 +18734,7 @@ BackgroundList["golgari agent"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["dancing lights", "spare the dying", "entangle", "ray of sickness", "protection from poison", "ray of enfeeblement", "spider climb", "animate dead", "plant growth", "giant insect", "grasping vine", "cloudkill", "insect plague"]);
@@ -18804,7 +18804,7 @@ BackgroundList["gruul anarch"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["fire bolt", "produce flame", "compelled duel", "speak with animals", "thunderwave", "beast sense", "shatter", "conjure animals", "conjure barrage", "dominate beast", "stoneskin", "destructive wave"]);
@@ -18887,7 +18887,7 @@ BackgroundList["izzet engineer"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["produce flame", "shocking grasp", "chaos bolt-xgte", "create or destroy water", "unseen servant", "heat metal", "rope trick", "call lightning", "elemental weapon", "glyph of warding", "conjure minor elementals", "divination", "otiluke's resilient sphere", "animate objects", "conjure elemental"]);
@@ -18959,7 +18959,7 @@ BackgroundList["orzhov representative"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["friends", "guidance", "command", "illusory script", "enthrall", "ray of enfeeblement", "zone of truth", "bestow curse", "speak with dead", "spirit guardians", "blight", "death ward", "leomund's secret chest", "geas"]);
@@ -19026,7 +19026,7 @@ BackgroundList["rakdos cultist"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["fire bolt", "vicious mockery", "burning hands", "dissonant whispers", "hellish rebuke", "crown of madness", "enthrall", "flaming sphere", "fear", "haste", "confusion", "wall of fire", "dominate person"]);
@@ -19112,7 +19112,7 @@ BackgroundList["selesnya initiate"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["druidcraft", "friends", "aid", "animal friendship", "charm person", "animal messenger", "calm emotions", "warding bond", "plant growth", "speak with plants", "aura of life", "conjure minor elementals", "awaken", "commune with nature"]);
@@ -19182,7 +19182,7 @@ BackgroundList["simic scientist"] = {
 		spellList : [
 			function(spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
-				if (!ClassList[spName] || spList.spells || spList.psionic || spList.ritual) return;
+				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["acid splash", "druidcraft", "detect poison and disease", "expeditious retreat", "jump", "alter self", "enhance ability", "enlarge/reduce", "gaseous form", "water breathing", "wind wall", "freedom of movement", "polymorph", "creation"]);

@@ -1194,10 +1194,10 @@ AddSubClass("monk", "way of the kensei-xgte", {
 							if (isNaN(curDie) || curDie < aMonkDie) {
 								fields.Damage_Die = '1d' + aMonkDie;
 							};
-							if (theWea.ability === 1) {
+							if (v.theWea.ability === 1) {
 								fields.Mod = v.StrDex;
 							};
-							if (isRangedWeapon) {
+							if (v.isRangedWeapon) {
 								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
 							};
 							fields.Proficiency = true;
