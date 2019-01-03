@@ -29720,7 +29720,8 @@ ArmourList["inertial armor"] = {
 	regExpSearch : /^(?=.*(inertial|psychic|psionic))(?=.*armou?r).*$/i,
 	name : "Inertial armor",
 	source : ["UA:TMC", 18],
-	ac : 14
+	ac : 14,
+	list : "magic"
 };
 
 // Psionic Talents that work like damage cantrips
