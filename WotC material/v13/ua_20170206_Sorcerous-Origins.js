@@ -85,7 +85,7 @@ AddSubClass("sorcerer", "favoured soul", {
 			name : "Unearthly Recovery",
 			source : ["UA:SO", 1],
 			minlevel : 18,
-			description : "\n   " + "As a bonus action when I have less than half of my max HP, I can heal myself" + "\n   " + "I regain a number of HP equal to half my maximum Hit Points",
+			description : "\n   " + "As a bonus action when I have less than half of my max HP, I can heal myself" + "\n   " + "I regain a number of HP equal to half my maximum hit points",
 			action : ["bonus action", ""],
 			recovery : "long rest",
 			usages : 1

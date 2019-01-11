@@ -1391,7 +1391,7 @@ AddSubClass("ranger", "beast master", {
 			minlevel : 3,
 			description : desc([
 				"It adds my proficiency bonus to AC, attacks, damage, and save/skill proficiencies",
-				"Its Hit Point maximum equals four times my ranger level if higher than its normal HP",
+				"Its hit point maximum equals four times my ranger level if higher than its normal HP",
 				"It takes a turn on my initiative; It takes the Dodge action unless I command it otherwise",
 				"As an action, I can have it take the Attack, Dash, Disengage, or Help action on its turn",
 				"I can still use Extra Attack while commanding it to Attack; No action to order to move"
