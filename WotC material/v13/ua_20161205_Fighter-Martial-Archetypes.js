@@ -32,7 +32,7 @@ AddSubClass("fighter", "arcane archer", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((/longbow|shortbow/i).test(v.WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
 							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (v.thisWeapon[1] ? '' : '; Counts as magical');
 						};
 					},

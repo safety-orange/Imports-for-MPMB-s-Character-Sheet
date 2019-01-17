@@ -1025,6 +1025,7 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 		atkAdd : [
 			function (fields, v) {
 				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactWeapon = true;
 					fields.Proficiency = true;
 					fields.Description += v.thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; };
 			},
@@ -2535,7 +2536,7 @@ FeatsList["fell handed"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) {
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.baseWeaponName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Adv: knock prone if both dice hit; Disadv: Str Mod bludg. damage on miss but 2nd die would hit';
 				};
 			},
@@ -2543,7 +2544,7 @@ FeatsList["fell handed"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) output.extraHit += 1;
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.baseWeaponName)) output.extraHit += 1;
 			}, ""]
 	}
 };
@@ -2554,7 +2555,7 @@ FeatsList["blade mastery"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) {
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.baseWeaponName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Advantage on opportunity attacks';
 				};
 			},
@@ -2562,7 +2563,7 @@ FeatsList["blade mastery"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) output.extraHit += 1;
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.baseWeaponName)) output.extraHit += 1;
 			}, ""]
 	},
 	action : ["reaction", " Parrying Stance"]
@@ -2574,7 +2575,7 @@ FeatsList["flail mastery"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName === 'flail') {
+				if (v.baseWeaponName == 'flail') {
 					fields.Description += (fields.Description ? '; ' : '') + 'On opportunity attack hit, Strength save (DC 8 + Prof. bonus + Str mod) or knocked prone';
 				};
 			},
@@ -2582,7 +2583,7 @@ FeatsList["flail mastery"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.WeaponName === 'flail') output.extraHit += 1;
+				if (v.baseWeaponName == 'flail') output.extraHit += 1;
 			}, ""]
 	},
 	action : ["bonus action", ""]
@@ -2594,7 +2595,7 @@ FeatsList["spear mastery"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName === 'spear') {
+				if (v.baseWeaponName == 'spear') {
 					fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die;
 					fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)');
 				};
@@ -2603,7 +2604,7 @@ FeatsList["spear mastery"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.WeaponName === 'spear') output.extraHit += 1;
+				if (v.baseWeaponName == 'spear') output.extraHit += 1;
 			}, ""]
 	},
 	action : [["bonus action", " (set vs. charge)"], ['bonus action', ' (increase reach)']]
@@ -4004,7 +4005,7 @@ AddSubClass("fighter", "arcane archer", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((/longbow|shortbow/i).test(v.WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
 							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (v.thisWeapon[1] ? '' : '; Counts as magical');
 						};
 					},
@@ -4325,7 +4326,7 @@ AddSubClass("monk", "way of the kensei", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.WeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
+						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.baseWeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
 								var curDie = eval(fields.Damage_Die.replace('d', '*'));
@@ -4351,7 +4352,7 @@ AddSubClass("monk", "way of the kensei", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (((/unarmed strike/i).test(WeaponName) || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+						if ((v.baseWeaponName == "unarmed strike" || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},
@@ -6341,6 +6342,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 		type : "Martial",
 		damage : [1, 8, "bludgeoning"],
 		range : "Melee",
+		pactWeapon : true,
 		weight : 2,
 		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
 		abilitytodamage : true
@@ -6376,6 +6378,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		type : "Martial",
 		damage : [2, 6, "slashing"],
 		range : "Melee",
+		pactWeapon : true,
 		weight : 6,
 		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
 		abilitytodamage : true
@@ -6403,7 +6406,7 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target -10 ft speed';
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target -10 ft speed';
 			},
 			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
 		]
@@ -6428,7 +6431,7 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
 			},
 			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
 		]
@@ -6452,7 +6455,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};
@@ -6479,6 +6482,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 		damage : [1, 6, "bludgeoning"],
 		range : "Melee",
 		weight : 4,
+		pactWeapon : true,
 		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
 		monkweapon : true,
 		abilitytodamage : true
@@ -6503,6 +6507,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 		damage : [1, 8, "piercing"],
 		range : "150/600 ft",
 		weight : 2,
+		pactWeapon : true,
 		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
 		abilitytodamage : true
 	},
@@ -6582,7 +6587,7 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
 					output.magic += v.pactMag;
 				};
@@ -6614,7 +6619,7 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
 					output.magic += v.pactMag;
 				};
@@ -11875,7 +11880,7 @@ AddSubClass("fighter", "arcane archer2", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if ((/longbow|shortbow/i).test(v.WeaponName) && !v.thisWeapon[1]) output.magic += 1;
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && !v.thisWeapon[1]) output.magic += 1;
 					},
 					"Any longbow or shortbow that doesn't include a magic bonus in its name gets a +1 magical bonus to damage and to hit as any arrows fired with it are automatically made magical."
 				]
@@ -12020,7 +12025,7 @@ AddSubClass("monk", "way of the kensei2", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.WeaponName === 'longbow')) {
+						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
 								var curDie = eval(fields.Damage_Die.replace('d', '*'));
@@ -12051,7 +12056,7 @@ AddSubClass("monk", "way of the kensei2", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (((/unarmed strike/i).test(v.WeaponName) || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},
@@ -12548,7 +12553,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+					if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
 				},
 				"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
 			]
@@ -12615,7 +12620,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
 			},
 			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
 		]
@@ -12644,7 +12649,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};
@@ -14119,7 +14124,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 				calcChanges : {
 					atkCalc : [
 						function (fields, v, output) {
-							if (v.WeaponName == 'fire bolt') output.extraDmg += Math.max(What('Con Mod'), 1);
+							if (v.baseWeaponName == 'fire bolt') output.extraDmg += Math.max(What('Con Mod'), 1);
 						},
 						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"
 					]
@@ -14306,16 +14311,12 @@ if (!SourceList.WGtE) {
 		},
 		languageProfs : ["Common"],
 		weaponOptions : {
+			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 			name : "Longtooth Fangs",
 			source : [["WGtE", 66], ["UA:RoE", 6]],
-			ability : 1,
-			type : "Natural",
 			damage : [1, 6, "piercing"],
-			range : "Melee",
-			description : "Only while shifted; One attack as bonus action",
-			monkweapon : true,
-			abilitytodamage : true
+			description : "Only while shifted; One attack as bonus action"
 		},
 		addWeapons : ["Longtooth Fangs"],
 		vision : [["Darkvision", 60]],
@@ -14486,16 +14487,11 @@ if (!SourceList.WGtE) {
 		},
 		languageProfs : ["Common"],
 		weaponOptions : {
+			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
 			name : "Warforged iron fists",
 			source : [["WGtE", 70], ["UA:RoE", 9]],
-			ability : 1,
-			type : "Natural",
-			damage : [1, 4, "bludgeoning"],
-			range : "Melee",
-			description : "",
-			abilitytodamage : true,
-			monkweapon : true
+			damage : [1, 4, "bludgeoning"]
 		},
 		addWeapons : ["Warforged Iron Fists"],
 		savetxt : {
@@ -15387,226 +15383,196 @@ if (!SourceList.WGtE) {
 	}
 
 	// Greater Dragonmark feats
-	FeatsList["greater dragonmark [detection]"] = {
-		name : "Greater Dragonmark [Detection]",
+	FeatsList["greater dragonmark"] = {
+		name : "Greater Dragonmark",
 		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
-		scorestxt : "+1 Charisma or Intelligence",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["see invisibility", "true seeing"],
-			selection : ["see invisibility", "true seeing"],
-			spellcastingAbility : 4,
-			firstCol : 'oncelr',
-			times : 2
+		description : "Select the type of greater dragonmark using the square button on this feat line.\nMy Intuition Die increases with one step (for example d4 to d6), I gain spellcating abilities, and an increase to one ability score.",
+		eval : function () {
+			var raceTrait = What('Racial Traits');
+			if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) {
+				Value('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'));
+			};
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [finding]"] = {
-		name : "Greater Dragonmark [Finding]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
-		scorestxt : "+1 Strength, Dexterity, or Wisdom",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["locate creature", "find the path"],
-			selection : ["locate creature", "find the path"],
-			spellcastingAbility : 5,
-			firstCol : 'oncelr',
-			times : 2
+		removeeval : function () {
+			var raceTrait = What('Racial Traits');
+			if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) {
+				Value('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'));
+			};
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [handling]"] = {
-		name : "Greater Dragonmark [Handling]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
-		scorestxt : "+1 Dexterity or Wisdom",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["beast sense", "dominate beast"],
-			selection : ["beast sense", "dominate beast"],
-			spellcastingAbility : 5,
-			firstCol : 'oncelr',
-			times : 2
+		choices : ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
+		"detection" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
+			scorestxt : "+1 Charisma or Intelligence",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["see invisibility", "true seeing"],
+				selection : ["see invisibility", "true seeing"],
+				spellcastingAbility : 4,
+				firstCol : 'oncelr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [healing]"] = {
-		name : "Greater Dragonmark [Healing]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
-		scorestxt : "+1 Dexterity or Wisdom",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["mass healing word", "greater restoration"],
-			selection : ["mass healing word", "greater restoration"],
-			spellcastingAbility : 5,
-			firstCol : 'oncelr',
-			times : 2
+		"finding" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
+			scorestxt : "+1 Strength, Dexterity, or Wisdom",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["locate creature", "find the path"],
+				selection : ["locate creature", "find the path"],
+				spellcastingAbility : 5,
+				firstCol : 'oncelr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [hospitality]"] = {
-		name : "Greater Dragonmark [Hospitality]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
-		scorestxt : "+1 Dexterity or Charisma",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["sanctuary", "mordenkainen's magnificent mansion"],
-			selection : ["sanctuary", "mordenkainen's magnificent mansion"],
-			spellcastingAbility : 6,
-			firstCol : 'oncelr',
-			times : 2
+		"handling" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+			scorestxt : "+1 Dexterity or Wisdom",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["beast sense", "dominate beast"],
+				selection : ["beast sense", "dominate beast"],
+				spellcastingAbility : 5,
+				firstCol : 'oncelr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [making]"] = {
-		name : "Greater Dragonmark [Making]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
-		scorestxt : "+1 Dexterity or Intelligence",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["fabricate", "creation"],
-			selection : ["fabricate", "creation"],
-			spellcastingAbility : 4,
-			firstCol : 'oncelr',
-			times : 2
+		"healing" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+			scorestxt : "+1 Dexterity or Wisdom",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["mass healing word", "greater restoration"],
+				selection : ["mass healing word", "greater restoration"],
+				spellcastingAbility : 5,
+				firstCol : 'oncelr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [passage]"] = {
-		name : "Greater Dragonmark [Passage]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
-		scorestxt : "+1 Dexterity or Constitution",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["blink", "teleportation circle"],
-			selection : ["blink", "teleportation circle"],
-			spellcastingAbility : 3,
-			firstCol : 'oncelr',
-			times : 2
+		"hospitality" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+			scorestxt : "+1 Dexterity or Charisma",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["sanctuary", "mordenkainen's magnificent mansion"],
+				selection : ["sanctuary", "mordenkainen's magnificent mansion"],
+				spellcastingAbility : 6,
+				firstCol : 'oncelr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [scribing]"] = {
-		name : "Greater Dragonmark [Scribing]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
-		scorestxt : "+1 Intelligence or Charisma",
-		spellcastingBonus : {
-			name : "1\u00D7 per short",
-			spells : ["sending", "tongues"],
-			selection : ["sending", "tongues"],
-			spellcastingAbility : 4,
-			firstCol : 'oncesr',
-			times : 2
+		"making" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
+			scorestxt : "+1 Dexterity or Intelligence",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["fabricate", "creation"],
+				selection : ["fabricate", "creation"],
+				spellcastingAbility : 4,
+				firstCol : 'oncelr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [sentinel]"] = {
-		name : "Greater Dragonmark [Sentinel]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
-		scorestxt : "+1 Strength or Wisdom",
-		spellcastingBonus : {
-			name : "1\u00D7 per short",
-			spells : ["compelled duel", "warding bond"],
-			selection : ["compelled duel", "warding bond"],
-			spellcastingAbility : 5,
-			firstCol : 'oncesr',
-			times : 2
+		"passage" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
+			scorestxt : "+1 Dexterity or Constitution",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["blink", "teleportation circle"],
+				selection : ["blink", "teleportation circle"],
+				spellcastingAbility : 3,
+				firstCol : 'oncelr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [shadow]"] = {
-		name : "Greater Dragonmark [Shadow]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
-		scorestxt : "+1 Dexterity or Charisma",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["nondetection", "mislead"],
-			selection : ["nondetection", "mislead"],
-			spellcastingAbility : 6,
-			firstCol : 'oncelr',
-			times : 2
+		"scribing" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
+			scorestxt : "+1 Intelligence or Charisma",
+			spellcastingBonus : {
+				name : "1\u00D7 per short",
+				spells : ["sending", "tongues"],
+				selection : ["sending", "tongues"],
+				spellcastingAbility : 4,
+				firstCol : 'oncesr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [storm]"] = {
-		name : "Greater Dragonmark [Storm]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases with one step (for example d4 to d6). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
-		scorestxt : "+1 Dexterity or Charisma",
-		spellcastingBonus : {
-			name : "1\u00D7 per long",
-			spells : ["control water", "control winds"],
-			selection : ["control water", "control winds"],
-			spellcastingAbility : 6,
-			firstCol : 'oncelr',
-			times : 2
+		"sentinel" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
+			scorestxt : "+1 Strength or Wisdom",
+			spellcastingBonus : {
+				name : "1\u00D7 per short",
+				spells : ["compelled duel", "warding bond"],
+				selection : ["compelled duel", "warding bond"],
+				spellcastingAbility : 5,
+				firstCol : 'oncesr',
+				times : 2
+			}
 		},
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
-	};
-	FeatsList["greater dragonmark [warding]"] = {
-		name : "Greater Dragonmark [Warding]",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
-		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known)",
-		description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
-		scorestxt : "+1 Dexterity or Intelligence",
-		spellcastingBonus : [{
-			name : "1\u00D7 per long",
-			spells : ["knock", "glyph of warding"],
-			selection : ["knock", "glyph of warding"],
-			spellcastingAbility : 4,
-			firstCol : 'oncelr',
-			times : 2
-		}, {
-			name : "with Siberys dragonshard",
-			spells : ["leomund's secret chest"],
-			selection : ["leomund's secret chest"],
-			firstCol : 'oncelr'
-		}],
-		eval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d4\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d4\\)/i, 'my Intuition Die (1d6)')); }; ",
-		removeeval : "var raceTrait = What('Racial Traits'); if ((/my Intuition Die \\(1d6\\)/i).test(raceTrait)) { Value('Racial Traits', raceTrait.replace(/my Intuition Die \\(1d6\\)/i, 'my Intuition Die (1d4)')); }; "
+		"shadow" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+			scorestxt : "+1 Dexterity or Charisma",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["nondetection", "mislead"],
+				selection : ["nondetection", "mislead"],
+				spellcastingAbility : 6,
+				firstCol : 'oncelr',
+				times : 2
+			}
+		},
+		"storm" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+			scorestxt : "+1 Dexterity or Charisma",
+			spellcastingBonus : {
+				name : "1\u00D7 per long",
+				spells : ["control water", "control winds"],
+				selection : ["control water", "control winds"],
+				spellcastingAbility : 6,
+				firstCol : 'oncelr',
+				times : 2
+			}
+		},
+		"warding" : {
+			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
+			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known)",
+			description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
+			scorestxt : "+1 Dexterity or Intelligence",
+			spellcastingBonus : [{
+				name : "1\u00D7 per long",
+				spells : ["knock", "glyph of warding"],
+				selection : ["knock", "glyph of warding"],
+				spellcastingAbility : 4,
+				firstCol : 'oncelr',
+				times : 2
+			}, {
+				name : "with Siberys dragonshard",
+				spells : ["leomund's secret chest"],
+				selection : ["leomund's secret chest"],
+				firstCol : 'oncelr'
+			}]
+		}
 	};
 
 	// Aberrant Dragonmark feat
@@ -15617,9 +15583,9 @@ if (!SourceList.WGtE) {
 		prereqeval : "!(/dragonmark/i).test(CurrentRace.known)",
 		description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		scores : [0, 0, 1, 0, 0, 0],
+		spellcastingAbility : 3,
 		spellcastingBonus : [{
 			name : "Sorcerer cantrip",
-			spellcastingAbility : 3,
 			'class' : 'sorcerer',
 			level : [0, 0],
 			firstCol : 'atwill'

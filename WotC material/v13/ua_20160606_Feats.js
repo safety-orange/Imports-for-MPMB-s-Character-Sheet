@@ -20,7 +20,7 @@ FeatsList["fell handed"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) {
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.baseWeaponName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Adv: knock prone if both dice hit; Disadv: Str Mod bludg. damage on miss but 2nd die would hit';
 				};
 			},
@@ -28,7 +28,7 @@ FeatsList["fell handed"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.WeaponName)) output.extraHit += 1;
+				if ((/handaxe|battleaxe|greataxe|warhammer|maul/).test(v.baseWeaponName)) output.extraHit += 1;
 			}, ""]
 	}
 };
@@ -39,7 +39,7 @@ FeatsList["blade mastery"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) {
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.baseWeaponName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Advantage on opportunity attacks';
 				};
 			},
@@ -47,7 +47,7 @@ FeatsList["blade mastery"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.WeaponName)) output.extraHit += 1;
+				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.baseWeaponName)) output.extraHit += 1;
 			}, ""]
 	},
 	action : ["reaction", " Parrying Stance"]
@@ -59,7 +59,7 @@ FeatsList["flail mastery"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName === 'flail') {
+				if (v.baseWeaponName == 'flail') {
 					fields.Description += (fields.Description ? '; ' : '') + 'On opportunity attack hit, Strength save (DC 8 + Prof. bonus + Str mod) or knocked prone';
 				};
 			},
@@ -67,7 +67,7 @@ FeatsList["flail mastery"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.WeaponName === 'flail') output.extraHit += 1;
+				if (v.baseWeaponName == 'flail') output.extraHit += 1;
 			}, ""]
 	},
 	action : ["bonus action", ""]
@@ -79,7 +79,7 @@ FeatsList["spear mastery"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName === 'spear') {
+				if (v.baseWeaponName == 'spear') {
 					fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die;
 					fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)');
 				};
@@ -88,7 +88,7 @@ FeatsList["spear mastery"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.WeaponName === 'spear') output.extraHit += 1;
+				if (v.baseWeaponName == 'spear') output.extraHit += 1;
 			}, ""]
 	},
 	action : [["bonus action", " (set vs. charge)"], ['bonus action', ' (increase reach)']]

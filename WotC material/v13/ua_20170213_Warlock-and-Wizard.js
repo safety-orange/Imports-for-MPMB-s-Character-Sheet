@@ -297,6 +297,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 		type : "Martial",
 		damage : [1, 8, "bludgeoning"],
 		range : "Melee",
+		pactWeapon : true,
 		weight : 2,
 		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
 		abilitytodamage : true
@@ -332,6 +333,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		type : "Martial",
 		damage : [2, 6, "slashing"],
 		range : "Melee",
+		pactWeapon : true,
 		weight : 6,
 		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
 		abilitytodamage : true
@@ -359,7 +361,7 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target -10 ft speed';
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target -10 ft speed';
 			},
 			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
 		]
@@ -384,7 +386,7 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
 			},
 			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
 		]
@@ -408,7 +410,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};
@@ -435,6 +437,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 		damage : [1, 6, "bludgeoning"],
 		range : "Melee",
 		weight : 4,
+		pactWeapon : true,
 		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
 		monkweapon : true,
 		abilitytodamage : true
@@ -459,6 +462,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 		damage : [1, 8, "piercing"],
 		range : "150/600 ft",
 		weight : 2,
+		pactWeapon : true,
 		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
 		abilitytodamage : true
 	},
@@ -538,7 +542,7 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
 					output.magic += v.pactMag;
 				};
@@ -570,7 +574,7 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
 					output.magic += v.pactMag;
 				};

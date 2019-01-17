@@ -114,16 +114,12 @@ if (!SourceList.WGtE) {
 		},
 		languageProfs : ["Common"],
 		weaponOptions : {
+			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 			name : "Longtooth Fangs",
 			source : [["WGtE", 66], ["UA:RoE", 6]],
-			ability : 1,
-			type : "Natural",
 			damage : [1, 6, "piercing"],
-			range : "Melee",
-			description : "Only while shifted; One attack as bonus action",
-			monkweapon : true,
-			abilitytodamage : true
+			description : "Only while shifted; One attack as bonus action"
 		},
 		addWeapons : ["Longtooth Fangs"],
 		vision : [["Darkvision", 60]],
@@ -294,16 +290,11 @@ if (!SourceList.WGtE) {
 		},
 		languageProfs : ["Common"],
 		weaponOptions : {
+			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
 			name : "Warforged iron fists",
 			source : [["WGtE", 70], ["UA:RoE", 9]],
-			ability : 1,
-			type : "Natural",
-			damage : [1, 4, "bludgeoning"],
-			range : "Melee",
-			description : "",
-			abilitytodamage : true,
-			monkweapon : true
+			damage : [1, 4, "bludgeoning"]
 		},
 		addWeapons : ["Warforged Iron Fists"],
 		savetxt : {

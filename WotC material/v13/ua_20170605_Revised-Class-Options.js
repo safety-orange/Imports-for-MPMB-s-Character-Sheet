@@ -359,7 +359,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (v.WeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+					if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
 				},
 				"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
 			]
@@ -426,7 +426,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.WeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
 			},
 			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
 		]
@@ -455,7 +455,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (/\bpact\b/i).test(v.WeaponText)) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};

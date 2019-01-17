@@ -143,7 +143,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 				calcChanges : {
 					atkCalc : [
 						function (fields, v, output) {
-							if (v.WeaponName == 'fire bolt') output.extraDmg += Math.max(What('Con Mod'), 1);
+							if (v.baseWeaponName == 'fire bolt') output.extraDmg += Math.max(What('Con Mod'), 1);
 						},
 						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"
 					]

@@ -237,7 +237,14 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 			name : "Horns",
 			minlevel : 1,
 			calcChanges : {
-				atkAdd : ["if ((/unarmed strike/i).test(WeaponName) && fields.Damage_Die == 1) {fields.Damage_Die = '1d6'; }; ", "I can use my horns as a natural weapon to make unarmed strikes, doing 1d6 damage instead of 1."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.baseWeaponName == "unarmed strike" && (fields.Damage_Die == 1 || fields.Damage_Die == '1d4')) {
+							fields.Damage_Die = '1d6';
+						};
+					},
+					"I can use my horns as a natural weapon to make unarmed strikes, doing 1d6 damage instead of 1."
+				]
 			}
 		},
 		"relentless endurance" : {

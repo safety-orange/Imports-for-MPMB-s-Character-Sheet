@@ -33,7 +33,7 @@ AddSubClass("monk", "way of the kensei", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.WeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
+						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.baseWeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
 								var curDie = eval(fields.Damage_Die.replace('d', '*'));
@@ -59,7 +59,7 @@ AddSubClass("monk", "way of the kensei", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (((/unarmed strike/i).test(WeaponName) || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+						if ((v.baseWeaponName == "unarmed strike" || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},
