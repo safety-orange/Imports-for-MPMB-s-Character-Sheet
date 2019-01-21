@@ -246,7 +246,8 @@ ClassSubList["artificer-alchemist"] = {
 			additional : levels.map(function (n) {
 				return Math.ceil(n / 2) + "d6 acid damage";
 			}),
-			action : ["action", ""],			weaponOptions : {
+			action : ["action", ""],
+			weaponOptions : {
 				regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
 				name : "Alchemical Acid",
 				source : ["UA:A", 5],

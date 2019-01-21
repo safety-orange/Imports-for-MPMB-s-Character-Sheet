@@ -800,3 +800,28 @@ if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion
 		trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 	};
 }
+
+// Feat
+if (!FeatsList["svirfneblin magic"]) {
+	FeatsList["svirfneblin magic"] = {
+		name : "Svirfneblin Magic",
+		source : [["E", 7], ["S", 115], ["MToF", 114]],
+		prerequisite : "Being a Svirfneblin (Deep Gnome)",
+		prereqeval : "CurrentRace.known === 'deep gnome'",
+		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
+		spellcastingBonus : [{
+			name : "at will (self only)",
+			spellcastingAbility : 4,
+			spells : ["nondetection"],
+			selection : ["nondetection"],
+			firstCol : 'atwill'
+		}, {
+			name : "1x long rest (self only)",
+			spells : ["blindness/deafness", "blur", "disguise self"],
+			selection : ["blindness/deafness", "blur", "disguise self"],
+			firstCol : 'oncelr',
+			times : 3
+		}]
+	};
+}

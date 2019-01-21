@@ -61,16 +61,12 @@ RaceList["simic hybrid"] = {
 	languageProfs : ["Common", "Elvish"],
 	vision : [["Darkvision", 60]],
 	weaponOptionsSp : [{
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
 		name : "Grappling Appendages",
 		source : ["UA:RoR", 3],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
-		range : "Melee",
-		description : "After hitting, start grapple on target as a bonus action",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "After hitting, start grapple on target as a bonus action"
 	}, {
 		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
 		name : "Acid Spit",
@@ -225,16 +221,11 @@ RaceList["viashino"] = {
 	skillstxt : "Choose one from Acrobatics or Stealth",
 	languageProfs : ["Common", "Draconic"],
 	weaponOptions : [{
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
 		name : "Viashino bite",
 		source : ["UA:RoR", 5],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "piercing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "piercing"]
 	}, {
 		regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
 		name : "Lashing tail",

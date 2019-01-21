@@ -24,16 +24,12 @@ RaceList["centaur-ggtr"] = {
 	},
 	languageProfs : ["Common", "Sylvan"],
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : ["G", 15],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 4, "bludgeoning"],
-		range : "Melee",
-		description : "Use as bonus action after charge 30 ft",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "Use as bonus action after charge 30 ft"
 	},
 	addWeapons : ["Hooves"],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
@@ -149,16 +145,12 @@ RaceList["minotaur-ggtr"] = {
 	},
 	languageProfs : ["Common", "Minotaur"],
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : ["G", 19],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 6, "piercing"],
-		range : "Melee",
-		description : "Attack as a bonus action after moving 20 ft with the Dash action",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "Attack as a bonus action after moving 20 ft with the Dash action"
 	},
 	addWeapons : ["Horns"],
 	skillstxt : "Choose one from Intimidation or Persuasion",
@@ -201,16 +193,12 @@ RaceList["simic hybrid-ggtr"] = {
 	languageProfs : ["Common", ["Elvish or Vedalken", 1]],
 	vision : [["Darkvision", 60]],
 	weaponOptionsSp : [{
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
 		name : "Grappling Appendages",
 		source : ["G", 20],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
-		range : "Melee",
-		description : "After hitting, start grapple on target as a bonus action",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "After hitting, start grapple on target as a bonus action"
 	}, {
 		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
 		name : "Acid Spit",

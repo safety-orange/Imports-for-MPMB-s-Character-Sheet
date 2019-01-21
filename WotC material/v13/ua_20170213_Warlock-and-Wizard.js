@@ -290,19 +290,14 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	source : ["UA:WnW", 3],
 	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "flail",
 		regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
 		name : "Claw of Acamar",
 		source : ["UA:WnW", 3],
-		ability : 1,
-		type : "Martial",
-		damage : [1, 8, "bludgeoning"],
-		range : "Melee",
 		pactWeapon : true,
-		weight : 2,
-		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
-		abilitytodamage : true
+		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level"
 	},
-	addWeapons : 'Claw of Acamar'
+	addWeapons : ['Claw of Acamar']
 });
 AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 	name : "Cloak of Baalzebul",
@@ -326,19 +321,14 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	source : ["UA:WnW", 4],
 	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "greatsword",
 		regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
 		name : "Curse Bringer",
 		source : ["UA:WnW", 4],
-		ability : 1,
-		type : "Martial",
-		damage : [2, 6, "slashing"],
-		range : "Melee",
 		pactWeapon : true,
-		weight : 6,
-		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
-		abilitytodamage : true
+		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level"
 	},
-	addWeapons : 'Curse Bringer'
+	addWeapons : ['Curse Bringer']
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
 	name : "Kiss of Mephistopheles",
@@ -429,20 +419,14 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "mace",
 		regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
 		name : "Mace of Dispater",
 		source : ["UA:WnW", 4],
-		ability : 1,
-		type : "Simple",
-		damage : [1, 6, "bludgeoning"],
-		range : "Melee",
-		weight : 4,
 		pactWeapon : true,
-		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
-		monkweapon : true,
-		abilitytodamage : true
+		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level"
 	},
-	addWeapons : 'Mace of Dispater'
+	addWeapons : ['Mace of Dispater']
 });
 AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)", {
 	name : "Moon Bow",
@@ -454,19 +438,14 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "longbow",
 		regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
 		name : "Moon Bow",
 		source : ["UA:WnW", 4],
-		ability : 2,
-		type : "Martial",
-		damage : [1, 8, "piercing"],
-		range : "150/600 ft",
-		weight : 2,
 		pactWeapon : true,
-		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
-		abilitytodamage : true
+		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level"
 	},
-	addWeapons : 'Moon Bow'
+	addWeapons : ['Moon Bow']
 });
 AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 	name : "Path of the Seeker",

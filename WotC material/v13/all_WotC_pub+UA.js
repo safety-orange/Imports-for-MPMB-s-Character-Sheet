@@ -3027,31 +3027,36 @@ BackgroundFeatureList["wanderer"] = {
 FeatsList["actor"] = {
 	name : "Actor",
 	source : ["P", 165],
+	descriptionFull : "Skilled at mimicry and dramatics, you gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.\n \u2022 You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked.",
 	description : "Advantage on Charisma (Deception) and (Performance) if trying to pass as another. I can mimic a person's speech or other creature's sounds if I've heard it for at least 1 minute. Wisdom (Insight) vs. Charisma (Deception) to determine the sound is faked. [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1]
 };
 FeatsList["alert"] = {
 	name : "Alert",
 	source : ["P", 165],
+	descriptionFull : "Always on the lookout for danger, you gain the following benefits:\n \u2022 You gain a +5 bonus to initiative.\n \u2022 You can't be surprised while you are conscious.\n \u2022 Other creatures don't gain advantage on attack rolls against you as a result of being unseen by you.",
 	description : "I can't be surprised while I'm conscious. I have a +5 bonus on initiative rolls. Other creatures don't gain advantage on attack rolls against me as a result of being hidden from me.",
 	addMod : { type : "skill", field : "Init", mod : 5, text : "I have a +5 bonus on initiative rolls." }
 };
 FeatsList["athlete"] = {
 	name : "Athlete",
 	source : ["P", 165],
+	descriptionFull : "You have undergone extensive physical training to gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 When you are prone, standing up uses only 5 feet of your movement.\n \u2022 Climbing doesn't cost you extra movement.\n \u2022 You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet.",
 	description : "Standing up from prone uses only 5 ft of movement. Climbing doesn't cost me extra movement. I can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity"
 };
 FeatsList["charger"] = {
 	name : "Charger",
 	source : ["P", 165],
+	descriptionFull : "When you use your action to Dash, you can use a bonus action to make one melee weapon attack or to shove a creature.\n   If you move at least 10 feet in a straight line immediately before taking this bonus action, you either gain a +5 bonus to the attack's damage roll (if you chose to make a melee attack and hit) or push the target up to 10 feet away from you (if you chose to shove and you succeed).",
 	description : "When taking the Dash action and moving 10 feet or more in a straight line, I can immediately take a bonus action to make either one melee weapon attack with +5 damage or try to shove the target up to 10 feet away.",
 	action : ["bonus action", " (after Dash action)"]
 };
 FeatsList["crossbow expert"] = {
 	name : "Crossbow Expert",
 	source : ["P", 165],
-	description : "I ignore the loading quality of crossbows I'm proficient with. I don't suffer disadvantage on ranged attack rolls for being within 5 feet of a hostile. When I attack with a one-handed weapon, I can use a bonus action to attack with a hand crossbow I'm holding.",
+	descriptionFull : "Thanks to extensive practice with the crossbow, you gain the following benefits:\n \u2022 You ignore the loading quality of crossbows with which you are proficient.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.\n \u2022 When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding.",
+	description : "I ignore the loading quality of crossbows I'm proficient with. I don't suffer disadv. on ranged attack rolls for being within 5 ft of a hostile. When I attack with a one-handed weapon in my Attack action, I can use a bonus action to attack with a hand crossbow I'm holding.",
 	action : ["bonus action", " (with Attack action)"],
 	calcChanges : {
 		atkAdd : [
@@ -3067,6 +3072,7 @@ FeatsList["crossbow expert"] = {
 FeatsList["defensive duelist"] = {
 	name : "Defensive Duelist",
 	source : ["P", 165],
+	descriptionFull : "When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.",
 	description : "When wielding a finesse weapon with which I am proficient and another creature hits me with a melee attack, I can use my reaction to add my proficiency bonus to my AC for that attack, potentially causing the attack to miss me.",
 	prerequisite : "Dexterity 13 or higher",
 	prereqeval : "What('Dex') >= 13",
@@ -3075,6 +3081,7 @@ FeatsList["defensive duelist"] = {
 FeatsList["dual wielder"] = {
 	name : "Dual Wielder",
 	source : ["P", 165],
+	descriptionFull : "You master fighting with two weapons, gaining the following benefits:\n \u2022 You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.\n \u2022 You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.\n \u2022 You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.",
 	description : "I can use two-weapon fighting even when the one-handed melee weapons I'm wielding aren't light. I can draw or stow two one-handed weapons when I would normally be able to draw or stow only one. +1 AC while wielding separate melee weapons in each hand.",
 	eval : "AddACMisc(1, 'Dual Wielder (if 2 weapons)', 'When wielding a melee weapon in each hand, the Dual Wielder feat gives a +1 bonus to AC', 'ACshield');",
 	removeeval : "AddACMisc(0, 'Dual Wielder (if 2 weapons)', 'When wielding a melee weapon in each hand, the Dual Wielder feat gives a +1 bonus to AC');"
@@ -3082,6 +3089,7 @@ FeatsList["dual wielder"] = {
 FeatsList["dungeon delver"] = {
 	name : "Dungeon Delver",
 	source : ["P", 166],
+	descriptionFull : "Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:\n \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.\n \u2022 You have advantage on saving throws made to avoid or resist traps.\n \u2022 You have resistance to the damage dealt by traps.\n \u2022 Traveling at a fast pace doesn't impose the normal -5 penalty on your passive Wisdom (Perception) score.",
 	description : "I have adv. on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
 	dmgres : ["Traps"],
 	savetxt : { adv_vs : ["traps"] },
@@ -3090,12 +3098,14 @@ FeatsList["dungeon delver"] = {
 FeatsList["durable"] = {
 	name : "Durable",
 	source : ["P", 166],
+	descriptionFull : "Hardy and resilient, you gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 When you roll a Hit Die to regain hit points, the minimum number of hit points you regain from the roll equals twice your Constitution modifier (minimum of 2).",
 	description : "When I roll a hit die to regain hit points, the minimum number of hit points I regain from the roll equals twice my Constitution modifier (minimum of 2). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
 };
 FeatsList["elemental adept"] = {
 	name : "Elemental Adept",
 	source : ["P", 166],
+	descriptionFull : "When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder.\n   Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2.\n\nYou can select this feat multiple times. Each time you do so, you must choose a different damage type.",
 	description : "Choose one of the damage types: acid, cold, fire, lightning, or thunder. Spells I cast ignore resistance to damage from this damage type. For any spell I cast that deals this damage type, I can treat any 1 on a damage die as a 2.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
@@ -3120,6 +3130,7 @@ FeatsList["elemental adept"] = {
 FeatsList["great weapon master"] = {
 	name : "Great Weapon Master",
 	source : ["P", 167],
+	descriptionFull : "You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:\n \u2022 On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.\n \u2022 Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
 	description : "If I score a critical hit or reduce a creature to 0 hit points with a melee weapon in my turn, I can make one melee weapon attack as a bonus action. With a heavy melee weapon, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
 	action : ["bonus action", " (after crit or take-down)"],
 	calcChanges : {
@@ -3137,12 +3148,14 @@ FeatsList["great weapon master"] = {
 FeatsList["healer"] = {
 	name : "Healer",
 	source : ["P", 167],
+	descriptionFull : "You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:\n \u2022 When you use a healer's kit to stabilize a dying creature, that creature also regains 1 hit point.\n \u2022 As an action, you can spend one use of a healer's kit to tend to a creature and restore 1d6+4 hit points to it, plus additional hit points equal to the creature's maximum number of Hit Dice. The creature can't regain hit points from this feat again until it finishes a short or long rest.",
 	description : "Using a healer's kit to stabilize someone gives them 1 hit point as well. As an action, I can spend one use of a healer's kit to restore 1d6 + 4 + (creature's HD) hit points. After that, the creature can't gain hit points from this feat again until it finishes a short rest.",
 	action : ["action", " (1d6+4+HD with healing kit)"]
 };
 FeatsList["heavily armored"] = {
 	name : "Heavily Armored",
 	source : ["P", 167],
+	descriptionFull : "You have trained to master the use of heavy armor, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency with heavy armor.",
 	description : "I gain proficiency with heavy armor. [+1 Strength]",
 	prerequisite : "Proficiency with medium armor",
 	prereqeval : "tDoc.getField('Proficiency Armor Medium').isBoxChecked(0)",
@@ -3152,6 +3165,7 @@ FeatsList["heavily armored"] = {
 FeatsList["heavy armor master"] = {
 	name : "Heavy Armor Master",
 	source : ["P", 167],
+	descriptionFull : "You can use your armor to deflect strikes that would kill others. You gain the following benefits:\n \u2022 While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3.",
 	description : "While wearing heavy armor, bludgeoning, piercing, and slashing damage taken from nonmagical weapons is reduced by 3. [+1 Strength]",
 	prerequisite : "Proficiency with heavy armor",
 	prereqeval : "tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)",
@@ -3160,6 +3174,7 @@ FeatsList["heavy armor master"] = {
 FeatsList["inspiring leader"] = {
 	name : "Inspiring Leader",
 	source : ["P", 167],
+	descriptionFull : "You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest.",
 	calculate : "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + \") temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.\";",
 	prerequisite : "Charisma 13 or higher",
 	prereqeval : "What('Cha') >= 13"
@@ -3167,12 +3182,14 @@ FeatsList["inspiring leader"] = {
 FeatsList["keen mind"] = {
 	name : "Keen Mind",
 	source : ["P", 167],
+	descriptionFull : "You have a mind that can track time, direction, and detail with uncanny precision. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You always know which way is north.\n \u2022 You always know the number of hours left before the next sunrise or sunset.\n \u2022 You can accurately recall anything you have seen or heard within the past month.",
 	description : "I always know which way is north and the number of hours left before the next sunrise or sunset. I can accurately recall anything I have seen or heard within the past month. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0]
 };
 FeatsList["lightly armored"] = {
 	name : "Lightly Armored",
 	source : ["P", 167],
+	descriptionFull : "You have trained to master the use of light armor, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with light armor.",
 	description : "I gain proficiency with light armor. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
 	armorProfs : [true, false, false, false]
@@ -3180,6 +3197,7 @@ FeatsList["lightly armored"] = {
 FeatsList["linguist"] = {
 	name : "Linguist",
 	source : ["P", 167],
+	descriptionFull : "You have studied languages and codes, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn three languages of your choice.\n \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it.",
 	calculate : "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (What('Int') + What('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	scores : [0, 0, 0, 1, 0, 0],
 	languageProfs : [3]
@@ -3187,6 +3205,7 @@ FeatsList["linguist"] = {
 FeatsList["lucky"] = {
 	name : "Lucky",
 	source : ["P", 167],
+	descriptionFull : "You have inexplicable luck that seems to kick in at just the right moment.\n   You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional d20. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the d20s is used for the attack roll, ability check, or saving throw.\n   You can also spend one luck point when an attack roll is made against you. Roll a d20, and then choose whether the attack uses the attacker's roll or yours. If more than one creature spends a luck point to influence the outcome of a roll, the points cancel each other out; no additional dice are rolled.\n   You regain your expended luck points when you finish a long rest.",
 	description : "Use one of three luck points to roll an extra d20 for attacking, being attacked, an ability check, or a saving throw before the outcome is determined. If more than one creature uses luck, no extra dice are rolled. I regain expended luck points when I finish a long rest.",
 	usages : 3,
 	recovery : "long rest",
@@ -3195,6 +3214,7 @@ FeatsList["lucky"] = {
 FeatsList["mage slayer"] = {
 	name : "Mage Slayer",
 	source : ["P", 168],
+	descriptionFull : "You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:\n \u2022 When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.\n \u2022 When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.\n \u2022 You have advantage on saving throws against spells cast by creatures within 5 feet of you.",
 	description : "As a reaction, I can make a melee weapon attack on a creature within 5 ft of me that casts a spell. Concentration checks from damage from me are made with disadvantage. I have advantage on saving throws against spells cast by creatures within 5 feet of me.",
 	savetxt : { adv_vs : ["spells cast within 5 ft"] },
 	action : ["reaction", "Melee weapon attack (if spell cast in 5 ft)"]
@@ -3202,6 +3222,7 @@ FeatsList["mage slayer"] = {
 FeatsList["magic initiate"] = {
 	name : "Magic Initiate",
 	source : ["P", 168],
+	descriptionFull : "Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list.\n   In addition, choose one 1st-level spell from that same list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again using this feat.\n   Your spellcasting ability for these spells depends on the class you chose: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid: or Intelligence for wizard.",
 	description : "Select a spellcasting class using the square button on this feat line. I learn two cantrips and one 1st-level spell of my choice from that class' spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.",
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
@@ -3304,6 +3325,7 @@ FeatsList["magic initiate"] = {
 FeatsList["martial adept"] = {
 	name : "Martial Adept",
 	source : ["P", 168],
+	descriptionFull : "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
 	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
 	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
 	removeeval : "RemoveFeature('Combat Superiority ', 1);"
@@ -3311,6 +3333,7 @@ FeatsList["martial adept"] = {
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
 	source : ["P", 168],
+	descriptionFull : "You have practiced moving in medium armor to gain the following benefits:\n \u2022 Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.",
 	description : "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite : "Proficiency with medium armor",
 	prereqeval : "tDoc.getField('Proficiency Armor Medium').isBoxChecked(0)",
@@ -3320,12 +3343,14 @@ FeatsList["medium armor master"] = {
 FeatsList["mobile"] = {
 	name : "Mobile",
 	source : ["P", 168],
+	descriptionFull : "You are exceptionally speedy and agile. You gain the following benefits:\n \u2022 Your speed increases by 10 feet.\n \u2022 When you use the Dash action, difficult terrain doesn't cost you extra movement on that turn.\n \u2022 When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not.",
 	description : "When I use the Dash action, difficult terrain doesn't cost me extra movement that turn. When I make a melee attack against a creature, I don't provoke opportunity attacks from that creature for the rest of the turn, whether I hit or not. [+10 ft speed]",
 	speed : { allModes : "+10" }
 };
 FeatsList["moderately armored"] = {
 	name : "Moderately Armored",
 	source : ["P", 168],
+	descriptionFull : "You have trained to master the use of medium armor and shields, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with medium armor and shields.",
 	description : "I gain proficiency with medium armor and shields. [+1 Strength or Dexterity]",
 	prerequisite : "Proficiency with light armor",
 	prereqeval : "tDoc.getField('Proficiency Armor Light').isBoxChecked(0)",
@@ -3335,11 +3360,13 @@ FeatsList["moderately armored"] = {
 FeatsList["mounted combatant"] = {
 	name : "Mounted Combatant",
 	source : ["P", 168],
+	descriptionFull : "You are a dangerous foe to face while mounted. While you are mounted and aren't incapacitated, you gain the following benefits:\n \u2022 You have advantage on melee attack rolls against any unmounted creature that is smaller than your mount.\n \u2022 You can force an attack targeted at your mount to target you instead.\n \u2022 If your mount is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
 	description : "I have advantage on melee attack rolls against unmounted creatures smaller than my mount. I can force attacks targeting my mount to target me instead. When a Dex save would halve damage, my mount takes no damage on success and half damage on failure."
 };
 FeatsList["observant"] = {
 	name : "Observant",
 	source : ["P", 168],
+	descriptionFull : "Quick to notice details of your environment, you gain the following benefits:\n \u2022 Increase your Intelligence or Wisdom score by 1, to a maximum of 20.\n \u2022 If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.\n \u2022 You have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) scores.",
 	description : "If I can see a creature's mouth while it is speaking a language I understand, I can interpret what it's saying by reading its lips. I have a +5 bonus to passive Wisdom (Perception) and passive Intelligence (Investigation) scores. [+1 Intelligence or Wisdom]",
 	scorestxt : "+1 Intelligence or Wisdom",
 	addMod : { type : "skill", field : "passive perception", mod : 5, text : "I have a +5 bonus to passive Wisdom (Perception)." }
@@ -3347,6 +3374,7 @@ FeatsList["observant"] = {
 FeatsList["polearm master"] = {
 	name : "Polearm Master",
 	source : ["P", 168],
+	descriptionFull : "You can keep your enemies at bay with reach weapons. You gain the following benefits:\n \u2022 When you take the Attack action and attack with only a glaive, halberd, quarterstaff, or spear, you can use a bonus action to make a melee attack with the opposite end of the weapon; this attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and the attack deals bludgeoning damage.\n \u2022 While you are wielding a glaive, halberd, pike, quarterstaff, or spear, other creatures provoke an opportunity attack from you when they enter your reach.",
 	description : "As a bonus action when I do the Attack action with a glaive/" + (typePF ? " " : "") + "halberd/quarterstaff/spear, I can make a 1d4 bludgeoning attack with its butt end." + (typePF ? "\n" : " ") + "While wielding a glaive/halberd/" + (typePF ? "" : " ") + "pike/quarterstaff/spear, I get an opportunity attack when a creature enters my reach.",
 	weaponOptions : {
 		regExpSearch : /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)))(?=.*butt)(?=.*end).*$/i,
@@ -3366,6 +3394,7 @@ FeatsList["polearm master"] = {
 FeatsList["resilient"] = {
 	name : "Resilient",
 	source : ["P", 168],
+	descriptionFull : "Choose one ability score. You gain the following benefits:\n \u2022 Increase the chosen ability score by 1, to a maximum of 20.\n \u2022 You gain proficiency in saving throws using the chosen ability.",
 	description : "Select an ability score using the square button on this feat line. I gain proficiency with the saving throw of that ability score and a +1 added to it.",
 	choices : ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
 	"strength" : {
@@ -3402,6 +3431,7 @@ FeatsList["resilient"] = {
 FeatsList["ritual caster"] = {
 	name : "Ritual Caster",
 	source : ["P", 169],
+	descriptionFull : "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.\n   When you choose this feat, you acquire a ritual book holding two 1st-level spells of your choice. Choose one of the following classes: bard, cleric, druid, sorcerer, warlock, or wizard. You must choose your spells from that class's spell list, and the spells you choose must have the ritual tag. The class you choose also determines your spellcasting ability for these spells: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.\n   If you come across a spell in written form, such as a magical spell scroll or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it.",
 	description : "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
@@ -3440,17 +3470,20 @@ FeatsList["ritual caster"] = {
 FeatsList["savage attacker"] = {
 	name : "Savage Attacker",
 	source : ["P", 169],
+	descriptionFull : "Once per turn when you roll damage for a melee weapon attack, you can reroll the weapon's damage dice and use either total.",
 	description : "Once per turn, when I roll damage for a melee weapon attack, I can reroll the weapon's damage dice and use either total."
 };
 FeatsList["sentinel"] = {
 	name : "Sentinel",
 	source : ["P", 169],
+	descriptionFull : "You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n \u2022 When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n \u2022 Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n \u2022 When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.",
 	description : "Creatures I hit with opportunity attacks have 0 speed for this turn. The Disengage action doesn't work on me. When a creature within 5 ft makes an attack against a target other than me, I can use my reaction to make a melee weapon attack against the attacker.",
 	action : ["reaction", " (after attack on ally)"]
 };
 FeatsList["sharpshooter"] = {
 	name : "Sharpshooter",
 	source : ["P", 170],
+	descriptionFull : "You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:\n \u2022 Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n \u2022 Your ranged weapon attacks ignore half cover and three-quarters cover.\n \u2022 Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
 	description : "My ranged weapon attacks don't have disadvantage on long range and ignore half cover and three-quarters cover. With a ranged weapon that I am proficient with, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
 	calcChanges : {
 		atkCalc : [
@@ -3467,18 +3500,21 @@ FeatsList["sharpshooter"] = {
 FeatsList["shield master"] = {
 	name : "Shield Master",
 	source : ["P", 170],
+	descriptionFull : "You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:\n \u2022 If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.\n \u2022 If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.\n \u2022 If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect.",
 	description : "As a bonus action, when I use the Attack action, I can shove someone within 5 ft with my shield. I add my shield's AC bonus to Dex saves vs. effects targeting only me. As a reaction, if I succeed on a Dex save for half damage, I can interpose my shield to avoid the damage.",
 	action : [['bonus action', 'Shove with shield (with Attack action)'], ['reaction', 'Interpose shield (if Dex save half dmg)']]
 };
 FeatsList["skilled"] = {
 	name : "Skilled",
 	source : ["P", 170],
+	descriptionFull : "You gain proficiency in any combination of three skills or tools of your choice.",
 	description : "I gain proficiency with any combination of three skills or tools of my choice.",
 	skillstxt : "Choose three skills or tools"
 };
 FeatsList["skulker"] = {
 	name : "Skulker",
 	source : ["P", 170],
+	descriptionFull : "You are expert at slinking through shadows. You gain the following benefits:\n \u2022 You can try to hide when you are lightly obscured from the creature from which you are hiding.\n \u2022 When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.\n \u2022 Dim light doesn't impose disadvantage on your Wisdom (Perception) checks relying on sight.",
 	description : "I can try to hide when I am lightly obscured. My position is not revealed when I am hidden from a creature and miss it with a ranged weapon attack. Dim light doesn't impose disadvantage on my Wisdom (Perception) checks relying on sight.",
 	prerequisite : "Dexterity 13 or higher",
 	prereqeval : "What('Dex') >= 13",
@@ -3488,6 +3524,7 @@ FeatsList["skulker"] = {
 FeatsList["spell sniper"] = {
 	name : "Spell Sniper",
 	source : ["P", 170],
+	descriptionFull : "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n \u2022 When you cast a spell that requires you to make an attack roll, the spell's range is doubled.\n \u2022 Your ranged spell attacks ignore half cover and three-quarters cover.\n \u2022 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
 	description : "Select a spellcasting class using the square button on this feat line. I learn one cantrip from that class' spell list that requires an attack roll. Any spell that I cast that has a ranged attack roll has its range doubled and ignores half and three-quarters cover.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
@@ -3545,6 +3582,7 @@ FeatsList["spell sniper"] = {
 FeatsList["tavern brawler"] = {
 	name : "Tavern Brawler",
 	source : ["P", 170],
+	descriptionFull : "Accustomed to rough-and-tumble fighting using whatever weapons happen to be at hand, you gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 You are proficient with improvised weapons.\n \u2022 Your unarmed strike uses a d4 for damage.\n \u2022 When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target.",
 	description : "I am proficient with improvised weapons. My unarmed strike does 1d4 damage. When I hit a creature with an unarmed strike or improvised weapon on my turn, I can attempt to grapple the target as a bonus action. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
 	action : ['bonus action', 'Grapple (on hit with unarmed/improv.)'],
@@ -3567,6 +3605,7 @@ FeatsList["tavern brawler"] = {
 FeatsList["tough"] = {
 	name : "Tough",
 	source : ["P", 170],
+	descriptionFull : "Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.",
 	description : "My hit point maximum increases by an amount equal to twice my character level.",
 	calcChanges : {
 		hp : "extrahp += totalhd * 2; extrastring += '\\n + ' + totalhd + ' \\u00D7 2 from the Tough feat (' + (totalhd * 2) + ')';"
@@ -3577,6 +3616,7 @@ FeatsList["war caster"] = {
 	source : ["P", 170],
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : "CurrentSpells.toSource() !== '({})'",
+	descriptionFull :  "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
 	description : "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
 	action : ["reaction", " - Opportunity Spell"],
 	savetxt : { text : "Adv. on Con (Concentration) saves when damaged" }
@@ -3584,6 +3624,7 @@ FeatsList["war caster"] = {
 FeatsList["weapon master"] = {
 	name : "Weapon Master",
 	source : ["P", 170],
+	descriptionFull : "You have practiced extensively with a variety of weapons, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with four simple or martial weapons of your choice.",
 	description : "I gain proficiency with four simple or martial weapons of my choice.\n[+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity"
 };
@@ -5425,16 +5466,11 @@ RaceList["aarakocra"] = {
 	},
 	languageProfs : ["Common", "Aarakocra", "Auran"],
 	weaponOptions : {
-		regExpSearch : /talons?/i,
+		baseWeapon : "unarmed strike",
+		regExpSearch : /talon/i,
 		name : "Talons",
 		source : ["E", 5],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
 	addWeapons : ["Talons"],
 	age : " rearch maturity by age 3 and live about 30 years",
@@ -5656,9 +5692,10 @@ RaceList["goliath"] = {
 // Feat
 FeatsList["svirfneblin magic"] = {
 	name : "Svirfneblin Magic",
-	source : [["E", 7], ["S", 115]],
+	source : [["E", 7], ["S", 115], ["MToF", 114]],
 	prerequisite : "Being a Svirfneblin (Deep Gnome)",
 	prereqeval : "CurrentRace.known === 'deep gnome'",
+	descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 	description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 	spellcastingBonus : [{
 		name : "at will (self only)",
@@ -8387,9 +8424,10 @@ WeaponsList["sword burst"] = {
 if (!FeatsList["svirfneblin magic"]) {
 	FeatsList["svirfneblin magic"] = {
 		name : "Svirfneblin Magic",
-		source : [["E", 7], ["S", 115]],
+		source : [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite : "Being a Svirfneblin (Deep Gnome)",
 		prereqeval : "CurrentRace.known === 'deep gnome'",
+		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus : [{
 			name : "at will (self only)",
@@ -9533,16 +9571,11 @@ RaceList["lizardfolk"] = {
 	skillstxt : "Choose two from Animal Handling, Nature, Perception, Stealth, and Survival",
 	languageProfs : ["Common", "Draconic"],
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /\bbite\b/i,
 		name : "Bite",
 		source : ["V", 113],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 6, "piercing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 6, "piercing"]
 	},
 	addWeapons : ["Bite"],
 	armorOptions : {
@@ -9618,18 +9651,13 @@ RaceList["tabaxi"] = {
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
 	weaponOptions : {
-		regExpSearch : /^(?=.*\bcat)(?=.*\bclaws?\b).*$/i,
-		name : "Cat's Claws",
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*fanged)(?=.*claw).*$/i,
+		name : "Fanged Claws",
 		source : ["V", 115],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Cat's Claws"],
+	addWeapons : ["Fanged Claws"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
@@ -10572,16 +10600,11 @@ RaceList["tortle"] = {
 	},
 	addArmor : "Tortle's Shell",
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 		name : "Tortle's Claws",
 		source : ["TP", 4],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
 	addWeapons : ["Tortle's Claws"],
 	age : " reach adulthood by the age of 15 and live an average of 50 years",
@@ -13922,6 +13945,7 @@ FeatsList["bountiful luck-xgte"] = {
 	source : ["X", 73],
 	prerequisite : "Being a Halfling",
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	descriptionFull : "Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of fortune's favor!\n   When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll\n   When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
 	description : "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
 	action : ["reaction", ""]
 };
@@ -13930,6 +13954,7 @@ FeatsList["dragon fear-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
 	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
 	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
@@ -13940,19 +13965,15 @@ FeatsList["dragon hide-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	descriptionFull : "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
 	weaponOptions : {
-		regExpSearch : /^(?=.*\bretractable\b)(?=.*\bclaws?\b).*$/i,
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
 		source : ["X", 74],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
 	addWeapons : ['Retractable Claws'],
 	armorOptions : {
@@ -13968,6 +13989,7 @@ FeatsList["drow high magic-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Drow (Dark Elf)",
 	prereqeval : "CurrentRace.known.indexOf('dark elf') !== -1",
+	descriptionFull : "You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells.",
 	description : "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
 		name : "At will",
@@ -13992,6 +14014,7 @@ FeatsList["dwarven fortitude-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Dwarf",
 	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
+	descriptionFull : "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
 };
@@ -14000,6 +14023,7 @@ FeatsList["elven accuracy-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being an Elf or a Half-Elf",
 	prereqeval : "(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known)",
+	descriptionFull : "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:\n \u2022 Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.",
 	description : "Whenever I have advantage on an attack roll that uses Dexterity, Intelligence, Wisdom, or Charisma, I can reroll one of the dice once. [+1 Dexterity, Intelligence, Wisdom, or Charisma]",
 	scorestxt : "+1 Dexterity, Intelligence, Wisdom, or Charisma"
 };
@@ -14008,6 +14032,7 @@ FeatsList["fade away-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Gnome",
 	prereqeval : "CurrentRace.known.indexOf('gnome') !== -1",
+	descriptionFull : "Your people are clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Dexterity or Intelligence]",
 	scorestxt : "+1 Dexterity or Intelligence",
 	action : ["reaction", ""],
@@ -14019,6 +14044,7 @@ FeatsList["fey teleportation-xgte"] = { // this code includes contributions by S
 	source : ["X", 74],
 	prerequisite : "Being a High Elf",
 	prereqeval : "CurrentRace.known.indexOf('high elf') !== -1",
+	descriptionFull : "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 You learn to speak, read, and write Sylvan.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. I also learn to speak, read, and write Sylvan. [+1 Intelligence or Charisma]",
 	scorestxt : "+1 Intelligence or Charisma",
 	spellcastingBonus : {
@@ -14037,6 +14063,7 @@ FeatsList["flames of phlegethos-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Tiefling",
 	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	descriptionFull : "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice once. I then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee to take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt : "+1 Intelligence or Charisma"	
 };
@@ -14045,6 +14072,7 @@ FeatsList["infernal constitution-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Tiefling",
 	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	descriptionFull : "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
 	description : "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0],
 	dmgres : ["Cold", "Poison"],
@@ -14055,6 +14083,7 @@ FeatsList["orcish fury-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Half-Orc",
 	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
 	action : ["reaction", " (after Relentless Endurance)"],
@@ -14067,6 +14096,7 @@ FeatsList["prodigy-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Half-Elf, Half-Orc, or Human",
 	prereqeval : "(/human|^(?=.*half)(?=.*(elf|orc)).*$/i).test(CurrentRace.known)",
+	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
 	description : "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skillstxt : "Proficiency with any one skill and Expertise with any one skill that you are already proficient with",
 	languageProfs : [1],
@@ -14077,6 +14107,7 @@ FeatsList["second chance-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Halfling",
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	descriptionFull : "Fortune favors you when someone tries to strike you. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a short rest. [+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
 	action : ["reaction", ""],
@@ -14088,6 +14119,7 @@ FeatsList["squat nimbleness-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Dwarf or a small race",
 	prereqeval : "(/dwarf/i).test(CurrentRace.known) || tDoc.getField('Size Category').currentValueIndices === 4",
+	descriptionFull : "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill (your choice).\n \u2022 You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled.",
 	description : "My walking speed increases by 5 ft. I gain proficiency in either the Acrobatics or the Athletics skill. I have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks I make to escape from being grappled. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
 	skillstxt : "Acrobatics or Athletics",
@@ -14098,6 +14130,7 @@ FeatsList["wood elf magic-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Wood Elf",
 	prereqeval : "CurrentRace.known.indexOf('wood elf') !== -1",
+	descriptionFull : "You learn the magic of the primeval woods, which are revered and protected by your people. You learn one druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest. Wisdom is your spellcasting ability for all three spells.",
 	description : "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
 		name : "Druid Cantrip",
@@ -16504,6 +16537,31 @@ if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion
 		trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 	};
 }
+
+// Feat
+if (!FeatsList["svirfneblin magic"]) {
+	FeatsList["svirfneblin magic"] = {
+		name : "Svirfneblin Magic",
+		source : [["E", 7], ["S", 115], ["MToF", 114]],
+		prerequisite : "Being a Svirfneblin (Deep Gnome)",
+		prereqeval : "CurrentRace.known === 'deep gnome'",
+		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
+		spellcastingBonus : [{
+			name : "at will (self only)",
+			spellcastingAbility : 4,
+			spells : ["nondetection"],
+			selection : ["nondetection"],
+			firstCol : 'atwill'
+		}, {
+			name : "1x long rest (self only)",
+			spells : ["blindness/deafness", "blur", "disguise self"],
+			selection : ["blindness/deafness", "blur", "disguise self"],
+			firstCol : 'oncelr',
+			times : 3
+		}]
+	};
+}
 var iFileName = "pub_20180723_WGtE.js";
 RequiredSheetVersion(13);
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
@@ -16976,6 +17034,7 @@ FeatsList["revenant blade"] = {
 	source : ["WGtE", 74],
 	prerequisite : "Being an Elf",
 	prereqeval : "(/^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i).test(CurrentRace.known)",
+	descriptionFull : "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 While wielding a double-bladed weapon with two hands, the weapon has the finesse trait for your attacks with it, and you gain +1 AC.\n \u2022 On your turn, when you use a bonus action to make a melee attack with the blade at the opposite end of the weapon, the weapon's damage die for this attack increases to 2d4, instead of 1d4.",
 	description : "As a bonus action with the Attack action, I can make an extra with a double-bladed weapon for 2d4 slashing damage. I treat double-bladed weapons as having the finesse trait. +1 AC while wielding a double-bladed weapon with two hands. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
 	action : ["bonus action", " (with Attack action)"],
@@ -17692,6 +17751,7 @@ if (!SpellsList["gust"]) {
 FeatsList["greater dragonmark"] = {
 	name : "Greater Dragonmark",
 	source : [["WGtE", 110], ["UA:D", 7]],
+	descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
 	description : "Select the type of greater dragonmark using the square button on this feat line.\nMy Intuition Die increases with one step (for example d4 to d6), I gain spellcating abilities, and an increase to one ability score.",
 	eval : function () {
 		var raceTrait = What('Racial Traits');
@@ -17709,6 +17769,7 @@ FeatsList["greater dragonmark"] = {
 	"detection" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 		scorestxt : "+1 Charisma or Intelligence",
 		spellcastingBonus : {
@@ -17723,6 +17784,7 @@ FeatsList["greater dragonmark"] = {
 	"finding" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 		scorestxt : "+1 Strength, Dexterity, or Wisdom",
 		spellcastingBonus : {
@@ -17737,6 +17799,7 @@ FeatsList["greater dragonmark"] = {
 	"handling" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt : "+1 Dexterity or Wisdom",
 		spellcastingBonus : {
@@ -17751,6 +17814,7 @@ FeatsList["greater dragonmark"] = {
 	"healing" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt : "+1 Dexterity or Wisdom",
 		spellcastingBonus : {
@@ -17765,6 +17829,7 @@ FeatsList["greater dragonmark"] = {
 	"hospitality" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
@@ -17779,6 +17844,7 @@ FeatsList["greater dragonmark"] = {
 	"making" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 		scorestxt : "+1 Dexterity or Intelligence",
 		spellcastingBonus : {
@@ -17793,6 +17859,7 @@ FeatsList["greater dragonmark"] = {
 	"passage" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 		scorestxt : "+1 Dexterity or Constitution",
 		spellcastingBonus : {
@@ -17807,6 +17874,7 @@ FeatsList["greater dragonmark"] = {
 	"scribing" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 		scorestxt : "+1 Intelligence or Charisma",
 		spellcastingBonus : {
@@ -17821,6 +17889,7 @@ FeatsList["greater dragonmark"] = {
 	"sentinel" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 		scorestxt : "+1 Strength or Wisdom",
 		spellcastingBonus : {
@@ -17835,6 +17904,7 @@ FeatsList["greater dragonmark"] = {
 	"shadow" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
@@ -17849,6 +17919,7 @@ FeatsList["greater dragonmark"] = {
 	"storm" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
@@ -17863,6 +17934,7 @@ FeatsList["greater dragonmark"] = {
 	"warding" : {
 		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
 		prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known)",
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
 		description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 		scorestxt : "+1 Dexterity or Intelligence",
 		spellcastingBonus : [{
@@ -17887,6 +17959,7 @@ FeatsList["aberrant dragonmark"] = {
 	source : [["WGtE", 112], ["UA:D", 9]],
 	prerequisite : "Not having a dragonmark",
 	prereqeval : "!(/dragonmark/i).test(CurrentRace.known)",
+	descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
 	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 	scores : [0, 0, 1, 0, 0, 0],
 	spellcastingAbility : 3,
@@ -17928,16 +18001,12 @@ RaceList["centaur-ggtr"] = {
 	},
 	languageProfs : ["Common", "Sylvan"],
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : ["G", 15],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 4, "bludgeoning"],
-		range : "Melee",
-		description : "Use as bonus action after charge 30 ft",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "Use as bonus action after charge 30 ft"
 	},
 	addWeapons : ["Hooves"],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
@@ -18053,16 +18122,12 @@ RaceList["minotaur-ggtr"] = {
 	},
 	languageProfs : ["Common", "Minotaur"],
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : ["G", 19],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 6, "piercing"],
-		range : "Melee",
-		description : "Attack as a bonus action after moving 20 ft with the Dash action",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "Attack as a bonus action after moving 20 ft with the Dash action"
 	},
 	addWeapons : ["Horns"],
 	skillstxt : "Choose one from Intimidation or Persuasion",
@@ -18105,16 +18170,12 @@ RaceList["simic hybrid-ggtr"] = {
 	languageProfs : ["Common", ["Elvish or Vedalken", 1]],
 	vision : [["Darkvision", 60]],
 	weaponOptionsSp : [{
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
 		name : "Grappling Appendages",
 		source : ["G", 20],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
-		range : "Melee",
-		description : "After hitting, start grapple on target as a bonus action",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "After hitting, start grapple on target as a bonus action"
 	}, {
 		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
 		name : "Acid Spit",
@@ -19373,16 +19434,12 @@ AddRacialVariant("shifter", "razorclaw", {
 	plural : "Razorclaw shifters",
 	addWeapons : ["razorclaw"],
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /\brazorclaw\b/i,
 		name : "Razorclaw",
 		source : ["UA:E", 2],
-		ability : 1,
-		type : "Natural",
 		damage : [1, "", "slashing"],
-		range : "Melee",
-		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
-		monkweapon : true,
-		abilitytodamage : true
+		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse"
 	},
 	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
@@ -19402,6 +19459,7 @@ AddRacialVariant("shifter", "wildhunt", {
 FeatsList["dragonmark [detection]"] = {
 	name : "Dragonmark [Detection]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Detection, the dragonmark of House Medani, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Detect Magic, Mage Hand\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Detect Thoughts\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
 	description : "I learn the Mage Hand cantrip. I can also cast Detect Magic, Detect Thoughts (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19415,6 +19473,7 @@ FeatsList["dragonmark [detection]"] = {
 FeatsList["dragonmark [finding]"] = {
 	name : "Dragonmark [Finding]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Finding, the dragonmark of House Tharashk, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Identify, Mage Hand\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Locate Object\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
 	description : "I learn the Mage Hand cantrip. I can also cast Identify, Locate Object (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19428,6 +19487,7 @@ FeatsList["dragonmark [finding]"] = {
 FeatsList["dragonmark [handling]"] = {
 	name : "Dragonmark [Handling]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Handling, the dragonmark of House Vadalis, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Druidcraft, Speak with Animals\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Beast Sense\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Conjure Animals",
 	description : "I learn the Druidcraft cantrip. I can also cast Speak with Animals, Beast Sense (from 5th level onwards), and Conjure Animals (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19441,6 +19501,7 @@ FeatsList["dragonmark [handling]"] = {
 FeatsList["dragonmark [healing]"] = {
 	name : "Dragonmark [Healing]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Healing, the dragonmark of House Jorasco, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Cure Wounds, Spare the Dying\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Lesser Restoration\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Revivify",
 	description : "I learn the Spare the Dying cantrip. I can also cast Cure Wounds, Lesser Restoration (from 5th level onwards), and Revivify (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19454,6 +19515,7 @@ FeatsList["dragonmark [healing]"] = {
 FeatsList["dragonmark [hospitality]"] = {
 	name : "Dragonmark [Hospitality]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Hospitality, the dragonmark of House Ghallanda, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Friends, Unseen Servant\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Rope Trick\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Leomund's Tiny Hut",
 	description : "I learn the Friends cantrip. I can also cast Unseen Servant, Rope Trick (from 5th level onwards), and Leomund's Tiny Hut (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19467,6 +19529,7 @@ FeatsList["dragonmark [hospitality]"] = {
 FeatsList["dragonmark [making]"] = {
 	name : "Dragonmark [Making]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Making, the dragonmark of House Cannith, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Identify, Mending\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Magic Weapon\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Fabricate",
 	description : "I learn the Mending cantrip. I can also cast Identify, Magic Weapon (from 5th level onwards), and Fabricate (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19480,6 +19543,7 @@ FeatsList["dragonmark [making]"] = {
 FeatsList["dragonmark [passage]"] = {
 	name : "Dragonmark [Passage]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Passage, the dragonmark of House Orien, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Expeditious Retreat, Light\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Misty Step\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Teleportation Circle",
 	description : "I learn the Light cantrip. I can also cast Expeditious Retreat, Misty Step (from 5th level onwards), and Teleportation Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19493,6 +19557,7 @@ FeatsList["dragonmark [passage]"] = {
 FeatsList["dragonmark [scribing]"] = {
 	name : "Dragonmark [Scribing]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Scribing, the dragonmark of House Sivis, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Comprehend Languages, Message\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Sending\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Tongues",
 	description : "I learn the Message cantrip. I can also cast Comprehend Languages, Sending (from 5th level onwards), and Tongues (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19506,6 +19571,7 @@ FeatsList["dragonmark [scribing]"] = {
 FeatsList["dragonmark [sentinel]"] = {
 	name : "Dragonmark [Sentinel]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Sentinel, the dragonmark of House Deneith, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Blade Ward, Compelled Duel\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Blur\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Protection from Energy",
 	description : "I learn the Blade Ward cantrip. I can also cast Compelled Duel, Blur (from 5th level onwards), and Protection from Energy (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19519,6 +19585,7 @@ FeatsList["dragonmark [sentinel]"] = {
 FeatsList["dragonmark [shadow]"] = {
 	name : "Dragonmark [Shadow]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Shadow, the dragonmark of House Phiarlan and House Thuranni, and are a member of one of those houses.\n   You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Dancing Lights, Disguise Self\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Darkness\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Nondetection",
 	description : "I learn the Dancing Lights cantrip. I can also cast Disguise Self, Darkness (from 5th level onwards), and Nondetection (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19532,6 +19599,7 @@ FeatsList["dragonmark [shadow]"] = {
 FeatsList["dragonmark [storm]"] = {
 	name : "Dragonmark [Storm]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Storm, the dragonmark of House Lyrander, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Fog Cloud, Shocking Grasp\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Gust of Wind\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Sleet Storm",
 	description : "I learn the Shocking Grasp cantrip. I can also cast Fog Cloud, Gust of Wind (from 5th level onwards), and Sleet Storm (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -19545,6 +19613,7 @@ FeatsList["dragonmark [storm]"] = {
 FeatsList["dragonmark [warding]"] = {
 	name : "Dragonmark [Warding]",
 	source : ["UA:E", 6],
+	descriptionFull : "Your have the magical mark of Warding, the dragonmark of House Kundarak, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Alarm, Resistance\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Arcane Lock\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Magic Circle",
 	description : "I learn the Resistance cantrip. I can also cast Alarm, Arcane Lock (from 5th level onwards), and Magic Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 	spellcastingBonus : {
 		name : "Dragonmark",
@@ -21764,6 +21833,7 @@ SourceList["UA:F"] = {
 FeatsList["fell handed"] = {
 	name : "Fell Handed",
 	source : ["UA:F", 2],
+	descriptionFull : "You master the handaxe, battleaxe, greataxe, warhammer, and maul. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 Whenever you have advantage on a melee attack roll you make with the weapon and hit, you can knock the target prone if the lower of the two d20 rolls would also hit the target.\n \u2022 Whenever you have disadvantage on a melee attack roll you make with the weapon, the target takes bludgeoning damage equal to your Strength modifier (minimum of 0) if the attack misses but the higher of the two d20 rolls would have hit.\n \u2022 If you use the Help action to aid an ally's melee attack while you're wielding the weapon, you knock the target's shield aside momentarily. In addition to the ally gaining advantage on the attack roll, the ally gains a +2 bonus to the roll if the target is using a shield.",
 	description : "With a handaxe, battleaxe, greataxe, warhammer, or maul, I get +1 to hit, knock prone if I have adv. and hit with both rolls, with disadv. still do Str mod in bludg. damage if I miss but the other die would've hit, can use Help to give ally +2 to hit vs. enemy with a shield.",
 	calcChanges : {
 		atkAdd : [
@@ -21783,6 +21853,7 @@ FeatsList["fell handed"] = {
 FeatsList["blade mastery"] = {
 	name : "Blade Mastery",
 	source : ["UA:F", 2],
+	descriptionFull : "You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn or until you're not holding the weapon.\n \u2022 When you make an opportunity attack with the weapon, you have advantage on the attack roll.",
 	description : "With a shortsword, longsword, greatsword, scimitar, or rapier, I get +1 to hit, advantage on opportunity attacks, and with the weapon in hand I can use my reaction to assume a parrying stance that gives me +1 AC until the start of my next turn.",
 	calcChanges : {
 		atkAdd : [
@@ -21803,6 +21874,7 @@ FeatsList["blade mastery"] = {
 FeatsList["flail mastery"] = {
 	name : "Flail Mastery",
 	source : ["UA:F", 3],
+	descriptionFull : "The flail is a tricky weapon to use, but you have spent countless hours mastering it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a flail.\n \u2022 As a bonus action on your turn, you can prepare yourself to extend your flail to sweep over targets' shields. Until the end of this turn, your attack rolls with a flail gain a +2 bonus against any target using a shield.\n \u2022 When you hit with an opportunity attack using a flail, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked prone.",
 	calculate : "event.value = 'With a flail, I get +1 to hit, and enemies hit by an opportunity attack with it have to make a Str save DC ' + (8 + Number(What('Proficiency Bonus')) + What('Str Mod')) + ' (8 + Prof. bonus + Str mod) or be knocked prone. As a bonus action, I can get +2 to hit with my flail vs. targets with shields until the end of my turn.';",
 	calcChanges : {
 		atkAdd : [
@@ -21823,6 +21895,7 @@ FeatsList["flail mastery"] = {
 FeatsList["spear mastery"] = {
 	name : "Spear Mastery",
 	source : ["UA:F", 3],
+	descriptionFull : "Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a spear.\n \u2022 When you use a spear, its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands. (This benefit has no effect if another feature has already improved the weapon's die.)\n \u2022 You can set your spear to receive a charge. As a bonus action, choose a creature you can see that is at least 20 feet away from you. If that creature moves within your spear's reach on its next turn, you can make a melee attack against it with your spear as a reaction. If the attack hits, the target takes an extra 1d8 piercing damage, or an extra 1d10 piercing damage if you wield the spear with two hands. You can't use this ability if the creature used the Disengage action before moving.\n \u2022 As a bonus action on your turn, you can increase your reach with a spear by 5 feet for the rest of your turn.",
 	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the speer's reach with 5 ft.",
 	calcChanges : {
 		atkAdd : [
@@ -21844,6 +21917,7 @@ FeatsList["spear mastery"] = {
 FeatsList["alchemist"] = {
 	name : "Alchemist",
 	source : ["UA:F", 4],
+	descriptionFull : "You have studied the secrets of alchemy and are an expert in its practice, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency with alchemist's supplies. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can identify one potion within 5 feet of you, as if you had tasted it. You must see the liquid for this benefit to work.\n \u2022 Over the course of any short rest, you can temporarily improve the potency of one potion of healing of any rarity. To use this benefit, you must have alchemist's supplies with you, and the potion must be within reach. If the potion is drunk no more than 1 hour after the short rest ends, the creature drinking the potion can forgo the potion's die roll and regains the maximum number of hit points that the potion can restore.",
 	description : "I gain proficiency with alchemist's supplies, or expertise if already proficient. As an action, I can identify a potion within 5 ft. During a rest with alchemist's supplies, I can enhance a potion of healing, to heal its max. Consuming it within 1 hour maximizes its effects [+1 Int]",
 	scores : [0, 0, 0, 1, 0, 0],
 	action : ["action", " (identify potion)"],
@@ -21854,6 +21928,7 @@ FeatsList["alchemist"] = {
 FeatsList["burglar"] = {
 	name : "Burglar",
 	source : ["UA:F", 4],
+	descriptionFull : "You pride yourself on your quickness and your close study of certain clandestine activities. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with thieves' tools. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
 	description : "I gain proficiency with thieves' tools, or expertise with them if I'm already proficient. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	toolProfs : [["Thieves' tools", "Dex"]],
@@ -21863,6 +21938,7 @@ FeatsList["burglar"] = {
 FeatsList["gourmand"] = {
 	name : "Gourmand",
 	source : ["UA:F", 4],
+	descriptionFull : "You have mastered a variety of special recipes, allowing you to prepare exotic dishes with useful effects. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You gain proficiency with cook's utensils. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can inspect a drink or plate of food within 5 feet of you and determine whether it is poisoned, provided that you can see and smell it.\n \u2022 During a long rest, you can prepare and serve a meal that helps you and your allies recover from the rigors of adventuring, provided you have suitable food, cook's utensils, and other supplies on hand. The meal serves up to six people, and each person who eats it regains two additional Hit Dice at the end of the long rest. In addition, those who partake of the meal have advantage on Constitution saving throws against disease for the next 24 hours.",
 	description : "I gain proficiency with cook's utensils, or expertise if already proficient. As an action, I can detect poison in food within 5 ft. In a long rest with food/supplies, I can have 6 creatures regain 2 extra HD and give them adv. on Con saves vs. disease for 24 hours. [+1 Con]",
 	scores : [0, 0, 1, 0, 0, 0],
 	action : ["action", " (inspect food)"],
@@ -21873,6 +21949,7 @@ FeatsList["gourmand"] = {
 FeatsList["master of disguise"] = {
 	name : "Master of Disguise",
 	source : ["UA:F", 4],
+	descriptionFull : "You have honed your ability to shape your personality and to read the personalities of others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency with the disguise kit. If you are already proficient with it, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 hour observing a creature, you can then spend 8 hours crafting a disguise you can quickly don to mimic that creature. Making the disguise requires a disguise kit. You must make checks as normal to disguise yourself, but you can assume the disguise as an action.",
 	description : "I gain proficiency with the disguise kit, or expertise with it if I'm already proficient. After observing a creature for 1 hour, I can craft a disguise to mimic it in 8 hours with a disguise kit. Once finished, I can don this disguise as an action. [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1],
 	action : ["action", " (don disguise)"],
@@ -24056,7 +24133,8 @@ ClassSubList["artificer-alchemist"] = {
 			additional : levels.map(function (n) {
 				return Math.ceil(n / 2) + "d6 acid damage";
 			}),
-			action : ["action", ""],			weaponOptions : {
+			action : ["action", ""],
+			weaponOptions : {
 				regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
 				name : "Alchemical Acid",
 				source : ["UA:A", 5],
@@ -25567,19 +25645,14 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	source : ["UA:WnW", 3],
 	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "flail",
 		regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
 		name : "Claw of Acamar",
 		source : ["UA:WnW", 3],
-		ability : 1,
-		type : "Martial",
-		damage : [1, 8, "bludgeoning"],
-		range : "Melee",
 		pactWeapon : true,
-		weight : 2,
-		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
-		abilitytodamage : true
+		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level"
 	},
-	addWeapons : 'Claw of Acamar'
+	addWeapons : ['Claw of Acamar']
 });
 AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 	name : "Cloak of Baalzebul",
@@ -25603,19 +25676,14 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	source : ["UA:WnW", 4],
 	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "greatsword",
 		regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
 		name : "Curse Bringer",
 		source : ["UA:WnW", 4],
-		ability : 1,
-		type : "Martial",
-		damage : [2, 6, "slashing"],
-		range : "Melee",
 		pactWeapon : true,
-		weight : 6,
-		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
-		abilitytodamage : true
+		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level"
 	},
-	addWeapons : 'Curse Bringer'
+	addWeapons : ['Curse Bringer']
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
 	name : "Kiss of Mephistopheles",
@@ -25706,20 +25774,14 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "mace",
 		regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
 		name : "Mace of Dispater",
 		source : ["UA:WnW", 4],
-		ability : 1,
-		type : "Simple",
-		damage : [1, 6, "bludgeoning"],
-		range : "Melee",
-		weight : 4,
 		pactWeapon : true,
-		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
-		monkweapon : true,
-		abilitytodamage : true
+		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level"
 	},
-	addWeapons : 'Mace of Dispater'
+	addWeapons : ['Mace of Dispater']
 });
 AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)", {
 	name : "Moon Bow",
@@ -25731,19 +25793,14 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	source : ["UA:WnW", 4],
 	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
 	weaponOptions : {
+		baseWeapon : "longbow",
 		regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
 		name : "Moon Bow",
 		source : ["UA:WnW", 4],
-		ability : 2,
-		type : "Martial",
-		damage : [1, 8, "piercing"],
-		range : "150/600 ft",
-		weight : 2,
 		pactWeapon : true,
-		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
-		abilitytodamage : true
+		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level"
 	},
-	addWeapons : 'Moon Bow'
+	addWeapons : ['Moon Bow']
 });
 AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 	name : "Path of the Seeker",
@@ -30488,6 +30545,7 @@ SourceList["UA:FS"] = {
 FeatsList["acrobat"] = {
 	name : "Acrobat",
 	source : ["UA:FS", 1],
+	descriptionFull : "You become more nimble, gaining the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Acrobatics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn't cost you extra movement until the end of the current turn.",
 	description : "I gain expertise with Acrobatics, or proficiency if not so already. As a bonus action, I can make a DC 15 Dexterity (Acrobatics) check to have difficult terrain not cost me extra movement for this turn. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	skills : [["Acrobatics", "increment"]],
@@ -30496,6 +30554,7 @@ FeatsList["acrobat"] = {
 FeatsList["animal handler"] = {
 	name : "Animal Handler",
 	source : ["UA:FS", 1],
+	descriptionFull : "You master the techniques needed to train and handle animals. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can use a bonus action on your turn to command one friendly beast within 60 feet of you that can hear you and that isn't currently following the command of someone else. You decide now what action the beast will take and where it will move during its next turn, or you issue a general command that lasts for 1 minute, such as to guard a particular area.",
 	description : "I gain expertise with Animal Handling, or proficiency if not so already. As a bonus action, I can command a friendly beast not under another's command within 60 ft. If it hears me, I decide its next turn or give a general command lasting for 1 minute. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	skills : [["Animal Handling", "increment"]],
@@ -30504,6 +30563,7 @@ FeatsList["animal handler"] = {
 FeatsList["arcanist"] = {
 	name : "Arcanist",
 	source : ["UA:FS", 1],
+	descriptionFull : "You study the arcane arts, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Arcana skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Prestidigitation and Detect Magic spells. You can cast detect magic once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Arcana, or proficiency if not so already. I learn the Prestidigitation cantrip. I can cast Detect Magic without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	skills : [["Arcana", "increment"]],
@@ -30523,6 +30583,7 @@ FeatsList["arcanist"] = {
 FeatsList["brawny"] = {
 	name : "Brawny",
 	source : ["UA:FS", 1],
+	descriptionFull : "You become stronger, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Athletics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You count as if you were one size larger for the purpose of determining your carrying capacity.",
 	description : "I gain expertise with Athletics, or proficiency if not so already. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift. [+1 Strength]",
 	scores : [1, 0, 0, 0, 0, 0],
 	skills : [["Athletics", "increment"]],
@@ -30532,6 +30593,7 @@ FeatsList["brawny"] = {
 FeatsList["diplomat"] = {
 	name : "Diplomat",
 	source : ["UA:FS", 2],
+	descriptionFull : "You master the arts of diplomacy, gaining the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Persuasion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 minute talking to someone who can understand what you say, you can make a Charisma (Persuasion) check contested by the creature's Wisdom (Insight) check. If you or your companions are fighting the creature, your check automatically fails. If your check succeeds, the target is charmed by you as long as it remains within 60 feet of you and for 1 minute thereafter.",
 	description : "I gain expertise with Persuasion, or proficiency if not so already. With a one minute long conversation outside of combat, I can make a Persuasion vs. its Insight. If successful, it is charmed by me as long as it remains within 60 ft and 1 minute after that [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Persuasion", "increment"]]
@@ -30539,6 +30601,7 @@ FeatsList["diplomat"] = {
 FeatsList["empathic"] = {
 	name : "Empathic",
 	source : ["UA:FS", 2],
+	descriptionFull : "You possess keen insight into how other people think and feel. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Insight skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can use your action to try to get uncanny insight about one humanoid you can see within 30 feet of you. Make a Wisdom (Insight) check contested by the target's Charisma (Deception) check. If your check succeeds, you have advantage on attack rolls and ability checks against the target until the end of your next turn.",
 	description : "I gain expertise with Insight, or proficiency if not so already. As an action, a humanoid within 30 ft I can see must make its Deception vs. my Insight or I gain advantage on attacks and ability checks against it until the end of my next turn. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	skills : [["Insight", "increment"]]
@@ -30546,6 +30609,7 @@ FeatsList["empathic"] = {
 FeatsList["historian"] = {
 	name : "Historian",
 	source : ["UA:FS", 2],
+	descriptionFull : "Your study of history rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the History skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Help action to aid another creature's ability check, you can make a DC 15 Intelligence (History) check. On a success, that creature's check gains a bonus equal to your proficiency bonus, as you share pertinent advice and historical examples. To receive this bonus, the creature must be able to understand what you're saying.",
 	description : "I gain expertise with History, or proficiency if not so already. When I use the Help action to help a creature that can understand me with an ability check, I can make a DC 15 Int (History) check to give a bonus equal to my proficiency bonus. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	skills : [["History", "increment"]],
@@ -30554,6 +30618,7 @@ FeatsList["historian"] = {
 FeatsList["investigator"] = {
 	name : "Investigator",
 	source : ["UA:FS", 2],
+	descriptionFull : "You have an eye for detail and can pick out the smallest clues. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Investigation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can take the Search action as a bonus action.",
 	description : "I gain expertise with Investigation, or proficiency if not so already. As a bonus action, I can take the Search action. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	skills : [["Investigation", "increment"]],
@@ -30562,6 +30627,7 @@ FeatsList["investigator"] = {
 FeatsList["medic"] = {
 	name : "Medic",
 	source : ["UA:FS", 2],
+	descriptionFull : "You master the physician's arts, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Medicine skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 During a short rest, you can clean and bind the wounds of up to six willing beasts and humanoids. Make a DC 15 Wisdom (Medicine) check for each creature. On a success, if a creature spends a Hit Die during this rest, that creature can forgo the roll and instead regain the maximum number of hit points the die can restore. A creature can do so only once per rest, regardless of how many Hit Dice it spends.",
 	description : "I gain expertise with Medicine, or proficiency if not so already. During a short rest, I can attend to the wounds of up to 6 creatures. With a DC 15 Wis (Medicine) check for each creature, that target gets the maximum result on one of its HD that it uses. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	skills : [["Medicine", "increment"]]
@@ -30569,6 +30635,7 @@ FeatsList["medic"] = {
 FeatsList["menacing"] = {
 	name : "Menacing",
 	source : ["UA:FS", 2],
+	descriptionFull : "You become fearsome to others, gaining the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to demoralize one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Intimidation) check contested by the target's Wisdom (Insight) check. If your check succeeds, the target is frightened until the end of your next turn. If your check fails, the target can't be frightened by you in this way for 1 hour.",
 	description : "I gain expertise with Intimidation, or proficiency if not so already. Instead of 1 attack in my Attack action, a humanoid within 30 ft I can see and that can see and hear me must make its Insight vs. my Intimidation or be frightened until end of my next turn. [+1 Cha]",
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Intimidation", "increment"]]
@@ -30576,6 +30643,7 @@ FeatsList["menacing"] = {
 FeatsList["naturalist"] = {
 	name : "Naturalist",
 	source : ["UA:FS", 3],
+	descriptionFull : "Your extensive study of nature rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Nature skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Druidcraft and Detect Poison and Disease spells. You can cast Detect Poison and Disease once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Nature, or proficiency if not so already. I learn the Druidcraft cantrip. I can cast Detect Poison and Disease without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	skills : [["Nature", "increment"]],
@@ -30595,6 +30663,7 @@ FeatsList["naturalist"] = {
 FeatsList["perceptive"] = {
 	name : "Perceptive",
 	source : ["UA:FS", 3],
+	descriptionFull : "You hone your senses until they become razor sharp. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Perception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 Being in a lightly obscured area doesn't impose disadvantage on your Wisdom (Perception) checks if you can both see and hear.",
 	description : "I gain expertise with Perception, or proficiency if not so already. I don't have disadvantage on my Perception checks from being in a lightly obscured area (dim light), provided that I can still both see and hear. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	skills : [["Perception", "increment"]],
@@ -30603,6 +30672,7 @@ FeatsList["perceptive"] = {
 FeatsList["performer"] = {
 	name : "Performer",
 	source : ["UA:FS", 3],
+	descriptionFull : "You master performance so that you can command any stage. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Performance skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 While performing, you can try to distract one humanoid you can see who can see and hear you. Make a Charisma (Performance) check contested by the humanoid's Wisdom (Insight) check. If your check succeeds, you grab the humanoid's attention enough that it makes Wisdom (Perception) and Intelligence (Investigation) checks with disadvantage until you stop performing.",
 	description : "I gain expertise with Performance, or proficiency if not so already. While performing, I can distract one humanoid. It must make its Insight vs. my Performance or have disadv. on its Perception and Investigation checks until I stop performing. [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Performance", "increment"]]
@@ -30610,6 +30680,7 @@ FeatsList["performer"] = {
 FeatsList["quick-fingered"] = {
 	name : "Quick-Fingered",
 	source : ["UA:FS", 3],
+	descriptionFull : "Your nimble fingers and agility let you perform sleight of hand. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Sleight of Hand skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 As a bonus action, you can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket.",
 	description : "I gain expertise with Sleight of Hand, or proficiency if not so already. As a bonus action, I can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	skills : [["Sleight of Hand", "increment"]],
@@ -30618,6 +30689,7 @@ FeatsList["quick-fingered"] = {
 FeatsList["silver-tongued"] = {
 	name : "Silver-Tongued",
 	source : ["UA:FS", 3],
+	descriptionFull : "You develop your conversational skill to better deceive others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Deception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to deceive one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Deception) check contested by the target's Wisdom (Insight) check. If your check succeeds, your movement doesn't provoke opportunity attacks from the target and your attack rolls against it have advantage; both benefits last until the end of your next turn or until you use this ability on a different target. If your check fails, the target can't be deceived by you in this way for 1 hour.",
 	description : "I gain expertise with Deception, or proficiency if not so already. Instead of 1 attack in my Attack action, a humanoid within 30 ft makes its Insight vs. my Deception or until end of my next turn, I gain adv. on attacks and don't provoke its opportunity attacks. [+1 Cha]",
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Deception", "increment"]]
@@ -30625,6 +30697,7 @@ FeatsList["silver-tongued"] = {
 FeatsList["stealthy"] = {
 	name : "Stealthy",
 	source : ["UA:FS", 4],
+	descriptionFull : "You know how best to hide. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Stealth skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 If you are hidden, you can move up to 10 feet in the open without revealing yourself if you end the move in a position where you're not clearly visible.",
 	description : "I gain expertise with Stealth, or proficiency if not so already. When I'm hidden, I can move 10 ft to another position without revealing myself, provided that I won't be clearly visible in this new position either. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	skills : [["Stealth", "increment"]]
@@ -30632,6 +30705,7 @@ FeatsList["stealthy"] = {
 FeatsList["survivalist"] = {
 	name : "Survivalist",
 	source : ["UA:FS", 4],
+	descriptionFull : "You master wilderness lore, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Survival skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Alarm spell. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Survival, or proficiency if not so already. I can cast Alarm without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	skills : [["Survival", "increment"]],
@@ -30646,6 +30720,7 @@ FeatsList["survivalist"] = {
 FeatsList["theologian"] = {
 	name : "Theologian",
 	source : ["UA:FS", 4],
+	descriptionFull : "Your extensive study of religion rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Religion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Thaumaturgy and Detect Evil and Good spells. You can cast Detect Evil and Good once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Religion, or proficiency if not so already. I learn the Thaumaturgy cantrip. I can cast Detect Evil and Good without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	skills : [["Religion", "increment"]],
@@ -30681,6 +30756,7 @@ FeatsList["barbed hide"] = {
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Tiefling",
 	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	descriptionFull : "One of your ancestors was a barbed devil or other spiky fiend. Barbs protrude from your head. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 As a bonus action, you can cause small barbs to protrude all over your body or cause them to retract. At the start of each of your turns while the barbs are out, you deal 1d6 piercing damage to any creature grappling you or any creature grappled by you.\n \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
 	description : "I gain expertise with Intimidation, or proficiency if not so already. As a bonus action, I can protrude/retract small barbs from my skin. With them out, at the start of each of my turns I deal 1d6 piercing damage to any I'm grappling or are grappling me. [+1 Cha]",
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Intimidation", "increment"]],
@@ -30691,6 +30767,7 @@ FeatsList["bountiful luck"] = {
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Halfling",
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	descriptionFull : "Whenever an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll.",
 	description : "Whenever an ally I can see within 30 feet of me rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll.",
 	action : ["reaction", ""]
 };
@@ -30699,6 +30776,7 @@ FeatsList["critter friend"] = {
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Forest Gnome",
 	prereqeval : "CurrentRace.known.indexOf('forest gnome') !== -1",
+	descriptionFull : "Your friendship with animals mystically deepens. You gain the following benefits:\n \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Speak with Animals spell and can cast it at will, without expending a spell slot. You also learn the Animal Friendship spell, and you can cast it once with this feat, without expending a spell slot. You regain the ability to cast it in this way when you finish a long rest. Intelligence is your spellcasting ability for these spells.",
 	description : "I gain expertise with Animal Handling, or proficiency if I didn't have that already. I can cast Speak With Animals and Animal Friendship without using a spell slot. I can cast each of these spells like this once per long rest. Intelligence is my spellcasting ability for these.",
 	skills : [["Animal Handling", "increment"]],
 	spellcastingBonus : [{
@@ -30719,6 +30797,7 @@ FeatsList["dragon fear"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can roar and expend a use of your breath weapon to force each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can't hear or see you. On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
 	calculate : "event.value = 'I can expend a Breath Weapon use to roar instead. Each creature of my choice within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened for 1 min. It can repeat the save whenever it takes damage. [+1 Str or Cha]';",
 	scorestxt : "+1 Strength or Charisma",
 	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
@@ -30729,19 +30808,15 @@ FeatsList["dragon hide"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	descriptionFull : "You inherited the might and majesty of your dragon ancestors. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.\n \u2022 Your scales harden; you gain a +1 bonus to AC while you aren't wearing armor.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me a +1 bonus to AC when I'm not wearing armor. [+1 Strength or Charisma]",
 	scorestxt : "+1 Strength or Charisma",
 	weaponOptions : {
-		regExpSearch : /^(?=.*\bretractable\b)(?=.*\bclaws?\b).*$/i,
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
 		source : ["UA:FR", 2],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
 	addWeapons : ['Retractable Claws'],
 	eval : "AddACMisc(1, 'Dragon Hide', 'While not wearing armor, the Dragon Hide feat gives a +1 bonus to AC', 'CurrentArmour.known && ArmourList[CurrentArmour.known].type');",
@@ -30752,6 +30827,7 @@ FeatsList["dragon wings"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	descriptionFull : "You sprout draconic wings. With your wings, you have a flying speed of 20 feet if you aren't wearing heavy armor and aren't exceeding your carrying capacity.",
 	description : "I sprout draconic wings. With my wings, I have a flying speed of 20 feet if I am not wearing heavy armor and I am not exceeding my carrying capacity or encumbered.",
 	speed : { fly : { spd : 20, enc : 0 } }
 };
@@ -30760,6 +30836,7 @@ FeatsList["drow high magic"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Drow (Dark Elf)",
 	prereqeval : "CurrentRace.known.indexOf('dark elf') !== -1",
+	descriptionFull : "You learn more of the spells typical for your people. You learn Detect Magic and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.",
 	description : "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
 		name : "At will",
@@ -30784,6 +30861,7 @@ FeatsList["dwarf resilience"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dwarf",
 	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
+	descriptionFull : "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
 };
@@ -30792,6 +30870,7 @@ FeatsList["elven accuracy"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being an Elf or a Half-Elf",
 	prereqeval : "(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known)",
+	descriptionFull : "You have uncanny aim. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll, you can reroll one of the dice once.",
 	description : "Whenever I have advantage on an attack roll, I can reroll one of the dice once. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0]
 };
@@ -30800,6 +30879,7 @@ FeatsList["everybody's friend"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Half-Elf",
 	prereqeval : "(/^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
+	descriptionFull : "You develop your magnetic personality to ease your way through the world. You gain the following benefits:\n \u2022 You gain proficiency in the Deception and Persuasion skills. If you're already proficient in either skill, your proficiency bonus is doubled for any check you make with that skill.",
 	description : "I gain expertise with Deception and Persuasion, or proficiency with them if I didn't have that already. [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Deception", "increment"], ["Persuasion", "increment"]]
@@ -30809,6 +30889,7 @@ FeatsList["fade away"] = {
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Gnome",
 	prereqeval : "CurrentRace.known.indexOf('gnome') !== -1",
+	descriptionFull : "You can draw on your magical heritage to escape danger. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 When you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	action : ["reaction", ""],
@@ -30820,6 +30901,7 @@ FeatsList["fey teleportation"] = {
 	source : ["UA:FR", 3],
 	prerequisite : "Being a High Elf",
 	prereqeval : "CurrentRace.known.indexOf('high elf') !== -1",
+	descriptionFull : "Drawing on your fey ancestry, you have learned how to teleport. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	spellcastingBonus : {
@@ -30837,6 +30919,7 @@ FeatsList["flames of phlegethos"] = {
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Tiefling",
 	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	descriptionFull : "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice. I can then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt : "+1 Intelligence or Charisma"	
 };
@@ -30845,32 +30928,59 @@ FeatsList["grudge-bearer"] = {
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Dwarf",
 	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
-	description : "My hatred for 2 humanoid races gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana/History/Nature/Religion checks [+1 Str, Con, or Wis]",
-	scorestxt : "+1 Strength, Constitution, or Wisdom"
+	descriptionFull : "You have a deep hatred for a particular kind of creature. Choose your foes, a type of creature to bear the burden of your wrath: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can choose two races of humanoid (such as gnolls and orcs). You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.\n \u2022 During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.\n \u2022 When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.\n \u2022 Whenever you make an Intelligence (Arcana, History, Nature, or Religion) check to recall information about your chosen foes, you add double your proficiency bonus to the check, even if you're not normally proficient.",
+	description : "My hatred for a creature type gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]",
+	scorestxt : "+1 Strength, Constitution, or Wisdom",
+	choices : ["2 Humanoids", "Aberrations", "Beasts", "Celestials", "Constructs", "Dragons", "Elementals", "Fey", "Fiends", "Giants", "Monstrosities", "Oozes", "Plants", "Undead"],
+	"2 humanoids" : {
+		description : "My hatred for 2 humanoid races gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana/History/Nature/Religion checks. [+1 Str, Con, or Wis]"
+	},
+	aberrations : {
+		description : "My hatred for aberrations gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	beasts : {
+		description : "My hatred for beasts gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	celestials : {
+		description : "My hatred for celestials gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	constructs : {
+		description : "My hatred for constructs gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	dragons : {
+		description : "My hatred for dragons gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	elementals : {
+		description : "My hatred for elementals gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	fey : {
+		description : "My hatred for fey gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	fiends : {
+		description : "My hatred for fiends gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	giants : {
+		description : "My hatred for giants gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	monstrosities : {
+		description : "My hatred for monstrosities gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	oozes : {
+		description : "My hatred for oozes gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	plants : {
+		description : "My hatred for plants gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	},
+	undead : {
+		description : "My hatred for undead gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
+	}
 };
-FeatsList["grudge-bearer [aberrations]"] = {
-	name : "Grudge-Bearer [aberrations]",
-	source : ["UA:FR", 3],
-	prerequisite : "Being a Dwarf",
-	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
-	description : "My hatred for aberrations gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks [+1 Str, Con, or Wis]",
-	scorestxt : "+1 Strength, Constitution, or Wisdom"
-};
-var AmendGrudgeBearerFeats = function() { // Create the other variants of the Grudge-bearer feat dynamically
-	var GBarray = ["beasts", "celestials", "constructs", "dragons", "elementals", "fey", "fiends", "giants", "monstrosities", "oozes", "plants", "undead"];
-	for (var i = 0; i < GBarray.length; i++) {
-		var GBcrea = GBarray[i];
-		var theNm = "grudge-bearer [" + GBcrea + "]";
-		FeatsList[theNm] = newObj(FeatsList["grudge-bearer [aberrations]"]);
-		FeatsList[theNm].name = FeatsList[theNm].name.replace("aberrations", GBcrea);
-		FeatsList[theNm].description = FeatsList[theNm].description.replace("aberrations", GBcrea);
-	};
-}();
 FeatsList["human determination"] = {
 	name : "Human Determination",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Human",
 	prereqeval : "CurrentRace.known.indexOf('human') !== -1",
+	descriptionFull : "You are filled with a determination that can draw the unreachable within your reach. You gain the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 When you make an attack roll, an ability check, or a saving throw, you can do so with advantage. Once you use this ability, you can't use it again until you finish a short or long rest.",
 	description : "When I make an attack roll, an ability check, or a saving throw, I can do so with advantage. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 to one ability score]",
 	scorestxt : "+1 to one ability score of your choice",
 	usages : 1,
@@ -30882,6 +30992,7 @@ FeatsList["infernal constitution"] = {
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Tiefling",
 	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	descriptionFull : "Fiendish blood runs strong in you. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
 	description : "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0],
 	dmgres : ["Cold", "Poison"],
@@ -30892,6 +31003,7 @@ FeatsList["orcish aggression"] = {
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Half-Orc",
 	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	descriptionFull : "As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started.",
 	description : "As a bonus action, I can move up to my speed toward an enemy of my choice that I can see or hear. I must end this move closer to the enemy than I started.",
 	action : ["bonus action", ""]
 };
@@ -30900,6 +31012,7 @@ FeatsList["orcish fury"] = {
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Half-Orc",
 	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
 	action : ["reaction", " (after Relentless Endurance)"],
@@ -30912,6 +31025,7 @@ FeatsList["prodigy"] = {
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Half-Elf or a Human",
 	prereqeval : "(/human|^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
+	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.",
 	description : "I gain one skill proficiency of my choice, one tool proficiency of my choice, fluency in one language of my choice, and +1 to one ability score of my choice. [+1 to one ability score]",
 	scorestxt : "+1 to one ability score of your choice",
 	skillstxt : "Choose any one skill",
@@ -30923,6 +31037,7 @@ FeatsList["second chance"] = {
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Halfling",
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
 	action : ["reaction", ""],
@@ -30934,6 +31049,7 @@ FeatsList["squat nimbleness"] = {
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Dwarf, Gnome, or Halfling",
 	prereqeval : "(/dwarf|gnome|halfling/i).test(CurrentRace.known)",
+	descriptionFull : "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill. If you're already proficient in the skill, your proficiency bonus is doubled for any check you make with it.",
 	description : "My walking speed increases by 5 ft. I gain proficiency in the Acrobatics or Athletics skill. If I'm already proficient in the chosen skill, I gain expertise with it instead.\n[+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
 	skillstxt : "Proficiency with Acrobatics or Athletics; or gain Expertise if already proficient",
@@ -30944,6 +31060,7 @@ FeatsList["wonder maker"] = {
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Rock Gnome",
 	prereqeval : "CurrentRace.known.indexOf('rock gnome') !== -1",
+	descriptionFull : "You master the tinker techniques of your people. You gain the following benefits:\n \u2022 When you make a check using your proficiency with tinker's tools, you add double your proficiency bonus to the check.\n \u2022 When you make a device with your Tinker trait, you have the following additional options for what you make:\n \u2022 " + toUni("Alarm") + ". This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away.\n \u2022 " + toUni("Calculator") + ". This device makes doing sums easy.\n \u2022 " + toUni("Lifter") + ". This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift.\n \u2022 " + toUni("Timekeeper") + ". This pocket watch keeps accurate time.\n \u2022 " + toUni("Weather Sensor") + ". When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour.",
 	description : "I gain expertise with Tinker's Tools. I get additional Tinker options: Alarm (audible to 300 ft for 1 min), Calculator, Lifter (as block and tackle that multiplies max lift weight by 5), Timekeeper (pocket watch), Weather Sensor (predict for 1-mile, 4 hours) [+1 Dex or Int]",
 	scorestxt : "+1 Dexterity or Intelligence",
 	eval : "if ((/tinker/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
@@ -30954,6 +31071,7 @@ FeatsList["wood elf magic"] = {
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Wood Elf",
 	prereqeval : "CurrentRace.known.indexOf('wood elf') !== -1",
+	descriptionFull : "You learn the magic of the primeval woods. You learn one druid cantrip of your choice. You also learn Longstrider and Pass Without Trace, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Wisdom is your spellcasting ability for these spells.",
 	description : "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
 		name : "Druid Cantrip",
@@ -33905,16 +34023,12 @@ RaceList["simic hybrid"] = {
 	languageProfs : ["Common", "Elvish"],
 	vision : [["Darkvision", 60]],
 	weaponOptionsSp : [{
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
 		name : "Grappling Appendages",
 		source : ["UA:RoR", 3],
-		ability : 1,
-		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
-		range : "Melee",
-		description : "After hitting, start grapple on target as a bonus action",
-		abilitytodamage : true,
-		monkweapon : true
+		description : "After hitting, start grapple on target as a bonus action"
 	}, {
 		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
 		name : "Acid Spit",
@@ -34069,16 +34183,11 @@ RaceList["viashino"] = {
 	skillstxt : "Choose one from Acrobatics or Stealth",
 	languageProfs : ["Common", "Draconic"],
 	weaponOptions : [{
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
 		name : "Viashino bite",
 		source : ["UA:RoR", 5],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "piercing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "piercing"]
 	}, {
 		regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
 		name : "Lashing tail",
@@ -34618,6 +34727,7 @@ if (!SourceList.WGtE) {
 	FeatsList["greater dragonmark"] = {
 		name : "Greater Dragonmark",
 		source : [["WGtE", 110], ["UA:D", 7]],
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
 		description : "Select the type of greater dragonmark using the square button on this feat line.\nMy Intuition Die increases with one step (for example d4 to d6), I gain spellcating abilities, and an increase to one ability score.",
 		eval : function () {
 			var raceTrait = What('Racial Traits');
@@ -34635,6 +34745,7 @@ if (!SourceList.WGtE) {
 		"detection" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 			scorestxt : "+1 Charisma or Intelligence",
 			spellcastingBonus : {
@@ -34649,6 +34760,7 @@ if (!SourceList.WGtE) {
 		"finding" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 			scorestxt : "+1 Strength, Dexterity, or Wisdom",
 			spellcastingBonus : {
@@ -34663,6 +34775,7 @@ if (!SourceList.WGtE) {
 		"handling" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
 			spellcastingBonus : {
@@ -34677,6 +34790,7 @@ if (!SourceList.WGtE) {
 		"healing" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
 			spellcastingBonus : {
@@ -34691,6 +34805,7 @@ if (!SourceList.WGtE) {
 		"hospitality" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
 			spellcastingBonus : {
@@ -34705,6 +34820,7 @@ if (!SourceList.WGtE) {
 		"making" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 			scorestxt : "+1 Dexterity or Intelligence",
 			spellcastingBonus : {
@@ -34719,6 +34835,7 @@ if (!SourceList.WGtE) {
 		"passage" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 			scorestxt : "+1 Dexterity or Constitution",
 			spellcastingBonus : {
@@ -34733,6 +34850,7 @@ if (!SourceList.WGtE) {
 		"scribing" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 			scorestxt : "+1 Intelligence or Charisma",
 			spellcastingBonus : {
@@ -34747,6 +34865,7 @@ if (!SourceList.WGtE) {
 		"sentinel" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 			scorestxt : "+1 Strength or Wisdom",
 			spellcastingBonus : {
@@ -34761,6 +34880,7 @@ if (!SourceList.WGtE) {
 		"shadow" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
 			spellcastingBonus : {
@@ -34775,6 +34895,7 @@ if (!SourceList.WGtE) {
 		"storm" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
 			spellcastingBonus : {
@@ -34789,6 +34910,7 @@ if (!SourceList.WGtE) {
 		"warding" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
 			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known)",
+			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
 			description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 			scorestxt : "+1 Dexterity or Intelligence",
 			spellcastingBonus : [{
@@ -34813,6 +34935,8 @@ if (!SourceList.WGtE) {
 		source : [["WGtE", 112], ["UA:D", 9]],
 		prerequisite : "Not having a dragonmark",
 		prereqeval : "!(/dragonmark/i).test(CurrentRace.known)",
+		descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
+		description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		scores : [0, 0, 1, 0, 0, 0],
 		spellcastingAbility : 3,

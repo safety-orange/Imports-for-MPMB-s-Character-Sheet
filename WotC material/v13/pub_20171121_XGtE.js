@@ -2690,6 +2690,7 @@ FeatsList["bountiful luck-xgte"] = {
 	source : ["X", 73],
 	prerequisite : "Being a Halfling",
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	descriptionFull : "Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of fortune's favor!\n   When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll\n   When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
 	description : "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
 	action : ["reaction", ""]
 };
@@ -2698,6 +2699,7 @@ FeatsList["dragon fear-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
 	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
 	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
@@ -2708,19 +2710,15 @@ FeatsList["dragon hide-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	descriptionFull : "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
 	weaponOptions : {
-		regExpSearch : /^(?=.*\bretractable\b)(?=.*\bclaws?\b).*$/i,
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
 		source : ["X", 74],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
 	addWeapons : ['Retractable Claws'],
 	armorOptions : {
@@ -2736,6 +2734,7 @@ FeatsList["drow high magic-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Drow (Dark Elf)",
 	prereqeval : "CurrentRace.known.indexOf('dark elf') !== -1",
+	descriptionFull : "You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells.",
 	description : "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
 		name : "At will",
@@ -2760,6 +2759,7 @@ FeatsList["dwarven fortitude-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Dwarf",
 	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
+	descriptionFull : "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
 };
@@ -2768,6 +2768,7 @@ FeatsList["elven accuracy-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being an Elf or a Half-Elf",
 	prereqeval : "(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known)",
+	descriptionFull : "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:\n \u2022 Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.",
 	description : "Whenever I have advantage on an attack roll that uses Dexterity, Intelligence, Wisdom, or Charisma, I can reroll one of the dice once. [+1 Dexterity, Intelligence, Wisdom, or Charisma]",
 	scorestxt : "+1 Dexterity, Intelligence, Wisdom, or Charisma"
 };
@@ -2776,6 +2777,7 @@ FeatsList["fade away-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Gnome",
 	prereqeval : "CurrentRace.known.indexOf('gnome') !== -1",
+	descriptionFull : "Your people are clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Dexterity or Intelligence]",
 	scorestxt : "+1 Dexterity or Intelligence",
 	action : ["reaction", ""],
@@ -2787,6 +2789,7 @@ FeatsList["fey teleportation-xgte"] = { // this code includes contributions by S
 	source : ["X", 74],
 	prerequisite : "Being a High Elf",
 	prereqeval : "CurrentRace.known.indexOf('high elf') !== -1",
+	descriptionFull : "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 You learn to speak, read, and write Sylvan.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. I also learn to speak, read, and write Sylvan. [+1 Intelligence or Charisma]",
 	scorestxt : "+1 Intelligence or Charisma",
 	spellcastingBonus : {
@@ -2805,6 +2808,7 @@ FeatsList["flames of phlegethos-xgte"] = {
 	source : ["X", 74],
 	prerequisite : "Being a Tiefling",
 	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	descriptionFull : "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice once. I then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee to take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt : "+1 Intelligence or Charisma"	
 };
@@ -2813,6 +2817,7 @@ FeatsList["infernal constitution-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Tiefling",
 	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	descriptionFull : "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
 	description : "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0],
 	dmgres : ["Cold", "Poison"],
@@ -2823,6 +2828,7 @@ FeatsList["orcish fury-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Half-Orc",
 	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
 	action : ["reaction", " (after Relentless Endurance)"],
@@ -2835,6 +2841,7 @@ FeatsList["prodigy-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Half-Elf, Half-Orc, or Human",
 	prereqeval : "(/human|^(?=.*half)(?=.*(elf|orc)).*$/i).test(CurrentRace.known)",
+	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
 	description : "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skillstxt : "Proficiency with any one skill and Expertise with any one skill that you are already proficient with",
 	languageProfs : [1],
@@ -2845,6 +2852,7 @@ FeatsList["second chance-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Halfling",
 	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	descriptionFull : "Fortune favors you when someone tries to strike you. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a short rest. [+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
 	action : ["reaction", ""],
@@ -2856,6 +2864,7 @@ FeatsList["squat nimbleness-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Dwarf or a small race",
 	prereqeval : "(/dwarf/i).test(CurrentRace.known) || tDoc.getField('Size Category').currentValueIndices === 4",
+	descriptionFull : "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill (your choice).\n \u2022 You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled.",
 	description : "My walking speed increases by 5 ft. I gain proficiency in either the Acrobatics or the Athletics skill. I have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks I make to escape from being grappled. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
 	skillstxt : "Acrobatics or Athletics",
@@ -2866,6 +2875,7 @@ FeatsList["wood elf magic-xgte"] = {
 	source : ["X", 75],
 	prerequisite : "Being a Wood Elf",
 	prereqeval : "CurrentRace.known.indexOf('wood elf') !== -1",
+	descriptionFull : "You learn the magic of the primeval woods, which are revered and protected by your people. You learn one druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest. Wisdom is your spellcasting ability for all three spells.",
 	description : "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
 		name : "Druid Cantrip",

@@ -395,16 +395,11 @@ RaceList["lizardfolk"] = {
 	skillstxt : "Choose two from Animal Handling, Nature, Perception, Stealth, and Survival",
 	languageProfs : ["Common", "Draconic"],
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /\bbite\b/i,
 		name : "Bite",
 		source : ["V", 113],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 6, "piercing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 6, "piercing"]
 	},
 	addWeapons : ["Bite"],
 	armorOptions : {
@@ -480,18 +475,13 @@ RaceList["tabaxi"] = {
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
 	weaponOptions : {
-		regExpSearch : /^(?=.*\bcat)(?=.*\bclaws?\b).*$/i,
-		name : "Cat's Claws",
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*fanged)(?=.*claw).*$/i,
+		name : "Fanged Claws",
 		source : ["V", 115],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Cat's Claws"],
+	addWeapons : ["Fanged Claws"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",

@@ -32,16 +32,11 @@ RaceList["tortle"] = {
 	},
 	addArmor : "Tortle's Shell",
 	weaponOptions : {
+		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 		name : "Tortle's Claws",
 		source : ["TP", 4],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 4, "slashing"],
-		range : "Melee",
-		description : "",
-		abilitytodamage : true,
-		monkweapon : true
+		damage : [1, 4, "slashing"]
 	},
 	addWeapons : ["Tortle's Claws"],
 	age : " reach adulthood by the age of 15 and live an average of 50 years",
