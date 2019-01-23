@@ -485,8 +485,11 @@ FeatsList["revenant blade"] = {
 			"Double-bladed weapons count as having finesse for me and I can make an extra attack with them as a bonus action when taking the Attack action."
 		]
 	},
-	eval : "AddACMisc(1, 'Revenant Blade', 'When wielding a double-bladed weapon in two hands, the Revenant Blade feat gives a +1 bonus to AC', 'ACshield');",
-	removeeval : "AddACMisc(0, 'Revenant Blade', 'When wielding a double-bladed weapon in two hands, the Revenant Blade feat gives a +1 bonus to AC');"
+	extraAC : {
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm wielding a double-bladed weapon in two hands.",
+		stopeval : function (v) { return v.usingShield; }
+	}
 };
 
 // Creature

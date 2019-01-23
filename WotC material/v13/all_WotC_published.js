@@ -3082,8 +3082,11 @@ FeatsList["dual wielder"] = {
 	source : ["P", 165],
 	descriptionFull : "You master fighting with two weapons, gaining the following benefits:\n \u2022 You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.\n \u2022 You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.\n \u2022 You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.",
 	description : "I can use two-weapon fighting even when the one-handed melee weapons I'm wielding aren't light. I can draw or stow two one-handed weapons when I would normally be able to draw or stow only one. +1 AC while wielding separate melee weapons in each hand.",
-	eval : "AddACMisc(1, 'Dual Wielder (if 2 weapons)', 'When wielding a melee weapon in each hand, the Dual Wielder feat gives a +1 bonus to AC', 'ACshield');",
-	removeeval : "AddACMisc(0, 'Dual Wielder (if 2 weapons)', 'When wielding a melee weapon in each hand, the Dual Wielder feat gives a +1 bonus to AC');"
+	extraAC : {
+		mod : 1,
+		text : "I gain a +1 bonus to AC when holding a melee weapon in each hand.",
+		stopeval : function (v) { return v.usingShield && !(/animated/i).test(What("AC Shield Bonus Description")); }
+	}
 };
 FeatsList["dungeon delver"] = {
 	name : "Dungeon Delver",
@@ -3549,32 +3552,32 @@ FeatsList["spell sniper"] = {
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one bard cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : true}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"cleric" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one cleric cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"druid" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"sorcerer" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one sorcerer cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"warlock" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"wizard" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	}
 };
@@ -5075,6 +5078,7 @@ MagicItemsList["alchemy jug"] = {
 	source : ["D", 150],
 	type : "wondrous item",
 	rarity : "uncommon",
+	magicItemTable : "B",
 	description : "As an action, command the jug to produce liquid; or an action to uncorked it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
 	weight : 12,
 	descriptionLong : "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
@@ -11784,8 +11788,11 @@ AddSubClass("cleric", "forge domain-xgte", {
 			minlevel : 6,
 			description : "\n   " + "I gain resistance to fire damage and +1 to AC while wearing medium or heavy armor",
 			dmgres : ["Fire"],
-			eval : "AddACMisc(1, 'Soul of the Forge', '+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).', \"!tDoc.getField('Medium Armor').isBoxChecked(0) && !tDoc.getField('Heavy Armor').isBoxChecked(0)\");",
-			removeeval : "AddACMisc(0, 'Soul of the Forge', '+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).');"
+			extraAC : {
+				mod : 1,
+				text : "I gain a +1 bonus to AC while wearing Medium or Heavy armor.",
+				stopeval : function (v) { return !v.mediumArmor && !v.heavyArmor; }
+			}
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -17048,8 +17055,11 @@ FeatsList["revenant blade"] = {
 			"Double-bladed weapons count as having finesse for me and I can make an extra attack with them as a bonus action when taking the Attack action."
 		]
 	},
-	eval : "AddACMisc(1, 'Revenant Blade', 'When wielding a double-bladed weapon in two hands, the Revenant Blade feat gives a +1 bonus to AC', 'ACshield');",
-	removeeval : "AddACMisc(0, 'Revenant Blade', 'When wielding a double-bladed weapon in two hands, the Revenant Blade feat gives a +1 bonus to AC');"
+	extraAC : {
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm wielding a double-bladed weapon in two hands.",
+		stopeval : function (v) { return v.usingShield; }
+	}
 };
 
 // Creature
@@ -18187,6 +18197,12 @@ RaceList["simic hybrid-ggtr"] = {
 		abilitytodamage : false,
 		dc : true
 	}],
+	extraACSp : {
+		name : "Carapace",
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm not wearing heavy armor.",
+		stopeval : function (v) { return v.heavyArmor; }
+	},
 	age : " age slightly faster than their base humanoid race and their maximum lifespan is somewhat reduced",
 	height : " are of the same height as typical for their humanoid race",
 	weight : " are of the same weight as typical for their humanoid race",
@@ -18197,8 +18213,8 @@ RaceList["simic hybrid-ggtr"] = {
 		"animal enhancement" : {
 			name : "Animal Enhancement",
 			minlevel : 5,
-			eval : 'RaceList["simic hybrid"].set5thLvlAE()',
-			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE()'
+			eval : 'RaceList["simic hybrid"].set5thLvlAE();',
+			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE();'
 		}
 	},
 	set5thLvlAE : function() {
@@ -18207,7 +18223,9 @@ RaceList["simic hybrid-ggtr"] = {
 		if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
 		var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', (sheetVersion > 12.999 ? 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. ' : '') + 'Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
 		var feaTxt = '';
-		var rNm = RaceList["simic hybrid"].name;
+		var rObjNm = "simic hybrid-ggtr";
+		var rObj = RaceList[rObjNm];
+		var rNm = rObj.name;
 		switch (theChoice) {
 			case "Manta Glide":
 				feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
@@ -18222,18 +18240,18 @@ RaceList["simic hybrid-ggtr"] = {
 				break;
 			case "Grappling Appendages":
 				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
-				processWeaponOptions(true, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[0]);
+				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
 				AddWeapon("Grappling Appendages");
 				AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
 				break;
 			case "Carapace":
 				feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
-				AddACMisc(1, 'Carapace Animal Enhancement', "+1 AC while not wearing Heavy armor.\n\nCarapace Animal Enhancement was gained from " + rNm + ": Animal Enhancement (Carapace)", "tDoc.getField('Heavy Armor').isBoxChecked(0)");
+				processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 				break;
 			case "Acid Spit":
 				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
-				AddFeature("Acid Spit", "Con Mod", "", "long rest", "Simic Hybrid: Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
-				processWeaponOptions(true, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[1]);
+				AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
+				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 				AddWeapon("Acid Spit");
 				break;
 		};
@@ -18245,8 +18263,10 @@ RaceList["simic hybrid-ggtr"] = {
 		var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
 		var raceRem = What("Race Remember");
 		if (!theRegex.test(raceRem)) return;
-		var rNm = RaceList["simic hybrid"].name;
 		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
+		var rObjNm = "simic hybrid-ggtr";
+		var rObj = RaceList[rObjNm];
+		var rNm = rObj.name;
 		switch (theChoice) {
 			case "Nimble Climber":
 				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
@@ -18256,16 +18276,16 @@ RaceList["simic hybrid-ggtr"] = {
 				break;
 			case "Grappling Appendages":
 				RemoveWeapon("Grappling Appendages");
-				processWeaponOptions(false, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[0]);
+				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
 				RemoveAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
 				break;
 			case "Carapace":
-				AddACMisc(0, 'Carapace Animal Enhancement', "+1 AC while not wearing Heavy armor.\n\nCarapace Animal Enhancement was gained from " + rNm + ": Animal Enhancement (Carapace)");
+				processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 				break;
 			case "Acid Spit":
 				RemoveFeature("Acid Spit", "", "", "", "", "", "event.value = Math.max(1, What('Con Mod'));");
 				RemoveWeapon("Acid Spit");
-				processWeaponOptions(false, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[1]);
+				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
 				break;
 		};
 		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));

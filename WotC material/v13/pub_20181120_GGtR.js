@@ -211,6 +211,12 @@ RaceList["simic hybrid-ggtr"] = {
 		abilitytodamage : false,
 		dc : true
 	}],
+	extraACSp : {
+		name : "Carapace",
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm not wearing heavy armor.",
+		stopeval : function (v) { return v.heavyArmor; }
+	},
 	age : " age slightly faster than their base humanoid race and their maximum lifespan is somewhat reduced",
 	height : " are of the same height as typical for their humanoid race",
 	weight : " are of the same weight as typical for their humanoid race",
@@ -221,8 +227,8 @@ RaceList["simic hybrid-ggtr"] = {
 		"animal enhancement" : {
 			name : "Animal Enhancement",
 			minlevel : 5,
-			eval : 'RaceList["simic hybrid"].set5thLvlAE()',
-			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE()'
+			eval : 'RaceList["simic hybrid"].set5thLvlAE();',
+			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE();'
 		}
 	},
 	set5thLvlAE : function() {
@@ -231,7 +237,9 @@ RaceList["simic hybrid-ggtr"] = {
 		if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
 		var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', (sheetVersion > 12.999 ? 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. ' : '') + 'Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
 		var feaTxt = '';
-		var rNm = RaceList["simic hybrid"].name;
+		var rObjNm = "simic hybrid-ggtr";
+		var rObj = RaceList[rObjNm];
+		var rNm = rObj.name;
 		switch (theChoice) {
 			case "Manta Glide":
 				feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
@@ -246,18 +254,18 @@ RaceList["simic hybrid-ggtr"] = {
 				break;
 			case "Grappling Appendages":
 				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
-				processWeaponOptions(true, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[0]);
+				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
 				AddWeapon("Grappling Appendages");
 				AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
 				break;
 			case "Carapace":
 				feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
-				AddACMisc(1, 'Carapace Animal Enhancement', "+1 AC while not wearing Heavy armor.\n\nCarapace Animal Enhancement was gained from " + rNm + ": Animal Enhancement (Carapace)", "tDoc.getField('Heavy Armor').isBoxChecked(0)");
+				processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 				break;
 			case "Acid Spit":
 				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
-				AddFeature("Acid Spit", "Con Mod", "", "long rest", "Simic Hybrid: Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
-				processWeaponOptions(true, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[1]);
+				AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
+				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 				AddWeapon("Acid Spit");
 				break;
 		};
@@ -269,8 +277,10 @@ RaceList["simic hybrid-ggtr"] = {
 		var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
 		var raceRem = What("Race Remember");
 		if (!theRegex.test(raceRem)) return;
-		var rNm = RaceList["simic hybrid"].name;
 		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
+		var rObjNm = "simic hybrid-ggtr";
+		var rObj = RaceList[rObjNm];
+		var rNm = rObj.name;
 		switch (theChoice) {
 			case "Nimble Climber":
 				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
@@ -280,16 +290,16 @@ RaceList["simic hybrid-ggtr"] = {
 				break;
 			case "Grappling Appendages":
 				RemoveWeapon("Grappling Appendages");
-				processWeaponOptions(false, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[0]);
+				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
 				RemoveAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
 				break;
 			case "Carapace":
-				AddACMisc(0, 'Carapace Animal Enhancement', "+1 AC while not wearing Heavy armor.\n\nCarapace Animal Enhancement was gained from " + rNm + ": Animal Enhancement (Carapace)");
+				processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 				break;
 			case "Acid Spit":
 				RemoveFeature("Acid Spit", "", "", "", "", "", "event.value = Math.max(1, What('Con Mod'));");
 				RemoveWeapon("Acid Spit");
-				processWeaponOptions(false, "simic hybrid-ggtr", RaceList["simic hybrid-ggtr"].weaponOptionsSp[1]);
+				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
 				break;
 		};
 		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));

@@ -179,6 +179,10 @@ RaceList["githzerai"] = {
 			}
 		}
 	},
-	eval : "AddACMisc(1, 'Monastic Training', '+1 AC while not wearing medium or heavy armor and not using a shield.\\n\\nMonastic Training was gained from being a Githzerai.', \"tDoc.getField('Medium Armor').isBoxChecked(0) || tDoc.getField('Heavy Armor').isBoxChecked(0) || What('AC Shield Bonus')\");",
-	removeeval : "AddACMisc(0, 'Monastic Training', '+1 AC while not wearing medium or heavy armor and not using a shield.\\n\\nMonastic Training was gained from being a Githzerai.');"
+	extraAC : {
+		name : "Monastic Training",
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.",
+		stopeval : function (v) { return v.mediumArmor || v.heavyArmor || v.usingShield; }
+	}
 };

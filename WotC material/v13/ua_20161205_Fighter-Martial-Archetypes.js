@@ -195,9 +195,12 @@ AddSubClass("fighter", "knight", {
 			name : "Defender's Blade",
 			source : ["UA:FMA", 3],
 			minlevel : 18,
-			description : "\n   " + "I can do opportunity attacks if I already used my reaction this round, but not this turn" + "\n   " + "I gain +1 bonus to AC when I'm wearing heavy armor",
-			eval : "AddACMisc(1, \"Defender's Blade\", \"When wearing heavy armor, the class feature Defender's Blade gives a +1 bonus to AC\", \"!tDoc.getField('Heavy Armor').isBoxChecked(0)\")",
-			removeeval : "AddACMisc(0, \"Defender's Blade\", \"When wearing heavy armor, the class feature Defender's Blade gives a +1 bonus to AC\")"
+			description : "\n   " + "I can do opportunity attacks if I already used my reaction this round, but not this turn" + "\n   " + "I gain a +1 bonus to AC when I'm wearing heavy armor",
+			extraAC : {
+				mod : 1,
+				text : "I gain a +1 bonus to AC while I'm wearing heavy armor.",
+				stopeval : function (v) { return !v.heavyArmor; }
+			}
 		}
 	}
 });

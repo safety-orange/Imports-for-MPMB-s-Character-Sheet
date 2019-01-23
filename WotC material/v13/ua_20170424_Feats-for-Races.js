@@ -80,8 +80,11 @@ FeatsList["dragon hide"] = {
 		damage : [1, 4, "slashing"]
 	},
 	addWeapons : ['Retractable Claws'],
-	eval : "AddACMisc(1, 'Dragon Hide', 'While not wearing armor, the Dragon Hide feat gives a +1 bonus to AC', 'CurrentArmour.known && ArmourList[CurrentArmour.known].type');",
-	removeeval : "AddACMisc(0, 'Dragon Hide', 'While not wearing armor, the Dragon Hide feat gives a +1 bonus to AC');"
+	extraAC : {
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm not wearing armor.",
+		stopeval : function (v) { return v.wearingArmor; }
+	}
 };
 FeatsList["dragon wings"] = {
 	name : "Dragon Wings",

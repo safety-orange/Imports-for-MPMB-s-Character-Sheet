@@ -3081,8 +3081,11 @@ FeatsList["dual wielder"] = {
 	source : ["P", 165],
 	descriptionFull : "You master fighting with two weapons, gaining the following benefits:\n \u2022 You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.\n \u2022 You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.\n \u2022 You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.",
 	description : "I can use two-weapon fighting even when the one-handed melee weapons I'm wielding aren't light. I can draw or stow two one-handed weapons when I would normally be able to draw or stow only one. +1 AC while wielding separate melee weapons in each hand.",
-	eval : "AddACMisc(1, 'Dual Wielder (if 2 weapons)', 'When wielding a melee weapon in each hand, the Dual Wielder feat gives a +1 bonus to AC', 'ACshield');",
-	removeeval : "AddACMisc(0, 'Dual Wielder (if 2 weapons)', 'When wielding a melee weapon in each hand, the Dual Wielder feat gives a +1 bonus to AC');"
+	extraAC : {
+		mod : 1,
+		text : "I gain a +1 bonus to AC when holding a melee weapon in each hand.",
+		stopeval : function (v) { return v.usingShield && !(/animated/i).test(What("AC Shield Bonus Description")); }
+	}
 };
 FeatsList["dungeon delver"] = {
 	name : "Dungeon Delver",
@@ -3548,32 +3551,32 @@ FeatsList["spell sniper"] = {
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one bard cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : 'true'}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper bard'] = {name : 'Spell Sniper [Bard]', ability : 6, list : {class : 'bard', attackOnly : true}, known : {cantrips : 1}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"cleric" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one cleric cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper cleric'] = {name : 'Spell Sniper [Cleric]', ability : 5, list : {class : 'cleric', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"druid" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper druid'] = {name : 'Spell Sniper [Druid]', ability : 5, list : {class : 'druid', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"sorcerer" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one sorcerer cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper sorcerer'] = {name : 'Spell Sniper [Sorcerer]', ability : 6, list : {class : 'sorcerer', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"warlock" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper warlock'] = {name : 'Spell Sniper [Warlock]', ability : 6, list : {class : 'warlock', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	},
 	"wizard" : {
 		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
-		eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : 'true'}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
+		eval : "CurrentSpells['spell sniper wizard'] = {name : 'Spell Sniper [Wizard]', ability : 4, list : {class : 'wizard', attackOnly : true}, known : {cantrips : 1}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
 		removeeval : "delete CurrentSpells['spell sniper wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
 	}
 };

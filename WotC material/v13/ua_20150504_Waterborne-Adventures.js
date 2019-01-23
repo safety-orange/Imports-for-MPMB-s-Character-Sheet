@@ -20,8 +20,11 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
 		climb : { spd : "walk", enc : "walk" },
 		swim : { spd : "walk", enc : "walk" }
 	},
-	eval : "AddACMisc(1, 'Mariner Fighting Style', 'When not wearing heavy armor or using a shield, the class feature Mariner Fighting Style gives a +1 bonus to AC', \"ACshield || tDoc.getField('Heavy Armor').isBoxChecked(0)\")",
-	removeeval : "AddACMisc(0, 'Mariner Fighting Style', 'When not wearing heavy armor or using a shield, the class feature Mariner Fighting Style gives a +1 bonus to AC')"
+	extraAC : {
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm not wearing heavy armor and not using a shield.",
+		stopeval : function (v) { return !v.heavyArmor && !v.usingShield; }
+	}
 });
 
 // Add the Minotaur (Krynn) race and its three variants
