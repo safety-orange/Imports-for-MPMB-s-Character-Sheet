@@ -119,7 +119,7 @@ RaceList["longtooth shifter"] = {
 		damage : [1, 6, "piercing"],
 		description : "Only while shifted; One attack as bonus action"
 	},
-	addWeapons : ["Longtooth Fangs"],
+	weaponsAdd : ["Longtooth Fangs"],
 	vision : [["Darkvision", 60]],
 	skills : ["Intimidation", "Perception"],
 	age : " reach young adulthood at age 10 and rarely live over 70",
@@ -294,7 +294,7 @@ RaceList["juggernaut warforged"] = {
 		source : [["WGtE", 70], ["UA:RoE", 9]],
 		damage : [1, 4, "bludgeoning"]
 	},
-	addWeapons : ["Warforged Iron Fists"],
+	weaponsAdd : ["Warforged Iron Fists"],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
 		immune : ["disease", "exhaustion from lack of rest"],

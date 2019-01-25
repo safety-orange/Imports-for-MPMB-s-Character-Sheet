@@ -261,7 +261,7 @@ ClassSubList["artificer-alchemist"] = {
 				dc : true,
 				artAlcAcid : true
 			},
-			addWeapons : ['Alchemical Acid'],
+			weaponsAdd : ['Alchemical Acid'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -298,7 +298,7 @@ ClassSubList["artificer-alchemist"] = {
 				dc : true,
 				artAlcFire : true
 			},
-			addWeapons : ['Alchemical Fire'],
+			weaponsAdd : ['Alchemical Fire'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -362,7 +362,7 @@ ClassSubList["artificer-gunsmith"] = {
 				invName : "Thunder Cannon Rounds",
 				alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
 			},
-			addWeapons : ['Thunder Cannon']
+			weaponsAdd : ['Thunder Cannon']
 		},
 		"subclassfeature1.2" : {
 			name : "Arcane Magazine",
@@ -397,7 +397,7 @@ ClassSubList["artificer-gunsmith"] = {
 				ammo : "Arcane Magazine",
 				artTCmonger : true
 			},
-			addWeapons : ['Thunder Cannon (Monger)'],
+			weaponsAdd : ['Thunder Cannon (Monger)'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -436,7 +436,7 @@ ClassSubList["artificer-gunsmith"] = {
 				ammo : "Arcane Magazine",
 				artTCblast : true
 			},
-			addWeapons : ['Thunder Cannon (Blast Wave)'],
+			weaponsAdd : ['Thunder Cannon (Blast Wave)'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -474,7 +474,7 @@ ClassSubList["artificer-gunsmith"] = {
 				ammo : "Arcane Magazine",
 				artTCpiercing : true
 			},
-			addWeapons : ['Thunder Cannon (Piercing Round)'],
+			weaponsAdd : ['Thunder Cannon (Piercing Round)'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -508,7 +508,7 @@ ClassSubList["artificer-gunsmith"] = {
 				abilitytodamage : false,
 				ammo : "Arcane Magazine"
 			},
-			addWeapons : ['Thunder Cannon (Explosive Round)']
+			weaponsAdd : ['Thunder Cannon (Explosive Round)']
 		}
 	}
 };

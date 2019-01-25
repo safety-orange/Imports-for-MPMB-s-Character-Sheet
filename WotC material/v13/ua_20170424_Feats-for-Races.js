@@ -79,7 +79,7 @@ FeatsList["dragon hide"] = {
 		source : ["UA:FR", 2],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ['Retractable Claws'],
+	weaponsAdd : ['Retractable Claws'],
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm not wearing armor.",

@@ -225,7 +225,7 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
 	languageProfs : ["Common", "Minotaur"],
-	addWeapons : ["Horns (unarmed strike)"],
+	weaponsAdd : ["Horns (unarmed strike)"],
 	skills : ["Intimidation"],
 	age : " reach full maturity around the age of 20, but rarely live beyond 40",
 	height : " are well over 6 feet tall",
@@ -294,7 +294,7 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 		description : "Target is grappled and restrained (escape DC 8+Prof+Str mod); Can't use constrict again until grapple ends",
 		abilitytodamage : true
 	}],
-	addWeapons : ["Naga Bite", "Constrict"],
+	weaponsAdd : ["Naga Bite", "Constrict"],
 	age : " reach adulthood in their late teens and show no signs of aging beyond that point except for growing larger. They could live well over a century.",
 	height : " stand about 5 feet tall when upright, but the total length of their bodies, head to tail, ranges from 10 to as much as 20 feet",
 	weight : " weigh around 200 lb",

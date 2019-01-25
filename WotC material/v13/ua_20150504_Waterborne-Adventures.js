@@ -50,7 +50,7 @@ RaceList["minotaur"] = {
 		description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
 		abilitytodamage : true
 	},
-	addWeapons : ["Horns"],
+	weaponsAdd : ["Horns"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",

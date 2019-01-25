@@ -191,7 +191,7 @@ AddSubClass("wizard", "school of invention", {
 				weight : 8,
 				invName : "Arcanomechanical armor"
 			},
-			addArmor : "Arcanomechanical"
+			armorAdd : "Arcanomechanical"
 		},
 		"subclassfeature2.2" : {
 			name : "Reckless Casting",

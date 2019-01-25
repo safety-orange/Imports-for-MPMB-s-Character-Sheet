@@ -1284,7 +1284,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					monkweapon : true,
 					abilitytodamage : true
 				},
-				addWeapons : ['Radiant Sun Bolt'],
+				weaponsAdd : ['Radiant Sun Bolt'],
 				extraname : "Way of the Sun Soul 6",
 				"searing arc strike" : {
 					name : "Searing Arc Strike",
@@ -2723,14 +2723,14 @@ FeatsList["dragon hide-xgte"] = {
 		source : ["X", 74],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ['Retractable Claws'],
+	weaponsAdd : ['Retractable Claws'],
 	armorOptions : {
 		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
 		name : "Dragon Hide",
 		source : ["X", 74],
 		ac : 13
 	},
-	addArmor : "Dragon Hide"
+	armorAdd : "Dragon Hide"
 };
 FeatsList["drow high magic-xgte"] = {
 	name : "Drow High Magic",

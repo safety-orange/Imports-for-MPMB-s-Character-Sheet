@@ -277,7 +277,7 @@ AddSubClass("sorcerer", "stone sorcery", {
 				dex : -10,
 				addMod : true
 			},
-			addArmor : "Stone's Durability (Con)"
+			armorAdd : "Stone's Durability (Con)"
 		},
 		"subclassfeature6" : {
 			name : "Stone Aegis",

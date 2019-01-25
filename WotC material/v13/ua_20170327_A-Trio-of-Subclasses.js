@@ -69,7 +69,7 @@ AddSubClass("paladin", "oath of redemption", {
 				source : ["UA:AToS", 2],
 				ac : 16
 			},
-			addArmor : "Armor of Peace"
+			armorAdd : "Armor of Peace"
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",

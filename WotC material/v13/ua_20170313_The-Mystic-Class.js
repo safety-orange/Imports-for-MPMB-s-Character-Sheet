@@ -344,7 +344,7 @@ ClassSubList["mystic-immortal"] = {
 				ac : 10,
 				addMod : true
 			},
-			addArmor : "Immortal Durability (Con)"
+			armorAdd : "Immortal Durability (Con)"
 		},
 		"subclassfeature3" : {
 			name : "Psionic Resilience",

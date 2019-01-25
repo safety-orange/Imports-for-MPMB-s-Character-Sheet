@@ -30,7 +30,7 @@ RaceList["loxodon"] = {
 		source : ["UA:RoR", 1],
 		ac : 13
 	},
-	addArmor : "Natural Armor",
+	armorAdd : "Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall",
@@ -248,7 +248,7 @@ RaceList["viashino"] = {
 		abilitytodamage : true,
 		monkweapon : true
 	}],
-	addWeapons : ["Viashino Bite", "Lashing Tail"],
+	weaponsAdd : ["Viashino Bite", "Lashing Tail"],
 	age : " reach adulthood in their early teens and rarely live past 60 due to their violent lives",
 	height : " stand about as tall as humans",
 	weight : " have lithe, wiry frames and are thus lighter than a human of the same height",

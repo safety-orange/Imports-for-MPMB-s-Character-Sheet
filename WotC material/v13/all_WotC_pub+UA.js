@@ -3390,7 +3390,7 @@ FeatsList["polearm master"] = {
 		description : "As bonus action after Attack action with only a glaive, halberd, spear, or quarterstaff",
 		abilitytodamage : true
 	},
-	addWeapons : ["Polearm Butt End"],
+	weaponsAdd : ["Polearm Butt End"],
 	action : ['bonus action', 'Butt End Attack (after attack with polearm)'],
 	weaponProfs : [false, false, ["polearm butt end"]]
 };
@@ -5482,7 +5482,7 @@ RaceList["aarakocra"] = {
 		source : ["E", 5],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Talons"],
+	weaponsAdd : ["Talons"],
 	age : " rearch maturity by age 3 and live about 30 years",
 	height : " are about 5 feet tall",
 	weight : " weigh between 80 and 100 lb",
@@ -7376,7 +7376,7 @@ AddSubClass("barbarian", "battlerager", {
 				abilitytodamage : true
 			},
 			weaponProfs : [false, false, ["armor spikes"]],
-			addWeapons : ['Armor Spikes'],
+			weaponsAdd : ['Armor Spikes'],
 			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');",
 			removeeval : "RemoveString('Proficiency Armor Other Description', 'Spiked Armor');"
 		},
@@ -7583,7 +7583,7 @@ AddSubClass("monk", "way of the sun soul", {
 				monkweapon : true,
 				abilitytodamage : true
 			},
-			addWeapons : ['Radiant Sun Bolt'],
+			weaponsAdd : ['Radiant Sun Bolt'],
 			extraname : "Way of the Sun Soul 6",
 			"searing arc strike" : {
 				name : "Searing Arc Strike",
@@ -9587,14 +9587,14 @@ RaceList["lizardfolk"] = {
 		source : ["V", 113],
 		damage : [1, 6, "piercing"]
 	},
-	addWeapons : ["Bite"],
+	weaponsAdd : ["Bite"],
 	armorOptions : {
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : ["V", 113],
 		ac : 13
 	},
-	addArmor : "Natural Armor",
+	armorAdd : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
 	weight : " weigh around 200 lb (120 + 2d10 \xD7 2d6 lb)",
@@ -9667,7 +9667,7 @@ RaceList["tabaxi"] = {
 		source : ["V", 115],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Fanged Claws"],
+	weaponsAdd : ["Fanged Claws"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
@@ -10608,7 +10608,7 @@ RaceList["tortle"] = {
 		ac : 17,
 		dex : -10
 	},
-	addArmor : "Tortle's Shell",
+	armorAdd : "Tortle's Shell",
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
@@ -10616,7 +10616,7 @@ RaceList["tortle"] = {
 		source : ["TP", 4],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Tortle's Claws"],
+	weaponsAdd : ["Tortle's Claws"],
 	age : " reach adulthood by the age of 15 and live an average of 50 years",
 	height : " stand between 5 and 6 feet tall",
 	weight : " weigh around 450 lb",
@@ -12549,7 +12549,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					monkweapon : true,
 					abilitytodamage : true
 				},
-				addWeapons : ['Radiant Sun Bolt'],
+				weaponsAdd : ['Radiant Sun Bolt'],
 				extraname : "Way of the Sun Soul 6",
 				"searing arc strike" : {
 					name : "Searing Arc Strike",
@@ -13988,14 +13988,14 @@ FeatsList["dragon hide-xgte"] = {
 		source : ["X", 74],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ['Retractable Claws'],
+	weaponsAdd : ['Retractable Claws'],
 	armorOptions : {
 		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
 		name : "Dragon Hide",
 		source : ["X", 74],
 		ac : 13
 	},
-	addArmor : "Dragon Hide"
+	armorAdd : "Dragon Hide"
 };
 FeatsList["drow high magic-xgte"] = {
 	name : "Drow High Magic",
@@ -16696,7 +16696,7 @@ RaceList["longtooth shifter"] = {
 		damage : [1, 6, "piercing"],
 		description : "Only while shifted; One attack as bonus action"
 	},
-	addWeapons : ["Longtooth Fangs"],
+	weaponsAdd : ["Longtooth Fangs"],
 	vision : [["Darkvision", 60]],
 	skills : ["Intimidation", "Perception"],
 	age : " reach young adulthood at age 10 and rarely live over 70",
@@ -16871,7 +16871,7 @@ RaceList["juggernaut warforged"] = {
 		source : [["WGtE", 70], ["UA:RoE", 9]],
 		damage : [1, 4, "bludgeoning"]
 	},
-	addWeapons : ["Warforged Iron Fists"],
+	weaponsAdd : ["Warforged Iron Fists"],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
 		immune : ["disease", "exhaustion from lack of rest"],
@@ -18024,7 +18024,7 @@ RaceList["centaur-ggtr"] = {
 		damage : [1, 4, "bludgeoning"],
 		description : "Use as bonus action after charge 30 ft"
 	},
-	addWeapons : ["Hooves"],
+	weaponsAdd : ["Hooves"],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	age : " mature and age at about the same rate as humans",
 	height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
@@ -18101,14 +18101,11 @@ RaceList["loxodon-ggtr"] = {
 		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
 		name : "Loxodon Natural Armor (Con)",
 		source : ["G", 18],
-		type : "",
 		ac : 12,
-		stealthdis : false,
-		strReq : 0,
 		dex : -10,
 		addMod : true
 	},
-	addArmor : "Loxodon Natural Armor (Con)",
+	armorAdd : "Loxodon Natural Armor (Con)",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall (6'7\" + 2d10\")",
@@ -18145,7 +18142,7 @@ RaceList["minotaur-ggtr"] = {
 		damage : [1, 6, "piercing"],
 		description : "Attack as a bonus action after moving 20 ft with the Dash action"
 	},
-	addWeapons : ["Horns"],
+	weaponsAdd : ["Horns"],
 	skillstxt : "Choose one from Intimidation or Persuasion",
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " stand around 6 feet tall (5'4\" + 2d8\")",
@@ -19440,7 +19437,7 @@ AddRacialVariant("shifter", "longtooth", {
 	name : "Longtooth shifter",
 	source : ["UA:E", 2],
 	plural : "Longtooth shifters",
-	addWeapons : ["longtooth"],
+	weaponsAdd : ["longtooth"],
 	weaponOptions : {
 		regExpSearch : /\blongtooth\b/i,
 		name : "Longtooth",
@@ -19461,7 +19458,7 @@ AddRacialVariant("shifter", "razorclaw", {
 	name : "Razorclaw shifter",
 	source : ["UA:E", 2],
 	plural : "Razorclaw shifters",
-	addWeapons : ["razorclaw"],
+	weaponsAdd : ["razorclaw"],
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\brazorclaw\b/i,
@@ -20045,7 +20042,7 @@ RaceList["minotaur"] = {
 		description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
 		abilitytodamage : true
 	},
-	addWeapons : ["Horns"],
+	weaponsAdd : ["Horns"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
@@ -21641,7 +21638,7 @@ RaceList["dragonborn revenant"] = {
 		dc : true,
 		dbBreathWeapon : true
 	},
-	addWeapons : ["Breath Weapon"],
+	weaponsAdd : ["Breath Weapon"],
 	age : " reach adulthood by 15 and live around 80 years",
 	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 	weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
@@ -24168,7 +24165,7 @@ ClassSubList["artificer-alchemist"] = {
 				dc : true,
 				artAlcAcid : true
 			},
-			addWeapons : ['Alchemical Acid'],
+			weaponsAdd : ['Alchemical Acid'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -24205,7 +24202,7 @@ ClassSubList["artificer-alchemist"] = {
 				dc : true,
 				artAlcFire : true
 			},
-			addWeapons : ['Alchemical Fire'],
+			weaponsAdd : ['Alchemical Fire'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -24269,7 +24266,7 @@ ClassSubList["artificer-gunsmith"] = {
 				invName : "Thunder Cannon Rounds",
 				alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
 			},
-			addWeapons : ['Thunder Cannon']
+			weaponsAdd : ['Thunder Cannon']
 		},
 		"subclassfeature1.2" : {
 			name : "Arcane Magazine",
@@ -24304,7 +24301,7 @@ ClassSubList["artificer-gunsmith"] = {
 				ammo : "Arcane Magazine",
 				artTCmonger : true
 			},
-			addWeapons : ['Thunder Cannon (Monger)'],
+			weaponsAdd : ['Thunder Cannon (Monger)'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -24343,7 +24340,7 @@ ClassSubList["artificer-gunsmith"] = {
 				ammo : "Arcane Magazine",
 				artTCblast : true
 			},
-			addWeapons : ['Thunder Cannon (Blast Wave)'],
+			weaponsAdd : ['Thunder Cannon (Blast Wave)'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -24381,7 +24378,7 @@ ClassSubList["artificer-gunsmith"] = {
 				ammo : "Arcane Magazine",
 				artTCpiercing : true
 			},
-			addWeapons : ['Thunder Cannon (Piercing Round)'],
+			weaponsAdd : ['Thunder Cannon (Piercing Round)'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -24415,7 +24412,7 @@ ClassSubList["artificer-gunsmith"] = {
 				abilitytodamage : false,
 				ammo : "Arcane Magazine"
 			},
-			addWeapons : ['Thunder Cannon (Explosive Round)']
+			weaponsAdd : ['Thunder Cannon (Explosive Round)']
 		}
 	}
 };
@@ -25332,7 +25329,7 @@ AddSubClass("sorcerer", "stone sorcery", {
 				dex : -10,
 				addMod : true
 			},
-			addArmor : "Stone's Durability (Con)"
+			armorAdd : "Stone's Durability (Con)"
 		},
 		"subclassfeature6" : {
 			name : "Stone Aegis",
@@ -25672,7 +25669,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 		pactWeapon : true,
 		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level"
 	},
-	addWeapons : ['Claw of Acamar']
+	weaponsAdd : ['Claw of Acamar']
 });
 AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 	name : "Cloak of Baalzebul",
@@ -25703,7 +25700,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		pactWeapon : true,
 		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level"
 	},
-	addWeapons : ['Curse Bringer']
+	weaponsAdd : ['Curse Bringer']
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
 	name : "Kiss of Mephistopheles",
@@ -25801,7 +25798,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 		pactWeapon : true,
 		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level"
 	},
-	addWeapons : ['Mace of Dispater']
+	weaponsAdd : ['Mace of Dispater']
 });
 AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)", {
 	name : "Moon Bow",
@@ -25820,7 +25817,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 		pactWeapon : true,
 		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level"
 	},
-	addWeapons : ['Moon Bow']
+	weaponsAdd : ['Moon Bow']
 });
 AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 	name : "Path of the Seeker",
@@ -26283,7 +26280,7 @@ ClassSubList["mystic-immortal"] = {
 				ac : 10,
 				addMod : true
 			},
-			addArmor : "Immortal Durability (Con)"
+			armorAdd : "Immortal Durability (Con)"
 		},
 		"subclassfeature3" : {
 			name : "Psionic Resilience",
@@ -30114,7 +30111,7 @@ AddSubClass("paladin", "oath of redemption", {
 				source : ["UA:AToS", 2],
 				ac : 16
 			},
-			addArmor : "Armor of Peace"
+			armorAdd : "Armor of Peace"
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",
@@ -30838,7 +30835,7 @@ FeatsList["dragon hide"] = {
 		source : ["UA:FR", 2],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ['Retractable Claws'],
+	weaponsAdd : ['Retractable Claws'],
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm not wearing armor.",
@@ -33071,7 +33068,7 @@ AddSubClass("wizard", "school of invention", {
 				weight : 8,
 				invName : "Arcanomechanical armor"
 			},
-			addArmor : "Arcanomechanical"
+			armorAdd : "Arcanomechanical"
 		},
 		"subclassfeature2.2" : {
 			name : "Reckless Casting",
@@ -33279,7 +33276,7 @@ RaceList["centaur"] = {
 		range : "Melee",
 		abilitytodamage : true
 	},
-	addWeapons : ["Hooves"],
+	weaponsAdd : ["Hooves"],
 	skills : ["Survival"],
 	age : " reach adulthood in their late teens and live around 100 years",
 	height : " stand between 7 and 8 feet tall (front hooves to their crowns) and 6 to 8 feet long (from their chest to the back of their rumps)", // from 3.5e Races of Faerun
@@ -33328,7 +33325,7 @@ RaceList["minotaur-uacnm"] = {
 		description : "One horns attack as a bonus action if taking the Dash action",
 		abilitytodamage : true
 	},
-	addWeapons : ["Horns"],
+	weaponsAdd : ["Horns"],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
@@ -33695,7 +33692,7 @@ if (!SourceList.WGtE) {
 			damage : [1, 6, "piercing"],
 			description : "Only while shifted; One attack as bonus action"
 		},
-		addWeapons : ["Longtooth Fangs"],
+		weaponsAdd : ["Longtooth Fangs"],
 		vision : [["Darkvision", 60]],
 		skills : ["Intimidation", "Perception"],
 		age : " reach young adulthood at age 10 and rarely live over 70",
@@ -33870,7 +33867,7 @@ if (!SourceList.WGtE) {
 			source : [["WGtE", 70], ["UA:RoE", 9]],
 			damage : [1, 4, "bludgeoning"]
 		},
-		addWeapons : ["Warforged Iron Fists"],
+		weaponsAdd : ["Warforged Iron Fists"],
 		savetxt : {
 			text : ["Magic can't put me to sleep"],
 			immune : ["disease", "exhaustion from lack of rest"],
@@ -34019,7 +34016,7 @@ RaceList["loxodon"] = {
 		source : ["UA:RoR", 1],
 		ac : 13
 	},
-	addArmor : "Natural Armor",
+	armorAdd : "Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall",
@@ -34237,7 +34234,7 @@ RaceList["viashino"] = {
 		abilitytodamage : true,
 		monkweapon : true
 	}],
-	addWeapons : ["Viashino Bite", "Lashing Tail"],
+	weaponsAdd : ["Viashino Bite", "Lashing Tail"],
 	age : " reach adulthood in their early teens and rarely live past 60 due to their violent lives",
 	height : " stand about as tall as humans",
 	weight : " have lithe, wiry frames and are thus lighter than a human of the same height",

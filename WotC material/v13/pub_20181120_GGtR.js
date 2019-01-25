@@ -31,7 +31,7 @@ RaceList["centaur-ggtr"] = {
 		damage : [1, 4, "bludgeoning"],
 		description : "Use as bonus action after charge 30 ft"
 	},
-	addWeapons : ["Hooves"],
+	weaponsAdd : ["Hooves"],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	age : " mature and age at about the same rate as humans",
 	height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
@@ -108,14 +108,11 @@ RaceList["loxodon-ggtr"] = {
 		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
 		name : "Loxodon Natural Armor (Con)",
 		source : ["G", 18],
-		type : "",
 		ac : 12,
-		stealthdis : false,
-		strReq : 0,
 		dex : -10,
 		addMod : true
 	},
-	addArmor : "Loxodon Natural Armor (Con)",
+	armorAdd : "Loxodon Natural Armor (Con)",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall (6'7\" + 2d10\")",
@@ -152,7 +149,7 @@ RaceList["minotaur-ggtr"] = {
 		damage : [1, 6, "piercing"],
 		description : "Attack as a bonus action after moving 20 ft with the Dash action"
 	},
-	addWeapons : ["Horns"],
+	weaponsAdd : ["Horns"],
 	skillstxt : "Choose one from Intimidation or Persuasion",
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " stand around 6 feet tall (5'4\" + 2d8\")",

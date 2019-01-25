@@ -401,14 +401,14 @@ RaceList["lizardfolk"] = {
 		source : ["V", 113],
 		damage : [1, 6, "piercing"]
 	},
-	addWeapons : ["Bite"],
+	weaponsAdd : ["Bite"],
 	armorOptions : {
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : ["V", 113],
 		ac : 13
 	},
-	addArmor : "Natural Armor",
+	armorAdd : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
 	weight : " weigh around 200 lb (120 + 2d10 \xD7 2d6 lb)",
@@ -481,7 +481,7 @@ RaceList["tabaxi"] = {
 		source : ["V", 115],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Fanged Claws"],
+	weaponsAdd : ["Fanged Claws"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",

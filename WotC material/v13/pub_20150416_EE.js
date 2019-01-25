@@ -30,7 +30,7 @@ RaceList["aarakocra"] = {
 		source : ["E", 5],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Talons"],
+	weaponsAdd : ["Talons"],
 	age : " rearch maturity by age 3 and live about 30 years",
 	height : " are about 5 feet tall",
 	weight : " weigh between 80 and 100 lb",

@@ -3388,7 +3388,7 @@ FeatsList["polearm master"] = {
 		description : "As bonus action after Attack action with only a glaive, halberd, spear, or quarterstaff",
 		abilitytodamage : true
 	},
-	addWeapons : ["Polearm Butt End"],
+	weaponsAdd : ["Polearm Butt End"],
 	action : ['bonus action', 'Butt End Attack (after attack with polearm)'],
 	weaponProfs : [false, false, ["polearm butt end"]]
 };

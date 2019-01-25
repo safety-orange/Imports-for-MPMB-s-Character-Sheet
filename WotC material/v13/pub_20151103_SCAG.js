@@ -366,7 +366,7 @@ AddSubClass("barbarian", "battlerager", {
 				abilitytodamage : true
 			},
 			weaponProfs : [false, false, ["armor spikes"]],
-			addWeapons : ['Armor Spikes'],
+			weaponsAdd : ['Armor Spikes'],
 			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');",
 			removeeval : "RemoveString('Proficiency Armor Other Description', 'Spiked Armor');"
 		},
@@ -573,7 +573,7 @@ AddSubClass("monk", "way of the sun soul", {
 				monkweapon : true,
 				abilitytodamage : true
 			},
-			addWeapons : ['Radiant Sun Bolt'],
+			weaponsAdd : ['Radiant Sun Bolt'],
 			extraname : "Way of the Sun Soul 6",
 			"searing arc strike" : {
 				name : "Searing Arc Strike",

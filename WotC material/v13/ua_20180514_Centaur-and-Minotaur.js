@@ -33,7 +33,7 @@ RaceList["centaur"] = {
 		range : "Melee",
 		abilitytodamage : true
 	},
-	addWeapons : ["Hooves"],
+	weaponsAdd : ["Hooves"],
 	skills : ["Survival"],
 	age : " reach adulthood in their late teens and live around 100 years",
 	height : " stand between 7 and 8 feet tall (front hooves to their crowns) and 6 to 8 feet long (from their chest to the back of their rumps)", // from 3.5e Races of Faerun
@@ -82,7 +82,7 @@ RaceList["minotaur-uacnm"] = {
 		description : "One horns attack as a bonus action if taking the Dash action",
 		abilitytodamage : true
 	},
-	addWeapons : ["Horns"],
+	weaponsAdd : ["Horns"],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",

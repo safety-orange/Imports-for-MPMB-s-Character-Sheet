@@ -91,7 +91,7 @@ RaceList["ixalan vampire"] = {
 		abilitytodamage : false,
 		monkweapon : false
 	},
-	addWeapons : ["Blood Thirst"],
+	weaponsAdd : ["Blood Thirst"],
 	age : " don't mature and age in the same way that other races do",
 	scores : [0, 0, 0, 0, 1, 2],
 	trait : "Vampire (+1 Wisdom, +2 Charisma)\nBlood Thirst: I can drain blood and life energy from a willing creature, or one that is grappled by me, incapacitated, or restrained. With a melee attack, I deal 1 piercing and 1d6 necrotic damage. The target's max HP is reduced by the necrotic damage amount and I regain HP for the same. This max HP reduction lasts until the target finished a long rest.\nFeast of Blood: After using my blood thirst ability to drain blood, I gain +10 ft speed and advantage on Strength and Dexterity checks and saving throws for 1 minute."

@@ -120,7 +120,7 @@ AddRacialVariant("shifter", "longtooth", {
 	name : "Longtooth shifter",
 	source : ["UA:E", 2],
 	plural : "Longtooth shifters",
-	addWeapons : ["longtooth"],
+	weaponsAdd : ["longtooth"],
 	weaponOptions : {
 		regExpSearch : /\blongtooth\b/i,
 		name : "Longtooth",
@@ -141,7 +141,7 @@ AddRacialVariant("shifter", "razorclaw", {
 	name : "Razorclaw shifter",
 	source : ["UA:E", 2],
 	plural : "Razorclaw shifters",
-	addWeapons : ["razorclaw"],
+	weaponsAdd : ["razorclaw"],
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\brazorclaw\b/i,

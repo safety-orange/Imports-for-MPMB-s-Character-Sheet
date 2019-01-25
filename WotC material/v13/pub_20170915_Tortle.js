@@ -30,7 +30,7 @@ RaceList["tortle"] = {
 		ac : 17,
 		dex : -10
 	},
-	addArmor : "Tortle's Shell",
+	armorAdd : "Tortle's Shell",
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
@@ -38,7 +38,7 @@ RaceList["tortle"] = {
 		source : ["TP", 4],
 		damage : [1, 4, "slashing"]
 	},
-	addWeapons : ["Tortle's Claws"],
+	weaponsAdd : ["Tortle's Claws"],
 	age : " reach adulthood by the age of 15 and live an average of 50 years",
 	height : " stand between 5 and 6 feet tall",
 	weight : " weigh around 450 lb",
