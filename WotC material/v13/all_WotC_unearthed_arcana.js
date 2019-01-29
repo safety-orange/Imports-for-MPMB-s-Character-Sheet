@@ -3343,23 +3343,25 @@ AddSubClass("barbarian", "storm herald", {
 			"desert" : {
 				name : "Storm of Fury: Desert",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Any enemy that ends its turn in my aura takes fire damage",
-				additional : ["", "", "2 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "7 fire damage"],
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'desert']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				additional : ["", "", "2 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "7 fire damage"]
 			},
 			"sea" : {
 				name : "Storm of Fury: Sea",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "At the end of each of my turns, I can choose a creature in my aura, other than myself" + "\n   " + "It must make a Dex save or take lightning damage, or half damage on a successful save" + "\n   " + "The DC for this save is 8 + my proficiency bonus + my Constitution modifier",
 				additional : ["", "", "2d6", "2d6", "2d6", "2d6", "2d6", "2d6", "2d6", "3d6", "3d6", "3d6", "3d6", "3d6", "4d6", "4d6", "4d6", "4d6", "4d6", "4d6"],
 				usages : 1,
-				recovery : "turn",
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'sea']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				recovery : "turn"
 			},
 			"tundra" : {
 				name : "Storm of Fury: Tundra",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Any enemy that ends its turn in my aura takes cold damage",
-				additional : ["", "", "2 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "7 cold damage"],
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'tundra']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
-			}
+				additional : ["", "", "2 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "7 cold damage"]
+			},
+			choiceDependencies : [{
+				feature : "subclassfeature6"
+			}, {
+				feature : "subclassfeature14"
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Storm Soul",
@@ -3384,8 +3386,7 @@ AddSubClass("barbarian", "storm herald", {
 				description : "\n   " + "I have resistance to cold damage and don't suffer the effects of extreme cold",
 				dmgres : ["Cold"],
 				savetxt : { immune : ["effects of extreme cold"] }
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
+			}
 		},
 		"subclassfeature10" : {
 			name : "Shield of the Storm",
@@ -3421,8 +3422,7 @@ AddSubClass("barbarian", "storm herald", {
 			"tundra" : {
 				name : "Raging Storm: Tundra",
 				description : "\n   " + "The area within my aura is difficult terrain for my enemies"
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
+			}
 		}
 	}
 });
@@ -3582,7 +3582,7 @@ AddSubClass("bard", "college of whispers", {
 				action : [["action", " (start)"], ['bonus action', ' (end)']],
 				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends"
 			},
-			eval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra']);"
+			autoSelectExtrachoices : [{ extrachoice : "shadow disguise" }]
 		},
 		"subclassfeature14" : {
 			name : "Shadow Lore",
@@ -4335,7 +4335,6 @@ AddSubClass("monk", "way of the kensei", {
 				source : ["UA:MMT", 1],
 				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
 			},
-			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra']);",
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -4355,7 +4354,8 @@ AddSubClass("monk", "way of the kensei", {
 					},
 					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
 				]
-			}
+			},
+			autoSelectExtrachoices : [{ extrachoice : "kensei defense" }]
 		},
 		"ki-empowered strikes" : {
 			name : "One with the Blade",
@@ -4404,7 +4404,10 @@ AddSubClass("monk", "way of the kensei", {
 				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
 				action : ["bonus action", ""]
 			},
-			changeeval : "if (lvlH >= 11 && lvlL < 11) { ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], lvlA[1] < 11 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "sharpen the blade",
+				minlevel : 11
+			}]
 		}
 	}
 });
@@ -4449,7 +4452,10 @@ AddSubClass("monk", "way of tranquility", {
 				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
 				action : ["action", ""]
 			},
-			changeeval : "if (lvlH >= 11 && lvlL < 11) { ClassFeatureOptions(['monk', 'subclassfeature17', 'douse the flames of war', 'extra'], lvlA[1] < 11 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "douse the flames of war",
+				minlevel : 11
+			}]
 		},
 		"subclassfeature17" : {
 			name : "Anger of a Gentle Soul",
@@ -4576,7 +4582,6 @@ AddSubClass("paladin", "oath of treachery", {
 			recovery : "short rest",
 			usages : 1,
 			action : ["reaction", ""],
-			changeeval : "if (lvlH >= 20 && lvlL < 20) { ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'], lvlA[1] < 20 ? 'remove' : false); }; ",
 			extraname : "Oath of Treachery 20",
 			"icon of deceit" : {
 				name : "Icon of Deceit",
@@ -4585,7 +4590,11 @@ AddSubClass("paladin", "oath of treachery", {
 				recovery : "long rest",
 				usages : 1,
 				action : ["action", ""]
-			}
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "icon of deceit",
+				minlevel : 20
+			}]
 		}
 	}
 });
@@ -12127,7 +12136,7 @@ AddSubClass("monk", "way of the kensei2", {
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
-			eval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra']);"
+			autoSelectExtrachoices : [{ extrachoice : "precise strike" }]
 		},
 		"subclassfeature17" : {
 			name : "Unerring Accuracy",
@@ -12145,7 +12154,10 @@ AddSubClass("monk", "way of the kensei2", {
 				additional : "1 to 3 ki points",
 				action : ["bonus action", ""]
 			},
-			changeeval : "if (lvlH >= 11 && lvlL < 11) { ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], lvlA[1] < 11 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "sharpen the blade",
+				minlevel : 11
+			}]
 		}
 	}
 });
@@ -14092,8 +14104,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["minor illusion", "fog cloud", "invisibility"],
 					selection : ["minor illusion", "fog cloud", "invisibility"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'cloud giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"fire giant" : {
 				name : "Mark of Ordning: Fire Giant",
@@ -14106,8 +14117,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["fire bolt", "burning hands", "flaming sphere"],
 					selection : ["fire bolt", "burning hands", "flaming sphere"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'fire giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"frost giant" : {
 				name : "Mark of Ordning: Frost Giant",
@@ -14120,8 +14130,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["ray of frost", "armor of agathys", "hold person"],
 					selection : ["ray of frost", "armor of agathys", "hold person"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'frost giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"hill giant" : {
 				name : "Mark of Ordning: Hill Giant",
@@ -14134,8 +14143,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["shillelagh", "heroism", "enlarge/reduce"],
 					selection : ["shillelagh", "heroism", "enlarge/reduce"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'hill giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"stone giant" : {
 				name : "Mark of Ordning: Stone Giant",
@@ -14148,8 +14156,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["resistance", "entangle", "spike growth"],
 					selection : ["resistance", "entangle", "spike growth"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'stone giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"storm giant" : {
 				name : "Mark of Ordning: Storm Giant",
@@ -14162,9 +14169,9 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["thunderwave", "shocking grasp", "gust of wind"],
 					selection : ["thunderwave", "shocking grasp", "gust of wind"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'storm giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
-			}
+				}
+			},
+			choiceDependencies : [{ feature : "subclassfeature6" }]
 		},
 		"subclassfeature6" : {
 			name : "Soul of Lost Ostoria",
@@ -14224,8 +14231,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					"Immediately after casting any of my Mark of Ordning spells, I shoot lightning",
 					"Up to 3 targets in 30 ft that I can see take my Con mod (min 1) in lightning damage"
 				])
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'sorcerer', 'subclassfeature1.1');"
+			}
 		},
 		"subclassfeature14" : {
 			name : "Rage of Fallen Ostoria",

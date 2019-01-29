@@ -98,7 +98,7 @@ AddSubClass("bard", "college of whispers", {
 				action : [["action", " (start)"], ['bonus action', ' (end)']],
 				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends"
 			},
-			eval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra']);"
+			autoSelectExtrachoices : [{ extrachoice : "shadow disguise" }]
 		},
 		"subclassfeature14" : {
 			name : "Shadow Lore",

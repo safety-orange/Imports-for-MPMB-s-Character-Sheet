@@ -65,23 +65,25 @@ AddSubClass("barbarian", "storm herald", {
 			"desert" : {
 				name : "Storm of Fury: Desert",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Any enemy that ends its turn in my aura takes fire damage",
-				additional : ["", "", "2 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "7 fire damage"],
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'desert']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				additional : ["", "", "2 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "3 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "4 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "5 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "6 fire damage", "7 fire damage"]
 			},
 			"sea" : {
 				name : "Storm of Fury: Sea",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "At the end of each of my turns, I can choose a creature in my aura, other than myself" + "\n   " + "It must make a Dex save or take lightning damage, or half damage on a successful save" + "\n   " + "The DC for this save is 8 + my proficiency bonus + my Constitution modifier",
 				additional : ["", "", "2d6", "2d6", "2d6", "2d6", "2d6", "2d6", "2d6", "3d6", "3d6", "3d6", "3d6", "3d6", "4d6", "4d6", "4d6", "4d6", "4d6", "4d6"],
 				usages : 1,
-				recovery : "turn",
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'sea']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				recovery : "turn"
 			},
 			"tundra" : {
 				name : "Storm of Fury: Tundra",
 				description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Any enemy that ends its turn in my aura takes cold damage",
-				additional : ["", "", "2 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "7 cold damage"],
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'tundra']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
-			}
+				additional : ["", "", "2 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "3 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "4 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "5 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "6 cold damage", "7 cold damage"]
+			},
+			choiceDependencies : [{
+				feature : "subclassfeature6"
+			}, {
+				feature : "subclassfeature14"
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Storm Soul",
@@ -106,8 +108,7 @@ AddSubClass("barbarian", "storm herald", {
 				description : "\n   " + "I have resistance to cold damage and don't suffer the effects of extreme cold",
 				dmgres : ["Cold"],
 				savetxt : { immune : ["effects of extreme cold"] }
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
+			}
 		},
 		"subclassfeature10" : {
 			name : "Shield of the Storm",
@@ -143,8 +144,7 @@ AddSubClass("barbarian", "storm herald", {
 			"tundra" : {
 				name : "Raging Storm: Tundra",
 				description : "\n   " + "The area within my aura is difficult terrain for my enemies"
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
+			}
 		}
 	}
 });

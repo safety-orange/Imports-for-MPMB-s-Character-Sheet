@@ -29,7 +29,6 @@ AddSubClass("monk", "way of the kensei", {
 				source : ["UA:MMT", 1],
 				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
 			},
-			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra']);",
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -49,7 +48,8 @@ AddSubClass("monk", "way of the kensei", {
 					},
 					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
 				]
-			}
+			},
+			autoSelectExtrachoices : [{ extrachoice : "kensei defense" }]
 		},
 		"ki-empowered strikes" : {
 			name : "One with the Blade",
@@ -98,7 +98,10 @@ AddSubClass("monk", "way of the kensei", {
 				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
 				action : ["bonus action", ""]
 			},
-			changeeval : "if (lvlH >= 11 && lvlL < 11) { ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], lvlA[1] < 11 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "sharpen the blade",
+				minlevel : 11
+			}]
 		}
 	}
 });
@@ -143,7 +146,10 @@ AddSubClass("monk", "way of tranquility", {
 				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
 				action : ["action", ""]
 			},
-			changeeval : "if (lvlH >= 11 && lvlL < 11) { ClassFeatureOptions(['monk', 'subclassfeature17', 'douse the flames of war', 'extra'], lvlA[1] < 11 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "douse the flames of war",
+				minlevel : 11
+			}]
 		},
 		"subclassfeature17" : {
 			name : "Anger of a Gentle Soul",

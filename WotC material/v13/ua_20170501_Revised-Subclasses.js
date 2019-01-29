@@ -327,7 +327,7 @@ AddSubClass("monk", "way of the kensei2", {
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
-			eval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra']);"
+			autoSelectExtrachoices : [{ extrachoice : "precise strike" }]
 		},
 		"subclassfeature17" : {
 			name : "Unerring Accuracy",
@@ -345,7 +345,10 @@ AddSubClass("monk", "way of the kensei2", {
 				additional : "1 to 3 ki points",
 				action : ["bonus action", ""]
 			},
-			changeeval : "if (lvlH >= 11 && lvlL < 11) { ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], lvlA[1] < 11 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "sharpen the blade",
+				minlevel : 11
+			}]
 		}
 	}
 });

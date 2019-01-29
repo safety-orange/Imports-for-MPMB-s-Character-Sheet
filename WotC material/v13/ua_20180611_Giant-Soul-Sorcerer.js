@@ -48,8 +48,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["minor illusion", "fog cloud", "invisibility"],
 					selection : ["minor illusion", "fog cloud", "invisibility"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'cloud giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"fire giant" : {
 				name : "Mark of Ordning: Fire Giant",
@@ -62,8 +61,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["fire bolt", "burning hands", "flaming sphere"],
 					selection : ["fire bolt", "burning hands", "flaming sphere"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'fire giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"frost giant" : {
 				name : "Mark of Ordning: Frost Giant",
@@ -76,8 +74,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["ray of frost", "armor of agathys", "hold person"],
 					selection : ["ray of frost", "armor of agathys", "hold person"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'frost giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"hill giant" : {
 				name : "Mark of Ordning: Hill Giant",
@@ -90,8 +87,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["shillelagh", "heroism", "enlarge/reduce"],
 					selection : ["shillelagh", "heroism", "enlarge/reduce"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'hill giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"stone giant" : {
 				name : "Mark of Ordning: Stone Giant",
@@ -104,8 +100,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["resistance", "entangle", "spike growth"],
 					selection : ["resistance", "entangle", "spike growth"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'stone giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"storm giant" : {
 				name : "Mark of Ordning: Storm Giant",
@@ -118,9 +113,9 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					spells : ["thunderwave", "shocking grasp", "gust of wind"],
 					selection : ["thunderwave", "shocking grasp", "gust of wind"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'storm giant']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
-			}
+				}
+			},
+			choiceDependencies : [{ feature : "subclassfeature6" }]
 		},
 		"subclassfeature6" : {
 			name : "Soul of Lost Ostoria",
@@ -180,8 +175,7 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 					"Immediately after casting any of my Mark of Ordning spells, I shoot lightning",
 					"Up to 3 targets in 30 ft that I can see take my Con mod (min 1) in lightning damage"
 				])
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'sorcerer', 'subclassfeature1.1');"
+			}
 		},
 		"subclassfeature14" : {
 			name : "Rage of Fallen Ostoria",

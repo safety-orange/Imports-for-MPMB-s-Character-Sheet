@@ -111,7 +111,6 @@ AddSubClass("paladin", "oath of treachery", {
 			recovery : "short rest",
 			usages : 1,
 			action : ["reaction", ""],
-			changeeval : "if (lvlH >= 20 && lvlL < 20) { ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'], lvlA[1] < 20 ? 'remove' : false); }; ",
 			extraname : "Oath of Treachery 20",
 			"icon of deceit" : {
 				name : "Icon of Deceit",
@@ -120,7 +119,11 @@ AddSubClass("paladin", "oath of treachery", {
 				recovery : "long rest",
 				usages : 1,
 				action : ["action", ""]
-			}
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "icon of deceit",
+				minlevel : 20
+			}]
 		}
 	}
 });
