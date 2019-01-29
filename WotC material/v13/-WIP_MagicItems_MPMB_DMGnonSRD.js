@@ -3,6 +3,7 @@ MagicItemsList['cap of water breathing'] = {
 	source: ["D", 157],
 	type: "wondrous item",
 	rarity: "uncommon",
+	magicItemTable: "B",
 	description: "",
 	descriptionFull: "While wearing this cap underwater, you can speak its command word as an action to create a bubble of air around your head. It allows you to breathe normally underwater. This bubble stays with you until you speak the command word again, the cap is removed, or you are no longer underwater."
 }
@@ -11,6 +12,7 @@ MagicItemsList['cloak of invisibility'] = {
 	source: ["D", 158],
 	type: "wondrous item",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "While wearing this cloak, you can pull its hood over your head to cause yourself to become invisible. While you are invisible, anything you are carrying or wearing is invisible with you. You become visible when you cease wearing the hood. Pulling the hood up or down requires an action.\n   Deduct the time you are invisible, in increments of 1 minute, from the cloak's maximum duration of 2 hours. After 2 hours of use, the cloak ceases to function. For every uninterrupted period of 12 hours the cloak goes unused, it regains 1 hour of duration.",
 	attunement: true
@@ -20,6 +22,7 @@ MagicItemsList["driftglobe"] = {
 	source: ["D", 166],
 	type: "wondrous item",
 	rarity: "uncommon",
+	magicItemTable: ["A", "B"],
 	description: "",
 	descriptionFull: "This small sphere of thick glass weighs 1 pound. If you are within 60 feet of it, you can speak its command word and cause it to emanate the Light or Daylight spell. Once used, the Daylight effect can't be used again until the next dawn.\n   You can speak another command word as an action to make the illuminated globe rise into the air and float no more than 5 feet off the ground. The globe hovers in this way until you or another creature grasps it. If you move more than 60 feet from the hovering globe, it follows you until it is within 60 feet of you. It takes the shortest route to do so. If prevented from moving, the globe sinks gently to the ground and becomes inactive, and its light winks out.",
 	weight: 1
@@ -29,6 +32,7 @@ MagicItemsList['efreeti chain'] = {
 	source: ["D", 167],
 	type : "armor (chain mail)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "While wearing this armor, you gain a +3 bonus to AC, you are immune to fire damage, and you can understand and speak Primordial. In addition, you can stand on and walk across molten rock as if it were solid ground.",
 	attunement: true,
@@ -39,6 +43,7 @@ MagicItemsList['elixir of health'] = {
 	source: ["D", 168],
 	type : "potion",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "When you drink this potion, it cures any disease afflicting you, and it removes the blinded, deafened, paralyzed, and poisoned conditions. The clear red liquid has tiny bubbles of light in it.",
 	weight: 0.5
@@ -48,6 +53,7 @@ MagicItemsList['gloves of thievery'] = {
 	source: ["D", 172],
 	type: "wondrous item",
 	rarity: "uncommon",
+	magicItemTable: "F",
 	description: "",
 	descriptionFull: "These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks."
 }
@@ -56,6 +62,7 @@ MagicItemsList['instrument of the bards, anstruth harp'] = {
 	source: ["D", 176],
 	type: "Instrument",
 	rarity: "very rare",
+	magicItemTable: "H",
 	description: "",
 	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
 	attunement: true,
@@ -66,6 +73,7 @@ MagicItemsList['instrument of the bards, canaith mandolin'] = {
 	source: ["D", 176],
 	type: "Instrument",
 	rarity: "rare",
+	magicItemTable: "G",
 	description: "",
 	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Canaith mandolin can be used to cast Cure Wounds (3rd level), Dispel Magic, and Protection from Energy (lightning only).",
 	attunement: true,
@@ -76,6 +84,7 @@ MagicItemsList['instrument of the bards, cli lyre'] = {
 	source: ["D", 176],
 	type: "Instrument",
 	rarity: "rare",
+	magicItemTable: "G",
 	description: "",
 	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Cli lyre can be used to cast Stone Shape, Wall of Fire, and Wind Wall.",
 	attunement: true,
@@ -86,6 +95,7 @@ MagicItemsList['instrument of the bards, doss lute'] = {
 	source: ["D", 176],
 	type: "Instrument",
 	rarity: "uncommon",
+	magicItemTable: "F",
 	description: "",
 	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Doss lute can be used to cast Animal Friendship, Protection from Energy (fire only), and Protection from Poison.",
 	attunement: true,
@@ -96,6 +106,7 @@ MagicItemsList['instrument of the bards, fochlucan bandore'] = {
 	source: ["D", 176],
 	type: "Instrument",
 	rarity: "uncommon",
+	magicItemTable: "F",
 	description: "",
 	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Fochlucan bandore can be used to cast Entangle, Faerie Fire, Shillelagh, and Speak with Animals.",
 	attunement: true,
@@ -106,6 +117,7 @@ MagicItemsList['instrument of the bards, mac-fuirmidh cittern'] = {
 	source: ["D", 176],
 	type: "Instrument",
 	rarity: "uncommon",
+	magicItemTable: "F",
 	description: "",
 	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
 	attunement: true,
@@ -116,6 +128,7 @@ MagicItemsList['instrument of the bards, ollamh harp'] = {
 	source: ["D", 176],
 	type: "Instrument",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
 	attunement: true,
@@ -126,6 +139,7 @@ MagicItemsList['potion of fire breath'] = {
 	source: ["D", 187],
 	type : "potion",
 	rarity: "uncommon",
+	magicItemTable: "B",
 	description: "",
 	descriptionFull: "After drinking this potion, you can use a bonus action to exhale fire at a target within 30 feet of you. The target must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one. The effect ends after you exhale the fire three times or when 1 hour has passed. This potion's orange liquid flickers, and smoke fills the top of the container and wafts out whenever it is opened.",
 	weight: 0.5
@@ -135,6 +149,7 @@ MagicItemsList['potion of invulnerability'] = {
 	source: ["D", 188],
 	type : "potion",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "For 1 minute after you drink this potion, you have resistance to all damage. The potion's syrupy liquid looks like liquefied iron.",
 	weight: 0.5
@@ -144,6 +159,7 @@ MagicItemsList['potion of longevity'] = {
 	source: ["D", 188],
 	type : "potion",
 	rarity: "very rare",
+	magicItemTable: "D",
 	description: "",
 	descriptionFull: "When you drink this potion, your physical age is reduced by 1d6+6 years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
 	weight: 0.5
@@ -153,6 +169,7 @@ MagicItemsList['potion of vitality'] = {
 	source: ["D", 188],
 	type : "potion",
 	rarity: "very rare",
+	magicItemTable: "D",
 	description: "",
 	descriptionFull: "When you drink this potion, it removes any exhaustion you are suffering and cures any disease or poison affecting you. For the next 24 hours, you regain the maximum number of hit points for any Hit Die you spend. The potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.",
 	weight: 0.5
@@ -162,6 +179,7 @@ MagicItemsList['rod of resurrection'] = {
 	source: ["D", 197],
 	type : "rod",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: " The rod has 5 charges. While you hold it, you can use an action to cast one of the following spells from it: Heal (expends 1 charge) or Resurrection (expends 5 charges).\n   The rod regains 1 expended charge daily at dawn. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
 	attunement: true,
@@ -172,6 +190,7 @@ MagicItemsList['rod of the pact keeper, +1'] = {
 	source: ["D", 197],
 	type : "rod",
 	rarity: "uncommon",
+	magicItemTable: "F",
 	description: "",
 	descriptionFull: "While holding this rod, you gain a +1 bonus to spell attack rolls and to the saving throw DCs of your warlock spells.\n   In addition, you can regain one warlock spell slot as an action while holding the rod. You can't use this property again until you finish a long rest.",
 	attunement: true,
@@ -182,6 +201,7 @@ MagicItemsList['rod of the pact keeper, +2'] = {
 	source: ["D", 197],
 	type : "rod",
 	rarity: "rare",
+	magicItemTable: "G",
 	description: "",
 	descriptionFull: "While holding this rod, you gain a +2 bonus to spell attack rolls and to the saving throw DCs of your warlock spells.\n   In addition, you can regain one warlock spell slot as an action while holding the rod. You can't use this property again until you finish a long rest.",
 	attunement: true,
@@ -192,6 +212,7 @@ MagicItemsList['rod of the pact keeper, +3'] = {
 	source: ["D", 197],
 	type : "rod",
 	rarity: "very rare",
+	magicItemTable: "H",
 	description: "",
 	descriptionFull: "While holding this rod, you gain a +3 bonus to spell attack rolls and to the saving throw DCs of your warlock spells.\n   In addition, you can regain one warlock spell slot as an action while holding the rod. You can't use this property again until you finish a long rest.",
 	attunement: true,
@@ -202,6 +223,7 @@ MagicItemsList['saddle of the cavalier'] = {
 	source: ["D", 199],
 	type: "wondrous item",
 	rarity: "uncommon",
+	magicItemTable: "B",
 	description: "",
 	descriptionFull: "While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
 }
@@ -210,6 +232,7 @@ MagicItemsList['scroll of protection from aberrations'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents aberrations from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that an aberration would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -218,6 +241,7 @@ MagicItemsList['scroll of protection from beasts'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents beasts from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a beast would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -226,6 +250,7 @@ MagicItemsList['scroll of protection from celestials'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents celestials from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a celestial would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -234,6 +259,7 @@ MagicItemsList['scroll of protection from elementals'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents elementals from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that an elemental would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -242,6 +268,7 @@ MagicItemsList['scroll of protection from fey'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents fey from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a fey would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -250,6 +277,7 @@ MagicItemsList['scroll of protection from fiends'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents fiends from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a fiend would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -258,6 +286,7 @@ MagicItemsList['scroll of protection from plants'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents plants from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a plant would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -266,6 +295,7 @@ MagicItemsList['scroll of protection from undead'] = {
 	source: ["D", 199],
 	type: "Scroll",
 	rarity: "rare",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents undead from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that an undead would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
@@ -274,6 +304,7 @@ MagicItemsList['sending stones'] = {
 	source: ["D", 199],
 	type: "wondrous item",
 	rarity: "uncommon",
+	magicItemTable: "C",
 	description: "",
 	descriptionFull: "Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical."
 }
@@ -282,6 +313,7 @@ MagicItemsList['sentinel shield'] = {
 	source: ["D", 199],
 	type : "shield",
 	rarity: "uncommon",
+	magicItemTable: "F",
 	description: "",
 	descriptionFull: "While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye.",
 	weight: 6
@@ -291,6 +323,7 @@ MagicItemsList['staff of the adder'] = {
 	source: ["D", 203],
 	type : "staff",
 	rarity: "uncommon",
+	magicItemTable: "F",
 	description: "",
 	descriptionFull: "You can use a bonus action to speak this staff's command word and make the head of the staff become that of an animate poisonous snake for 1 minute. By using another bonus action to speak the command word again, you return the staff to its normal inanimate form.\n   You can make a melee attack using the snake head, which has a reach of 5 feet. Your proficiency bonus applies to the attack roll. On a hit, the target takes 1d6 piercing damage and must succeed on a DC 15 Constitution saving throw or take 3d6 poison damage.\n   The snake head can be attacked while it is animate. It has an Armor Class of 15 and 20 hit points. If the head drops to 0 hit points, the staff is destroyed. As long as it's not destroyed, the staff regains all lost hit points when it reverts to its inanimate form.",
 	attunement: true,
@@ -301,6 +334,7 @@ MagicItemsList['sword of answering (answerer)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Answerer, the Chaotic Good sword, has an emerald set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -311,6 +345,7 @@ MagicItemsList['sword of answering (back talker)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Back Talker, the Chaotic Evil sword, has jet set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -321,6 +356,7 @@ MagicItemsList['sword of answering (concluder)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Concluder, the Lawful Neutral sword, has an amethyst set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -331,6 +367,7 @@ MagicItemsList['sword of answering (last quip)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Last Quip, the Chaotic Neutral sword, has a tourmaline set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -341,6 +378,7 @@ MagicItemsList['sword of answering (rebutter)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Rebutter, the Neutral Good sword, has a topaz set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -351,6 +389,7 @@ MagicItemsList['sword of answering (replier)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Replier, the Neutral sword, has a peridot set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -361,6 +400,7 @@ MagicItemsList['sword of answering (retorter)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Retorter, the Lawful Good sword, has an aquamarine set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -371,6 +411,7 @@ MagicItemsList['sword of answering (scather)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Scather, the Lawful Evil sword, has a garnet set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -381,6 +422,7 @@ MagicItemsList['sword of answering (squelcher)'] = {
 	source: ["D", 206],
 	type : "weapon (longsword)",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   Squelcher, the Neutral Evil sword, has a spinel set in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
 	attunement: true,
@@ -391,6 +433,7 @@ MagicItemsList['tentacle rod'] = {
 	source: ["D", 208],
 	type : "rod",
 	rarity: "rare",
+	magicItemTable: "G",
 	description: "",
 	descriptionFull: "Made by the drow, this rod is a magic weapon that ends in three rubbery tentacles. While holding the rod, you can use an action to direct each tentacle to attack a creature you can see within 15 feet of you. Each tentacle makes a melee attack roll with a +9 bonus. On a hit, the tentacle deals 1d6 bludgeoning damage. If you hit a target with all three tentacles, it must make a DC 15 Constitution saving throw. On a failure, the creature's speed is halved, it has disadvantage on Dexterity saving throws, and it can't use reactions for 1 minute. Moreover, on each of its turns, it can take either an action or a bonus action, but not both. At the end of each of its turns, it can repeat the saving throw, ending the effect on itself on a success.",
 	attunement: true,
@@ -401,6 +444,7 @@ MagicItemsList['tome of the stilled tongue'] = {
 	source: ["D", 208],
 	type: "wondrous item",
 	rarity: "legendary",
+	magicItemTable: "I",
 	description: "",
 	descriptionFull: "This thick leather-bound volume has a desiccated tongue pinned to the front cover. Five of these tomes exist, and it's unknown which one is the original. The grisly cover decoration on the first tome of the stilled tongue once belonged to a treacherous former servant of the lich-god Vecna, keeper of secrets. The tongues pinned to the covers of the four copies came from other spellcasters who crossed Vecna. The first few pages of each tome are filled with indecipherable scrawls. The remaining pages are blank and pristine.\n   If you can attune to this item, you can use it as a spellbook and an arcane focus. In addition, while holding the tome, you can use a bonus action to cast a spell you have written in this tome, without expending a spell slot or using any verbal or somatic component Once used, this property of the tome can't be used again until the next dawn.\n   While attuned to the book, you can remove the tongue from the book's cover. If you do so, all spells written in the book are permanently erased.\n   Vecna watches anyone using this tome. He can also write cryptic messages in the book. These messages appear at midnight and fade away after they are read.",
 	attunement: true,

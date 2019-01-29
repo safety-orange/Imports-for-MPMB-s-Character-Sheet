@@ -500,22 +500,26 @@ RaceList["eladrin-mtof"] = {
 			action : ["bonus action", ""]
 		}
 	},
-	notes : "\u25C6 Eladrin Season Features (MToF 62) [save DC 8 + Cha mod + prof bonus]"
-	+ "\n  \u2022 Autumn (Eladrin Season, MToF 62)" + desc([
-		" After using Fey Step, up to 2 creatures I can see within 10 ft of me must make a Wis save",
-		" If failed, a target is charmed by me for 1 minute, or until I or my allies damage it"
-	]) + "\n  \u2022 Winter (Eladrin Season, MToF 62)" + desc([
-		" When I use Fey Step, one target in 5 ft of where I teleported from must make a Wis save",
-		" If failed, it is frightened of me until the end of my next turn"
-	]) + "\n  \u2022 Spring (Eladrin Season, MToF 62)" + desc([
-		" When I use Fey Step, I can instead teleport one willing creature I touch within 5 ft of me",
-		" It teleports to an unoccupied space of my choice that I can see within 30 ft of me"
-	]) + "\n  \u2022 Summer (Eladrin Season, MToF 62)" + desc([
-		" After using Fey Step, each creature of my choice within 5 ft of me takes fire damage",
-		" This fire damage is equal to my Charisma modifier (minimum 1)"
-	]),
-	eval : "AddString('Extra.Notes', RaceList['eladrin-mtof'].notes, true); show3rdPageNotes();",
-	removeeval : "RemoveString('Extra.Notes', RaceList['eladrin-mtof'].notes, true);"
+	toNotesPage : [{
+		name : "Eladrin Season Features",
+		source : ["MToF", 62],
+		popupName : "Eladrin Shifting Season Features",
+		additional : "save DC 8 + Cha mod + prof bonus",
+		page3notes : true,
+		note : "\n  \u2022 Autumn (Eladrin Season, MToF 62)" + desc([
+			" After using Fey Step, up to 2 creatures I can see within 10 ft of me must make a Wis save",
+			" If failed, a target is charmed by me for 1 minute, or until I or my allies damage it"
+		]) + "\n  \u2022 Winter (Eladrin Season, MToF 62)" + desc([
+			" When I use Fey Step, one target in 5 ft of where I teleported from must make a Wis save",
+			" If failed, it is frightened of me until the end of my next turn"
+		]) + "\n  \u2022 Spring (Eladrin Season, MToF 62)" + desc([
+			" When I use Fey Step, I can instead teleport one willing creature I touch within 5 ft of me",
+			" It teleports to an unoccupied space of my choice that I can see within 30 ft of me"
+		]) + "\n  \u2022 Summer (Eladrin Season, MToF 62)" + desc([
+			" After using Fey Step, each creature of my choice within 5 ft of me takes fire damage",
+			" This fire damage is equal to my Charisma modifier (minimum 1)"
+		])
+	}]
 };
 RaceList["sea elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
@@ -807,7 +811,7 @@ if (!FeatsList["svirfneblin magic"]) {
 		name : "Svirfneblin Magic",
 		source : [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite : "Being a Svirfneblin (Deep Gnome)",
-		prereqeval : "CurrentRace.known === 'deep gnome'",
+		prereqeval : function(v) { return CurrentRace.known === 'deep gnome'; },
 		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus : [{

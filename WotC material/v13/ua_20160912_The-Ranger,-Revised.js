@@ -92,13 +92,16 @@ ClassList["rangerua"] = {
 			minlevel : 1,
 			description : "\n   " + "On my first turn in combat, I have adv. on attacks against those that did not yet act" + "\n   " + "I ignore difficult terrain; I have adv. on Initiative; I have benefits in travel, see page 3",
 			extraname : "Natural Explorer",
-			"travel benefit" : {
+			"travel benefits" : {
 				name : "Travel Benefits",
 				source : ["UA:RR", 3],
 				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
 			},
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)'); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra']);",
-			removeeval : "Checkbox('Init Adv', false, ''); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra'], 'remove');"
+			autoSelectExtrachoices : [{
+				extrachoice : "travel benefits"
+			}],
+			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)');",
+			removeeval : "Checkbox('Init Adv', false, ''); "
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);

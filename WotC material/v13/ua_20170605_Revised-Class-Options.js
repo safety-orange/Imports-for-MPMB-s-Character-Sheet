@@ -312,7 +312,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		name : "Aspect of the Moon",
 		description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
 		source : [["X", 56], ["UA:RCO", 5]],
-		prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'",
+		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
 		savetxt : { text : ["Nothing can force me to sleep"] }
 	});
 	AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
@@ -324,7 +324,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 		]),
 		source : [["X", 56], ["UA:RCO", 5]],
-		prereqeval : "classes.known.warlock.level >= 5",
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
 		action : ["bonus action", " (start/stop)"]
@@ -342,20 +342,20 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["water breathing"],
 			firstCol : 'oncelr'
 		},
-		prereqeval : "classes.known.warlock.level >= 5",
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	});
 	AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
 		name : "Gift of the Ever-Living Ones",
 		description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
 		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'"
+		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
 	});
 	AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 		name : "Grasp of Hadar",
 		description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
 		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : "hasEldritchBlast",
+		prereqeval : function(v) { return v.hasEldritchBlast; },
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
@@ -375,7 +375,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["invisibility"],
 			firstCol : 'atwill'
 		},
-		prereqeval : "classes.known.warlock.level >= 15"
+		prereqeval : function(v) { return classes.known.warlock.level >= 15; }
 	});
 	AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 		name : "Tomb of Levistus",
@@ -385,7 +385,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 		]),
 		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : "classes.known.warlock.level >= 5",
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
 		action : ["reaction", ""],
@@ -401,7 +401,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["freedom of movement"],
 			firstCol : 'oncelr'
 		},
-		prereqeval : "classes.known.warlock.level >= 7"
+		prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 	});
 }
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
@@ -413,7 +413,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"If the target takes any of this bonus damage, it is knocked prone if it is Huge or smaller"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'"
+	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	name : "Frost Lance",
@@ -422,7 +422,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "hasEldritchBlast",
+	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -439,7 +439,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"Objects appear ghostly to me; I also gain 30 ft darkvision for the duration"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
 	action : ["action", ""]
@@ -451,7 +451,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -471,7 +471,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
@@ -481,7 +481,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 		"It and any of my choice within 5 ft of it take my Cha mod (min 0) in psychic damage"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
@@ -491,6 +491,6 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	action : ["bonus action", ""]
 });

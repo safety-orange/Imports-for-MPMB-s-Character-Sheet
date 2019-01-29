@@ -205,45 +205,47 @@ AddSubClass("wizard", "school of invention", {
 				"If I choose a spell, I expend a spell slot and roll twice on the table for the slot's level",
 				"I can then choose which of the results I use; Use 5th-level table for spell slots over level 5"
 			]),
-			castingTable : "\u25C6 Reckless Casting Tables (School of Invention 2, UA:TS 3)\nd10\tCantrip\t\td10\tCantrip" + desc([
-				" 1\tAcid Splash\t\t    6\tRay of Frost",
-				" 2\tChill Touch\t\t    7\tShocking Grasp",
-				" 3\tFire Bolt\t\t    8\tSacred Flame",
-				" 4\tLight\t\t    9\tThorn Whip",
-				" 5\tPoison Spray\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t1st-Level Spell\td10\t1st-Level Spell" + desc([
-				" 1\tBurning Hands\t    6\tFog Cloud",
-				" 2\tChromatic Orb\t    7\tJump",
-				" 3\tColor Spray\t\t    8\tMagic Missile",
-				" 4\tFaerie Fire\t\t    9\tThunderwave",
-				" 5\tFalse Life\t\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t2nd-Level Spell\td10\t2nd-Level Spell" + desc([
-				" 1\tBlur\t\t    6\tLevitate",
-				" 2\tDarkness\t\t    7\tMelf's Acid Arrow",
-				" 3\tEnlarge/Reduce\t    8\tScorching Ray",
-				" 4\tGust of Wind\t    9\tShatter",
-				" 5\tInvisibility\t\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t3rd-Level Spell\td10\t3rd-Level Spell" + desc([
-				" 1\tBlink\t\t    6\tGaseous Form",
-				" 2\tFear\t\t    7\tLightning Bolt",
-				" 3\tFeign Death \t    8\tSleet Storm",
-				" 4\tFireball\t\t    9\tStinking Cloud",
-				" 5\tFly\t\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t4th-Level Spell\td10\t4th-Level Spell" + desc([
-				" 1\tBlight\t\t    6\tIce Storm",
-				" 2\tConfusion\t\t    7\tPhantasmal Killer",
-				" 3\tEvard's Black Tentacles\t    8\tStoneskin",
-				" 4\tFire Shield\t\t    9\tWall of Fire",
-				" 5\tGreater Invisibility\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t5th-Level Spell\td10\t5th-Level Spell" + desc([
-				" 1\tCloudkill\t\t    6\tInsect Plague",
-				" 2\tCone of Cold\t    7\tMass Cure Wounds",
-				" 3\tDestructive Wave\t    8\tWall of Force",
-				" 4\tFlame Strike\t    9\tWall of Stone",
-				" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted"
-			]),
-			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, \"School of Invention's Reckless Casting tables\");} catch (er) {};",
-			removeeval : "try {AddToNotes('', '', ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable);} catch (er) {};"
+			toNotesPage : [{
+				name : "Reckless Casting Tables",
+				popupName : "School of Invention's Reckless Casting Tables",
+				note : "\nd10\tCantrip\t\td10\tCantrip" + desc([
+					" 1\tAcid Splash\t\t    6\tRay of Frost",
+					" 2\tChill Touch\t\t    7\tShocking Grasp",
+					" 3\tFire Bolt\t\t    8\tSacred Flame",
+					" 4\tLight\t\t    9\tThorn Whip",
+					" 5\tPoison Spray\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t1st-Level Spell\td10\t1st-Level Spell" + desc([
+					" 1\tBurning Hands\t    6\tFog Cloud",
+					" 2\tChromatic Orb\t    7\tJump",
+					" 3\tColor Spray\t\t    8\tMagic Missile",
+					" 4\tFaerie Fire\t\t    9\tThunderwave",
+					" 5\tFalse Life\t\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t2nd-Level Spell\td10\t2nd-Level Spell" + desc([
+					" 1\tBlur\t\t    6\tLevitate",
+					" 2\tDarkness\t\t    7\tMelf's Acid Arrow",
+					" 3\tEnlarge/Reduce\t    8\tScorching Ray",
+					" 4\tGust of Wind\t    9\tShatter",
+					" 5\tInvisibility\t\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t3rd-Level Spell\td10\t3rd-Level Spell" + desc([
+					" 1\tBlink\t\t    6\tGaseous Form",
+					" 2\tFear\t\t    7\tLightning Bolt",
+					" 3\tFeign Death \t    8\tSleet Storm",
+					" 4\tFireball\t\t    9\tStinking Cloud",
+					" 5\tFly\t\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t4th-Level Spell\td10\t4th-Level Spell" + desc([
+					" 1\tBlight\t\t    6\tIce Storm",
+					" 2\tConfusion\t\t    7\tPhantasmal Killer",
+					" 3\tEvard's Black Tentacles\t    8\tStoneskin",
+					" 4\tFire Shield\t\t    9\tWall of Fire",
+					" 5\tGreater Invisibility\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t5th-Level Spell\td10\t5th-Level Spell" + desc([
+					" 1\tCloudkill\t\t    6\tInsect Plague",
+					" 2\tCone of Cold\t    7\tMass Cure Wounds",
+					" 3\tDestructive Wave\t    8\tWall of Force",
+					" 4\tFlame Strike\t    9\tWall of Stone",
+					" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted"
+				])
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Alchemical Casting",

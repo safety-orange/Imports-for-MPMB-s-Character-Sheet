@@ -984,7 +984,7 @@ AddSubClass("monk", "way of the four elements", {
 			additional : ["", "", "2 known", "2 known", "2 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 4 max ki", "3 known; 4 max ki", "4 known; 4 max ki", "4 known; 4 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki"],
 			extraname : "Elemental Discipline",
 			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
-			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'elemental attunement', 'extra']);",
+			autoSelectExtrachoices : [{ extrachoice : "elemental attunement" }],
 			"elemental attunement" : {
 				name : "Elemental Attunement",
 				source : ["P", 81],
@@ -1003,7 +1003,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 6
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 17"
+				prereqeval : function(v) { return classes.known.monk.level >= 17; }
 			},
 			"clench of the north wind (prereq: level 6 monk)" : {
 				name : "Clench of the North Wind",
@@ -1017,7 +1017,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 3
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 6"
+				prereqeval : function(v) { return classes.known.monk.level >= 6; }
 			},
 			"eternal mountain defense (prereq: level 17 monk)" : { // errata from level 11 to level 17
 				name : "Eternal Mountain Defense",
@@ -1031,7 +1031,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 5
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 17"
+				prereqeval : function(v) { return classes.known.monk.level >= 17; }
 			},
 			"fangs of the fire snake" : {
 				name : "Fangs of the Fire Snake",
@@ -1081,7 +1081,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 4
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 11"
+				prereqeval : function(v) { return classes.known.monk.level >= 11; }
 			},
 			"gong of the summit (prereq: level 6 monk)" : {
 				name : "Gong of the Summit",
@@ -1095,7 +1095,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 3
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 6"
+				prereqeval : function(v) { return classes.known.monk.level >= 6; }
 			},
 			"mist stance (prereq: level 11 monk)" : {
 				name : "Mist Stance",
@@ -1109,7 +1109,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 4
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 11"
+				prereqeval : function(v) { return classes.known.monk.level >= 11; }
 			},
 			"ride the wind (prereq: level 11 monk)" : {
 				name : "Ride the Wind",
@@ -1123,7 +1123,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 4
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 11"
+				prereqeval : function(v) { return classes.known.monk.level >= 11; }
 			},
 			"rive of hungry flame (prereq: level 17 monk)" : {
 				name : "Rive of Hungry Flame",
@@ -1137,7 +1137,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 5
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 17"
+				prereqeval : function(v) { return classes.known.monk.level >= 17; }
 			},
 			"rush of the gale spirits" : {
 				name : "Rush of the Gale Spirits",
@@ -1189,7 +1189,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 6
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : "classes.known.monk.level >= 17"
+				prereqeval : function(v) { return classes.known.monk.level >= 17; }
 			}
 		}
 	}
@@ -1210,60 +1210,22 @@ AddSubClass("monk", "way of shadow", {
 				selection : ["minor illusion"],
 				firstCol : "atwill"
 			},
-			extraname : "Shadow Art",
-			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'darkness', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'darkvision', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'pass without trace', 'extra']); ClassFeatureOptions(['monk', 'subclassfeature3', 'silence', 'extra']);",
-			"darkness" : {
-				name : "Darkness",
+			spellFirstColTitle : "Ki",
+			extraname : "Shadow Arts",
+			"shadow spells" : {
+				name : "Shadow Spells",
 				source : ["P", 80],
-				description : " [2 ki points]" + "\n   " + "As an action, I can cast Darkness without material components",
+				description : " [2 ki points]" + "\n   " + "As an action, I can cast Darkness, Darkvision, Pass Without Trace, or Silence" + "\n   " + "I don't require spell slots or material components to cast these spells like this, just ki points",
 				action : ["action", ""],
 				spellcastingBonus : {
-					name : "Darkness",
-					spells : ["darkness"],
-					selection : ["darkness"],
-					firstCol : 2
-				},
-				spellFirstColTitle : "Ki"
+					name : "Shadow Arts",
+					spells : ["darkness", "darkvision", "pass without trace", "silence"],
+					selection : ["darkness", "darkvision", "pass without trace", "silence"],
+					firstCol : 2,
+					times : 4
+				}
 			},
-			"darkvision" : {
-				name : "Darkvision",
-				source : ["P", 80],
-				description : " [2 ki points]" + "\n   " + "As an action, I can cast Darkvision without material components",
-				action : ["action", ""],
-				spellcastingBonus : {
-					name : "Darkvision",
-					spells : ["darkvision"],
-					selection : ["darkvision"],
-					firstCol : 2
-				},
-				spellFirstColTitle : "Ki"
-			},
-			"pass without trace" : {
-				name : "Pass Without Trace",
-				source : ["P", 80],
-				description : " [2 ki points]" + "\n   " + "As an action, I can cast Pass without Trace without material components",
-				action : ["action", ""],
-				spellcastingBonus : {
-					name : "Pass Without Trace",
-					spells : ["pass without trace"],
-					selection : ["pass without trace"],
-					firstCol : 2
-				},
-				spellFirstColTitle : "Ki"
-			},
-			"silence" : {
-				name : "Silence",
-				source : ["P", 80],
-				description : " [2 ki points]" + "\n   " + "As an action, I can cast Silence",
-				action : ["action", ""],
-				spellcastingBonus : {
-					name : "Silence",
-					spells : ["silence"],
-					selection : ["silence"],
-					firstCol : 2
-				},
-				spellFirstColTitle : "Ki"
-			}
+			autoSelectExtrachoices : [{ extrachoice : "shadow spells" }]
 		},
 		"subclassfeature6" : {
 			name : "Shadow Step",
@@ -1544,64 +1506,73 @@ AddSubClass("sorcerer", "wild magic", {
 				"This doesn't happen with cantrips and I only take this chance if the DM tells me to",
 				"See the \"Notes\" page for the table"
 			]),
-			wmsurgetable1 : "\u25C6 Wild Magic Surge Table (Wild Magic 1, PHB 104) [results 01-50]" + desc([
-				"d100  Effect",
-				"01-02 Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.",
-				"03-04 For the next minute, you can see any invisible creature if you have line of sight to it.",
-				"05-06 A modron chosen and controlled by the DM appears in an unoccupied space within 5 ft of you, then disappears 1 minute later.",
-				"07-08 You cast fireball as a 3rd-level spell centered on yourself.",
-				"09-10 You cast magic missile as a 5th-level spell.",
-				"11-12 Roll a d10. Your height changes by a number of inches equal to the roll. If the roll is odd, you shrink. If the roll is even, you grow.",
-				"13-14 You cast confusion centered on yourself.",
-				"15-16 For the next minute, you regain 5 hit points at the start of each of your turns.",
-				"17-18 You grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode out from your face.",
-				"19-20 You cast grease centered on yourself.",
-				"21-22 Creatures have disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.",
-				"23-24 Your skin turns a vibrant shade of blue. A remove curse spell can end this effect.",
-				"25-26 An eye appears on your forehead for the next minute.",
-				"27-28 For the next minute, all your spells with a casting time feet of 1 action have a casting time of 1 bonus action.",
-				"29-30 You teleport up to 60 ft to an unoccupied space of your choice that you can see.",
-				"31-32 You are transported to the Astral Plane until the end of your next turn, after which time you return to the space you previously occupied or the nearest unoccupied space if that space is occupied.",
-				"33-34 Maximize the damage of the next damaging spell you cast within the next minute.",
-				"35-36 Roll a d10. Your age changes by a number of years equal to the roll. If the roll is odd, you get younger (minimum 1 year old). If the roll is even, you get older.",
-				"37-38 1d6 flumphs controlled by the DM appear in unoccupied spaces within 60 ft of you and are frightened of you. They vanish after 1 minute.",
-				"39-40 You regain 2d10 hit points.",
-				"41-42 You turn into a potted plant until the start of your next turn. While a plant, you are incapacitated and have vulnerability to all damage. If you drop to 0 hit points, your pot breaks, and your form reverts.",
-				"43-44 For the next minute, you can teleport up to 20 ft as a bonus action on each of your turns.",
-				"45-46 You cast levitate on yourself.",
-				"47-48 A unicorn controlled by the DM appears in a space within 5 ft of you, then disappears 1 minute later.",
-				"49-50 You can't speak for the next minute. Whenever you try, pink bubbles float out of your mouth."
-			]),
-			wmsurgetable2 : "\u25C6 Wild Magic Surge Table (Wild Magic 1, PHB 104) [results 51-100]" + desc([
-				"d100  Effect",
-				"51-52 A spectral shield hovers near you for the next minute, granting you a +2 bonus to AC and immunity to magic missile.",
-				"53-54 You are immune to being intoxicated by alcohol for the next 5d6 days.",
-				"55-56 Your hair falls out but grows back within 24 hours.",
-				"57-58 For the next minute, any flammable object you touch that isn't being worn or carried by another creature bursts into flame.",
-				"59-60 You regain your lowest-level expended spell slot.",
-				"61-62 For the next minute, you must shout when you speak.",
-				"63-64 You cast fog cloud centered on yourself.",
-				"65-66 Up to three creatures you choose within 30 ft of you take 4d10 lightning damage.",
-				"67-68 You are frightened by the nearest creature until the end of your next turn.",
-				"69-70 Each creature within 30 ft of you becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell.",
-				"71-72 You gain resistance to all damage for the next minute.",
-				"73-74 A random creature within 60 ft of you becomes poisoned for 1d4 hours.",
-				"75-76 You glow with bright light in a 30-ft radius for the next minute. Any creature that ends its turn within 5 ft of you is blinded until the end of its next turn.",
-				"79-80 Illusory butterflies and flower petals flutter in the air within 10 ft of you for the next minute.",
-				"77-78 You cast polymorph on yourself. If you fail the saving throw, you turn into a sheep for the spell's duration.",
-				"81-82 You can take one additional action immediately.",
-				"83-84 Each creature within 30 ft of you takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt.",
-				"85-86 You cast mirror image.",
-				"87-88 You cast fly on a random creature within 60 ft of you.",
-				"89-90 You become invisible for the next minute. During that time, other creatures can't hear you. The invisibility ends if you attack or cast a spell.",
-				"91-92 If you die within the next minute, you immediately come back to life as if by the reincarnate spell.",
-				"93-94 Your size increases by one size category for the next minute.",
-				"95-96 You and all creatures within 30 ft of you gain vulnerability to piercing damage for the next minute.",
-				"97-98 You are surrounded by faint, ethereal music for the next minute.",
-				"99-100 You regain all expended sorcery points."
-			]),
-			eval : "try {AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1, \"Wild Mage's Wild Magic Surge table, part 1\"); AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2, \"Wild Mage's Wild Magic Surge table, part 2\");} catch (er) {};",
-			removeeval : "try {AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1); AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2);} catch (er) {};"
+			toNotesPage : [{
+				name : "Wild Magic Surge Table",
+				source : ["P", 104],
+				popupName : "Wild Mage's Wild Magic Surge Table, part 1",
+				additional : "results 01-50",
+				note : [
+					"d100  Effect",
+					"01-02 Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.",
+					"03-04 For the next minute, you can see any invisible creature if you have line of sight to it.",
+					"05-06 A modron chosen and controlled by the DM appears in an unoccupied space within 5 ft of you, then disappears 1 minute later.",
+					"07-08 You cast fireball as a 3rd-level spell centered on yourself.",
+					"09-10 You cast magic missile as a 5th-level spell.",
+					"11-12 Roll a d10. Your height changes by a number of inches equal to the roll. If the roll is odd, you shrink. If the roll is even, you grow.",
+					"13-14 You cast confusion centered on yourself.",
+					"15-16 For the next minute, you regain 5 hit points at the start of each of your turns.",
+					"17-18 You grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode out from your face.",
+					"19-20 You cast grease centered on yourself.",
+					"21-22 Creatures have disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.",
+					"23-24 Your skin turns a vibrant shade of blue. A remove curse spell can end this effect.",
+					"25-26 An eye appears on your forehead for the next minute.",
+					"27-28 For the next minute, all your spells with a casting time feet of 1 action have a casting time of 1 bonus action.",
+					"29-30 You teleport up to 60 ft to an unoccupied space of your choice that you can see.",
+					"31-32 You are transported to the Astral Plane until the end of your next turn, after which time you return to the space you previously occupied or the nearest unoccupied space if that space is occupied.",
+					"33-34 Maximize the damage of the next damaging spell you cast within the next minute.",
+					"35-36 Roll a d10. Your age changes by a number of years equal to the roll. If the roll is odd, you get younger (minimum 1 year old). If the roll is even, you get older.",
+					"37-38 1d6 flumphs controlled by the DM appear in unoccupied spaces within 60 ft of you and are frightened of you. They vanish after 1 minute.",
+					"39-40 You regain 2d10 hit points.",
+					"41-42 You turn into a potted plant until the start of your next turn. While a plant, you are incapacitated and have vulnerability to all damage. If you drop to 0 hit points, your pot breaks, and your form reverts.",
+					"43-44 For the next minute, you can teleport up to 20 ft as a bonus action on each of your turns.",
+					"45-46 You cast levitate on yourself.",
+					"47-48 A unicorn controlled by the DM appears in a space within 5 ft of you, then disappears 1 minute later.",
+					"49-50 You can't speak for the next minute. Whenever you try, pink bubbles float out of your mouth."
+				]
+			}, {
+				name : "Wild Magic Surge Table",
+				source : ["P", 104],
+				popupName : "Wild Mage's Wild Magic Surge Table, part 2",
+				additional : "results 51-100",
+				note : [
+					"d100  Effect",
+					"51-52 A spectral shield hovers near you for the next minute, granting you a +2 bonus to AC and immunity to magic missile.",
+					"53-54 You are immune to being intoxicated by alcohol for the next 5d6 days.",
+					"55-56 Your hair falls out but grows back within 24 hours.",
+					"57-58 For the next minute, any flammable object you touch that isn't being worn or carried by another creature bursts into flame.",
+					"59-60 You regain your lowest-level expended spell slot.",
+					"61-62 For the next minute, you must shout when you speak.",
+					"63-64 You cast fog cloud centered on yourself.",
+					"65-66 Up to three creatures you choose within 30 ft of you take 4d10 lightning damage.",
+					"67-68 You are frightened by the nearest creature until the end of your next turn.",
+					"69-70 Each creature within 30 ft of you becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell.",
+					"71-72 You gain resistance to all damage for the next minute.",
+					"73-74 A random creature within 60 ft of you becomes poisoned for 1d4 hours.",
+					"75-76 You glow with bright light in a 30-ft radius for the next minute. Any creature that ends its turn within 5 ft of you is blinded until the end of its next turn.",
+					"79-80 Illusory butterflies and flower petals flutter in the air within 10 ft of you for the next minute.",
+					"77-78 You cast polymorph on yourself. If you fail the saving throw, you turn into a sheep for the spell's duration.",
+					"81-82 You can take one additional action immediately.",
+					"83-84 Each creature within 30 ft of you takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt.",
+					"85-86 You cast mirror image.",
+					"87-88 You cast fly on a random creature within 60 ft of you.",
+					"89-90 You become invisible for the next minute. During that time, other creatures can't hear you. The invisibility ends if you attack or cast a spell.",
+					"91-92 If you die within the next minute, you immediately come back to life as if by the reincarnate spell.",
+					"93-94 Your size increases by one size category for the next minute.",
+					"95-96 You and all creatures within 30 ft of you gain vulnerability to piercing damage for the next minute.",
+					"97-98 You are surrounded by faint, ethereal music for the next minute.",
+					"99-100 You regain all expended sorcery points."
+				]
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Tides of Chaos",
@@ -3073,7 +3044,7 @@ FeatsList["defensive duelist"] = {
 	descriptionFull : "When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.",
 	description : "When wielding a finesse weapon with which I am proficient and another creature hits me with a melee attack, I can use my reaction to add my proficiency bonus to my AC for that attack, potentially causing the attack to miss me.",
 	prerequisite : "Dexterity 13 or higher",
-	prereqeval : "What('Dex') >= 13",
+	prereqeval : function(v) { return What('Dex') >= 13; },
 	action : ["reaction", " (when hit in melee)"]
 };
 FeatsList["dual wielder"] = {
@@ -3109,7 +3080,7 @@ FeatsList["elemental adept"] = {
 	descriptionFull : "When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder.\n   Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2.\n\nYou can select this feat multiple times. Each time you do so, you must choose a different damage type.",
 	description : "Choose one of the damage types: acid, cold, fire, lightning, or thunder. Spells I cast ignore resistance to damage from this damage type. For any spell I cast that deals this damage type, I can treat any 1 on a damage die as a 2.",
 	prerequisite : "The ability to cast at least one spell",
-	prereqeval : "CurrentSpells.toSource() !== '({})'",
+	prereqeval : function(v) { return v.isSpellcaster; },
 	allowDuplicates : true,
 	choices : ["acid", "cold", "fire", "lightning", "thunder"],
 	"acid" : {
@@ -3159,7 +3130,7 @@ FeatsList["heavily armored"] = {
 	descriptionFull : "You have trained to master the use of heavy armor, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency with heavy armor.",
 	description : "I gain proficiency with heavy armor. [+1 Strength]",
 	prerequisite : "Proficiency with medium armor",
-	prereqeval : "tDoc.getField('Proficiency Armor Medium').isBoxChecked(0)",
+	prereqeval : function(v) { return v.mediumArmorProf; },
 	scores : [1, 0, 0, 0, 0, 0],
 	armorProfs : [false, false, true, false]
 };
@@ -3169,7 +3140,7 @@ FeatsList["heavy armor master"] = {
 	descriptionFull : "You can use your armor to deflect strikes that would kill others. You gain the following benefits:\n \u2022 While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3.",
 	description : "While wearing heavy armor, bludgeoning, piercing, and slashing damage taken from nonmagical weapons is reduced by 3. [+1 Strength]",
 	prerequisite : "Proficiency with heavy armor",
-	prereqeval : "tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)",
+	prereqeval : function(v) { return v.heavyArmorProf; },
 	scores : [1, 0, 0, 0, 0, 0]
 };
 FeatsList["inspiring leader"] = {
@@ -3178,7 +3149,7 @@ FeatsList["inspiring leader"] = {
 	descriptionFull : "You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest.",
 	calculate : "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + \") temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.\";",
 	prerequisite : "Charisma 13 or higher",
-	prereqeval : "What('Cha') >= 13"
+	prereqeval : function(v) { return What('Cha') >= 13; }
 };
 FeatsList["keen mind"] = {
 	name : "Keen Mind",
@@ -3337,7 +3308,7 @@ FeatsList["medium armor master"] = {
 	descriptionFull : "You have practiced moving in medium armor to gain the following benefits:\n \u2022 Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.",
 	description : "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite : "Proficiency with medium armor",
-	prereqeval : "tDoc.getField('Proficiency Armor Medium').isBoxChecked(0)",
+	prereqeval : function(v) { return v.mediumArmorProf; },
 	eval : "Value('Medium Armor Max Mod', 3); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', false); ShowHideStealthDisadv();}",
 	removeeval : "tDoc.resetForm(['Medium Armor Max Mod']); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field)); ShowHideStealthDisadv();};"
 };
@@ -3354,7 +3325,7 @@ FeatsList["moderately armored"] = {
 	descriptionFull : "You have trained to master the use of medium armor and shields, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with medium armor and shields.",
 	description : "I gain proficiency with medium armor and shields. [+1 Strength or Dexterity]",
 	prerequisite : "Proficiency with light armor",
-	prereqeval : "tDoc.getField('Proficiency Armor Light').isBoxChecked(0)",
+	prereqeval : function(v) { return v.lightArmorProf; },
 	scorestxt : "+1 Strength or Dexterity",
 	armorProfs : [false, true, false, true]
 };
@@ -3435,7 +3406,7 @@ FeatsList["ritual caster"] = {
 	descriptionFull : "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.\n   When you choose this feat, you acquire a ritual book holding two 1st-level spells of your choice. Choose one of the following classes: bard, cleric, druid, sorcerer, warlock, or wizard. You must choose your spells from that class's spell list, and the spells you choose must have the ritual tag. The class you choose also determines your spellcasting ability for these spells: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.\n   If you come across a spell in written form, such as a magical spell scroll or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it.",
 	description : "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
-	prereqeval : "What('Int') >= 13 || What('Wis') >= 13",
+	prereqeval : function(v) { return What('Int') >= 13 || What('Wis') >= 13; },
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
@@ -3518,7 +3489,7 @@ FeatsList["skulker"] = {
 	descriptionFull : "You are expert at slinking through shadows. You gain the following benefits:\n \u2022 You can try to hide when you are lightly obscured from the creature from which you are hiding.\n \u2022 When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.\n \u2022 Dim light doesn't impose disadvantage on your Wisdom (Perception) checks relying on sight.",
 	description : "I can try to hide when I am lightly obscured. My position is not revealed when I am hidden from a creature and miss it with a ranged weapon attack. Dim light doesn't impose disadvantage on my Wisdom (Perception) checks relying on sight.",
 	prerequisite : "Dexterity 13 or higher",
-	prereqeval : "What('Dex') >= 13",
+	prereqeval : function(v) { return What('Dex') >= 13; },
 	vision : [["No disadv. on Perception in dim light", 0]]
 };
 // voor calcChanges gaan we v.rangeM gebruiken (als 'range multiplier')
@@ -3528,7 +3499,7 @@ FeatsList["spell sniper"] = {
 	descriptionFull : "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n \u2022 When you cast a spell that requires you to make an attack roll, the spell's range is doubled.\n \u2022 Your ranged spell attacks ignore half cover and three-quarters cover.\n \u2022 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
 	description : "Select a spellcasting ability using the square button on this feat line. I learn one cantrip requiring an attack roll from the spell list of a class with the chosen spellcasting ability. Any spell I cast requiring an attack roll has its range doubled and ignores half and 3/4 cover.",
 	prerequisite : "The ability to cast at least one spell",
-	prereqeval : "CurrentSpells.toSource() !== '({})'",
+	prereqeval : function(v) { return v.isSpellcaster; },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -3622,7 +3593,7 @@ FeatsList["war caster"] = {
 	name : "War Caster",
 	source : ["P", 170],
 	prerequisite : "The ability to cast at least one spell",
-	prereqeval : "CurrentSpells.toSource() !== '({})'",
+	prereqeval : function(v) { return v.isSpellcaster; },
 	descriptionFull :  "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
 	description : "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
 	action : ["reaction", " - Opportunity Spell"],

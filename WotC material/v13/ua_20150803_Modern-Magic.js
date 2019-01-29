@@ -242,7 +242,7 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 		"My pact weapon can take firearm forms, and I can transform magical firearms into one"
 	]),
 	source : ["UA:MM", 3],
-	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {

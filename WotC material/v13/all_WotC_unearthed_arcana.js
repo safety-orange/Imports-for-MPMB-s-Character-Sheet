@@ -1016,7 +1016,7 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 		"My pact weapon can take firearm forms, and I can transform magical firearms into one"
 	]),
 	source : ["UA:MM", 3],
-	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -2752,7 +2752,16 @@ RunFunctionAtEnd(function() {
 						"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up."
 					]
 				},
-				choices : []
+				choices : [],
+				choiceDependencies : [{
+					feature : "subclassfeature2.3"
+				}, {
+					feature : "subclassfeature6"
+				}, {
+					feature : "subclassfeature10"
+				}, {
+					feature : "subclassfeature14"
+				}]
 			},
 			"subclassfeature2.1" : {
 				name : "Channel Arcana",
@@ -2775,8 +2784,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 2,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
+				choicesNotInMenu : true
 			},
 			"subclassfeature6" : {
 				name : "Arcane Acolyte",
@@ -2784,8 +2792,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 6,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
+				choicesNotInMenu : true
 			},
 			"subclassfeature10" : {
 				name : "Arcane Priest",
@@ -2793,8 +2800,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 10,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
+				choicesNotInMenu : true
 			},
 			"subclassfeature14" : {
 				name : "Arcane High Priest",
@@ -2802,8 +2808,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 14,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
+				choicesNotInMenu : true
 			}
 		}
 	});
@@ -2824,8 +2829,7 @@ RunFunctionAtEnd(function() {
 			name : "Arcane Initiate: " + aDomain.subname,
 			source : dSource,
 			spellcastingExtra : aDomain.spellcastingExtra,
-			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
-			eval : ""
+			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks"
 		};
 		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
 		for (var aFea in aDomain.features) {
@@ -2834,13 +2838,11 @@ RunFunctionAtEnd(function() {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
-				AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature2.3', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 2 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
 			};
 			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature6"].choices.push(entryDoNm);
 					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-					AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature6', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -2854,7 +2856,6 @@ RunFunctionAtEnd(function() {
 				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature10"].choices.push(entryDoNm);
 					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-					AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature10', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 10 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -2868,7 +2869,6 @@ RunFunctionAtEnd(function() {
 				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature14"].choices.push(entryDoNm);
 					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-					AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature14', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -2975,13 +2975,16 @@ ClassList["rangerua"] = {
 			minlevel : 1,
 			description : "\n   " + "On my first turn in combat, I have adv. on attacks against those that did not yet act" + "\n   " + "I ignore difficult terrain; I have adv. on Initiative; I have benefits in travel, see page 3",
 			extraname : "Natural Explorer",
-			"travel benefit" : {
+			"travel benefits" : {
 				name : "Travel Benefits",
 				source : ["UA:RR", 3],
 				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
 			},
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)'); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra']);",
-			removeeval : "Checkbox('Init Adv', false, ''); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra'], 'remove');"
+			autoSelectExtrachoices : [{
+				extrachoice : "travel benefits"
+			}],
+			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)');",
+			removeeval : "Checkbox('Init Adv', false, ''); "
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);
@@ -6292,7 +6295,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",
 	source : ["UA:WnW", 3],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
@@ -6302,7 +6305,7 @@ AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
 		"It immediately takes fire damage equal to my Charisma modifier (min 1)"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
@@ -6312,7 +6315,7 @@ AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
 		"I have advantage on attack rolls against charmed creatures"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass); },
 	skills : ["Deception", "Stealth"]
 });
 AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
@@ -6322,7 +6325,7 @@ AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
 		"All creatures within 5 ft of the target take cold damage equal to my Cha modifier (min 1)"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patron, Pact of the Tome)", {
@@ -6333,7 +6336,7 @@ AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patr
 		"Its spirit writes the answer, to the best of its knowledge, in blood in a language I choose"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'",
+	prereqeval : function(v) { return (/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of the Blade)", {
@@ -6344,7 +6347,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 		"On a hit, I can expand a spell slot to have it do +2d8 necrotic damage per spell slot level"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	weaponOptions : {
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
@@ -6363,7 +6366,7 @@ AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 		"Creatures starting their turn within 5 ft of me take poison damage equal to my Cha mod"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", " (start/end)"]
 });
 AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Blade)", {
@@ -6375,7 +6378,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		"On a hit, I can expand a spell slot to have it do +2d8 slashing damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	weaponOptions : {
 		baseWeapon : "greatsword",
 		regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
@@ -6393,7 +6396,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.level >= 5 && (/\\bfiend\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5 && (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
@@ -6403,7 +6406,7 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && (/\\barchfey\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return v.hasEldritchBlast && (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -6419,7 +6422,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 		"As an action, I can see through solid object out to 30 ft until the end of my current turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7; },
 	action : ["action", ""]
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
@@ -6428,7 +6431,7 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 		"When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return v.hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass); },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -6444,7 +6447,7 @@ AddWarlockInvocation("Green Lord's Gift (prereq: the Archfey patron)", {
 		"When I regain HP, all dice for determining the HP I heal are treated as rolling maximum"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)"
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); }
 });
 AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Improved Pact Weapon",
@@ -6452,7 +6455,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -6473,7 +6476,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 		"On a hit, I can expand a spell slot to have it do +2d8 force damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	weaponOptions : {
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
@@ -6492,7 +6495,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 		"On a hit, I can expand a spell slot to have it do +2d8 radiant damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	weaponOptions : {
 		baseWeapon : "longbow",
 		regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
@@ -6510,7 +6513,7 @@ AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 		"I also have advantage on checks to escape a grapple, manacles, or rope bindings"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\bseeker\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); },
 	savetxt : { adv_vs : ["paralyzed"] }
 });
 AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, Eldritch Blast cantrip)", {
@@ -6520,7 +6523,7 @@ AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, El
 		"That ally can immediately expend one HD to regain HP, just like after a short rest"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/raven queen/).test(classes.known.warlock.subclass) && hasEldritchBlast"
+	prereqeval : function(v) { return v.hasEldritchBlast && (/raven queen/).test(classes.known.warlock.subclass); }
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patron)", {
 	name : "Relentless Hex",
@@ -6529,7 +6532,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patr
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
@@ -6545,7 +6548,7 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 		oncelr : true
 	},
 	source : ["UA:WnW", 5],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	speed : { swim : { spd : "walk", enc : "walk" } }
 });
 AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
@@ -6554,7 +6557,7 @@ AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
 		"When I finish a long rest, I pick two languages that I know until I finish my next long rest"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/\\bseeker\\b/).test(classes.known.warlock.subclass)"
+	prereqeval : function(v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); }
 });
 AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old One patron)", {
 	name : "Shroud of Ulban",
@@ -6564,7 +6567,7 @@ AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old O
 		"However, I only become visible at the end of the current turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18",
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18; },
 	action : ["action", ""]
 });
 AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the Blade)", {
@@ -6573,7 +6576,7 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 		"Any pact weapon I create is a +2 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -6594,7 +6597,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
 		"Until the ice is gone, I have vulnerability to fire damage, 0 speed, and am incapacitated"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	recovery : "short rest",
 	usages : 1,
 	action : ["reaction", ""]
@@ -6605,7 +6608,7 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 		"Any pact weapon I create is a +3 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.level >= 15 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return classes.known.warlock.level >= 15 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -10565,164 +10568,164 @@ AddSubClass("wizard", "war magic", {
 });
 // This doesn't add the Theurgy subclass if the source UA:TF is present, as that class is identical to the one found in Unearthed Arcana: The Faithful of (2016/08/01)
 if (!SourceList["UA:TF"]) {
-	RunFunctionAtEnd(function() {
-		var theTheurgySubclass = AddSubClass("wizard", "theurgy", {
-			regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
-			subname : "Theurgy",
-			source : [["UA:TF", 1], ["UA:WR", 1]],
-			fullname : "Theurgist",
-			features : {
-				"subclassfeature2" : {
-					name : "Arcane Initiate",
-					source : [["UA:TF", 2], ["UA:WR", 1]],
-					minlevel : 2,
-					description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
-					calcChanges : {
-						spellList : [
-							function(spList, spName, spType) {
-								if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
-								var domainSpells = CurrentSpells.wizard.extra;
-								// now stop this function if even one of the domain spells is not already in the spellbook
-								var knownSpells = CurrentSpells.wizard.selectSp;
-								for (var i = 0; i < domainSpells.length; i++) {
-									if (knownSpells.indexOf(domainSpells[i]) == -1) return;
-								}
-								// get all the cleric spells, level 1-9
-								var clericSpells = CreateSpellList({"class" : "cleric", level : [1,9]}, false, false, false);
-								spList.extraspells = spList.extraspells.concat(clericSpells);
-							},
-							"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up."
-						]
-					},
-					choices : []
+RunFunctionAtEnd(function() {
+	var theTheurgySubclass = AddSubClass("wizard", "theurgy", {
+		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
+		subname : "Theurgy",
+		source : [["UA:TF", 1], ["UA:WR", 1]],
+		fullname : "Theurgist",
+		features : {
+			"subclassfeature2" : {
+				name : "Arcane Initiate",
+				source : [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel : 2,
+				description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
+				calcChanges : {
+					spellList : [
+						function(spList, spName, spType) {
+							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
+							var domainSpells = CurrentSpells.wizard.extra;
+							// now stop this function if even one of the domain spells is not already in the spellbook
+							var knownSpells = CurrentSpells.wizard.selectSp;
+							for (var i = 0; i < domainSpells.length; i++) {
+								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
+							}
+							// get all the cleric spells, level 1-9
+							var clericSpells = CreateSpellList({"class" : "cleric", level : [1,9]}, false, false, false);
+							spList.extraspells = spList.extraspells.concat(clericSpells);
+						},
+						"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up."
+					]
 				},
-				"subclassfeature2.1" : {
-					name : "Channel Arcana",
-					source : [["UA:TF", 2], ["UA:WR", 1]],
-					minlevel : 2,
-					description : "\n   " + "I can channel arcane energy from my deity; the save for this is my wizard spell DC",
-					usages : [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
-					recovery : "short rest"
-				},
-				"subclassfeature2.2" : {
-					name : "Channel Arcana: Divine Arcana",
-					source : [["UA:TF", 2], ["UA:WR", 1]],
-					minlevel : 2,
-					description : "\n   " + "As a bonus action, I speak a prayer to control the flow of magic around me" + "\n   " + "The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
-					action : ["bonus action", ""]
-				},
-				"subclassfeature2.3" : {
-					name : "Channel Arcana: Domain",
-					source : [["UA:TF", 2], ["UA:WR", 1]],
-					minlevel : 2,
-					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-					choices : [],
-					choicesNotInMenu : true,
-					eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
-				},
-				"subclassfeature6" : {
-					name : "Arcane Acolyte",
-					source : [["UA:TF", 3], ["UA:WR", 1]],
-					minlevel : 6,
-					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-					choices : [],
-					choicesNotInMenu : true,
-					eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
-				},
-				"subclassfeature10" : {
-					name : "Arcane Priest",
-					source : [["UA:TF", 3], ["UA:WR", 2]],
-					minlevel : 10,
-					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-					choices : [],
-					choicesNotInMenu : true,
-					eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
-				},
-				"subclassfeature14" : {
-					name : "Arcane High Priest",
-					source : [["UA:TF", 3], ["UA:WR", 2]],
-					minlevel : 14,
-					description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-					choices : [],
-					choicesNotInMenu : true,
-					eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'wizard', 'subclassfeature2');"
-				}
+				choices : [],
+				choiceDependencies : [{
+					feature : "subclassfeature2.3"
+				}, {
+					feature : "subclassfeature6"
+				}, {
+					feature : "subclassfeature10"
+				}, {
+					feature : "subclassfeature14"
+				}]
+			},
+			"subclassfeature2.1" : {
+				name : "Channel Arcana",
+				source : [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel : 2,
+				description : "\n   " + "I can channel arcane energy from my deity; the save for this is my wizard spell DC",
+				usages : [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
+				recovery : "short rest"
+			},
+			"subclassfeature2.2" : {
+				name : "Channel Arcana: Divine Arcana",
+				source : [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel : 2,
+				description : "\n   " + "As a bonus action, I speak a prayer to control the flow of magic around me" + "\n   " + "The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
+				action : ["bonus action", ""]
+			},
+			"subclassfeature2.3" : {
+				name : "Channel Arcana: Domain",
+				source : [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel : 2,
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				choices : [],
+				choicesNotInMenu : true
+			},
+			"subclassfeature6" : {
+				name : "Arcane Acolyte",
+				source : [["UA:TF", 3], ["UA:WR", 1]],
+				minlevel : 6,
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				choices : [],
+				choicesNotInMenu : true
+			},
+			"subclassfeature10" : {
+				name : "Arcane Priest",
+				source : [["UA:TF", 3], ["UA:WR", 2]],
+				minlevel : 10,
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				choices : [],
+				choicesNotInMenu : true
+			},
+			"subclassfeature14" : {
+				name : "Arcane High Priest",
+				source : [["UA:TF", 3], ["UA:WR", 2]],
+				minlevel : 14,
+				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				choices : [],
+				choicesNotInMenu : true
 			}
-		});
-		var MTfeat = ClassSubList[theTheurgySubclass].features;
-		for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
-			var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
-			if (!aDomain) continue;
-			var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
-			
-			var suffix = 1;
-			var entryDoNm = aDomain.subname;
-			while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
-				suffix += 1;
-				entryDoNm = aDomain.subname + " (" + suffix + ")";
+		}
+	});
+	var MTfeat = ClassSubList[theTheurgySubclass].features;
+	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
+		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
+		if (!aDomain) continue;
+		var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
+		
+		var suffix = 1;
+		var entryDoNm = aDomain.subname;
+		while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
+			suffix += 1;
+			entryDoNm = aDomain.subname + " (" + suffix + ")";
+		};
+		MTfeat["subclassfeature2"].choices.push(entryDoNm);
+		MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
+			name : "Arcane Initiate: " + aDomain.subname,
+			source : dSource,
+			spellcastingExtra : aDomain.spellcastingExtra,
+			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks"
+		};
+		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
+		for (var aFea in aDomain.features) {
+			var dFea = aDomain.features[aFea];
+			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
+				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
+				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
 			};
-			MTfeat["subclassfeature2"].choices.push(entryDoNm);
-			MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
-				name : "Arcane Initiate: " + aDomain.subname,
-				source : dSource,
-				spellcastingExtra : aDomain.spellcastingExtra,
-				description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
-				eval : ""
-			};
-			var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
-			for (var aFea in aDomain.features) {
-				var dFea = aDomain.features[aFea];
-				if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
-					MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-					MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-					MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
-					AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature2.3', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 2 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
-				};
-				if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
-					if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
-						MTfeat["subclassfeature6"].choices.push(entryDoNm);
-						MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-						AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature6', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
-					} else { //add to the existing entry
-						var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
-						theFea.name += " \u0026 " + dFea.name;
-						theFea.description += dFea.description;
-						for (var subFea in dFea) {
-							if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
-						};
+			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
+					MTfeat["subclassfeature6"].choices.push(entryDoNm);
+					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				} else { //add to the existing entry
+					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
+					theFea.name += " \u0026 " + dFea.name;
+					theFea.description += dFea.description;
+					for (var subFea in dFea) {
+						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
 					};
 				};
-				if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
-					if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
-						MTfeat["subclassfeature10"].choices.push(entryDoNm);
-						MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-						AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature10', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 10 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
-					} else { //add to the existing entry
-						var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
-						theFea.name += " \u0026 " + dFea.name;
-						theFea.description += dFea.description;
-						for (var subFea in dFea) {
-							if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
-						};
+			};
+			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
+					MTfeat["subclassfeature10"].choices.push(entryDoNm);
+					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				} else { //add to the existing entry
+					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
+					theFea.name += " \u0026 " + dFea.name;
+					theFea.description += dFea.description;
+					for (var subFea in dFea) {
+						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
 					};
 				};
-				if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
-					if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
-						MTfeat["subclassfeature14"].choices.push(entryDoNm);
-						MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-						AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature14', \"" + entryDoNm.toLowerCase() + "\"]; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ";
-					} else { //add to the existing entry
-						var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
-						theFea.name += " \u0026 " + dFea.name;
-						theFea.description += dFea.description;
-						for (var subFea in dFea) {
-							if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
-						};
+			};
+			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
+					MTfeat["subclassfeature14"].choices.push(entryDoNm);
+					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				} else { //add to the existing entry
+					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
+					theFea.name += " \u0026 " + dFea.name;
+					theFea.description += dFea.description;
+					for (var subFea in dFea) {
+						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
 					};
 				};
 			};
 		};
-	});
+	};
+});
 };
 var iFileName = "ua_20170327_A Trio-of-Subclasses.js";
 RequiredSheetVersion(13);
@@ -11456,7 +11459,7 @@ FeatsList["barbed hide"] = {
 	name : "Barbed Hide",
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Tiefling",
-	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "One of your ancestors was a barbed devil or other spiky fiend. Barbs protrude from your head. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 As a bonus action, you can cause small barbs to protrude all over your body or cause them to retract. At the start of each of your turns while the barbs are out, you deal 1d6 piercing damage to any creature grappling you or any creature grappled by you.\n \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
 	description : "I gain expertise with Intimidation, or proficiency if not so already. As a bonus action, I can protrude/retract small barbs from my skin. With them out, at the start of each of my turns I deal 1d6 piercing damage to any I'm grappling or are grappling me. [+1 Cha]",
 	scores : [0, 0, 0, 0, 0, 1],
@@ -11467,7 +11470,7 @@ FeatsList["bountiful luck"] = {
 	name : "Bountiful Luck",
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Halfling",
-	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "Whenever an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll.",
 	description : "Whenever an ally I can see within 30 feet of me rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll.",
 	action : ["reaction", ""]
@@ -11476,7 +11479,7 @@ FeatsList["critter friend"] = {
 	name : "Critter Friend",
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Forest Gnome",
-	prereqeval : "CurrentRace.known.indexOf('forest gnome') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('forest gnome') !== -1; },
 	descriptionFull : "Your friendship with animals mystically deepens. You gain the following benefits:\n \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Speak with Animals spell and can cast it at will, without expending a spell slot. You also learn the Animal Friendship spell, and you can cast it once with this feat, without expending a spell slot. You regain the ability to cast it in this way when you finish a long rest. Intelligence is your spellcasting ability for these spells.",
 	description : "I gain expertise with Animal Handling, or proficiency if I didn't have that already. I can cast Speak With Animals and Animal Friendship without using a spell slot. I can cast each of these spells like this once per long rest. Intelligence is my spellcasting ability for these.",
 	skills : [["Animal Handling", "increment"]],
@@ -11497,7 +11500,7 @@ FeatsList["dragon fear"] = {
 	name : "Dragon Fear",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
-	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can roar and expend a use of your breath weapon to force each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can't hear or see you. On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
 	calculate : "event.value = 'I can expend a Breath Weapon use to roar instead. Each creature of my choice within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened for 1 min. It can repeat the save whenever it takes damage. [+1 Str or Cha]';",
 	scorestxt : "+1 Strength or Charisma",
@@ -11508,7 +11511,7 @@ FeatsList["dragon hide"] = {
 	name : "Dragon Hide",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
-	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "You inherited the might and majesty of your dragon ancestors. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.\n \u2022 Your scales harden; you gain a +1 bonus to AC while you aren't wearing armor.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me a +1 bonus to AC when I'm not wearing armor. [+1 Strength or Charisma]",
 	scorestxt : "+1 Strength or Charisma",
@@ -11530,7 +11533,7 @@ FeatsList["dragon wings"] = {
 	name : "Dragon Wings",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
-	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "You sprout draconic wings. With your wings, you have a flying speed of 20 feet if you aren't wearing heavy armor and aren't exceeding your carrying capacity.",
 	description : "I sprout draconic wings. With my wings, I have a flying speed of 20 feet if I am not wearing heavy armor and I am not exceeding my carrying capacity or encumbered.",
 	speed : { fly : { spd : 20, enc : 0 } }
@@ -11539,7 +11542,7 @@ FeatsList["drow high magic"] = {
 	name : "Drow High Magic",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Drow (Dark Elf)",
-	prereqeval : "CurrentRace.known.indexOf('dark elf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dark elf') !== -1; },
 	descriptionFull : "You learn more of the spells typical for your people. You learn Detect Magic and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.",
 	description : "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
@@ -11564,7 +11567,7 @@ FeatsList["dwarf resilience"] = {
 	name : "Dwarf Resilience",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dwarf",
-	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
 	descriptionFull : "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
@@ -11573,7 +11576,7 @@ FeatsList["elven accuracy"] = {
 	name : "Elven Accuracy",
 	source : ["UA:FR", 2],
 	prerequisite : "Being an Elf or a Half-Elf",
-	prereqeval : "(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
 	descriptionFull : "You have uncanny aim. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll, you can reroll one of the dice once.",
 	description : "Whenever I have advantage on an attack roll, I can reroll one of the dice once. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0]
@@ -11582,7 +11585,7 @@ FeatsList["everybody's friend"] = {
 	name : "Everybody's Friend",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Half-Elf",
-	prereqeval : "(/^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known); },
 	descriptionFull : "You develop your magnetic personality to ease your way through the world. You gain the following benefits:\n \u2022 You gain proficiency in the Deception and Persuasion skills. If you're already proficient in either skill, your proficiency bonus is doubled for any check you make with that skill.",
 	description : "I gain expertise with Deception and Persuasion, or proficiency with them if I didn't have that already. [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1],
@@ -11592,7 +11595,7 @@ FeatsList["fade away"] = {
 	name : "Fade Away",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Gnome",
-	prereqeval : "CurrentRace.known.indexOf('gnome') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('gnome') !== -1; },
 	descriptionFull : "You can draw on your magical heritage to escape danger. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 When you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
@@ -11604,7 +11607,7 @@ FeatsList["fey teleportation"] = {
 	name : "Fey Teleportation",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a High Elf",
-	prereqeval : "CurrentRace.known.indexOf('high elf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('high elf') !== -1; },
 	descriptionFull : "Drawing on your fey ancestry, you have learned how to teleport. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
@@ -11622,7 +11625,7 @@ FeatsList["flames of phlegethos"] = {
 	name : "Flames of Phlegethos",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Tiefling",
-	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice. I can then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt : "+1 Intelligence or Charisma"	
@@ -11631,7 +11634,7 @@ FeatsList["grudge-bearer"] = {
 	name : "Grudge-Bearer [2 humanoids]",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Dwarf",
-	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
 	descriptionFull : "You have a deep hatred for a particular kind of creature. Choose your foes, a type of creature to bear the burden of your wrath: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can choose two races of humanoid (such as gnolls and orcs). You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.\n \u2022 During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.\n \u2022 When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.\n \u2022 Whenever you make an Intelligence (Arcana, History, Nature, or Religion) check to recall information about your chosen foes, you add double your proficiency bonus to the check, even if you're not normally proficient.",
 	description : "My hatred for a creature type gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]",
 	scorestxt : "+1 Strength, Constitution, or Wisdom",
@@ -11683,7 +11686,7 @@ FeatsList["human determination"] = {
 	name : "Human Determination",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Human",
-	prereqeval : "CurrentRace.known.indexOf('human') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('human') !== -1; },
 	descriptionFull : "You are filled with a determination that can draw the unreachable within your reach. You gain the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 When you make an attack roll, an ability check, or a saving throw, you can do so with advantage. Once you use this ability, you can't use it again until you finish a short or long rest.",
 	description : "When I make an attack roll, an ability check, or a saving throw, I can do so with advantage. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 to one ability score]",
 	scorestxt : "+1 to one ability score of your choice",
@@ -11695,7 +11698,7 @@ FeatsList["infernal constitution"] = {
 	name : "Infernal Constitution",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Tiefling",
-	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "Fiendish blood runs strong in you. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
 	description : "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0],
@@ -11706,7 +11709,7 @@ FeatsList["orcish aggression"] = {
 	name : "Orcish Aggression",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Half-Orc",
-	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known); },
 	descriptionFull : "As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started.",
 	description : "As a bonus action, I can move up to my speed toward an enemy of my choice that I can see or hear. I must end this move closer to the enemy than I started.",
 	action : ["bonus action", ""]
@@ -11715,7 +11718,7 @@ FeatsList["orcish fury"] = {
 	name : "Orcish Fury",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Half-Orc",
-	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known); },
 	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
@@ -11728,7 +11731,7 @@ FeatsList["prodigy"] = {
 	name : "Prodigy",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Half-Elf or a Human",
-	prereqeval : "(/human|^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/human|^(?=.*half)(?=.*elf).*$/i).test(CurrentRace.known); },
 	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.",
 	description : "I gain one skill proficiency of my choice, one tool proficiency of my choice, fluency in one language of my choice, and +1 to one ability score of my choice. [+1 to one ability score]",
 	scorestxt : "+1 to one ability score of your choice",
@@ -11740,7 +11743,7 @@ FeatsList["second chance"] = {
 	name : "Second Chance",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Halfling",
-	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
@@ -11752,7 +11755,7 @@ FeatsList["squat nimbleness"] = {
 	name : "Squat Nimbleness",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Dwarf, Gnome, or Halfling",
-	prereqeval : "(/dwarf|gnome|halfling/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/dwarf|gnome|halfling/i).test(CurrentRace.known); },
 	descriptionFull : "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill. If you're already proficient in the skill, your proficiency bonus is doubled for any check you make with it.",
 	description : "My walking speed increases by 5 ft. I gain proficiency in the Acrobatics or Athletics skill. If I'm already proficient in the chosen skill, I gain expertise with it instead.\n[+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
@@ -11763,7 +11766,7 @@ FeatsList["wonder maker"] = {
 	name : "Wonder Maker",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Rock Gnome",
-	prereqeval : "CurrentRace.known.indexOf('rock gnome') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('rock gnome') !== -1; },
 	descriptionFull : "You master the tinker techniques of your people. You gain the following benefits:\n \u2022 When you make a check using your proficiency with tinker's tools, you add double your proficiency bonus to the check.\n \u2022 When you make a device with your Tinker trait, you have the following additional options for what you make:\n \u2022 " + toUni("Alarm") + ". This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away.\n \u2022 " + toUni("Calculator") + ". This device makes doing sums easy.\n \u2022 " + toUni("Lifter") + ". This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift.\n \u2022 " + toUni("Timekeeper") + ". This pocket watch keeps accurate time.\n \u2022 " + toUni("Weather Sensor") + ". When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour.",
 	description : "I gain expertise with Tinker's Tools. I get additional Tinker options: Alarm (audible to 300 ft for 1 min), Calculator, Lifter (as block and tackle that multiplies max lift weight by 5), Timekeeper (pocket watch), Weather Sensor (predict for 1-mile, 4 hours) [+1 Dex or Int]",
 	scorestxt : "+1 Dexterity or Intelligence",
@@ -11774,7 +11777,7 @@ FeatsList["wood elf magic"] = {
 	name : "Wood Elf Magic",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Wood Elf",
-	prereqeval : "CurrentRace.known.indexOf('wood elf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('wood elf') !== -1; },
 	descriptionFull : "You learn the magic of the primeval woods. You learn one druid cantrip of your choice. You also learn Longstrider and Pass Without Trace, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Wisdom is your spellcasting ability for these spells.",
 	description : "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
@@ -12560,7 +12563,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		name : "Aspect of the Moon",
 		description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
 		source : [["X", 56], ["UA:RCO", 5]],
-		prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'",
+		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
 		savetxt : { text : ["Nothing can force me to sleep"] }
 	});
 	AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
@@ -12572,7 +12575,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 		]),
 		source : [["X", 56], ["UA:RCO", 5]],
-		prereqeval : "classes.known.warlock.level >= 5",
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
 		action : ["bonus action", " (start/stop)"]
@@ -12590,20 +12593,20 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["water breathing"],
 			firstCol : 'oncelr'
 		},
-		prereqeval : "classes.known.warlock.level >= 5",
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	});
 	AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
 		name : "Gift of the Ever-Living Ones",
 		description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
 		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'"
+		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
 	});
 	AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 		name : "Grasp of Hadar",
 		description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
 		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : "hasEldritchBlast",
+		prereqeval : function(v) { return v.hasEldritchBlast; },
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
@@ -12623,7 +12626,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["invisibility"],
 			firstCol : 'atwill'
 		},
-		prereqeval : "classes.known.warlock.level >= 15"
+		prereqeval : function(v) { return classes.known.warlock.level >= 15; }
 	});
 	AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 		name : "Tomb of Levistus",
@@ -12633,7 +12636,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 		]),
 		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : "classes.known.warlock.level >= 5",
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
 		action : ["reaction", ""],
@@ -12649,7 +12652,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["freedom of movement"],
 			firstCol : 'oncelr'
 		},
-		prereqeval : "classes.known.warlock.level >= 7"
+		prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 	});
 }
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
@@ -12661,7 +12664,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"If the target takes any of this bonus damage, it is knocked prone if it is Huge or smaller"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'"
+	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	name : "Frost Lance",
@@ -12670,7 +12673,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "hasEldritchBlast",
+	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -12687,7 +12690,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"Objects appear ghostly to me; I also gain 30 ft darkvision for the duration"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
 	action : ["action", ""]
@@ -12699,7 +12702,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -12719,7 +12722,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
@@ -12729,7 +12732,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 		"It and any of my choice within 5 ft of it take my Cha mod (min 0) in psychic damage"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
@@ -12739,7 +12742,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	action : ["bonus action", ""]
 });
 var iFileName = "ua_20170911_Eladrin-and-Gith.js";
@@ -13766,45 +13769,47 @@ AddSubClass("wizard", "school of invention", {
 				"If I choose a spell, I expend a spell slot and roll twice on the table for the slot's level",
 				"I can then choose which of the results I use; Use 5th-level table for spell slots over level 5"
 			]),
-			castingTable : "\u25C6 Reckless Casting Tables (School of Invention 2, UA:TS 3)\nd10\tCantrip\t\td10\tCantrip" + desc([
-				" 1\tAcid Splash\t\t    6\tRay of Frost",
-				" 2\tChill Touch\t\t    7\tShocking Grasp",
-				" 3\tFire Bolt\t\t    8\tSacred Flame",
-				" 4\tLight\t\t    9\tThorn Whip",
-				" 5\tPoison Spray\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t1st-Level Spell\td10\t1st-Level Spell" + desc([
-				" 1\tBurning Hands\t    6\tFog Cloud",
-				" 2\tChromatic Orb\t    7\tJump",
-				" 3\tColor Spray\t\t    8\tMagic Missile",
-				" 4\tFaerie Fire\t\t    9\tThunderwave",
-				" 5\tFalse Life\t\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t2nd-Level Spell\td10\t2nd-Level Spell" + desc([
-				" 1\tBlur\t\t    6\tLevitate",
-				" 2\tDarkness\t\t    7\tMelf's Acid Arrow",
-				" 3\tEnlarge/Reduce\t    8\tScorching Ray",
-				" 4\tGust of Wind\t    9\tShatter",
-				" 5\tInvisibility\t\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t3rd-Level Spell\td10\t3rd-Level Spell" + desc([
-				" 1\tBlink\t\t    6\tGaseous Form",
-				" 2\tFear\t\t    7\tLightning Bolt",
-				" 3\tFeign Death \t    8\tSleet Storm",
-				" 4\tFireball\t\t    9\tStinking Cloud",
-				" 5\tFly\t\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t4th-Level Spell\td10\t4th-Level Spell" + desc([
-				" 1\tBlight\t\t    6\tIce Storm",
-				" 2\tConfusion\t\t    7\tPhantasmal Killer",
-				" 3\tEvard's Black Tentacles\t    8\tStoneskin",
-				" 4\tFire Shield\t\t    9\tWall of Fire",
-				" 5\tGreater Invisibility\t  10\tRoll twice; Another 10, all is wasted"
-			]) + "\n\nd10\t5th-Level Spell\td10\t5th-Level Spell" + desc([
-				" 1\tCloudkill\t\t    6\tInsect Plague",
-				" 2\tCone of Cold\t    7\tMass Cure Wounds",
-				" 3\tDestructive Wave\t    8\tWall of Force",
-				" 4\tFlame Strike\t    9\tWall of Stone",
-				" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted"
-			]),
-			eval : "try {AddToNotes(ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable, \"School of Invention's Reckless Casting tables\");} catch (er) {};",
-			removeeval : "try {AddToNotes('', '', ClassSubList['wizard-school of invention'].features['subclassfeature2.2'].castingTable);} catch (er) {};"
+			toNotesPage : [{
+				name : "Reckless Casting Tables",
+				popupName : "School of Invention's Reckless Casting Tables",
+				note : "\nd10\tCantrip\t\td10\tCantrip" + desc([
+					" 1\tAcid Splash\t\t    6\tRay of Frost",
+					" 2\tChill Touch\t\t    7\tShocking Grasp",
+					" 3\tFire Bolt\t\t    8\tSacred Flame",
+					" 4\tLight\t\t    9\tThorn Whip",
+					" 5\tPoison Spray\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t1st-Level Spell\td10\t1st-Level Spell" + desc([
+					" 1\tBurning Hands\t    6\tFog Cloud",
+					" 2\tChromatic Orb\t    7\tJump",
+					" 3\tColor Spray\t\t    8\tMagic Missile",
+					" 4\tFaerie Fire\t\t    9\tThunderwave",
+					" 5\tFalse Life\t\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t2nd-Level Spell\td10\t2nd-Level Spell" + desc([
+					" 1\tBlur\t\t    6\tLevitate",
+					" 2\tDarkness\t\t    7\tMelf's Acid Arrow",
+					" 3\tEnlarge/Reduce\t    8\tScorching Ray",
+					" 4\tGust of Wind\t    9\tShatter",
+					" 5\tInvisibility\t\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t3rd-Level Spell\td10\t3rd-Level Spell" + desc([
+					" 1\tBlink\t\t    6\tGaseous Form",
+					" 2\tFear\t\t    7\tLightning Bolt",
+					" 3\tFeign Death \t    8\tSleet Storm",
+					" 4\tFireball\t\t    9\tStinking Cloud",
+					" 5\tFly\t\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t4th-Level Spell\td10\t4th-Level Spell" + desc([
+					" 1\tBlight\t\t    6\tIce Storm",
+					" 2\tConfusion\t\t    7\tPhantasmal Killer",
+					" 3\tEvard's Black Tentacles\t    8\tStoneskin",
+					" 4\tFire Shield\t\t    9\tWall of Fire",
+					" 5\tGreater Invisibility\t  10\tRoll twice; Another 10, all is wasted"
+				]) + "\n\nd10\t5th-Level Spell\td10\t5th-Level Spell" + desc([
+					" 1\tCloudkill\t\t    6\tInsect Plague",
+					" 2\tCone of Cold\t    7\tMass Cure Wounds",
+					" 3\tDestructive Wave\t    8\tWall of Force",
+					" 4\tFlame Strike\t    9\tWall of Stone",
+					" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted"
+				])
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Alchemical Casting",
@@ -15462,7 +15467,7 @@ if (!SourceList.WGtE) {
 		choices : ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
 		"detection" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 			scorestxt : "+1 Charisma or Intelligence",
@@ -15477,7 +15482,7 @@ if (!SourceList.WGtE) {
 		},
 		"finding" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 			scorestxt : "+1 Strength, Dexterity, or Wisdom",
@@ -15492,7 +15497,7 @@ if (!SourceList.WGtE) {
 		},
 		"handling" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
@@ -15507,7 +15512,7 @@ if (!SourceList.WGtE) {
 		},
 		"healing" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
@@ -15522,7 +15527,7 @@ if (!SourceList.WGtE) {
 		},
 		"hospitality" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
@@ -15537,7 +15542,7 @@ if (!SourceList.WGtE) {
 		},
 		"making" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 			scorestxt : "+1 Dexterity or Intelligence",
@@ -15552,7 +15557,7 @@ if (!SourceList.WGtE) {
 		},
 		"passage" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 			scorestxt : "+1 Dexterity or Constitution",
@@ -15567,7 +15572,7 @@ if (!SourceList.WGtE) {
 		},
 		"scribing" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 			scorestxt : "+1 Intelligence or Charisma",
@@ -15582,7 +15587,7 @@ if (!SourceList.WGtE) {
 		},
 		"sentinel" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 			scorestxt : "+1 Strength or Wisdom",
@@ -15597,7 +15602,7 @@ if (!SourceList.WGtE) {
 		},
 		"shadow" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
@@ -15612,7 +15617,7 @@ if (!SourceList.WGtE) {
 		},
 		"storm" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
@@ -15627,7 +15632,7 @@ if (!SourceList.WGtE) {
 		},
 		"warding" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
-			prereqeval : "Number(What('Character Level')) > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known)",
+			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known); },
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
 			description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 			scorestxt : "+1 Dexterity or Intelligence",
@@ -15652,7 +15657,7 @@ if (!SourceList.WGtE) {
 		name : "Aberrant Dragonmark",
 		source : [["WGtE", 112], ["UA:D", 9]],
 		prerequisite : "Not having a dragonmark",
-		prereqeval : "!(/dragonmark/i).test(CurrentRace.known)",
+		prereqeval : function(v) { return !(/dragonmark/i).test(CurrentRace.known); },
 		descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
 		description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",

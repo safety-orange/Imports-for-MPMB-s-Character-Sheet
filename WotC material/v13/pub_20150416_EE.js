@@ -252,7 +252,7 @@ FeatsList["svirfneblin magic"] = {
 	name : "Svirfneblin Magic",
 	source : [["E", 7], ["S", 115], ["MToF", 114]],
 	prerequisite : "Being a Svirfneblin (Deep Gnome)",
-	prereqeval : "CurrentRace.known === 'deep gnome'",
+	prereqeval : function(v) { return CurrentRace.known === 'deep gnome'; },
 	descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 	description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 	spellcastingBonus : [{

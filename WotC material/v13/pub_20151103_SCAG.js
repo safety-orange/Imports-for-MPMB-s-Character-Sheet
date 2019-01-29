@@ -29,7 +29,7 @@ RaceList["ghostwise halfling"] = {
 	weight : " weigh around 40 lb (35 + 2d4 lb)",
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-	improvements : "Ghostwise Halfling: +2 Dexterity, +1 Wisdom;",
+	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Ghostwise Halfling (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n" : " ") + "\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + (typePF ? "\n" : " ") + "\nHalfling Nimbleness: I can move through the space of any creature that is of a size larger than me." + (typePF ? "\n" : " ") + "\nSilent Speech: I can speak telepathically to any one creature within 30 feet of me. It only understands me if we share a language."
 };
 RaceList["gray dwarf"] = {
@@ -536,13 +536,16 @@ AddSubClass("monk", "way of the long death", {
 			additional : "1 ki point",
 			description : "\n   " + "When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead",
 			extraname : "Way of the Long Death 17",
-			changeeval : "if (lvlH >= 17 && lvlL < 17) { ClassFeatureOptions(['monk', 'subclassfeature11', 'touch of the long death', 'extra'], lvlA[1] < 17 ? 'remove' : false); }; ",
 			"touch of the long death" : {
 				name : "Touch of the Long Death",
 				source : ["S", 131],
 				description : " [1-10 ki points]" + "\n   " + "As an action, a target within 5 ft takes 2d10 necrotic damage per ki point I spent" + "\n   " + "It can make a Constitution saving throw to half the damage",
 				action : ["action", ""]
-			}
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "touch of the long death",
+				minlevel : 17
+			}]
 		}
 	}
 });
@@ -590,7 +593,10 @@ AddSubClass("monk", "way of the sun soul", {
 				}),
 				action : ["bonus action", " (after Attack action)"]
 			},
-			changeeval : "if (lvlH >= 6 && lvlL < 6) { ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'], lvlA[1] < 6 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "searing arc strike",
+				minlevel : 6
+			}]
 		},
 		"subclassfeature11" : {
 			name : "Searing Sunburst",
@@ -1426,7 +1432,7 @@ if (!FeatsList["svirfneblin magic"]) {
 		name : "Svirfneblin Magic",
 		source : [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite : "Being a Svirfneblin (Deep Gnome)",
-		prereqeval : "CurrentRace.known === 'deep gnome'",
+		prereqeval : function(v) { return CurrentRace.known === 'deep gnome'; },
 		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus : [{

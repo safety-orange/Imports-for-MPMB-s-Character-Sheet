@@ -96,8 +96,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
 					"Whenever I active my aura, anybody in my aura other than me takes fire damage"
 				]),
-				additional : levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " fire damage"; }),
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'desert']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature10'; if (choiceA[2] && lvlH >= 10 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				additional : levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " fire damage"; })
 			},
 			"sea" : {
 				name : "Storm Aura: Sea",
@@ -107,8 +106,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 					"Whenever I active my aura, I can choose one creature in my aura other than me",
 					"It takes lightning damage, or half as much on a successful Dexterity saving throw"
 				]),
-				additional : levels.map(function (n) { return n < 3 ? "" : (n < 10 ? 1 : n < 15 ? 2 : n < 20 ? 3 : 4) + "d6 lightning damage"; }),
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'sea']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature10'; if (choiceA[2] && lvlH >= 10 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
+				additional : levels.map(function (n) { return n < 3 ? "" : (n < 10 ? 1 : n < 15 ? 2 : n < 20 ? 3 : 4) + "d6 lightning damage"; })
 			},
 			"tundra" : {
 				name : "Storm Aura: Tundra",
@@ -117,9 +115,15 @@ AddSubClass("barbarian", "storm herald-xgte", {
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
 					"Whenever I active my aura, all creatures of my choice in my aura gain temporary HP"
 				]),
-				additional : levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " temporary hit points"; }),
-				eval : "var ToAdd = ['barbarian', 'subclassfeature6', 'tundra']; if (choiceA[2] && lvlH >= 6 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature10'; if (choiceA[2] && lvlH >= 10 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; ToAdd[1] = 'subclassfeature14'; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)};"
-			}
+				additional : levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " temporary hit points"; })
+			},
+			choiceDependencies : [{
+				feature : "subclassfeature6"
+			}, {
+				feature : "subclassfeature10"
+			}, {
+				feature : "subclassfeature14"
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Storm Soul",
@@ -157,8 +161,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 				action : ["action", " (freeze)"],
 				dmgres : ["Cold"],
 				savetxt : { immune : ["effects of extreme cold"] }
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
+			}
 		},
 		"subclassfeature10" : {
 			name : "Shielding Storm",
@@ -178,8 +181,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 			"tundra" : {
 				name : "Shielding Storm: Tundra",
 				description : "\n   " + "While raging, creatures of my choice within my Storm Aura also gain resistance to cold"
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
+			}
 		},
 		"subclassfeature14" : {
 			name : "Raging Storm",
@@ -211,8 +213,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 					"Whenever I activate my Storm Aura, I can choose a creature in my aura that I can see",
 					"It must make a Str save or have its speed reduced to 0 until the start of my next turn"
 				])
-			},
-			eval : "choiceA[1] = choiceA[1] ? choiceA[1] : GetFeatureChoice('class', 'barbarian', 'subclassfeature3');"
+			}
 		}
 	}
 });
@@ -1232,7 +1233,9 @@ AddSubClass("monk", "way of the kensei-xgte", {
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
-			eval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'deft strike', 'extra']);"
+			autoSelectExtrachoices : [{
+				extrachoice : "deft strike"
+			}]
 		},
 		"subclassfeature17" : {
 			name : "Unerring Accuracy",
@@ -1251,7 +1254,10 @@ AddSubClass("monk", "way of the kensei-xgte", {
 				additional : "1 to 3 ki points",
 				action : ["bonus action", ""]
 			},
-			changeeval : "if (lvlH >= 11 && lvlL < 11) { ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], lvlA[1] < 11 ? 'remove' : false); }; "
+			autoSelectExtrachoices : [{
+				extrachoice : "sharpen the blade",
+				minlevel : 11
+			}]
 		}
 	}
 });
@@ -1301,7 +1307,10 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					}),
 					action : ["bonus action", " (after Attack action)"]
 				},
-				changeeval : "if (lvlH >= 6 && lvlL < 6) { ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'], lvlA[1] < 6 ? 'remove' : false); }; "
+				autoSelectExtrachoices : [{
+					extrachoice : "searing arc strike",
+					minlevel : 6
+				}]
 			},
 			"subclassfeature11" : {
 				name : "Searing Sunburst",
@@ -1920,7 +1929,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 					level : [1,9],
 					selection : ["cure wounds"]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature14', 'eagle']; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; "
+				dependentChoices : "eagle"
 			},
 			"evil" : {
 				name : "Divine Magic: Evil",
@@ -1935,7 +1944,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 					level : [1,9],
 					selection : ["inflict wounds"]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature14', 'bat']; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; "
+				dependentChoices : "bat"
 			},
 			"law" : {
 				name : "Divine Magic: Law",
@@ -1950,7 +1959,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 					level : [1,9],
 					selection : ["bless"]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature14', 'eagle']; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; "
+				dependentChoices : "eagle"
 			},
 			"chaos" : {
 				name : "Divine Magic: Chaos",
@@ -1965,7 +1974,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 					level : [1,9],
 					selection : ["bane"]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature14', 'bat']; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; "
+				dependentChoices : "bat"
 			},
 			"neutrality" : {
 				name : "Divine Magic: Neutrality",
@@ -1980,8 +1989,12 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 					level : [1,9],
 					selection : ["protection from evil and good"]
 				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature14', 'dragonfly']; if (choiceA[2] && lvlH >= 14 && GetFeatureChoice('class',ToAdd[0],ToAdd[1]) != ToAdd[2]) {ClassFeatureOptions(ToAdd)}; "
-			}
+				dependentChoices : "dragonfly"
+			},
+			choiceDependencies : [{
+				feature : "subclassfeature14",
+				choiceAttribute : true
+			}]
 		},
 		"subclassfeature1.2" : {
 			name : "Favored by the Gods",
@@ -2033,12 +2046,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 				])
 			},
 			action : ["bonus action", ""],
-			speed : { fly : { spd : 30, enc : 20 } },
-			eval : function () {
-				if (choiceA[1]) return;
-				var affinity = GetFeatureChoice('class', 'sorcerer', 'subclassfeature1');
-				if (affinity) choiceA[1] = (/good|law/).test(affinity) ? 'eagle' : (/evil|chaos/).test(affinity) ? 'bat' : 'dragonfly';
-			}
+			speed : { fly : { spd : 30, enc : 20 } }
 		},
 		"subclassfeature18" : {
 			name : "Unearthly Recovery",
@@ -2444,7 +2452,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
 	source : [["X", 56], ["UA:RCO", 5]],
-	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
 	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
@@ -2456,7 +2464,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 	]),
 	source : [["X", 56], ["UA:RCO", 5]],
-	prereqeval : "classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
 	usages : 1,
 	action : ["bonus action", " (start/stop)"]
@@ -2470,7 +2478,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"The target is only knocked prone if it is Huge or smaller"
 	]),
 	source : ["X", 56],
-	prereqeval : "classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'"
+	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	name : "Ghostly Gaze",
@@ -2479,7 +2487,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"Objects appear ghostly to me; This lasts up to 1 minute, while I'm concentrating on this"
 	]),
 	source : ["X", 56],
-	prereqeval : "classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
 	action : ["action", ""]
@@ -2497,20 +2505,20 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		selection : ["water breathing"],
 		firstCol : 'oncelr'
 	},
-	prereqeval : "classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	speed : { swim : { spd : "walk", enc : "walk" } }
 });
 AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
 	name : "Gift of the Ever-Living Ones",
 	description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
 	source : [["X", 57], ["UA:RCO", 6]],
-	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'"
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
 	description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
 	source : [["X", 57], ["UA:RCO", 6]],
-	prereqeval : "hasEldritchBlast",
+	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -2528,7 +2536,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon"
 	]),
 	source : ["X", 57],
-	prereqeval : "GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -2556,7 +2564,7 @@ AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["X", 57],
-	prereqeval : "hasEldritchBlast",
+	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -2574,7 +2582,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 		"The Hex spell and any of my warlock features that curse are considered a hex for this"
 	]),
 	source : ["X", 57],
-	prereqeval : "classes.known.warlock.level >= 5 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass))",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warlock feature that curses)", {
@@ -2584,7 +2592,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 		"I teleport up to 30 ft to an unoccupied space that I can see within 5 ft of the target"
 	]),
 	source : ["X", 57],
-	prereqeval : "classes.known.warlock.level >= 7 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass))",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
@@ -2597,7 +2605,7 @@ AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 		selection : ["invisibility"],
 		firstCol : 'atwill'
 	},
-	prereqeval : "classes.known.warlock.level >= 15"
+	prereqeval : function(v) { return classes.known.warlock.level >= 15; }
 });
 AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	name : "Tomb of Levistus",
@@ -2607,7 +2615,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 		"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 	]),
 	source : [["X", 57], ["UA:RCO", 6]],
-	prereqeval : "classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
 	usages : 1,
 	action : ["reaction", ""],
@@ -2623,7 +2631,7 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		selection : ["freedom of movement"],
 		firstCol : 'oncelr'
 	},
-	prereqeval : "classes.known.warlock.level >= 7"
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 });
 
 // Add 1 subclass for the Wizard
@@ -2692,7 +2700,7 @@ FeatsList["bountiful luck-xgte"] = {
 	name : "Bountiful Luck",
 	source : ["X", 73],
 	prerequisite : "Being a Halfling",
-	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of fortune's favor!\n   When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll\n   When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
 	description : "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
 	action : ["reaction", ""]
@@ -2701,7 +2709,7 @@ FeatsList["dragon fear-xgte"] = {
 	name : "Dragon Fear",
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
-	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
 	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
@@ -2712,7 +2720,7 @@ FeatsList["dragon hide-xgte"] = {
 	name : "Dragon Hide",
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
-	prereqeval : "CurrentRace.known.indexOf('dragonborn') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
@@ -2736,7 +2744,7 @@ FeatsList["drow high magic-xgte"] = {
 	name : "Drow High Magic",
 	source : ["X", 74],
 	prerequisite : "Being a Drow (Dark Elf)",
-	prereqeval : "CurrentRace.known.indexOf('dark elf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dark elf') !== -1; },
 	descriptionFull : "You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells.",
 	description : "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
@@ -2761,7 +2769,7 @@ FeatsList["dwarven fortitude-xgte"] = {
 	name : "Dwarven Fortitude",
 	source : ["X", 74],
 	prerequisite : "Being a Dwarf",
-	prereqeval : "CurrentRace.known.indexOf('dwarf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
 	descriptionFull : "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
@@ -2770,7 +2778,7 @@ FeatsList["elven accuracy-xgte"] = {
 	name : "Elven Accuracy",
 	source : ["X", 74],
 	prerequisite : "Being an Elf or a Half-Elf",
-	prereqeval : "(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
 	descriptionFull : "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:\n \u2022 Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.",
 	description : "Whenever I have advantage on an attack roll that uses Dexterity, Intelligence, Wisdom, or Charisma, I can reroll one of the dice once. [+1 Dexterity, Intelligence, Wisdom, or Charisma]",
 	scorestxt : "+1 Dexterity, Intelligence, Wisdom, or Charisma"
@@ -2779,7 +2787,7 @@ FeatsList["fade away-xgte"] = {
 	name : "Fade Away",
 	source : ["X", 74],
 	prerequisite : "Being a Gnome",
-	prereqeval : "CurrentRace.known.indexOf('gnome') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('gnome') !== -1; },
 	descriptionFull : "Your people are clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Dexterity or Intelligence]",
 	scorestxt : "+1 Dexterity or Intelligence",
@@ -2791,7 +2799,7 @@ FeatsList["fey teleportation-xgte"] = { // this code includes contributions by S
 	name : "Fey Teleportation",
 	source : ["X", 74],
 	prerequisite : "Being a High Elf",
-	prereqeval : "CurrentRace.known.indexOf('high elf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('high elf') !== -1; },
 	descriptionFull : "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 You learn to speak, read, and write Sylvan.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. I also learn to speak, read, and write Sylvan. [+1 Intelligence or Charisma]",
 	scorestxt : "+1 Intelligence or Charisma",
@@ -2810,7 +2818,7 @@ FeatsList["flames of phlegethos-xgte"] = {
 	name : "Flames of Phlegethos",
 	source : ["X", 74],
 	prerequisite : "Being a Tiefling",
-	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice once. I then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee to take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt : "+1 Intelligence or Charisma"	
@@ -2819,7 +2827,7 @@ FeatsList["infernal constitution-xgte"] = {
 	name : "Infernal Constitution",
 	source : ["X", 75],
 	prerequisite : "Being a Tiefling",
-	prereqeval : "CurrentRace.known.indexOf('tiefling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
 	description : "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0],
@@ -2830,7 +2838,7 @@ FeatsList["orcish fury-xgte"] = {
 	name : "Orcish Fury",
 	source : ["X", 75],
 	prerequisite : "Being a Half-Orc",
-	prereqeval : "(/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known); },
 	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
@@ -2843,7 +2851,7 @@ FeatsList["prodigy-xgte"] = {
 	name : "Prodigy",
 	source : ["X", 75],
 	prerequisite : "Being a Half-Elf, Half-Orc, or Human",
-	prereqeval : "(/human|^(?=.*half)(?=.*(elf|orc)).*$/i).test(CurrentRace.known)",
+	prereqeval : function(v) { return (/human|^(?=.*half)(?=.*(elf|orc)).*$/i).test(CurrentRace.known); },
 	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
 	description : "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skillstxt : "Proficiency with any one skill and Expertise with any one skill that you are already proficient with",
@@ -2854,7 +2862,7 @@ FeatsList["second chance-xgte"] = {
 	name : "Second Chance",
 	source : ["X", 75],
 	prerequisite : "Being a Halfling",
-	prereqeval : "CurrentRace.known.indexOf('halfling') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "Fortune favors you when someone tries to strike you. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a short rest. [+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
@@ -2866,7 +2874,7 @@ FeatsList["squat nimbleness-xgte"] = {
 	name : "Squat Nimbleness",
 	source : ["X", 75],
 	prerequisite : "Being a Dwarf or a small race",
-	prereqeval : "(/dwarf/i).test(CurrentRace.known) || tDoc.getField('Size Category').currentValueIndices === 4",
+	prereqeval : function(v) { return (/dwarf/i).test(CurrentRace.known) || tDoc.getField('Size Category').currentValueIndices === 4; },
 	descriptionFull : "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill (your choice).\n \u2022 You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled.",
 	description : "My walking speed increases by 5 ft. I gain proficiency in either the Acrobatics or the Athletics skill. I have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks I make to escape from being grappled. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
@@ -2877,7 +2885,7 @@ FeatsList["wood elf magic-xgte"] = {
 	name : "Wood Elf Magic",
 	source : ["X", 75],
 	prerequisite : "Being a Wood Elf",
-	prereqeval : "CurrentRace.known.indexOf('wood elf') !== -1",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('wood elf') !== -1; },
 	descriptionFull : "You learn the magic of the primeval woods, which are revered and protected by your people. You learn one druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest. Wisdom is your spellcasting ability for all three spells.",
 	description : "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus : [{
