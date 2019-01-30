@@ -183,8 +183,8 @@ AddRacialVariant("human", "variant", {
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
 	trait : "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
-	eval : "AddString('Feat Note 1', 'Human bonus feat', '; ');",
-	removeeval : "RemoveString('Feat Note 1', 'Human bonus feat');"
+	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
+	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
 });
 
 // Add the subclasses that are not in the SRD
@@ -219,8 +219,12 @@ AddSubClass("barbarian", "totem warrior", {
 				name : "Bear Spirit",
 				description : "\n   " + "While raging, I have resistance to all damage types except psychic",
 				dmgres : [["All -Psychic", "All -Psychic (rage)"]],
-				eval : "SetProf('resistance', false, 'Bludgeoning', 'Barbarian: Rage', 'Bludgeon. (in Rage)'); SetProf('resistance', false, 'Piercing', 'Barbarian: Rage', 'Piercing (in Rage)'); SetProf('resistance', false, 'Slashing', 'Barbarian: Rage', 'Slashing (in Rage)');",
-				removeeval : "SetProf('resistance', true, 'Bludgeoning', 'Barbarian: Rage', 'Bludgeon. (in Rage)'); SetProf('resistance', true, 'Piercing', 'Barbarian: Rage', 'Piercing (in Rage)'); SetProf('resistance', true, 'Slashing', 'Barbarian: Rage', 'Slashing (in Rage)');"
+				eval : function() {
+					processResistance(false, 'Barbarian: Rage', ClassList.barbarian.features.rage.dmgres);
+				},
+				removeeval : function() {
+					processResistance(true, 'Barbarian: Rage', ClassList.barbarian.features.rage.dmgres);
+				}
 			},
 			"eagle" : {
 				name : "Eagle Spirit",
@@ -241,8 +245,7 @@ AddSubClass("barbarian", "totem warrior", {
 			"bear" : {
 				name : "Aspect of the Bear",
 				description : "\n   " + "Advantage on Strength checks to push/pull/lift/break; Carrying capacity is doubled",
-				eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-				removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+				carryingCapacity : 2
 			},
 			"eagle" : {
 				name : "Aspect of the Eagle",
@@ -721,7 +724,9 @@ AddSubClass("druid", "circle of the moon", {
 			recovery : "short rest",
 			additional : ["", "CR 1, no fly/swim; 1 hour", "CR 1, no fly/swim; 1 hour", "CR 1, no fly; 2 hours", "CR 1, no fly; 2 hours", "CR 2, no fly; 3 hours", "CR 2, no fly; 3 hours", "CR 2; 4 hours", "CR 3; 4 hours", "CR 3; 5 hours", "CR 3; 5 hours", "CR 4; 6 hours", "CR 4; 6 hours", "CR 4; 7 hours", "CR 5; 7 hours", "CR 5; 8 hours", "CR 5; 8 hours", "CR 6; 9 hours", "CR 6; 9 hours", "CR 6; 10 hours"],
 			action : ["bonus action", " (start/stop)"],
-			eval : "RemoveAction('action', 'Wild Shape (start)'); RemoveAction('bonus action', 'Wild Shape (end)');"
+			eval : function() {
+				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
+			}
 		},
 		"subclassfeature2.1" : {
 			name : "Combat Wild Shape",
@@ -729,8 +734,9 @@ AddSubClass("druid", "circle of the moon", {
 			minlevel : 2,
 			description : "\n   " + "As a bonus action while in Wild Shape, I can expend spell slots to heal myself" + "\n   " + "I regain 1d8 HP per expended spell slot level; I can use Wild Shape as a bonus action",
 			action : ["bonus action", " (heal)"],
-			removeeval : "AddAction('action', 'Wild Shape (start)', 'Druid'); AddAction('bonus action', 'Wild Shape (end)', 'Druid');"
-
+			removeeval : function() {
+				processActions(true, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
+			}
 		},
 		"subclassfeature6" : {
 			name : "Primal Strike",
@@ -3300,8 +3306,10 @@ FeatsList["martial adept"] = {
 	source : ["P", 168],
 	descriptionFull : "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
 	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
-	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
-	removeeval : "RemoveFeature('Combat Superiority ', 1);"
+	eval : function () {
+		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');
+	},
+	removeeval : function () { RemoveFeature('Combat Superiority ', 1); }
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
@@ -3310,8 +3318,20 @@ FeatsList["medium armor master"] = {
 	description : "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite : "Proficiency with medium armor",
 	prereqeval : function(v) { return v.mediumArmorProf; },
-	eval : "Value('Medium Armor Max Mod', 3); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', false); ShowHideStealthDisadv();}",
-	removeeval : "tDoc.resetForm(['Medium Armor Max Mod']); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field)); ShowHideStealthDisadv();};"
+	eval : function () {
+		Value('Medium Armor Max Mod', 3);
+		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
+			Checkbox('AC Stealth Disadvantage', false);
+			ShowHideStealthDisadv();
+		}
+	},
+	removeeval : function () {
+		tDoc.resetForm(['Medium Armor Max Mod']);
+		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
+			Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field));
+			ShowHideStealthDisadv();
+		}
+	}
 };
 FeatsList["mobile"] = {
 	name : "Mobile",
@@ -3408,36 +3428,51 @@ FeatsList["ritual caster"] = {
 	description : "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : function(v) { return What('Int') >= 13 || What('Wis') >= 13; },
+	commoneval : function(chc, spellAbility) {
+		if (!chc) return;
+		CurrentSpells['ritual caster ' + chc] = {
+			name : 'Ritual Book [' + chc.capitalize() + ']',
+			ability : spellAbility,
+			list : {"class" : chc, ritual : true},
+			known : {spells : 'book'}
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	commonremoveeval : function(chc) {
+		if (!chc) return;
+		delete CurrentSpells['ritual caster ' + chc];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster bard'] = {name : 'Ritual Book [Bard]', ability : 6, list : {class : 'bard', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"cleric" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual cleric spells.\nI can copy ritual cleric spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster cleric'] = {name : 'Ritual Book [Cleric]', ability : 5, list : {class : 'cleric', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"druid" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual druid spells.\nI can copy ritual druid spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster druid'] = {name : 'Ritual Book [Druid]', ability : 5, list : {class : 'druid', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"sorcerer" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual sorcerer spells.\nI can copy ritual sorcerer spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster sorcerer'] = {name : 'Ritual Book [Sorcerer]', ability : 6, list : {class : 'sorcerer', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"warlock" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual warlock spells.\nI can copy ritual warlock spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster warlock'] = {name : 'Ritual Book [Warlock]', ability : 6, list : {class : 'warlock', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"wizard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual wizard spells.\nI can copy ritual wizard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Intelligence is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster wizard'] = {name : 'Ritual Book [Wizard]', ability : 4, list : {class : 'wizard', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 4); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	}
 };
 FeatsList["savage attacker"] = {
@@ -5665,8 +5700,7 @@ RaceList["goliath"] = {
 		}
 	},
 	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Feat
@@ -7347,8 +7381,12 @@ AddSubClass("barbarian", "battlerager", {
 			},
 			weaponProfs : [false, false, ["armor spikes"]],
 			weaponsAdd : ['Armor Spikes'],
-			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');",
-			removeeval : "RemoveString('Proficiency Armor Other Description', 'Spiked Armor');"
+			eval : function() {
+				AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');
+			},
+			removeeval : function () {
+				RemoveString('Proficiency Armor Other Description', 'Spiked Armor');
+			}
 		},
 		"subclassfeature6" : {
 			name : "Reckless Abandon",
@@ -7463,8 +7501,7 @@ AddSubClass("fighter", "purple dragon knight", {
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : n + " HP";
 			}),
-			eval : "RemoveAction('bonus action', 'Second Wind'); AddAction('bonus action', 'Second Wind (+ Rallying Cry)', 'Purple Dragon Knight: Rallying Cry')",
-			removeeval : "RemoveAction('bonus action', 'Second Wind (+ Rallying Cry)'); AddAction('bonus action', 'Second Wind', 'Fighter: Second Wind')"
+			action : [["bonus action", "Second Wind (+Rallying Cry)", "Second Wind"]]
 		},
 		"subclassfeature7" : {
 			name : "Royal Envoy",
@@ -9344,8 +9381,7 @@ RaceList["bugbear"] = {
 		}
 	},
 	trait : "Bugbear (+2 Strength, +1 Dexterity)\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\nLong-Limbed: I have an additional 5 feet reach with melee attacks that I make on my turn.\nSurprise Attack: If I hit a surprised creature on my first turn in combat, that attack deals an extra 2d6 damage. I can do this only once per combat.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 RaceList["firbolg"] = {
 	regExpSearch : /firbolg/i,
@@ -9400,8 +9436,7 @@ RaceList["firbolg"] = {
 			action : ["bonus action", ""]
 		}
 	},
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 RaceList["goblin"] = {
 	regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
@@ -9465,8 +9500,7 @@ if (!RaceList["goliath"]) { //reprint from Elemental Evil Player's Companion
 			}
 		},
 		trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-		eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-		removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+		carryingCapacity : 2
 	};
 };
 RaceList["hobgoblin"] = {
@@ -9620,8 +9654,7 @@ RaceList["orc"] = {
 		}
 	},
 	trait : "Orc (+2 Strength, +1 Constitution, -2 Intelligence)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 RaceList["tabaxi"] = {
 	regExpSearch : /tabaxi/i,
@@ -13061,8 +13094,10 @@ AddSubClass("rogue", "scout-xgte", {
 				"The first creature I hit in the first round of combat becomes an easy target",
 				"Until the start of my next turn, all attacks against the target have advantage"
 			]),
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Scout (Ambush Master)');",
-			removeeval : "Checkbox('Init Adv', false, '');"
+			eval : function() {
+				Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Scout (Ambush Master)');
+			},
+			removeeval : function() { Checkbox('Init Adv', false, ''); }
 		},
 		"subclassfeature17" : {
 			name : "Sudden Strike",
@@ -13622,8 +13657,46 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			additional : levels.map( function(n) { return n < 6 ? "" : Math.floor(n/2) + " temp HP"; }),
 			usages : 1,
 			recovery : "long rest",
-			eval : "xgte_hexblade_accursed_specter_functions.add();",
-			removeeval : "xgte_hexblade_accursed_specter_functions.remove();"
+			eval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				var prefix = false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (!What(AScompA[a] + 'Comp.Race')) {
+							prefix = AScompA[a];
+							break;
+						}
+					}
+				}
+				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+				Value(prefix + 'Comp.Race', 'Specter');
+				var theType = tDoc.getField(prefix + 'Comp.Type');
+				theType.readonly = true;
+				theType.value = 'Accursed';
+				for (var a = 1; a <= 3; a++) {
+					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
+				}
+				Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
+					"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
+					"It has its own turns and obeys my commands until my next long rest, when it vanishes",
+					"It uses the stats of a specter with the following bonuses:",
+					"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
+					"\u2022 It gains temporary hit points equal to half my warlock level when created"
+				]));
+				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
+				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
+			},
+			removeeval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
+							DoTemplate("AScomp", "Remove", AScompA[a]);
+							return;
+						}
+					}
+				}
+			}
 		},
 		"subclassfeature10" : {
 			name : "Armor of Hexes",
@@ -13645,48 +13718,6 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 		}
 	}
 });
-xgte_hexblade_accursed_specter_functions = {
-	add : function() {
-		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-		var prefix = false;
-		if (AScompA) {
-			for (var a = 1; a < AScompA.length; a++) {
-				if (!What(AScompA[a] + 'Comp.Race')) {
-					prefix = AScompA[a];
-					break;
-				}
-			}
-		}
-		if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-		Value(prefix + 'Comp.Race', 'Specter');
-		var theType = tDoc.getField(prefix + 'Comp.Type');
-		theType.readonly = true;
-		theType.value = 'Accursed';
-		for (var a = 1; a <= 3; a++) {
-			AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
-		}
-		Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
-			"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
-			"It has its own turns and obeys my commands until my next long rest, when it vanishes",
-			"It uses the stats of a specter with the following bonuses:",
-			"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
-			"\u2022 It gains temporary hit points equal to half my warlock level when created"
-		]));
-		tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
-		AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
-	},
-	remove : function() {
-		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-		if (AScompA) {
-			for (var a = 1; a < AScompA.length; a++) {
-				if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
-					DoTemplate("AScomp", "Remove", AScompA[a]);
-					return;
-				}
-			}
-		}
-	}
-}
 
 // Add Warlock Invocations
 AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
@@ -13952,10 +13983,9 @@ FeatsList["dragon fear-xgte"] = {
 	prerequisite : "Being a Dragonborn",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
-	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
+	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that see and hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
-	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
-	removeeval : "AddAction('action', 'Breath Weapon', 'Dragonborn (Draconic Ancestry)', 'Breath Weapon or Dragon Fear'); if (CurrentRace.known !== 'dragonborn') { RemoveAction('action', 'Breath Weapon'); }; "
+	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
 FeatsList["dragon hide-xgte"] = {
 	name : "Dragon Hide",
@@ -16812,7 +16842,11 @@ RaceList["envoy warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -16883,7 +16917,11 @@ RaceList["juggernaut warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -16946,7 +16984,11 @@ RaceList["skirmisher warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -17459,8 +17501,28 @@ RaceList["dragonmark making human"] = {
 			recovery : "long rest"
 		}
 	},
-	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], firstCol : 'atwill'}}, typeList : 2 }; SetStringifieds('spells'); CurrentUpdates.types.push('spells'); ",
-	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+	eval : function () {
+		CurrentSpells['dragonmark making human'] = {
+			name : 'Human (dragonmark)',
+			ability : 4,
+			list : { 'class' : 'dragonmark making human', level : [0, 0] },
+			known : { cantrips : 1, spells : 'list' },
+			bonus : {
+				bonus1 : {
+					name : "Maker's Gift",
+					spells : ['mending'],
+					selection : ['mending'],
+					firstCol : 'atwill'
+				}
+			},
+			typeList : 2
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['dragonmark making human'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
 };
 RunFunctionAtEnd(function() {
 	for (var sp in SpellsList) {
@@ -18033,8 +18095,7 @@ RaceList["centaur-ggtr"] = {
 			action : ["bonus action", "Hooves (after charge)"]
 		}
 	},
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
@@ -18106,8 +18167,7 @@ RaceList["loxodon-ggtr"] = {
 		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield." +
 		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5× my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
 		"\n  Keen Smell: I have " + (typePF ? "advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." : "adv. on Perception, Survival, and Investigation checks involving smell."),
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Add the Minotaur race
@@ -18205,82 +18265,80 @@ RaceList["simic hybrid-ggtr"] = {
 		"animal enhancement" : {
 			name : "Animal Enhancement",
 			minlevel : 5,
-			eval : 'RaceList["simic hybrid"].set5thLvlAE();',
-			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE();'
+			eval : function() {
+				var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
+				var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
+				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
+				var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
+				var feaTxt = '';
+				var rObjNm = "simic hybrid-ggtr";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Manta Glide":
+						feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						break;
+					case "Nimble Climber":
+						feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
+						SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Nimble Climber)");
+						break;
+					case "Underwater Adaptation":
+						feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
+						break;
+					case "Grappling Appendages":
+						feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
+						AddWeapon("Grappling Appendages");
+						AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
+						break;
+					case "Carapace":
+						feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
+						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
+						AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
+						AddWeapon("Acid Spit");
+						break;
+				};
+				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
+				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
+				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
+			},
+			removeeval : function() {
+				var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
+				var raceRem = What("Race Remember");
+				if (!theRegex.test(raceRem)) return;
+				var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
+				var rObjNm = "simic hybrid-ggtr";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Nimble Climber":
+						SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
+						break;
+					case "Underwater Adaptation":
+						SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
+						break;
+					case "Grappling Appendages":
+						RemoveWeapon("Grappling Appendages");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
+						RemoveAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
+						break;
+					case "Carapace":
+						processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						RemoveFeature("Acid Spit", "", "", "", "", "", "event.value = Math.max(1, What('Con Mod'));");
+						RemoveWeapon("Acid Spit");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
+						break;
+				};
+				Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
+			}
 		}
-	},
-	set5thLvlAE : function() {
-		var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
-		var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
-		if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
-		var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', (sheetVersion > 12.999 ? 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. ' : '') + 'Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
-		var feaTxt = '';
-		var rObjNm = "simic hybrid-ggtr";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Manta Glide":
-				feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
-				break;
-			case "Nimble Climber":
-				feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
-				SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Nimble Climber)");
-				break;
-			case "Underwater Adaptation":
-				feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
-				SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
-				break;
-			case "Grappling Appendages":
-				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
-				AddWeapon("Grappling Appendages");
-				AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
-				break;
-			case "Carapace":
-				feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
-				processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
-				AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
-				AddWeapon("Acid Spit");
-				break;
-		};
-		if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-		Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
-		Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
-	},
-	remove5thLvlAE : function() {
-		var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
-		var raceRem = What("Race Remember");
-		if (!theRegex.test(raceRem)) return;
-		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
-		var rObjNm = "simic hybrid-ggtr";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Nimble Climber":
-				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
-				break;
-			case "Underwater Adaptation":
-				SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
-				break;
-			case "Grappling Appendages":
-				RemoveWeapon("Grappling Appendages");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
-				RemoveAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
-				break;
-			case "Carapace":
-				processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				RemoveFeature("Acid Spit", "", "", "", "", "", "event.value = Math.max(1, What('Con Mod'));");
-				RemoveWeapon("Acid Spit");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
-				break;
-		};
-		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
 	}
 };
 AddRacialVariant("simic hybrid-ggtr", "manta glide", {

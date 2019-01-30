@@ -243,8 +243,7 @@ RaceList["goliath"] = {
 		}
 	},
 	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Feat

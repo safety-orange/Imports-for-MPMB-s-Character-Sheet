@@ -182,8 +182,8 @@ AddRacialVariant("human", "variant", {
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
 	trait : "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
-	eval : "AddString('Feat Note 1', 'Human bonus feat', '; ');",
-	removeeval : "RemoveString('Feat Note 1', 'Human bonus feat');"
+	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
+	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
 });
 
 // Add the subclasses that are not in the SRD
@@ -218,8 +218,12 @@ AddSubClass("barbarian", "totem warrior", {
 				name : "Bear Spirit",
 				description : "\n   " + "While raging, I have resistance to all damage types except psychic",
 				dmgres : [["All -Psychic", "All -Psychic (rage)"]],
-				eval : "SetProf('resistance', false, 'Bludgeoning', 'Barbarian: Rage', 'Bludgeon. (in Rage)'); SetProf('resistance', false, 'Piercing', 'Barbarian: Rage', 'Piercing (in Rage)'); SetProf('resistance', false, 'Slashing', 'Barbarian: Rage', 'Slashing (in Rage)');",
-				removeeval : "SetProf('resistance', true, 'Bludgeoning', 'Barbarian: Rage', 'Bludgeon. (in Rage)'); SetProf('resistance', true, 'Piercing', 'Barbarian: Rage', 'Piercing (in Rage)'); SetProf('resistance', true, 'Slashing', 'Barbarian: Rage', 'Slashing (in Rage)');"
+				eval : function() {
+					processResistance(false, 'Barbarian: Rage', ClassList.barbarian.features.rage.dmgres);
+				},
+				removeeval : function() {
+					processResistance(true, 'Barbarian: Rage', ClassList.barbarian.features.rage.dmgres);
+				}
 			},
 			"eagle" : {
 				name : "Eagle Spirit",
@@ -240,8 +244,7 @@ AddSubClass("barbarian", "totem warrior", {
 			"bear" : {
 				name : "Aspect of the Bear",
 				description : "\n   " + "Advantage on Strength checks to push/pull/lift/break; Carrying capacity is doubled",
-				eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-				removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+				carryingCapacity : 2
 			},
 			"eagle" : {
 				name : "Aspect of the Eagle",
@@ -720,7 +723,9 @@ AddSubClass("druid", "circle of the moon", {
 			recovery : "short rest",
 			additional : ["", "CR 1, no fly/swim; 1 hour", "CR 1, no fly/swim; 1 hour", "CR 1, no fly; 2 hours", "CR 1, no fly; 2 hours", "CR 2, no fly; 3 hours", "CR 2, no fly; 3 hours", "CR 2; 4 hours", "CR 3; 4 hours", "CR 3; 5 hours", "CR 3; 5 hours", "CR 4; 6 hours", "CR 4; 6 hours", "CR 4; 7 hours", "CR 5; 7 hours", "CR 5; 8 hours", "CR 5; 8 hours", "CR 6; 9 hours", "CR 6; 9 hours", "CR 6; 10 hours"],
 			action : ["bonus action", " (start/stop)"],
-			eval : "RemoveAction('action', 'Wild Shape (start)'); RemoveAction('bonus action', 'Wild Shape (end)');"
+			eval : function() {
+				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
+			}
 		},
 		"subclassfeature2.1" : {
 			name : "Combat Wild Shape",
@@ -728,8 +733,9 @@ AddSubClass("druid", "circle of the moon", {
 			minlevel : 2,
 			description : "\n   " + "As a bonus action while in Wild Shape, I can expend spell slots to heal myself" + "\n   " + "I regain 1d8 HP per expended spell slot level; I can use Wild Shape as a bonus action",
 			action : ["bonus action", " (heal)"],
-			removeeval : "AddAction('action', 'Wild Shape (start)', 'Druid'); AddAction('bonus action', 'Wild Shape (end)', 'Druid');"
-
+			removeeval : function() {
+				processActions(true, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
+			}
 		},
 		"subclassfeature6" : {
 			name : "Primal Strike",
@@ -3299,8 +3305,10 @@ FeatsList["martial adept"] = {
 	source : ["P", 168],
 	descriptionFull : "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
 	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
-	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
-	removeeval : "RemoveFeature('Combat Superiority ', 1);"
+	eval : function () {
+		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');
+	},
+	removeeval : function () { RemoveFeature('Combat Superiority ', 1); }
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
@@ -3309,8 +3317,20 @@ FeatsList["medium armor master"] = {
 	description : "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite : "Proficiency with medium armor",
 	prereqeval : function(v) { return v.mediumArmorProf; },
-	eval : "Value('Medium Armor Max Mod', 3); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', false); ShowHideStealthDisadv();}",
-	removeeval : "tDoc.resetForm(['Medium Armor Max Mod']); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field)); ShowHideStealthDisadv();};"
+	eval : function () {
+		Value('Medium Armor Max Mod', 3);
+		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
+			Checkbox('AC Stealth Disadvantage', false);
+			ShowHideStealthDisadv();
+		}
+	},
+	removeeval : function () {
+		tDoc.resetForm(['Medium Armor Max Mod']);
+		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
+			Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field));
+			ShowHideStealthDisadv();
+		}
+	}
 };
 FeatsList["mobile"] = {
 	name : "Mobile",
@@ -3407,36 +3427,51 @@ FeatsList["ritual caster"] = {
 	description : "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : function(v) { return What('Int') >= 13 || What('Wis') >= 13; },
+	commoneval : function(chc, spellAbility) {
+		if (!chc) return;
+		CurrentSpells['ritual caster ' + chc] = {
+			name : 'Ritual Book [' + chc.capitalize() + ']',
+			ability : spellAbility,
+			list : {"class" : chc, ritual : true},
+			known : {spells : 'book'}
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	commonremoveeval : function(chc) {
+		if (!chc) return;
+		delete CurrentSpells['ritual caster ' + chc];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster bard'] = {name : 'Ritual Book [Bard]', ability : 6, list : {class : 'bard', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"cleric" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual cleric spells.\nI can copy ritual cleric spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster cleric'] = {name : 'Ritual Book [Cleric]', ability : 5, list : {class : 'cleric', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"druid" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual druid spells.\nI can copy ritual druid spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster druid'] = {name : 'Ritual Book [Druid]', ability : 5, list : {class : 'druid', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"sorcerer" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual sorcerer spells.\nI can copy ritual sorcerer spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster sorcerer'] = {name : 'Ritual Book [Sorcerer]', ability : 6, list : {class : 'sorcerer', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"warlock" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual warlock spells.\nI can copy ritual warlock spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster warlock'] = {name : 'Ritual Book [Warlock]', ability : 6, list : {class : 'warlock', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"wizard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual wizard spells.\nI can copy ritual wizard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Intelligence is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster wizard'] = {name : 'Ritual Book [Wizard]', ability : 4, list : {class : 'wizard', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 4); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	}
 };
 FeatsList["savage attacker"] = {

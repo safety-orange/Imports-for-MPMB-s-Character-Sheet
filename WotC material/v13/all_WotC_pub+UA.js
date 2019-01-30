@@ -184,8 +184,8 @@ AddRacialVariant("human", "variant", {
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
 	trait : "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
-	eval : "AddString('Feat Note 1', 'Human bonus feat', '; ');",
-	removeeval : "RemoveString('Feat Note 1', 'Human bonus feat');"
+	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
+	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
 });
 
 // Add the subclasses that are not in the SRD
@@ -220,8 +220,12 @@ AddSubClass("barbarian", "totem warrior", {
 				name : "Bear Spirit",
 				description : "\n   " + "While raging, I have resistance to all damage types except psychic",
 				dmgres : [["All -Psychic", "All -Psychic (rage)"]],
-				eval : "SetProf('resistance', false, 'Bludgeoning', 'Barbarian: Rage', 'Bludgeon. (in Rage)'); SetProf('resistance', false, 'Piercing', 'Barbarian: Rage', 'Piercing (in Rage)'); SetProf('resistance', false, 'Slashing', 'Barbarian: Rage', 'Slashing (in Rage)');",
-				removeeval : "SetProf('resistance', true, 'Bludgeoning', 'Barbarian: Rage', 'Bludgeon. (in Rage)'); SetProf('resistance', true, 'Piercing', 'Barbarian: Rage', 'Piercing (in Rage)'); SetProf('resistance', true, 'Slashing', 'Barbarian: Rage', 'Slashing (in Rage)');"
+				eval : function() {
+					processResistance(false, 'Barbarian: Rage', ClassList.barbarian.features.rage.dmgres);
+				},
+				removeeval : function() {
+					processResistance(true, 'Barbarian: Rage', ClassList.barbarian.features.rage.dmgres);
+				}
 			},
 			"eagle" : {
 				name : "Eagle Spirit",
@@ -242,8 +246,7 @@ AddSubClass("barbarian", "totem warrior", {
 			"bear" : {
 				name : "Aspect of the Bear",
 				description : "\n   " + "Advantage on Strength checks to push/pull/lift/break; Carrying capacity is doubled",
-				eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-				removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+				carryingCapacity : 2
 			},
 			"eagle" : {
 				name : "Aspect of the Eagle",
@@ -722,7 +725,9 @@ AddSubClass("druid", "circle of the moon", {
 			recovery : "short rest",
 			additional : ["", "CR 1, no fly/swim; 1 hour", "CR 1, no fly/swim; 1 hour", "CR 1, no fly; 2 hours", "CR 1, no fly; 2 hours", "CR 2, no fly; 3 hours", "CR 2, no fly; 3 hours", "CR 2; 4 hours", "CR 3; 4 hours", "CR 3; 5 hours", "CR 3; 5 hours", "CR 4; 6 hours", "CR 4; 6 hours", "CR 4; 7 hours", "CR 5; 7 hours", "CR 5; 8 hours", "CR 5; 8 hours", "CR 6; 9 hours", "CR 6; 9 hours", "CR 6; 10 hours"],
 			action : ["bonus action", " (start/stop)"],
-			eval : "RemoveAction('action', 'Wild Shape (start)'); RemoveAction('bonus action', 'Wild Shape (end)');"
+			eval : function() {
+				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
+			}
 		},
 		"subclassfeature2.1" : {
 			name : "Combat Wild Shape",
@@ -730,8 +735,9 @@ AddSubClass("druid", "circle of the moon", {
 			minlevel : 2,
 			description : "\n   " + "As a bonus action while in Wild Shape, I can expend spell slots to heal myself" + "\n   " + "I regain 1d8 HP per expended spell slot level; I can use Wild Shape as a bonus action",
 			action : ["bonus action", " (heal)"],
-			removeeval : "AddAction('action', 'Wild Shape (start)', 'Druid'); AddAction('bonus action', 'Wild Shape (end)', 'Druid');"
-
+			removeeval : function() {
+				processActions(true, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
+			}
 		},
 		"subclassfeature6" : {
 			name : "Primal Strike",
@@ -3301,8 +3307,10 @@ FeatsList["martial adept"] = {
 	source : ["P", 168],
 	descriptionFull : "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
 	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
-	eval : "AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');",
-	removeeval : "RemoveFeature('Combat Superiority ', 1);"
+	eval : function () {
+		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');
+	},
+	removeeval : function () { RemoveFeature('Combat Superiority ', 1); }
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
@@ -3311,8 +3319,20 @@ FeatsList["medium armor master"] = {
 	description : "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite : "Proficiency with medium armor",
 	prereqeval : function(v) { return v.mediumArmorProf; },
-	eval : "Value('Medium Armor Max Mod', 3); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', false); ShowHideStealthDisadv();}",
-	removeeval : "tDoc.resetForm(['Medium Armor Max Mod']); if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field)); ShowHideStealthDisadv();};"
+	eval : function () {
+		Value('Medium Armor Max Mod', 3);
+		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
+			Checkbox('AC Stealth Disadvantage', false);
+			ShowHideStealthDisadv();
+		}
+	},
+	removeeval : function () {
+		tDoc.resetForm(['Medium Armor Max Mod']);
+		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
+			Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field));
+			ShowHideStealthDisadv();
+		}
+	}
 };
 FeatsList["mobile"] = {
 	name : "Mobile",
@@ -3409,36 +3429,51 @@ FeatsList["ritual caster"] = {
 	description : "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite : "Intelligence or Wisdom 13 or higher",
 	prereqeval : function(v) { return What('Int') >= 13 || What('Wis') >= 13; },
+	commoneval : function(chc, spellAbility) {
+		if (!chc) return;
+		CurrentSpells['ritual caster ' + chc] = {
+			name : 'Ritual Book [' + chc.capitalize() + ']',
+			ability : spellAbility,
+			list : {"class" : chc, ritual : true},
+			known : {spells : 'book'}
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	commonremoveeval : function(chc) {
+		if (!chc) return;
+		delete CurrentSpells['ritual caster ' + chc];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster bard'] = {name : 'Ritual Book [Bard]', ability : 6, list : {class : 'bard', ritual : true}, known : {spells : 'book'}}; SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster bard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"cleric" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual cleric spells.\nI can copy ritual cleric spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster cleric'] = {name : 'Ritual Book [Cleric]', ability : 5, list : {class : 'cleric', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster cleric']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"druid" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual druid spells.\nI can copy ritual druid spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster druid'] = {name : 'Ritual Book [Druid]', ability : 5, list : {class : 'druid', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster druid']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"sorcerer" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual sorcerer spells.\nI can copy ritual sorcerer spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster sorcerer'] = {name : 'Ritual Book [Sorcerer]', ability : 6, list : {class : 'sorcerer', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster sorcerer']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"warlock" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual warlock spells.\nI can copy ritual warlock spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster warlock'] = {name : 'Ritual Book [Warlock]', ability : 6, list : {class : 'warlock', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster warlock']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"wizard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual wizard spells.\nI can copy ritual wizard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Intelligence is my spellcasting ability for these.",
-		eval : "CurrentSpells['ritual caster wizard'] = {name : 'Ritual Book [Wizard]', ability : 4, list : {class : 'wizard', ritual : true}, known : {spells : 'book'}}, SetStringifieds('spells'); CurrentUpdates.types.push('spells');",
-		removeeval : "delete CurrentSpells['ritual caster wizard']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 4); },
+		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	}
 };
 FeatsList["savage attacker"] = {
@@ -5666,8 +5701,7 @@ RaceList["goliath"] = {
 		}
 	},
 	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Feat
@@ -7348,8 +7382,12 @@ AddSubClass("barbarian", "battlerager", {
 			},
 			weaponProfs : [false, false, ["armor spikes"]],
 			weaponsAdd : ['Armor Spikes'],
-			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');",
-			removeeval : "RemoveString('Proficiency Armor Other Description', 'Spiked Armor');"
+			eval : function() {
+				AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');
+			},
+			removeeval : function () {
+				RemoveString('Proficiency Armor Other Description', 'Spiked Armor');
+			}
 		},
 		"subclassfeature6" : {
 			name : "Reckless Abandon",
@@ -7464,8 +7502,7 @@ AddSubClass("fighter", "purple dragon knight", {
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : n + " HP";
 			}),
-			eval : "RemoveAction('bonus action', 'Second Wind'); AddAction('bonus action', 'Second Wind (+ Rallying Cry)', 'Purple Dragon Knight: Rallying Cry')",
-			removeeval : "RemoveAction('bonus action', 'Second Wind (+ Rallying Cry)'); AddAction('bonus action', 'Second Wind', 'Fighter: Second Wind')"
+			action : [["bonus action", "Second Wind (+Rallying Cry)", "Second Wind"]]
 		},
 		"subclassfeature7" : {
 			name : "Royal Envoy",
@@ -9345,8 +9382,7 @@ RaceList["bugbear"] = {
 		}
 	},
 	trait : "Bugbear (+2 Strength, +1 Dexterity)\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\nLong-Limbed: I have an additional 5 feet reach with melee attacks that I make on my turn.\nSurprise Attack: If I hit a surprised creature on my first turn in combat, that attack deals an extra 2d6 damage. I can do this only once per combat.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 RaceList["firbolg"] = {
 	regExpSearch : /firbolg/i,
@@ -9401,8 +9437,7 @@ RaceList["firbolg"] = {
 			action : ["bonus action", ""]
 		}
 	},
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 RaceList["goblin"] = {
 	regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
@@ -9466,8 +9501,7 @@ if (!RaceList["goliath"]) { //reprint from Elemental Evil Player's Companion
 			}
 		},
 		trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-		eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-		removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+		carryingCapacity : 2
 	};
 };
 RaceList["hobgoblin"] = {
@@ -9621,8 +9655,7 @@ RaceList["orc"] = {
 		}
 	},
 	trait : "Orc (+2 Strength, +1 Constitution, -2 Intelligence)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 RaceList["tabaxi"] = {
 	regExpSearch : /tabaxi/i,
@@ -13062,8 +13095,10 @@ AddSubClass("rogue", "scout-xgte", {
 				"The first creature I hit in the first round of combat becomes an easy target",
 				"Until the start of my next turn, all attacks against the target have advantage"
 			]),
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Scout (Ambush Master)');",
-			removeeval : "Checkbox('Init Adv', false, '');"
+			eval : function() {
+				Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Scout (Ambush Master)');
+			},
+			removeeval : function() { Checkbox('Init Adv', false, ''); }
 		},
 		"subclassfeature17" : {
 			name : "Sudden Strike",
@@ -13623,8 +13658,46 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			additional : levels.map( function(n) { return n < 6 ? "" : Math.floor(n/2) + " temp HP"; }),
 			usages : 1,
 			recovery : "long rest",
-			eval : "xgte_hexblade_accursed_specter_functions.add();",
-			removeeval : "xgte_hexblade_accursed_specter_functions.remove();"
+			eval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				var prefix = false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (!What(AScompA[a] + 'Comp.Race')) {
+							prefix = AScompA[a];
+							break;
+						}
+					}
+				}
+				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+				Value(prefix + 'Comp.Race', 'Specter');
+				var theType = tDoc.getField(prefix + 'Comp.Type');
+				theType.readonly = true;
+				theType.value = 'Accursed';
+				for (var a = 1; a <= 3; a++) {
+					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
+				}
+				Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
+					"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
+					"It has its own turns and obeys my commands until my next long rest, when it vanishes",
+					"It uses the stats of a specter with the following bonuses:",
+					"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
+					"\u2022 It gains temporary hit points equal to half my warlock level when created"
+				]));
+				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
+				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
+			},
+			removeeval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
+							DoTemplate("AScomp", "Remove", AScompA[a]);
+							return;
+						}
+					}
+				}
+			}
 		},
 		"subclassfeature10" : {
 			name : "Armor of Hexes",
@@ -13646,48 +13719,6 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 		}
 	}
 });
-xgte_hexblade_accursed_specter_functions = {
-	add : function() {
-		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-		var prefix = false;
-		if (AScompA) {
-			for (var a = 1; a < AScompA.length; a++) {
-				if (!What(AScompA[a] + 'Comp.Race')) {
-					prefix = AScompA[a];
-					break;
-				}
-			}
-		}
-		if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-		Value(prefix + 'Comp.Race', 'Specter');
-		var theType = tDoc.getField(prefix + 'Comp.Type');
-		theType.readonly = true;
-		theType.value = 'Accursed';
-		for (var a = 1; a <= 3; a++) {
-			AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
-		}
-		Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
-			"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
-			"It has its own turns and obeys my commands until my next long rest, when it vanishes",
-			"It uses the stats of a specter with the following bonuses:",
-			"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
-			"\u2022 It gains temporary hit points equal to half my warlock level when created"
-		]));
-		tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
-		AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
-	},
-	remove : function() {
-		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-		if (AScompA) {
-			for (var a = 1; a < AScompA.length; a++) {
-				if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
-					DoTemplate("AScomp", "Remove", AScompA[a]);
-					return;
-				}
-			}
-		}
-	}
-}
 
 // Add Warlock Invocations
 AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
@@ -13953,10 +13984,9 @@ FeatsList["dragon fear-xgte"] = {
 	prerequisite : "Being a Dragonborn",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
-	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
+	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that see and hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
-	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
-	removeeval : "AddAction('action', 'Breath Weapon', 'Dragonborn (Draconic Ancestry)', 'Breath Weapon or Dragon Fear'); if (CurrentRace.known !== 'dragonborn') { RemoveAction('action', 'Breath Weapon'); }; "
+	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
 FeatsList["dragon hide-xgte"] = {
 	name : "Dragon Hide",
@@ -16813,7 +16843,11 @@ RaceList["envoy warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -16884,7 +16918,11 @@ RaceList["juggernaut warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -16947,7 +16985,11 @@ RaceList["skirmisher warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -17460,8 +17502,28 @@ RaceList["dragonmark making human"] = {
 			recovery : "long rest"
 		}
 	},
-	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], firstCol : 'atwill'}}, typeList : 2 }; SetStringifieds('spells'); CurrentUpdates.types.push('spells'); ",
-	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+	eval : function () {
+		CurrentSpells['dragonmark making human'] = {
+			name : 'Human (dragonmark)',
+			ability : 4,
+			list : { 'class' : 'dragonmark making human', level : [0, 0] },
+			known : { cantrips : 1, spells : 'list' },
+			bonus : {
+				bonus1 : {
+					name : "Maker's Gift",
+					spells : ['mending'],
+					selection : ['mending'],
+					firstCol : 'atwill'
+				}
+			},
+			typeList : 2
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['dragonmark making human'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
 };
 RunFunctionAtEnd(function() {
 	for (var sp in SpellsList) {
@@ -18034,8 +18096,7 @@ RaceList["centaur-ggtr"] = {
 			action : ["bonus action", "Hooves (after charge)"]
 		}
 	},
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
@@ -18107,8 +18168,7 @@ RaceList["loxodon-ggtr"] = {
 		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield." +
 		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5× my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
 		"\n  Keen Smell: I have " + (typePF ? "advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." : "adv. on Perception, Survival, and Investigation checks involving smell."),
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Add the Minotaur race
@@ -18206,82 +18266,80 @@ RaceList["simic hybrid-ggtr"] = {
 		"animal enhancement" : {
 			name : "Animal Enhancement",
 			minlevel : 5,
-			eval : 'RaceList["simic hybrid"].set5thLvlAE();',
-			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE();'
+			eval : function() {
+				var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
+				var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
+				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
+				var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
+				var feaTxt = '';
+				var rObjNm = "simic hybrid-ggtr";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Manta Glide":
+						feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						break;
+					case "Nimble Climber":
+						feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
+						SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Nimble Climber)");
+						break;
+					case "Underwater Adaptation":
+						feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
+						break;
+					case "Grappling Appendages":
+						feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
+						AddWeapon("Grappling Appendages");
+						AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
+						break;
+					case "Carapace":
+						feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
+						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
+						AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
+						AddWeapon("Acid Spit");
+						break;
+				};
+				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
+				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
+				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
+			},
+			removeeval : function() {
+				var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
+				var raceRem = What("Race Remember");
+				if (!theRegex.test(raceRem)) return;
+				var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
+				var rObjNm = "simic hybrid-ggtr";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Nimble Climber":
+						SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
+						break;
+					case "Underwater Adaptation":
+						SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
+						break;
+					case "Grappling Appendages":
+						RemoveWeapon("Grappling Appendages");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
+						RemoveAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
+						break;
+					case "Carapace":
+						processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						RemoveFeature("Acid Spit", "", "", "", "", "", "event.value = Math.max(1, What('Con Mod'));");
+						RemoveWeapon("Acid Spit");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
+						break;
+				};
+				Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
+			}
 		}
-	},
-	set5thLvlAE : function() {
-		var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
-		var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
-		if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
-		var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', (sheetVersion > 12.999 ? 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. ' : '') + 'Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
-		var feaTxt = '';
-		var rObjNm = "simic hybrid-ggtr";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Manta Glide":
-				feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
-				break;
-			case "Nimble Climber":
-				feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
-				SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Nimble Climber)");
-				break;
-			case "Underwater Adaptation":
-				feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
-				SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
-				break;
-			case "Grappling Appendages":
-				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
-				AddWeapon("Grappling Appendages");
-				AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
-				break;
-			case "Carapace":
-				feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
-				processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
-				AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
-				AddWeapon("Acid Spit");
-				break;
-		};
-		if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-		Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
-		Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
-	},
-	remove5thLvlAE : function() {
-		var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
-		var raceRem = What("Race Remember");
-		if (!theRegex.test(raceRem)) return;
-		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
-		var rObjNm = "simic hybrid-ggtr";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Nimble Climber":
-				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
-				break;
-			case "Underwater Adaptation":
-				SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
-				break;
-			case "Grappling Appendages":
-				RemoveWeapon("Grappling Appendages");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
-				RemoveAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
-				break;
-			case "Carapace":
-				processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				RemoveFeature("Acid Spit", "", "", "", "", "", "event.value = Math.max(1, What('Con Mod'));");
-				RemoveWeapon("Acid Spit");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
-				break;
-		};
-		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
 	}
 };
 AddRacialVariant("simic hybrid-ggtr", "manta glide", {
@@ -21922,8 +21980,16 @@ FeatsList["alchemist"] = {
 	scores : [0, 0, 0, 1, 0, 0],
 	action : ["action", " (identify potion)"],
 	toolProfs : [["Alchemist's supplies", "Int"]],
-	eval : "if (CurrentProfs.tool[\"Alchemist's supplies\"] && (/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool[\"Alchemist's supplies\"] && (/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 FeatsList["burglar"] = {
 	name : "Burglar",
@@ -21932,8 +21998,16 @@ FeatsList["burglar"] = {
 	description : "I gain proficiency with thieves' tools, or expertise with them if I'm already proficient. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	toolProfs : [["Thieves' tools", "Dex"]],
-	eval : "if (CurrentProfs.tool[\"Thieves' tools\"] && (/thieves.*tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool[\"Thieves' tools\"] && (/thieves.*tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 FeatsList["gourmand"] = {
 	name : "Gourmand",
@@ -21943,8 +22017,16 @@ FeatsList["gourmand"] = {
 	scores : [0, 0, 1, 0, 0, 0],
 	action : ["action", " (inspect food)"],
 	toolProfs : [["Cook's utensils", "Int"]],
-	eval : "if (CurrentProfs.tool[\"Cook's utensils\"] && (/cook.*utensils/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool[\"Cook's utensils\"] && (/cook.*utensils/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/cook.*utensils/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/cook.*utensils/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 FeatsList["master of disguise"] = {
 	name : "Master of Disguise",
@@ -21954,8 +22036,16 @@ FeatsList["master of disguise"] = {
 	scores : [0, 0, 0, 0, 0, 1],
 	action : ["action", " (don disguise)"],
 	toolProfs : [["Disguise kit", "Cha"]],
-	eval : "if (CurrentProfs.tool['Disguise kit'] && (/disguise.*kit/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool['Disguise kit'] && (/disguise.*kit/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/disguise.*kit/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/disguise.*kit/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 var iFileName = "ua_20160801_The-Faithful.js";
 RequiredSheetVersion(13);
@@ -22288,8 +22378,10 @@ ClassList["rangerua"] = {
 			autoSelectExtrachoices : [{
 				extrachoice : "travel benefits"
 			}],
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)');",
-			removeeval : "Checkbox('Init Adv', false, ''); "
+			eval : function() {
+				Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)');
+			},
+			removeeval : function() { Checkbox('Init Adv', false, ''); }
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);
@@ -23980,8 +24072,16 @@ ClassList.artificer = {
 			minlevel : 2,
 			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
 			skillstxt : "expertise with with any tool proficiencies gained from the artificer class",
-			eval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
-			removeeval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"
+			eval : function () {
+				if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+					Checkbox('Too Exp', true);
+				};
+			},
+			removeeval : function () {
+				if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+					Checkbox('Too Exp', false);
+				};
+			}
 		},
 		"wondrous invention" : {
 			name : "Wondrous Invention",
@@ -23991,8 +24091,9 @@ ClassList.artificer = {
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : n < 5 ? "1 item" : (n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5) + " items";
 			}),
-			extraname : "Wondrous Invention",
-			extrachoices : ["Bag of Holding", "Cap of Water Breathing", "Driftglobe", "Goggles of Night", "Sending Stones", "Alchemy Jug (prereq: level 5 artificer)", "Helm of Comprehending Languages (prereq: level 5 artificer)", "Lantern of Revealing (prereq: level 5 artificer)", "Ring of Swimming (prereq: level 5 artificer)", "Robe of Useful Items (prereq: level 5 artificer)", "Rope of Climbing (prereq: level 5 artificer)", "Wand of Magic Detection (prereq: level 5 artificer)", "Wand of Secrets (prereq: level 5 artificer)", "Bag of Beans (prereq: level 10 artificer)", "Chime of Opening (prereq: level 10 artificer)", "Decanter of Endless Water (prereq: level 10 artificer)", "Eyes of Minute Seeing (prereq: level 10 artificer)", "Folding Boat (prereq: level 10 artificer)", "Heward's Handy Haversack (prereq: level 10 artificer)", "Boots of Striding and Springing (prereq: level 15 artificer)", "Bracers of Archery (prereq: level 15 artificer)", "Brooch of Shielding (prereq: level 15 artificer)", "Broom of Flying (prereq: level 15 artificer)", "Hat of Disguise (prereq: level 15 artificer)", "Slippers of Spider Climbing (prereq: level 15 artificer)", "Eyes of the Eagle (prereq: level 20 artificer)", "Gem of Brightness (prereq: level 20 artificer)", "Gloves of Missile Snaring (prereq: level 20 artificer)", "Gloves of Swimming and Climbing (prereq: level 20 artificer)", "Ring of Jumping (prereq: level 20 artificer)", "Ring of Mind Shielding (prereq: level 20 artificer)", "Wings of Flying (prereq: level 20 artificer)"] //come back to this with the function to make the individual entries
+			extraname : "Magic Item",
+			extrachoices : []
+			//come back to this with the function to make the individual entries
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
@@ -24418,376 +24519,30 @@ ClassSubList["artificer-gunsmith"] = {
 	}
 };
 
-//Magic Item additions 
-ArtMagicItemsList = {
-	"alchemy jug" : {
-		name : "Alchemy Jug",
-		source : ["D", 150],
-		description : "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, the jug can be uncorked and the liquid can be poured out, at 2 gal. per minute. Once commanded to produce a liquid, it can't produce a different one or more than the max of one, until the next dawn. Liquids (with max): Acid (8 fl. oz.), Basic poison (1/2 fl. oz.), Beer (4 gal.), Honey (1 gal.), Mayonnaise (2 gal.), Oil (1 quart), Vinegar (2 gal.), Fresh water (8 gal.), Salt water (12 gal.), Wine (1 gal.)",
-		descriptionLong : true,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 12,
-		descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max") + "\t" + toUni("Liquid") + "\t\t" + toUni("Max") + "\t" + toUni("Liquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine"
-	},
-	"bag of beans" : {
-		name : "Bag of Beans",
-		source : ["D", 152],
-		description : "This heavy cloth bag (0.5 lb) contains 3d4 dry beans (0.25 lb each). Dumping the bag's contents out on the ground, will cause the beans to explode in a 10-ft radius. All in the area must make a DC 15 Dex save or take 5d4 fire damage, or half on a successful save. The fire ignites unattended flammable objects in the area.\nPlanting a bean from the bag in dirt or sand and then watering it, causes an effect 1 minute later from the ground where it was planted, as determined by the DM.",
-		descriptionLong : true,
-		category : "wondrous item",
-		rarity : "rare",
-		attunement : false,
-		weight : 2.5,
-		descriptionFull : "Inside this heavy cloth bag are 3d4 dry beans. The bag weighs 1/2 pound plus 1/4 pound for each bean it contains." + "\n   " + "If you dump the bag's contents out on the ground, they explode in a 10-foot radius, extending from the beans. Each creature in the area, including you, must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much damage on a successful one. The fire ignites flammable objects in the area that aren't being worn or carried." + "\n   " + "If you remove a bean from the bag, plant it in dirt or sand, and then water it, the bean produces an effect 1 minute later from the ground where it was planted. The GM can choose an effect from the following table, determine it randomly, or create an effect.\n\n" + toUni("d100") + "\t" + toUni("Effect") + "\n" + toUni("01") + "\t5d4 toadstools sprout. If a creature eats a toadstool, roll any die. On an odd roll, the eater must succeed on a DC 15 Constitution saving throw or take 5d6 poison damage and become poisoned for 1 hour. On an even roll, the eater gains 5d6 temporary hit points for 1 hour.\n" + toUni("02-10") + "\tA geyser erupts and spouts water, beer, berry juice, tea, vinegar, wine, or oil (GM's choice) 30 feet into the air for 1d12 rounds.\n" + toUni("11-20") + "\tA treant sprouts. There's a 50 percent chance that the treant is chaotic evil and attacks.\n" + toUni("21-30") + "\tAn animate, immobile stone statue in your likeness rises. It makes verbal threats against you. If you leave it and others come near, it describes you as the most heinous of villains and directs the newcomers to find and attack you. If you are on the same plane of existence as the statue, it knows where you are. The statue becomes inanimate after 24 hours.\n" + toUni("31-40") + "\tA campfire with blue flames springs forth and burns for 24 hours (or until it is extinguished).\n" + toUni("41-50") + "\t1d6 + 6 shriekers sprout.\n" + toUni("51-60") + "\t1d4 + 8 bright pink toads crawl forth. Whenever a toad is touched, it transforms into a Large or smaller monster of the GM's choice. The monster remains for 1 minute, then disappears in a puff of bright pink smoke.\n" + toUni("61-70") + "\tA hungry bulette burrows up and attacks.\n" + toUni("71-80") + "\tA fruit tree grows. It has 1d10 + 20 fruit, 1d8 of which act as randomly determined magic potions, while one acts as an ingested poison of the GM's choice. The tree vanishes after 1 hour. Picked fruit remains, retaining any magic for 30 days.\n" + toUni("81-90") + "\tA nest of 1d4 + 3 eggs springs up. Any creature that eats an egg must make a DC 20 Constitution saving throw. On a successful save, a creature permanently increases its lowest ability score by 1, randomly choosing among equally low scores. On a failed save, the creature takes 10d6 force damage from an internal magical explosion.\n" + toUni("91-99") + "\tA pyramid with a 60-foot-square base bursts upward. Inside is a sarcophagus containing a mummy lord. The pyramid is treated as the mummy lord's lair, and its sarcophagus contains treasure of the GM's choice." + "\n" + toUni("100") + "\tA giant beanstalk sprouts, growing to a height of the GM's choice. The top leads where the GM chooses, such as to a great view, a cloud giant's castle, or a different plane of existence."
-	},
-	"bag of holding" : {
-		name : "Bag of Holding",
-		source : ["D", 153],
-		description : "The bag can hold up to 500 lb, not exceeding a volume of 64 cu ft, but weighs 15 lb regardless of content. Retrieving an item from it requires an action. If the bag is overloaded, pierced, or torn, it is destroyed, leaving its contents in the Astral plane.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 15,
-		descriptionFull : "This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action." + "\n   " + "If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate." + "\n   " + "Placing a bag of holding inside an extradimensional space created by a handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened."
-	},
-	"boots of striding and springing" : {
-		name : "Boots of Striding and Springing",
-		source : ["D", 156],
-		description : "While wearing these boots, my walking speed increases to 30 ft, and it isn't reduced if I'm encumbered or wearing heavy armor. In addition, I can jump three times the normal distance, though I can't jump farther my your remaining movement would allow.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 1,
-		descriptionFull : "While you wear these boots, your walking speed becomes 30 feet, unless your walking speed is higher, and your speed isn't reduced if you are encumbered or wearing heavy armor. In addition, you can jump three times the normal distance, though you can't jump farther than your remaining movement would allow."
-	},
-	"bracers of archery" : {
-		name : "Bracers of Archery",
-		source : ["D", 156],
-		description : "While wearing these bracers, I have proficiency with the longbow and shortbow, and I gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 1,
-		descriptionFull : "While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons."
-	},
-	"brooch of shielding" : {
-		name : "Brooch of Shielding",
-		source : ["D", 156],
-		description : "While wearing this brooch, I have resistance to force damage, and I have immunity to damage from the magic missile spell.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0,
-		descriptionFull : "While wearing this brooch, you have resistance to force damage, and you have immunity to damage from the magic missile spell."
-	},
-	"broom of flying" : {
-		name : "Broom of Flying",
-		source : ["D", 156],
-		description : "If I speak this broom's command word while standing astride it, it then hovers beneath me and can be ridden. It has a 50 ft flying speed and can carry up to 400 lb. While carring over 200 lb, its speed becomes 30 ft. The broom stops hovering when I land.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 3,
-		descriptionFull : "This wooden broom, which weighs 3 pounds, functions like a mundane broom until you stand astride it and speak its command word. It then hovers beneath you and can be ridden in the air. It has a flying speed of 50 feet. It can carry up to 400 pounds, but its flying speed becomes 30 feet while carrying over 200 pounds. The broom stops hovering when you land." + "\n   " + "You can send the broom to travel alone to a destination within 1 mile of you if you speak the command word, name the location, and are familiar with that place. The broom comes back to you when you speak another command word, provided that the broom is still within 1 mile of you."
-	},
-	"cap of water breathing" : {
-		name : "Cap of Water Breathing",
-		source : ["D", 157],
-		description : "If wearing this cap underwater, I can speak its command word as an action to create a bubble of air around my head, allowing me to breathe normally. This bubble stays until I again speak the command word, the cap is removed, or I am not underwater.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "While wearing this cap underwater, you can speak its command word as an action to create a bubble of air around your head. It allows you to breathe normally underwater. This bubble stays with you until you speak the command word again, the cap is removed, or you are no longer underwater."
-	},
-	"chime of opening" : {
-		name : "Chime of Opening",
-		source : ["D", 158],
-		description : "As an action, I can strike it and point it at an object within 120 ft that can be opened. One lock or latch on it opens unless the sound can't reach the object. If no locks or latches remain, the object itself opens. The chime has ten charges.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "rare",
-		attunement : false,
-		weight : 1,
-		descriptionFull : "This hollow metal tube measures about 1 foot long and weighs 1 pound. You can strike it as an action, pointing it at an object within 120 feet of you that can be opened, such as a door, lid, or lock. The chime issues a clear tone, and one lock or latch on the object opens unless the sound can't reach the object. If no locks or latches remain, the object itself opens." + "\n   " + "The chime can be used ten times. After the tenth time, it cracks and becomes useless."
-	},
-	"decanter of endless water" : {
-		name : "Decanter of Endless Water",
-		source : ["D", 161],
-		description : "I can use an action to remove the stopper from this flask and speak one of three command words, making fresh/salt water (my choice) pour out until the start of my next turn. 'Stream' produces 1 gallon of water. 'Fountain' produces 5 gallons of water.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 2,
-		descriptionFull : "This stoppered flask sloshes when shaken, as if it contains water. The decanter weighs 2 pounds." + "\n   " + "You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:" + "\n \u2022 " + "'Stream' produces 1 gallon of water." + "\n \u2022 " + "'Fountain' produces 5 gallons of water." + "\n \u2022 " + "'Geyser' produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you."
-	},
-	"driftglobe" : {
-		name : "Driftglobe",
-		source : ["D", 166],
-		description : "When I'm within 60 ft of this small glass sphere, I can speak its command word to make it shine light as the Light or Daylight spell. The daylight effect, once used, can't be used again until the next dawn. Then, as an action, I can speak another command to make it hover 5 ft off the ground. It hovers until grasped from the air. If I move more than 60 ft from the hovering globe, it follows me at a distance of 60 ft, taking the shortest route. If it can't move, it sinks to the ground and becomes inactive with shining light.",
-		descriptionLong : true,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 1,
-		descriptionFull : "This small sphere of thick glass weighs 1 pound. If you are within 60 feet of it, you can speak its command word and cause it to emanate the light or daylight spell. Once used, the daylight effect can't be used again until the next dawn." + "\n   " + "You can speak another command word as an action to make the illuminated globe rise into the air and float no more than 5 feet off the ground. The globe hovers in this way until you or another creature grasps it. If you move more than 60 feet from the hovering globe, it follows you until it is within 60 feet of you. It takes the shortest route to do so. If prevented from moving, the globe sinks gently to the ground and becomes inactive, and its light winks out."
-	},
-	"eyes of minute seeing" : {
-		name : "Eyes of Minute Seeing",
-		source : ["D", 168],
-		description : "These crystal lenses fit over the eyes. While wearing them, I can see much better than normal out to a range of 1 ft. I have advantage on Int (Investigation) checks that rely on sight while searching an area or studying an object within that range.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "These crystal lenses fit over the eyes. While wearing them, you can see much better than normal out to a range of 1 foot. You have advantage on Intelligence (Investigation) checks that rely on sight while searching an area or studying an object within that range."
-	},
-	"eyes of the eagle" : {
-		name : "Eyes of the Eagle",
-		source : ["D", 168],
-		description : "These crystal lenses fit over the eyes. While wearing them, I have advantage on Wisdom (Perception) checks that rely on sight. In conditions of clear visibility, I can make out details of even extremely distant creatures and objects as small as 2 feet across.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0,
-		descriptionFull : "These crystal lenses fit over the eyes. While wearing them, you have advantage on Wisdom (Perception) checks that rely on sight. In conditions of clear visibility, you can make out details of even extremely distant creatures and objects as small as 2 feet across."
-	},
-	"folding boat" : {
-		name : "Folding Boat",
-		source : ["D", 170],
-		description : "A wooden box of 12 by 6 by 6 inches, that can be opened to put items in. As an action, I can speak one of the three command words. One causes it to unfold into a boat 10 ft by 4 ft by 2 ft deep, with oars, an anchor, a mast, and a lateen sail, and can hold four Medium creatures. Two causes it to unfold into a ship 24 ft by 8 ft by 6 ft deep, with a deck, rowing seats, five sets of oars, a steering oar, an anchor, a deck cabin, and a mast with a square sail and can hold fifteen Medium creatures comfortably. Three causes it to fold up.",
-		descriptionLong : true,
-		category : "wondrous item",
-		rarity : "rare",
-		attunement : false,
-		weight : 4,
-		descriptionFull : "This object appears as a wooden box that measures 12 inches long, 6 inches wide, and 6 inches deep. It weighs 4 pounds and floats. It can be opened to store items inside. This item also has three command words, each requiring you to use an action to speak it." + "\n   " + "One command word causes the box to unfold into a boat 10 feet long, 4 feet wide, and 2 feet deep. The boat has one pair of oars, an anchor, a mast, and a lateen sail. The boat can hold up to four Medium creatures comfortably." + "\n   " + "The second command word causes the box to unfold into a ship 24 feet long, 8 feet wide, and 6 feet deep. The ship has a deck, rowing seats, five sets of oars, a steering oar, an anchor, a deck cabin, and a mast with a square sail. The ship can hold fifteen Medium creatures comfortably." + "\n   " + "When the box becomes a vessel, its weight becomes that of a normal vessel its size, and anything that was stored in the box remains in the boat." + "\n   " + "The third command word causes the folding boat to fold back into a box, provided that no creatures are aboard. Any objects in the vessel that can't fit inside the box remain outside the box as it folds. Any objects in the vessel that can fit inside the box do so."
-	},
-	"gem of brightness" : {
-		name : "Gem of Brightness",
-		source : ["D", 171],
-		description : "This prism has 50 charges. I can speak one of 3 command words as an action. 1) uses no charges to shed bright light in 30-ft radius and dim light for an extra 30 ft, lasting until I say the word as a bonus action or I use another function. 2) uses 1 charge to fire a beam of light at someone I see within 60 ft, who must make a DC 15 Con save or be blinded for 1 minute. It gets a save at the end of each of its turns to end the effect. 3) expends 5 charges to flare a 30-ft cone of light with the same effect as the beam to all in the area.",
-		descriptionLong : true,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "This prism has 50 charges. While you are holding it, you can use an action to speak one of three command words to cause one of the following effects:" + "\n \u2022 " + "The first command word causes the gem to shed bright light in a 30-foot radius and dim light for an additional 30 feet. This effect doesn't expend a charge. It lasts until you use a bonus action to repeat the command word or until you use another function of the gem." + "\n \u2022 " + "The second command word expends 1 charge and causes the gem to fire a brilliant beam of light at one creature you can see within 60 feet of you. The creature must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." + "\n \u2022 " + "The third command word expends 5 charges and causes the gem to flare with blinding light in a 30-foot cone originating from it. Each creature in the cone must make a saving throw as if struck by the beam created with the second command word." + "\n   " + "When all of the gem's charges are expended, the gem becomes a nonmagical jewel worth 50 gp."
-	},
-	"gloves of missile snaring" : {
-		name : "Gloves of Missile Snaring",
-		source : ["D", 172],
-		description : "When a ranged weapon attack hits me and I have a hand free, I can use my reaction to reduce the damage of that attack by 1d10 + my Dex mod. If I reduce the damage to 0, I can catch the missile if it is small enough for me to hold in that hand.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0,
-		descriptionFull : "These gloves seem to almost meld into your hands when you don them. When a ranged weapon attack hits you while you're wearing them, you can use your reaction to reduce the damage by 1d10 + your Dexterity modifier, provided that you have a free hand. If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in that hand."
-	},
-	"gloves of swimming and climbing" : {
-		name : "Gloves of Swimming and Climbing",
-		source : ["D", 172],
-		description : "While wearing these gloves, climbing and swimming don't cost me extra movement, and I gain a +5 bonus to Strength (Athletics) checks made to climb or swim.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0,
-		descriptionFull : "While wearing these gloves, climbing and swimming don't cost you extra movement, and you gain a +5 bonus to Strength (Athletics) checks made to climb or swim."
-	},
-	"goggles of night" : {
-		name : "Goggles of Night",
-		source : ["D", 172],
-		description : "While wearing these dark lenses, I have darkvision out to a range of 60 feet. If I already have darkvision, wearing the goggles increases its range by 60 feet.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "While wearing these dark lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet."
-	},
-	"hat of disguise" : {
-		name : "Hat of Disguise",
-		source : ["D", 173],
-		description : "While wearing this hat, I can use an action to cast the disguise self spell from it at will. The spell ends if the hat is removed.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0,
-		descriptionFull : "While wearing this hat, you can use an action to cast the disguise self spell from it at will. The spell ends if the hat is removed."
-	},
-	"helm of comprehending languages" : {
-		name : "Helm of Comprehending Languages",
-		source : ["D", 173],
-		description : "While wearing this helm, I can use an action to cast the comprehend languages spell from it at will.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 3,
-		descriptionFull : "While wearing this helm, you can use an action to cast the comprehend languages spell from it at will."
-	},
-	"heward's handy haversack" : {
-		name : "Heward's Handy Haversack",
-		source : ["D", 174],
-		description : "The backpack weighs 5 lb, but has two side pouches that hold up to 20 lb (2 cu ft), while it's central pouch holds up to 80 lb (8 cu ft). Retrieving an item from it requires an action. If the bag is overloaded, pierced, or torn, it is destroyed, as is its content.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "rare",
-		attunement : false,
-		weight : 5,
-		descriptionFull : "This backpack has a central pouch and two side pouches, each of which is an extradimensional space. Each side pouch can hold up to 20 pounds of material, not exceeding a volume of 2 cubic feet. The large central pouch can hold up to 8 cubic feet or 80 pounds of material. The backpack always weighs 5 pounds, regardless of its contents." + "\n   " + "Placing an object in the haversack follows the normal rules for interacting with objects. Retrieving an item from the haversack requires you to use an action. When you reach into the haversack for a specific item, the item is always magically on top." + "\n   " + "The haversack has a few limitations. If it is overloaded, or if a sharp object pierces it or tears it, the haversack ruptures and is destroyed. If the haversack is destroyed, its contents are lost forever, although an artifact always turns up again somewhere. If the haversack is turned inside out, its contents spill forth, unharmed, and the haversack must be put right before it can be used again. If a breathing creature is placed within the haversack, the creature can survive for up to 10 minutes, after which time it begins to suffocate." + "\n   " + "Placing the haversack inside an extradimensional space created by a bag of holding, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it and deposited in a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened."
-	},
-	"lantern of revealing" : {
-		name : "Lantern of Revealing",
-		source : ["D", 179],
-		description : "This lantern burns for 6 hours on 1 pint of oil. It shines bright light in a 30-ft radius and dim light for an extra 30 ft. Invisible objects and creatures are visible in the bright light. As an action, I can lower the hood, making it only dim light in a 5-ft radius.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 2,
-		descriptionFull : "While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius."
-	},
-	"ring of jumping" : {
-		name : "Ring of Jumping",
-		source : ["D", 191],
-		description : "While wearing this ring, I can cast the jump spell from it as a bonus action at will, but can target only myself when I do so.",
-		descriptionLong : false,
-		category : "ring",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0,
-		descriptionFull : "While wearing this ring, you can cast the jump spell from it as a bonus action at will, but can target only yourself when you do so."
-	},
-	"ring of mind shielding" : {
-		name : "Ring of Mind Shielding",
-		source : ["D", 191],
-		description : "With this ring, I'm immune to magic that allows others to read my thoughts, determine whether I'm lying, know my alignment, or know my creature type. Telepathic communication with me only works if I allow it. As an action, I can make the ring invisible.",
-		descriptionLong : false,
-		category : "ring",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0,
-		descriptionFull : "While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it." + "\n   " + "You can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die." + "\n   " + "If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication."
-	},
-	"ring of swimming" : {
-		name : "Ring of Swimming",
-		source : ["D", 193],
-		description : "I have a swimming speed of 40 feet while wearing this ring.",
-		descriptionLong : false,
-		category : "ring",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "You have a swimming speed of 40 feet while wearing this ring."
-	},
-	"robe of useful items" : {
-		name : "Robe of Useful Items",
-		source : ["D", 195],
-		description : "This robe has cloth patches of various shapes and colors covering it. While wearing the robe, I can use an action to detach one of the patches, causing it to become the object or creature it represents. The robe has two of each of the following patches: Dagger, Bullseye lantern (filled and lit), Steel mirror, 10-ft pole, Hempen rope (50 ft, coiled), and Sack. In addition, the robe has 4d4 other patches. The DM chooses the patches or determines them randomly. Once the last patch is removed, the robe becomes an ordinary garment.",
-		descriptionLong : true,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 1,
-		descriptionFull : "This robe has cloth patches of various shapes and colors covering it. While wearing the robe, you can use an action to detach one of the patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment." + "\n\n" + "The robe has two of each of the following patches:" + "\n \u2022 " + "Dagger" + "\n \u2022 " + "Bullseye lantern (filled and lit)" + "\n \u2022 " + "Steel mirror" + "\n \u2022 " + "10-foot pole" + "\n \u2022 " + "Hempen rope (50 feet, coiled)" + "\n \u2022 " + "Sack" + "\n\nIn addition, the robe has 4d4 other patches. The GM chooses the patches or determines them randomly.\n\n" + toUni("d100") + "\t" + toUni("Effect") + "\n" + toUni("01-08") + "\tBag of 100 gp\n" + toUni("09-15") + "\tSilver coffer (1 foot long, 6 inches wide and deep) worth 500 gp\n" + toUni("16-22") + "\tIron door (up to 10 feet wide and 10 feet high, barred on one side of your choice), which you can place in an opening you can reach; it conforms to fit the opening, attaching and hinging itself\n" + toUni("23-30") + "\t10 gems worth 100 gp each\n" + toUni("31-44") + "\tWooden ladder (24 feet long)\n" + toUni("45-51") + "\tA riding horse with saddle bags\n" + toUni("52-59") + "\tPit (a cube 10 feet on a side), which you can place on the ground within 10 feet of you\n" + toUni("60-68") + "\t4 potions of healing\n" + toUni("69-75") + "\tRowboat (12 feet long)\n" + toUni("76-83") + "\tSpell scroll containing one spell of 1st to 3rd level\n" + toUni("84-90") + "\t2 mastiffs\n" + toUni("91-96") + "\tWindow (2 feet by 4 feet, up to 2 feet deep), which you can place on a vertical surface you can reach\n" + toUni("97-00") + "\tPortable ram"
-	},
-	"rope of climbing" : {
-		name : "Rope of Climbing",
-		source : ["D", 197],
-		description : "This 60-ft length of silk rope can hold up to 3,000 pounds. As an action while holding one end of the rope, I can speak the command word to animate it. Then, as a bonus action, I can command the other end to move to a chosen destination, at 10 ft on my turn. I can also tell it to stop moving, to fasten itself securely, to unfasten itself, to knot or unknot itself, or to coil itself for carrying. While knotted, the rope shortens to 50 ft and grants advantage to climb it. The rope has AC 20 and 20 HP, regaining 1 HP per 5 minutes.",
-		descriptionLong : true,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 3,
-		descriptionFull : "This 60-foot length of silk rope weighs 3 pounds and can hold up to 3,000 pounds. If you hold one end of the rope and use an action to speak the command word, the rope animates. As a bonus action, you can command the other end to move toward a destination you choose. That end moves 10 feet on your turn when you first command it and 10 feet on each of your turns until reaching its destination, up to its maximum length away, or until you tell it to stop. You can also tell the rope to fasten itself securely to an object or to unfasten itself, to knot or unknot itself, or to coil itself for carrying." + "\n   " + "If you tell the rope to knot, large knots appear at 1-foot intervals along the rope. While knotted, the rope shortens to a 50-foot length and grants advantage on checks made to climb it." + "\n   " + "The rope has AC 20 and 20 hit points. It regains 1 hit point every 5 minutes as long as it has at least 1 hit point. If the rope drops to 0 hit points, it is destroyed."
-	},
-	"sending stones" : {
-		name : "Sending Stones",
-		source : ["D", 199],
-		description : "While I touch one of the pair of stones, I can use an action to cast the sending spell, targeting the bearer of the other stone. If no creature has the other stone, the spell won't cast. Once it is cast, neither stone can be used again until the next dawn.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell." + "\n   " + "Once sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical."
-	},
-	"slippers of spider climbing" : {
-		name : "Slippers of Spider Climbing",
-		source : ["D", 200],
-		description : "With these light shoes, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free. I have a climbing speed equal to my walking speed. The slippers don't work on a slippery surface (e.g. oily or icy).",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "uncommon",
-		attunement : true,
-		weight : 0.5,
-		descriptionFull : "While you wear these light shoes, you can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free. You have a climbing speed equal to your walking speed. However, the slippers don't allow you to move this way on a slippery surface, such as one covered by ice or oil."
-	},
-	"wand of magic detection" : {
-		name : "Wand of Magic Detection",
-		source : ["D", 211],
-		description : "This wand has 3 charges. While holding it, I can expend 1 charge as an action to cast the detect magic spell from it. The wand regains 1d3 expended charges daily at dawn.",
-		descriptionLong : false,
-		category : "wand",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "This wand has 3 charges. While holding it, you can expend 1 charge as an action to cast the detect magic spell from it. The wand regains 1d3 expended charges daily at dawn."
-	},
-	"wand of secrets" : {
-		name : "Wand of Secrets",
-		source : ["D", 211],
-		description : "The wand has 3 charges. While holding it, I can use an action to expend 1 of its charges, and if a secret door or trap is within 30 feet of me, the wand pulses and points at the one nearest to me. The wand regains 1d3 expended charges daily at dawn.",
-		descriptionLong : false,
-		category : "wand",
-		rarity : "uncommon",
-		attunement : false,
-		weight : 0,
-		descriptionFull : "The wand has 3 charges. While holding it, you can use an action to expend 1 of its charges, and if a secret door or trap is within 30 feet of you, the wand pulses and points at the one nearest to you. The wand regains 1d3 expended charges daily at dawn."
-	},
-	"wings of flying" : {
-		name : "Wings of Flying",
-		source : ["D", 214],
-		description : "With this cloak, I can speak its command word as an action, turning it into a pair of bat or bird wings on my back for 1 hour or until I repeat the command word as an action. This gives me a flying speed of 60 ft. Once used, it takes 1d12 hours to recharge.",
-		descriptionLong : false,
-		category : "wondrous item",
-		rarity : "rare",
-		attunement : true,
-		weight : 2,
-		descriptionFull : "While wearing this cloak, you can use an action to speak its command word. This turns the cloak into a pair of bat wings or bird wings on your back for 1 hour or until you repeat the command word as an action. The wings give you a flying speed of 60 feet. When they disappear, you can't use them again for 1d12 hours."
-	}
-};
-
-// Create the magic items for the wondrous items class feature of the artificer
-ClassList.artificer.features["wondrous invention"].extrachoices.forEach(function (theI) {
-	var theItem = theI.replace(/ *\(.*\)/, "");
+// Create the choices for the wondrous items class feature of the artificer
+["Bag of Holding", "Cap of Water Breathing", "Driftglobe", "Goggles of Night", "Sending Stones", "Alchemy Jug (prereq: level 5 artificer)", "Helm of Comprehending Languages (prereq: level 5 artificer)", "Lantern of Revealing (prereq: level 5 artificer)", "Ring of Swimming (prereq: level 5 artificer)", "Robe of Useful Items (prereq: level 5 artificer)", "Rope of Climbing (prereq: level 5 artificer)", "Wand of Magic Detection (prereq: level 5 artificer)", "Wand of Secrets (prereq: level 5 artificer)", "Bag of Beans (prereq: level 10 artificer)", "Chime of Opening (prereq: level 10 artificer)", "Decanter of Endless Water (prereq: level 10 artificer)", "Eyes of Minute Seeing (prereq: level 10 artificer)", "Folding Boat (prereq: level 10 artificer)", "Heward's Handy Haversack (prereq: level 10 artificer)", "Boots of Striding and Springing (prereq: level 15 artificer)", "Bracers of Archery (prereq: level 15 artificer)", "Brooch of Shielding (prereq: level 15 artificer)", "Broom of Flying (prereq: level 15 artificer)", "Hat of Disguise (prereq: level 15 artificer)", "Slippers of Spider Climbing (prereq: level 15 artificer)", "Eyes of the Eagle (prereq: level 20 artificer)", "Gem of Brightness (prereq: level 20 artificer)", "Gloves of Missile Snaring (prereq: level 20 artificer)", "Gloves of Swimming and Climbing (prereq: level 20 artificer)", "Ring of Jumping (prereq: level 20 artificer)", "Ring of Mind Shielding (prereq: level 20 artificer)", "Wings of Flying (prereq: level 20 artificer)"].forEach(function (theI) {
+	var theItem = ParseMagicItem(theI)[0];
+	if (!theItem) return;
+	var aMI = MagicItemsList[theItem];
 	var minLevel = Number(theI.replace(/.*level (\d+) artificer.*/, "$1"));
-	if (ArtMagicItemsList[theItem.toLowerCase()]) {
-		ClassList.artificer.features["wondrous invention"][theI.toLowerCase()] = {
-			name : theItem,
-			description : "",
-			source : ["UA:A", 3],
-			eval : "var maI = ArtMagicItemsList[\"" + theItem.toLowerCase() + "\"]; AddMagicItem(maI.name, maI.attunement, maI.description, maI.weight, maI.descriptionLong);",
-			removeeval : "RemoveMagicItem(\"" + theItem.toLowerCase() + "\");",
-			prereqeval : isNaN(minLevel) ? "" : "classes.known.artificer.level >= " + minLevel
-		};
+	var theObj = ClassList.artificer.features["wondrous invention"];
+	theObj[theI.toLowerCase()] = {
+		name : aMI.name,
+		description : "",
+		source : aMI.source,
+		eval : function (lvl, chc) {
+			var aMI = MagicItemsList[ParseMagicItem(chc[1])[0]];
+			AddMagicItem(aMI.name);
+		},
+		removeeval : function (lvl, chc) {
+			var theItem = ParseMagicItem(chc[0])[0];
+			var loc = CurrentMagicItems.known.indexOf(theItem);
+			if (!theItem || loc == -1) return;
+			MagicItemClear(loc + 1, true);
+		},
+		prereqeval : isNaN(minLevel) ? "" : "classes.known.artificer.level >= " + minLevel
 	};
+	theObj.extrachoices.push(theI);
 });
 
 // Set the Artificer class spell list
@@ -30605,8 +30360,7 @@ FeatsList["brawny"] = {
 	description : "I gain expertise with Athletics, or proficiency if not so already. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift. [+1 Strength]",
 	scores : [1, 0, 0, 0, 0, 0],
 	skills : [["Athletics", "increment"]],
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 FeatsList["diplomat"] = {
 	name : "Diplomat",
@@ -30816,10 +30570,9 @@ FeatsList["dragon fear"] = {
 	prerequisite : "Being a Dragonborn",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can roar and expend a use of your breath weapon to force each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can't hear or see you. On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
-	calculate : "event.value = 'I can expend a Breath Weapon use to roar instead. Each creature of my choice within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened for 1 min. It can repeat the save whenever it takes damage. [+1 Str or Cha]';",
+	calculate : "event.value = 'I can expend a Breath Weapon use to roar instead. Each creature of my choice within 30 ft that can see and hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened for 1 min. It can repeat the save whenever it takes damage. [+1 Str or Cha]';",
 	scorestxt : "+1 Strength or Charisma",
-	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
-	removeeval : "AddAction('action', 'Breath Weapon', 'Dragonborn (Draconic Ancestry)', 'Breath Weapon or Dragon Fear'); if (CurrentRace.known !== 'dragonborn') { RemoveAction('action', 'Breath Weapon'); }; "
+	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
 FeatsList["dragon hide"] = {
 	name : "Dragon Hide",
@@ -31084,8 +30837,16 @@ FeatsList["wonder maker"] = {
 	descriptionFull : "You master the tinker techniques of your people. You gain the following benefits:\n \u2022 When you make a check using your proficiency with tinker's tools, you add double your proficiency bonus to the check.\n \u2022 When you make a device with your Tinker trait, you have the following additional options for what you make:\n \u2022 " + toUni("Alarm") + ". This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away.\n \u2022 " + toUni("Calculator") + ". This device makes doing sums easy.\n \u2022 " + toUni("Lifter") + ". This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift.\n \u2022 " + toUni("Timekeeper") + ". This pocket watch keeps accurate time.\n \u2022 " + toUni("Weather Sensor") + ". When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour.",
 	description : "I gain expertise with Tinker's Tools. I get additional Tinker options: Alarm (audible to 300 ft for 1 min), Calculator, Lifter (as block and tackle that multiplies max lift weight by 5), Timekeeper (pocket watch), Weather Sensor (predict for 1-mile, 4 hours) [+1 Dex or Int]",
 	scorestxt : "+1 Dexterity or Intelligence",
-	eval : "if ((/tinker/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
-	removeeval : "if ((/tinker/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"	
+	eval : function () {
+		if ((/tinker.*tool/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/tinker.*tool/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 FeatsList["wood elf magic"] = {
 	name : "Wood Elf Magic",
@@ -32800,7 +32561,9 @@ RaceList["grugach"] = {
 		level : [0, 0],
 		firstCol : 'atwill'
 	},
-	eval : "RemoveLangTool('language', 'Common');"
+	eval : function () {
+		RemoveLangTool('language', 'Common');
+	}
 };
 // Edit the Wood Elf PHB entry, if available, to not match on Grugach
 if (RaceList["wood elf"]) {
@@ -33304,8 +33067,7 @@ RaceList["centaur"] = {
 			recovery : "short rest"
 		}
 	},
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Add the Minotaur race
@@ -33820,7 +33582,11 @@ if (!SourceList.WGtE) {
 				AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 			};
 		},
-		removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		removeeval : function () {
+			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+				tDoc.resetForm(['AC Armor Description']);
+			};
+		},
 		armourOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
@@ -33891,7 +33657,11 @@ if (!SourceList.WGtE) {
 				AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 			};
 		},
-		removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		removeeval : function () {
+			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+				tDoc.resetForm(['AC Armor Description']);
+			};
+		},
 		armourOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
@@ -33954,7 +33724,11 @@ if (!SourceList.WGtE) {
 				AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 			};
 		},
-		removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		removeeval : function () {
+			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+				tDoc.resetForm(['AC Armor Description']);
+			};
+		},
 		armourOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
@@ -34030,8 +33804,7 @@ RaceList["loxodon"] = {
 		"Keen Smell: I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.",
 		"Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield."
 	]),
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Add Simic Hybrid
@@ -34081,80 +33854,78 @@ RaceList["simic hybrid"] = {
 		"animal enhancement" : {
 			name : "Animal Enhancement",
 			minlevel : 5,
-			eval : 'RaceList["simic hybrid"].set5thLvlAE();',
-			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE();'
+			eval : function() {
+				var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
+				var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
+				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
+				var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
+				var feaTxt = '';
+				var rObjNm = "simic hybrid";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Manta Glide":
+						feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						break;
+					case "Nimble Climber":
+						feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
+						SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Underwater Adaptation":
+						feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Grappling Appendages":
+						feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
+						AddWeapon("Grappling Appendages");
+						AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
+						break;
+					case "Carapace":
+						feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
+						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + prof bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
+						AddWeapon("Acid Spit");
+						break;
+				};
+				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
+				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
+				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
+			},
+			removeeval : function() {
+				var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
+				var raceRem = What("Race Remember");
+				if (!theRegex.test(raceRem)) return;
+				var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
+				var rObjNm = "simic hybrid";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Nimble Climber":
+						SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Underwater Adaptation":
+						SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Grappling Appendages":
+						RemoveWeapon("Grappling Appendages");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
+						RemoveAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
+						break;
+					case "Carapace":
+						processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						RemoveWeapon("Acid Spit");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
+						break;
+				};
+				Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
+			}
 		}
-	},
-	set5thLvlAE : function() {
-		var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
-		var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
-		if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
-		var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', (sheetVersion > 12.999 ? 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. ' : '') + 'Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
-		var feaTxt = '';
-		var rObjNm = "simic hybrid";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Manta Glide":
-				feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
-				break;
-			case "Nimble Climber":
-				feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
-				SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Underwater Adaptation":
-				feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
-				SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Grappling Appendages":
-				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
-				AddWeapon("Grappling Appendages");
-				AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
-				break;
-			case "Carapace":
-				feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
-				processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + prof bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
-				AddWeapon("Acid Spit");
-				break;
-		};
-		if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-		Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
-		Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
-	},
-	remove5thLvlAE : function() {
-		var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
-		var raceRem = What("Race Remember");
-		if (!theRegex.test(raceRem)) return;
-		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
-		var rObjNm = "simic hybrid";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Nimble Climber":
-				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Underwater Adaptation":
-				SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Grappling Appendages":
-				RemoveWeapon("Grappling Appendages");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
-				RemoveAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
-				break;
-			case "Carapace":
-				processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				RemoveWeapon("Acid Spit");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
-				break;
-		};
-		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
 	}
 };
 AddRacialVariant("simic hybrid", "manta glide", {
@@ -34465,8 +34236,28 @@ if (!SourceList.WGtE) {
 				recovery : "long rest"
 			}
 		},
-		eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], firstCol : 'atwill'}}, typeList : 2 }; SetStringifieds('spells'); CurrentUpdates.types.push('spells'); ",
-		removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+		eval : function () {
+			CurrentSpells['dragonmark making human'] = {
+				name : 'Human (dragonmark)',
+				ability : 4,
+				list : { 'class' : 'dragonmark making human', level : [0, 0] },
+				known : { cantrips : 1, spells : 'list' },
+				bonus : {
+					bonus1 : {
+						name : "Maker's Gift",
+						spells : ['mending'],
+						selection : ['mending'],
+						firstCol : 'atwill'
+					}
+				},
+				typeList : 2
+			};
+			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		},
+		removeeval : function () {
+			delete CurrentSpells['dragonmark making human'];
+			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		}
 	};
 	RunFunctionAtEnd(function() {
 		for (var sp in SpellsList) {

@@ -57,8 +57,7 @@ FeatsList["brawny"] = {
 	description : "I gain expertise with Athletics, or proficiency if not so already. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift. [+1 Strength]",
 	scores : [1, 0, 0, 0, 0, 0],
 	skills : [["Athletics", "increment"]],
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 FeatsList["diplomat"] = {
 	name : "Diplomat",

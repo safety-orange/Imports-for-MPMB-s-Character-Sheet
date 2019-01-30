@@ -247,7 +247,11 @@ RaceList["envoy warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -318,7 +322,11 @@ RaceList["juggernaut warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -381,7 +389,11 @@ RaceList["skirmisher warforged"] = {
 			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 		};
 	},
-	removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
 	armourOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -894,8 +906,28 @@ RaceList["dragonmark making human"] = {
 			recovery : "long rest"
 		}
 	},
-	eval : "CurrentSpells['dragonmark making human'] = {name : 'Human (dragonmark)', ability : 4, list : { 'class' : 'dragonmark making human', level : [0, 0] }, known : {cantrips : 1, spells : 'list'}, bonus : {bonus1 : {name : \"Maker's Gift\", spells : ['mending'], selection : ['mending'], firstCol : 'atwill'}}, typeList : 2 }; SetStringifieds('spells'); CurrentUpdates.types.push('spells'); ",
-	removeeval : "delete CurrentSpells['dragonmark making human']; SetStringifieds('spells'); CurrentUpdates.types.push('spells');"
+	eval : function () {
+		CurrentSpells['dragonmark making human'] = {
+			name : 'Human (dragonmark)',
+			ability : 4,
+			list : { 'class' : 'dragonmark making human', level : [0, 0] },
+			known : { cantrips : 1, spells : 'list' },
+			bonus : {
+				bonus1 : {
+					name : "Maker's Gift",
+					spells : ['mending'],
+					selection : ['mending'],
+					firstCol : 'atwill'
+				}
+			},
+			typeList : 2
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['dragonmark making human'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
 };
 RunFunctionAtEnd(function() {
 	for (var sp in SpellsList) {

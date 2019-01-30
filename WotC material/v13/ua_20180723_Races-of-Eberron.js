@@ -249,7 +249,11 @@ if (!SourceList.WGtE) {
 				AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 			};
 		},
-		removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		removeeval : function () {
+			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+				tDoc.resetForm(['AC Armor Description']);
+			};
+		},
 		armourOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
@@ -320,7 +324,11 @@ if (!SourceList.WGtE) {
 				AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 			};
 		},
-		removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		removeeval : function () {
+			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+				tDoc.resetForm(['AC Armor Description']);
+			};
+		},
 		armourOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
@@ -383,7 +391,11 @@ if (!SourceList.WGtE) {
 				AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
 			};
 		},
-		removeeval : "if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) { tDoc.resetForm(['AC Armor Description']); }; ",
+		removeeval : function () {
+			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+				tDoc.resetForm(['AC Armor Description']);
+			};
+		},
 		armourOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",

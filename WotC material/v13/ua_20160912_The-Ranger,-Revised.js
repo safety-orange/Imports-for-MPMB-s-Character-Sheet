@@ -100,8 +100,10 @@ ClassList["rangerua"] = {
 			autoSelectExtrachoices : [{
 				extrachoice : "travel benefits"
 			}],
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)');",
-			removeeval : "Checkbox('Init Adv', false, ''); "
+			eval : function() {
+				Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)');
+			},
+			removeeval : function() { Checkbox('Init Adv', false, ''); }
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);

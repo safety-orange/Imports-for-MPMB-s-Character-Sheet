@@ -367,8 +367,12 @@ AddSubClass("barbarian", "battlerager", {
 			},
 			weaponProfs : [false, false, ["armor spikes"]],
 			weaponsAdd : ['Armor Spikes'],
-			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');",
-			removeeval : "RemoveString('Proficiency Armor Other Description', 'Spiked Armor');"
+			eval : function() {
+				AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');
+			},
+			removeeval : function () {
+				RemoveString('Proficiency Armor Other Description', 'Spiked Armor');
+			}
 		},
 		"subclassfeature6" : {
 			name : "Reckless Abandon",
@@ -483,8 +487,7 @@ AddSubClass("fighter", "purple dragon knight", {
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : n + " HP";
 			}),
-			eval : "RemoveAction('bonus action', 'Second Wind'); AddAction('bonus action', 'Second Wind (+ Rallying Cry)', 'Purple Dragon Knight: Rallying Cry')",
-			removeeval : "RemoveAction('bonus action', 'Second Wind (+ Rallying Cry)'); AddAction('bonus action', 'Second Wind', 'Fighter: Second Wind')"
+			action : [["bonus action", "Second Wind (+Rallying Cry)", "Second Wind"]]
 		},
 		"subclassfeature7" : {
 			name : "Royal Envoy",

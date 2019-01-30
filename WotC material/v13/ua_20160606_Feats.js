@@ -105,8 +105,16 @@ FeatsList["alchemist"] = {
 	scores : [0, 0, 0, 1, 0, 0],
 	action : ["action", " (identify potion)"],
 	toolProfs : [["Alchemist's supplies", "Int"]],
-	eval : "if (CurrentProfs.tool[\"Alchemist's supplies\"] && (/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool[\"Alchemist's supplies\"] && (/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 FeatsList["burglar"] = {
 	name : "Burglar",
@@ -115,8 +123,16 @@ FeatsList["burglar"] = {
 	description : "I gain proficiency with thieves' tools, or expertise with them if I'm already proficient. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	toolProfs : [["Thieves' tools", "Dex"]],
-	eval : "if (CurrentProfs.tool[\"Thieves' tools\"] && (/thieves.*tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool[\"Thieves' tools\"] && (/thieves.*tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 FeatsList["gourmand"] = {
 	name : "Gourmand",
@@ -126,8 +142,16 @@ FeatsList["gourmand"] = {
 	scores : [0, 0, 1, 0, 0, 0],
 	action : ["action", " (inspect food)"],
 	toolProfs : [["Cook's utensils", "Int"]],
-	eval : "if (CurrentProfs.tool[\"Cook's utensils\"] && (/cook.*utensils/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool[\"Cook's utensils\"] && (/cook.*utensils/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/cook.*utensils/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/cook.*utensils/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };
 FeatsList["master of disguise"] = {
 	name : "Master of Disguise",
@@ -137,6 +161,14 @@ FeatsList["master of disguise"] = {
 	scores : [0, 0, 0, 0, 0, 1],
 	action : ["action", " (don disguise)"],
 	toolProfs : [["Disguise kit", "Cha"]],
-	eval : "if (CurrentProfs.tool['Disguise kit'] && (/disguise.*kit/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
-	removeeval : "if (CurrentProfs.tool['Disguise kit'] && (/disguise.*kit/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
+	eval : function () {
+		if ((/disguise.*kit/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', true);
+		};
+	},
+	removeeval : function () {
+		if ((/disguise.*kit/i).test(What('Too Text'))) {
+			Checkbox('Too Exp', false);
+		};
+	}
 };

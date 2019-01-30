@@ -1820,8 +1820,10 @@ AddSubClass("rogue", "scout-xgte", {
 				"The first creature I hit in the first round of combat becomes an easy target",
 				"Until the start of my next turn, all attacks against the target have advantage"
 			]),
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Scout (Ambush Master)');",
-			removeeval : "Checkbox('Init Adv', false, '');"
+			eval : function() {
+				Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Scout (Ambush Master)');
+			},
+			removeeval : function() { Checkbox('Init Adv', false, ''); }
 		},
 		"subclassfeature17" : {
 			name : "Sudden Strike",
@@ -2381,8 +2383,46 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			additional : levels.map( function(n) { return n < 6 ? "" : Math.floor(n/2) + " temp HP"; }),
 			usages : 1,
 			recovery : "long rest",
-			eval : "xgte_hexblade_accursed_specter_functions.add();",
-			removeeval : "xgte_hexblade_accursed_specter_functions.remove();"
+			eval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				var prefix = false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (!What(AScompA[a] + 'Comp.Race')) {
+							prefix = AScompA[a];
+							break;
+						}
+					}
+				}
+				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+				Value(prefix + 'Comp.Race', 'Specter');
+				var theType = tDoc.getField(prefix + 'Comp.Type');
+				theType.readonly = true;
+				theType.value = 'Accursed';
+				for (var a = 1; a <= 3; a++) {
+					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
+				}
+				Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
+					"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
+					"It has its own turns and obeys my commands until my next long rest, when it vanishes",
+					"It uses the stats of a specter with the following bonuses:",
+					"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
+					"\u2022 It gains temporary hit points equal to half my warlock level when created"
+				]));
+				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
+				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
+			},
+			removeeval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
+							DoTemplate("AScomp", "Remove", AScompA[a]);
+							return;
+						}
+					}
+				}
+			}
 		},
 		"subclassfeature10" : {
 			name : "Armor of Hexes",
@@ -2404,48 +2444,6 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 		}
 	}
 });
-xgte_hexblade_accursed_specter_functions = {
-	add : function() {
-		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-		var prefix = false;
-		if (AScompA) {
-			for (var a = 1; a < AScompA.length; a++) {
-				if (!What(AScompA[a] + 'Comp.Race')) {
-					prefix = AScompA[a];
-					break;
-				}
-			}
-		}
-		if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-		Value(prefix + 'Comp.Race', 'Specter');
-		var theType = tDoc.getField(prefix + 'Comp.Type');
-		theType.readonly = true;
-		theType.value = 'Accursed';
-		for (var a = 1; a <= 3; a++) {
-			AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
-		}
-		Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
-			"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
-			"It has its own turns and obeys my commands until my next long rest, when it vanishes",
-			"It uses the stats of a specter with the following bonuses:",
-			"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
-			"\u2022 It gains temporary hit points equal to half my warlock level when created"
-		]));
-		tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
-		AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
-	},
-	remove : function() {
-		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-		if (AScompA) {
-			for (var a = 1; a < AScompA.length; a++) {
-				if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
-					DoTemplate("AScomp", "Remove", AScompA[a]);
-					return;
-				}
-			}
-		}
-	}
-}
 
 // Add Warlock Invocations
 AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
@@ -2711,10 +2709,9 @@ FeatsList["dragon fear-xgte"] = {
 	prerequisite : "Being a Dragonborn",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
-	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that can see or hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
+	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that see and hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
-	eval : "AddAction('action', 'Breath Weapon or Dragon Fear', 'Dragon Fear (feat)', 'Breath Weapon');",
-	removeeval : "AddAction('action', 'Breath Weapon', 'Dragonborn (Draconic Ancestry)', 'Breath Weapon or Dragon Fear'); if (CurrentRace.known !== 'dragonborn') { RemoveAction('action', 'Breath Weapon'); }; "
+	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
 FeatsList["dragon hide-xgte"] = {
 	name : "Dragon Hide",

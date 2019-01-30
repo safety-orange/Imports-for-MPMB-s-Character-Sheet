@@ -55,8 +55,7 @@ RaceList["centaur"] = {
 			recovery : "short rest"
 		}
 	},
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Add the Minotaur race

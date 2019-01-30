@@ -44,8 +44,7 @@ RaceList["loxodon"] = {
 		"Keen Smell: I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.",
 		"Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield."
 	]),
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	carryingCapacity : 2
 };
 
 // Add Simic Hybrid
@@ -95,80 +94,78 @@ RaceList["simic hybrid"] = {
 		"animal enhancement" : {
 			name : "Animal Enhancement",
 			minlevel : 5,
-			eval : 'RaceList["simic hybrid"].set5thLvlAE();',
-			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE();'
+			eval : function() {
+				var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
+				var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
+				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
+				var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
+				var feaTxt = '';
+				var rObjNm = "simic hybrid";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Manta Glide":
+						feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						break;
+					case "Nimble Climber":
+						feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
+						SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Underwater Adaptation":
+						feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Grappling Appendages":
+						feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
+						AddWeapon("Grappling Appendages");
+						AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
+						break;
+					case "Carapace":
+						feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
+						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + prof bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
+						AddWeapon("Acid Spit");
+						break;
+				};
+				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
+				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
+				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
+			},
+			removeeval : function() {
+				var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
+				var raceRem = What("Race Remember");
+				if (!theRegex.test(raceRem)) return;
+				var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
+				var rObjNm = "simic hybrid";
+				var rObj = RaceList[rObjNm];
+				var rNm = rObj.name;
+				switch (theChoice) {
+					case "Nimble Climber":
+						SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Underwater Adaptation":
+						SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
+						break;
+					case "Grappling Appendages":
+						RemoveWeapon("Grappling Appendages");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
+						RemoveAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
+						break;
+					case "Carapace":
+						processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
+						break;
+					case "Acid Spit":
+						RemoveWeapon("Acid Spit");
+						processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
+						break;
+				};
+				Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
+			}
 		}
-	},
-	set5thLvlAE : function() {
-		var curChoice = ParseRace(What('Race Remember'))[1].capitalize();
-		var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
-		if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
-		var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', (sheetVersion > 12.999 ? 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. ' : '') + 'Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
-		var feaTxt = '';
-		var rObjNm = "simic hybrid";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Manta Glide":
-				feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
-				break;
-			case "Nimble Climber":
-				feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
-				SetProf("speed", true, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Underwater Adaptation":
-				feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
-				SetProf("speed", true, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Grappling Appendages":
-				feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
-				AddWeapon("Grappling Appendages");
-				AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
-				break;
-			case "Carapace":
-				feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
-				processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + prof bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
-				processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
-				AddWeapon("Acid Spit");
-				break;
-		};
-		if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-		Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, '') + feaTxt);
-		Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(' ', '_') + "*");
-	},
-	remove5thLvlAE : function() {
-		var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
-		var raceRem = What("Race Remember");
-		if (!theRegex.test(raceRem)) return;
-		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
-		var rObjNm = "simic hybrid";
-		var rObj = RaceList[rObjNm];
-		var rNm = rObj.name;
-		switch (theChoice) {
-			case "Nimble Climber":
-				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Underwater Adaptation":
-				SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm);
-				break;
-			case "Grappling Appendages":
-				RemoveWeapon("Grappling Appendages");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[0]);
-				RemoveAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
-				break;
-			case "Carapace":
-				processExtraAC(false, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
-				break;
-			case "Acid Spit":
-				RemoveWeapon("Acid Spit");
-				processWeaponOptions(false, rObjNm, rObj.weaponOptionsSp[1]);
-				break;
-		};
-		Value("Racial Traits", What("Unit System") === "imperial" ? CurrentRace.trait : ConvertToMetric(CurrentRace.trait, 0.5));
 	}
 };
 AddRacialVariant("simic hybrid", "manta glide", {

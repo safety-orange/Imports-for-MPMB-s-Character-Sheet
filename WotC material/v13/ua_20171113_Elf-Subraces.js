@@ -70,7 +70,9 @@ RaceList["grugach"] = {
 		level : [0, 0],
 		firstCol : 'atwill'
 	},
-	eval : "RemoveLangTool('language', 'Common');"
+	eval : function () {
+		RemoveLangTool('language', 'Common');
+	}
 };
 // Edit the Wood Elf PHB entry, if available, to not match on Grugach
 if (RaceList["wood elf"]) {
