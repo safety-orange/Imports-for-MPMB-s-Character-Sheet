@@ -137,7 +137,7 @@ AddSubClass("fighter", "arcane archer2", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if ((/longbow|shortbow/i).test(v.baseWeaponName) && !v.thisWeapon[1]) output.magic += 1;
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && !v.theWea.isMagicWeapon) output.magic += 1;
 					},
 					"Any longbow or shortbow that doesn't include a magic bonus in its name gets a +1 magical bonus to damage and to hit as any arrows fired with it are automatically made magical."
 				]
@@ -313,7 +313,7 @@ AddSubClass("monk", "way of the kensei2", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},

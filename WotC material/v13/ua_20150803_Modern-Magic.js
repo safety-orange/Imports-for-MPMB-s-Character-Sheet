@@ -249,7 +249,8 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponText)) {
 					v.pactWeapon = true;
 					fields.Proficiency = true;
-					fields.Description += v.thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; };
+					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+				}
 			},
 			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
 		]

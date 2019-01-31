@@ -33,7 +33,8 @@ AddSubClass("fighter", "arcane archer", {
 				atkAdd : [
 					function (fields, v) {
 						if ((/longbow|shortbow/i).test(v.baseWeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
-							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (v.thisWeapon[1] ? '' : '; Counts as magical');
+							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage';
+							if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) fields.Description += '; Counts as magical';
 						};
 					},
 					"If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."

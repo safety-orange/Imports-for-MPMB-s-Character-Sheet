@@ -59,7 +59,7 @@ AddSubClass("monk", "way of the kensei", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+						if ((v.baseWeaponName == "unarmed strike" || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},

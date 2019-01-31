@@ -1023,7 +1023,8 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponText)) {
 					v.pactWeapon = true;
 					fields.Proficiency = true;
-					fields.Description += v.thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; };
+					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+				}
 			},
 			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
 		]
@@ -4050,7 +4051,8 @@ AddSubClass("fighter", "arcane archer", {
 				atkAdd : [
 					function (fields, v) {
 						if ((/longbow|shortbow/i).test(v.baseWeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
-							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (v.thisWeapon[1] ? '' : '; Counts as magical');
+							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage';
+							if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) fields.Description += '; Counts as magical';
 						};
 					},
 					"If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."
@@ -4399,7 +4401,7 @@ AddSubClass("monk", "way of the kensei", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+						if ((v.baseWeaponName == "unarmed strike" || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},
@@ -10620,7 +10622,7 @@ var RangeSubclassMonsterSlayer = AddSubClass("ranger", "monster slayer", {
 });
 if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(RangeSubclassMonsterSlayer); };
 var iFileName = "ua_20170403_Starter-Spells.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Starter Spells article to MPMB's Character Record Sheet
 
 // Define the source
@@ -10636,7 +10638,7 @@ SourceList["UA:SS"] = {
 	
 	This code was contributed by SoilentBrad
 */
-SpellsList["cause fear"] = {
+SpellsList["cause fear-uass"] = {
 	name : "Cause Fear",
 	classes : ["warlock", "wizard"],
 	source : ["UA:SS", 2],
@@ -10651,7 +10653,7 @@ SpellsList["cause fear"] = {
 	description : "1 crea save or frightened; crea disadvantage on save if 25 hp or less; no effect on undead/constructs",
 	descriptionFull : "You awaken the sense of mortality in one creature you can see within range. The target must succeed on a Wisdom saving throw or become frightened for the duration. A target with 25 hit points or fewer makes the saving throw with disadvantage. The spell has no effect on constructs or undead."
 };
-SpellsList["ceremony"] = {
+SpellsList["ceremony-uass"] = {
 	name : "Ceremony",
 	classes : ["cleric", "paladin"],
 	source : ["UA:SS", 2],
@@ -10666,7 +10668,7 @@ SpellsList["ceremony"] = {
 	description : "Perform religious ceremony on target(s) that are within 10 ft throughout the casting; see book (25gp)",
 	descriptionFull : "You perform one of several religious ceremonies. When you cast the spell, choose one of the following ceremonies, the target of which must be within 10 feet of you throughout the casting." + "\n   " + toUni("Atonement") + ": You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a success, you restore the target to its original alignment." + "\n   " + toUni("Bless Water") + ": You touch one vial of water and cause it to become holy water." + "\n   " + toUni("Coming of Age") + ": You touch one humanoid old enough to be a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this ceremony just once." + "\n   " + toUni("Dedication") + ": You touch one humanoid who would willingly convert to your religion or who wishes to be dedicated to your god's service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this ceremony just once." + "\n   " + toUni("Funeral Rite") + ": You bless one corpse within 5 feet of you. For the next 24 hours, the target can't become undead by any means short of a wish spell." + "\n   " + toUni("Investiture") + ": You touch one willing humanoid. Choose one 1st-level spell you have prepared and expend a spell slot and any material components as if you were casting that spell. The spell has no effect. Instead, the target can cast this spell once without having to expend a spell slot or use material components. If the target doesn't cast the spell within 1 hour, the invested spell is lost." + "\n   " + toUni("Marriage") + ": You touch adult humanoids willing to be bonded together in marriage. For the next 24 hours, each target gains a +2 bonus to AC and saving throws while they are within 30 feet of each other. A creature can benefit from this ceremony just once."
 };
-SpellsList["chaos bolt"] = {
+SpellsList["chaos bolt-uass"] = {
 	name : "Chaos Bolt",
 	classes : ["sorcerer"],
 	source : ["UA:SS", 2],
@@ -10680,7 +10682,7 @@ SpellsList["chaos bolt"] = {
 	description : "Spell atk 2d8+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft of target",
 	descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by this mass of chaotic energy." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st."
 };
-SpellsList["guiding hand"] = {
+SpellsList["guiding hand-uass"] = {
 	name : "Guiding Hand",
 	classes : ["bard", "cleric", "druid", "wizard"],
 	source : ["UA:SS", 3],
@@ -10694,7 +10696,7 @@ SpellsList["guiding hand"] = {
 	description : "Tiny incorporeal hand directs you to one major landmark you name that is on the same plane",
 	descriptionFull : "You create a Tiny incorporeal hand of shimmering light in an unoccupied space you can see within range. The hand exists for the duration, but it disappears if you teleport or you travel to a different plane of existence." + "\n   " + "When the hand appears, you name one major landmark, such as a city, mountain, castle, or battlefield on the same plane of existence as you. Someone in history must have visited the site and mapped it. If the landmark appears on no map in existence, the spell fails. Otherwise, whenever you move toward the hand, it moves away from you at the same speed you moved, and it moves in the direction of the landmark, always remaining 5 feet away from you." + "\n   " + "If you don't move toward the hand, it remains in place until you do and beckons for you to follow once every 1d4 minutes."
 };
-SpellsList["hand of radiance"] = {
+SpellsList["hand of radiance-uass"] = {
 	name : "Hand of Radiance",
 	classes : ["cleric"],
 	source : ["UA:SS", 3],
@@ -10709,7 +10711,7 @@ SpellsList["hand of radiance"] = {
 	description : "Any creatures you see in 5-ft radius save or 1d6 Radiant damage; +1d6 damage at CL 5, 11, and 17",
 	descriptionFull : "You raise your hand, and burning radiance erupts from it. Each creature of your choice that you can see within 5 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
-SpellsList["healing elixir"] = {
+SpellsList["healing elixir-uass"] = {
 	name : "Healing Elixir",
 	classes : ["warlock", "wizard"],
 	source : ["UA:SS", 3],
@@ -10724,7 +10726,7 @@ SpellsList["healing elixir"] = {
 	description : "Make vial with alchemist's supplies; heals 2d4+2 hp as an action; if not used, disappears after 24 h",
 	descriptionFull : "You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes." + "\n   " + "As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points."
 };
-SpellsList["infestation"] = {
+SpellsList["infestation-uass"] = {
 	name : "Infestation",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
 	source : ["UA:SS", 3],
@@ -10740,7 +10742,7 @@ SpellsList["infestation"] = {
 	description : "1 crea save or 1d6 Piercing damage and moved 5 ft in random direction; +1d6 at CL 5, 11, and 17",
 	descriptionFull : "You cause mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw or take 1d6 piercing damage. If the target takes any of that damage, the target moves 5 feet in a random direction. Roll a d8 for the direction:" + "\n\n" + toUni("d8") + "\t" + toUni("Direction") + "\n  1\tNorth" + "\n  2\tNortheast" + "\n  3\tEast" + "\n  4\tSoutheast" + "\n  5\tSouth" + "\n  6\tSouthwest" + "\n  7\tWest" + "\n  8\tNorthwest" + "\n\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
-SpellsList["primal savagery"] = {
+SpellsList["primal savagery-uass"] = {
 	name : "Primal Savagery",
 	classes : ["druid"],
 	source : ["UA:SS", 3],
@@ -10754,7 +10756,7 @@ SpellsList["primal savagery"] = {
 	description : "Melee spell attack deals 1d10 Piercing or Slashing dmg (your choice); +1d10 at CL 5, 11, and 17",
 	descriptionFull : "Your teeth or fingernails lengthen and sharpen. You choose which. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d10 piercing or slashing damage (your choice). After you make the attack, your teeth or fingernails return to normal." + "\n   " + "The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
 };
-SpellsList["puppet"] = {
+SpellsList["puppet-uass"] = {
 	name : "Puppet",
 	classes : ["bard", "warlock", "wizard"],
 	source : ["UA:SS", 3],
@@ -10769,7 +10771,7 @@ SpellsList["puppet"] = {
 	description : "1 humanoid save or move its speed to where you choose and drop held items, if chosen (charm effect)",
 	descriptionFull : "Your gesture forces one humanoid you can see within range to make a Constitution saving throw. On a failed save, the target must move up to its speed in a direction you choose. In addition, you can cause the target to drop whatever it is holding. This spell has no effect on a humanoid that is immune to being charmed."
 };
-SpellsList["sense emotion"] = {
+SpellsList["sense emotion-uass"] = {
 	name : "Sense Emotion",
 	classes : ["bard", "warlock", "wizard"],
 	source : ["UA:SS", 4],
@@ -10783,7 +10785,7 @@ SpellsList["sense emotion"] = {
 	description : "Now and as 1 a for duration, sense emotion of humanoid in range; sense calm if not humanoid/charm",
 	descriptionFull : "You attune your senses to pick up the emotions of others for the duration. When you cast the spell, and as your action on each turn until the spell ends, you can focus your senses on one humanoid you can see within 30 feet of you. You instantly learn the target's prevailing emotion, whether it's love, anger, pain, fear, calm, or something else. If the target isn't actually humanoid or it is immune to being charmed, you sense that it is calm."
 };
-SpellsList["snare"] = {
+SpellsList["snare-uass"] = {
 	name : "Snare",
 	classes : ["druid", "ranger", "wizard"],
 	source : ["UA:SS", 4],
@@ -10799,7 +10801,7 @@ SpellsList["snare"] = {
 	description : "5-ft rad magical trap; Int (Inv) to see; save or restrained upside down 3 ft in the air; save/rnd at dis",
 	descriptionFull : "While you cast this spell, you use the cord or rope to create a circle with a 5-foot radius on a flat surface within your reach. When you finish casting, the cord or rope disappears to become a magical trap." + "\n   " + "The trap is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found." + "\n   " + "The trap triggers when a Small creature or larger moves into the area protected by the spell. The triggering creature must succeed on a Dexterity saving throw or fall prone and be hoisted into the air until it hangs upside down 3 feet above the protected surface, where it is restrained." + "\n   " + "The restrained creature can make a Dexterity saving throw with disadvantage at the end of each of its turns and ends the restrained effect on a success. Alternatively, another creature that can reach the restrained creature can use an action to make an Intelligence (Arcana) check against your spell save DC. On a success, the restrained effect also ends."
 };
-SpellsList["sudden awakening"] = {
+SpellsList["sudden awakening-uass"] = {
 	name : "Sudden Awakening",
 	classes : ["bard", "ranger", "sorcerer", "wizard"],
 	source : ["UA:SS", 4],
@@ -10813,7 +10815,7 @@ SpellsList["sudden awakening"] = {
 	description : "Any creatures within range awaken and can then stand up from prone without expending movement",
 	descriptionFull : "Each sleeping creature you choose within range awakens, and then each prone creature within range can stand up without expending any movement."
 };
-SpellsList["toll the dead"] = {
+SpellsList["toll the dead-uass"] = {
 	name : "Toll the Dead",
 	classes : ["cleric", "warlock", "wizard"],
 	source : ["UA:SS", 4],
@@ -10828,7 +10830,7 @@ SpellsList["toll the dead"] = {
 	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/+1d8 at CL 5, 11, and 17",
 	descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
 };
-SpellsList["unearthly chorus"] = {
+SpellsList["unearthly chorus-uass"] = {
 	name : "Unearthly Chorus",
 	classes : ["bard"],
 	source : ["UA:SS", 4],
@@ -10843,7 +10845,7 @@ SpellsList["unearthly chorus"] = {
 	description : "Use bns a to make 1 crea in range save or be friendly for 1 h; You adv on Cha (Performance) checks",
 	descriptionFull : "Music of a style you choose fills the air around you in a 30-foot radius. The music spreads around corners and can be heard from up to 100 feet away. The music moves with you, centered on you for the duration." + "\n   " + "Until the spell ends, you make Charisma (Performance) checks with advantage. In addition, you can use a bonus action on each of your turns to beguile one creature you choose within 30 feet of you that can see you and hear the music. The creature must make a Charisma saving throw. If you or your companions are attacking it, the creature automatically succeeds on the saving throw. On a failure, the creature becomes friendly to you for as long as it can hear the music and for 1 hour thereafter. You make Charisma (Deception) checks and Charisma (Persuasion) checks against creatures made friendly by this spell with advantage."
 };
-SpellsList["virtue"] = {
+SpellsList["virtue-uass"] = {
 	name : "Virtue",
 	classes : ["cleric"],
 	source : ["UA:SS", 5],
@@ -10857,7 +10859,7 @@ SpellsList["virtue"] = {
 	description : "1 creature that has at least 1 hp gets 1d4 + spellcasting ability modifier in temporary hit points",
 	descriptionFull : "You touch one creature, imbuing it with vitality. If the target has at least 1 hit point, it gains a number of temporary hit points equal to 1d4 + your spellcasting ability modifier. The temporary hit points are lost when the spell ends."
 };
-SpellsList["wild cunning"] = {
+SpellsList["wild cunning-uass"] = {
 	name : "Wild Cunning",
 	classes : ["druid", "ranger"],
 	source : ["UA:SS", 5],
@@ -10871,7 +10873,7 @@ SpellsList["wild cunning"] = {
 	description : "Call spirits of nature to aid you with finding food/drink/tracks/shelter, or camping; see book",
 	descriptionFull : "You call out to the spirits of nature to aid you. When you cast this spell, choose one of the following effects:" + "\n  \u2022 " + "If there are any tracks on the ground within range, you know where they are, and you make Wisdom (Survival) checks to follow these tracks with advantage for 1 hour or until you cast this spell again." + "\n  \u2022 " + "If there is edible forage within range, you know it and where to find it." + "\n  \u2022 " + "If there is clean drinking water within range, you know it and where to find it." + "\n  \u2022 " + "If there is suitable shelter for you and your companions with range, you know it and where to find." + "\n  \u2022 " + "Send the spirits to bring back wood for a fire and to set up a campsite in the area using your supplies. The spirits build the fire in a circle of stones, put up tents, unroll bedrolls, and put out any rations and water for consumption." + "\n  \u2022 " + "Have the spirits instantly break down a campsite, which includes putting out a fire, taking down tents, packing up bags, and burying any rubbish."
 };
-SpellsList["zephyr strike"] = { // clarification: https://twitter.com/JeremyECrawford/status/849302527069884416
+SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/JeremyECrawford/status/849302527069884416
 	name : "Zephyr Strike",
 	classes : ["ranger"],
 	source : ["UA:SS", 5],
@@ -10887,7 +10889,7 @@ SpellsList["zephyr strike"] = { // clarification: https://twitter.com/JeremyECra
 };
 
 // Weapons (attack cantrips)
-WeaponsList["hand of radiance"] = {
+WeaponsList["hand of radiance-uass"] = {
 	regExpSearch : /^(?=.*hand)(?=.*radiance).*$/i,
 	name : "Hand of Radiance",
 	source : ["UA:SS", 3],
@@ -10900,7 +10902,7 @@ WeaponsList["hand of radiance"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["infestation"] = {
+WeaponsList["infestation-uass"] = {
 	regExpSearch : /infestation/i,
 	name : "Infestation",
 	source : ["UA:SS", 3],
@@ -10913,7 +10915,7 @@ WeaponsList["infestation"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["primal savagery"] = {
+WeaponsList["primal savagery-uass"] = {
 	regExpSearch : /^(?=.*primal)(?=.*savagery).*$/i,
 	name : "Primal Savagery",
 	source : ["UA:SS", 3],
@@ -10925,7 +10927,7 @@ WeaponsList["primal savagery"] = {
 	description : "Does either Piercing or Slashing damage (my choice) (UA:SS 3)",
 	abilitytodamage : false
 };
-WeaponsList["toll the dead"] = {
+WeaponsList["toll the dead-uass"] = {
 	regExpSearch : /^(?=.*toll)(?=.*the)(?=.*dead).*$/i,
 	name : "Toll the Dead",
 	source : ["UA:SS", 4],
@@ -11649,7 +11651,7 @@ AddSubClass("fighter", "arcane archer2", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if ((/longbow|shortbow/i).test(v.baseWeaponName) && !v.thisWeapon[1]) output.magic += 1;
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && !v.theWea.isMagicWeapon) output.magic += 1;
 					},
 					"Any longbow or shortbow that doesn't include a magic bonus in its name gets a +1 magical bonus to damage and to hit as any arrows fired with it are automatically made magical."
 				]
@@ -11825,7 +11827,7 @@ AddSubClass("monk", "way of the kensei2", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !v.thisWeapon[1]) {
+						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},
