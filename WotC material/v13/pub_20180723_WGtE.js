@@ -500,7 +500,7 @@ FeatsList["revenant blade"] = {
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm wielding a double-bladed weapon in two hands.",
-		stopeval : function (v) { return v.usingShield; }
+		stopeval : function (v) { return v.usingShield && !(/animated/i).test(What("AC Shield Bonus Description")); }
 	}
 };
 

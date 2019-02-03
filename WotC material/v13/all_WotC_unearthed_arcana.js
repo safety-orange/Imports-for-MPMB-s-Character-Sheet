@@ -699,7 +699,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm not wearing heavy armor and not using a shield.",
-		stopeval : function (v) { return !v.heavyArmor && !v.usingShield; }
+		stopeval : function (v) { return v.heavyArmor || v.usingShield; }
 	}
 });
 

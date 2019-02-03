@@ -7857,10 +7857,10 @@ AddSubClass("sorcerer", "storm sorcery", {
 			source : [["S", 137], ["X", 52]],
 			minlevel : 1,
 			description : desc([
-				"As a bonus action, after casting a 1st-level or higher spell, I can control elemental air",
-				"I can use this control to fly up to 10 feet without provoking opportunity attacks"
+				"As a bonus action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
+				"This movement doesn't provoke opportunity attacks as whirling gust of air surround me"
 			]),
-			action : ["bonus action", " (after casting)"]
+			action : ["bonus action", " (with casting)"]
 		},
 		"subclassfeature6" : {
 			name : "Heart of the Storm",
@@ -13483,10 +13483,10 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 				source : [["S", 137], ["X", 52]],
 				minlevel : 1,
 				description : desc([
-					"As a bonus action, after casting a 1st-level or higher spell, I can control elemental air",
-					"I can use this control to fly up to 10 feet without provoking opportunity attacks"
+					"As a bonus action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
+					"This movement doesn't provoke opportunity attacks as whirling gust of air surround me"
 				]),
-				action : ["bonus action", " (after casting)"]
+				action : ["bonus action", " (with casting)"]
 			},
 			"subclassfeature6" : {
 				name : "Heart of the Storm",
@@ -17135,7 +17135,7 @@ FeatsList["revenant blade"] = {
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm wielding a double-bladed weapon in two hands.",
-		stopeval : function (v) { return v.usingShield; }
+		stopeval : function (v) { return v.usingShield && !(/animated/i).test(What("AC Shield Bonus Description")); }
 	}
 };
 
@@ -20101,7 +20101,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm not wearing heavy armor and not using a shield.",
-		stopeval : function (v) { return !v.heavyArmor && !v.usingShield; }
+		stopeval : function (v) { return v.heavyArmor || v.usingShield; }
 	}
 });
 
