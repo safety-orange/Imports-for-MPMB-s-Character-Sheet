@@ -1,4 +1,4 @@
-MagicItemsList['cap of water breathing'] = {
+MagicItemsList["cap of water breathing"] = {
 	name: "Cap of Water Breathing",
 	source: ["D", 157],
 	type: "wondrous item",
@@ -7,7 +7,7 @@ MagicItemsList['cap of water breathing'] = {
 	description: "",
 	descriptionFull: "While wearing this cap underwater, you can speak its command word as an action to create a bubble of air around your head. It allows you to breathe normally underwater. This bubble stays with you until you speak the command word again, the cap is removed, or you are no longer underwater."
 }
-MagicItemsList['cloak of invisibility'] = {
+MagicItemsList["cloak of invisibility"] = {
 	name: "Cloak of Invisibility",
 	source: ["D", 158],
 	type: "wondrous item",
@@ -27,7 +27,7 @@ MagicItemsList["driftglobe"] = {
 	descriptionFull: "This small sphere of thick glass weighs 1 pound. If you are within 60 feet of it, you can speak its command word and cause it to emanate the Light or Daylight spell. Once used, the Daylight effect can't be used again until the next dawn.\n   You can speak another command word as an action to make the illuminated globe rise into the air and float no more than 5 feet off the ground. The globe hovers in this way until you or another creature grasps it. If you move more than 60 feet from the hovering globe, it follows you until it is within 60 feet of you. It takes the shortest route to do so. If prevented from moving, the globe sinks gently to the ground and becomes inactive, and its light winks out.",
 	weight: 1
 }
-MagicItemsList['efreeti chain'] = {
+MagicItemsList["efreeti chain"] = {
 	name: "Efreeti Chain",
 	source: ["D", 167],
 	type : "armor (chain mail)",
@@ -38,7 +38,7 @@ MagicItemsList['efreeti chain'] = {
 	attunement: true,
 	weight: 55
 }
-MagicItemsList['elixir of health'] = {
+MagicItemsList["elixir of health"] = {
 	name: "Elixir of Health",
 	source: ["D", 168],
 	type : "potion",
@@ -48,7 +48,7 @@ MagicItemsList['elixir of health'] = {
 	descriptionFull: "When you drink this potion, it cures any disease afflicting you, and it removes the blinded, deafened, paralyzed, and poisoned conditions. The clear red liquid has tiny bubbles of light in it.",
 	weight: 0.5
 }
-MagicItemsList['gloves of thievery'] = {
+MagicItemsList["gloves of thievery"] = {
 	name: "Gloves of Thievery",
 	source: ["D", 172],
 	type: "wondrous item",
@@ -57,7 +57,7 @@ MagicItemsList['gloves of thievery'] = {
 	description: "",
 	descriptionFull: "These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks."
 }
-MagicItemsList['instrument of the bards, anstruth harp'] = {
+MagicItemsList["instrument of the bards, anstruth harp"] = {
 	name: "Instrument of the Bards, Anstruth Harp",
 	source: ["D", 176],
 	type: "Instrument",
@@ -68,7 +68,7 @@ MagicItemsList['instrument of the bards, anstruth harp'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['instrument of the bards, canaith mandolin'] = {
+MagicItemsList["instrument of the bards, canaith mandolin"] = {
 	name: "Instrument of the Bards, Canaith Mandolin",
 	source: ["D", 176],
 	type: "Instrument",
@@ -79,7 +79,7 @@ MagicItemsList['instrument of the bards, canaith mandolin'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['instrument of the bards, cli lyre'] = {
+MagicItemsList["instrument of the bards, cli lyre"] = {
 	name: "Instrument of the Bards, Cli Lyre",
 	source: ["D", 176],
 	type: "Instrument",
@@ -90,7 +90,7 @@ MagicItemsList['instrument of the bards, cli lyre'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['instrument of the bards, doss lute'] = {
+MagicItemsList["instrument of the bards, doss lute"] = {
 	name: "Instrument of the Bards, Doss Lute",
 	source: ["D", 176],
 	type: "Instrument",
@@ -101,7 +101,7 @@ MagicItemsList['instrument of the bards, doss lute'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['instrument of the bards, fochlucan bandore'] = {
+MagicItemsList["instrument of the bards, fochlucan bandore"] = {
 	name: "Instrument of the Bards, Fochlucan Bandore",
 	source: ["D", 176],
 	type: "Instrument",
@@ -112,7 +112,7 @@ MagicItemsList['instrument of the bards, fochlucan bandore'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['instrument of the bards, mac-fuirmidh cittern'] = {
+MagicItemsList["instrument of the bards, mac-fuirmidh cittern"] = {
 	name: "Instrument of the Bards, Mac-Fuirmidh Cittern",
 	source: ["D", 176],
 	type: "Instrument",
@@ -123,7 +123,7 @@ MagicItemsList['instrument of the bards, mac-fuirmidh cittern'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['instrument of the bards, ollamh harp'] = {
+MagicItemsList["instrument of the bards, ollamh harp"] = {
 	name: "Instrument of the Bards, Ollamh Harp",
 	source: ["D", 176],
 	type: "Instrument",
@@ -134,7 +134,7 @@ MagicItemsList['instrument of the bards, ollamh harp'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['potion of fire breath'] = {
+MagicItemsList["potion of fire breath"] = {
 	name: "Potion of Fire Breath",
 	source: ["D", 187],
 	type : "potion",
@@ -144,7 +144,7 @@ MagicItemsList['potion of fire breath'] = {
 	descriptionFull: "After drinking this potion, you can use a bonus action to exhale fire at a target within 30 feet of you. The target must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one. The effect ends after you exhale the fire three times or when 1 hour has passed. This potion's orange liquid flickers, and smoke fills the top of the container and wafts out whenever it is opened.",
 	weight: 0.5
 }
-MagicItemsList['potion of invulnerability'] = {
+MagicItemsList["potion of invulnerability"] = {
 	name: "Potion of Invulnerability",
 	source: ["D", 188],
 	type : "potion",
@@ -154,7 +154,7 @@ MagicItemsList['potion of invulnerability'] = {
 	descriptionFull: "For 1 minute after you drink this potion, you have resistance to all damage. The potion's syrupy liquid looks like liquefied iron.",
 	weight: 0.5
 }
-MagicItemsList['potion of longevity'] = {
+MagicItemsList["potion of longevity"] = {
 	name: "Potion of Longevity",
 	source: ["D", 188],
 	type : "potion",
@@ -164,7 +164,7 @@ MagicItemsList['potion of longevity'] = {
 	descriptionFull: "When you drink this potion, your physical age is reduced by 1d6+6 years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
 	weight: 0.5
 }
-MagicItemsList['potion of vitality'] = {
+MagicItemsList["potion of vitality"] = {
 	name: "Potion of Vitality",
 	source: ["D", 188],
 	type : "potion",
@@ -174,7 +174,7 @@ MagicItemsList['potion of vitality'] = {
 	descriptionFull: "When you drink this potion, it removes any exhaustion you are suffering and cures any disease or poison affecting you. For the next 24 hours, you regain the maximum number of hit points for any Hit Die you spend. The potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.",
 	weight: 0.5
 }
-MagicItemsList['rod of resurrection'] = {
+MagicItemsList["rod of resurrection"] = {
 	name: "Rod of Resurrection",
 	source: ["D", 197],
 	type : "rod",
@@ -185,7 +185,7 @@ MagicItemsList['rod of resurrection'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['rod of the pact keeper, +1'] = {
+MagicItemsList["rod of the pact keeper, +1"] = {
 	name: "Rod of the Pact Keeper, +1",
 	source: ["D", 197],
 	type : "rod",
@@ -196,7 +196,7 @@ MagicItemsList['rod of the pact keeper, +1'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['rod of the pact keeper, +2'] = {
+MagicItemsList["rod of the pact keeper, +2"] = {
 	name: "Rod of the Pact Keeper, +2",
 	source: ["D", 197],
 	type : "rod",
@@ -207,7 +207,7 @@ MagicItemsList['rod of the pact keeper, +2'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['rod of the pact keeper, +3'] = {
+MagicItemsList["rod of the pact keeper, +3"] = {
 	name: "Rod of the Pact Keeper, +3",
 	source: ["D", 197],
 	type : "rod",
@@ -218,7 +218,7 @@ MagicItemsList['rod of the pact keeper, +3'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['saddle of the cavalier'] = {
+MagicItemsList["saddle of the cavalier"] = {
 	name: "Saddle of the Cavalier",
 	source: ["D", 199],
 	type: "wondrous item",
@@ -227,7 +227,7 @@ MagicItemsList['saddle of the cavalier'] = {
 	description: "",
 	descriptionFull: "While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
 }
-MagicItemsList['scroll of protection from aberrations'] = {
+MagicItemsList["scroll of protection from aberrations"] = {
 	name: "Scroll of Protection from Aberrations",
 	source: ["D", 199],
 	type: "Scroll",
@@ -236,7 +236,7 @@ MagicItemsList['scroll of protection from aberrations'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents aberrations from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that an aberration would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['scroll of protection from beasts'] = {
+MagicItemsList["scroll of protection from beasts"] = {
 	name: "Scroll of Protection from Beasts",
 	source: ["D", 199],
 	type: "Scroll",
@@ -245,7 +245,7 @@ MagicItemsList['scroll of protection from beasts'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents beasts from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a beast would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['scroll of protection from celestials'] = {
+MagicItemsList["scroll of protection from celestials"] = {
 	name: "Scroll of Protection from Celestials",
 	source: ["D", 199],
 	type: "Scroll",
@@ -254,7 +254,7 @@ MagicItemsList['scroll of protection from celestials'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents celestials from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a celestial would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['scroll of protection from elementals'] = {
+MagicItemsList["scroll of protection from elementals"] = {
 	name: "Scroll of Protection from Elementals",
 	source: ["D", 199],
 	type: "Scroll",
@@ -263,7 +263,7 @@ MagicItemsList['scroll of protection from elementals'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents elementals from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that an elemental would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['scroll of protection from fey'] = {
+MagicItemsList["scroll of protection from fey"] = {
 	name: "Scroll of Protection from Fey",
 	source: ["D", 199],
 	type: "Scroll",
@@ -272,7 +272,7 @@ MagicItemsList['scroll of protection from fey'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents fey from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a fey would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['scroll of protection from fiends'] = {
+MagicItemsList["scroll of protection from fiends"] = {
 	name: "Scroll of Protection from Fiends",
 	source: ["D", 199],
 	type: "Scroll",
@@ -281,7 +281,7 @@ MagicItemsList['scroll of protection from fiends'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents fiends from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a fiend would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['scroll of protection from plants'] = {
+MagicItemsList["scroll of protection from plants"] = {
 	name: "Scroll of Protection from Plants",
 	source: ["D", 199],
 	type: "Scroll",
@@ -290,7 +290,7 @@ MagicItemsList['scroll of protection from plants'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents plants from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that a plant would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['scroll of protection from undead'] = {
+MagicItemsList["scroll of protection from undead"] = {
 	name: "Scroll of Protection from Undead",
 	source: ["D", 199],
 	type: "Scroll",
@@ -299,7 +299,7 @@ MagicItemsList['scroll of protection from undead'] = {
 	description: "",
 	descriptionFull: "Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents undead from entering or affecting anything within the cylinder. The cylinder moves with you and remains centered on you. However, if you move in such a way that an undead would be inside the cylinder, the effect ends. A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier."
 }
-MagicItemsList['sending stones'] = {
+MagicItemsList["sending stones"] = {
 	name: "Sending Stones",
 	source: ["D", 199],
 	type: "wondrous item",
@@ -308,7 +308,7 @@ MagicItemsList['sending stones'] = {
 	description: "",
 	descriptionFull: "Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical."
 }
-MagicItemsList['sentinel shield'] = {
+MagicItemsList["sentinel shield"] = {
 	name: "Sentinel Shield",
 	source: ["D", 199],
 	type : "shield",
@@ -318,7 +318,7 @@ MagicItemsList['sentinel shield'] = {
 	descriptionFull: "While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye.",
 	weight: 6
 }
-MagicItemsList['staff of the adder'] = {
+MagicItemsList["staff of the adder"] = {
 	name: "Staff of the Adder",
 	source: ["D", 203],
 	type : "staff",
@@ -329,7 +329,7 @@ MagicItemsList['staff of the adder'] = {
 	attunement: true,
 	weight: 4
 }
-MagicItemsList['sword of answering (answerer)'] = {
+MagicItemsList["sword of answering (answerer)"] = {
 	name: "Sword of Answering (Answerer)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -340,7 +340,7 @@ MagicItemsList['sword of answering (answerer)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (back talker)'] = {
+MagicItemsList["sword of answering (back talker)"] = {
 	name: "Sword of Answering (Back Talker)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -351,7 +351,7 @@ MagicItemsList['sword of answering (back talker)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (concluder)'] = {
+MagicItemsList["sword of answering (concluder)"] = {
 	name: "Sword of Answering (Concluder)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -362,7 +362,7 @@ MagicItemsList['sword of answering (concluder)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (last quip)'] = {
+MagicItemsList["sword of answering (last quip)"] = {
 	name: "Sword of Answering (Last Quip)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -373,7 +373,7 @@ MagicItemsList['sword of answering (last quip)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (rebutter)'] = {
+MagicItemsList["sword of answering (rebutter)"] = {
 	name: "Sword of Answering (Rebutter)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -384,7 +384,7 @@ MagicItemsList['sword of answering (rebutter)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (replier)'] = {
+MagicItemsList["sword of answering (replier)"] = {
 	name: "Sword of Answering (Replier)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -395,7 +395,7 @@ MagicItemsList['sword of answering (replier)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (retorter)'] = {
+MagicItemsList["sword of answering (retorter)"] = {
 	name: "Sword of Answering (Retorter)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -406,7 +406,7 @@ MagicItemsList['sword of answering (retorter)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (scather)'] = {
+MagicItemsList["sword of answering (scather)"] = {
 	name: "Sword of Answering (Scather)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -417,7 +417,7 @@ MagicItemsList['sword of answering (scather)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['sword of answering (squelcher)'] = {
+MagicItemsList["sword of answering (squelcher)"] = {
 	name: "Sword of Answering (Squelcher)",
 	source: ["D", 206],
 	type : "weapon (longsword)",
@@ -428,7 +428,7 @@ MagicItemsList['sword of answering (squelcher)'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['tentacle rod'] = {
+MagicItemsList["tentacle rod"] = {
 	name: "Tentacle Rod",
 	source: ["D", 208],
 	type : "rod",
@@ -439,7 +439,7 @@ MagicItemsList['tentacle rod'] = {
 	attunement: true,
 	weight: 2
 }
-MagicItemsList['tome of the stilled tongue'] = {
+MagicItemsList["tome of the stilled tongue"] = {
 	name: "Tome of the Stilled Tongue",
 	source: ["D", 208],
 	type: "wondrous item",
@@ -452,7 +452,7 @@ MagicItemsList['tome of the stilled tongue'] = {
 }
 
 // Intelligent Items
-MagicItemsList['blackrazor'] = {
+MagicItemsList["blackrazor"] = {
 	name: "Blackrazor",
 	source: ["D", 216],
 	type : "weapon (greatsword)",
@@ -462,7 +462,7 @@ MagicItemsList['blackrazor'] = {
 	attunement: true,
 	weight: 6
 }
-MagicItemsList['moonblade'] = {
+MagicItemsList["moonblade"] = {
 	name: "Moonblade",
 	source: ["D", 217],
 	type : "weapon (longsword)",
@@ -472,7 +472,7 @@ MagicItemsList['moonblade'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['wave'] = {
+MagicItemsList["wave"] = {
 	name: "Wave",
 	source: ["D", 218],
 	type : "weapon (trident)",
@@ -482,7 +482,7 @@ MagicItemsList['wave'] = {
 	attunement: true,
 	weight: 4
 }
-MagicItemsList['whelm'] = {
+MagicItemsList["whelm"] = {
 	name: "Whelm",
 	source: ["D", 218],
 	type : "weapon (warhammer)",
@@ -494,7 +494,7 @@ MagicItemsList['whelm'] = {
 }
 
 // Artifacts
-MagicItemsList['axe of the dwarvish lords'] = {
+MagicItemsList["axe of the dwarvish lords"] = {
 	name: "Axe of the Dwarvish Lords",
 	source: ["D", 221],
 	type : "weapon (battleaxe)",
@@ -505,7 +505,7 @@ MagicItemsList['axe of the dwarvish lords'] = {
 	weight: 4,
 	cursed: true
 }
-MagicItemsList['book of exalted deeds'] = {
+MagicItemsList["book of exalted deeds"] = {
 	name: "Book of Exalted Deeds",
 	source: ["D", 222],
 	type: "wondrous item",
@@ -515,7 +515,7 @@ MagicItemsList['book of exalted deeds'] = {
 	attunement: true,
 	weight: 5
 }
-MagicItemsList['book of vile darkness'] = {
+MagicItemsList["book of vile darkness"] = {
 	name: "Book of Vile Darkness",
 	source: ["D", 222],
 	type: "wondrous item",
@@ -525,7 +525,7 @@ MagicItemsList['book of vile darkness'] = {
 	attunement: true,
 	weight: 5
 }
-MagicItemsList['hand of vecna'] = {
+MagicItemsList["hand of vecna"] = {
 	name: "Hand of Vecna",
 	source: ["D", 224],
 	type: "wondrous item",
@@ -534,7 +534,7 @@ MagicItemsList['hand of vecna'] = {
 	descriptionFull: "Seldom is the name of Vecna spoken except in a hushed voice. Vecna was, in his time, one of the mightiest of all wizards. Through dark magic and conquest, he forged a terrible empire. For all his power, Vecna couldn't escape his own mortality. He began to fear death and take steps to prevent his end from ever coming about.\n   Orcus, the demon prince of undeath, taught Vecna a ritual that would allow him to live on as a lich. Beyond death, he became the greatest of all liches. Even though his body gradually withered and decayed, Vecna continued to expand his evil dominion. So formidable and hideous was his temper that his subjects feared to speak his name. He was the Whispered One, the Master of the Spider Throne, the Undying King, and the Lord of the Rotted Tower.\n   Some say that Vecna's lieutenant Kas coveted the Spider Throne for himself, or that the sword his lord made for him seduced him into rebellion. Whatever the reason, Kas brought the Undying King's rule to an end in a terrible battle that left Vecna's tower a heap of ash. Of Vecna, all that remained were one hand and one eye, grisly artifacts that still seek to work the Whispered One's will in the world.\n   The Eye of Vecna and the Hand of Vecna might be found together or separately. The eye looks like a bloodshot organ torn free from the socket. The hand is a mummified and shriveled left extremity.\n   To attune to the eye, you must gouge out your own eye and press the artifact into the empty socket. The eye grafts itself to your head and remains there until you die. Once in place, the eye transforms into a golden eye with a slit for a pupil, much like that of a cat. If the eye is ever removed, you die.\n   To attune to the hand, you must lop off your left hand at the wrist and the press the artifact against the stump. The hand grafts itself to your arm and becomes a functioning appendage. If the hand is ever removed, you die.\n   " + toUni("Random Properties") + ". The Eye of Vecna and the Hand of Vecna each have the following random properties:\n \u2022 1 minor beneficial property\n \u2022 1 major beneficial property\n \u2022 1 minor detrimental property\n\n" + toUni("Properties of the Hand") + ". Your alignment changes neutral evil, and you gain the following benefits:\n \u2022 Your Strength score becomes 20, unless it is already 20 or higher.\n \u2022 Any melee spell attack you make with the hand, and any melee weapon attack made with a weapon held by it, deals an extra 2d8 cold damage on a hit.\n \u2022 The hand has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: Finger of Death (5 charges), Sleep (1 charge), Slow (2 charges), or Teleport (3 charges). The hand regains 1d4+4 expended charges daily at dawn. Each time you cast a spell from the hand, it casts the Suggestion spell on you (save DC 18), demanding that you commit an evil act. The hand might have a specific act in mind or leave it up to you.\n\n" + toUni("Properties of the Eye and Hand") + ". If you are attuned to both the hand and eye, you gain the following additional benefits:\n \u2022 You are immune to disease and poison.\n \u2022 Using the eye's X-ray vision never causes you to suffer exhaustion.\n \u2022 You experience premonitions of danger and, unless you are incapacitated, can't be surprised.\n \u2022 If you start your turn with at least 1 hit point, you regain 1d10 hit points.\n \u2022 If a creature has a skeleton, you can attempt to turn its bones to jelly with a touch of the Hand of Vecna. You can do so by using an action to make a melee attack against a creature you can reach, using your choice your melee attack bonus for weapons or spells. On a hit, the target must succeed on a DC 18 Constitution saving throw or drop to 0 hit points.\n \u2022 You can use an action to cast Wish. This property can't be used again until 30 days have passed.\n\n" + toUni("Destroying the Eye and Hand") + ". If the Eye of Vecna and the Hand of Vecna are both attached to the same creature, and that creature is slain by the Sword of Kas, both the eye and the hand burst into flame, turn to ash, and are destroyed forever. Any other attempt to destroy the eye or hand seems to work, but the artifact reappears in one of Vecna's many hidden vaults, where it waits to be rediscovered.",
 	attunement: true
 }
-MagicItemsList['eye of vecna'] = {
+MagicItemsList["eye of vecna"] = {
 	name: "Eye of Vecna",
 	source: ["D", 224],
 	type: "wondrous item",
@@ -543,7 +543,7 @@ MagicItemsList['eye of vecna'] = {
 	descriptionFull: "Seldom is the name of Vecna spoken except in a hushed voice. Vecna was, in his time, one of the mightiest of all wizards. Through dark magic and conquest, he forged a terrible empire. For all his power, Vecna couldn't escape his own mortality. He began to fear death and take steps to prevent his end from ever coming about.\n   Orcus, the demon prince of undeath, taught Vecna a ritual that would allow him to live on as a lich. Beyond death, he became the greatest of all liches. Even though his body gradually withered and decayed, Vecna continued to expand his evil dominion. So formidable and hideous was his temper that his subjects feared to speak his name. He was the Whispered One, the Master of the Spider Throne, the Undying King, and the Lord of the Rotted Tower.\n   Some say that Vecna's lieutenant Kas coveted the Spider Throne for himself, or that the sword his lord made for him seduced him into rebellion. Whatever the reason, Kas brought the Undying King's rule to an end in a terrible battle that left Vecna's tower a heap of ash. Of Vecna, all that remained were one hand and one eye, grisly artifacts that still seek to work the Whispered One's will in the world.\n   The Eye of Vecna and the Hand of Vecna might be found together or separately. The eye looks like a bloodshot organ torn free from the socket. The hand is a mummified and shriveled left extremity.\n   To attune to the eye, you must gouge out your own eye and press the artifact into the empty socket. The eye grafts itself to your head and remains there until you die. Once in place, the eye transforms into a golden eye with a slit for a pupil, much like that of a cat. If the eye is ever removed, you die.\n   To attune to the hand, you must lop off your left hand at the wrist and the press the artifact against the stump. The hand grafts itself to your arm and becomes a functioning appendage. If the hand is ever removed, you die.\n   " + toUni("Random Properties") + ". The Eye of Vecna and the Hand of Vecna each have the following random properties:\n \u2022 1 minor beneficial property\n \u2022 1 major beneficial property\n \u2022 1 minor detrimental property\n\n" + toUni("Properties of the Eye") + ". Your alignment changes to neutral evil, and you gain the following benefits:\n \u2022 You have truesight.\n \u2022 You can use an action to see as if you were wearing a ring of X-ray vision. You can end this effect as a bonus action.\n \u2022 The eye has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: Clairvoyance (2 charges), Crown of Madness (1 charge), Disintegrate (4 charges), Dominate Monster (5 charges), or Eyebite (4 charges). The eye regains 1d4+4 expended charges daily at dawn. Each time you cast a spell from the eye, there is a 5% chance that Vecna tears your soul from your body, devours it, and then takes control of the body like a puppet. If that happens, you become an NPC under the DM's control.\n\n" + toUni("Properties of the Eye and Hand") + ". If you are attuned to both the hand and eye, you gain the following additional benefits:\n \u2022 You are immune to disease and poison.\n \u2022 Using the eye's X-ray vision never causes you to suffer exhaustion.\n \u2022 You experience premonitions of danger and, unless you are incapacitated, can't be surprised.\n \u2022 If you start your turn with at least 1 hit point, you regain 1d10 hit points.\n \u2022 If a creature has a skeleton, you can attempt to turn its bones to jelly with a touch of the Hand of Vecna. You can do so by using an action to make a melee attack against a creature you can reach, using your choice your melee attack bonus for weapons or spells. On a hit, the target must succeed on a DC 18 Constitution saving throw or drop to 0 hit points.\n \u2022 You can use an action to cast Wish. This property can't be used again until 30 days have passed.\n\n" + toUni("Destroying the Eye and Hand") + ". If the Eye of Vecna and the Hand of Vecna are both attached to the same creature, and that creature is slain by the Sword of Kas, both the eye and the hand burst into flame, turn to ash, and are destroyed forever. Any other attempt to destroy the eye or hand seems to work, but the artifact reappears in one of Vecna's many hidden vaults, where it waits to be rediscovered.",
 	attunement: true
 }
-MagicItemsList['sword of kas'] = {
+MagicItemsList["sword of kas"] = {
 	name: "Sword of Kas",
 	source: ["D", 226],
 	type : "weapon (longsword)",
@@ -553,7 +553,7 @@ MagicItemsList['sword of kas'] = {
 	attunement: true,
 	weight: 3
 }
-MagicItemsList['wand of orcus'] = {
+MagicItemsList["wand of orcus"] = {
 	name: "Wand of Orcus",
 	source: ["D", 227],
 	type : "wand",

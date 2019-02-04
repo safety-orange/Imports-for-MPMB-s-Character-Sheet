@@ -8,7 +8,7 @@ CoS: {
 		descriptionFull: "The axe's handle is carved with leaves and vines, and it weighs half as much as a normal battleaxe. When the axe hits a plant, whether an ordinary plant or a plant creature, the target takes an extra 1d8 slashing damage. When a creature of non-good alignment wields the axe, it sprouts thorns whenever its wielder makes an attack with it. These thorns prick the wielder for 1 piercing damage after the attack is made, and this damage is considered magical.",
 		weight: 2
 	},
-	'blood spear': {
+	"blood spear": {
 		name: "Blood Spear",
 		source: ["CoS", 221],
 		type : "weapon ()",
@@ -18,7 +18,7 @@ CoS: {
 		attunement: true,
 		weight: 3
 	},
-	'green copper ewer': {
+	"green copper ewer": {
 		name: "Green Copper Ewer",
 		source: ["CoS", 188],
 		type: "Other",
@@ -26,7 +26,7 @@ CoS: {
 		description: "",
 		descriptionFull: "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. Furthermore, a creature that grasps the ewer's handle can command the ewer to fill with 1 gallon of wine, and it can't produce more wine until the next dawn."
 	},
-	'gulthias staff': {
+	"gulthias staff": {
 		name: "Gulthias Staff",
 		source: ["CoS", 221],
 		type : "weapon ()",
@@ -36,7 +36,7 @@ CoS: {
 		attunement: true,
 		weight: 4
 	},
-	'holy symbol of ravenkind': {
+	"holy symbol of ravenkind": {
 		name: "Holy Symbol of Ravenkind",
 		source: ["CoS", 222],
 		type: "wondrous item",
@@ -45,7 +45,7 @@ CoS: {
 		descriptionFull: "The Holy Symbol of Ravenkind is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.\n   The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.\n   The holy symbol has 10 charges for the following properties. It regains 1d6+4 charges daily at dawn.\n   " + toUni("Hold Vampires") + ". As an Action, you can expend 1 charge and present the holy symbol to make it flare with holy power. Vampires and vampire spawn within 30 feet of the holy symbol when it flares must make a DC 15 Wisdom saving throw. On a failed save, a target is paralyzed for 1 minute. It can repeat the saving throw at the end of its turns to end the effect on itself.\n   " + toUni("Turn Undead") + ". If you have the Turn Undead or the Turn the Unholy feature, you can expend 3 charges when you present the holy symbol while using that feature. When you do so, undead have disadvantage on their saving throws against the effect.\n   " + toUni("Sunlight") + ". As an action, you can expend 5 charges while presenting the holy symbol to make it shed bright light in a 30-foot radius and dim light for an additional 30 feet. The light is sunlight and lasts for 10 minutes or until you end the effect (no action required).",
 		attunement: true
 	},
-	'icon of ravenloft': {
+	"icon of ravenloft": {
 		name: "Icon of Ravenloft",
 		source: ["CoS", 222],
 		type: "wondrous item",
@@ -55,7 +55,7 @@ CoS: {
 		attunement: true,
 		weight: 10
 	},
-	'lost sword': {
+	"lost sword": {
 		name: "Lost Sword",
 		source: ["CoS", 81],
 		type : "weapon ()",
@@ -75,7 +75,7 @@ CoS: {
 		attunement: true,
 		weight: 4
 	},
-	'silver dragon shield +2': {
+	"silver dragon shield +2": {
 		name: "Silver Dragon Shield +2",
 		source: ["CoS", 68],
 		type : "shield",
@@ -84,7 +84,7 @@ CoS: {
 		descriptionFull: "While holding this shield, you have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   The shield is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon (see Curse of Strahd, chapter 7). The shield whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   A shield is made from wood or metal and is carried in one hand. Wielding a shield increases your Armor Class by 2. You can benefit from only one shield at a time.",
 		weight: 6
 	},
-	'statuette of saint markovia': {
+	"statuette of saint markovia": {
 		name: "Statuette of Saint Markovia",
 		source: ["CoS", 152],
 		type: "Other",
@@ -104,7 +104,7 @@ CoS: {
 	}
 },
 TftYP: {
-	'amulet of protection from turning': {
+	"amulet of protection from turning": {
 		name: "Amulet of Protection from Turning",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -114,7 +114,7 @@ TftYP: {
 		attunement: true,
 		weight: 1
 	},
-	'balance of harmony': {
+	"balance of harmony": {
 		name: "Balance of Harmony",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -123,7 +123,7 @@ TftYP: {
 		descriptionFull: "This scale bears celestial symbols on one pan and fiendish symbols on the other. You can use the scale to cast Detect Evil and Good as a ritual. Doing so requires you to place the scale on a solid surface, then sprinkle the pans with holy water or place a transparent gem worth 100 gp in each pan. The scale remains motionless if it detects nothing, tips to one side or the other for good (consecrated) or evil (desecrated), and fluctuates slightly if it detects a creature appropriate to the spell but neither good nor evil. By touching the scales after casting the ritual, you instantly learn any information the spell can normally convey, and then the effect ends.",
 		weight: 1
 	},
-	'bracelet of rock magic': {
+	"bracelet of rock magic": {
 		name: "Bracelet of Rock Magic",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -134,7 +134,7 @@ TftYP: {
 		weight: 1,
 		cursed: true
 	},
-	'eagle whistle': {
+	"eagle whistle": {
 		name: "Eagle Whistle",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -143,7 +143,7 @@ TftYP: {
 		descriptionFull: "While you blow an eagle whistle continuously, you can fly twice as fast as your walking speed. You can blow the whistle continuously for a number of rounds equal to 5 + five times your Constitution modifier (minimum of 1 round) or until you talk, hold your breath, or start suffocating. A use of the whistle also ends if you land. If you are aloft when you stop blowing the whistle, you fall. The whistle has three uses. It regains expended uses daily at dawn.",
 		weight: 1
 	},
-	'hell hound cloak': {
+	"hell hound cloak": {
 		name: "Hell Hound Cloak",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -154,7 +154,7 @@ TftYP: {
 		weight: 1,
 		cursed: true
 	},
-	'javelin of backbiting': {
+	"javelin of backbiting": {
 		name: "Javelin of Backbiting",
 		source: ["TftYP", 229],
 		type : "weapon ()",
@@ -165,7 +165,7 @@ TftYP: {
 		weight: 2,
 		cursed: true
 	},
-	'load stone': {
+	"load stone": {
 		name: "Load Stone",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -175,7 +175,7 @@ TftYP: {
 		weight: 1,
 		cursed: true
 	},
-	'mirror of the past': {
+	"mirror of the past": {
 		name: "Mirror of the Past",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -184,7 +184,7 @@ TftYP: {
 		descriptionFull: "The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the next dawn.",
 		weight: 1
 	},
-	'night caller': {
+	"night caller": {
 		name: "Night Caller",
 		source: ["TftYP", 228],
 		type: "wondrous item",
@@ -193,7 +193,7 @@ TftYP: {
 		descriptionFull: "This whistle is carved from transparent crystal, and it resembles a tiny dragon curled up like a snail. The name Night Caller is etched on the whistle in Dwarvish runes. If a character succeeds on a DC 20 Intelligence (Arcana or History) check, the character recalls lore that says the duergar made several such whistles for various groups in an age past.\n   If you blow the whistle in darkness or under the night sky, it allows you to cast the Animate Dead spell. The target can be affected through up to 10 feet of soft earth or similar material, and if it is, it takes 1 minute to claw its way to the surface to serve you. Once the whistle has animated an undead creature, it can't do so again until 7 days have passed.\n   Once every 24 hours, you can blow the whistle to reassert control over one or two creatures you animated with it.",
 		weight: 1
 	},
-	'potion of mind control (beast)': {
+	"potion of mind control (beast)": {
 		name: "Potion of Mind Control (beast)",
 		source: ["TftYP", 229],
 		type : "potion",
@@ -202,7 +202,7 @@ TftYP: {
 		descriptionFull: "When you drink a potion of mind control, you can cast a dominate spell (save DC 15) on a specific creature if you do so before the end of your next turn. If you don't, the potion is wasted.\n   A potion of mind control produces the effect of a Dominate Beast spell. If the target's initial saving throw fails, the effect lasts for 1 hour, with no concentration required on your part. The charmed creature has disadvantage on new saving throws to break the effect during this time.",
 		weight: 1
 	},
-	'potion of mind control (humanoid)': {
+	"potion of mind control (humanoid)": {
 		name: "Potion of Mind Control (humanoid)",
 		source: ["TftYP", 229],
 		type : "potion",
@@ -211,7 +211,7 @@ TftYP: {
 		descriptionFull: "When you drink a potion of mind control, you can cast a dominate spell (save DC 15) on a specific creature if you do so before the end of your next turn. If you don't, the potion is wasted.\n   A potion of mind control produces the effect of a Dominate Person spell. If the target's initial saving throw fails, the effect lasts for 1 hour, with no concentration required on your part. The charmed creature has disadvantage on new saving throws to break the effect during this time.",
 		weight: 1
 	},
-	'potion of mind control (monster)': {
+	"potion of mind control (monster)": {
 		name: "Potion of Mind Control (monster)",
 		source: ["TftYP", 229],
 		type : "potion",
@@ -220,7 +220,7 @@ TftYP: {
 		descriptionFull: "When you drink a potion of mind control, you can cast a dominate spell (save DC 15) on a specific creature if you do so before the end of your next turn. If you don't, the potion is wasted.\n   A potion of mind control produces the effect of a Dominate Monster spell. If the target's initial saving throw fails, the effect lasts for 1 hour, with no concentration required on your part. The charmed creature has disadvantage on new saving throws to break the effect during this time.",
 		weight: 1
 	},
-	'robe of summer': {
+	"robe of summer": {
 		name: "Robe of Summer",
 		source: ["TftYP", 229],
 		type: "wondrous item",
@@ -240,7 +240,7 @@ TftYP: {
 		attunement: true,
 		weight: 3
 	},
-	'spear of backbiting': {
+	"spear of backbiting": {
 		name: "Spear of Backbiting",
 		source: ["TftYP", 229],
 		type : "weapon ()",
@@ -251,7 +251,7 @@ TftYP: {
 		weight: 3,
 		cursed: true
 	},
-	'stone of ill luck': {
+	"stone of ill luck": {
 		name: "Stone of Ill Luck",
 		source: ["TftYP", 229],
 		type: "wondrous item",
@@ -262,7 +262,7 @@ TftYP: {
 		weight: 1,
 		cursed: true
 	},
-	'wand of entangle': {
+	"wand of entangle": {
 		name: "Wand of Entangle",
 		source: ["TftYP", 229],
 		type : "wand",
@@ -284,7 +284,7 @@ TftYP: {
 	}
 },
 ToA: {
-	'amulet of the black skull': {
+	"amulet of the black skull": {
 		name: "Amulet of the Black Skull",
 		source: ["ToA", 206],
 		type: "wondrous item",
@@ -304,7 +304,7 @@ ToA: {
 		attunement: true,
 		weight: 1
 	},
-	'dancing monkey fruit': {
+	"dancing monkey fruit": {
 		name: "Dancing Monkey Fruit",
 		source: ["ToA", 205],
 		type: "Adventuring Gear",
@@ -312,7 +312,7 @@ ToA: {
 		description: "",
 		descriptionFull: "This rare magical fruit produces enough juice to fill a vial. Any humanoid that eats a dancing monkey fruit or drinks its juice must succeed on a DC 14 Constitution saving throw or begin a comic dance that lasts for 1 minute. Humanoids that can't be poisoned are immune to this magical effect.\n   The dancer must use all its movement to dance without leaving its space and has disadvantage on attack rolls and Dexterity saving throws, and other creatures have advantage on attack rolls against it. Each time it takes damage, the dancer can repeat the saving throw, ending the effect on itself on a success. When the dancing effect ends, the humanoid suffers the poisoned condition for 1 hour."
 	},
-	'ghost lantern': {
+	"ghost lantern": {
 		name: "Ghost Lantern",
 		source: ["ToA", 206],
 		type: "wondrous item",
@@ -322,7 +322,7 @@ ToA: {
 		attunement: true,
 		weight: 1
 	},
-	'mask of the beast': {
+	"mask of the beast": {
 		name: "Mask of the Beast",
 		source: ["ToA", 207],
 		type: "wondrous item",
@@ -331,7 +331,7 @@ ToA: {
 		descriptionFull: "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask you can expend 1 charge and use the mask to cast the Animal Friendship spell as an action. The mask regains all expended charges at dawn.",
 		weight: 1
 	},
-	'menga leaves (1 ounce)': {
+	"menga leaves (1 ounce)": {
 		name: "Menga leaves (1 ounce)",
 		source: ["ToA", 205],
 		type: "Adventuring Gear",
@@ -340,7 +340,7 @@ ToA: {
 		descriptionFull: "The dried leaves of a menga bush can be ground, dissolved in a liquid, heated, and ingested. A creature that ingests 1 ounce of menga leaves in this fashion regains 1 hit point. A creature that ingests more than 5 ounces of menga leaves in a 24-hour period gains no additional benefit and must succeed on a DC 11 Constitution saving throw or fall unconscious for 1 hour. The unconscious creature awakens if it takes at least 5 damage on one turn.\n   A healthy menga bush usually has 2d6 ounces of leaves. Once picked, the leaves require 1 day to dry out before they can confer any benefit.",
 		weight: 1
 	},
-	'ring of winter': {
+	"ring of winter": {
 		name: "Ring of Winter",
 		source: ["ToA", 207],
 		type : "ring",
@@ -350,7 +350,7 @@ ToA: {
 		attunement: true,
 		weight: 1
 	},
-	'ryath root': {
+	"ryath root": {
 		name: "Ryath Root",
 		source: ["ToA", 205],
 		type: "Adventuring Gear",
@@ -359,7 +359,7 @@ ToA: {
 		descriptionFull: "Any creature that ingests a ryath root gains 2d4 temporary hit points. A creature that consumes more than one ryath root in a 24-hour period must succeed on a DC 13 Constitution saving throw or suffer the poisoned condition for 1 hour",
 		weight: 0.1
 	},
-	'scorpion armor': {
+	"scorpion armor": {
 		name: "Scorpion Armor",
 		source: ["ToA", 208],
 		type : "armor ()",
@@ -370,7 +370,7 @@ ToA: {
 		weight: 65,
 		cursed: true
 	},
-	'sinda berries (10)': {
+	"sinda berries (10)": {
 		name: "Sinda berries (10)",
 		source: ["ToA", 205],
 		type: "Adventuring Gear",
@@ -379,7 +379,7 @@ ToA: {
 		descriptionFull: "These berries are dark brown and bitter. A full-grown sinda berry bush has 4d6 berries growing on it. A bush plucked of all its berries grows new berries in 1d4 months. Picked berries lose their freshness and efficacy after 24 hours.\n   Fresh sinda berries can be eaten raw or crushed and added to a drink to dull the bitterness. A creature that consumes at least ten fresh sinda berries gains advantage on saving throws against disease and poison for the next 24 hours.",
 		weight: 1
 	},
-	'staff of the forgotten one': {
+	"staff of the forgotten one": {
 		name: "Staff of the Forgotten One",
 		source: ["ToA", 208],
 		type : "weapon ()",
@@ -398,7 +398,7 @@ ToA: {
 		descriptionFull: "Introducing the juice of a wildroot into a poisoned creature's bloodstream (for example, by rubbing it on an open wound) rids the creature of the poisoned condition. Once used in this way, a wildroot loses this property.",
 		weight: 1
 	},
-	'wukka nut': {
+	"wukka nut": {
 		name: "Wukka Nut",
 		source: ["ToA", 205],
 		type: "Adventuring Gear",
@@ -409,7 +409,7 @@ ToA: {
 	}
 },
 WGtE: {
-	'bag of bounty': {
+	"bag of bounty": {
 		name: "Bag of Bounty",
 		source: ["WGtE", 116],
 		type: "wondrous item",
@@ -417,7 +417,7 @@ WGtE: {
 		description: "",
 		descriptionFull: "This is a sturdy leather sack with tiny Siberys shards embedded into the lining. If you have the Mark of Hospitality you can use an action to cast create food and water, drawing a feast from within the bag. You shape this meal with your thoughts. You can create the standard bland fare without requiring any sort of check, but you can attempt to create finer food by making a Charisma check; if you're proficient with cook's utensils, add your bonus to this check. A failed check results in a sour and squalid meal.\n\n" + toUni("Difficulty") + "\t" + toUni("Food Quality") + "\nNo roll\tPoor\n10\tModest\n13\tComfortable\n15\tWealthy\n18\tAristocratic\n\n\n   A bag of bounty can be used up to three times over the course of a day. After that, the bag can't be used again until the next dawn."
 	},
-	'band of loyalty': {
+	"band of loyalty": {
 		name: "Band of Loyalty",
 		source: ["WGtE", 115],
 		type : "ring",
@@ -426,7 +426,7 @@ WGtE: {
 		descriptionFull: "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 		attunement: true
 	},
-	'cleansing stone': {
+	"cleansing stone": {
 		name: "Cleansing Stone",
 		source: ["WGtE", 115],
 		type: "wondrous item",
@@ -434,7 +434,7 @@ WGtE: {
 		description: "",
 		descriptionFull: "A cleansing stone is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns."
 	},
-	'dimensional seal': {
+	"dimensional seal": {
 		name: "Dimensional Seal",
 		source: ["WGtE", 118],
 		type: "Eldritch Machine",
@@ -451,7 +451,7 @@ WGtE: {
 		descriptionFull: "A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. If you're a warforged, you can attune to the docent, at which point the sphere becomes embedded in your chest and comes to life\u2014literally.\n   A docent is an intelligent magic item designed to advise and assist the warforged it's attached to. A typical docent has an Intelligence score of 16 and Wisdom and Charisma scores of 14. Once you're attuned to the docent, it can communicate with you telepathically and can perceive the world through your senses. One of the simple functions of a docent is to serve as a translator. All docents understand Common and Giant, but a docent knows up to four additional languages. Elven and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before... but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarven language.\n   In addition, a docent possesses up to three of the following traits.\n   You can use a bonus action on your turn to request that the docent use one of its traits on your behalf. In the case of skills, this uses the docent's bonus; your abilities and proficiencies have no effect on the outcome. These traits are under the control of the docent, and if you have a bad relationship with your docent it may refuse to assist you... or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.\n   The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators... but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
 		attunement: true
 	},
-	'everbright lantern': {
+	"everbright lantern": {
 		name: "Everbright Lantern",
 		source: ["WGtE", 115],
 		type: "wondrous item",
@@ -459,7 +459,7 @@ WGtE: {
 		description: "",
 		descriptionFull: "An everbright lantern contains an Eberron dragonshard imbued with the effect of a continual flame spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An everbright lantern provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out."
 	},
-	'feather token': {
+	"feather token": {
 		name: "Feather Token",
 		source: ["WGtE", 115],
 		type: "wondrous item",
@@ -492,7 +492,7 @@ WGtE: {
 		description: "",
 		descriptionFull: "This simple object plays a vital role in the work of House Kundarak. If you possess the Mark of Warding, when you cast alarm, arcane lock, glyph of warding, or similar abjuration effects, you can tie the effect to the keycharm. Whoever holds the keycharm is considered to the owner of this enchantment; they receive the notification from alarm, they can safely avoid a glyph, and they can deactivate any associated effect."
 	},
-	'mabaran resonator': {
+	"mabaran resonator": {
 		name: "Mabaran Resonator",
 		source: ["WGtE", 118],
 		type: "Eldritch Machine",
@@ -509,7 +509,7 @@ WGtE: {
 		description: "",
 		descriptionFull: "While this looks like a scrap heap assembled from shattered constructs and wreckage from the Mournland, this eldritch machine possesses tremendous power. You gain the following benefits while you are attuned to the master's call and within one mile of the device.\n \u2022 You can sense the presence and location of all warforged within ten miles.\n \u2022 You have advantage on any Charisma-based check made against a warforged.\n \u2022 While you are in contact with the master's call, you can use an action to target a warforged within ten miles of the device. You can send a telepathic message of up to 25 words to the target. They must make a Wisdom saving throw, with a difficulty of 14 + your Intelligence modifier. On a failed save, the target is affected by a Suggestion compelling them to follow your command. This effect doesn't require concentration; it lasts for eight hours, until you choose to end it, or until the victim successfully fulfils the command, whichever comes first. You can control up to eight warforged at once using this effect."
 	},
-	'rings of shared suffering': {
+	"rings of shared suffering": {
 		name: "Rings of Shared Suffering",
 		source: ["WGtE", 117],
 		type : "ring",
@@ -534,7 +534,7 @@ WGtE: {
 		description: "",
 		descriptionFull: "Transmutation magic is woven into the fabric of shiftweave clothing. When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your shiftweave outfit into one of the other designs contained within it. To determine the price of a suit of shiftweave, combine the value of all of the outfits it contains and add 25 gp to that amount."
 	},
-	'spell sink': {
+	"spell sink": {
 		name: "Spell Sink",
 		source: ["WGtE", 119],
 		type: "Eldritch Machine",
@@ -550,7 +550,7 @@ WGtE: {
 		description: "",
 		descriptionFull: "A spellshard is a polished Eberron dragonshard, sized to fit into the palm of a hand. The shard is imbued with a particular work of literature. By holding the shard and concentrating, you can see its pages in your mind's eye. Thinking of a particular phrase or topic will draw you to the first section that addresses it, and a simple ritual allows you to add content to the shard.\n   A wizard can use a spellshard instead of a spellbook; the spellshard costs 1 gp per \"page\" in the shard, and otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals. More advanced (and uncommon) shards can require a particular mental passphrase to access the contents of the shard."
 	},
-	'storm sphere': {
+	"storm sphere": {
 		name: "Storm Sphere",
 		source: ["WGtE", 119],
 		type: "Eldritch Machine",
@@ -559,7 +559,7 @@ WGtE: {
 		descriptionFull: "This eldritch machine is a form of dragonmark focus item; you must have the Greater Mark of Storms to attune to this device. Storm spires allow House Lyrandar to influence the weather, which can be a boon for the local population or a curse if the Lyrandar baron chooses to demand payment for desired conditions. You gain the following benefits while you are attuned to a storm spire.\n \u2022 You can sense weather patterns within a 100-mile radius of the spire and accurately predict the weather for up to 24 hours.\n \u2022 While you are within 60 feet of the spire, you can use an action to cast any of the following spells: Call Lightning, Gust of Wind. You cast these as 5th level spells, and Intelligence is your spellcasting ability.\n \u2022 While you are within 5 feet of the spire, you can cast Control Weather as a ten-minute ritual. This allows you to pick a point within 100 miles of the spire and influence the weather within a 10-mile radius of that point. Maintaining this effect requires concentration.\n \u2022 You can also use an action to influence the weather within a ten-mile radius of the spire itself; you don't have to use concentration to maintain this effect, and you can sustain this at the same time that you're manipulating distant weather.",
 		attunement: true
 	},
-	'wand sheath': {
+	"wand sheath": {
 		name: "Wand Sheath",
 		source: ["WGtE", 115],
 		type: "wondrous item",
@@ -568,7 +568,7 @@ WGtE: {
 		descriptionFull: "A wand sheath is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a wand sheath by attuning to it. While the wand sheath is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the wand sheath.\n   You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:s\n \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.\n \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.\n \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
 		attunement: true
 	},
-	'wheel of wind and water': {
+	"wheel of wind and water": {
 		name: "Wheel of Wind and Water",
 		source: ["WGtE", 115],
 		type: "wondrous item",
@@ -578,7 +578,7 @@ WGtE: {
 	}
 },
 PotA: {
-	'balloon pack': {
+	"balloon pack": {
 		name: "Balloon Pack",
 		source: ["PotA", 222],
 		type: "wondrous item",
@@ -586,7 +586,7 @@ PotA: {
 		description: "",
 		descriptionFull: "This backpack contains the spirit of an air elemental and a compact leather balloon. While you're wearing the backpack, you can deploy the balloon as an action and gain the effect of the Levitate spell for 10 minutes, targeting yourself and requiring no concentration. Alternatively, you can use a reaction to deploy the balloon when you're falling and gain the effect of the Feather Fall spell for yourself.\n   When either spell ends, the balloon slowly deflates as the elemental spirit escapes and returns to the Elemental Plane of Air. As the balloon deflates, you descend gently toward the ground for up to 60 feet. IF you are still in the air at the end of this distance, you fall if you have no other means of staying aloft.\n   After the spirit departs, the backpack's property is unusable unless the backpack is recharged for 1 hour in an elemental air node, which binds another spirit to the backpack."
 	},
-	'bottled breath': {
+	"bottled breath": {
 		name: "Bottled Breath",
 		source: ["PotA", 222],
 		type : "potion",
@@ -595,7 +595,7 @@ PotA: {
 		descriptionFull: "This bottle contains a breath of elemental air. When you inhale it, you either exhale it or hold it.\n   If you exhale the breath, you gain the effect of the Gust of Wind spell. If you hold the breath, you don't need to breathe for 1 hour, though you can end this benefit early (for example, to speak). Ending it early doesn't give you the benefit of exhaling the breath.",
 		weight: 0.5
 	},
-	'claws of the umber hulk': {
+	"claws of the umber hulk": {
 		name: "Claws of the Umber Hulk",
 		source: ["PotA", 222],
 		type: "wondrous item",
@@ -604,7 +604,7 @@ PotA: {
 		descriptionFull: "These heavy gauntlets of brown iron are forged in the shape an umber hulk's claws, and they fit the wearer's hands and forearms all the way up to the elbow. While wearing both claws, you gain a burrowing speed of 20 feet, and you can tunnel through solid rock at a rate of 1 foot per round.\n   You can use a claw as a melee weapon while wearing it. You have proficiency with it, and it deals 1d8 slashing damage on a hit (your Strength modifier applies to the attack and damage rolls, as normal)\n   While wearing the claws, you can't manipulate objects or cast spells with somatic components",
 		attunement: true
 	},
-	'devastation orb of air': {
+	"devastation orb of air": {
 		name: "Devastation Orb of Air",
 		source: ["PotA", 222],
 		type: "wondrous item",
@@ -612,7 +612,7 @@ PotA: {
 		description: "",
 		descriptionFull: "A devastation orb is an elemental bomb that can be created at the site of an elemental node by performing a ritual with an elemental weapon. The type of orb created depends on the node used. For example, an air node creates a devastation orb of air. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.\n   A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates 1d100 hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as Identify and Divination can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.\n   A special container can be crafted to contain a devastation orb and prevent it from detonating. The container must be inscribed with symbols of the orb's opposing element. For example, a case inscribed with earth symbols can be used to contain a devastation orb of air and keep it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes 1d6 rounds later, unless it is returned to the container.\n   Regardless of the type of orb, its effect is contained within a sphere with a 1 mile radius. The orb is the sphere's point of origin. The orb is destroyed after one use.\n   " + toUni("Air Orb") + ". When this orb detonates, it creates a powerful windstorm that lasts for 1 hour. Whenever a creature ends its turn exposed to the wind, the creature must succeed on a DC 18 Constitution saving throw or take 1d4 bludgeoning damage, as the wind and debris batter it. The wind is strong enough to uproot weak trees and destroy light structures after at least 10 minutes of exposure. Otherwise, the rules for strong wind apply, as detailed in chapter 5 of the Dungeon Master's Guide."
 	},
-	'devastation orb of earth': {
+	"devastation orb of earth": {
 		name: "Devastation Orb of Earth",
 		source: ["PotA", 222],
 		type: "wondrous item",
@@ -620,7 +620,7 @@ PotA: {
 		description: "",
 		descriptionFull: "A devastation orb is an elemental bomb that can be created at the site of an elemental node by performing a ritual with an elemental weapon. The type of orb created depends on the node used. For example, an air node creates a devastation orb of air. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.\n   A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates 1d100 hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as Identify and Divination can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.\n   A special container can be crafted to contain a devastation orb and prevent it from detonating. The container must be inscribed with symbols of the orb's opposing element. For example, a case inscribed with earth symbols can be used to contain a devastation orb of air and keep it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes 1d6 rounds later, unless it is returned to the container.\n   Regardless of the type of orb, its effect is contained within a sphere with a 1 mile radius. The orb is the sphere's point of origin. The orb is destroyed after one use.\n   " + toUni("Earth Orb") + ". When this orb detonates, it subjects the area to the effects of the Earthquake spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes."
 	},
-	'devastation orb of fire': {
+	"devastation orb of fire": {
 		name: "Devastation Orb of Fire",
 		source: ["PotA", 222],
 		type: "wondrous item",
@@ -628,7 +628,7 @@ PotA: {
 		description: "",
 		descriptionFull: "A devastation orb is an elemental bomb that can be created at the site of an elemental node by performing a ritual with an elemental weapon. The type of orb created depends on the node used. For example, an air node creates a devastation orb of air. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.\n   A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates 1d100 hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as Identify and Divination can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.\n   A special container can be crafted to contain a devastation orb and prevent it from detonating. The container must be inscribed with symbols of the orb's opposing element. For example, a case inscribed with earth symbols can be used to contain a devastation orb of air and keep it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes 1d6 rounds later, unless it is returned to the container.\n   Regardless of the type of orb, its effect is contained within a sphere with a 1 mile radius. The orb is the sphere's point of origin. The orb is destroyed after one use.\n   " + toUni("Fire Orb") + ". When this orb detonates, it creates a dry heat wave that lasts for 24 hours. Within the area of effect, the rules for extreme heat apply, as detailed in chapter 5 of the Dungeon Master's Guide. At the end of each hour, there is a ten percent chance that the heat wave starts a wildfire in a random location within the area of effect. The wildfire covers a 10-foot-square area initially but expands to fill another 10-foot square each round until the fire is extinguished or burns itself out. A creature that comes within 10 feet of a wildfire for the first time on a turn or starts its turn there takes 3d6 fire damage."
 	},
-	'devastation orb of water': {
+	"devastation orb of water": {
 		name: "Devastation Orb of Water",
 		source: ["PotA", 222],
 		type: "wondrous item",
@@ -656,7 +656,7 @@ PotA: {
 		attunement: true,
 		weight: 2
 	},
-	'lost crown of besilmer': {
+	"lost crown of besilmer": {
 		name: "Lost Crown of Besilmer",
 		source: ["PotA", 223],
 		type: "wondrous item",
@@ -684,7 +684,7 @@ PotA: {
 		descriptionFull: "You have a +1 bonus to attack and damage rolls made with this weapon, which doesn't make noise when it hits or cuts something.\n   The name \"Reszur\" is graven on the dagger's pommel. If the wielder speaks the name, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until the wielder speaks the name again.",
 		weight: 1
 	},
-	'seeker dart': {
+	"seeker dart": {
 		name: "Seeker Dart",
 		source: ["PotA", 223],
 		type : "weapon ()",
@@ -693,7 +693,7 @@ PotA: {
 		descriptionFull: "This small dart is decorated with designs like windy spirals that span the length of its shaft.\n   When you whisper the word \"seek\" and hurl this dart, it seeks out a target of your choice within 120 feet of you. You must have seen the target before, but you don't need to see it now. If the target isn't within range or if there is no clear path to it, the dart falls to the ground, its magic spent and wasted. Otherwise, elemental winds guide the dart instantly through the air to the target. The dart can pass though openings as narrow as 1 inch wide and can change direction to fly around corners.\n   When the dart reaches its target, the target must succeed on a DC 16 Dexterity saving throw or take 1d4 piercing damage and 3d4 lightning damage. The dart's magic is then spent, and it becomes an ordinary dart.",
 		weight: 0.25
 	},
-	'storm boomerang': {
+	"storm boomerang": {
 		name: "Storm Boomerang",
 		source: ["PotA", 223],
 		type : "weapon ()",
@@ -711,7 +711,7 @@ PotA: {
 		attunement: true,
 		weight: 1
 	},
-	'weird tank': {
+	"weird tank": {
 		name: "Weird Tank",
 		source: ["PotA", 223],
 		type: "wondrous item",
@@ -741,7 +741,7 @@ PotA: {
 	}
 },
 SKT: {
-	'banner of the krig rune': {
+	"banner of the krig rune": {
 		name: "Banner of the Krig Rune",
 		source: ["SKT", 233],
 		type: "wondrous item",
@@ -750,7 +750,7 @@ SKT: {
 		descriptionFull: "Crafted from a thick, red fabric, this banner measures 5 feet high and 3 feet wide. The krig (war) rune is displayed on the fabric with round, metal plates sewn into it. It can be attached to a 10-foot pole to serve as a standard. Furling or unfurling the banner requires an action. The banner has the following properties.\n   " + toUni("Mark of Courage") + ". As a bonus action, you can touch the unfurled banner and cause it to emanate courage. You and your allies are immune to the frightened condition while within 20 feet of it. This benefit lasts for 10 minutes or until the banner is furled. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Sentinel Standard") + ". You can see invisible creatures while they are within 20 feet of the unfurled banner and within your line of sight.\n   " + toUni("Standard's Shield") + ". As a bonus action, you can touch the unfurled banner and invoke this power. Any ranged attack roll that targets you or an ally of yours has disadvantage if the target is within 20 feet of the unfurled banner. This benefit lasts for 1 minute or until the banner is furled. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Battle") + ". You can transfer the banner's magic to a place by tracing the krig rune on the ground with your finger. The point where you trace it becomes the center of a spherical area of magic that has a 500-foot radius and that is fixed to the place. The transfer takes 8 hours of work that requires the banner to be within 5 feet of you and during which you choose creatures, creature types, or both that will benefit from the magic. At the end, the banner is destroyed, and the area gains the following property:\n   While in the 500-foot-radius sphere, the creatures you chose during the transfer process are immune to the frightened condition and gain a +1 bonus to attack rolls and AC.",
 		attunement: true
 	},
-	'blod stone': {
+	"blod stone": {
 		name: "Blod Stone",
 		source: ["SKT", 233],
 		type: "wondrous item",
@@ -759,7 +759,7 @@ SKT: {
 		descriptionFull: "This diamond contains the blood of a creature\u2014blood that appears in the form of the blod (blood) rune. While the item is on your person, you can use your action to divine the location of the creature nearest to you that is related to the blood in the item and that isn't undead. You sense the distance and direction of the creature relative to your location. The creature is either the one whose blood is in the item or a blood relative.\n   This item is made from a large diamond worth at least 5,000 gp. When the blood of a creature is poured onto it during the creation process, the blood seeps into the heart of the gem. If the gem is destroyed, the blood evaporates and is gone forever. A vengeful being might use a blod stone to hunt down an entire bloodline. Such stones are sometimes given as gifts to siblings or handed down from parent to child.",
 		attunement: true
 	},
-	'claw of the wyrm rune': {
+	"claw of the wyrm rune": {
 		name: "Claw of the Wyrm Rune",
 		source: ["SKT", 233],
 		type: "wondrous item",
@@ -768,7 +768,7 @@ SKT: {
 		descriptionFull: "This dragon's claw has been covered with a coat of molten silver, upon which has been inscribed the wyrm (dragon) rune. The claw has the following properties.\n   " + toUni("Wyrmslayer") + ". As an action, you can point the claw at a dragon within 30 feet of you. The dragon must then succeed on a DC 15 Constitution saving throw or gain vulnerability to all damage types until the end of your next turn. This property can be used three times. The claw regains all expended uses at the next dawn.\n   " + toUni("Wyrm Shield") + ". While the claw is displayed on your person, you have resistance to the damage caused by any dragon's breath weapon.\n   " + toUni("Wyrm Ward") + ". You can transfer the c1aw's magic to a place by tracing the wyrm rune on the ground with your finger. The point where you trace it becomes the center of a spherical area of magic that has a 100-foot radius and that is fixed to the place. The transfer takes 8 hours of work that requires the claw to be within 5 feet of you. At the end, the claw is destroyed, and the area gains the following property:\n   While in the 100-foot-radius sphere, any dragon has disadvantage on saving throws and can have a flying speed no higher than 10 feet.",
 		attunement: true
 	},
-	'conch of teleportation': {
+	"conch of teleportation": {
 		name: "Conch of Teleportation",
 		source: ["SKT", 234],
 		type: "wondrous item",
@@ -777,7 +777,7 @@ SKT: {
 		descriptionFull: "This item is an ordinary, albeit rather large, conch shell that has been inscribed with the uvar rune. The conch measures 2\xBD feet long and weighs 20 pounds.\n   As an action, you can cast the Teleport spell by blowing into the shell. The destination is fixed, and there is no chance of either a mishap or the spell being off target. Anyone teleported by the conch appears in a specific location designated by the item's creator at the time the uvar rune is inscribed on the conch. It doesn't allow teleportation to any other destination. Once its spell is cast, the conch can't be used again until the next dawn.",
 		attunement: true
 	},
-	'gavel of the venn rune': {
+	"gavel of the venn rune": {
 		name: "Gavel of the Venn Rune",
 		source: ["SKT", 234],
 		type: "wondrous item",
@@ -796,7 +796,7 @@ SKT: {
 		attunement: true,
 		weight: 325
 	},
-	'ingot of the skold rune': {
+	"ingot of the skold rune": {
 		name: "Ingot of the Skold Rune",
 		source: ["SKT", 234],
 		type: "wondrous item",
@@ -805,7 +805,7 @@ SKT: {
 		descriptionFull: "This appears to be a simple ingot of iron ore, about a foot long and a few inches across. Inspection of its surface reveals the faint, silvery outline of the skold (shield) rune. The ingot has the following properties, which work only while it's on your person.\n   " + toUni("Runic Shield") + ". You have a +1 bonus to AC.\n   " + toUni("Shield Bond") + ". As a bonus action, choose a creature that you can see within 30 feet of you, other than yourself. Until the end of your next turn, any damage the target takes is reduced to 1, but you take half the damage prevented in this way. The damage you take can't be reduced in any way. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Shield Ward") + ". You can transfer the ingot's magic to a nonmagical item\u2014a shield or a two-handed melee weapon-by tracing the skold rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the ingot is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield.") + ". The shield is now a rare magic item that requires attunement. Its magic gives you a +1 bonus to AC, and the first time after each of your long rests that damage reduces you to 0 hit points, you are instead reduced to 1 hit point. You must be wielding the shield to gain these benefits.\n \u2022 " + toUni("Weapon.") + ". The weapon is now an uncommon magic weapon. It grants you a +1 bonus to AC while you're holding it.",
 		attunement: true
 	},
-	'korolnor scepter': {
+	"korolnor scepter": {
 		name: "Korolnor Scepter",
 		source: ["SKT", 234],
 		type : "weapon ()",
@@ -815,7 +815,7 @@ SKT: {
 		attunement: true,
 		weight: 2
 	},
-	'navigation orb': {
+	"navigation orb": {
 		name: "Navigation Orb",
 		source: ["SKT", 235],
 		type: "wondrous item",
@@ -824,7 +824,7 @@ SKT: {
 		descriptionFull: "A navigation orb is a hollow, 7-foot-diameter sphere of thin, polished mithral with a large skye (cloud) rune embossed on its outer surface. The orb levitates 10 feet above the ground and is keyed to a particular cloud castle, allowing you to control that castle's altitude and movement while the orb is inside the castle. If the orb is destroyed or removed from its castle, the castle's altitude and location remain fixed until the orb is returned or replaced.\n   As an action, you can cause one of the following effects to occur if you are touching the orb:\n   The castle moves at a speed of 1 mph in a straight line, in a direction of your choice, until the castle stops or is made to stop, or until another action is used to change its direction. If this movement brings the castle into contact with the ground, the castle lands gently.\n   The castle, if it is moving, comes to a gradual stop.\n   The castle makes a slow, 90-degree turn clockwise or counterclockwise (turning a northerly view into a westerly view, for example). The castle can turn while it is moving in a straight line.\n   Any creature touching the orb knows the altitude of the base of the castle above the ground or water below it.",
 		attunement: true
 	},
-	'opal of the ild rune': {
+	"opal of the ild rune": {
 		name: "Opal of the Ild Rune",
 		source: ["SKT", 235],
 		type: "wondrous item",
@@ -833,7 +833,7 @@ SKT: {
 		descriptionFull: "This triangular fire opal measures about three inches on each side and is half an inch thick. The ild (fire) rune shimmers within its core, causing it to be slightly warm to the touch. The opal has the following properties, which work only while it's on your person.\n   " + toUni("Ignite") + ". As an action, you can ignite an object within 10 feet of you. The object must be flammable, and the fire starts in a circle no larger than 1 foot in diameter.\n   " + toUni("Fires Friend") + ". You have resistance to cold damage.\n   " + toUni("Fire Tamer") + ". As an action, you can extinguish any open flame within 10 feet of you. You choose how much fire to extinguish in that radius.\n   " + toUni("Gift of Flame") + ". You can transfer the opal's magic to a nonmagical item\u2014a weapon or a suit of armor\u2014by tracing the ild rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the opal is destroyed, and the rune appears in red on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Weapon.") + ". The weapon is now an uncommon magic weapon. It deals an extra 1d6 fire damage to any target it hits.\n \u2022 " + toUni("Armor.") + ". The armor is now a rare magic item that requires attunement. You have resistance to cold damage while wearing the armor.",
 		attunement: true
 	},
-	'orb of the stein rune': {
+	"orb of the stein rune": {
 		name: "Orb of the Stein Rune",
 		source: ["SKT", 235],
 		type: "wondrous item",
@@ -842,7 +842,7 @@ SKT: {
 		descriptionFull: "This orb of granite is about the size of an adult human's fist. The stein (stone) rune appears on it in the form of crystalline veins that run across the surface. The orb has the following properties, which work only while it's on your person.\n   " + toUni("Indomitable Stand") + ". As an action, you can channel the orb's magic to hold your ground. For the next minute or until you move any distance, you have advantage on all checks and saving throws to resist effects that force you to move. In addition, any enemy that moves to a space within 10 feet of you must succeed on a DC 12 Strength saving throw or be unable to move any farther this turn.\n   " + toUni("Stone Soul") + ". You can't be petrified.\n   " + toUni("Earthen Step") + ". You can cast Meld into Stone as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Stone") + ". You can transfer the orb's magic to a nonmagical item\u2014a shield or a pair of boots\u2014by tracing the stein rune there with your finger. The transfer takes8 hours of work that requires the two items to be within 5 feet of each other. At the end, the orb is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield.") + ". The shield is now a rare magic item that requires attunement. While you wield it, you have resistance to all damage dealt by ranged weapon attacks.\n \u2022 " + toUni("Boots.") + ". The pair of boots is now an uncommon magic item that requires attunement. While you wear the boots, you have advantage on Strength saving throws, and you can use your reaction to avoid being knocked prone.",
 		attunement: true
 	},
-	'pennant of the vind rune': {
+	"pennant of the vind rune": {
 		name: "Pennant of the Vind Rune",
 		source: ["SKT", 235],
 		type: "wondrous item",
@@ -851,7 +851,7 @@ SKT: {
 		descriptionFull: "This blue pennant is crafted from silk and is five feet long and whips about as if buffeted by a wind. The vind (wind) rune appears on its surface, looking almost like a cloud. The pennant has the following properties, which work only while it's on your person.\n   " + toUni("Wind Step") + ". As an action, you fly up to 20 feet. If you don't land at the end of this flight, you fall unless you have another means of staying aloft.\n   " + toUni("Comforting Wind") + ". You can't suffocate.\n   " + toUni("Winds Grasp") + ". As a reaction when you fall, you can cause yourself to take no damage from the fall. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Wind Walker") + ". While you are attuned to this rune, you can cast Levitate as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Wind") + ". You can transfer the pennant's magic to a nonmagical item\u2014a suit of armor, a pair of boots, or a cloak\u2014by tracing the vind rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the pennant is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Armor.") + ". The armor is now an uncommon magic item that requires attunement. You gain a bonus to speed of 5 feet while you wear the armor, and if it normally imposes disadvantage on Stealth checks, it no longer does so.\n \u2022 " + toUni("Boots/Cloak.") + ". The pair of boots or cloak is now a rare magic item that requires attunement. While wearing the item, you can convert up to 20 feet of your movement on each of your turns into flight. If you don't land at the end of this flight, you fall unless you have another means of staying aloft. You can also cast Feather Fall once from the item, and you regain the ability to do so when you finish a short or long rest.",
 		attunement: true
 	},
-	'potion of giant size': {
+	"potion of giant size": {
 		name: "Potion of Giant Size",
 		source: ["SKT", 236],
 		type : "potion",
@@ -859,7 +859,7 @@ SKT: {
 		description: "",
 		descriptionFull: "When you drink this potion, you become Huge for 24 hours if you are Medium or smaller, otherwise the potion does nothing. For that duration, your Strength becomes 25, if it isn't already higher, and your hit point maximum is doubled (your current hit points are doubled when you drink the potion). In addition, the reach of your melee attacks increases by 5 feet.\n   Everything you are carrying and wearing also increases in size for the duration. When rolling damage for weapons enlarged in this manner, roll three times the normal number of dice; for example, an enlarged longsword would deal 3d8 slashing damage (instead of1d8), or 3d10 slashing damage (instead of 1d10) when used with two hands.\n   When the effect ends, any hit points you have above your hit point maximum become temporary hit points. This potion is a pale white liquid made from the tongue of a giant clam, with a pungent aroma akin to that of rotting algae. It tastes sweet, however, when consumed."
 	},
-	'robe of serpents': {
+	"robe of serpents": {
 		name: "Robe of Serpents",
 		source: ["SKT", 236],
 		type: "wondrous item",
@@ -868,7 +868,7 @@ SKT: {
 		descriptionFull: "A robe of serpents is a stylish silk garment that is popular among wealthy nobles and retired assassins. The robe is emblazoned with 1d4+3 stylized serpents, all brightly colored.\n   As a bonus action on your turn, you can transform one of the robe's serpents into a giant poisonous snake. The snake instantly falls from the robe, slithers into an unoccupied space next to you, and acts on your initiative count. The snake can tell friendly creatures from hostile ones and attacks the latter. The snake disappears in a harmless puff of smoke after 1 hour, when it drops to 0 hit points, or when you dismiss it (no action required). Once detached, a snake can't return to the robe. When all of the robe's snakes have detached, the robe becomes a nonmagical garment.",
 		attunement: true
 	},
-	'rod of the vonindod': {
+	"rod of the vonindod": {
 		name: "Rod of the Vonindod",
 		source: ["SKT", 236],
 		type : "rod",
@@ -877,7 +877,7 @@ SKT: {
 		descriptionFull: "The fire giant Duke Zalto hired a wizard to craft several of these adamantine rods. Each measures 4 feet long, weighs 100 pounds, and is sized to fit comfortably in a fire giant's hand. The rod has two prongs at one end and a molded handle grip on the opposite end.\n   The rod has 10 charges and regains 1d6+4 of its expended charges daily at dawn. As an action, you can grasp it by the handle and expend 1 charge to cast the Locate Object spell from it. When the rod is used to detect objects made of adamantine, such as fragments of the Vonindod construct, its range increases to 10 miles.",
 		attunement: true
 	},
-	'shard of the ise rune': {
+	"shard of the ise rune": {
 		name: "Shard of the Ise Rune",
 		source: ["SKT", 236],
 		type: "wondrous item",
@@ -886,7 +886,7 @@ SKT: {
 		descriptionFull: "This shard of ice is long and slender, roughly the size of a dagger. The ise (ice) rune glows within it. The shard has the following properties, which work only while it's on your person.\n   " + toUni("Frigid Touch") + ". As an action, you can touch a body of water and freeze the water in a 10-foot-radius sphere around the spot you touched. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Frost Friend") + ". You have resistance to fire damage.\n   " + toUni("Icy Mantle") + ". As an action, you can touch yourself or another creature with water on your finger. The water creates an icy mantle of protection. The next time within the next minute that the target takes bludgeoning, slashing, or piercing damage, that damage is reduced to 0, and the mantle is destroyed. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Winters Howl") + ". As an action, you can cast Sleet Storm (spell save DC 17). You regain this ability after you finish a short or long rest.\n   " + toUni("Gift of Frost") + ". You can transfer the shard's magic to a nonmagical item\u2014a cloak or a pair of boots-by tracing the ise rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the shard is destroyed, and the rune appears in blue on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Cloak.") + ". The cloak is now a rare magic item that requires attunement. While wearing it, you have resistance to fire damage, and you have advantage on Dexterity (Stealth) checks made while in snowy terrain.\n \u2022 " + toUni("Boots.") + ". The pair of boots is now a rare magic item that requires attunement. While wearing it, you ignore difficult terrain while walking, and you can walk on water.",
 		attunement: true
 	},
-	'wyrmskull throne': {
+	"wyrmskull throne": {
 		name: "Wyrmskull Throne",
 		source: ["SKT", 237],
 		type: "wondrous item",
@@ -896,7 +896,7 @@ SKT: {
 	}
 },
 X: {
-	'bead of nourishment': {
+	"bead of nourishment": {
 		name: "Bead of Nourishment",
 		source: ["X", 136],
 		type: "wondrous item",
@@ -904,7 +904,7 @@ X: {
 		description: "",
 		descriptionFull: "This spongy, flavorless, gelatinous bead dissolves on your tongue and provides as much nourishment as 1 day of rations."
 	},
-	'bead of refreshment': {
+	"bead of refreshment": {
 		name: "Bead of Refreshment",
 		source: ["X", 136],
 		type: "wondrous item",
@@ -912,7 +912,7 @@ X: {
 		description: "",
 		descriptionFull: "This spongy, flavorless, gelatinous bead dissolves in liquid, transforming up to a pint of the liquid into fresh, cold drinking water. The bead has no effect on magical liquids or harmful substances such as poison."
 	},
-	'boots of false tracks': {
+	"boots of false tracks": {
 		name: "Boots of False Tracks",
 		source: ["X", 136],
 		type: "wondrous item",
@@ -920,7 +920,7 @@ X: {
 		description: "",
 		descriptionFull: " Only humanoids can wear these boots. While wearing the boots, you can choose to have them leave tracks like those of another kind of humanoid of your size."
 	},
-	'candle of the deep': {
+	"candle of the deep": {
 		name: "Candle of the Deep",
 		source: ["X", 136],
 		type: "wondrous item",
@@ -937,7 +937,7 @@ X: {
 		descriptionFull: "Whenever you roll this six\u2014sided die, you can control which number it rolls.",
 		attunement: true
 	},
-	'cloak of billowing': {
+	"cloak of billowing": {
 		name: "Cloak of Billowing",
 		source: ["X", 136],
 		type: "wondrous item",
@@ -945,7 +945,7 @@ X: {
 		description: "",
 		descriptionFull: "While wearing this cloak, you can use a bonus action to make it billow dramatically."
 	},
-	'cloak of many fashions': {
+	"cloak of many fashions": {
 		name: "Cloak of Many Fashions",
 		source: ["X", 136],
 		type: "wondrous item",
@@ -953,7 +953,7 @@ X: {
 		description: "",
 		descriptionFull: "While wearing this cloak, you can use a bonus action to change the style, color, and apparent quality of the garment. The cloak's weight doesn't change. Regardless of its appearance, the cloak can't be anything but a cloak. Although it can duplicate the appearance of other magic cloaks, it doesn't gain their magical properties."
 	},
-	'clockwork amulet': {
+	"clockwork amulet": {
 		name: "Clockwork Amulet",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -961,7 +961,7 @@ X: {
 		description: "",
 		descriptionFull: "This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used. this property can't be used again until the next dawn."
 	},
-	'clothes of mending': {
+	"clothes of mending": {
 		name: "Clothes of Mending",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -969,7 +969,7 @@ X: {
 		description: "",
 		descriptionFull: "This elegant outfit of traveler's clothes magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way."
 	},
-	'dark shard amulet': {
+	"dark shard amulet": {
 		name: "Dark Shard Amulet",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -978,7 +978,7 @@ X: {
 		descriptionFull: "This amulet is fashioned from a single shard of resilient extraplanar material originating from the realm of your warlock patron. While you are wearing it, you gain the following benefits:\n \u2022 You can use the amulet as a spellcasting focus for your warlock spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the warlock spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.",
 		attunement: true
 	},
-	'dread helm': {
+	"dread helm": {
 		name: "Dread Helm",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -986,7 +986,7 @@ X: {
 		description: "",
 		descriptionFull: "This fearsome steel helm makes your eyes glow red while you wear it."
 	},
-	'ear horn of hearing': {
+	"ear horn of hearing": {
 		name: "Ear Horn of Hearing",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -994,7 +994,7 @@ X: {
 		description: "",
 		descriptionFull: "While held up to your ear, this horn suppresses the effects of the deafened condition on you, allowing you to hear normally."
 	},
-	'enduring spellbook': {
+	"enduring spellbook": {
 		name: "Enduring Spellbook",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -1002,7 +1002,7 @@ X: {
 		description: "",
 		descriptionFull: "This spellbook, along with anything written on its pages, can't be damaged by fire or immersion in water. In addition, the spellbook doesn't deteriorate with age."
 	},
-	'ersatz eye': {
+	"ersatz eye": {
 		name: "Ersatz Eye",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -1011,7 +1011,7 @@ X: {
 		descriptionFull: "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in your eye socket, it can't be removed by anyone other than you, and you can see through the tiny orb as though it were a normal eye.",
 		attunement: true
 	},
-	'hat of vermin': {
+	"hat of vermin": {
 		name: "Hat of Vermin",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -1019,7 +1019,7 @@ X: {
 		description: "",
 		descriptionFull: "This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn."
 	},
-	'hat of wizardry': {
+	"hat of wizardry": {
 		name: "Hat of Wizardry",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -1036,7 +1036,7 @@ X: {
 		description: "",
 		descriptionFull: "This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn."
 	},
-	'horn of silent alarm': {
+	"horn of silent alarm": {
 		name: "Horn of Silent Alarm",
 		source: ["X", 137],
 		type: "wondrous item",
@@ -1044,7 +1044,7 @@ X: {
 		description: "",
 		descriptionFull: "This horn has 4 charges. When you use an action to blow it, one creature of your choice can hear the horns blare, provided the creature is within 600 feet of the horn and not deafened. No other creature hears sound coming from the horn. The horn regains 1d4 expended charges daily at dawn."
 	},
-	'instrument of illusions': {
+	"instrument of illusions": {
 		name: "Instrument of Illusions",
 		source: ["X", 137],
 		type: "Instrument",
@@ -1053,7 +1053,7 @@ X: {
 		descriptionFull: "While you are playing this musical instrument, you can create harmless, illusory visual effects within a 5-foot-radius sphere centered on the instrument. If you are a bard, the radius increases to 15 feet. Sample visual effects include luminous musical notes, a spectral dancer, butterflies, and gently falling snow. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when you stop playing.",
 		attunement: true
 	},
-	'instrument of scribing': {
+	"instrument of scribing": {
 		name: "Instrument of Scribing",
 		source: ["X", 138],
 		type: "Instrument",
@@ -1062,7 +1062,7 @@ X: {
 		descriptionFull: "This musical instrument has 3 charges. While you are playing it, you can use an action to expend 1 charge from the instrument and write a magical message on a nonmagical object or surface that you can see within 30 feet of you. The message can be up to six words long and is written in a language you know. If you are a bard, you can scribe an additional seven words and choose to make the message glow faintly, allowing it to be seen in nonmagical darkness. Casting Dispel Magic on the message erases it. Otherwise, the message fades away after 24 hours.\n   The instrument regains all expended charges daily at dawn.",
 		attunement: true
 	},
-	'lock of trickery': {
+	"lock of trickery": {
 		name: "Lock of Trickery",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1070,7 +1070,7 @@ X: {
 		description: "",
 		descriptionFull: "This lock appears to be an ordinary lock (of the type described in chapter 5 of the Player's Handbook) and comes with a single key. The tumblers in this lock magically adjust to thwart burglars. Dexterity checks made to pick the lock have disadvantage."
 	},
-	'mystery key': {
+	"mystery key": {
 		name: "Mystery Key",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1078,7 +1078,7 @@ X: {
 		description: "",
 		descriptionFull: "A question mark is worked into the head of this key. The key has a 5% chance of unlocking any lock into which it's inserted. Once it unlocks something, the key disappears."
 	},
-	'orb of direction': {
+	"orb of direction": {
 		name: "Orb of Direction",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1086,7 +1086,7 @@ X: {
 		description: "",
 		descriptionFull: "While holding this orb, you can use an action to determine which way is north. This property functions only on the Material Plane."
 	},
-	'orb of time': {
+	"orb of time": {
 		name: "Orb of Time",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1094,7 +1094,7 @@ X: {
 		description: "",
 		descriptionFull: "While holding this orb, you can use an action to determine whether it is morning, afternoon, evening, or nighttime outside. This property functions only on the Material Plane."
 	},
-	'perfume of bewitching': {
+	"perfume of bewitching": {
 		name: "Perfume of Bewitching",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1102,7 +1102,7 @@ X: {
 		description: "",
 		descriptionFull: "This tiny vial contains magic perfume, enough for one use. You can use an action to apply the perfume to yourself, and its effect lasts 1 hour. For the duration, you have advantage on all Charisma checks directed at humanoids of challenge rating 1 or lower. Those subjected to the perfume's effect are not aware that they've been influenced by magic."
 	},
-	'pipe of smoke monsters': {
+	"pipe of smoke monsters": {
 		name: "Pipe of Smoke Monsters",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1110,7 +1110,7 @@ X: {
 		description: "",
 		descriptionFull: "While smoking this pipe, you can use an action to exhale a puff of smoke that takes the form of a single creature, such as a dragon, a flumph, or a froghemoth. The form must be small enough to fit in a 1-foot cube and loses its shape after a few seconds, becoming an ordinary puff of smoke."
 	},
-	'pole of angling': {
+	"pole of angling": {
 		name: "Pole of Angling",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1118,7 +1118,7 @@ X: {
 		description: "",
 		descriptionFull: "While holding this 10-foot pole, you can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10-foot pole."
 	},
-	'pole of collapsing': {
+	"pole of collapsing": {
 		name: "Pole of Collapsing",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1126,7 +1126,7 @@ X: {
 		description: "",
 		descriptionFull: "While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The poles weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows."
 	},
-	'pot of awakening': {
+	"pot of awakening": {
 		name: "Pot of Awakening",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1134,7 +1134,7 @@ X: {
 		description: "",
 		descriptionFull: "If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an awakened shrub at the end of that time. When the shrub awakens, its roots break the pot, destroying it.\n   The awakened shrub is friendly toward you. Absent commands from you, it does nothing."
 	},
-	'rope of mending': {
+	"rope of mending": {
 		name: "Rope of Mending",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1142,7 +1142,7 @@ X: {
 		description: "",
 		descriptionFull: "You can cut this 50-foot coil of hempen rope into any number of smaller pieces, and then use an action to speak a command word and cause the pieces to knit back together. The pieces must be in contact with each other and not otherwise in use. A rope of mending is forever shortened if a section of it is lost or destroyed."
 	},
-	'ruby of the war mage': {
+	"ruby of the war mage": {
 		name: "Ruby of the War Mage",
 		source: ["X", 138],
 		type: "wondrous item",
@@ -1151,7 +1151,7 @@ X: {
 		descriptionFull: "Etched with eldritch runes, this 1\u2014inch-diameter ruby allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The ruby does fall off the weapon if your attunement to the ruby ends.",
 		attunement: true
 	},
-	'shield of expression': {
+	"shield of expression": {
 		name: "Shield of Expression",
 		source: ["X", 139],
 		type : "shield",
@@ -1160,7 +1160,7 @@ X: {
 		descriptionFull: "The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
 		weight: 6
 	},
-	'staff of adornment': {
+	"staff of adornment": {
 		name: "Staff of Adornment",
 		source: ["X", 139],
 		type : "staff",
@@ -1168,7 +1168,7 @@ X: {
 		description: "",
 		descriptionFull: "If you place an object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of the staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place."
 	},
-	'staff of birdcalls': {
+	"staff of birdcalls": {
 		name: "Staff of Birdcalls",
 		source: ["X", 139],
 		type : "staff",
@@ -1176,7 +1176,7 @@ X: {
 		description: "",
 		descriptionFull: "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's book, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever."
 	},
-	'staff of flowers': {
+	"staff of flowers": {
 		name: "Staff of Flowers",
 		source: ["X", 139],
 		type : "staff",
@@ -1184,7 +1184,7 @@ X: {
 		description: "",
 		descriptionFull: "This wooden staff has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of you, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mildscented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would. The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff turns into flower petals and is lost forever."
 	},
-	'talking doll': {
+	"talking doll": {
 		name: "Talking Doll",
 		source: ["X", 139],
 		type: "wondrous item",
@@ -1193,7 +1193,7 @@ X: {
 		descriptionFull: "While this stuffed doll is within 5 feet of you, you can spend a short rest telling it to say up to six phrases, none of which can be more than six words long, and set a condition under which the doll speaks each phrase. You can also replace old phrases with new ones. Whatever the condition, it must occur within 5 feet of the doll to make it speak. For example, whenever someone picks up the doll, it might say, \"I want a piece of candy.\" The doll's phrases are lost when your attunement to the doll ends.",
 		attunement: true
 	},
-	'tankard of sobriety': {
+	"tankard of sobriety": {
 		name: "Tankard of Sobriety",
 		source: ["X", 139],
 		type: "wondrous item",
@@ -1201,7 +1201,7 @@ X: {
 		description: "",
 		descriptionFull: "This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison."
 	},
-	'unbreakable arrow': {
+	"unbreakable arrow": {
 		name: "Unbreakable Arrow",
 		source: ["X", 139],
 		type: "Ammunition",
@@ -1217,7 +1217,7 @@ X: {
 		description: "",
 		descriptionFull: "When you grasp this walking cane and use a bonus action to speak the command word, it transforms into an ordinary longsword and ceases to be magical."
 	},
-	'wand of conducting': {
+	"wand of conducting": {
 		name: "Wand of Conducting",
 		source: ["X", 140],
 		type : "wand",
@@ -1225,7 +1225,7 @@ X: {
 		description: "",
 		descriptionFull: "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and create orchestral music by waving it around. The music can be heard out to a range of 60 feet and ends when you stop waving the wand.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, a sad tuba sound plays as the wand crumbles to dust and is destroyed."
 	},
-	'wand of pyrotechnics': {
+	"wand of pyrotechnics": {
 		name: "Wand of Pyrotechnics",
 		source: ["X", 140],
 		type : "wand",
@@ -1233,7 +1233,7 @@ X: {
 		description: "",
 		descriptionFull: "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed."
 	},
-	'wand of scowls': {
+	"wand of scowls": {
 		name: "Wand of Scowls",
 		source: ["X", 140],
 		type : "wand",
@@ -1241,7 +1241,7 @@ X: {
 		description: "",
 		descriptionFull: "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to scowl for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of smiles."
 	},
-	'wand of smiles': {
+	"wand of smiles": {
 		name: "Wand of Smiles",
 		source: ["X", 140],
 		type : "wand",
@@ -1251,7 +1251,7 @@ X: {
 	}
 },
 HotDQ: {
-	'black dragon mask': {
+	"black dragon mask": {
 		name: "Black Dragon Mask",
 		source: ["HotDQ", 94],
 		type: "wondrous item",
@@ -1270,7 +1270,7 @@ HotDQ: {
 		attunement: true,
 		weight: 6
 	},
-	'insignia of claws': {
+	"insignia of claws": {
 		name: "Insignia of Claws",
 		source: ["HotDQ", 94],
 		type: "wondrous item",
@@ -1278,7 +1278,7 @@ HotDQ: {
 		description: "",
 		descriptionFull: "The jewels in the insignia of the Cult of the Dragon flare with purple light when you enter combat, empowering your natural fists or natural weapons.\n   While wearing the insignia you gain a +1 bonus to the attack rolls and the damage rolls you make with unarmed strikes and natural weapons. Such attacks are considered to be magical."
 	},
-	'wand of winter': {
+	"wand of winter": {
 		name: "Wand of Winter",
 		source: ["HotDQ", 94],
 		type : "wand",
@@ -1289,7 +1289,7 @@ HotDQ: {
 	}
 },
 RoTOS: {
-	'blue dragon mask': {
+	"blue dragon mask": {
 		name: "Blue Dragon Mask",
 		source: ["RoTOS", 4],
 		type: "wondrous item",
@@ -1298,7 +1298,7 @@ RoTOS: {
 		descriptionFull: "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.\n   " + toUni("Damage Absorption") + ". You have resistance against lightning damage. If you already have resistance to lightning damage from another source, you instead have immunity to lightning damage. If you already have immunity to lightning damage from another source, whenever you are subjected to lightning damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n   " + toUni("Draconic Majesty") + ". While you are wearing no armor, you can add your Charisma bonus to your Armor Class.\n   " + toUni("Dragon Breath") + ". If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.\n   " + toUni("Dragon Sight") + ". You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.\n   " + toUni("Dragon Tongue") + ". You can speak and understand Draconic. You also have advantage on any Charisma check you make against Blue Dragons.\n   " + toUni("Legendary Resistance") + ". (1/Day) If you fail a saving throw, you can choose to succeed instead.\n   " + toUni("Lingering Shock") + ". If you deal lightning damage to a creature, it can't take reactions until its next turn.",
 		attunement: true
 	},
-	'green dragon mask': {
+	"green dragon mask": {
 		name: "Green Dragon Mask",
 		source: ["RoTOS", 4],
 		type: "wondrous item",
@@ -1307,7 +1307,7 @@ RoTOS: {
 		descriptionFull: "This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties\n   " + toUni("Damage Absorption") + ". You have resistance against poison damage. If you already have resistance to poison damage from another source, you instead have immunity to poison damage. If you already have immunity to poison damage from another source, whenever you are subjected to poison damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n   " + toUni("Draconic Majesty") + ". While you are wearing no armor, you can add your Charisma bonus to your Armor Class.\n   " + toUni("Dragon Breath") + ". If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.\n   " + toUni("Dragon Sight") + ". You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.\n   " + toUni("Dragon Tongue") + ". You can speak and understand Draconic. You also have advantage on any Charisma check you make against Green Dragons.\n   " + toUni("Legendary Resistance") + ". (1/Day) If you fail a saving throw, you can choose to succeed instead.\n   " + toUni("Water Breathing") + ". You can breathe underwater.",
 		attunement: true
 	},
-	'red dragon mask': {
+	"red dragon mask": {
 		name: "Red Dragon Mask",
 		source: ["RoTOS", 4],
 		type: "wondrous item",
@@ -1316,7 +1316,7 @@ RoTOS: {
 		descriptionFull: "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.\n   " + toUni("Damage Absorption") + ". You have resistance against fire damage. If you already have resistance to fire damage from another source, you instead have immunity to fire damage. If you already have immunity to fire damage from another source, whenever you are subjected to fire damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n   " + toUni("Draconic Majesty") + ". While you are wearing no armor, you can add your Charisma bonus to your Armor Class.\n   " + toUni("Dragon Breath") + ". If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.\n   " + toUni("Dragon Sight") + ". You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.\n   " + toUni("Dragon Tongue") + ". You can speak and understand Draconic. You also have advantage on any Charisma check you make against Red Dragons.\n   " + toUni("Legendary Resistance") + ". (1/Day) If you fail a saving throw, you can choose to succeed instead.\n   " + toUni("Dragon Fire") + ". If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
 		attunement: true
 	},
-	'white dragon mask': {
+	"white dragon mask": {
 		name: "White Dragon Mask",
 		source: ["RoTOS", 4],
 		type: "wondrous item",
@@ -1337,7 +1337,7 @@ OotA: {
 		attunement: true,
 		weight: 3
 	},
-	'piwafwi (cloak of elvenkind)': {
+	"piwafwi (cloak of elvenkind)": {
 		name: "Piwafwi (Cloak of Elvenkind)",
 		source: ["OotA", 222],
 		type: "wondrous item",
@@ -1346,7 +1346,7 @@ OotA: {
 		descriptionFull: "This dark spider-silk cloak is made by drow. It is a cloak of elvenkind. It loses its magic if exposed to sunlight for 1 hour without interruption.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 		attunement: true
 	},
-	'piwafwi of fire resistance (cloak of elvenkind)': {
+	"piwafwi of fire resistance (cloak of elvenkind)": {
 		name: "Piwafwi of Fire Resistance (Cloak of Elvenkind)",
 		source: ["OotA", 222],
 		type: "wondrous item",
@@ -1355,7 +1355,7 @@ OotA: {
 		descriptionFull: "This dark spider-silk cloak is made by drow. It is a cloak of elvenkind. It also grants resistance to fire damage while you wear it. It loses its magic if exposed to sunlight for 1 hour without interruption.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 		attunement: true
 	},
-	'spell gem (amber)': {
+	"spell gem (amber)": {
 		name: "Spell Gem (Amber)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1364,7 +1364,7 @@ OotA: {
 		descriptionFull: "An amber spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   An amber spell gem can store up to 4th level spells. Spells cast from the spell gem have a save DC of 15 and an attack bonus of +9.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (bloodstone)': {
+	"spell gem (bloodstone)": {
 		name: "Spell Gem (Bloodstone)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1373,7 +1373,7 @@ OotA: {
 		descriptionFull: "A bloodstone spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A bloodstone spell gem can store up to 3rd level spells. Spells cast from the spell gem have a save DC of 15 and an attack bonus of +7.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (diamond)': {
+	"spell gem (diamond)": {
 		name: "Spell Gem (Diamond)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1382,7 +1382,7 @@ OotA: {
 		descriptionFull: "A diamond spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A diamond spell gem can store up to 9th level spells. Spells cast from the spell gem have a save DC of 19 and an attack bonus of +11.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (jade)': {
+	"spell gem (jade)": {
 		name: "Spell Gem (Jade)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1391,7 +1391,7 @@ OotA: {
 		descriptionFull: "A jade spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A jade spell gem can store up to 5th level spells. Spells cast from the spell gem have a save DC of 17 and an attack bonus of +9.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (lapis lazuli)': {
+	"spell gem (lapis lazuli)": {
 		name: "Spell Gem (Lapis lazuli)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1400,7 +1400,7 @@ OotA: {
 		descriptionFull: "A lapis lazuli spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A lapis lazuli spell gem can store up to 1st level spells. Spells cast from the spell gem have a save DC of 13 and an attack bonus of +5.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (obsidian)': {
+	"spell gem (obsidian)": {
 		name: "Spell Gem (Obsidian)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1409,7 +1409,7 @@ OotA: {
 		descriptionFull: "An obsidian spell gem can contain one cantrip from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   An obsidian spell gem can only store cantrips. Cantrips cast from the spell gem have a save DC of 13 and an attack bonus of +5.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. If the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (quartz)': {
+	"spell gem (quartz)": {
 		name: "Spell Gem (Quartz)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1418,7 +1418,7 @@ OotA: {
 		descriptionFull: "A quartz spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A quartz spell gem can store up to 2nd level spells. Spells cast from the spell gem have a save DC of 13 and an attack bonus of +5.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (ruby)': {
+	"spell gem (ruby)": {
 		name: "Spell Gem (Ruby)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1427,7 +1427,7 @@ OotA: {
 		descriptionFull: "A ruby spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A ruby spell gem can store up to 8th level spells. Spells cast from the spell gem have a save DC of 18 and an attack bonus of +10.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (star ruby)': {
+	"spell gem (star ruby)": {
 		name: "Spell Gem (Star ruby)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1436,7 +1436,7 @@ OotA: {
 		descriptionFull: "A star ruby spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A star ruby spell gem can store up to 7th level spells. Spells cast from the spell gem have a save DC of 18 and an attack bonus of +10.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'spell gem (topaz)': {
+	"spell gem (topaz)": {
 		name: "Spell Gem (Topaz)",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1445,7 +1445,7 @@ OotA: {
 		descriptionFull: "A topaz spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   A topaz spell gem can store up to 6th level spells. Spells cast from the spell gem have a save DC of 17 and an attack bonus of +10.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.",
 		attunement: true
 	},
-	'stonespeaker crystal': {
+	"stonespeaker crystal": {
 		name: "Stonespeaker Crystal",
 		source: ["OotA", 223],
 		type: "wondrous item",
@@ -1454,7 +1454,7 @@ OotA: {
 		descriptionFull: "Created by the stone giant librarians of Gravenhollow, this nineteen-inch-long shard of quartz grants you advantage on Intelligence (Investigation) checks while it is on your person.\n   The crystal has 10 charges. While holding it, you can use an action to expend some of its charges to cast one of the following spells from it: Speak with Animals (2 charges), Speak with Dead (4 charges), or Speak with Plants (3 charges).\n   When you cast a Divination spell, you can use the crystal in place of one material component that would normally be consumed by the spell, at a cost of 1 charge per level of the spell. The crystal is not consumed when used in this way.\n   The crystal regains 1d6+4 expended charges daily at dawn. If you expend the crystal's last charge, roll a d20. On a 1, the crystal vanishes, lost forever.",
 		attunement: true
 	},
-	'wand of viscid globs': {
+	"wand of viscid globs": {
 		name: "Wand of Viscid Globs",
 		source: ["OotA", 223],
 		type : "wand",
@@ -1473,7 +1473,7 @@ RoT: {
 		description: "",
 		descriptionFull: "The Draakhorn was a gift from Tiamat in the war between dragons and giants. It was once the horn of her ancient red dragon consort, Ephelomon, that she gave to dragonkind to help them in their war against the giants. The Draakhorn is a signaling device, and it is so large that it requires two Medium creatures (or one Large or larger) to hold it while a third creature sounds it, making the earth resonate to its call. The horn has been blasted with fire into a dark ebony hue and is wrapped in bands of bronze with draconic runes that glow with purple eldritch fire.\n   The low, moaning drone of the Draakhorn discomfits normal animals within a few miles, and it alerts all dragons within two thousand miles to rise and be wary, for great danger is at hand. Coded blasts were once used to signal specific messages. Knowledge of those codes has been lost to the ages.\n   Those with knowledge of the Draakhorn's history know that it was first built to signal danger to chromatic dragons\u2014a purpose the Cult of the Dragon has corrupted to call chromatic dragons to the Well of Dragons from across the North.\n   Within 50 feet of any enclosed space where the horn is blown, the air begins to shimmer from the sound. Any character within 20 feet of the entry to the enclosed space must succeed on a DC 12 Strength check to continue pushing against the pressure of the sound. A failure indicates the character can advance no farther toward the entry.\n   For any character entering the enclosed space, the sound fades to silence\u2014because any creature that enters the enclosed space is temporarily deafened and must make a DC 12 Constitution saving throw. Success indicates the deafness ends 2 minutes after the Draakhorn ceases to sound. Failure indicates the character remains deafened for 1 hour after the Draakhorn ceases to sound.\n   While the horn is sounding, a creature must make a DC 15 Constitution saving throw the first time on a turn the creature enters a 150-foot cone in front of the horn or starts its turn there. On a failed save, the creature takes 27 (6d8) thunder damage and is knocked prone. On a successful save, the creature takes half damage and isn't knocked prone."
 	},
-	'dragontooth dagger': {
+	"dragontooth dagger": {
 		name: "Dragontooth Dagger",
 		source: ["RoT", 94],
 		type : "weapon ()",
@@ -1482,7 +1482,7 @@ RoT: {
 		descriptionFull: "A dagger fashioned from the tooth of a dragon. While the blade is obviously a fang or predator's tooth, the handle is leather wrapped around the root of the tooth, and there is no crossguard.\n   You gain a +1 bonus to attack and damage rolls made with this weapon. On a hit with this weapon, the target takes an extra 1d6 acid damage.\n   " + toUni("Draconic Potency") + ". Against enemies of the Cult of the Dragon, the dagger's bonus to attack and damage rolls increases to 2, and the extra acid damage increases to 2d6.",
 		weight: 1
 	},
-	'mask of the dragon queen': {
+	"mask of the dragon queen": {
 		name: "Mask of the Dragon Queen",
 		source: ["RoT", 94],
 		type: "wondrous item",
@@ -1511,7 +1511,7 @@ LMoP: {
 		descriptionFull: "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 		weight: 4
 	},
-	'spider staff': {
+	"spider staff": {
 		name: "Spider Staff",
 		source: ["LMoP", 53],
 		type : "staff",
@@ -1521,7 +1521,7 @@ LMoP: {
 		attunement: true,
 		weight: 6
 	},
-	'staff of defense': {
+	"staff of defense": {
 		name: "Staff of Defense",
 		source: ["LMoP", 53],
 		type : "staff",
@@ -1533,7 +1533,7 @@ LMoP: {
 	}
 },
 MToF: {
-	'greater silver sword': {
+	"greater silver sword": {
 		name: "Greater Silver Sword",
 		source: ["MToF", 89],
 		type : "weapon ()",
@@ -1543,7 +1543,7 @@ MToF: {
 		attunement: true,
 		weight: 6
 	},
-	'infernal tack': {
+	"infernal tack": {
 		name: "Infernal Tack",
 		source: ["MToF", 167],
 		type: "wondrous item",
@@ -1554,7 +1554,7 @@ MToF: {
 	}
 },
 V: {
-	'mind lash': {
+	"mind lash": {
 		name: "Mind Lash",
 		source: ["V", 81],
 		type : "weapon ()",
@@ -1564,7 +1564,7 @@ V: {
 		attunement: true,
 		weight: 3
 	},
-	'shield of far sight': {
+	"shield of far sight": {
 		name: "Shield of Far Sight",
 		source: ["V", 81],
 		type : "shield",
@@ -1573,7 +1573,7 @@ V: {
 		descriptionFull: "A mind flayer skilled at crafting magic items creates a shield of far sight by harvesting an eye from an intelligent humanoid and magically implanting it on the outer surface of a nonmagical shield. The shield becomes a magic item once the eyes is implanted, whereupon the mind flayer can give the shield to a thrall or hang it on a wall in its lair. As long as the shield is on the same plane of existence as its creator, the mind flayer can see through the shield's eye, which has darkvision out to a range of 60 feet. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield.\n   If a shield of far sight is destroyed, the mind flayer that created it is blinded for 2d12 hours.",
 		weight: 6
 	},
-	'survival mantle': {
+	"survival mantle": {
 		name: "Survival Mantle",
 		source: ["V", 81],
 		type : "armor ()",
@@ -1594,7 +1594,7 @@ WDH: {
 		attunement: true,
 		weight: 4
 	},
-	'badge of the watch': {
+	"badge of the watch": {
 		name: "Badge of the Watch",
 		source: ["WDH", 189],
 		type: "wondrous item",
@@ -1613,7 +1613,7 @@ WDH: {
 		attunement: true,
 		weight: 4
 	},
-	'bracer of flying daggers': {
+	"bracer of flying daggers": {
 		name: "Bracer of Flying Daggers",
 		source: ["WDH", 190],
 		type: "wondrous item",
@@ -1622,7 +1622,7 @@ WDH: {
 		descriptionFull: "This armband appears to have thin daggers strapped to it. As an action, you can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if you don't hurl it right away, and the daggers disappear right after they hit or miss. The bracer never runs out of daggers.",
 		attunement: true
 	},
-	'dragonstaff of ahghairon': {
+	"dragonstaff of ahghairon": {
 		name: "Dragonstaff of Ahghairon",
 		source: ["WDH", 191],
 		type : "staff",
@@ -1631,7 +1631,7 @@ WDH: {
 		descriptionFull: "While holding the dragonstaff of Ahghairon, you have advantage on saving throws against the spells and breath weapons of dragons, as well as the breath weapons of other creatures of the dragon type (such as dragon turtles).\n   A creature of the dragon type that you touch with the staff can move through the city of Waterdeep, ignoring Ahghairon's dragonward (see \"Ahghairon's Dragonward,\" in the Introduction). This effect lasts until the creature is touched again by the staff or until a time you proclaim when you confer the benefit.\n   The staff has 10 charges. While holding it, you can expend 1 charge as an action to cast the Command spell. If you target a dragon with this casting, the dragon has disadvantage on its saving throw. The staff regains 1d10 charges daily at dawn.",
 		attunement: true
 	},
-	'feather of diatryma summoning': {
+	"feather of diatryma summoning": {
 		name: "Feather of Diatryma Summoning",
 		source: ["WDH", 191],
 		type: "wondrous item",
@@ -1658,7 +1658,7 @@ WDH: {
 		descriptionFull: "The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.\n   " + toUni("Lord's Helm") + ". This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.\n   " + toUni("Lord's Amulet") + ". This amulet bears the crest of Waterdeep. It functions as an amulet of proof against detection and location.\n   " + toUni("Lord's Robe") + ". This elegant robe functions as a ring of free action, and it creates the illusion that you have a nondescript, androgynous humanoid build and stand 6 feet tall.",
 		attunement: true
 	},
-	'paper bird': {
+	"paper bird": {
 		name: "Paper Bird",
 		source: ["WDH", 191],
 		type: "wondrous item",
@@ -1666,7 +1666,7 @@ WDH: {
 		description: "",
 		descriptionFull: "After you write a message of fifty words or fewer on this magic sheet of parchment and speak a creature's name, the parchment magically folds into a Tiny paper bird and flies to the recipient whose name you uttered. The recipient must be on the same plane of existence as you, otherwise the bird turns into ash as it takes flight.\n   The bird is an object that has 1 hit point, an Armor Class of 13, a flying speed of 60 feet, a Dexterity of 16 (+3), and a score of 1 (\u22125) in all other abilities, and it is immune to poison and psychic damage.\n   It travels to within 5 feet of its intended recipient by the most direct route, whereupon it turns into a nonmagical and inanimate sheet of parchment that can be unfolded only by the intended recipient. If the bird's hit points or speed is reduced to 0 or if it is otherwise immobilized, it turns into ash.\n   Paper birds usually come in small, flat boxes containing 1d6 + 3 sheets of the parchment."
 	},
-	'ring of truth telling': {
+	"ring of truth telling": {
 		name: "Ring of Truth Telling",
 		source: ["WDH", 192],
 		type : "ring",
@@ -1675,7 +1675,7 @@ WDH: {
 		descriptionFull: "While wearing this ring, you have advantage on Wisdom (Insight) checks to determine whether someone is lying to you.",
 		attunement: true
 	},
-	'teleporter ring': {
+	"teleporter ring": {
 		name: "Teleporter Ring",
 		source: ["WDH", 157],
 		type : "ring",
@@ -1691,7 +1691,7 @@ WDH: {
 		description: "",
 		descriptionFull: "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots.\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage.\n   Casting Dispel Magic on smokepowder renders it permanently inert."
 	},
-	'stone of golorr': {
+	"stone of golorr": {
 		name: "Stone of Golorr",
 		source: ["WDH", 192],
 		type: "wondrous item",
@@ -1700,7 +1700,7 @@ WDH: {
 		descriptionFull: "The Stone of Golorr is a glossy, greenish-gray stone that fits in the palm of your hand. The stone is actually an aboleth named Golorr, transformed by magic into an object.\n   " + toUni("Random Properties") + ". The Stone of Golorr has the following properties, determined by rolling on the tables in the \"Artifacts\" section in chapter 7 of the Dungeon Master's Guide:\n \u2022 1 minor beneficial property\n \u2022 1 minor detrimental property\n\n" + toUni("Legend Lore") + ". The Stone of Golorr has 3 charges and regains 1d3 expended charges daily at dawn. While holding the stone, you can expend 1 of its charges to cast the Legend Lore spell.\n   By using the stone to cast legend lore, you communicate directly with the aboleth, and it shares its knowledge with you. The aboleth can't lie to you, but the information it provides is often cryptic or vague.\n   The aboleth knows where Lord Neverember's secret vault is located. It also knows that three keys are needed to open the vault and that a gold dragon named Aurinax inhabits the vault and guards its treasures.\n   " + toUni("Failed Memory") + ". When your attunement to the Stone of Golorr ends, you must make a DC 16 Wisdom saving throw. On a failed save, you lose all memory of the stone being in your possession and all knowledge imparted by it. A Remove Curse spell cast on you has a 20% chance of restoring the lost knowledge and memories, and a Greater Restoration spell does so automatically.\n   " + toUni("Sentience") + ". The Stone of Golorr is a sentient lawful evil magic item with an Intelligence of 18, a Wisdom of 15, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet. It can communicate telepathically with the creature that is attuned to it, as long as that creature understands at least one language. In addition, the aboleth learns the greatest desires of any creature that communicates telepathically with the stone.\n   The Stone of Golorr hungers for information and prefers not to remain in the clutches of any creature for too long. Whenever the stone desires a new owner, it demands to be given to another intelligent creature as quickly as possible. If its demands are ignored, it tries to take control of its owner (see \"Sentient Magic Items\" in chapter 7 of the Dungeon Master's Guide).\n   " + toUni("Personality") + ". The Stone of Golorr has an alien intellect that is both domineering and hungry for knowledge. It thinks of itself as an ageless and immortal god.\n   " + toUni("Destroying the Stone") + ". While in stone form, the aboleth isn't a creature and isn't subject to effects that target creatures. The Stone of Golorr is immune to all damage. Casting an Antipathy/Sympathy spell on the stone destroys it if the antipathy effect is selected and the spell is directed to repel aberrations. When the spell is cast in this way, the stone transforms into mucus and is destroyed, and Golorr the aboleth appears in an unoccupied space within 30 feet of the stone's remains. The aboleth is incensed by the stone's destruction, and it attacks all other creatures it can see.",
 		attunement: true
 	},
-	'oversized longbow': {
+	"oversized longbow": {
 		name: "Oversized Longbow",
 		source: ["WDH", 201],
 		type : "weapon ()",
@@ -1709,7 +1709,7 @@ WDH: {
 		descriptionFull: "This unique weapon can be used only by a Medium or larger creature that has a Strength of 18 or higher. The bow shoots oversized arrows that deal piercing damage equal to 2d6 + the wielder's Strength modifier.",
 		weight: 2
 	},
-	'nimblewright detector': {
+	"nimblewright detector": {
 		name: "Nimblewright Detector",
 		source: ["WDH", 47],
 		type: "Other",
@@ -1717,7 +1717,7 @@ WDH: {
 		description: "",
 		descriptionFull: "To activate the nimblewright detector, a character must hold down its trigger. When the activated device comes within 500 feet of a nimblewright other than Nim, the umbrella begins to spin, whir, and click. The spinning, whirring, and clicking accelerates as the distance to the target lessens, reaching maximum velocity and volume when a nimblewright other than Nim is within 30 feet of the device."
 	},
-	'adjustable stilts': {
+	"adjustable stilts": {
 		name: "Adjustable Stilts",
 		source: ["WDH", 47],
 		type: "Other",
@@ -1725,7 +1725,7 @@ WDH: {
 		description: "",
 		descriptionFull: "The stilts take 1 minute to put on or remove. They increase the height of any humanoid wearing them by 2 to 5 feet. Each stilt weighs 8 pounds and is 1 foot long when fully collapsed."
 	},
-	'backpack parachute': {
+	"backpack parachute": {
 		name: "Backpack Parachute",
 		source: ["WDH", 47],
 		type: "Other",
@@ -1733,7 +1733,7 @@ WDH: {
 		description: "",
 		descriptionFull: "A humanoid wearing this piece of gear can deploy the parachute as a reaction while falling, or as an action otherwise. The parachute requires at least a 10-foot cube of unoccupied space in which to deploy, and it doesn't open fast enough to slow a fall of less than 60 feet. If it has sufficient time and space to deploy properly, the parachute allows its wearer to land without taking falling damage. Once it has been used, the parachute takes 10 minutes to repack."
 	},
-	'barking box': {
+	"barking box": {
 		name: "Barking Box",
 		source: ["WDH", 47],
 		type: "Other",
@@ -1741,7 +1741,7 @@ WDH: {
 		description: "",
 		descriptionFull: "This metal cube, 6 inches on a side, has a crank on top. Using an action to wind the crank activates the box for 8 hours. While activated, the box barks whenever it detects vibrations within 15 feet of it, as long as the box and the source of the vibrations are in contact with the same ground or substance. A switch on one side of the box sets the device to emit either a small dog's bark or a large dog's bark."
 	},
-	'matchless pipe': {
+	"matchless pipe": {
 		name: "Matchless Pipe",
 		source: ["WDH", 47],
 		type: "Other",
@@ -1751,7 +1751,7 @@ WDH: {
 	}
 },
 WDotMM: {
-	'dagger of blindsight': {
+	"dagger of blindsight": {
 		name: "Dagger of Blindsight",
 		source: ["WDotMM", (void 0)],
 		type : "weapon ()",
@@ -1761,7 +1761,7 @@ WDotMM: {
 		attunement: true,
 		weight: 1
 	},
-	'horned ring': {
+	"horned ring": {
 		name: "Horned Ring",
 		source: ["WDotMM", (void 0)],
 		type : "ring",
@@ -1770,7 +1770,7 @@ WDotMM: {
 		descriptionFull: "Allows an attuned wearer to ignore Undermountain's magical restrictions (see \"Alterations to Magic\").",
 		attunement: true
 	},
-	'professor orb': {
+	"professor orb": {
 		name: "Professor Orb",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1778,7 +1778,7 @@ WDotMM: {
 		description: "",
 		descriptionFull: "Each professor orb takes the form of a smooth, solid, 5-pound sphere of smoky gray quartz about the size of a grapefruit. Close examination reveals two or more pinpricks of silver light deep inside the sphere.\n   A Professor Orb is sentient and has the personality of a scholar. Its alignment is determined by rolling on the alignment table in the \"Sentient Magic Items\" section in chapter 7 of the Dungeon Master's Guide. Regardless of its disposition, the orb has an Intelligence of 18, and Wisdom and Charisma scores determined by rolling 3d6 for each ability. The orb speaks, reads, and understands four languages, and can see and hear normally out to a range of 60 feet. Unlike most sentient items, the orb has no will of its own and can't initiate a conflict with the creature in possession of it.\n   A Professor Orb has extensive knowledge of four narrow academic subjects. When making an Intelligence check to recall lore from any of its areas of expertise, the orb has a +9 bonus to its roll (including its Intelligence modifier).\n   In addition to the knowledge it possesses, a professor orb can cast the Mage Hand cantrip at will. It uses the spell only to transport itself. Its spellcasting ability is Intelligence."
 	},
-	'horn of the endless maze': {
+	"horn of the endless maze": {
 		name: "Horn of the Endless Maze",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1787,7 +1787,7 @@ WDotMM: {
 		descriptionFull: "You can use an action to blow this horn. In response, 3d4+3 warrior spirits from the Abyss appear within 60 feet of you. They look like Minotaurs and use the statistics of a berserker. They return to the Abyss after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.\n   If you blow the horn without having proficiency with all simple weapons, the summoned berserkers attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands.",
 		weight: 2
 	},
-	'dodecahedron of doom': {
+	"dodecahedron of doom": {
 		name: "Dodecahedron of Doom",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1795,7 +1795,7 @@ WDotMM: {
 		description: "",
 		descriptionFull: "This twelve-sided metal die is 12 inches across and bears the numbers 1 through 12 engraved on its pentagonal sides. The dodecahedron contains arcane clockwork mechanisms that whir and click whenever the die is cast.\n   The dodecahedron can be hurled up to 60 feet as an action. A random magical effect occurs when the die comes to rest after rolling across the ground for at least 10 feet. If an effect requires a target and no eligible target is within range, nothing happens. Spells cast by the dodecahedron require no components. Roll a d12 and consult the following table to determine the effect:\n\n" + toUni("d12") + "\t" + toUni("effect") + "\n1-2\tThe dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 40 (9d8) force damage on a failed save, or half as much damage on a successful one.\n3-4\tThe dodecahedron casts Light on itself. The effect lasts until a creature touches the die.\n5-6\tThe dodecahedron casts Ray of Frost (+5 to hit), targeting a random creature within 60 feet of it that doesn't have total cover against the attack.\n7-8\tThe dodecahedron casts Shocking Grasp (+5 to hit) on the next creature that touches it.\n9-10\tThe dodecahedron casts Darkness on itself. The effect has a duration of 10 minutes.\n11-12\tThe next creature to touch the dodecahedron gains 1d10 temporary hit points that last for 1 hour."
 	},
-	'orb of gonging': {
+	"orb of gonging": {
 		name: "Orb of Gonging",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1803,7 +1803,7 @@ WDotMM: {
 		description: "",
 		descriptionFull: "This common wondrous item is a hollow, 5-inch-diameter orb that weighs 5 pounds. Its outer shell is composed of notched bronze rings, which can be turned so that the notches line up. Aligning the notches requires an action, and doing so causes the orb to gong loudly until the notches are no longer aligned. The sounds are spaced 6 seconds apart and can be heard out to a range of 600 feet."
 	},
-	'black crystal tablet': {
+	"black crystal tablet": {
 		name: "Black Crystal Tablet",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1812,7 +1812,7 @@ WDotMM: {
 		descriptionFull: "Any creature that attunes to the tablet must make a DC 20 Wisdom saving throw at the end of its next long rest. On a failed save, the creature becomes afflicted with a random form of long-term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).\n   As an action, a creature attuned to the Black Crystal Tablet can use it to cast Eyebite or Gate (the portal created by this spell links to the Far Realm only). After the tablet is used to cast a spell, it cannot be used again until the next dawn.",
 		attunement: true
 	},
-	'helm of the scavenger': {
+	"helm of the scavenger": {
 		name: "Helm of the Scavenger",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1821,7 +1821,7 @@ WDotMM: {
 		descriptionFull: "This ornate chair is designed to propel and maneuver a ship through space.\n   " + toUni("Passive Properties") + ". The following properties of the helm come into play even when no creature is attuned to it:\n \u2022 When placed aboard a vessel weighing between 1 and 100 tons, the helm generates an envelope of fresh air around the ship while it is in the void of space (but not underwater). This envelope extends out from the edges of the hull in all directions for a distance equal in length to the vessel's beam, so that creatures aboard and near the ship can breathe normally in space. The temperature within the air envelope is 70 degrees Fahrenheit.\n \u2022 When placed aboard a vessel weighing between 1 and 100 tons, the helm generates an artificial gravity field while the ship is in the void of space, so that creatures can walk on the ship's decks as they normally would. Creatures and objects that fall overboard bob in a gravity plane that extends out from the main deck for a distance equal in length to the vessel's beam.\n\n" + toUni("Active Properties") + ". The sensation of being attuned to the helm is akin to being immersed in warm water. While attuned to the helm, you gain the following abilities while you sit in it:\n \u2022 You can use the helm to propel the vessel across or through water and other liquids at a maximum speed in miles per hour equal to your highest-level unexpended spell slot.\n \u2022 You can use the helm to propel the vessel through air or space at a maximum speed in miles per hour equal to your highest-level unexpended spell slot \xD7 10.\n \u2022 Provided you have at least one unexpended spell slot, you can steer the vessel, albeit in a somewhat clumsy fashion, in much the same way that oars or a rudder can maneuver a seafaring ship.\n \u2022 Whenever you like, you can see what's happening on and around the vessel as though you were standing in a location of your choice aboard it.\n\n" + toUni("Drawback") + ". While attuned to the helm, you cannot expend your own spell slots.",
 		attunement: true
 	},
-	'shield of the uven rune': {
+	"shield of the uven rune": {
 		name: "Shield of the Uven Rune",
 		source: ["WDotMM", (void 0)],
 		type : "shield",
@@ -1831,7 +1831,7 @@ WDotMM: {
 		attunement: true,
 		weight: 6
 	},
-	'blast scepter': {
+	"blast scepter": {
 		name: "Blast Scepter",
 		source: ["WDotMM", (void 0)],
 		type : "rod",
@@ -1840,7 +1840,7 @@ WDotMM: {
 		descriptionFull: "The Blast Scepter can be used as an arcane focus.\n   Whoever is attuned to the Blast Scepter gains resistance to fire and lightning damage and can, as an action, use it to cast Thunderwave as a 4th-level spell (save DC 16) without expending a spell slot.",
 		attunement: true
 	},
-	'chest of preserving': {
+	"chest of preserving": {
 		name: "Chest of Preserving",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1850,7 +1850,7 @@ WDotMM: {
 		attunement: true,
 		weight: 25
 	},
-	'circlet of human perfection': {
+	"circlet of human perfection": {
 		name: "Circlet of Human Perfection",
 		source: ["WDotMM", (void 0)],
 		type: "Other",
@@ -1859,7 +1859,7 @@ WDotMM: {
 		descriptionFull: "The Circlet of Human Perfection transforms its attuned wearer into an attractive human of average height and weight. The circlet chooses the physical characteristics of the form, such as age, gender, skin color, hair color, and voice. Except for size, the wearer's statistics and racial traits don't change, nor do items worn or carried by the wearer. Removing the circlet ends the effect.",
 		attunement: true
 	},
-	'propeller helm': {
+	"propeller helm": {
 		name: "Propeller Helm",
 		source: ["WDotMM", (void 0)],
 		type: "wondrous item",
@@ -1878,7 +1878,7 @@ WDotMM: {
 		attunement: true,
 		weight: 3
 	},
-	'vial of stardust': {
+	"vial of stardust": {
 		name: "Vial of Stardust",
 		source: ["WDotMM", (void 0)],
 		type: "Other",
@@ -1888,7 +1888,7 @@ WDotMM: {
 	}
 },
 G: {
-	'guild keyrune, azorius': {
+	"guild keyrune, azorius": {
 		name: "Guild Keyrune, Azorius",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1897,7 +1897,7 @@ G: {
 		descriptionFull: "This keyrune is carved from white marble and lapis lazuli to resemble a noble bird of prey. It can become a giant eagle for up to 1 hour. While the transformed eagle is within 1 mile of you, you can communicate with it telepathically. As an action, you can see through the eagle's eyes and hear what it hears until the start of your next turn, and you gain the benefit of its keen sight. During this time, you are deaf and blind with regard to your own senses.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant eagle. If there isn't enough space for the eagle, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the eagle takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, boros': {
+	"guild keyrune, boros": {
 		name: "Guild Keyrune, Boros",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1906,7 +1906,7 @@ G: {
 		descriptionFull: "Carved from red sandstone with white granite elements to resemble a member of the Boros Legion, this keyrune can become a veteran (human) for up to 8 hours. In addition to fighting on your behalf, this veteran cheerfully offers tactical advice, which is usually sound. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a veteran (human). If there isn't enough space for the veteran, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, dimir': {
+	"guild keyrune, dimir": {
 		name: "Guild Keyrune, Dimir",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1915,7 +1915,7 @@ G: {
 		descriptionFull: "This keyrune, carved from black stone accented with steel, resembles a stylized horror. On command, it transforms into an intellect devourer that resembles the Dimir guild symbol, with six bladelike legs. The creature exists for up to 24 hours. During that time, it pursues only a single mission you give it\u2014usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to you, reports its success, and reverts to its keyrune form.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a intellect devourer. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, golgari': {
+	"guild keyrune, golgari": {
 		name: "Guild Keyrune, Golgari",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1924,7 +1924,7 @@ G: {
 		descriptionFull: "Made from deep green jade with black veins, this keyrune has an insectile shape. It can transform into a giant scorpion for up to 6 hours. The scorpion has an Intelligence of 4 and can communicate with you telepathically while it is within 60 feet of you, though its messages are largely limited to describing the passage of potential prey.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant scorpion. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, gruul': {
+	"guild keyrune, gruul": {
 		name: "Guild Keyrune, Gruul",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1933,7 +1933,7 @@ G: {
 		descriptionFull: "This crude keyrune is cobbled together from bits of rubble, broken glass, bone, and animal hair. One end resembles a horned beast. On command, the keyrune transforms into a ceratok, a horned creature much like a rhinoceros (and with the same statistics). It remains in its ceratok form for 1 hour.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a ceratok. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, izzet': {
+	"guild keyrune, izzet": {
 		name: "Guild Keyrune, Izzet",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1942,7 +1942,7 @@ G: {
 		descriptionFull: "Formed of carved and polished red and blue stone, the keyrune includes bits of cable and wire. One end resembles a humanlike head, suggesting the jagged elemental form of the galvanice weird that it can become for a duration of 3 hours. In this form, it will serve you as a bodyguard, lift and carry things for you, act as a test subject for your experiments, or aid you in any other way that its capabilities allow.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a galvanice weird. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, orzhov': {
+	"guild keyrune, orzhov": {
 		name: "Guild Keyrune, Orzhov",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1951,7 +1951,7 @@ G: {
 		descriptionFull: "This keyrune is carved from white marble with veins of black. The end is shaped like a thrull's head, with a gold faceplate affixed. On command, the keyrune transforms into a winged thrull for up to 2 hours. If you don't come from an Orzhov oligarch family, it serves you grudgingly, clownishly aping your movements and mannerisms while carrying out your orders.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a winged thrull. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, rakdos': {
+	"guild keyrune, rakdos": {
 		name: "Guild Keyrune, Rakdos",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1960,7 +1960,7 @@ G: {
 		descriptionFull: "This dark granite keyrune is marbled with scarlet veins and carved with the leering visage of a mischievous demon. When activated, it transforms into a cackler for up to 1 hour.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a cackler. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, selesnya': {
+	"guild keyrune, selesnya": {
 		name: "Guild Keyrune, Selesnya",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1969,7 +1969,7 @@ G: {
 		descriptionFull: "Carved from white and green marble in the shape of a wolf's head, this keyrune transforms into a dire wolf. The wolf persists for 8 hours. Its Intelligence is 6, and it understands Elvish and Sylvan but can't speak those languages. While it is within 1 mile of you, you can communicate with each other telepathically.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a dire wolf. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'guild keyrune, simic': {
+	"guild keyrune, simic": {
 		name: "Guild Keyrune, Simic",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -1978,7 +1978,7 @@ G: {
 		descriptionFull: "This keyrune is assembled from coral, mother-of-pearl, and chrome and adorned with the spirals and curves characteristic of Simic ornamentation. The head resembles the shell of a sea creature. On command, the keyrune turns into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. The transformation lasts for up to 5 hours.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		attunement: true
 	},
-	'azorius guild signet': {
+	"azorius guild signet": {
 		name: "Azorius Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -1987,7 +1987,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Azorius, allows you to cast Ensnaring Strike. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Azorius's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'boros guild signet': {
+	"boros guild signet": {
 		name: "Boros Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -1996,7 +1996,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Boros, allows you to cast Heroism. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Boros' recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'dimir guild signet': {
+	"dimir guild signet": {
 		name: "Dimir Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2005,7 +2005,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Dimir, allows you to cast Disguise Self. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Dimir's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'golgari guild signet': {
+	"golgari guild signet": {
 		name: "Golgari Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2014,7 +2014,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Golgari, allows you to cast Entangle. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Golgari's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'gruul guild signet': {
+	"gruul guild signet": {
 		name: "Gruul Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2023,7 +2023,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Gruul, allows you to cast Compelled Duel. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Gruul's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'izzet guild signet': {
+	"izzet guild signet": {
 		name: "Izzet Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2032,7 +2032,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Izzet, allows you to cast Chaos Bolt. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Izzet's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'orzhov guild signet': {
+	"orzhov guild signet": {
 		name: "Orzhov Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2041,7 +2041,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Orzhov, allows you to cast Command. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Orzhov's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'rakdos guild signet': {
+	"rakdos guild signet": {
 		name: "Rakdos Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2050,7 +2050,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Rakdos, allows you to cast Hellish Rebuke. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Rakdos' recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'selesnya guild signet': {
+	"selesnya guild signet": {
 		name: "Selesnya Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2059,7 +2059,7 @@ G: {
 		descriptionFull: "This ring, adorned with the symbol of Selesnya, allows you to cast Charm Person. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of Selesnya's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).",
 		attunement: true
 	},
-	'simic guild signet': {
+	"simic guild signet": {
 		name: "Simic Guild Signet",
 		source: ["G", (void 0)],
 		type : "ring",
@@ -2077,7 +2077,7 @@ G: {
 		descriptionFull: "A powerful illusionist of House Dimir originally developed these bracers, which enabled her to create multiple minor illusions at once. The bracers' power, though, extends far beyond illusions.\n   While wearing the bracers, whenever you cast a cantrip, you can use a bonus action on the same turn to cast that cantrip a second time.",
 		attunement: true
 	},
-	'mizzium apparatus': {
+	"mizzium apparatus": {
 		name: "Mizzium Apparatus",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -2086,7 +2086,7 @@ G: {
 		descriptionFull: "Innovation is a dangerous pursuit, at least the way the mages of the Izzet League engage in it. As protection against the risk of an experiment going awry, they have developed a device to help channel and control their magic. This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. The item weighs 8 pounds.\n   While you are wearing the mizzium apparatus, you can use it as an arcane focus. In addition, you can attempt to cast a spell that you do not know or have prepared. The spell you choose must be on your class's spell list and of a level for which you have a spell slot, and you must provide the spell's components.\n   You expend a spell slot to cast the spell as normal, but before resolving it you must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot you expend to cast the spell.\n   On a successful check, you cast the spell as normal, using your spell save DC and spellcasting ability modifier. On a failed check, you cast a different spell from the one you intended. Randomly determine the spell you cast by rolling on the table for the level of the spell slot you expended. If the slot is 6th level or higher, roll on the table for 5th-level spells.\n   If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.\n\n" + toUni("d6") + "\t" + toUni("spell") + "\n1\tBurning Hands\n2\tChaos Bolt\n3\tColor Spray\n4\tFaerie Fire\n5\tFog Cloud\n6\tThunderwave\n\n\n\n" + toUni("d6") + "\t" + toUni("spell") + "\n1\tBlur\n2\tGust of Wind\n3\tHeat Metal\n4\tMelf's Acid Arrow\n5\tScorching Ray\n6\tShatter\n\n\n\n" + toUni("d6") + "\t" + toUni("spell") + "\n1\tFear\n2\tFeign Death\n3\tFireball\n4\tGaseous Form\n5\tSleet Storm\n6\tStinking Cloud\n\n\n\n" + toUni("d4") + "\t" + toUni("spell") + "\n1\tConfusion\n2\tConjure Minor Elementals\n3\tEvard's Black Tentacles\n4\tIce Storm\n\n\n\n" + toUni("d4") + "\t" + toUni("spell") + "\n1\tAnimate Objects\n2\tCloudkill\n3\tCone of Cold\n4\tFlame Strike",
 		attunement: true
 	},
-	'mizzium mortar': {
+	"mizzium mortar": {
 		name: "Mizzium Mortar",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -2094,7 +2094,7 @@ G: {
 		description: "",
 		descriptionFull: "This short tube, about 2 feet long and 6 inches in diameter, is made from mizzium, a magically enhanced metal alloy forged by the Izzet League. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining.\n   The mortar has 4 charges for the following properties. It regains 1d4 expended charges daily at dawn.\n   " + toUni("Molten Spray") + ". You can expend 1 charge as an action to loose a 30-foot cone of molten mizzium. Each creature in the area must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much damage on a successful one.\n   " + toUni("Mizzium Bombard") + ". You can expend 3 charges as an action to launch a hail of molten projectiles in a 20-foot-radius, 40-foot-high cylinder centered on a point you can see within 60 feet of you. Each creature in the area must make a DC 15 Dexterity saving throw. A creature takes 5d8 fire damage on a failed save, or half as much damage on a successful one."
 	},
-	'moodmark paint': {
+	"moodmark paint": {
 		name: "Moodmark Paint",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -2112,7 +2112,7 @@ G: {
 		attunement: true,
 		weight: 6
 	},
-	'peregrine mask': {
+	"peregrine mask": {
 		name: "Peregrine Mask",
 		source: ["G", (void 0)],
 		type: "wondrous item",
@@ -2130,7 +2130,7 @@ G: {
 		descriptionFull: "A Pyroconverger is an Izzet-made flamethrower. It carries a risk of malfunction each time you use it.\n   As an action, you can cause the Pyroconverger to project fire in a 10-foot cone. Each creature in that area must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one.\n   Each time you use the Pyroconverger, roll a d10 and add the number of times you have used it since your last long rest. If the total is 11 or higher, the Pyroconverger malfunctions: you take 4d6 fire damage, and you can't use the Pyroconverger again until you finish a long rest.",
 		attunement: true
 	},
-	'rakdos riteknife': {
+	"rakdos riteknife": {
 		name: "Rakdos Riteknife",
 		source: ["G", (void 0)],
 		type : "weapon ()",
@@ -2140,7 +2140,7 @@ G: {
 		attunement: true,
 		weight: 1
 	},
-	'skyblinder staff': {
+	"skyblinder staff": {
 		name: "Skyblinder Staff",
 		source: ["G", (void 0)],
 		type : "staff",
@@ -2169,7 +2169,7 @@ G: {
 		attunement: true,
 		weight: 2
 	},
-	'sword of the paruns': {
+	"sword of the paruns": {
 		name: "Sword of the Paruns",
 		source: ["G", (void 0)],
 		type : "weapon ()",
@@ -2179,7 +2179,7 @@ G: {
 		attunement: true,
 		weight: 3
 	},
-	'voyager staff': {
+	"voyager staff": {
 		name: "Voyager Staff",
 		source: ["G", (void 0)],
 		type : "staff",
@@ -2191,7 +2191,7 @@ G: {
 	}
 },
 LLoK: {
-	'deck of several things': {
+	"deck of several things": {
 		name: "Deck of Several Things",
 		source: ["LLoK", 53],
 		type: "wondrous item",
@@ -2217,7 +2217,7 @@ LLoK: {
 		descriptionFull: "A number of Kwalish's experiments were attempts to research the works of the legendary mage Heward, who first crafted what he named hireling armor. While wearing this armor, you gain a +1 bonus to AC. In addition, the armor's animated straps can assist with the drawing and sheathing of weapons, such that you can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.\n   This armor also has six pockets, each of which is an extradimensional space. Each pocket can hold up to 20 pounds of material, not exceeding a volume of 2 cubic feet. The armor always weighs 10 pounds, regardless of its pockets' contents. Placing an object into one of the armor's pockets follows the normal rules for interacting with objects. Retrieving an item from a pocket of the armor requires you to use an action. When you reach into a pocket for a specific item, the item is always magically on top.\n   Placing the armor inside an extradimensional space created by a bag of holding, a Heward's handy haversack, or a similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it and deposited in a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight: 10
 	},
-	'ioun stone, supreme intellect': {
+	"ioun stone, supreme intellect": {
 		name: "Ioun Stone, Supreme Intellect",
 		source: ["LLoK", 55],
 		type: "wondrous item",
@@ -2226,7 +2226,7 @@ LLoK: {
 		descriptionFull: "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain a +1 bonus to Intelligence checks while this faceted sphere orbits your head.",
 		attunement: true
 	},
-	'ioun stone, historical knowledge': {
+	"ioun stone, historical knowledge": {
 		name: "Ioun Stone, Historical Knowledge",
 		source: ["LLoK", 55],
 		type: "wondrous item",
@@ -2235,7 +2235,7 @@ LLoK: {
 		descriptionFull: "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain proficiency in the History skill, or a +1 bonus to checks with that skill if already proficient, while this polished, steely sphere orbits your head.",
 		attunement: true
 	},
-	'ioun stone, natural knowledge': {
+	"ioun stone, natural knowledge": {
 		name: "Ioun Stone, Natural Knowledge",
 		source: ["LLoK", 55],
 		type: "wondrous item",
@@ -2244,7 +2244,7 @@ LLoK: {
 		descriptionFull: "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain proficiency in the Nature skill, or a +1 bonus to checks with that skill if already proficient, while this burnished, brassy stone orbits your head.",
 		attunement: true
 	},
-	'ioun stone, religious knowledge': {
+	"ioun stone, religious knowledge": {
 		name: "Ioun Stone, Religious Knowledge",
 		source: ["LLoK", 55],
 		type: "wondrous item",
@@ -2253,7 +2253,7 @@ LLoK: {
 		descriptionFull: "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain proficiency in the Religion skill, or a +1 bonus to checks with that skill if already proficient, while this tiny golden gem orbits your head.",
 		attunement: true
 	},
-	'ioun stone, language knowledge': {
+	"ioun stone, language knowledge": {
 		name: "Ioun Stone, Language Knowledge",
 		source: ["LLoK", 55],
 		type: "wondrous item",
@@ -2262,7 +2262,7 @@ LLoK: {
 		descriptionFull: "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You are fluent in one additional language while this pulsating bit of red jeweled crystal orbits your head. The DM chooses the language bestowed by the stone.",
 		attunement: true
 	},
-	'ioun stone, self-preservation': {
+	"ioun stone, self-preservation": {
 		name: "Ioun Stone, Self-Preservation",
 		source: ["LLoK", 55],
 		type: "wondrous item",
@@ -2271,7 +2271,7 @@ LLoK: {
 		descriptionFull: "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain a +1 bonus to Intelligence saving throws while this silvery gem orbits your head.",
 		attunement: true
 	},
-	'leather golem armor': {
+	"leather golem armor": {
 		name: "Leather Golem Armor",
 		source: ["LLoK", 55],
 		type : "armor ()",
@@ -2282,7 +2282,7 @@ LLoK: {
 		weight: 10,
 		cursed: true
 	},
-	'powered armor': {
+	"powered armor": {
 		name: "Powered Armor",
 		source: ["LLoK", 56],
 		type : "armor ()",
