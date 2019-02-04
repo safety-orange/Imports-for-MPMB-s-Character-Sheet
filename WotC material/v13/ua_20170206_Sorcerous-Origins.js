@@ -269,7 +269,7 @@ AddSubClass("sorcerer", "stone sorcery", {
 			calcChanges : {
 				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + \" from Stone's Durability (Sorcerer)\"; }; "
 			},
-			armourOptions : {
+			armorOptions : {
 				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
 				name : "Stone's Durability (Con)",
 				source : ["UA:SO", 4],

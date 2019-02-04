@@ -337,7 +337,7 @@ ClassSubList["mystic-immortal"] = {
 			calcChanges : {
 				hp : "if (classes.known.mystic) {extrahp += classes.known.mystic.level; extrastring += '\\n + ' + classes.known.mystic.level + ' from Immortal Durability (Mystic)'; }; "
 			},
-			armourOptions : {
+			armorOptions : {
 				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
 				name : "Immortal Durability (Con)",
 				source : ["UA:TMC", 7],

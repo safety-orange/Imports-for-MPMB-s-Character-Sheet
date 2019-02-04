@@ -182,7 +182,7 @@ AddSubClass("wizard", "school of invention", {
 				"Only I can attune to it; Creating a new one removes the magic from the previous"
 			]),
 			dmgres : ["Force"],
-			armourOptions : {
+			armorOptions : {
 				regExpSearch : /arcanomechanical/i,
 				name : "Arcanomechanical",
 				source : ["UA:TS", 3],

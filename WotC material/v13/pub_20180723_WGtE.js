@@ -252,7 +252,7 @@ RaceList["envoy warforged"] = {
 			tDoc.resetForm(['AC Armor Description']);
 		};
 	},
-	armourOptions : [{
+	armorOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
@@ -327,7 +327,7 @@ RaceList["juggernaut warforged"] = {
 			tDoc.resetForm(['AC Armor Description']);
 		};
 	},
-	armourOptions : [{
+	armorOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
@@ -394,7 +394,7 @@ RaceList["skirmisher warforged"] = {
 			tDoc.resetForm(['AC Armor Description']);
 		};
 	},
-	armourOptions : [{
+	armorOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
 		source : [["WGtE", 69], ["UA:RoE", 9]],

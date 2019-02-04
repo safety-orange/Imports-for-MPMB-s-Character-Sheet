@@ -254,7 +254,7 @@ if (!SourceList.WGtE) {
 				tDoc.resetForm(['AC Armor Description']);
 			};
 		},
-		armourOptions : [{
+		armorOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
@@ -329,7 +329,7 @@ if (!SourceList.WGtE) {
 				tDoc.resetForm(['AC Armor Description']);
 			};
 		},
-		armourOptions : [{
+		armorOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
@@ -396,7 +396,7 @@ if (!SourceList.WGtE) {
 				tDoc.resetForm(['AC Armor Description']);
 			};
 		},
-		armourOptions : [{
+		armorOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
 			source : [["WGtE", 69], ["UA:RoE", 9]],

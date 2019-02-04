@@ -63,7 +63,7 @@ AddSubClass("paladin", "oath of redemption", {
 			source : ["UA:AToS", 2],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
-			armourOptions : {
+			armorOptions : {
 				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
 				name : "Armor of Peace",
 				source : ["UA:AToS", 2],

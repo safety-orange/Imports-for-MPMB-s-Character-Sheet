@@ -439,7 +439,7 @@ MagicItemsList["sword of vengeance"] = {
 		atkCalc : [
 			function (fields, v, output) {
 				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
-					output.magic += 1;
+					output.magic = v.thisWeapon[1] + 1;
 				}
 			}, ''
 		]
