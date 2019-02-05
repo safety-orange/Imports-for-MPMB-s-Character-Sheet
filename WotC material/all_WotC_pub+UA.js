@@ -19047,7 +19047,7 @@ BackgroundList["simic scientist"] = {
 		["Belt pouch (with coins)", "", 1]
 	],
 	languageProfs : [2],
-	feature : "Researcher",
+	feature : "Simic Researcher",
 	trait : [
 		"I can't wait to see what I become next!",
 		"I am convinced that everything inclines toward constant improvement.",
@@ -19092,7 +19092,7 @@ BackgroundList["simic scientist"] = {
 		"Independent research in a new area"
 	]
 };
-BackgroundFeatureList["researcher"] = {
+BackgroundFeatureList["simic researcher"] = {
 	description : "I know where or from whom I can acquire scientific facts, usually from a Simic laboratory, or sometimes an Izzet facility, library, university, independent scholar, or creature. I might need to offer bribes, favors, or other incentives to induce people to reveal their secrets. The DM can rule that the knowledge is inaccessible place, can't be found, or requires a quest.",
 	source : ["G", 93]
 };
