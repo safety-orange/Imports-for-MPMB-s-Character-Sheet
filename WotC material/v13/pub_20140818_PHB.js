@@ -198,15 +198,13 @@ AddSubClass("barbarian", "totem warrior", {
 			source : ["P", 50],
 			minlevel : 3,
 			description : "\n   " + "I can cast Beast Sense and Speak with Animals as rituals (PHB 217 \u0026 277)",
-			spellcastingBonus : [{
+			spellcastingBonus : {
 				name : "Spirit Seeker",
-				spells : ["beast sense"],
-				selection : ["beast sense"]
-			}, {
-				name : "Spirit Seeker",
-				spells : ["speak with animals"],
-				selection : ["speak with animals"]
-			}]
+				spells : ["beast sense", "speak with animals"],
+				selection : ["beast sense", "speak with animals"],
+				firstCol : "(R)",
+				times : 2
+			}
 		},
 		"subclassfeature3.1" : {
 			name : "Totem Spirit",
@@ -3527,7 +3525,6 @@ FeatsList["skulker"] = {
 	prereqeval : function(v) { return What('Dex') >= 13; },
 	vision : [["No disadv. on Perception in dim light", 0]]
 };
-// voor calcChanges gaan we v.rangeM gebruiken (als 'range multiplier')
 FeatsList["spell sniper"] = {
 	name : "Spell Sniper",
 	source : ["P", 170],
@@ -3549,6 +3546,34 @@ FeatsList["spell sniper"] = {
 					if (notNmbrs.length > rangeNmbr.length) {
 						fields.Range += notNmbrs[notNmbrs.length - 1];
 					};
+					if (!v.rangeM) {
+						v.rangeM = 2;
+					} else {
+						v.rangeM *= 2;
+					}
+				};
+			},
+			"My spells and cantrips that require a ranged attack roll have their range doubled."
+		],
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if (!spellObj.spellSniper && ((/^(booming blade|green-flame blade)$/).test(spellKey) || ((/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(-rad|touch|self)).*\d+(\.\d+|,\d+)? ?(f.{0,2}t|m).*$/i).test(spellObj.range)))) {
+					spellObj.spellSniper = true;
+					var rangeNmbr = spellObj.range.match(/\d+(\.\d+|,\d+)?/g);
+					var notNmbrs = spellObj.range.split(RegExp(rangeNmbr.join('|')));
+					spellObj.range = '';
+					rangeNmbr.forEach(function (dR, idx) {
+						spellObj.range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2));
+					});
+					if (notNmbrs.length > rangeNmbr.length) {
+						spellObj.range += notNmbrs[notNmbrs.length - 1];
+					};
+					if (!spellObj.rangeM) {
+						spellObj.rangeM = 2;
+					} else {
+						spellObj.rangeM *= 2;
+					}
+					return true;
 				};
 			},
 			"My spells and cantrips that require a ranged attack roll have their range doubled."

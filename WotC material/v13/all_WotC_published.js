@@ -199,15 +199,13 @@ AddSubClass("barbarian", "totem warrior", {
 			source : ["P", 50],
 			minlevel : 3,
 			description : "\n   " + "I can cast Beast Sense and Speak with Animals as rituals (PHB 217 \u0026 277)",
-			spellcastingBonus : [{
+			spellcastingBonus : {
 				name : "Spirit Seeker",
-				spells : ["beast sense"],
-				selection : ["beast sense"]
-			}, {
-				name : "Spirit Seeker",
-				spells : ["speak with animals"],
-				selection : ["speak with animals"]
-			}]
+				spells : ["beast sense", "speak with animals"],
+				selection : ["beast sense", "speak with animals"],
+				firstCol : "(R)",
+				times : 2
+			}
 		},
 		"subclassfeature3.1" : {
 			name : "Totem Spirit",
@@ -3528,7 +3526,6 @@ FeatsList["skulker"] = {
 	prereqeval : function(v) { return What('Dex') >= 13; },
 	vision : [["No disadv. on Perception in dim light", 0]]
 };
-// voor calcChanges gaan we v.rangeM gebruiken (als 'range multiplier')
 FeatsList["spell sniper"] = {
 	name : "Spell Sniper",
 	source : ["P", 170],
@@ -3550,6 +3547,34 @@ FeatsList["spell sniper"] = {
 					if (notNmbrs.length > rangeNmbr.length) {
 						fields.Range += notNmbrs[notNmbrs.length - 1];
 					};
+					if (!v.rangeM) {
+						v.rangeM = 2;
+					} else {
+						v.rangeM *= 2;
+					}
+				};
+			},
+			"My spells and cantrips that require a ranged attack roll have their range doubled."
+		],
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if (!spellObj.spellSniper && ((/^(booming blade|green-flame blade)$/).test(spellKey) || ((/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(-rad|touch|self)).*\d+(\.\d+|,\d+)? ?(f.{0,2}t|m).*$/i).test(spellObj.range)))) {
+					spellObj.spellSniper = true;
+					var rangeNmbr = spellObj.range.match(/\d+(\.\d+|,\d+)?/g);
+					var notNmbrs = spellObj.range.split(RegExp(rangeNmbr.join('|')));
+					spellObj.range = '';
+					rangeNmbr.forEach(function (dR, idx) {
+						spellObj.range += (notNmbrs[idx] ? notNmbrs[idx] : '') + (parseFloat(dR.toString().replace(',', '.') * 2));
+					});
+					if (notNmbrs.length > rangeNmbr.length) {
+						spellObj.range += notNmbrs[notNmbrs.length - 1];
+					};
+					if (!spellObj.rangeM) {
+						spellObj.rangeM = 2;
+					} else {
+						spellObj.rangeM *= 2;
+					}
+					return true;
 				};
 			},
 			"My spells and cantrips that require a ranged attack roll have their range doubled."
@@ -4824,6 +4849,20 @@ AddSubClass("cleric", "death domain", {
 				"class" : "any",
 				school : ["Necro"],
 				level : [0, 0]
+			},
+			spellChanges : {
+				"chill touch" : {
+					description : "2 crea in 5 ft spell atk for 1d8 Necro. dmg, can't regain hp, undead dis. atks vs. me; +1d8 CL 5/11/17",
+					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
+				},
+				"spare the dying" : {
+					description : "Up to 2 living creatures with 0 current hp wihtin 5 ft of each other become stable",
+					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
+				},
+				"toll the dead-xgte" : {
+					description : "2 crea in 5 ft save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/+1d8 at CL 5, 11, and 17",
+					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
+				}
 			}
 		},
 		"subclassfeature2" : {
@@ -4864,7 +4903,21 @@ AddSubClass("cleric", "death domain", {
 			source : ["D", 97],
 			minlevel : 17,
 			description : "\n   " + "If I cast a 5th-level or lower necromancy spell that has one target, I can target two" + "\n   " + "They need to be within 5 ft of each other; I have to provide material comp. for both"
-		}
+		},
+/* STILL TO DO!!!!
+bestow curse
+blight
+blindness/deafness
+contagion
+gentle repose
+inflict wounds
+raise dead
+ray of enfeeblement
+revivify
+speak with dead
+vampiric touch
+
+*/
 	}
 });
 AddSubClass("paladin", "oathbreaker", {
@@ -5762,7 +5815,15 @@ FeatsList["svirfneblin magic"] = {
 		selection : ["blindness/deafness", "blur", "disguise self"],
 		firstCol : 'oncelr',
 		times : 3
-	}]
+	}],
+	spellChanges : {
+		"nondetection" : {
+			range : "Self",
+			components : "V,S",
+			compMaterial : "",
+			changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+		}
+	}
 };
 
 // Spells
@@ -7121,6 +7182,16 @@ RaceList["gray dwarf"] = {
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"enlarge/reduce" : {
+					name : "Enlarge",
+					range : "Self",
+					components : "V,S",
+					compMaterial : "",
+					description : "You are enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					changes : "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself."
+				}
 			}
 		},
 		"invisibility" : {
@@ -7134,6 +7205,15 @@ RaceList["gray dwarf"] = {
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"invisibility" : {
+					range : "Self",
+					components : "V,S",
+					compMaterial : "",
+					description : "You and worn/carried invisible until you attack or cast; Can't cast this spell in direct sunlight",
+					changes : "Using Duergar Magic, I can cast Invisibility while I'm not in direct sunlight, but only on myself."
+				}
 			}
 		}
 	}
@@ -7283,6 +7363,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 				spells : ["charm person"],
 				selection : ["charm person"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"charm person" : {
+					description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if you/allies are fighting it",
+					changes : "Using Devil's Tongue, I cast Charm Person as if I'm using a 2nd-level spell slot, affecting 2 humanoids."
+				}
 			}
 		},
 		"enthrall" : {
@@ -7318,6 +7404,12 @@ AddRacialVariant("tiefling", "hellfire", {
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"burning hands" : {
+					description : "4d6 Fire damage; save halves; unattended flammable objects ignite",
+					changes : "Using Hellfire Legacy, I cast Burning Hands as if I'm using a 2nd-level spell slot, doing 4d6 Fire damage."
+				}
 			}
 		},
 		"darkness" : {
@@ -8503,7 +8595,15 @@ if (!FeatsList["svirfneblin magic"]) {
 			selection : ["blindness/deafness", "blur", "disguise self"],
 			firstCol : 'oncelr',
 			times : 3
-		}]
+		}],
+		spellChanges : {
+			"nondetection" : {
+				range : "Self",
+				components : "V,S",
+				compMaterial : "",
+				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+			}
+		}
 	};
 }
 
@@ -11903,6 +12003,13 @@ AddSubClass("cleric", "grave domain-xgte", {
 				spells : ["spare the dying"],
 				selection : ["spare the dying"],
 				firstCol : 'atwill'
+			},
+			spellChanges : {
+				"spare the dying" : {
+					time : "1 bns",
+					range : "Touch",
+					changes : "I can cast spare the dying as a bonus action instead of an action, and it has a range of 30 ft instead of touch."
+				}
 			}
 		},
 		"subclassfeature1.1" : {
@@ -16566,6 +16673,16 @@ if (!RaceList["gray dwarf"]) { //reprint from Sword Coast Adventure Guide
 					spells : ["enlarge/reduce"],
 					selection : ["enlarge/reduce"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"enlarge/reduce" : {
+						name : "Enlarge",
+						range : "Self",
+						components : "V,S",
+						compMaterial : "",
+						description : "You are enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+						changes : "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself."
+					}
 				}
 			},
 			"invisibility" : {
@@ -16579,6 +16696,15 @@ if (!RaceList["gray dwarf"]) { //reprint from Sword Coast Adventure Guide
 					spells : ["invisibility"],
 					selection : ["invisibility"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"invisibility" : {
+						range : "Self",
+						components : "V,S",
+						compMaterial : "",
+						description : "You and worn/carried invisible until you attack or cast; Can't cast this spell in direct sunlight",
+						changes : "Using Duergar Magic, I can cast Invisibility while I'm not in direct sunlight, but only on myself."
+					}
 				}
 			}
 		}
@@ -16629,7 +16755,15 @@ if (!FeatsList["svirfneblin magic"]) {
 			selection : ["blindness/deafness", "blur", "disguise self"],
 			firstCol : 'oncelr',
 			times : 3
-		}]
+		}],
+		spellChanges : {
+			"nondetection" : {
+				range : "Self",
+				components : "V,S",
+				compMaterial : "",
+				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+			}
+		}
 	};
 }
 var iFileName = "pub_20180723_WGtE.js";

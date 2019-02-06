@@ -763,6 +763,16 @@ if (!RaceList["gray dwarf"]) { //reprint from Sword Coast Adventure Guide
 					spells : ["enlarge/reduce"],
 					selection : ["enlarge/reduce"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"enlarge/reduce" : {
+						name : "Enlarge",
+						range : "Self",
+						components : "V,S",
+						compMaterial : "",
+						description : "You are enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+						changes : "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself."
+					}
 				}
 			},
 			"invisibility" : {
@@ -776,6 +786,15 @@ if (!RaceList["gray dwarf"]) { //reprint from Sword Coast Adventure Guide
 					spells : ["invisibility"],
 					selection : ["invisibility"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"invisibility" : {
+						range : "Self",
+						components : "V,S",
+						compMaterial : "",
+						description : "You and worn/carried invisible until you attack or cast; Can't cast this spell in direct sunlight",
+						changes : "Using Duergar Magic, I can cast Invisibility while I'm not in direct sunlight, but only on myself."
+					}
 				}
 			}
 		}
@@ -826,6 +845,14 @@ if (!FeatsList["svirfneblin magic"]) {
 			selection : ["blindness/deafness", "blur", "disguise self"],
 			firstCol : 'oncelr',
 			times : 3
-		}]
+		}],
+		spellChanges : {
+			"nondetection" : {
+				range : "Self",
+				components : "V,S",
+				compMaterial : "",
+				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+			}
+		}
 	};
 }

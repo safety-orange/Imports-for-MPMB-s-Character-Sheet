@@ -590,6 +590,13 @@ AddSubClass("cleric", "grave domain-xgte", {
 				spells : ["spare the dying"],
 				selection : ["spare the dying"],
 				firstCol : 'atwill'
+			},
+			spellChanges : {
+				"spare the dying" : {
+					time : "1 bns",
+					range : "Touch",
+					changes : "I can cast spare the dying as a bonus action instead of an action, and it has a range of 30 ft instead of touch."
+				}
 			}
 		},
 		"subclassfeature1.1" : {

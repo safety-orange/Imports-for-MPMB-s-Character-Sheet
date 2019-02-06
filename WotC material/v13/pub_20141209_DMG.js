@@ -134,6 +134,20 @@ AddSubClass("cleric", "death domain", {
 				"class" : "any",
 				school : ["Necro"],
 				level : [0, 0]
+			},
+			spellChanges : {
+				"chill touch" : {
+					description : "2 crea in 5 ft spell atk for 1d8 Necro. dmg, can't regain hp, undead dis. atks vs. me; +1d8 CL 5/11/17",
+					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
+				},
+				"spare the dying" : {
+					description : "Up to 2 living creatures with 0 current hp wihtin 5 ft of each other become stable",
+					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
+				},
+				"toll the dead-xgte" : {
+					description : "2 crea in 5 ft save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/+1d8 at CL 5, 11, and 17",
+					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
+				}
 			}
 		},
 		"subclassfeature2" : {
@@ -174,7 +188,21 @@ AddSubClass("cleric", "death domain", {
 			source : ["D", 97],
 			minlevel : 17,
 			description : "\n   " + "If I cast a 5th-level or lower necromancy spell that has one target, I can target two" + "\n   " + "They need to be within 5 ft of each other; I have to provide material comp. for both"
-		}
+		},
+/* STILL TO DO!!!!
+bestow curse
+blight
+blindness/deafness
+contagion
+gentle repose
+inflict wounds
+raise dead
+ray of enfeeblement
+revivify
+speak with dead
+vampiric touch
+
+*/
 	}
 });
 AddSubClass("paladin", "oathbreaker", {

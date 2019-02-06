@@ -68,6 +68,16 @@ RaceList["gray dwarf"] = {
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"enlarge/reduce" : {
+					name : "Enlarge",
+					range : "Self",
+					components : "V,S",
+					compMaterial : "",
+					description : "You are enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					changes : "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself."
+				}
 			}
 		},
 		"invisibility" : {
@@ -81,6 +91,15 @@ RaceList["gray dwarf"] = {
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"invisibility" : {
+					range : "Self",
+					components : "V,S",
+					compMaterial : "",
+					description : "You and worn/carried invisible until you attack or cast; Can't cast this spell in direct sunlight",
+					changes : "Using Duergar Magic, I can cast Invisibility while I'm not in direct sunlight, but only on myself."
+				}
 			}
 		}
 	}
@@ -230,6 +249,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 				spells : ["charm person"],
 				selection : ["charm person"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"charm person" : {
+					description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if you/allies are fighting it",
+					changes : "Using Devil's Tongue, I cast Charm Person as if I'm using a 2nd-level spell slot, affecting 2 humanoids."
+				}
 			}
 		},
 		"enthrall" : {
@@ -265,6 +290,12 @@ AddRacialVariant("tiefling", "hellfire", {
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"burning hands" : {
+					description : "4d6 Fire damage; save halves; unattended flammable objects ignite",
+					changes : "Using Hellfire Legacy, I cast Burning Hands as if I'm using a 2nd-level spell slot, doing 4d6 Fire damage."
+				}
 			}
 		},
 		"darkness" : {
@@ -1450,7 +1481,15 @@ if (!FeatsList["svirfneblin magic"]) {
 			selection : ["blindness/deafness", "blur", "disguise self"],
 			firstCol : 'oncelr',
 			times : 3
-		}]
+		}],
+		spellChanges : {
+			"nondetection" : {
+				range : "Self",
+				components : "V,S",
+				compMaterial : "",
+				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+			}
+		}
 	};
 }
 

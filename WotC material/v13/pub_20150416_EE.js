@@ -266,7 +266,15 @@ FeatsList["svirfneblin magic"] = {
 		selection : ["blindness/deafness", "blur", "disguise self"],
 		firstCol : 'oncelr',
 		times : 3
-	}]
+	}],
+	spellChanges : {
+		"nondetection" : {
+			range : "Self",
+			components : "V,S",
+			compMaterial : "",
+			changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+		}
+	}
 };
 
 // Spells
