@@ -3445,32 +3445,32 @@ FeatsList["ritual caster"] = {
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
 		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"cleric" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual cleric spells.\nI can copy ritual cleric spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
 		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"druid" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual druid spells.\nI can copy ritual druid spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 5); },
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
 		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"sorcerer" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual sorcerer spells.\nI can copy ritual sorcerer spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
 		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"warlock" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual warlock spells.\nI can copy ritual warlock spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 6); },
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
 		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	},
 	"wizard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual wizard spells.\nI can copy ritual wizard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Intelligence is my spellcasting ability for these.",
-		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], s = 4); },
+		eval : function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 4); },
 		removeeval : function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); }
 	}
 };
