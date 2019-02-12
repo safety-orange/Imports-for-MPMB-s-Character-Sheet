@@ -18147,8 +18147,8 @@ RaceList["simic hybrid-ggtr"] = {
 		"animal enhancement" : {
 			name : "Animal Enhancement",
 			minlevel : 5,
-			eval : 'RaceList["simic hybrid"].set5thLvlAE()',
-			removeeval : 'RaceList["simic hybrid"].remove5thLvlAE()'
+			eval : 'RaceList["simic hybrid-ggtr"].set5thLvlAE()',
+			removeeval : 'RaceList["simic hybrid-ggtr"].remove5thLvlAE()'
 		}
 	},
 	set5thLvlAE : function() {
@@ -18157,7 +18157,7 @@ RaceList["simic hybrid-ggtr"] = {
 		if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
 		var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', (sheetVersion > 12.999 ? 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. ' : '') + 'Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
 		var feaTxt = '';
-		var rNm = RaceList["simic hybrid"].name;
+		var rNm = RaceList["simic hybrid-ggtr"].name;
 		switch (theChoice) {
 			case "Manta Glide":
 				feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
@@ -18193,7 +18193,7 @@ RaceList["simic hybrid-ggtr"] = {
 		var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
 		var raceRem = What("Race Remember");
 		if (!theRegex.test(raceRem)) return;
-		var rNm = RaceList["simic hybrid"].name;
+		var rNm = RaceList["simic hybrid-ggtr"].name;
 		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
 		switch (theChoice) {
 			case "Nimble Climber":
