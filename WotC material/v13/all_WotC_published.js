@@ -17008,11 +17008,11 @@ RaceList["envoy warforged"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			AddArmor('Heavy Plating (Prof)', true);
+			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			AddArmor('Composite Plating (Prof)', true);
+			CurrentRace.armorAdd = 'Composite Plating (Prof)';
 		} else {
-			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
+			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
 	},
 	removeeval : function () {
@@ -17080,14 +17080,15 @@ RaceList["juggernaut warforged"] = {
 	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
 	scores : [2, 0, 1, 0, 0, 0],
 	trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+	carryingCapacity : 2,
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			AddArmor('Heavy Plating (Prof)', true);
+			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			AddArmor('Composite Plating (Prof)', true);
+			CurrentRace.armorAdd = 'Composite Plating (Prof)';
 		} else {
-			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
+			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
 	},
 	removeeval : function () {
@@ -17150,11 +17151,11 @@ RaceList["skirmisher warforged"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			AddArmor('Heavy Plating (Prof)', true);
+			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			AddArmor('Composite Plating (Prof)', true);
+			CurrentRace.armorAdd = 'Composite Plating (Prof)';
 		} else {
-			AddArmor('Darkwood Core' + (lightProf ? " (Prof)" : ""), true);
+			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
 	},
 	removeeval : function () {
