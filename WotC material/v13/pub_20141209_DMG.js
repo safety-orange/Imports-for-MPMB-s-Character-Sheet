@@ -135,19 +135,26 @@ AddSubClass("cleric", "death domain", {
 				school : ["Necro"],
 				level : [0, 0]
 			},
-			spellChanges : {
-				"chill touch" : {
-					description : "2 crea in 5 ft spell atk for 1d8 Necro. dmg, can't regain hp, undead dis. atks vs. me; +1d8 CL 5/11/17",
-					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
-				},
-				"spare the dying" : {
-					description : "Up to 2 living creatures with 0 current hp wihtin 5 ft of each other become stable",
-					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
-				},
-				"toll the dead-xgte" : {
-					description : "2 crea in 5 ft save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/+1d8 at CL 5, 11, and 17",
-					changes : "My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
-				}
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if ((/^(chill touch|spare the dying|toll the dead)$/).test(spellKey)) {
+							switch (spellKey) {
+								case "chill touch" :
+									spellObj.description = spellObj.description.replace("Spell attack", "2 crea in 5 ft spell atk").replace("Necrotic", "Necro.").replace("at CL 5, 11, and 17", "CL 5/11/17");
+									break;
+								case "spare the dying" :
+									spellObj.description = spellObj.description.replace("1 living creature", "1 living creature (or 2 within 5 ft of each other)");
+									break;
+								case "toll the dead" :
+									spellObj.description = spellObj.description.replace("1 crea", "2 crea in 5 ft");
+									break;
+							}
+							return true;
+						};
+					},
+					"My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
+				]
 			}
 		},
 		"subclassfeature2" : {
@@ -187,22 +194,58 @@ AddSubClass("cleric", "death domain", {
 			name : "Improved Reaper",
 			source : ["D", 97],
 			minlevel : 17,
-			description : "\n   " + "If I cast a 5th-level or lower necromancy spell that has one target, I can target two" + "\n   " + "They need to be within 5 ft of each other; I have to provide material comp. for both"
-		},
-/* STILL TO DO!!!!
-bestow curse
-blight
-blindness/deafness
-contagion
-gentle repose
-inflict wounds
-raise dead
-ray of enfeeblement
-revivify
-speak with dead
-vampiric touch
-
-*/
+			description : "\n   " + "If I cast a 5th-level or lower necromancy spell that has one target, I can target two" + "\n   " + "They need to be within 5 ft of each other; I have to provide material comp. for both",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellObj.school == "Necro" && spellObj.level && spellObj.level < 6) {
+							var startDescr = spellObj.description;
+							switch (spellKey) {
+								case "bestow curse" :
+								case "blight" :
+								case "cause fear-uass" :
+								case "enervation" :
+								case "life transference" :
+								case "negative energy flood" :
+									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "disadv.").replace("save halves", "save half");
+									if (spellKey == "enervation") {
+										spellObj.description = spellObj.description.replace("action", "1 a").replace("see book", "see B");
+									}
+									break;
+								case "blindness/deafness" :
+									// only 2 target if not cast at higher SL
+									spellObj.description = "2 crea in 5 ft or " + spellObj.description;
+									break;
+								case "contagion" :
+								case "inflict wounds" :
+								case "ray of enfeeblement" :
+									spellObj.description = spellObj.description.replace(/(Melee )?spell attack/i, "2 " + "$1".toLowerCase() + "spell atk in 5 ft").replace("spell ends", "ends");
+									break;
+								case "cause fear-xgte" :
+									spellObj.description = "2 crea in 5 ft or 1+1/SL crea max 30 ft apart (no constr/undead), save or frightened; save end of turn";
+									break;
+								case "feign death" :
+									spellObj.description = "2 willing crea in 5 ft appear dead; Are blinded, incapacitated, dmg resist. all but Psychic, speed 0";
+									break;
+								case "gentle repose" :
+									spellObj.description = spellObj.description.replace("1 corpse protected from", "2 corpses in 5 ft suffer no");
+									break;
+								case "raise dead" :
+								case "revivify" :
+									spellObj.description = spellObj.description.replace("a creature's body that has", "body of 2 crea in 5 ft that").replace("cons.)", "cons. \xD72)");
+									spellObj.compMaterial += " (once for each target)";
+									break;
+								case "speak with dead" :
+									spellObj.description = spellObj.description.replace("1 corpse with mouth answers 5 questions", "2 corpses in 5 ft answer 5 questions each");
+									break;
+							}
+							return startDescr !== spellObj.description;
+						};
+					},
+					"My necromancy, single-target 5th-level or lower spells can affect two targets within 5 ft of each other if both are within range of the spell. The spells still require material components for each target separately."
+				]
+			}
+		}
 	}
 });
 AddSubClass("paladin", "oathbreaker", {

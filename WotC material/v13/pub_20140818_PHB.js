@@ -760,7 +760,6 @@ AddSubClass("druid", "circle of the moon", {
 			}
 		}
 	}
-
 });
 AddSubClass("fighter", "battle master", {
 	regExpSearch : /^(?=.*(war|fighter|battle|martial))(?=.*master).*$/i,
@@ -999,7 +998,6 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Breath of Winter",
 				source : ["P", 81],
 				description : " [6 ki points]" + "\n   " + "As an action, I can cast Cone of Cold without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Breath of Winter",
 					spells : ["cone of cold"],
@@ -1007,13 +1005,19 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 6
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 17; }
+				prereqeval : function(v) { return classes.known.monk.level >= 17; },
+				spellChanges : {
+					"cone of cold" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Breath of Winter discipline, I can cast Cone of Cold without a material component."
+					}
+				}
 			},
 			"clench of the north wind (prereq: level 6 monk)" : {
 				name : "Clench of the North Wind",
 				source : ["P", 81],
 				description : " [3 ki points]" + "\n   " + "As an action, I can cast Hold Person without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Clench of the North Wind",
 					spells : ["hold person"],
@@ -1021,13 +1025,19 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 3
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 6; }
+				prereqeval : function(v) { return classes.known.monk.level >= 6; },
+				spellChanges : {
+					"hold person" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Clench of the North Wind discipline, I can cast Hold Person without a material component."
+					}
+				}
 			},
 			"eternal mountain defense (prereq: level 17 monk)" : { // errata from level 11 to level 17
 				name : "Eternal Mountain Defense",
 				source : ["P", 81],
 				description : " [5 ki points]" + "\n   " + "As an action, I can cast Stoneskin on myself without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Eternal Mountain Defense",
 					spells : ["stoneskin"],
@@ -1035,7 +1045,14 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 5
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 17; }
+				prereqeval : function(v) { return classes.known.monk.level >= 17; },
+				spellChanges : {
+					"stoneskin" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Eternal Mountain Defense discipline, I can cast Stoneskin without a material component."
+					}
+				}
 			},
 			"fangs of the fire snake" : {
 				name : "Fangs of the Fire Snake",
@@ -1058,7 +1075,6 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Fist of Four Thunders",
 				source : ["P", 81],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Thunderwave",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Fist of Four Thunders",
 					spells : ["thunderwave"],
@@ -1077,7 +1093,6 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Flames of the Phoenix",
 				source : ["P", 81],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Fireball without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Flames of the Phoenix",
 					spells : ["fireball"],
@@ -1085,13 +1100,19 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 4
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 11; }
+				prereqeval : function(v) { return classes.known.monk.level >= 11; },
+				spellChanges : {
+					"fireball" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Flames of the Phoenix discipline, I can cast Fireball without a material component."
+					}
+				}
 			},
 			"gong of the summit (prereq: level 6 monk)" : {
 				name : "Gong of the Summit",
 				source : ["P", 81],
 				description : " [3 ki points]" + "\n   " + "As an action, I can cast Shatter without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Gong of the Summit",
 					spells : ["shatter"],
@@ -1099,13 +1120,19 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 3
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 6; }
+				prereqeval : function(v) { return classes.known.monk.level >= 6; },
+				spellChanges : {
+					"shatter" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Gong of the Summit discipline, I can cast Shatter without a material component."
+					}
+				}
 			},
 			"mist stance (prereq: level 11 monk)" : {
 				name : "Mist Stance",
 				source : ["P", 81],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Gaseous Form on myself without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Mist Stance",
 					spells : ["gaseous form"],
@@ -1113,13 +1140,19 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 4
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 11; }
+				prereqeval : function(v) { return classes.known.monk.level >= 11; },
+				spellChanges : {
+					"gaseous form" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Mist Stance discipline, I can cast Gaseous Form without a material component."
+					}
+				}
 			},
 			"ride the wind (prereq: level 11 monk)" : {
 				name : "Ride the Wind",
 				source : ["P", 81],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Fly on myself without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Ride the Wind",
 					spells : ["fly"],
@@ -1127,13 +1160,19 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 4
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 11; }
+				prereqeval : function(v) { return classes.known.monk.level >= 11; },
+				spellChanges : {
+					"fly" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Ride the Wind discipline, I can cast Fly without a material component."
+					}
+				}
 			},
 			"rive of hungry flame (prereq: level 17 monk)" : {
 				name : "Rive of Hungry Flame",
 				source : ["P", 81],
 				description : " [5 ki points]" + "\n   " + "As an action, I can cast Wall of Fire without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Rive of Hungry Flame",
 					spells : ["wall of fire"],
@@ -1141,20 +1180,33 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 5
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 17; }
+				prereqeval : function(v) { return classes.known.monk.level >= 17; },
+				spellChanges : {
+					"wall of fire" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Rive of Hungry Flame discipline, I can cast Wall of Fire without a material component."
+					}
+				}
 			},
 			"rush of the gale spirits" : {
 				name : "Rush of the Gale Spirits",
 				source : ["P", 81],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Gust of Wind without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Rush of the Gale Spirits",
 					spells : ["gust of wind"],
 					selection : ["gust of wind"],
 					firstCol : 2
 				},
-				spellFirstColTitle : "Ki"
+				spellFirstColTitle : "Ki",
+				spellChanges : {
+					"gust of wind" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Rush of the Gale Spirits discipline, I can cast Gust of Wind without a material component."
+					}
+				}
 			},
 			"shape the flowing river" : {
 				name : "Shape the Flowing River",
@@ -1166,7 +1218,6 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Sweeping Cinder Strike",
 				source : ["P", 81],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Burning Hands",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Sweeping Cinder Strike",
 					spells : ["burning hands"],
@@ -1185,7 +1236,6 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Wave of Rolling Earth",
 				source : ["P", 81],
 				description : " [6 ki points]" + "\n   " + "As an action, I can cast Wall of Stone without material components",
-				action : ["action", ""],
 				spellcastingBonus : {
 					name : "Wave of Rolling Earth",
 					spells : ["wall of stone"],
@@ -1193,7 +1243,14 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol : 6
 				},
 				spellFirstColTitle : "Ki",
-				prereqeval : function(v) { return classes.known.monk.level >= 17; }
+				prereqeval : function(v) { return classes.known.monk.level >= 17; },
+				spellChanges : {
+					"wall of stone" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "With the Wave of Rolling Earth discipline, I can cast Wall of Stone without a material component."
+					}
+				}
 			}
 		}
 	}
@@ -1229,7 +1286,24 @@ AddSubClass("monk", "way of shadow", {
 					times : 4
 				}
 			},
-			autoSelectExtrachoices : [{ extrachoice : "shadow spells" }]
+			autoSelectExtrachoices : [{ extrachoice : "shadow spells" }],
+			spellChanges : {
+				"darkness" : {
+					components : "V",
+					compMaterial : "",
+					changes : "Spell cast with my Shadow Arts don't require material components."
+				},
+				"darkvision" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "Spell cast with my Shadow Arts don't require material components."
+				},
+				"pass without trace" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "Spell cast with my Shadow Arts don't require material components."
+				}
+			}
 		},
 		"subclassfeature6" : {
 			name : "Shadow Step",
@@ -1428,7 +1502,13 @@ AddSubClass("rogue", "arcane trickster", {
 			source : ["P", 98],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I can direct my Mage Hand" + "\n   " + "With a Dex (Sleight of Hand) vs. Wis (Perception) checks, I can do so discreetly" + "\n   " + "I can make it invisible and perform the following tasks:" + "\n    - " + "Stow/retrieve an object the hand is holding in a container worn/carried by another" + "\n    - " + "Use thieves' tools to pick locks and disarm traps at range",
-			action : ["bonus action", ""]
+			action : ["bonus action", ""],
+			spellChanges : {
+				"mage hand" : {
+					description : "Invisible hand, carries 10 lb; 1 bns to control, use thieves' tools, or stow/retrieve obj; only 1 instance",
+					changes : "My Mage Hand Legerdemain class feature expands my use of the Mage Hand cantrip and makes the spectral hand invisible."
+				}
+			}
 		},
 		"subclassfeature9" : {
 			name : "Magical Ambush",
@@ -1722,7 +1802,19 @@ AddSubClass("wizard", "abjuration", {
 			name : "Improved Abjuration",
 			source : ["P", 115],
 			minlevel : 10,
-			description : "\n   " + "When I cast an abjuration spell requiring an ability check, I add my proficiency bonus"
+			description : "\n   " + "When I cast an abjuration spell requiring an ability check, I add my proficiency bonus",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellKey == "dispel magic" || spellKey == "counterspell") {
+							var theDC = Number(spellObj.description.replace(/.*DC (\d+).*/i, "$1"));
+							spellObj.description = spellObj.description.replace("DC " + theDC, "DC " + (theDC - Number(How("Proficiency Bonus"))));
+							return true;
+						};
+					},
+					"I add my proficiency bonus to ability checks required by abjuration spells, thus lowering the DC."
+				]
+			}
 		},
 		"subclassfeature14" : {
 			name : "Spell Resistance",
@@ -1854,6 +1946,51 @@ AddSubClass("wizard", "enchantment", {
 			source : ["P", 117],
 			minlevel : 10,
 			description : "\n   " + "When I cast an enchantment spell with only one target, I can target a second in range" + "\n   " + "This does not apply to cantrips"
+/* SPELL CHANGES!!!
+ALL ENCHANTEMENT SPELLS (not cantrips):
+	animal friendship
+	animal messenger
+	antipathy/sympathy
+	bane
+	bless
+	calm emotions
+	charm person
+	command
+	compulsion
+	confusion
+	dominate beast
+	dominate monster
+	dominate person
+	enthrall
+	feeblemind
+	geas
+	heroism
+	hold monster
+	hold person
+	mass suggestion
+	modify memory
+	otto's irresistible dance
+	power word kill
+	power word stun
+	sleep
+	suggestion
+	tasha's hideous laughter
+	zone of truth
+	compelled duel
+	crown of madness
+	dissonant whispers
+	hex
+	catnap
+	charm monster
+	enemies abound
+	power word pain
+	psychic scream
+	synaptic static
+	haywire
+	synchronicity
+	puppet-uass
+	sudden awakening-uass
+*/
 		},
 		"subclassfeature14" : {
 			name : "Alter Memories",
@@ -1884,6 +2021,12 @@ AddSubClass("wizard", "illusion", {
 				name : "Minor Illusion cantrip",
 				spells : ["minor illusion"],
 				selection : ["minor illusion"]
+			},
+			spellChanges : {
+				"minor illusion" : {
+					description : "5-ft cube illusion includes visible and audible; Int(Investigation) check vs. Spell DC; see book",
+					changes : "My Improved Minor Illusion class feature allows me to make both a sound and an image with a single casting."
+				}
 			}
 		},
 		"subclassfeature6" : {
@@ -1933,7 +2076,18 @@ AddSubClass("wizard", "necromancy", {
 			name : "Undead Thralls",
 			source : ["P", 119],
 			minlevel : 6,
-			description : "\n   " + "I add Animate Dead to my spellbook and can have an additional target when casting it" + "\n   " + "Undead created by my necromancy spells have the following benefits:" + "\n   " + "They add my proficiency bonus to damage and my wizard level to their HP maximums"
+			description : "\n   " + "I add Animate Dead to my spellbook and can have an additional target when casting it" + "\n   " + "Undead created by my necromancy spells have the following benefits:" + "\n   " + "They add my proficiency bonus to damage and my wizard level to their HP maximums",
+			spellcastingBonus : {
+				name : "Undead Thralls",
+				spells : ["animate dead"],
+				selection : ["animate dead"]
+			},
+			spellChanges : {
+				"animate dead" : {
+					description : "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; bns a command within 60 ft",
+					changes : "My Undead Thralls class feature allows me to animate one more corpse than normal with Animate Dead."
+				}
+			}
 		},
 		"subclassfeature10" : {
 			name : "Inured to Undead",
@@ -1941,7 +2095,6 @@ AddSubClass("wizard", "necromancy", {
 			minlevel : 10,
 			description : "\n   " + "I have resistance to necrotic damage and my hit point maximum can't be reduced",
 			dmgres : ["Necrotic"]
-
 		},
 		"subclassfeature14" : {
 			name : "Command Undead",
@@ -1982,7 +2135,12 @@ AddSubClass("wizard", "transmutation", {
 			minlevel : 10,
 			description : "\n   " + "I add Polymorph to my spellbook; I can cast it on myself without using a spell slot" + "\n   " + "When I do that, I can only transform into a beast with a challenge rating of 1 or lower",
 			recovery : "short rest",
-			usages : 1
+			usages : 1,
+			spellcastingBonus : {
+				name : "Shapechanger",
+				spells : ["polymorph"],
+				selection : ["polymorph"]
+			}
 		},
 		"subclassfeature14" : {
 			name : "Master Transmuter",

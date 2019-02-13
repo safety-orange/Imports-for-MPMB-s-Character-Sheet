@@ -3866,7 +3866,7 @@ SpellsList["life transference"] = {
 	range : "30 ft",
 	components : "V,S",
 	duration : "Instantaneous",
-	description : "You take 4d8+1d8/SL Necrotic dmg, and 1 crea in range you can see regains HP twice that amount",
+	description : "You take 4d8+1d8/SL Necrotic dmg, and 1 crea in range you can see regains HP twice that",
 	descriptionFull : "You sacrifice some of your health to mend another creature's injuries. You take 4d8 necrotic damage, and one creature of your choice that you can see within range regains a number of hit points equal to twice the necrotic damage you take." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd."
 };
 SpellsList["maddening darkness"] = {
@@ -3959,7 +3959,7 @@ SpellsList["negative energy flood"] = {
 	compMaterial : "A broken bone and a square of black silk",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "1 non-undead 5d12 Necrotic dmg; save halves; rises as zombie if killed; undead gain 5d12/2 temp HP",
+	description : "1 crea: living 5d12 Necrotic dmg, save halves, rises as zombie if killed; undead 5d12/2 temp HP",
 	descriptionFull : "You send ribbons of negative energy at one creature you can see within range. Unless the target is undead, it must make a Constitution saving throw, taking 5d12 necrotic damage on a failed save, or half as much damage on a successful one. A target killed by this damage rises up as a zombie at the start of your next turn. The zombie pursues whatever creature it can see that is closest to it. Statistics for the zombie are in the Monster Manual." + "\n   " + "If you target an undead with this spell, the target doesn't make a saving throw. Instead, roll 5d12. The target gains half the total as temporary hit points."
 };
 SpellsList["power word pain"] = {
@@ -4230,10 +4230,10 @@ SpellsList["tiny servant"] = {
 	description : "Animate 1+2/SL Tiny, nonmagical, unattended obj as tiny servants; bns a to command telepathically",
 	descriptionFull : "You touch one Tiny, nonmagical object that isn't attached to another object or a surface and isn't being carried by another creature. The target animates and sprouts little arms and legs, becoming a creature under your control until the spell ends or the creature drops to 0 hit points. See the Tiny Servant stat block for its statistics." + "\n   " + "As a bonus action, you can mentally command the creature if it is within 120 feet of you. (If you control multiple creatures with this spell, you can command any or all of them at the same time, issuing the same command to each one.) You decide what action the creature will take and where it will move during its next turn, or you can issue a simple, general command, such as to fetch a key, stand watch, or stack some books. If you issue no commands, the servant does nothing other than defend itself against hostile creatures. Once given an order, the servant continues to follow that order until its task is complete." + "\n   " + "When the creature drops to 0 hit points, it reverts to its original form, and any remaining damage carries over to that form." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, you can animate two additional objects for each slot level above 3rd."
 };
-SpellsList["toll the dead-xgte"] = {
+SpellsList["toll the dead"] = {
 	name : "Toll the Dead",
 	classes : ["cleric", "warlock", "wizard"],
-	source : ["X", 169],
+	source : [["X", 169], ["UA:SS", 4]],
 	ritual : false,
 	level : 0,
 	school : "Necro",
@@ -4242,7 +4242,7 @@ SpellsList["toll the dead-xgte"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Wis",
-	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/+1d8 at CL 5, 11, and 17",
+	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/1d8 at CL 5, 11, and 17",
 	descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
 };
 SpellsList["wall of light"] = {
@@ -4384,10 +4384,10 @@ WeaponsList["thunderclap"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["toll the dead-xgte"] = {
+WeaponsList["toll the dead"] = {
 	regExpSearch : /^(?=.*toll)(?=.*the)(?=.*dead).*$/i,
 	name : "Toll the Dead",
-	source : ["X", 169],
+	source : [["X", 169], ["UA:SS", 4]],
 	list : "spell",
 	ability : 5,
 	type : "Cantrip",
