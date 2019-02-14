@@ -625,7 +625,21 @@ AddSubClass("monk", "way of the sun soul", {
 					var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 				}),
-				action : ["bonus action", " (after Attack action)"]
+				action : ["bonus action", " (after Attack action)"],
+				spellcastingBonus : {
+					name : "Searing Arc Strike",
+					spells : ["burning hands"],
+					selection : ["burning hands"],
+					firstCol : 2
+				},
+				spellFirstColTitle : "Ki",
+				spellChanges : {
+					"burning hands" : {
+						time : "1 bns",
+						description : "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
+						changes : "After I use the Attack action, I can cast Burning Hands as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level."
+					}
+				}
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "searing arc strike",

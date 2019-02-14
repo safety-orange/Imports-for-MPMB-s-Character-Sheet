@@ -206,6 +206,16 @@ AddSubClass("barbarian", "totem warrior", {
 				selection : ["beast sense", "speak with animals"],
 				firstCol : "(R)",
 				times : 2
+			},
+			spellChanges : {
+				"beast sense" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				},
+				"speak with animals" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				}
 			}
 		},
 		"subclassfeature3.1" : {
@@ -265,6 +275,12 @@ AddSubClass("barbarian", "totem warrior", {
 				spells : ["commune with nature"],
 				selection : ["commune with nature"],
 				firstCol : "(R)"
+			},
+			spellChanges : {
+				"commune with nature" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				}
 			}
 		},
 		"subclassfeature14" : {
@@ -1050,9 +1066,10 @@ AddSubClass("monk", "way of the four elements", {
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
 					"stoneskin" : {
+						range : "Self",
 						components : "V,S",
 						compMaterial : "",
-						changes : "With the Eternal Mountain Defense discipline, I can cast Stoneskin without a material component."
+						changes : "With the Eternal Mountain Defense discipline, I can cast Stoneskin without a material component but only on myself."
 					}
 				}
 			},
@@ -1145,6 +1162,7 @@ AddSubClass("monk", "way of the four elements", {
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
 					"gaseous form" : {
+						range : "Self",
 						components : "V,S",
 						compMaterial : "",
 						changes : "With the Mist Stance discipline, I can cast Gaseous Form without a material component."
@@ -1165,9 +1183,10 @@ AddSubClass("monk", "way of the four elements", {
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
 					"fly" : {
+						range : "Self",
 						components : "V,S",
 						compMaterial : "",
-						changes : "With the Ride the Wind discipline, I can cast Fly without a material component."
+						changes : "With the Ride the Wind discipline, I can cast Fly without a material component but only on myself."
 					}
 				}
 			},
@@ -1809,7 +1828,8 @@ AddSubClass("wizard", "abjuration", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spellKey == "dispel magic" || spellKey == "counterspell") {
-							spellObj.description = spellObj.description.replace(/DC (\d+)/i, "DC " + (Number("$1") - Number(How("Proficiency Bonus"))));
+							var theDC = Number(spellObj.description.replace(/.*DC (\d+).*/i, "$1"));
+							spellObj.description = spellObj.description.replace("DC " + theDC, "DC " + (theDC - Number(How("Proficiency Bonus"))));
 							return true;
 						};
 					},
@@ -1865,7 +1885,21 @@ AddSubClass("wizard", "conjuration", {
 			name : "Durable Summons",
 			source : ["P", 116],
 			minlevel : 14,
-			description : "\n   " + "Any creature I summon or create with a conjuration spell has 30 temporary hit points"
+			description : "\n   " + "Any creature I summon or create with a conjuration spell has 30 temporary hit points",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellKey.indexOf("conjure") !== -1 && !(/barrage|volley|knowbot/i).test(spellKey)) {
+							spellObj.description = spellObj.description.replace(/verbal commands/i, "command").replace(/^summon /i, '') + "; +30 temp hp";
+							return true;
+						} else if ((/find (greater )?(steed|familiar)/i).test(spellKey)) {
+							spellObj.description = spellObj.description.replace(/Gain the services of a ([^;]+)/i, "A $1 (+30 temp hp)");
+							return true;
+						}
+					},
+					"Any creature I summon or create with a conjuration spell gains 30 temporary hit points."
+				]
+			}
 		}
 	}
 });
@@ -1948,7 +1982,7 @@ AddSubClass("wizard", "enchantment", {
 			minlevel : 10,
 			description : "\n   " + "When I cast an enchantment spell with only one target, I can target a second in range" + "\n   " + "This does not apply to cantrips"
 /* SPELL CHANGES!!!
-POSSIBLE SPELLS:
+ALL ENCHANTEMENT SPELLS (not cantrips):
 	animal friendship
 	animal messenger
 	antipathy/sympathy
@@ -3599,6 +3633,18 @@ FeatsList["ritual caster"] = {
 		delete CurrentSpells['ritual caster ' + chc];
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 	},
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if (spName.indexOf("ritual caster ") !== -1) {
+					spellObj.firstCol = "(R)";
+					if (!(/(\d+ ?h\b|conc|special|see b)/i).test(spellObj.time)) spellObj.time = "10 min";
+					return true;
+				};
+			},
+			"By the Ritual Caster feat, I can cast ritual spells from my Ritual Book. Ritual spell always have a casting time of 10 minutes or more."
+		]
+	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
@@ -3892,7 +3938,7 @@ SpellsList["aura of life"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
-	description : "You + any crea while in area Necrotic dmg resist.; heals all living crea at 0 hp at start of turn to 1 hp",
+	description : "You + any crea while in area Necrotic dmg resist.; at turn start, living in area at 0 hp gain 1 hp",
 	descriptionFull : "Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points."
 };
 SpellsList["aura of purity"] = {
@@ -5011,7 +5057,8 @@ AddSubClass("cleric", "death domain", {
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if ((/^(chill touch|spare the dying|toll the dead)$/).test(spellKey)) {
+						if (spellObj.school == "Necro" && spellObj.level === 0) {
+							var startDescr = spellObj.description;
 							switch (spellKey) {
 								case "chill touch" :
 									spellObj.description = spellObj.description.replace("Spell attack", "2 crea in 5 ft spell atk").replace("Necrotic", "Necro.").replace("at CL 5, 11, and 17", "CL 5/11/17");
@@ -5020,10 +5067,10 @@ AddSubClass("cleric", "death domain", {
 									spellObj.description = spellObj.description.replace("1 living creature", "1 living creature (or 2 within 5 ft of each other)");
 									break;
 								case "toll the dead" :
-									spellObj.description = spellObj.description.replace("1 crea", "2 crea in 5 ft");
-									break;
+								default :
+									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "disadv.").replace("save halves", "save half");
 							}
-							return true;
+							return startDescr !== spellObj.description;
 						};
 					},
 					"My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
@@ -5074,17 +5121,6 @@ AddSubClass("cleric", "death domain", {
 						if (spellObj.school == "Necro" && spellObj.level && spellObj.level < 6) {
 							var startDescr = spellObj.description;
 							switch (spellKey) {
-								case "bestow curse" :
-								case "blight" :
-								case "cause fear-uass" :
-								case "enervation" :
-								case "life transference" :
-								case "negative energy flood" :
-									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "disadv.").replace("save halves", "save half");
-									if (spellKey == "enervation") {
-										spellObj.description = spellObj.description.replace("action", "1 a").replace("see book", "see B");
-									}
-									break;
 								case "blindness/deafness" :
 									// only 2 target if not cast at higher SL
 									spellObj.description = "2 crea in 5 ft or " + spellObj.description;
@@ -5111,6 +5147,15 @@ AddSubClass("cleric", "death domain", {
 								case "speak with dead" :
 									spellObj.description = spellObj.description.replace("1 corpse with mouth answers 5 questions", "2 corpses in 5 ft answer 5 questions each");
 									break;
+								case "enervation" :
+									spellObj.description = spellObj.description.replace("action", "1 a").replace("see book", "see B");
+								case "bestow curse" :
+								case "blight" :
+								case "cause fear-uass" :
+								case "life transference" :
+								case "negative energy flood" :
+								default :
+									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "disadv.").replace("save halves", "save half");
 							}
 							return startDescr !== spellObj.description;
 						};
@@ -7940,7 +7985,21 @@ AddSubClass("monk", "way of the sun soul", {
 					var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 				}),
-				action : ["bonus action", " (after Attack action)"]
+				action : ["bonus action", " (after Attack action)"],
+				spellcastingBonus : {
+					name : "Searing Arc Strike",
+					spells : ["burning hands"],
+					selection : ["burning hands"],
+					firstCol : 2
+				},
+				spellFirstColTitle : "Ki",
+				spellChanges : {
+					"burning hands" : {
+						time : "1 bns",
+						description : "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
+						changes : "After I use the Attack action, I can cast Burning Hands as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level."
+					}
+				}
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "searing arc strike",
@@ -11663,6 +11722,7 @@ AddSubClass("barbarian", "ancestral guardian-xgte", {
 				"Augury consults ancestral spirits; Clairvoyance summons an invisible ancestral spirit",
 				"Wisdom is my spellcasting ability for these spells"
 			]),
+			spellcastingAbility : 5,
 			spellcastingBonus : [{
 				name : "Consult the Spirits",
 				spells : ["augury"],
@@ -11675,7 +11735,19 @@ AddSubClass("barbarian", "ancestral guardian-xgte", {
 				firstCol : 'oncesr'
 			}],
 			usages : 1,
-			recovery : "short rest"
+			recovery : "short rest",
+			spellChanges : {
+				"augury" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "My casting of Augury is a practice of consulting my ancestral spirits, thus requiring no material components."
+				},
+				"clairvoyance" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "My casting of Clairvoyance is a practice of consulting my an ancestral spirit of mine, thus requiring no material components."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Vengeful Ancestors",
@@ -12926,7 +12998,21 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 						var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 						return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 					}),
-					action : ["bonus action", " (after Attack action)"]
+					action : ["bonus action", " (after Attack action)"],
+					spellcastingBonus : {
+						name : "Searing Arc Strike",
+						spells : ["burning hands"],
+						selection : ["burning hands"],
+						firstCol : 2
+					},
+					spellFirstColTitle : "Ki",
+					spellChanges : {
+						"burning hands" : {
+							time : "1 bns",
+							description : "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
+							changes : "After I use the Attack action, I can cast Burning Hands as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level."
+						}
+					}
 				},
 				autoSelectExtrachoices : [{
 					extrachoice : "searing arc strike",
@@ -24440,7 +24526,19 @@ ClassList.artificer = {
 				spells : ["identify"],
 				selection : ["identify"],
 				firstCol : "(R)"
-			}]
+			}],
+			spellChanges : {
+				"detect magic" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				},
+				"identify" : {
+					time : "10 min",
+					components : "V,S",
+					compMaterial : "",
+					changes : "I can cast this spell without requiring material components, but only as a ritual, thus its casting time is always 10 minutes."
+				}
+			}
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
@@ -29287,7 +29385,7 @@ PsionicsList["p4-victory before battle"] = {
 	psionic : true,
 	level : 1,
 	school : "Awake",
-	time : "\u2014",
+	time : "",
 	range : "60-ft rad",
 	duration : "Instantaneous",
 	description : "Use when rolling initiative; grant yourself and up to 5 creatures +10 on the initiative roll",

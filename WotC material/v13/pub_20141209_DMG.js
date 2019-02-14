@@ -138,7 +138,8 @@ AddSubClass("cleric", "death domain", {
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if ((/^(chill touch|spare the dying|toll the dead)$/).test(spellKey)) {
+						if (spellObj.school == "Necro" && spellObj.level === 0) {
+							var startDescr = spellObj.description;
 							switch (spellKey) {
 								case "chill touch" :
 									spellObj.description = spellObj.description.replace("Spell attack", "2 crea in 5 ft spell atk").replace("Necrotic", "Necro.").replace("at CL 5, 11, and 17", "CL 5/11/17");
@@ -147,10 +148,10 @@ AddSubClass("cleric", "death domain", {
 									spellObj.description = spellObj.description.replace("1 living creature", "1 living creature (or 2 within 5 ft of each other)");
 									break;
 								case "toll the dead" :
-									spellObj.description = spellObj.description.replace("1 crea", "2 crea in 5 ft");
-									break;
+								default :
+									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "disadv.").replace("save halves", "save half");
 							}
-							return true;
+							return startDescr !== spellObj.description;
 						};
 					},
 					"My necromancy, single-target cantrips can affect two targets within 5 ft of each other."
@@ -201,17 +202,6 @@ AddSubClass("cleric", "death domain", {
 						if (spellObj.school == "Necro" && spellObj.level && spellObj.level < 6) {
 							var startDescr = spellObj.description;
 							switch (spellKey) {
-								case "bestow curse" :
-								case "blight" :
-								case "cause fear-uass" :
-								case "enervation" :
-								case "life transference" :
-								case "negative energy flood" :
-									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "disadv.").replace("save halves", "save half");
-									if (spellKey == "enervation") {
-										spellObj.description = spellObj.description.replace("action", "1 a").replace("see book", "see B");
-									}
-									break;
 								case "blindness/deafness" :
 									// only 2 target if not cast at higher SL
 									spellObj.description = "2 crea in 5 ft or " + spellObj.description;
@@ -238,6 +228,15 @@ AddSubClass("cleric", "death domain", {
 								case "speak with dead" :
 									spellObj.description = spellObj.description.replace("1 corpse with mouth answers 5 questions", "2 corpses in 5 ft answer 5 questions each");
 									break;
+								case "enervation" :
+									spellObj.description = spellObj.description.replace("action", "1 a").replace("see book", "see B");
+								case "bestow curse" :
+								case "blight" :
+								case "cause fear-uass" :
+								case "life transference" :
+								case "negative energy flood" :
+								default :
+									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "disadv.").replace("save halves", "save half");
 							}
 							return startDescr !== spellObj.description;
 						};

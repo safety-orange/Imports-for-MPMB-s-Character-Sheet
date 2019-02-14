@@ -4703,7 +4703,19 @@ ClassList.artificer = {
 				spells : ["identify"],
 				selection : ["identify"],
 				firstCol : "(R)"
-			}]
+			}],
+			spellChanges : {
+				"detect magic" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				},
+				"identify" : {
+					time : "10 min",
+					components : "V,S",
+					compMaterial : "",
+					changes : "I can cast this spell without requiring material components, but only as a ritual, thus its casting time is always 10 minutes."
+				}
+			}
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
@@ -9550,7 +9562,7 @@ PsionicsList["p4-victory before battle"] = {
 	psionic : true,
 	level : 1,
 	school : "Awake",
-	time : "\u2014",
+	time : "",
 	range : "60-ft rad",
 	duration : "Instantaneous",
 	description : "Use when rolling initiative; grant yourself and up to 5 creatures +10 on the initiative roll",

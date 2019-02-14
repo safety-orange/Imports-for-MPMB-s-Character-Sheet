@@ -204,6 +204,16 @@ AddSubClass("barbarian", "totem warrior", {
 				selection : ["beast sense", "speak with animals"],
 				firstCol : "(R)",
 				times : 2
+			},
+			spellChanges : {
+				"beast sense" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				},
+				"speak with animals" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				}
 			}
 		},
 		"subclassfeature3.1" : {
@@ -263,6 +273,12 @@ AddSubClass("barbarian", "totem warrior", {
 				spells : ["commune with nature"],
 				selection : ["commune with nature"],
 				firstCol : "(R)"
+			},
+			spellChanges : {
+				"commune with nature" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				}
 			}
 		},
 		"subclassfeature14" : {
@@ -1048,9 +1064,10 @@ AddSubClass("monk", "way of the four elements", {
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
 					"stoneskin" : {
+						range : "Self",
 						components : "V,S",
 						compMaterial : "",
-						changes : "With the Eternal Mountain Defense discipline, I can cast Stoneskin without a material component."
+						changes : "With the Eternal Mountain Defense discipline, I can cast Stoneskin without a material component but only on myself."
 					}
 				}
 			},
@@ -1143,6 +1160,7 @@ AddSubClass("monk", "way of the four elements", {
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
 					"gaseous form" : {
+						range : "Self",
 						components : "V,S",
 						compMaterial : "",
 						changes : "With the Mist Stance discipline, I can cast Gaseous Form without a material component."
@@ -1163,9 +1181,10 @@ AddSubClass("monk", "way of the four elements", {
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
 					"fly" : {
+						range : "Self",
 						components : "V,S",
 						compMaterial : "",
-						changes : "With the Ride the Wind discipline, I can cast Fly without a material component."
+						changes : "With the Ride the Wind discipline, I can cast Fly without a material component but only on myself."
 					}
 				}
 			},
@@ -1864,7 +1883,21 @@ AddSubClass("wizard", "conjuration", {
 			name : "Durable Summons",
 			source : ["P", 116],
 			minlevel : 14,
-			description : "\n   " + "Any creature I summon or create with a conjuration spell has 30 temporary hit points"
+			description : "\n   " + "Any creature I summon or create with a conjuration spell has 30 temporary hit points",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellKey.indexOf("conjure") !== -1 && !(/barrage|volley|knowbot/i).test(spellKey)) {
+							spellObj.description = spellObj.description.replace(/verbal commands/i, "command").replace(/^summon /i, '') + "; +30 temp hp";
+							return true;
+						} else if ((/find (greater )?(steed|familiar)/i).test(spellKey)) {
+							spellObj.description = spellObj.description.replace(/Gain the services of a ([^;]+)/i, "A $1 (+30 temp hp)");
+							return true;
+						}
+					},
+					"Any creature I summon or create with a conjuration spell gains 30 temporary hit points."
+				]
+			}
 		}
 	}
 });
@@ -3598,6 +3631,18 @@ FeatsList["ritual caster"] = {
 		delete CurrentSpells['ritual caster ' + chc];
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 	},
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if (spName.indexOf("ritual caster ") !== -1) {
+					spellObj.firstCol = "(R)";
+					if (!(/(\d+ ?h\b|conc|special|see b)/i).test(spellObj.time)) spellObj.time = "10 min";
+					return true;
+				};
+			},
+			"By the Ritual Caster feat, I can cast ritual spells from my Ritual Book. Ritual spell always have a casting time of 10 minutes or more."
+		]
+	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
@@ -3891,7 +3936,7 @@ SpellsList["aura of life"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
-	description : "You + any crea while in area Necrotic dmg resist.; heals all living crea at 0 hp at start of turn to 1 hp",
+	description : "You + any crea while in area Necrotic dmg resist.; at turn start, living in area at 0 hp gain 1 hp",
 	descriptionFull : "Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points."
 };
 SpellsList["aura of purity"] = {

@@ -49,6 +49,7 @@ AddSubClass("barbarian", "ancestral guardian-xgte", {
 				"Augury consults ancestral spirits; Clairvoyance summons an invisible ancestral spirit",
 				"Wisdom is my spellcasting ability for these spells"
 			]),
+			spellcastingAbility : 5,
 			spellcastingBonus : [{
 				name : "Consult the Spirits",
 				spells : ["augury"],
@@ -61,7 +62,19 @@ AddSubClass("barbarian", "ancestral guardian-xgte", {
 				firstCol : 'oncesr'
 			}],
 			usages : 1,
-			recovery : "short rest"
+			recovery : "short rest",
+			spellChanges : {
+				"augury" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "My casting of Augury is a practice of consulting my ancestral spirits, thus requiring no material components."
+				},
+				"clairvoyance" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "My casting of Clairvoyance is a practice of consulting my an ancestral spirit of mine, thus requiring no material components."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Vengeful Ancestors",
@@ -1312,7 +1325,21 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 						var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 						return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 					}),
-					action : ["bonus action", " (after Attack action)"]
+					action : ["bonus action", " (after Attack action)"],
+					spellcastingBonus : {
+						name : "Searing Arc Strike",
+						spells : ["burning hands"],
+						selection : ["burning hands"],
+						firstCol : 2
+					},
+					spellFirstColTitle : "Ki",
+					spellChanges : {
+						"burning hands" : {
+							time : "1 bns",
+							description : "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
+							changes : "After I use the Attack action, I can cast Burning Hands as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level."
+						}
+					}
 				},
 				autoSelectExtrachoices : [{
 					extrachoice : "searing arc strike",

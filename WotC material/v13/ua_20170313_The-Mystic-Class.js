@@ -3219,7 +3219,7 @@ PsionicsList["p4-victory before battle"] = {
 	psionic : true,
 	level : 1,
 	school : "Awake",
-	time : "\u2014",
+	time : "",
 	range : "60-ft rad",
 	duration : "Instantaneous",
 	description : "Use when rolling initiative; grant yourself and up to 5 creatures +10 on the initiative roll",

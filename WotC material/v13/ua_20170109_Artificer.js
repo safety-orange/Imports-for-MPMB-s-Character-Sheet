@@ -67,7 +67,19 @@ ClassList.artificer = {
 				spells : ["identify"],
 				selection : ["identify"],
 				firstCol : "(R)"
-			}]
+			}],
+			spellChanges : {
+				"detect magic" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				},
+				"identify" : {
+					time : "10 min",
+					components : "V,S",
+					compMaterial : "",
+					changes : "I can cast this spell without requiring material components, but only as a ritual, thus its casting time is always 10 minutes."
+				}
+			}
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
