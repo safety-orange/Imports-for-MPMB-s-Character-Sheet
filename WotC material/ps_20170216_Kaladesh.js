@@ -230,7 +230,7 @@ RaceList["tirahar elf"] = {
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Tirahar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
 };
-RaceList["vedalken"] = { // Includes contributions by SoilentBrad
+RaceList["vedalken-psk"] = { // Includes contributions by SoilentBrad
 	regExpSearch : /vedalken/i,
 	name : "Vedalken",
 	sortname : "Vedalken",
