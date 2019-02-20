@@ -77,14 +77,25 @@ ClassList["rune scribe"] = {
 					"- Overwhelming Bolt (complex): As an action, I expend spell slot and touch a creature",
 					"   It takes 2d8+1d8/SL bludg. dmg and is prone; DC 12+SL Str save for half \u0026 not prone"
 				]),
-				action : [['bonus action', 'Stein Rune (Earthen Step)'], ['action', 'Stein Rune (Indomitable Stand, Secrets, Bolt)']],
+				action : [['action', 'Stein Rune (Indomitable Stand, Secrets, Bolt)']],
 				savetxt : { immune : ["petrified"] },
 				spellcastingBonus : {
 					name : "Orb of the Stein Rune",
 					spells : ["meld into stone"],
 					selection : ["meld into stone"], 
 					firstCol : 'oncesr'
-				}
+				},
+				spellChanges : {
+					"levitate" : {
+						time : "1 bns",
+						changes : "Using my Orb of the Stein Rune, I can cast Meld Into Stone as a bonus action once per short rest."
+					}
+				},
+				extraLimitedFeatures : [{
+					name : "Earthen Step (Orb of the Stein Rune)",
+					usages : 1,
+					recovery : "short rest"
+				}]
 			},
 			"pennant of the vind rune" : {
 				name : "Pennant of the Vind Rune",
@@ -102,14 +113,25 @@ ClassList["rune scribe"] = {
 					"   It 2d8+1d8/SL bludg. dmg \u0026 pushed 10 ft; DC 12+SL Str save for half \u0026 not pushed",
 					"- Wind Walker (complex): I can cast Levitate as a bonus action once per short rest"
 				]),
-				action : [['bonus action', 'Vind Rune (Wind Walker)'], ['action', 'Vind Rune (Wind Step, Shrieking Bolt)'], ['reaction', "Vind Rune (Wind's Grasp)"]],
+				action : [['action', 'Vind Rune (Wind Step, Shrieking Bolt)'], ['reaction', "Vind Rune (Wind's Grasp)"]],
 				savetxt : { adv_vs : ["inhaled poison"] },
 				spellcastingBonus : {
 					name : "Pennant of the Vind Rune",
 					spells : ["levitate"],
 					selection : ["levitate"], 
 					firstCol : 'oncesr'
-				}
+				},
+				spellChanges : {
+					"levitate" : {
+						time : "1 bns",
+						changes : "Using my Pennant of the Vind Rune, I can cast Levitate as a bonus action once per short rest."
+					}
+				},
+				extraLimitedFeatures : [{
+					name : "Wind Walker (Pennant of the Vind Rune)",
+					usages : 1,
+					recovery : "short rest"
+				}]
 			},
 			"shard of the kalt rune" : {
 				name : "Shard of the Kalt Rune",
@@ -134,7 +156,12 @@ ClassList["rune scribe"] = {
 					spells : ["sleet storm"],
 					selection : ["sleet storm"],
 					firstCol : 'oncesr'
-				}
+				},
+				extraLimitedFeatures : [{
+					name : "Winter's Howl (Shard of the Kalt Rune)",
+					usages : 1,
+					recovery : "short rest"
+				}]
 			}
 		},
 		"runic magic" : {

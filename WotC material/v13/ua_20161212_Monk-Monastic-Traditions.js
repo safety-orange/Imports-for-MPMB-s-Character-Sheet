@@ -46,7 +46,7 @@ AddSubClass("monk", "way of the kensei", {
 							fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage';
 						};
 					},
-					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
+					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n \u2022 If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
 				]
 			},
 			autoSelectExtrachoices : [{ extrachoice : "kensei defense" }]
@@ -117,11 +117,19 @@ AddSubClass("monk", "way of tranquility", {
 			description : "\n   " + "I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour",
 			usages : 1,
 			recovery : "1 min",
-			action : ["bonus action", ""],
 			spellcastingBonus : {
 				name : "Way of Tranquility",
 				spells : ["sanctuary"],
 				selection : ["sanctuary"]
+			},
+			spellChanges : {
+				"sanctuary" : {
+					components : "V,S",
+					compMaterial : "",
+					time : "8 h",
+					description : "I'm warded; any who want to attack/target must first make save; doesn't protect vs. area spells",
+					changes : "Using my Path of Tranquility class feature I can cast Sanctuary without requiring material components and lasting for 8 hours, but it only affects myself and hostiles can attempt a new save every hour."
+				}
 			}
 		},
 		"subclassfeature3.1" : {

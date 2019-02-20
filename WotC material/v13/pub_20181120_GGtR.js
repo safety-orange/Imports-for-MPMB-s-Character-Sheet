@@ -403,7 +403,18 @@ AddSubClass("cleric", "order domain-ggtr", {
 			]),
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
-			recovery : "long rest"
+			recovery : "long rest",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (CurrentSpells[spName].refType == "class" && spellObj.school == "Ench" && spellObj.time == "1 a") {
+							spellObj.time = "1a/bns"
+							return true;
+						};
+					},
+					"When I cast an enchantment spell using a spell slot that normally requires 1 action to cast, I can reduce its casting time to a bonus action."
+				]
+			}
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -524,7 +535,7 @@ AddSubClass("druid", "circle of spores-ggtr", {
 			source : ["G", 27],
 			minlevel : 14,
 			description : desc([
-				"I'm immune to being blinded, deafened, frightened, poisoned, and critical hits",
+				"I'm immune to being blinded, deafened, frightened, poisoned, and critical hits"
 			]),
 			savetxt : { immune : ["blinded", "deafened", "frightened", "poisoned", "critical hits (unless incapacitated)"] }
 		}

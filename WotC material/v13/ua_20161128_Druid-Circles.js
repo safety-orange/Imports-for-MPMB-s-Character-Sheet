@@ -137,6 +137,13 @@ AddSubClass("druid", "circle of twilight", {
 				spells : ["speak with dead"],
 				selection : ["speak with dead"],
 				firstCol : 'oncesr'
+			},
+			spellChanges : {
+				"speak with dead" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "I can cast this spell once per short rest without requiring material components."
+				}
 			}
 		},
 		"subclassfeature10" : {
@@ -158,6 +165,12 @@ AddSubClass("druid", "circle of twilight", {
 				spells : ["etherealness"],
 				selection : ["etherealness"],
 				firstCol : 'oncesr'
+			},
+			spellChanges : {
+				"etherealness" : {
+					description : "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
+					changes : "Using my Paths of the Dead class feature I can cast Etherealness once per short rest without needing a spell slot, thus can only target 1 creature."
+				}
 			}
 		}
 	}

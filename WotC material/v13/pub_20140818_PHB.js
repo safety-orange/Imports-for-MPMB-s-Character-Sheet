@@ -373,6 +373,17 @@ AddSubClass("cleric", "knowledge domain", {
 						};
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0) return;
+						if (spellKey == "shillelagh") {
+							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
+						} else if (!spellObj.psionic && spellObj.level == 0) {
+							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						}
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
 			}
 		},
@@ -441,6 +452,17 @@ AddSubClass("cleric", "light domain", {
 						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
 							output.extraDmg += What('Wis Mod');
 						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0) return;
+						if (spellKey == "shillelagh") {
+							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
+						} else if (!spellObj.psionic && spellObj.level == 0) {
+							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						}
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -1026,6 +1048,7 @@ AddSubClass("monk", "way of the four elements", {
 					"cone of cold" : {
 						components : "V,S",
 						compMaterial : "",
+						description : "8d8 Cold dmg; save halves; crea killed become frozen statues until thawed",
 						changes : "With the Breath of Winter discipline, I can cast Cone of Cold without a material component."
 					}
 				}
@@ -1046,6 +1069,7 @@ AddSubClass("monk", "way of the four elements", {
 					"hold person" : {
 						components : "V,S",
 						compMaterial : "",
+						description : "1 humanoid save or paralyzed; extra save at end of each turn",
 						changes : "With the Clench of the North Wind discipline, I can cast Hold Person without a material component."
 					}
 				}
@@ -1067,6 +1091,7 @@ AddSubClass("monk", "way of the four elements", {
 						range : "Self",
 						components : "V,S",
 						compMaterial : "",
+						description : "I gain resistance to nonmagical Bludgeoning, Piercing, and Slashing damage",
 						changes : "With the Eternal Mountain Defense discipline, I can cast Stoneskin without a material component but only on myself."
 					}
 				}
@@ -1098,7 +1123,13 @@ AddSubClass("monk", "way of the four elements", {
 					selection : ["thunderwave"],
 					firstCol : 2
 				},
-				spellFirstColTitle : "Ki"
+				spellFirstColTitle : "Ki",
+				spellChanges : {
+					"thunderwave" : {
+						description : "All crea/obj in area 2d8 Thunder dmg, pushed 10 ft away; save halves and not pushed",
+						changes : "With the Fist of Four Thunders discipline, I can cast Thunderwave."
+					}
+				}
 			},
 			"fist of unbroken air" : {
 				name : "Fist of Unbroken Air",
@@ -1122,6 +1153,7 @@ AddSubClass("monk", "way of the four elements", {
 					"fireball" : {
 						components : "V,S",
 						compMaterial : "",
+						description : "20-ft rad all crea 8d6 Fire dmg; save halves; unattended flammable objects ignite",
 						changes : "With the Flames of the Phoenix discipline, I can cast Fireball without a material component."
 					}
 				}
@@ -1142,6 +1174,7 @@ AddSubClass("monk", "way of the four elements", {
 					"shatter" : {
 						components : "V,S",
 						compMaterial : "",
+						description : "10-ft rad all 3d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
 						changes : "With the Gong of the Summit discipline, I can cast Shatter without a material component."
 					}
 				}
@@ -1163,7 +1196,8 @@ AddSubClass("monk", "way of the four elements", {
 						range : "Self",
 						components : "V,S",
 						compMaterial : "",
-						changes : "With the Mist Stance discipline, I can cast Gaseous Form without a material component."
+						description : "I turn into a misty cloud with fly 10 ft, resist. to nonmagical dmg, adv. on Str/Dex/saves",
+						changes : "With the Mist Stance discipline, I can cast Gaseous Form without a material component, but only on myself."
 					}
 				}
 			},
@@ -1184,6 +1218,7 @@ AddSubClass("monk", "way of the four elements", {
 						range : "Self",
 						components : "V,S",
 						compMaterial : "",
+						description : "I gain 60 ft flying speed",
 						changes : "With the Ride the Wind discipline, I can cast Fly without a material component but only on myself."
 					}
 				}
@@ -1204,6 +1239,8 @@ AddSubClass("monk", "way of the four elements", {
 					"wall of fire" : {
 						components : "V,S",
 						compMaterial : "",
+						description : "60\u00D71\u00D720ft (l\u00D7w\u00D7h) or 10-ft rad all in and 10 ft on 1 side 5d8 Fire dmg; save halves; see b",
+						descriptionMetric : "18\u00D70,3\u00D76m (l\u00D7w\u00D7h) or 3-m rad all in and 3 m on 1 side 5d8 Fire dmg; save halves; see B",
 						changes : "With the Rive of Hungry Flame discipline, I can cast Wall of Fire without a material component."
 					}
 				}
@@ -1243,7 +1280,15 @@ AddSubClass("monk", "way of the four elements", {
 					selection : ["burning hands"],
 					firstCol : 2
 				},
-				spellFirstColTitle : "Ki"
+				spellFirstColTitle : "Ki",
+				spellChanges : {
+					"burning hands" : {
+						components : "V,S",
+						compMaterial : "",
+						description : "3d6 Fire dmg; save halves; unattended flammable objects ignite",
+						changes : "With the Sweeping Cinder Strike discipline, I can cast Burning Hands."
+					}
+				}
 			},
 			"water whip" : {
 				name : "Water Whip",
@@ -2169,10 +2214,23 @@ AddSubClass("wizard", "transmutation", {
 			description : "\n   " + "I add Polymorph to my spellbook; I can cast it on myself without using a spell slot" + "\n   " + "When I do that, I can only transform into a beast with a challenge rating of 1 or lower",
 			recovery : "short rest",
 			usages : 1,
-			spellcastingBonus : {
-				name : "Shapechanger",
+			spellcastingBonus : [{
+				name : "Add to spellbook",
 				spells : ["polymorph"],
 				selection : ["polymorph"]
+			}, {
+				name : "1/SR no spell slot",
+				spells : ["polymorph"],
+				selection : ["polymorph"],
+				firstCol : "oncesr"
+			}],
+			spellChanges : {
+				"polymorph" : {
+					name : "Polymorph (special)",
+					range : "Self",
+					description : "I transformed into a beast of my choice with a CR 1 or lower; see book",
+					changes : "Using my Shapechanger class feature, I can cast Polymorph once per short rest without using a spell slot, but when I do so I can only cast it on myself and transform into a beast."
+				}
 			}
 		},
 		"subclassfeature14" : {
@@ -3622,7 +3680,8 @@ FeatsList["ritual caster"] = {
 			name : 'Ritual Book [' + chc.capitalize() + ']',
 			ability : spellAbility,
 			list : {"class" : chc, ritual : true},
-			known : {spells : 'book'}
+			known : {spells : 'book'},
+			refType : "feat"
 		};
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 	},
@@ -3839,7 +3898,7 @@ FeatsList["tavern brawler"] = {
 					fields.Damage_Die = '1d4';
 				};
 			},
-			"My unarmed strikes do 1d4 damage instead of 1;\n - After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
+			"My unarmed strikes do 1d4 damage instead of 1;\n \u2022 After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
 		]
 	}
 };
@@ -3936,7 +3995,7 @@ SpellsList["aura of life"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
-	description : "You + any crea while in area Necrotic dmg resist.; at turn start, living in area at 0 hp gain 1 hp",
+	description : "Me + any crea while in area Necrotic dmg resist.; at turn start, 0 hp living in area heal 1 hp",
 	descriptionFull : "Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points."
 };
 SpellsList["aura of purity"] = {
@@ -3949,7 +4008,7 @@ SpellsList["aura of purity"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
-	description : "You + any crea while in area Poison dmg resist., immune to disease, adv. on saves vs. conditions",
+	description : "Me + any crea while in area Poison dmg resist., immune to disease, adv. on saves vs. conditions",
 	descriptionFull : "Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions - blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned."
 };
 SpellsList["aura of vitality"] = {
@@ -3962,7 +4021,7 @@ SpellsList["aura of vitality"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "You can heal 1 creature in range for 2d6 hp as a bonus action for the duration",
+	description : "I can heal 1 creature in range for 2d6 hp as a bonus action for the duration",
 	descriptionFull : "Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain 2d6 hit points."
 };
 SpellsList["banishing smite"] = {
@@ -3975,7 +4034,7 @@ SpellsList["banishing smite"] = {
 	range : "Self",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "Next melee hit +5d10 Force dmg; if this brings target hp<50, you banish it until spell ends",
+	description : "Next melee hit +5d10 Force dmg; if this brings target hp<50, I banish it until spell ends",
 	descriptionFull : "The next time you hit a creature with a weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra 5d10 force damage to the target. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it. If the target is native to a different plane of existence than the one you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is incapacitated. It remains there until the spell ends, at which point the tart reappears in the space it left or in the nearest unoccupied space if that space is occupied."
 };
 SpellsList["beast sense"] = {
@@ -3989,7 +4048,7 @@ SpellsList["beast sense"] = {
 	range : "Touch",
 	components : "S",
 	duration : "Conc, 1 h",
-	description : "Use 1 willing beast's senses; you are blinded and deafened while doing so",
+	description : "Use 1 willing beast's senses; I'm blinded and deafened while doing so",
 	descriptionFull : "You touch a willing beast. For the duration of the spell, you can use your action to see through the beast's eyes and hear what it hears, and continue to do so until you use your action to return to your normal senses."
 };
 SpellsList["blade ward"] = {
@@ -4002,7 +4061,7 @@ SpellsList["blade ward"] = {
 	range : "Self",
 	components : "V,S",
 	duration : "1 rnd",
-	description : "Until the end of your next turn, Bludgeoning, Piercing, and Slashing dmg resist. vs. weapons",
+	description : "Until the end of my next turn, Bludgeoning, Piercing, and Slashing dmg resist. vs. weapons",
 	descriptionFull : "You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks."
 };
 SpellsList["blinding smite"] = {
@@ -4071,7 +4130,7 @@ SpellsList["compelled duel"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Wis",
-	description : "1 crea save or dis. on attacks vs. not-you and save if moving more than 30 ft away",
+	description : "1 crea save or dis. on attacks vs. not-me and save if moving more than 30 ft away",
 	descriptionFull : "You attempt to compel a creature into a duel. One creature that you can see within range must make a Wisdom saving throw. On a failed save, the creature is drawn to you, compelled by your divine demand. For the duration, it has disadvantage on attack rolls against creatures other than you, and must make a Wisdom saving throw each time it attempts to move to a space that is more than 30 feet away from you, if it succeeds on this saving throw, this spell doesn't restrict the target's movement for that turn." + "\n   " + "The spell ends if you attack any other creature, if you cast a spell that targets a hostile creature other than the target, if a creature friendly to you damages the target or casts a harmful spell on it, or if you end your turn more than 30 feet away from the target."
 };
 SpellsList["conjure barrage"] = {
@@ -4130,7 +4189,7 @@ SpellsList["crown of madness"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Wis",
-	description : "1 humanoid save or charmed and must melee attack against crea chosen by you; extra save/rnd",
+	description : "1 humanoid save or charmed and must melee attack against crea chosen by me; extra save/rnd",
 	descriptionFull : "One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes." + "\n   " + "The charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach." + "\n   " + "On your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends."
 };
 SpellsList["crusader's mantle"] = {
@@ -4143,7 +4202,7 @@ SpellsList["crusader's mantle"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "You and allies in range deal extra 1d4 Radiant dmg with weapon attacks",
+	description : "Me and allies in range deal extra 1d4 Radiant dmg with weapon attacks",
 	descriptionFull : "Holy power radiates from you in an aura with a 30-foot radius, awakening boldness in friendly creatures. Until the spell ends, the aura moves with you, centered on you. While in the aura, each non-hostile creature in the aura (including you) deals an extra 1d4 radiant damage when it hits with a weapon attack."
 };
 SpellsList["destructive wave"] = {
@@ -4269,7 +4328,7 @@ SpellsList["hex"] = {
 	components : "V,S,M",
 	compMaterial : "The petrified eye of a newt",
 	duration : "Conc, 1 h",
-	description : "1 crea +1d6 Necrotic dmg from your atks; dis. on chosen ability checks; SL3: conc, 8h; SL5: conc, 24h",
+	description : "1 crea +1d6 Necrotic dmg from my atks; dis. on chosen ability checks; SL3: conc, 8h; SL5: conc, 24h",
 	descriptionFull : "You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability." + "\n   " + "If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature." + "\n   " + "A remove curse cast on the target ends this spell early." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours."
 };
 SpellsList["hunger of hadar"] = {
@@ -4340,7 +4399,7 @@ SpellsList["ray of sickness"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "Spell attack for 2d8+1d8/SL Poison dmg; save or also poisoned until end of your next turn",
+	description : "Spell attack for 2d8+1d8/SL Poison dmg; save or also poisoned until end of my next turn",
 	descriptionFull : "A ray of sickening greenish energy lashes out toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 poison damage and must make a Constitution saving throw. On a failed save, it is also poisoned until the end of your next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st."
 };
 SpellsList["searing smite"] = {
@@ -4396,7 +4455,7 @@ SpellsList["telepathy"] = {
 	components : "V,S,M",
 	compMaterial : "A pair of linked silver rings",
 	duration : "24 h",
-	description : "1 willing crea Int>0 and you telepathic link; share words, sensory information if on same plane",
+	description : "1 willing crea Int>0 and I telepathic link; share words, sensory information if on same plane",
 	descriptionFull : "You create a telepathic link between yourself and a willing creature with which you are familiar. The creature can be anywhere on the same plane of existence as you. The spell ends if you or the target are no longer on the same plane." + "\n   " + "Until the spell ends, you and the target can instantaneously share words, images, sounds, and other sensory messages with one another through the link, and the target recognizes you as the creature it is communicating with. The spell enables a creature with an Intelligence score of at least 1 to understand the meaning of your words and take in the scope of any sensory messages you send to it."
 };
 SpellsList["thorn whip"] = {
@@ -4410,7 +4469,8 @@ SpellsList["thorn whip"] = {
 	components : "V,S,M",
 	compMaterial : "The stem of a plant with thorns",
 	duration : "Instantaneous",
-	description : "Melee spell attack for 1d6 Piercing dmg and pull crea 10 ft to you; +1d6 at CL 5, 11, and 17",
+	description : "Melee spell attack for 1d6 Piercing dmg and pull crea 10 ft towards me; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "Melee spell attack for `CD`d6 Piercing dmg and pull crea 10 ft towards me",
 	descriptionFull : "You create a long, vine-like whip covered in thorns that lashes out at your command toward a creature in range. Make a melee spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and if the creature is Large or smaller, you pull the creature up to 10 feet closer to you." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["thunderous smite"] = {
@@ -4453,7 +4513,7 @@ SpellsList["witch bolt"] = {
 	components : "V,S,M",
 	compMaterial : "A twig from a tree that has been struck by lightning",
 	duration : "Conc, 1 min",
-	description : "Spell attack 1d12+1d12/SL Lightning dmg; 1 a, if consecutive, for dmg again; ends if out of range",
+	description : "Spell attack 1d12+1d12/SL Lightning dmg; 1 a repeat dmg, if consecutive; ends if out of range",
 	descriptionFull : "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st."
 };
 SpellsList["wrathful smite"] = {

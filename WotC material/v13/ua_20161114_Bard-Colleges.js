@@ -46,7 +46,14 @@ AddSubClass("bard", "college of glamour", {
 				spells : ["command"],
 				selection : ["command"],
 				firstCol : 'oncelr'
-			}]
+			}],
+			spellChanges : {
+				"command" : {
+					time : "1 bns",
+					description : "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
+					changes : "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Unbreakable Majesty",
@@ -61,7 +68,14 @@ AddSubClass("bard", "college of glamour", {
 				spells : ["sanctuary"],
 				selection : ["sanctuary"],
 				firstCol : 'oncesr'
-			}]
+			}],
+			spellChanges : {
+				"sanctuary" : {
+					time : "Self",
+					description : "Any trying to atk/target me must save or fail, dis. on save vs. spell I cast next turn, I adv. on Cha vs. it",
+					changes : "Using my Unbreakable Majesty class feature, I can cast Sanctuary once per short rest without using a spell slot, but only on myself."
+				}
+			}
 		}
 	}
 });

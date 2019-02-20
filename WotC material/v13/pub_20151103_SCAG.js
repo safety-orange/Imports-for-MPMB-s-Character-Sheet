@@ -75,7 +75,7 @@ RaceList["gray dwarf"] = {
 					range : "Self",
 					components : "V,S",
 					compMaterial : "",
-					description : "You are enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					description : "I'm enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
 					changes : "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself."
 				}
 			}
@@ -97,7 +97,7 @@ RaceList["gray dwarf"] = {
 					range : "Self",
 					components : "V,S",
 					compMaterial : "",
-					description : "You and worn/carried invisible until you attack or cast; Can't cast this spell in direct sunlight",
+					description : "Me and my worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight",
 					changes : "Using Duergar Magic, I can cast Invisibility while I'm not in direct sunlight, but only on myself."
 				}
 			}
@@ -252,7 +252,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 			},
 			spellChanges : {
 				"charm person" : {
-					description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if you/allies are fighting it",
+					description : "2 humanoids, max 30 ft apart, save or charmed; advantage on save if I or my allies are fighting it",
 					changes : "Using Devil's Tongue, I cast Charm Person as if I'm using a 2nd-level spell slot, affecting 2 humanoids."
 				}
 			}
@@ -470,6 +470,17 @@ AddSubClass("cleric", "arcana domain", {
 						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
 							output.extraDmg += What('Wis Mod');
 						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0) return;
+						if (spellKey == "shillelagh") {
+							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
+						} else if (!spellObj.psionic && spellObj.level == 0) {
+							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						}
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -1407,7 +1418,7 @@ BackgroundFeatureList["mercenary life"] = {
 	source : [["S", 152], ["ALbackground", 0]]
 };
 BackgroundFeatureList["respect of the stout folk"] = {
-	description : "No one esteems clan crafters quite so highly as dwarves do. I always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer you (and possibly your compatriots) the finest accommodations and assistance.",
+	description : "No one esteems clan crafters quite so highly as dwarves do. I always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer me (and possibly my compatriots) the finest accommodations and assistance.",
 	source : [["S", 145], ["ALbackground", 0]]
 };
 BackgroundFeatureList["safe haven"] = {
@@ -1501,6 +1512,7 @@ if (!FeatsList["svirfneblin magic"]) {
 				range : "Self",
 				components : "V,S",
 				compMaterial : "",
+				description : "I am hidden from all divination magic",
 				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
 			}
 		}
@@ -1520,6 +1532,7 @@ SpellsList["booming blade"] = {
 	compMaterial : "A weapon",
 	duration : "Instantaneous",
 	description : "Melee wea atk with cast; if hit, it 0d8, if it moves next rnd it 1d8 Thunder dmg; +1d8 at CL5, 11, \u0026 17",
+	descriptionCantripDie : "Melee wea atk with cast; if hit, it `CD-1`d8 Thunder dmg, and if it moves next rnd it `CD`d8 Thunder dmg",
 	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends." + AtHigherLevels + "This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["green-flame blade"] = {
@@ -1533,7 +1546,8 @@ SpellsList["green-flame blade"] = {
 	components : "V,M",
 	compMaterial : "A weapon",
 	duration : "Instantaneous",
-	description : "Melee wea atk with cast; if hit, it 0d8, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL 5, 11, and 17",
+	description : "Melee wea atk with cast; atk +0d8 Fire dmg, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL5/11/17",
+	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
 	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier." + "\n   " + "This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["lightning lure"] = {
@@ -1547,7 +1561,8 @@ SpellsList["lightning lure"] = {
 	components : "V",
 	duration : "Instantaneous",
 	save : "Str",
-	description : "1 crea you see save or pull 10 ft to you; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
+	description : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, `CD`d8 Lightning dmg",
 	descriptionFull : "You create a lash of lightning energy that strikes at one creature of your choice that you can see within range. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
 SpellsList["sword burst"] = {
@@ -1562,5 +1577,6 @@ SpellsList["sword burst"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "All crea in range save or 1d6 Force damage; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "All crea in range save or `CD`d6 Force damage",
 	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. Each creature within range, other than you, must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };

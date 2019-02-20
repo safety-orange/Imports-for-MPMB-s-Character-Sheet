@@ -316,7 +316,7 @@ SpellsList["digital phantom"] = {
 	components : "V,S,M",
 	compMaterial : "A small piece of copper wire",
 	duration : "Conc, 1 h",
-	description : "You and any others in same computer system +10 on Int to avoid detection; leave no trace on exit",
+	description : "Me and any others in same computer system +10 on Int to avoid detection; leave no trace on exit",
 	descriptionFull : "[Technomagic]\n   This spell works to actively hide your presence within a computer system. For the spell's duration, you and any other users you choose on your local network gain a +10 bonus to Intelligence checks to avoid detection by administrators, knowbots, tracking software, and the like. Whenever you and your chosen users leave any computer system you are working in while this spell is in effect, all trace of your previous presence in that system is erased."
 };
 SpellsList["find vehicle"] = {
@@ -361,7 +361,7 @@ SpellsList["infallible relay"] = {
 	compMaterial : "A mobile phone",
 	duration : "Conc, 10 min",
 	save : "Cha",
-	description : "1 known crea save or has to answer your call from phone within 100 ft of it; it has to save to end call",
+	description : "1 known crea save or has to answer my call from phone within 100 ft of it; it has to save to end call",
 	descriptionFull : "[Technomagic]\n   With this spell, you can target any creature with whom you have spoken previously, as long as the two of you are on the same plane of existence. When you cast the spell, the nearest functioning telephone or similar communications device within 100 feet of the target begins to ring. If there is no suitable device close enough to the target, the spell fails." + "\n   " + "The target must make a successful Charisma saving throw or be compelled to answer your call. Once the connection is established, the call is crystal clear and cannot be dropped until the conversation has ended or the spell's duration ends. You can end the conversation at any time, but a target must succeed on a Charisma saving throw to end the conversation."
 };
 SpellsList["invisibility to cameras"] = {
@@ -419,7 +419,7 @@ SpellsList["remote access"] = {
 	range : "120 ft",
 	components : "V,S",
 	duration : "10 min",
-	description : "You can use any electronic device within range as if it were in your hands",
+	description : "I can use any electronic device within range as if it were in my hands",
 	descriptionFull : "[Technomagic]\n   You can use any electronic device within range as if it were in your hands. This is not a telekinesis effect. Rather, this spell allows you to simulate a device's mechanical functions electronically. You are able to access only functions that a person using the device manually would be able to access. You can use remote access with only one device at a time."
 };
 SpellsList["shutdown"] = {

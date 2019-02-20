@@ -67,6 +67,7 @@ AddSubClass("barbarian", "ancestral guardian-xgte", {
 				"augury" : {
 					components : "V,S",
 					compMaterial : "",
+					description : "Omen about specific course of action I plan to take in the next 30 min",
 					changes : "My casting of Augury is a practice of consulting my ancestral spirits, thus requiring no material components."
 				},
 				"clairvoyance" : {
@@ -367,7 +368,14 @@ AddSubClass("bard", "college of glamour-xgte", {
 				spells : ["command"],
 				selection : ["command"],
 				firstCol : 'oncelr'
-			}]
+			}],
+			spellChanges : {
+				"command" : {
+					time : "1 bns",
+					description : "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
+					changes : "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Unbreakable Majesty",
@@ -657,6 +665,17 @@ AddSubClass("cleric", "grave domain-xgte", {
 						};
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0) return;
+						if (spellKey == "shillelagh") {
+							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
+						} else if (!spellObj.psionic && spellObj.level == 0) {
+							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						}
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
 			}
 		},
@@ -733,18 +752,37 @@ AddSubClass("druid", "circle of dreams-xgte", {
 				name : "Walker in Dreams",
 				spells : ["dream"],
 				selection : ["dream"],
-				firstCol : 'oncesr'
+				firstCol : 'oncelr'
 			}, {
 				name : "Walker in Dreams",
 				spells : ["scrying"],
 				selection : ["scrying"],
-				firstCol : 'oncesr'
+				firstCol : 'oncelr'
 			}, {
 				name : "Walker in Dreams",
 				spells : ["teleportation circle"],
 				selection : ["teleportation circle"],
-				firstCol : 'oncesr'
-			}]
+				firstCol : 'oncelr'
+			}],
+			spellChanges : {
+				"dream" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "Using Walker in Dreams, I can cast either Dream, Scrying, or Teleportation Circle once per long rest without requiring material components."
+				},
+				"scrying" : {
+					components : "V,S",
+					compMaterial : "",
+					description : "1 crea save or sensor follows it around; or create sensor in familiar location; see book",
+					changes : "Using Walker in Dreams, I can cast either Dream, Scrying, or Teleportation Circle once per long rest without requiring material components."
+				},
+				"teleportation circle" : {
+					components : "V",
+					compMaterial : "",
+					description : "Create a circle to teleport to the place where I finished my last long rest, if on the same plane; see book",
+					changes : "Using Walker in Dreams, I can cast either Dream, Scrying, or Teleportation Circle once per long rest without requiring material components.\n \u2022 The teleportation circle brings me back to the place where I finished my last long rest."
+				}
+			}
 		}
 	}
 });
@@ -806,7 +844,22 @@ AddSubClass("druid", "circle of the shepherd-xgte", {
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes"
 			]),
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Faithful Summons",
+				spells : ["conjure animals"],
+				selection : ["conjure animals"],
+				firstCol : "oncelr"
+			},
+			spellChanges : {
+				"conjure animals" : {
+					nameShort : "Conjure Animals (level 9)",
+					range : "20 ft",
+					duration : "1 h",
+					description : "Summon 4 CR 2 beasts; protect me from harm and attack foes",
+					changes : "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast Conjure Animals as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration."
+				}
+			}
 		}
 	}
 });
@@ -1592,12 +1645,19 @@ AddSubClass("ranger", "horizon walker-xgte", {
 			description : "\n   " + "As a bonus action, I can cast the Etherealness spell, which lasts until the end of my turn",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""],
 			spellcastingBonus : {
 				name : "Ethereal Step",
 				spells : ["etherealness"],
 				selection : ["etherealness"],
 				firstCol : 'oncesr'
+			},
+			spellChanges : {
+				"etherealness" : {
+					time : "1 bns",
+					duration : "1 rnd",
+					description : "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
+					changes : "Using my Ethereal Step class feature I can cast Etherealness as a bonus action once per short rest, but it only affects myself and lasts until the end of my turn."
+				}
 			}
 		},
 		"subclassfeature11" : {
@@ -2303,7 +2363,7 @@ AddSubClass("warlock", "the celestal-xgte", {
 			minlevel : 6,
 			description : desc([
 				"I add my Cha modifier once to the fire or radiant damage of cantrips and spells I cast",
-				"This bonus only applies to one damage roll; Also, I have resistance to radiant damage"
+				"This bonus only applies to one target; Also, I have resistance to radiant damage"
 			]),
 			dmgres : ["Radiant"],
 			calcChanges : {
@@ -2313,7 +2373,13 @@ AddSubClass("warlock", "the celestal-xgte", {
 							output.extraDmg += What('Cha Mod');
 						};
 					},
-					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage once."
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage to one target."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha");
+					},
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage to one target."
 				]
 			}
 		},
@@ -2577,7 +2643,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n - If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n \u2022 If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
 		],
 		atkAdd : [
 			function (fields, v) {
@@ -2637,7 +2703,13 @@ AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 		selection : ["invisibility"],
 		firstCol : 'atwill'
 	},
-	prereqeval : function(v) { return classes.known.warlock.level >= 15; }
+	prereqeval : function(v) { return classes.known.warlock.level >= 15; },
+	spellChanges : {
+		"invisibility" : {
+			description : "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
+			changes : "With the Shroud of Shadow invocation I can cast Invisibility at will, but when I do so I am unable to cast it using a higher level spell slot."
+		}
+	}
 });
 AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	name : "Tomb of Levistus",
@@ -2663,7 +2735,14 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		selection : ["freedom of movement"],
 		firstCol : 'oncelr'
 	},
-	prereqeval : function(v) { return classes.known.warlock.level >= 7; }
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
+	spellChanges : {
+		"freedom of movement" : {
+			range : "Self",
+			description : "Magic can't reduce my speed, paralyze or restrain me; I can use 5 ft to escape nonmagical restrains",
+			changes : "With the Trickster's Escape invocation I can cast Freedom of Movement, but only on myself."
+		}
+	}
 });
 
 // Add 1 subclass for the Wizard
@@ -2997,7 +3076,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V,S,M",
 		compMaterial : "A bit of fur wrapped in a cloth",
 		duration : "Conc, 10 min",
-		description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea you can see",
+		description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea I can see",
 		descriptionFull : "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beast's Intelligence is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on attack rolls against any creature within 5 feet of you that you can see."
 	};
 	SpellsList["bones of the earth"] = {
@@ -3038,7 +3117,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		range : "60 ft",
 		components : "S",
 		duration : "Instant. or 1 h",
-		description : "Nonmagical flame up to 5 cu ft; instant: expand/exinguish, 1h: brighten/dim/color/create shapes",
+		description : "Nonmagical flame up to 5 cu ft; instant: expand/extinguish, 1h: brighten/dim/color/create shapes",
 		descriptionFull : "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways." + "\n \u2022 " + "You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location." + "\n \u2022 " + "You instantaneously extinguish the flames within the cube." + "\n \u2022 " + "You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour." + "\n \u2022 " + "You cause simple shapes-such as the vague form of a creature, an inanimate object, or a location-to appear within the flames and animate as you like. The shapes last for 1 hour." + "\n   " + "If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
 	};
 	SpellsList["control winds"] = {
@@ -3066,6 +3145,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		duration : "Conc, 1 min",
 		save : "Dex",
 		description : "5-ft cube all crea at casting or entering save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+		descriptionCantripDie : "5-ft cube all crea at casting or entering save or `CD`d8 Fire dmg; ignites flammable",
 		descriptionFull : "You create a bonfire on ground that you can see within range. Until the spell ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it moves into the bonfire's space for the first time on a turn or ends its turn there." + "\n   " + "The bonfire ignites flammable objects in its area that aren't being worn or carried." + "\n   " + "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 	};
 	SpellsList["dust devil"] = {
@@ -3108,7 +3188,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V,S",
 		duration : "Instantaneous",
 		save : "Dex",
-		description : "All crea in range except you save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
+		description : "All crea in range except me save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
 		descriptionFull : "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
 	};
 	SpellsList["elemental bane"] = {
@@ -3165,6 +3245,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		duration : "Instantaneous",
 		save : "Con",
 		description : "1 crea save or 1d6 Cold dmg and dis. on next weapon attack roll; +1d6 at CL 5, 11, and 17",
+		descriptionCantripDie : "1 crea save or `CD`d6 Cold dmg and dis. on next weapon attack roll",
 		descriptionFull : "You cause numbing frost to form on one creature that you can see within range. The target must make a Constitution saving throw. On a failed save, the target takes 1d6 cold damage, and it has disadvantage on the next weapon attack roll it makes before the end of its next turn." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 	};
 	SpellsList["gust"] = {
@@ -3263,7 +3344,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V,S",
 		duration : "Conc, 10 min",
 		save : "Con",
-		description : "Rngd wea atks dis. vs. you; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
+		description : "Rngd wea atks dis. vs. me; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
 		descriptionFull : "Until the spell ends, wind whirls around you, and you gain the following benefits." + "\n " + "\u2022 Ranged weapon attacks made against you have disadvantage on the attack roll." + "\n " + "\u2022 You gain a flying speed of 60 feet. If you are still flying when the spell ends, you fall, unless you can somehow prevent it." + "\n " + "\u2022 You can use your action to create a 15-foot cube of swirling wind centered on a point you can see within 60 feet of you. Each creature in that area must make a Constitution saving throw. A creature takes 2d10 bludgeoning damage on a failed save, or half as much damage on a successful one. If a Large or smaller creature fails the save, that creature is also pushed up to 10 feet away from the center of the cube."
 	};
 	SpellsList["maelstrom"] = {
@@ -3391,7 +3472,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		range : "Sight",
 		components : "V,S",
 		duration : "Conc, 1 h",
-		description : "Write up to 10 words with clouds in a part of the sky you can see; strong wind can diperse the clouds",
+		description : "Write up to 10 words with clouds in a part of the sky I can see; strong wind can diperse the clouds",
 		descriptionFull : "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early."
 	};
 	SpellsList["snilloc's snowball swarm"] = {
@@ -3421,7 +3502,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V,S",
 		duration : "Conc, 1 min",
 		save : "Str",
-		description : "20-ft rad dif. ter.; all crea + end turn save or 2d6+1d6/SL Bludg.; bns a 60 ft spell atk 4d6 Lightning",
+		description : "20-ft rad dif. ter.; all crea now/end turn save 2d6 bludg.; bns 60 ft spell atk 4d6 lightn. dmg; +1d6/SL",
 		descriptionFull : "A 20-foot-radius sphere of whirling air springs into existence centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain." + "\n   " + "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage." + "\n   " + "Creatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks made to listen." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases for each of its effects by 1d6 for each slot level above 4th."
 	};
 	SpellsList["thunderclap"] = {
@@ -3435,7 +3516,8 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "S",
 		duration : "Instantaneous",
 		save : "Con",
-		description : "100-ft rad audible; all crea but you in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
+		description : "100-ft rad audible; all crea but me in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
+		descriptionCantripDie : "100-ft rad audible; all crea but me in area save or `CD`d6 Thunder dmg",
 		descriptionFull : "You create a burst of thunderous sound that can be heard up to 100 feet away. Each creature within range, other than you, must succeed on a Constitution saving throw or take 1d6 thunder damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 	};
 	SpellsList["tidal wave"] = {
@@ -3628,7 +3710,7 @@ SpellsList["charm monster"] = {
 	components : "V,S",
 	duration : "1 h",
 	save : "Wis",
-	description : "1+1/SL creatures, each max 30 ft apart, save or charmed; adv. on save if you/allies are fighting it",
+	description : "1+1/SL creatures, each max 30 ft apart, save or charmed; adv. on save if I or my allies are fighting it",
 	descriptionFull : "You attempt to charm a creature you can see within range. It must make a Wisdom saving throw, and it does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature is friendly to you. When the spell ends, the creature knows it was charmed by you." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["create homunculus"] = {
@@ -3643,7 +3725,7 @@ SpellsList["create homunculus"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "Clay, ash, and mandrake root, all of which the spell consumes, and a jewel-encrusted dagger worth at least 1,000 gp", 
 	duration : "Instantaneous",
-	description : "You take 2d4 piercing dmg to create a homunculus as your faithful companion; see book (1000gp)",
+	description : "I take 2d4 piercing dmg to create a homunculus as my faithful companion; see book (1000gp)",
 	descriptionFull : "While speaking an intricate incantation, you cut yourself with a jewel-encrusted dagger, taking 2d4 piercing damage that can't be reduced in any way. You then drip your blood on the spell's other components and touch them, transforming them into a special construct called a homunculus." + "\n   " + "The statistics of the homunculus are in the Monster Manual. It is your faithful companion, and it dies if you die. Whenever you finish a long rest, you can spend up to half your Hit Dice if the homunculus is on the same plane of existence as you. When you do so, roll each die and add your Constitution modifier to it. Your hit point maximum is reduced by the total, and the homunculus's hit point maximum and current hit points are both increased by it. This process can reduce you to no lower than 1 hit point, and the change to your and the homunculus's hit points ends when you finish your next long rest. The reduction to your hit point maximum can't be removed by any means before then, except by the homunculus's death." + "\n   " + "You can have only one homunculus at a time. If you cast this spell while your homunculus lives, the spell fails."
 };
 SpellsList["crown of stars"] = {
@@ -3687,7 +3769,7 @@ SpellsList["dawn"] = {
 	compMaterial : "A sunburst pendant worth at least 100 gp", 
 	duration : "Conc, 1 min",
 	save : "Con",
-	description : "30-ft rad 40-ft high all crea 4d10 Radiant dmg when cast or end turn in; bns a move it 60 ft (100gp)",
+	description : "30-ft rad 40-ft high all crea 4d10 Radiant dmg at cast/end turn; bns a move it 60 ft (100gp)",
 	descriptionFull : "The light of dawn shines down on a location you specify within range. Until the spell ends, a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight." + "\n   " + "When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw whenever it ends its turn in the cylinder." + "\n   " + "If you're within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action on your turn."
 };
 SpellsList["dragon's breath"] = {
@@ -3762,7 +3844,7 @@ SpellsList["far step"] = {
 	range : "Self",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "At casting and as bonus action for duration, you can teleport 60 ft to a space you can see",
+	description : "At casting and as bonus action for duration, I can teleport 60 ft to a space I can see",
 	descriptionFull : "You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again."
 };
 SpellsList["find greater steed"] = {
@@ -3789,7 +3871,7 @@ SpellsList["guardian of nature"] = {
 	range : "Self",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "You transform into a Primal Beast (offensive bonuses) or a Great Tree (defensive bonuses); see book",
+	description : "I transform into a Primal Beast (offensive bonuses) or a Great Tree (defensive bonuses); see book",
 	descriptionFull : "A nature spirit answers your call and transforms you into a powerful guardian. The transformation lasts until the spell ends. You choose one of the following forms to assume: Primal Beast or Great Tree." + "\n\n" + toUni("Primal Beast") + ": Bestial fur covers your body, your facial features become feral, and you gain the following benefits:" + "\n \u2022 " + "Your walking speed increases by 10 feet." + "\n \u2022 " + "You gain darkvision with a range of 120 feet." + "\n \u2022 " + "You make Strength-based attack rolls with advantage." + "\n \u2022 " + "Your melee weapon attacks deal an extra 1d6 force damage on a hit." + "\n\n" + toUni("Great Tree") + ": Your skin appears barky, leaves sprout from your hair, and you gain the following benefits:" + "\n \u2022 " + "You gain 10 temporary hit points." + "\n \u2022 " + "You make Constitution saving throws with advantage." + "\n \u2022 " + "You make Dexterity- and Wisdom-based attack rolls with advantage." + "\n \u2022 " + "While you are on the ground, the ground within 15 feet of you is difficult terrain for your enemies."
 };
 SpellsList["healing spirit"] = {
@@ -3803,7 +3885,7 @@ SpellsList["healing spirit"] = {
 	range : "60 ft",
 	components : "V,S",
 	duration : "Conc, 1 min",
-	description : "5-ft cube heals any crea I can see that enter it for 1d6+1d6/SL HP; I can move it 30 ft as a bns action",
+	description : "5-ft cube any living crea I can see starts/enters heals 1d6+1d6/SL hp; 1 bns move it 30 ft",
 	descriptionFull : "You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice)." + "\n   " + "Until the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead." + "\n   " + "As a bonus action on your turn, you can move the spirit up to 30 feet to a space you can see." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d6 for each slot level above 2nd."
 };
 SpellsList["holy weapon"] = { 
@@ -3848,7 +3930,7 @@ SpellsList["infernal calling"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "A ruby worth at least 999 gp",
 	duration : "Conc, 1 h",
-	description : "Summon 1 devil of CR 6+1/SL; hostile to all, obeys your command if to its liking or Cha check; see B",
+	description : "Summon 1 devil of CR 6+1/SL; hostile to all, obeys my command if to its liking or Cha check; see B",
 	descriptionFull : "Uttering a dark incantation, you summon a devil from the Nine Hells. You choose the devil's type, which must be one of challenge rating 6 or lower, such as a barbed devil or a bearded devil. The devil appears in an unoccupied space that you can see within range. The devil disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The devil is unfriendly toward you and your companions. Roll initiative for the devil, which has its own turns. It is under the Dungeon Master's control and acts according to its nature on each of its turns, which might result in its attacking you if it thinks it can prevail, or trying to tempt you to undertake an evil act in exchange for limited service. The DM has the creature's statistics." + "\n   " + "On each of your turns, you can try to issue a verbal command to the devil (no action required by you). It obeys the command if the likely outcome is in accordance with its desires, especially if the result would draw you toward evil. Otherwise, you must make a Charisma (Deception, Intimidation, or Persuasion) check contested by its Wisdom (Insight) check. You make the check with advantage if you say the devil's true name. If your check fails, the devil becomes immune to your verbal commands for the duration of the spell, though it can still carry out your commands if it chooses. If your check succeeds, the devil carries out your command — such as “attack my enemies,” “explore the room ahead,” or “bear this message to the queen” — until it completes the activity, at which point it returns to you to report having done so." + "\n   " + "If your concentration ends before the spell reaches its full duration, the devil doesn't disappear if it has become immune to your verbal commands. Instead, it acts in whatever manner it chooses for 3d6 minutes, and then it disappears." + "\n   " + "If you possess an individual devil's talisman, you can summon that devil if it is of the appropriate challenge rating plus 1, and it obeys all your commands, with no Charisma checks required." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th."
 };
 SpellsList["infestation-xgte"] = {
@@ -3893,7 +3975,7 @@ SpellsList["life transference"] = {
 	range : "30 ft",
 	components : "V,S",
 	duration : "Instantaneous",
-	description : "You take 4d8+1d8/SL Necrotic dmg, and 1 crea in range you can see regains HP twice that",
+	description : "I take 4d8+1d8/SL Necrotic dmg, and 1 crea in range I can see heals twice that in hp",
 	descriptionFull : "You sacrifice some of your health to mend another creature's injuries. You take 4d8 necrotic damage, and one creature of your choice that you can see within range regains a number of hit points equal to twice the necrotic damage you take." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd."
 };
 SpellsList["maddening darkness"] = {
@@ -3909,7 +3991,7 @@ SpellsList["maddening darkness"] = {
 	compMaterial : "A drop of pitch mixed with a drop of mercury",
 	duration : "Conc, 10 min",
 	save : "Wis",
-	description : "60-ft rad darkness; darkvision, light doesn't work; Crea starting turn in 8d8 Psychic dmg, save halves",
+	description : "60-ft rad darkness; darkvision, no light works; Crea starting turn in 8d8 Psychic dmg, save halves",
 	descriptionFull : "Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Nonmagical light, as well as light created by spells of 8th level or lower, can't illuminate the area." + "\n   " + "Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking 8d8 psychic damage on a failed save, or half as much damage on a successful one."
 };
 SpellsList["mass polymorph"] = {
@@ -3970,7 +4052,7 @@ SpellsList["mind spike"] = { // +1d8 at higher levels errata (https://twitter.co
 	components : "S",
 	duration : "Conc, 1 h",
 	save: "Wis",
-	description : "1 crea 3d8+1d8/SL Psychic dmg, know its location, can't be invis for you; save half, no other benefits",
+	description : "1 crea 3d8+1d8/SL Psychic dmg, know its location, can't be invis for me; save half, no other benefits",
 	descriptionFull : "You reach into the mind of one creature you can see within range. The target must make a Wisdom saving throw, taking 3d8 psychic damage on a failed save, or half as much damage on a successful one. On a failed save, you also always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it's invisible, it gains no benefit from that condition against you." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
 };
 SpellsList["negative energy flood"] = {
@@ -4015,6 +4097,7 @@ SpellsList["primal savagery-xgte"] = {
 	components : "S",
 	duration : "Instantaneous",
 	description : "Melee spell attack, 5 ft range, for 1d10 Acid dmg; +1d10 at CL 5, 11, and 17",
+	descriptionCantripDie : "Melee spell attack, 5 ft range, for `CD`d10 Acid dmg",
 	descriptionFull : "You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d10 acid damage. After you make the attack, your teeth or fingernails return to normal." + "\n   " + "The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
 };
 SpellsList["psychic scream"] = {
@@ -4044,7 +4127,7 @@ SpellsList["scatter"] = {
 	components : "V",
 	duration : "Instantaneous",
 	save : "Wis",
-	description : "Up to 5 creatures in range, save or teleported 120 ft to a different space you can see on the ground",
+	description : "Up to 5 creatures in range, save or teleported 120 ft to a different space I can see on the ground",
 	descriptionFull : "The air quivers around up to five creatures of your choice that you can see within range. An unwilling creature must succeed on a Wisdom saving throw to resist this spell. You teleport each affected target to an unoccupied space that you can see within 120 feet of you. That space must be on the ground or on a floor."
 };
 SpellsList["shadow blade"] = {
@@ -4074,7 +4157,7 @@ SpellsList["shadow of moil"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "An undead eyeball encased in a gem worth at least 150 gp",
 	duration : "Conc, 1 min",
-	description : "You: heavy obs., resist Radiant dmg; 10-ft rad: 1 step darker, hit vs. you take 2d8 Necro dmg (150gp)",
+	description : "Me: heavy obs., resist Radiant dmg; 10-ft rad: 1 step darker, hit vs. me take 2d8 Necro dmg (150gp)",
 	descriptionFull : "Flame-like shadows wreathe your body until the spell ends, causing you to become heavily obscured to others. The shadows turn dim light within 10 feet of you into darkness, and bright light in the same area to dim light." + "\n   " + "Until the spell ends, you have resistance to radiant damage. In addition, whenever a creature within 10 feet of you hits you with an attack, the shadows lash out at that creature, dealing it 2d8 necrotic damage."
 };
 SpellsList["sickening radiance"] = {
@@ -4134,7 +4217,7 @@ SpellsList["soul cage"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "A tiny silver cage worth 100 gp",
 	duration : "8 h",
-	description : "As a reaction when humanoid in range dies, you capture their soul in a tiny cage; see book (100gp)",
+	description : "As a reaction when humanoid in range dies, I capture their soul in a tiny cage; see book (100gp)",
 	descriptionFull : "This spell snatches the soul of a humanoid as it dies and traps it inside the tiny cage you use for the material component. A stolen soul remains inside the cage until the spell ends or until you destroy the cage, which ends the spell. While you have a soul inside the cage, you can exploit it in any of the ways described below. You can use a trapped soul up to six times. Once you exploit a soul for the sixth time, it is released, and the spell ends. While a soul is trapped, the dead humanoid it came from can't be revived." + "\n   " + toUni("Steal Life") + ": You can use a bonus action to drain vigor from the soul and regain 2d8 hit points." + "\n   " + toUni("Query Soul") + ": You ask the soul a question (no action required) and receive a brief telepathic answer, which you can understand regardless of the language used. The soul knows only what it knew in life, but it must answer you truthfully and to the best of its ability. The answer is no more than a sentence or two and might be cryptic." + "\n   " + toUni("Borrow Experience") + ": You can use a bonus action to bolster yourself with the soul's life experience, making your next attack roll, ability check, or saving throw with advantage. If you don't use this benefit before the start of your next turn, it is lost." + "\n   " + toUni("Eyes of the Dead") + ": You can use an action to name a place the humanoid saw in life, which creates an invisible sensor somewhere in that place if it is on the plane of existence you're currently on. The sensor remains for as long as you concentrate, up to 10 minutes (as if you were concentrating on a spell). You receive visual and auditory information from the sensor as if you were in its space using your senses" + "\n   " + "A creature that can see the sensor (such as one using see invisibility or truesight) sees a translucent image of the tormented humanoid whose soul you caged."
 };
 SpellsList["steel wind strike"] = {
@@ -4149,7 +4232,7 @@ SpellsList["steel wind strike"] = {
 	components : "S,M\u0192",
 	compMaterial : "A melee weapon worth at least 1 sp",
 	duration : "Instantaneous",
-	description : "Melee spell attack vs. 5 crea in range; 6d10 Force dmg on hit; after, you teleport next to one target",
+	description : "Melee spell attack vs. 5 crea in range; 6d10 Force dmg on hit; after, I teleport next to one target",
 	descriptionFull : "You flourish the weapon used in the casting and then vanish to strike like the wind. Choose up to five creatures you can see within range. Make a melee spell attack against each target. On a hit, a target takes 6d10 force damage." + "\n   " + "You can then teleport to an unoccupied space you can see within 5 feet of one of the targets you hit or missed."
 };
 SpellsList["summon greater demon"] = {
@@ -4165,7 +4248,7 @@ SpellsList["summon greater demon"] = {
 	compMaterial : "A vial of blood from a humanoid killed within the past 24 hours",
 	duration : "Conc, 1 h",
 	save : "Cha",
-	description : "Summon 1 demon of CR 5+1/SL that obeys you; end of each of its turn, save to break free; see book",
+	description : "Summon 1 demon of CR 5+1/SL that obeys me; end of each of its turn, save to break free; see book",
 	descriptionFull : "You utter foul words, summoning one demon from the chaos of the Abyss. You choose the demon's type, which must be one of challenge rating 5 or lower, such as a shadow demon or a barlgura. The demon appears in an unoccupied space you can see within range, and the demon disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "Roll initiative for the demon, which has its own turns. When you summon it and on each of your turns thereafter, you can issue a verbal command to it (requiring no action on your part), telling it what it must do on its next turn. If you issue no command, it spends its turn attacking any creature within reach that has attacked it." + "\n   " + "At the end of each of the demon's turns, it makes a Charisma saving throw. The demon has disadvantage on this saving throw if you say its true name. On a failed save, the demon continues to obey you. On a successful save, your control of the demon ends for the rest of the duration, and the demon spends its turns pursuing and attacking the nearest non-demons to the best of its ability. If you stop concentrating on the spell before it reaches its full duration, an uncontrolled demon doesn't disappear for 1d6 rounds if it still has hit points." + "\n   " + "As part of casting the spell, you can form a circle on the ground with the blood used as a material component. The circle is large enough to encompass your space. While the spell lasts, the summoned demon can't cross the circle or harm it, and it can't target anyone within it. Using the material component in this manner consumes it when the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the challenge rating increases by 1 for each slot level above 4th."
 };
 SpellsList["summon lesser demons"] = {
@@ -4240,7 +4323,7 @@ SpellsList["thunder step"] = {
 	components : "V",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "You + willing crea teleport 90 ft; all crea in 10 ft of left spot 3d10+1d10/SL Thunder dmg; save half",
+	description : "Me + willing crea teleport 90 ft; all crea in 10 ft of left spot 3d10+1d10/SL Thunder dmg; save half",
 	descriptionFull : "You teleport yourself to an unoccupied space you can see within range. Immediately after you disappear, a thunderous boom sounds, and each creature within 10 feet of the space you left must make a Constitution saving throw, taking 3d10 thunder damage on a failed save, or half as much damage on a successful one. The thunder can be heard from up to 300 feet away." + "\n   " + "You can bring along objects as long as their weight doesn't exceed what you can carry. You can also teleport one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be within 5 feet of you when you cast this spell, and there must be an unoccupied space within 5 feet of your destination space for the creature to appear in; otherwise, the creature is left behind." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d10 for each slot level above 3rd."
 };
 SpellsList["tiny servant"] = {
@@ -4270,6 +4353,7 @@ SpellsList["toll the dead"] = {
 	duration : "Instantaneous",
 	save : "Wis",
 	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/1d8 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea save or `CD`d12 Necrotic damage (only `CD`d8 if at full hp)",
 	descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
 };
 SpellsList["wall of light"] = {
@@ -4303,6 +4387,7 @@ SpellsList["word of radiance"] = {
 	duration : "Instantaneous",
 	save : "Con",
 	description : "Any crea within range save or 1d6 Radiant damage; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "Any crea within range save or `CD`d6 Radiant damage",
 	descriptionFull : "You utter a divine word, and burning radiance erupts from you. Each creature of your choice that you can see within range must succeed on a Constitution saving throw or take 1d6 radiant damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["wrath of nature"] = {

@@ -731,6 +731,16 @@ RaceList["dragonmark detection half-elf"] = {
 		selection : ["detect magic", "detect poison and disease"],
 		firstCol : "(R)",
 		times : 2
+	},
+	spellChanges : {
+		"detect magic" : {
+			time : "10 min",
+			changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+		},
+		"detect poison and disease" : {
+			time : "10 min",
+			changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+		}
 	}
 };
 RaceList["dragonmark finding half-orc"] = {
@@ -769,6 +779,12 @@ RaceList["dragonmark finding half-orc"] = {
 				spells : ["locate animals or plants"],
 				selection : ["locate animals or plants"],
 				firstCol : "(R)"
+			},
+			spellChanges : {
+				"locate animals or plants" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				}
 			}
 		}
 	}
@@ -921,7 +937,8 @@ RaceList["dragonmark making human"] = {
 					firstCol : 'atwill'
 				}
 			},
-			typeList : 2
+			typeList : 2,
+			refType : "race"
 		};
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 	},
@@ -1184,6 +1201,12 @@ RaceList["dragonmark warding dwarf"] = {
 		selection : ["alarm"],
 		firstCol : "(R)"
 	},
+	spellChanges : {
+		"alarm" : {
+			time : "10 min",
+			changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+		}
+	},
 	features : {
 		"arcane lock" : {
 			name : "Wards and Seals (level 3)",
@@ -1251,6 +1274,19 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 4,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"see invisibility" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"true seeing" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "1 willing crea gains truesight 120 ft; see through illusions, hidden doors, ethereal plane",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"finding" : {
@@ -1266,6 +1302,19 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 5,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"locate creature" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"find the path" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Know the shortest route to a location I am familiar with and are on the same plane with",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"handling" : {
@@ -1296,6 +1345,14 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 5,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"greater restoration" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Reduce exhaustion or end charm, petrify, curse, stat or max hp reduction",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"hospitality" : {
@@ -1311,6 +1368,19 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 6,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"sanctuary" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"mordenkainen's magnificent mansion" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Create extradimensional mansion with rooms, food and servants to serve 100 people; see book",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"making" : {
@@ -1326,6 +1396,13 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 4,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"creation" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"passage" : {
@@ -1341,6 +1418,14 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 3,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"teleportation circle" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Create a circle to teleport to another teleportation circle on same plane; see book",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"scribing" : {
@@ -1356,6 +1441,18 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 4,
 			firstCol : 'oncesr',
 			times : 2
+		},
+		spellChanges : {
+			"sending" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"tongues" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"sentinel" : {
@@ -1371,6 +1468,14 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 5,
 			firstCol : 'oncesr',
 			times : 2
+		},
+		spellChanges : {
+			"warding bond" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "1 crea +1 AC, +1 saves, resistance all dmg; if it takes dmg I take same dmg; ends if >60 ft away",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"shadow" : {
@@ -1386,6 +1491,14 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 6,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"nondetection" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "1 crea or object up to 10 cu ft hidden from all divination magic",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"storm" : {
@@ -1401,6 +1514,13 @@ FeatsList["greater dragonmark"] = {
 			spellcastingAbility : 6,
 			firstCol : 'oncelr',
 			times : 2
+		},
+		spellChanges : {
+			"control water" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
 		}
 	},
 	"warding" : {
@@ -1421,7 +1541,20 @@ FeatsList["greater dragonmark"] = {
 			spells : ["leomund's secret chest"],
 			selection : ["leomund's secret chest"],
 			firstCol : 'oncelr'
-		}]
+		}],
+		spellChanges : {
+			"glyph of warding" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Create a glyph that triggers on set condition; Int(Investigation) vs. Spell DC; see book",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"glyph of warding" : {
+				compMaterial : "A Siberys dragonshard with a value of at least 100 gp",
+				description : "Hide chest with content in Ethereal Plane for 60 days, after that chance of loss; 1 a reappear (100gp)",
+				changes : "Leomund's Secret Chest cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica."
+			}
+		}
 	}
 };
 

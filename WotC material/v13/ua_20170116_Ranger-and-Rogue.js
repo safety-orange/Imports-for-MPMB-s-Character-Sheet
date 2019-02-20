@@ -66,6 +66,14 @@ var theHorizonWalkerSubclass = {
 				spells : ["etherealness"],
 				selection : ["etherealness"],
 				firstCol : 'oncesr'
+			},
+			spellChanges : {
+				"etherealness" : {
+					time : "1 bns",
+					duration : "1 rnd",
+					description : "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
+					changes : "Using my Ethereal Step class feature I can cast Etherealness as a bonus action once per short rest, but it only affects myself and lasts until the end of my turn."
+				}
 			}
 		},
 		"subclassfeature11" : {

@@ -72,7 +72,7 @@ AddSubClass("paladin", "oath of treachery", {
 			name : "Channel Divinity: Poison Strike",
 			source : ["UA:PSO", 2],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I imbue one weapon or piece of ammunition with poison upon touch" + "\n   " + "This poison lasts for 1 minute and will affect the next time I hit a target with it" + "\n   " + "The target takes 2d10 + my paladin level poison damage immediately after the hit" + "\n   " + "You automatically roll 20 on the 2d10 if you had advantage on the attack roll",
+			description : "\n   " + "As a bonus action, I imbue one weapon or piece of ammunition with poison upon touch" + "\n   " + "This poison lasts for 1 minute and will affect the next time I hit a target with it" + "\n   " + "The target takes 2d10 + my paladin level poison damage immediately after the hit" + "\n   " + "I automatically roll 20 on the 2d10 if I have advantage on the attack roll",
 			action : ["bonus action", ""],
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : "2d10+" + n + " damage";

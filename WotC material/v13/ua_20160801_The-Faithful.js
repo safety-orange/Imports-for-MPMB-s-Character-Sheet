@@ -41,6 +41,12 @@ AddSubClass("warlock", "the seeker", {
 					spells : ["augury"],
 					selection : ["augury"],
 					firstCol : "(R)"
+				},
+				spellChanges : {
+					"augury" : {
+						time : "10 min",
+						changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus always requiring 10 minutes to cast it."
+					}
 				}
 			};
 			return pactBoon;

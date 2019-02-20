@@ -356,6 +356,13 @@ if (!RaceList["mammon tiefling"]) {
 					spells : ["arcane lock"],
 					selection : ["arcane lock"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"arcane lock" : {
+						components : "V,S",
+						compMaterial : "",
+						changes : "I can cast this spell once per long rest without requiring material components."
+					}
 				}
 			}
 		}

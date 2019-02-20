@@ -91,6 +91,13 @@ RaceList["air genasi"] = {
 				spells : ["levitate"],
 				selection : ["levitate"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"levitate" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "Using Mingle with the Wind, I can cast Levitate once per long rest without requiring material components."
+				}
 			}
 		}
 	}
@@ -126,6 +133,13 @@ RaceList["earth genasi"] = {
 				spells : ["pass without trace"],
 				selection : ["pass without trace"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"pass without trace" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "Using Merge with Stone, I can cast Pass without Trace once per long rest without requiring material components."
+				}
 			}
 		}
 	}
@@ -272,6 +286,7 @@ FeatsList["svirfneblin magic"] = {
 			range : "Self",
 			components : "V,S",
 			compMaterial : "",
+			description : "I am hidden from all divination magic",
 			changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
 		}
 	}
@@ -335,7 +350,7 @@ SpellsList["beast bond"] = {
 	components : "V,S,M",
 	compMaterial : "A bit of fur wrapped in a cloth",
 	duration : "Conc, 10 min",
-	description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea you can see",
+	description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea I can see",
 	descriptionFull : "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beast's Intelligence is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on attack rolls against any creature within 5 feet of you that you can see."
 };
 SpellsList["bones of the earth"] = {
@@ -376,7 +391,7 @@ SpellsList["control flames"] = {
 	range : "60 ft",
 	components : "S",
 	duration : "Instant. or 1 h",
-	description : "Nonmagical flame up to 5 cu ft; instant: expand/exinguish, 1h: brighten/dim/color/create shapes",
+	description : "Nonmagical flame up to 5 cu ft; instant: expand/extinguish, 1h: brighten/dim/color/create shapes",
 	descriptionFull : "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways." + "\n \u2022 " + "You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location." + "\n \u2022 " + "You instantaneously extinguish the flames within the cube." + "\n \u2022 " + "You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour." + "\n \u2022 " + "You cause simple shapes-such as the vague form of a creature, an inanimate object, or a location-to appear within the flames and animate as you like. The shapes last for 1 hour." + "\n   " + "If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
 };
 SpellsList["control winds"] = {
@@ -404,6 +419,7 @@ SpellsList["create bonfire"] = {
 	duration : "Conc, 1 min",
 	save : "Dex",
 	description : "5-ft cube all crea at casting or entering save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+	descriptionCantripDie : "5-ft cube all crea at casting or entering save or `CD`d8 Fire dmg; ignites flammable",
 	descriptionFull : "You create a bonfire on ground that you can see within range. Until the spell ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it moves into the bonfire's space for the first time on a turn or ends its turn there." + "\n   " + "The bonfire ignites flammable objects in its area that aren't being worn or carried." + "\n   " + "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
 SpellsList["dust devil"] = {
@@ -446,7 +462,7 @@ SpellsList["earth tremor"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "All crea in range except you save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
+	description : "All crea in range except me save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
 	descriptionFull : "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
 };
 SpellsList["elemental bane"] = {
@@ -503,6 +519,7 @@ SpellsList["frostbite"] = {
 	duration : "Instantaneous",
 	save : "Con",
 	description : "1 crea save or 1d6 Cold dmg and dis. on next weapon attack roll; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea save or `CD`d6 Cold dmg and dis. on next weapon attack roll",
 	descriptionFull : "You cause numbing frost to form on one creature that you can see within range. The target must make a Constitution saving throw. On a failed save, the target takes 1d6 cold damage, and it has disadvantage on the next weapon attack roll it makes before the end of its next turn." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["gust"] = {
@@ -601,7 +618,7 @@ SpellsList["investiture of wind"] = {
 	components : "V,S",
 	duration : "Conc, 10 min",
 	save : "Con",
-	description : "Rngd wea atks dis. vs. you; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
+	description : "Rngd wea atks dis. vs. me; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
 	descriptionFull : "Until the spell ends, wind whirls around you, and you gain the following benefits." + "\n " + "\u2022 Ranged weapon attacks made against you have disadvantage on the attack roll." + "\n " + "\u2022 You gain a flying speed of 60 feet. If you are still flying when the spell ends, you fall, unless you can somehow prevent it." + "\n " + "\u2022 You can use your action to create a 15-foot cube of swirling wind centered on a point you can see within 60 feet of you. Each creature in that area must make a Constitution saving throw. A creature takes 2d10 bludgeoning damage on a failed save, or half as much damage on a successful one. If a Large or smaller creature fails the save, that creature is also pushed up to 10 feet away from the center of the cube."
 };
 SpellsList["maelstrom"] = {
@@ -729,7 +746,7 @@ SpellsList["skywrite"] = {
 	range : "Sight",
 	components : "V,S",
 	duration : "Conc, 1 h",
-	description : "Write up to 10 words with clouds in a part of the sky you can see; strong wind can diperse the clouds",
+	description : "Write up to 10 words with clouds in a part of the sky I can see; strong wind can diperse the clouds",
 	descriptionFull : "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early."
 };
 SpellsList["snilloc's snowball swarm"] = {
@@ -759,7 +776,7 @@ SpellsList["storm sphere"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Str",
-	description : "20-ft rad dif. ter.; all crea + end turn save or 2d6+1d6/SL Bludg.; bns a 60 ft spell atk 4d6 Lightning",
+	description : "20-ft rad dif. ter.; all crea now/end turn save 2d6 bludg.; bns 60 ft spell atk 4d6 lightn. dmg; +1d6/SL",
 	descriptionFull : "A 20-foot-radius sphere of whirling air springs into existence centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain." + "\n   " + "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage." + "\n   " + "Creatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks made to listen." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases for each of its effects by 1d6 for each slot level above 4th."
 };
 SpellsList["thunderclap"] = {
@@ -773,7 +790,8 @@ SpellsList["thunderclap"] = {
 	components : "S",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "100-ft rad audible; all crea but you in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
+	description : "100-ft rad audible; all crea but me in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "100-ft rad audible; all crea but me in area save or `CD`d6 Thunder dmg",
 	descriptionFull : "You create a burst of thunderous sound that can be heard up to 100 feet away. Each creature within range, other than you, must succeed on a Constitution saving throw or take 1d6 thunder damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["tidal wave"] = {

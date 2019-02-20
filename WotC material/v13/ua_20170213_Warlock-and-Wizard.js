@@ -154,7 +154,7 @@ AddSubClass("warlock", "the raven queen", {
 				name : "Queen's Right Hand",
 				spells : ["finger of death"],
 				selection : ["finger of death"],
-				oncelr : true
+				firstCol : "oncelr"
 			}
 		}
 	}
@@ -486,7 +486,7 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 		name : "Sea Twins' Gift",
 		spells : ["water breathing"],
 		selection : ["water breathing"],
-		oncelr : true
+		firstCol : "oncelr"
 	},
 	source : ["UA:WnW", 5],
 	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },

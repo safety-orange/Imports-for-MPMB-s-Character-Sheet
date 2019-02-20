@@ -25,7 +25,7 @@ FeatsList["fell handed"] = {
 					fields.Description += (fields.Description ? '; ' : '') + 'Adv: knock prone if both dice hit; Disadv: Str Mod bludg. damage on miss but 2nd die would hit';
 				};
 			},
-			"With a handaxe, battleaxe, greataxe, warhammer, or maul, I get the following benefits:\n - +1 to hit;\n - When attacking with advantage, the target is knocked prone if both die would hit;\n - When attacking with disadvantage and missing, still do my Strength modifier in bludgeoning damage."
+			"With a handaxe, battleaxe, greataxe, warhammer, or maul, I get the following benefits:\n \u2022 +1 to hit;\n \u2022 When attacking with advantage, the target is knocked prone if both die would hit;\n \u2022 When attacking with disadvantage and missing, still do my Strength modifier in bludgeoning damage."
 		],
 		atkCalc : [
 			function (fields, v, output) {
@@ -45,7 +45,7 @@ FeatsList["blade mastery"] = {
 					fields.Description += (fields.Description ? '; ' : '') + 'Advantage on opportunity attacks';
 				};
 			},
-			"With a shortsword, longsword, greatsword, scimitar, or rapier, I get the following benefits:\n - +1 to hit;\n - Advantage on opportunity attacks."
+			"With a shortsword, longsword, greatsword, scimitar, or rapier, I get the following benefits:\n \u2022 +1 to hit;\n \u2022 Advantage on opportunity attacks."
 		],
 		atkCalc : [
 			function (fields, v, output) {
@@ -66,7 +66,7 @@ FeatsList["flail mastery"] = {
 					fields.Description += (fields.Description ? '; ' : '') + 'On opportunity attack hit, Strength save (DC 8 + Prof. bonus + Str mod) or knocked prone';
 				};
 			},
-			"With a flail, I get the following benefits:\n - +1 to hit;\n - Targets hit with it must make a Strength saving throw (DC 8 + proficiency bonus + Strength modifier) or be knocked prone."
+			"With a flail, I get the following benefits:\n \u2022 +1 to hit;\n \u2022 Targets hit with it must make a Strength saving throw (DC 8 + proficiency bonus + Strength modifier) or be knocked prone."
 		],
 		atkCalc : [
 			function (fields, v, output) {
@@ -88,7 +88,7 @@ FeatsList["spear mastery"] = {
 					fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)');
 				};
 			},
-			"With a spear, I get the following benefits:\n - +1 to hit;\n - The spear damage die increases to d8 (versatile d10)."
+			"With a spear, I get the following benefits:\n \u2022 +1 to hit;\n \u2022 The spear damage die increases to d8 (versatile d10)."
 		],
 		atkCalc : [
 			function (fields, v, output) {

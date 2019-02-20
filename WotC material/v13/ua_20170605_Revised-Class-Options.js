@@ -273,7 +273,13 @@ AddSubClass("warlock", "the celestal", {
 							output.extraDmg += What('Cha Mod');
 						}
 					},
-					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha");
+					},
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
 				]
 			}
 		},
@@ -375,7 +381,13 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["invisibility"],
 			firstCol : 'atwill'
 		},
-		prereqeval : function(v) { return classes.known.warlock.level >= 15; }
+		prereqeval : function(v) { return classes.known.warlock.level >= 15; },
+		spellChanges : {
+			"invisibility" : {
+				description : "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
+				changes : "With the Shroud of Shadow invocation I can cast Invisibility at will, but when I do so I am unable to cast it using a higher level spell slot."
+			}
+		}
 	});
 	AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 		name : "Tomb of Levistus",
@@ -401,7 +413,14 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection : ["freedom of movement"],
 			firstCol : 'oncelr'
 		},
-		prereqeval : function(v) { return classes.known.warlock.level >= 7; }
+		prereqeval : function(v) { return classes.known.warlock.level >= 7; },
+		spellChanges : {
+			"freedom of movement" : {
+				range : "Self",
+				description : "Magic can't reduce my speed, paralyze or restrain me; I can use 5 ft to escape nonmagical restrains",
+				changes : "With the Trickster's Escape invocation I can cast Freedom of Movement, but only on myself."
+			}
+		}
 	});
 }
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {

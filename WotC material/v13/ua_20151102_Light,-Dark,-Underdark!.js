@@ -97,6 +97,12 @@ AddSubClass("sorcerer", "shadow sorcerer", {
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 1
+			},
+			spellChanges : {
+				"darkness" : {
+					description : "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL>2",
+					changes : "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness wihtout issue."
+				}
 			}
 		},
 		"subclassfeature1.1" : {
@@ -158,7 +164,13 @@ AddSubClass("warlock", "the undying light", {
 					function (fields, v, output) {
 						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) output.extraDmg += What('Cha Mod');
 					},
-					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha");
+					},
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
 				]
 			}
 		},
