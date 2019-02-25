@@ -464,7 +464,7 @@ ClassSubList["mystic-nomad"] = {
 							case "ns3-defensive step" :
 							case "ns4-there and back again" :
 								var addDist = What("Unit System") === "metric" ? 3 : 10;
-								var theDist = Number(spellObj.description.replace(/(\d+) (ft|m)/i, "$1"));
+								var theDist = Number(spellObj.description.replace(/.*(\d+) (ft|m).*/i, "$1"));
 								spellObj.description = spellObj.description.replace(/(\d+) (ft|m)/i, (theDist + addDist) + " $2");
 								return true;
 						}

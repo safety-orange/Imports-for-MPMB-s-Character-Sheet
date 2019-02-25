@@ -296,7 +296,7 @@ AddSubClass("fighter", "monster hunter", {
 			spellChanges : {
 				"detect magic" : {
 					time : "10 min",
-					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 				}
 			}
 		},

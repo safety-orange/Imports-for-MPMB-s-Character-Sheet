@@ -2505,7 +2505,7 @@ AddSubClass("fighter", "monster hunter", {
 			spellChanges : {
 				"detect magic" : {
 					time : "10 min",
-					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 				}
 			}
 		},
@@ -2799,8 +2799,8 @@ AddSubClass("warlock", "the seeker", {
 				},
 				spellChanges : {
 					"augury" : {
-						time : "10 min",
-						changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus always requiring 10 minutes to cast it."
+						time : "11 min",
+						changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it."
 					}
 				}
 			};
@@ -4886,13 +4886,13 @@ ClassList.artificer = {
 			spellChanges : {
 				"detect magic" : {
 					time : "10 min",
-					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 				},
 				"identify" : {
-					time : "10 min",
+					time : "11 min",
 					components : "V,S",
 					compMaterial : "",
-					changes : "I can cast this spell without requiring material components, but only as a ritual, thus its casting time is always 10 minutes."
+					changes : "I can cast this spell without requiring material components, but only as a ritual, thus its casting time is always 10 minutes longer."
 				}
 			}
 		},
@@ -6994,7 +6994,7 @@ ClassSubList["mystic-nomad"] = {
 							case "ns3-defensive step" :
 							case "ns4-there and back again" :
 								var addDist = What("Unit System") === "metric" ? 3 : 10;
-								var theDist = Number(spellObj.description.replace(/(\d+) (ft|m)/i, "$1"));
+								var theDist = Number(spellObj.description.replace(/.*(\d+) (ft|m).*/i, "$1"));
 								spellObj.description = spellObj.description.replace(/(\d+) (ft|m)/i, (theDist + addDist) + " $2");
 								return true;
 						}
@@ -14073,7 +14073,7 @@ RaceList["minotaur-uacnm"] = {
 };
 var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
 RequiredSheetVersion(13);
-// This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
+// This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["UA:GSS"] = {
@@ -15015,11 +15015,11 @@ if (!SourceList.WGtE) {
 		spellChanges : {
 			"detect magic" : {
 				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 			},
 			"detect poison and disease" : {
 				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 			}
 		}
 	};
@@ -15063,7 +15063,7 @@ if (!SourceList.WGtE) {
 				spellChanges : {
 					"locate animals or plants" : {
 						time : "10 min",
-						changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+						changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 					}
 				}
 			}
@@ -15507,8 +15507,8 @@ if (!SourceList.WGtE) {
 		},
 		spellChanges : {
 			"alarm" : {
-				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				time : "11 min",
+				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 			}
 		},
 		features : {

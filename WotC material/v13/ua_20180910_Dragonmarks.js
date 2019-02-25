@@ -49,11 +49,11 @@ if (!SourceList.WGtE) {
 		spellChanges : {
 			"detect magic" : {
 				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 			},
 			"detect poison and disease" : {
 				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 			}
 		}
 	};
@@ -97,7 +97,7 @@ if (!SourceList.WGtE) {
 				spellChanges : {
 					"locate animals or plants" : {
 						time : "10 min",
-						changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+						changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 					}
 				}
 			}
@@ -541,8 +541,8 @@ if (!SourceList.WGtE) {
 		},
 		spellChanges : {
 			"alarm" : {
-				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				time : "11 min",
+				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 			}
 		},
 		features : {

@@ -208,11 +208,11 @@ AddSubClass("barbarian", "totem warrior", {
 			spellChanges : {
 				"beast sense" : {
 					time : "10 min",
-					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 				},
 				"speak with animals" : {
 					time : "10 min",
-					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 				}
 			}
 		},
@@ -276,8 +276,8 @@ AddSubClass("barbarian", "totem warrior", {
 			},
 			spellChanges : {
 				"commune with nature" : {
-					time : "10 min",
-					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+					time : "11 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
 				}
 			}
 		},
@@ -3673,11 +3673,15 @@ FeatsList["ritual caster"] = {
 			function (spellKey, spellObj, spName) {
 				if (spName.indexOf("ritual caster ") !== -1) {
 					spellObj.firstCol = "(R)";
-					if (!(/(\d+ ?h\b|conc|special|see b)/i).test(spellObj.time)) spellObj.time = "10 min";
+					if (!(/.*(\d+ ?h\b|special|see b).*/i).test(spellObj.time)) {
+						var numMinutes = Number(spellObj.time.replace(/(\d+) ?min.*/, "$1"));
+						if (isNaN(numMinutes)) numMinutes = 0;
+						spellObj.time = (numMinutes + 10) + " min";
+					}
 					return true;
 				};
 			},
-			"By the Ritual Caster feat, I can cast ritual spells from my Ritual Book. Ritual spell always have a casting time of 10 minutes or more."
+			"By the Ritual Caster feat, I can cast ritual spells from my Ritual Book. Casting a spell as a ritual means adding 10 minutes to its casting time."
 		]
 	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
