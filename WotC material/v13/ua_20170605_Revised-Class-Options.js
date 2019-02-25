@@ -49,7 +49,23 @@ AddSubClass("druid", "circle of the shepherd2", {
 			name : "Mighty Summoner",
 			source : ["UA:RCO", 2],
 			minlevel : 6,
-			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical"
+			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						switch (spellKey) {
+							case "conjure animals" :
+							case "conjure fey" :
+								spellObj.description += "; each +2 HP/HD, magical natural attacks";
+								return true;
+							case "conjure woodland beings" :
+								spellObj.description = spellObj.description.replace(/fey.*/, "fey; obeys commands if its align. agrees; breaks free if break conc.; +2 HP/HD, magic atks");
+								return true;
+						}
+					},
+					"When I use a spell that restores hit points, it restores an additional 2 + the level of the spell slot (or spell slot equivalent) used to cast the spell."
+				]
+			}
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
@@ -66,13 +82,27 @@ AddSubClass("druid", "circle of the shepherd2", {
 			source : ["UA:RCO", 2],
 			minlevel : 14,
 			description : desc([
-				"When I am reduced to 0 HP or incapacitated against my will, I can summon protectors",
-				"I gain the benefits of a Conjure Animals spell as if cast with a 9th-level spell slot",
-				"It summons 4 beast of my choice with CR 2 or lower within 20 ft of me for 1 hour",
-				"If they receive no commands from me, they protect me from harm and attack my foes"
+				"When I am reduced to 0 HP or incapacitated against my will, I can cast Conjure Animals",
+				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
+				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes"
 			]),
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Faithful Summons",
+				spells : ["conjure animals"],
+				selection : ["conjure animals"],
+				firstCol : "oncelr"
+			},
+			spellChanges : {
+				"conjure animals" : {
+					nameShort : "Conjure Animals (level 9)",
+					range : "20 ft",
+					duration : "1 h",
+					description : "Summon 4 CR 2 beasts; protect me from harm and attack foes",
+					changes : "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast Conjure Animals as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration."
+				}
+			}
 		}
 	}
 });

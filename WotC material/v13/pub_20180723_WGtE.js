@@ -823,6 +823,30 @@ RaceList["dragonmark handling human"] = {
 				firstCol : 'oncesr'
 			}
 		}
+	},
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				switch (spellkey) {
+					case "animal friendship" :
+						spellObj.description = spellObj.description.replace("beasts", "beasts/monstrosities");
+						return true;
+					case "beast bond" :
+						spellObj.description = "Telepathic link with 1 beast/monstrosity Int<4 while in sight; it has adv. on atks vs. crea I can see";
+						return true;
+					case "beast sense" :
+						spellObj.description = "Use senses of 1 willing monstrosity Int<4 or beast; I'm blinded and deafened while doing so";
+						return true;
+					case "dominate beast" :
+						spellObj.description = "1 monstrosity Int<4 or beast save or charmed, follows telepathic commands, 1 a for complete control";
+						return true;
+					case "speak with animals" :
+						spellObj.description = "Communicate verbally with monstrosities Int<4 or beasts for duration; interactions limited by their Int";
+						return true;
+				}
+			},
+			"Spells I cast that only affect beasts can also affect monstrosities with an Intelligence score of 3 or lower."
+		]
 	}
 };
 RaceList["dragonmark healing halfling"] = {
@@ -1350,7 +1374,7 @@ FeatsList["greater dragonmark"] = {
 			"greater restoration" : {
 				components : "V,S",
 				compMaterial : "",
-				description : "Reduce exhaustion or end charm, petrify, curse, stat or max hp reduction",
+				description : "Reduce exhaustion or end charm, petrify, curse, stat or max HP reduction",
 				changes : "Spells cast through my Greater Dragonmark don't require material components."
 			}
 		}

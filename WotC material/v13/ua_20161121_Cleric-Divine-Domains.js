@@ -101,7 +101,14 @@ AddSubClass("cleric", "grave domain", {
 			source : ["UA:CDD", 2],
 			minlevel : 1,
 			action : ["bonus action", ""],
-			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "As a bonus action, I can cast the Spare the Dying cantrip, if I know it"
+			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "As a bonus action, I can cast the Spare the Dying cantrip, if I know it",
+			spellChanges : {
+				"spare the dying" : {
+					time : "1 bns",
+					range : "Touch",
+					changes : "I can cast spare the dying as a bonus action instead of an action."
+				}
+			}
 		},
 		"subclassfeature1.2" : {
 			name : "Eyes of the Grave",
@@ -187,7 +194,38 @@ AddSubClass("cleric", "protection domain", {
 			name : "Blessed Healer",
 			source : ["UA:CDD", 3],
 			minlevel : 6,
-			description : "\n   " + "When I cast a spell to heal another using a spell slot, I heal 2 + the spell's level as well"
+			description : "\n   " + "When I restore HP to another with a spell, I regain 2 + the spell (slot) level in HP",
+			calcChanges : {
+				spellAdd : [
+					// note that several healing spells are not present here because they don't restore hp at casting (only later)
+					function (spellKey, spellObj, spName) {
+						var startDescr = spellObj.description;
+						switch (spellKey) {
+							case "life transference" :
+								spellObj.description = spellObj.description.replace("Necrotic", "Necro").replace(", and", ",") + "; I then regain 2+SL hp";
+								break;
+							case "mass heal" :
+								spellObj.description = "Heal 700 hp, split over crea in range, each then +11 hp; also cures blind, deaf, diseases; I heal +11 hp";
+								break;
+							case "power word heal" :
+								spellObj.description = spellObj.description.replace(/heals all.*/i, "full hp; not charmed, frightened, paralyzed, stunned; can stand up as rea; if other, I heal 2+SL");
+								break;
+							case "regenerate" :
+								spellObj.description = spellObj.description.replace(" for rest of duration", "");
+							case "heal" :
+								spellObj.description = spellObj.description.replace("all diseases", "diseases");
+							case "cure wounds" :
+							case "healing word" :
+							case "mass cure wounds" :
+							case "mass healing word" :
+							case "prayer of healing" :
+								spellObj.description = spellObj.description.replace(/creatures?/i, "crea").replace("within", "in").replace("spellcasting ability modifier", "spellcasting ability mod") + "; if other, I heal 2+SL";
+						}
+						return startDescr !== spellObj.description;
+					},
+					"When I cast a spell that restores hit points to another creature than myself at the moment of casting, I also heal 2 + the level of the spell slot (or spell slot equivalent) hit points."
+				]
+			}
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",

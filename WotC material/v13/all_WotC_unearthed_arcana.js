@@ -2059,7 +2059,18 @@ AddSubClass("bard", "college of satire", {
 			usages : "Charisma modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest",
-			action : ["action", " (Detect Thoughts)"]
+			spellcastingBonus : {
+				name : "Spirit Walker",
+				spells : ["detect thoughts"],
+				selection : ["detect thoughts"],
+				firstCol : "(S)"
+			},
+			spellChanges : {
+				"detect thoughts" : {
+					description : "1 a read thoughts of visible Int>3 crea or detect invisible in 30 ft; save for probing, social gaffe on save",
+					changes : "I can cast this spell a number of times equal to my Charisma modifier per long rest and when I do so and the target makes its save, it suffers an embarrassing social gaffe."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Fool's Luck",
@@ -2478,7 +2489,25 @@ AddSubClass("fighter", "monster hunter", {
 			recovery : "long rest",			
 			description : "\n   " + "I can cast Detect Magic as a ritual and Protection from Evil & Good once per long rest" + "\n   " + "I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",
 			action : ["action", " (Prot vs. Evil/Good)"],
-			languageProfs : [["Abyssal, Celestial, or Infernal", 1]]
+			languageProfs : [["Abyssal, Celestial, or Infernal", 1]],
+			spellcastingBonus : [{
+				name : "Spirit Seeker",
+				spells : ["detect magic"],
+				selection : ["detect magic"],
+				firstCol : "(R)",
+				spellcastingAbility : 5
+			}, {
+				name : "Spirit Seeker",
+				spells : ["protection from evil and good"],
+				selection : ["protection from evil and good"],
+				firstCol : "oncelr"
+			}],
+			spellChanges : {
+				"detect magic" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				}
+			}
 		},
 		"subclassfeature7" : {
 			name : "Monster Slayer",
@@ -3614,7 +3643,7 @@ AddSubClass("bard", "college of glamour", {
 			spellChanges : {
 				"command" : {
 					time : "1 bns",
-					description : "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
+					description : "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
 					changes : "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target."
 				}
 			}
@@ -3792,7 +3821,14 @@ AddSubClass("cleric", "grave domain", {
 			source : ["UA:CDD", 2],
 			minlevel : 1,
 			action : ["bonus action", ""],
-			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "As a bonus action, I can cast the Spare the Dying cantrip, if I know it"
+			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "As a bonus action, I can cast the Spare the Dying cantrip, if I know it",
+			spellChanges : {
+				"spare the dying" : {
+					time : "1 bns",
+					range : "Touch",
+					changes : "I can cast spare the dying as a bonus action instead of an action."
+				}
+			}
 		},
 		"subclassfeature1.2" : {
 			name : "Eyes of the Grave",
@@ -3878,7 +3914,38 @@ AddSubClass("cleric", "protection domain", {
 			name : "Blessed Healer",
 			source : ["UA:CDD", 3],
 			minlevel : 6,
-			description : "\n   " + "When I cast a spell to heal another using a spell slot, I heal 2 + the spell's level as well"
+			description : "\n   " + "When I restore HP to another with a spell, I regain 2 + the spell (slot) level in HP",
+			calcChanges : {
+				spellAdd : [
+					// note that several healing spells are not present here because they don't restore hp at casting (only later)
+					function (spellKey, spellObj, spName) {
+						var startDescr = spellObj.description;
+						switch (spellKey) {
+							case "life transference" :
+								spellObj.description = spellObj.description.replace("Necrotic", "Necro").replace(", and", ",") + "; I then regain 2+SL hp";
+								break;
+							case "mass heal" :
+								spellObj.description = "Heal 700 hp, split over crea in range, each then +11 hp; also cures blind, deaf, diseases; I heal +11 hp";
+								break;
+							case "power word heal" :
+								spellObj.description = spellObj.description.replace(/heals all.*/i, "full hp; not charmed, frightened, paralyzed, stunned; can stand up as rea; if other, I heal 2+SL");
+								break;
+							case "regenerate" :
+								spellObj.description = spellObj.description.replace(" for rest of duration", "");
+							case "heal" :
+								spellObj.description = spellObj.description.replace("all diseases", "diseases");
+							case "cure wounds" :
+							case "healing word" :
+							case "mass cure wounds" :
+							case "mass healing word" :
+							case "prayer of healing" :
+								spellObj.description = spellObj.description.replace(/creatures?/i, "crea").replace("within", "in").replace("spellcasting ability modifier", "spellcasting ability mod") + "; if other, I heal 2+SL";
+						}
+						return startDescr !== spellObj.description;
+					},
+					"When I cast a spell that restores hit points to another creature than myself at the moment of casting, I also heal 2 + the level of the spell slot (or spell slot equivalent) hit points."
+				]
+			}
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -4007,13 +4074,45 @@ AddSubClass("druid", "circle of the shepherd", {
 			name : "Mighty Summoner",
 			source : ["UA:DC", 2],
 			minlevel : 6,
-			description : "\n   " + "Beast I summon with my spells have +2 HP per HD and their attacks count as magical"
+			description : "\n   " + "Beast I summon with my spells have +2 HP per HD and their attacks count as magical",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						switch (spellKey) {
+							case "conjure animals" :
+							case "conjure fey" :
+								spellObj.description += "; each +2 HP/HD, magical natural attacks";
+								return true;
+							case "conjure woodland beings" :
+								spellObj.description = spellObj.description.replace(/fey.*/, "fey; obeys commands if its align. agrees; breaks free if break conc.; +2 HP/HD, magic atks");
+								return true;
+						}
+					},
+					"When I use a spell that restores hit points, it restores an additional 2 + the level of the spell slot (or spell slot equivalent) used to cast the spell."
+				]
+			}
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
 			source : ["UA:DC", 2],
 			minlevel : 10,
-			description : "\n   " + "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours"
+			description : "\n   " + "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours",
+			spellcastingBonus : {
+				name : "Guardian Spirit",
+				spells : ["death ward"],
+				selection : ["death ward"],
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"death ward" : {
+					range : "Self",
+					components : "",
+					compMaterial : "",
+					description : "Once, when I drops to 0 HP I drops to 1 HP instead; or negates first instantaneous kill effect",
+					duration : "24 h",
+					changes : "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Faithful Summons",
@@ -6573,7 +6672,17 @@ ClassList.mystic = {
 						if (classes.known.mystic && classes.known.mystic.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('mystic') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
 							output.extraDmg += What('Int Mod');
 						};
-					}, ""]
+					},
+					""
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellObj.psionic && spellObj.level == 0) {
+							return genericSpellDmgEdit(spellKey, spellObj, "\\w+|Acid, Cold, Fire, Lightning, or Thunder", "Int", true);
+						}
+					},
+					"My psionic talents get my Intelligence modifier added to their damage."
+				]
 			}
 		},
 		"consumptive power" : {
@@ -6662,7 +6771,23 @@ ClassSubList["mystic-avatar"] = {
 			description : desc([
 				"Allies within 30 ft of me that get healed through a psionic discipline, get extra healing",
 				"They add my Intelligence modifier to the HP regained, as long as I'm not incapacitated"
-			])
+			]),
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!What("Int Mod") || What("Int Mod") <= 0) return;
+						switch (spellKey) {
+							case "pr1-mend wounds" :
+								spellObj.description = spellObj.description.replace("healed for ", "healed for " + What("Int Mod") + "+");
+								return true;
+							case "pr2-restore health" :
+								spellObj.description = spellObj.description.replace("1 HP", (1 +  What("Int Mod")) + " HP");
+								return true;
+						}
+					},
+					"I add my Intelligence modifier to the hit points I restore using my psionic disciplines."
+				]
+			}
 		},
 		"subclassfeature14" : {
 			name : "Avatar of Speed",
@@ -6857,7 +6982,26 @@ ClassSubList["mystic-nomad"] = {
 			minlevel : 6,
 			description : desc([
 				"When I use a psionic discipline to teleport, I can increase its distance by up to 10 ft"
-			])
+			]),
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						switch (spellKey) {
+							case "ns1-step of a dozen paces" :
+								var addDist = What("Unit System") === "metric" ? 3 : 10;
+								spellObj.description = spellObj.description.replace(/(\d+ (ft|m))/i, addDist + "+$1");
+								return true;
+							case "ns3-defensive step" :
+							case "ns4-there and back again" :
+								var addDist = What("Unit System") === "metric" ? 3 : 10;
+								var theDist = Number(spellObj.description.replace(/(\d+) (ft|m)/i, "$1"));
+								spellObj.description = spellObj.description.replace(/(\d+) (ft|m)/i, (theDist + addDist) + " $2");
+								return true;
+						}
+					},
+					"My psionic disciplines that teleport have 10 ft added to the distance of their teleportation."
+				]
+			}
 		},
 		"subclassfeature14" : {
 			name : "Effortless Journey",
@@ -7446,7 +7590,7 @@ PsionicsList["bf1-brute strike"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "This turn end",
-	description : "my next melee attack during this turn deals +1d6/PP damage, of the same type as the melee attack",
+	description : "My next melee attack during this turn deals +1d6/PP damage, of the same type as the melee attack",
 	descriptionFull : "As a bonus action, you gain a bonus to your next damage roll against a target you hit with a melee attack during the current turn. The bonus equals +1d6 per psi point spent, and the bonus damage is the same type as the attack. If the attack has more than one damage type, you choose which one to use for the bonus damage.",
 	firstCol : "1-7"
 };
@@ -7502,7 +7646,7 @@ PsionicsList["celerity"] = {
 	range : "Self",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "my walking speed increases by 10 ft",
+	description : "My walking speed increases by 10 ft",
 	descriptionFull : "You channel psionic power into your body, honing your reflexes and agility to an incredible degree. The world seems to slow down while you continue to move as normal." + PsychicFocus + "While focused on this discipline, your walking speed increases by 10 feet.",
 	firstCol : "checkbox",
 	dependencies : ["c1-rapid step", "c2-agile defense", "c3-blur of motion", "c4-surge of speed", "c5-surge of action"]
@@ -7516,7 +7660,7 @@ PsionicsList["c1-rapid step"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "This turn end",
-	description : "my walking, swim, and climb speeds increases by 10 ft/PP; doesn't grant new movement modes",
+	description : "My walking, swim, and climb speeds increases by 10 ft/PP; doesn't grant new movement modes",
 	descriptionFull : "As a bonus action, you increase your walking speed by 10 feet per psi point spent until the end of the current turn. If you have a climbing or swimming speed, this increase applies to that speed as well.",
 	firstCol : "1-7"
 };
@@ -7542,7 +7686,7 @@ PsionicsList["c3-blur of motion"] = {
 	time : "1 a",
 	range : "Self",
 	duration : "This turn end",
-	description : "my invisible while moving during the current turn",
+	description : "I'm invisible while moving during the current turn",
 	descriptionFull : "As an action, you cause yourself to be invisible during any of your movement during the current turn.",
 	firstCol : 2
 };
@@ -7626,7 +7770,7 @@ PsionicsList["cm3-acid spray"] = {
 	time : "1 rea",
 	range : "5 ft",
 	duration : "Instantaneous",
-	description : "Use after my take Piercing or Slashing damage; all creatures in range take 2d6 Acid damage",
+	description : "Use after I take Piercing or Slashing damage; all creatures in range take 2d6 Acid damage",
 	descriptionFull : "As a reaction when you take piercing or slashing damage, you cause acid to spray from your wound; each creature within 5 feet of you takes 2d6 acid damage.",
 	firstCol : 2
 };
@@ -7745,7 +7889,7 @@ PsionicsList["crown of disgust"] = {
 	range : "5-ft rad",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "5-ft rad around my is difficult terrain for creatures that aren't immune to being frightened",
+	description : "5-ft rad around me is difficult terrain for creatures that aren't immune to being frightened",
 	descriptionFull : "You cause a creature to be flooded with emotions of disgust." + PsychicFocus + "While you are focused on this discipline, the area in a 5-foot radius around you is difficult terrain for any enemy that isn't immune to being frightened.",
 	firstCol : "checkbox",
 	dependencies : ["cd1-eye of horror", "cd2-wall of repulsion", "cd3-visions of disgust", "cd4-world of horror"]
@@ -7819,7 +7963,7 @@ PsionicsList["crown of rage"] = {
 	range : "5-ft rad",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "Any crea within range has disadvantage on melee attack rolls against targets other than my",
+	description : "Any crea within range has disadvantage on melee attack rolls against targets other than me",
 	descriptionFull : "You place a mote of pure fury within a creature's mind, causing its bloodlust to overcome its senses and for it to act as you wish it to." + PsychicFocus + "While you are focused on this discipline, any enemy within 5 feet of you that makes a melee attack roll against creatures other than you does so with disadvantage.",
 	firstCol : "checkbox",
 	dependencies : ["cr1-primal fury", "cr2-fighting words", "cr3-mindless courage", "cr4-punishing fury"]
@@ -7934,7 +8078,7 @@ PsionicsList["d3-sudden shift"] = {
 	time : "1 rea",
 	range : "Self",
 	duration : "Instantaneous",
-	description : "Use when hit by an attack; it misses, and my move up to 5 ft without provoking opportunity attacks",
+	description : "Use when hit by an attack; it misses, and I move up to 5 ft without provoking opportunity attacks",
 	descriptionFull : "As a reaction when you are hit by an attack, you shift down to minute size to avoid the attack. The attack misses, and you move up to 5 feet without provoking opportunity attacks before returning to normal size.",
 	firstCol : 5
 };
@@ -7964,7 +8108,7 @@ PsionicsList["giant growth"] = {
 	range : "Touch",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "my reach increases by 5 ft",
+	description : "My reach increases by 5 ft",
 	descriptionFull : "You infuse yourself with psionic energy to grow to tremendous size, bolstering your strength and durability." + PsychicFocus + "While focused on this discipline, your reach increases by 5 feet.",
 	firstCol : "checkbox",
 	dependencies : ["gg1-ogre form", "gg2-giant form"]
@@ -7978,7 +8122,7 @@ PsionicsList["gg1-ogre form"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "Conc, 1 min",
-	description : "10 temp. hp; for duration: become Large, +5 ft reach, melee attacks deal +1d4 Bludgeoning dmg",
+	description : "10 temp. HP; for duration: become Large, +5 ft reach, melee attacks deal +1d4 Bludgeoning dmg",
 	descriptionFull : "As a bonus action, you gain 10 temporary hit points. In addition, until your concentration ends, your melee weapon attacks deal an extra 1d4 bludgeoning damage on a hit, and your reach increases by 5 feet. If you're smaller than Large, you also become Large for the duration.",
 	firstCol : 2
 };
@@ -7991,7 +8135,7 @@ PsionicsList["gg2-giant form"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "Conc, 1 min",
-	description : "30 temp. hp; for duration: become Huge, +10 ft reach, melee attacks deal +2d6 Bludgeoning dmg",
+	description : "30 temp. HP; for duration: become Huge, +10 ft reach, melee attacks deal +2d6 Bludgeoning dmg",
 	descriptionFull : "As a bonus action, you gain 30 temporary hit points. In addition, until your concentration ends, your melee weapon attacks deal an extra 2d6 bludgeoning damage on a hit, and your reach increases by 10 feet. If you're smaller than Huge, you also become Huge for the duration.",
 	firstCol : 7
 };
@@ -8133,7 +8277,7 @@ PsionicsList["moa1-charming presence"] = {
 	time : "1 a",
 	range : "30 ft",
 	duration : "10 min",
-	description : "2d8/PP hp of conscious, not in combat, not immune to charm crea charmed; use hp max, not current",
+	description : "2d8/PP HP of conscious, not in combat, not immune to charm crea charmed; use HP max, not current",
 	descriptionFull : "As an action, you exert an aura of sympathetic power. Roll 2d8 per psi point spent on this ability; the total is how many hit points worth of creatures this option can affect. Creatures within 30 feet of you are affected in ascending order of their hit point maximums, ignoring incapacitated creatures, creatures immune to being charmed, and creatures engaged in combat." + "\n   " + "Starting with the creature that has the lowest hit point maximum, each creature affected by this option is charmed by you for 10 minutes, regarding you as a friendly acquaintance. Subtract each creature's hit point maximum from the total before moving on to the next creature. A creature's hit point maximum must be equal to or less than the remaining total for that creature to be affected.",
 	firstCol : "1-7"
 };
@@ -8161,7 +8305,7 @@ PsionicsList["moa3-invoke awe"] = {
 	range : "60 ft",
 	duration : "Conc, 10 min",
 	save : "Int",
-	description : "5 crea save or charmed, obey verbal commands; no self harm; will atk crea that atk my; save each rnd",
+	description : "5 crea save or charmed, obey verbal commands; no self harm; will atk crea that atk me; save each rnd",
 	descriptionFull : "As an action, you exert an aura that inspires awe in others. Choose up to 5 creatures you can see within 60 feet of you. Each target must succeed on an Intelligence saving throw or be charmed by you until your concentration ends. While charmed, the target obeys all your verbal commands to the best of its ability and without doing anything obviously self-destructive. The charmed target will attack only creatures that it has seen attack you since it was charmed or that it was already hostile toward. At the end of each of its turns, it can repeat the saving throw, ending the effect on itself on a success.",
 	firstCol : 7
 };
@@ -8191,7 +8335,7 @@ PsionicsList["mc1-coordinated movement"] = {
 	time : "1 bns",
 	range : "60 ft",
 	duration : "Instantaneous",
-	description : "Up to 5 allies I can see can use their reaction to move half their speed, following a path my choose",
+	description : "Up to 5 allies I can see can use their reaction to move half their speed, following a path I choose",
 	descriptionFull : "As a bonus action, choose up to five allies you can see within 60 feet of you. Each of those allies can use their reaction to move up to half their speed, following a path of your choice.",
 	firstCol : 2
 };
@@ -8217,7 +8361,7 @@ PsionicsList["mc3-command to strike"] = {
 	time : "1 a",
 	range : "60 ft",
 	duration : "Instantaneous",
-	description : "1 ally I can see can use their reaction to take the Attack action, with my choosing the targets",
+	description : "1 ally I can see can use their reaction to take the Attack action, with me choosing the targets",
 	descriptionFull : "As an action, choose one ally you can see within 60 feet of you. That ally can use their reaction to immediately take the Attack action. You choose the targets.",
 	firstCol : 3
 };
@@ -8243,7 +8387,7 @@ PsionicsList["mc5-overwhelming attack"] = {
 	time : "1 a",
 	range : "60 ft",
 	duration : "Instantaneous",
-	description : "Up to 5 allies I see can use their reactions to take the Attack action, with my choosing the targets",
+	description : "Up to 5 allies I see can use their reactions to take the Attack action, with me choosing the targets",
 	descriptionFull : "As an action, choose up to five allies you can see within 60 feet of you. Each of those allies can use their reaction to take the Attack action. You choose the targets of the attacks.",
 	firstCol : 7
 };
@@ -8286,7 +8430,7 @@ PsionicsList["mc2-aura of victory"] = {
 	time : "1 bns",
 	range : "30 ft",
 	duration : "Conc, 10 min",
-	description : "When an enemy I can see is reduced to 0 hp, my and allies within range gain 2/PP temporary hp",
+	description : "When an enemy I can see is reduced to 0 HP, me and allies within range gain 2/PP temporary HP",
 	descriptionFull : "As a bonus action, you project psionic energy until your concentration ends. The energy fortifies you and your allies when your enemies are felled; whenever an enemy you can see is reduced to 0 hit points, you and each of your allies within 30 feet of you gain temporary hit points equal to double the psi points spent to activate this effect.",
 	firstCol : "1-7"
 };
@@ -8330,7 +8474,7 @@ PsionicsList["mf1-incite fear"] = {
 	range : "60 ft",
 	duration : "Conc, 1 min",
 	save : "Wis",
-	description : "1 crea save or be frightened of my; repeat save each turn when out of line of sight",
+	description : "1 crea save or be frightened of me; repeat save each turn when out of line of sight",
 	descriptionFull : "As an action, choose one creature you can see within 60 feet of you. The target must succeed on a Wisdom saving throw or become frightened of you until your concentration ends. Whenever the frightened target ends its turn in a location where it can't see you, it can repeat the saving throw, ending the effect on itself on a success.",
 	firstCol : 2
 };
@@ -8343,7 +8487,7 @@ PsionicsList["mf2-unsettling aura"] = {
 	time : "1 bns",
 	range : "60 ft",
 	duration : "Conc, 1 h",
-	description : "All crea in range that can see me move only half speed when moving towards my (frightening effect)",
+	description : "All crea in range that can see me move only half speed when moving towards me (frightening effect)",
 	descriptionFull : "As a bonus action, you cloak yourself in unsettling psychic energy. Until your concentration ends, any enemy within 60 feet of you that can see you must spend 1 extra foot of movement for every foot it moves toward you. A creature ignores this effect if immune to being frightened.",
 	firstCol : 3
 };
@@ -8483,7 +8627,7 @@ PsionicsList["mj3-aura of jubilation"] = {
 	time : "1 bns",
 	range : "60 ft",
 	duration : "Conc, 1 min",
-	description : "All creatures within range that can see my have disadvantage on Perception and Investigation checks",
+	description : "All creatures within range that can see me have disadvantage on Perception and Investigation checks",
 	descriptionFull : "As a bonus action, you radiate a distracting mirth until your concentration ends. Each creature within 60 feet of you that can see you suffers disadvantage on any checks using the Perception and Investigation skills.",
 	firstCol : 3
 };
@@ -8553,7 +8697,7 @@ PsionicsList["ma3-cloak of air"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "Conc, 10 min",
-	description : "Atks vs. my have dis.; when missed by melee atk, use rea to have attacker repeat the attack on itself",
+	description : "Atks vs. me have dis.; when missed by melee atk, use rea to have attacker repeat the attack on itself",
 	descriptionFull : "As a bonus action, you seize control of the air around you to create a protective veil. Until your concentration ends, attack rolls against you have disadvantage, and when a creature you can see misses you with a melee attack, you can use your reaction to force the creature to repeat the attack roll against itself.",
 	firstCol : 3
 };
@@ -8664,7 +8808,7 @@ PsionicsList["mf4-fire storm"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "Conc, 1 min",
-	description : "All creatures that end their turn within 5 ft of my take 3d6 Fire damage",
+	description : "All creatures that end their turn within 5 ft of me take 3d6 Fire damage",
 	descriptionFull : "As a bonus action, you become wreathed in flames until your concentration ends. Any creature that end its turn within 5 feet of you takes 3d6 fire damage.",
 	firstCol : 5
 };
@@ -8748,7 +8892,7 @@ PsionicsList["mf4-telekinetic barrier"] = {
 	time : "1 a",
 	range : "60 ft",
 	duration : "Conc, 10 min",
-	description : "40-ft long, 10-ft high, 1-inch thick transparent wall of energy; each 10-ft section has AC 10 \u0026 10 hp",
+	description : "40-ft long, 10-ft high, 1-inch thick transparent wall of energy; each 10-ft section has AC 10 \u0026 10 HP",
 	descriptionFull : "As an action, you create a transparent wall of telekinetic energy, at least one portion of which must be within 60 feet of you. The wall is 40 feet long, 10 feet high, and 1 inch thick. The wall lasts until your concentration ends. Each 10-foot section of the wall has an AC of 10 and 10 hit points.",
 	firstCol : 3
 };
@@ -8761,7 +8905,7 @@ PsionicsList["mf5-grasp"] = {
 	time : "1 a",
 	range : "60 ft",
 	duration : "Conc, 1 min",
-	description : "1 crea save or grappled; escape Athl./Acro. vs. my spell atk +1/PP; if grappled my can Crush/Move",
+	description : "1 crea save or grappled; escape Athl./Acro. vs. my spell atk +1/PP; if grappled I can Crush/Move",
 	save : "Str",
 	descriptionFull : "You attempt to grasp a creature in telekinetic energy and hold it captive. As an action, choose one creature you can see within 60 feet of you. The target must succeed on a Strength saving throw or be grappled by you until your concentration ends or until the target leaves your reach, which is 60 feet for this grapple." + "\n   " + "The grappled target can escape by succeeding on a Strength (Athletics) or Dexterity (Acrobatics) check contested by your psionic ability plus your proficiency bonus. When a target attempts to escape in this way, you can spend psi points to boost your check, abiding by your psi limit. You gain a +1 bonus per psi point spent." + "\n   " + "While a target is grappled in this manner, you create one of the following effects as an action: " + toUni("Crush") + " (1–7 psi) The target takes 1d6 bludgeoning damage per psi point spent." + toUni("Move") + " (1–7 psi) You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
 	firstCol : 3
@@ -8873,7 +9017,7 @@ PsionicsList["mi5-ice barrier"] = {
 	time : "1 a",
 	range : "60-ft",
 	duration : "Conc, 10 min",
-	description : "60\u00D71\u00D715ft (l\u00D7w\u00D7h) wall; a 10-ft section has AC 12 & 30 hp; melee atks do same as Cold dmg back",
+	description : "60\u00D71\u00D715ft (l\u00D7w\u00D7h) wall; a 10-ft section has AC 12 & 30 HP; melee atks do same as Cold dmg back",
 	descriptionMetric : "20\u00D70,3\u00D75m (l\u00D7w\u00D7h) wall; a 3-m section has AC 12 & 30 hp; melee atks do same as Cold dmg back",
 	descriptionFull : "As an action, you create a wall of ice, at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Each 10-foot section of the wall has AC 12 and 30 hit points. A creature that damages the wall with a melee attack takes cold damage equal to the damage the creature dealt to the wall.",
 	firstCol : 6
@@ -8962,7 +9106,7 @@ PsionicsList["mastery of water"] = {
 	range : "Self",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "I gain a swimming speed equal to my walking speed and my can breathe underwater",
+	description : "I gain a swimming speed equal to my walking speed and I can breathe underwater",
 	descriptionFull : "Your mind becomes one with elemental water, attuning your thoughts to its ebb and flow." + PsychicFocus + "While focused on this discipline, you have a swimming speed equal to your walking speed, and you can breathe underwater.",
 	firstCol : "checkbox",
 	dependencies : ["mwa1-dessicate", "mwa2-watery grasp", "mwa3-water whip", "mwa4-water breathing","mwa5-water sphere","mwa6-animate water"]
@@ -8991,7 +9135,7 @@ PsionicsList["mwa2-watery grasp"] = {
 	range : "5 ft",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "20-ft sq all save or 2d6(+1d6/extra PP) Bludg. dmg, prone, pulled 10 ft to my; save half \u0026 not prone",
+	description : "20-ft sq all save or 2d6(+1d6/extra PP) Bludg. dmg, prone, pulled 10 ft to me; save half \u0026 not prone",
 	descriptionFull : "As an action, you unleash a wave that surges forth and then retreats to you like the rising tide. You create a wave in a 20-foot-by-20-foot square. At least some portion of the square's border must be within 5 feet of you. Any creature in that square must make a Strength saving throw. On a failed save, a target takes 2d6 bludgeoning damage, is knocked prone, and is pulled up to 10 feet closer to you. On a successful save, a target takes half as much damage. You can increase this ability's damage by 1d6 per additional psi point spent on it.",
 	firstCol : "2-7"
 };
@@ -9131,7 +9275,7 @@ PsionicsList["mw5-lightning leap"] = {
 	range : "60-ft line",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "60-ft long 5-ft wide all 6d6(+1d6/extra PP) Lightning dmg; save halves; my teleport to spot on line",
+	description : "60-ft long 5-ft wide all 6d6(+1d6/extra PP) Lightning dmg; save halves; I teleport to spot on line",
 	descriptionFull : "As an action, you let loose a line of lightning that is 60 feet long and 5 feet wide. Each creature in the line must make a Dexterity saving throw, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one. You can then teleport to an unoccupied space touched by the line." + "\n   " + "You can increase this ability's damage by 1d6 per additional psi point spent on it.",
 	firstCol : "5-7"
 };
@@ -9232,7 +9376,7 @@ PsionicsList["mwe4-wall of wood"] = {
 	time : "1 a",
 	range : "60 ft",
 	duration : "Conc, 1 h",
-	description : "Create 60-ft long, 15-ft high, 1-ft thick wall of solid wood; each 5-ft section has AC 12 and 100 hp",
+	description : "Create 60-ft long, 15-ft high, 1-ft thick wall of solid wood; each 5-ft section has AC 12 and 100 HP",
 	descriptionFull : "As an action, you create a wall of wood at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Each 5-foot wide section of the wall has AC 12 and 100 hit points. Breaking one section creates a 5-foot by 5-foot hole in it, but the wall otherwise remains intact.",
 	firstCol : 3
 };
@@ -9274,7 +9418,7 @@ PsionicsList["nomadic arrow"] = {
 	range : "Self",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "my ranged weapon attacks ignore disadvantage, but can't get adv. if it was subject to dis.",
+	description : "My ranged weapon attacks ignore disadvantage, but can't get adv. if it was subject to dis.",
 	descriptionFull : "You imbue a ranged weapon with a strange semblance of sentience, allowing it to unerringly find its mark." + PsychicFocus + "While you are focused on this discipline, any attack roll you make for a ranged weapon attack ignores disadvantage. If disadvantage would normally apply to the roll, that roll also can't benefit from advantage.",
 	firstCol : "checkbox",
 	dependencies : ["na1-speed dart", "na2-seeking missile", "na3-faithful archer"]
@@ -9301,7 +9445,7 @@ PsionicsList["na2-seeking missile"] = {
 	time : "1 rea",
 	range : "Self",
 	duration : "Instantaneous",
-	description : "When I miss with a ranged attack, my can reroll the attack roll against the same target",
+	description : "When I miss with a ranged attack, I can reroll the attack roll against the same target",
 	descriptionFull : "As a reaction when you miss with a ranged weapon attack, you can repeat the attack roll against the same target.",
 	firstCol : 2
 };
@@ -9357,7 +9501,7 @@ PsionicsList["nc2-step from sight"] = {
 	time : "1 bns",
 	range : "60 ft",
 	duration : "Conc, 1 min",
-	description : "My(+1 crea/extra PP) become invisible; attacking/targeting/affecting other crea makes a crea visible",
+	description : "I (+1 crea/extra PP) become invisible; attacking/targeting/affecting other crea makes a crea visible",
 	descriptionFull : "As a bonus action, cloak yourself from sight. You can target one additional creature for every additional psi point you spend on this ability. The added targets must be visible to you and within 60 feet of you." + "\n   " + "Each target turns invisible and remains so until your concentration ends or until immediately after it targets, damages, or otherwise affects any creature with an attack, a spell, or another ability.",
 	firstCol : "3-7"
 };
@@ -9439,7 +9583,7 @@ PsionicsList["nm4-psychic speech"] = {
 	time : "1 a",
 	range : "Self",
 	duration : "1 h",
-	description : "I understand all spoken/written languages and all with a language can understand what my say",
+	description : "I understand all spoken/written languages and all with a language can understand what I say",
 	descriptionFull : "As an action, you attune your mind to the psychic imprint of all language. For 1 hour, you gain the ability to understand any language you hear or attempt to read. In addition, when you speak, all creatures that can understand a language understand what you say, regardless of what language you use.",
 	firstCol : 5
 };
@@ -9452,8 +9596,8 @@ PsionicsList["nm5-wandering eye"] = {
 	time : "1 a",
 	range : "60 ft",
 	duration : "Conc, 1 h",
-	description : "Create invisible, moving (unlimited range, 30ft/rnd) 1\" magic eye with darkvision my see through",
-	description : "Create invisible, moving (unlimited range, 10m/rnd) 2,5cm magic eye /w darkvision my see through",
+	description : "Create invisible, moving (unlimited range, 30ft/rnd) 1\" magic eye with darkvision I see through",
+	description : "Create invisible, moving (unlimited range, 10m/rnd) 2,5cm magic eye /w darkvision I see through",
 	descriptionFull : "As an action, you create a psychic sensor within 60 feet of you. The sensor lasts until your concentration ends. The sensor is invisible and hovers in the air. You mentally receive visual information from it, which has normal vision and darkvision with a range of 60 feet. The sensor can look in all directions. As an action, you can move the sensor up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can't enter another plane of existence. A solid barrier blocks the eye's movement, but the eye can pass through an opening as small as 1 inch in diameter.",
 	firstCol : 6
 };
@@ -9496,7 +9640,7 @@ PsionicsList["ns1-step of a dozen paces"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "Instantaneous",
-	description : "I teleport up to 20 ft/PP to whereUI can see, instead of moving this turn; only if not moved yet",
+	description : "I teleport up to 20 ft/PP to where I can see, instead of moving this turn; only if not moved yet",
 	descriptionFull : "If you haven't moved yet on your turn, you take a bonus action to teleport up to 20 feet per psi point spent to an unoccupied space you can see, and your speed is reduced to 0 until the end of the turn.",
 	firstCol : "1-7"
 };
@@ -9522,7 +9666,7 @@ PsionicsList["ns3-defensive step"] = {
 	time : "1 rea",
 	range : "Self",
 	duration : "Instantaneous",
-	description : "When hit by an attack, I gain +4 AC, and then teleport 10 ft to a space my can see",
+	description : "When hit by an attack, I gain +4 AC, and then teleport 10 ft to a space I can see",
 	descriptionFull : "When you are hit by an attack, you can use your reaction to gain a +4 bonus to AC against that attack, possibly turning it into a miss. You then teleport up to 10 feet to an unoccupied space you can see.",
 	firstCol : 2
 };
@@ -9548,7 +9692,7 @@ PsionicsList["ns5-transposition"] = {
 	time : "1 bns",
 	range : "60 ft",
 	duration : "Instantaneous",
-	description : "Willing creature and my teleport, swapping places, instead of moving this turn; only if not moved yet",
+	description : "Willing creature and I teleport, swapping places, instead of moving this turn; only if not moved yet",
 	descriptionFull : "If you haven't moved yet on your turn, choose an ally you can see within 60 feet of you. As a bonus action, you and that creature teleport, swapping places, and your speed is reduced to 0 until the end of the turn. This ability fails and is wasted if either of you can't fit in the destination space.",
 	firstCol : 3
 };
@@ -9562,7 +9706,7 @@ PsionicsList["ns6-baleful transposition"] = {
 	range : "120 ft",
 	duration : "Instantaneous",
 	save : "Wis",
-	description : "1 creature save or it and my teleport, swapping places",
+	description : "1 creature save or it and I teleport, swapping places",
 	descriptionFull : "As an action, choose one creature you can see within 120 feet of you. That creature must make a Wisdom saving throw. On a failed save, you and that creature teleport, swapping places. This ability fails and is wasted if either of you can't fit in the destination space.",
 	firstCol : 5
 };
@@ -9631,7 +9775,7 @@ PsionicsList["p2-all-around sight"] = {
 	time : "1 rea",
 	range : "Self",
 	duration : "Instantaneous",
-	description : "After an attack hits my, impose disadvantage on that attack roll",
+	description : "After an attack hits me, impose disadvantage on that attack roll",
 	descriptionFull : "In response to an attack hitting you, you use your reaction to impose disadvantage on that attack roll, possibly causing it to miss.",
 	firstCol : 3
 };
@@ -9644,7 +9788,7 @@ PsionicsList["p3-danger sense"] = {
 	time : "1 a",
 	range : "Self",
 	duration : "Conc, 8 h",
-	description : "I gain +10 on the initiative roll, can't be surprised, and attacks against my can't gain advantage",
+	description : "I gain +10 on the initiative roll, can't be surprised, and attacks against me can't gain advantage",
 	descriptionFull : "As an action, you create a psychic model of reality in your mind and set it to show you a few seconds into the future. Until your concentration ends, you can't be surprised, attack rolls against you can't gain advantage, and you gain a +10 bonus to initiative.",
 	firstCol : 5
 };
@@ -9673,7 +9817,7 @@ PsionicsList["psionic restoration"] = {
 	range : "Self",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "While focused, my can touch a creature with 0 hp as a bonus action and stabilize it",
+	description : "While focused, I can touch a creature with 0 HP as a bonus action and stabilize it",
 	descriptionFull : "You wield psionic energy to cure wounds and restore health to yourself and others." + PsychicFocus + "While focused on this discipline, you can use a bonus action to touch a creature that has 0 hit points and stabilize it.",
 	firstCol : "checkbox",
 	dependencies : ["pr1-mend wounds", "pr2-restore health", "pr3-restore life", "pr4-restore vigor"]
@@ -9687,7 +9831,7 @@ PsionicsList["pr1-mend wounds"] = {
 	time : "1 a",
 	range : "Touch",
 	duration : "Instantaneous",
-	description : "1 creature is healed for 1d8/PP hp",
+	description : "1 creature is healed for 1d8/PP HP",
 	descriptionFull : "As an action, you can spend psi points to restore hit points to one creature you touch. The creature regains 1d8 hit points per psi point spent.",
 	firstCol : "1-7"
 };
@@ -9713,7 +9857,7 @@ PsionicsList["pr3-restore life"] = {
 	time : "1 a",
 	range : "Touch",
 	duration : "Instantaneous",
-	description : "Resurrects 1 crea that has died in last minute to 1 hp, if not missing vital body parts or died of old age",
+	description : "Resurrects 1 crea that has died in last minute to 1 HP, if not missing vital body parts or died of old age",
 	descriptionFull : "As an action, you touch one creature that has died within the last minute. The creature returns to life with 1 hit point. This ability can't return to life a creature that has died of old age, nor can it restore a creature missing any vital body parts.",
 	firstCol : 5
 };
@@ -9726,7 +9870,7 @@ PsionicsList["pr4-restore vigor"] = {
 	time : "1 a",
 	range : "Touch",
 	duration : "Instantaneous",
-	description : "1 crea removes either 1 ability score reduction, 1 hp max reduction effect, or 1 level of exhaustion",
+	description : "1 crea removes either 1 ability score reduction, 1 HP max reduction effect, or 1 level of exhaustion",
 	descriptionFull : "As an action, you can touch one creature and choose one of the following: remove any reductions to one of its ability scores, remove one effect that reduces its hit point maximum, or reduce its exhaustion level by one.",
 	firstCol : 7
 };
@@ -9769,7 +9913,7 @@ PsionicsList["pw2-lethal strike"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "Next turn end",
-	description : "my next weapon or unarmed attack that hits does +1d10/PP Psychic damage",
+	description : "My next weapon or unarmed attack that hits does +1d10/PP Psychic damage",
 	descriptionFull : "As a bonus action, you imbue a weapon you're holding or your unarmed strike with psychic energy. The next time you hit with it before the end of your turn, it deals an extra 1d10 psychic damage per psi point spent.",
 	firstCol : "1-7"
 };
@@ -9943,7 +10087,7 @@ PsionicsList["psychic inquisition"] = {
 	range : "Self",
 	components : "Psi-F.",
 	duration : "While focused",
-	description : "I know when a creature telepathically communicating with my is lying",
+	description : "I know when a creature telepathically communicating with me is lying",
 	descriptionFull : "You reach into a creature's mind to uncover information or plant ideas within it." + PsychicFocus + "While focused on this discipline, you know when a creature communicating with you via telepathy is lying.",
 	firstCol : "checkbox",
 	dependencies : ["pi1-hammer of inquisition", "pi2-forceful query", "pi3-ransack mind", "pi4-phantom idea"]
@@ -10073,7 +10217,7 @@ PsionicsList["pp4-phantom riches"] = {
 	range : "60 ft",
 	duration : "Conc, 1 min",
 	save : "Int",
-	description : "1 crea save or my move it and it can't act if not taking dmg since last turn; save at end of each turn",
+	description : "1 crea save or I move it and it can't act if not taking dmg since last turn; save at end of each turn",
 	descriptionFull : "As an action, you plant the phantom of a greatly desired object in a creature's mind. Choose one creature you can see within 60 feet of you. The target must make an Intelligence saving throw. On a failed save, you gain partial control over the target's behavior until your concentration ends; the target moves as you wish on each of its turns, as it thinks it pursues the phantom object it desires. If it hasn't taken damage since its last turn, it can use its action only to admire the object you created in its perception. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
 	firstCol : 7
 };
@@ -10146,7 +10290,7 @@ PsionicsList["tc4-psychic grip"] = {
 	range : "60 ft",
 	duration : "Conc, 1 min",
 	save : "Int",
-	description : "1 crea save or paralyzed; save at end of each turn, on failure my use rea to have it move half its speed",
+	description : "1 crea save or paralyzed; save at end of each turn, on failure I use rea to have it move half its speed",
 	descriptionFull : "As an action, you target one creature you can see within 60 feet of you. The target must succeed on an Intelligence saving throw, or it is paralyzed until your concentration ends. At the end of each of its turns, it can repeat the saving throw. On a success, this effect ends. On a failure, you can use your reaction to force the target to move up to half its speed, even though it's paralyzed.",
 	firstCol : 6
 };
@@ -10160,7 +10304,7 @@ PsionicsList["tc5-psychic domination"] = {
 	range : "60 ft",
 	duration : "Conc, 1 min",
 	save : "Int",
-	description : "1 crea save or my direct its actions and move on its turns; save at end of each turn (charm effect)",
+	description : "1 crea save or I direct its actions and move on its turns; save at end of each turn (charm effect)",
 	descriptionFull : "As an action, you target one creature you can see within 60 feet of you. The target must succeed on an Intelligence saving throw, or you choose the creature's actions and movement on its turns until your concentration ends. At the end of each of its turns, it can repeat the saving throw, ending the effect on itself on a success. A creature is immune to this ability if it is immune to being charmed.",
 	firstCol : 7
 };
@@ -10754,7 +10898,7 @@ SpellsList["cause fear-uass"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Wis",
-	description : "1 crea save or frightened; crea disadvantage on save if 25 hp or less; no effect on undead/constructs",
+	description : "1 crea save or frightened; crea disadvantage on save if 25 HP or less; no effect on undead/constructs",
 	descriptionFull : "You awaken the sense of mortality in one creature you can see within range. The target must succeed on a Wisdom saving throw or become frightened for the duration. A target with 25 hit points or fewer makes the saving throw with disadvantage. The spell has no effect on constructs or undead."
 };
 SpellsList["ceremony-uass"] = {
@@ -10828,7 +10972,7 @@ SpellsList["healing elixir-uass"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "Alchemist's supplies",
 	duration : "24 h",
-	description : "Make vial with alchemist's supplies; heals 2d4+2 hp as an action; if not used, disappears after 24 h",
+	description : "Make vial with alchemist's supplies; heals 2d4+2 HP as an action; if not used, disappears after 24 h",
 	descriptionFull : "You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes." + "\n   " + "As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points."
 };
 SpellsList["infestation-uass"] = {
@@ -10948,7 +11092,7 @@ SpellsList["virtue-uass"] = {
 	range : "Touch",
 	components : "V,S",
 	duration : "1 rnd",
-	description : "1 creature that has at least 1 hp gets 1d4 + spellcasting ability modifier in temporary hit points",
+	description : "1 creature that has at least 1 HP gets 1d4 + spellcasting ability modifier in temporary hit points",
 	descriptionFull : "You touch one creature, imbuing it with vitality. If the target has at least 1 hit point, it gains a number of temporary hit points equal to 1d4 + your spellcasting ability modifier. The temporary hit points are lost when the spell ends."
 };
 SpellsList["wild cunning-uass"] = {
@@ -11033,7 +11177,7 @@ if (!SourceList.X) {
 		components : "V,S",
 		duration : "Instantaneous",
 		save : "Wis",
-		description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/1d8 at CL 5, 11, and 17",
+		description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full HP); +1d12/1d8 at CL 5, 11, and 17",
 		descriptionCantripDie : "1 crea save or `CD`d12 Necrotic damage (only `CD`d8 if at full hp)",
 		descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
 	};
@@ -11046,7 +11190,7 @@ if (!SourceList.X) {
 		type : "Cantrip",
 		damage : ["C", 12, "necrotic"],
 		range : "60 ft",
-		description : "Wis save, success - no damage; If target is at full hp, d8 instead of d12 damage (UA:SS 4)",
+		description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage (UA:SS 4)",
 		abilitytodamage : false,
 		dc : true
 	};
@@ -12128,7 +12272,23 @@ AddSubClass("druid", "circle of the shepherd2", {
 			name : "Mighty Summoner",
 			source : ["UA:RCO", 2],
 			minlevel : 6,
-			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical"
+			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						switch (spellKey) {
+							case "conjure animals" :
+							case "conjure fey" :
+								spellObj.description += "; each +2 HP/HD, magical natural attacks";
+								return true;
+							case "conjure woodland beings" :
+								spellObj.description = spellObj.description.replace(/fey.*/, "fey; obeys commands if its align. agrees; breaks free if break conc.; +2 HP/HD, magic atks");
+								return true;
+						}
+					},
+					"When I use a spell that restores hit points, it restores an additional 2 + the level of the spell slot (or spell slot equivalent) used to cast the spell."
+				]
+			}
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
@@ -12145,13 +12305,27 @@ AddSubClass("druid", "circle of the shepherd2", {
 			source : ["UA:RCO", 2],
 			minlevel : 14,
 			description : desc([
-				"When I am reduced to 0 HP or incapacitated against my will, I can summon protectors",
-				"I gain the benefits of a Conjure Animals spell as if cast with a 9th-level spell slot",
-				"It summons 4 beast of my choice with CR 2 or lower within 20 ft of me for 1 hour",
-				"If they receive no commands from me, they protect me from harm and attack my foes"
+				"When I am reduced to 0 HP or incapacitated against my will, I can cast Conjure Animals",
+				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
+				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes"
 			]),
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Faithful Summons",
+				spells : ["conjure animals"],
+				selection : ["conjure animals"],
+				firstCol : "oncelr"
+			},
+			spellChanges : {
+				"conjure animals" : {
+					nameShort : "Conjure Animals (level 9)",
+					range : "20 ft",
+					duration : "1 h",
+					description : "Summon 4 CR 2 beasts; protect me from harm and attack foes",
+					changes : "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast Conjure Animals as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration."
+				}
+			}
 		}
 	}
 });
@@ -14929,6 +15103,30 @@ if (!SourceList.WGtE) {
 					firstCol : 'oncesr'
 				}
 			}
+		},
+		calcChanges : {
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					switch (spellkey) {
+						case "animal friendship" :
+							spellObj.description = spellObj.description.replace("beasts", "beasts/monstrosities");
+							return true;
+						case "beast bond" :
+							spellObj.description = "Telepathic link with 1 beast/monstrosity Int<4 while in sight; it has adv. on atks vs. crea I can see";
+							return true;
+						case "beast sense" :
+							spellObj.description = "Use senses of 1 willing monstrosity Int<4 or beast; I'm blinded and deafened while doing so";
+							return true;
+						case "dominate beast" :
+							spellObj.description = "1 monstrosity Int<4 or beast save or charmed, follows telepathic commands, 1 a for complete control";
+							return true;
+						case "speak with animals" :
+							spellObj.description = "Communicate verbally with monstrosities Int<4 or beasts for duration; interactions limited by their Int";
+							return true;
+					}
+				},
+				"Spells I cast that only affect beasts can also affect monstrosities with an Intelligence score of 3 or lower."
+			]
 		}
 	};
 	RaceList["dragonmark healing halfling"] = {
@@ -15456,7 +15654,7 @@ if (!SourceList.WGtE) {
 				"greater restoration" : {
 					components : "V,S",
 					compMaterial : "",
-					description : "Reduce exhaustion or end charm, petrify, curse, stat or max hp reduction",
+					description : "Reduce exhaustion or end charm, petrify, curse, stat or max HP reduction",
 					changes : "Spells cast through my Greater Dragonmark don't require material components."
 				}
 			}

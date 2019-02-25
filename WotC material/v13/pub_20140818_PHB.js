@@ -2023,52 +2023,30 @@ AddSubClass("wizard", "enchantment", {
 			name : "Split Enchantment",
 			source : ["P", 117],
 			minlevel : 10,
-			description : "\n   " + "When I cast an enchantment spell with only one target, I can target a second in range" + "\n   " + "This does not apply to cantrips"
-/* SPELL CHANGES!!!
-ALL ENCHANTEMENT SPELLS (not cantrips):
-	animal friendship
-	animal messenger
-	antipathy/sympathy
-	bane
-	bless
-	calm emotions
-	charm person
-	command
-	compulsion
-	confusion
-	dominate beast
-	dominate monster
-	dominate person
-	enthrall
-	feeblemind
-	geas
-	heroism
-	hold monster
-	hold person
-	mass suggestion
-	modify memory
-	otto's irresistible dance
-	power word kill
-	power word stun
-	sleep
-	suggestion
-	tasha's hideous laughter
-	zone of truth
-	compelled duel
-	crown of madness
-	dissonant whispers
-	hex
-	catnap
-	charm monster
-	enemies abound
-	power word pain
-	psychic scream
-	synaptic static
-	haywire
-	synchronicity
-	puppet-uass
-	sudden awakening-uass
-*/
+			description : "\n   " + "When I cast an enchantment spell with only one target, I can target a second in range" + "\n   " + "This does not apply to cantrips",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellObj.psionic || !spellObj.level || spellObj.school !== "Ench") return;
+						var startDescr = spellObj.description;
+						switch(spellKey) {
+							case "animal messenger" :
+								spellObj.description = spellObj.description.replace("Tiny beast delivers", "2 tiny beasts deliver single");
+								break;
+							case "antipathy/sympathy" :
+								spellObj.description = spellObj.description.replace("Creature,", "2 crea, 1");
+								break;
+							case "heroism" :
+							case "command" :
+								spellObj.description = spellObj.description.replace(/, halt| as spell lasts/i, "");
+							default :
+								spellObj.description = spellObj.description.replace("1+1/SL", "2 or 1+1/SL").replace(/1 (crea(ture)?|beast|humanoid)/i, "2 $1s").replace(/creas\b/gi, "crea");
+						}
+						return startDescr !== spellObj.description;
+					},
+					"My enchantment, single-target 1st-level or higher spells can affect two targets instead of only one."
+				]
+			}
 		},
 		"subclassfeature14" : {
 			name : "Alter Memories",
@@ -3968,7 +3946,7 @@ SpellsList["armor of agathys"] = {
 	components : "V,S,M",
 	compMaterial : "A cup of water",
 	duration : "1 h",
-	description : "5+5/SL temp hp; as long as temp hp last any crea that hits in melee takes 5+5/SL Cold dmg",
+	description : "5+5/SL temp HP; as long as temp HP last any crea that hits in melee takes 5+5/SL Cold dmg",
 	descriptionFull : "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, both the temporary hit points and the cold damage increase by 5 for each slot level above 1st."
 };
 SpellsList["arms of hadar"] = {
@@ -3995,7 +3973,7 @@ SpellsList["aura of life"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
-	description : "Me + any crea while in area Necrotic dmg resist.; at turn start, 0 hp living in area heal 1 hp",
+	description : "Me + any crea while in area Necrotic dmg resist.; at turn start, 0 HP living in area heal 1 HP",
 	descriptionFull : "Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points."
 };
 SpellsList["aura of purity"] = {
@@ -4021,7 +3999,7 @@ SpellsList["aura of vitality"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "I can heal 1 creature in range for 2d6 hp as a bonus action for the duration",
+	description : "I can heal 1 creature in range for 2d6 HP as a bonus action for the duration",
 	descriptionFull : "Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain 2d6 hit points."
 };
 SpellsList["banishing smite"] = {
@@ -4034,7 +4012,7 @@ SpellsList["banishing smite"] = {
 	range : "Self",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "Next melee hit +5d10 Force dmg; if this brings target hp<50, I banish it until spell ends",
+	description : "Next melee hit +5d10 Force dmg; if this brings target HP<50, I banish it until spell ends",
 	descriptionFull : "The next time you hit a creature with a weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra 5d10 force damage to the target. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it. If the target is native to a different plane of existence than the one you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is incapacitated. It remains there until the spell ends, at which point the tart reappears in the space it left or in the nearest unoccupied space if that space is occupied."
 };
 SpellsList["beast sense"] = {
@@ -4385,7 +4363,7 @@ SpellsList["power word heal"] = {
 	range : "Touch",
 	components : "V,S",
 	duration : "Instantaneous",
-	description : "1 crea heals all hp and stops being charmed, frightened, paralyzed, stunned; it can use rea to stand up",
+	description : "1 crea heals all HP and stops being charmed, frightened, paralyzed, stunned; it can use rea to stand up",
 	descriptionFull : "A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs."
 };
 SpellsList["ray of sickness"] = {

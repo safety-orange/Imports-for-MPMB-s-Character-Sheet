@@ -27,7 +27,7 @@ SpellsList["cause fear-uass"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Wis",
-	description : "1 crea save or frightened; crea disadvantage on save if 25 hp or less; no effect on undead/constructs",
+	description : "1 crea save or frightened; crea disadvantage on save if 25 HP or less; no effect on undead/constructs",
 	descriptionFull : "You awaken the sense of mortality in one creature you can see within range. The target must succeed on a Wisdom saving throw or become frightened for the duration. A target with 25 hit points or fewer makes the saving throw with disadvantage. The spell has no effect on constructs or undead."
 };
 SpellsList["ceremony-uass"] = {
@@ -101,7 +101,7 @@ SpellsList["healing elixir-uass"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "Alchemist's supplies",
 	duration : "24 h",
-	description : "Make vial with alchemist's supplies; heals 2d4+2 hp as an action; if not used, disappears after 24 h",
+	description : "Make vial with alchemist's supplies; heals 2d4+2 HP as an action; if not used, disappears after 24 h",
 	descriptionFull : "You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes." + "\n   " + "As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points."
 };
 SpellsList["infestation-uass"] = {
@@ -221,7 +221,7 @@ SpellsList["virtue-uass"] = {
 	range : "Touch",
 	components : "V,S",
 	duration : "1 rnd",
-	description : "1 creature that has at least 1 hp gets 1d4 + spellcasting ability modifier in temporary hit points",
+	description : "1 creature that has at least 1 HP gets 1d4 + spellcasting ability modifier in temporary hit points",
 	descriptionFull : "You touch one creature, imbuing it with vitality. If the target has at least 1 hit point, it gains a number of temporary hit points equal to 1d4 + your spellcasting ability modifier. The temporary hit points are lost when the spell ends."
 };
 SpellsList["wild cunning-uass"] = {
@@ -306,7 +306,7 @@ if (!SourceList.X) {
 		components : "V,S",
 		duration : "Instantaneous",
 		save : "Wis",
-		description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/1d8 at CL 5, 11, and 17",
+		description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full HP); +1d12/1d8 at CL 5, 11, and 17",
 		descriptionCantripDie : "1 crea save or `CD`d12 Necrotic damage (only `CD`d8 if at full hp)",
 		descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
 	};
@@ -319,7 +319,7 @@ if (!SourceList.X) {
 		type : "Cantrip",
 		damage : ["C", 12, "necrotic"],
 		range : "60 ft",
-		description : "Wis save, success - no damage; If target is at full hp, d8 instead of d12 damage (UA:SS 4)",
+		description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage (UA:SS 4)",
 		abilitytodamage : false,
 		dc : true
 	};

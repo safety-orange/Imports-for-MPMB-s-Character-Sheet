@@ -280,7 +280,25 @@ AddSubClass("fighter", "monster hunter", {
 			recovery : "long rest",			
 			description : "\n   " + "I can cast Detect Magic as a ritual and Protection from Evil & Good once per long rest" + "\n   " + "I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",
 			action : ["action", " (Prot vs. Evil/Good)"],
-			languageProfs : [["Abyssal, Celestial, or Infernal", 1]]
+			languageProfs : [["Abyssal, Celestial, or Infernal", 1]],
+			spellcastingBonus : [{
+				name : "Spirit Seeker",
+				spells : ["detect magic"],
+				selection : ["detect magic"],
+				firstCol : "(R)",
+				spellcastingAbility : 5
+			}, {
+				name : "Spirit Seeker",
+				spells : ["protection from evil and good"],
+				selection : ["protection from evil and good"],
+				firstCol : "oncelr"
+			}],
+			spellChanges : {
+				"detect magic" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is always 10 minutes."
+				}
+			}
 		},
 		"subclassfeature7" : {
 			name : "Monster Slayer",

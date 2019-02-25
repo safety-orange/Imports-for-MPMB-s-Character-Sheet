@@ -78,7 +78,18 @@ AddSubClass("bard", "college of satire", {
 			usages : "Charisma modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest",
-			action : ["action", " (Detect Thoughts)"]
+			spellcastingBonus : {
+				name : "Spirit Walker",
+				spells : ["detect thoughts"],
+				selection : ["detect thoughts"],
+				firstCol : "(S)"
+			},
+			spellChanges : {
+				"detect thoughts" : {
+					description : "1 a read thoughts of visible Int>3 crea or detect invisible in 30 ft; save for probing, social gaffe on save",
+					changes : "I can cast this spell a number of times equal to my Charisma modifier per long rest and when I do so and the target makes its save, it suffers an embarrassing social gaffe."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Fool's Luck",

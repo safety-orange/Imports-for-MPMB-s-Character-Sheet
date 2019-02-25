@@ -825,7 +825,23 @@ AddSubClass("druid", "circle of the shepherd-xgte", {
 			name : "Mighty Summoner",
 			source : ["X", 24],
 			minlevel : 6,
-			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical"
+			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						switch (spellKey) {
+							case "conjure animals" :
+							case "conjure fey" :
+								spellObj.description += "; each +2 HP/HD, magical natural attacks";
+								return true;
+							case "conjure woodland beings" :
+								spellObj.description = spellObj.description.replace(/fey.*/, "fey; obeys commands if its align. agrees; breaks free if break conc.; +2 HP/HD, magic atks");
+								return true;
+						}
+					},
+					"When I use a spell that restores hit points, it restores an additional 2 + the level of the spell slot (or spell slot equivalent) used to cast the spell."
+				]
+			}
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
@@ -3710,7 +3726,7 @@ SpellsList["charm monster"] = {
 	components : "V,S",
 	duration : "1 h",
 	save : "Wis",
-	description : "1+1/SL creatures, each max 30 ft apart, save or charmed; adv. on save if I or my allies are fighting it",
+	description : "1+1/SL creatures, each max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
 	descriptionFull : "You attempt to charm a creature you can see within range. It must make a Wisdom saving throw, and it does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature is friendly to you. When the spell ends, the creature knows it was charmed by you." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["create homunculus"] = {
@@ -3885,7 +3901,7 @@ SpellsList["healing spirit"] = {
 	range : "60 ft",
 	components : "V,S",
 	duration : "Conc, 1 min",
-	description : "5-ft cube any living crea I can see starts/enters heals 1d6+1d6/SL hp; 1 bns move it 30 ft",
+	description : "5-ft cube any living crea I can see starts/enters heals 1d6+1d6/SL HP; 1 bns move it 30 ft",
 	descriptionFull : "You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice)." + "\n   " + "Until the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead." + "\n   " + "As a bonus action on your turn, you can move the spirit up to 30 feet to a space you can see." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d6 for each slot level above 2nd."
 };
 SpellsList["holy weapon"] = { 
@@ -3975,7 +3991,7 @@ SpellsList["life transference"] = {
 	range : "30 ft",
 	components : "V,S",
 	duration : "Instantaneous",
-	description : "I take 4d8+1d8/SL Necrotic dmg, and 1 crea in range I can see heals twice that in hp",
+	description : "I take 4d8+1d8/SL Necrotic dmg, and 1 crea in range I can see heals twice that in HP",
 	descriptionFull : "You sacrifice some of your health to mend another creature's injuries. You take 4d8 necrotic damage, and one creature of your choice that you can see within range regains a number of hit points equal to twice the necrotic damage you take." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd."
 };
 SpellsList["maddening darkness"] = {
@@ -4352,7 +4368,7 @@ SpellsList["toll the dead"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Wis",
-	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/1d8 at CL 5, 11, and 17",
+	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full HP); +1d12/1d8 at CL 5, 11, and 17",
 	descriptionCantripDie : "1 crea save or `CD`d12 Necrotic damage (only `CD`d8 if at full hp)",
 	descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
 };
@@ -4505,7 +4521,7 @@ WeaponsList["toll the dead"] = {
 	type : "Cantrip",
 	damage : ["C", 12, "necrotic"],
 	range : "60 ft",
-	description : "Wis save, success - no damage; If target is at full hp, d8 instead of d12 damage (XGtE 169)",
+	description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage (XGtE 169)",
 	abilitytodamage : false,
 	dc : true
 };

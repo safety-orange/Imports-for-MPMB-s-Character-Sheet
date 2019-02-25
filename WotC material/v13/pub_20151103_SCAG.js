@@ -457,7 +457,37 @@ AddSubClass("cleric", "arcana domain", {
 			name : "Spell Breaker",
 			source : ["S", 126],
 			minlevel : 6,
-			description : "\n   " + "When I restore HP to an ally with a 1st-level or higher spell, I can also end one spell" + "\n   " + "The chosen spell on the ally ends if it is equal or lower level to the spell slot level used"
+			description : "\n   " + "When I restore HP to an ally with a 1st-level or higher spell, I can also end one spell" + "\n   " + "The chosen spell on the ally ends if it is equal or lower level to the spell slot level used",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {							
+						var startDescr = spellObj.description;
+						switch (spellKey) {
+							case "mass heal" :
+								spellObj.description = "Heal 700 hp, split over crea in range; also cures blindness, deafness, and all diseases; spell breaker";
+								break;
+							case "power word heal" :
+								spellObj.description = spellObj.description.replace(/heals all.*/i, "full hp; no longer charmed, frightened, paralyzed, stunned; can stand up as rea; spell breaker");
+								break;
+							case "goodberry" :
+								spellObj.description = spellObj.description.replace("Create ", "").replace("lose potency after ", "remain");
+							case "regenerate" :
+								spellObj.description = spellObj.description.replace(" for rest of duration", "");
+							case "heal" :
+								spellObj.description = spellObj.description.replace("all diseases", "diseases");
+							case "cure wounds" :
+							case "healing word" :
+							case "life transference" :
+							case "mass cure wounds" :
+							case "mass healing word" :
+							case "prayer of healing" :
+								spellObj.description = spellObj.description.replace(/creatures?/i, "crea").replace("within", "in").replace("spellcasting ability modifier", "spellcasting ability mod") + "; spell breaker";
+						}
+						return startDescr !== spellObj.description;
+					},
+					"When I cast a spell that restores hit points to another creature than myself, I can also end a spell affecting the target. This spell can be of the same level of the spell slot used to cast the healing spell, or lower."
+				]
+			}
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",

@@ -94,13 +94,45 @@ AddSubClass("druid", "circle of the shepherd", {
 			name : "Mighty Summoner",
 			source : ["UA:DC", 2],
 			minlevel : 6,
-			description : "\n   " + "Beast I summon with my spells have +2 HP per HD and their attacks count as magical"
+			description : "\n   " + "Beast I summon with my spells have +2 HP per HD and their attacks count as magical",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						switch (spellKey) {
+							case "conjure animals" :
+							case "conjure fey" :
+								spellObj.description += "; each +2 HP/HD, magical natural attacks";
+								return true;
+							case "conjure woodland beings" :
+								spellObj.description = spellObj.description.replace(/fey.*/, "fey; obeys commands if its align. agrees; breaks free if break conc.; +2 HP/HD, magic atks");
+								return true;
+						}
+					},
+					"When I use a spell that restores hit points, it restores an additional 2 + the level of the spell slot (or spell slot equivalent) used to cast the spell."
+				]
+			}
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
 			source : ["UA:DC", 2],
 			minlevel : 10,
-			description : "\n   " + "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours"
+			description : "\n   " + "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours",
+			spellcastingBonus : {
+				name : "Guardian Spirit",
+				spells : ["death ward"],
+				selection : ["death ward"],
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"death ward" : {
+					range : "Self",
+					components : "",
+					compMaterial : "",
+					description : "Once, when I drops to 0 HP I drops to 1 HP instead; or negates first instantaneous kill effect",
+					duration : "24 h",
+					changes : "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Faithful Summons",

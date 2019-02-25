@@ -50,7 +50,7 @@ AddSubClass("bard", "college of glamour", {
 			spellChanges : {
 				"command" : {
 					time : "1 bns",
-					description : "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
+					description : "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
 					changes : "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target."
 				}
 			}
