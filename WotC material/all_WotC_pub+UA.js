@@ -17269,7 +17269,7 @@ RaceList["dragonmark handling human"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Human, Dragonmark of Handling: +1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice;",
 	scores : [0, 1, 0, 0, 1, 0],
-	trait : "Human, Dragonmark of Handling (+1 Dexterity, +1 Wisdom, +1 to any one ability score)\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: I can cast Animal Friendship once per short rest using Wisdom as my spellcasting ability.",
+	trait : "Human, Dragonmark of Handling (+1 Dex" + (typePF ? ", +1 Wis, +1 to one ability" : "terity, +1 Wisdom, +1 to any one ability score") + ")\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: Once per short rest, I can cast Animal Friendship using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".\n   " + (typePF ? "The Bigger They Are: My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "Bigger They Are: My spells that affect only beasts, also affect monstrosities with Int < 4."),
 	spellcastingAbility : 5,
 	features : {
 		"animal friendship" : {
@@ -33841,7 +33841,7 @@ if (!SourceList.WGtE) {
 		weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 		improvements : "Human, Dragonmark of Handling: +1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice;",
 		scores : [0, 1, 0, 0, 1, 0],
-		trait : "Human, Dragonmark of Handling (+1 Dexterity, +1 Wisdom, +1 to any one ability score)\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: I can cast Animal Friendship once per short rest using Wisdom as my spellcasting ability.",
+		trait : "Human, Dragonmark of Handling (+1 Dex" + (typePF ? ", +1 Wis, +1 to one ability" : "terity, +1 Wisdom, +1 to any one ability score") + ")\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: Once per short rest, I can cast Animal Friendship using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".\n   " + (typePF ? "The Bigger They Are: My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "Bigger They Are: My spells that affect only beasts, also affect monstrosities with Int < 4."),
 		spellcastingAbility : 5,
 		features : {
 			"animal friendship" : {
