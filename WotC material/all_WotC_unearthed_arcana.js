@@ -13773,7 +13773,7 @@ WeaponsList["horns-uacnm"] = {
 };
 var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
 RequiredSheetVersion(12.999);
-// This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
+// This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["UA:GSS"] = {

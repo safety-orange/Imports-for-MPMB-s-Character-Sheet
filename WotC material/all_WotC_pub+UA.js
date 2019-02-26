@@ -18198,7 +18198,7 @@ RaceList["simic hybrid-ggtr"] = {
 		var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
 		switch (theChoice) {
 			case "Nimble Climber":
-				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
+				SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Nimble Climber)");
 				break;
 			case "Underwater Adaptation":
 				SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
@@ -32903,7 +32903,7 @@ WeaponsList["horns-uacnm"] = {
 };
 var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
 RequiredSheetVersion(12.999);
-// This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
+// This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["UA:GSS"] = {

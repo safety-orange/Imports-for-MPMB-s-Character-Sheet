@@ -19149,7 +19149,7 @@ RaceList["simic hybrid-ggtr"] = {
 				var rNm = rObj.name;
 				switch (theChoice) {
 					case "Nimble Climber":
-						SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Grappling Appendages)");
+						SetProf("speed", false, { climb : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Nimble Climber)");
 						break;
 					case "Underwater Adaptation":
 						SetProf("speed", false, { swim : { spd : 'walk', enc : 'walk' } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
