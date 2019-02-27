@@ -15399,7 +15399,7 @@ SpellsList["tiny servant"] = {
 SpellsList["toll the dead-xgte"] = {
 	name : "Toll the Dead",
 	classes : ["cleric", "warlock", "wizard"],
-	source : ["X", 169],
+	source : [["X", 169], ["UA:SS", 4]],
 	ritual : false,
 	level : 0,
 	school : "Necro",
@@ -15550,10 +15550,10 @@ WeaponsList["thunderclap"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["toll the dead-xgte"] = {
+WeaponsList["toll the dead"] = {
 	regExpSearch : /^(?=.*toll)(?=.*the)(?=.*dead).*$/i,
 	name : "Toll the Dead",
-	source : ["X", 169],
+	source : [["X", 169], ["UA:SS", 4]],
 	list : "spell",
 	ability : 5,
 	type : "Cantrip",

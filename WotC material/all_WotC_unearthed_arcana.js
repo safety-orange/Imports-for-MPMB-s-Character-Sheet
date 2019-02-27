@@ -10871,21 +10871,6 @@ SpellsList["sudden awakening"] = {
 	description : "Any creatures within range awaken and can then stand up from prone without expending movement",
 	descriptionFull : "Each sleeping creature you choose within range awakens, and then each prone creature within range can stand up without expending any movement."
 };
-SpellsList["toll the dead"] = {
-	name : "Toll the Dead",
-	classes : ["cleric", "warlock", "wizard"],
-	source : ["UA:SS", 4],
-	ritual : false,
-	level : 0,
-	school : "Necro",
-	time : "1 a",
-	range : "60 ft",
-	components : "V,S",
-	duration : "Instantaneous",
-	save : "Wis",
-	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/+1d8 at CL 5, 11, and 17",
-	descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
-};
 SpellsList["unearthly chorus"] = {
 	name : "Unearthly Chorus",
 	classes : ["bard"],
@@ -10983,19 +10968,37 @@ WeaponsList["primal savagery"] = {
 	description : "Does either Piercing or Slashing damage (my choice) (UA:SS 3)",
 	abilitytodamage : false
 };
-WeaponsList["toll the dead"] = {
-	regExpSearch : /^(?=.*toll)(?=.*the)(?=.*dead).*$/i,
-	name : "Toll the Dead",
-	source : ["UA:SS", 4],
-	list : "spell",
-	ability : 5,
-	type : "Cantrip",
-	damage : ["C", 12, "necrotic"],
-	range : "60 ft",
-	description : "Wis save, success - no damage; If target is at full hp, d8 instead of d12 damage (UA:SS 4)",
-	abilitytodamage : false,
-	dc : true
-};
+
+if (!SourceList.X) {
+	SpellsList["toll the dead"] = {
+		name : "Toll the Dead",
+		classes : ["cleric", "warlock", "wizard"],
+		source : [["X", 169], ["UA:SS", 4]],
+		ritual : false,
+		level : 0,
+		school : "Necro",
+		time : "1 a",
+		range : "60 ft",
+		components : "V,S",
+		duration : "Instantaneous",
+		save : "Wis",
+		description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full hp); +1d12/+1d8 at CL 5, 11, and 17",
+		descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
+	};
+	WeaponsList["toll the dead"] = {
+		regExpSearch : /^(?=.*toll)(?=.*the)(?=.*dead).*$/i,
+		name : "Toll the Dead",
+		source : [["X", 169], ["UA:SS", 4]],
+		list : "spell",
+		ability : 5,
+		type : "Cantrip",
+		damage : ["C", 12, "necrotic"],
+		range : "60 ft",
+		description : "Wis save, success - no damage; If target is at full hp, d8 instead of d12 damage (UA:SS 4)",
+		abilitytodamage : false,
+		dc : true
+	};
+}
 var iFileName = "ua_20170417_Feats-for-Skills.js";
 RequiredSheetVersion(12.999);
 // This file adds the content from the Unearthed Arcana: Feats for Skills article to MPMB's Character Record Sheet
