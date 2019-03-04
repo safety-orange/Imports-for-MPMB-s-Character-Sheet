@@ -57,9 +57,12 @@ ClassList['artificer-ua2'] = {
 			source : ["UA:A2", 2],
 			minlevel : 1,
 			description : desc([
-// STILL TO DO
-				"",
-				"",
+				"As an action, I can use thieves' or a type of artisan's tools to invest magic in a tiny object",
+				"I touch a nonmagical tiny object and give it one permanent magical property:",
+				" \u2022 Emit light (5-ft radius bright light, equal dim light), an odor, or a nonverbal sound",
+				" \u2022 Static visual effect on one of its surfaces; picture, 25 words, shapes, or a mix of those",
+				"If I do this for more objects than my Intelligence modifier, the oldest one loses its magic",
+				"Only 1 property per object; As an action, I can touch an invested object to end its magic"
 			])
 		},
 		"spellcasting" : {
@@ -78,19 +81,71 @@ ClassList['artificer-ua2'] = {
 		},
 		"infuse item" : {
 			name : "Infuse Item",
-			source : ["UA:A2", 4],
+			source : ["UA:A2", 5],
 			minlevel : 2,
 			description : desc([
-// STILL TO DO
-				"By spending 1 minute, I can infuse one of my artificer spells into a nonmagical item",
-				"This expends a spell slot as normal and the spell must have a casting time of 1 action",
-				"An item holds max one spell for 8 hours; I can have up to my Int mod of infused items",
-				"A creature holding an infused item can use an action to cast the spell, using my ability",
-				"The spell's target is the creature activating it or, with area of effect spells, the item"
+				"Use the \"Choose Feature\" button above to add Artificer Infusions to the third page",
+				"Whenever I gain an artificer level, I can replace an infusion I know with another",
+				"When I finish a long rest, I turn nonmagical objects into a magic items using my infusions",
+				"I can attune to it immediately; If I infuse too many items, the oldest loses its magic",
+				"The infusion lasts until my death + my Int mod in days, but ends if I unlearn the infusion",
+				"Each infusion can only be used in one item at a time and only in appropriate items"
 			]),
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : (n < 4 ? 3 : n < 7 ? 4 : n < 11 ? 5 : n < 15 ? 6 : n < 19 ? 7 : 8) + " infusions known; max" + (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + " infused items";
-			})
+			}),
+			extraname : "Artificer Infusion",
+			extrachoices : ["Boots of the Winding Path (prereq: level 4 artificer)", "Enhanced Defense", "Enhanced Weapon", "Many-Handed Pouch (prereq: level 4 artificer)", "Radiant Weapon (prereq: level 8 artificer)", "Resistant Armor (prereq: level 8 artificer)", "Returning Weapon"],
+			"boots of the winding path (prereq: level 4 artificer)" : {
+				name : "Boots of the Winding Path",
+				source : ["UA:A2", 9],
+				description : "The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
+				additional : "pair of boots; requires attunement",
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; }
+			},
+			"enhanced defense" : {
+				name : "Enhanced Defense",
+				source : ["UA:A2", 9],
+				description : "",
+				additional : levels.map(function (n) {
+					return "armor/shield; +" + (n < 12 ? 1 : 2) + " magical";
+				})
+			},
+			"enhanced weapon" : {
+				name : "Enhanced Weapon",
+				source : ["UA:A2", 9],
+				description : "",
+				additional : levels.map(function (n) {
+					return "simple/martial weapon; +" + (n < 12 ? 1 : 2) + " magical";
+				})
+			},
+			"many-handed pouch (prereq: level 4 artificer)" : {
+				name : "Many-Handed Pouch",
+				source : ["UA:A2", 9],
+				description : "",
+				additional : "2-5 pouches",
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; }
+			},
+			"radiant weapon (prereq: level 8 artificer)" : {
+				name : "Radiant Weapon",
+				source : ["UA:A2", 9],
+				description : "",
+				additional : "simple/martial weapon; requires attunement",
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; }
+			},
+			"resistant armor (prereq: level 8 artificer)" : {
+				name : "Resistant Armor",
+				source : ["UA:A2", 9],
+				description : "",
+				additional : "suit of armor; requires attunement",
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; }
+			},
+			"returning weapon" : {
+				name : "Returning Weapon",
+				source : ["UA:A2", 9],
+				description : "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
+				additional : "simple/martial weapon with the thrown property"
+			}
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
@@ -111,7 +166,7 @@ ClassList['artificer-ua2'] = {
 		},
 		"subclassfeature3" : {
 			name : "Artificer Specialist",
-			source : ["UA:A2", 4],
+			source : ["UA:A2", 5],
 			minlevel : 3,
 			description : desc([
 				"Choose a specialism and put it in the \"Class\" field on the first page",
@@ -120,15 +175,27 @@ ClassList['artificer-ua2'] = {
 		},
 		"arcane armament" : {
 			name : "Arcane Armament",
-			source : ["UA:A2", 4],
+			source : ["UA:A2", 5],
 			minlevel : 5,
 			description : " [as Extra Attack, but only with magic weapon]"
 		},
 		"the right cantrip for the job" : {
 			name : "The Right Cantrip for the Job",
-			source : ["UA:A2", 4],
+			source : ["UA:A2", 5],
 			minlevel : 10,
 			description : "\n   " + "Whenever I finish a short/long rest, I can swap one of my artificer cantrips for another"
+		},
+		"spell-storing item" : {
+			name : "Spell-Storing Item",
+			source : ["UA:A2", 5],
+			minlevel : 18,
+			description : desc([
+				"When I finish a long rest, I can infuse a 1st-/2nd-level artificer spell into an item I touch",
+				"It must be a simple or martial weapon, or something I can use as a spellcasting focus",
+				"The spell must have a casting time of 1 action, but I need not have it prepared",
+				"A creature holding an infused item can use an action to cast the spell, using my ability",
+				"The item can produce the spell a number of times equal to twice my Int mod (min 2)"
+			])
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
