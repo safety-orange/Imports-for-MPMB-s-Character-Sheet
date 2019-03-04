@@ -14,7 +14,7 @@ SourceList["UA:A"] = {
 
 // Adds a new class, the Artificer, with 2 subclasses
 // This code was for a big part contributed by RCanine on ENworld
-ClassList.artificer = {
+ClassList['artificer-ua'] = {
 	regExpSearch : /^(?=.*artificer)(?!.*wizard).*$/i,
 	name : "Artificer",
 	source : ["UA:A", 1],
@@ -86,7 +86,7 @@ ClassList.artificer = {
 			source : ["UA:A", 3],
 			minlevel : 2,
 			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
-			skillstxt : "expertise with with any tool proficiencies gained from the artificer class",
+			skillstxt : "expertise with any tool proficiencies gained from the artificer class",
 			eval : function () {
 				if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
 					Checkbox('Too Exp', true);
@@ -614,6 +614,6 @@ var SetArtificerSpells = function(){
 	];
 	for (var a = 0; a < artSp.length; a++) {
 		var aArtSp = SpellsList[artSp[a]];
-		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer") === -1) aArtSp.classes.push("artificer");
+		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer-ua") === -1) aArtSp.classes.push("artificer-ua");
 	};
 }();
