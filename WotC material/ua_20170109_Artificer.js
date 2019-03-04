@@ -74,7 +74,7 @@ ClassList.artificer = {
 			source : ["UA:A", 3],
 			minlevel : 2,
 			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
-			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with with any tool proficiencies gained from the artificer class.",
+			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with any tool proficiencies gained from the artificer class.",
 			eval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
 			removeeval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"
 		},

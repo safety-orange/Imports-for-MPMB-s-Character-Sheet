@@ -10024,7 +10024,7 @@ CreatureList["stench kow"] = {
 			description : "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour."
 		}
 	],
-	wildshapeString : "Darkvision 60 ft | Resistant to: cold, fire, poison | Charge: If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage | Stench: Any creature starting its turn within 5 ft of a stench kow must take a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour"
+	wildshapeString : "Darkvision 60 ft | Resistant to: cold, fire, poison | Charge: If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage | Stench: Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour"
 };
 CreatureList["dolphin"] = {
 	name : "Dolphin",
@@ -23610,7 +23610,7 @@ ClassList.artificer = {
 			source : ["UA:A", 3],
 			minlevel : 2,
 			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
-			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with with any tool proficiencies gained from the artificer class.",
+			skillstxt : "\n\n" + toUni("Artificer") + ": expertise with any tool proficiencies gained from the artificer class.",
 			eval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', true); };",
 			removeeval : "if ((/thieves.? tools/i).test(What('Too Text'))) { Checkbox('Too Exp', false); };"
 		},
