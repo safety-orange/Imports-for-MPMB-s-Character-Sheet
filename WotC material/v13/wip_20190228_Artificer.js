@@ -209,6 +209,13 @@ ClassList['artificer-ua2'] = {
 	}
 };
 
+
+SpellsList["arcane weapon"] = {
+	name : "Arcane Weapon",
+	source : ["UA:A2", 10],
+	description : "",
+};
+
 // Set the Artificer class spell list
 var SetArtificerSpells = function(){
 	var artSp = [
@@ -229,7 +236,6 @@ var SetArtificerSpells = function(){
 		"thorn whip",
 		// level 1
 		"alarm",
-		"arcane weapon",
 		"cure wounds",
 		"detect magic",
 		"disguise self",

@@ -540,7 +540,7 @@ ClassSubList["artificer-gunsmith"] = {
 	if (!theItem) return;
 	var aMI = MagicItemsList[theItem];
 	var minLevel = Number(theI.replace(/.*level (\d+) artificer.*/, "$1"));
-	var theObj = ClassList.artificer.features["wondrous invention"];
+	var theObj = ClassList['artificer-ua'].features["wondrous invention"];
 	theObj[theI.toLowerCase()] = {
 		name : aMI.name,
 		description : "",
