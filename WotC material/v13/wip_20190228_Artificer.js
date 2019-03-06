@@ -22,18 +22,20 @@ ClassList['artificer-ua2'] = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 8,
 	saves : ["Con", "Int"],
-	skillstxt : ["Choose two from Arcana, History, Investigation, Medicine, Nature, Perception, and Sleight of Hand", "Choose one from Arcana, Deception, History, Investigation, Medicine, Nature, Religion, and Sleight of Hand"],
+	skillstxt : {
+		primary : "Choose two from Arcana, History, Investigation, Medicine, Nature, Perception, and Sleight of Hand"
+	},
 	toolProfs : {
 		primary : [["Thieves' tools", "Dex"], "Tinker's tools", ["Any artisan's tool", 1]],
 		secondary : [["Thieves' tools", "Dex"], "Tinker's tools"]
 	},
-	armorProfs : [
-		[true, true, false, true],
-		[true, true, false, true]
-	],
-	weaponProfs : [
-		[true, false, ["hand crossbow", "heavy crossbow"]]
-	],
+	armorProfs : {
+		primary : [true, true, false, true],
+		secondary : [true, true, false, true]
+	},
+	weaponProfs : {
+		primary : [true, false, ["hand crossbow", "heavy crossbow"]]
+	},
 	equipment : "Artificer starting equipment:" +
 		"\n \u2022 any two simple weapons;" +
 		"\n \u2022 A light crossbow and 20 bolts;" +
@@ -99,9 +101,18 @@ ClassList['artificer-ua2'] = {
 			"boots of the winding path (prereq: level 4 artificer)" : {
 				name : "Boots of the Winding Path",
 				source : ["UA:A2", 9],
-				description : "The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
+				description : desc([
+					"The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
+					"It must be a space that the wearer had occupied some time during the current turn"
+				]),
 				additional : "pair of boots; requires attunement",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; }
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; },
+				eval : function (lvl, chc) { AddMagicItem("Boots of the Winding Path"); },
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("boots of the winding path");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
 			},
 			"enhanced defense" : {
 				name : "Enhanced Defense",
@@ -109,7 +120,15 @@ ClassList['artificer-ua2'] = {
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 12 ? 1 : 2) + " magical";
-				})
+				}),
+				eval : function (lvl, chc) {
+					AddMagicItem("Armor +" + (classes.known["artificer-ua2"].level < 12 ? 1 : 2));
+				},
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("armor, +1, +2, or +3");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
 			},
 			"enhanced weapon" : {
 				name : "Enhanced Weapon",
@@ -117,34 +136,77 @@ ClassList['artificer-ua2'] = {
 				description : "",
 				additional : levels.map(function (n) {
 					return "simple/martial weapon; +" + (n < 12 ? 1 : 2) + " magical";
-				})
+				}),
+				eval : function (lvl, chc) {
+					AddMagicItem("Weapon +" + (classes.known["artificer-ua2"].level < 12 ? 1 : 2));
+				},
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("weapon, +1, +2, or +3");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
 			},
 			"many-handed pouch (prereq: level 4 artificer)" : {
 				name : "Many-Handed Pouch",
 				source : ["UA:A2", 9],
-				description : "",
+				description : desc([
+					"The infused pouches all share one interdimensional space the size of a single pouch",
+					"Thus, reaching into any of the pouches allows access to the same storage space",
+					"A pouch only functions if it is within 100 miles of another infused pouch",
+					"When the infusion ends, the contents is moved to one of the pouches, chosen randomly"
+				]),
 				additional : "2-5 pouches",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; }
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; },
+				eval : function (lvl, chc) { AddMagicItem("Many-Handed Pouch"); },
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("many-handed pouch");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
 			},
 			"radiant weapon (prereq: level 8 artificer)" : {
 				name : "Radiant Weapon",
 				source : ["UA:A2", 9],
-				description : "",
+				description : desc([
+					"",
+					""
+				]),
 				additional : "simple/martial weapon; requires attunement",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; }
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; },
+				eval : function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("radiant weapon");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
 			},
 			"resistant armor (prereq: level 8 artificer)" : {
 				name : "Resistant Armor",
-				source : ["UA:A2", 9],
-				description : "",
+				source : ["UA:A2", 10],
+				description : desc([
+					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
+					"Choose from: acid,	 cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
+				]),
 				additional : "suit of armor; requires attunement",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; }
+				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; },
+				eval : function (lvl, chc) { AddMagicItem("Armor of Resistance"); },
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("armor of resistance");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
 			},
 			"returning weapon" : {
 				name : "Returning Weapon",
-				source : ["UA:A2", 9],
+				source : ["UA:A2", 10],
 				description : "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
-				additional : "simple/martial weapon with the thrown property"
+				additional : "simple/martial weapon with the thrown property",
+				eval : function (lvl, chc) { AddMagicItem("Returning Weapon"); },
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("returning weapon");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
 			}
 		},
 		"tool expertise" : {
@@ -169,7 +231,7 @@ ClassList['artificer-ua2'] = {
 			source : ["UA:A2", 5],
 			minlevel : 3,
 			description : desc([
-				"Choose a specialism and put it in the \"Class\" field on the first page",
+				'Choose a specialism and put it in the "Class" field on the first page',
 				"Choose either alchemist or artillerist"
 			])
 		},
@@ -209,12 +271,98 @@ ClassList['artificer-ua2'] = {
 	}
 };
 
-
+// Add the new spell
 SpellsList["arcane weapon"] = {
 	name : "Arcane Weapon",
 	source : ["UA:A2", 10],
+	classes : ["artificer-ua2"],
 	description : "",
 };
+
+// Add the new magic items
+MagicItemsList["boots of the winding path"] = {
+	name : "Boots of the Winding Path",
+	source : ["UA:A2", 9],
+	type : "wondrous item",
+	description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
+	descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
+	attunement : true,
+	action : [["bonus action", ""]]
+}
+MagicItemsList["many-handed pouch"] = {
+	name : "Many-Handed Pouch",
+	source : ["UA:A2", 9],
+	type : "wondrous item",
+	description : "These 2-5 pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch only functions if it is within 100 miles of another pouch of its set.",
+	descriptionFull : "The infused pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch operates as long as it is within 100 miles of another one of the pouches; the pouch is otherwise empty and won't accept any contents.\n   If this infusion ends, the items stored in the shared space move into one of the pouches, determined at random. The rest of the pouches become empty."
+}
+MagicItemsList["radiant weapon"] = {
+	name : "Radiant Weapon",
+	nameTest : "Radiant",
+	source : ["UA:A2", 9],
+	type : "weapon (any)",
+	description : "",
+	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
+	attunement : true,
+	action : [["bonus action", " (shed light/stop)"], ["reaction", " (after melee hit)"]],
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "weapon"]
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
+				}
+			},
+			'If I include the word "Radiant" in the name of a weapon, it will be treated as the magic weapon Radiant Weapon. It has +1 to hit and damage and ?????????.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/radiant/i).test(v.WeaponText)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+		]
+	}
+}
+MagicItemsList["returning weapon"] = {
+	name : "Returning Weapon",
+	nameTest : "Returning",
+	source : ["UA:A2", 10],
+	type : "weapon (any thrown)",
+	description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
+	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "weapon"],
+		excludeCheck : function (inObjKey, inObj) {
+			return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
+				}
+			},
+			'If I include the word "Returning" in the name of a thrown weapon, it will be treated as the magic weapon Returning Weapon. It has +1 to hit and damage and returns to my hand immediately after I use it to make a ranged attack.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+		]
+	}
+}
 
 // Set the Artificer class spell list
 var SetArtificerSpells = function(){
@@ -298,5 +446,93 @@ var SetArtificerSpells = function(){
 	for (var a = 0; a < artSp.length; a++) {
 		var aArtSp = SpellsList[artSp[a]];
 		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer-ua2") === -1) aArtSp.classes.push("artificer-ua2");
+	};
+	var artMi = [
+		["alchemy jug"],
+		["bag of holding"],
+		["cap of water breathing"],
+		["cloak of the manta ray"],
+		["goggles of night"],
+		["lantern of revealing"],
+		["rope of climbing"],
+		["sending stones"],
+		["wand of magic detection"],
+		["wand of secrets"],
+		["boots of elvenkind", 12],
+		["boots of striding and springing", 12],
+		["boots of the winterlands", 12],
+		["bracers of archery", 12],
+		["brooch of shielding", 12],
+		["cloak of elvenkind", 12],
+		["cloak of protection", 12],
+		["eyes of charming", 12],
+		["eyes of the eagle", 12],
+		["gauntlets of ogre power", 12],
+		["gloves of missile snaring", 12],
+		["gloves of swimming and climbing", 12],
+		["gloves of thievery", 12],
+		["hat of disguise", 12],
+		["headband of intellect", 12],
+		["helm of telepathy", 12],
+		["medallion of thoughts", 12],
+		["periapt of wound closure", 12],
+		["pipes of haunting", 12],
+		["pipes of the sewers", 12],
+		["quiver of ehlonna", 12],
+		["ring of jumping", 12],
+		["ring of mind shielding", 12],
+		["ring of water walking", 12],
+		["slippers of spider climbing", 12],
+		["winged boots", 12],
+		["amulet of health", 16],
+		["belt of giant strength", 16, "hill (str 21, rare)"],
+		["boots of levitation", 16],
+		["boots of speed", 16],
+		["bracers of defense", 16],
+		["cloak of the bat", 16],
+		["dimensional shackles", 16],
+		["gem of seeing", 16],
+		["horn of blasting", 16],
+		["ring of free action", 16],
+		["ring of protection", 16],
+		["ring of the ram", 16]
+	];
+	for (var a = 0; a < artMi.length; a++) {
+		if (!MagicItemsList[artMi[a][0]]) console.println(artMi[a][0]);
+	}
+	var theObj = ClassList['artificer-ua2'].features["infuse item"];
+	for (var a = 0; a < artMi.length; a++) {
+		var anArtMi = MagicItemsList[artMi[a][0]];
+		if (!anArtMi) continue;
+		if (artMi[a][2]) {
+			anArtMi = {
+				name : MagicItemsList[artMi[a][0]][artMi[a][2]].name ? MagicItemsList[artMi[a][0]][artMi[a][2]].name : MagicItemsList[artMi[a][0]].name + " [" + artMi[a][2].capitalize() + "]",
+				source : MagicItemsList[artMi[a][0]][artMi[a][2]].source ? MagicItemsList[artMi[a][0]][artMi[a][2]].source : MagicItemsList[artMi[a][0]].source,
+				attunement : MagicItemsList[artMi[a][0]][artMi[a][2]].attunement ? MagicItemsList[artMi[a][0]][artMi[a][2]].attunement : MagicItemsList[artMi[a][0]].attunement
+			}
+		}
+		var anArtPre = artMi[a][1] ? artMi[a][1] : false;
+		var theI = "Replicate: " + anArtMi.name + (anArtPre ? " (prereq: level " + anArtPre + " artificer)" : "");
+		var theILC = theI.toLowerCase();
+		theObj[theILC] = {
+			name : anArtMi.name,
+			description : "",
+			source : anArtMi.source,
+			eval : function (lvl, chc, aItem = anArtMi.name) {
+				AddMagicItem(aItem);
+			},
+			removeeval : artMi[a][2] ? function (lvl, chc, aItem = artMi[a][0], aItemCh = artMi[a][2]) {
+				var loc = CurrentMagicItems.choices.indexOf(aItemCh);
+				if (!aItem || !aItemCh || loc == -1) return;
+				MagicItemClear(loc + 1, true);
+			} : function (lvl, chc, aItem = artMi[a][0]) {
+				var loc = CurrentMagicItems.known.indexOf(aItem);
+				if (!aItem || loc == -1) return;
+				MagicItemClear(loc + 1, true);
+			}
+		};
+		if (anArtMi.attunement) theObj[theILC].additional = "requires attunement";
+		if (anArtPre) theObj[theILC].prereqeval = function (v, minLvl = anArtPre) { return classes.known['artificer-ua'].level >= minLvl; };
+		theObj.extrachoices.push(theI);
 	};
 }();

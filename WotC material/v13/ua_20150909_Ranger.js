@@ -28,16 +28,21 @@ ClassList["ua-playtest-ranger"] = {
 	die : 12,
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	saves : ["Dex", "Wis"],
-	skillstxt : ["Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
-	toolProfs : { primay : ["Herbalism kit"] },
-	armorProfs : [
-		[true, false, false, true],
-		[true, false, false, true]
-	],
-	weaponProfs : [
-		[true, true],
-		[true, true]
-	],
+	skillstxt : {
+		primary : "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
+		secondary : "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"
+	},
+	toolProfs : {
+		primary : ["Herbalism kit"]
+	},
+	armorProfs : {
+		primary : [true, false, false, true],
+		secondary : [true, false, false, true]
+	},
+	weaponProfs : {
+		primary : [true, true],
+		secondary : [true, true]
+	},
 	equipment : "Playtest Ranger starting equipment:\n \u2022 leather armor;\n \u2022 Two shortswords -or- two martial melee weapons -or- a martial weapon and a shield;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows -or- a martial weapon.",
 	subclasses : ["Ranger Path", ["ua-playtest-ranger-guardian", "ua-playtest-ranger-seeker", "ua-playtest-ranger-stalker"]],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],

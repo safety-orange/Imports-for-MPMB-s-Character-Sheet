@@ -462,15 +462,18 @@ ClassList["spell-less ranger"] = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 10,
 	saves : ["Str", "Dex"],
-	skillstxt : ["Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
-	armorProfs : [
-		[true, true, false, true],
-		[true, true, false, true]
-	],
-	weaponProfs : [
-		[true, true],
-		[true, true]
-	],
+	skillstxt : {
+		primary : "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
+		secondary : "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"
+	},
+	armorProfs : {
+		primary : [true, true, false, true],
+		secondary : [true, true, false, true]
+	},
+	weaponProfs : {
+		primary : [true, true],
+		secondary : [true, true]
+	},
 	equipment : "Spell-less Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Ranger Archetype", []],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
@@ -1270,16 +1273,21 @@ ClassList["ua-playtest-ranger"] = {
 	die : 12,
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	saves : ["Dex", "Wis"],
-	skillstxt : ["Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
-	toolProfs : { primay : ["Herbalism kit"] },
-	armorProfs : [
-		[true, false, false, true],
-		[true, false, false, true]
-	],
-	weaponProfs : [
-		[true, true],
-		[true, true]
-	],
+	skillstxt : {
+		primary : "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
+		secondary : "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"
+	},
+	toolProfs : {
+		primary : ["Herbalism kit"]
+	},
+	armorProfs : {
+		primary : [true, false, false, true],
+		secondary : [true, false, false, true]
+	},
+	weaponProfs : {
+		primary : [true, true],
+		secondary : [true, true]
+	},
 	equipment : "Playtest Ranger starting equipment:\n \u2022 leather armor;\n \u2022 Two shortswords -or- two martial melee weapons -or- a martial weapon and a shield;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows -or- a martial weapon.",
 	subclasses : ["Ranger Path", ["ua-playtest-ranger-guardian", "ua-playtest-ranger-seeker", "ua-playtest-ranger-stalker"]],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
@@ -3012,18 +3020,18 @@ ClassList["rangerua"] = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 10,
 	saves : ["Str", "Dex"],
-	skillstxt : [
-		"Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
-		"Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, or Survival"
-	],
-	armorProfs : [
-		[true, true, false, true],
-		[true, true, false, true]
-	],
-	weaponProfs : [
-		[true, true],
-		[true, true]
-	],
+	skillstxt : {
+		primary : "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
+		secondary : "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, or Survival"
+	},
+	armorProfs : {
+		primary : [true, true, false, true],
+		secondary : [true, true, false, true]
+	},
+	weaponProfs : {
+		primary : [true, true],
+		secondary : [true, true]
+	},
 	equipment : "Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Ranger Conclaves", ["rangerua-beast master", "rangerua-deep stalker", "rangerua-hunter"]],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -4839,17 +4847,20 @@ ClassList['artificer-ua'] = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 5],
 	die : 8,
 	saves : ["Con", "Int"],
-	skillstxt : ["Choose three from Arcana, Deception, History, Investigation, Medicine, Nature, Religion, and Sleight of Hand", "Choose one from Arcana, Deception, History, Investigation, Medicine, Nature, Religion, and Sleight of Hand"],
+	skillstxt : {
+		primary : "Choose three from Arcana, Deception, History, Investigation, Medicine, Nature, Religion, and Sleight of Hand",
+		secondary : "Choose one from Arcana, Deception, History, Investigation, Medicine, Nature, Religion, and Sleight of Hand"
+	},
 	toolProfs : {
 		primary : [["Thieves' tools", "Dex"], ["Any tool", 2]],
 		secondary : [["Any tool", 1]]
 	},
-	armorProfs : [
-		[true, true, false, false]
-	],
-	weaponProfs : [
-		[true, false]
-	],
+	armorProfs : {
+		primary : [true, true, false, false]
+	},
+	weaponProfs : {
+		primary : [true, false]
+	},
 	equipment : "Artificer starting equipment:\n \u2022 A handaxe and a light hammer -or- any two simple weapons;\n \u2022 Scale mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts;\n \u2022 A dungeoneer's pack;\n \u2022 Thieves' tools.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Artificer Specialism", ["artificer-alchemist", "artificer-gunsmith"]],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -5101,9 +5112,9 @@ ClassSubList["artificer-alchemist"] = {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.theWea.artAlcAcid && classes.known.artificer && classes.known.artificer.level) {
+						if (v.theWea.artAlcAcid && classes.known['artificer-ua'] && classes.known['artificer-ua'].level) {
 							fields.Proficiency = true;
-							fields.Damage_Die = Math.ceil(classes.known.artificer.level / 2) + 'd6';
+							fields.Damage_Die = Math.ceil(classes.known['artificer-ua'].level / 2) + 'd6';
 						};
 					}, ""]
 			}
@@ -5138,9 +5149,9 @@ ClassSubList["artificer-alchemist"] = {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.theWea.artAlcFire && classes.known.artificer && classes.known.artificer.level) {
+						if (v.theWea.artAlcFire && classes.known['artificer-ua'] && classes.known['artificer-ua'].level) {
 							fields.Proficiency = true;
-							fields.Damage_Die = Math.ceil(classes.known.artificer.level / 3) + 'd6';
+							fields.Damage_Die = Math.ceil(classes.known['artificer-ua'].level / 3) + 'd6';
 						};
 					}, ""]
 			}
@@ -5237,8 +5248,8 @@ ClassSubList["artificer-gunsmith"] = {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.theWea.artTCmonger && classes.known.artificer && classes.known.artificer.level > 2) {
-							fields.Description += '; +' + Math.floor((classes.known.artificer.level - 1) / 2) + 'd6 thunder damage';
+						if (v.theWea.artTCmonger && classes.known['artificer-ua'] && classes.known['artificer-ua'].level > 2) {
+							fields.Description += '; +' + Math.floor((classes.known['artificer-ua'].level - 1) / 2) + 'd6 thunder damage';
 						};
 					}, ""]
 			}
@@ -5276,8 +5287,8 @@ ClassSubList["artificer-gunsmith"] = {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.theWea.artTCblast && classes.known.artificer && classes.known.artificer.level >= 13) {
-							fields.Damage_Die = (classes.known.artificer.level < 17 ? 3 : 4) + 'd6';
+						if (v.theWea.artTCblast && classes.known['artificer-ua'] && classes.known['artificer-ua'].level >= 13) {
+							fields.Damage_Die = (classes.known['artificer-ua'].level < 17 ? 3 : 4) + 'd6';
 						};
 					}, ""]
 			}
@@ -5314,7 +5325,7 @@ ClassSubList["artificer-gunsmith"] = {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.theWea.artTCpiercing && classes.known.artificer && classes.known.artificer.level >= 19) {
+						if (v.theWea.artTCpiercing && classes.known['artificer-ua'] && classes.known['artificer-ua'].level >= 19) {
 							fields.Damage_Die = '6d6';
 						};
 					}, ""]
@@ -5349,34 +5360,8 @@ ClassSubList["artificer-gunsmith"] = {
 	}
 };
 
-// Create the choices for the wondrous items class feature of the artificer
-["Bag of Holding", "Cap of Water Breathing", "Driftglobe", "Goggles of Night", "Sending Stones", "Alchemy Jug (prereq: level 5 artificer)", "Helm of Comprehending Languages (prereq: level 5 artificer)", "Lantern of Revealing (prereq: level 5 artificer)", "Ring of Swimming (prereq: level 5 artificer)", "Robe of Useful Items (prereq: level 5 artificer)", "Rope of Climbing (prereq: level 5 artificer)", "Wand of Magic Detection (prereq: level 5 artificer)", "Wand of Secrets (prereq: level 5 artificer)", "Bag of Beans (prereq: level 10 artificer)", "Chime of Opening (prereq: level 10 artificer)", "Decanter of Endless Water (prereq: level 10 artificer)", "Eyes of Minute Seeing (prereq: level 10 artificer)", "Folding Boat (prereq: level 10 artificer)", "Heward's Handy Haversack (prereq: level 10 artificer)", "Boots of Striding and Springing (prereq: level 15 artificer)", "Bracers of Archery (prereq: level 15 artificer)", "Brooch of Shielding (prereq: level 15 artificer)", "Broom of Flying (prereq: level 15 artificer)", "Hat of Disguise (prereq: level 15 artificer)", "Slippers of Spider Climbing (prereq: level 15 artificer)", "Eyes of the Eagle (prereq: level 20 artificer)", "Gem of Brightness (prereq: level 20 artificer)", "Gloves of Missile Snaring (prereq: level 20 artificer)", "Gloves of Swimming and Climbing (prereq: level 20 artificer)", "Ring of Jumping (prereq: level 20 artificer)", "Ring of Mind Shielding (prereq: level 20 artificer)", "Wings of Flying (prereq: level 20 artificer)"].forEach(function (theI) {
-	var theItem = ParseMagicItem(theI)[0];
-	if (!theItem) return;
-	var aMI = MagicItemsList[theItem];
-	var minLevel = Number(theI.replace(/.*level (\d+) artificer.*/, "$1"));
-	var theObj = ClassList['artificer-ua'].features["wondrous invention"];
-	theObj[theI.toLowerCase()] = {
-		name : aMI.name,
-		description : "",
-		source : aMI.source,
-		eval : function (lvl, chc) {
-			var aMI = MagicItemsList[ParseMagicItem(chc[1])[0]];
-			AddMagicItem(aMI.name);
-		},
-		removeeval : function (lvl, chc) {
-			var theItem = ParseMagicItem(chc[0])[0];
-			var loc = CurrentMagicItems.known.indexOf(theItem);
-			if (!theItem || loc == -1) return;
-			MagicItemClear(loc + 1, true);
-		},
-		prereqeval : isNaN(minLevel) ? "" : "classes.known.artificer.level >= " + minLevel
-	};
-	theObj.extrachoices.push(theI);
-});
-
-// Set the Artificer class spell list
-var SetArtificerSpells = function(){
+// Set the Artificer class spell list and Create the choices for the wondrous items class feature of the artificer
+var SetArtificerAttr = function(){
 	var artSp = [
 		// level 1
 		"alarm",
@@ -5428,8 +5413,65 @@ var SetArtificerSpells = function(){
 		"stoneskin"
 	];
 	for (var a = 0; a < artSp.length; a++) {
-		var aArtSp = SpellsList[artSp[a]];
-		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer-ua") === -1) aArtSp.classes.push("artificer-ua");
+		var anArtSp = SpellsList[artSp[a]];
+		if(anArtSp && anArtSp.classes && anArtSp.classes.indexOf("artificer-ua") === -1) anArtSp.classes.push("artificer-ua");
+	};
+	var artMi = [
+		["bag of holding"],
+		["cap of water breathing"],
+		["driftglobe"],
+		["goggles of night"],
+		["sending stones"],
+		["alchemy jug", 5],
+		["helm of comprehending languages", 5],
+		["lantern of revealing", 5],
+		["ring of swimming", 5],
+		["robe of useful items", 5],
+		["rope of climbing", 5],
+		["wand of magic detection", 5],
+		["wand of secrets", 5],
+		["bag of beans", 10],
+		["chime of opening", 10],
+		["decanter of endless water", 10],
+		["eyes of minute seeing", 10],
+		["folding boat", 10],
+		["heward's handy haversack", 10],
+		["boots of striding and springing", 15],
+		["bracers of archery", 15],
+		["brooch of shielding", 15],
+		["broom of flying", 15],
+		["hat of disguise", 15],
+		["slippers of spider climbing", 15],
+		["eyes of the eagle", 20],
+		["gem of brightness", 20],
+		["gloves of missile snaring", 20],
+		["gloves of swimming and climbing", 20],
+		["ring of jumping", 20],
+		["ring of mind shielding", 20],
+		["wings of flying", 20]
+	];
+	var theObj = ClassList['artificer-ua'].features["wondrous invention"];
+	for (var a = 0; a < artMi.length; a++) {
+		var anArtMi = MagicItemsList[artMi[a][0]];
+		if (!anArtMi) continue;
+		var anArtPre = artMi[a][1] ? artMi[a][1] : false;
+		var theI = anArtMi.name + (anArtPre ? " (prereq: level " + anArtPre + " artificer)" : "");
+		var theILC = theI.toLowerCase();
+		theObj[theILC] = {
+			name : anArtMi.name,
+			description : "",
+			source : anArtMi.source,
+			eval : function (lvl, chc, aItem = anArtMi.name) {
+				AddMagicItem(aItem);
+			},
+			removeeval : function (lvl, chc, aItem = artMi[a][0]) {
+				var loc = CurrentMagicItems.known.indexOf(aItem);
+				if (!aItem || loc == -1) return;
+				MagicItemClear(loc + 1, true);
+			}
+		};
+		if (anArtPre) theObj[theILC].prereqeval = function (v, minLvl = anArtPre) { return classes.known['artificer-ua'].level >= minLvl; };
+		theObj.extrachoices.push(theI);
 	};
 }();
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
@@ -6553,13 +6595,15 @@ ClassList.mystic = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 8,
 	saves : ["Wis", "Int"],
-	skillstxt : ["Choose two from Arcana, History, Insight, Medicine, Nature, Perception, and Religion"],
-	armorProfs : [
-		[true, false, false, false]
-	],
-	weaponProfs : [
-		[true, false]
-	],
+	skillstxt : {
+		primary : "Choose two from Arcana, History, Insight, Medicine, Nature, Perception, and Religion"
+	},
+	armorProfs : {
+		primary : [true, false, false, false]
+	},
+	weaponProfs : {
+		primary : [true, false]
+	},
 	equipment : "Mystic starting equipment:\n \u2022 A spear -or- a mace;\n \u2022 Leather mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts -or- any simple weapon;\n \u2022 A scholar's pack -or- an explorer's pack.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Mystic Order", ["mystic-avatar", "mystic-awakened", "mystic-immortal", "mystic-nomad", "mystic-soul knife", "mystic-wu jen"]],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],

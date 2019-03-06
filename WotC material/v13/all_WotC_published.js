@@ -5260,7 +5260,7 @@ WeaponsList["pistol"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [1, 10, "piercing"],
 	range : "30/90 ft",
 	weight : 3,
@@ -5274,7 +5274,7 @@ WeaponsList["musket"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [1, 12, "piercing"],
 	range : "40/120 ft",
 	weight : 10,
@@ -5288,7 +5288,7 @@ WeaponsList["pistol automatic"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [2, 6, "piercing"],
 	range : "50/150 ft",
 	weight : 3,
@@ -5302,7 +5302,7 @@ WeaponsList["revolver"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [2, 8, "piercing"],
 	range : "40/120 ft",
 	weight : 3,
@@ -5316,7 +5316,7 @@ WeaponsList["rifle hunting"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [2, 10, "piercing"],
 	range : "80/240 ft",
 	weight : 8,
@@ -5330,7 +5330,7 @@ WeaponsList["rifle automatic"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [2, 8, "piercing"],
 	range : "80/240 ft",
 	weight : 8,
@@ -5344,7 +5344,7 @@ WeaponsList["shotgun"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [2, 8, "piercing"],
 	range : "30/90 ft",
 	weight : 7,
@@ -5358,7 +5358,7 @@ WeaponsList["laser pistol"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [3, 6, "radiant"],
 	range : "40/120 ft",
 	weight : 2,
@@ -5372,7 +5372,7 @@ WeaponsList["antimatter rifle"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [6, 8, "necrotic"],
 	range : "120/360 ft",
 	weight : 10,
@@ -5386,7 +5386,7 @@ WeaponsList["laser rifle"] = {
 	source : ["D", 268],
 	list : "firearm",
 	ability : 2,
-	type: "Martial",
+	type : "Martial",
 	damage : [3, 8, "radiant"],
 	range : "100/300 ft",
 	weight : 7,
@@ -5436,6 +5436,86 @@ MagicItemsList["alchemy jug"] = {
 	descriptionLong : "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
 	descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max\tLiquid\t\tMax\tLiquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine"
 }
+MagicItemsList["cap of water breathing"] = {
+	name : "Cap of Water Breathing",
+	source : ["D", 157],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "While wearing this cap underwater, I can speak its command word as an action to create a bubble of air around your head. It allows me to breathe normally underwater. This bubble stays with me until I speak the command word again, the cap is removed, or I am no longer underwater.",
+	descriptionFull : "While wearing this cap underwater, you can speak its command word as an action to create a bubble of air around your head. It allows you to breathe normally underwater. This bubble stays with you until you speak the command word again, the cap is removed, or you are no longer underwater.",
+	action : [["action", ""]]
+}
+MagicItemsList["driftglobe"] = {
+	name : "Driftglobe",
+	source : ["D", 166],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : ["A", "B"],
+	description : "By speaking its command word while within 60 ft, this glass sphere casts Light or Daylight on itself. Daylight only works once per dawn. While lit up, I can use an action to speak another command word to make it hover 5 ft off the ground and follow me at a distance of 60 ft. It stops hovering when grasped.",
+	descriptionFull : "This small sphere of thick glass weighs 1 pound. If you are within 60 feet of it, you can speak its command word and cause it to emanate the Light or Daylight spell. Once used, the Daylight effect can't be used again until the next dawn.\n   You can speak another command word as an action to make the illuminated globe rise into the air and float no more than 5 feet off the ground. The globe hovers in this way until you or another creature grasps it. If you move more than 60 feet from the hovering globe, it follows you until it is within 60 feet of you. It takes the shortest route to do so. If prevented from moving, the globe sinks gently to the ground and becomes inactive, and its light winks out.",
+	weight : 1,
+	action : [["action", " (hover)"]],
+	usages : 1,
+	recovery : "dawn",
+	additional : "Daylight",
+	spellcastingBonus : [{
+		name : "On globe",
+		spells : ["light"],
+		selection : ["light"],
+		firstCol : "atwill"
+	}, {
+		name : "On globe",
+		spells : ["daylight"],
+		selection : ["daylight"],
+		firstCol : "oncelr"
+	}],
+	spellChanges : {
+		"light" : {
+			range : "Globe",
+			description : "Driftglobe sheds bright light in a 20-ft radius and dim light in an additional 20-ft radius",
+			changes : "The spell can only affect the globe."
+		},
+		"daylight" : {
+			range : "Globe",
+			description : "Driftglobe shed 60-ft rad bright light + 60-ft dim light; only magical darkness of SL above 3 works",
+			changes : "The spell can only affect the globe."
+		}
+	}
+}
+MagicItemsList["gloves of thievery"] = {
+	name : "Gloves of Thievery",
+	source : ["D", 172],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "These gloves are invisible while worn. While wearing them, I gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
+	descriptionFull : "These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
+	addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+}
+MagicItemsList["sending stones"] = {
+	name : "Sending Stones",
+	source : ["D", 199],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "While I touch one of this pair of stones, I can use an action to cast Sending, targeting the bearer of the other stone. If no creature has the other stone, the spell won't cast. Once it is cast, neither stone can be used again until the next dawn. Sending allows each bearer to communicate up to 25 words.",
+	descriptionFull : "Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
+	spellcastingBonus : {
+		name : "To other stone bearer only",
+		spells : ["sending"],
+		selection : ["sending"],
+		firstCol : "oncelr"
+	},
+	usages : 1, 
+	recovery : "dawn",
+	spellChanges : {
+		"sending" : {
+			description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
+			changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
+		}
+	}
+}
 MagicItemsList["sword of vengeance"] = {
 	name : "Sword of Vengeance",
 	nameTest : "of Vengeance",
@@ -5464,7 +5544,7 @@ MagicItemsList["sword of vengeance"] = {
 					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
 				}
 			},
-			'If I include the words "of Vengeance" in a the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
+			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
 		],
 		atkCalc : [
 			function (fields, v, output) {

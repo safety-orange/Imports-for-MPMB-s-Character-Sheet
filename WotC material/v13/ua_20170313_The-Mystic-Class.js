@@ -23,13 +23,15 @@ ClassList.mystic = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 8,
 	saves : ["Wis", "Int"],
-	skillstxt : ["Choose two from Arcana, History, Insight, Medicine, Nature, Perception, and Religion"],
-	armorProfs : [
-		[true, false, false, false]
-	],
-	weaponProfs : [
-		[true, false]
-	],
+	skillstxt : {
+		primary : "Choose two from Arcana, History, Insight, Medicine, Nature, Perception, and Religion"
+	},
+	armorProfs : {
+		primary : [true, false, false, false]
+	},
+	weaponProfs : {
+		primary : [true, false]
+	},
 	equipment : "Mystic starting equipment:\n \u2022 A spear -or- a mace;\n \u2022 Leather mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts -or- any simple weapon;\n \u2022 A scholar's pack -or- an explorer's pack.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Mystic Order", ["mystic-avatar", "mystic-awakened", "mystic-immortal", "mystic-nomad", "mystic-soul knife", "mystic-wu jen"]],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],

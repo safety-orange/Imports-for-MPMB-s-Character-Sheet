@@ -99,15 +99,18 @@ ClassList["spell-less ranger"] = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 10,
 	saves : ["Str", "Dex"],
-	skillstxt : ["Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
-	armorProfs : [
-		[true, true, false, true],
-		[true, true, false, true]
-	],
-	weaponProfs : [
-		[true, true],
-		[true, true]
-	],
+	skillstxt : {
+		primary : "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
+		secondary : "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"
+	},
+	armorProfs : {
+		primary : [true, true, false, true],
+		secondary : [true, true, false, true]
+	},
+	weaponProfs : {
+		primary : [true, true],
+		secondary : [true, true]
+	},
 	equipment : "Spell-less Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Ranger Archetype", []],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
