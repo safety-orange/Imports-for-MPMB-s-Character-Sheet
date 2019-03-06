@@ -1264,7 +1264,7 @@ ClassList["ua-playtest-ranger"] = {
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	saves : ["Dex", "Wis"],
 	skills : ["\n\n" + toUni("Ranger") + ": Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "\n\n" + toUni("Multiclass Ranger") + ": Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
-	toolProfs : { primay : ["Herbalism kit"] },
+	toolProfs : { primary : ["Herbalism kit"] },
 	armor : [
 		[true, false, false, true],
 		[true, false, false, true]
