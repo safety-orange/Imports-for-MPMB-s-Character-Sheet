@@ -629,25 +629,20 @@ var SetArtificerAttr = function(){
 	];
 	var theObj = ClassList['artificer-ua'].features["wondrous invention"];
 	for (var a = 0; a < artMi.length; a++) {
-		var anArtMi = MagicItemsList[artMi[a][0]];
+		var MI0 = artMi[a][0];
+		var MI1 = artMi[a][1];
+		var anArtMi = MagicItemsList[MI0];
 		if (!anArtMi) continue;
-		var anArtPre = artMi[a][1] ? artMi[a][1] : false;
-		var theI = anArtMi.name + (anArtPre ? " (prereq: level " + anArtPre + " artificer)" : "");
+		var theI = anArtMi.name + (MI1 ? " (prereq: level " + MI1 + " artificer)" : "");
 		var theILC = theI.toLowerCase();
 		theObj[theILC] = {
 			name : anArtMi.name,
 			description : "",
 			source : anArtMi.source,
-			eval : function (lvl, chc, aItem = anArtMi.name) {
-				AddMagicItem(aItem);
-			},
-			removeeval : function (lvl, chc, aItem = artMi[a][0]) {
-				var loc = CurrentMagicItems.known.indexOf(aItem);
-				if (!aItem || loc == -1) return;
-				MagicItemClear(loc + 1, true);
-			}
+			eval : 'AddMagicItem("' + anArtMi.name + '");',
+			removeeval : 'if (CurrentMagicItems.known.indexOf("' + MI0 + '") != -1) { MagicItemClear(CurrentMagicItems.known.indexOf("' + MI0 + '") + 1, true); };'
 		};
-		if (anArtPre) theObj[theILC].prereqeval = function (v, minLvl = anArtPre) { return classes.known['artificer-ua'].level >= minLvl; };
+		if (MI1) theObj[theILC].prereqeval = "classes.known['artificer-ua'].level >= " + MI1;
 		theObj.extrachoices.push(theI);
 	};
 }();

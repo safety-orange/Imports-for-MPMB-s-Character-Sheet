@@ -1042,7 +1042,6 @@ SpellsList["arcane hacking"] = {
 	name : "Arcane Hacking",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 5],
-	ritual : false,
 	level : 2,
 	school : "Trans",
 	time : "1 a",
@@ -1071,7 +1070,6 @@ SpellsList["conjure knowbot"] = {
 	name : "Conjure Knowbot",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 5],
-	ritual : false,
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -1085,7 +1083,6 @@ SpellsList["digital phantom"] = {
 	name : "Digital Phantom",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 6],
-	ritual : false,
 	level : 2,
 	school : "Abjur",
 	time : "1 a",
@@ -1100,7 +1097,6 @@ SpellsList["find vehicle"] = {
 	name : "Find Vehicle",
 	classes : ["paladin", "sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 6],
-	ritual : false,
 	level : 2,
 	school : "Conj",
 	time : "10 min",
@@ -1114,7 +1110,6 @@ SpellsList["haywire"] = {
 	name : "Haywire",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 3,
 	school : "Ench",
 	time : "1 a",
@@ -1129,7 +1124,6 @@ SpellsList["infallible relay"] = {
 	name : "Infallible Relay",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 1,
 	school : "Div",
 	time : "1 min",
@@ -1145,7 +1139,6 @@ SpellsList["invisibility to cameras"] = {
 	name : "Invisibility to Cameras",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 3,
 	school : "Illus",
 	time : "1 a",
@@ -1160,7 +1153,6 @@ SpellsList["on/off"] = {
 	name : "On/Off",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -1174,7 +1166,6 @@ SpellsList["protection from ballistics"] = {
 	name : "Protection from Ballistics",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 3,
 	school : "Abjur",
 	time : "1 a",
@@ -1189,7 +1180,6 @@ SpellsList["remote access"] = {
 	name : "Remote Access",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 1,
 	school : "Trans",
 	time : "1 a",
@@ -1203,7 +1193,6 @@ SpellsList["shutdown"] = {
 	name : "Shutdown",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 5,
 	school : "Trans",
 	time : "1 a",
@@ -1218,7 +1207,6 @@ SpellsList["synchronicity"] = {
 	name : "Synchronicity",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 4,
 	school : "Ench",
 	time : "1 a",
@@ -1232,7 +1220,6 @@ SpellsList["system backdoor"] = {
 	name : "System Backdoor",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 4,
 	school : "Trans",
 	time : "1 min",
@@ -1917,7 +1904,6 @@ SpellsList["conjure lesser demon"] = {
 	name : "Conjure Lesser Demon",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 2],
-	ritual : false,
 	level : 3,
 	school : "Conj",
 	time : "1 a",
@@ -1932,7 +1918,6 @@ SpellsList["conjure barlgura"] = {
 	name : "Conjure Barlgura",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 2],
-	ritual : false,
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -1946,7 +1931,6 @@ SpellsList["conjure hezrou"] = {
 	name : "Conjure Hezrou",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 2],
-	ritual : false,
 	level : 7,
 	school : "Conj",
 	time : "1 a",
@@ -1961,7 +1945,6 @@ SpellsList["conjure shadow demon"] = {
 	name : "Conjure Shadow Demon",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 3],
-	ritual : false,
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -1976,7 +1959,6 @@ SpellsList["conjure vrock"] = {
 	name : "Conjure Vrock",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 3],
-	ritual : false,
 	level : 5,
 	school : "Conj",
 	time : "1 a",
@@ -5452,25 +5434,20 @@ var SetArtificerAttr = function(){
 	];
 	var theObj = ClassList['artificer-ua'].features["wondrous invention"];
 	for (var a = 0; a < artMi.length; a++) {
-		var anArtMi = MagicItemsList[artMi[a][0]];
+		var MI0 = artMi[a][0];
+		var MI1 = artMi[a][1];
+		var anArtMi = MagicItemsList[MI0];
 		if (!anArtMi) continue;
-		var anArtPre = artMi[a][1] ? artMi[a][1] : false;
-		var theI = anArtMi.name + (anArtPre ? " (prereq: level " + anArtPre + " artificer)" : "");
+		var theI = anArtMi.name + (MI1 ? " (prereq: level " + MI1 + " artificer)" : "");
 		var theILC = theI.toLowerCase();
 		theObj[theILC] = {
 			name : anArtMi.name,
 			description : "",
 			source : anArtMi.source,
-			eval : function (lvl, chc, aItem = anArtMi.name) {
-				AddMagicItem(aItem);
-			},
-			removeeval : function (lvl, chc, aItem = artMi[a][0]) {
-				var loc = CurrentMagicItems.known.indexOf(aItem);
-				if (!aItem || loc == -1) return;
-				MagicItemClear(loc + 1, true);
-			}
+			eval : 'AddMagicItem("' + anArtMi.name + '");',
+			removeeval : 'if (CurrentMagicItems.known.indexOf("' + MI0 + '") != -1) { MagicItemClear(CurrentMagicItems.known.indexOf("' + MI0 + '") + 1, true); };'
 		};
-		if (anArtPre) theObj[theILC].prereqeval = function (v, minLvl = anArtPre) { return classes.known['artificer-ua'].level >= minLvl; };
+		if (MI1) theObj[theILC].prereqeval = "classes.known['artificer-ua'].level >= " + MI1;
 		theObj.extrachoices.push(theI);
 	};
 }();
@@ -10934,7 +10911,6 @@ SpellsList["cause fear-uass"] = {
 	name : "Cause Fear",
 	classes : ["warlock", "wizard"],
 	source : ["UA:SS", 2],
-	ritual : false,
 	level : 1,
 	school : "Necro",
 	time : "1 a",
@@ -10964,7 +10940,6 @@ SpellsList["chaos bolt-uass"] = {
 	name : "Chaos Bolt",
 	classes : ["sorcerer"],
 	source : ["UA:SS", 2],
-	ritual : false,
 	level : 1,
 	school : "Evoc",
 	time : "1 a",
@@ -10992,7 +10967,6 @@ SpellsList["hand of radiance-uass"] = {
 	name : "Hand of Radiance",
 	classes : ["cleric"],
 	source : ["UA:SS", 3],
-	ritual : false,
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -11008,7 +10982,6 @@ SpellsList["healing elixir-uass"] = {
 	name : "Healing Elixir",
 	classes : ["warlock", "wizard"],
 	source : ["UA:SS", 3],
-	ritual : false,
 	level : 1,
 	school : "Conj",
 	time : "1 min",
@@ -11023,7 +10996,6 @@ SpellsList["infestation-uass"] = {
 	name : "Infestation",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
 	source : ["UA:SS", 3],
-	ritual : false,
 	level : 0,
 	school : "Conj",
 	time : "1 a",
@@ -11040,7 +11012,6 @@ SpellsList["primal savagery-uass"] = {
 	name : "Primal Savagery",
 	classes : ["druid"],
 	source : ["UA:SS", 3],
-	ritual : false,
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -11055,7 +11026,6 @@ SpellsList["puppet-uass"] = {
 	name : "Puppet",
 	classes : ["bard", "warlock", "wizard"],
 	source : ["UA:SS", 3],
-	ritual : false,
 	level : 1,
 	school : "Ench",
 	time : "1 a",
@@ -11070,7 +11040,6 @@ SpellsList["sense emotion-uass"] = {
 	name : "Sense Emotion",
 	classes : ["bard", "warlock", "wizard"],
 	source : ["UA:SS", 4],
-	ritual : false,
 	level : 1,
 	school : "Div",
 	time : "1 a",
@@ -11084,7 +11053,6 @@ SpellsList["snare-uass"] = {
 	name : "Snare",
 	classes : ["druid", "ranger", "wizard"],
 	source : ["UA:SS", 4],
-	ritual : false,
 	level : 1,
 	school : "Abjur",
 	time : "1 min",
@@ -11100,7 +11068,6 @@ SpellsList["sudden awakening-uass"] = {
 	name : "Sudden Awakening",
 	classes : ["bard", "ranger", "sorcerer", "wizard"],
 	source : ["UA:SS", 4],
-	ritual : false,
 	level : 1,
 	school : "Ench",
 	time : "1 bns",
@@ -11114,7 +11081,6 @@ SpellsList["unearthly chorus-uass"] = {
 	name : "Unearthly Chorus",
 	classes : ["bard"],
 	source : ["UA:SS", 4],
-	ritual : false,
 	level : 1,
 	school : "Illus",
 	time : "1 a",
@@ -11129,7 +11095,6 @@ SpellsList["virtue-uass"] = {
 	name : "Virtue",
 	classes : ["cleric"],
 	source : ["UA:SS", 5],
-	ritual : false,
 	level : 0,
 	school : "Abjur",
 	time : "1 a",
@@ -11157,7 +11122,6 @@ SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/Jerem
 	name : "Zephyr Strike",
 	classes : ["ranger"],
 	source : ["UA:SS", 5],
-	ritual : false,
 	level : 1,
 	school : "Trans",
 	time : "1 bns",
@@ -11213,7 +11177,6 @@ if (!SourceList.X) {
 		name : "Toll the Dead",
 		classes : ["cleric", "warlock", "wizard"],
 		source : [["X", 169], ["UA:SS", 4]],
-		ritual : false,
 		level : 0,
 		school : "Necro",
 		time : "1 a",
