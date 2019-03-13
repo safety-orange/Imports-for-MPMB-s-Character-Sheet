@@ -368,6 +368,16 @@ RaceList["vedalken-ggtr"] = {
 			usages : 1,
 			recovery : "long rest"
 		}
+	},
+	eval : function () {
+		Checkbox('Int ST Adv', true, 'Advantage on Intelligence saving throws was gained from Vedalken');
+		Checkbox('Wis ST Adv', true, 'Advantage on Wisdom saving throws was gained from Vedalken');
+		Checkbox('Cha ST Adv', true, 'Advantage on Charisma saving throws was gained from Vedalken');
+	},
+	removeeval : function () {
+		Checkbox('Int ST Adv', false, '');
+		Checkbox('Wis ST Adv', false, '');
+		Checkbox('Cha ST Adv', false, '');
 	}
 };
 

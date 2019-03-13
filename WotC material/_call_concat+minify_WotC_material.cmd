@@ -1,1 +1,0 @@
-powershell.exe -noprofile -executionpolicy bypass -file .\_concat+minify_WotC_material.ps1

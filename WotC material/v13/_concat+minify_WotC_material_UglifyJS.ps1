@@ -1,5 +1,5 @@
 ﻿# A way to concate and minify all the JavaScript in this folder
-# Requires UglifyJS to be available through PATH (thus npm is also needed) & uglify-es (npm install uglify-es -g) 
+# Requires UglifyJS to be available through PATH (thus npm is also needed) & uglify-es (npm install uglify-es -g)
 $outArr = @("all_WotC_published", "all_WotC_unearthed_arcana")
 $matchArr = @("pub_*.js", "ua_*.js")
 for ($i=0; $i -lt $outArr.length; $i++) {

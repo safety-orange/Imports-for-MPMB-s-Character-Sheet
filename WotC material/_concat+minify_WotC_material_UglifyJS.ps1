@@ -1,7 +1,5 @@
 ﻿# A way to concate and minify all the JavaScript in this folder
-# Requires Java RE and Yui Compressor 2.4.8 (in the right directories)
-$java='C:\Java_port\bin\java.exe'
-$yui='C:\Java_port\lib\yuicompressor-2.4.8.jar'
+# Requires UglifyJS to be available through PATH (thus npm is also needed) & uglify-es (npm install uglify-es -g)
 $outArr = @("all_WotC_published", "all_WotC_unearthed_arcana")
 $matchArr = @("pub_*.js", "ua_*.js")
 for ($i=0; $i -lt $outArr.length; $i++) {
@@ -14,7 +12,7 @@ for ($i=0; $i -lt $outArr.length; $i++) {
 	for ($a=0; $a -lt $sorted.length; $a++) {
 		gc $sorted[$a] | ac “$out.temp.js“
 	}
-	& $java -jar $yui “$out.temp.js“ '-o' “$out.min.temp.js“
+	& UglifyJS “$out.temp.js“ -o “$out.min.temp.js“ --verbose
 
 	# now make the files with the correct iFileName
 	ni “$out.js“ -force -value “var iFileName = `"$out.js`";`n“
