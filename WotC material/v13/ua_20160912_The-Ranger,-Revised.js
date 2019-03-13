@@ -97,13 +97,8 @@ ClassList["rangerua"] = {
 				source : ["UA:RR", 3],
 				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
 			},
-			autoSelectExtrachoices : [{
-				extrachoice : "travel benefits"
-			}],
-			eval : function() {
-				Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)');
-			},
-			removeeval : function() { Checkbox('Init Adv', false, ''); }
+			autoSelectExtrachoices : [{ extrachoice : "travel benefits" }],
+			advantages : [["Initiative", true]]
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);

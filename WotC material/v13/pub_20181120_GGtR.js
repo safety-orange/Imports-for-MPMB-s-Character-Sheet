@@ -354,7 +354,8 @@ RaceList["vedalken-ggtr"] = {
 			usages : 1,
 			recovery : "long rest"
 		}
-	}
+	},
+	advantages : [["Int", true], ["Wis", true], ["Cha", true]]
 };
 
 // New Subclass for Cleric: Order Domain

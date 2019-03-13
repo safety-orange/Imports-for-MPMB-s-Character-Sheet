@@ -202,13 +202,13 @@ AddSubClass("cleric", "protection domain", {
 						var startDescr = spellObj.description;
 						switch (spellKey) {
 							case "life transference" :
-								spellObj.description = spellObj.description.replace("Necrotic", "Necro").replace(", and", ",") + "; I then regain 2+SL hp";
+								spellObj.description = spellObj.description.replace("Necrotic", "Necro").replace(", and", ",") + "; I then regain 2+SL HP";
 								break;
 							case "mass heal" :
-								spellObj.description = "Heal 700 hp, split over crea in range, each then +11 hp; also cures blind, deaf, diseases; I heal +11 hp";
+								spellObj.description = "Heal 700 HP, split over crea in range, each then +11 HP; also cures blind, deaf, diseases; I heal +11 HP";
 								break;
 							case "power word heal" :
-								spellObj.description = spellObj.description.replace(/heals all.*/i, "full hp; not charmed, frightened, paralyzed, stunned; can stand up as rea; if other, I heal 2+SL");
+								spellObj.description = spellObj.description.replace(/heals all.*/i, "full HP; not charmed, frightened, paralyzed, stunned; can stand up as rea; if other, I heal 2+SL");
 								break;
 							case "regenerate" :
 								spellObj.description = spellObj.description.replace(" for rest of duration", "");

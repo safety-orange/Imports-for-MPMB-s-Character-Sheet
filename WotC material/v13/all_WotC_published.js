@@ -13788,10 +13788,7 @@ AddSubClass("rogue", "scout-xgte", {
 				"The first creature I hit in the first round of combat becomes an easy target",
 				"Until the start of my next turn, all attacks against the target have advantage"
 			]),
-			eval : function() {
-				Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Scout (Ambush Master)');
-			},
-			removeeval : function() { Checkbox('Init Adv', false, ''); }
+			advantages : [["Initiative", true]]
 		},
 		"subclassfeature17" : {
 			name : "Sudden Strike",
@@ -19259,7 +19256,8 @@ RaceList["vedalken-ggtr"] = {
 			usages : 1,
 			recovery : "long rest"
 		}
-	}
+	},
+	advantages : [["Int", true], ["Wis", true], ["Cha", true]]
 };
 
 // New Subclass for Cleric: Order Domain

@@ -212,7 +212,8 @@ RaceList["vedalken"] = {
 	heightMetric : " stand between 1,8 and 2 metres tall",
 	weightMetric : " weigh around 100 kg",
 	scores : [0, 0, 0, 2, 1, 0],
-	trait : "Vedalken (+2 Intelligence, +1 Wisdom)\n   Vedalken Dispassion: I have advantage on all Intelligence, Wisdom, and Charisma saving throws.\n   Tireless Precision: I am proficient with any one tool and one skill of my choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. Whenever I make an ability check with the chose tool or skill, I can add 1d4 to the check's total."
+	trait : "Vedalken (+2 Intelligence, +1 Wisdom)\n   Vedalken Dispassion: I have advantage on all Intelligence, Wisdom, and Charisma saving throws.\n   Tireless Precision: I am proficient with any one tool and one skill of my choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. Whenever I make an ability check with the chosen tool or skill, I can add 1d4 to the check's total.",
+	advantages : [["Int", true], ["Wis", true], ["Cha", true]]
 };
 
 // Add Viashino

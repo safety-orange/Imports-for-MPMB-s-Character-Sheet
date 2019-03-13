@@ -59,11 +59,13 @@ ClassList['artificer-ua2'] = {
 			source : ["UA:A2", 2],
 			minlevel : 1,
 			description : desc([
-				"As an action, I use thieves' or any artisan's tools to give max 1 property in a tiny object:",
+				"As an action, I use thieves' or an artisan's tools to give max 1 property to a tiny object:",
 				" \u2022 Emit light (5-ft radius bright light, equal dim light), an odor, or a nonverbal sound",
 				" \u2022 Static visual effect on one of its surfaces; picture, 25 words, shapes, or a mix of those",
-				"Max my Int mod of objects, or oldest loses its magic; I can remove it also as an action"
-			])
+				"If I instill a property in more objects than I can have active, the oldest loses its property"
+			]),
+			additional : "Intelligence modifier of active objects",
+			action : [["action", " (add/remove)"]]
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
@@ -78,6 +80,25 @@ ClassList['artificer-ua2'] = {
 			additional : levels.map(function (n, idx) {
 				return [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4][idx] + " cantrips known";
 			}),
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic && spName == "artificer-ua2") {
+							spellObj.compMaterial = (spellObj.compMaterial ? spellObj.compMaterial + "; " : "") + "My artificer spellcasting focus: thieves' tools, artisan's tools I'm proficient with, " + (classes.known["artificer-ua2"].subclass.indexOf("artillerist") !== -1 ? "rod, staff, wand, " : "") + "or an item infused by me.";
+							if (!spellObj.components) {
+								spellObj.components = "M\u0192";
+							} else if (spellObj.components.indexOf("M") == -1) {
+								spellObj.components += ",M\u0192";
+							} else if ((/M([^\u0192\u2020]|$)/).test(spellObj.components)) {
+								spellObj.components = spellObj.components.replace("M", "M\u0192");
+							}
+							return true;
+						}
+					},
+					"My artificer spells always require me to use a spellcasting focus: thieves' tools, artisan's tools I'm proficient with, or an item infused by me."
+				]
+			},
+			extraname : "Artificer 2",
 			"infuse item" : {
 				name : "Infuse Item",
 				source : ["UA:A2", 5],
@@ -92,7 +113,6 @@ ClassList['artificer-ua2'] = {
 					return n < 2 ? "" : (n < 4 ? 3 : n < 7 ? 4 : n < 11 ? 5 : n < 15 ? 6 : n < 19 ? 7 : 8) + " infusions known; max " + (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + " infused items";
 				})
 			},
-			extraname : "Artificer 2",
 			autoSelectExtrachoices : [{
 				extrachoice : "infuse item",
 				minlevel : 2
@@ -271,12 +291,466 @@ ClassList['artificer-ua2'] = {
 			source : ["UA:A2", 6],
 			minlevel : 20,
 			description : " [+1 on all saves per attuned magic item (max 6)]",
-			// description : "\n   " + "I can attune to 6 magic items and gain +1 to all saves per magic item I am attuned to",
 			savetxt : {
 				text : ["+1 to all saves per attuned magic item"]
 			}
 		}
 	}
+};
+
+// Add the Alchemist specialism
+AddSubClass("artificer-ua2", "alchemist", {
+	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
+	subname : "Alchemist",
+	fullname : "Alchemist",
+	source : ["UA:A2", 6],
+	spellcastingExtra : ["purify food and drink", "ray of sickness", "melf's acid arrow", "web", "create food and water", "stinking cloud", "blight", "death ward", "cloudkill", "raise dead"],
+	features : {
+		"subclassfeature3" : {
+			name : "Tools of the Trade",
+			source : ["UA:A2", 6],
+			minlevel : 3,
+			description : desc([
+				"I gain proficiency with alchemist's supplies and the herbalism kit",
+				"I can craft magical potions for half the usual gold and in a quarter of the usual time"
+			]),
+			toolProfs : ["Alchemist's supplies", "Herbalism kit"],
+			eval : function () {
+				AddToInv("gear", "l", "Alchemist's supplies", "", 8);
+				AddToInv("gear", "l", "Herbalism kit", "", 3);
+			}
+		},
+		"subclassfeature3.1" : {
+			name : "Alchemical Homunculus",
+			source : ["UA:A2", 6],
+			minlevel : 3,
+			description : desc([
+				"When I end a long rest, I can use alchemist's supplies to create an alchemical homunculus",
+				"I determine its appearance; I can have only 1 at a time, making a new one kills the older",
+				"It obeys my commands, is friendly to my allies and I, and acts on my initiative, after me",
+				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
+				"It can only do acidic spittle, alchemical salve, or take the Dash, Disengage, or Help action",
+				"Its HP maximum is equal to five times my artificer level + my Intelligence modifier",
+				"If it dies, I can, as an action within the hour, spend a spell slot to restore it to its full HP"
+			]),
+			action : [["action", " (restore)"], ["bonus action", " (command)"]],
+			eval : function () {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				var prefix = false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (!What(AScompA[a] + 'Comp.Race')) {
+							prefix = AScompA[a];
+							break;
+						}
+					}
+				}
+				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+				Value(prefix + 'Comp.Race', "Alchemical Homunculus");
+				Value(prefix + 'Comp.Type', "Construct");
+				AddSkillProf("Perception", true, false, false, 2, prefix);
+			},
+			removeeval : function () {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (!AScompA) return;
+				for (var a = 1; a < AScompA.length; a++) {
+					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
+						DoTemplate("AScomp", "Remove", AScompA[a], true);
+					}
+				}
+			},
+			changeeval : function (lvlA) {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (!AScompA) return;
+				for (var a = 1; a < AScompA.length; a++) {
+					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
+						Value(AScompA[a] + "Comp.Use.HP.Max", Math.round(lvlA[1] * 5 + What("Int mod")));
+						Value(AScompA[a] + "Comp.Use.Proficiency Bonus", ProficiencyBonusList[classes.totallevel - 1]);
+					}
+				}
+			}
+		},
+		"subclassfeature6" : {
+			name : "Alchemical Mastery",
+			source : ["UA:A2", 7],
+			minlevel : 6,
+			description : desc([
+				"I can enhance the spell I cast when I use alchemist's supplies as my spellcasting focus",
+				"I then add my Int mod to one die roll for dealing acid or poison damage, or restoring HP"
+			]),
+			calcChanges : {
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.thisWeapon[3] && v.thisWeapon[4].indexOf("artificer-ua2") !== -1 && (/poison|acid/i).test(fields.Damage_Type)) {
+							output.extraDmg += Math.max(Number(What("Int Mod")), 1);
+						}
+					},
+					"Artificer spells that deal poison or acid damage which I cast while using alchemist's supplies as my spellcasting focus, have my Intelligence modifier (min 1) added to one damage die roll."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellObj.psionic || spName !== "artificer-ua2" || (/color spray|sleep/).test(spellKey)) return;
+						var startDescr = spellObj.description;
+						var toAdd = Math.max(Number(What("Int Mod")), 1);
+						switch (spellKey) {
+							case "cloudkill" :
+								spellObj.description = spellObj.description.replace("obscured, difficult terrain", "obsc., dif. ter.; 1\xD7 +" + toAdd + " dmg");
+								break;
+							case "hunger of hadar" :
+								spellObj.description = spellObj.description.replace(/all /i, '') + " (1\xD7 +" + toAdd + ")";
+								break;
+							case "healing spirit" :
+								spellObj.description += " (+" + toAdd + " once)";
+								break;
+							case "vitriolic sphere" :
+								spellObj.description = spellObj.description.replace('now and', 'now, ');
+							default :
+								if (genericSpellDmgEdit(spellKey, spellObj, "acid|poison", "Int", true, true)) return true;
+								var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
+								var theMatch = spellObj.description.match(testRegex);
+								if (!theMatch) return false;
+								if (theMatch[2]) {
+									var theMid = Number(theMatch[2]) + toAdd;
+									if (theMid > -1) theMid = "+" + theMid;
+								} else {
+									var theMid = "+" + toAdd;
+								}
+								spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
+						}
+						return startDescr !== spellObj.description;
+					},
+					"Artificer spells I cast using alchemist's supplies as my spellcasting focus, have my Intelligence modifier (min 1) added to one die rolled for healing, poison damage, or acid damage."
+				]
+			}
+		},
+		"subclassfeature6.1" : {
+			name : "Alchemical Mastery: Lesser Restoration",
+			source : ["UA:A2", 7],
+			minlevel : 6,
+			description : "\n   I can cast Lesser Restoration without a spell slot if I use alchemist's supplies as a focus",
+			usages : "Int mod per ",
+			recovery : "long rest",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			spellcastingBonus : {
+				name : "Alchemical Mastery",
+				spells : ["lesser restoration"],
+				selection : ["lesser restoration"],
+				firstCol : "Sp"
+			},
+			spellChanges : {
+				"lesser restoration" : {
+					components : "V,S,M\u0192",
+					compMaterial : "Alchemist's supplies",
+					changes : "When using my Alchemical Mastery class feature, I can cast Lesser Restoration a number of times per long rest equal to my Intelligence modifier. To do so, I have to use alchemist's supplies as my spellcasting focus"
+				}
+			}
+		},
+		"subclassfeature14" : {
+			name : "Chemical Savant",
+			source : ["UA:A2", 7],
+			minlevel : 14,
+			description : "I have resistance to acid and poison damage, and I'm immune to the poisoned condition",
+			dmgres : ["acid", "poison"],
+			savetxt : { immune : ["poisoned condition"] }
+		},
+		"subclassfeature14.1" : {
+			name : "Chemical Savant: Greater Restoration",
+			source : ["UA:A2", 7],
+			minlevel : 14,
+			description : desc([
+				"I can cast Greater Restoration without using a spell slot or needing material components ",
+				"To do so, I have to use alchemist's supplies as my spellcasting focus"
+			]),
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Chemical Savant",
+				spells : ["greater restoration"],
+				selection : ["greater restoration"],
+				firstCol : "oncelr"
+			},
+			spellChanges : {
+				"greater restoration" : {
+					components : "V,S,M\u0192",
+					compMaterial : "Alchemist's supplies",
+					description : "Reduce exhaustion 1 lvl or end charm, petrify, curse, one ability score reduction, or max HP reduction",
+					changes : "When using my Chemical Savant class feature and alchemist's supplies as my spellcasting focus, I can cast Greater Restoration once per long rest without using a spell slot or requiring material components."
+				}
+			}
+		}
+	}
+});
+// Add the Alchemist's Alchemical Homunculus
+CreatureList["alchemical homunculus-uaa2"] = {
+	name : "Alchemical Homunculus",
+	source : ["UA:A2", 6],
+	size : 5,
+	type : "Construct",
+	subtype : "",
+	alignment : "Neutral",
+	ac : 13,
+	hp : 5,
+	hd : [2, 4],
+	speed : "20 ft, fly 30 ft",
+	scores : [4, 15, 11, 10, 10, 7],
+	saves : ["", "", "", "", "", ""],
+	skills : {
+		"perception" : 4,
+		"stealth" : 4
+	},
+	damage_immunities : "acid, poison",
+	condition_immunities : "charmed, exhaustion, poisoned",
+	senses : "Darkvision 60 ft",
+	passivePerception : 10,
+	languages : "understands the languages of its creator but can't speak",
+	challengeRating : "0",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Acidic Spittle",
+		ability : 2,
+		damage : [1, 6, "acid"],
+		range : "30 ft"
+	}],
+	features : [{
+		name : "Creator",
+		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It taking its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
+	}, {
+		name : "Healing",
+		description : "The homunculus regains 2d6 HP whenever the Mending spell is cast on it."
+	}],
+	actions : [{
+		name : "Alchemical Salve (3/Day)",
+		description : "The homunculus produces a salve and touches one creature designated by its creator, granting it one of the following magical benefits chosen by its creator:" +
+		"\n  \u2022 Buoyancy: The target gains a flying speed of 10 ft for 10 minutes." +
+		"\n  \u2022 Inspiration: The target feels giddy and effective, gaining advantage on certain ability checks in the next hour. The target chooses the checks before or after rolling. The magic runs out after the target has used it on a number of checks equal to the Intelligence modifier of the homunculus' creator (minimum of 1)." +
+		"\n  \u2022 Resilience: The target gains a number of temporary hit points equal to 2d6 + the Intelligence modifier of the homunculus' creator."
+	}]
+}
+
+// Add the Artillerist specialism
+AddSubClass("artificer-ua2", "artillerist", {
+	regExpSearch : /^(?=.*artillerist)(?!.*wizard).*$/i,
+	subname : "Artillerist",
+	fullname : "Artillerist",
+	source : ["UA:A2", 7],
+	spellcastingExtra : ["shield", "thunderwave", "scorching ray", "shatter", "fireball", "wind wall", "ice storm", "wall of fire", "cone of cold", "wall of force"],
+	features : {
+		"subclassfeature3" : {
+			name : "Tools of the Trade",
+			source : ["UA:A2", 7],
+			minlevel : 3,
+			description : desc([
+				"I can use rods, wands, and staffs as a spellcasting focus",
+				"I can craft magical wands for half the usual gold and in a quarter of the usual time"
+			]),
+			additional : "proficiency with smith's \u0026 woodcarver's tools",
+			toolProfs : ["Smith's tools", "Woodcarver's tools"],
+			eval : function () {
+				AddToInv("gear", "l", "Smith's tools", "", 8);
+				AddToInv("gear", "l", "Woodcarver's tools", "", 5);
+				AddToInv("gear", "r", "Wooden wand", "", 1);
+			}
+		},
+		"subclassfeature3.1" : {
+			name : "Arcane Turret",
+			source : ["UA:A2", 7],
+			minlevel : 3,
+			description: desc([
+				"As an action, I can use smith's tools to summon a Medium turret within 5 ft of me",
+				"I can do so a number of times per long rest for free, or by spending a spell slot",
+				"If I create more turrets than I can have active, the oldest one disappears",
+				"When I summon one, I decide what type it is: flamethrower, force ballista, or defender",
+				"It disappears after 10 minutes, when reduced to 0 HP, or if I dismiss it as an action",
+				"When within 60 ft of it, I can activate it as a bonus action, or detonate it as an action",
+				"See the companion page for how the different types of turrets operate"
+			]),
+			usages : levels.map(function(n) {
+				return n < 3 ? "" : n < 14 ? 1 : 2;
+			}),
+			recovery: "long rest",
+			additional : levels.map(function(n) {
+				return n < 3 ? "" : n < 14 ? "max 1 active turret"  : "max 2 active turrets";
+			}),
+			action: [["action", " (summon/detonate)"], ["bonus action", " (command)"]],
+			eval : function () {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				var prefix = false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (!What(AScompA[a] + 'Comp.Race')) {
+							prefix = AScompA[a];
+							break;
+						}
+					}
+				}
+				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+				Value(prefix + 'Comp.Race', "Arcane Turret");
+				Value(prefix + 'Comp.Type', "Construct");
+			},
+			removeeval : function () {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (!AScompA) return;
+				for (var a = 1; a < AScompA.length; a++) {
+					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("arcane turret") !== -1) {
+						DoTemplate("AScomp", "Remove", AScompA[a], true);
+					}
+				}
+			},
+			changeeval : function (lvlA) {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (!AScompA) return;
+				for (var a = 1; a < AScompA.length; a++) {
+					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("arcane turret") !== -1) {
+						Value(AScompA[a] + "Comp.Use.HP.Max", lvlA[1] * 5);
+					}
+				}
+			}
+		},
+		"subclassfeature6" : {
+			name : "Wand Prototype",
+			source : ["UA:A2", 8],
+			minlevel : 6,
+			description: desc([
+				"When I finish a long rest, I can use woodcarver's tools to turn a wand into a magic item",
+				"I can only infuse a nonmagical wooden wand and it lasts until I finish my next long rest",
+				"I infuse it with an artificer cantrip, even one I don't know, with a 1 action casting time",
+				"As an action, I can use the wand to cast the cantrip, using my spellcasting ability",
+				"I also add my Intelligence modifier (min 1) to any damage rolls for that cantrip"
+			]),
+			additional : levels.map(function(n) {
+				return n < 6 ? "" : "infuse wand with " + (n < 14 ? "1 cantrip" : "2 cantrips");
+			}),
+			spellcastingBonus : {
+				name : "Wand Prototype",
+				"class" : "artificer-ua2",
+				notspells : ["magic stone", "mending", "shillelagh"], // all cantrips with a casting time that is not 1 action
+				level : [0, 0],
+				times : levels.map(function(n) {
+					return n < 14 ? 1 : 2;
+				}),
+				firstCol : "W"
+			},
+			calcChanges : {
+				atkCalc : [
+					function (fields, v, output) {
+						if (!v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1) return;
+						var artSp = CurrentSpells["artificer-ua2"];
+						if (!artSp || !artSp.selectBo || !v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1 || artSp.selectCa.indexOf(v.thisWeapon[3]) !== -1) return;
+						var artBoSp = [artSp.selectBo[0], classes.known["artificer-ua2"].level < 14 ? "" : artSp.selectBo[1]];
+						if (artBoSp.indexOf(v.thisWeapon[3]) !== -1) {
+							output.die = output.die.replace(/C/g, 1).replace(/B/g, 0).replace(/0.?d\d+/g, 0);
+							output.extraDmg += Math.max(Number(What("Int Mod")), 1);
+						}
+					},
+					"Cantrips cast through a wand infused by my Wand Prototype class feature get my Intelligence modifier added to their damage (minimum of +1) and are cast as if coming from a magic item (thus don't require any components nor scale with level)."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName, isDuplicate) {
+						if (spName != "artificer-ua2" || isDuplicate || !CurrentSpells["artificer-ua2"]) return;
+						var artBoSp = CurrentSpells["artificer-ua2"].selectBo;
+						if (!artBoSp || !artBoSp.length || (spellKey != artBoSp[0] && (classes.known["artificer-ua2"].level < 14 || spellKey != artBoSp[1]))) return;
+						spellObj.components = "";
+						spellObj.compMaterial = "Spells cast by magic items don't require any components.";
+						var aSpell = SpellsList[spellKey];
+						if (aSpell.descriptionCantripDie) {
+							var cDie = 1;
+							var newCantripDieDescr = aSpell.descriptionCantripDie;
+							while ((/`CD(-|\+|\*)?\d*`/).test(newCantripDieDescr)) {
+								if ((/`CD(-|\+)\d+`/).test(newCantripDieDescr)) {
+									var cDie = cDie + Number(newCantripDieDescr.replace(/.*`CD((-|\+)\d+)`.*/, "$1"));
+								} else if ((/`CD\*\d+`/).test(newCantripDieDescr)) {
+									var cDie = cDie * Number(newCantripDieDescr.replace(/.*`CD\*(\d+)`.*/, "$1"));
+								}
+								newCantripDieDescr = newCantripDieDescr.replace(/`CD(-|\+|\*)?\d*`/, cDie);
+							}
+							spellObj.description = newCantripDieDescr.replace(/\b0d\d+()/g, "$1").replace(/\b0d\d+/g, "0");
+						}
+						genericSpellDmgEdit(spellKey, spellObj, "[\\w\\.]+", Math.max(Number(What("Int Mod")), 1), false, true)
+						return true;
+					},
+					"Cantrips cast through a wand infused by my Wand Prototype class feature get my Intelligence modifier added to their damage (minimum of +1) and are cast as if coming from a magic item (thus don't require any components nor scale with level)."
+				]
+			}
+		},
+		"subclassfeature14" : {
+			name : "Fortified Position",
+			source : ["UA:A2", 8],
+			minlevel : 14,
+			description: "\n   My allies and I have half cover while within 10 ft of an arcane turret I created"
+		}
+	}
+});
+// Add the Artillerist's Arcane Turret
+CreatureList["arcane turret"] = {
+	name : "Arcane Turret",
+	source : ["UA:A2", 7],
+	size : 3,
+	type : "Construct",
+	subtype : "",
+	alignment : "Neutral",
+	ac : 18,
+	hp : 15,
+	hd : [0, 0],
+	speed : "15 ft, climb 15 ft",
+	scores : [10, 10, 10, 10, 10, 10], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	damage_immunities : "poison, psychic",
+	condition_immunities : "all conditions",
+	passivePerception : 10,
+	senses : "",
+	languages : "",
+	challengeRating : "1",
+	proficiencyBonus : 0,
+	attacksAction : 0,
+	attacks : [{
+		name : "Flamethrower",
+		ability : 4,
+		damage : [1, 8, "fire"],
+		range : "15-ft cone",
+		description : "Dex save, success - half damage; Unattended flammable objects ignite",
+		modifiers : ["dc+oProf+oInt", "", false],
+		tooltip : "The turret exhales fire in an adjacent 15-foot cone that the creator designate. Each creature in that area must make a Dexterity saving throw against the creator's spell save DC, taking 1d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
+	}, {
+		name : "Force Ballista",
+		ability : 4,
+		damage : [2, 8, "force"],
+		range : "120 ft",
+		description : "Creatures hit are pushed 5 ft away",
+		modifiers : ["oProf+oInt", "", false],
+		tooltip : "Make a range spell attack, originating from the turret, at one creature or object within 120 feet of it. On a hit, the target takes 2d8 force damage, and if the target is a creature, it is pushed up to 5 feet away from the turret."
+	}, {
+		name : "Detonate",
+		ability : 4,
+		damage : [3, 6, "force"],
+		range : "10-ft radius",
+		description : "Dex save, success - half damage; Destroys turret",
+		modifiers : ["dc+oProf+oInt", "", false],
+		tooltip : "Detonate destroys the turret and forces each creature within 10 feet of it to make a Dexterity saving throw against your spell save DC, taking 3d6 force damage on a failed save or half as much damage on a successful one."
+	}],
+	features : [{
+		name : "Healing",
+		description : "The turret regains 2d6 HP whenever Mending is cast on it."
+	}, {
+		name : "Turret Type",
+		description : "Upon creation, the creator decides what type of turret it is: Flamethrower, Force Ballista, or Defender. What feature/attack it can use depends on its type."
+	}, {
+		name : "Defender",
+		description : "The turret emits a burst of positive energy that grants itself and each creature of the creator's choice within 10 feet of it a number of temporary hit points equal to 1d8 + the creator's Intelligence modifier (minimum of +1)."
+	}],
+	traits : [{
+		name: "Creator",
+		description: "The turret only does something when activated by its creator. It uses the spell attack and spell save DC of its creator, and has five times the creator's artificer level in HP."
+	}, {
+		name: "Activation",
+		description: "The creator of the turret can activate it as a bonus action while within 60 ft of it. Once activated, the turret does as its creator wishes, move to an unoccupied space and use the action associated with its type:" +
+		"\n  \u2022 Flamethrower: use the flamethrower attack." +
+		"\n  \u2022 Force Ballista: use the force ballista attack." +
+		"\n  \u2022 Defender: use the defender feature, see the features to the left."
+	}, {
+		name: "Detonate",
+		description: "The creator of the turret can use an action to detonate the turret when within 60 ft of it, see the attack section."
+	}]
 };
 
 // Add the new spell
@@ -373,220 +847,6 @@ MagicItemsList["returning weapon"] = {
 		]
 	}
 }
-
-// Add the Alchemist specialism
-AddSubClass("artificer-ua2", "alchemist", {
-	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
-	subname : "Alchemist",
-	fullname : "Alchemist",
-	source : ["UA:A2", 6],
-	spellcastingExtra : ["purify food and drink", "ray of sickness", "melf's acid arrow", "web", "create food and water", "stinking cloud", "blight", "death ward", "cloudkill", "raise dead"],
-	features : {
-		"subclassfeature3" : {
-			name : "Tools of the Trade",
-			source : ["UA:A2", 6],
-			minlevel : 3,
-			description : desc([
-				"I gain proficiency with alchemist's supplies and the herbalism kit",
-				"I can craft magical potions for half the usual gold and in a quarter of the usual time"
-			]),
-			toolProfs : ["Alchemist's supplies", "Herbalism kit"],
-			eval : function () {
-				AddToInv("gear", "l", "Alchemist's supplies", "", 8);
-				AddToInv("gear", "l", "Herbalism kit", "", 3);
-			}
-		},
-		"subclassfeature3.1" : {
-			name : "Alchemical Homunculus",
-			source : ["UA:A2", 6],
-			minlevel : 3,
-			description : desc([
-				"When I end a long rest, I can use alchemist's supplies to create an alchemical homunculus",
-				"I determine its appearance; I can have only 1 at a time, making a new one kills the older",
-				"It obeys my commands, is friendly to my allies and I, and acts on my initiative, after me",
-				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
-				"It can only do acidic spittle, alchemical salve, or take the Dash, Disengage, or Help action",
-				"Its HP maximum is equal to five times my artificer level + my Intelligence modifier",
-				"If it dies, I can, as an action within the hour, spend a spell slot to restore it to its full HP"
-			]),
-			action : [["action", " (restore)"], ["bonus action", " (command)"]],
-			eval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
-				}	
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', "Alchemical Homunculus");
-				Value(prefix + 'Comp.Type', "Construct");
-				AddSkillProf("Perception", true, false, false, 2, prefix);
-			},
-			removeeval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
-						Value(AScompA[a] + "Comp.Race", "");
-					}
-				}
-			},
-			changeeval : function (lvlA) {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
-						Value(AScompA[a] + "Comp.Use.HP.Max", Math.round(lvlA[1] * 5 + What("Int mod")));
-						Value(AScompA[a] + "Comp.Use.Proficiency Bonus", ProficiencyBonusList[classes.totallevel - 1]);
-					}
-				}
-			}
-		},
-		"subclassfeature6" : {
-			name : "Alchemical Mastery",
-			source : ["UA:A2", 7],
-			minlevel : 3,
-			description : desc([
-				"I can enhance the spell I cast when I use alchemist's supplies as my spellcasting focus",
-				"I then add my Int mod to one die roll for dealing acid or poison damage, or restoring HP"
-			])
-// Add spellCalc here or not?
-		},
-		"subclassfeature6.1" : {
-			name : "Alchemical Mastery: Lesser Restoration",
-			source : ["UA:A2", 7],
-			minlevel : 3,
-			description : "\n   I can cast Lesser Restoration without a spell slot if I use alchemist's supplies as a focus",
-			usages : "Int mod per ",
-			recovery : "long rest",
-			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
-			spellcastingBonus : {
-				name : "Alchemical Mastery",
-				spells : ["lesser restoration"],
-				selection : ["lesser restoration"],
-				firstCol : "Sp"
-			},
-			spellChanges : {
-				"lesser restoration" : {
-					components : "V,S,M\u0192",
-					compMaterial : "Alchemist's supplies",
-					changes : "When using my Alchemical Mastery class feature, I can cast Lesser Restoration a number of times per long rest equal to my Intelligence modifier. To do so, I have to use alchemist's supplies as my spellcasting focus"
-				}
-			}
-		},
-		"subclassfeature14" : {
-			name : "Chemical Savant",
-			source : ["UA:A2", 7],
-			minlevel : 3,
-			description : "I have resistance to acid and poison damage, and I'm immune to the poisoned condition",
-			dmgres : ["acid", "poison"],
-			savetxt : { immune : ["poisoned condition"] }
-		},
-		"subclassfeature14" : {
-			name : "Chemical Savant: Greater Restoration",
-			source : ["UA:A2", 7],
-			minlevel : 3,
-			description : desc([
-				"I can cast Greater Restoration without using a spell slot or needing material components ",
-				"To do so, I have to use alchemist's supplies as my spellcasting focus"
-			]),
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : {
-				name : "Chemical Savant",
-				spells : ["greater restoration"],
-				selection : ["greater restoration"],
-				firstCol : "oncelr"
-			},
-			spellChanges : {
-				"greater restoration" : {
-					components : "V,S,M\u0192",
-					compMaterial : "Alchemist's supplies",
-					description : "Reduce exhaustion 1 lvl or end charm, petrify, curse, one ability score reduction, or max HP reduction",
-					changes : "When using my Chemical Savant class feature and alchemist's supplies as my spellcasting focus, I can cast Greater Restoration once per long rest without using a spell slot or requiring material components."
-				}
-			}
-		}
-	}
-});
-// Add the Alchemist's Alchemical Homunculus
-CreatureList["alchemical homunculus-uaa2"] = {
-	name : "Alchemical Homunculus",
-	source : ["UA:A2", 6],
-	size : 5,
-	type : "Construct",
-	subtype : "",
-	alignment : "Neutral",
-	ac : 13,
-	hp : 5,
-	hd : [2, 4],
-	speed : "20 ft, fly 30 ft",
-	scores : [4, 15, 11, 10, 10, 7],
-	saves : ["", "", "", "", "", ""],
-	skills : {
-		"perception" : 4,
-		"stealth" : 4
-	},
-	damage_immunities : "acid, poison",
-	condition_immunities : "charmed, exhaustion, poisoned",
-	senses : "Darkvision 60 ft",
-	passivePerception : 10,
-	languages : "understands the languages of its creator but can't speak",
-	challengeRating : "0",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Acidic Spittle",
-		ability : 2,
-		damage : [1, 6, "acid"],
-		range : "30 ft"
-	}],
-	features : [{
-		name : "Creator",
-		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It taking its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
-	}, {
-		name : "Healing",
-		description : "The homunculus regains 2d6 HP whenever the Mending spell is cast on it."
-	}],
-	actions : [{
-		name : "Alchemical Salve (3/Day)",
-		description : "The homunculus produces a salve and touches one creature designated by its creator, granting it one of the following magical benefits chosen by its creator:" +
-		"\n  \u2022 Buoyancy: The target gains a flying speed of 10 ft for 10 minutes." +
-		"\n  \u2022 Inspiration: The target feels giddy and effective, gaining advantage on certain ability checks in the next hour. The target chooses the checks before or after rolling. The magic runs out after the target has used it on a number of checks equal to the Intelligence modifier of the homunculus' creator (minimum of 1)." +
-		"\n  \u2022 Resilience: The target gains a number of temporary hit points equal to 2d6 + the Intelligence modifier of the homunculus' creator."
-	}]
-}
-
-// Add the Artillerist specialism
-AddSubClass("artificer-ua2", "artillerist", {
-	regExpSearch : /^(?=.*artillerist)(?!.*wizard).*$/i,
-	subname : "Artillerist",
-	fullname : "Artillerist",
-	source : ["UA:A2", 7],
-	spellcastingExtra : ["shield", "thunderwave", "scorching ray", "shatter", "fireball", "wind wall", "ice storm", "wall of fire", "cone of cold", "wall of force"],
-	features : {
-		"subclassfeature3" : {
-			name : "Tools of the Trade",
-			source : ["UA:A2", 7],
-			minlevel : 3,
-			description : desc([
-				"I gain proficiency with smith's tools and woodcarver's tools",
-				"I can use rods, wands, and staffs as a spellcasting focus",
-				"I can craft magical wands for half the usual gold and in a quarter of the usual time"
-			]),
-			toolProfs : ["Smith's tools", "Woodcarver's tools"],
-			eval : function () {
-				AddToInv("gear", "l", "Smith's tools", "", 8);
-				AddToInv("gear", "l", "Woodcarver's tools", "", 5);
-				AddToInv("gear", "r", "Wooden wand", "", 1);
-			}
-		},
-	}
-});
 
 // Set the Artificer class spell list
 var SetArtificerSpells = function(){
