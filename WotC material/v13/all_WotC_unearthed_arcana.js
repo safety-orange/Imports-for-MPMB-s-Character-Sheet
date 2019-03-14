@@ -16545,8 +16545,8 @@ AddSubClass("artificer-ua2", "artillerist", {
 						if (!v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1) return;
 						var artSp = CurrentSpells["artificer-ua2"];
 						if (!artSp || !artSp.selectBo || !v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1 || artSp.selectCa.indexOf(v.thisWeapon[3]) !== -1) return;
-						var artBoSp = [artSp.selectBo[0], classes.known["artificer-ua2"].level < 14 ? "" : artSp.selectBo[1]];
-						if (artBoSp.indexOf(v.thisWeapon[3]) !== -1) {
+						var artBoSp = CurrentSpells["artificer-ua2"].bonus.subclassfeature6.selection;
+						if (artBoSp && artBoSp.indexOf(v.thisWeapon[3]) !== -1) {
 							output.die = output.die.replace(/C/g, 1).replace(/B/g, 0).replace(/0.?d\d+/g, 0);
 							output.extraDmg += Math.max(Number(What("Int Mod")), 1);
 						}
@@ -16556,8 +16556,8 @@ AddSubClass("artificer-ua2", "artillerist", {
 				spellAdd : [
 					function (spellKey, spellObj, spName, isDuplicate) {
 						if (spName != "artificer-ua2" || isDuplicate || !CurrentSpells["artificer-ua2"]) return;
-						var artBoSp = CurrentSpells["artificer-ua2"].selectBo;
-						if (!artBoSp || !artBoSp.length || (spellKey != artBoSp[0] && (classes.known["artificer-ua2"].level < 14 || spellKey != artBoSp[1]))) return;
+						var artBoSp = CurrentSpells["artificer-ua2"].bonus.subclassfeature6.selection;
+						if (!artBoSp || artBoSp.indexOf(spellkey) == -1) return;
 						spellObj.components = "";
 						spellObj.compMaterial = "Spells cast by magic items don't require any components.";
 						var aSpell = SpellsList[spellKey];

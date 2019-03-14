@@ -9077,7 +9077,7 @@ SpellsList["green-flame blade"] = {
 	compMaterial : "A weapon",
 	duration : "Instantaneous",
 	description : "Melee wea atk with cast; atk +0d8 Fire dmg, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL5/11/17",
-	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
+	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD`d8+spellcasting ability modifier Fire dmg",
 	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier." + "\n   " + "This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["lightning lure"] = {
@@ -36777,8 +36777,8 @@ AddSubClass("artificer-ua2", "artillerist", {
 						if (!v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1) return;
 						var artSp = CurrentSpells["artificer-ua2"];
 						if (!artSp || !artSp.selectBo || !v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1 || artSp.selectCa.indexOf(v.thisWeapon[3]) !== -1) return;
-						var artBoSp = [artSp.selectBo[0], classes.known["artificer-ua2"].level < 14 ? "" : artSp.selectBo[1]];
-						if (artBoSp.indexOf(v.thisWeapon[3]) !== -1) {
+						var artBoSp = CurrentSpells["artificer-ua2"].bonus.subclassfeature6.selection;
+						if (artBoSp && artBoSp.indexOf(v.thisWeapon[3]) !== -1) {
 							output.die = output.die.replace(/C/g, 1).replace(/B/g, 0).replace(/0.?d\d+/g, 0);
 							output.extraDmg += Math.max(Number(What("Int Mod")), 1);
 						}
@@ -36788,8 +36788,8 @@ AddSubClass("artificer-ua2", "artillerist", {
 				spellAdd : [
 					function (spellKey, spellObj, spName, isDuplicate) {
 						if (spName != "artificer-ua2" || isDuplicate || !CurrentSpells["artificer-ua2"]) return;
-						var artBoSp = CurrentSpells["artificer-ua2"].selectBo;
-						if (!artBoSp || !artBoSp.length || (spellKey != artBoSp[0] && (classes.known["artificer-ua2"].level < 14 || spellKey != artBoSp[1]))) return;
+						var artBoSp = CurrentSpells["artificer-ua2"].bonus.subclassfeature6.selection;
+						if (!artBoSp || artBoSp.indexOf(spellkey) == -1) return;
 						spellObj.components = "";
 						spellObj.compMaterial = "Spells cast by magic items don't require any components.";
 						var aSpell = SpellsList[spellKey];
