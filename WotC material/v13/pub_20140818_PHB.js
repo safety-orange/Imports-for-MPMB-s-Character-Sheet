@@ -3544,17 +3544,11 @@ FeatsList["medium armor master"] = {
 	prereqeval : function(v) { return v.mediumArmorProf; },
 	eval : function () {
 		Value('Medium Armor Max Mod', 3);
-		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
-			Checkbox('AC Stealth Disadvantage', false);
-			ShowHideStealthDisadv();
-		}
+		ApplyArmor(What("AC Armor Description"));
 	},
 	removeeval : function () {
 		tDoc.resetForm(['Medium Armor Max Mod']);
-		if (CurrentArmour.known && ArmourList[CurrentArmour.known].type === 'medium') {
-			Checkbox('AC Stealth Disadvantage', ArmourList[CurrentArmour.known].stealthdis && !(/mithral/i).test(CurrentArmour.field));
-			ShowHideStealthDisadv();
-		}
+		ApplyArmor(What("AC Armor Description"));
 	}
 };
 FeatsList["mobile"] = {
