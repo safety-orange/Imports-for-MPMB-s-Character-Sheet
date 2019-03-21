@@ -566,6 +566,7 @@ MagicItemsList["holy symbol of ravenkind"] = {
 	type : "wondrous item",
 	rarity : "legendary",
 	storyItemAL : true,
+	prerequisite : "Requires attunement by a cleric or paladin of good alignment",
 	description : "",
 	descriptionFull : "The Holy Symbol of Ravenkind is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.\n   The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.\n   The holy symbol has 10 charges for the following properties. It regains 1d6+4 charges daily at dawn.\n   " + toUni("Hold Vampires") + ". As an Action, you can expend 1 charge and present the holy symbol to make it flare with holy power. Vampires and vampire spawn within 30 feet of the holy symbol when it flares must make a DC 15 Wisdom saving throw. On a failed save, a target is paralyzed for 1 minute. It can repeat the saving throw at the end of its turns to end the effect on itself.\n   " + toUni("Turn Undead") + ". If you have the Turn Undead or the Turn the Unholy feature, you can expend 3 charges when you present the holy symbol while using that feature. When you do so, undead have disadvantage on their saving throws against the effect.\n   " + toUni("Sunlight") + ". As an action, you can expend 5 charges while presenting the holy symbol to make it shed bright light in a 30-foot radius and dim light for an additional 30 feet. The light is sunlight and lasts for 10 minutes or until you end the effect (no action required).",
 	attunement : true
@@ -576,6 +577,7 @@ MagicItemsList["icon of ravenloft"] = {
 	type : "wondrous item",
 	rarity : "legendary",
 	storyItemAL : true,
+	prerequisite : "Requires attunement by a creature of good alignment",
 	description : "",
 	descriptionFull : "The Icon of Ravenloft is a 12-inch tall statuette made of the purest silver, weighing 10 pounds. It depicts a cleric kneeling in supplication.\n   The icon was given to Strahd by the archpriest Ciril Romulich, an old family friend, to consecrate the castle and its chapel.\n   While within 30 feet of the icon, a creature is under the effect of a Protection from Evil and Good spell against fiends and undead. Only a creature attuned to the icon can use its other properties.\n   " + toUni("Augury") + ". You can use an action to cast an Augury spell from the icon, with no material components required. Once used, this property can't be used again until the next dawn.\n   " + toUni("Bane of the Undead") + ". You can use the icon as a holy symbol while using the Turn Undead or Turn the Unholy feature. If you do so, increase the save DC by 2.\n   " + toUni("Cure Wounds") + ". While holding the icon, you can take an action to heal one creature that you can see within 30 feet of you. The target regains 3d8+3 hit points, unless it is an undead, a construct, or a fiend. Once used, this property can't be used again until the next dawn.",
 	attunement : true,
@@ -587,6 +589,7 @@ MagicItemsList["lost sword"] = {
 	type : "weapon (shortsword)",
 	rarity : "very rare",
 	magicItemTable : "G",
+	prerequisite : "Requires attunement by a creature of lawful good alignment",
 	description : "",
 	descriptionFull : "The Lost Sword is a sentient lawful good +1 shortsword (Intelligence 11, Wisdom 13, Charisma 13). It has hearing and normal vision out to a range of 120 feet. It communicates by transmitting emotion to the creature carrying or wielding it.\n   The sword's purpose is to fight evil. The sword has the following additional properties:\n \u2022 The sword continually sheds bright light in a 15-foot radius and dim light for an additional 15 feet. Only by destroying the sword can this light be extinguished.\n \u2022 A lawful good creature can attune itself to the sword in 1 minute.\n \u2022 While attuned to the weapon, the sword's wielder can use the sword to cast the Crusader's Mantle spell. Once used, this property of the sword can't be used again until the next dawn.",
 	attunement : true,

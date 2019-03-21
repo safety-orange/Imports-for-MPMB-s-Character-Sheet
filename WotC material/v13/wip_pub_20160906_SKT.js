@@ -207,6 +207,7 @@ MagicItemsList["gurt's greataxe"] = {
 	source : ["SKT", 234],
 	type : "weapon (greataxe)",
 	rarity : "legendary",
+	notLegalAL : true,
 	description : "",
 	descriptionFull : "In the Year of the Icy Axe (123 DR), the frost giant Lord Gurt fell to Uthgar Gardolfsson\u2014leader of the folk who would become the Uthgardt barbarians\u2014in a battle that marked the ascendance of humankind over the giants in the Dessarin Valley. Gurt's greataxe was buried in Morgur's Mound until it was unearthed and brought back to Waterdeep. After laying in the city's vaults for decades, the axe was given to Harshnag, a frost giant adventurer, in recognition of his service to Waterdeep. Uthgardt barbarians recognize the weapon on sight and attack any giant that wields it.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon. It is sized for a giant, weighs 325 pounds, and deals 3d12 slashing damage on a hit, plus an extra 2d12 slashing damage if the target is human.\n   The axe sheds light as a torch when the temperature around it drops below 0 degrees Fahrenheit. The light can't be shut off in these conditions.\n   As an action, you can cast a version of the Heat Metal spell (save DC 13) that deals cold damage instead of fire damage. Once this power is used, it can't be used again until the next dawn.",
 	attunement : true,
@@ -319,4 +320,35 @@ MagicItemsList["wyrmskull throne"] = {
 	notLegalAL : true,
 	description : "",
 	descriptionFull : "Built by dwarven gods and entrusted to the rulers of Shanatar, an ancient dwarven empire. The Wyrmskull Throne was a symbol of dwarven power and pride for ages untold. The throne hovers a foot off the ground and is a massive thing made of polished obsidian with oversized feet\u2014the impaled skulls of four ancient blue dragons. Runes glisten in the carved obsidian winking to life with blue energy when the throne's powers are activated.\n   After the fall of Shanatar, the Wyrmskull Throne fell into the clutches of less honorable creatures. A band of adventurers wrested the throne from the aquatic elf tyrant Gantar Kraok and sold it to the storm giant Neri for a considerable fortune. Neri had the throne magically enlarged and gave it to her husband, King Hekaton, as a gift, along with one of the Ruling Scepters of Shanatar, which she had found in a wreck at the bottom of the Trackless Sea. Only a creature attuned to a Ruling Scepter and in possession of it can harness the powers of the Wyrmskull Throne, which has become the centerpiece of King Hekaton's throne room in the undersea citadel of Maelstrom. Fear of the throne's power has helped prevent evil giants from challenging or threatening Hekaton's leadership.\n   Any creature not attuned to a Ruling Scepter who sits on the throne is paralyzed and encased in a magical force field. While encased, the creature can't be touched or moved from the throne. Touching a Ruling Scepter to the force field dispels the field, though the creature remains paralyzed until it is separated from the throne.\n   Any creature seated on the throne can hear faint Whispers in Draconic\u2014the whisperings of four blue dragons whose skulls adorn the throne. Although powerless, these spirits try to influence the decisions of the throne's master\n   " + toUni("Properties of the Throne") + ". The throne has 9 charges and regains all expended charges daily at dawn. A creature that sits on the throne while attuned to a Ruling Sceptor in its possession can harness the throne's properties, which are as follows:\n   The throne gains a flying speed of 30 feet and can hover and flies where the creature wills. This property doesn't expend any charges.\n   Both the throne and the creature sitting on it can move through earth and stone without disturbing the material they move through. This property doesn't expend any charges.\n   As an action, the creature can expend 1 charge to cast Lightning Bolt (spell save DC 19) from the throne. The spell is cast as though using a 9th-level spell slot and deals 49 (14d6) lightning damage. The bolt discharges from the mouth of one of the throne's blue dragon skulls.\n   As an action, the creature can expend 2 charges to cast the Globe of Invulnerability spell from the throne. The globe encloses both the creature and the throne.\n   As an action, the creature can expend 3 charges to create a spectral image of an ancient blue dragon that surrounds both it and the throne. The spectral dragon lasts for 1 minute. At the end of each of the creature's turns, the spectral dragon makes one bite attack and two claw attacks against targets of the creature's choice. These attacks have the same attack bonus, reach, and damage as an ancient blue dragon's bite and claw attacks.\n   " + toUni("Destroying the Throne") + ". The Wyrmskull Throne can be destroyed by breaking at least five Ruling Scepters of Shanatar simultaneously on it. This fact has never been recorded or sung of among the dwarves or any bards or storytellers, and it can't be discovered with an ability check. Characters who want to destroy the throne must go on a quest to learn the method for doing so. The throne's destruction triggers an explosion, as shards of obsidian fly out in all directions. Each creature and object within a 30-foot-radius sphere centered on the throne must succeed on a DC 21 Dexterity saving throw, taking 70 (20d6) slashing damage on a failed save, or half as much damage on a successful one."
+}
+MagicItemsList["ring of hardened magma"] = {
+	name : "Ring of Hardened Magma",
+	source : ["SKT", 105], // Raven Rock ancient relic
+	type : "ring",
+	rarity : "unknown",
+	storyItemAL : true,
+	description : "",
+	descriptionFull : "This ring is sized for a fire giant's finger. When a creature attunes to the ring, it magically shrinks to fit that creature's index finger, and warm orange light spills from minuscule cracks that form on its outer surface. The ring has 6 charges. While attuned to the ring, a creature can expend 1 charge to cast conjure minor elementals (summoning either four magma mephits or four magmins, as the wearer wishes) or fire shield (warm shield version only) from the ring. Once all of its charges are spent, the ring loses its spellcasting properties but retains its resizing property.",
+	attunement : true
+}
+MagicItemsList["red dragon's thighbone"] = {
+	name : "Red Dragon's Thighbone",
+	source : ["SKT", 105], // Raven Rock ancient relic
+	type : "weapon (greatclub)",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "",
+	descriptionFull : "This 14-ft long, 250 lb red dragon's thighbone can be used as a greatclub by a giant. If a creature attunes to the greatclub, it magically shrinks to a size that the creature can wield effectively. The greatclub is considered a magic weapon that deals an extra 2d8 bludgeoning damage whenever it hits a dragon (including any creature of the dragon type).",
+	attunement : true,
+	weight : 10
+}
+MagicItemsList["ancient relic boulder"] = {
+	name : "Ancient Relic Boulder",
+	source : ["SKT", 105], // One Stone ancient relic
+	type : "wondrous item",
+	rarity : "unknown",
+	storyItemAL : true,
+	description : "",
+	descriptionFull : "This boulder is a relic of giantkind that was shaped, carved, and abandoned long ago by a stone giant earth shaman. Any character who succeeds on a DC 15 Intelligence (Arcana) check can tell that the engraved lines adorning its outer surface are carefully designed to channel magical energy. A detect magic spell reveals an aura of transmutation magic emanating from it and casting identify spell on the boulder allows one to learn its magical properties, each of which is activated by tracing specific lines on its surface:\n \u2022 A creature can use an action to cast the control weather spell or the divination spell from the stone. Once either spell is cast, this property can't be used again for 7 days.\n \u2022 A creature can use an action to shrink the stone to the size of a 6-inch-diameter orb weighing 25 pounds, or enlarge the boulder to its normal size (15-foot diameter) and weight (12 tons). Anything the enlarged boulder falls on takes 55 (10d10) bludgeoning damage. A creature can avoid taking this damage by tumbling out of the way with a successful DC 15 Dexterity saving throw. Once the reducing or enlarging effect is used, this property can't be used again for 24 hours.",
+	weight : 25
 }
