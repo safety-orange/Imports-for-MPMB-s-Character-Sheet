@@ -518,7 +518,7 @@ MagicItemsList["driftglobe"] = {
 		},
 		"daylight" : {
 			range : "Globe",
-			description : "Driftglobe shed 60-ft rad bright light + 60-ft dim light; only magical darkness of SL above 3 works",
+			description : "Driftglobe shed 60-ft rad bright light + 60-ft dim light; only magical darkness of SL 4+ works in it",
 			changes : "The spell can only affect the globe."
 		}
 	}

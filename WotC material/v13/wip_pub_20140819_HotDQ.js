@@ -43,7 +43,6 @@ MagicItemsList["dragongleam"] = {
 	},
 	spellChanges : {
 		"daylight" : {
-			description : "60-ft rad bright light + 60-ft dim light on point or object; only magical darkness of SL > 3 works",
 			component : "V,M\u0192"
 		}
 	},
