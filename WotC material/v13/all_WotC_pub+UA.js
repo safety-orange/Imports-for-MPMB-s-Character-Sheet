@@ -5441,6 +5441,20 @@ MagicItemsList["cap of water breathing"] = {
 	descriptionFull : "While wearing this cap underwater, you can speak its command word as an action to create a bubble of air around your head. It allows you to breathe normally underwater. This bubble stays with you until you speak the command word again, the cap is removed, or you are no longer underwater.",
 	action : [["action", ""]]
 }
+MagicItemsList["cloak of invisibility"] = {
+	name : "Cloak of Invisibility",
+	source : ["D", 158],
+	type : "wondrous item",
+	rarity : "legendary",
+	magicItemTable : "I",
+	description : "As an action, I can pull the hood of this cloak down or up over my head, making myself invisible (down) or visible again (up). While invisible, anything I carry or wear is invisible as well. It functions for 2 hours, usable in increments of 1 minute. It regains 1 hour of duration for every 12 hours not being used.",
+	descriptionFull : "While wearing this cloak, you can pull its hood over your head to cause yourself to become invisible. While you are invisible, anything you are carrying or wearing is invisible with you. You become visible when you cease wearing the hood. Pulling the hood up or down requires an action.\n   Deduct the time you are invisible, in increments of 1 minute, from the cloak's maximum duration of 2 hours. After 2 hours of use, the cloak ceases to function. For every uninterrupted period of 12 hours the cloak goes unused, it regains 1 hour of duration.",
+	attunement : true,
+	action : [["action", " (hood up/down)"]],
+	usages : "120 min",
+	recovery : "Special",
+	additional : "regain 1h/12h"
+}
 MagicItemsList["driftglobe"] = {
 	name : "Driftglobe",
 	source : ["D", 166],
@@ -5473,10 +5487,102 @@ MagicItemsList["driftglobe"] = {
 		},
 		"daylight" : {
 			range : "Globe",
-			description : "Driftglobe shed 60-ft rad bright light + 60-ft dim light; only magical darkness of SL above 3 works",
+			description : "Driftglobe shed 60-ft rad bright light + 60-ft dim light; only magical darkness of SL 4+ works in it",
 			changes : "The spell can only affect the globe."
 		}
 	}
+}
+MagicItemsList["efreeti chain"] = {
+	name : "Efreeti Chain",
+	source : ["D", 167],
+	type : "armor (chain mail)",
+	rarity : "legendary",
+	magicItemTable : "I",
+	description : "While wearing this armor, I gain a +3 bonus to AC, I am immune to fire damage, and I can understand and speak Primordial. In addition, I can stand on and walk across molten rock as if it were solid ground.",
+	descriptionFull : "While wearing this armor, you gain a +3 bonus to AC, you are immune to fire damage, and you can understand and speak Primordial. In addition, you can stand on and walk across molten rock as if it were solid ground.",
+	attunement : true,
+	weight : 55,
+	languageProfs : ["Primordial"],
+	savetxt : { immune : ["fire"] },
+	armorAdd : "Efreeti Chain",
+	armorOptions : [{
+		regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
+		name : "Efreeti Chain",
+		source: ["D", 167],
+		type : "heavy",
+		ac : 19,
+		stealthdis : true,
+		weight : 55,
+		strReq : 13
+	}]
+}
+MagicItemsList["elixir of health"] = {
+	name : "Elixir of Health",
+	source : ["D", 168],
+	type : "potion",
+	rarity : "rare",
+	magicItemTable : "C",
+	description : "Once as an action, I can drink this potion or administer it to another to cure any disease, and removing the blinded, deafened, paralyzed, and poisoned conditions. The potion's clear red liquid has tiny bubbles of light in it.",
+	descriptionFull : "When you drink this potion, it cures any disease afflicting you, and it removes the blinded, deafened, paralyzed, and poisoned conditions. The clear red liquid has tiny bubbles of light in it.",
+	weight : 0.5
+}
+MagicItemsList["mariner's armor"] = {
+	name : "Mariner's Armor",
+	name : "Mariner's",
+	source : ["D", 188],
+	type : "armor (light, medium, or heavy)",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "While wearing this armor, I have a swimming speed equal to my walking speed. In addition, whenever I start my turn underwater with 0 hit points, the armor causes me to rise 60 ft toward the surface. The armor is decorated with fish and shell motifs.",
+	descriptionFull : "While wearing this armor, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs.",
+	allowDuplicates : true,
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["prefix", "armor"]
+	},
+	speed : { swim : { spd : "walk", enc : "walk" } }
+}
+MagicItemsList["potion of fire breath"] = {
+	name : "Potion of Fire Breath",
+	source : ["D", 187],
+	type : "potion",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "Once as an action, I can drink this potion or administer it to another to, for 1 hour, use a bonus action to do 4d6 fire damage at a target within 30 ft, Dex save DC 13 halves. This can be done 3 times. This potion's orange liquid flickers, and smoke fills the top of the container and wafts out whenever it is opened.",
+	descriptionFull : "After drinking this potion, you can use a bonus action to exhale fire at a target within 30 feet of you. The target must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one. The effect ends after you exhale the fire three times or when 1 hour has passed. This potion's orange liquid flickers, and smoke fills the top of the container and wafts out whenever it is opened.",
+	weight : 0.5
+}
+MagicItemsList["potion of invulnerability"] = {
+	name : "Potion of Invulnerability",
+	source : ["D", 188],
+	type : "potion",
+	rarity : "rare",
+	magicItemTable : "C",
+	description : "Once as an action, I can drink this potion or administer it to another to have resistance to all damage for 1 minute. The potion's syrupy liquid looks like liquefied iron.",
+	descriptionFull : "For 1 minute after you drink this potion, you have resistance to all damage. The potion's syrupy liquid looks like liquefied iron.",
+	weight : 0.5
+}
+MagicItemsList["potion of longevity"] = {
+	name : "Potion of Longevity",
+	source : ["D", 188],
+	type : "potion",
+	rarity : "very rare",
+	magicItemTable : "D",
+	description : "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age is by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years.",
+	descriptionLong : "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age is by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
+	descriptionFull : "When you drink this potion, your physical age is reduced by 1d6+6 years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
+	weight : 0.5
+}
+MagicItemsList["potion of vitality"] = {
+	name : "Potion of Vitality",
+	source : ["D", 188],
+	type : "potion",
+	rarity : "very rare",
+	magicItemTable : "D",
+	description : "Once as an action, I can drink this potion or administer it to another to remove any exhaustion, disease, and poison affecting the consumer. For the next 24 hours, the consumer regains the maximum number of HP for any HD used. The potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.",
+	descriptionFull : "When you drink this potion, it removes any exhaustion you are suffering and cures any disease or poison affecting you. For the next 24 hours, you regain the maximum number of hit points for any Hit Die you spend. The potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.",
+	weight : 0.5
 }
 MagicItemsList["gloves of thievery"] = {
 	name : "Gloves of Thievery",
@@ -21931,8 +22037,8 @@ AddSubClass("sorcerer", "shadow sorcerer", {
 			},
 			spellChanges : {
 				"darkness" : {
-					description : "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL>2",
-					changes : "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness wihtout issue."
+					description : "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL 3+",
+					changes : "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness without issue."
 				}
 			}
 		},

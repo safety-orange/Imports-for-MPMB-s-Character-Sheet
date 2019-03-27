@@ -4038,7 +4038,7 @@ SpellsList["mind spike"] = { // +1d8 at higher levels errata (https://twitter.co
 	range : "60 ft",
 	components : "S",
 	duration : "Conc, 1 h",
-	save: "Wis",
+	save : "Wis",
 	description : "1 crea 3d8+1d8/SL Psychic dmg, know its location, can't be invis for me; save half, no other benefits",
 	descriptionFull : "You reach into the mind of one creature you can see within range. The target must make a Wisdom saving throw, taking 3d8 psychic damage on a failed save, or half as much damage on a successful one. On a failed save, you also always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it's invisible, it gains no benefit from that condition against you." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
 };
@@ -4334,7 +4334,7 @@ SpellsList["wall of light"] = {
 	components : "V,S,M",
 	compMaterial : "A hand mirror",
 	duration : "Conc, 10 min",
-	save: "Con",
+	save : "Con",
 	description : "60\u00D75\u00D710ft (l\u00D7w\u00D7h) 4d8+1d8/SL Radiant dmg & blind; save half, not blind; 1 a rngd spell atk; see B",
 	descriptionMetric : "18\u00D71,5\u00D73m (l\u00D7w\u00D7h) 4d8+1d8/SL Radiant dmg & blind; save half, not blind; 1 a rngd spell atk; see B",
 	descriptionFull : "A shimmering wall of bright light appears at a point you choose within range. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet." + "\n   " + "When the wall appears, each creature in its area must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, it takes half as much damage and isn't blinded. A blinded creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success." + "\n   " + "A creature that ends its turn in the wall's area takes 4d8 radiant damage." + "\n   " + "Until the spell ends, you can use an action to launch a beam of radiance from the wall at one creature you can see within 60 feet of it. Make a ranged spell attack. On a hit, the target takes 4d8 radiant damage. Whether you hit or miss, reduce the length of the wall by 10 feet. If the wall's length drops to 0 feet, the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th."
@@ -4923,16 +4923,18 @@ MagicItemsList["tankard of sobriety"] = {
 	source : ["X", 139],
 	type : "wondrous item",
 	rarity : "common",
-	description : "",
-	descriptionFull : "This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison."
+	description : "This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison.",
+	descriptionFull : "This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison.",
+	weight : 1
 }
 MagicItemsList["unbreakable arrow"] = {
 	name : "Unbreakable Arrow",
 	source : ["X", 139],
-	type : "Ammunition",
+	type : "weapon (arrow)",
 	rarity : "common",
-	description : "",
-	descriptionFull : "This arrow can't be broken, except when it is within an Antimagic Field."
+	description : "This arrow can't be broken, except when it is within an Antimagic Field.",
+	descriptionFull : "This arrow can't be broken, except when it is within an Antimagic Field.",
+	weight : 0.05
 }
 MagicItemsList["veteran's cane"] = {
 	name : "Veteran's Cane",

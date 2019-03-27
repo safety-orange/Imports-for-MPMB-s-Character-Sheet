@@ -1705,8 +1705,8 @@ AddSubClass("sorcerer", "shadow sorcerer", {
 			},
 			spellChanges : {
 				"darkness" : {
-					description : "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL>2",
-					changes : "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness wihtout issue."
+					description : "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL 3+",
+					changes : "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness without issue."
 				}
 			}
 		},
