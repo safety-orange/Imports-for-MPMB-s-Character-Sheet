@@ -257,7 +257,21 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 			name : "Savage Attacks",
 			minlevel : 1,
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && (/d\\d+/).test(fields.Damage_Die)) {var pExtraCritM = extraCritM ? extraCritM : 0; var extraCritM = pExtraCritM + 1; if (pExtraCritM) {fields.Description = fields.Description.replace(pExtraCritM + 'd', extraCritM + 'd'); } else {fields.Description += (fields.Description ? '; ' : '') + extraCritM + fields.Damage_Die.replace(/.*(d\\d+).*/, '$1') + ' extra on a crit in melee'; }; }; ", "My melee attacks roll 1 additional dice on a critical hit."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && (/d\d+/).test(fields.Damage_Die)) {
+							if (v.extraCritM) {
+								v.extraCritM += 1;
+								var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
+								fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + '$1');
+							} else {
+								v.extraCritM = 1;
+								fields.Description += (fields.Description ? '; ' : '') + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, '$1') + ' extra on a crit in melee';
+							}
+						}
+					},
+					"My melee weapon attacks roll 1 additional dice on a critical hit."
+				]
 			}
 		}
 	},
@@ -360,7 +374,14 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 weapon damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra weapon damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -426,7 +447,14 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 weapon damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra weapon damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -558,7 +586,14 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 weapon damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra weapon damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra damage."
+				]
 			}
 		},
 		"subclassfeature17" : {

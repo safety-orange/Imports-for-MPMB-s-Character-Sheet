@@ -67,9 +67,21 @@ FeatsList["quicksmithing"] = { // Includes contributions by userZynx_name
 	descriptionFull : "You have mastered the art of on-the-fly invention, improvement, and jury-rigging. You can use your talents to create immediate, short-term magical effects similar to spells, given time and an adequate supply of aether.\n   When you choose this feat, you master two magical effects, each of which recreates the effect of a 1st-level spell that has the ritual tag. These spells can come from any class list, but Intelligence is your spellcasting ability for them.\n   If you come across a schematic geared toward quicksmithing or study with another quicksmith, you might be able to add another spell to the effects you have mastered. The spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of mastering the spell takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents aether you use as you experiment with the spell effect to master it.\n   In addition, you have proficiency with artisan's tools (quicksmith's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours unless you spend 1 hour repairing it to keep it functioning. You can use your action to dismantle the device, at which point you can reclaim the materials used to create it. You can have up to three such devices active at a time.\n   When you create a device, choose one of the following options:\n   " + toUni("Clockwork Toy") + ". This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.\n   " + toUni("Fire Starter") + ". This device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\n   " + toUni("Music Box") + ". When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.",
 	description : "I gain the Tinker ability of a Rock Gnome, including proficiency with tinker's tools. I learn two 1st-level ritual spells and can learn more if found and no higher spell level than half my character level. I can cast these as rituals with Intelligence as my spellcasting ability.",
 	prerequisite : "Intelligence 13 or higher",
-	prereqeval : "What('Int') >= 13",
-	eval : "CurrentSpells['quicksmithing'] = {name : 'Quicksmithing Ritual Spells', ability : 4, list : {'class' : 'any', ritual : true}, known : {spells : 'book'}, bonus : { someFeat : { name : '1st-level ritual spell', 'class' : 'any', level : [1, 1], ritual : true, times : 2} } }; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['quicksmithing']; SetStringifieds('spells');"
+	prereqeval : function (v) { return What('Int') >= 13; },
+	eval : function () {
+		CurrentSpells['quicksmithing'] = {
+			name : 'Quicksmithing Ritual Spells',
+			ability : 4,
+			list : {'class' : 'any', ritual : true},
+			known : { spells : 'book' },
+			refType : "feat"
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['quicksmithing'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
 };
 FeatsList["servo crafting"] = { // Includes contributions by userZynx_name
 	name : "Servo Crafting",
@@ -77,7 +89,7 @@ FeatsList["servo crafting"] = { // Includes contributions by userZynx_name
 	descriptionFull : "You are skilled in the creation of servos\u2014tiny constructs that function as personal assistants. You can cast the find familiar spell as a ritual, creating a servo to serve as your familiar instead of an animal. A servo's statistics appear in the \"Artifact Creatures\" section of the Plane Shift: Kaladesh document. In every other way, a servo familiar functions as described in the find familiar spell.\n   You can communicate telepathically with your servo familiar and perceive through its senses as long as you are on the same plane of existence. You can speak through your servo in your own voice.\n   Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your servo familiar to make one attack of its own.",
 	description : "I can cast Find Familiar as a ritual, creating a servo instead of an animal. I can telepathically communicate with it, perceive its senses, and speak through it in my own voice. When I use the Attack action, I can forfeit one attack for it to attack.",
 	prerequisite : "Intelligence 13 or higher",
-	prereqeval : "What('Int') >= 13",
+	prereqeval : function (v) { return What('Int') >= 13; },
 	spellcastingBonus : {
 		name : "Servo Crafting",
 		spellcastingAbility : 4,

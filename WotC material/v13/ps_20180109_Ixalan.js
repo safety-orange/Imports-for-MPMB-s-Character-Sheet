@@ -125,7 +125,21 @@ RaceList["ixalan orc"] = {
 			name : "Savage Attacks",
 			minlevel : 1,
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && (/d\\d+/).test(fields.Damage_Die)) {var pExtraCritM = extraCritM ? extraCritM : 0; var extraCritM = pExtraCritM + 1; if (pExtraCritM) {fields.Description = fields.Description.replace(pExtraCritM + 'd', extraCritM + 'd'); } else {fields.Description += (fields.Description ? '; ' : '') + extraCritM + fields.Damage_Die.replace(/.*(d\\d+).*/, '$1') + ' extra on a crit in melee'; }; }; ", "My melee attacks roll 1 additional dice on a critical hit."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && (/d\d+/).test(fields.Damage_Die)) {
+							if (v.extraCritM) {
+								v.extraCritM += 1;
+								var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
+								fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + '$1');
+							} else {
+								v.extraCritM = 1;
+								fields.Description += (fields.Description ? '; ' : '') + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, '$1') + ' extra on a crit in melee';
+							}
+						}
+					},
+					"My melee weapon attacks roll 1 additional dice on a critical hit."
+				]
 			}
 		}
 	},
@@ -182,7 +196,7 @@ FeatsList["vampiric exultation"] = {
 	name : "Vampiric Exultation",
 	source : ["PS:X", 14],
 	prerequisite : "Being an Ixalan Vampire",
-	prereqeval : "CurrentRace.known === 'ixalan vampire'",
+	prereqeval : function () { return CurrentRace.known == 'ixalan vampire' },
 	descriptionFull : "As an action, you can transform the lower half of your body into an inky black vapor, allowing you to float through the air. While transformed, you have a flying speed of 30 feet. You can maintain this form for up to 10 minutes. Once you use this ability, you can't use it again until you finish a short or long rest.",
 	description : "As an action, I can transform the lower half of my body into an inky black vapor for up to 10 minutes. While transformed, I have a flying speed of 30 ft. Once I use this ability, I can’t use it again until you finish a short or long rest.",
 	action : ["action", ""],
