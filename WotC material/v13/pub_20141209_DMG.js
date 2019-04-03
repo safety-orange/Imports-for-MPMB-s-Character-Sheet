@@ -571,6 +571,160 @@ MagicItemsList["elixir of health"] = {
 	descriptionFull : "When you drink this potion, it cures any disease afflicting you, and it removes the blinded, deafened, paralyzed, and poisoned conditions. The clear red liquid has tiny bubbles of light in it.",
 	weight : 0.5
 }
+MagicItemsList["gloves of thievery"] = {
+	name : "Gloves of Thievery",
+	source : ["D", 172],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "These gloves are invisible while worn. While wearing them, I gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
+	descriptionFull : "These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
+	addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+}
+MagicItemsList["instrument of the bards"] = {
+	name : "Instrument of the Bards",
+	source : ["D", 176],
+	type : "wondrous item",
+	description : "If I play this exquisite, magical instruments while casting a spell that has a somatic or material component and charms on a failed save, it imposes disadvantage on that save. I can also use it to cast a set of spells, each once per dawn, using my spellcasting ability and spell save DC.",
+	descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.",
+	attunement : true,
+	weight : 3, // Magic of Faerûn (2001) page 161
+	prerequisite : "Requires attunement by a bard",
+	prereqeval : function(v) { return classes.known.bard ? true : false; },
+	choices : ["Anstruth Harp (very rare)", "Canaith Mandolin (rare)", "Cli Lyre (rare)", "Doss Lute (uncommon)", "Fochlucan Bandore (uncommon)", "Mac-Fuirmidh Cittern (uncommon)", "Ollamh Harp (legendary)"],
+	"anstruth harp (very rare)" : {
+		name : "Anstruth Harp [Instrument of the Bards]",
+		rarity : "very rare",
+		magicItemTable : "H",
+		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		},
+		spellChanges : {
+			"cure wounds" : {
+				description : "1 living creature heals 5d8+spellcasting ability modifier HP",
+				changes : "When using the Anstruth Harp to cast Cure Wounds, it is cast at 5th-level."
+			},
+			spellChanges : {
+				"control weather" : {
+					time : "1 a",
+					changes : "Casting time is only an action."
+				}
+			}
+		}
+	},
+	"canaith mandolin (rare)" : {
+		name : "Canaith Mandolin [Instrument of the Bards]",
+		rarity : "rare",
+		magicItemTable : "G",
+		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Canaith mandolin can be used to cast Cure Wounds (3rd level), Dispel Magic, and Protection from Energy (lightning only).",
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		},
+		spellChanges : {
+			"cure wounds" : {
+				description : "1 living creature heals 3d8+spellcasting ability modifier HP",
+				changes : "When using the Canaith Mandolin to cast Cure Wounds, it is cast at 3rd-level."
+			},
+			"protection from energy" : {
+				description : "1 creature gains resistance to Lightning damage for the duration",
+				changes : "When using the Canaith Mandolin to cast Protection from Energy, it can only grant resistance to lightning damage."
+			}
+		}
+	},
+	"cli lyre (rare)" : {
+		name : "Cli Lyre [Instrument of the Bards]",
+		rarity : "rare",
+		magicItemTable : "G",
+		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Cli lyre can be used to cast Stone Shape, Wall of Fire, and Wind Wall.",
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		}
+	},
+	"doss lute (uncommon)" : {
+		name : "Doss Lute [Instrument of the Bards]",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Doss lute can be used to cast Animal Friendship, Protection from Energy (fire only), and Protection from Poison.",
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		},
+		spellChanges : {
+			"protection from energy" : {
+				description : "1 creature gains resistance to Fire damage for the duration",
+				changes : "When using the Doss Lute to cast Protection from Energy, it can only grant resistance to fire damage."
+			}
+		}
+	},
+	"fochlucan bandore (uncommon)" : {
+		name : "Fochlucan Bandore [Instrument of the Bards]",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Fochlucan bandore can be used to cast Entangle, Faerie Fire, Shillelagh, and Speak with Animals.",
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
+			firstCol : "oncelr",
+			times : 8,
+			spellcastingAbility : "class"
+		}
+	},
+	"mac-fuirmidh cittern" : {
+		name : "Mac-Fuirmidh Cittern [Instrument of the Bards]",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		}
+	},
+	"ollamh harp (legendary)" : {
+		name : "Ollamh Harp [Instrument of the Bards]",
+		rarity : "legendary",
+		magicItemTable : "I",
+		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		},
+		spellChanges : {
+			"control weather" : {
+				time : "1 a",
+				changes : "Casting time is only an action."
+			}
+		}
+	}
+}
 MagicItemsList["mariner's armor"] = {
 	name : "Mariner's Armor",
 	name : "Mariner's",
@@ -629,15 +783,148 @@ MagicItemsList["potion of vitality"] = {
 	descriptionFull : "When you drink this potion, it removes any exhaustion you are suffering and cures any disease or poison affecting you. For the next 24 hours, you regain the maximum number of hit points for any Hit Die you spend. The potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.",
 	weight : 0.5
 }
-MagicItemsList["gloves of thievery"] = {
-	name : "Gloves of Thievery",
-	source : ["D", 172],
+MagicItemsList["rod of resurrection"] = {
+	name : "Rod of Resurrection",
+	source : ["D", 197],
+	type : "rod",
+	rarity : "legendary",
+	magicItemTable : "I",
+	description : "This rod has 5 charges and regains 1 expended charge daily at dawn. While I hold it, I can use an action to expend 1 charge and cast Heal from it, or expend 5 charges and cast Resurrection from it. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
+	descriptionFull : "The rod has 5 charges. While you hold it, you can use an action to cast one of the following spells from it: Heal (expends 1 charge) or Resurrection (expends 5 charges).\n   The rod regains 1 expended charge daily at dawn. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
+	attunement : true,
+	weight : 2,
+	prerequisite : "Requires attunement by a cleric, druid, or paladin",
+	prereqeval : function(v) { return classes.known.cleric || classes.known.druid || classes.known.paladin ? true : false; },
+	usages : 5,
+	recovery : "dawn",
+	additional : "regains 1",
+	spellFirstColTitle: "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["heal"],
+		selection : ["heal"],
+		firstCol : 1
+	}, {
+		name : "5 charges",
+		spells : ["resurrection"],
+		selection : ["resurrection"],
+		firstCol : 5
+	}]
+}
+MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
+	name : "Rod of the Pact Keeper, +1, +2, or +3",
+	source : ["D", 197],
+	type : "rod",
+	description : "While holding this rod, I gain a bonus to spell attack rolls and to the saving throw DCs of my warlock spells, determined by the rod's rarity: uncommon (+1), rare (+2), or very rare (+3). As an action once per long rest, I can regain one warlock spell slot while holding the rod.",
+	descriptionFull : "While holding this rod, you gain a bonus to spell attack rolls and to the saving throw DCs of your warlock spells. The bonus is determined by the rod's rarity: uncommon (+1), rare (+2), or very rare (+3).\n   In addition, you can regain one warlock spell slot as an action while holding the rod. You can't use this property again until you finish a long rest.",
+	attunement : true,
+	weight : 2,
+	prerequisite : "Requires attunement by a warlock",
+	prereqeval : function(v) { return classes.known.warlock; },
+	usages : 1,
+	recovery : "long rest",
+	limfeaname : "Rod of the Pact Keeper (warlock spell slot)",
+	action : [["action", ""]],
+	choices : ["+1 Rod (uncommon)", "+2 Rod (rare)", "+3 Rod (very rare)"],
+	"+1 rod (uncommon)" : {
+		name : "Rod of the Pact Keeper +1",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "While holding this rod, I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my warlock spells. As an action once per long rest, I can regain one warlock spell slot while holding the rod.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type != "prepare" && spellcasters.indexOf("warlock") != -1) return 1;
+				},
+				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
+			]
+		}
+	},
+	"+2 rod (rare)" : {
+		name : "Rod of the Pact Keeper +2",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "While holding this rod, I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my warlock spells. As an action once per long rest, I can regain one warlock spell slot while holding the rod.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type != "prepare" && spellcasters.indexOf("warlock") != -1) return 2;
+				},
+				"I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
+			]
+		}
+	},
+	"+3 rod (very rare)" : {
+		name : "Rod of the Pact Keeper +3",
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "While holding this rod, I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my warlock spells. As an action once per long rest, I can regain one warlock spell slot while holding the rod.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type != "prepare" && spellcasters.indexOf("warlock") != -1) return 3;
+				},
+				"I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
+			]
+		}
+	}
+}
+MagicItemsList["saddle of the cavalier"] = {
+	name : "Saddle of the Cavalier",
+	source : ["D", 199],
 	type : "wondrous item",
 	rarity : "uncommon",
-	magicItemTable : "F",
-	description : "These gloves are invisible while worn. While wearing them, I gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
-	descriptionFull : "These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
-	addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+	magicItemTable : "B",
+	description : "While in this saddle on a mount, I can't be dismounted against my will if I am conscious, and attack rolls against the mount have disadvantage.",
+	descriptionFull : "While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
+}
+MagicItemsList["scroll of protection"] = {
+	name : "Scroll of Protection",
+	source : ["D", 199],
+	type : "scroll",
+	rarity : "rare",
+	magicItemTable : "C",
+	description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops a creature type from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected..",
+	descriptionFull : "Each scroll of protection works against a specific type of creature chosen by the DM or determined randomly by rolling on the following table.\n\n" + [
+		toUni("d100\tCreature Type\td100\tCreature Type"),
+		"01-10\tAberrations\t41-50\tFey",
+		"11-20\tBeasts\t\t51-75\tFiends",
+		"21-30\tCelestials   \t76-80\tPlants",
+		"31-40\tElementals\t81-00\tUndead",
+	].join("\n") + "\nUsing an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents creatures of the specified type from entering or affecting anything within the cylinder.\n   The cylinder moves with you and remains centered on you. However, if you move in such a way that an aberration would be inside the cylinder, the effect ends.\n   A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier.",
+	choices : ["Aberrations", "Beasts", "Celestials", "Elementals", "Fey", "Fiends", "Plants", "Undead"],
+	"aberrations" : {
+		name : "Scroll of Protection from Aberrations",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops aberrations from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes an aberration, it ends."
+	},
+	"beasts" : {
+		name : "Scroll of Protection from Beasts",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops beasts from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a beast, it ends."
+	},
+	"celestials" : {
+		name : "Scroll of Protection from Celestials",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops celestials from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes a celestial, it ends."
+	},
+	"elementals" : {
+		name : "Scroll of Protection from Elementals",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops elementals from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes an elemental, it ends."
+	},
+	"fey" : {
+		name : "Scroll of Protection from Fey",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops fey from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a fey, it ends."
+	},
+	"fiends" : {
+		name : "Scroll of Protection from Fiends",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops fiends from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a fiend, it ends."
+	},
+	"plants" : {
+		name : "Scroll of Protection from Plants",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops plants from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a plant, it ends."
+	},
+	"undead" : {
+		name : "Scroll of Protection from Undead",
+		description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops undead from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes a undead, it ends."
+	}
 }
 MagicItemsList["sending stones"] = {
 	name : "Sending Stones",
@@ -660,6 +947,133 @@ MagicItemsList["sending stones"] = {
 			description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
 			changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
 		}
+	}
+}
+MagicItemsList["sentinel shield"] = {
+	name : "Sentinel Shield",
+	source : ["D", 199],
+	type : "shield",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "While holding this shield, I have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye.",
+	descriptionFull : "While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye.",
+	weight : 6,
+	shieldAdd : "Sentinel Shield",
+	advantages : [["Initiative", true], ["Perception", true]],
+	vision : [["Adv. on Perception checks", 0]]
+}
+MagicItemsList["staff of the adder"] = {
+	name : "Staff of the Adder",
+	source : ["D", 203],
+	type : "staff",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "As a bonus action, I can speak this staff's command word to animate its snake head for 1 minute or make it inanimate again. While animated, I can use it in melee (1d6 piercing + DC 15 Con save or 3d6 poison), but it can be attacked and has AC 15 and 20 HP (full every time). If it reaches 0 HP, the staff is destroyed.",
+	descriptionFull : "You can use a bonus action to speak this staff's command word and make the head of the staff become that of an animate poisonous snake for 1 minute. By using another bonus action to speak the command word again, you return the staff to its normal inanimate form.\n   You can make a melee attack using the snake head, which has a reach of 5 feet. Your proficiency bonus applies to the attack roll. On a hit, the target takes 1d6 piercing damage and must succeed on a DC 15 Constitution saving throw or take 3d6 poison damage.\n   The snake head can be attacked while it is animate. It has an Armor Class of 15 and 20 hit points. If the head drops to 0 hit points, the staff is destroyed. As long as it's not destroyed, the staff regains all lost hit points when it reverts to its inanimate form.",
+	attunement : true,
+	weight : 4,
+	prerequisite : "Requires attunement by a cleric, druid, or warlock",
+	prereqeval : function(v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
+	action : [["bonus action", " (animate/end)"]],
+	weaponsAdd : ["Animated Snake Head from Staff of the Adder"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*snake)(?=.*head)(?=.*staff)(?=.*adder).*$/i,
+		name : "Animated Snake Head from Staff of the Adder",
+		source : ["D", 203],
+		list : "melee",
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		weight : 4,
+		description : "DC 15 Constitution save or 3d6 poison damage",
+		abilitytodamage : false
+	}
+}
+MagicItemsList["sword of answering"] = {
+	name : "Sword of Answering",
+	source : ["D", 206],
+	type : "weapon (longsword)",
+	rarity : "legendary",
+	magicItemTable : "I",
+	description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a gem set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
+	descriptionFull : 'In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as "Final Word." Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.\n\n' + [
+		toUni("Name\t\tAlignment\tGem"),
+		"Answerer    \tChaotic good\tEmerald",
+		"Back Talker\tChaotic evil\tJet",
+		"Concluder    \tLawful neutral\tAmethyst",
+		"Last Quip    \tChaotic neutral\tTourmaline",
+		"Rebutter\t\tNeutral good\tTopaz",
+		"Replier\t\tNeutral\t\tPeridot",
+		"Retorter\t\tLawful good\tAquamarine",
+		"Scather\t\tLawful evil\tGarnet",
+		"Squelcher    \tNeutral evil\tSpinel"
+	].join("\n"),
+	attunement : true,
+	weight : 3,
+	action : [["reaction", ""]],
+	weaponsAdd : ["Sword of Answering"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /^(?=.*sword)(?=.*answering).*$/i,
+		name : "Sword of Answering",
+		source : ["D", 206],
+		modifiers : [3, 3]
+	},
+	choices : ["Answerer (chaotic good)", "Back Talker (chaotic evil)", "Concluder (lawful neutral)", "Last Quip (chaotic neutral)", "Rebutter (neutral good)", "Replier (neutral)", "Retorter (lawful good)", "Scather (lawful evil)", "Squelcher (neutral evil)"],
+	"answerer (chaotic good)" : {
+		name : "Sword of Answering [Answerer]",
+		prerequisite : "Requires attunement by a creature with the chaotic good alignment",
+		prereqeval : function(v) { return (/^(?=.*chaotic)(?=.*good).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an emerald set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"back talker (chaotic evil)" : {
+		name : "Sword of Answering [Back Talker]",
+		prerequisite : "Requires attunement by a creature with the chaotic evil alignment",
+		prereqeval : function(v) { return (/^(?=.*chaotic)(?=.*evil).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has jet set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"concluder (lawful neutral)" : {
+		name : "Sword of Answering [Concluder]",
+		prerequisite : "Requires attunement by a creature with the lawful neutral alignment",
+		prereqeval : function(v) { return (/^(?=.*lawful)(?=.*neutral).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an amethyst set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"last quip (chaotic neutral)" : {
+		name : "Sword of Answering [Last Quip]",
+		prerequisite : "Requires attunement by a creature with the chaotic neutral alignment",
+		prereqeval : function(v) { return (/^(?=.*chaotic)(?=.*neutral).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a tourmaline set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"rebutter (neutral good)" : {
+		name : "Sword of Answering [Rebutter]",
+		prerequisite : "Requires attunement by a creature with the neutral good alignment",
+		prereqeval : function(v) { return (/^(?=.*neutral)(?=.*good).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a topaz set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"replier (neutral)" : {
+		name : "Sword of Answering [Replier]",
+		prerequisite : "Requires attunement by a creature with the neutral alignment",
+		prereqeval : function(v) { return (/^(?=.*neutral)(?!.*(chaotic|lawful|evil|good)).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a peridot set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"retorter (lawful good)" : {
+		name : "Sword of Answering [Retorter]",
+		prerequisite : "Requires attunement by a creature with the lawful good alignment",
+		prereqeval : function(v) { return (/^(?=.*lawful)(?=.*good).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an aquamarine set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"scather (lawful evil)" : {
+		name : "Sword of Answering [Scather]",
+		prerequisite : "Requires attunement by a creature with the lawful evil alignment",
+		prereqeval : function(v) { return (/^(?=.*lawful)(?=.*evil).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a garnet set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
+	},
+	"squelcher (neutral evil)" : {
+		name : "Sword of Answering [Squelcher]",
+		prerequisite : "Requires attunement by a creature with the neutral evil alignment",
+		prereqeval : function(v) { return (/^(?=.*neutral)(?=.*evil).*$/i).test(What("Alignment")); },
+		description : "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a spinel set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target."
 	}
 }
 MagicItemsList["sword of vengeance"] = {
@@ -700,4 +1114,21 @@ MagicItemsList["sword of vengeance"] = {
 			}, ''
 		]
 	}
+}
+MagicItemsList["weapon of warning"] = {
+	name : "Weapon of Warning",
+	nameTest : "of Warning",
+	source : ["D", 213],
+	type : "weapon (any)",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "While this magic weapon is on my person, I have advantage on initiative rolls. In addition, both me and my allies within 30 ft of me can't be surprised and the weapon magically awakens us when combat starts, except those incapacitated by something other than nonmagical sleep.",
+	descriptionFull : "This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
+	attunement : true,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "prefix",
+		descriptionChange : ["replace", "weapon"]
+	},
+	advantages : [["Initiative", true]]
 }
