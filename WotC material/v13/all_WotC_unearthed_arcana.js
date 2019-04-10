@@ -16557,7 +16557,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 					function (spellKey, spellObj, spName, isDuplicate) {
 						if (spName != "artificer-ua2" || isDuplicate || !CurrentSpells["artificer-ua2"]) return;
 						var artBoSp = CurrentSpells["artificer-ua2"].bonus.subclassfeature6.selection;
-						if (!artBoSp || artBoSp.indexOf(spellkey) == -1) return;
+						if (!artBoSp || artBoSp.indexOf(spellKey) == -1) return;
 						spellObj.components = "";
 						spellObj.compMaterial = "Spells cast by magic items don't require any components.";
 						var aSpell = SpellsList[spellKey];
