@@ -131,6 +131,9 @@ ClassList['artificer-ua2'] = {
 			}),
 			extraname : "Artificer Infusion",
 			extrachoices : ["Boots of the Winding Path (prereq: level 4 artificer)", "Enhanced Defense", "Enhanced Weapon", "Many-Handed Pouch (prereq: level 4 artificer)", "Radiant Weapon (prereq: level 8 artificer)", "Resistant Armor (prereq: level 8 artificer)", "Returning Weapon"],
+			extraTimes : levels.map(function (n) {
+				return n < 2 ? 0 : n < 4 ? 3 : n < 7 ? 4 : n < 11 ? 5 : n < 15 ? 6 : n < 19 ? 7 : 8;
+			}),
 			"boots of the winding path (prereq: level 4 artificer)" : {
 				name : "Boots of the Winding Path",
 				source : ["UA:A2", 9],

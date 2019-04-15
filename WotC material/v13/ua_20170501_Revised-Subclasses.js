@@ -158,6 +158,9 @@ AddSubClass("fighter", "arcane archer2", {
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
 			extraname : "Arcane Shot Option",
 			extrachoices : ["Banishing Arrow [Abjuration]", "Brute Bane Arrow [Necromancy]", "Bursting Arrow [Evocation]", "Grasping Arrow [Conjuration]", "Mind-Scrambling Arrow [Enchantment]", "Piercing Arrow [Transmutation]", "Seeking Arrow [Divination]", "Shadow Arrow [Illusion]"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6;
+			}),
 			"banishing arrow [abjuration]" : {
 				name : "Banishing Arrow [Abjuration]",
 				source : ["UA:RS", 3],

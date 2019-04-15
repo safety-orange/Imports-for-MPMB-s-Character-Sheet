@@ -951,7 +951,7 @@ RaceList["dragonmark making human"] = {
 		CurrentSpells['dragonmark making human'] = {
 			name : 'Human (dragonmark)',
 			ability : 4,
-			list : { 'class' : 'dragonmark making human', level : [0, 0] },
+			list : { 'class' : 'wizard', level : [0, 0] },
 			known : { cantrips : 1, spells : 'list' },
 			bonus : {
 				bonus1 : {
@@ -971,12 +971,6 @@ RaceList["dragonmark making human"] = {
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 	}
 };
-RunFunctionAtEnd(function() {
-	for (var sp in SpellsList) {
-		var aSp = SpellsList[sp];
-		if (aSp.level !== undefined && aSp.level === 0 && aSp.classes && aSp.classes.indexOf('wizard') !== -1) aSp.classes.push('dragonmark making human');
-	}
-});
 RaceList["dragonmark passage human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
 	name : "Human (dragonmark)",

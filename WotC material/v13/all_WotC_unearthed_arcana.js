@@ -502,6 +502,9 @@ ClassList["spell-less ranger"] = {
 			}),
 			extraname : "Maneuver",
 			extrachoices : ["Commander's Strike", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Trip Attack"],
+			extraTimes : levels.map(function (n) {
+				return n < 2 ? 0 : n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6;
+			}),
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : ["P", 74],
@@ -4220,9 +4223,12 @@ AddSubClass("fighter", "arcane archer", {
 			source : ["UA:FMA", 1],
 			minlevel : 3,
 			description : "\n   " + "Use the \"Choose Feature\" button above to add Arcane Shots to the third page",
-			additional : ["", "", "2 known", "2 known", "2 known", "2 known", "3 known", "3 known", "3 known", "4 known", "4 known", "4 known", "4 known", "4 known", "5 known", "5 known", "5 known", "6 known", "6 known", "6 known"],
+			additional : levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " known"; }),
 			extraname : "Arcane Shot",
 			extrachoices : ["Beguiling Arrow", "Brute Bane Arrow", "Bursting Arrow", "Defending Arrow", "Grasping Arrow", "Piercing Arrow", "Seeking Arrow", "Shadow Arrow"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6;
+			}),
 			"beguiling arrow" : {
 				name : "Beguiling Arrow",
 				source : ["UA:FMA", 1],
@@ -4910,6 +4916,9 @@ ClassList['artificer-ua'] = {
 				return n < 2 ? "" : n < 5 ? "1 item" : (n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5) + " items";
 			}),
 			extraname : "Magic Item",
+			extraTimes : levels.map(function (n) {
+				return n < 2 ? 0 : n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5;
+			}),
 			extrachoices : []
 			//come back to this with the function to make the individual entries
 		},
@@ -4993,14 +5002,13 @@ ClassSubList["artificer-alchemist"] = {
 				"Use the \"Choose Feature\" button above to select additional Alchemical Formulae"
 			]),
 			additional : levels.map(function (n) {
-				if (n < 3) return "1 additional formula";
-				if (n < 9) return "2 additional formula";
-				if (n < 14) return "3 additional formula";
-				if (n < 17) return "4 additional formula";
-				return "5 additional formula";
+				if (n < 3 ? 1 : n < 9 ? 2 : n < 14 ? 3 : n < 17 ? 4 : 5) + " additional formula";
 			}),
 			extraname : "Alchemical Formula",
 			extrachoices : ["Healing Draught", "Smoke Stick", "Swift Step Draught", "Tanglefoot Bag", "Thunderstone"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 1 : n < 9 ? 2 : n < 14 ? 3 : n < 17 ? 4 : 5;
+			}),
 			"healing draught" : {
 				name : "Healing Draught",
 				source : ["UA:A", 5],
@@ -11929,6 +11937,9 @@ AddSubClass("fighter", "arcane archer2", {
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
 			extraname : "Arcane Shot Option",
 			extrachoices : ["Banishing Arrow [Abjuration]", "Brute Bane Arrow [Necromancy]", "Bursting Arrow [Evocation]", "Grasping Arrow [Conjuration]", "Mind-Scrambling Arrow [Enchantment]", "Piercing Arrow [Transmutation]", "Seeking Arrow [Divination]", "Shadow Arrow [Illusion]"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6;
+			}),
 			"banishing arrow [abjuration]" : {
 				name : "Banishing Arrow [Abjuration]",
 				source : ["UA:RS", 3],
@@ -15234,7 +15245,7 @@ if (!SourceList.WGtE) {
 			CurrentSpells['dragonmark making human'] = {
 				name : 'Human (dragonmark)',
 				ability : 4,
-				list : { 'class' : 'dragonmark making human', level : [0, 0] },
+				list : { 'class' : 'wizard', level : [0, 0], notspells : ['mending'] },
 				known : { cantrips : 1, spells : 'list' },
 				bonus : {
 					bonus1 : {
@@ -15254,12 +15265,6 @@ if (!SourceList.WGtE) {
 			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 		}
 	};
-	RunFunctionAtEnd(function() {
-		for (var sp in SpellsList) {
-			var aSp = SpellsList[sp];
-			if (aSp.level !== undefined && aSp.level === 0 && aSp.classes && aSp.classes.indexOf('wizard') !== -1) aSp.classes.push('dragonmark making human');
-		}
-	});
 	RaceList["dragonmark passage human-ua-d"] = { // different in Unearthed Arcana
 		regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
 		name : "Human (dragonmark)",
@@ -16039,6 +16044,9 @@ ClassList['artificer-ua2'] = {
 			}),
 			extraname : "Artificer Infusion",
 			extrachoices : ["Boots of the Winding Path (prereq: level 4 artificer)", "Enhanced Defense", "Enhanced Weapon", "Many-Handed Pouch (prereq: level 4 artificer)", "Radiant Weapon (prereq: level 8 artificer)", "Resistant Armor (prereq: level 8 artificer)", "Returning Weapon"],
+			extraTimes : levels.map(function (n) {
+				return n < 2 ? 0 : n < 4 ? 3 : n < 7 ? 4 : n < 11 ? 5 : n < 15 ? 6 : n < 19 ? 7 : 8;
+			}),
 			"boots of the winding path (prereq: level 4 artificer)" : {
 				name : "Boots of the Winding Path",
 				source : ["UA:A2", 9],

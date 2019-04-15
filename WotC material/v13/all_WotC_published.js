@@ -822,9 +822,14 @@ AddSubClass("fighter", "battle master", {
 			source : ["P", 73],
 			minlevel : 3,
 			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
-			additional : ["", "", "3 known", "3 known", "3 known", "3 known", "5 known", "5 known", "5 known", "7 known", "7 known", "7 known", "7 known", "7 known", "9 known", "9 known", "9 known", "9 known", "9 known", "9 known"],
+			additional : levels.map(function (n) {
+				return n < 3 ? "" : (n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9) + " known";
+			}),
 			extraname : "Maneuver",
 			extrachoices : ["Commander's Strike", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Trip Attack"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9;
+			}),
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : ["P", 74],
@@ -1023,9 +1028,14 @@ AddSubClass("monk", "way of the four elements", {
 			source : ["P", 80],
 			minlevel : 3,
 			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
-			additional : ["", "", "2 known", "2 known", "2 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 4 max ki", "3 known; 4 max ki", "4 known; 4 max ki", "4 known; 4 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki"],
+			additional : levels.map(function (n) {
+				return n < 3 ? "" : ((n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " known; ") + (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " max ki";
+			}),
 			extraname : "Elemental Discipline",
 			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5;
+			}),
 			autoSelectExtrachoices : [{ extrachoice : "elemental attunement" }],
 			"elemental attunement" : {
 				name : "Elemental Attunement",
@@ -13474,6 +13484,9 @@ AddSubClass("fighter", "arcane archer-xgte", {
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
 			extraname : "Arcane Shot Option",
 			extrachoices : ["Banishing Arrow [Abjuration]", "Beguiling Arrow [Enchantment]", "Bursting Arrow [Evocation]", "Enfeebling Arrow [Necromancy]", "Grasping Arrow [Conjuration]", "Piercing Arrow [Transmutation]", "Seeking Arrow [Divination]", "Shadow Arrow [Illusion]"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6;
+			}),
 			"banishing arrow [abjuration]" : {
 				name : "Banishing Arrow [Abjuration]",
 				source : ["X", 29],
@@ -13810,103 +13823,132 @@ AddSubClass("monk", "way of the drunken master-xgte", {
 		}
 	}
 });
-AddSubClass("monk", "way of the kensei-xgte", {
-	regExpSearch : /kensei/i,
-	subname : "Way of the Kensei",
-	source : ["X", 34],
-	fullname : "Kensei",
-	features : {
-		"subclassfeature3" : {
-			name : "Path of the Kensei",
-			source : ["X", 34],
-			minlevel : 3,
-			description : desc([
-				"I gain proficiency with either calligrapher's supplies or painter's supplies",
-				"Some weapons, that don't have the heavy or special property, are kensei weapons for me",
-				"At least one ranged and one melee weapon, more at higher levels (longbow does qualify)",
-				"With these: proficient, count as a monk weapons, special bonuses depending on type held:",
-				"\u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts",
-				"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn"
-			]),
-			action: ["bonus action", " (with ranged)"],
-			additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
-			toolProfs : ["calligrapher's or painter's supplies"],
-			calcChanges : {
-				atkAdd : [
-					function (fields, v) {
-						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
-							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
-							try {
-								var curDie = eval(fields.Damage_Die.replace('d', '*'));
-							} catch (e) {
-								var curDie = 'x';
-							};
-							if (isNaN(curDie) || curDie < aMonkDie) {
-								fields.Damage_Die = '1d' + aMonkDie;
-							};
-							if (v.theWea.ability === 1) {
-								fields.Mod = v.StrDex;
-							};
-							if (v.isRangedWeapon) {
-								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
-							};
-							fields.Proficiency = true;
-						};
-					},
-					"If I include the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
-				]
-			}
-		},
-		"ki-empowered strikes" : {
-			name : "One with the Blade",
-			source : ["X", 34],
-			minlevel : 6,
-			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
-			calcChanges : {
-				atkAdd : [
-					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName == 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
-							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
-						};
-					},
-					"My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."
-				]
-			},
-			extraname : "Way of the Kensei 6",
-			"deft strike" : {
-				name : "Deft Strike",
-				source : ["X", 35],
-				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
-				additional : "1 ki point"
-			},
-			autoSelectExtrachoices : [{
-				extrachoice : "deft strike"
-			}]
-		},
-		"subclassfeature17" : {
-			name : "Unerring Accuracy",
-			source : ["X", 35],
-			minlevel : 17,
-			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
-			extraname : "Way of the Kensei 11",
-			"sharpen the blade" : {
-				name : "Sharpen the Blade",
-				source : ["X", 35],
+// Create the Kensei and its weapon options last, so we benefit of all possible weapons that were added
+RunFunctionAtEnd(function () {
+	var theKenseiSubclassName = AddSubClass("monk", "way of the kensei-xgte", {
+		regExpSearch : /kensei/i,
+		subname : "Way of the Kensei",
+		source : ["X", 34],
+		fullname : "Kensei",
+		features : {
+			"subclassfeature3" : {
+				name : "Path of the Kensei",
+				source : ["X", 34],
+				minlevel : 3,
 				description : desc([
-					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
-					"This bonus is equal to the number of ki points I spend and doesn't stack with magic",
-					"This lasts for 1 minute or until I use this feature again"
+					"I gain proficiency with either calligrapher's supplies or painter's supplies",
+					"Some weapons, that don't have the heavy or special property, are kensei weapons for me",
+					"At least one ranged and one melee weapon, more at higher levels (longbow does qualify)",
+					"With these: proficient, count as a monk weapons, special bonuses depending on type held:",
+					"\u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts",
+					"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn"
 				]),
-				additional : "1 to 3 ki points",
-				action : ["bonus action", ""]
+				action: ["bonus action", " (with ranged)"],
+				additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
+				toolProfs : ["calligrapher's or painter's supplies"],
+				extraname : "Kensei Weapon",
+				extrachoices : ["Longbow"], // add the rest via the RunFunctionAtEnd function, see below
+				extraTimes : levels.map( function(n) { return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5; }),
+				"longbow" : {
+					name : "Longbow",
+					description : "",
+					source : [["SRD", 66], ["P", 149]],
+					weaponProfs : [false, false, ["longbow"]]
+				},
+				calcChanges : {
+					atkAdd : [
+						function (fields, v) {
+							if (!classes.known.monk || classes.known.monk.level < 2 || v.isSpell) return;
+							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
+							if (theKenseiWeapons.indexOf(v.baseWeaponName) || ((/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
+								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+								try {
+									var curDie = eval(fields.Damage_Die.replace('d', '*'));
+								} catch (e) {
+									var curDie = 'x';
+								};
+								if (isNaN(curDie) || curDie < aMonkDie) {
+									fields.Damage_Die = '1d' + aMonkDie;
+								};
+								if (v.theWea.ability === 1) {
+									fields.Mod = v.StrDex;
+								};
+								if (v.isRangedWeapon) {
+									fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
+								};
+								fields.Proficiency = true;
+							};
+						},
+						"For the weapons that I select using the \"Choose Feature\" button on the second page or when I include the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
+					]
+				}
 			},
-			autoSelectExtrachoices : [{
-				extrachoice : "sharpen the blade",
-				minlevel : 11
-			}]
+			"ki-empowered strikes" : {
+				name : "One with the Blade",
+				source : ["X", 34],
+				minlevel : 6,
+				description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
+				calcChanges : {
+					atkAdd : [
+						function (fields, v) {
+							if (v.isSpell || v.thisWeapon[1] || v.theWea.isMagicWeapon || (/counts as( a)? magical/i).test(fields.Description)) return;
+							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
+							if (v.baseWeaponName == "unarmed strike" || theKenseiWeapons.indexOf(v.baseWeaponName) || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName == 'longbow'))) {
+								fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+							};
+						},
+						"My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."
+					]
+				},
+				extraname : "Way of the Kensei 6",
+				"deft strike" : {
+					name : "Deft Strike",
+					source : ["X", 35],
+					description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
+					additional : "1 ki point"
+				},
+				autoSelectExtrachoices : [{
+					extrachoice : "deft strike"
+				}]
+			},
+			"subclassfeature17" : {
+				name : "Unerring Accuracy",
+				source : ["X", 35],
+				minlevel : 17,
+				description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
+				extraname : "Way of the Kensei 11",
+				"sharpen the blade" : {
+					name : "Sharpen the Blade",
+					source : ["X", 35],
+					description : desc([
+						"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
+						"This bonus is equal to the number of ki points I spend and doesn't stack with magic",
+						"This lasts for 1 minute or until I use this feature again"
+					]),
+					additional : "1 to 3 ki points",
+					action : ["bonus action", ""]
+				},
+				autoSelectExtrachoices : [{
+					extrachoice : "sharpen the blade",
+					minlevel : 11
+				}]
+			}
+		}
+	});
+	var itsFea = ClassSubList[theKenseiSubclassName].features.subclassfeature3;
+	for (var weapon in WeaponsList) {
+		var aWea = WeaponsList[weapon];
+		// skip attacks that are not simple or martial weapons and that that have the heavy or special property
+		if (!(/simple|martial/i).test(aWea.type) || (/^(?=.*heavy)(?=.*special).*$/i).test(aWea.Description)) continue;
+		itsFea.extrachoices.push(aWea.name);
+		itsFea[aWea.name.toLowerCase()] = {
+			name : aWea.name,
+			description : "",
+			source : aWea.source,
+			weaponProfs : [false, false, [weapon]]
 		}
 	}
-});
+})
 if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
 	// the Way of the Sun Soul subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
 	AddSubClass("monk", "way of the sun soul", {
@@ -16483,7 +16525,7 @@ SpellsList["infernal calling"] = {
 	compMaterial : "A ruby worth at least 999 gp",
 	duration : "Conc, 1 h",
 	description : "Summon 1 devil of CR 6+1/SL; hostile to all, obeys my command if to its liking or Cha check; see B",
-	descriptionFull : "Uttering a dark incantation, you summon a devil from the Nine Hells. You choose the devil's type, which must be one of challenge rating 6 or lower, such as a barbed devil or a bearded devil. The devil appears in an unoccupied space that you can see within range. The devil disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The devil is unfriendly toward you and your companions. Roll initiative for the devil, which has its own turns. It is under the Dungeon Master's control and acts according to its nature on each of its turns, which might result in its attacking you if it thinks it can prevail, or trying to tempt you to undertake an evil act in exchange for limited service. The DM has the creature's statistics." + "\n   " + "On each of your turns, you can try to issue a verbal command to the devil (no action required by you). It obeys the command if the likely outcome is in accordance with its desires, especially if the result would draw you toward evil. Otherwise, you must make a Charisma (Deception, Intimidation, or Persuasion) check contested by its Wisdom (Insight) check. You make the check with advantage if you say the devil's true name. If your check fails, the devil becomes immune to your verbal commands for the duration of the spell, though it can still carry out your commands if it chooses. If your check succeeds, the devil carries out your command — such as “attack my enemies,” “explore the room ahead,” or “bear this message to the queen” — until it completes the activity, at which point it returns to you to report having done so." + "\n   " + "If your concentration ends before the spell reaches its full duration, the devil doesn't disappear if it has become immune to your verbal commands. Instead, it acts in whatever manner it chooses for 3d6 minutes, and then it disappears." + "\n   " + "If you possess an individual devil's talisman, you can summon that devil if it is of the appropriate challenge rating plus 1, and it obeys all your commands, with no Charisma checks required." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th."
+	descriptionFull : "Uttering a dark incantation, you summon a devil from the Nine Hells. You choose the devil's type, which must be one of challenge rating 6 or lower, such as a barbed devil or a bearded devil. The devil appears in an unoccupied space that you can see within range. The devil disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The devil is unfriendly toward you and your companions. Roll initiative for the devil, which has its own turns. It is under the Dungeon Master's control and acts according to its nature on each of its turns, which might result in its attacking you if it thinks it can prevail, or trying to tempt you to undertake an evil act in exchange for limited service. The DM has the creature's statistics." + "\n   " + "On each of your turns, you can try to issue a verbal command to the devil (no action required by you). It obeys the command if the likely outcome is in accordance with its desires, especially if the result would draw you toward evil. Otherwise, you must make a Charisma (Deception, Intimidation, or Persuasion) check contested by its Wisdom (Insight) check. You make the check with advantage if you say the devil's true name. If your check fails, the devil becomes immune to your verbal commands for the duration of the spell, though it can still carry out your commands if it chooses. If your check succeeds, the devil carries out your command \u2014 such as “attack my enemies,” “explore the room ahead,” or “bear this message to the queen” \u2014 until it completes the activity, at which point it returns to you to report having done so." + "\n   " + "If your concentration ends before the spell reaches its full duration, the devil doesn't disappear if it has become immune to your verbal commands. Instead, it acts in whatever manner it chooses for 3d6 minutes, and then it disappears." + "\n   " + "If you possess an individual devil's talisman, you can summon that devil if it is of the appropriate challenge rating plus 1, and it obeys all your commands, with no Charisma checks required." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th."
 };
 SpellsList["infestation-xgte"] = {
 	name : "Infestation",
@@ -16595,7 +16637,7 @@ SpellsList["mind spike"] = { // +1d8 at higher levels errata (https://twitter.co
 	range : "60 ft",
 	components : "S",
 	duration : "Conc, 1 h",
-	save: "Wis",
+	save : "Wis",
 	description : "1 crea 3d8+1d8/SL Psychic dmg, know its location, can't be invis for me; save half, no other benefits",
 	descriptionFull : "You reach into the mind of one creature you can see within range. The target must make a Wisdom saving throw, taking 3d8 psychic damage on a failed save, or half as much damage on a successful one. On a failed save, you also always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it's invisible, it gains no benefit from that condition against you." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
 };
@@ -16891,7 +16933,7 @@ SpellsList["wall of light"] = {
 	components : "V,S,M",
 	compMaterial : "A hand mirror",
 	duration : "Conc, 10 min",
-	save: "Con",
+	save : "Con",
 	description : "60\u00D75\u00D710ft (l\u00D7w\u00D7h) 4d8+1d8/SL Radiant dmg & blind; save half, not blind; 1 a rngd spell atk; see B",
 	descriptionMetric : "18\u00D71,5\u00D73m (l\u00D7w\u00D7h) 4d8+1d8/SL Radiant dmg & blind; save half, not blind; 1 a rngd spell atk; see B",
 	descriptionFull : "A shimmering wall of bright light appears at a point you choose within range. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet." + "\n   " + "When the wall appears, each creature in its area must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, it takes half as much damage and isn't blinded. A blinded creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success." + "\n   " + "A creature that ends its turn in the wall's area takes 4d8 radiant damage." + "\n   " + "Until the spell ends, you can use an action to launch a beam of radiance from the wall at one creature you can see within 60 feet of it. Make a ranged spell attack. On a hit, the target takes 4d8 radiant damage. Whether you hit or miss, reduce the length of the wall by 10 feet. If the wall's length drops to 0 feet, the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th."
@@ -17127,6 +17169,625 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 		description : ""
 	}]
 };
+
+// Magic Items
+MagicItemsList["adamantine ammunition"] = {
+	name : "Adamantine Ammunition",
+	source : ["X", 78],
+	type : "weapon (any ammunition)",
+	rarity : "unknown",
+	description : "Whenever a ammunition made or coated with adamantine hits an object, the hit is a critical hit. The adamantine version of ten pieces of ammunition costs 500 gp more than the normal version, whether the ammunition is made of the metal or coated with it.",
+	descriptionFull : "Ammunition made of or coated with adamantine is unusually effective when used to break objects. Whenever a piece of adamantine ammunition hits an object, the hit is a critical hit.\n   The adamantine version of ten pieces of ammunition costs 500 gp more than the normal version, whether the ammunition is made of the metal or coated with it.",
+	allowDuplicates : true,
+	chooseGear : {
+		type : "ammo",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["suffix", "Adamantine"],
+		descriptionChange : ["replace", "ammunition"],
+		excludeCheck : function (inObjKey, inObj) {
+			return (/vials|flasks/i).test(inObj.icon);
+		}
+	}
+}
+MagicItemsList["adamantine weapon"] = {
+	name : "Adamantine Weapon",
+	source : ["X", 78],
+	type : "weapon (any melee)",
+	rarity : "unknown",
+	description : "Whenever a weapon made or coated with adamantine hits an object, the hit is a critical hit. The adamantine version of a melee weapon costs 500 gp more than the normal version, whether the weapon is made of the metal or coated with it.",
+	descriptionFull : "Melee weapons made of or coated with adamantine are unusually effective when used to break objects. Whenever an adamantine weapon hits an object, the hit is a critical hit.\n   The adamantine version of a melee weapon costs 500 gp more than the normal version, whether the weapon is made of the metal or coated with it.",
+	allowDuplicates : true,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["suffix", "Adamantine"],
+		descriptionChange : ["replace", "weapon"],
+		excludeCheck : function (inObjKey, inObj) {
+			return inObj.list != "melee";
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.theWea.list == "melee" && (/adamantine/i).test(v.WeaponText)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
+				}
+			},
+			'If I include the word "Adamantine" in a the name of a melee weapon, it will be treated as the magic item Adamantine Weapon. Whenever it hits an object, it automatically scores a critical hit.'
+		]
+	}
+}
+MagicItemsList["armor of gleaming"] = {
+	name : "Armor of Gleaming",
+	nameTest : "of Gleaming",
+	source : ["X", 136],
+	type : "armor (medium, or heavy)",
+	rarity : "common",
+	description : "This armor never gets dirty.",
+	descriptionFull : "This armor never gets dirty.",
+	allowDuplicates : true,
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "prefix",
+		descriptionChange : ["prefix", "armor"],
+		excludeCheck : function (inObjKey, inObj) {
+			return !(/medium|heavy/i).test(inObj.type);
+		}
+	}
+}
+MagicItemsList["bead of nourishment"] = {
+	name : "Bead of Nourishment",
+	source : ["X", 136],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Once I can eat this spongy, flavorless, gelatinous bead. It dissolves on my tongue and provides as much nourishment as 1 day of rations.",
+	descriptionFull : "This spongy, flavorless, gelatinous bead dissolves on your tongue and provides as much nourishment as 1 day of rations."
+}
+MagicItemsList["bead of refreshment"] = {
+	name : "Bead of Refreshment",
+	source : ["X", 136],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Once I can drop this spongy, flavorless, gelatinous bead in liquid. It dissolves in the liquid and transforms up to a pint of it into fresh, cold drinking water. The bead has no effect on magical liquids or harmful substances such as poison.",
+	descriptionFull : "This spongy, flavorless, gelatinous bead dissolves in liquid, transforming up to a pint of the liquid into fresh, cold drinking water. The bead has no effect on magical liquids or harmful substances such as poison."
+}
+MagicItemsList["boots of false tracks"] = {
+	name : "Boots of False Tracks",
+	source : ["X", 136],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Only humanoids can wear these boots. While wearing the boots, I can choose to have them leave tracks like those of another kind of humanoid of my size.",
+	descriptionFull : "Only humanoids can wear these boots. While wearing the boots, you can choose to have them leave tracks like those of another kind of humanoid of your size."
+}
+MagicItemsList["candle of the deep"] = {
+	name : "Candle of the Deep",
+	source : ["X", 136],
+	type : "wondrous item",
+	rarity : "common",
+	description : "The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle.",
+	descriptionFull : "The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle."
+}
+MagicItemsList["cast-off armor"] = {
+	name : "Cast-Off Armor",
+	nameTest : "Cast-Off",
+	source : ["X", 136],
+	type : "armor (light, medium, or heavy)",
+	rarity : "common",
+	description : "As an action, I can doff this armor.",
+	descriptionFull : "You can doff this armor as an action.",
+	attunement : true,
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["prefix", "armor"]
+	},
+	action : [["action", ""]]
+}
+MagicItemsList["charlatan's die"] = {
+	name : "Charlatan's Die",
+	source : ["X", 136],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Whenever I roll this six-sided die, I can control which number it rolls.",
+	descriptionFull : "Whenever you roll this six-sided die, you can control which number it rolls.",
+	attunement : true
+}
+MagicItemsList["cloak of billowing"] = {
+	name : "Cloak of Billowing",
+	source : ["X", 136],
+	type : "wondrous item",
+	rarity : "common",
+	description : "As a bonus action while wearing this cloak, I can make it billow dramatically.",
+	descriptionFull : "While wearing this cloak, you can use a bonus action to make it billow dramatically.",
+	action : [["bonus action", ""]]
+}
+MagicItemsList["cloak of many fashions"] = {
+	name : "Cloak of Many Fashions",
+	source : ["X", 136],
+	type : "wondrous item",
+	rarity : "common",
+	description : "As a bonus action while wearing this cloak, I can change its style, color, and apparent qualities. The cloak's weight doesn't change. Regardless of its appearance, the cloak can't be anything but a cloak. Although it can duplicate the appearance of other magic cloaks, it doesn't gain their magical properties.",
+	descriptionFull : "While wearing this cloak, you can use a bonus action to change the style, color, and apparent quality of the garment. The cloak's weight doesn't change. Regardless of its appearance, the cloak can't be anything but a cloak. Although it can duplicate the appearance of other magic cloaks, it doesn't gain their magical properties.",
+	action : [["bonus action", ""]]
+}
+MagicItemsList["clockwork amulet"] = {
+	name : "Clockwork Amulet",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Once per dawn when I make an attack roll while wearing this copper amulet, I can forgo rolling the d20 to get a 10 on the die. The amulet contains tiny interlocking gears powered by magic from Mechanus, a plane of clockwork predictability. When I hold it up to my ear, I can hear faint ticking and whirring noises.",
+	descriptionFull : "This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used. this property can't be used again until the next dawn.",
+	usages : 1,
+	recovery : "dawn"
+}
+MagicItemsList["clothes of mending"] = {
+	name : "Clothes of Mending",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This elegant outfit of traveler's clothes magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
+	descriptionFull : "This elegant outfit of traveler's clothes magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
+	weight : 4
+}
+MagicItemsList["dark shard amulet"] = {
+	name : "Dark Shard Amulet",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "I can use this amulet of extraplanar material from the realm of my warlock patron as a spellcasting focus for my warlock spells. Once per long rest, I can use it to cast a warlock cantrip that I don't know. To do so, I must make a DC 10 Intelligence (Arcana) check, wasting the attempt as well as my action if I fail.",
+	descriptionFull : "This amulet is fashioned from a single shard of resilient extraplanar material originating from the realm of your warlock patron. While you are wearing it, you gain the following benefits:\n \u2022 You can use the amulet as a spellcasting focus for your warlock spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the warlock spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.",
+	attunement : true,
+	prerequisite : "Requires attunement by a warlock",
+	prereqeval : function (v) { return classes.known.warlock ? true : false; },
+	usages : 1,
+	recovery : "long rest",
+	eval : function () {
+		CurrentSpells['dark shard amulet'] = {
+			name : 'Dark Shard Amulet (item)',
+			ability : "class",
+			list : { 'class' : 'warlock', level : [0, 0] },
+			known : { cantrips : 0, spells : 'list' },
+			bonus : {},
+			typeList : 4,
+			refType : "item"
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['dark shard amulet'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
+}
+MagicItemsList["dread helm"] = {
+	name : "Dread Helm",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This fearsome steel helm makes my eyes glow red while I wear it.",
+	descriptionFull : "This fearsome steel helm makes your eyes glow red while you wear it.",
+	weight : 1
+}
+MagicItemsList["ear horn of hearing"] = {
+	name : "Ear Horn of Hearing",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "While held up to my ear, this horn suppresses the effects of the deafened condition on me, allowing me to hear normally.",
+	descriptionFull : "While held up to your ear, this horn suppresses the effects of the deafened condition on you, allowing you to hear normally.",
+	savetxt : { immune : ["deafened"] },
+	weight : 1
+}
+MagicItemsList["enduring spellbook"] = {
+	name : "Enduring Spellbook",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This spellbook, along with anything written on its pages, can't be damaged by fire or immersion in water. In addition, the spellbook doesn't deteriorate with age.",
+	descriptionFull : "This spellbook, along with anything written on its pages, can't be damaged by fire or immersion in water. In addition, the spellbook doesn't deteriorate with age.",
+	weight : 5
+}
+MagicItemsList["ersatz eye"] = {
+	name : "Ersatz Eye",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in my eye socket, it can't be removed by anyone other than me, and I can see through the tiny orb as though it were a normal eye.",
+	descriptionFull : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in your eye socket, it can't be removed by anyone other than you, and you can see through the tiny orb as though it were a normal eye.",
+	attunement : true
+}
+MagicItemsList["hat of vermin"] = {
+	name : "Hat of Vermin",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This hat has 3 charges, regaining all at dawn. As an action while holding it, I can expend 1 charge and speak a command word to have one bat, frog, or rat appear in the hat. The creature acts as and ordinary member of its kind and disappears after 1 hour or when it has 0 HP. It is not under my control.",
+	descriptionFull : "This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.",
+	action : [["action", ""]],
+	usages : 3,
+	recovery : "dawn"
+}
+MagicItemsList["hat of wizardry"] = {
+	name : "Hat of Wizardry",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "I can use this antiquated, cone-shaped hat adorned with gold crescent moons and stars as a spellcasting focus for my wizard spells. Once per long rest, I can use it to cast a wizard cantrip that I don't know. To do so, I must make a DC 10 Intelligence (Arcana) check, wasting the attempt as well as my action if I fail.",
+	descriptionFull : "This antiquated, cone-shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function (v) { return classes.known.wizard ? true : false; },
+	usages : 1,
+	recovery : "long rest",
+	eval : function () {
+		CurrentSpells['hat of wizardry'] = {
+			name : 'Hat of Wizardry (item)',
+			ability : "class",
+			list : { 'class' : 'wizard', level : [0, 0] },
+			known : { cantrips : 0, spells : 'list' },
+			bonus : {},
+			typeList : 4,
+			refType : "item"
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['hat of wizardry'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
+}
+MagicItemsList["heward's handy spice pouch"] = {
+	name : "Heward's Handy Spice Pouch",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This apparent empty belt pouch has 10 charges, regaining 1d6+4 expended charges at dawn. As an action while holding it, I can speak the name of any nonmagical food seasoning (e.g. salt, pepper, or saffron), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal.",
+	descriptionFull : "This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
+	weight : 1,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4"
+}
+MagicItemsList["horn of silent alarm"] = {
+	name : "Horn of Silent Alarm",
+	source : ["X", 137],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This horn has 4 charges, regaining 1d4 expended charges daily at dawn. As an action, I can expend 1 charge and blow it, have only one creature within 600 ft of my choice hear the horns blare, provided it isn't deafened. No other creature hears sound coming from the horn.",
+	descriptionFull : "This horn has 4 charges. When you use an action to blow it, one creature of your choice can hear the horns blare, provided the creature is within 600 feet of the horn and not deafened. No other creature hears sound coming from the horn. The horn regains 1d4 expended charges daily at dawn.",
+	weight : 2,
+	usages : 4,
+	recovery : "dawn",
+	additional : "regains 1d4",
+	action : [["action", ""]]
+}
+MagicItemsList["instrument of illusions"] = { // contains contributions by AelarTheElFRogue
+	name : "Instrument of Illusions",
+	source : ["X", 137],
+	type : "Instrument",
+	rarity : "common",
+	description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius (15-ft for bards) sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
+	descriptionFull : "While you are playing this musical instrument, you can create harmless, illusory visual effects within a 5-foot-radius sphere centered on the instrument. If you are a bard, the radius increases to 15 feet. Sample visual effects include luminous musical notes, a spectral dancer, butterflies, and gently falling snow. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when you stop playing.",
+	attunement : true,
+	weight : 3, // same as instrument of the bards
+	choices : ["Bard (15-ft radius)", "Not a Bard (5-ft radius)"],
+	selfChoosing : function () {
+		return classes.known.bard ? "bard (15-ft radius)" : "not a bard (5-ft radius)";
+	},
+	"bard (15-ft radius)" : {
+		name : "Instrument\u200A of Illusions",
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+	},
+	"not a bard (5-ft radius)" : {
+		name : "Instrument\u200A\u200A of Illusions",
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+	}
+}
+MagicItemsList["instrument of scribing"] = { // contains contributions by AelarTheElFRogue
+	name : "Instrument of Scribing",
+	source : ["X", 138],
+	type : "Instrument",
+	rarity : "common",
+	description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius (15-ft for bards) sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
+	descriptionFull : "This musical instrument has 3 charges. While you are playing it, you can use an action to expend 1 charge from the instrument and write a magical message on a nonmagical object or surface that you can see within 30 feet of you. The message can be up to six words long and is written in a language you know. If you are a bard, you can scribe an additional seven words and choose to make the message glow faintly, allowing it to be seen in nonmagical darkness. Casting Dispel Magic on the message erases it. Otherwise, the message fades away after 24 hours.\n   The instrument regains all expended charges daily at dawn.",
+	attunement : true,
+	weight : 3, // same as instrument of the bards
+	choices : ["Bard (15-ft radius)", "Not a Bard (5-ft radius)"],
+	selfChoosing : function () {
+		return classes.known.bard ? "bard (15-ft radius)" : "not a bard (5-ft radius)";
+	},
+	"bard (15-ft radius)" : {
+		name : "Instrument\u200A of Scribing",
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+	},
+	"not a bard (5-ft radius)" : {
+		name : "Instrument\u200A\u200A of Scribing",
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+	}
+}
+MagicItemsList["lock of trickery"] = {
+	name : "Lock of Trickery",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This lock appears to be an ordinary lock and comes with a single key. The tumblers in this lock magically adjust to thwart burglars. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check, but has disadvantage on that check.",
+	descriptionFull : "This lock appears to be an ordinary lock and comes with a single key. The tumblers in this lock magically adjust to thwart burglars. Dexterity checks made to pick the lock have disadvantage. Thus, without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check, but has disadvantage on that check.",
+	weight : 1
+}
+MagicItemsList["moon-touched sword"] = {
+	name : "Moon-Touched Sword",
+	nameTest : "Moon-Touched",
+	source : ["X", 138],
+	type : "weapon (any sword)",
+	rarity : "common",
+	description : "In darkness, the unsheathed blade of this sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
+	descriptionFull : "In darkness, the unsheathed blade of this sword sheds moonlight, creating bright light in a 15-foot radius and dim light for an additional 15 feet.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "sword"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /sword|scimitar|rapier/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	}
+}
+MagicItemsList["mystery key"] = {
+	name : "Mystery Key",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "A question mark is worked into the head of this key. The key has a 5% chance of unlocking any lock into which it's inserted. Once it unlocks something, the key disappears.",
+	descriptionFull : "A question mark is worked into the head of this key. The key has a 5% chance of unlocking any lock into which it's inserted. Once it unlocks something, the key disappears."
+}
+MagicItemsList["orb of direction"] = {
+	name : "Orb of Direction",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "As an action while holding this orb, I can determine which way is north. This property functions only on the Material Plane.",
+	descriptionFull : "While holding this orb, you can use an action to determine which way is north. This property functions only on the Material Plane.",
+	weight : 3,
+	action : [["action", ""]]
+}
+MagicItemsList["orb of time"] = {
+	name : "Orb of Time",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "As an action while holding this orb, I can determine whether it is morning, afternoon, evening, or nighttime outside. This property functions only on the Material Plane.",
+	descriptionFull : "While holding this orb, you can use an action to determine whether it is morning, afternoon, evening, or nighttime outside. This property functions only on the Material Plane.",
+	weight : 3,
+	action : [["action", ""]]
+}
+MagicItemsList["perfume of bewitching"] = {
+	name : "Perfume of Bewitching",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Once as an action, I can apply the perfume in this tiny vial to myself and its effect lasts 1 hour. For the duration, I have advantage on all Charisma checks directed at humanoids of challenge rating 1 or lower. Those subjected to the perfume's effect are not aware that they've been influenced by magic.",
+	descriptionFull : "This tiny vial contains magic perfume, enough for one use. You can use an action to apply the perfume to yourself, and its effect lasts 1 hour. For the duration, you have advantage on all Charisma checks directed at humanoids of challenge rating 1 or lower. Those subjected to the perfume's effect are not aware that they've been influenced by magic."
+}
+MagicItemsList["pipe of smoke monsters"] = {
+	name : "Pipe of Smoke Monsters",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "As an action while smoking this pipe, I can exhale a puff of smoke that takes the form of a single creature, such as a dragon, a flumph, or a froghemoth. The form must be small enough to fit in a 1-ft cube and loses its shape after a few seconds, becoming an ordinary puff of smoke.",
+	descriptionFull : "While smoking this pipe, you can use an action to exhale a puff of smoke that takes the form of a single creature, such as a dragon, a flumph, or a froghemoth. The form must be small enough to fit in a 1-foot cube and loses its shape after a few seconds, becoming an ordinary puff of smoke."
+}
+MagicItemsList["pole of angling"] = {
+	name : "Pole of Angling",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "While holding this 10 ft pole, I can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10 ft pole.",
+	descriptionFull : "While holding this 10-foot pole, you can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10-foot pole.",
+	weight : 7
+}
+MagicItemsList["pole of collapsing"] = {
+	name : "Pole of Collapsing",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "As an action while holding this 10 ft pole, I can speak a command word to have it collapse into a 1-ft-long rod. The poles weight doesn't change. As an action while holding the rod, I can speak a different command word to have it elongate back to a pole, but only as long as the surrounding space allows.",
+	descriptionFull : "While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The poles weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows.",
+	weight : 7,
+	action : [["action", ""]]
+}
+MagicItemsList["pot of awakening"] = {
+	name : "Pot of Awakening",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "If I plant an ordinary shrub in this 10 lb clay pot and let it grow for 30 days, the shrub magically transforms into an awakened shrub at the end of that time. When the shrub awakens, its roots break the pot, destroying it. The awakened shrub is friendly toward me. Absent commands from you, it does nothing.",
+	descriptionFull : "If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an awakened shrub at the end of that time. When the shrub awakens, its roots break the pot, destroying it.\n   The awakened shrub is friendly toward you. Absent commands from you, it does nothing.",
+	weight : 10
+}
+MagicItemsList["rope of mending"] = {
+	name : "Rope of Mending",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "I can cut this 50-foot coil of hempen rope into any number of smaller pieces, and then use an action to speak a command word and cause the pieces to knit back together. The pieces must be in contact with each other and not otherwise in use. A rope of mending is forever shortened if a section of it is lost.",
+	descriptionFull : "You can cut this 50-foot coil of hempen rope into any number of smaller pieces, and then use an action to speak a command word and cause the pieces to knit back together. The pieces must be in contact with each other and not otherwise in use. A rope of mending is forever shortened if a section of it is lost or destroyed.",
+	action : [["action", ""]],
+	weight : 10
+}
+MagicItemsList["ruby of the war mage"] = {
+	name : "Ruby of the War Mage",
+	source : ["X", 138],
+	type : "wondrous item",
+	rarity : "common",
+	description : "By pressing this 1-inch-diameter ruby etched with eldritch runes to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. I can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless my attunement ends, I detach it as an action, or the weapon is destroyed.",
+	descriptionFull : "Etched with eldritch runes, this 1-inch-diameter ruby allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The ruby does fall off the weapon if your attunement to the ruby ends.",
+	attunement : true,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; }
+}
+MagicItemsList["shield of expression"] = {
+	name : "Shield of Expression",
+	source : ["X", 139],
+	type : "shield",
+	rarity : "common",
+	description : "The front of this shield is shaped in the likeness of a face. As a bonus action while bearing the shield, I can have the shield alter the expression of the face.",
+	descriptionFull : "The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
+	weight : 6,
+	shieldAdd : "Shield of Expression",
+	action : [["bonus action", ""]]
+}
+MagicItemsList["smoldering armor"] = {
+	name : "Smoldering Armor",
+	nameTest : "Smoldering",
+	source : ["X", 139],
+	type : "armor (light, medium, or heavy",
+	rarity : "common",
+	description : "Wisps of harmless, odorless smoke rise from this armor while it is worn.",
+	descriptionFull : "Wisps of harmless, odorless smoke rise from this armor while it is worn.",
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["prefix", "armor"]
+	}
+}
+MagicItemsList["staff of adornment"] = {
+	name : "Staff of Adornment",
+	source : ["X", 139],
+	type : "staff",
+	rarity : "common",
+	description : "If I place an object up to 1 lb above the tip of the staff while holding it, the object floats 1 inch from its tip and remains there until it is removed or until I no longer possess the staff. It can have up to three objects floating over its tip at any given time and I can make one or more objects slowly spin or turn in place.",
+	descriptionFull : "If you place an object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of the staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+	weight : 4
+}
+MagicItemsList["staff of birdcalls"] = {
+	name : "Staff of Birdcalls",
+	source : ["X", 139],
+	type : "staff",
+	rarity : "common",
+	description : "This staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can use 1 charge to create a sound out to a range of 60 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's book, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+	descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's book, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+	weight : 4,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	action : [["action", ""]]
+}
+MagicItemsList["staff of flowers"] = {
+	name : "Staff of Flowers",
+	source : ["X", 139],
+	type : "staff",
+	rarity : "common",
+	description : "This staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can use 1 charge to cause a flower of my choice to sprout from a patch of earth or soil within 5 ft or from the staff itself. The flower is nonmagical and grows or withers as a normal flower would.",
+	descriptionFull : "This wooden staff has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of you, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mildscented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would. The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff turns into flower petals and is lost forever.",
+	weight : 4,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	action : [["action", ""]]
+}
+MagicItemsList["talking doll"] = {
+	name : "Talking Doll",
+	source : ["X", 139],
+	type : "wondrous item",
+	rarity : "common",
+	description : "During a short rest with this stuffed doll within 5 ft of me, I can tell it to say up to 6 phrases of up to 6 words each, and set a condition under which the doll speaks each phrase. Conditions must happen within 5 ft of the doll. The doll can remember only 6 phrases and are lost when my attunement to it ends.",
+	descriptionFull : "While this stuffed doll is within 5 feet of you, you can spend a short rest telling it to say up to six phrases, none of which can be more than six words long, and set a condition under which the doll speaks each phrase. You can also replace old phrases with new ones. Whatever the condition, it must occur within 5 feet of the doll to make it speak. For example, whenever someone picks up the doll, it might say, \"I want a piece of candy.\" The doll's phrases are lost when your attunement to the doll ends.",
+	attunement : true
+}
+MagicItemsList["tankard of sobriety"] = {
+	name : "Tankard of Sobriety",
+	source : ["X", 139],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison.",
+	descriptionFull : "This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison.",
+	weight : 1
+}
+MagicItemsList["unbreakable arrow"] = {
+	name : "Unbreakable Arrow",
+	source : ["X", 139],
+	type : "weapon (arrow)",
+	rarity : "common",
+	description : "This arrow can't be broken, except when it is within an Antimagic Field.",
+	descriptionFull : "This arrow can't be broken, except when it is within an Antimagic Field.",
+	weight : 0.05
+}
+MagicItemsList["veteran's cane"] = {
+	name : "Veteran's Cane",
+	source : ["X", 139],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Once as a bonus action, I can grasp this walking cane and speak its command word to have it transform into an ordinary longsword. Once transformed, the longsword is nonmagical and can't revert back to a walking cane.",
+	descriptionFull : "When you grasp this walking cane and use a bonus action to speak the command word, it transforms into an ordinary longsword and ceases to be magical.",
+	weight : 4,
+	action : [["bonus action", ""]]
+}
+MagicItemsList["walloping ammunition"] = {
+	name : "Walloping Ammunition",
+	nameTest : "Walloping",
+	source : ["X", 139],
+	type : "weapon (any ammunition)",
+	rarity : "common",
+	description : "This magic ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
+	descriptionFull : "This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
+	allowDuplicates : true,
+	chooseGear : {
+		type : "ammo",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "ammunition"],
+		excludeCheck : function (inObjKey, inObj) {
+			return (/vials|flasks/i).test(inObj.icon);
+		}
+	}
+}
+MagicItemsList["wand of conducting"] = {
+	name : "Wand of Conducting",
+	source : ["X", 140],
+	type : "wand",
+	rarity : "common",
+	description : "This wand has 3 charges, regaining all at dawn. As an action, I can wave it around and expend 1 charge to create orchestral music that can be heard out to a range of 60 ft and ends when I stop waving the wand. If I use its last charge, roll a d20. On a 1, a sad tuba sound plays as the wand crumbles to dust.",
+	descriptionFull : "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and create orchestral music by waving it around. The music can be heard out to a range of 60 feet and ends when you stop waving the wand.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, a sad tuba sound plays as the wand crumbles to dust and is destroyed.",
+	weight : 1,
+	action : [["action", ""]],
+	usages : 3,
+	recovery : "dawn"
+}
+MagicItemsList["wand of pyrotechnics"] = {
+	name : "Wand of Pyrotechnics",
+	source : ["X", 140],
+	type : "wand",
+	rarity : "common",
+	description : "This wand has 7 charges, regaining 1d6+1 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can expend 1 charge to create a harmless burst of sound light at a point I can see up to 60 ft away, with the noise travelling 300 ft. The light is as bright as a torch flame but lasts only a second.",
+	descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
+	weight : 1,
+	action : [["action", ""]],
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d6+1"
+}
+MagicItemsList["wand of scowls"] = {
+	name : "Wand of Scowls",
+	source : ["X", 140],
+	type : "wand",
+	rarity : "common",
+	description : "This wand has 3 charges, regain all at dawn. As an action, I can expend 1 of its charges and target a humanoid I can see within 30 ft. The target must succeed on a DC 10 Charisma save or be forced to scowl for 1 minute. If I expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of smiles.",
+	descriptionFull : "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to scowl for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of smiles.",
+	weight : 1,
+	action : [["action", ""]],
+	usages : 3,
+	recovery : "dawn"
+}
+MagicItemsList["wand of smiles"] = {
+	name : "Wand of Smiles",
+	source : ["X", 140],
+	type : "wand",
+	rarity : "common",
+	description : "This wand has 3 charges, regain all at dawn. As an action, I can expend 1 of its charges and target a humanoid I can see within 30 ft. The target must succeed on a DC 10 Charisma save or be forced to smile for 1 minute. If I expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of scowls.",
+	descriptionFull : "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to smile for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of scowls.",
+	weight : 1,
+	action : [["action", ""]],
+	usages : 3,
+	recovery : "dawn"
+}
 var iFileName = "pub_20180529_MToF.js";
 RequiredSheetVersion(13);
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
@@ -18946,7 +19607,7 @@ RaceList["dragonmark making human"] = {
 		CurrentSpells['dragonmark making human'] = {
 			name : 'Human (dragonmark)',
 			ability : 4,
-			list : { 'class' : 'dragonmark making human', level : [0, 0] },
+			list : { 'class' : 'wizard', level : [0, 0] },
 			known : { cantrips : 1, spells : 'list' },
 			bonus : {
 				bonus1 : {
@@ -18966,12 +19627,6 @@ RaceList["dragonmark making human"] = {
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 	}
 };
-RunFunctionAtEnd(function() {
-	for (var sp in SpellsList) {
-		var aSp = SpellsList[sp];
-		if (aSp.level !== undefined && aSp.level === 0 && aSp.classes && aSp.classes.indexOf('wizard') !== -1) aSp.classes.push('dragonmark making human');
-	}
-});
 RaceList["dragonmark passage human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
 	name : "Human (dragonmark)",

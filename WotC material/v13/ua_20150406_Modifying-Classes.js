@@ -139,6 +139,9 @@ ClassList["spell-less ranger"] = {
 			}),
 			extraname : "Maneuver",
 			extrachoices : ["Commander's Strike", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Trip Attack"],
+			extraTimes : levels.map(function (n) {
+				return n < 2 ? 0 : n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6;
+			}),
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : ["P", 74],
