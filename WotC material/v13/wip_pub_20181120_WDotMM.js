@@ -18,10 +18,11 @@ MagicItemsList["dagger of blindsight"] = {
 	type : "weapon (dagger)",
 	rarity : "rare",
 	magicItemTable : "G",
-	description : "",
+	description : "This magical dagger has a saw-toothed edge and a black pearl nested in its pommel. While I'm attuned to it, I have blindsight out to a range of 30 ft.",
 	descriptionFull : "This rare magic item requires attunement. A creature attuned to it gains blindsight out to a range of 30 feet. The dagger has a saw-toothed edge and a black pearl nested in its pommel.",
 	attunement : true,
-	weight : 1
+	weight : 1,
+	vision : [["Blindsight", 30]]
 }
 MagicItemsList["professor orb"] = {
 	name : "Professor Orb",

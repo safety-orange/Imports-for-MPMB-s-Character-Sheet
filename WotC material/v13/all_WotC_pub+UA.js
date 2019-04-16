@@ -18655,6 +18655,57 @@ if (!FeatsList["svirfneblin magic"]) {
 		}
 	};
 }
+
+// Magic Items
+MagicItemsList["greater silver sword"] = {
+	name : "Greater Silver Sword",
+	source : ["MToF", 89],
+	type : "weapon (greatsword)",
+	rarity : "legendary",
+	description : "This magic greatsword gives +1 to hit and damage. While holding it, I have adv. on Int, Wis, and Cha saves, immunity to being charmed, and resistance to psychic damage. If I score a critical hit with it on a creature's astral body, I can cut the cord tethering it to its material body, instead of dealing damage.",
+	descriptionFull : "This magic weapon grants a +3 bonus to attack and damage rolls made with it. While you hold the sword, you have advantage on Intelligence, Wisdom, and Charisma saving throws, you are immune to being charmed, and you have resistance to psychic damage. In addition, if you score a critical hit with it against a creature's astral body, you can cut the silvery cord that tethers the target to its material body, instead of dealing damage.",
+	attunement : true,
+	weight : 6,
+	prerequisite : "Requires attunement by a creature that has psionic ability",
+	prereqeval : function (v) {
+		if (!v.isSpellcaster) return false;
+		if ((/psion|mystic/i).test(What("Racial Traits"))) return true;
+		for (var aCast in CurrentSpells) {
+			var spCast = CurrentSpells[aCast];
+			if ((/psion|mystic/i).test(spCast.name) || (spCast.list && spCast.list.psionic)) return true;
+			if (!spCast.bonus) continue;
+			for (var aBon in spCast.bonus) {
+				if ((/psion|mystic/i).test(aBon) || (/psion|mystic/i).test(spCast.bonus[aBon].name)) return true;
+			}
+		}
+	},
+	weaponsAdd : ["Greater Silver Sword"],
+	weaponOptions : {
+		baseWeapon : "greatsword",
+		regExpSearch : /^(?=.*greater)(?=.*silver)(?=.*sword).*$/i,
+		name : "Greater Silver Sword",
+		source : ["MToF", 89],
+		description : "Heavy, two-handed; On crit vs. astral body, cut cord instead of damage",
+		modifiers : [3, 3]
+	},
+	savetxt : { text : ["Adv. on Int, Wis, and Cha saves"], immune : ["Charmed"] },
+	advantages : [["Intelligence", true], ["Wisdom", true], ["Charisma", true]],
+	dmgres : ["Psychic"]
+}
+MagicItemsList["infernal tack"] = {
+	name : "Infernal Tack",
+	source : ["MToF", 167],
+	type : "wondrous item",
+	rarity : "legendary",
+	description : "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",
+	descriptionLong : "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
+	descriptionFull : "A narzugon binds a nightmare to its service with infernal tack, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.\n   You can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.\n   The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil.",
+	attunement : true,
+	weight : 26, // riding saddle (25) + bit and bridle (1)
+	prerequisite : "Requires attunement by a creature of evil alignment",
+	prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
+	action : [["action", ""]]
+}
 var iFileName = "pub_20180723_WGtE.js";
 RequiredSheetVersion(13);
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet

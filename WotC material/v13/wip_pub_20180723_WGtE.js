@@ -1771,6 +1771,7 @@ MagicItemsList["orb of shielding"] = {
 	"\n \u2022 Risian shale: Cold damage" +
 	"\n \u2022 Shavaran chert: Force damage",
 	attunement : true,
+	weight : 3,
 	action : [["reaction", ""]],
 	choices : ["Fernian Basalt (fire)", "Irian Quartz (radiant)", "Kythrian Skarn (acid or poison)", "Lamannian Flint (lightning or thunder)", "Mabaran Obsidian (necrotic)", "Quori Celestine (psychic)", "Risian Shale (cold)", "Shavaran Chert (force)", "Xorian Marble (psychic)"],
 	"fernian basalt (fire)" : {
