@@ -11691,6 +11691,113 @@ CreatureList["gazer"] = {
 		}
 	]
 };
+
+// Magic Items
+MagicItemsList["mind blade"] = {
+	name : "Mind Blade",
+	source : ["V", 81],
+	type : "weapon (any sword)",
+	rarity : "rare",
+	description : "Mind flayers can turn any nonmagical sword into a mind blade. Only one creature can attune to this sword: either a specific mind flayer or one of its thralls. In the hands of its intended wielder, the mind blade is a magic weapon that deals an extra 2d6 psychic damage to any target it hits.",
+	descriptionFull : "Mind flayers can turn any nonmagical sword into a mind blade. Only one creature can attune to it: either a specific mind flayer or one of its thralls. In the hands of any other creature, the mind blade functions as a normal sword of its kind. In the hands of its intended wielder, the mind blade is a magic weapon that deals an extra 2d6 psychic damage to any target it hits.",
+	attunement : true,
+	prerequisite : "Requires attunement by the creature this armor was made for: either a specific mind flayer or one of its thralls",
+	prereqeval : function (v) { return false; },
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "sword"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /sword|scimitar|rapier/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*mind)(?=.*blade).*$/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+2d6 psychic damage';
+				}
+			},
+			'If I include the words "Mind Blade" in a the name of a sword, it will be treated as the magic weapon Mind Blade, which adds +2d6 psychic damage on any hit as long as attuned to its intended wielder.'
+		]
+	}
+}
+MagicItemsList["mind carapace armor"] = {
+	name : "Mind Carapace Armor",
+	source : ["V", 81],
+	type : "armor (heavy)",
+	rarity : "uncommon",
+	description : "Only one creature can attune to this armor: either a specific mind flayer or one of its thralls. To its intended wearer, the armor grants advantage on Intelligence, Wisdom, and Charisma saving throws and makes its wearer immune to the frightened condition.",
+	descriptionFull : "Any nonmagical suit of heavy armor can be turned by mind flayers into mind carapace armor. Only one creature can attune to it: either a specific mind flayer or one of its thralls. While worn by any other creature, the mind carapace armor functions as normal armor of its kind. To its intended wearer, the armor grants advantage on Intelligence, Wisdom, and Charisma saving throws and makes its wearer immune to the frightened condition.",
+	attunement : true,
+	prerequisite : "Requires attunement by the creature this armor was made for: either a specific mind flayer or one of its thralls",
+	prereqeval : function (v) { return false; },
+	savetxt : { text : ["Adv. on Int, Wis, and Cha saves"], immune : ["frightened"] },
+	advantages : [["Intelligence", true], ["Wisdom", true], ["Charisma", true]],
+	allowDuplicates : true,
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "brackets",
+		descriptionChange : ["prefix", "armor"],
+		itemName1stPage : ["suffix", "Mind Carapace"],
+		excludeCheck : function (inObjKey, inObj) {
+			return !(/heavy/i).test(inObj.type);
+		}
+	}
+}
+MagicItemsList["mind lash"] = {
+	name : "Mind Lash",
+	source : ["V", 81],
+	type : "weapon (whip)",
+	rarity : "rare",
+	description : "This magic whip strips away a creature's will to survive as it also strips away flesh and deals +2d4 psychic damage on each hit. Any target taking psychic damage must succeed on a DC 15 Wisdom save or have disadv. on Int, Wis, and Cha saves for 1 minute. It can repeat the save at the end of each of its turns.",
+	descriptionFull : "In the hands of any creature other than a mind flayer, a mind lash functions as a normal whip. In the hands of an illithid, this magic weapon strips away a creature's will to survive as it also strips away flesh, dealing an extra 2d4 psychic damage to any target it hits. Any creature that takes psychic damage from the mind lash must also succeed on a DC 15 Wisdom saving throw or have disadvantage on Intelligence, Wisdom, and Charisma saving throws for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+	attunement : true,
+	weight : 3,
+	prerequisite : "Requires attunement by an illithid",
+	prereqeval : function (v) { return (/mind flayer|illithid/i).test(What("Race")); },
+	weaponsAdd : ["Mind Lash"],
+	weaponOptions : {
+		baseWeapon : "whip",
+		regExpSearch : /^(?=.*mind)(?=.*lash).*$/i,
+		name : "Mind Lash",
+		source : ["V", 81],
+		description : "Finesse, reach; +2d4 psychic damage; DC 15 Wis save or disadv. on Int/Wis/Cha saves for 1 min"
+	}
+}
+MagicItemsList["shield of far sight"] = {
+	name : "Shield of Far Sight",
+	source : ["V", 81],
+	type : "shield",
+	rarity : "rare",
+	description : "The mind flayer that created this shield can see through its eye with 60 ft darkvision while it is on the same plane. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield. If a shield of far sight is destroyed, its creator is blinded for 2d12 hours.",
+	descriptionFull : "A mind flayer skilled at crafting magic items creates a shield of far sight by harvesting an eye from an intelligent humanoid and magically implanting it on the outer surface of a nonmagical shield. The shield becomes a magic item once the eyes is implanted, whereupon the mind flayer can give the shield to a thrall or hang it on a wall in its lair. As long as the shield is on the same plane of existence as its creator, the mind flayer can see through the shield's eye, which has darkvision out to a range of 60 feet. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield.\n   If a shield of far sight is destroyed, the mind flayer that created it is blinded for 2d12 hours.",
+	weight : 6,
+	shieldAdd : "Shield of Far Sight"
+}
+MagicItemsList["survival mantle"] = {
+	name : "Survival Mantle",
+	source : ["V", 81],
+	type : "armor (half plate)",
+	rarity : "unknown",
+	description : "This mantle functions as a half plate and takes just as long to don or doff. It encases portions of my shoulders, neck, and chest so that I can breathe normally in any environment (including a vacuum) and gives me advantage on saving throws against gases (such as Cloudkill, Stinking Cloud, or inhaled poisons).",
+	descriptionFull : "This carapace-like augmentation encases portions of the wearer's shoulders, neck, and chest. A survival mantle is equivalent to a suit of nonmagical half plate armor and takes just as long to don or doff. It can't be worn with other kinds of armor.\n   A creature wearing a survival mantle can breathe normally in any environment (including a vacuum) and has advantage on saving throws against harmful gases (such as those created by a Cloudkill spell, a Stinking Cloud spell, inhaled poisons, and the breath weapons of some dragons).",
+	weight : 40,
+	savetxt : { adv_vs : ["gases"] },
+	armorAdd : "Survival Mantle",
+	armorOptions : {
+		regExpSearch : /^(?=.*survival)(?=.*mantle).*$/i,
+		name : "Survival Mantle",
+		source : ["V", 81],
+		type : "medium",
+		ac : 15,
+		stealthdis : true,
+		weight : 40
+	}
+}
 var iFileName = "pub_20170404_TftYP.js";
 RequiredSheetVersion(12.999);
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
@@ -18687,7 +18794,7 @@ MagicItemsList["greater silver sword"] = {
 		description : "Heavy, two-handed; On crit vs. astral body, cut cord instead of damage",
 		modifiers : [3, 3]
 	},
-	savetxt : { text : ["Adv. on Int, Wis, and Cha saves"], immune : ["Charmed"] },
+	savetxt : { text : ["Adv. on Int, Wis, and Cha saves"], immune : ["charmed"] },
 	advantages : [["Intelligence", true], ["Wisdom", true], ["Charisma", true]],
 	dmgres : ["Psychic"]
 }
@@ -19534,7 +19641,7 @@ RaceList["dragonmark handling human"] = {
 	calcChanges : {
 		spellAdd : [
 			function (spellKey, spellObj, spName) {
-				switch (spellkey) {
+				switch (spellKey) {
 					case "animal friendship" :
 						spellObj.description = spellObj.description.replace("beasts", "beasts/monstrosities");
 						return true;

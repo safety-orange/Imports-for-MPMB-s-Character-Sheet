@@ -141,7 +141,7 @@ if (!SourceList.WGtE) {
 		calcChanges : {
 			spellAdd : [
 				function (spellKey, spellObj, spName) {
-					switch (spellkey) {
+					switch (spellKey) {
 						case "animal friendship" :
 							spellObj.description = spellObj.description.replace("beasts", "beasts/monstrosities");
 							return true;

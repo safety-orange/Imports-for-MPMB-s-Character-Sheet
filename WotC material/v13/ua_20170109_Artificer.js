@@ -111,7 +111,7 @@ ClassList['artificer-ua'] = {
 			}),
 			extraname : "Magic Item",
 			extraTimes : levels.map(function (n) {
-				return n < 2 ? 0 : n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5;
+				return n < 2 ? 0 : n < 5 ? 1 : n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5;
 			}),
 			extrachoices : []
 			//come back to this with the function to make the individual entries
