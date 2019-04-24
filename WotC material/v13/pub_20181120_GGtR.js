@@ -79,7 +79,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				aadditional : levels.map(function (n) { return "+" + n + " damage"; })
+				additional : levels.map(function (n) { return "+" + n + " damage"; })
 			},
 			"nimble escape" : {
 				name : "Nimble Escape",

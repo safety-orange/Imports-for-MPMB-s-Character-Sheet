@@ -79,7 +79,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				aadditional : levels.map(function (n) { return "+" + n + " damage"; })
+				additional : levels.map(function (n) { return "+" + n + " damage"; })
 			},
 			"nimble escape" : {
 				name : "Nimble Escape",
@@ -1461,12 +1461,12 @@ MagicItemsList["guild keyrune"] = {
 		recovery : "36 h"
 	}
 }
-MagicItemsList["guild keyrune"] = {
-	name : "Guild Keyrune",
+MagicItemsList["guild signet"] = {
+	name : "Guild Signet",
 	source : ["G", 178],
 	type : "ring",
 	rarity : "uncommon",
-	description : "",
+	description : "This signet ring bears a symbol of its associated guild. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast the spell within (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 	descriptionFull : "This ring, adorned with the symbol of a guild, allows you to cast one spell closely associated with that guild, as shown in the table below. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).\n\n" +
 	toUni("Guild \tAssociated Spell") +
 	"\nAzorius\tensnaring strike" +
@@ -1480,36 +1480,119 @@ MagicItemsList["guild keyrune"] = {
 	"\nSelesnya\tcharm person" +
 	"\nSimic\texpeditious retreat",
 	attunement : true,
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
 	choices : ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
 	"azorius" : {
-		description : ""
+		description : "\nAzorius\tensnaring strike",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["ensnaring strike"],
+			selection : ["ensnaring strike"],
+			firstCol : 1
+		}
 	},
 	"boros" : {
-		description : ""
+		description : "This signet ring bears a symbol of Boros. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Heroism (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["heroism"],
+			selection : ["heroism"],
+			firstCol : 1
+		}
 	},
 	"dimir" : {
-		description : ""
+		description : "This signet ring bears a symbol of Dimir. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Disguise Self (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : 1
+		}
 	},
 	"golgari" : {
-		description : ""
+		description : "This signet ring bears a symbol of Golgari. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Entangle (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["entangle"],
+			selection : ["entangle"],
+			firstCol : 1
+		}
 	},
 	"gruul" : {
-		description : ""
+		description : "This signet ring bears a symbol of Gruul. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Compelled Duel (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["compelled duel"],
+			selection : ["compelled duel"],
+			firstCol : 1
+		}
 	},
 	"izzet" : {
-		description : ""
+		description : "This signet ring bears a symbol of lzzet. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Chaos Bolt (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["chaos bolt"],
+			selection : ["chaos bolt"],
+			firstCol : 1
+		}
 	},
 	"orzhov" : {
-		description : ""
+		description : "This signet ring bears a symbol of Orzhov. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Command (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["command"],
+			selection : ["command"],
+			firstCol : 1
+		}
 	},
 	"rakdos" : {
-		description : ""
+		description : "This signet ring bears a symbol of Rakdos. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Hellish Rebuke (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["hellish rebuke"],
+			selection : ["hellish rebuke"],
+			firstCol : 1
+		}
 	},
 	"selesnya" : {
-		description : ""
+		description : "This signet ring bears a symbol of Selesnya. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Charm Person (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["charm person"],
+			selection : ["charm person"],
+			firstCol : 1
+		}
 	},
 	"simic" : {
-		description : ""
+		description : "This signet ring bears a symbol of Simic. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Expeditious Retreat (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["expeditious retreat"],
+			selection : ["expeditious retreat"],
+			firstCol : 1
+		}
 	}
 }
 MagicItemsList["illusionist's bracers"] = {
@@ -1517,11 +1600,12 @@ MagicItemsList["illusionist's bracers"] = {
 	source : ["G", 178],
 	type : "wondrous item",
 	rarity : "very rare",
-	description : "",
+	description : "While wearing the bracers, whenever I cast a cantrip, I can use a bonus action on the same turn to cast that cantrip a second time.",
 	descriptionFull : "A powerful illusionist of House Dimir originally developed these bracers, which enabled her to create multiple minor illusions at once. The bracers' power, though, extends far beyond illusions.\n   While wearing the bracers, whenever you cast a cantrip, you can use a bonus action on the same turn to cast that cantrip a second time.",
 	attunement : true,
 	prerequisite : "Requires attunement by a spellcaster",
 	prereqeval : function(v) { return v.isSpellcaster; },
+	action : [["bonus action", " (with cantrip)"]]
 }
 MagicItemsList["mizzium apparatus"] = {
 	name : "Mizzium Apparatus",
