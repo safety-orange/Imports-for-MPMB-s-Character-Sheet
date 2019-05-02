@@ -1919,6 +1919,7 @@ MagicItemsList["shiftweave"] = {
 	action : [["action", ""]]
 }
 MagicItemsList["spellshard"] = {
+	name : "Spellshard",
 	source : ["WGtE", 115],
 	type : "wondrous item",
 	description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",

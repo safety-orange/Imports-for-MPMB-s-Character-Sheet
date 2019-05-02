@@ -6,6 +6,17 @@
 
 	As wel as items that are not normally usable by players such as plot devices
 */
+{ // pub_20141104_RoT.js
+	// Artifact
+	MagicItemsList["draakhorn"] = {
+		name : "Draakhorn",
+		source : ["RoT", 93],
+		type : "wondrous item",
+		rarity : "artifact",
+		description : "",
+		descriptionFull : "The Draakhorn was a gift from Tiamat in the war between dragons and giants. It was once the horn of her ancient red dragon consort, Ephelomon, that she gave to dragonkind to help them in their war against the giants. The Draakhorn is a signaling device, and it is so large that it requires two Medium creatures (or one Large or larger) to hold it while a third creature sounds it, making the earth resonate to its call. The horn has been blasted with fire into a dark ebony hue and is wrapped in bands of bronze with draconic runes that glow with purple eldritch fire.\n   The low, moaning drone of the Draakhorn discomfits normal animals within a few miles, and it alerts all dragons within two thousand miles to rise and be wary, for great danger is at hand. Coded blasts were once used to signal specific messages. Knowledge of those codes has been lost to the ages.\n   Those with knowledge of the Draakhorn's history know that it was first built to signal danger to chromatic dragons\u2014a purpose the Cult of the Dragon has corrupted to call chromatic dragons to the Well of Dragons from across the North.\n   Within 50 feet of any enclosed space where the horn is blown, the air begins to shimmer from the sound. Any character within 20 feet of the entry to the enclosed space must succeed on a DC 12 Strength check to continue pushing against the pressure of the sound. A failure indicates the character can advance no farther toward the entry.\n   For any character entering the enclosed space, the sound fades to silence\u2014because any creature that enters the enclosed space is temporarily deafened and must make a DC 12 Constitution saving throw. Success indicates the deafness ends 2 minutes after the Draakhorn ceases to sound. Failure indicates the character remains deafened for 1 hour after the Draakhorn ceases to sound.\n   While the horn is sounding, a creature must make a DC 15 Constitution saving throw the first time on a turn the creature enters a 150-foot cone in front of the horn or starts its turn there. On a failed save, the creature takes 27 (6d8) thunder damage and is knocked prone. On a successful save, the creature takes half damage and isn't knocked prone."
+	}
+}
 { // pub_20141209_DMG.js
 	// Intelligent Items
 	MagicItemsList["blackrazor"] = {

@@ -1,5 +1,145 @@
 var iFileName = "all_WotC_pub+UA.js";
 var iFileName = "all_WotC_published.js";
+var iFileName = "pub_20140715_LMoP.js";
+RequiredSheetVersion(13);
+// This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["LMoP"] = {
+	name : "Lost Mines of Phandelver [items]",
+	abbreviation : "LMoP",
+	group : "Adventure Books",
+	url : "https:/http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_starterset",
+	date : "2014/07/15"
+};
+
+// Magic Items
+MagicItemsList["dragonguard"] = {
+	name : "Dragonguard",
+	source : ["LMoP", 48],
+	type : "armor (breastplate)",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
+	descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
+	weight : 20,
+	addArmor: "Dragonguard",
+	armorOptions: {
+		regExpSearch: /dragonguard/i,
+		name : "Dragonguard",
+		source : ["LMoP", 48],
+		type : "medium",
+		ac : 14,
+		weight : 20
+	},
+	savetxt : { adv_vs : ["breath weapons of dragons"] }
+}
+MagicItemsList["hew"] = {
+	name : "Hew",
+	source : ["LMoP", 33],
+	type : "weapon (battleaxe)",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "This rusty old battleaxe has runes in Dwarvish on its head which read \"Hew\". It deals maximum damage against plant creatures or an object made of wood. While carrying the axe and travelling through a forest, I feel uneasy. Its creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood.",
+	descriptionFull : "This rusty old battleaxe has runes in Dwarvish on the axe head which read \"Hew\". It deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe's creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.",
+	weight : 4,
+	weaponsAdd : ["Hew"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /hew/i,
+		name : "Hew",
+		source : ["LMoP", 33],
+		description : "Versatile (1d10); Max damage against plant creatures and wooden objects"
+	}
+}
+MagicItemsList["lightbringer"] = {
+	name : "Lightbringer",
+	source : ["LMoP", 48],
+	type : "weapon (mace)",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head of shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
+	descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
+	weight : 4,
+	weaponsAdd : ["Lightbringer"],
+	weaponOptions : {
+		baseWeapon : "mace",
+		regExpSearch : /lightbringer/i,
+		name : "Lightbringer",
+		source : ["LMoP", 48],
+		description : "Command to glow as torch and deal +1d6 radiant damage to undead",
+		modifiers : [1, 1]
+	}
+}
+MagicItemsList["spider staff"] = {
+	name : "Spider Staff",
+	source : ["LMoP", 53],
+	type : "staff",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "Attacks with this black adamantine quarterstaff toped with a spider deal +1d6 poison damage on a hit. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast Spider Climb (1 charge) or Web (2 charges, spell save DC 15).",
+	descriptionFull : "The top of this black, adamantine staff is shaped like a spider. The staff weighs 6 pounds. You must be attuned to the staff to gain its benefits and cast its spells. The staff can be wielded as a quarterstaff. It deals 1d6 extra poison damage on a hit when used to make a weapon attack.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: Spider Climb (1 charge) or Web (2 charges, spell save DC 15). No components are required.\n   The staff regains 1d6+4 expended charges each day at dusk. If you expend the staff's last charge, roll a d20. On a 1, the staff crumbles to dust and is destroyed.",
+	attunement : true,
+	weight : 6,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	weaponsAdd : ["Spider Staff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /^(?=.*spider)(?=.*staff).*$/i,
+		name : "Spider Staff",
+		source : ["LMoP", 53],
+		description : "Versatile (1d8); +1d6 poison damage"
+	},
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["spider climb"],
+		selection : ["spider climb"],
+		firstCol : 1
+	}, {
+		name : "2 charges",
+		spells : ["web"],
+		selection : ["web"],
+		firstCol : 2
+	}]
+}
+MagicItemsList["staff of defense"] = {
+	name : "Staff of Defense",
+	source : ["LMoP", 53],
+	type : "staff",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This slender, hollow staff is made of glass yet is as strong as oak. While holding it, I gain a +1 bonus to AC. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast Mage Armor (1 charge) or Shield (2 charges) as an action.",
+	descriptionFull : "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. You must be attuned to the staff to gain its benefits and cast its spells.\n   While holding the staff, you have a +1 bonus to your Armor Class.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: Mage Armor (1 charge) or Shield (2 charges). No components are required.\n   The staff regains 1d6+4 expended charges each day at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed.",
+	attunement : true,
+	weight : 3,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["mage armor"],
+		selection : ["mage armor"],
+		firstCol : 1
+	}, {
+		name : "2 charges",
+		spells : ["shield"],
+		selection : ["shield"],
+		firstCol : 2
+	}],
+	spellChanges : {
+		"shield" : {
+			time : "1 a",
+			changes : "Cast as an action."
+		}
+	},
+	extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+}
 var iFileName = "pub_20140818_PHB.js";
 RequiredSheetVersion(13);
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
@@ -4518,17 +4658,24 @@ SpellsList["wrathful smite"] = {
 	description : "Next melee weapon hit +1d6 Psychic dmg and save or frightened; it can take 1 a for extra save",
 	descriptionFull : "The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1d6 psychic damage. Additionally, if the target is a creature, it must make a Wisdom saving throw or be frightened of you until the spell ends. As an action, the creature can make a Wisdom check against your spell save DC to steel its resolve and end this spell."
 };
-var iFileName = "pub_20140819_HotDQ.js";
-RequiredSheetVersion(12.999);
-// This file adds the background features from the Hoard of the Dragon Queen adventure book to MPMB's Character Record Sheet
+var iFileName = "pub_20140819_HotDQ+20141104_RoT.js";
+RequiredSheetVersion(13);
+// This file adds the background features and magic items from the Hoard of the Dragon Queen and Rise of Tiamat  adventure books to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.HotDQ={
-	name : "Hoard of the Dragon Queen [background features]",
+	name : "Hoard of the Dragon Queen [background features, items]",
 	abbreviation : "HotDQ",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
 	date : "2014/08/19"
+};
+SourceList["RoT"] = {
+	name : "Rise of Tiamat [items]",
+	abbreviation : "RoT",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rise-tiamat",
+	date : "2014/11/04"
 };
 
 // Background features
@@ -4540,6 +4687,367 @@ BackgroundFeatureList["dragon scholar"] = {
 	description : "I have studied dragons and their lore for many years. I can automatically identify locations built or used by dragons, and I can identify dragon eggs and scales by sight. If I fail an Intelligence check to recall lore relating to dragons, I know someone or some book that I can consult for the answer unless the DM rules that the lore is unknown.",
 	source : [["HotDQ", 87], ["ALbackground", 0]]
 };
+
+// Magic Items
+// The magic cauldron on page 79 is omitted as its only magic is that it functions as the material component for the Augury spell. Not something an adventurer is likely to use, with it being 50 lb.
+MagicItemsList["dragongleam"] = {
+	name : "Dragongleam",
+	source : ["HotDQ", 69],
+	type : "weapon (spear)",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "This rusty spear is engraved with draconic runes on its crossguard which read \"Tiamat's Eyes Shine\". The spear has 10 charges. As an action while holding it, I can say this command and expend 1 charge to cast Daylight. The spear loses its magic once all charges are expended.",
+	descriptionFull : "This rusty spear is engraved with draconic runes on its crossguard which read \"Tiamat's Eyes Shine\". The spear has 10 charges. While holding it, you can say the command and expend 1 charge as an action to cast the Daylight spell. The spear loses this property if it has no charges left.",
+	weight : 3,
+	usages : 10,
+	recovery : "Never",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["daylight"],
+		selection : ["daylight"],
+		firstCol : 1
+	},
+	spellChanges : {
+		"daylight" : {
+			component : "V,M\u0192"
+		}
+	},
+	weaponsAdd : ["Dragongleam"],
+	weaponOptions : {
+		baseWeapon : "spear",
+		regExpSearch : /dragongleam/i,
+		name : "Dragongleam",
+		source : ["HotDQ", 69]
+	}
+}
+MagicItemsList["tankard of plenty"] = {
+	name : "Tankard of Plenty",
+	source : ["HotDQ", 74],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "A",
+	description : 'This golden stein is decorated with dancing dwarves and grain patterns. Speaking the command word "Illefarn" while grasping the handle fills the tankard with three pints of rich dwarven ale. This power can be used up to three times per day.',
+	descriptionFull : 'This golden stein is decorated with dancing dwarves and grain patterns. Speaking the command word ("Illefarn") while grasping the handle fills the tankard with three pints of rich dwarven ale. This power can be used up to three times per day.',
+	usages : 3,
+	recovery : "Day"
+}
+var tempDragonMaskNoteTxt = [
+	desc([
+		toUni("Damage Absorption") + ". You have resistance against DTYPE damage. If you already have resistance to DTYPE damage from another source, you instead have immunity to DTYPE damage. If you already have immunity to DTYPE damage from another source, whenever you are subjected to DTYPE damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
+		toUni("Draconic Majesty") + ". While you are wearing no armor, you can add your Charisma bonus to your Armor Class.",
+		toUni("Dragon Breath") + ". If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
+		toUni("Dragon Sight") + ". You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.",
+		toUni("Dragon Tongue") + ". You can speak and understand Draconic. You also have advantage on any Charisma check you make against DCOLOUR dragons.",
+		toUni("Legendary Resistance (1/Day)") + ". If you fail a saving throw, you can choose to succeed instead."
+	]), [
+		" It reshapes to fit my face and head when I attuned to it. While I'm wearing a dragon mask and attuned to it, it grants me the following benefits.",
+		"\u2022 Damage Absorption. I have resistance against DTYPE damage. If I already have resistance to DTYPE damage from another source, I instead gain immunity to DTYPE damage. If I already have immunity to DTYPE damage from another source, whenever I am subjected to DTYPE damage, I take none of that damage and instead regain a number of hit points equal to half the DTYPE damage dealt.",
+		"\u2022 Draconic Majesty. While I am wearing no armor, I can add my Charisma bonus to my Armor Class.",
+		"\u2022 Dragon Breath. If I have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
+		"\u2022 Dragon Sight. I gain darkvision out to 60 ft, or to an additional 60 ft if I already have that sense. Once per day, I can gain blindsight out to 30 ft for 5 minutes.",
+		"\u2022 Dragon Tongue. I can speak and understand Draconic. I also have advantage on any Charisma check I make against DCOLOUR dragons.",
+		"\u2022 Legendary Resistance. Once per day when I fail a saving throw, I can choose to succeed instead."
+	].join("\n   ")
+];
+MagicItemsList["dragon mask"] = {
+	name : "Dragon Mask",
+	source : ["HotDQ", 94],
+	type : "wondrous item",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This mask reshapes to fit my head. It grants me the ability to absorb associated damage type, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. a dragon type, the ability speak Draconic, and lets me add my Cha mod to AC while not wearing armor, see Notes page.",
+	descriptionFull : "Each dragon mask is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any dragon mask and attuned to it, you gain the following benefits." + tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage*?\n/, "You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR dragons", "dragons that share the mask's color"),
+	attunement : true,
+	languageProfs : ["Draconic"],
+	vision : [["Darkvision", "fixed60"], ["Darkvision", "+60"]],
+	usages : 1,
+	recovery : "Day",
+	additional : "Legendary Resistance",
+	extraLimitedFeatures : [{
+		name : "Dragon Mask (Blindsight 30 ft, 5 min)",
+		usages : 1,
+		recovery : "Day"
+	}],
+	extraAC : [{
+		mod : "Cha",
+		magic : true,
+		text : "I add my Charisma modifier to AC while I'm not wearing armor.",
+		stopeval : function (v) { return v.wearingArmor; }
+	}],
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.theWea.dbBreathWeapon || (/^(?=.*breath)(?=.*weapon).*$/i).test(v.theWea.name)) {
+					fields.Description = fields.Description.replace(/(Us(e|able)( only)? )?once per (short|long) rest/i, 'Recharge 6');
+				};
+			}
+		]
+	},
+	incrementDamageRes : function (dType, dRes) {
+		SetProf(
+			"savetxt",
+			CurrentProfs.resistance[dRes] && CurrentProfs.resistance[dRes].src.length > 1 ? true : false,
+			{ immune : [dRes] },
+			!dType ? "Mask of the Dragon Queen (magic item)" : dType + " Dragon Mask (magic item)"
+		);
+	},
+	choices : ["Black", "Blue", "Green", "Red", "White", "Mask of the Dragon Queen"],
+	"black" : {
+		name : "Black Dragon Mask",
+		description : "This mask reshapes to fit my head. It grants me the ability to absorb acid damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. black dragons, the ability speak Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong : "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, the ability speak Draconic, advantage on Charisma checks against black dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionFull : "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "acid").replace("DCOLOUR", "black") + "\n   " + toUni("Water Breathing") + ". You can breathe underwater.",
+		dmgres : ["Acid"],
+		changeeval : function () { MagicItemsList["dragon mask"].incrementDamageRes("Black", "acid"); },
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Black Dragon Mask",
+			note : "\n   This horned mask of glossy ebony has horns and a skull-like mien." + tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "acid").replace("DCOLOUR", "any") + "\n   Water Breathing. I can breathe underwater."
+		}]
+	},
+	/*
+		Although the adventure book only includes the Black Dragon Mask,
+		this code also includes the Blue, Green, Red, and White Dragon Masks.
+		The rules for these are found in the Rise of Tiamat Online Supplement,
+		here: https://media.wizards.com/2014/downloads/dnd/RiseTiamatSupplementv0.2_Printer.pdf
+	*/
+	"blue" : {
+		name : "Blue Dragon Mask",
+		source : [["HotDQ", 0], ["RoTOS", 4]],
+		description : "This mask reshapes to fit my head. It grants me the ability to absorb lightning damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. Cha checks vs. blue dragons, the ability speak Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong : "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb lightning damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, the ability speak Draconic, advantage on Charisma checks against blue dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Lingering Shock. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionFull : "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue") + "\n   " + toUni("Lingering Shock") + ". If you deal lightning damage to a creature, it can't take reactions until its next turn.",
+		dmgres : ["Lightning"],
+		changeeval : function () { MagicItemsList["dragon mask"].incrementDamageRes("Blue", "lightning"); },
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Blue Dragon Mask",
+			note : "\n   This mask of glossy azure has spikes around its edges and a ridged horn in its center." + tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue") + "\n   Lingering Shock. If I deal lightning damage to a creature, it can't take reactions until its next turn."
+		}]
+	},
+	"green" : {
+		name : "Green Dragon Mask",
+		source : [["HotDQ", 0], ["RoTOS", 4]],
+		description : "This mask reshapes to fit my head. It grants me the ability to absorb poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. green dragons, the ability speak Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong : "This mottled green mask is surmounted by a frilled crest and has spikes along its jaw. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb poison damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, the ability speak Draconic, advantage on Charisma checks against green dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionFull : "This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "poison").replace("DCOLOUR", "green") + "\n   " + toUni("Water Breathing") + ". You can breathe underwater.",
+		dmgres : ["Poison"],
+		changeeval : function () { MagicItemsList["dragon mask"].incrementDamageRes("Green", "poison"); },
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Green Dragon Mask",
+			note : "\n   This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw." + tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "poison").replace("DCOLOUR", "green") + "\n   Water Breathing. I can breathe underwater."
+		}]
+	},
+	"red" : {
+		name : "Red Dragon Mask",
+		source : [["HotDQ", 0], ["RoTOS", 4]],
+		description : "This mask reshapes to fit my head. It grants me the ability to absorb fire damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. red dragons, the ability speak Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong : "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb fire damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, the ability speak Draconic, advantage on Charisma checks against red dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Dragon Fire. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionFull : "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "fire").replace("DCOLOUR", "red") + "\n   " + toUni("Dragon Fire") + ". If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+		dmgres : ["Fire"],
+		changeeval : function () { MagicItemsList["dragon mask"].incrementDamageRes("red", "fire"); },
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Red Dragon Mask",
+			note : "\n   This mask of glossy crimson has swept-back horns and spiked cheek ridges." + tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "fire").replace("DCOLOUR", "red") + "\n   Dragon Fire. If I deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire."
+		}]
+	},
+	"white" : {
+		name : "White Dragon Mask",
+		source : [["HotDQ", 0], ["RoTOS", 4]],
+		description : "This mask reshapes to fit my head. It grants me the ability to absorb cold damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. white dragons, the ability speak Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong : "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb cold damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, the ability speak Draconic, advantage on Charisma checks against white dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Winter's Fury. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionFull : "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "cold").replace("DCOLOUR", "white") + "\n   " + toUni("Winter's Fury") + ". While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		dmgres : ["Cold"],
+		changeeval : function () { MagicItemsList["dragon mask"].incrementDamageRes("white", "cold"); },
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the White Dragon Mask",
+			note : "\n   This gleaming mask is white with highlights of pale blue and is topped by a spined crest." + tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "cold").replace("DCOLOUR", "white") + "\n   Winter's Fury. While my current hit points are equal to or less than half my hit point maximum, I deal an extra 1d8 cold damage with my melee attacks."
+		}]
+	},
+	"mask of the dragon queen" : {
+		name : "Mask of the Dragon Queen",
+		source : ["RoT", 94],
+		description : "This mask reshapes to fit my head. It allows to absorb acid, cold, fire, lightning, and poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (5/day), adv. on Cha checks vs. dragons, the ability speak Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong : "This mask gives me a draconic visage and covers my face, neck, and shoulders. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid, cold, fire, lightning, and poison damage, depending on how resistant I'm already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, the ability speak Draconic, advantage on Charisma checks against dragons, lets me add my Charisma modifier to AC while not wearing armor, and more. 5 times per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionFull : "When two or more of the dragon masks are assembled they magically transform into the Mask of the Dragon Queen. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage*?\n/, "You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace(toUni("(1/Day)"), toUni("(5/Day)")) + "\n\n   It can have the properties of any one of the colored masks, but only can have one active at a time. These are the following:\n   " + toUni("Water Breathing (black and green)") + ". You can breathe underwater.\n   " + toUni("Lingering Shock (blue)") + ". If you deal lightning damage to a creature, it can't take reactions until its next turn.\n   " + toUni("Dragon Fire (red)") + ". If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.\n   " + toUni("Winter's Fury (white)") + ". While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		dmgres : ["Acid", "Cold", "Fire", "Lightning", "Poison"],
+		changeeval : function () {
+			MagicItemsList["dragon mask"].incrementDamageRes("", "acid");
+			MagicItemsList["dragon mask"].incrementDamageRes("", "cold");
+			MagicItemsList["dragon mask"].incrementDamageRes("", "fire");
+			MagicItemsList["dragon mask"].incrementDamageRes("", "lightning");
+			MagicItemsList["dragon mask"].incrementDamageRes("", "poison");
+		},
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Mask of the Dragon Queen",
+			note : "\n   When two or more of the dragon masks are assembled they magically transform into the Mask of the Dragon Queen. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders." +
+			tempDragonMaskNoteTxt[1].replace(/Damage Absorption.*?\n/, "Damage Absorption. I have resistance to acid, cold, fire, lightning, and poison damage. If I already have resistance to a damage type from another source, I instead have immunity to that damage type. If I already have immunity to a damage type from another source, whenever I am subjected to that damage type, I take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace("Once per day when", "Five times per day when") +
+			"\n   I can access the properties of any one of the colored masks, but only can have one active at a time. These are the following:\n   Water Breathing (black and green). I can breathe underwater.\n   Lingering Shock (blue). If I deal lightning damage to a creature, it can't take reactions until its next turn.\n   Dragon Fire (red). If I deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.\n   Winter's Fury (white). While my current hit points are equal to or less than half my hit point maximum, I deal an extra 1d8 cold damage with my melee attacks."
+		}],
+		usages : 5,
+		recovery : "Day",
+		additional : "Legendary Resistance"
+	}
+}
+MagicItemsList["hazirawn"] = {
+	name : "Hazirawn",
+	source : ["HotDQ", 94],
+	type : "weapon (greatsword)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This sentient, neutral evil, greatsword functions depend on whether you are attuned to it or not.",
+	descriptionFull : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. Even if you aren't attuned to the sword, you gain a +1 bonus on attack and damage rolls made with this weapon and you deal an extra 1d6 necrotic damage when you hit with the weapon.\n   " + toUni("Increased Potency") + ". While you are attuned to this weapon, its bonus on attack and damage rolls increases to +2, and a hit deals an extra 2d6 necrotic damage (instead of 1d6).\n   " + toUni("Spells") + ". Hazirawn has 4 charges to cast spells. As long as the sword is attuned to you and you are holding it in your hand, you can cast Detect Magic (1 charge), Detect Evil and Good (1 charge), or Detect Thoughts (2 charges). Each night at midnight, Hazirawn regains 1d4 expended charges.\n   " + toUni("Wounding") + ". While you are attuned to the weapon, any creature that you hit with Hazirawn can't regain hit points for 1 minute. The target can make a DC 15 Constitution saving throw at the end of each of its turns, ending this effect early on a success.",
+	weight : 6,
+	choices : ["attuned", "not attuned"],
+	"not attuned" : {
+		name : "Haziraw\u200An",
+		description : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. While I'm not attuned to the sword, I gain a +1 bonus on attack and damage rolls made with it. It also deals an extra 1d6 necrotic damage on attacks made with the sword.",
+		weaponsAdd : ["Hazirawn"],
+		weaponOptions : {
+			baseWeapon : "greatsword",
+			regExpSearch : /hazirawn/i,
+			name : "Hazirawn",
+			source : ["HotDQ", 94],
+			description : "Heavy, two-handed; +1d6 necrotic damage",
+			modifiers : [1,1]
+		}
+	},
+	"attuned" : {
+		name : "Haziraw\u200A\u200An",
+		attunement : true,
+		description : "This sentient, neutral evil, greatsword adds +2 to damage and to hit rolls, deals +2d6 necrotic damage, and those hit with it can't regain HP for 1 min, but can make a DC 15 Con save at the end of each turn to stop this effect. It has 4 charges to cast spells, regaining 1d4 at midnight. It speaks Common and Netherese.",
+		extraLimitedFeatures : [{
+			name : "Hazirawn [regains 1d4]",
+			usages : 4,
+			recovery : "Midnight"
+		}],
+		weaponsAdd : ["Hazirawn"],
+		weaponOptions : {
+			baseWeapon : "greatsword",
+			regExpSearch : /hazirawn/i,
+			name : "Hazirawn",
+			source : ["HotDQ", 94],
+			description : "Heavy, two-handed; +2d6 necrotic damage; Wounding (can't regain HP for 1 min, DC 15 Con save to stop)",
+			modifiers : [2,2]
+		},
+		spellcastingBonus : [{
+			name : "1 charge",
+			spells : ["detect evil and good", "detect magic"],
+			selection : ["detect evil and good", "detect magic"],
+			firstCol : 1
+		}, {
+			name : "2 charges",
+			spells : ["detect thoughts"],
+			selection : ["detect thoughts"],
+			firstCol : 2
+		}],
+		fixedDC : 15, // assumed from the fact that its Wounding property has DC 15
+		spellFirstColTitle : "Ch"
+	}
+}
+MagicItemsList["insignia of claws"] = {
+	name : "Insignia of Claws",
+	source : ["HotDQ", 94],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "The jewels in the insignia flare with purple light when I enter combat, empowering my fists. While wearing the insignia, I gain a +1 bonus to the attack rolls and the damage rolls of my unarmed strikes and natural weapons. Such attacks are considered to be magical.",
+	descriptionFull : "The jewels in the insignia of the Cult of the Dragon flare with purple light when you enter combat, empowering your natural fists or natural weapons.\n   While wearing the insignia you gain a +1 bonus to the attack rolls and the damage rolls you make with unarmed strikes and natural weapons. Such attacks are considered to be magical.",
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.baseWeaponName == "unarmed strike" && !(/counts as( a)? magical/i).test(fields.Description)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+				};
+			},
+			"My unarmed strikes gain a +1 bonus to their attack and damage rolls, and count as magical."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.baseWeaponName == "unarmed strike") {
+					output.magic += 1;
+				}
+			}, ''
+		]
+	}
+}
+MagicItemsList["wand of winter"] = {
+	name : "Wand of Winter",
+	source : ["HotDQ", 94],
+	type : "wand",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This wand looks and feels like an icicle and has 7 charges, regaining 1d6+1 expended charges at dawn. If I use its last charge, roll a d20. On a 20, it melts away. I can use its charges to cast spells with DC 15/+5 to hit: Ray of Frost (0 charges: 1d8, 1 charge: 2d8), Sleet Storm (3 charges), or Ice Storm (4 charges).",
+	descriptionFull : "This wand looks and feels like an icicle. You must be attuned to the wand to use it.\n   The wand has 7 charges, which are used to fuel the spells within it. With the wand in hand, you can use your action to cast one of the following spells from the wand, even if you are incapable of casting spells: Ray of Frost (no charges, or 1 charge to cast at 5th level; +5 to hit with ranged spell attack), Sleet Storm (3 charges; spell save DC 15), or Ice Storm (4 charges; spell save DC 15). No components are required. The wand regains 1d6+1 expended charges each day at dawn. If you expend the wand's last charge, roll a d20. On a 20, the wand melts away, forever destroyed.",
+	attunement : true,
+	usages : 7,
+	recovery : "dawn",
+	additional : "regains 1d6+1",
+	fixedDC : 15,
+	fixedSpAttack : 5,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["ray of frost"],
+		selection : ["ray of frost"],
+		firstCol : 1
+	}, {
+		name : "0 charges (at will)",
+		spells : ["ray of frost"],
+		selection : ["ray of frost"],
+		firstCol : "atwill"
+	}, {
+		name : "3 charges",
+		spells : ["sleet storm"],
+		selection : ["sleet storm"],
+		firstCol : 3
+	}, {
+		name : "4 charges",
+		spells : ["ice storm"],
+		selection : ["ice storm"],
+		firstCol : 4
+	}],
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName, isDuplicate) {
+				if (spellKey == "ray of frost" && spName == "wand of winter") {
+					if (isDuplicate) {
+						spellObj.firstCol = "1";
+						spellObj.description = "Spell attack for 2d8 Cold dmg and -10 ft speed until start of my next turn";
+					} else {
+						spellObj.description = "Spell attack for 1d8 Cold dmg and -10 ft speed until start of my next turn";
+					}
+					return true;
+				};
+			},
+			""
+		]
+	}
+}
+MagicItemsList["dragontooth dagger"] = {
+	name : "Dragontooth Dagger",
+	source : ["RoT", 94],
+	type : "weapon (dagger)",
+	rarity : "rare",
+	magicItemTable : "H",
+	description : "This dagger is fashioned from the tooth of a dragon. Its handle is its leather wrapped root and there is no crossguard. It adds a +1 bonus to attack and damage rolls made with it and deals +1d6 acid damage on a hit. Against the enemies of the Cult of the Dragon this increases to a +2 bonus and +2d6 acid damage.",
+	descriptionFull : "A dagger fashioned from the tooth of a dragon. While the blade is obviously a fang or predator's tooth, the handle is leather wrapped around the root of the tooth, and there is no crossguard.\n   You gain a +1 bonus to attack and damage rolls made with this weapon. On a hit with this weapon, the target takes an extra 1d6 acid damage.\n   " + toUni("Draconic Potency") + ". Against enemies of the Cult of the Dragon, the dagger's bonus to attack and damage rolls increases to 2, and the extra acid damage increases to 2d6.",
+	weight : 1,
+	weaponsAdd : ["Dragontooth Dagger"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /^(?=.*dragontooth)(?=.*dagger).*$/i,
+		name : "Dragontooth Dagger",
+		source : ["RoT", 94],
+		description : "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \u0026 +2d6 acid damage",
+		modifiers : [1,1]
+	}
+}
 var iFileName = "pub_20140930_MM.js";
 RequiredSheetVersion(12.999);
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
@@ -6139,6 +6647,495 @@ MagicItemsList["weapon of warning"] = {
 		descriptionChange : ["replace", "weapon"]
 	},
 	advantages : [["Initiative", true]]
+}
+var iFileName = "pub_20150407_PotA.js";
+RequiredSheetVersion(13);
+// This file adds the magic items from the Princes of the Apocalypse adventure to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["PotA"] = {
+	name : "Princes of the Apocalypse [items]",
+	abbreviation : "PotA",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/princes-apocalypse",
+	date : "2015/04/07"
+};
+
+// Magic Items
+MagicItemsList["balloon pack"] = {
+	name : "Balloon Pack",
+	source : ["PotA", 222],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "As an action, I can deploy the balloon to gain the effects of Levitate for 10 minutes. As a reaction, I can deploy the balloon to gain the effects of Feather Fall. After either effect ends, I descend slowly for 60 ft as it deflates. Once used in either way, the backpack is useless until recharged in an air node for 1 hour.",
+	descriptionFull : "This backpack contains the spirit of an air elemental and a compact leather balloon. While you're wearing the backpack, you can deploy the balloon as an action and gain the effect of the Levitate spell for 10 minutes, targeting yourself and requiring no concentration. Alternatively, you can use a reaction to deploy the balloon when you're falling and gain the effect of the Feather Fall spell for yourself.\n   When either spell ends, the balloon slowly deflates as the elemental spirit escapes and returns to the Elemental Plane of Air. As the balloon deflates, you descend gently toward the ground for up to 60 feet. If you are still in the air at the end of this distance, you fall if you have no other means of staying aloft.\n   After the spirit departs, the backpack's property is unusable unless the backpack is recharged for 1 hour in an elemental air node, which binds another spirit to the backpack.",
+	weight : 5, // as backpack
+	usages : 1,
+	recovery : "Air Node",
+	additional : "recharge: 1 h in air node",
+	action : [["action", " (Levitate)"], ["reaction", " (Feather Fall)"]],
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["feather fall", "levitate"],
+		selection : ["feather fall", "levitate"],
+		firstCol : 1
+	},
+	spellChanges : {
+		"feather fall" : {
+			range : "Self",
+			description : "I descent only 60 ft/rnd for duration or until landed, taking no falling damage",
+			changes : "Using the Balloon Pack, I can only target myself."
+		},
+		"levitate" : {
+			range : "Self",
+			duration : "10 min",
+			save : "",
+			description : "I rise vertically, up to 20 ft; move up/down 20 ft instead of normal move",
+			changes : "Using the Balloon Pack, I can only target myself, but the spell requires no concentration."
+		}
+	}
+}
+MagicItemsList["bottled breath"] = {
+	name : "Bottled Breath",
+	source : ["PotA", 222],
+	type : "potion",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "Once as an action, I can inhale this breath of elemental air or administer it to another. The target then either exhale it or hold it in. If exhaled immediately, it produces the effects of Gust of Wind. Holding it in removes the need to breathe for 1 hour, though this benefit can end early, by speaking for example.",
+	descriptionFull : "This bottle contains a breath of elemental air. When you inhale it, you either exhale it or hold it.\n   If you exhale the breath, you gain the effect of the Gust of Wind spell. If you hold the breath, you don't need to breathe for 1 hour, though you can end this benefit early (for example, to speak). Ending it early doesn't give you the benefit of exhaling the breath.",
+	weight : 0.5
+}
+MagicItemsList["claws of the umber hulk"] = {
+	name : "Claws of the Umber Hulk",
+	source : ["PotA", 222],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "These brown iron gauntlets, shaped like umber hulk claws, cover my hands up to my elbows. While wearing both, I can tunnel 1 ft per round through solid rock and have a burrowing speed of 20 ft, but can't manipulate items or use somatic spell components. I can use them as melee weapons, dealing 1d8 slashing damage.",
+	descriptionFull : "These heavy gauntlets of brown iron are forged in the shape of an umber hulk's claws, and they fit the wearer's hands and forearms all the way up to the elbow. While wearing both claws, you gain a burrowing speed of 20 feet, and you can tunnel through solid rock at a rate of 1 foot per round.\n   You can use a claw as a melee weapon while wearing it. You have proficiency with it, and it deals 1d8 slashing damage on a hit (your Strength modifier applies to the attack and damage rolls, as normal).\n   While wearing the claws, you can't manipulate objects or cast spells with somatic components.",
+	weight : 1,
+	attunement : true,
+	speed : { burrow : { spd : "fixed20", enc : "fixed10" } },
+	weaponsAdd : ["Claws of the Umber Hulk"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*claws)(?=.*umber)(?=.*hulk).*$/i,
+		name : "Claws of the Umber Hulk",
+		source : ["PotA", 222],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 8, "slashing"],
+		range : "Melee",
+		description : "",
+		abilitytodamage : true
+	}
+}
+var tempDevastationOrbNoteTxt = [
+	"A devastation orb is an elemental bomb that can be created at the site of an elemental node by performing a ritual with an elemental weapon. The type of orb created depends on the node used. For example, an air node creates a devastation orb of air. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.\n   A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates 1d100 hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as Identify and Divination can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.\n   A special container can be crafted to contain a devastation orb and prevent it from detonating. The container must be inscribed with symbols of the orb's opposing element. For example, a case inscribed with earth symbols can be used to contain a devastation orb of air and keep it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes 1d6 rounds later, unless it is returned to the container.\n   Regardless of the type of orb, its effect is contained within a sphere with a 1 mile radius. The orb is the sphere's point of origin. The orb is destroyed after one use.",
+	desc([
+		"This elemental bomb can be created at the site of an elemental node of tELEMENT by performing a ritual with an elemental weapon. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.",
+		"A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates 1d100 hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as Identify and Divination can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.",
+		"A special container inscribed with symbols of oELEMENT can be crafted to contain a devastation orb of tELEMENT and prevent it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes 1d6 rounds later, unless it is returned to the container."
+	])
+];
+MagicItemsList["devastation orb"] = {
+	name : "Devastation Orb",
+	source : ["PotA", 222],
+	type : "wondrous item",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
+	descriptionFull : tempDevastationOrbNoteTxt[0],
+	weight : 10,
+	choices : ["Air", "Earth", "Fire", "Water"],
+	"air" : {
+		name : "Devastation Orb of Air",
+		description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a powerful windstorm in 1 mile around it for 1 hour. Everything exposed to the wind is damage by it. See Notes page.",
+		descriptionFull : tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Air Orb") + ". When this orb detonates, it creates a powerful windstorm that lasts for 1 hour. Whenever a creature ends its turn exposed to the wind, the creature must succeed on a DC 18 Constitution saving throw or take 1d4 bludgeoning damage, as the wind and debris batter it. The wind is strong enough to uproot weak trees and destroy light structures after at least 10 minutes of exposure. Otherwise, the rules for strong wind apply, as detailed in chapter 5 of the Dungeon Master's Guide.",
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Devastation Orb of Air",
+			note : tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "air").replace(/oElement/g, "earth") + "\n  When this orb detonates, it creates a powerful windstorm within a sphere with a 1 mile radius that lasts for 1 hour. Whenever a creature ends its turn exposed to the wind, the creature must succeed on a DC 18 Constitution saving throw or take 1d4 bludgeoning damage, as the wind and debris batter it. The wind is strong enough to uproot weak trees and destroy light structures after at least 10 minutes of exposure. Otherwise, the rules for strong wind apply. A strong wind imposes disadvantage on ranged weapon attack rolls and Wisdom (Perception) checks that rely on hearing. A strong wind also extinguishes open flames, disperses fog, and makes flying by nonmagical means nearly impossible. A flying creature in a strong wind must land at the end of its turn or fall. A strong wind in a desert can create a sandstorm that imposes disadvantage on Wisdom (Perception) checks that rely on sight."
+		}]
+	},
+	"earth" : {
+		name : "Devastation Orb of Earth",
+		description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates the effect of an Earthquake spell in 1 mile around it for 1 minute. See Notes page.",
+		descriptionFull : tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Earth Orb") + ". When this orb detonates, it subjects the area to the effects of the Earthquake spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes.",
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Devastation Orb of Earth",
+			note : tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "earth").replace(/oElement/g, "air") + desc([
+				"When this orb detonates, it subjects the area to the effects of the Earthquake spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes.",
+				"The Earthquake spell creates a seismic disturbance that shakes creatures and structures in contact with the ground in that area. The ground in the area becomes difficult terrain. Each creature on the ground that is concentrating must make a Constitution saving throw. On a failed save, the creature's concentration is broken.",
+				"At the end of each turn this goes on, each creature on the ground in the area must make a Dexterity saving throw. On a failed save, the creature is knocked prone.",
+				"This spell can have additional effects depending on the terrain in the area, as determined by the DM.",
+				"\u2022 Fissures. Fissures open throughout the spell's area at the start of the turn after the orb detonates. A total of 1d6 such fissures open in locations chosen by the DM. Each is 1d10 \u00D7 10 ft deep, 10 ft wide, and extends from one edge of the area to the opposite side. A creature standing on a spot where a fissure opens must succeed on a Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure's edge as it opens. A fissure that opens beneath a structure causes it to automatically collapse (see below).",
+				"\u2022 Structures. The tremor deals 50 bludgeoning damage to any structure in contact with the ground in the area when the orb detonates and at the start of each of turns for the duration. If a structure drops to 0 hit points, it collapses and potentially damages nearby creatures. A creature within half the distance of a structure's height must make a Dexterity saving throw. On a failed save, the creature takes 5d6 bludgeoning damage, is knocked prone, and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to escape. The DM can adjust the DC higher or lower, depending on the nature of the rubble. On a successful save, the creature takes half as much damage and doesn't fall prone or become buried."
+			])
+		}]
+	},
+	"fire" : {
+		name : "Devastation Orb of Fire",
+		description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a dry heat wave in 1 mile around it for 24 hours. There is extreme heat within the area and wildfires can appear within, see Notes.",
+		descriptionFull : tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Fire Orb") + ". When this orb detonates, it creates a dry heat wave that lasts for 24 hours. Within the area of effect, the rules for extreme heat apply, as detailed in chapter 5 of the Dungeon Master's Guide. At the end of each hour, there is a ten percent chance that the heat wave starts a wildfire in a random location within the area of effect. The wildfire covers a 10-foot-square area initially but expands to fill another 10-foot square each round until the fire is extinguished or burns itself out. A creature that comes within 10 feet of a wildfire for the first time on a turn or starts its turn there takes 3d6 fire damage.",
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Devastation Orb of Fire",
+			note : tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "fire").replace(/oElement/g, "water") + "\n  When this orb detonates, it creates a dry heat wave within a 1-mile radius sphere that lasts for 24 hours. At the end of each hour, there is a ten percent chance that the heat wave starts a wildfire in a random location within the area of effect. The wildfire covers a 10-foot-square area initially but expands to fill another 10-foot square each round until the fire is extinguished or burns itself out. A creature that comes within 10 feet of a wildfire for the first time on a turn or starts its turn there takes 3d6 fire damage.\n   Within the area of effect, the rules for extreme heat apply, as the temperature is above 100 \u00B0F. Any creature exposed to the heat and without access to drinkable water must succeed on a Constitution saving throw at the end of each hour or gain one level of exhaustion. The DC is 5 for the first hour and increases by 1 for each additional hour. Creatures wearing medium or heavy armor, or who are clad in heavy clothing, have disadvantage on the saving throw. Creatures with resistance or immunity to fire damage automatically succeed on the saving throw, as do creatures naturally adapted to hot climates."
+		}]
+	},
+	"water" : {
+		name : "Devastation Orb of Water",
+		description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates torrential rainstorm in 1 mile around it for 24 hours. If bodies of water exist in the area, they rise 10 ft and flood. See Notes page.",
+		descriptionFull : tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Water Orb") + ". When this orb detonates, it creates a torrential rainstorm that lasts for 24 hours. Within the area of effect, the rules for heavy precipitation apply, as detailed in chapter 5 of the Dungeon Master's Guide. If there is a substantial body of water in the area, it floods after 2d10 hours of heavy rain, rising 10 feet above its banks and inundating the surrounding area. The flood advances at a rate of 100 feet per round, moving away from the body of water where it began until it reaches the edge of the area of effect: at that point, the water flows downhill (and possibly recedes back to its origin). Light structures collapse and wash away. Any Large or smaller creature caught in the flood's path is swept away. The flooding destroys crops and might trigger mudslides, depending on the terrain.",
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of the Devastation Orb of Water",
+			note : tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "water").replace(/oElement/g, "fire") + "\n  When this orb detonates, it creates a torrential rainstorm in a 1-mile radius sphere that lasts for 24 hours. If there is a substantial body of water in the area, it floods after 2d10 hours of heavy rain, rising 10 feet above its banks and inundating the surrounding area. The flood advances at a rate of 100 feet per round, moving away from the body of water where it began until it reaches the edge of the area of effect: at that point, the water flows downhill (and possibly recedes back to its origin). Light structures collapse and wash away. Any Large or smaller creature caught in the flood's path is swept away. The flooding destroys crops and might trigger mudslides, depending on the terrain.\n   Within the area of effect, the rules for heavy precipitation apply. Everything is lightly obscured, and creatures in the area have disadvantage on Wisdom (Perception) checks that rely on sight. Heavy rain also extinguishes open flames and imposes disadvantage on Wisdom (Perception) checks that rely on hearing."
+		}]
+	}
+}
+MagicItemsList["drown"] = {
+	name : "Drown",
+	source : ["PotA", 224],
+	type : "weapon (trident)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This trident has a +1 bonus on to hit and damage and deals +1d8 cold damage. It allows me to speak Aquan, grants me resistance to cold damage, and allows me to cast Dominate Monster on a water elemental once per dawn. It gives me a flaw, see Notes page.",
+	descriptionFull : "A steel trident decorated with bronze barnacles along the upper part of its haft, Drown has a sea-green jewel just below the tines and a silver shell at the end of its haft. It floats on the surface if dropped onto water, and it floats in place if it is released underwater. The trident is always cool to the touch, and it is immune to any damage due to exposure to water. Drown contains a spark of Olhydra, the Princess of Evil Water.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit with it, the targets take an extra 1d8 cold damage.\n   " + toUni("Water Mastery") + ". You gain the following benefits while you hold Drown:\n \u2022 You can speak Aquan fluently.\n \u2022 You have resistance to cold damage.\n \u2022 You can cast Dominate Monster (save DC 17) on a water elemental. Once you have done so, Drown can't be used this way again until the next dawn.\n\n" + toUni("Tears of Endless Anguish") + ". While inside a water node, you can perform a ritual called the Tears of Endless Anguish, using Drown to create a devastation orb of water. Once you perform the ritual, Drown can't be used to perform the ritual again until the next dawn.\n   " + toUni("Flaw") + ". Drown makes its wielder covetous. While attuned to the weapon, you gain the following flaw: \"I demand and deserve the largest share of the spoils, and I refuse to part with anything that's mine.\" In addition, if you are attuned to Drown for 24 consecutive hours, barnacles form on your skin. The barnacles can be removed with a Greater Restoration spell or similar magic, but not while you are attuned to the weapon.",
+	attunement : true,
+	weight : 4,
+	languageProfs : ["Aquan"],
+	dmgres : ["Cold"],
+	usages : 1,
+	recovery : "dawn",
+	fixedDC : 17,
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["dominate monster"],
+		selection : ["dominate monster"],
+		firstCol : "oncelr"
+	},
+	spellChanges : {
+		"dominate monster" : {
+			description : "Water elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			changes : "Can only affect a water elemental."
+		}
+	},
+	weaponsAdd : ["Drown"],
+	weaponOptions : {
+		baseWeapon : "trident",
+		regExpSearch : /drown/i,
+		name : "Drown",
+		source : ["PotA", 224],
+		description : "Thrown, versatile (1d8); +1d8 cold damage",
+		modifiers : [1,1]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Drown",
+		note : [
+			"A steel trident decorated with bronze barnacles along the upper part of its haft, Drown has a sea-green jewel just below the tines and a silver shell at the end of its haft. It floats on the surface if dropped onto water, and it floats in place if it is released underwater. The trident is always cool to the touch, and it is immune to any damage due to exposure to water. Drown contains a spark of Olhydra, the Princess of Evil Water.",
+			"I gain a +1 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the targets take an extra 1d8 cold damage.",
+			"While holding Drown, I can speak Aquan fluently, have resistance to cold damage, I can cast Dominate Monster (save DC 17) on a water elemental once per dawn.",
+			"While inside a water node, I can perform a ritual called the Tears of Endless Anguish, using Drown to create a Devastation Orb of Water. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed. Once I perform the ritual, Drown can't be used to perform the ritual again until the next dawn.",
+			"Drown makes me covetous. While attuned to the weapon, I gain the following flaw: \"I demand and deserve the largest share of the spoils, and I refuse to part with anything that's mine.\" In addition, if I am attuned to Drown for 24 consecutive hours, barnacles form on my skin. The barnacles can be removed with a Greater Restoration spell or similar magic, but not while I am attuned to the weapon."
+		]
+	}]
+}
+MagicItemsList["ironfang"] = {
+	name : "Ironfang",
+	source : ["PotA", 224],
+	type : "weapon (war pick)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This war pick has a +2 bonus on to hit and damage and deals +1d8 thunder damage. It allows me to speak Terran, grants me resistance to cold damage, tremorsense 60 ft, allows me to cast Dominate Monster on an earth elemental once per dawn, and to cast Shatter using 1 of its 3 charges and more, see Notes page.",
+	descriptionFull : "A war pick forged from a single piece of iron, Ironfang has a fang-like head inscribed with ancient runes. The pick is heavy in the hand, but when the wielder swings the pick in anger, the weapon seems almost weightless. This weapon is immune to any form of rust, acid, or corrosion\u2014nothing seems to mark it. Ironfang contains a spark of Ogr\xE9moch, the Prince of Evil Earth.\n   You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you hit with it, the target takes an extra 1d8 thunder damage.\n   " + toUni("Earth Mastery") + ". You gain the following benefits while you hold Ironfang:\n \u2022 You can speak Terran fluently.\n \u2022 You have resistance to acid damage.\n \u2022 You have tremorsense out to a range of 60 feet.\n \u2022 You can sense the presence of precious metals and stones within 60 feet of you, but not their exact location.\n \u2022 You can cast Dominate Monster (save DC 17) on an earth elemental. Once you have done so, Ironfang can't be used this way again until the next dawn.\n\n" + toUni("Shatter") + ". Ironfang has 3 charges. You can use your action to expend 1 charge and cast the 2nd-level version of Shatter (DC 17). Ironfang regains 1d3 expended charges daily at dawn.\n   " + toUni("The Rumbling") + ". While inside an earth node, you can perform a ritual called the Rumbling, using Ironfang to create a devastation orb of earth. Once you perform the ritual, Ironfang can't be used to perform the ritual again until the next dawn.\n   " + toUni("Flaw") + ". Ironfang heightens its wielder's destructive nature. While attuned to the weapon, you gain the following flaw: \"I like to break things and cause ruin.\"",
+	attunement : true,
+	weight : 2,
+	languageProfs : ["Terran"],
+	dmgres : ["Acid"],
+	usages : 1,
+	recovery : "dawn",
+	fixedDC : 17,
+	spellFirstColTitle : "Ch",
+	extraLimitedFeatures : [{
+		name : "Ironfang [Dominate Monster]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Ironfang [Shatter] (regains 1d3)",
+		usages : 3,
+		recovery : "dawn",
+	}],
+	spellcastingBonus : [{
+		name : "Once per dawn",
+		spells : ["dominate monster"],
+		selection : ["dominate monster"],
+		firstCol : "oncelr"
+	}, {
+		name : "1 charge",
+		spells : ["shatter"],
+		selection : ["shatter"],
+		firstCol : 1
+	}],
+	spellChanges : {
+		"dominate monster" : {
+			description : "Earth elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			changes : "Can only affect an earth elemental."
+		},
+		"shatter" : {
+			description : "10-ft rad all 4d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
+			changes : "Cast as if using a 2nd-level spell slot."
+		}
+	},
+	vision : [["Tremorsense", "fixed60"]],
+	weaponsAdd : ["Ironfang"],
+	weaponOptions : {
+		baseWeapon : "war pick",
+		regExpSearch : /ironfang/i,
+		name : "Ironfang",
+		source : ["PotA", 224],
+		description : "+1d8 thunder damage",
+		modifiers : [2,2]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Ironfang",
+		note : [
+			"A war pick forged from a single piece of iron, Ironfang has a fang-like head inscribed with ancient runes. The pick is heavy in the hand, but when the wielder swings the pick in anger, the weapon seems almost weightless. This weapon is immune to any form of rust, acid, or corrosion\u2014nothing seems to mark it. Ironfang contains a spark of Ogr\xE9moch, the Prince of Evil Earth.",
+			"I gain a +2 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the target takes an extra 1d8 thunder damage.",
+			"While holding Ironfang, I can speak Terran fluently, have resistance to acid damage, have tremorsense out to a range of 60 ft, can sense the presence of precious metals and stones within 60 ft of me, but not their exact location, and can cast Dominate Monster (save DC 17) on an earth elemental once per dawn.",
+			"Ironfang has 3 charges and regains 1d3 expended charges daily at dawn. I can use your action to expend 1 charge and cast the 2nd-level version of Shatter (DC 17).",
+			"While inside an earth node, I can perform a ritual called the Rumbling, using Ironfang to create a Devastation Orb of Earth. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed. Once I perform the ritual, Ironfang can't be used to perform the ritual again until the next dawn.",
+			'Ironfang heightens my destructive nature. While attuned to the weapon, I gain the following flaw: "I like to break things and cause ruin."'
+		]
+	}]
+}
+MagicItemsList["lost crown of besilmer"] = {
+	name : "Lost Crown of Besilmer",
+	source : ["PotA", 223],
+	type : "wondrous item",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This dwarven battle-helm gives me psychic resistance and adv. on saves against being charmed. It has 3 charges, regaining 1d3 at dawn. As a bonus action, I can use 1 charge to inspire an ally in 60 ft that I can see and that can see and hear me. Once before my next turn ends, it can add a d6 to one check, attack, or save.",
+	descriptionFull : "This dwarven battle-helm consists of a sturdy open-faced steel helmet, decorated with a golden circlet above the brow from which seven small gold spikes project upward. You gain the following benefits while wearing the crown:\n \u2022 You have resistance to psychic damage.\n \u2022 You have advantage on saving throws against effects that would charm you.\n \u2022 You can use a bonus action to inspire one creature you can see that is within 60 feet of you and that can see or hear you. Once before the end of your next turn, the inspired creature can roll a d6 and add the number rolled to one ability check, attack roll, or saving throw it makes. This uses 1 charge from the crown. It has 3 charges, and it regains 1d3 expended charges daily at dawn.",
+	attunement : true,
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	action : [["bonus action", " (inspire)"]],
+	dmgres : ["Psychic"],
+	savetxt : { adv_vs : ["charmed"] }
+}
+MagicItemsList["orcsplitter"] = {
+	name : "Orcsplitter",
+	source : ["PotA", 224],
+	type : "weapon (greataxe)",
+	rarity : "legendary",
+	magicItemTable : "G",
+	prerequisite : "Requires attunement by a good-aligned dwarf, fighter, or paladin",
+	description : "This sentient greataxe has a +2 bonus on to hit and damage. If I roll a 20 on an attack vs. an orc with it, the orc must make a DC 17 Con save or be reduced to 0 HP. While I'm not incapacitated, I can't be surprised by orcs, and me and my allies in 30 ft can't be frightened. I can sense orcs within 120 ft. See Notes page.",
+	descriptionFull : "A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for \"orc,\" but the runes are depicted with a gap or slash through the markings; the word \"orc\" is literally split in two.\n   You gain the following benefits while holding this magic weapon:\n \u2022 You gain a +2 bonus to attack and damage rolls made with it.\n \u2022 When you roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.\n \u2022 You can't be surprised by orcs while you're not incapacitated. You are also aware when orcs are within 120 feet of you and aren't behind total cover, although you don't know their location.\n \u2022 You and any of your friends within 30 feet of you can't be frightened while you're not incapacitated.\n\n" + toUni("Sentience") + ". Orcsplitter is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.\n   " + toUni("Personality") + ". Orcsplitter is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
+	attunement : true,
+	weight : 7,
+	weaponsAdd : ["Orcsplitter"],
+	weaponOptions : {
+		baseWeapon : "greataxe",
+		regExpSearch : /orcsplitter/i,
+		name : "Orcsplitter",
+		source : ["PotA", 224],
+		description : "Heavy, two-handed; On 20 vs. Orc: it DC 17 Con save or 0 HP",
+		modifiers : [2,2]
+	},
+	savetxt : { immune : ["frightened"] },
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Orcsplitter",
+		note : desc([
+			'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
+			"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
+			"While I am not incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of meand aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of can't be frightened while I am not incapacitated.",
+			"Orcsplitter is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
+			"Orcsplitter is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle."
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["reszur"] = {
+	name : "Reszur",
+	source : ["PotA", 157],
+	type : "weapon (dagger)",
+	rarity : "uncommon",
+	description : "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speaks the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
+	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this weapon, which doesn't make noise when it hits or cuts something.\n   The name \"Reszur\" is graven on the dagger's pommel. If the wielder speaks the name, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until the wielder speaks the name again.",
+	weight : 1,
+	weaponsAdd : ["Dragontooth Dagger"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /reszur/i,
+		name : "Reszur",
+		source : ["PotA", 157],
+		description : "Finesse, light, thrown; Doesn't make any noise",
+		modifiers : [1,1]
+	}
+}
+MagicItemsList["seeker dart"] = {
+	name : "Seeker Dart",
+	source : ["PotA", 223],
+	type : "weapon (dart)",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "Once as an action, when I whisper \"seek\" and hurl this dart, it seeks out a target of my choice within 120 ft that I have seen at least once. If the target isn't within range or there is no clear path to it, the dart's magic is spent. Else, the target must make a DC 16 Dex save or take 1d4 piercing and 3d4 lightning damage.",
+	descriptionFull : "This small dart is decorated with designs like windy spirals that span the length of its shaft.\n   When you whisper the word \"seek\" and hurl this dart, it seeks out a target of your choice within 120 feet of you. You must have seen the target before, but you don't need to see it now. If the target isn't within range or if there is no clear path to it, the dart falls to the ground, its magic spent and wasted. Otherwise, elemental winds guide the dart instantly through the air to the target. The dart can pass though openings as narrow as 1 inch wide and can change direction to fly around corners.\n   When the dart reaches its target, the target must succeed on a DC 16 Dexterity saving throw or take 1d4 piercing damage and 3d4 lightning damage. The dart's magic is then spent, and it becomes an ordinary dart.",
+	weight : 0.25
+}
+MagicItemsList["storm boomerang"] = {
+	name : "Storm Boomerang",
+	source : ["PotA", 223],
+	type : "weapon (javelin)",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "This ranged weapon has 60/120 ft range, deals 1d4 bludgeoning and 3d4 thunder damage, and its target must make a DC 10 Con save or be stunned until its next turn ends. On a miss, it returns to the thrower's hand. Once it deals thunder damage, it can't do so or stun again until recharged in an air node for 1 hour.",
+	descriptionFull : "This boomerang is a ranged weapon carved from griffon bone and etched with the symbol of elemental air. When thrown, it has a range of 60/120 feet, and any creature that is proficient with the javelin is also proficient with this weapon. On a hit, the boomerang deals 1d4 bludgeoning damage and 3d4 thunder damage, and the target must succeed on a DC 10 Constitution saving throw or be stunned until the end of its next turn. On a miss, the boomerang returns to the thrower's hand.\n   Once the boomerang deals thunder damage to a target, the weapon loses its ability to deal thunder damage and its ability to stun a target. These properties return after the boomerang spends at least 1 hour inside an elemental air node.",
+	weaponsAdd : ["Storm Boomerang"],
+	weaponOptions : {
+		baseWeapon : "javelin",
+		regExpSearch : /^(?=.*storm)(?=.*boomerang).*$/i,
+		list : "melee",
+		ability : 2,
+		damage : [1, 4, "bludgeoning"],
+		range : "60/120 ft",
+		weight : 2,
+		description : "Returns on a miss; Once: +3d4 thunder damage, target DC 10 Con save or stunned 1 turn"
+	},
+	usages : 1,
+	recovery : "Air Node",
+	additional : "recharge: 1 h in air node"
+}
+MagicItemsList["tinderstrike"] = {
+	name : "Tinderstrike",
+	source : ["PotA", 225],
+	type : "weapon (dagger)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This flint dagger has a +2 bonus on to hit and damage and deals +2d6 fire damage. It allows me to speak Ignan, grants me resistance to fire damage, and allows me to cast Dominate Monster on a fire elemental once per dawn. It gives me a flaw, see Notes page.",
+	descriptionFull : "A flint dagger, Tinderstrike is uncommonly sharp, and sparks cascade off its edge whenever it strikes something solid. Its handle is always warm to the touch, and the blade smolders for 1d4 minutes after it is used to deal damage. It contains a spark of Imix, Prince of Evil Fire.\n   You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you hit with it, the target takes an extra 2d6 fire damage.\n   " + toUni("Fire Mastery") + ". You gain the following benefits while you hold Tinderstrike:\n \u2022 You can speak Ignan fluently.\n \u2022 You have resistance to fire damage.\n \u2022 You can cast Dominate Monster (save DC 17) on a fire elemental. Once you have done so, Tinderstrike can't be used this way again until the next dawn.\n\n" + toUni("Dance of the All-Consuming Fire") + ". While inside a fire node, you can perform a ritual called the Dance of the All-Consuming Fire, using Tinderstrike to create a devastation orb of fire. Once you perform the ritual, Tinderstrike can't be used to perform the ritual again until the next dawn.\n   " + toUni("Flaw") + '. Tinderstrike makes its wielder impatient and rash. While attuned to the weapon, you gain the following flaw: "I act without thinking and take risks without weighing the consequences."',
+	attunement : true,
+	weight : 1,
+	languageProfs : ["Ignan"],
+	dmgres : ["Fire"],
+	usages : 1,
+	recovery : "dawn",
+	fixedDC : 17,
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["dominate monster"],
+		selection : ["dominate monster"],
+		firstCol : "oncelr"
+	},
+	spellChanges : {
+		"dominate monster" : {
+			description : "Fire elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			changes : "Can only affect a fire elemental."
+		}
+	},
+	weaponsAdd : ["Tinderstrike"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /tinderstrike/i,
+		name : "Tinderstrike",
+		source : ["PotA", 225],
+		description : "Finesse, light, thrown; +2d6 fire damage",
+		modifiers : [2,2]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Tinderstrike",
+		note : [
+			"A flint dagger, Tinderstrike is uncommonly sharp, and sparks cascade off its edge whenever it strikes something solid. Its handle is always warm to the touch, and the blade smolders for 1d4 minutes after it is used to deal damage. It contains a spark of Imix, Prince of Evil Fire.",
+			"I gain a +2 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the target takes an extra 2d6 fire damage.",
+			"While holding Tinderstrike, I can speak Ignan fluently, have resistance to fire damage, and can cast Dominate Monster (save DC 17) on a fire elemental once per dawn.",
+			"While inside a fire node, I can perform a ritual called the Dance of the All-Consuming Fire, using Tinderstrike to create a Devastation Orb of Fire. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed. Once I perform the ritual, Tinderstrike can't be used to perform the ritual again until the next dawn.",
+			'Tinderstrike makes me impatient and rash. While attuned to the weapon, I gain the following flaw: "I act without thinking and take risks without weighing the consequences."'
+		]
+	}]
+}
+MagicItemsList["weird tank"] = {
+	name : "Weird Tank",
+	source : ["PotA", 223],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "As an action, I can open (or close) this tank of water, allowing the water weird within it to act or not. The weird is bound to the tank, follows my telepathic commands, and acts after me in combat. If the weird is killed, a new one can be formed by placing the tank in a water node for 24 hours.",
+	descriptionLong : "As an action, I can open (or close) this tank of water, allowing the water weird within it to act or not. The weird is bound to the tank, follows my telepathic commands, and acts after me in combat. If it is killed, a new one can be formed by placing the tank in a water node for 24 hours. I can close the tank as an action, but I can only close the tank after commanding the weird to retract into it or if it died. The tank has AC 15, 50 HP, vulnerability to bludgeoning damage, and immunity to poison and psychic damage. Reducing the tank to 0 hit points destroys it and the water weird contained within it.",
+	descriptionFull : "A weird tank is a ten-gallon tank of blown glass and sculpted bronze with a backpack-like carrying harness fashioned from tough leather. A water weird is contained within the tank. While wearing the tank, you can use an action to open it, allowing the water weird to emerge. The water weird acts immediately after you in the initiative order, and it is bound to the tank.\n   You can command the water weird telepathically (no action required) while you wear the tank. You can close the tank as an action only if you have first commanded the water weird to retract into it or if the water weird is dead.\n   If the water weird is killed, the tank loses its magical containment property until it spends at least 24 hours inside an elemental water node. When the tank is recharged, a new water weird forms inside it.\n   The tank has AC 15, 50 hit points, vulnerability to bludgeoning damage, and immunity to poison and psychic damage. Reducing the tank to 0 hit points destroys it and the water weird contained within it.",
+	weight : 120,
+	attunement : true,
+	action : [["action", ""]]
+}
+MagicItemsList["windvane"] = {
+	name : "Windvane",
+	source : ["PotA", 225],
+	type : "weapon (spear)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This spear with the finesse property has a +2 bonus on to hit and damage and deals +1d6 lightning damage. It allows me to speak Auran, grants me resistance to lightning damage, and allows me to cast Dominate Monster on an air elemental once per dawn. It gives me a flaw, see Notes page.",
+	descriptionFull : "A silver spear, Windvane has dark sapphires on the filigreed surface of its polished head. Held by its shining haft, the weapon feels insubstantial, as if clutching a cool, gently flowing breeze. The spear contains a spark of Yan-C-Bin, the Prince of Evil Air.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon, which has the finesse weapon property. When you hit with it, the target takes an extra 1d6 lightning damage.\n   " + toUni("Air Mastery") + ". You gain the following benefits while you hold Windvane:\n \u2022 You can speak Auran fluently.\n \u2022 You have resistance to lightning damage.\n \u2022 You can cast Dominate Monster (save DC 17) on an air elemental. Once you have done so, Windvane can't be used this way again until the next dawn.\n\n" + toUni("Song of the Four Winds") + ". While inside an air node, you can perform a ritual called the Song of the Four Winds, using Windvane to create a devastation orb of air. Once you perform the ritual, Windvane can't be used to perform the ritual again until the next dawn.\n   " + toUni("Flaw") + '. Windvane makes its wielder mercurial and unreliable. While attuned to the weapon, you gain the following flaw: "I break my vows and plans. Duty and honor mean nothing to me."',
+	attunement : true,
+	weight : 3,
+	languageProfs : ["Auran"],
+	dmgres : ["Lightning"],
+	usages : 1,
+	recovery : "dawn",
+	fixedDC : 17,
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["dominate monster"],
+		selection : ["dominate monster"],
+		firstCol : "oncelr"
+	},
+	spellChanges : {
+		"dominate monster" : {
+			description : "Air elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			changes : "Can only affect an air elemental."
+		}
+	},
+	weaponsAdd : ["Windvane"],
+	weaponOptions : {
+		baseWeapon : "spear",
+		regExpSearch : /windvane/i,
+		name : "Windvane",
+		source : ["PotA", 225],
+		description : "Finesse, thrown, versatile (1d6); +1d6 lightning damage",
+		modifiers : [2,2]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Windvane",
+		note : [
+			"A silver spear, Windvane has dark sapphires on the filigreed surface of its polished head. Held by its shining haft, the weapon feels insubstantial, as if clutching a cool, gently flowing breeze. The spear contains a spark of Yan-C-Bin, the Prince of Evil Air.",
+			"I have a +2 bonus to attack and damage rolls made with this magic weapon, which has the finesse weapon property. When I hit with it, the target takes an extra 1d6 lightning damage.",
+			"While holding Windvane, I can speak Auran fluently, have resistance to lightning damage, and can cast Dominate Monster (save DC 17) on an air elemental once per dawn.",
+			"While inside an air node, I can perform a ritual called the Song of the Four Winds, using Windvane to create a Devastation Orb of Air. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed. Once I perform the ritual, Windvane can't be used to perform the ritual again until the next dawn.",
+			'Windvane makes me mercurial and unreliable. While attuned to the weapon, I gain the following flaw: "I break my vows and plans. Duty and honor mean nothing to me."'
+		]
+	}]
+}
+MagicItemsList["wingwear"] = {
+	name : "Wingwear",
+	source : ["PotA", 223],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air not for 1 hour. As a bonus action, I can expend 1 charge to gain a flying speed of 30 ft until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
+	descriptionFull : "This snug uniform has symbols of air stitched into it and leathery flaps that stretch along the arms, waist, and legs to create wings for gliding. A suit of wingwear has 3 charges. While you wear the suit, you can use a bonus action and expend 1 charge to gain a flying speed of 30 feet until you land. At the end of each of your turns, your altitude drops by 5 feet. Your altitude drops instantly to 0 feet at the end of your turn if you didn't fly at least 30 feet horizontally on that turn. When your altitude drops to 0 feet, you land (or fall), and you must expend another charge to use the suit again.\n   The suit regains all of its expended charges after spending at least 1 hour in an elemental air node.",
+	attunement : true,
+	usages : 3,
+	recovery : "Air Node",
+	additional : "recharge: 1 h in air node",
+	action : [["bonus action", ""]]
 }
 var iFileName = "pub_20150415_AL-EE.js";
 RequiredSheetVersion(12.999);
@@ -20609,6 +21606,7 @@ MagicItemsList["shiftweave"] = {
 	action : [["action", ""]]
 }
 MagicItemsList["spellshard"] = {
+	name : "Spellshard",
 	source : ["WGtE", 115],
 	type : "wondrous item",
 	description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
@@ -21984,6 +22982,612 @@ if (!SourceList.X) { // reprint from Xanathar's Guide to Everything
 		description : "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
 		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st."
 	};
+}
+
+// Magic Items
+MagicItemsList["guild keyrune"] = {
+	name : "Guild Keyrune",
+	source : ["G", 177],
+	type : "wondrous item",
+	description : "As an action, I can speak this ceremonial key's command word to have it transforms into a creature. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for some hours, until it has 0 HP, or I dismiss it as an action.",
+	descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a creature if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+	descriptionFull : "Associated with a particular guild, a guild keyrune is a ceremonial, stylized key, about 1 foot long, made from carved stone. Not a literal key, the item is a badge of authority that gives its bearer access to privileged places in its guild's headquarters and outposts. At the DM's discretion, a character might be given a keyrune upon attaining a renown score of 25 in their guild.\n    When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the key rune transforms into a creature. If there isn't enough space for the creature, the keyrune doesn't transform. See the Monster Manual for the creature's stat block- the name of which is given in bold in the keyrune's description- unless you're directed to chapter 6 of this book instead.\n    The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n    The creature exists for a duration specific to each keyrune. At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+	attunement : true,
+	action : [["action", ""]],
+	choices : ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
+	"azorius" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word and have it transform into a giant eagle for 1 hour with which I can talk telepathically if within 1 mile. It is friendly to me and my allies and obeys my spoken commands. As an action, I can see and hear what it does. I can have it revert back as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a a giant eagle for 1 hour. While within 1 mile, I can communicate telepathically with it. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
+		descriptionFull : "This keyrune is carved from white marble and lapis lazuli to resemble a noble bird of prey. It can become a giant eagle for up to 1 hour. While the transformed eagle is within 1 mile of you, you can communicate with it telepathically. As an action, you can see through the eagle's eyes and hear what it hears until the start of your next turn, and you gain the benefit of its keen sight. During this time, you are deaf and blind with regard to your own senses.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant eagle. If there isn't enough space for the eagle, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the eagle takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Azorius guild",
+		prereqeval : function (v) {
+			return (/azorius/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"boros" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word and place it on the ground to transforms into a human veteran. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a human veteran if there is enough space. The creature is friendly to me and my allies and gives tactical advice, but is easily revealed as an artificial human. It understands my languages and obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I dismiss it as an action by touching it and speaking the command word again. Once it does, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Carved from red sandstone with white granite elements to resemble a member of the Boros Legion, this keyrune can become a veteran (human) for up to 8 hours. In addition to fighting on your behalf, this veteran cheerfully offers tactical advice, which is usually sound. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a veteran (human). If there isn't enough space for the veteran, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Boros guild",
+		prereqeval : function (v) {
+			return (/boros/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"dimir" : {
+		rarity : "very rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transform into an intellect devourer. It is friendly to me and my allies. It lasts for 24 hours, until it has 0 HP, or I dismiss it as an action. I can command it to pursue only a single mission each times it transforms and it returns to me at the end of it.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into an intellect devourer if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It lasts for 24 hours, during which time it pursues a single mission set by me, like information gathering, returning to me afterwards to report and transform back to the keyrune. It also reverts back when it drops to 0 HP or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again for 36 hours.",
+		descriptionFull : "This keyrune, carved from black stone accented with steel, resembles a stylized horror. On command, it transforms into an intellect devourer that resembles the Dimir guild symbol, with six bladelike legs. The creature exists for up to 24 hours. During that time, it pursues only a single mission you give it\u2014usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to you, reports its success, and reverts to its keyrune form.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a intellect devourer. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Dimir guild",
+		prereqeval : function (v) {
+			return (/dimir/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"golgari" : {
+		rarity : "very rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a giant scorpion with which I can talk telepathically if in 60 ft. It is friendly to me and my allies and obeys my commands. It reverts back after 6 hours, if it drops to 0 HP, or I touch it and speak its command word as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a giant scorpion if there is enough space. While within 60 ft of it, I can communicate with it telepathically. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Made from deep green jade with black veins, this keyrune has an insectile shape. It can transform into a giant scorpion for up to 6 hours. The scorpion has an Intelligence of 4 and can communicate with you telepathically while it is within 60 feet of you, though its messages are largely limited to describing the passage of potential prey.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant scorpion. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Golgari guild",
+		prereqeval : function (v) {
+			return (/golgari/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"gruul" : {
+		type : "wondrous item",
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a ceratok (rhinoceros stats). It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a ceratok (rhinoceros stats) if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This crude keyrune is cobbled together from bits of rubble, broken glass, bone, and animal hair. One end resembles a horned beast. On command, the keyrune transforms into a ceratok, a horned creature much like a rhinoceros (and with the same statistics). It remains in its ceratok form for 1 hour.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a ceratok. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Gruul guild",
+		prereqeval : function (v) {
+			return (/gruul/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"izzet" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a galvanice weird. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 3 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a galvanice weird if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 3 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Formed of carved and polished red and blue stone, the keyrune includes bits of cable and wire. One end resembles a humanlike head, suggesting the jagged elemental form of the galvanice weird that it can become for a duration of 3 hours. In this form, it will serve you as a bodyguard, lift and carry things for you, act as a test subject for your experiments, or aid you in any other way that its capabilities allow.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a galvanice weird. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Izzet guild",
+		prereqeval : function (v) {
+			return (/izzet/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"orzhov" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a winged thrull. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 2 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a winged thrull if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 2 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This keyrune is carved from white marble with veins of black. The end is shaped like a thrull's head, with a gold faceplate affixed. On command, the keyrune transforms into a winged thrull for up to 2 hours. If you don't come from an Orzhov oligarch family, it serves you grudgingly, clownishly aping your movements and mannerisms while carrying out your orders.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a winged thrull. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Orzhov guild",
+		prereqeval : function (v) {
+			return (/orzhov/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"rakdos" : {
+		rarity : "uncommon",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a cackler. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a cackler if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This dark granite keyrune is marbled with scarlet veins and carved with the leering visage of a mischievous demon. When activated, it transforms into a cackler for up to 1 hour.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a cackler. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Rakdos guild",
+		prereqeval : function (v) {
+			return (/rakdos/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"selesnya" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a wolf with Int 6 with which I can talk telepathically if within 1 mile. It is friendly to me and my allies. It obeys my commands, but only uses the Dodge action otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a wolf with Intelligence 6 if there is enough space. The creature is friendly to me and my allies, understands Elvish and Sylvan (but can't speak them), and obeys my commands. While within 1 mile, we can communicate telepathically. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 8 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Carved from white and green marble in the shape of a wolf's head, this keyrune transforms into a dire wolf. The wolf persists for 8 hours. Its Intelligence is 6, and it understands Elvish and Sylvan but can't speak those languages. While it is within 1 mile of you, you can communicate with each other telepathically.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a dire wolf. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Selesnya guild",
+		prereqeval : function (v) {
+			return (/selesnya/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"simic" : {
+		rarity : "uncommon",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a krasis (cat. 2, Grabber and Stabilizing Legs). It is friendly to me and my allies. It obeys my commands, taking only the Dodge action if not commanded otherwise. It lasts for 5 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 5 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This keyrune is assembled from coral, mother-of-pearl, and chrome and adorned with the spirals and curves characteristic of Simic ornamentation. The head resembles the shell of a sea creature. On command, the keyrune turns into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. The transformation lasts for up to 5 hours.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Simic guild",
+		prereqeval : function (v) {
+			return (/simic/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	}
+}
+MagicItemsList["guild signet"] = {
+	name : "Guild Signet",
+	source : ["G", 178],
+	type : "ring",
+	rarity : "uncommon",
+	description : "This signet ring bears a symbol of its associated guild. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast the spell within (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+	descriptionFull : "This ring, adorned with the symbol of a guild, allows you to cast one spell closely associated with that guild, as shown in the table below. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).\n\n" +
+	toUni("Guild \tAssociated Spell") +
+	"\nAzorius\tensnaring strike" +
+	"\nBoros\theroism" +
+	"\nDimir\tdisguise self" +
+	"\nGolgari\tentangle" +
+	"\nGruul\tcompelled duel" +
+	"\nlzzet\tchaos bolt" +
+	"\nOrzhov\tcommand" +
+	"\nRakdos\thellish rebuke" +
+	"\nSelesnya\tcharm person" +
+	"\nSimic\texpeditious retreat",
+	attunement : true,
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	choices : ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
+	"azorius" : {
+		description : "\nAzorius\tensnaring strike",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["ensnaring strike"],
+			selection : ["ensnaring strike"],
+			firstCol : 1
+		}
+	},
+	"boros" : {
+		description : "This signet ring bears a symbol of Boros. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Heroism (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["heroism"],
+			selection : ["heroism"],
+			firstCol : 1
+		}
+	},
+	"dimir" : {
+		description : "This signet ring bears a symbol of Dimir. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Disguise Self (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : 1
+		}
+	},
+	"golgari" : {
+		description : "This signet ring bears a symbol of Golgari. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Entangle (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["entangle"],
+			selection : ["entangle"],
+			firstCol : 1
+		}
+	},
+	"gruul" : {
+		description : "This signet ring bears a symbol of Gruul. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Compelled Duel (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["compelled duel"],
+			selection : ["compelled duel"],
+			firstCol : 1
+		}
+	},
+	"izzet" : {
+		description : "This signet ring bears a symbol of lzzet. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Chaos Bolt (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["chaos bolt"],
+			selection : ["chaos bolt"],
+			firstCol : 1
+		}
+	},
+	"orzhov" : {
+		description : "This signet ring bears a symbol of Orzhov. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Command (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["command"],
+			selection : ["command"],
+			firstCol : 1
+		}
+	},
+	"rakdos" : {
+		description : "This signet ring bears a symbol of Rakdos. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Hellish Rebuke (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["hellish rebuke"],
+			selection : ["hellish rebuke"],
+			firstCol : 1
+		}
+	},
+	"selesnya" : {
+		description : "This signet ring bears a symbol of Selesnya. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Charm Person (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["charm person"],
+			selection : ["charm person"],
+			firstCol : 1
+		}
+	},
+	"simic" : {
+		description : "This signet ring bears a symbol of Simic. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Expeditious Retreat (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["expeditious retreat"],
+			selection : ["expeditious retreat"],
+			firstCol : 1
+		}
+	}
+}
+MagicItemsList["illusionist's bracers"] = {
+	name : "Illusionist's Bracers",
+	source : ["G", 178],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "While wearing the bracers, whenever I cast a cantrip, I can use a bonus action on the same turn to cast that cantrip a second time.",
+	descriptionFull : "A powerful illusionist of House Dimir originally developed these bracers, which enabled her to create multiple minor illusions at once. The bracers' power, though, extends far beyond illusions.\n   While wearing the bracers, whenever you cast a cantrip, you can use a bonus action on the same turn to cast that cantrip a second time.",
+	weight : 1,
+	attunement : true,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	action : [["bonus action", " (with cantrip)"]]
+}
+MagicItemsList["mizzium apparatus"] = {
+	name : "Mizzium Apparatus",
+	source : ["G", 179],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "I can use this harness as an arcane focus and to attempt to cast a spells that I do not know or have prepared but is on my class' spell list. This requires an Int (Arcana) check DC 10 + twice the spell slot level and components and a spell slot as appropriate for the spell. On a failure, I cast a random spell, see Notes page.",
+	descriptionLong : "This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. I can use it as an arcane focus. In addition, I can use it to attempt to cast a spell that I do not know or have prepared but is on my class' spell list. I use components and a spell slot as appropriate for the spell as normal, but I must succeed on an Intelligence (Arcana) check DC 10 + twice the spell slot level. On a failure, I cast a random spell, see Notes page. The DC for cantrips is 10, and on a failure nothing happens.",
+	descriptionFull : "Innovation is a dangerous pursuit, at least the way the mages of the Izzet League engage in it. As protection against the risk of an experiment going awry, they have developed a device to help channel and control their magic. This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. The item weighs 8 pounds.\n   While you are wearing the mizzium apparatus, you can use it as an arcane focus. In addition, you can attempt to cast a spell that you do not know or have prepared. The spell you choose must be on your class's spell list and of a level for which you have a spell slot, and you must provide the spell's components.\n   You expend a spell slot to cast the spell as normal, but before resolving it you must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot you expend to cast the spell.\n   On a successful check, you cast the spell as normal, using your spell save DC and spellcasting ability modifier. On a failed check, you cast a different spell from the one you intended. Randomly determine the spell you cast by rolling on the table for the level of the spell slot you expended. If the slot is 6th level or higher, roll on the table for 5th-level spells.\n   If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.\n\n" + [
+		toUni("d6\t1st-level spell"),
+		" 1\tBurning Hands",
+		" 2\tChaos Bolt",
+		" 3\tColor Spray",
+		" 4\tFaerie Fire",
+		" 5\tFog Cloud",
+		" 6\tThunderwave\n",
+		toUni("d6\t2nd-level spell"),
+		" 1\tBlur",
+		" 2\tGust of Wind",
+		" 3\tHeat Metal",
+		" 4\tMelf's Acid Arrow",
+		" 5\tScorching Ray",
+		" 6\tShatter\n",
+		toUni("d6\t3rd-level spell"),
+		" 1\tFear",
+		" 2\tFeign Death",
+		" 3\tFireball",
+		" 4\tGaseous Form",
+		" 5\tSleet Storm",
+		" 6\tStinking Cloud\n",
+		toUni("d4\t4th-level spell"),
+		" 1\tConfusion",
+		" 2\tConjure Minor Elementals",
+		" 3\tEvard's Black Tentacles",
+		" 4\tIce Storm\n",
+		toUni("d4\t5th-level spell"),
+		" 1\tAnimate Objects",
+		" 2\tCloudkill",
+		" 3\tCone of Cold",
+		" 4\tFlame Strike"
+	].join("\n"),
+	weight : 8,
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
+	prereqeval : function(v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	toNotesPage : [{
+		name : "Random Spells",
+		popupName : "Mizzium Apparatus's Random Spells",
+		note : [
+			"This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness.",
+			"While I am wearing the mizzium apparatus, I can use it as an arcane focus. In addition, I can attempt to cast a spell that I do not know or have prepared. The spell I choose must be on my class's spell list and of a level for which I have a spell slot, and I must provide the spell's components.",
+			"I expend a spell slot to cast the spell as normal, but before resolving it I must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot I expend to cast the spell. On a successful check, I cast the spell as normal, using my spell save DC and spellcasting ability modifier. On a failed check, I cast a different spell from the one I intended, randomly determining the spell I cast by rolling on the table for the level of the spell slot expended. If the slot is 6th level or higher, I roll on the table for 5th-level spells. If I try to cast a cantrip I don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.\n",
+			"1D6\t1ST-LEVEL SPELL\t1D6\t2ND-LEVEL SPELL",
+			"  1\tBurning Hands \t  1\tBlur",
+			"  2\tChaos Bolt    \t  2\tGust of Wind",
+			"  3\tColor Spray   \t  3\tHeat Metal",
+			"  4\tFaerie Fire   \t  4\tMelf's Acid Arrow",
+			"  5\tFog Cloud     \t  5\tScorching Ray",
+			"  6\tThunderwave   \t  6\tShatter\n",
+			"1D6\t3RD-LEVEL SPELL",
+			"  1\tFear",
+			"  2\tFeign Death",
+			"  3\tFireball",
+			"  4\tGaseous Form",
+			"  5\tSleet Storm",
+			"  6\tStinking Cloud\n",
+			"1D4\t4TH-LEVEL SPELL\t1D4\t5TH-LEVEL SPELL (AND HIGHER)",
+			"  1\tConfusion\t\t  1\tAnimate Objects",
+			"  2\tConjure Minor Elem.\t  2\tCloudkill",
+			"  3\tEvard's Black Tentacles\t  3\tCone of Cold",
+			"  4\tIce Storm\t\t  4\tFlame Strike"
+		]
+	}]
+}
+MagicItemsList["mizzium armor"] = {
+	name : "Mizzium Armor",
+	nameTest : "Mizzium",
+	source : ["G", 179],
+	type : "armor (medium or heavy)",
+	rarity : "rare",
+	description : "This armor is reinforced with a magically enhanced metal alloy called mizzium. While I'm wearing it, any critical hit against me becomes a normal hit. In addition, when I'm subjected to a magical effect that allows me to make a Str or Con save to take only half damage, I instead take no damage if I succeed on it.",
+	descriptionFull : "This suit of armor is reinforced with a magically enhanced metal alloy called mizzium, which is made in Izzet foundries. While you're wearing the armor, any critical hit against you becomes a normal hit. In addition, when you are subjected to a magical effect that allows you to make a Strength or Constitution saving throw to take only half damage, you instead take no damage if you succeed on the saving throw.",
+	savetxt : { text : ["No damage on success Str or Con save for half damage"] },
+	allowDuplicates : true,
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "suffix",
+		excludeCheck : function (inObjKey, inObj) {
+			return !(/medium|heavy/i).test(inObj.type) || (/hide/i).test(inObj.name);
+		},
+		descriptionChange : ["prefix", "armor"]
+	}
+}
+MagicItemsList["mizzium mortar"] = {
+	name : "Mizzium Mortar",
+	source : ["G", 179],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "This 4-ft-long, 6-inch-diameter tube has 4 charges, regaining 1d4 at dawn. As an action, I can expend 1 charge to have all in a 30-ft cone take 5d4 fire damage. As an action, I can expend 3 charges to have all in a 20-ft radius, 40-ft high cylinder in 60 ft take 5d8 fire damage. For both effects DC 15 Dex save halves.",
+	descriptionLong : "This 4-ft-long, 6-inch-diameter mizzium tube has 4 charges, regaining 1d4 expended charges at dawn. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining. As an action, I can expend 1 charge to create a spray of molten mizzium in a 30-ft cone. All within the cone take 5d4 fire damage, DC 15 Dexterity saving throw halves. As an action, I can expend 3 charges to create a 20-ft radius, 40-ft high cylinder within 60 ft of me that deals 5d8 fire damage to all within, DC 15 Dexterity saving throw halves.",
+	descriptionFull : "This short tube, about 2 feet long and 6 inches in diameter, is made from mizzium, a magically enhanced metal alloy forged by the Izzet League. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining.\n   The mortar has 4 charges for the following properties. It regains 1d4 expended charges daily at dawn.\n   " + toUni("Molten Spray") + ". You can expend 1 charge as an action to loose a 30-foot cone of molten mizzium. Each creature in the area must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much damage on a successful one.\n   " + toUni("Mizzium Bombard") + ". You can expend 3 charges as an action to launch a hail of molten projectiles in a 20-foot-radius, 40-foot-high cylinder centered on a point you can see within 60 feet of you. Each creature in the area must make a DC 15 Dexterity saving throw. A creature takes 5d8 fire damage on a failed save, or half as much damage on a successful one.",
+	weight : 1,
+	usages : 4,
+	recovery : "dawn",
+	additional : "regains 1d4"
+}
+MagicItemsList["moodmark paint"] = {
+	name : "Moodmark Paint",
+	source : ["G", 180],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Once, I can spend 1 minute to apply this thick black paint to a creature's face. For the next 8 hours, anyone seeing the target can make a DC 10 Wisdom (Insight) check to see if it is happy, sad, angry, disgusted, surprised, or afraid, as well as the main source of that emotion. Drows have advantage on this check.",
+	descriptionFull : "This thick, black paint is stored in a small jar, containing enough paint to apply moodmarks to one creature. The paint is dabbed on the face in spots or markings that often resemble the eyes of insects or spiders. Applying the paint in this way takes 1 minute.\n   For the next 8 hours, the marks change to reflect your mental state. A creature that can see you and makes a successful DC 10 Wisdom (Insight) check can discern whether you are happy, sad, angry, disgusted, surprised, or afraid, as well as the main source of that emotion. For example, you might communicate fear caused by a monster you just saw around the corner, grief at the loss of a friend, or happiness derived from pride in your performance in combat. A dark elf has advantage on this check.",
+	weight : 1
+}
+MagicItemsList["pariah's shield"] = {
+	name : "Pariah's Shield",
+	source : ["G", 180],
+	type : "shield",
+	rarity : "rare",
+	description : "While I wield this shield. I gain a +1 bonus to AC for every two allies within 5 ft of me on top of the shield's AC bonus, up to a +3 bonus. As a reaction when a creature I can see within 5 ft of me takes damage, I can take that damage instead, but the damage type for it changes to force.",
+	descriptionFull : "Soldiers of the Boros Legion consider it an honor to bear this shield, even knowing that it might be the last honor they receive. The front of the shield is sculpted to depict a grieving human face.\n   You gain a +1 bonus to AC for every two allies within 5 feet of you (up to a maximum of +3) while you wield this shield. This bonus is in addition to the shield's normal bonus to AC.\n   When a creature you can see within 5 feet of you takes damage, you can use your reaction to take that damage, instead of the creature taking it. When you do so, the damage type changes to force.",
+	attunement : true,
+	weight : 6,
+	shieldAdd : "Pariah's Shield",
+	action : [["reaction", ""]]
+}
+MagicItemsList["peregrine mask"] = {
+	name : "Peregrine Mask",
+	source : ["G", 180],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "While wearing this winged helm, I have a flying speed of 60 ft and advantage on initiative rolls.",
+	descriptionFull : "While wearing this winged helm, you have a flying speed of 60 feet. In addition, you have advantage on initiative rolls.",
+	attunement : true,
+	advantages : [["Initiative", true]],
+	speed : { fly : { spd : "fixed60", enc : "fixed50" } }
+}
+MagicItemsList["pyroconverger"] = {
+	name : "Pyroconverger",
+	source : ["G", 180],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "As an action, I can use this flamethrower to deal 4d6 fire damage to all in a 10-ft cone, DC 13 Dex save halves. I must roll a d10 each time I use it and add the times it was used since my last long rest. If the total is 11 or higher, it malfunctions and I take 4d6 fire damage and I can't use it again until I finish a long rest.",
+	descriptionFull : "A Pyroconverger is an Izzet-made flamethrower. It carries a risk of malfunction each time you use it.\n   As an action, you can cause the Pyroconverger to project fire in a 10-foot cone. Each creature in that area must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one.\n   Each time you use the Pyroconverger, roll a d10 and add the number of times you have used it since your last long rest. If the total is 11 or higher, the Pyroconverger malfunctions: you take 4d6 fire damage, and you can't use the Pyroconverger again until you finish a long rest.",
+	attunement : true,
+	weight : 1,
+	weaponsAdd : ["Pyroconverger"],
+	weaponOptions : {
+		regExpSearch : /pyroconverger/i,
+		name : "Pyroconverger",
+		source : ["G", 180],
+		ability : 0,
+		type : "Magic Item",
+		damage : [4, 6, "fire"],
+		range : "10-ft cone",
+		description : "Hits all in area; Dex save, success - half damage; Roll each time for malfunction, see item",
+		abilitytodamage : false,
+		modifiers : ["dc+5", ""]
+	},
+	usages : 1,
+	recovery : "long rest",
+	additional : "if malfunction"
+}
+MagicItemsList["rakdos riteknife"] = {
+	name : "Rakdos Riteknife",
+	source : ["G", 180],
+	type : "weapon (dagger)",
+	rarity : "legendary",
+	description : "This has +1 to hit/damage and imprisons souls of any killed with it, up to 5. It deals +1d4 necr. per stored soul. As a bonus action, I can release souls to regain 1d10 HP per soul. Once per long rest as a reaction after I deal damage with it, I can release 5 souls to have the target make a DC 15 Con save or die if below 75 HP.",
+	descriptionLong : "This magical dagger has a +1 bonus on attack and damage rolls made with it. When used to slay a creature, it imprisons its soul. It can store up to five souls. While it holds souls, it deals +1d4 necrotic damage per stored soul. [Siphon Vitality] As a bonus action, I can release one or more soul to regain 1d10 HP per soul released. [Annihilation] As a reaction after I deal damage with it, I can release five souls to have the target of the attack make a DC 15 Constitution saving throw or die if below 75 HP. If the target dies, I can't use this property again until I finish a long rest.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Its blade is cruelly serrated, and its hilt resembles a demonic head and wings. Whenever you slay a creature with an attack using the dagger, the creature's soul is imprisoned inside the dagger, and that creature can be restored to life only by a Wish spell. The dagger can hold a maximum of five souls.\n   For each soul imprisoned in the dagger, your attacks with it deal an extra 1d4 necrotic damage on a hit. While the dagger is within 5 feet of you, your dreams are haunted by whispers from the trapped souls.\n   The dagger has the following additional properties.\n   " + toUni("Siphon Vitality") + ". As a bonus action, you can release any number of stored souls from the dagger to regain 1d10 hit points per soul released.\n   " + toUni("Annihilation") + ". If the dagger holds five souls, you can use this property: As a reaction immediately after you hit a creature with the dagger and deal damage to that target, you can release all five souls. If the target now has fewer than 75 hit points, it must succeed on a DC 15 Constitution saving throw or die. If the target dies, you can't use this property again until you finish a long rest.",
+	attunement : true,
+	weight : 1,
+	action : [["bonus action", " (Siphon Vitality)"], ["reaction", " (Annihilation)"]],
+	weaponsAdd : ["Rakdos Riteknife"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /^(?=.*rakdos)(?=.*riteknife).*$/i,
+		name : "Rakdos Riteknife",
+		source : ["G", 180],
+		description : "Finesse, light, thrown; Imprisons soul on kill (max 5); +1d4 necrotic damage per stored soul",
+		modifiers : [1,1]
+	},
+	usages : 1,
+	recovery : "long rest",
+	additional : "Annihilation"
+}
+MagicItemsList["skyblinder staff"] = {
+	name : "Skyblinder Staff",
+	source : ["G", 181],
+	type : "staff",
+	rarity : "uncommon",
+	description : "This +1 quarterstaff gives me a +1 bonus on spell attacks. As a reaction when a flying creature I can see within 30 ft makes an attack roll against me, I can cause the staff to flare with light. The attacker has disadvantage on the attack roll, and it must make a DC 15 Con save or be blinded until the start of its next turn.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic quarterstaff. While holding it, you gain a +1 bonus to spell attack rolls.\n   If a flying creature you can see within 30 feet of you makes an attack roll against you, you can use your reaction to hold the staff aloft and cause it to flare with light. The attacker has disadvantage on the attack roll, and it must succeed on a DC 15 Constitution saving throw or be blinded until the start of its next turn.",
+	attunement : true,
+	weight : 4,
+	action : [["reaction", " (vs. flying)"]],
+	weaponsAdd : ["Skyblinder Staff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
+		name : "Skyblinder Staff",
+		source : ["G", 181],
+		description : "Versatile (1d8); On hit, 1 charge for +1d6 force damage",
+		modifiers : [1, 1]
+	},
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type == "attack") return 1;
+			},
+			"While holding the Skyblinder Staff, I have a +1 bonus to spell attack rolls."
+		]
+	}
+}
+MagicItemsList["spies' murmur"] = {
+	name : "Spies' Murmur",
+	source : ["G", 181],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This dark metal headpiece is worn curved around the ear. I can communicate telepathically with others that I know within 1 mile who are also wearing a spies' murmur. As a bonus action, I can allow that creature to hear everything I hear for 1 hour. I can end this effect as a bonus action, and it ends if I am incapacitated.",
+	descriptionFull : "This headpiece, crafted from dark metal, is worn curved around the ear. If you know a creature wearing another Spies' Murmur and that creature is within 1 mile of you, you can communicate telepathically with each other. As a bonus action, you can allow that creature to hear everything you hear for 1 hour. You can end this effect as a bonus action, and it ends if you're incapacitated.",
+	attunement : true
+}
+MagicItemsList["sunforger"] = {
+	name : "Sunforger",
+	source : ["G", 181],
+	type : "weapon (warhammer)",
+	rarity : "rare",
+	description : "This warhammer adds +2 to attack and damage rolls made with it. As an action once per short rest, I can hurl it up to 120 ft to a point I can see where it explodes in a 20-ft radius, dealing 6d6 fire damage to all within, DC 15 Dex save halves. Within 24 hours afterward, I can have it reform in my hand as an action.",
+	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon.\n   As an action, you can hurl the weapon up to 120 feet to a point you can see. When it reaches that point, the weapon vanishes in an explosion, and each creature in a 20-foot-radius sphere centered on that point must make a DC 15 Dexterity saving throw, taking 6d6 fire damage on a failed save, or half as much damage on a successful one. Afterward, you can use an action to cause the weapon to reappear in your empty hand. You can't cause it to explode again until you finish a short or long rest.\n   If you don't call the weapon back to your hand, it reappears at the point where it exploded when you are no longer attuned to it or when 24 hours have passed.",
+	attunement : true,
+	weight : 2,
+	action : [["action", " (hurl/recall)"]],
+	weaponsAdd : ["Sunforger"],
+	weaponOptions : {
+		baseWeapon : "warhammer",
+		regExpSearch : /sunforger/i,
+		name : "Sunforger",
+		source : ["G", 181],
+		description : "Versatile (1d10); As action, hurl 120 ft for 20-ft rad 6d6 fire dmg, Dex DC 15 half",
+		modifiers : [2, 2]
+	},
+	usages : 1,
+	recovery : "short rest",
+	additional : "Hurl"
+}
+MagicItemsList["sword of the paruns"] = {
+	name : "Sword of the Paruns",
+	source : ["G", 181],
+	type : "weapon (longsword)",
+	rarity : "very rare",
+	description : "This longsword has a +1 to hit and damage. Once per round after I take an action while holding it, I can use it to have a creature within 60 ft use its reaction to do something based on the action I was taking: [Attack] make one weapon attack, [Dash] move its speed, or [Dodge] gain the benefits of a Dodge action.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Additionally, once on each of your turns, you can use one of the following properties if you're holding the sword:\n \u2022 Immediately after you use the Attack action to attack with the sword, you can enable one creature within 60 feet of you to use its reaction to make one weapon attack.\n \u2022 Immediately after you take the Dash action, you can enable one creature within 60 feet of you to use its reaction to move up to its speed.\n \u2022 Immediately after you take the Dodge action, you can enable one creature within 60 feet of you to use its reaction to gain the benefits of the Dodge action.",
+	attunement : true,
+	weight : 3,
+	weaponsAdd : ["Sword of the Paruns"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /^(?=.*sword)(?=.*paruns).*$/i,
+		name : "Sword of the Paruns",
+		source : ["G", 181],
+		description : "Versatile (1d10); Have ally in 60 ft do something when I take the Attack, Dash, or Dodge action",
+		modifiers : [1, 1]
+	}
+}
+MagicItemsList["voyager staff"] = {
+	name : "Voyager Staff",
+	source : ["G", 181],
+	type : "staff",
+	rarity : "very rare",
+	description : "This +1 quarterstaff gives me a +1 bonus on spell attacks. It has 10 charges, regaining 1d6+4 expended charges at dawn. If I expend its last charge, roll a d20. On a 1, it vanishes. I can use its charges to cast Banishment (4 ch), Blink (3 ch), Misty Step (2 ch), Passwall (5 ch), and Teleport (7 ch), using my spellcasting ability.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic quarterstaff. While you hold it, you gain a +1 bonus to spell attack rolls.\n   This staff has 10 charges. While holding it, you can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Banishment (4 charges), Blink (3 charges), Misty Step (2 charges), Passwall (5 charges), or Teleport (7 charges).\n   The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff vanishes forever.",
+	attunement : true,
+	weight : 4,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	weaponsAdd : ["Voyager Staff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /^(?=.*voyager)(?=.*staff).*$/i,
+		name : "Voyager Staff",
+		source : ["G", 181],
+		modifiers : [1, 1]
+	},
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type == "attack") return 1;
+			},
+			"While holding the Voyager Staff, I have a +1 bonus to spell attack rolls."
+		]
+	},
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "2 charges",
+		spells : ["misty step"],
+		selection : ["misty step"],
+		firstCol : 2
+	}, {
+		name : "3 charges",
+		spells : ["blink"],
+		selection : ["blink"],
+		firstCol : 3
+	}, {
+		name : "4 charges",
+		spells : ["banishment"],
+		selection : ["banishment"],
+		firstCol : 4
+	}, {
+		name : "5 charges",
+		spells : ["passwall"],
+		selection : ["passwall"],
+		firstCol : 5
+	}, {
+		name : "7 charges",
+		spells : ["teleport"],
+		selection : ["teleport"],
+		firstCol : 7
+	}]
 }
 var iFileName = "all_WotC_unearthed_arcana.js";
 var iFileName = "ua_20150202_Eberron.js";

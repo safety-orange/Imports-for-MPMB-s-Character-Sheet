@@ -1327,3 +1327,609 @@ if (!SourceList.X) { // reprint from Xanathar's Guide to Everything
 		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st."
 	};
 }
+
+// Magic Items
+MagicItemsList["guild keyrune"] = {
+	name : "Guild Keyrune",
+	source : ["G", 177],
+	type : "wondrous item",
+	description : "As an action, I can speak this ceremonial key's command word to have it transforms into a creature. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for some hours, until it has 0 HP, or I dismiss it as an action.",
+	descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a creature if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+	descriptionFull : "Associated with a particular guild, a guild keyrune is a ceremonial, stylized key, about 1 foot long, made from carved stone. Not a literal key, the item is a badge of authority that gives its bearer access to privileged places in its guild's headquarters and outposts. At the DM's discretion, a character might be given a keyrune upon attaining a renown score of 25 in their guild.\n    When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the key rune transforms into a creature. If there isn't enough space for the creature, the keyrune doesn't transform. See the Monster Manual for the creature's stat block- the name of which is given in bold in the keyrune's description- unless you're directed to chapter 6 of this book instead.\n    The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n    The creature exists for a duration specific to each keyrune. At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+	attunement : true,
+	action : [["action", ""]],
+	choices : ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
+	"azorius" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word and have it transform into a giant eagle for 1 hour with which I can talk telepathically if within 1 mile. It is friendly to me and my allies and obeys my spoken commands. As an action, I can see and hear what it does. I can have it revert back as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a a giant eagle for 1 hour. While within 1 mile, I can communicate telepathically with it. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
+		descriptionFull : "This keyrune is carved from white marble and lapis lazuli to resemble a noble bird of prey. It can become a giant eagle for up to 1 hour. While the transformed eagle is within 1 mile of you, you can communicate with it telepathically. As an action, you can see through the eagle's eyes and hear what it hears until the start of your next turn, and you gain the benefit of its keen sight. During this time, you are deaf and blind with regard to your own senses.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant eagle. If there isn't enough space for the eagle, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the eagle takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Azorius guild",
+		prereqeval : function (v) {
+			return (/azorius/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"boros" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word and place it on the ground to transforms into a human veteran. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a human veteran if there is enough space. The creature is friendly to me and my allies and gives tactical advice, but is easily revealed as an artificial human. It understands my languages and obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I dismiss it as an action by touching it and speaking the command word again. Once it does, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Carved from red sandstone with white granite elements to resemble a member of the Boros Legion, this keyrune can become a veteran (human) for up to 8 hours. In addition to fighting on your behalf, this veteran cheerfully offers tactical advice, which is usually sound. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a veteran (human). If there isn't enough space for the veteran, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Boros guild",
+		prereqeval : function (v) {
+			return (/boros/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"dimir" : {
+		rarity : "very rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transform into an intellect devourer. It is friendly to me and my allies. It lasts for 24 hours, until it has 0 HP, or I dismiss it as an action. I can command it to pursue only a single mission each times it transforms and it returns to me at the end of it.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into an intellect devourer if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It lasts for 24 hours, during which time it pursues a single mission set by me, like information gathering, returning to me afterwards to report and transform back to the keyrune. It also reverts back when it drops to 0 HP or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again for 36 hours.",
+		descriptionFull : "This keyrune, carved from black stone accented with steel, resembles a stylized horror. On command, it transforms into an intellect devourer that resembles the Dimir guild symbol, with six bladelike legs. The creature exists for up to 24 hours. During that time, it pursues only a single mission you give it\u2014usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to you, reports its success, and reverts to its keyrune form.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a intellect devourer. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Dimir guild",
+		prereqeval : function (v) {
+			return (/dimir/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"golgari" : {
+		rarity : "very rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a giant scorpion with which I can talk telepathically if in 60 ft. It is friendly to me and my allies and obeys my commands. It reverts back after 6 hours, if it drops to 0 HP, or I touch it and speak its command word as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a giant scorpion if there is enough space. While within 60 ft of it, I can communicate with it telepathically. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Made from deep green jade with black veins, this keyrune has an insectile shape. It can transform into a giant scorpion for up to 6 hours. The scorpion has an Intelligence of 4 and can communicate with you telepathically while it is within 60 feet of you, though its messages are largely limited to describing the passage of potential prey.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant scorpion. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Golgari guild",
+		prereqeval : function (v) {
+			return (/golgari/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"gruul" : {
+		type : "wondrous item",
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a ceratok (rhinoceros stats). It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a ceratok (rhinoceros stats) if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This crude keyrune is cobbled together from bits of rubble, broken glass, bone, and animal hair. One end resembles a horned beast. On command, the keyrune transforms into a ceratok, a horned creature much like a rhinoceros (and with the same statistics). It remains in its ceratok form for 1 hour.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a ceratok. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Gruul guild",
+		prereqeval : function (v) {
+			return (/gruul/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"izzet" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a galvanice weird. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 3 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a galvanice weird if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 3 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Formed of carved and polished red and blue stone, the keyrune includes bits of cable and wire. One end resembles a humanlike head, suggesting the jagged elemental form of the galvanice weird that it can become for a duration of 3 hours. In this form, it will serve you as a bodyguard, lift and carry things for you, act as a test subject for your experiments, or aid you in any other way that its capabilities allow.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a galvanice weird. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Izzet guild",
+		prereqeval : function (v) {
+			return (/izzet/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"orzhov" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a winged thrull. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 2 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a winged thrull if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 2 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This keyrune is carved from white marble with veins of black. The end is shaped like a thrull's head, with a gold faceplate affixed. On command, the keyrune transforms into a winged thrull for up to 2 hours. If you don't come from an Orzhov oligarch family, it serves you grudgingly, clownishly aping your movements and mannerisms while carrying out your orders.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a winged thrull. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Orzhov guild",
+		prereqeval : function (v) {
+			return (/orzhov/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"rakdos" : {
+		rarity : "uncommon",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a cackler. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a cackler if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This dark granite keyrune is marbled with scarlet veins and carved with the leering visage of a mischievous demon. When activated, it transforms into a cackler for up to 1 hour.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a cackler. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Rakdos guild",
+		prereqeval : function (v) {
+			return (/rakdos/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"selesnya" : {
+		rarity : "rare",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a wolf with Int 6 with which I can talk telepathically if within 1 mile. It is friendly to me and my allies. It obeys my commands, but only uses the Dodge action otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a wolf with Intelligence 6 if there is enough space. The creature is friendly to me and my allies, understands Elvish and Sylvan (but can't speak them), and obeys my commands. While within 1 mile, we can communicate telepathically. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 8 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "Carved from white and green marble in the shape of a wolf's head, this keyrune transforms into a dire wolf. The wolf persists for 8 hours. Its Intelligence is 6, and it understands Elvish and Sylvan but can't speak those languages. While it is within 1 mile of you, you can communicate with each other telepathically.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a dire wolf. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Selesnya guild",
+		prereqeval : function (v) {
+			return (/selesnya/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	},
+	"simic" : {
+		rarity : "uncommon",
+		description : "As an action, I can speak this ceremonial key's command word to have it transforms into a krasis (cat. 2, Grabber and Stabilizing Legs). It is friendly to me and my allies. It obeys my commands, taking only the Dodge action if not commanded otherwise. It lasts for 5 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 5 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		descriptionFull : "This keyrune is assembled from coral, mother-of-pearl, and chrome and adorned with the spirals and curves characteristic of Simic ornamentation. The head resembles the shell of a sea creature. On command, the keyrune turns into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. The transformation lasts for up to 5 hours.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. If there isn't enough space for the creature, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
+		prerequisite : "Requires attunement by a member of the Simic guild",
+		prereqeval : function (v) {
+			return (/simic/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
+		},
+		usages : 1,
+		recovery : "36 h"
+	}
+}
+MagicItemsList["guild signet"] = {
+	name : "Guild Signet",
+	source : ["G", 178],
+	type : "ring",
+	rarity : "uncommon",
+	description : "This signet ring bears a symbol of its associated guild. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast the spell within (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+	descriptionFull : "This ring, adorned with the symbol of a guild, allows you to cast one spell closely associated with that guild, as shown in the table below. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).\n\n" +
+	toUni("Guild \tAssociated Spell") +
+	"\nAzorius\tensnaring strike" +
+	"\nBoros\theroism" +
+	"\nDimir\tdisguise self" +
+	"\nGolgari\tentangle" +
+	"\nGruul\tcompelled duel" +
+	"\nlzzet\tchaos bolt" +
+	"\nOrzhov\tcommand" +
+	"\nRakdos\thellish rebuke" +
+	"\nSelesnya\tcharm person" +
+	"\nSimic\texpeditious retreat",
+	attunement : true,
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	choices : ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
+	"azorius" : {
+		description : "\nAzorius\tensnaring strike",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["ensnaring strike"],
+			selection : ["ensnaring strike"],
+			firstCol : 1
+		}
+	},
+	"boros" : {
+		description : "This signet ring bears a symbol of Boros. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Heroism (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["heroism"],
+			selection : ["heroism"],
+			firstCol : 1
+		}
+	},
+	"dimir" : {
+		description : "This signet ring bears a symbol of Dimir. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Disguise Self (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : 1
+		}
+	},
+	"golgari" : {
+		description : "This signet ring bears a symbol of Golgari. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Entangle (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["entangle"],
+			selection : ["entangle"],
+			firstCol : 1
+		}
+	},
+	"gruul" : {
+		description : "This signet ring bears a symbol of Gruul. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Compelled Duel (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["compelled duel"],
+			selection : ["compelled duel"],
+			firstCol : 1
+		}
+	},
+	"izzet" : {
+		description : "This signet ring bears a symbol of lzzet. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Chaos Bolt (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["chaos bolt"],
+			selection : ["chaos bolt"],
+			firstCol : 1
+		}
+	},
+	"orzhov" : {
+		description : "This signet ring bears a symbol of Orzhov. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Command (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["command"],
+			selection : ["command"],
+			firstCol : 1
+		}
+	},
+	"rakdos" : {
+		description : "This signet ring bears a symbol of Rakdos. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Hellish Rebuke (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["hellish rebuke"],
+			selection : ["hellish rebuke"],
+			firstCol : 1
+		}
+	},
+	"selesnya" : {
+		description : "This signet ring bears a symbol of Selesnya. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Charm Person (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["charm person"],
+			selection : ["charm person"],
+			firstCol : 1
+		}
+	},
+	"simic" : {
+		description : "This signet ring bears a symbol of Simic. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Expeditious Retreat (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		spellFirstColTitle : "Ch",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["expeditious retreat"],
+			selection : ["expeditious retreat"],
+			firstCol : 1
+		}
+	}
+}
+MagicItemsList["illusionist's bracers"] = {
+	name : "Illusionist's Bracers",
+	source : ["G", 178],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "While wearing the bracers, whenever I cast a cantrip, I can use a bonus action on the same turn to cast that cantrip a second time.",
+	descriptionFull : "A powerful illusionist of House Dimir originally developed these bracers, which enabled her to create multiple minor illusions at once. The bracers' power, though, extends far beyond illusions.\n   While wearing the bracers, whenever you cast a cantrip, you can use a bonus action on the same turn to cast that cantrip a second time.",
+	weight : 1,
+	attunement : true,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	action : [["bonus action", " (with cantrip)"]]
+}
+MagicItemsList["mizzium apparatus"] = {
+	name : "Mizzium Apparatus",
+	source : ["G", 179],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "I can use this harness as an arcane focus and to attempt to cast a spells that I do not know or have prepared but is on my class' spell list. This requires an Int (Arcana) check DC 10 + twice the spell slot level and components and a spell slot as appropriate for the spell. On a failure, I cast a random spell, see Notes page.",
+	descriptionLong : "This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. I can use it as an arcane focus. In addition, I can use it to attempt to cast a spell that I do not know or have prepared but is on my class' spell list. I use components and a spell slot as appropriate for the spell as normal, but I must succeed on an Intelligence (Arcana) check DC 10 + twice the spell slot level. On a failure, I cast a random spell, see Notes page. The DC for cantrips is 10, and on a failure nothing happens.",
+	descriptionFull : "Innovation is a dangerous pursuit, at least the way the mages of the Izzet League engage in it. As protection against the risk of an experiment going awry, they have developed a device to help channel and control their magic. This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. The item weighs 8 pounds.\n   While you are wearing the mizzium apparatus, you can use it as an arcane focus. In addition, you can attempt to cast a spell that you do not know or have prepared. The spell you choose must be on your class's spell list and of a level for which you have a spell slot, and you must provide the spell's components.\n   You expend a spell slot to cast the spell as normal, but before resolving it you must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot you expend to cast the spell.\n   On a successful check, you cast the spell as normal, using your spell save DC and spellcasting ability modifier. On a failed check, you cast a different spell from the one you intended. Randomly determine the spell you cast by rolling on the table for the level of the spell slot you expended. If the slot is 6th level or higher, roll on the table for 5th-level spells.\n   If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.\n\n" + [
+		toUni("d6\t1st-level spell"),
+		" 1\tBurning Hands",
+		" 2\tChaos Bolt",
+		" 3\tColor Spray",
+		" 4\tFaerie Fire",
+		" 5\tFog Cloud",
+		" 6\tThunderwave\n",
+		toUni("d6\t2nd-level spell"),
+		" 1\tBlur",
+		" 2\tGust of Wind",
+		" 3\tHeat Metal",
+		" 4\tMelf's Acid Arrow",
+		" 5\tScorching Ray",
+		" 6\tShatter\n",
+		toUni("d6\t3rd-level spell"),
+		" 1\tFear",
+		" 2\tFeign Death",
+		" 3\tFireball",
+		" 4\tGaseous Form",
+		" 5\tSleet Storm",
+		" 6\tStinking Cloud\n",
+		toUni("d4\t4th-level spell"),
+		" 1\tConfusion",
+		" 2\tConjure Minor Elementals",
+		" 3\tEvard's Black Tentacles",
+		" 4\tIce Storm\n",
+		toUni("d4\t5th-level spell"),
+		" 1\tAnimate Objects",
+		" 2\tCloudkill",
+		" 3\tCone of Cold",
+		" 4\tFlame Strike"
+	].join("\n"),
+	weight : 8,
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
+	prereqeval : function(v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	toNotesPage : [{
+		name : "Random Spells",
+		popupName : "Mizzium Apparatus's Random Spells",
+		note : [
+			"This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness.",
+			"While I am wearing the mizzium apparatus, I can use it as an arcane focus. In addition, I can attempt to cast a spell that I do not know or have prepared. The spell I choose must be on my class's spell list and of a level for which I have a spell slot, and I must provide the spell's components.",
+			"I expend a spell slot to cast the spell as normal, but before resolving it I must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot I expend to cast the spell. On a successful check, I cast the spell as normal, using my spell save DC and spellcasting ability modifier. On a failed check, I cast a different spell from the one I intended, randomly determining the spell I cast by rolling on the table for the level of the spell slot expended. If the slot is 6th level or higher, I roll on the table for 5th-level spells. If I try to cast a cantrip I don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.\n",
+			"1D6\t1ST-LEVEL SPELL\t1D6\t2ND-LEVEL SPELL",
+			"  1\tBurning Hands \t  1\tBlur",
+			"  2\tChaos Bolt    \t  2\tGust of Wind",
+			"  3\tColor Spray   \t  3\tHeat Metal",
+			"  4\tFaerie Fire   \t  4\tMelf's Acid Arrow",
+			"  5\tFog Cloud     \t  5\tScorching Ray",
+			"  6\tThunderwave   \t  6\tShatter\n",
+			"1D6\t3RD-LEVEL SPELL",
+			"  1\tFear",
+			"  2\tFeign Death",
+			"  3\tFireball",
+			"  4\tGaseous Form",
+			"  5\tSleet Storm",
+			"  6\tStinking Cloud\n",
+			"1D4\t4TH-LEVEL SPELL\t1D4\t5TH-LEVEL SPELL (AND HIGHER)",
+			"  1\tConfusion\t\t  1\tAnimate Objects",
+			"  2\tConjure Minor Elem.\t  2\tCloudkill",
+			"  3\tEvard's Black Tentacles\t  3\tCone of Cold",
+			"  4\tIce Storm\t\t  4\tFlame Strike"
+		]
+	}]
+}
+MagicItemsList["mizzium armor"] = {
+	name : "Mizzium Armor",
+	nameTest : "Mizzium",
+	source : ["G", 179],
+	type : "armor (medium or heavy)",
+	rarity : "rare",
+	description : "This armor is reinforced with a magically enhanced metal alloy called mizzium. While I'm wearing it, any critical hit against me becomes a normal hit. In addition, when I'm subjected to a magical effect that allows me to make a Str or Con save to take only half damage, I instead take no damage if I succeed on it.",
+	descriptionFull : "This suit of armor is reinforced with a magically enhanced metal alloy called mizzium, which is made in Izzet foundries. While you're wearing the armor, any critical hit against you becomes a normal hit. In addition, when you are subjected to a magical effect that allows you to make a Strength or Constitution saving throw to take only half damage, you instead take no damage if you succeed on the saving throw.",
+	savetxt : { text : ["No damage on success Str or Con save for half damage"] },
+	allowDuplicates : true,
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "suffix",
+		excludeCheck : function (inObjKey, inObj) {
+			return !(/medium|heavy/i).test(inObj.type) || (/hide/i).test(inObj.name);
+		},
+		descriptionChange : ["prefix", "armor"]
+	}
+}
+MagicItemsList["mizzium mortar"] = {
+	name : "Mizzium Mortar",
+	source : ["G", 179],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "This 4-ft-long, 6-inch-diameter tube has 4 charges, regaining 1d4 at dawn. As an action, I can expend 1 charge to have all in a 30-ft cone take 5d4 fire damage. As an action, I can expend 3 charges to have all in a 20-ft radius, 40-ft high cylinder in 60 ft take 5d8 fire damage. For both effects DC 15 Dex save halves.",
+	descriptionLong : "This 4-ft-long, 6-inch-diameter mizzium tube has 4 charges, regaining 1d4 expended charges at dawn. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining. As an action, I can expend 1 charge to create a spray of molten mizzium in a 30-ft cone. All within the cone take 5d4 fire damage, DC 15 Dexterity saving throw halves. As an action, I can expend 3 charges to create a 20-ft radius, 40-ft high cylinder within 60 ft of me that deals 5d8 fire damage to all within, DC 15 Dexterity saving throw halves.",
+	descriptionFull : "This short tube, about 2 feet long and 6 inches in diameter, is made from mizzium, a magically enhanced metal alloy forged by the Izzet League. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining.\n   The mortar has 4 charges for the following properties. It regains 1d4 expended charges daily at dawn.\n   " + toUni("Molten Spray") + ". You can expend 1 charge as an action to loose a 30-foot cone of molten mizzium. Each creature in the area must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much damage on a successful one.\n   " + toUni("Mizzium Bombard") + ". You can expend 3 charges as an action to launch a hail of molten projectiles in a 20-foot-radius, 40-foot-high cylinder centered on a point you can see within 60 feet of you. Each creature in the area must make a DC 15 Dexterity saving throw. A creature takes 5d8 fire damage on a failed save, or half as much damage on a successful one.",
+	weight : 1,
+	usages : 4,
+	recovery : "dawn",
+	additional : "regains 1d4"
+}
+MagicItemsList["moodmark paint"] = {
+	name : "Moodmark Paint",
+	source : ["G", 180],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Once, I can spend 1 minute to apply this thick black paint to a creature's face. For the next 8 hours, anyone seeing the target can make a DC 10 Wisdom (Insight) check to see if it is happy, sad, angry, disgusted, surprised, or afraid, as well as the main source of that emotion. Drows have advantage on this check.",
+	descriptionFull : "This thick, black paint is stored in a small jar, containing enough paint to apply moodmarks to one creature. The paint is dabbed on the face in spots or markings that often resemble the eyes of insects or spiders. Applying the paint in this way takes 1 minute.\n   For the next 8 hours, the marks change to reflect your mental state. A creature that can see you and makes a successful DC 10 Wisdom (Insight) check can discern whether you are happy, sad, angry, disgusted, surprised, or afraid, as well as the main source of that emotion. For example, you might communicate fear caused by a monster you just saw around the corner, grief at the loss of a friend, or happiness derived from pride in your performance in combat. A dark elf has advantage on this check.",
+	weight : 1
+}
+MagicItemsList["pariah's shield"] = {
+	name : "Pariah's Shield",
+	source : ["G", 180],
+	type : "shield",
+	rarity : "rare",
+	description : "While I wield this shield. I gain a +1 bonus to AC for every two allies within 5 ft of me on top of the shield's AC bonus, up to a +3 bonus. As a reaction when a creature I can see within 5 ft of me takes damage, I can take that damage instead, but the damage type for it changes to force.",
+	descriptionFull : "Soldiers of the Boros Legion consider it an honor to bear this shield, even knowing that it might be the last honor they receive. The front of the shield is sculpted to depict a grieving human face.\n   You gain a +1 bonus to AC for every two allies within 5 feet of you (up to a maximum of +3) while you wield this shield. This bonus is in addition to the shield's normal bonus to AC.\n   When a creature you can see within 5 feet of you takes damage, you can use your reaction to take that damage, instead of the creature taking it. When you do so, the damage type changes to force.",
+	attunement : true,
+	weight : 6,
+	shieldAdd : "Pariah's Shield",
+	action : [["reaction", ""]]
+}
+MagicItemsList["peregrine mask"] = {
+	name : "Peregrine Mask",
+	source : ["G", 180],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "While wearing this winged helm, I have a flying speed of 60 ft and advantage on initiative rolls.",
+	descriptionFull : "While wearing this winged helm, you have a flying speed of 60 feet. In addition, you have advantage on initiative rolls.",
+	attunement : true,
+	advantages : [["Initiative", true]],
+	speed : { fly : { spd : "fixed60", enc : "fixed50" } }
+}
+MagicItemsList["pyroconverger"] = {
+	name : "Pyroconverger",
+	source : ["G", 180],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "As an action, I can use this flamethrower to deal 4d6 fire damage to all in a 10-ft cone, DC 13 Dex save halves. I must roll a d10 each time I use it and add the times it was used since my last long rest. If the total is 11 or higher, it malfunctions and I take 4d6 fire damage and I can't use it again until I finish a long rest.",
+	descriptionFull : "A Pyroconverger is an Izzet-made flamethrower. It carries a risk of malfunction each time you use it.\n   As an action, you can cause the Pyroconverger to project fire in a 10-foot cone. Each creature in that area must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one.\n   Each time you use the Pyroconverger, roll a d10 and add the number of times you have used it since your last long rest. If the total is 11 or higher, the Pyroconverger malfunctions: you take 4d6 fire damage, and you can't use the Pyroconverger again until you finish a long rest.",
+	attunement : true,
+	weight : 1,
+	weaponsAdd : ["Pyroconverger"],
+	weaponOptions : {
+		regExpSearch : /pyroconverger/i,
+		name : "Pyroconverger",
+		source : ["G", 180],
+		ability : 0,
+		type : "Magic Item",
+		damage : [4, 6, "fire"],
+		range : "10-ft cone",
+		description : "Hits all in area; Dex save, success - half damage; Roll each time for malfunction, see item",
+		abilitytodamage : false,
+		modifiers : ["dc+5", ""]
+	},
+	usages : 1,
+	recovery : "long rest",
+	additional : "if malfunction"
+}
+MagicItemsList["rakdos riteknife"] = {
+	name : "Rakdos Riteknife",
+	source : ["G", 180],
+	type : "weapon (dagger)",
+	rarity : "legendary",
+	description : "This has +1 to hit/damage and imprisons souls of any killed with it, up to 5. It deals +1d4 necr. per stored soul. As a bonus action, I can release souls to regain 1d10 HP per soul. Once per long rest as a reaction after I deal damage with it, I can release 5 souls to have the target make a DC 15 Con save or die if below 75 HP.",
+	descriptionLong : "This magical dagger has a +1 bonus on attack and damage rolls made with it. When used to slay a creature, it imprisons its soul. It can store up to five souls. While it holds souls, it deals +1d4 necrotic damage per stored soul. [Siphon Vitality] As a bonus action, I can release one or more soul to regain 1d10 HP per soul released. [Annihilation] As a reaction after I deal damage with it, I can release five souls to have the target of the attack make a DC 15 Constitution saving throw or die if below 75 HP. If the target dies, I can't use this property again until I finish a long rest.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Its blade is cruelly serrated, and its hilt resembles a demonic head and wings. Whenever you slay a creature with an attack using the dagger, the creature's soul is imprisoned inside the dagger, and that creature can be restored to life only by a Wish spell. The dagger can hold a maximum of five souls.\n   For each soul imprisoned in the dagger, your attacks with it deal an extra 1d4 necrotic damage on a hit. While the dagger is within 5 feet of you, your dreams are haunted by whispers from the trapped souls.\n   The dagger has the following additional properties.\n   " + toUni("Siphon Vitality") + ". As a bonus action, you can release any number of stored souls from the dagger to regain 1d10 hit points per soul released.\n   " + toUni("Annihilation") + ". If the dagger holds five souls, you can use this property: As a reaction immediately after you hit a creature with the dagger and deal damage to that target, you can release all five souls. If the target now has fewer than 75 hit points, it must succeed on a DC 15 Constitution saving throw or die. If the target dies, you can't use this property again until you finish a long rest.",
+	attunement : true,
+	weight : 1,
+	action : [["bonus action", " (Siphon Vitality)"], ["reaction", " (Annihilation)"]],
+	weaponsAdd : ["Rakdos Riteknife"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /^(?=.*rakdos)(?=.*riteknife).*$/i,
+		name : "Rakdos Riteknife",
+		source : ["G", 180],
+		description : "Finesse, light, thrown; Imprisons soul on kill (max 5); +1d4 necrotic damage per stored soul",
+		modifiers : [1,1]
+	},
+	usages : 1,
+	recovery : "long rest",
+	additional : "Annihilation"
+}
+MagicItemsList["skyblinder staff"] = {
+	name : "Skyblinder Staff",
+	source : ["G", 181],
+	type : "staff",
+	rarity : "uncommon",
+	description : "This +1 quarterstaff gives me a +1 bonus on spell attacks. As a reaction when a flying creature I can see within 30 ft makes an attack roll against me, I can cause the staff to flare with light. The attacker has disadvantage on the attack roll, and it must make a DC 15 Con save or be blinded until the start of its next turn.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic quarterstaff. While holding it, you gain a +1 bonus to spell attack rolls.\n   If a flying creature you can see within 30 feet of you makes an attack roll against you, you can use your reaction to hold the staff aloft and cause it to flare with light. The attacker has disadvantage on the attack roll, and it must succeed on a DC 15 Constitution saving throw or be blinded until the start of its next turn.",
+	attunement : true,
+	weight : 4,
+	action : [["reaction", " (vs. flying)"]],
+	weaponsAdd : ["Skyblinder Staff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
+		name : "Skyblinder Staff",
+		source : ["G", 181],
+		description : "Versatile (1d8); On hit, 1 charge for +1d6 force damage",
+		modifiers : [1, 1]
+	},
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type == "attack") return 1;
+			},
+			"While holding the Skyblinder Staff, I have a +1 bonus to spell attack rolls."
+		]
+	}
+}
+MagicItemsList["spies' murmur"] = {
+	name : "Spies' Murmur",
+	source : ["G", 181],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This dark metal headpiece is worn curved around the ear. I can communicate telepathically with others that I know within 1 mile who are also wearing a spies' murmur. As a bonus action, I can allow that creature to hear everything I hear for 1 hour. I can end this effect as a bonus action, and it ends if I am incapacitated.",
+	descriptionFull : "This headpiece, crafted from dark metal, is worn curved around the ear. If you know a creature wearing another Spies' Murmur and that creature is within 1 mile of you, you can communicate telepathically with each other. As a bonus action, you can allow that creature to hear everything you hear for 1 hour. You can end this effect as a bonus action, and it ends if you're incapacitated.",
+	attunement : true
+}
+MagicItemsList["sunforger"] = {
+	name : "Sunforger",
+	source : ["G", 181],
+	type : "weapon (warhammer)",
+	rarity : "rare",
+	description : "This warhammer adds +2 to attack and damage rolls made with it. As an action once per short rest, I can hurl it up to 120 ft to a point I can see where it explodes in a 20-ft radius, dealing 6d6 fire damage to all within, DC 15 Dex save halves. Within 24 hours afterward, I can have it reform in my hand as an action.",
+	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon.\n   As an action, you can hurl the weapon up to 120 feet to a point you can see. When it reaches that point, the weapon vanishes in an explosion, and each creature in a 20-foot-radius sphere centered on that point must make a DC 15 Dexterity saving throw, taking 6d6 fire damage on a failed save, or half as much damage on a successful one. Afterward, you can use an action to cause the weapon to reappear in your empty hand. You can't cause it to explode again until you finish a short or long rest.\n   If you don't call the weapon back to your hand, it reappears at the point where it exploded when you are no longer attuned to it or when 24 hours have passed.",
+	attunement : true,
+	weight : 2,
+	action : [["action", " (hurl/recall)"]],
+	weaponsAdd : ["Sunforger"],
+	weaponOptions : {
+		baseWeapon : "warhammer",
+		regExpSearch : /sunforger/i,
+		name : "Sunforger",
+		source : ["G", 181],
+		description : "Versatile (1d10); As action, hurl 120 ft for 20-ft rad 6d6 fire dmg, Dex DC 15 half",
+		modifiers : [2, 2]
+	},
+	usages : 1,
+	recovery : "short rest",
+	additional : "Hurl"
+}
+MagicItemsList["sword of the paruns"] = {
+	name : "Sword of the Paruns",
+	source : ["G", 181],
+	type : "weapon (longsword)",
+	rarity : "very rare",
+	description : "This longsword has a +1 to hit and damage. Once per round after I take an action while holding it, I can use it to have a creature within 60 ft use its reaction to do something based on the action I was taking: [Attack] make one weapon attack, [Dash] move its speed, or [Dodge] gain the benefits of a Dodge action.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Additionally, once on each of your turns, you can use one of the following properties if you're holding the sword:\n \u2022 Immediately after you use the Attack action to attack with the sword, you can enable one creature within 60 feet of you to use its reaction to make one weapon attack.\n \u2022 Immediately after you take the Dash action, you can enable one creature within 60 feet of you to use its reaction to move up to its speed.\n \u2022 Immediately after you take the Dodge action, you can enable one creature within 60 feet of you to use its reaction to gain the benefits of the Dodge action.",
+	attunement : true,
+	weight : 3,
+	weaponsAdd : ["Sword of the Paruns"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /^(?=.*sword)(?=.*paruns).*$/i,
+		name : "Sword of the Paruns",
+		source : ["G", 181],
+		description : "Versatile (1d10); Have ally in 60 ft do something when I take the Attack, Dash, or Dodge action",
+		modifiers : [1, 1]
+	}
+}
+MagicItemsList["voyager staff"] = {
+	name : "Voyager Staff",
+	source : ["G", 181],
+	type : "staff",
+	rarity : "very rare",
+	description : "This +1 quarterstaff gives me a +1 bonus on spell attacks. It has 10 charges, regaining 1d6+4 expended charges at dawn. If I expend its last charge, roll a d20. On a 1, it vanishes. I can use its charges to cast Banishment (4 ch), Blink (3 ch), Misty Step (2 ch), Passwall (5 ch), and Teleport (7 ch), using my spellcasting ability.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic quarterstaff. While you hold it, you gain a +1 bonus to spell attack rolls.\n   This staff has 10 charges. While holding it, you can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Banishment (4 charges), Blink (3 charges), Misty Step (2 charges), Passwall (5 charges), or Teleport (7 charges).\n   The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff vanishes forever.",
+	attunement : true,
+	weight : 4,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	weaponsAdd : ["Voyager Staff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /^(?=.*voyager)(?=.*staff).*$/i,
+		name : "Voyager Staff",
+		source : ["G", 181],
+		modifiers : [1, 1]
+	},
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type == "attack") return 1;
+			},
+			"While holding the Voyager Staff, I have a +1 bonus to spell attack rolls."
+		]
+	},
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "2 charges",
+		spells : ["misty step"],
+		selection : ["misty step"],
+		firstCol : 2
+	}, {
+		name : "3 charges",
+		spells : ["blink"],
+		selection : ["blink"],
+		firstCol : 3
+	}, {
+		name : "4 charges",
+		spells : ["banishment"],
+		selection : ["banishment"],
+		firstCol : 4
+	}, {
+		name : "5 charges",
+		spells : ["passwall"],
+		selection : ["passwall"],
+		firstCol : 5
+	}, {
+		name : "7 charges",
+		spells : ["teleport"],
+		selection : ["teleport"],
+		firstCol : 7
+	}]
+}
