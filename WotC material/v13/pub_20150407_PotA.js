@@ -98,6 +98,7 @@ MagicItemsList["devastation orb"] = {
 	description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
 	descriptionFull : tempDevastationOrbNoteTxt[0],
 	weight : 10,
+	allowDuplicates : true,
 	choices : ["Air", "Earth", "Fire", "Water"],
 	"air" : {
 		name : "Devastation Orb of Air",

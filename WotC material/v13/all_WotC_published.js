@@ -6747,6 +6747,7 @@ MagicItemsList["devastation orb"] = {
 	description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
 	descriptionFull : tempDevastationOrbNoteTxt[0],
 	weight : 10,
+	allowDuplicates : true,
 	choices : ["Air", "Earth", "Fire", "Water"],
 	"air" : {
 		name : "Devastation Orb of Air",
@@ -8963,12 +8964,12 @@ BackgroundFeatureList["trade contact"] = {
 	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };
 var iFileName = "pub_20150915_OotA.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.OotA={
-	name : "Out of the Abyss [beasts, background features]",
+	name : "Out of the Abyss [beasts, background features, items]",
 	abbreviation : "OotA",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
@@ -9078,6 +9079,374 @@ CreatureList["steeder, male"] = {
 		}
 	]
 };
+
+// Magic Items
+MagicItemsList["dawnbringer"] = {
+	name : "Dawnbringer",
+	source : ["OotA", 222],
+	type : "weapon (longsword)",
+	rarity : "legendary",
+	storyItemAL : true,
+	prerequisite : "Requires attunement by a creature of non-evil alignment",
+	prereqeval : function(v) { return !(/evil/i).test(What("Alignment")); },
+	description : "As a bonus action, I can have this hilt create a blade of radiance. It acts like a longsword that does +2 to attack and damage rolls, radiant damage (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius and dim light in another 15 ft. I can use it to cast Lesser Restoration and it is sentient, see Notes page.",
+	descriptionLong : "As a bonus action, I can have this longsword hilt create or dismiss a blade of pure radiance. It acts like a longsword that grants a +2 bonus to attack and damage rolls, does radiant damage and has the finesse property. It deals +1d8 radiant damage to undead and emits sunlight, bright light in a 15-ft radius and dim light in an additional 15ft. As an action, I can expand or reduce both the bright and dim light's radius by 5 ft each, to a maximum of 30 feet each or a minimum of 10 feet each. Once per dawn, I can use it to cast Lesser Restoration. Also, it is sentient, see Notes page.",
+	descriptionFull : "Lost for ages in the Underdark, Dawnbringer appears to be a gilded longsword hilt. While grasping the hilt, you can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with Dawnbringer.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.\n   While holding the weapon, you can use an action to touch a creature with the blade and cast Lesser Restoration on that creature. Once used, this ability can't be used again until the next dawn.\n   " + toUni("Sentience") + ". Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet.\n   The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language you know while attuned to it.\n   " + toUni("Personality") + ". Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies.\n   Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time." +
+	// Addition from Adventurers League Content Catalogue 8.07
+	"\n   If an evil creature attempts to attune to the weapon, it not only finds it impossible, but Dawnbringer attempts to take control of its wielder (DC 14 Charisma saving throw). If the weapon is successful, it insists on being taken to the surface or willingly given to the first creature it comes across that is not a member of a race indigenous to the Underdark. Dawnbringer will not allow its relinquishment to a creature that it or its wielder knows is evil, and instead compels its wielder to find a new recipient.",
+	attunement : true,
+	weight : 3,
+	action : [["bonus action", " (start/stop)"], ["action", " (change light)"]],
+	weaponsAdd : ["Dawnbringer"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /dawnbringer/i,
+		name : "Dawnbringer",
+		source : ["OotA", 222],
+		damage : [1, 8, "radiant"],
+		description : "Finesse, versatile (1d10); +1d8 damage to undead",
+		modifiers : [2, 2]
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.theWea.name == "Dawnbringer" && !fields.Proficiency) {
+					fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
+				}
+			}, ''
+		]
+	},
+	usages : 1,
+	recovery : "dawn",
+	additional : "Lesser Restoration",
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["lesser restoration"],
+		selection : ["lesser restoration"],
+		firstCol : "oncelr"
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Dawnbringer",
+		note : desc([
+			"Lost for ages in the Underdark, Dawnbringer appears to be a gilded longsword hilt. While grasping the hilt, I can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
+			"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
+			"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
+			"As an action while holding the weapon, I can touch a creature with the blade and cast Lesser Restoration on that creature. Once used, this ability can't be used again until the next dawn.",
+			"Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet. The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language you know while attuned to it.",
+			"Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies.  Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time."
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["piwafwi (cloak of elvenkind)"] = {
+	name : "Piwafwi",
+	source : ["OotA", 222],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "While I wear this dark spider-silk cloak with its hood up, Wisdom (Perception) checks made to see me have disadv., and I have adv. on Dex (Stealth) checks made to hide, as its color shifts to camouflage me. Pulling the hood up or down requires an action. It loses its magic if exposed to sunlight for 1 uninterrupted hour.",
+	descriptionFull : "This dark spider-silk cloak is made by drow. It is a cloak of elvenkind. It loses its magic if exposed to sunlight for 1 hour without interruption.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+	attunement : true,
+	action : [["action", " (hood up/down)"]],
+	eval : function () {
+		if (CurrentMagicItems.known.indexOf("boots of elvenkind") !== -1) {
+			SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+		}
+	},
+	removeeval : function () {
+		SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+	}
+}
+MagicItemsList["piwafwi of fire resistance (cloak of elvenkind)"] = {
+	name : "Piwafwi of Fire Resistance",
+	source : ["OotA", 222],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "While I wear this dark spider-silk cloak with its hood up, Wisdom (Perception) checks made to see me have disadv., and I get adv. on Dex (Stealth) checks made to hide. Pulling the hood up or down requires an action. It also grants me fire resistance. It loses its magic if exposed to sunlight for 1 hour without interruption.",
+	descriptionFull : "This dark spider-silk cloak is made by drow. It is a cloak of elvenkind. It also grants resistance to fire damage while you wear it. It loses its magic if exposed to sunlight for 1 hour without interruption.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+	attunement : true,
+	dmgres : ["Fire"],
+	action : [["action", " (hood up/down)"]],
+	eval : function () {
+		if (CurrentMagicItems.known.indexOf("boots of elvenkind") !== -1) {
+			SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+		}
+	},
+	removeeval : function () {
+		SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+	}
+}
+MagicItemsList["spell gem"] = { // not legal in AL
+	name : "Spell Gem",
+	source : ["OotA", 223],
+	type : "wondrous item",
+	notLegalAL : true,
+	description : "This gem can store 1 spell in it. If it is empty, I can cast a spell as normal, but have it stored in the gem. As an action, I can cast a stored spell from it, if that spell is on my class' spell list.",
+	descriptionFull : "A spell gem can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   If the spell is of a higher level than you can normally cast, you must make an ability check using your spellcasting ability to determine whether you cast it successfully. The DC equals 10 + the spell's level. On a failed check, the spell disappears from the gem with no other effect\n   Each spell gem has a maximum level for the spell it can store. The spell level determines the gem's rarity, the stored spell's saving throw DC, and attack bonus, as shown in the table below.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. If the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.\n\n" + [
+		toUni("Level\tStone\t\tRarity\t\tDC/Atk"),
+		"Cantrip\tObsidian\t\tUncommon\t13/+5",
+		"1st\tLapis Lazuli\tUncommon\t13/+5",
+		"2nd\tQuartz\t\tRare\t\t13/+5",
+		"3rd\tBloodstone\tRare\t\t15/+7",
+		"4th\tAmber\t\tVery Rare   \t15/+9",
+		"5th\tJade\t\tVery Rare   \t17/+9",
+		"6th\tTopaz\t\tVery Rare   \t17/+10",
+		"7th\tStar Ruby  \tLegendary \t18/+10",
+		"8th\tRuby\t\tLegendary \t18/+10",
+		"9th\tDiamond\t\tLegendary \t19/+11"
+	].join("\n"),
+	attunement : true,
+	allowDuplicates : true,
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if ((/spell gem/i).test(spName) && spellObj.time != "1 a") {
+					spellObj.time = "1 a";
+					return true;
+				}
+			},
+			"Spells cast into a Spell Gem can only have a casting time of either 1 action or 1 minute or longer.\n \u2022 Spells cast from a Spell Gem always require 1 action to cast."
+		],
+		spellList : [
+			function(spList, spName, spType) {
+				// only continue for spell gems
+				if (!(/spell gem/i).test(CurrentSpells[spName].name)) return;
+				// create the notspells array if it didn't already exist
+				if (!spList.notspells) spList.notspells = [];
+				// now add all the spells of this spell gem's level that have a casting time of 1 reaction or 1 bonus action
+				for (var spell in SpellsList) {
+					var aSp = SpellsList[spell];
+					if (aSp.level <= spList.level[1] && aSp.time && (/1 (rea|bns)/i).test(aSp.time)) spList.notspells.push(spell);
+				}
+			}, ""
+		]
+	},
+	toNotesPage : [{
+		name : "Storing Spells",
+		popupName : "Casting spells into a Spell Gems",
+		page3notes : true,
+		note : [
+			"Casting a spell stored from a spell gem doesn't require attunement",
+			"Only spells with a casting time of 1 action or 1 min or more can be stored in a spell gem",
+			"Imbuing a spell gem requires casting a spell as normal, but the spell produces no effect",
+			"I only need to provide half the costly material components for abjuration spells to imbue"
+		]
+	}],
+	choices : ["Obsidian (cantrip, uncommon)", "Lapis Lazuli (1st-level, uncommon)", "Quartz (2nd-level, rare)", "Bloodstone (3rd-level, rare)", "Amber (4th-level, very rare)", "Jade (5th-level, very rare)", "Topaz (6th-level, very rare)", "Star Ruby (7th-level, legendary)", "Ruby (8th-level, legendary)", "Diamond (9th-level, legendary)"],
+	"obsidian (cantrip, uncommon)" : {
+		name : "Spell Gem [Obsidian]",
+		rarity : "uncommon",
+		description : "This gem can store one cantrip. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack.",
+		fixedDC : 13,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,0],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"lapis lazuli (1st-level, uncommon)" : {
+		name : "Spell Gem [Lapis Lazuli]",
+		rarity : "uncommon",
+		description : "This gem can store one spell up to 1st-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 11 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 13,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,1],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"quartz (2nd-level, rare)" : {
+		name : "Spell Gem [Quartz]",
+		rarity : "rare",
+		description : "This gem can store one spell up to 2nd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 12 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 13,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,2],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"bloodstone (3rd-level, rare)" : {
+		name : "Spell Gem [Bloodstone]",
+		rarity : "rare",
+		description : "This gem can store one spell up to 3rd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +7 spell attack. If the spell's level is higher than I can cast, I need to make a DC 13 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 15,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,3],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"amber (4th-level, very rare)" : {
+		name : "Spell Gem [Amber]",
+		rarity : "very rare",
+		description : "This gem can store one spell up to 4th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 14 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 15,
+		fixedSpAttack : 9,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,4],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"jade (5th-level, very rare)" : {
+		name : "Spell Gem [Jade]",
+		rarity : "very rare",
+		description : "This gem can store one spell up to 5th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 15 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 17,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,5],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"topaz (6th-level, very rare)" : {
+		name : "Spell Gem [Topaz]",
+		rarity : "very rare",
+		description : "This gem can store one spell up to 6th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 16 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 17,
+		fixedSpAttack : 10,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,6],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"star ruby (7th-level, legendary)" : {
+		name : "Spell Gem [Star Ruby]",
+		rarity : "legendary",
+		description : "This gem can store one spell up to 7th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 17 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 18,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,7],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"ruby (8th-level, legendary)" : {
+		name : "Spell Gem [Ruby]",
+		rarity : "legendary",
+		description : "This gem can store one spell up to 8th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 18 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 18,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,8],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	},
+	"diamond (9th-level, legendary)" : {
+		name : "Spell Gem [Diamond]",
+		rarity : "legendary",
+		description : "This gem can store one spell up to 9th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 19, +11 spell attack. If the spell's level is higher than I can cast, I need to make a DC 19 check with my spellcasting ability or the spell has no effect.",
+		fixedDC : 19,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,9],
+			psionic : false,
+			firstCol : "checkbox",
+			times : 16
+		}
+	}
+}
+MagicItemsList["stonespeaker crystal"] = {
+	name : "Stonespeaker Crystal",
+	source : ["OotA", 223],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This crystal has 10 charges, regaining 1d6+4 at dawn, which I can use to cast its spells. When I use its last charge, roll a d20. On a 1, it vanishes. It gives me adv. on Int (Investigation) checks. When I cast an abjuration spell, I can expend 1 charge per level of the spell to substitute one material component of the spell.",
+	descriptionFull : "Created by the stone giant librarians of Gravenhollow, this nineteen-inch-long shard of quartz grants you advantage on Intelligence (Investigation) checks while it is on your person.\n   The crystal has 10 charges. While holding it, you can use an action to expend some of its charges to cast one of the following spells from it: Speak with Animals (2 charges), Speak with Dead (4 charges), or Speak with Plants (3 charges).\n   When you cast a Divination spell, you can use the crystal in place of one material component that would normally be consumed by the spell, at a cost of 1 charge per level of the spell. The crystal is not consumed when used in this way.\n   The crystal regains 1d6+4 expended charges daily at dawn. If you expend the crystal's last charge, roll a d20. On a 1, the crystal vanishes, lost forever.",
+	attunement : true,
+	weight : 1,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "2 charges",
+		spells : ["speak with animals"],
+		selection : ["speak with animals"],
+		firstCol : 2
+	}, {
+		name : "3 charges",
+		spells : ["speak with plants"],
+		selection : ["speak with plants"],
+		firstCol : 3
+	}, {
+		name : "4 charges",
+		spells : ["speak with dead"],
+		selection : ["speak with dead"],
+		firstCol : 4
+	}],
+	advantages : [["Investigation", true]]
+}
+MagicItemsList["wand of viscid globs"] = {
+	name : "Wand of Viscid Globs",
+	source : ["OotA", 223],
+	type : "wand",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This black wand has 7 charges, regaining 1d6+1 at midnight. If its last charge is used, roll a d20. On a 1, it melts. As an action, I can expend 1 charge to make a ranged attack roll on a target in 60 ft (with my spellcasting ability). On a hit, it is restrained for 1 hour. The wand is destroyed if exposed to sunlight for 1 hour.",
+	descriptionFull : "Crafted by the drow, this slim black wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a small glob of viscous material to launch from the tip at one creature within 60 feet of you. Make a ranged attack roll against the target, with a bonus equal to your spellcasting modifier (or your Intelligence modifier, if you don't have a spellcasting modifier) plus your proficiency bonus. On a hit, the glob expands and dries on the target, which is restrained for 1 hour. After that time, the viscous material cracks and falls away.\n   Applying a pint or more of alcohol to the restrained creature dissolves the glob instantly, as does the application of oil of etherealness or universal solvent. The glob also dissolves instantly if exposed to sunlight. No other nonmagical process can remove the viscous material until it deteriorates on its own.\n   The wand regains 1d6+1 expended charges daily at midnight. If you expend the wands last charge, roll a d20. On a 1, the wand melts into harmless slime and is destroyed.\n   A wand of viscous globs is destroyed if exposed to sunlight for 1 hour without interruption.",
+	attunement : true,
+	weight : 1,
+	usages : 7,
+	recovery : "Midnight",
+	additional : "regains 1d6+1",
+	action : [["action", ""]],
+	weaponsAdd : ["Wand of Viscid Globs"],
+	weaponOptions : {
+		name : "Wand of Viscid Globs",
+		source : ["OotA", 223],
+		ability : 4,
+		type : "Spell",
+		damage : ["\u2015", "", "Restrained"],
+		range : "60 ft",
+		description : "1 charge; Lasts 1 hour or until exposed to sunlight, a pint of alcohol, oil of etherealness, or universal solvent",
+		abilitytodamage : false
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.theWea.name === "Wand of Viscid Globs") {
+					// get the highest spellcasting ability score
+					var abiArr = [];
+					for (var aCast in CurrentSpells) {
+						if (!isNaN(CurrentSpells[aCast].ability)) abiArr.push(CurrentSpells[aCast].ability);
+					}
+					var abiDone = [];
+					var abiModArr = [];
+					for (var i = 0; i < abiArr.length; i++) {
+						if (!abiArr[i] || abiDone.indexOf(abiArr[i]) !== -1) continue;
+						abiDone.push(abiArr[i]);
+						var thisMod = What(AbilityScores.abbreviations[abiArr[i] - 1]);
+						if (thisMod > Math.max.apply(Math, abiModArr)) fields.Mod = abiArr[i];
+						abiModArr.push(thisMod);
+					}
+				}
+			}, ''
+		]
+	}
+}
 var iFileName = "pub_20151103_SCAG.js";
 RequiredSheetVersion(13);
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
@@ -10691,12 +11060,12 @@ SpellsList["sword burst"] = {
 	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. Each creature within range, other than you, must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
 SourceList.CoS={
-	name : "Curse of Strahd [background, pack]",
+	name : "Curse of Strahd [background, items, pack]",
 	abbreviation : "CoS",
 	group : "Adventure Books",
 	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
@@ -11210,6 +11579,297 @@ PacksList.monsterhunter = {
 		["Torches", 3, 1]
 	]
 };
+
+// Magic Items
+MagicItemsList["plantslayer battleaxe"] = {
+	name : "Plantslayer Battleaxe", // name taken from Adventurers League Content Catalogue v8.07, page 28
+	nameAlt : "Adventurer's Battleaxe",
+	source : ["CoS", 198],
+	type : "weapon (battleaxe)",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "This battleaxe's handle is carved with leaves and vines. It deals an extra 1d8 slashing damage against ordinary plants and plant creatures. When a creature of non-good alignment makes an attack with it, it sprouts thorns, dealing 1 magical piercing damage to the wielder after the attack is made.",
+	descriptionFull : "The axe's handle is carved with leaves and vines, and it weighs half as much as a normal battleaxe. When the axe hits a plant, whether an ordinary plant or a plant creature, the target takes an extra 1d8 slashing damage. When a creature of non-good alignment wields the axe, it sprouts thorns whenever its wielder makes an attack with it. These thorns prick the wielder for 1 piercing damage after the attack is made, and this damage is considered magical.",
+	weight : 2,
+	weaponsAdd : ["Plantslayer Battleaxe"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /^(?=.*plantslayer)(?=.*battleaxe).*$/i,
+		name : "Plantslayer Battleaxe",
+		source : ["CoS", 198],
+		description : "Versatile (1d10); +1d8 damage vs. plants",
+		weight : 2
+	}
+}
+MagicItemsList["blood spear"] = {
+	name : "Blood Spear",
+	source : ["CoS", 221],
+	type : "weapon (spear)",
+	rarity : "uncommon",
+	magicItemTable : "G",
+	description : "This spear drains the life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting. When I use it to reduce the target to 0 HP, I gain 2d6 temporary HP. If I'm chosen by Kavan to wield this spear, I gain a +2 bonus to attack and damage rolls made with it.",
+	descriptionFull : "Kavan was a ruthless chieftain whose tribe lived in the Balinok Mountains centuries before the arrival of Strahd von Zarovich. Although he was very much alive, Kavan had some traits in common with vampires: he slept during the day and hunted at night, he drank the blood of his prey, and he lived underground. In battle, he wielded a spear stained with blood. His was the first blood spear, a weapon that drains life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting.\n   When you hit with a melee attack using this magic spear and reduce the target to 0 hit points, you gain 2d6 temporary hit points.\n   Any creature can wield the spear, but only the character chosen by Kavan to wield it gains a +2 bonus to attack and damage rolls made with this magic weapon.",
+	attunement : true,
+	weight : 3,
+	choices : ["Chosen of Kavan", "Not chosen"],
+	"chosen of kavan" : {
+		name : "Blood\u200A Spear",
+		weaponsAdd : ["Blood Spear"],
+		weaponOptions : {
+			baseWeapon : "spear",
+			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
+			name : "Blood Spear",
+			source : ["CoS", 221],
+			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
+			modifiers : [2,2]
+		}
+	},
+	"not chosen" : {
+		name : "Blood\u200A\u200A Spear",
+		weaponsAdd : ["Blood Spear"],
+		weaponOptions : {
+			baseWeapon : "spear",
+			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
+			name : "Blood Spear",
+			source : ["CoS", 221],
+			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP"
+		}
+	}
+}
+MagicItemsList["green copper ewer"] = {
+	name : "Green Copper Ewer",
+	source : ["CoS", 188],
+	type : "wondrous item",
+	rarity : "unknown",
+	description : "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. If I speak the ewer's command word while grasping its handle, the ewer fills with 1 gallon of wine. After doing so, it can't produce more wine until the next dawn.",
+	descriptionFull : "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. Furthermore, a creature that grasps the ewer's handle can command the ewer to fill with 1 gallon of wine, and it can't produce more wine until the next dawn."
+}
+MagicItemsList["gulthias staff"] = {
+	name : "Gulthias Staff",
+	source : ["CoS", 221],
+	type : "staff",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (DMG 259). While attuned to it, evil plant creatures are indifferent to me.",
+	descriptionLong : "This spongy, black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (see table at SRD 201 or DMG 259). While I'm attuned to the staff, evil plant creatures don't regard me as hostile unless I harm them. If it is broken or burned to ashes, it releases an inhuman scream that can be heard out to 300 ft. All blights that can hear the scream immediately wither and die.",
+	descriptionFull : "Made from the branch of a Gulthias tree (see the blights entry of the Monster Manual), a Gulthias staff is a spongy, black length of wood. Its evil makes beasts visibly uncomfortable while within 30 feet of it. The staff has 10 charges and regains 1d6+4 of its expended charges daily at dusk.\n   If the staff is broken or burned to ashes, its wood releases a terrible, inhuman scream that can be heard out to a range of 300 feet. All blights that can hear the scream immediately wither and die.\n   " + toUni("Vampiric Strike") + ". The staff can be wielded as a magic quarterstaff. On a hit, it deals damage as a normal quarterstaff, and you can expend 1 charge to regain a number of hit points equal to the damage dealt by the weapon. Each time a charge is spent, red blood oozes from the staff's pores, and you must succeed on a DC 12 Wisdom saving throw or be afflicted with short term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).\n   " + toUni("Blight Bane") + ". While you are attuned to the staff, blights and other evil plant creatures don't regard you as hostile unless you harm them.",
+	attunement : true,
+	weight : 4,
+	usages : 10,
+	recovery : "Dusk",
+	additional : "regains 1d6+4",
+	weaponsAdd : ["Gulthias Staff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /^(?=.*gulthias)(?=.*staff).*$/i,
+		name : "Gulthias Staff",
+		source : ["CoS", 221],
+		description : "Versatile (1d8); On hit, 1 charge to regain HP equal to damage dealt but DC 12 Wis save or madness"
+	},
+}
+MagicItemsList["holy symbol of ravenkind"] = {
+	name : "Holy Symbol of Ravenkind",
+	source : ["CoS", 222],
+	type : "wondrous item",
+	rarity : "legendary",
+	storyItemAL : true,
+	prerequisite : "Requires attunement by a cleric or paladin of good alignment",
+	prereqeval : function(v) { return (/good/i).test(What("Alignment")) && (classes.known.cleric || classes.known.paladin); },
+	description : "This platinum amulet has 10 charges, regaining 1d6+4 at dawn. As an action, I can use 1 charge to hold vampires (see 3rd page notes). I can use 3 charges with Turn Undead to give disadv. on its saves. As an action, ican use 5 charges to shed daylight, 30-ft radius bright light and dim light for another 30-ft for 10 minutes.",
+	descriptionFull : "The Holy Symbol of Ravenkind is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.\n   The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.\n   The holy symbol has 10 charges for the following properties. It regains 1d6+4 charges daily at dawn.\n   " + toUni("Hold Vampires") + ". As an Action, you can expend 1 charge and present the holy symbol to make it flare with holy power. Vampires and vampire spawn within 30 feet of the holy symbol when it flares must make a DC 15 Wisdom saving throw. On a failed save, a target is paralyzed for 1 minute. It can repeat the saving throw at the end of its turns to end the effect on itself.\n   " + toUni("Turn Undead") + ". If you have the Turn Undead or the Turn the Unholy feature, you can expend 3 charges when you present the holy symbol while using that feature. When you do so, undead have disadvantage on their saving throws against the effect.\n   " + toUni("Sunlight") + ". As an action, you can expend 5 charges while presenting the holy symbol to make it shed bright light in a 30-foot radius and dim light for an additional 30 feet. The light is sunlight and lasts for 10 minutes or until you end the effect (no action required).",
+	attunement : true,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	action : [["action"]],
+	toNotesPage : [{
+		name : "Hold Vampires",
+		popupName : "Hold Vampires feature of Holy Symbol of Ravenkind",
+		page3notes : true,
+		note : [
+			"As an action, I can use 1 charge to have all vampires within 30 ft make a DC 15 Wis save",
+			"If failed, a target is paralyzed for 1 minute but can repeat the save at the end of its turns"
+		],
+		additional : "1 charge"
+	}]
+}
+MagicItemsList["icon of ravenloft"] = {
+	name : "Icon of Ravenloft",
+	source : ["CoS", 222],
+	type : "wondrous item",
+	rarity : "legendary",
+	storyItemAL : true,
+	prerequisite : "Requires attunement by a creature of good alignment",
+	prereqeval : function(v) { return (/good/i).test(What("Alignment")); },
+	description : "All within 30 ft of this silver statue are under the effect of Protection from Evil and Good that works against fiends and undead. As an action while attuned to it, I can cast Augury or Cure Wounds (3d8+3, 30 ft range) from it, each once per dawn and if I use it for my Turn Undead, the DC increases by 2.",
+	descriptionFull : "The Icon of Ravenloft is a 12-inch tall statuette made of the purest silver, weighing 10 pounds. It depicts a cleric kneeling in supplication.\n   The icon was given to Strahd by the archpriest Ciril Romulich, an old family friend, to consecrate the castle and its chapel.\n   While within 30 feet of the icon, a creature is under the effect of a Protection from Evil and Good spell against fiends and undead. Only a creature attuned to the icon can use its other properties.\n   " + toUni("Augury") + ". You can use an action to cast an Augury spell from the icon, with no material components required. Once used, this property can't be used again until the next dawn.\n   " + toUni("Bane of the Undead") + ". You can use the icon as a holy symbol while using the Turn Undead or Turn the Unholy feature. If you do so, increase the save DC by 2.\n   " + toUni("Cure Wounds") + ". While holding the icon, you can take an action to heal one creature that you can see within 30 feet of you. The target regains 3d8+3 hit points, unless it is an undead, a construct, or a fiend. Once used, this property can't be used again until the next dawn.",
+	attunement : true,
+	weight : 10,
+	extraLimitedFeatures : [{
+		name : "Icon of Ravenloft [Augury]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Icon of Ravenloft [Cure Wounds]",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	spellcastingBonus : [{
+		name : "All in 30 ft",
+		spells : ["protection from evil and good"],
+		selection : ["protection from evil and good"],
+		firstCol : "markedbox"
+	}, {
+		name : "Once per dawn",
+		spells : ["augury", "cure wounds"],
+		selection : ["augury", "cure wounds"],
+		firstCol : "oncelr",
+		times : 2
+	}],
+	spellChanges : {
+		"protection from evil and good" : {
+			range : "30-ft rad",
+			time : "Always",
+			description : "All in range immune to fear, charm, and possession by fiends and undead, they also disadv. on attacks",
+			duration : "Unlimited",
+			changes : "All within 30 ft of the Icon of Ravenloft have this spell protect them from undead and fiends."
+		},
+		"augury" : {
+			time : "1 a",
+			changes : "Using the Icon of Ravenloft, it only takes an action to cast."
+		},
+		"cure wounds" : {
+			range : "30 ft",
+			description : "1 living creature heals 3d8+3 HP if it not an undead, construct, or fiend",
+			changes : "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect undead, a construct, or a fiend."
+		}
+	}
+}
+MagicItemsList["lost sword"] = {
+	name : "Lost Sword",
+	source : ["CoS", 81],
+	type : "weapon (shortsword)",
+	rarity : "very rare",
+	magicItemTable : "G",
+	prerequisite : "Requires attunement by a creature of lawful good alignment",
+	prereqeval : function(v) { return (/^(?=.*lawful)(?=.*good).*$/i).test(What("Alignment")); },
+	description : "This lawful good shortsword is sentient (Int 11, Wis 13, Cha 13). It adds +1 to hit and damage and shines bright light in a 15-ft radius and dim light for an additional 15 ft. Attuning to it takes only 1 minute. Once per dawn, I can use it to cast Crusader's Mantle. Its purpose is to fight evil. See Notes page.",
+	descriptionFull : "The Lost Sword is a sentient lawful good +1 shortsword (Intelligence 11, Wisdom 13, Charisma 13). It has hearing and normal vision out to a range of 120 feet. It communicates by transmitting emotion to the creature carrying or wielding it.\n   The sword's purpose is to fight evil. The sword has the following additional properties:\n \u2022 The sword continually sheds bright light in a 15-foot radius and dim light for an additional 15 feet. Only by destroying the sword can this light be extinguished.\n \u2022 A lawful good creature can attune itself to the sword in 1 minute.\n \u2022 While attuned to the weapon, the sword's wielder can use the sword to cast the Crusader's Mantle spell. Once used, this property of the sword can't be used again until the next dawn.",
+	attunement : true,
+	weight : 2,
+	usages : 1,
+	recovery : "dawn",
+	additional : "Crusader's Mantle",
+	weaponsAdd : ["Lost Sword"],
+	weaponOptions : {
+		baseWeapon : "shortsword",
+		regExpSearch : /^(?=.*lost)(?=.*sword).*$/i,
+		name : "Lost Sword",
+		source : ["CoS", 81],
+		modifiers : [1,1]
+	},
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["crusader's mantle"],
+		selection : ["protection from evil and good"],
+		firstCol : "oncelr"
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of the Lost Sword",
+		note : desc([
+			"The Lost Sword is a sentient lawful good +1 shortsword.",
+			"A lawful good creature can attune itself to the sword in 1 minute.",
+			"It continually sheds bright light in a 15-ft radius and dim light for an additional 15 ft. Only by destroying the sword can this light be extinguished.",
+			"While attuned to the weapon, the sword's wielder can use the sword to cast the Crusader's Mantle spell. Once used, this property of the sword can't be used again until the next dawn.",
+			"It has Intelligence 11, Wisdom 13, and Charisma 13 and can hear and see as a human out to a range of 120 ft. It communicates by transmitting emotion to the creature carrying or wielding it. The sword's purpose is to fight evil."
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["saint markovia's thighbone"] = {
+	name : "Saint Markovia's Thighbone",
+	source : ["CoS", 222],
+	type : "weapon (mace)",
+	rarity : "rare",
+	description : "This mace sheds bright light in a 20-ft radius and dim light for another 20 ft while held. Fiends and undead hit with it take +2d6 radiant damage, become frightened of me until my next turn ends, and if below 26 HP after its damage, must make a DC 15 Wis save or die. If it hits an undead, it crumbles after the combat.",
+	descriptionFull : "Saint Markovia's thighbone has the properties of a mace of disruption. If it scores one or more hits against a vampire or a vampire spawn in the course of a single battle, the thighbone crumbles into dust once the battle concludes.\n   As a youth, Markovia followed her heart and became a priest of the Morninglord soon after her eighteenth birthday. She proved to be a charismatic proselytizer and, before the age of thirty, had gained a reputation for allowing no evil to stand before her.\n   Markovia had long considered Strahd a mad tyrant, but only after his transformation into a vampire did she dare to challenge him. As she rallied her followers and prepared to march on Castle Ravenloft, Strahd sent a group of vampire spawn to her abbey. They confronted Markovia and were destroyed to a one.\n   Suffused with confidence born of a righteous victory, Markovia advanced on Castle Ravenloft. A great battle raged from the catacombs to the parapets. In the end, Markovia never returned to Barovia, and Strahd long afterward walked with a limp and a grimace of pain. It is said that he trapped Markovia in a crypt beneath his castle, and her remains linger there yet.\n   The essence of Markovia's saintliness passed partly into her bones as the rest of her body decomposed. Her remaining thighbone is imbued with power that inflicts grievous injury on the undead.\n   Mace of Disruption. When you hit a fiend or an undead with this magic weapon, that creature takes an extra 2d6 radiant damage. If the target has 25 hit points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature becomes frightened of you until the end of your next turn.\n   While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.",
+	attunement : true,
+	weight : 4,
+	weaponsAdd : ["Saint Markovia's Thighbone"],
+	weaponOptions : {
+		baseWeapon : "mace",
+		regExpSearch : /^(?=.*markovia)(?=.*thighbone).*$/i,
+		name : "Saint Markovia's Thighbone",
+		source : ["CoS", 222],
+		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if hp<26, DC 15 Wis save or die"
+	}
+}
+MagicItemsList["silver dragon shield +2"] = {
+	name : "Silver Dragon Shield +2",
+	source : ["CoS", 68],
+	type : "shield",
+	rarity : "rare",
+	description : "While holding this shield, I have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC. It is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon. The shield whispers warnings to me, granting me a +2 bonus to initiative while I am not incapacitated.",
+	descriptionFull : "While holding this shield, you have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   The shield is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon (see Curse of Strahd, chapter 7). The shield whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
+	weight : 6,
+	shieldAdd : "Silver Dragon Shield +2",
+	addMod : [{ type : "skill", field : "Init", mod : 2, text : "While I carry the Silver Dragon Shield, it whispers warnings to me, granting me a +2 bonus to initiative rolls." }]
+}
+MagicItemsList["statuette of saint markovia"] = {
+	name : "Statuette of Saint Markovia",
+	source : ["CoS", 152],
+	type : "wondrous item",
+	rarity : "unknown",
+	storyItemAL : true,
+	description : "This golden statuette grants any good-aligned creature that carries it a +1 bonus to saving throws.",
+	descriptionFull : "This golden statuette grants any good-aligned creature that carries it a +1 bonus to saving throws.",
+	addMod : [{ type : "save", field : "all", mod : 1, text : "While I carry the Statuette of Saint Markovia, I gain a +1 bonus to all my saving throws." }]
+}
+MagicItemsList["sunsword"] = {
+	name : "Sunsword",
+	source : ["CoS", 223],
+	type : "weapon (longsword)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "As a bonus action, I can have this hilt create a blade of radiance. It acts like a longsword with +2 to hit and damage, does radiant damage (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius and dim light in another 15 ft. As an action, I can change the light's radius by 5 ft. It is sentient, see Notes page.",
+	descriptionLong : "As a bonus action, I can have this longsword hilt create or dismiss a blade of pure radiance. While the blade exists, it acts like a longsword that has +2 to attack and damage rolls, does radiant damage, and has the finesse property. It deals +1d8 damage to undead and emits sunlight, bright light in a 15-ft radius and dim light in an additional 15-ft radius. As an action, I can expand or reduce both the bright and dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. I'm proficient with it if I'm proficient with either longswords or shortswords. It is sentient, see Notes page.",
+	descriptionFull : "The Sunsword is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.\n   Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.\n   The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade.\n   While grasping the hilt, you can use a bonus action to cause a blade of pure radiance to spring into existence, or make the blade disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with the sun blade.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.\n   " + toUni("Sentience") + ". The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.\n   " + toUni("Personality") + ". The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction.",
+	attunement : true,
+	weight : 3,
+	action : [["bonus action", " (start/stop)"], ["action", " (change light)"]],
+	weaponsAdd : ["Sunsword"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /sunsword/i,
+		name : "Sunsword",
+		source : ["CoS", 223],
+		damage : [1, 8, "radiant"],
+		description : "Finesse, versatile (1d10); +1d8 damage to undead",
+		modifiers : [2, 2]
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.theWea.name == "Sunsword" && !fields.Proficiency) {
+					fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
+				}
+			}, ''
+		]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Sunsword",
+		note : desc([
+			"The Sunsword is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.",
+			"Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.",
+			"The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade. While grasping the hilt, I can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
+			"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
+			"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
+			"The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.",
+			"The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction"
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}
 var iFileName = "pub_20160906_SKT.js";
 RequiredSheetVersion(12.999);
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet

@@ -193,10 +193,13 @@ MagicItemsList["amulet of protection from turning"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "D",
-	description : "",
+	description : "This silver and turquoise amulet has 3 charges, regain all at dawn. It gives me adv. on saves against effects that turn undead. If I fail a save against such an effect, I can expend 1 charge to succeed instead. It glows with a silvery blue light for a few seconds each time an effect that turns undead is used on me.",
 	descriptionFull : "While you wear this amulet of silver and turquoise, you have advantage on saving throws against effects that turn undead.\n   If you fail a saving throw against such an effect, you can choose to succeed instead. You can do so three times, and expended uses recharge daily at dawn. Each time an effect that turns undead is used against you, the amulet glows with silvery blue light for a few seconds.",
 	attunement : true,
-	weight : 1
+	weight : 1,
+	usages : 3,
+	recovery : "dawn",
+	savetxt : { adv_vs : ["turn undead"] }
 }
 MagicItemsList["balance of harmony"] = {
 	name : "Balance of Harmony",
@@ -226,9 +229,11 @@ MagicItemsList["eagle whistle"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
-	description : "",
+	description : "Three times per dawn, I can blow this whistle, gaining a flying speed equal to twice my walking speed while I do so continuously. I can blow it for a number for rounds equal to 5 + five times my Constitution modifier (minimum of 1 round) or until I talk, hold my breath, start suffocating, or land.",
 	descriptionFull : "While you blow an eagle whistle continuously, you can fly twice as fast as your walking speed. You can blow the whistle continuously for a number of rounds equal to 5 + five times your Constitution modifier (minimum of 1 round) or until you talk, hold your breath, or start suffocating. A use of the whistle also ends if you land. If you are aloft when you stop blowing the whistle, you fall. The whistle has three uses. It regains expended uses daily at dawn.",
-	weight : 1
+	weight : 1,
+	usages : 3,
+	recovery : "dawn"
 }
 MagicItemsList["hell hound cloak"] = {
 	name : "Hell Hound Cloak",
