@@ -4,7 +4,7 @@ RequiredSheetVersion(12.999);
 
 // Define the source
 SourceList.ToA={
-	name : "Tomb of Annihilation [backgrounds, beasts, equipment]",
+	name : "Tomb of Annihilation [backgrounds, beasts, items]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
@@ -200,26 +200,21 @@ GearList["rain catcher"] = {
 	amount : 1,
 	weight : 5
 };
-GearList["insect repellent:"] = {
-	infoname: "Insect repellent:",
-	name: "-",
-	source : ["ToA", 32],
-	amount: "",
-	weight: ""
-};
-GearList["insect repellent: salve"] = {
-	infoname : "   Salve (vial) [5 sp]",
-	name : "Salve, applications of",
+GearList["insect repellent salve"] = {
+	infoname : "Salve (vial) [5 sp]",
+	name : "Insect Repellent Salve, applications of",
 	source : ["ToA", 32],
 	amount : 20,
-	weight : ""
+	weight : "",
+	type : "insect repellent"
 };
-GearList["insect repellent: incense"] = {
-	infoname : "   Incense (block) [1 gp]",
-	name : "Incense, blocks of",
+GearList["insect repellent incense"] = {
+	infoname : "Incense (block) [1 gp]",
+	name : "Insect Repellent Incense, blocks of",
 	source : ["ToA", 32],
 	amount : 1,
-	weight : ""
+	weight : "",
+	type : "insect repellent"
 };
 
 // Creatures
@@ -629,3 +624,141 @@ CreatureList["jaculi"] = {
 	],
 	wildshapeString : "\u25C6 Senses: Blindsight 30 ft.\n\u25C6 Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n\u25C6 Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
 };
+
+// Magic Items
+MagicItemsList["amulet of the black skull"] = {
+	name : "Amulet of the Black Skull",
+	source : ["ToA", 206],
+	type : "wondrous item",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "The obsidian amulet has 6 charges, regaining 1d6 at dawn. As an action, I can expend a charge to teleport to a location within 100 ft that I'm familiar with. If I'm not undead, I must make a DC 16 Con save whenever I do so and if I fail, I'm transformed (see table on Notes page) as I arrive at the destination.",
+	descriptionFull : "This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.\n   The amulet has 6 charges and regains 1d6 charges daily at dawn. While wearing the amulet, you can use an action to expend 1 of its charges to transport yourself and anything you are wearing or carrying to a location within 100 feet of you. The destination you choose doesn't need to be in your line of sight, but it must be familiar to you (in other words, a place you have seen or visited), and it must be on the same plane of existence as you. This effect isn't subject to the magic restrictions placed on the Tomb of the Nine Gods; thus, the amulet can be used to enter and exit the tomb.\n   If you aren't undead, you must make a DC 16 Constitution saving throw each time you use the amulet to teleport. On a failed saving throw, the black skull cackles as you are transformed in transit. The transformation takes effect as soon as you arrive at the destination, and is determined randomly by rolling percentile dice and consulting the Black Skull Transformation table.\n\n" + toUni("d100\tTransformation") + "\n01-20\tThe symbol of Acererak is burned into your flesh, a curse that can only be removed with a Remove Curse spell or similar magic. Until the curse ends, your hit points can't be restored by magic.\n21-35\tYou grow larger as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.\n36-50\tYou grow smaller as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.\n51-70\tYou arrive at the destination wearing nothing but the amulet of the black skull. Everything else that you were wearing or carrying appears in a random unoccupied space within 100 feet of you.\n71-95\tYou are paralyzed for 1 minute or until this effect is ended with a Lesser Restoration spell or similar magic.\n96-00\tYou become petrified. This effect can be ended only with a Greater Restoration spell or similar magic.",
+	attunement : true,
+	weight : 1,
+	action : [["action", ""]],
+	usages : 6,
+	recovery : "dawn",
+	additional : "regains 1d6",
+	toNotesPage : [{
+		name : "Transformation Table",
+		popupName : "Amulet of the Black Skull Transformation Table",
+		note : [
+			"This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.",
+			"If I'm not undead, I must make a DC 16 Constitution save each time I use the amulet to teleport. On a failure, the black skull cackles as I'm transformed in transit. The transformation is random (see table below) and takes effect as soon as I arrive at the destination.",
+			"d100\tTRANSFORMATION",
+			"01-20\tThe symbol of Acererak is burned into my flesh, a curse that can only be removed with a Remove Curse spell or similar magic. Until the curse ends, my hit points can't be restored by magic.",
+			"21-35\tI grow larger as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.",
+			"36-50\tI grow smaller as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.",
+			"51-70\tI arrive at the destination wearing nothing but the amulet of the black skull. Everything else that I was wearing or carrying appears in a random unoccupied space within 100 ft.",
+			"71-95\tI am paralyzed for 1 minute or until this effect is ended with a Lesser Restoration spell or similar magic.",
+			"96-00\tI become petrified. This effect can be ended only with a Greater Restoration spell or similar magic."
+		]
+	}]
+}
+MagicItemsList["bookmark"] = {
+	name : "Bookmark",
+	source : ["ToA", 206],
+	type : "weapon (dagger)",
+	rarity : "legendary",
+	notLegalAL : true,
+	description : "This dagger adds +3 to hit and damage. As a bonus action while holding it, I can have it shed bright light in a 20-ft radius and dim light for another 20 ft, go dark, act as a compass, cast Dimension Door once per dawn, or cast Compulsion once per dawn, which effects only spiders of the beast type within 90 ft.",
+	descriptionFull : "This +3 dagger belongs to Artus Cimber. While you have the dagger drawn, you can use a bonus action to activate one of the following properties:\n \u2022 Cause a blue gem set into the dagger's pommel to shed bright light in a 20-foot radius and dim light for an additional 20 feet, or make the gem go dark.\n \u2022 Turn the dagger into a compass that, while resting on your palm, points north.\n \u2022 Cast Dimension Door from the dagger. Once this property is used, it can't be used again until the next dawn.\n \u2022 Cast Compulsion (save DC 15) from the dagger. The range of the spell increases to 90 feet but it targets only spiders that are beasts. Once this property is used, it can't be used again until the next dawn.",
+	attunement : true,
+	weight : 1,
+	action : [["bonus action", ""]],
+	weaponsAdd : ["Bookmark"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /bookmark/i,
+		name : "Bookmark",
+		source : ["ToA", 206],
+		modifiers : [3, 3]
+	},
+	extraLimitedFeatures : [{
+		name : "Compulsion (Bookmark)",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Dimension Door (Bookmark)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	fixedDC : 15,
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["compulsion", "dimension door"],
+		selection : ["compulsion", "dimension door"],
+		firstCol : "oncelr",
+		times : 2
+	},
+	spellChanges : {
+		"compulsion" : {
+			time : "1 bns",
+			range : "90 ft",
+			description : "Any spiders that hear me save or I can, as bns, have it move fully in a direction; save again after move",
+			changes : "Using Bookmark, I can cast this as a bonus action with a range of 90 ft, but it can only target spiders with the beast type."
+		}
+	}
+}
+MagicItemsList["ghost lantern"] = {
+	name : "Ghost Lantern",
+	source : ["ToA", 206],
+	type : "wondrous item",
+	rarity : "legendary",
+	magicItemTable : "C",
+	description : "As a bonus action, I can command the spirit in the lantern to shed bright light in 30-ft radius and dim light for another 30 ft. I can order the spirit to act as my Mage Hand. If I fall unconscious within 10 ft of the lantern, the spirit stabilizes me. Casting Dispel Evil and Good on it releases the spirit and makes it nonmagical.",
+	descriptionFull : "A restless spirit is trapped inside this lantern. While holding the lantern, you can command the spirit as a bonus action to shed bright light in a 30-foot radius and dim light for an additional 30 feet.\n   While holding the lantern, you can use an action to order the spirit to leave the lantern and duplicate the effect of the Mage Hand spell. The spirit returns to the lantern when the spell ends.\n   If you fall unconscious within 10 feet of the lantern, the spirit emerges from it, magically stabilizes you with a touch, and then quickly returns to the lantern.\n   The spirit is bound to the lantern and can't be harmed, turned, or raised from the dead.\n   Casting a Dispel Evil and Good spell on the lantern releases the spirit to the afterlife and renders the lantern nonmagical.",
+	attunement : true,
+	weight : 1,
+	action : [["bonus action", ""]],
+	spellcastingBonus : {
+		name : "At will",
+		spells : ["mage hand"],
+		selection : ["mage hand"],
+		firstCol : "atwill"
+	}
+}
+MagicItemsList["mask of the beast"] = {
+	name : "Mask of the Beast",
+	source : ["ToA", 207],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask I can expend 1 charge and use the mask to cast the Animal Friendship spell as an action. The mask regains all expended charges at dawn.",
+	descriptionFull : "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask you can expend 1 charge and use the mask to cast the Animal Friendship spell as an action. The mask regains all expended charges at dawn.",
+	weight : 1,
+	usages : 3,
+	recovery : "dawn",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["animal friendship"],
+		selection : ["animal friendship"],
+		firstCol : 1
+	}
+}
+MagicItemsList["scorpion armor"] = {
+	name : "Scorpion Armor",
+	source : ["ToA", 208],
+	type : "armor (plate)",
+	rarity : "rare",
+	magicItemTable : "I",
+	description : "This suit of plate armor fashioned from giant scorpion chitin doesn't impose disadv. on stealth or saves against extreme heat. It gives me +5 bonus on initiative while I'm not incapacitated. Whenever I don or doff it, I take 10d10+45 poison damage, DC 15 Con save halves. Only a Wish can remove this curse.",
+	descriptionFull : "This suit of plate armor is fashioned from giant scorpion chitin. While wearing this armor, you gain the following benefits:\n \u2022 The armor improves your combat readiness, granting you a +5 bonus to initiative as long as you aren't incapacitated.\n \u2022 The armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 The armor doesn't impose disadvantage on saving throws made to resist the effects of extreme heat (see chapter 5 of the Dungeon Master's Guide).\n\n" + toUni("Curse") + ". This armor is cursed. Whenever you don or doff it, you must make a DC 15 Constitution saving throw, taking 100 (10d10+45) poison damage on a failed save, or half as much damage on a successful one. Only a Wish spell can remove the armor's curse.",
+	attunement : true,
+	weight : 65,
+	cursed : true,
+	addMod : [{ type : "skill", field : "Init", mod : 5, text : "I gain a +5 bonus on my initiative rolls." }],
+	armorAdd : "Scorpion Armor",
+	armorOptions : {
+		regExpSearch : /^(?=.*scorpion)(?=.*armor).*$/i,
+		name : "Scorpion Armor",
+		source : ["ToA", 208],
+		type : "heavy",
+		ac : 18,
+		stealthdis : false,
+		weight : 65,
+		strReq : 15
+	}
+}
