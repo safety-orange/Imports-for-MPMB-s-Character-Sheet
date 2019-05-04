@@ -127,7 +127,7 @@ MagicItemsList["dragon mask"] = {
 	incrementDamageRes : function (dType, dRes) {
 		SetProf(
 			"savetxt",
-			CurrentProfs.resistance[dRes] && CurrentProfs.resistance[dRes].src.length > 1 ? true : false,
+			CurrentProfs.resistance[dRes] && CurrentProfs.resistance[dRes].src.length > 1,
 			{ immune : [dRes] },
 			!dType ? "Mask of the Dragon Queen (magic item)" : dType + " Dragon Mask (magic item)"
 		);
