@@ -4938,7 +4938,8 @@ MagicItemsList["hazirawn"] = {
 			name : "1 charge",
 			spells : ["detect evil and good", "detect magic"],
 			selection : ["detect evil and good", "detect magic"],
-			firstCol : 1
+			firstCol : 1,
+			times : 2
 		}, {
 			name : "2 charges",
 			spells : ["detect thoughts"],
@@ -6679,7 +6680,8 @@ MagicItemsList["balloon pack"] = {
 		name : "1 charge",
 		spells : ["feather fall", "levitate"],
 		selection : ["feather fall", "levitate"],
-		firstCol : 1
+		firstCol : 1,
+		times : 2
 	},
 	spellChanges : {
 		"feather fall" : {
@@ -13903,7 +13905,7 @@ RequiredSheetVersion(12.999);
 
 // Define the source
 SourceList.TftYP={
-	name : "Tales from the Yawning Portal [beasts]",
+	name : "Tales from the Yawning Portal [beasts, items]",
 	abbreviation : "TftYP",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
@@ -14084,6 +14086,421 @@ CreatureList["giant subterranean lizard"] = {
 	],
 	wildshapeString : "\u25C6 Swallow: If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement."
 };
+
+// Magic Items
+MagicItemsList["amulet of protection from turning"] = {
+	name : "Amulet of Protection from Turning",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "This silver and turquoise amulet has 3 charges, regain all at dawn. It gives me adv. on saves against effects that turn undead. If I fail a save against such an effect, I can expend 1 charge to succeed instead. It glows with a silvery blue light for a few seconds each time an effect that turns undead is used on me.",
+	descriptionFull : "While you wear this amulet of silver and turquoise, you have advantage on saving throws against effects that turn undead.\n   If you fail a saving throw against such an effect, you can choose to succeed instead. You can do so three times, and expended uses recharge daily at dawn. Each time an effect that turns undead is used against you, the amulet glows with silvery blue light for a few seconds.",
+	attunement : true,
+	weight : 1,
+	usages : 3,
+	recovery : "dawn",
+	savetxt : { adv_vs : ["turn undead"] }
+}
+MagicItemsList["balance of harmony"] = {
+	name : "Balance of Harmony",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "D",
+	description : "I can use the scale to cast Detect Evil and Good as a ritual by placing a gem of 100 gp or more or holy water on both pans. It then tips to the side it detected, good or evil, or fluctuates slightly if what it detected is neutral. After this, I can touch it to learn the rest of the information the spell normally conveys.",
+	descriptionFull : "This scale bears celestial symbols on one pan and fiendish symbols on the other. You can use the scale to cast Detect Evil and Good as a ritual. Doing so requires you to place the scale on a solid surface, then sprinkle the pans with holy water or place a transparent gem worth 100 gp in each pan. The scale remains motionless if it detects nothing, tips to one side or the other for good (consecrated) or evil (desecrated), and fluctuates slightly if it detects a creature appropriate to the spell but neither good nor evil. By touching the scales after casting the ritual, you instantly learn any information the spell can normally convey, and then the effect ends.",
+	weight : 1,
+	spellcastingBonus : {
+		name : "Only as ritual",
+		spells : ["detect evil and good"],
+		selection : ["detect evil and good"],
+		firstCol : "(R)"
+	},
+	spellChanges : {
+		"detect evil and good" : {
+			time : "10 min",
+			compMaterial : "The Balance of Harmony requires placing the scale on a solid surface and sprinkling the pans with holy water or placing a transparent gem worth 100 gp in each pan.",
+			changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
+		}
+	}
+}
+MagicItemsList["bracelet of rock magic"] = {
+	name : "Bracelet of Rock Magic",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "This gold bracelet grants me immunity to being petrified. It has 16 charges to cast Flesh to Stone (DC 15). Once all charges are used, it turns to lead and loses its magic. If I use it to target a creature strongly related to stone, the target has adv. on its save. If it saves, Flesh to Stone is cast on me with disadv. on the save.",
+	descriptionFull : "While you wear this gold bracelet, it grants you immunity to being petrified, and it allows you to cast Flesh to Stone (save DC 15) as an action. Once the spell has been cast three times, the bracelet can no longer cast it. Thereafter, you can cast Stone Shape as an action. After you have done this thirteen times, the bracelet loses its magic and turns from gold to lead.\n   " + toUni("Curse") + ". The bracelet's affinity with earth manifests as an unusual curse. Creatures of flesh that are strongly related to earth and stone, such as stone giants and dwarves, have advantage on the saving throw against Flesh to Stone cast from the bracelet. If such a creature's save is successful, the bracelet breaks your attunement to it and casts the spell on you. You make your saving throw with disadvantage, and on a failed save you are petrified instantly.",
+	attunement : true,
+	weight : 1,
+	cursed : true,
+	usages : 16,
+	recovery : "Never",
+	savetxt : { immune : ["petrified"] },
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["flesh to stone"],
+		selection : ["flesh to stone"],
+		firstCol : 1
+	}
+}
+MagicItemsList["eagle whistle"] = {
+	name : "Eagle Whistle",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "Three times per dawn, I can blow this whistle, gaining a flying speed equal to twice my walking speed while I do so continuously. I can blow it for a number for rounds equal to 5 + five times my Constitution modifier (minimum of 1 round) or until I talk, hold my breath, start suffocating, or land.",
+	descriptionFull : "While you blow an eagle whistle continuously, you can fly twice as fast as your walking speed. You can blow the whistle continuously for a number of rounds equal to 5 + five times your Constitution modifier (minimum of 1 round) or until you talk, hold your breath, or start suffocating. A use of the whistle also ends if you land. If you are aloft when you stop blowing the whistle, you fall. The whistle has three uses. It regains expended uses daily at dawn.",
+	weight : 1,
+	usages : 3,
+	recovery : "dawn"
+}
+MagicItemsList["hell hound cloak"] = {
+	name : "Hell Hound Cloak",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "H",
+	description : "As an action, I can command this cloak to Polymorph me into a hell hound for 1 hour, or until I stop it as a bonus action. The 6th time I use it and every time after, I must make a DC 15 Cha save or be stuck in hell hound form until dispelled or I drop to 0 HP. If I remain in hell hound form for 6 hours, it becomes permanent.",
+	descriptionFull : "This dark cloak is made of cured hell hound hide. As an action, you can command the cloak to transform you into a hell hound for up to 1 hour. The transformation otherwise functions as the Polymorph spell, but you can use a bonus action to revert to your normal form.\n   " + toUni("Curse") + ". This cloak is cursed with the essence of a hell hound, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the cloak, keeping it within reach at all times.\n   The sixth time you use the cloak, and each time thereafter, you must make a DC 15 Charisma saving throw. On a failed save, the transformation lasts until dispelled or until you drop to 0 hit points, and you can't willingly return to normal form. If you ever remain in hell hound form for 6 hours, the transformation becomes permanent and you lose your sense of self. All your statistics are then replaced by those of a hell hound. Thereafter, only Remove Curse or similar magic allows you to regain your identity and return to normal. If you remain in this permanent form for 6 days, only a Wish spell can reverse the transformation.",
+	attunement : true,
+	weight : 1,
+	cursed : true
+}
+MagicItemsList["javelin of backbiting"] = {
+	name : "Javelin of Backbiting",
+	source : ["TftYP", 229],
+	type : "weapon (javelin)",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "This javelin has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
+	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.\n   " + toUni("Curse") + ". This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.\n   Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
+	attunement : true,
+	weight : 2,
+	cursed : true,
+	weaponsAdd : ["Javelin of Backbiting"],
+	weaponOptions : {
+		baseWeapon : "javelin",
+		regExpSearch : /^(?=.*javelin)(?=.*backbiting).*$/i,
+		name : "Javelin of Backbiting",
+		source : ["TftYP", 229],
+		range : "Melee, 60/150 ft",
+		description : "Thrown; +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
+		modifiers : [2,2]
+	}
+}
+MagicItemsList["loadstone"] = {
+	name : "Loadstone",
+	nameAlt : "Lodestone",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "The large gem worth 150 gp is cursed. Detect Magic doesn't detect it, but Identify does reveal its nature. If I take the Dash or Disengage action while it is on my person, its curse activates. While cursed, I am unwilling to part with it, my speed is reduced by 5 ft, and my maximum load and lift capacities are halved.",
+	descriptionFull : "This stone is a large gem worth 150 gp.\n   " + toUni("Curse") + ". The stone is cursed, but its magical nature is hidden; Detect Magic doesn't detect it. An Identify spell reveals the stone's true nature. If you use the Dash or Disengage action while the stone is on your person, its curse activates. Until the curse is broken with Remove Curse or similar magic, your speed is reduced by 5 feet, and your maximum load and maximum lift capacities are halved. You also become unwilling to part with the stone.",
+	weight : 1,
+	cursed : true
+}
+MagicItemsList["mirror of the past"] = {
+	name : "Mirror of the Past",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "As an action once per dawn, I can gaze int this mirror while thinking of a specific object or creature. The mirror then shows me scenes from the target's past for 1 minute or less, instead of my reflection. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order.",
+	descriptionFull : "The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the next dawn.",
+	weight : 1,
+	usages : 1,
+	recovery : "dawn",
+	action : [["action", ""]]
+}
+MagicItemsList["night caller"] = {
+	name : "Night Caller",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "I can use this whistle to cast Animate Dead, if I blow it under the night sky or in darkness. Once used, it can't function for 7 days. It can affect targets through 10 ft of soft earth or similar, but they take 1 min to claw to the surface. Once per 24 hours, I can blow it to reassert control over 1 or 2 targ I animated with it.",
+	descriptionFull : "This whistle is carved from transparent crystal, and it resembles a tiny dragon curled up like a snail. The name Night Caller is etched on the whistle in Dwarvish runes. If a character succeeds on a DC 20 Intelligence (Arcana or History) check, the character recalls lore that says the duergar made several such whistles for various groups in an age past.\n   If you blow the whistle in darkness or under the night sky, it allows you to cast the Animate Dead spell. The target can be affected through up to 10 feet of soft earth or similar material, and if it is, it takes 1 minute to claw its way to the surface to serve you. Once the whistle has animated an undead creature, it can't do so again until 7 days have passed.\n   Once every 24 hours, you can blow the whistle to reassert control over one or two creatures you animated with it.",
+	weight : 1,
+	usages : 1,
+	recovery : "7 days",
+	spellFirstColTitle : "Us",
+	spellcastingBonus : {
+		name : "Once per 7 days",
+		spells : ["animate dead"],
+		selection : ["animate dead"],
+		firstCol : "checkbox"
+	},
+	spellChanges : {
+		"animate dead" : {
+			description : "In darkness, turn (buried) corpse into Skeleton/Zombie; control for 24h; bns a command within 60 ft",
+			changes : "Night Caller can only be used in darkness or under the night sky. It can only create a single Skeleton or Zombie, but can animate a corpse buried below up to 10 feet of soft earth or similar material."
+		}
+	}
+}
+MagicItemsList["potion of mind control"] = {
+	name : "Potion of Mind Control",
+	source : ["TftYP", 229],
+	type : "potion",
+	magicItemTable : "E",
+	description : "",
+	descriptionFull : "When you drink a potion of mind control, you can cast a dominate spell (save DC 15) on a specific creature if you do so before the end of your next turn. If you don't, the potion is wasted.\n   A potion of mind control produces the effect of a Dominate Beast (beast), Dominate Person (humanoid), or Dominate Monster (monster) spell depending on its type. If the target's initial saving throw fails, the effect lasts for 1 hour, with no concentration required on your part. The charmed creature has disadvantage on new saving throws to break the effect during this time.",
+	weight : 1,
+	choices : ["Beast", "Humanoid", "Monster"],
+	"beast" : {
+		rarity : "rare",
+		description : "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast Dominate Beast before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once charmed, the target has disadvantage on new saves to break the effect."
+	},
+	"humanoid" : {
+		rarity : "rare",
+		description : "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast Dominate Person before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once charmed, the target has disadvantage on new saves to break the effect."
+	},
+	"monster" : {
+		rarity : "very rare",
+		description : "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast Dominate Monster before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once charmed, the target has disadvantage on new saves to break the effect."
+	}
+}
+MagicItemsList["robe of summer"] = {
+	name : "Robe of Summer",
+	source : ["TftYP", 229],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This elegant garment is made from fine cloth in hues of red, orange, and gold. While I wear the robe, I have resistance to cold damage. In addition, I am comfortable as if the temperature were that of a balmy day, so I suffer no ill effects from the weather's temperature extremes.",
+	descriptionFull : "This elegant garment is made from fine cloth in hues of red, orange, and gold. While you wear the robe, you have resistance to cold damage. In addition, you are comfortable as if the temperature were that of a balmy day, so you suffer no ill effects from the weather's temperature extremes.",
+	attunement : true,
+	weight : 1,
+	dmgres : ["Cold"]
+}
+MagicItemsList["shatterspike"] = {
+	name : "Shatterspike",
+	source : ["TftYP", 229],
+	type : "weapon (longsword)",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "I have a +1 bonus to attack and damage rolls made with this magic longsword. If it hits an object, the hit is automatically a critical hit, and it can deal bludgeoning or slashing damage to the object (my choice). Further, damage from nonmagical sources can't harm the weapon.",
+	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon. If it hits an object, the hit is automatically a critical hit, and it can deal bludgeoning or slashing damage to the object (your choice). Further, damage from nonmagical sources can't harm the weapon.",
+	attunement : true,
+	weight : 3,
+	weaponsAdd : ["Shatterspike"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /Shatterspike/i,
+		name : "Shatterspike",
+		source : ["TftYP", 229],
+		description : "Versatile (1d10); Against objects: always critical hit, can choose to deal bludgeoning damage",
+		modifiers : [1,1]
+	}
+}
+MagicItemsList["spear of backbiting"] = {
+	name : "Spear of Backbiting",
+	source : ["TftYP", 229],
+	type : "weapon (spear)",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "This spear has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
+	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.\n   " + toUni("Curse") + ". This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.\n   Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
+	attunement : true,
+	weight : 3,
+	cursed : true,
+	weaponsAdd : ["Spear of Backbiting"],
+	weaponOptions : {
+		baseWeapon : "spear",
+		regExpSearch : /^(?=.*spear)(?=.*backbiting).*$/i,
+		name : "Spear of Backbiting",
+		source : ["TftYP", 229],
+		range : "Melee, 50/90 ft",
+		description : "Thrown, versatile (1d8); +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
+		modifiers : [2,2]
+	}
+}
+MagicItemsList["stone of ill luck"] = {
+	name : "Stone of Ill Luck",
+	source : ["TftYP", 229],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "Although this polished agate appears to be a stone of good luck to anyone who tries to identify it. While it is on my person, it gives me a +1 bonus and a -2 penalty (from the curse) to ability checks and saving throws (for a total of -1). Until the curse is broken, I am unwilling to part with the item.",
+	descriptionFull : "This polished agate appears to be a stone of good luck to anyone who tries to Identify it, and it confers that item's property while on your person.\n   " + toUni("Curse") + ". This item is cursed. While it is on your person, you take a -2 penalty to ability checks and saving throws. Until the curse is discovered, the DM secretly applies this penalty, assuming you are adding the item's bonus. You are unwilling to part with the stone until the curse is broken with Remove Curse or similar magic.",
+	attunement : true,
+	weight : 1,
+	cursed : true,
+	addMod : [
+		{ type : "save", field : "all", mod : -1, text : "I gain a +1 bonus and -2 penalty on all my saving throws." },
+		{ type : "skill", field : "all", mod : -1, text : "I gain a +1 bonus and -2 penalty  on all my ability checks." },
+		{ type : "skill", field : "Init", mod : -1, text : "I gain a +1 bonus and -2 penalty  on all my ability checks." }
+	]
+}
+MagicItemsList["wand of entangle"] = {
+	name : "Wand of Entangle",
+	source : ["TftYP", 229],
+	type : "wand",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "This wand has 7 charges, regaining 1d6+1 expended charges daily at dawn. If I use its last charge, I roll a d20. On a 1, it is destroyed. As an action, I can expend 1 charge to cast Entangle (save DC 13) from it.",
+	descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the Entangle spell (save DC 13) from it.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+	attunement : true,
+	weight : 1,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	usages : 7,
+	recovery : "dawn",
+	additional : "regains 1d6+1",
+	fixedDC : 13,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["entangle"],
+		selection : ["entangle"],
+		firstCol : 1
+	}
+}
+MagicItemsList["waythe"] = {
+	name : "Waythe",
+	source : ["TftYP", 229],
+	type : "weapon (greatsword)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This greatsword adds +1 to hit and damage. Against giants, it deal +2d6 damage and they must make a DC 15 Str save or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command word to detect enemies within 60 ft. Waythe is sentient, see Notes page.",
+	descriptionLong : "This greatsword adds a +1 bonus to attack and damage rolls made with it. Against giants, it deal 2d6 extra slashing damage and when a giant is hit with it, they must make a DC 15 Strength saving throw or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command, letting me know the direction of the nearest creature hostile to me within 60 ft, regardless of it being ethereal, invisible, disguised, or hidden. This lasts for 1 minute. Waythe is sentient and has a mind of its own, see Notes page.",
+	descriptionFull : "Waythe is a unique greatsword most recently in the possession of a high-ranking cloud giant ambassador.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit a creature of the giant type with it, the giant takes an extra 2d6 slashing damage, and it must succeed on a DC 15 Strength saving throw or fall prone.\n   The sword also functions as a wand of enemy detection. It regains all of its expended charges at dawn and isn't at risk of crumbling if its last charge is used.\n   " + toUni("Sentience") + ". Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet.\n   The weapon can speak and understand Giant and Common, and it can communicate telepathically with its wielder.\n   " + toUni("Personality") + ". This sword believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. (It takes only 1 minute for a good-aligned character to gain attunement with the sword.) Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder.",
+	attunement : true,
+	weight : 6,
+	weaponsAdd : ["Waythe"],
+	weaponOptions : {
+		baseWeapon : "greatsword",
+		regExpSearch : /waythe/i,
+		name : "Waythe",
+		source : ["TftYP", 229],
+		description : "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
+		modifiers : [1,1]
+	},
+	usages : 7,
+	recovery : "dawn",
+	additional : "regains 1d6+1",
+	action : [["action", ""]],
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of the Waythe",
+		note : desc([
+			"It takes only 1 minute for a good-aligned character to gain attunement with this sword.",
+			"I gain a +1 bonus to attack and damage rolls made with this magic greatsword. When I hit a creature of the giant type with it, it deals an extra 2d6 slashing damage, and the giant must succeed on a DC 15 Strength saving throw or fall prone.",
+			"Waythe has 7 charges and regains 1d6+1 expended charges daily at dawn. As an action while holding it, I can expend 1 charge to speak its command word. For the next minute, I know the direction of the nearest creature hostile to me within 60 ft, but not its distance from me. Waythe can sense the presence of hostile creatures that are ethereal, invisible, disguised, or hidden, as well as those in plain sight. The effect ends if I stop holding Waythe.",
+			"Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet, can speak and understand Giant and Common, and can communicate telepathically with its wielder.",
+			"Waythe believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder."
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["white dragonhide cape"] = { // worn by king Snurre
+	name : "White Dragonhide Cape",
+	source : ["TftYP", 193],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "I have resistance to cold damage while wearing this cape",
+	descriptionFull : "This magic cape grants the wearer resistance to cold damage.",
+	dmgres : ["Cold"]
+}
+MagicItemsList["spellcasting bolts"] = {
+	name : "Spellcasting Bolts",
+	source : ["TftYP", 209],
+	type : "weapon (crossbow bolts)",
+	rarity : "rare",
+	magicItemTable : "B",
+	description : "These magical crossbow bolts cast a spell on the target they are used on.",
+	descriptionFull : "These magical crossbow bolts cast a spell on the target they are used on. The spell has a save DC of 15 and a duration of 1 minute.",
+	choices : ["Bolt of Holding", "Bolt of Blinding", "Bolt of Vapors"],
+	"bolt of holding" : {
+		name : "Bolt of Holding",
+		description : "This magic crossbow bolt casts Hold Person on the target hit with it, as well as up to two others within 30 ft of that target. The targets must succeed on a DC 15 Wisdom save or be paralyzed for 1 minute. At the end of each of their turns, they can make another Wisdom save to end the effect on themselves.",
+		descriptionFull : "This magic bolt casts hold person on the target hit with it, as well as up to two other targets within 30 feet of that target. The spell has a spell save DC of 15 and a duration of 1 minute."
+	},
+	"bolt of blinding" : {
+		name : "Bolt of Blinding",
+		description : "This magic bolt casts Blindness/Deafness on the target hit with it, as well as up to two others within 30 ft of that target. The targets must make a DC 15 Con save or be blinded or deafened (my choice) for 1 minute. At the end of each of their turns, a target can make another Con save to end the effect on itself.",
+		descriptionFull : "This magic bolt casts blindness/deafness to blind on a target hit with the bolt, as well as up to two other targets within 30 feet of that target. The spell has a spell save DC of 15 and a duration of 1 minute."
+	},
+	"bolt of vapors" : {
+		name : "Bolt of Vapors",
+		description : "This magic crossbow bolt casts Stinking Cloud centered on the point it hits, creating a 20-ft radius sphere of yellow, nauseating gas there for 1 minute. It heavily obscures and creatures fully in the cloud or starting their turn in it must make a DC 15 Con save against poison or spend their action that turn retching.",
+		descriptionFull : "This magic bolt casts stinking cloud centered on the point it hits. The spell has a spell save DC of 15 and a duration of 1 minute."
+	}
+}
+MagicItemsList["berserker battleaxe (tamoachan)"] = {
+	name : "Berserker Battleaxe (Tamoachan)", // can't just be "Berserker Battleaxe" or the magic item "Berserker Axe" wouldn't work anymore
+	source : ["TftYP", 68], // Tloques' battleaxe
+	type : "weapon (battleaxe)",
+	rarity : "very rare",
+	magicItemTable : "H",
+	description : "This axe gives +2 to hit and damage, +1 HP per level, and has 12 charges to cast spells, regaining 1d6+4 at dawn. I can't part with it, have disadv. with other weapons, and if I'm damaged by a hostile, I must make a DC 15 Wis save or go berserk: attack the closest creature with the axe until none remain within 60 ft.",
+	descriptionLong : "This axe adds a +2 bonus to attack and damage rolls made with it. While attuned to it, my HP maximum increases by 1 for each level I have. It has scrolls of Passwall, Burning Hands, and Gust of Wind beneath the wrappings of its handle. As long as these remain there, it has 12 charges to cast these spells, regaining 1d6+4 at dawn. It is cursed, making it so that I can't part with it and have disadvantage on attack rolls made with other weapons. If I'm damaged by a hostile, I must make a DC 15 Wis save or go berserk, using my action each turn to attack the closest creature with the axe until none remain within 60 ft.",
+	descriptionFull : "This battleaxe has a blade of bronze, and the haft is wound with snakeskin wrappings. You gain a +2 bonus to attack and damage rolls made with this magic weapon. In addition, while you are attuned to this weapon, your hit point maximum increases by 1 for each level you have attained.\n   Concealed beneath the wrappings around the handle is a parchment containing the spells passwall, burning hands, and gust of wind. When the attuned wielder uses an action to say the correct words of power, which are engraved in Olman on the axe blade, one of these spells can be cast.\n   The axe has 12 charges and regains 1d6+4 expended charges daily at dawn. Casting a spell from it takes a number of charges equal to the level at which the spell is cast (5th for passwall, 2nd for gust of wind, and 1st or higher for burning hands; spell save DC 15). If the parchment is removed from the axe, the axe loses the capability of casting these spells forever.\n   " + toUni("Curse") + ". This axe is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the axe, keeping it within reach at all times. You also have disadvantage on attack rolls with weapons other than this one, unless no foe is within 60 feet of you that you can see or hear.\n   Whenever a hostile creature damages you while the axe is in your possession, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action each round to attack the creature nearest to you with the axe. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random. You are berserk until you start your turn with no creatures within 60 feet of you that you can see or hear.",
+	attunement : true,
+	weight : 4,
+	usages : 12,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1+ charges",
+		spells : ["burning hands"],
+		selection : ["burning hands"],
+		firstCol : "1+"
+	}, {
+		name : "2 charges",
+		spells : ["gust of wind"],
+		selection : ["gust of wind"],
+		firstCol : 2
+	}, {
+		name : "5 charges",
+		spells : ["passwall"],
+		selection : ["passwall"],
+		firstCol : 5
+	}],
+	spellChanges : {
+		"burning hands" : {
+			description : "3d6 Fire dmg +1d6 per charge spend after the 1st; save halves; unattended flammable objects ignite",
+			changes : "The spell level this is cast at depends on the amount of charges spend, 1 charge per spell slot level."
+		}
+	},
+	calcChanges : {
+		hp : "extrahp += Number(What('Character Level')); extrastring += '\\n + ' + What('Character Level') + ' from Berserker Battleaxe (magic item)'; "
+	},
+	weaponsAdd : ["Berserker Battleaxe"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /^(?=.*berserker)(?=.*battleaxe).*$/i,
+		name : "Berserker Battleaxe",
+		source : ["TftYP", 68],
+		description : "Versatile (1d10); Cursed",
+		modifiers : [2,2]
+	}
+}
+MagicItemsList["plantslayer longsword"] = {
+	name : "Plantslayer Longsword",
+	source : ["TftYP", 70], // from Stone Statue
+	type : "weapon (longsword)",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "This sword is made of laminated wood, inset with jagged teeth of obsidian. I gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
+	descriptionFull : "This sword is made of laminated wood, inset with jagged teeth of obsidian. You gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
+	weight : 3,
+	weaponsAdd : ["Plantslayer Longsword"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /^(?=.*plantslayer)(?=.*longsword).*$/i,
+		name : "Plantslayer Longsword",
+		source : ["TftYP", 70],
+		description : "Versatile (1d10); +2d6 damage vs. plants"
+	}
+}
 var iFileName = "pub_20170915_Tortle.js";
 RequiredSheetVersion(13);
 // This file adds the Tortle Race from the Tortle Package from DMs Guild to MPMB's Character Record Sheet
@@ -22648,7 +23065,7 @@ FeatsList["aberrant dragonmark"] = {
 // Magic Items
 MagicItemsList["armblade"] = {
 	name : "Armblade",
-	source : ["WGtE", 120],
+	source : [["WGtE", 120], ["UA:MIoE", 3]],
 	type : "weapon (any one-handed melee weapon)",
 	rarity : "common",
 	description : "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
@@ -22697,7 +23114,7 @@ MagicItemsList["bag of bounty"] = {
 }
 MagicItemsList["band of loyalty"] = {
 	name : "Band of Loyalty",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "ring",
 	rarity : "common",
 	description : "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
@@ -22706,7 +23123,7 @@ MagicItemsList["band of loyalty"] = {
 }
 MagicItemsList["cleansing stone"] = {
 	name : "Cleansing Stone",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
@@ -22715,7 +23132,7 @@ MagicItemsList["cleansing stone"] = {
 }
 MagicItemsList["everbright lantern"] = {
 	name : "Everbright Lantern",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
@@ -22723,7 +23140,7 @@ MagicItemsList["everbright lantern"] = {
 }
 MagicItemsList["feather token"] = {
 	name : "Feather Token",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
@@ -22731,7 +23148,7 @@ MagicItemsList["feather token"] = {
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
@@ -22749,7 +23166,7 @@ MagicItemsList["glamerweave"] = {
 }
 MagicItemsList["imbued wood"] = {
 	name : "Imbued Wood",
-	source : ["WGtE", 114],
+	source : [["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "While holding a rod, wand, or staff made of imbued wood, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
@@ -22876,7 +23293,7 @@ MagicItemsList["keycharm"] = {
 }
 MagicItemsList["orb of shielding"] = {
 	name : "Orb of Shielding",
-	source : ["WGtE", 114],
+	source : [["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "An orb of shielding is made from crystal or stone aligned to one of the planes. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4.",
@@ -22957,7 +23374,7 @@ MagicItemsList["scribe's pen"] = {
 }
 MagicItemsList["shiftweave"] = {
 	name : "Shiftweave",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
@@ -22966,7 +23383,7 @@ MagicItemsList["shiftweave"] = {
 }
 MagicItemsList["spellshard"] = {
 	name : "Spellshard",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 3]],
 	type : "wondrous item",
 	description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
 	allowDuplicates : true,
@@ -22988,7 +23405,7 @@ MagicItemsList["spellshard"] = {
 }
 MagicItemsList["wand sheath"] = {
 	name : "Wand Sheath",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 4]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
@@ -23011,6 +23428,279 @@ MagicItemsList["wheel of wind and water"] = {
 	prerequisite : "Can only be used by someone with a Dragonmark of Storm",
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known);
+	}
+}
+var iFileName = "pub_20180918_WDH.js";
+RequiredSheetVersion(13);
+// This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["WDH"] = {
+	name : "Waterdeep: Dragon Heist [items]",
+	abbreviation : "WDH",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dragonheist",
+	date : "2018/09/18"
+};
+
+// Magic Items
+var azuredgeFullDescription = "Forged by the archwizard Ahghairon, this intelligent battleaxe was crafted to defend Waterdeep. Its current wielder is a former member of Force Grey named Meloon Wardragon, but the weapon is searching for a new owner.\n   Azuredge has a solid steel handle etched with tiny runes, wrapped in blue dragon hide with a star sapphire set into the pommel. The axe head is forged from silver, electrum, and steel alloys whose edges constantly shimmer with a deep blue luminescence.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. The Shield spell provides no defense against the axe, which passes through that spell's barrier of magical force.\n   When you hit a fiend or an undead with the axe, cold blue flames erupt from its blade and deal an extra 2d6 radiant damage to the target.\n   >>Hurling<<. The battleaxe has 3 charges. You can expend 1 charge and make a ranged attack with the axe, hurling it as if it had the thrown property with a normal range of 60 feet and a long range of 180 feet. Whether it hits or misses, the axe flies back to you at the end of the current turn, landing in your open hand or at your feet in your space (as you choose). The axe regains all expended charges daily at dawn.\n   >>Illumination<<. While holding the axe, you can use an action to cause the axe to glow blue or to quench the glow. This glow sheds bright light in a 30-foot radius and dim light for an additional 30 feet.\n   >>Sentience<<. Azuredge is a sentient lawful neutral weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.\n   The weapon communicates telepathically with its wielder and can speak, read, and understand Common. It has a calm, delicate voice. The weapon can sense the presence of non-lawful creatures within 120 feet of it.\n   >>Personality<<. Azuredge is sworn to protect Waterdeep, and it desires to be wielded by a law-abiding person willing to dedicate everything to the city's defense. The weapon is patient and takes its time finding its ideal wielder.\n   If someone tries to use Azuredge against its will, the axe can become ten times heavier than normal, and can magically adhere to any Medium or larger object or surface it comes into contact with. Once it does so, the axe can't be wielded. Nothing short of a Wish spell can separate the axe from the item or surface to which it is adhered without destroying one or the other, though the axe can choose to end the effect at any time.";
+MagicItemsList["azuredge"] = {
+	name : "Azuredge",
+	source : ["WDH", 189],
+	type : "weapon (battleaxe)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This battleaxe is sentient, adds +3 to hit and damage, and deals +2d6 radiant damage vs. fiends/undead. As an action, I can stop or start its glow of bright light in a 30-ft radius and dim light for another 30 ft. It has 3 charges, regaining all at dawn, which can be used to throw it, after which it returns to my hand. See Notes.",
+	descriptionFull : azuredgeFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	weight : 4,
+	action : [["action", " (glow/end)"]],
+	usages : 3,
+	recovery : "dawn",
+	additional : "throw",
+	weaponsAdd : ["Azuredge"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /azuredge/i,
+		name : "Azuredge",
+		source : ["WDH", 189],
+		range : "Melee, 60/180 ft",
+		description : "Versatile (1d10), thrown (1 charge), returning; Ignores Shield spell; +2d6 radiant damage vs. fiends/undead",
+		modifiers : [3,3]
+	},
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["crusader's mantle"],
+		selection : ["protection from evil and good"],
+		firstCol : "oncelr"
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Azuredge",
+		note : "\n   " + azuredgeFullDescription.replace(/>>|<</g, "").replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
+	name : "Badge of the Watch",
+	source : ["WDH", 189],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "While wearing this badge and not using a shield, I gain +2 AC. If it is more than 5 ft away from me for over 1 minute, it vanishes and reappears within 5 ft of the Open Lord. While holding the badge, the Open Lord knows my location if we are both on the same plane and can, as an action end my attunement to it.",
+	prerequisite : "Requires attunement by someone designated by the Open Lord of Waterdeep",
+	prereqeval : function () { return false; },
+	descriptionFull : "A badge of the Watch is given only to those who have earned the trust of the Open Lord of Waterdeep. The badge, signifying the rank of captain in Waterdeep's City Watch, bears the emblem of Waterdeep and is meant to be worn or carried.\n   While wearing the badge, you gain a +2 bonus to AC if you aren't using a shield.\n   If the badge is more than 5 feet away from you for more than 1 minute, it vanishes and harmlessly reappears on a surface within 5 feet of the Open Lord. While holding the badge, the Open Lord knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn't ended.\n   As an action, the Open Lord can touch the badge and end your attunement to it.",
+	attunement : true,
+	extraAC : [{
+		mod : 2,
+		name : "Badge of the Watch",
+		magic : true,
+		text : "While wearing the badge, I gain a +2 bonus to AC if I'm not using a shield.",
+		stopeval : function (v) {
+			return v.usingShield;
+		}
+	}]
+}
+var blackstaffFullDescription = "The Blackstaff is a sentient, rune-carved staff set with thin silver veins. It is the symbol of office for the Blackstaff, the highest-ranking wizard in Waterdeep. As the rightful owner of the Blackstaff, Vajra Safahr is the only one who can become attuned to it. The staff can, however, choose a new owner (see \"Personality\" below).\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n   The staff has 20 charges for the following properties. The staff regains 2d8+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain 1d8+2 charges.\n   >>Power Strike<<. When you hit with a melee attack using the staff, you can expend 1 charge to deal an extra 1d6 force damage to the target.\n   >>Spells<<. While holding this staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   >>Retributive Strike<<. You can use an action to break the staff over your knee or against a solid surface, performing a retributive strike. The staff is destroyed and releases its remaining magic in an explosion that expands to fill a 30-foot-radius sphere centered on it.\n   You have a 50% chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take force damage equal to 16 \xD7 the number of charges in the staff. Every other creature in the area must make a DC 17 Dexterity saving throw. On a failed save, a creature takes an amount of damage based on how far away it is from the point of origin, as shown in the following table. On a successful save, a creature takes half as much damage.\n\n>>Distance from Origin\tEffect<<\n10 ft. away or closer\t8 \xD7 the number of charges in the staff\n11 to 20 ft. away\t6 \xD7 the number of charges in the staff\n21 to 30 ft. away\t4 \xD7 the number of charges in the staff\n\n\n   >>Animate Walking Statues<<. You can expend 1 or more of the staff's charges as an action to animate or deactivate one or more of the walking statues of Waterdeep. You must be in the city to use this property, and you can animate or deactivate one statue for each charge expended. An animated statue obeys the telepathic commands of Khelben Arunsun's spirit, which is trapped inside the staff (see \"Personality\" below). A walking statue becomes inanimate if deactivated or if the staff is broken.\n   >>Dispel Magic<<. You can expend 1 of the staff's charges as a bonus action to cast Dispel Magic on a creature, an object, or a magical effect that you touch with the tip of the staff. If the target is an unwilling creature or an object in the possession of such a creature, you must hit the creature with a melee attack using the Blackstaff before you can expend the charge to cast the spell.\n   >>Drain Magic<<. This property affects only creatures that use spell slots. When you hit such a creature with a melee attack using the Blackstaff, you can expend 1 of the staff's charges as a bonus action, causing the target to expend one spell slot of the highest spell level it can cast without casting a spell. If the target has already expended all its spell slots, nothing happens. Spell slots that are expended in this fashion are regained when the target finishes a long rest, as normal.\n   >>Master of Enchantment<<. When you cast an enchantment spell of 1st level or higher while holding the staff, you can make an Intelligence (Arcana) check with a DC of 10 + the level of the spell. If the check succeeds, you cast the spell without expending a spell slot.\n   >>Sentience<<. The Blackstaff is a sentient staff of neutral alignment, with an Intelligence of 22, a Wisdom of 15, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet, and it can communicate telepathically with any creature that is holding it.\n   >>Personality<<. The staff has the spirits of all previous Blackstaffs trapped within it. Its creator, Khelben Arunsun, is the dominant personality among them. Like Khelben, the staff is extremely devious and manipulative. It prefers to counsel its owner without exerting outright control. The staff's primary goal is to protect Waterdeep and its Open Lord, currently Laeral Silverhand. Its secondary goal is to help its wielder become more powerful.\n   In the event that the holder of the office of the Blackstaff no longer serves the staff's wishes, the staff ceases to function until it finds a worthy inheritor\u2014someone whose loyalty to Waterdeep is beyond reproach.\n   >>Spirit Trap<<. When the Blackstaff dies, the spirit of that individual becomes trapped in the staff along with the spirits of the previous Blackstaffs. (A Blackstaff whose spirit is trapped in the staff can't be raised from the dead.)\n   Destroying the staff would release the spirits trapped inside it, but in that event, Khelben's spirit can lodge itself inside any one piece of the staff that remains. The piece containing Khelben's spirit has the staff's Sentience property but none of its other properties. As long as this piece of the staff exists, Khelben's spirit can make the staff whole again whenever he wishes. When the staff is remade, the spirits of the previous Blackstaffs become trapped inside it again.";
+MagicItemsList["blackstaff"] = {
+	name : "Blackstaff",
+	source : ["WDH", 190],
+	type : "staff",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
+	descriptionFull : blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	weight : 4,
+	prerequisite : "Requires attunement by the Blackstaff heir, who must be a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	usages : 20,
+	recovery : "dawn",
+	additional : "regains 2d8+4",
+	weaponsAdd : ["Blackstaff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /blackstaff/i,
+		name : "Blackstaff",
+		source : ["WDH", 190],
+		description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
+		modifiers : [2, 2]
+	},
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type == "attack") return 2;
+			},
+			"While holding the Blackstaff, I have a +2 bonus to spell attack rolls."
+		]
+	},
+	addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Blackstaff, I gain a +2 bonus to all my saving throws." }],
+	extraAC : [{name : "Blackstaff", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
+	action : [
+		["action"," (Animate Walking Statues)"],
+		["action", " (Retributive Strike)"],
+		["bonus action", " (Drain Magic)"]
+	],
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : MagicItemsList["staff of power"].spellcastingBonus.concat([{
+		name : "1 charge",
+		spells : ["dispel magic"],
+		selection : ["dispel magic"],
+		firstCol : 1
+	}]),
+	spellChanges : {
+		"fireball" : MagicItemsList["staff of power"].spellChanges.fireball,
+		"lightning bolt" : MagicItemsList["staff of power"].spellChanges["lightning bolt"],
+		"dispel magic" : {
+			time : "1 bns",
+			range : "Melee atk",
+			description : "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
+			changes : "Can cast as a bonus action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on"
+		}
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Blackstaff",
+		note : "\n   " + blackstaffFullDescription.replace(/>>|<</g, "").replace(/your/g, "my").replace(/you /ig, "I ")
+	}, {
+		name : "Sentient Item Features",
+		note : sentientItemConflictTxt
+	}]
+}
+MagicItemsList["bracer of flying daggers"] = {
+	name : "Bracer of Flying Daggers",
+	source : ["WDH", 190],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This armband appears to have thin daggers strapped to it. As an action, I can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if I don't hurl it right away, and the daggers disappear right after they hit or miss.",
+	descriptionFull : "This armband appears to have thin daggers strapped to it. As an action, you can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if you don't hurl it right away, and the daggers disappear right after they hit or miss. The bracer never runs out of daggers.",
+	attunement : true,
+	action : [["action", ""]],
+	weaponsAdd : ["Bracer of Flying Daggers"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /^(?=.*bracer)(?=.*flying)(?=.*dagger).*$/i,
+		name : "Bracer of Flying Daggers",
+		source : ["WDH", 190],
+		range : "20/60 ft",
+		description : "Finesse, light, thrown; As action, throw 2; Doesn't work with Attack action"
+	}
+}
+MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Pengsloth
+	name : "Dragonstaff of Ahghairon",
+	source : ["WDH", 191],
+	type : "staff",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This staff has 10 charges, regaining 1d10 at dawn, which can be used to cast Command. Dragons have disadv. on their save against it. The staff gives me adv. on saves against the spells and breath weapons of dragons. I can touch a dragon with the staff, allowing it to ignore the effects of Ahghairon's Dragonward.",
+	descriptionFull : "While holding the dragonstaff of Ahghairon, you have advantage on saving throws against the spells and breath weapons of dragons, as well as the breath weapons of other creatures of the dragon type (such as dragon turtles).\n   A creature of the dragon type that you touch with the staff can move through the city of Waterdeep, ignoring Ahghairon's dragonward (see \"Ahghairon's Dragonward,\" in the Introduction of Waterdeep: Dragon Heist). This effect lasts until the creature is touched again by the staff or until a time you proclaim when you confer the benefit.\n   The staff has 10 charges. While holding it, you can expend 1 charge as an action to cast the Command spell. If you target a dragon with this casting, the dragon has disadvantage on its saving throw. The staff regains 1d10 charges daily at dawn.",
+	attunement : true,
+	savetxt : { adv_vs : ["dragon breath weapons", "dragon spells"] },
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d10",
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name: "1 charge",
+		spells: ["command"],
+		selection: ["command"],
+		firstCol : 1
+	}],
+	spellChanges : {
+		"command" : {
+			description : "1 crea, save or follow one word command, e.g. approach, drop, flee, halt; dragons disadv. on save",
+			changes : "When this spell is cast on a dragon they have disadvantage on the saving throw."
+		}
+	}
+}
+MagicItemsList["feather of diatryma summoning"] = {
+	name : "Feather of Diatryma Summoning",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "As an action once per 7 days, I can speak the command word and throw this feather to an empty large space in 5 ft, where it becomes a diatryma (axe beak stats) for 6 hours, until I speak the command again, or it reaches 0 hp. It is friendly, understands my languages, obeys my commands, and can be used as a mount.",
+	descriptionFull : "This bright plume is made from the feather of a diatryma (pronounced dee-ah-TRY-mah), a Large, colorful, flightless bird native to the Underdark. If you use an action to speak the command word and throw the feather into a Large unoccupied space on the ground within 5 feet of you, the feather becomes a living diatryma for up to 6 hours, after which it reverts to its feather form. It reverts to feather form early if it drops to 0 hit points or if you use an action to speak the command word again while touching the bird.\n   When the diatryma reverts to feather form, the magic of the feather can't be used again until 7 days have passed.\n   The diatryma uses the statistics of an axe beak, except that its beak deals piercing damage instead of slashing damage. The creature is friendly to you and your companions, and it can be used as a mount. It understands your languages and obeys your spoken commands. If you issue no commands, the diatryma defends itself but takes no other actions.",
+	attunement : true,
+	usages : 1,
+	recovery : "7 days",
+	action : [["action", ""]]
+}
+MagicItemsList["knave's eye patch"] = { // contains contributions by Pengsloth
+	name : "Knave's Eye Patch",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "While wearing this eye patch I have advantage on Perception checks that rely on sight, I am unaffected be Sunlight Sensitivity if I have it, and I am immune to magic that would read my thoughts or determine whether I'm lying. Creatures can communicate telepathically with me only if I allow it.",
+	descriptionFull : "While wearing this eye patch, you gain these benefits:\n \u2022 You have advantage on Wisdom (Perception) checks that rely on sight.\n \u2022 If you have the Sunlight Sensitivity trait, you are unaffected by the trait.\n \u2022 You are immune to magic that allows other creatures to read your thoughts or determine whether you are lying. Creatures can communicate telepathically with you only if you allow it.",
+	attunement : true,
+	vision : [["Adv. on Perception checks relying on sight", 0]]
+}
+MagicItemsList["lord's ensemble"] = {
+	name : "Lord's Ensemble",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "very rare",
+	storyItemAL : true,
+	prerequisite : "Requires attunement by a creature with a humanoid build",
+	description : "While wearing this helm, amulet, and ring, my identity can't be determined. I move through difficult terrain as normal terrain. Magic can't be used to reduce my speed, paralyze me, restrain me, read my thoughts, or learn my alignment, creature type, or if I'm lying. I'm hidden from scrying and Divination magic.",
+	descriptionLong : "This set of a helm, amulet, and ring can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyze or restrained.",
+	descriptionFull : "The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.\n   " + toUni("Lord's Helm") + ". This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.\n   " + toUni("Lord's Amulet") + ". This amulet bears the crest of Waterdeep. It functions as an amulet of proof against detection and location.\n   " + toUni("Lord's Robe") + ". This elegant robe functions as a ring of free action, and it creates the illusion that you have a nondescript, androgynous humanoid build and stand 6 feet tall.",
+	attunement : true,
+	savetxt : { immune : ["paralyzed", "restrained"] }
+}
+MagicItemsList["paper bird"] = {
+	name : "Paper Bird",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "I can write up to 50 words on a sheet of the 1d6+3 in this box and speak a creature's name, causing the parchment to fold into a Tiny bird and fly to that creature on the same plane if it isn't stopped. It has 60 ft fly speed, 1 HP, AC 13, Dex 16, 1 in all other ability scores, and immunity to poison and psychic damage.",
+	descriptionFull : "After you write a message of fifty words or fewer on this magic sheet of parchment and speak a creature's name, the parchment magically folds into a Tiny paper bird and flies to the recipient whose name you uttered. The recipient must be on the same plane of existence as you, otherwise the bird turns into ash as it takes flight.\n   The bird is an object that has 1 hit point, an Armor Class of 13, a flying speed of 60 feet, a Dexterity of 16 (+3), and a score of 1 (\u22125) in all other abilities, and it is immune to poison and psychic damage.\n   It travels to within 5 feet of its intended recipient by the most direct route, whereupon it turns into a nonmagical and inanimate sheet of parchment that can be unfolded only by the intended recipient. If the bird's hit points or speed is reduced to 0 or if it is otherwise immobilized, it turns into ash.\n   Paper birds usually come in small, flat boxes containing 1d6 + 3 sheets of the parchment.",
+	usages : "1d6+3",
+	recovery : "Never"
+}
+MagicItemsList["ring of truth telling"] = {
+	name : "Ring of Truth Telling",
+	source : ["WDH", 192],
+	type : "ring",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "While wearing this ring, I have advantage on Wisdom (Insight) checks to determine whether someone is lying to me.",
+	descriptionFull : "While wearing this ring, you have advantage on Wisdom (Insight) checks to determine whether someone is lying to you.",
+	attunement : true
+}
+MagicItemsList["smokepowder"] = {
+	name : "Smokepowder",
+	source : ["WDH", 192],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "",
+	descriptionFull : "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots.\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage.\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
+	allowDuplicates : true,
+	choices : ["Keg (500 shots)", "Packet (5 shots)"],
+	"packet" : {
+		name : "Smokepowder Packet",
+		description : "This magical explosive is used to propel a bullet out of a firearm. These tiny, waterproof leather packets contain enough for five shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 1d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
+		usages : 5,
+		recovery : "Never",
+		additional : "shots",
+		weight : 0.1, // 7000 grains per lb, 100 grains per shot
+		extraTooltip : "AL: can be purchased for 1 treasure checkpoint. Once found, this item goes on a character's evergreen list of available items.",
+	},
+	"keg" : {
+		name : "Smokepowder Keg",
+		description : "This magical explosive is used to propel a bullet out of a firearm. This airtight wooden kegs contain enough for five hundred shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 9d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
+		usages : 500,
+		recovery : "Never",
+		additional : "shots",
+		weight : 12 // 7000 grains per lb, 100 grains per shot (+2 for the keg itself)
 	}
 }
 var iFileName = "pub_20181120_GGtR.js";

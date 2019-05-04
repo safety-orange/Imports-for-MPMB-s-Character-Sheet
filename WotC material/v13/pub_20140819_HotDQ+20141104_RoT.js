@@ -279,7 +279,8 @@ MagicItemsList["hazirawn"] = {
 			name : "1 charge",
 			spells : ["detect evil and good", "detect magic"],
 			selection : ["detect evil and good", "detect magic"],
-			firstCol : 1
+			firstCol : 1,
+			times : 2
 		}, {
 			name : "2 charges",
 			spells : ["detect thoughts"],

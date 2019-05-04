@@ -7,7 +7,7 @@ for ($i=0; $i -lt $outArr.length; $i++) {
 	ni “$out.temp.js“
 
 	# make sure the files are looped through alphabetically
-	$thefiles = gci -filter $matchArr[$i]
+	$thefiles = gci * -filter $matchArr[$i] -exclude "*_dupl.js"
 	$sorted = $thefiles | sort
 	for ($a=0; $a -lt $sorted.length; $a++) {
 		gc $sorted[$a] | ac “$out.temp.js“

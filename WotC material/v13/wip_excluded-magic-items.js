@@ -2,7 +2,7 @@
 	This file contains the magic items found in WotC publications that have been
 	excluded from the first round of transcriptions
 
-	These items include all artifacts and intelligent items
+	These items include all artifacts and some intelligent items
 
 	As wel as items that are not normally usable by players such as plot devices
 */
@@ -179,7 +179,7 @@
 { // pub_20180723_WGtE.js
 	MagicItemsList["docent"] = { // Intelligent Item
 		name : "Docent",
-		source : ["WGtE", 120],
+		source : [["WGtE", 120], ["UA:MIoE", 3]],
 		type : "wondrous item",
 		rarity : "rare",
 		description : "",
@@ -229,5 +229,17 @@
 		rarity : "legendary",
 		description : "",
 		descriptionFull : "This device creates an Antimagic Field that covers a three-mile radius around the spell sink. The form that it takes will depend on the nature of its creator. The Ashbound druids despise unnatural magic, and if they create a spell sink it will be a living artifact\u2014a twisted tree that consumes the mystical energies around it. Conversely, a mad artificer would create a massive vessel of dragonshards and exotic metals. It might be that the sole purpose of the device is to negate magic, or it could be that it is absorbing all magical energies in the area and storing that power for a cataclysmic effect!"
+	}
+}
+{ // pub_20180918_WDH.js
+	MagicItemsList["stone of golorr"] = {
+		name : "Stone of Golorr",
+		source : ["WDH", 192],
+		type : "wondrous item",
+		rarity : "artifact",
+		storyItemAL : true,
+		description : "",
+		descriptionFull : "The Stone of Golorr is a glossy, greenish-gray stone that fits in the palm of your hand. The stone is actually an aboleth named Golorr, transformed by magic into an object.\n   " + toUni("Random Properties") + ". The Stone of Golorr has the following properties, determined by rolling on the tables in the \"Artifacts\" section in chapter 7 of the Dungeon Master's Guide:\n \u2022 1 minor beneficial property\n \u2022 1 minor detrimental property\n\n" + toUni("Legend Lore") + ". The Stone of Golorr has 3 charges and regains 1d3 expended charges daily at dawn. While holding the stone, you can expend 1 of its charges to cast the Legend Lore spell.\n   By using the stone to cast legend lore, you communicate directly with the aboleth, and it shares its knowledge with you. The aboleth can't lie to you, but the information it provides is often cryptic or vague.\n   The aboleth knows where Lord Neverember's secret vault is located. It also knows that three keys are needed to open the vault and that a gold dragon named Aurinax inhabits the vault and guards its treasures.\n   " + toUni("Failed Memory") + ". When your attunement to the Stone of Golorr ends, you must make a DC 16 Wisdom saving throw. On a failed save, you lose all memory of the stone being in your possession and all knowledge imparted by it. A Remove Curse spell cast on you has a 20% chance of restoring the lost knowledge and memories, and a Greater Restoration spell does so automatically.\n   " + toUni("Sentience") + ". The Stone of Golorr is a sentient lawful evil magic item with an Intelligence of 18, a Wisdom of 15, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet. It can communicate telepathically with the creature that is attuned to it, as long as that creature understands at least one language. In addition, the aboleth learns the greatest desires of any creature that communicates telepathically with the stone.\n   The Stone of Golorr hungers for information and prefers not to remain in the clutches of any creature for too long. Whenever the stone desires a new owner, it demands to be given to another intelligent creature as quickly as possible. If its demands are ignored, it tries to take control of its owner (see \"Sentient Magic Items\" in chapter 7 of the Dungeon Master's Guide).\n   " + toUni("Personality") + ". The Stone of Golorr has an alien intellect that is both domineering and hungry for knowledge. It thinks of itself as an ageless and immortal god.\n   " + toUni("Destroying the Stone") + ". While in stone form, the aboleth isn't a creature and isn't subject to effects that target creatures. The Stone of Golorr is immune to all damage. Casting an Antipathy/Sympathy spell on the stone destroys it if the antipathy effect is selected and the spell is directed to repel aberrations. When the spell is cast in this way, the stone transforms into mucus and is destroyed, and Golorr the aboleth appears in an unoccupied space within 30 feet of the stone's remains. The aboleth is incensed by the stone's destruction, and it attacks all other creatures it can see.",
+		attunement : true
 	}
 }

@@ -4939,7 +4939,8 @@ MagicItemsList["hazirawn"] = {
 			name : "1 charge",
 			spells : ["detect evil and good", "detect magic"],
 			selection : ["detect evil and good", "detect magic"],
-			firstCol : 1
+			firstCol : 1,
+			times : 2
 		}, {
 			name : "2 charges",
 			spells : ["detect thoughts"],
@@ -6680,7 +6681,8 @@ MagicItemsList["balloon pack"] = {
 		name : "1 charge",
 		spells : ["feather fall", "levitate"],
 		selection : ["feather fall", "levitate"],
-		firstCol : 1
+		firstCol : 1,
+		times : 2
 	},
 	spellChanges : {
 		"feather fall" : {
@@ -13904,7 +13906,7 @@ RequiredSheetVersion(12.999);
 
 // Define the source
 SourceList.TftYP={
-	name : "Tales from the Yawning Portal [beasts]",
+	name : "Tales from the Yawning Portal [beasts, items]",
 	abbreviation : "TftYP",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
@@ -14085,6 +14087,421 @@ CreatureList["giant subterranean lizard"] = {
 	],
 	wildshapeString : "\u25C6 Swallow: If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement."
 };
+
+// Magic Items
+MagicItemsList["amulet of protection from turning"] = {
+	name : "Amulet of Protection from Turning",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "This silver and turquoise amulet has 3 charges, regain all at dawn. It gives me adv. on saves against effects that turn undead. If I fail a save against such an effect, I can expend 1 charge to succeed instead. It glows with a silvery blue light for a few seconds each time an effect that turns undead is used on me.",
+	descriptionFull : "While you wear this amulet of silver and turquoise, you have advantage on saving throws against effects that turn undead.\n   If you fail a saving throw against such an effect, you can choose to succeed instead. You can do so three times, and expended uses recharge daily at dawn. Each time an effect that turns undead is used against you, the amulet glows with silvery blue light for a few seconds.",
+	attunement : true,
+	weight : 1,
+	usages : 3,
+	recovery : "dawn",
+	savetxt : { adv_vs : ["turn undead"] }
+}
+MagicItemsList["balance of harmony"] = {
+	name : "Balance of Harmony",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "D",
+	description : "I can use the scale to cast Detect Evil and Good as a ritual by placing a gem of 100 gp or more or holy water on both pans. It then tips to the side it detected, good or evil, or fluctuates slightly if what it detected is neutral. After this, I can touch it to learn the rest of the information the spell normally conveys.",
+	descriptionFull : "This scale bears celestial symbols on one pan and fiendish symbols on the other. You can use the scale to cast Detect Evil and Good as a ritual. Doing so requires you to place the scale on a solid surface, then sprinkle the pans with holy water or place a transparent gem worth 100 gp in each pan. The scale remains motionless if it detects nothing, tips to one side or the other for good (consecrated) or evil (desecrated), and fluctuates slightly if it detects a creature appropriate to the spell but neither good nor evil. By touching the scales after casting the ritual, you instantly learn any information the spell can normally convey, and then the effect ends.",
+	weight : 1,
+	spellcastingBonus : {
+		name : "Only as ritual",
+		spells : ["detect evil and good"],
+		selection : ["detect evil and good"],
+		firstCol : "(R)"
+	},
+	spellChanges : {
+		"detect evil and good" : {
+			time : "10 min",
+			compMaterial : "The Balance of Harmony requires placing the scale on a solid surface and sprinkling the pans with holy water or placing a transparent gem worth 100 gp in each pan.",
+			changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
+		}
+	}
+}
+MagicItemsList["bracelet of rock magic"] = {
+	name : "Bracelet of Rock Magic",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "This gold bracelet grants me immunity to being petrified. It has 16 charges to cast Flesh to Stone (DC 15). Once all charges are used, it turns to lead and loses its magic. If I use it to target a creature strongly related to stone, the target has adv. on its save. If it saves, Flesh to Stone is cast on me with disadv. on the save.",
+	descriptionFull : "While you wear this gold bracelet, it grants you immunity to being petrified, and it allows you to cast Flesh to Stone (save DC 15) as an action. Once the spell has been cast three times, the bracelet can no longer cast it. Thereafter, you can cast Stone Shape as an action. After you have done this thirteen times, the bracelet loses its magic and turns from gold to lead.\n   " + toUni("Curse") + ". The bracelet's affinity with earth manifests as an unusual curse. Creatures of flesh that are strongly related to earth and stone, such as stone giants and dwarves, have advantage on the saving throw against Flesh to Stone cast from the bracelet. If such a creature's save is successful, the bracelet breaks your attunement to it and casts the spell on you. You make your saving throw with disadvantage, and on a failed save you are petrified instantly.",
+	attunement : true,
+	weight : 1,
+	cursed : true,
+	usages : 16,
+	recovery : "Never",
+	savetxt : { immune : ["petrified"] },
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["flesh to stone"],
+		selection : ["flesh to stone"],
+		firstCol : 1
+	}
+}
+MagicItemsList["eagle whistle"] = {
+	name : "Eagle Whistle",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "Three times per dawn, I can blow this whistle, gaining a flying speed equal to twice my walking speed while I do so continuously. I can blow it for a number for rounds equal to 5 + five times my Constitution modifier (minimum of 1 round) or until I talk, hold my breath, start suffocating, or land.",
+	descriptionFull : "While you blow an eagle whistle continuously, you can fly twice as fast as your walking speed. You can blow the whistle continuously for a number of rounds equal to 5 + five times your Constitution modifier (minimum of 1 round) or until you talk, hold your breath, or start suffocating. A use of the whistle also ends if you land. If you are aloft when you stop blowing the whistle, you fall. The whistle has three uses. It regains expended uses daily at dawn.",
+	weight : 1,
+	usages : 3,
+	recovery : "dawn"
+}
+MagicItemsList["hell hound cloak"] = {
+	name : "Hell Hound Cloak",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "H",
+	description : "As an action, I can command this cloak to Polymorph me into a hell hound for 1 hour, or until I stop it as a bonus action. The 6th time I use it and every time after, I must make a DC 15 Cha save or be stuck in hell hound form until dispelled or I drop to 0 HP. If I remain in hell hound form for 6 hours, it becomes permanent.",
+	descriptionFull : "This dark cloak is made of cured hell hound hide. As an action, you can command the cloak to transform you into a hell hound for up to 1 hour. The transformation otherwise functions as the Polymorph spell, but you can use a bonus action to revert to your normal form.\n   " + toUni("Curse") + ". This cloak is cursed with the essence of a hell hound, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the cloak, keeping it within reach at all times.\n   The sixth time you use the cloak, and each time thereafter, you must make a DC 15 Charisma saving throw. On a failed save, the transformation lasts until dispelled or until you drop to 0 hit points, and you can't willingly return to normal form. If you ever remain in hell hound form for 6 hours, the transformation becomes permanent and you lose your sense of self. All your statistics are then replaced by those of a hell hound. Thereafter, only Remove Curse or similar magic allows you to regain your identity and return to normal. If you remain in this permanent form for 6 days, only a Wish spell can reverse the transformation.",
+	attunement : true,
+	weight : 1,
+	cursed : true
+}
+MagicItemsList["javelin of backbiting"] = {
+	name : "Javelin of Backbiting",
+	source : ["TftYP", 229],
+	type : "weapon (javelin)",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "This javelin has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
+	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.\n   " + toUni("Curse") + ". This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.\n   Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
+	attunement : true,
+	weight : 2,
+	cursed : true,
+	weaponsAdd : ["Javelin of Backbiting"],
+	weaponOptions : {
+		baseWeapon : "javelin",
+		regExpSearch : /^(?=.*javelin)(?=.*backbiting).*$/i,
+		name : "Javelin of Backbiting",
+		source : ["TftYP", 229],
+		range : "Melee, 60/150 ft",
+		description : "Thrown; +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
+		modifiers : [2,2]
+	}
+}
+MagicItemsList["loadstone"] = {
+	name : "Loadstone",
+	nameAlt : "Lodestone",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "The large gem worth 150 gp is cursed. Detect Magic doesn't detect it, but Identify does reveal its nature. If I take the Dash or Disengage action while it is on my person, its curse activates. While cursed, I am unwilling to part with it, my speed is reduced by 5 ft, and my maximum load and lift capacities are halved.",
+	descriptionFull : "This stone is a large gem worth 150 gp.\n   " + toUni("Curse") + ". The stone is cursed, but its magical nature is hidden; Detect Magic doesn't detect it. An Identify spell reveals the stone's true nature. If you use the Dash or Disengage action while the stone is on your person, its curse activates. Until the curse is broken with Remove Curse or similar magic, your speed is reduced by 5 feet, and your maximum load and maximum lift capacities are halved. You also become unwilling to part with the stone.",
+	weight : 1,
+	cursed : true
+}
+MagicItemsList["mirror of the past"] = {
+	name : "Mirror of the Past",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "As an action once per dawn, I can gaze int this mirror while thinking of a specific object or creature. The mirror then shows me scenes from the target's past for 1 minute or less, instead of my reflection. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order.",
+	descriptionFull : "The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the next dawn.",
+	weight : 1,
+	usages : 1,
+	recovery : "dawn",
+	action : [["action", ""]]
+}
+MagicItemsList["night caller"] = {
+	name : "Night Caller",
+	source : ["TftYP", 228],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "I can use this whistle to cast Animate Dead, if I blow it under the night sky or in darkness. Once used, it can't function for 7 days. It can affect targets through 10 ft of soft earth or similar, but they take 1 min to claw to the surface. Once per 24 hours, I can blow it to reassert control over 1 or 2 targ I animated with it.",
+	descriptionFull : "This whistle is carved from transparent crystal, and it resembles a tiny dragon curled up like a snail. The name Night Caller is etched on the whistle in Dwarvish runes. If a character succeeds on a DC 20 Intelligence (Arcana or History) check, the character recalls lore that says the duergar made several such whistles for various groups in an age past.\n   If you blow the whistle in darkness or under the night sky, it allows you to cast the Animate Dead spell. The target can be affected through up to 10 feet of soft earth or similar material, and if it is, it takes 1 minute to claw its way to the surface to serve you. Once the whistle has animated an undead creature, it can't do so again until 7 days have passed.\n   Once every 24 hours, you can blow the whistle to reassert control over one or two creatures you animated with it.",
+	weight : 1,
+	usages : 1,
+	recovery : "7 days",
+	spellFirstColTitle : "Us",
+	spellcastingBonus : {
+		name : "Once per 7 days",
+		spells : ["animate dead"],
+		selection : ["animate dead"],
+		firstCol : "checkbox"
+	},
+	spellChanges : {
+		"animate dead" : {
+			description : "In darkness, turn (buried) corpse into Skeleton/Zombie; control for 24h; bns a command within 60 ft",
+			changes : "Night Caller can only be used in darkness or under the night sky. It can only create a single Skeleton or Zombie, but can animate a corpse buried below up to 10 feet of soft earth or similar material."
+		}
+	}
+}
+MagicItemsList["potion of mind control"] = {
+	name : "Potion of Mind Control",
+	source : ["TftYP", 229],
+	type : "potion",
+	magicItemTable : "E",
+	description : "",
+	descriptionFull : "When you drink a potion of mind control, you can cast a dominate spell (save DC 15) on a specific creature if you do so before the end of your next turn. If you don't, the potion is wasted.\n   A potion of mind control produces the effect of a Dominate Beast (beast), Dominate Person (humanoid), or Dominate Monster (monster) spell depending on its type. If the target's initial saving throw fails, the effect lasts for 1 hour, with no concentration required on your part. The charmed creature has disadvantage on new saving throws to break the effect during this time.",
+	weight : 1,
+	choices : ["Beast", "Humanoid", "Monster"],
+	"beast" : {
+		rarity : "rare",
+		description : "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast Dominate Beast before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once charmed, the target has disadvantage on new saves to break the effect."
+	},
+	"humanoid" : {
+		rarity : "rare",
+		description : "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast Dominate Person before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once charmed, the target has disadvantage on new saves to break the effect."
+	},
+	"monster" : {
+		rarity : "very rare",
+		description : "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast Dominate Monster before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once charmed, the target has disadvantage on new saves to break the effect."
+	}
+}
+MagicItemsList["robe of summer"] = {
+	name : "Robe of Summer",
+	source : ["TftYP", 229],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This elegant garment is made from fine cloth in hues of red, orange, and gold. While I wear the robe, I have resistance to cold damage. In addition, I am comfortable as if the temperature were that of a balmy day, so I suffer no ill effects from the weather's temperature extremes.",
+	descriptionFull : "This elegant garment is made from fine cloth in hues of red, orange, and gold. While you wear the robe, you have resistance to cold damage. In addition, you are comfortable as if the temperature were that of a balmy day, so you suffer no ill effects from the weather's temperature extremes.",
+	attunement : true,
+	weight : 1,
+	dmgres : ["Cold"]
+}
+MagicItemsList["shatterspike"] = {
+	name : "Shatterspike",
+	source : ["TftYP", 229],
+	type : "weapon (longsword)",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "I have a +1 bonus to attack and damage rolls made with this magic longsword. If it hits an object, the hit is automatically a critical hit, and it can deal bludgeoning or slashing damage to the object (my choice). Further, damage from nonmagical sources can't harm the weapon.",
+	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon. If it hits an object, the hit is automatically a critical hit, and it can deal bludgeoning or slashing damage to the object (your choice). Further, damage from nonmagical sources can't harm the weapon.",
+	attunement : true,
+	weight : 3,
+	weaponsAdd : ["Shatterspike"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /Shatterspike/i,
+		name : "Shatterspike",
+		source : ["TftYP", 229],
+		description : "Versatile (1d10); Against objects: always critical hit, can choose to deal bludgeoning damage",
+		modifiers : [1,1]
+	}
+}
+MagicItemsList["spear of backbiting"] = {
+	name : "Spear of Backbiting",
+	source : ["TftYP", 229],
+	type : "weapon (spear)",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "This spear has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
+	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.\n   " + toUni("Curse") + ". This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.\n   Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
+	attunement : true,
+	weight : 3,
+	cursed : true,
+	weaponsAdd : ["Spear of Backbiting"],
+	weaponOptions : {
+		baseWeapon : "spear",
+		regExpSearch : /^(?=.*spear)(?=.*backbiting).*$/i,
+		name : "Spear of Backbiting",
+		source : ["TftYP", 229],
+		range : "Melee, 50/90 ft",
+		description : "Thrown, versatile (1d8); +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
+		modifiers : [2,2]
+	}
+}
+MagicItemsList["stone of ill luck"] = {
+	name : "Stone of Ill Luck",
+	source : ["TftYP", 229],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "Although this polished agate appears to be a stone of good luck to anyone who tries to identify it. While it is on my person, it gives me a +1 bonus and a -2 penalty (from the curse) to ability checks and saving throws (for a total of -1). Until the curse is broken, I am unwilling to part with the item.",
+	descriptionFull : "This polished agate appears to be a stone of good luck to anyone who tries to Identify it, and it confers that item's property while on your person.\n   " + toUni("Curse") + ". This item is cursed. While it is on your person, you take a -2 penalty to ability checks and saving throws. Until the curse is discovered, the DM secretly applies this penalty, assuming you are adding the item's bonus. You are unwilling to part with the stone until the curse is broken with Remove Curse or similar magic.",
+	attunement : true,
+	weight : 1,
+	cursed : true,
+	addMod : [
+		{ type : "save", field : "all", mod : -1, text : "I gain a +1 bonus and -2 penalty on all my saving throws." },
+		{ type : "skill", field : "all", mod : -1, text : "I gain a +1 bonus and -2 penalty  on all my ability checks." },
+		{ type : "skill", field : "Init", mod : -1, text : "I gain a +1 bonus and -2 penalty  on all my ability checks." }
+	]
+}
+MagicItemsList["wand of entangle"] = {
+	name : "Wand of Entangle",
+	source : ["TftYP", 229],
+	type : "wand",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "This wand has 7 charges, regaining 1d6+1 expended charges daily at dawn. If I use its last charge, I roll a d20. On a 1, it is destroyed. As an action, I can expend 1 charge to cast Entangle (save DC 13) from it.",
+	descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the Entangle spell (save DC 13) from it.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+	attunement : true,
+	weight : 1,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	usages : 7,
+	recovery : "dawn",
+	additional : "regains 1d6+1",
+	fixedDC : 13,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["entangle"],
+		selection : ["entangle"],
+		firstCol : 1
+	}
+}
+MagicItemsList["waythe"] = {
+	name : "Waythe",
+	source : ["TftYP", 229],
+	type : "weapon (greatsword)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This greatsword adds +1 to hit and damage. Against giants, it deal +2d6 damage and they must make a DC 15 Str save or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command word to detect enemies within 60 ft. Waythe is sentient, see Notes page.",
+	descriptionLong : "This greatsword adds a +1 bonus to attack and damage rolls made with it. Against giants, it deal 2d6 extra slashing damage and when a giant is hit with it, they must make a DC 15 Strength saving throw or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command, letting me know the direction of the nearest creature hostile to me within 60 ft, regardless of it being ethereal, invisible, disguised, or hidden. This lasts for 1 minute. Waythe is sentient and has a mind of its own, see Notes page.",
+	descriptionFull : "Waythe is a unique greatsword most recently in the possession of a high-ranking cloud giant ambassador.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit a creature of the giant type with it, the giant takes an extra 2d6 slashing damage, and it must succeed on a DC 15 Strength saving throw or fall prone.\n   The sword also functions as a wand of enemy detection. It regains all of its expended charges at dawn and isn't at risk of crumbling if its last charge is used.\n   " + toUni("Sentience") + ". Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet.\n   The weapon can speak and understand Giant and Common, and it can communicate telepathically with its wielder.\n   " + toUni("Personality") + ". This sword believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. (It takes only 1 minute for a good-aligned character to gain attunement with the sword.) Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder.",
+	attunement : true,
+	weight : 6,
+	weaponsAdd : ["Waythe"],
+	weaponOptions : {
+		baseWeapon : "greatsword",
+		regExpSearch : /waythe/i,
+		name : "Waythe",
+		source : ["TftYP", 229],
+		description : "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
+		modifiers : [1,1]
+	},
+	usages : 7,
+	recovery : "dawn",
+	additional : "regains 1d6+1",
+	action : [["action", ""]],
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of the Waythe",
+		note : desc([
+			"It takes only 1 minute for a good-aligned character to gain attunement with this sword.",
+			"I gain a +1 bonus to attack and damage rolls made with this magic greatsword. When I hit a creature of the giant type with it, it deals an extra 2d6 slashing damage, and the giant must succeed on a DC 15 Strength saving throw or fall prone.",
+			"Waythe has 7 charges and regains 1d6+1 expended charges daily at dawn. As an action while holding it, I can expend 1 charge to speak its command word. For the next minute, I know the direction of the nearest creature hostile to me within 60 ft, but not its distance from me. Waythe can sense the presence of hostile creatures that are ethereal, invisible, disguised, or hidden, as well as those in plain sight. The effect ends if I stop holding Waythe.",
+			"Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet, can speak and understand Giant and Common, and can communicate telepathically with its wielder.",
+			"Waythe believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder."
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["white dragonhide cape"] = { // worn by king Snurre
+	name : "White Dragonhide Cape",
+	source : ["TftYP", 193],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "I have resistance to cold damage while wearing this cape",
+	descriptionFull : "This magic cape grants the wearer resistance to cold damage.",
+	dmgres : ["Cold"]
+}
+MagicItemsList["spellcasting bolts"] = {
+	name : "Spellcasting Bolts",
+	source : ["TftYP", 209],
+	type : "weapon (crossbow bolts)",
+	rarity : "rare",
+	magicItemTable : "B",
+	description : "These magical crossbow bolts cast a spell on the target they are used on.",
+	descriptionFull : "These magical crossbow bolts cast a spell on the target they are used on. The spell has a save DC of 15 and a duration of 1 minute.",
+	choices : ["Bolt of Holding", "Bolt of Blinding", "Bolt of Vapors"],
+	"bolt of holding" : {
+		name : "Bolt of Holding",
+		description : "This magic crossbow bolt casts Hold Person on the target hit with it, as well as up to two others within 30 ft of that target. The targets must succeed on a DC 15 Wisdom save or be paralyzed for 1 minute. At the end of each of their turns, they can make another Wisdom save to end the effect on themselves.",
+		descriptionFull : "This magic bolt casts hold person on the target hit with it, as well as up to two other targets within 30 feet of that target. The spell has a spell save DC of 15 and a duration of 1 minute."
+	},
+	"bolt of blinding" : {
+		name : "Bolt of Blinding",
+		description : "This magic bolt casts Blindness/Deafness on the target hit with it, as well as up to two others within 30 ft of that target. The targets must make a DC 15 Con save or be blinded or deafened (my choice) for 1 minute. At the end of each of their turns, a target can make another Con save to end the effect on itself.",
+		descriptionFull : "This magic bolt casts blindness/deafness to blind on a target hit with the bolt, as well as up to two other targets within 30 feet of that target. The spell has a spell save DC of 15 and a duration of 1 minute."
+	},
+	"bolt of vapors" : {
+		name : "Bolt of Vapors",
+		description : "This magic crossbow bolt casts Stinking Cloud centered on the point it hits, creating a 20-ft radius sphere of yellow, nauseating gas there for 1 minute. It heavily obscures and creatures fully in the cloud or starting their turn in it must make a DC 15 Con save against poison or spend their action that turn retching.",
+		descriptionFull : "This magic bolt casts stinking cloud centered on the point it hits. The spell has a spell save DC of 15 and a duration of 1 minute."
+	}
+}
+MagicItemsList["berserker battleaxe (tamoachan)"] = {
+	name : "Berserker Battleaxe (Tamoachan)", // can't just be "Berserker Battleaxe" or the magic item "Berserker Axe" wouldn't work anymore
+	source : ["TftYP", 68], // Tloques' battleaxe
+	type : "weapon (battleaxe)",
+	rarity : "very rare",
+	magicItemTable : "H",
+	description : "This axe gives +2 to hit and damage, +1 HP per level, and has 12 charges to cast spells, regaining 1d6+4 at dawn. I can't part with it, have disadv. with other weapons, and if I'm damaged by a hostile, I must make a DC 15 Wis save or go berserk: attack the closest creature with the axe until none remain within 60 ft.",
+	descriptionLong : "This axe adds a +2 bonus to attack and damage rolls made with it. While attuned to it, my HP maximum increases by 1 for each level I have. It has scrolls of Passwall, Burning Hands, and Gust of Wind beneath the wrappings of its handle. As long as these remain there, it has 12 charges to cast these spells, regaining 1d6+4 at dawn. It is cursed, making it so that I can't part with it and have disadvantage on attack rolls made with other weapons. If I'm damaged by a hostile, I must make a DC 15 Wis save or go berserk, using my action each turn to attack the closest creature with the axe until none remain within 60 ft.",
+	descriptionFull : "This battleaxe has a blade of bronze, and the haft is wound with snakeskin wrappings. You gain a +2 bonus to attack and damage rolls made with this magic weapon. In addition, while you are attuned to this weapon, your hit point maximum increases by 1 for each level you have attained.\n   Concealed beneath the wrappings around the handle is a parchment containing the spells passwall, burning hands, and gust of wind. When the attuned wielder uses an action to say the correct words of power, which are engraved in Olman on the axe blade, one of these spells can be cast.\n   The axe has 12 charges and regains 1d6+4 expended charges daily at dawn. Casting a spell from it takes a number of charges equal to the level at which the spell is cast (5th for passwall, 2nd for gust of wind, and 1st or higher for burning hands; spell save DC 15). If the parchment is removed from the axe, the axe loses the capability of casting these spells forever.\n   " + toUni("Curse") + ". This axe is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the axe, keeping it within reach at all times. You also have disadvantage on attack rolls with weapons other than this one, unless no foe is within 60 feet of you that you can see or hear.\n   Whenever a hostile creature damages you while the axe is in your possession, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action each round to attack the creature nearest to you with the axe. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random. You are berserk until you start your turn with no creatures within 60 feet of you that you can see or hear.",
+	attunement : true,
+	weight : 4,
+	usages : 12,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1+ charges",
+		spells : ["burning hands"],
+		selection : ["burning hands"],
+		firstCol : "1+"
+	}, {
+		name : "2 charges",
+		spells : ["gust of wind"],
+		selection : ["gust of wind"],
+		firstCol : 2
+	}, {
+		name : "5 charges",
+		spells : ["passwall"],
+		selection : ["passwall"],
+		firstCol : 5
+	}],
+	spellChanges : {
+		"burning hands" : {
+			description : "3d6 Fire dmg +1d6 per charge spend after the 1st; save halves; unattended flammable objects ignite",
+			changes : "The spell level this is cast at depends on the amount of charges spend, 1 charge per spell slot level."
+		}
+	},
+	calcChanges : {
+		hp : "extrahp += Number(What('Character Level')); extrastring += '\\n + ' + What('Character Level') + ' from Berserker Battleaxe (magic item)'; "
+	},
+	weaponsAdd : ["Berserker Battleaxe"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /^(?=.*berserker)(?=.*battleaxe).*$/i,
+		name : "Berserker Battleaxe",
+		source : ["TftYP", 68],
+		description : "Versatile (1d10); Cursed",
+		modifiers : [2,2]
+	}
+}
+MagicItemsList["plantslayer longsword"] = {
+	name : "Plantslayer Longsword",
+	source : ["TftYP", 70], // from Stone Statue
+	type : "weapon (longsword)",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "This sword is made of laminated wood, inset with jagged teeth of obsidian. I gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
+	descriptionFull : "This sword is made of laminated wood, inset with jagged teeth of obsidian. You gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
+	weight : 3,
+	weaponsAdd : ["Plantslayer Longsword"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /^(?=.*plantslayer)(?=.*longsword).*$/i,
+		name : "Plantslayer Longsword",
+		source : ["TftYP", 70],
+		description : "Versatile (1d10); +2d6 damage vs. plants"
+	}
+}
 var iFileName = "pub_20170915_Tortle.js";
 RequiredSheetVersion(13);
 // This file adds the Tortle Race from the Tortle Package from DMs Guild to MPMB's Character Record Sheet
@@ -22649,7 +23066,7 @@ FeatsList["aberrant dragonmark"] = {
 // Magic Items
 MagicItemsList["armblade"] = {
 	name : "Armblade",
-	source : ["WGtE", 120],
+	source : [["WGtE", 120], ["UA:MIoE", 3]],
 	type : "weapon (any one-handed melee weapon)",
 	rarity : "common",
 	description : "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
@@ -22698,7 +23115,7 @@ MagicItemsList["bag of bounty"] = {
 }
 MagicItemsList["band of loyalty"] = {
 	name : "Band of Loyalty",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "ring",
 	rarity : "common",
 	description : "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
@@ -22707,7 +23124,7 @@ MagicItemsList["band of loyalty"] = {
 }
 MagicItemsList["cleansing stone"] = {
 	name : "Cleansing Stone",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
@@ -22716,7 +23133,7 @@ MagicItemsList["cleansing stone"] = {
 }
 MagicItemsList["everbright lantern"] = {
 	name : "Everbright Lantern",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
@@ -22724,7 +23141,7 @@ MagicItemsList["everbright lantern"] = {
 }
 MagicItemsList["feather token"] = {
 	name : "Feather Token",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
@@ -22732,7 +23149,7 @@ MagicItemsList["feather token"] = {
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
@@ -22750,7 +23167,7 @@ MagicItemsList["glamerweave"] = {
 }
 MagicItemsList["imbued wood"] = {
 	name : "Imbued Wood",
-	source : ["WGtE", 114],
+	source : [["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "While holding a rod, wand, or staff made of imbued wood, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
@@ -22877,7 +23294,7 @@ MagicItemsList["keycharm"] = {
 }
 MagicItemsList["orb of shielding"] = {
 	name : "Orb of Shielding",
-	source : ["WGtE", 114],
+	source : [["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "An orb of shielding is made from crystal or stone aligned to one of the planes. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4.",
@@ -22958,7 +23375,7 @@ MagicItemsList["scribe's pen"] = {
 }
 MagicItemsList["shiftweave"] = {
 	name : "Shiftweave",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
@@ -22967,7 +23384,7 @@ MagicItemsList["shiftweave"] = {
 }
 MagicItemsList["spellshard"] = {
 	name : "Spellshard",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 3]],
 	type : "wondrous item",
 	description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
 	allowDuplicates : true,
@@ -22989,7 +23406,7 @@ MagicItemsList["spellshard"] = {
 }
 MagicItemsList["wand sheath"] = {
 	name : "Wand Sheath",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 4]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
@@ -23012,6 +23429,279 @@ MagicItemsList["wheel of wind and water"] = {
 	prerequisite : "Can only be used by someone with a Dragonmark of Storm",
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known);
+	}
+}
+var iFileName = "pub_20180918_WDH.js";
+RequiredSheetVersion(13);
+// This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["WDH"] = {
+	name : "Waterdeep: Dragon Heist [items]",
+	abbreviation : "WDH",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dragonheist",
+	date : "2018/09/18"
+};
+
+// Magic Items
+var azuredgeFullDescription = "Forged by the archwizard Ahghairon, this intelligent battleaxe was crafted to defend Waterdeep. Its current wielder is a former member of Force Grey named Meloon Wardragon, but the weapon is searching for a new owner.\n   Azuredge has a solid steel handle etched with tiny runes, wrapped in blue dragon hide with a star sapphire set into the pommel. The axe head is forged from silver, electrum, and steel alloys whose edges constantly shimmer with a deep blue luminescence.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. The Shield spell provides no defense against the axe, which passes through that spell's barrier of magical force.\n   When you hit a fiend or an undead with the axe, cold blue flames erupt from its blade and deal an extra 2d6 radiant damage to the target.\n   >>Hurling<<. The battleaxe has 3 charges. You can expend 1 charge and make a ranged attack with the axe, hurling it as if it had the thrown property with a normal range of 60 feet and a long range of 180 feet. Whether it hits or misses, the axe flies back to you at the end of the current turn, landing in your open hand or at your feet in your space (as you choose). The axe regains all expended charges daily at dawn.\n   >>Illumination<<. While holding the axe, you can use an action to cause the axe to glow blue or to quench the glow. This glow sheds bright light in a 30-foot radius and dim light for an additional 30 feet.\n   >>Sentience<<. Azuredge is a sentient lawful neutral weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.\n   The weapon communicates telepathically with its wielder and can speak, read, and understand Common. It has a calm, delicate voice. The weapon can sense the presence of non-lawful creatures within 120 feet of it.\n   >>Personality<<. Azuredge is sworn to protect Waterdeep, and it desires to be wielded by a law-abiding person willing to dedicate everything to the city's defense. The weapon is patient and takes its time finding its ideal wielder.\n   If someone tries to use Azuredge against its will, the axe can become ten times heavier than normal, and can magically adhere to any Medium or larger object or surface it comes into contact with. Once it does so, the axe can't be wielded. Nothing short of a Wish spell can separate the axe from the item or surface to which it is adhered without destroying one or the other, though the axe can choose to end the effect at any time.";
+MagicItemsList["azuredge"] = {
+	name : "Azuredge",
+	source : ["WDH", 189],
+	type : "weapon (battleaxe)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This battleaxe is sentient, adds +3 to hit and damage, and deals +2d6 radiant damage vs. fiends/undead. As an action, I can stop or start its glow of bright light in a 30-ft radius and dim light for another 30 ft. It has 3 charges, regaining all at dawn, which can be used to throw it, after which it returns to my hand. See Notes.",
+	descriptionFull : azuredgeFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	weight : 4,
+	action : [["action", " (glow/end)"]],
+	usages : 3,
+	recovery : "dawn",
+	additional : "throw",
+	weaponsAdd : ["Azuredge"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /azuredge/i,
+		name : "Azuredge",
+		source : ["WDH", 189],
+		range : "Melee, 60/180 ft",
+		description : "Versatile (1d10), thrown (1 charge), returning; Ignores Shield spell; +2d6 radiant damage vs. fiends/undead",
+		modifiers : [3,3]
+	},
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["crusader's mantle"],
+		selection : ["protection from evil and good"],
+		firstCol : "oncelr"
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Azuredge",
+		note : "\n   " + azuredgeFullDescription.replace(/>>|<</g, "").replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
+	name : "Badge of the Watch",
+	source : ["WDH", 189],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "While wearing this badge and not using a shield, I gain +2 AC. If it is more than 5 ft away from me for over 1 minute, it vanishes and reappears within 5 ft of the Open Lord. While holding the badge, the Open Lord knows my location if we are both on the same plane and can, as an action end my attunement to it.",
+	prerequisite : "Requires attunement by someone designated by the Open Lord of Waterdeep",
+	prereqeval : function () { return false; },
+	descriptionFull : "A badge of the Watch is given only to those who have earned the trust of the Open Lord of Waterdeep. The badge, signifying the rank of captain in Waterdeep's City Watch, bears the emblem of Waterdeep and is meant to be worn or carried.\n   While wearing the badge, you gain a +2 bonus to AC if you aren't using a shield.\n   If the badge is more than 5 feet away from you for more than 1 minute, it vanishes and harmlessly reappears on a surface within 5 feet of the Open Lord. While holding the badge, the Open Lord knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn't ended.\n   As an action, the Open Lord can touch the badge and end your attunement to it.",
+	attunement : true,
+	extraAC : [{
+		mod : 2,
+		name : "Badge of the Watch",
+		magic : true,
+		text : "While wearing the badge, I gain a +2 bonus to AC if I'm not using a shield.",
+		stopeval : function (v) {
+			return v.usingShield;
+		}
+	}]
+}
+var blackstaffFullDescription = "The Blackstaff is a sentient, rune-carved staff set with thin silver veins. It is the symbol of office for the Blackstaff, the highest-ranking wizard in Waterdeep. As the rightful owner of the Blackstaff, Vajra Safahr is the only one who can become attuned to it. The staff can, however, choose a new owner (see \"Personality\" below).\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n   The staff has 20 charges for the following properties. The staff regains 2d8+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain 1d8+2 charges.\n   >>Power Strike<<. When you hit with a melee attack using the staff, you can expend 1 charge to deal an extra 1d6 force damage to the target.\n   >>Spells<<. While holding this staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   >>Retributive Strike<<. You can use an action to break the staff over your knee or against a solid surface, performing a retributive strike. The staff is destroyed and releases its remaining magic in an explosion that expands to fill a 30-foot-radius sphere centered on it.\n   You have a 50% chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take force damage equal to 16 \xD7 the number of charges in the staff. Every other creature in the area must make a DC 17 Dexterity saving throw. On a failed save, a creature takes an amount of damage based on how far away it is from the point of origin, as shown in the following table. On a successful save, a creature takes half as much damage.\n\n>>Distance from Origin\tEffect<<\n10 ft. away or closer\t8 \xD7 the number of charges in the staff\n11 to 20 ft. away\t6 \xD7 the number of charges in the staff\n21 to 30 ft. away\t4 \xD7 the number of charges in the staff\n\n\n   >>Animate Walking Statues<<. You can expend 1 or more of the staff's charges as an action to animate or deactivate one or more of the walking statues of Waterdeep. You must be in the city to use this property, and you can animate or deactivate one statue for each charge expended. An animated statue obeys the telepathic commands of Khelben Arunsun's spirit, which is trapped inside the staff (see \"Personality\" below). A walking statue becomes inanimate if deactivated or if the staff is broken.\n   >>Dispel Magic<<. You can expend 1 of the staff's charges as a bonus action to cast Dispel Magic on a creature, an object, or a magical effect that you touch with the tip of the staff. If the target is an unwilling creature or an object in the possession of such a creature, you must hit the creature with a melee attack using the Blackstaff before you can expend the charge to cast the spell.\n   >>Drain Magic<<. This property affects only creatures that use spell slots. When you hit such a creature with a melee attack using the Blackstaff, you can expend 1 of the staff's charges as a bonus action, causing the target to expend one spell slot of the highest spell level it can cast without casting a spell. If the target has already expended all its spell slots, nothing happens. Spell slots that are expended in this fashion are regained when the target finishes a long rest, as normal.\n   >>Master of Enchantment<<. When you cast an enchantment spell of 1st level or higher while holding the staff, you can make an Intelligence (Arcana) check with a DC of 10 + the level of the spell. If the check succeeds, you cast the spell without expending a spell slot.\n   >>Sentience<<. The Blackstaff is a sentient staff of neutral alignment, with an Intelligence of 22, a Wisdom of 15, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet, and it can communicate telepathically with any creature that is holding it.\n   >>Personality<<. The staff has the spirits of all previous Blackstaffs trapped within it. Its creator, Khelben Arunsun, is the dominant personality among them. Like Khelben, the staff is extremely devious and manipulative. It prefers to counsel its owner without exerting outright control. The staff's primary goal is to protect Waterdeep and its Open Lord, currently Laeral Silverhand. Its secondary goal is to help its wielder become more powerful.\n   In the event that the holder of the office of the Blackstaff no longer serves the staff's wishes, the staff ceases to function until it finds a worthy inheritor\u2014someone whose loyalty to Waterdeep is beyond reproach.\n   >>Spirit Trap<<. When the Blackstaff dies, the spirit of that individual becomes trapped in the staff along with the spirits of the previous Blackstaffs. (A Blackstaff whose spirit is trapped in the staff can't be raised from the dead.)\n   Destroying the staff would release the spirits trapped inside it, but in that event, Khelben's spirit can lodge itself inside any one piece of the staff that remains. The piece containing Khelben's spirit has the staff's Sentience property but none of its other properties. As long as this piece of the staff exists, Khelben's spirit can make the staff whole again whenever he wishes. When the staff is remade, the spirits of the previous Blackstaffs become trapped inside it again.";
+MagicItemsList["blackstaff"] = {
+	name : "Blackstaff",
+	source : ["WDH", 190],
+	type : "staff",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
+	descriptionFull : blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	weight : 4,
+	prerequisite : "Requires attunement by the Blackstaff heir, who must be a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	usages : 20,
+	recovery : "dawn",
+	additional : "regains 2d8+4",
+	weaponsAdd : ["Blackstaff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /blackstaff/i,
+		name : "Blackstaff",
+		source : ["WDH", 190],
+		description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
+		modifiers : [2, 2]
+	},
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type == "attack") return 2;
+			},
+			"While holding the Blackstaff, I have a +2 bonus to spell attack rolls."
+		]
+	},
+	addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Blackstaff, I gain a +2 bonus to all my saving throws." }],
+	extraAC : [{name : "Blackstaff", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
+	action : [
+		["action"," (Animate Walking Statues)"],
+		["action", " (Retributive Strike)"],
+		["bonus action", " (Drain Magic)"]
+	],
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : MagicItemsList["staff of power"].spellcastingBonus.concat([{
+		name : "1 charge",
+		spells : ["dispel magic"],
+		selection : ["dispel magic"],
+		firstCol : 1
+	}]),
+	spellChanges : {
+		"fireball" : MagicItemsList["staff of power"].spellChanges.fireball,
+		"lightning bolt" : MagicItemsList["staff of power"].spellChanges["lightning bolt"],
+		"dispel magic" : {
+			time : "1 bns",
+			range : "Melee atk",
+			description : "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
+			changes : "Can cast as a bonus action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on"
+		}
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Blackstaff",
+		note : "\n   " + blackstaffFullDescription.replace(/>>|<</g, "").replace(/your/g, "my").replace(/you /ig, "I ")
+	}, {
+		name : "Sentient Item Features",
+		note : sentientItemConflictTxt
+	}]
+}
+MagicItemsList["bracer of flying daggers"] = {
+	name : "Bracer of Flying Daggers",
+	source : ["WDH", 190],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This armband appears to have thin daggers strapped to it. As an action, I can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if I don't hurl it right away, and the daggers disappear right after they hit or miss.",
+	descriptionFull : "This armband appears to have thin daggers strapped to it. As an action, you can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if you don't hurl it right away, and the daggers disappear right after they hit or miss. The bracer never runs out of daggers.",
+	attunement : true,
+	action : [["action", ""]],
+	weaponsAdd : ["Bracer of Flying Daggers"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /^(?=.*bracer)(?=.*flying)(?=.*dagger).*$/i,
+		name : "Bracer of Flying Daggers",
+		source : ["WDH", 190],
+		range : "20/60 ft",
+		description : "Finesse, light, thrown; As action, throw 2; Doesn't work with Attack action"
+	}
+}
+MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Pengsloth
+	name : "Dragonstaff of Ahghairon",
+	source : ["WDH", 191],
+	type : "staff",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "This staff has 10 charges, regaining 1d10 at dawn, which can be used to cast Command. Dragons have disadv. on their save against it. The staff gives me adv. on saves against the spells and breath weapons of dragons. I can touch a dragon with the staff, allowing it to ignore the effects of Ahghairon's Dragonward.",
+	descriptionFull : "While holding the dragonstaff of Ahghairon, you have advantage on saving throws against the spells and breath weapons of dragons, as well as the breath weapons of other creatures of the dragon type (such as dragon turtles).\n   A creature of the dragon type that you touch with the staff can move through the city of Waterdeep, ignoring Ahghairon's dragonward (see \"Ahghairon's Dragonward,\" in the Introduction of Waterdeep: Dragon Heist). This effect lasts until the creature is touched again by the staff or until a time you proclaim when you confer the benefit.\n   The staff has 10 charges. While holding it, you can expend 1 charge as an action to cast the Command spell. If you target a dragon with this casting, the dragon has disadvantage on its saving throw. The staff regains 1d10 charges daily at dawn.",
+	attunement : true,
+	savetxt : { adv_vs : ["dragon breath weapons", "dragon spells"] },
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d10",
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name: "1 charge",
+		spells: ["command"],
+		selection: ["command"],
+		firstCol : 1
+	}],
+	spellChanges : {
+		"command" : {
+			description : "1 crea, save or follow one word command, e.g. approach, drop, flee, halt; dragons disadv. on save",
+			changes : "When this spell is cast on a dragon they have disadvantage on the saving throw."
+		}
+	}
+}
+MagicItemsList["feather of diatryma summoning"] = {
+	name : "Feather of Diatryma Summoning",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "D",
+	description : "As an action once per 7 days, I can speak the command word and throw this feather to an empty large space in 5 ft, where it becomes a diatryma (axe beak stats) for 6 hours, until I speak the command again, or it reaches 0 hp. It is friendly, understands my languages, obeys my commands, and can be used as a mount.",
+	descriptionFull : "This bright plume is made from the feather of a diatryma (pronounced dee-ah-TRY-mah), a Large, colorful, flightless bird native to the Underdark. If you use an action to speak the command word and throw the feather into a Large unoccupied space on the ground within 5 feet of you, the feather becomes a living diatryma for up to 6 hours, after which it reverts to its feather form. It reverts to feather form early if it drops to 0 hit points or if you use an action to speak the command word again while touching the bird.\n   When the diatryma reverts to feather form, the magic of the feather can't be used again until 7 days have passed.\n   The diatryma uses the statistics of an axe beak, except that its beak deals piercing damage instead of slashing damage. The creature is friendly to you and your companions, and it can be used as a mount. It understands your languages and obeys your spoken commands. If you issue no commands, the diatryma defends itself but takes no other actions.",
+	attunement : true,
+	usages : 1,
+	recovery : "7 days",
+	action : [["action", ""]]
+}
+MagicItemsList["knave's eye patch"] = { // contains contributions by Pengsloth
+	name : "Knave's Eye Patch",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "While wearing this eye patch I have advantage on Perception checks that rely on sight, I am unaffected be Sunlight Sensitivity if I have it, and I am immune to magic that would read my thoughts or determine whether I'm lying. Creatures can communicate telepathically with me only if I allow it.",
+	descriptionFull : "While wearing this eye patch, you gain these benefits:\n \u2022 You have advantage on Wisdom (Perception) checks that rely on sight.\n \u2022 If you have the Sunlight Sensitivity trait, you are unaffected by the trait.\n \u2022 You are immune to magic that allows other creatures to read your thoughts or determine whether you are lying. Creatures can communicate telepathically with you only if you allow it.",
+	attunement : true,
+	vision : [["Adv. on Perception checks relying on sight", 0]]
+}
+MagicItemsList["lord's ensemble"] = {
+	name : "Lord's Ensemble",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "very rare",
+	storyItemAL : true,
+	prerequisite : "Requires attunement by a creature with a humanoid build",
+	description : "While wearing this helm, amulet, and ring, my identity can't be determined. I move through difficult terrain as normal terrain. Magic can't be used to reduce my speed, paralyze me, restrain me, read my thoughts, or learn my alignment, creature type, or if I'm lying. I'm hidden from scrying and Divination magic.",
+	descriptionLong : "This set of a helm, amulet, and ring can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyze or restrained.",
+	descriptionFull : "The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.\n   " + toUni("Lord's Helm") + ". This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.\n   " + toUni("Lord's Amulet") + ". This amulet bears the crest of Waterdeep. It functions as an amulet of proof against detection and location.\n   " + toUni("Lord's Robe") + ". This elegant robe functions as a ring of free action, and it creates the illusion that you have a nondescript, androgynous humanoid build and stand 6 feet tall.",
+	attunement : true,
+	savetxt : { immune : ["paralyzed", "restrained"] }
+}
+MagicItemsList["paper bird"] = {
+	name : "Paper Bird",
+	source : ["WDH", 191],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "I can write up to 50 words on a sheet of the 1d6+3 in this box and speak a creature's name, causing the parchment to fold into a Tiny bird and fly to that creature on the same plane if it isn't stopped. It has 60 ft fly speed, 1 HP, AC 13, Dex 16, 1 in all other ability scores, and immunity to poison and psychic damage.",
+	descriptionFull : "After you write a message of fifty words or fewer on this magic sheet of parchment and speak a creature's name, the parchment magically folds into a Tiny paper bird and flies to the recipient whose name you uttered. The recipient must be on the same plane of existence as you, otherwise the bird turns into ash as it takes flight.\n   The bird is an object that has 1 hit point, an Armor Class of 13, a flying speed of 60 feet, a Dexterity of 16 (+3), and a score of 1 (\u22125) in all other abilities, and it is immune to poison and psychic damage.\n   It travels to within 5 feet of its intended recipient by the most direct route, whereupon it turns into a nonmagical and inanimate sheet of parchment that can be unfolded only by the intended recipient. If the bird's hit points or speed is reduced to 0 or if it is otherwise immobilized, it turns into ash.\n   Paper birds usually come in small, flat boxes containing 1d6 + 3 sheets of the parchment.",
+	usages : "1d6+3",
+	recovery : "Never"
+}
+MagicItemsList["ring of truth telling"] = {
+	name : "Ring of Truth Telling",
+	source : ["WDH", 192],
+	type : "ring",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "While wearing this ring, I have advantage on Wisdom (Insight) checks to determine whether someone is lying to me.",
+	descriptionFull : "While wearing this ring, you have advantage on Wisdom (Insight) checks to determine whether someone is lying to you.",
+	attunement : true
+}
+MagicItemsList["smokepowder"] = {
+	name : "Smokepowder",
+	source : ["WDH", 192],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "B",
+	description : "",
+	descriptionFull : "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots.\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage.\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
+	allowDuplicates : true,
+	choices : ["Keg (500 shots)", "Packet (5 shots)"],
+	"packet" : {
+		name : "Smokepowder Packet",
+		description : "This magical explosive is used to propel a bullet out of a firearm. These tiny, waterproof leather packets contain enough for five shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 1d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
+		usages : 5,
+		recovery : "Never",
+		additional : "shots",
+		weight : 0.1, // 7000 grains per lb, 100 grains per shot
+		extraTooltip : "AL: can be purchased for 1 treasure checkpoint. Once found, this item goes on a character's evergreen list of available items.",
+	},
+	"keg" : {
+		name : "Smokepowder Keg",
+		description : "This magical explosive is used to propel a bullet out of a firearm. This airtight wooden kegs contain enough for five hundred shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 9d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
+		usages : 500,
+		recovery : "Never",
+		additional : "shots",
+		weight : 12 // 7000 grains per lb, 100 grains per shot (+2 for the keg itself)
 	}
 }
 var iFileName = "pub_20181120_GGtR.js";
@@ -39568,434 +40258,6 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 		}
 	}
 });
-var iFileName = "ua_20180723_Races-of-Eberron.js";
-RequiredSheetVersion(13);
-// This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
-// Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
-
-// Define the sources
-SourceList["UA:RoE"] = {
-	name : "Unearthed Arcana: Races of Eberron",
-	abbreviation : "UA:RoE",
-	group : "Unearthed Arcana",
-	url : "https://media.wizards.com/2018/dnd/downloads/723UA_EberronRaces7232018.pdf",
-	date : "2018/07/23"
-};
-
-if (!SourceList.WGtE) {
-	// The changeling
-	RaceList["changeling-wgte"] = {
-		regExpSearch : /changeling/i,
-		name : "Changeling",
-		source : [["WGtE", 61], ["UA:RoE", 2]],
-		plural : "Changelings",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		skillstxt : "Choose two from Deception, Intimidation, Insight, and Persuasion",
-		languageProfs : ["Common", 2],
-		toolProfs : [["Any tool", 1]],
-		age : " reach adulthood in their early teens and live around 80 years",
-		height : " stand between 5 and 6 feet tall (5'1\" + 2d4\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 140 lb (115 + 2d4 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " stand between 1,5 to over 1,8 metres tall (155 + 5d4 cm)",
-		weightMetric : " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
-		scorestxt : "+2 Charisma, and +1 Dexterity or +1 Intelligence",
-		scores : [0, 0, 0, 0, 0, 2],
-		trait : "Changeling (+2 Charisma, and +1 Dexterity or +1 Intelligence)\nChange Appearance: As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.\nUnsettling Visage: As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.\nDivergent Persona: I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
-		action : ["action", "Change Appearance"],
-		features : {
-			"unsettling visage" : {
-				name : "Unsettling Visage",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["reaction", ""]
-			}
-		}
-	};
-
-	// The kalashtar
-	RaceList["kalashtar"] = { //this code includes contributions by /u/SoilentBrad
-		regExpSearch : /kalashtar/i,
-		name : "Kalashtar",
-		source : [["WGtE", 63], ["UA:RoE", 4]],
-		plural : "Kalashtar",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		skillstxt : "Advantage with one: Insight, Intimidation, Performance, or Persuasion",
-		languageProfs : ["Common", "Quori", 1],
-		savetxt : { immune : ["effects that require me to dream"] },
-		dmgres : ["Psychic"],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " range from 5 and a half to well over 6 feet tall (5'3\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 145 lb (120 + 2d6 \xD7 1d6 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " range from 1,7 to 1,9 metres tall (160 + 5d6 cm)",
-		weightMetric : " weigh around 65 kg (55 + 5d6 \xD7 2d6 / 10 kg)",
-		scorestxt : "+1 Wisdom, +1 Charisma, and +1 to one other ability score of my choice",
-		scores : [0, 0, 0, 0, 1, 1],
-		trait : "Kalashtar (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")\nDual Mind: As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.\nMind Link: I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.\nPsychic Glamour: I have adv. on Insight, Intimidation, Performance, or Persuasion checks.\nSevered from Dreams: I don't dream and thus immune to spells that affect dreams.",
-		action : [['bonus action', 'Mind Link'], ['reaction', 'Dual Mind']]
-	};
-
-	// The four subraces of the shifter
-	RaceList["beasthide shifter"] = {
-		regExpSearch : /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
-		name : "Beasthide shifter",
-		sortname : "Shifter, Beasthide",
-		source : [["WGtE", 66], ["UA:RoE", 6]],
-		plural : "Beasthide shifters",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common"],
-		vision : [["Darkvision", 60]],
-		skills : ["Athletics", "Perception"],
-		age : " reach young adulthood at age 10 and rarely live over 70",
-		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
-		scores : [0, 1, 2, 0, 0, 0],
-		trait : "Beasthide Shifter: (+1 Dexterity, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC",
-		features : {
-			"shift" : {
-				name : "Shift",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
-			}
-		}
-	};
-	RaceList["longtooth shifter"] = {
-		regExpSearch : /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-		name : "Longtooth shifter",
-		sortname : "Shifter, Longtooth",
-		source : [["WGtE", 66], ["UA:RoE", 6]],
-		plural : "Longtooth shifters",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common"],
-		weaponOptions : {
-			baseWeapon : "unarmed strike",
-			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-			name : "Longtooth Fangs",
-			source : [["WGtE", 66], ["UA:RoE", 6]],
-			damage : [1, 6, "piercing"],
-			description : "Only while shifted; One attack as bonus action"
-		},
-		weaponsAdd : ["Longtooth Fangs"],
-		vision : [["Darkvision", 60]],
-		skills : ["Intimidation", "Perception"],
-		age : " reach young adulthood at age 10 and rarely live over 70",
-		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
-		scores : [2, 1, 0, 0, 0, 0],
-		trait : "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
-		action : ['bonus action', 'Attack with Longtooth Fangs'],
-		features : {
-			"shift" : {
-				name : "Shift",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
-			}
-		}
-	};
-	RaceList["swiftstride shifter"] = {
-		regExpSearch : /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
-		name : "Swiftstride shifter",
-		sortname : "Shifter, Swiftstride",
-		source : [["WGtE", 66], ["UA:RoE", 6]],
-		plural : "Swiftstride shifters",
-		size : 3,
-		speed : {
-			walk : { spd : 35, enc : 25 }
-		},
-		languageProfs : ["Common"],
-		vision : [["Darkvision", 60]],
-		skills : ["Acrobatics", "Perception"],
-		age : " reach young adulthood at age 10 and rarely live over 70",
-		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
-		scores : [0, 2, 0, 0, 0, 1],
-		trait : "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 5 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
-		action : ['reaction', 'Stride (while shifted)'],
-		features : {
-			"shift" : {
-				name : "Shift",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
-			}
-		}
-	};
-	RaceList["wildhunt shifter"] = {
-		regExpSearch : /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
-		name : "Wildhunt shifter",
-		sortname : "Shifter, Wildhunt",
-		source : [["WGtE", 66], ["UA:RoE", 6]],
-		plural : "Wildhunt shifters",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common"],
-		vision : [["Darkvision", 60]],
-		skills : ["Perception", "Survival"],
-		age : " reach young adulthood at age 10 and rarely live over 70",
-		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
-		scores : [0, 1, 0, 0, 2, 0],
-		trait : "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can transform and get adv. on Wis checks." + (typePF ? " " : "\n") + "This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nMark the Scent: As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
-		features : {
-			"shift" : {
-				name : "Shift",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
-			},
-			"mark the scent" : {
-				name : "Mark the Scent",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["bonus action", ""]
-			}
-		}
-	};
-
-	// The three subraces of the warforged
-	RaceList["envoy warforged"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*envoy).*$/i,
-		name : "Envoy warforged",
-		sortname : "Warforged, Envoy",
-		source : [["WGtE", 69], ["UA:RoE", 9]],
-		plural : "Envoy warforged",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", 1],
-		toolProfs : [["Expertise with any one tool", 1]],
-		skillstxt : "Choose any one skill",
-		savetxt : {
-			text : ["Magic can't put me to sleep"],
-			immune : ["disease", "exhaustion from lack of rest"],
-			adv_vs : ["poison"]
-		},
-		dmgres : ["Poison"],
-		age : " are created as adults and will only start to show signs of physical deterioration after 150 years, but have no further aging effects",
-		height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
-		scorestxt : "+1 Constitution and +1 to two other ability scores of my choice",
-		scores : [0, 0, 1, 0, 0, 0],
-		trait : "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
-		eval : function() {
-			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
-			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating (Prof)';
-			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating (Prof)';
-			} else {
-				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
-			};
-		},
-		removeeval : function () {
-			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
-				tDoc.resetForm(['AC Armor Description']);
-			};
-		},
-		armorOptions : [{
-			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
-			name : "Darkwood core",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11
-		}, {
-			regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
-			name : "Darkwood core (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11,
-			addMod : true
-		}, {
-			regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-			name : "Composite plating (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 13,
-			addMod : true,
-			dex : 2
-		}, {
-			regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-			name : "Heavy plating (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 16,
-			addMod : true,
-			stealthdis : true,
-			dex : -10
-		}]
-	};
-	RaceList["juggernaut warforged"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*juggernaut).*$/i,
-		name : "Juggernaut warforged",
-		sortname : "Warforged, Juggernaut",
-		source : [["WGtE", 70], ["UA:RoE", 9]],
-		plural : "Juggernaut warforged",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common"],
-		weaponOptions : {
-			baseWeapon : "unarmed strike",
-			regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
-			name : "Warforged iron fists",
-			source : [["WGtE", 70], ["UA:RoE", 9]],
-			damage : [1, 4, "bludgeoning"]
-		},
-		weaponsAdd : ["Warforged Iron Fists"],
-		savetxt : {
-			text : ["Magic can't put me to sleep"],
-			immune : ["disease", "exhaustion from lack of rest"],
-			adv_vs : ["poison"]
-		},
-		dmgres : ["Poison"],
-		age : " are created as adults and will only start to show signs of physical deterioration after 150 years, but have no further aging effects",
-		height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
-		scores : [2, 0, 1, 0, 0, 0],
-		trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
-		carryingCapacity : 2,
-		eval : function() {
-			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
-			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating (Prof)';
-			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating (Prof)';
-			} else {
-				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
-			};
-		},
-		removeeval : function () {
-			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
-				tDoc.resetForm(['AC Armor Description']);
-			};
-		},
-		armorOptions : [{
-			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
-			name : "Darkwood core",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11
-		}, {
-			regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
-			name : "Darkwood core (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11,
-			addMod : true
-		}, {
-			regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-			name : "Composite plating (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 13,
-			addMod : true,
-			dex : 2
-		}, {
-			regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-			name : "Heavy plating (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 16,
-			addMod : true,
-			stealthdis : true,
-			dex : -10
-		}]
-	};
-	RaceList["skirmisher warforged"] = {
-		regExpSearch : /^(?=.*warforged)(?=.*skirmisher).*$/i,
-		name : "Skirmisher warforged",
-		sortname : "Warforged, Skirmisher",
-		source : [["WGtE", 70], ["UA:RoE", 9]],
-		plural : "Skirmisher warforged",
-		size : 3,
-		speed : {
-			walk : { spd : 35, enc : 25 }
-		},
-		languageProfs : ["Common"],
-		savetxt : {
-			text : ["Magic can't put me to sleep"],
-			immune : ["disease", "exhaustion from lack of rest"],
-			adv_vs : ["poison"]
-		},
-		dmgres : ["Poison"],
-		age : " are created as adults and will only start to show signs of physical deterioration after 150 years, but have no further aging effects",
-		height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
-		weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
-		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
-		scores : [0, 2, 1, 0, 0, 0],
-		trait : "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
-		eval : function() {
-			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
-			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating (Prof)';
-			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating (Prof)';
-			} else {
-				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
-			};
-		},
-		removeeval : function () {
-			if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
-				tDoc.resetForm(['AC Armor Description']);
-			};
-		},
-		armorOptions : [{
-			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
-			name : "Darkwood core",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11
-		}, {
-			regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
-			name : "Darkwood core (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11,
-			addMod : true
-		}, {
-			regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-			name : "Composite plating (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 13,
-			addMod : true,
-			dex : 2
-		}, {
-			regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-			name : "Heavy plating (Prof)",
-			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 16,
-			addMod : true,
-			stealthdis : true,
-			dex : -10
-		}]
-	};
-}
 var iFileName = "ua_20180813_Races-of-Ravnica.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Races of Ravnica article to MPMB's Character Record Sheet
@@ -40252,939 +40514,6 @@ RaceList["viashino"] = {
 	action : ["reaction", "Lashing Tail (after being hit)"],
 	trait : "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage."
 };
-var iFileName = "ua_20180910_Dragonmarks.js";
-RequiredSheetVersion(13);
-// This file adds the content from the Unearthed Arcana: Dragonmarks article to MPMB's Character Record Sheet
-// Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
-
-// Define the sources
-SourceList["UA:D"] = {
-	name : "Unearthed Arcana: Dragonmarks",
-	abbreviation : "UA:D",
-	group : "Unearthed Arcana",
-	url : "https://media.wizards.com/2018/dnd/downloads/UA_Dragonmarks.pdf",
-	date : "2018/09/10"
-};
-
-if (!SourceList.WGtE) {
-	// Dragonmarks subraces
-	RaceList["dragonmark detection half-elf"] = {
-		regExpSearch : /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
-		name : "Half-elf (dragonmark)",
-		sortname : "Dragonmark, Detection (Half-Elf)",
-		source : [["WGtE", 96], ["UA:D", 2]],
-		plural : "Half-elves (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Elvish"],
-		vision : [["Darkvision", 60]],
-		savetxt : {
-			text : ["Magic can't put me to sleep"],
-			adv_vs : ["charmed"]
-		},
-		age : " reach adulthood around age 20 and often live over 180 years",
-		height : " range from 5 to 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scorestxt : "+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice",
-		scores : [0, 0, 0, 1, 0, 1],
-		trait : "Half-Elf, Dragonmark of Detection (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Deductive Intuition: I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.\n" + (typePF ? "\n" : "   ") + "Sense Threats: I can cast Detect Magic and Detect Poison and Disease as rituals using Intelligence as my spellcasting ability.",
-		spellcastingAbility : 4,
-		spellcastingBonus : {
-			name : "Sense Threats",
-			spells : ["detect magic", "detect poison and disease"],
-			selection : ["detect magic", "detect poison and disease"],
-			firstCol : "(R)",
-			times : 2
-		},
-		spellChanges : {
-			"detect magic" : {
-				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
-			},
-			"detect poison and disease" : {
-				time : "10 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
-			}
-		}
-	};
-	RaceList["dragonmark finding half-orc"] = {
-		regExpSearch : /^(?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
-		name : "Half-orc (dragonmark)",
-		sortname : "Dragonmark, Finding (Half-Orc)",
-		source : [["WGtE", 97], ["UA:D", 2]],
-		plural : "Half-orcs (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Orc"],
-		vision : [["Darkvision", 60]],
-		age : " reach adulthood around age 14 and rarely live longer than 75 years",
-		height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
-		weight : " weigh around 215 lb (140 + 2d10 \xD7 2d6 lb)",
-		heightMetric : " range from 1,5 to well over 1,8 metres tall (150 + 5d10 cm)",
-		weightMetric : " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
-		scorestxt : "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
-		scores : [1, 0, 0, 0, 1, 0],
-		trait : "Half-Orc, Dragonmark of Finding (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint a target I can see in 30 ft or with a Survival check when tracking it, lasting until it dies or I use this again. I double my Intuition Die for tracking it, sense its general location in 60 ft, my attacks vs. it ignore half cover and don't have disadv. if I can't see it, and it has no adv. vs. me if I can't see it.\n" + (typePF ? "Nature's Voice: cast Locate Animals/Plants as a ritual from 3rd level." : "   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual."),
-		features : {
-			"imprint prey" : {
-				name : "Imprint Prey",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["bonus action", ""]
-			},
-			"locate animals or plants" : {
-				name : "Locate Animals or Plants",
-				minlevel : 3,
-				spellcastingBonus : {
-					name : "Nature's Voice",
-					spells : ["locate animals or plants"],
-					selection : ["locate animals or plants"],
-					firstCol : "(R)"
-				},
-				spellChanges : {
-					"locate animals or plants" : {
-						time : "10 min",
-						changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
-					}
-				}
-			}
-		}
-	};
-	RaceList["dragonmark handling human"] = {
-		regExpSearch : /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
-		name : "Human (dragonmark)",
-		sortname : "Dragonmark, Handling (Human)",
-		source : [["WGtE", 98], ["UA:D", 3]],
-		plural : "Humans (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", 1],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-		weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-		heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-		weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-		scorestxt : "+1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice",
-		scores : [0, 1, 0, 0, 1, 0],
-		trait : "Human, Dragonmark of Handling (+1 Dex" + (typePF ? ", +1 Wis, +1 to one ability" : "terity, +1 Wisdom, +1 to any one ability score") + ")\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: Once per short rest, I can cast Animal Friendship using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".\n   " + (typePF ? "The Bigger They Are: My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "Bigger They Are: My spells that affect only beasts, also affect monstrosities with Int < 4."),
-		spellcastingAbility : 5,
-		features : {
-			"animal friendship" : {
-				name : "Primal Connection",
-				limfeaname : "Animal Friendship",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				spellcastingBonus : {
-					name : "Primal Connection",
-					spells : ["animal friendship"],
-					selection : ["animal friendship"],
-					firstCol : 'oncesr'
-				}
-			}
-		},
-		calcChanges : {
-			spellAdd : [
-				function (spellKey, spellObj, spName) {
-					switch (spellKey) {
-						case "animal friendship" :
-							spellObj.description = spellObj.description.replace("beasts", "beasts/monstrosities");
-							return true;
-						case "beast bond" :
-							spellObj.description = "Telepathic link with 1 beast/monstrosity Int<4 while in sight; it has adv. on atks vs. crea I can see";
-							return true;
-						case "beast sense" :
-							spellObj.description = "Use senses of 1 willing monstrosity Int<4 or beast; I'm blinded and deafened while doing so";
-							return true;
-						case "dominate beast" :
-							spellObj.description = "1 monstrosity Int<4 or beast save or charmed, follows telepathic commands, 1 a for complete control";
-							return true;
-						case "speak with animals" :
-							spellObj.description = "Communicate verbally with monstrosities Int<4 or beasts for duration; interactions limited by their Int";
-							return true;
-					}
-				},
-				"Spells I cast that only affect beasts can also affect monstrosities with an Intelligence score of 3 or lower."
-			]
-		}
-	};
-	RaceList["dragonmark healing halfling"] = {
-		regExpSearch : /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
-		name : "Halfling (dragonmark)",
-		sortname : "Dragonmark, Healing (Halfling)",
-		source : [["WGtE", 99], ["UA:D", 3]],
-		plural : "Halflings (dragonmark)",
-		size : 4,
-		speed : {
-			walk : { spd : 25, enc : 15 }
-		},
-		languageProfs : ["Common", "Halfling"],
-		savetxt : { adv_vs : ["frightened"] },
-		age : " reach adulthood at age 20 and live around 150 years",
-		height : " average about 3 feet tall (2'7\" + 2d4\")",
-		weight : " weigh around 40 lb (35 + 2d4 lb)",
-		heightMetric : " average about 90 cm tall (80 + 5d4)",
-		weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-		scores : [0, 2, 0, 0, 1, 0],
-		trait : "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n  " : "") + 
-			" Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + desc([
-			"Halfling Nimbleness: I can move through the space of Medium and larger creatures.",
-			"Medical Intuition: I " + (typePF ? "" : "can") + " add my Intuition Die (1d4) to " + (typePF ? "Medicine" : "my Wisdom (Medicine)") + " checks.",
-			"Healing Touch: As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
-			"Jorasco's Blessing: I know the Spare the Dying cantrip."
-		]),
-		features : {
-			"healing touch" : {
-				name : "Healing Touch",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["action", ""]
-			}
-		},
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Jorasco's Blessing",
-			spells : ["spare the dying"],
-			selection : ["spare the dying"],
-			firstCol : 'atwill'
-		}
-	};
-	RaceList["dragonmark hospitality halfling"] = {
-		regExpSearch : /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
-		name : "Halfling (dragonmark)",
-		sortname : "Dragonmark, Hospitality (Halfling)",
-		source : [["WGtE", 100], ["UA:D", 4]],
-		plural : "Halflings (dragonmark)",
-		size : 4,
-		speed : {
-			walk : { spd : 25, enc : 15 }
-		},
-		languageProfs : ["Common", "Halfling"],
-		savetxt : { adv_vs : ["frightened"] },
-		age : " reach adulthood at age 20 and live around 150 years",
-		height : " average about 3 feet tall (2'7\" + 2d4\")",
-		weight : " weigh around 40 lb (35 + 2d4 lb)",
-		heightMetric : " average about 90 cm tall (80 + 5d4)",
-		weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-		scores : [0, 2, 0, 0, 0, 1],
-		trait : "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nHalfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.\nInnkeeper's Charms: I know Friends and Prestidigitation with Cha as my spellcasting ability.",
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Innkeeper's Charms",
-			spells : ["friends", "prestidigitation"],
-			selection : ["friends", "prestidigitation"],
-			firstCol : 'atwill',
-			times : 2
-		}
-	};
-	RaceList["dragonmark making human"] = {
-		regExpSearch : /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
-		name : "Human (dragonmark)",
-		sortname : "Dragonmark, Making (Human)",
-		source : [["WGtE", 101], ["UA:D", 4]],
-		plural : "Humans (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", 1],
-		toolProfs : [["Artisan's tools", 1]],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-		weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-		heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-		weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-		scorestxt : "+1 Dexterity, +1 Intelligence, and +1 to any one ability score of my choice",
-		scores : [0, 1, 0, 1, 0, 0],
-		trait : "Human, Dragonmark of Making (+1 Dex" + (typePF ? ", +2 Int or +2 Dex, +1 Int" : "terity, +1 Intelligence, +1 to Dex or Int, my choice") + ")\nArtisan's Intuition: I can add my Intuition Die (1d4) to ability checks with artisan's tools.\nMagecraft: I can create a magic item that gives me the ability to cast one wizard cantrip of my choice, using Intelligence as my spellcasting ability. This works while the item is in my possession. At the end of a long rest, I can replace it with a new item and cantrip.\nSpellsmith: Once per long rest, I can spend 1 minute to make a nonmagical armor or weapon gain a +1 bonus for the next hour. Maker's Gift: I know the mending cantrip.",
-		features : {
-			"spellsmith" : {
-				name : "Spellsmith",
-				minlevel : 1,
-				usages : 1,
-				recovery : "long rest"
-			}
-		},
-		eval : function () {
-			CurrentSpells['dragonmark making human'] = {
-				name : 'Human (dragonmark)',
-				ability : 4,
-				list : { 'class' : 'wizard', level : [0, 0], notspells : ['mending'] },
-				known : { cantrips : 1, spells : 'list' },
-				bonus : {
-					bonus1 : {
-						name : "Maker's Gift",
-						spells : ['mending'],
-						selection : ['mending'],
-						firstCol : 'atwill'
-					}
-				},
-				typeList : 2,
-				refType : "race"
-			};
-			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-		},
-		removeeval : function () {
-			delete CurrentSpells['dragonmark making human'];
-			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-		}
-	};
-	RaceList["dragonmark passage human-ua-d"] = { // different in Unearthed Arcana
-		regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
-		name : "Human (dragonmark)",
-		sortname : "Dragonmark, Passage (Human)",
-		source : ["UA:D", 4],
-		plural : "Humans (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 40, enc : 30 }
-		},
-		languageProfs : ["Common", 1],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-		weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-		heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-		weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-		scorestxt : "+2 Dexterity and +1 to another ability score of my choice",
-		scores : [0, 2, 0, 0, 0, 0],
-		trait : "Human, Dragonmark of Passage (+2 Dexterity and +1 to another ability score)\n   Intuitive Motion: I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Orien's Grace: I can forgo half my movement speed for my turn to no longer provoke opportunity attacks for the rest of that turn.\n   Shared Passage: As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
-		features : {
-			"shared passage" : {
-				name : "Shared Passage",
-				minlevel : 1,
-				usages : 1,
-				recovery : "long rest",
-				action : ["bonus action", ""]
-			}
-		}
-	};
-	RaceList["dragonmark scribing gnome"] = {
-		regExpSearch : /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
-		name : "Gnome (dragonmark)",
-		sortname : "Dragonmark, Scribing (Gnome)",
-		source : [["WGtE", 103], ["UA:D", 5]],
-		plural : "Gnomes (dragonmark)",
-		size : 4,
-		speed : {
-			walk : { spd : 25, enc : 15 }
-		},
-		languageProfs : ["Common", "Gnomish", 1],
-		toolProfs : ["Calligrapher's supplies", "Forgery kits"],
-		vision : [["Darkvision", 60]],
-		savetxt : { text : ["Adv. on Int/Wis/Cha saves vs. magic"] },
-		age : " start adult life around age 40 and can live 350 to almost 500 years",
-		height : " are 3 to 4 feet tall (2'11\" + 2d4\")",
-		weight : " weigh around 40 lb (35 + 2d4 lb)",
-		heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
-		weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-		scores : [0, 0, 0, 2, 0, 1],
-		trait : "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
-		spellcastingAbility : 4,
-		spellcastingBonus : {
-			name : "Whispering Wind",
-			spells : ["message"],
-			selection : ["message"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"comprehend languages" : {
-				name : "Scribe's Insight",
-				limfeaname : "Comprehend Languages",
-				minlevel : 1,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Scribe's Insight",
-					spells : ["comprehend languages"],
-					selection : ["comprehend languages"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-	RaceList["dragonmark sentinel human"] = {
-		regExpSearch : /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
-		name : "Human (dragonmark)",
-		sortname : "Dragonmark, Sentinel (Human)",
-		source : [["WGtE", 104], ["UA:D", 5]],
-		plural : "Humans (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", 1],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-		weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-		heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-		weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-		scorestxt : "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
-		scores : [1, 0, 0, 0, 1, 0],
-		trait : "Human, Dragonmark of Sentinel (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Sentinel's Intuition: I can add my Intuition Die (1d4) to Initiative rolls and my Wisdom (Perception) checks.\n   Sentinel's Shield: I know the Blade Ward cantrip. I can cast Shield once per short rest.\n   Vigilant Guardian: As an action, I can designate an ally as my ward, gaining adv. on Insight and Perception checks to spot threats to it. As a reaction when I see my ward being attacked while within 5 ft, I can swap places with it, becoming the target of the attack.",
-		action : [['action', 'Vigilant Guardian (designate ward)'], ['reaction', 'Vigilant Guardian (swap with ward)']],
-		features : {
-			"shield" : {
-				name : "Sentinel's Shield",
-				limfeaname : "Shield",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["reaction", ""],
-				spellcastingBonus : [{
-					name : "Sentinel's Shield",
-					spells : ["blade ward"],
-					selection : ["blade ward"],
-					firstCol : 'atwill'
-				}, {
-					name : "Sentinel's Shield",
-					spells : ["shield"],
-					selection : ["shield"],
-					firstCol : 'oncesr'
-				}]
-			}
-		}
-	};
-	RaceList["dragonmark shadow elf"] = {
-		regExpSearch : /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
-		name : "Elf (dragonmark)",
-		sortname : "Dragonmark, Shadow (Elf)",
-		source : [["WGtE", 105], ["UA:D", 6]],
-		plural : "Elves (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Elvish"],
-		vision : [["Darkvision", 60]],
-		savetxt : {
-			text : ["Magic can't put me to sleep"],
-			adv_vs : ["charmed"]
-		},
-		skills : ["Perception"],
-		skillstxt : "Perception and proficiency with either Performance or one musical instrument",
-		age : " typically claim adulthood around age 100 and can live to be 750 years old",
-		height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
-		weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
-		heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
-		weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-		scores : [0, 2, 0, 0, 0, 1],
-		trait : "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nGift of the Shadows: I can add my Intuition Die (1d4) to Performance and Stealth checks.\nShape Shadows: I know the Minor Illusion cantrip using Charisma as my spellcasting ability.\nSlip Into Shadow: As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Shape Shadows",
-			spells : ["minor illusion"],
-			selection : ["minor illusion"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"slip into shadow" : {
-				name : "Slip Into Shadow",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				action : ["bonus action", ""]
-			}
-		}
-	};
-	AddRacialVariant("dragonmark shadow elf", "performance, ", {
-		regExpSearch : /performance/i,
-		source : [["WGtE", 105], ["UA:D", 6]],
-		skills : ["Perception", "Performance"],
-		skillstxt : ""
-	});
-	AddRacialVariant("dragonmark shadow elf", "musical instrument, ", {
-		regExpSearch : /musical instrument/i,
-		source : [["WGtE", 105], ["UA:D", 6]],
-		skillstxt : "",
-		toolProfs : [["Musical instrument", 1]]
-	});
-	RaceList["dragonmark storm half-elf"] = {
-		regExpSearch : /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
-		name : "Half-elf (dragonmark)",
-		sortname : "Dragonmark, Storm (Half-Elf)",
-		source : [["WGtE", 106], ["UA:D", 6]],
-		plural : "Half-elves (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 },
-			swim : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Elvish"],
-		vision : [["Darkvision", 60]],
-		dmgres : ["Lightning"],
-		savetxt : {
-			text : ["Magic can't put me to sleep"],
-			adv_vs : ["charmed"]
-		},
-		age : " reach adulthood around age 20 and often live over 180 years",
-		height : " range from 5 to 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scorestxt : "+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice",
-		scores : [0, 1, 0, 0, 0, 1],
-		trait : "Half-Elf, Dragonmark of Storm (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Windwright's Intuition: I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n" + (typePF ? "\n" : "   ") + "Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.",
-		spellcastingAbility : 6, // Not mentioned in WGtE, but essential!
-		spellcastingBonus : {
-			name : "Headwinds (level 1)",
-			spells : ["gust"],
-			selection : ["gust"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"gust of wind" : {
-				name : "Headwinds (level 3)",
-				limfeaname : "Gust of Wind",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Headwinds (level 3)",
-					spells : ["gust of wind"],
-					selection : ["gust of wind"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-	RaceList["dragonmark warding dwarf"] = {
-		regExpSearch : /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
-		name : "Dwarf (dragonmark)",
-		sortname : "Dragonmark, Warding (Dwarf)",
-		source : [["WGtE", 108], ["UA:D", 7]],
-		plural : "Dwarves (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 25, enc : 25 }
-		},
-		languageProfs : ["Common", "Dwarvish"],
-		vision : [["Darkvision", 60]],
-		savetxt : { adv_vs : ["poison"] },
-		dmgres : ["Poison"],
-		weaponProfs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
-		toolProfs : [["Smith, brewer, or mason tools", 1]],
-		age : " are considered young until they are 50 and live about 350 years",
-		height : " stand between 4 and 5 feet tall (4' + 2d4\")",
-		weight : " weigh around 150 lb (130 + 2d4 \xD7 2d6 lb)",
-		heightMetric : " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
-		weightMetric : " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
-		scores : [0, 1, 2, 1, 0, 0],
-		trait : "Dwarf, Dragonmark of Warding (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")\n   Stonecunning: When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.\n   Master of Locks: I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.\n   Wards and Seals: I can cast Alarm as a ritual. Once I reach 3rd level, I can cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these.",
-		spellcastingAbility : 4,
-		spellcastingBonus : {
-			name : "Wards and Seals (level 1)",
-			spells : ["alarm"],
-			selection : ["alarm"],
-			firstCol : "(R)"
-		},
-		spellChanges : {
-			"alarm" : {
-				time : "11 min",
-				changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
-			}
-		},
-		features : {
-			"arcane lock" : {
-				name : "Wards and Seals (level 3)",
-				limfeaname : "Arcane Lock",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Wards and Seals (level 3)",
-					spells : ["arcane lock"],
-					selection : ["arcane lock"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-
-	// Gust cantrip reprint
-	if (!SpellsList["gust"]) {
-		SpellsList["gust"] = {
-			name : "Gust",
-			classes : ["druid", "sorcerer", "wizard"],
-			source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
-			level : 0,
-			school : "Trans",
-			time : "1 a",
-			range : "30 ft",
-			components : "V,S",
-			duration : "Instantaneous",
-			save : "Str",
-			description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
-			descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
-		};
-	}
-
-	// Greater Dragonmark feats
-	FeatsList["greater dragonmark"] = {
-		name : "Greater Dragonmark",
-		source : [["WGtE", 110], ["UA:D", 7]],
-		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
-		description : "Select the type of greater dragonmark using the square button on this feat line.\nMy Intuition Die increases with one step (for example d4 to d6), I gain spellcating abilities, and an increase to one ability score.",
-		eval : function () {
-			var raceTrait = What('Racial Traits');
-			if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) {
-				Value('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'));
-			};
-		},
-		removeeval : function () {
-			var raceTrait = What('Racial Traits');
-			if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) {
-				Value('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'));
-			};
-		},
-		choices : ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
-		"detection" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
-			scorestxt : "+1 Charisma or Intelligence",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["see invisibility", "true seeing"],
-				selection : ["see invisibility", "true seeing"],
-				spellcastingAbility : 4,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"see invisibility" : {
-					components : "V,S",
-					compMaterial : "",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				},
-				"true seeing" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "1 willing crea gains truesight 120 ft; see through illusions, hidden doors, ethereal plane",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"finding" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
-			scorestxt : "+1 Strength, Dexterity, or Wisdom",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["locate creature", "find the path"],
-				selection : ["locate creature", "find the path"],
-				spellcastingAbility : 5,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"locate creature" : {
-					components : "V,S",
-					compMaterial : "",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				},
-				"find the path" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "Know the shortest route to a location I am familiar with and are on the same plane with",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"handling" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
-			scorestxt : "+1 Dexterity or Wisdom",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["beast sense", "dominate beast"],
-				selection : ["beast sense", "dominate beast"],
-				spellcastingAbility : 5,
-				firstCol : 'oncelr',
-				times : 2
-			}
-		},
-		"healing" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
-			scorestxt : "+1 Dexterity or Wisdom",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["mass healing word", "greater restoration"],
-				selection : ["mass healing word", "greater restoration"],
-				spellcastingAbility : 5,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"greater restoration" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "Reduce exhaustion or end charm, petrify, curse, stat or max HP reduction",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"hospitality" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
-			scorestxt : "+1 Dexterity or Charisma",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["sanctuary", "mordenkainen's magnificent mansion"],
-				selection : ["sanctuary", "mordenkainen's magnificent mansion"],
-				spellcastingAbility : 6,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"sanctuary" : {
-					components : "V,S",
-					compMaterial : "",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				},
-				"mordenkainen's magnificent mansion" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "Create extradimensional mansion with rooms, food and servants to serve 100 people; see book",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"making" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
-			scorestxt : "+1 Dexterity or Intelligence",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["fabricate", "creation"],
-				selection : ["fabricate", "creation"],
-				spellcastingAbility : 4,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"creation" : {
-					components : "V,S",
-					compMaterial : "",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"passage" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
-			scorestxt : "+1 Dexterity or Constitution",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["blink", "teleportation circle"],
-				selection : ["blink", "teleportation circle"],
-				spellcastingAbility : 3,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"teleportation circle" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "Create a circle to teleport to another teleportation circle on same plane; see book",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"scribing" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
-			scorestxt : "+1 Intelligence or Charisma",
-			spellcastingBonus : {
-				name : "1\u00D7 per short",
-				spells : ["sending", "tongues"],
-				selection : ["sending", "tongues"],
-				spellcastingAbility : 4,
-				firstCol : 'oncesr',
-				times : 2
-			},
-			spellChanges : {
-				"sending" : {
-					components : "V,S",
-					compMaterial : "",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				},
-				"tongues" : {
-					components : "V,S",
-					compMaterial : "",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"sentinel" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
-			scorestxt : "+1 Strength or Wisdom",
-			spellcastingBonus : {
-				name : "1\u00D7 per short",
-				spells : ["compelled duel", "warding bond"],
-				selection : ["compelled duel", "warding bond"],
-				spellcastingAbility : 5,
-				firstCol : 'oncesr',
-				times : 2
-			},
-			spellChanges : {
-				"warding bond" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "1 crea +1 AC, +1 saves, resistance all dmg; if it takes dmg I take same dmg; ends if >60 ft away",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"shadow" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
-			scorestxt : "+1 Dexterity or Charisma",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["nondetection", "mislead"],
-				selection : ["nondetection", "mislead"],
-				spellcastingAbility : 6,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"nondetection" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "1 crea or object up to 10 cu ft hidden from all divination magic",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"storm" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
-			scorestxt : "+1 Dexterity or Charisma",
-			spellcastingBonus : {
-				name : "1\u00D7 per long",
-				spells : ["control water", "control winds"],
-				selection : ["control water", "control winds"],
-				spellcastingAbility : 6,
-				firstCol : 'oncelr',
-				times : 2
-			},
-			spellChanges : {
-				"control water" : {
-					components : "V,S",
-					compMaterial : "",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				}
-			}
-		},
-		"warding" : {
-			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
-			prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known); },
-			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
-			description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
-			scorestxt : "+1 Dexterity or Intelligence",
-			spellcastingBonus : [{
-				name : "1\u00D7 per long",
-				spells : ["knock", "glyph of warding"],
-				selection : ["knock", "glyph of warding"],
-				spellcastingAbility : 4,
-				firstCol : 'oncelr',
-				times : 2
-			}, {
-				name : "with Siberys dragonshard",
-				spells : ["leomund's secret chest"],
-				selection : ["leomund's secret chest"],
-				firstCol : 'oncelr'
-			}],
-			spellChanges : {
-				"glyph of warding" : {
-					components : "V,S",
-					compMaterial : "",
-					description : "Create a glyph that triggers on set condition; Int(Investigation) vs. Spell DC; see book",
-					changes : "Spells cast through my Greater Dragonmark don't require material components."
-				},
-				"glyph of warding" : {
-					compMaterial : "A Siberys dragonshard with a value of at least 100 gp",
-					description : "Hide chest with content in Ethereal Plane for 60 days, after that chance of loss; 1 a reappear (100gp)",
-					changes : "Leomund's Secret Chest cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica."
-				}
-			}
-		}
-	};
-
-	// Aberrant Dragonmark feat
-	FeatsList["aberrant dragonmark"] = {
-		name : "Aberrant Dragonmark",
-		source : [["WGtE", 112], ["UA:D", 9]],
-		prerequisite : "Not having a dragonmark",
-		prereqeval : function(v) { return !(/dragonmark/i).test(CurrentRace.known); },
-		descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
-		description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
-		description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
-		scores : [0, 0, 1, 0, 0, 0],
-		spellcastingAbility : 3,
-		spellcastingBonus : [{
-			name : "Sorcerer cantrip",
-			'class' : 'sorcerer',
-			level : [0, 0],
-			firstCol : 'atwill'
-		}, {
-			name : "Sorcerer 1st-level spell",
-			'class' : 'sorcerer',
-			level : [1, 1],
-			firstCol : 'oncelr'
-		}]
-	};
-}
-
-// Control Winds reprint (only in Unearthed Arcana article)
-if (!SpellsList["control winds"]) {
-	SpellsList["control winds"] = {
-		name : "Control Winds",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 152], ["E", 16], ["UA:D", 8]],
-		level : 5,
-		school : "Trans",
-		time : "1 a",
-		range : "300 ft",
-		components : "V,S",
-		duration : "Conc, 1 h",
-		description : "100-ft cube of air either gusts, downdraft, or updraft; affects flying/jump/ranged; 1 a change; see B",
-		descriptionFull : "You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted." + "\n   " + toUni("Gusts") + ": A wind picks up within the cube, continually blowing in a horizontal direction you designate. You choose the intensity of the wind: calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that enter or leave the cube or pass through it have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved." + "\n   " + toUni("Downdraft") + ": You cause a sustained blast of strong wind to blow downward from the top of the cube. Ranged weapon attacks that pass through the cube or that are made against targets within it have disadvantage on their attack rolls. A creature must make a Strength saving throw if it flies into the cube for the first time on a turn or starts its turn there flying. On a failed save, the creature is knocked prone." + "\n   " + toUni("Updraft") + ": You cause a sustained updraft within the cube, rising upward from the cube's bottom side. Creatures that end a fall within the cube take only half damage from the fall. When a creature in the cube makes a vertical jump, the creature can jump up to 10 feet higher than normal."
-	};
-}
 var iFileName = "ua_20190228_Artificer.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Artificer 2019 article to MPMB's Character Record Sheet

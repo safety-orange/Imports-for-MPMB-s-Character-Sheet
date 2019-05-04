@@ -30,7 +30,8 @@ MagicItemsList["balloon pack"] = {
 		name : "1 charge",
 		spells : ["feather fall", "levitate"],
 		selection : ["feather fall", "levitate"],
-		firstCol : 1
+		firstCol : 1,
+		times : 2
 	},
 	spellChanges : {
 		"feather fall" : {

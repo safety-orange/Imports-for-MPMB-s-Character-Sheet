@@ -915,7 +915,7 @@ if (!SourceList.WGtE) {
 	};
 }
 
-// Control Winds reprint (only in Unearthed Arcana article)
+// Control Winds reprint (only in Unearthed Arcana article, not in WGtE)
 if (!SpellsList["control winds"]) {
 	SpellsList["control winds"] = {
 		name : "Control Winds",

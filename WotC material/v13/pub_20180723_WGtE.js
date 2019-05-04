@@ -1602,7 +1602,7 @@ FeatsList["aberrant dragonmark"] = {
 // Magic Items
 MagicItemsList["armblade"] = {
 	name : "Armblade",
-	source : ["WGtE", 120],
+	source : [["WGtE", 120], ["UA:MIoE", 3]],
 	type : "weapon (any one-handed melee weapon)",
 	rarity : "common",
 	description : "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
@@ -1651,7 +1651,7 @@ MagicItemsList["bag of bounty"] = {
 }
 MagicItemsList["band of loyalty"] = {
 	name : "Band of Loyalty",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "ring",
 	rarity : "common",
 	description : "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
@@ -1660,7 +1660,7 @@ MagicItemsList["band of loyalty"] = {
 }
 MagicItemsList["cleansing stone"] = {
 	name : "Cleansing Stone",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
@@ -1669,7 +1669,7 @@ MagicItemsList["cleansing stone"] = {
 }
 MagicItemsList["everbright lantern"] = {
 	name : "Everbright Lantern",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
@@ -1677,7 +1677,7 @@ MagicItemsList["everbright lantern"] = {
 }
 MagicItemsList["feather token"] = {
 	name : "Feather Token",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
@@ -1685,7 +1685,7 @@ MagicItemsList["feather token"] = {
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
@@ -1703,7 +1703,7 @@ MagicItemsList["glamerweave"] = {
 }
 MagicItemsList["imbued wood"] = {
 	name : "Imbued Wood",
-	source : ["WGtE", 114],
+	source : [["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "While holding a rod, wand, or staff made of imbued wood, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
@@ -1830,7 +1830,7 @@ MagicItemsList["keycharm"] = {
 }
 MagicItemsList["orb of shielding"] = {
 	name : "Orb of Shielding",
-	source : ["WGtE", 114],
+	source : [["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "An orb of shielding is made from crystal or stone aligned to one of the planes. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4.",
@@ -1911,7 +1911,7 @@ MagicItemsList["scribe's pen"] = {
 }
 MagicItemsList["shiftweave"] = {
 	name : "Shiftweave",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
@@ -1920,7 +1920,7 @@ MagicItemsList["shiftweave"] = {
 }
 MagicItemsList["spellshard"] = {
 	name : "Spellshard",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 3]],
 	type : "wondrous item",
 	description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
 	allowDuplicates : true,
@@ -1942,7 +1942,7 @@ MagicItemsList["spellshard"] = {
 }
 MagicItemsList["wand sheath"] = {
 	name : "Wand Sheath",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115], ["UA:MIoE", 4]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
