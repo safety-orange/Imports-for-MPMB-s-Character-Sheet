@@ -34,7 +34,7 @@ MagicItemsList["azuredge"] = {
 		name : "Azuredge",
 		source : ["WDH", 189],
 		range : "Melee, 60/180 ft",
-		description : "Versatile (1d10), thrown (1 charge), returning; Ignores Shield spell; +2d6 radiant damage vs. fiends/undead",
+		description : "Versatile (1d10), thrown (1 charge); Returning; Ignores Shield spell; +2d6 radiant damage vs. fiends/undead",
 		modifiers : [3,3]
 	},
 	spellcastingBonus : {
@@ -46,7 +46,7 @@ MagicItemsList["azuredge"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Azuredge",
-		note : "\n   " + azuredgeFullDescription.replace(/>>|<</g, "").replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : "\n   " + azuredgeFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
 MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
@@ -131,7 +131,7 @@ MagicItemsList["blackstaff"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Blackstaff",
-		note : "\n   " + blackstaffFullDescription.replace(/>>|<</g, "").replace(/your/g, "my").replace(/you /ig, "I ")
+		note : "\n   " + blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ")
 	}, {
 		name : "Sentient Item Features",
 		note : sentientItemConflictTxt

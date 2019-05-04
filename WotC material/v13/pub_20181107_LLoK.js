@@ -230,7 +230,7 @@ MagicItemsList["leather golem armor"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Leather Golem Armor",
-		note : desc(leatherGolemArmorFullDescription).replace(/>>|<</g, "").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
+		note : desc(leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
 	}]
 }
 var polymorphBladeFullDescription = [
@@ -283,7 +283,7 @@ MagicItemsList["polymorph blade"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of a Polymorph Blade",
-		note : desc(polymorphBladeFullDescription).replace(/>>|<</g, "").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
+		note : desc(polymorphBladeFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
 	}]
 }
 var poweredArmorFullDescription = [

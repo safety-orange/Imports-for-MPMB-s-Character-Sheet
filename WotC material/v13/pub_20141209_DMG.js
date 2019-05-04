@@ -482,7 +482,7 @@ MagicItemsList["cap of water breathing"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
-	description : "While wearing this cap underwater, I can speak its command word as an action to create a bubble of air around your head. It allows me to breathe normally underwater. This bubble stays with me until I speak the command word again, the cap is removed, or I am no longer underwater.",
+	description : "While wearing this cap underwater, I can speak its command word as an action to create a bubble of air around my head. It allows me to breathe normally underwater. This bubble stays with me until I speak the command word again, the cap is removed, or I am no longer underwater.",
 	descriptionFull : "While wearing this cap underwater, you can speak its command word as an action to create a bubble of air around your head. It allows you to breathe normally underwater. This bubble stays with you until you speak the command word again, the cap is removed, or you are no longer underwater.",
 	action : [["action", ""]]
 }
@@ -1174,4 +1174,200 @@ MagicItemsList["weapon of warning"] = {
 		descriptionChange : ["replace", "weapon"]
 	},
 	advantages : [["Initiative", true]]
+}
+
+// Sentient Items
+var blackrazorFullDescription = [
+	"Hidden in the dungeon of White Plume Mountain, Blackrazor shines like a piece of night sky filled with stars. Its black scabbard is decorated with pieces of cut obsidian.",
+	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the following additional properties.",
+	">>Devour Soul<<. Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by Blackrazor can be restored to life only by a Wish spell.",
+	"When it devours a soul, Blackrazor grants you temporary hit points equal to the slain creature's hit point maximum. These hit points fade after 24 hours. As long as these temporary hit points last and you keep Blackrazor in hand, you have advantage on attack rolls, saving throws, and ability checks.",
+	"If you hit an undead with this weapon, you take 1d10 necrotic damage and the target regains 1d10 hit points. If this necrotic damage reduces you to 0 hit points, Blackrazor devours your soul.",
+	">>Soul Hunter<<. While you hold the weapon, you are aware of the presence of Tiny or larger creatures within 60 feet of you that aren't constructs or undead. You also can't be charmed or frightened.",
+	"Blackrazor can cast the Haste spell on you once per day. It decides when to cast the spell and maintains concentration on it so that you don't have to.",
+	">>Sentience<<. Blackrazor is a sentient chaotic neutral weapon with an Intelligence of 17, a Wisdom of 10, and a Charisma of 19. It has hearing and darkvision out to a range of 120 feet.",
+	"The weapon can speak, read, and understand Common, and can communicate with its wielder telepathically. Its voice is deep and echoing. While you are attuned to it, Blackrazor also understands every language you know.",
+	">>Personality<<. Blackrazor speaks with an imperious tone, as though accustomed to being obeyed.",
+	"The sword's purpose is to consume souls. It doesn't care whose souls it eats, including the wielder's. The sword believes that all matter and energy sprang from a void of negative energy and will one day return to it. Blackrazor is meant to hurry that process along.",
+	"Despite its nihilism, Blackrazor feels a strange kinship to Wave and Whelm, two other weapons locked away under White Plume Mountain. It wants the three weapons to be united again and wielded together in combat, even though it violently disagrees with Whelm and finds Wave tedious.",
+	"Blackrazor's hunger for souls must be regularly fed. If the sword goes three days or more without consuming a soul, a conflict between it and its wielder occurs at the next sunset."
+];
+MagicItemsList["blackrazor"] = {
+	name : "Blackrazor",
+	source : ["D", 216],
+	type : "weapon (greatsword)",
+	rarity : "legendary",
+	notLegalAL : true,
+	description : "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast Haste on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
+	descriptionFull : blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	prerequisite : "Requires attunement by a creature of non-lawful alignment",
+	prereqeval : function(v) { return !(/lawful/i).test(What("Alignment")); },
+	action : [["bonus action", ""]],
+	weight : 6,
+	weaponsAdd : ["Blackrazor"],
+	weaponOptions : {
+		baseWeapon : "greatsword",
+		regExpSearch : /blackrazor/i,
+		name : "Blackrazor",
+		source : ["D", 216],
+		description : "Heavy, two-handed; Devours soul; Heals undead",
+		modifiers : [3,3]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Blackrazor",
+		note : desc(blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}],
+	savetxt : { immune : ["charmed", "frightened"] },
+	usages : 1,
+	recovery : "day",
+	additional : "Haste",
+	spellcastingBonus : [{
+		name: "Once per day",
+		spells: ["haste"],
+		selection: ["haste"],
+		firstCol : "oncelr"
+	}],
+	spellChanges : {
+		"command" : {
+			range : "Self",
+			duration : "1 min",
+			description : "I get +2 AC, speed doubled, adv. on Dex saves, extra action (1 attack, dash, disengage, hide)",
+			changes : "Blackrazor casts the spell on me, so I don't need to concentrate on it."
+		}
+	}
+}
+var waveFullDescription = [
+	"Held in the dungeon of White Plume Mountain, this trident is an exquisite weapon engraved with images of waves, shells, and sea creatures. Although you must worship a god of the sea to attune to this weapon, Wave happily accepts new converts.",
+	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. If you score a critical hit with it, the target takes extra necrotic damage equal to half its hit point maximum.",
+	"The weapon also functions as a trident of fish command and a weapon of warning. It can confer the benefit of a cap of water breathing while you hold it, and you can use it as a cube of force by choosing the effect, instead of pressing cube sides to select it.",
+	">>Sentience<<. Wave is a sentient weapon of neutral alignment, with an Intelligence of 14, a Wisdom of 10, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet.",
+	"The weapon communicates telepathically with its wielder and can speak, read, and understand Aquan. It can also speak with aquatic animals as if using a Speak with Animals spell, using telepathy to involve its wielder in the conversation.",
+	">>Personality<<. When it grows restless, Wave has a habit of humming tunes that vary from sea chanteys to sacred hymns of the sea gods.",
+	"Wave zealously desires to convert mortals to the worship of one or more sea gods, or else to consign the faithless to death. Conflict arises if the wielder fails to further the weapon's objectives in the world. The trident has a nostalgic attachment to the place where it was forged, a desolate island called Thunderforge. A sea god imprisoned a family of storm giants there, and the giants forged Wave in an act of devotion to\u2014or rebellion against\u2014that god.",
+	"Wave harbors a secret doubt about its own nature and purpose. For all its devotion to the sea gods, Wave fears that it was intended to bring about a particular sea god's demise. This destiny is something Wave might not be able to avert."
+];
+MagicItemsList["wave"] = {
+	name : "Wave",
+	source : ["D", 218],
+	type : "weapon (trident)",
+	rarity : "legendary",
+	notLegalAL : true,
+	description : "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
+	descriptionFull : waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	prerequisite : "Requires attunement by a creature that worships a god of the sea",
+	prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
+	weight : 4,
+	weaponsAdd : ["Wave"],
+	weaponOptions : {
+		baseWeapon : "trident",
+		regExpSearch : /wave/i,
+		name : "Wave",
+		source : ["D", 218],
+		description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
+		modifiers : [3,3]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Wave",
+		note : desc(waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
+	}, {
+		name : "Contained Items",
+		popupName : "Descriptions of magic items contained in Wave",
+		note : [
+			"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
+			"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
+			"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
+			"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note)
+		].join("\n\n")
+	}],
+	// cube of force & cap of water breathing
+	action : [["action", " (Cap of Water Breathing)"], ["action", " (Cube of Force)"]],
+	extraLimitedFeatures : [{
+		name : "Wave [Cube of Force] (regains 1d20)",
+		usages : 36,
+		recovery : "dawn"
+	}, {
+	// trident of fish command
+		name : "Wave [Fish Command] (regains 1d3)",
+		usages : 3,
+		recovery : "dawn"
+	}],
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["dominate beast"],
+		selection : ["dominate beast"],
+		firstCol : 1
+	},
+	spellChanges : {
+		"dominate beast" : {
+			description : "1 beast with swim speed save or charmed, follows telepathic commands, 1 a for complete control",
+			changes : "Can only affect beasts with innate swim speed."
+		}
+	},
+	// weapon of warning
+	advantages : [["Initiative", true]]
+}
+var whelmFullDescription = [
+	"Whelm is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.",
+	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with Whelm, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.",
+	">>Thrown Weapon<<. Whelm has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.",
+	">>Shock Wave<<. You can use an action to strike the ground with Whelm and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 15 Constitution saving throw or become stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.",
+	">>Supernatural Awareness<<. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast Detect Evil and Good or Locate Object from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.",
+	">>Sentience<<. Whelm is a sentient lawful neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
+	"The weapon communicates telepathically with its wielder and can speak, read, and understand Dwarvish. Giant, and Goblin. It shouts battle cries in Dwarvish when used in combat.",
+	">>Personality<<. Whelm's purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves. Whelm has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm. The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent Whelm to his evil purposes, even killing members of his own clan."
+];
+MagicItemsList["whelm"] = {
+	name : "Whelm",
+	source : ["D", 218],
+	type : "weapon (warhammer)",
+	rarity : "legendary",
+	notLegalAL : true,
+	description : "This sentient warhammer adds +3 to hit and damage, has the thrown property, deals extra damage when thrown, and returns to my hand when thrown. I can use it to create a shock wave. It makes me afraid of the outdoors, so while I can see the daytime sky, I have disadv. on attacks, saves, and checks. See Notes page.",
+	descriptionFull : whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	prerequisite : "Requires attunement by a dwarf",
+	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
+	weight : 2,
+	weaponsAdd : ["Whelm"],
+	weaponOptions : {
+		baseWeapon : "warhammer",
+		regExpSearch : /whelm/i,
+		name : "Whelm",
+		source : ["D", 218],
+		range : "Melee, 20/60 ft",
+		description : "Versatile (1d10), thrown; Returning; +1d8 damage when thrown (+2d8 vs. giants)",
+		modifiers : [3,3]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Whelm",
+		note : desc(whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}],
+	action : [["action", " (Shock Wave)"]],
+	extraLimitedFeatures : [{
+		name : "Whelm [Shock Wave]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Whelm [Detect Evil and Good]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Whelm [Locate Object]",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	vision : [["Know location of secret doors", 30]],
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["detect evil and good", "locate object"],
+		selection : ["detect evil and good", "locate object"],
+		firstCol : "oncelr"
+	}
 }

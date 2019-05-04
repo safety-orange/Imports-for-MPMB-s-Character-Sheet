@@ -18,18 +18,7 @@
 	}
 }
 { // pub_20141209_DMG.js
-	// Intelligent Items
-	MagicItemsList["blackrazor"] = {
-		name : "Blackrazor",
-		source : ["D", 216],
-		type : "weapon (greatsword)",
-		rarity : "legendary",
-		notLegalAL : true,
-		description : "",
-		descriptionFull : "Hidden in the dungeon of White Plume Mountain, Blackrazor shines like a piece of night sky filled with stars. Its black scabbard is decorated with pieces of cut obsidian.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the following additional properties.\n   " + toUni("Devour Soul") + ". Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by Blackrazor can be restored to life only by a Wish spell.\n   When it devours a soul, Blackrazor grants you temporary hit points equal to the slain creature's hit point maximum. These hit points fade after 24 hours. As long as these temporary hit points last and you keep Blackrazor in hand, you have advantage on attack roll. saving throws, and ability checks.\n   If you hit an undead with this weapon, you take 1d10 necrotic damage and the target regains 1d10 hit point If this necrotic damage reduces you to 0 hit points, Blackrazor devours your soul.\n   " + toUni("Soul Hunter") + ". While you hold the weapon. you are aware of the presence of Tiny or larger creatures within 60 feet of you that aren't constructs or undead. You also can't be charmed or frightened.\n   Blackrazor can cast the Haste spell on you once per day. It decides when to cast the spell and maintains concentration on it so that you don't have to.\n   " + toUni("Sentience") + ". Blackrazor is a sentient chaotic neutral weapon with an Intelligence of 17, a Wisdom of 10, and a Charisma of 19. It has hearing and darkvision out to a range of 120 feet.\n   The weapon can speak, read, and understand Common, and can communicate with its wielder telepathically. Its voice is deep and echoing. While you are attuned to it, Blackrazor also understands every language you know.\n   " + toUni("Personality") + ". Blackrazor speaks with an imperious tone, as though accustomed to being obeyed.\n   The sword's purpose is to consume souls. It doesn't care whose souls it eats, including the wielder's. The sword believes that all matter and energy sprang from a void of negative energy and will one day return to it. Blackrazor is meant to hurry that process along.\n   Despite its nihilism, Blackrazor feels a strange kinship to Wave and Whelm, two other weapons locked away under White Plume Mountain. It wants the three weapons to be united again and wielded together in combat, even though it violently disagrees with Whelm and finds Wave tedious.\n   Blackrazor's hunger for souls must be regularly fed. If the sword goes three days or more without consuming a soul, a conflict between it and its wielder occurs at the next sunset.",
-		attunement : true,
-		weight : 6
-	}
+	// Intelligent Items with sub-choices
 	MagicItemsList["moonblade"] = {
 		name : "Moonblade",
 		source : ["D", 217],
@@ -40,29 +29,6 @@
 		attunement : true,
 		weight : 3
 	}
-	MagicItemsList["wave"] = {
-		name : "Wave",
-		source : ["D", 218],
-		type : "weapon (trident)",
-		rarity : "legendary",
-		notLegalAL : true,
-		description : "",
-		descriptionFull : "Held in the dungeon of White Plume Mountain, this trident is an exquisite weapon engraved with images of waves, shells, and sea creatures. Although you must worship a god of the sea to attune to this weapon, Wave happily accepts new converts.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. If you score a critical hit with it, the target takes extra necrotic damage equal to half its hit point maximum.\n   The weapon also functions as a trident of fish command and a weapon of warning. It can confer the benefit of a cap of water breathing while you hold it, and you can use it as a cube of force by choosing the effect, instead of pressing cube sides to select it.\n   " + toUni("Sentience") + ". Wave is a sentient weapon of neutral alignment, with an Intelligence of 14, a Wisdom of 10, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet.\n   The weapon communicates telepathically with its wielder and can speak, read, and understand Aquan. It can also speak with aquatic animals as if using a Speak with Animals spell, using telepathy to involve its wielder in the conversation.\n   " + toUni("Personality") + ". When it grows restless, Wave has a habit of humming tunes that vary from sea chanteys to sacred hymns of the sea gods.\n   Wave zealously desires to convert mortals to the worship of one or more sea gods, or else to consign the faithless to death. Conflict arises if the wielder fails to further the weapon's objectives in the world. The trident has a nostalgic attachment to the place where it was forged, a desolate island called Thunderforge. A sea god imprisoned a family of storm giants there, and the giants forged Wave in an act of devotion to\u2014or rebellion against\u2014that god.\n   Wave harbors a secret doubt about its own nature and purpose. For all its devotion to the sea gods, Wave fears that it was intended to bring about a particular sea god's demise. This destiny is something Wave might not be able to avert.",
-		attunement : true,
-		weight : 4
-	}
-	MagicItemsList["whelm"] = {
-		name : "Whelm",
-		source : ["D", 218],
-		type : "weapon (warhammer)",
-		rarity : "legendary",
-		notLegalAL : true,
-		description : "",
-		descriptionFull : "Whelm is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with Whelm, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.\n   " + toUni("Thrown Weapon") + ". Whelm has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.\n   " + toUni("Shock Wave") + ". You can use an action to strike the ground with Whelm and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 15 Constitution saving throw or become stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.\n   " + toUni("Supernatural Awareness") + ". While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast Detect Evil and Good or Locate Object from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.\n   " + toUni("Sentience") + ". Whelm is a sentient lawful neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.\n   The weapon communicates telepathically with its wielder and can speak, read, and understand Dwarvish. Giant, and Goblin. It shouts battle cries in Dwarvish when used in combat.\n   " + toUni("Personality") + ". Whelm's purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves. Whelm has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm. The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent Whelm to his evil purposes, even killing members of his own clan.",
-		attunement : true,
-		weight : 2
-	}
-
 	// Artifacts
 	MagicItemsList["axe of the dwarvish lords"] = {
 		name : "Axe of the Dwarvish Lords",
@@ -84,8 +50,10 @@
 		notLegalAL : true,
 		description : "",
 		descriptionFull : "The definitive treatise on all that is good in the multiverse, the fabled Book of Exalted Deeds figures prominently in many religions. Rather than being a scripture devoted to a particular faith, the book's various authors filled the pages with their own vision of true virtue, providing guidance for defeating evil.\n   The Book of Exalted Deeds rarely lingers in one place. As soon as the book is read, it vanishes to some other corner of the multiverse where its moral guidance can bring light to a darkened world. Although attempts have been made to copy the work, efforts to do so fail to capture its magical nature or translate the benefits it offers to those pure of heart and firm of purpose.\n   A heavy clasp, wrought to look like angel wings, keeps the book's contents secure. Only a creature of good alignment that is attuned to the book can release the clasp that holds it shut. Once the book is opened, the attuned creature must spend 80 hours reading and studying the book to digest its contents and gain its benefits. Other creatures that peruse the book's open pages can read the text but glean no deeper meaning and reap no benefits. An evil creature that tries to read from the book takes 24d6 radiant damage. This damage ignores resistance and immunity, and can't be reduced or avoided by any means. A creature reduced to 0 hit points by this damage disappears in a blinding flash and is destroyed, leaving its possessions behind.\n   Benefits granted by the Book of Exalted Deeds last only as long as you strive to do good. If you fail to perform at least one act of kindness or generosity within the span of 10 days, or if you willingly perform an evil act, you lose all the benefits granted by the book.\n   " + toUni("Random Properties") + ". The Book of Exalted Deeds has the following random properties:\n \u2022 2 minor beneficial properties\n \u2022 2 major beneficial properties\n   " + toUni("Increased Wisdom") + ". After you spend the requisite amount of time reading and studying the book, your Wisdom score increases by 2, to a maximum of 24. You can't gain this benefit from the book more than once.\n   " + toUni("Enlightened Magic") + ". Once you've read and studied the book, any spell slot you expend to cast a cleric or paladin spell counts as a spell slot of one level higher.\n   " + toUni("Halo") + ". Once you've read and studied the book, you gain a protective halo. This halo sheds bright light in a 10-foot radius and dim light for an additional 10 feet. You can dismiss or manifest the halo as a bonus action. While present, the halo gives you advantage on Charisma (Persuasion) checks made to interact with good creatures and Charisma (Intimidation) checks made to interact with evil creatures. In addition, fiends and undead within the halo's bright light make attack rolls against you with disadvantage.\n   " + toUni("Destroying the Book") + ". It is rumored that the Book of Exalted Deeds can't be destroyed as long as good exists in the multiverse. However, drowning the book in the River Styx removes all writing and imagery from its pages and renders the book powerless for 1d100 years.",
+		weight : 5,
 		attunement : true,
-		weight : 5
+		prerequisite : "Requires attunement by a creature of good alignment",
+		prereqeval : function(v) { return (/good/i).test(What("Alignment")); }
 	}
 	MagicItemsList["book of vile darkness"] = {
 		name : "Book of Vile Darkness",
@@ -177,15 +145,6 @@
 	}
 }
 { // pub_20180723_WGtE.js
-	MagicItemsList["docent"] = { // Intelligent Item
-		name : "Docent",
-		source : [["WGtE", 120], ["UA:MIoE", 3]],
-		type : "wondrous item",
-		rarity : "rare",
-		description : "",
-		descriptionFull : "A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. If you're a warforged, you can attune to the docent, at which point the sphere becomes embedded in your chest and comes to life\u2014literally.\n   A docent is an intelligent magic item designed to advise and assist the warforged it's attached to. A typical docent has an Intelligence score of 16 and Wisdom and Charisma scores of 14. Once you're attuned to the docent, it can communicate with you telepathically and can perceive the world through your senses. One of the simple functions of a docent is to serve as a translator. All docents understand Common and Giant, but a docent knows up to four additional languages. Elven and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before... but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarven language.\n   In addition, a docent possesses up to three of the following traits.\n   You can use a bonus action on your turn to request that the docent use one of its traits on your behalf. In the case of skills, this uses the docent's bonus; your abilities and proficiencies have no effect on the outcome. These traits are under the control of the docent, and if you have a bad relationship with your docent it may refuse to assist you... or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.\n   The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators... but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
-		attunement : true
-	}
 	// Eldritch Machines are not portable and are plot devices
 	// It doesn't really make sense to add them to a character sheet
 	MagicItemsList["dimensional seal"] = {

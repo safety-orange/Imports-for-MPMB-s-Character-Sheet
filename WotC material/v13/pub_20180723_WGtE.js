@@ -1609,9 +1609,7 @@ MagicItemsList["armblade"] = {
 	descriptionFull : "An armblade is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an armblade by attuning to it. An attached armblade cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the armblade.\n   An armblade isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an armblade, so you could acquire a vicious armblade or a vorpal armblade.",
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
-	prereqeval : function (v) {
-		return (/warforged/i).test(CurrentRace.known);
-	},
+	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
 	allowDuplicates : true,
 	chooseGear : {
 		type : "weapon",
@@ -1667,6 +1665,43 @@ MagicItemsList["cleansing stone"] = {
 	descriptionFull : "A cleansing stone is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
 	action : [["action", ""]]
 }
+var docentFullDescription = [
+	"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
+	">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
+	"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
+	">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.",
+	"The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
+	">>Languages<<. All docents understand Common and Giant, but a docent knows up to four additional languages. Elvish and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
+	">>Properties<<. A docent possesses up to three of the following properties:",
+	"\u2022 The docent can cast the detect magic spell at will.",
+	"\u2022 The docent can cast the detect evil and good spell at will.",
+	"\u2022 The docent can detect any form of divination or scrying targeting it and its warforged host.",
+	"\u2022 The docent has a +7 bonus to Intelligence (Arcana) checks.",
+	"\u2022 The docent has a +7 bonus to Intelligence (History) checks.",
+	"\u2022 The docent has a +7 bonus to Intelligence (Investigation) checks.",
+	"\u2022 The docent has a +7 bonus to Intelligence (Nature) checks.",
+	"\u2022 The docent has a +6 bonus to Wisdom (Insight) checks.",
+	"\u2022 The docent has a +6 bonus to Wisdom (Perception) checks.",
+	"\u2022 The docent has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the docent will automatically attempt to stabilize them once each turn.",
+	"You can use a bonus action on your turn to request that the docent use one of its properties on your behalf."
+];
+MagicItemsList["docent"] = {
+	name : "Docent",
+	source : [["WGtE", 121], ["UA:MIoE", 3]],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
+	descriptionFull : docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	prerequisite : "Requires attunement by a warforged",
+	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
+	action : [["bonus action", ""]],
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Docent",
+		note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}]
+}
 MagicItemsList["everbright lantern"] = {
 	name : "Everbright Lantern",
 	source : [["WGtE", 115], ["UA:MIoE", 2]],
@@ -1693,7 +1728,7 @@ MagicItemsList["glamerweave"] = {
 		toUni("1d8\tDescription"),
 		"  1\tA hat orbited by the twelve moons",
 		"  2\tLong gloves wreathed in cold flames",
-		"  3\tA traveler’s cloak lined with glittering stars",
+		"  3\tA traveler's cloak lined with glittering stars",
 		"  4\tA scarlet gown that glows with inner radiance",
 		"  5\tA cloth shirt that appears to be a chain shirt",
 		"  6\tA silver gown surrounded by drifting snowflakes",
