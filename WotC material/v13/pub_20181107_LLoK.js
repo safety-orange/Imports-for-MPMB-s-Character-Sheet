@@ -124,15 +124,18 @@ MagicItemsList["heward's hireling armor"] = {
 if (MagicItemsList["ioun stone"]) {
 	MagicItemsList["ioun stone"].choices = MagicItemsList["ioun stone"].choices.concat(["Supreme Intellect", "Historical Knowledge", "Natural Knowledge", "Religious Knowledge", "Language Knowledge", "Self-Preservation"]);
 	MagicItemsList["ioun stone"].choices.sort();
-	MagicItemsList["ioun stone"].incrementSkill = function (iSkill, iType) {
-		if (SkillsList.abbreviations.indexOf(iSkill) == -1) return;
-		var aSkill = SkillsList.names[SkillsList.abbreviations.indexOf(iSkill)];
+	MagicItemsList["ioun stone"].incrementSkill = function (aSkill, iType, forceRemove) {
+		if (SkillsList.abbreviations.indexOf(aSkill) == -1) return;
+		var aIndx = SkillsList.abbreviations.indexOf(aSkill);
+		var aFld = (Who("Text.SkillsNames") === "alphabeta" ? aSkill : SkillsList.abbreviationsByAS[aIndx]) + " Bonus";
+		var iSkill = SkillsList.names[aIndx];
 		var iName = "Ioun Stone of " + iType;
-		processMods(
-			CurrentProfs.skill[aSkill] && CurrentProfs.skill[aSkill].length > 1,
-			iName + " (magic item)",
-			[{ type : "skill", field : iSkill, mod : 1, text : "While the " + iName + " orbits my head and I'm proficient with the " + aSkill + " skill, I gain a +1 bonus on checks with it." }]
-		);
+		var iTxt = "While the " + iName + " orbits my head and I'm proficient with the " + iSkill + " skill, I gain a +1 bonus on checks with it.";
+		var addIt = forceRemove ? false : CurrentProfs.skill[aSkill] && CurrentProfs.skill[aSkill].length > 1;
+		var hasBonus = How(aFld).indexOf(iTxt) !== -1;
+		if (hasBonus !== addIt) {
+			processMods( addIt, iName + " (magic item)", [{ type : "skill", field : aSkill, mod : 1, text : iTxt }] );
+		}
 	}
 	MagicItemsList["ioun stone"]["supreme intellect"] = {
 		source : ["LLoK", 55],
@@ -155,9 +158,8 @@ if (MagicItemsList["ioun stone"]) {
 		description : "As an action, I can make this polished, steely sphere orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the History skill, or a +1 bonus with it if I'm already proficient.",
 		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain proficiency in the History skill, or a +1 bonus to checks with that skill if already proficient, while this polished, steely sphere orbits your head.",
 		skills : ["History"],
-		changeeval : function () {
-			MagicItemsList["ioun stone"].incrementSkill("His", "Historical Knowledge");
-		}
+		changeeval : function () { MagicItemsList["ioun stone"].incrementSkill("His", "Historical Knowledge"); },
+		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("His", "Historical Knowledge", true); }
 	}
 	MagicItemsList["ioun stone"]["natural knowledge"] = {
 		source : ["LLoK", 55],
@@ -166,9 +168,8 @@ if (MagicItemsList["ioun stone"]) {
 		description : "As an action, I can make this burnished, brassy stone orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the Nature skill, or a +1 bonus with it if I'm already proficient.",
 		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain proficiency in the Nature skill, or a +1 bonus to checks with that skill if already proficient, while this burnished, brassy stone orbits your head.",
 		skills : ["Nature"],
-		changeeval : function () {
-			MagicItemsList["ioun stone"].incrementSkill("Nat", "Natural Knowledge");
-		}
+		changeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Nat", "Natural Knowledge"); },
+		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Nat", "Natural Knowledge", true); }
 	}
 	MagicItemsList["ioun stone"]["religious knowledge"] = {
 		source : ["LLoK", 55],
@@ -177,9 +178,8 @@ if (MagicItemsList["ioun stone"]) {
 		description : "As an action, I can make this tiny golden gem orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the Religion skill, or a +1 bonus with it if I'm already proficient.",
 		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain proficiency in the Religion skill, or a +1 bonus to checks with that skill if already proficient, while this tiny golden gem orbits your head.",
 		skills : ["Religion"],
-		changeeval : function () {
-			MagicItemsList["ioun stone"].incrementSkill("Rel", "Religious Knowledge");
-		}
+		changeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Rel", "Religious Knowledge"); },
+		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Rel", "Religious Knowledge", true); }
 	}
 	MagicItemsList["ioun stone"]["language knowledge"] = {
 		source : ["LLoK", 55],
