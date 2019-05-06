@@ -6163,7 +6163,7 @@ MagicItemsList["instrument of the bards"] = {
 			spellcastingAbility : "class"
 		}
 	},
-	"mac-fuirmidh cittern" : {
+	"mac-fuirmidh cittern (uncommon)" : {
 		name : "Mac-Fuirmidh Cittern [Instrument of the Bards]",
 		rarity : "uncommon",
 		magicItemTable : "F",
@@ -23916,7 +23916,7 @@ MagicItemsList["smokepowder"] = {
 	descriptionFull : "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots.\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage.\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
 	allowDuplicates : true,
 	choices : ["Keg (500 shots)", "Packet (5 shots)"],
-	"packet" : {
+	"packet (5 shots)" : {
 		name : "Smokepowder Packet",
 		description : "This magical explosive is used to propel a bullet out of a firearm. These tiny, waterproof leather packets contain enough for five shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 1d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
 		usages : 5,
@@ -23925,7 +23925,7 @@ MagicItemsList["smokepowder"] = {
 		weight : 0.1, // 7000 grains per lb, 100 grains per shot
 		extraTooltip : "AL: can be purchased for 1 treasure checkpoint. Once found, this item goes on a character's evergreen list of available items.",
 	},
-	"keg" : {
+	"keg (500 shots)" : {
 		name : "Smokepowder Keg",
 		description : "This magical explosive is used to propel a bullet out of a firearm. This airtight wooden kegs contain enough for five hundred shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 9d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
 		usages : 500,

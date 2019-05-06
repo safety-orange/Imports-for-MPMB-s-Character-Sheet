@@ -690,7 +690,7 @@ MagicItemsList["instrument of the bards"] = {
 			spellcastingAbility : "class"
 		}
 	},
-	"mac-fuirmidh cittern" : {
+	"mac-fuirmidh cittern (uncommon)" : {
 		name : "Mac-Fuirmidh Cittern [Instrument of the Bards]",
 		rarity : "uncommon",
 		magicItemTable : "F",
