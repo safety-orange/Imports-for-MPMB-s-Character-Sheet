@@ -550,7 +550,7 @@ MagicItemsList["blood spear"] = {
 	descriptionFull : "Kavan was a ruthless chieftain whose tribe lived in the Balinok Mountains centuries before the arrival of Strahd von Zarovich. Although he was very much alive, Kavan had some traits in common with vampires: he slept during the day and hunted at night, he drank the blood of his prey, and he lived underground. In battle, he wielded a spear stained with blood. His was the first blood spear, a weapon that drains life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting.\n   When you hit with a melee attack using this magic spear and reduce the target to 0 hit points, you gain 2d6 temporary hit points.\n   Any creature can wield the spear, but only the character chosen by Kavan to wield it gains a +2 bonus to attack and damage rolls made with this magic weapon.",
 	attunement : true,
 	weight : 3,
-	choices : ["Chosen of Kavan", "Not chosen"],
+	choices : ["Chosen of Kavan", "Not a chosen of Kavan"],
 	"chosen of kavan" : {
 		name : "Blood\u200A Spear",
 		weaponsAdd : ["Blood Spear"],
@@ -563,7 +563,7 @@ MagicItemsList["blood spear"] = {
 			modifiers : [2,2]
 		}
 	},
-	"not chosen" : {
+	"not a chosen of kavan" : {
 		name : "Blood\u200A\u200A Spear",
 		weaponsAdd : ["Blood Spear"],
 		weaponOptions : {

@@ -4903,9 +4903,9 @@ MagicItemsList["hazirawn"] = {
 	description : "This sentient, neutral evil, greatsword functions depend on whether you are attuned to it or not.",
 	descriptionFull : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. Even if you aren't attuned to the sword, you gain a +1 bonus on attack and damage rolls made with this weapon and you deal an extra 1d6 necrotic damage when you hit with the weapon.\n   " + toUni("Increased Potency") + ". While you are attuned to this weapon, its bonus on attack and damage rolls increases to +2, and a hit deals an extra 2d6 necrotic damage (instead of 1d6).\n   " + toUni("Spells") + ". Hazirawn has 4 charges to cast spells. As long as the sword is attuned to you and you are holding it in your hand, you can cast Detect Magic (1 charge), Detect Evil and Good (1 charge), or Detect Thoughts (2 charges). Each night at midnight, Hazirawn regains 1d4 expended charges.\n   " + toUni("Wounding") + ". While you are attuned to the weapon, any creature that you hit with Hazirawn can't regain hit points for 1 minute. The target can make a DC 15 Constitution saving throw at the end of each of its turns, ending this effect early on a success.",
 	weight : 6,
-	choices : ["attuned", "not attuned"],
+	choices : ["not attuned", "attuned"],
 	"not attuned" : {
-		name : "Haziraw\u200An",
+		name : "Hazirawn\u200A",
 		description : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. While I'm not attuned to the sword, I gain a +1 bonus on attack and damage rolls made with it. It also deals an extra 1d6 necrotic damage on attacks made with the sword.",
 		weaponsAdd : ["Hazirawn"],
 		weaponOptions : {
@@ -4918,7 +4918,7 @@ MagicItemsList["hazirawn"] = {
 		}
 	},
 	"attuned" : {
-		name : "Haziraw\u200A\u200An",
+		name : "Hazirawn\u200A\u200A",
 		attunement : true,
 		description : "This sentient, neutral evil, greatsword adds +2 to damage and to hit rolls, deals +2d6 necrotic damage, and those hit with it can't regain HP for 1 min, but can make a DC 15 Con save at the end of each turn to stop this effect. It has 4 charges to cast spells, regaining 1d4 at midnight. It speaks Common and Netherese.",
 		extraLimitedFeatures : [{
@@ -11810,7 +11810,7 @@ MagicItemsList["blood spear"] = {
 	descriptionFull : "Kavan was a ruthless chieftain whose tribe lived in the Balinok Mountains centuries before the arrival of Strahd von Zarovich. Although he was very much alive, Kavan had some traits in common with vampires: he slept during the day and hunted at night, he drank the blood of his prey, and he lived underground. In battle, he wielded a spear stained with blood. His was the first blood spear, a weapon that drains life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting.\n   When you hit with a melee attack using this magic spear and reduce the target to 0 hit points, you gain 2d6 temporary hit points.\n   Any creature can wield the spear, but only the character chosen by Kavan to wield it gains a +2 bonus to attack and damage rolls made with this magic weapon.",
 	attunement : true,
 	weight : 3,
-	choices : ["Chosen of Kavan", "Not chosen"],
+	choices : ["Chosen of Kavan", "Not a chosen of Kavan"],
 	"chosen of kavan" : {
 		name : "Blood\u200A Spear",
 		weaponsAdd : ["Blood Spear"],
@@ -11823,7 +11823,7 @@ MagicItemsList["blood spear"] = {
 			modifiers : [2,2]
 		}
 	},
-	"not chosen" : {
+	"not a chosen of kavan" : {
 		name : "Blood\u200A\u200A Spear",
 		weaponsAdd : ["Blood Spear"],
 		weaponOptions : {

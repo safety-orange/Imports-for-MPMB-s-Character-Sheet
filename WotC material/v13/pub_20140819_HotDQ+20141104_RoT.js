@@ -243,9 +243,9 @@ MagicItemsList["hazirawn"] = {
 	description : "This sentient, neutral evil, greatsword functions depend on whether you are attuned to it or not.",
 	descriptionFull : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. Even if you aren't attuned to the sword, you gain a +1 bonus on attack and damage rolls made with this weapon and you deal an extra 1d6 necrotic damage when you hit with the weapon.\n   " + toUni("Increased Potency") + ". While you are attuned to this weapon, its bonus on attack and damage rolls increases to +2, and a hit deals an extra 2d6 necrotic damage (instead of 1d6).\n   " + toUni("Spells") + ". Hazirawn has 4 charges to cast spells. As long as the sword is attuned to you and you are holding it in your hand, you can cast Detect Magic (1 charge), Detect Evil and Good (1 charge), or Detect Thoughts (2 charges). Each night at midnight, Hazirawn regains 1d4 expended charges.\n   " + toUni("Wounding") + ". While you are attuned to the weapon, any creature that you hit with Hazirawn can't regain hit points for 1 minute. The target can make a DC 15 Constitution saving throw at the end of each of its turns, ending this effect early on a success.",
 	weight : 6,
-	choices : ["attuned", "not attuned"],
+	choices : ["not attuned", "attuned"],
 	"not attuned" : {
-		name : "Haziraw\u200An",
+		name : "Hazirawn\u200A",
 		description : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. While I'm not attuned to the sword, I gain a +1 bonus on attack and damage rolls made with it. It also deals an extra 1d6 necrotic damage on attacks made with the sword.",
 		weaponsAdd : ["Hazirawn"],
 		weaponOptions : {
@@ -258,7 +258,7 @@ MagicItemsList["hazirawn"] = {
 		}
 	},
 	"attuned" : {
-		name : "Haziraw\u200A\u200An",
+		name : "Hazirawn\u200A\u200A",
 		attunement : true,
 		description : "This sentient, neutral evil, greatsword adds +2 to damage and to hit rolls, deals +2d6 necrotic damage, and those hit with it can't regain HP for 1 min, but can make a DC 15 Con save at the end of each turn to stop this effect. It has 4 charges to cast spells, regaining 1d4 at midnight. It speaks Common and Netherese.",
 		extraLimitedFeatures : [{
