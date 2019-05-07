@@ -145,7 +145,7 @@ RaceList["kaladesh dwarf"] = { // Includes contributions by SoilentBrad
 	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Kaladesh Dwarf (+2 Constitution, +1 Wisdom)\nArtisan's Expertise: I have proficiency and expertise with two artisan's tools of my choice.\n   Whenever I make an Intelligence (History) check related to the origin of any architectural construction, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.\nDwarven Toughness: My hit point maximum increases by 1 for every level I have.",
 	calcChanges : {
-		hp : "extrahp += totalhd; extrastring += '\\n + ' + totalhd + ' from Dwarven Toughness';"
+		hp : function (totalHD) { return [totalHD, "Dwarven Toughness"]; }
 	}
 };
 RaceList["vahadar elf"] = { // Includes contributions by SoilentBrad

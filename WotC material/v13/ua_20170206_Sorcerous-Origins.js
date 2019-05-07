@@ -34,7 +34,11 @@ AddSubClass("sorcerer", "favoured soul", {
 			minlevel : 1,
 			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Supernatural Resilience (Sorcerer)'; }; "
+				hp : function (totalHD) {
+					if (classes.known.sorcerer) {
+						return [classes.known.sorcerer.level, "Supernatural Resilience (sorcerer level)"];
+					}
+				}
 			}
 		},
 		"subclassfeature1.2" : {
@@ -267,7 +271,11 @@ AddSubClass("sorcerer", "stone sorcery", {
 			]),
 			action : [["action", " (start)"], ['bonus action', " (end)"]],
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + \" from Stone's Durability (Sorcerer)\"; }; "
+				hp : function (totalHD) {
+					if (classes.known.sorcerer) {
+						return [classes.known.sorcerer.level, "Stone's Durability (sorcerer level)"];
+					}
+				}
 			},
 			armorOptions : {
 				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,

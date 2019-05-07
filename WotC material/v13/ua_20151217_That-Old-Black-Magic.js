@@ -31,7 +31,7 @@ RaceList["abyssal tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 1, 0, 0, 2],
-	trait : "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Toughness: My hit point maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
+	trait : "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Fortitude: My HP maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -39,14 +39,10 @@ RaceList["abyssal tiefling"] = {
 		spells : ["dancing lights", "true strike", "light", "message", "spare the dying", "prestidigitation"],
 		firstCol : 'atwill'
 	},
+	calcChanges : {
+		hp : function (totalHD) { return [Math.max(1, Math.floor(totalHD / 2)), "Abyssal Fortitude"]; }
+	},
 	features : {
-		"abyssal fortitude" : {
-			name : "Abyssal Fortitude",
-			minlevel : 1,
-			calcChanges : {
-				hp : "extrahp += Math.max(1,Math.floor(totalhd/2)); extrastring += \"\\n + \" + Math.max(1,Math.floor(totalhd/2)) + \" from Abyssal Fortitude\";"
-			}
-		},
 		"abyssal arcana (level 3)" : {
 			name : "Abyssal Arcana (level 3)",
 			minlevel : 3,

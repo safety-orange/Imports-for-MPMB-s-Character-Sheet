@@ -25,7 +25,11 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 			minlevel : 1,
 			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Jotun Resilience (Sorcerer)'; }; "
+				hp : function (totalHD) {
+					if (classes.known.sorcerer) {
+						return [classes.known.sorcerer.level, "Jotun Resilience (sorcerer level)"];
+					}
+				}
 			}
 		},
 		"subclassfeature1.1" : {

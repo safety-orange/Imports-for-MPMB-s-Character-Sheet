@@ -4035,7 +4035,9 @@ FeatsList["tough"] = {
 	descriptionFull : "Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.",
 	description : "My hit point maximum increases by an amount equal to twice my character level.",
 	calcChanges : {
-		hp : "extrahp += totalhd * 2; extrastring += '\\n + ' + totalhd + ' \\u00D7 2 from the Tough feat (' + (totalhd * 2) + ')';"
+		hp : function (totalHD) {
+			return [totalHD * 2, '\n + ' + totalHD + ' \xD7 2 from the Tough feat (' + (totalHD * 2) + ')', true];
+		}
 	}
 };
 FeatsList["war caster"] = {
@@ -14642,6 +14644,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	usages : 12,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
+	limfeaname : "Berserker Battleaxe",
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
@@ -14667,7 +14670,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 		}
 	},
 	calcChanges : {
-		hp : "extrahp += Number(What('Character Level')); extrastring += '\\n + ' + What('Character Level') + ' from Berserker Battleaxe (magic item)'; "
+		hp : function (totalHD) { return [totalHD]; }
 	},
 	weaponsAdd : ["Berserker Battleaxe"],
 	weaponOptions : {
@@ -21880,8 +21883,8 @@ RaceList["envoy warforged"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", 1],
-	toolProfs : [["Expertise with any one tool", 1]],
-	skillstxt : "Choose any one skill",
+	toolProfs : [["Any tool", 1]],
+	skillstxt : "Choose any one skill, any one tool, and expertise with any one tool I'm proficient with",
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
 		immune : ["disease", "exhaustion from lack of rest"],

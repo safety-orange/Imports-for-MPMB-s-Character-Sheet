@@ -363,7 +363,11 @@ ClassSubList["mystic-immortal"] = {
 				"If not wearing armor or wielding a shield, my AC is 10 + my Dex mod + my Con mod"
 			]),
 			calcChanges : {
-				hp : "if (classes.known.mystic) {extrahp += classes.known.mystic.level; extrastring += '\\n + ' + classes.known.mystic.level + ' from Immortal Durability (Mystic)'; }; "
+				hp : function (totalHD) {
+					if (classes.known.mystic) {
+						return [classes.known.mystic.level, "Immortal Durability (mystic level)"];
+					}
+				}
 			},
 			armorOptions : {
 				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,

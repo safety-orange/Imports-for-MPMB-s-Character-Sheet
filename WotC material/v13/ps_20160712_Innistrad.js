@@ -93,7 +93,9 @@ RaceList["stensia human"] = {
 	scores : [1, 0, 1, 0, 0, 0],
 	trait : "Stensian Human (+1 Strength, +1 Constitution)\nDaunting: I have proficiency in the Intimidation skill.\nTough: My hit point maximum increases by 2, and it increases by 2 every time I gain a level.",
 	calcChanges : {
-		hp : "extrahp += totalhd * 2; extrastring += '\\n + ' + totalhd + ' \\u00D7 2 from the Stensian Tough feature (' + (totalhd * 2) + ')';"
+		hp : function (totalHD) {
+			return [totalHD * 2, '\n + ' + totalHD + ' \xD7 2 from the Stensian Tough feature (' + (totalHD * 2) + ')', true];
+		}
 	}
 };
 

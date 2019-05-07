@@ -545,6 +545,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	usages : 12,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
+	limfeaname : "Berserker Battleaxe",
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
@@ -570,7 +571,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 		}
 	},
 	calcChanges : {
-		hp : "extrahp += Number(What('Character Level')); extrastring += '\\n + ' + What('Character Level') + ' from Berserker Battleaxe (magic item)'; "
+		hp : function (totalHD) { return [totalHD]; }
 	},
 	weaponsAdd : ["Berserker Battleaxe"],
 	weaponOptions : {
