@@ -839,7 +839,7 @@ AddSubClass("druid", "circle of the shepherd-xgte", {
 								return true;
 						}
 					},
-					"When I use a spell that restores hit points, it restores an additional 2 + the level of the spell slot (or spell slot equivalent) used to cast the spell."
+					"When I use a spell that summons beast or fey creatures, those summons have +2 HP per HD and their attacks count as magical."
 				]
 			}
 		},
