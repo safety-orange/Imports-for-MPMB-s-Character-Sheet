@@ -330,14 +330,6 @@ AddSubClass("monk", "way of the kensei2", {
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
-			autoSelectExtrachoices : [{ extrachoice : "precise strike" }]
-		},
-		"subclassfeature17" : {
-			name : "Unerring Accuracy",
-			source : ["UA:RS", 5],
-			minlevel : 17,
-			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
-			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
 				source : ["UA:RS", 5],
@@ -349,9 +341,18 @@ AddSubClass("monk", "way of the kensei2", {
 				action : ["bonus action", ""]
 			},
 			autoSelectExtrachoices : [{
+				extrachoice : "precise strike"
+			}, {
 				extrachoice : "sharpen the blade",
-				minlevel : 11
+				minlevel : 11,
+				extraname : "Way of the Kensei 11"
 			}]
+		},
+		"subclassfeature17" : {
+			name : "Unerring Accuracy",
+			source : ["UA:RS", 5],
+			minlevel : 17,
+			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
 		}
 	}
 });

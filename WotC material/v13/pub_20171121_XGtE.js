@@ -1340,16 +1340,6 @@ RunFunctionAtEnd(function () {
 					description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 					additional : "1 ki point"
 				},
-				autoSelectExtrachoices : [{
-					extrachoice : "deft strike"
-				}]
-			},
-			"subclassfeature17" : {
-				name : "Unerring Accuracy",
-				source : ["X", 35],
-				minlevel : 17,
-				description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
-				extraname : "Way of the Kensei 11",
 				"sharpen the blade" : {
 					name : "Sharpen the Blade",
 					source : ["X", 35],
@@ -1362,9 +1352,18 @@ RunFunctionAtEnd(function () {
 					action : ["bonus action", ""]
 				},
 				autoSelectExtrachoices : [{
+					extrachoice : "deft strike"
+				}, {
 					extrachoice : "sharpen the blade",
-					minlevel : 11
+					minlevel : 11,
+					extraname : "Way of the Kensei 11"
 				}]
+			},
+			"subclassfeature17" : {
+				name : "Unerring Accuracy",
+				source : ["X", 35],
+				minlevel : 17,
+				description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
 			}
 		}
 	});

@@ -16863,16 +16863,6 @@ RunFunctionAtEnd(function () {
 					description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 					additional : "1 ki point"
 				},
-				autoSelectExtrachoices : [{
-					extrachoice : "deft strike"
-				}]
-			},
-			"subclassfeature17" : {
-				name : "Unerring Accuracy",
-				source : ["X", 35],
-				minlevel : 17,
-				description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
-				extraname : "Way of the Kensei 11",
 				"sharpen the blade" : {
 					name : "Sharpen the Blade",
 					source : ["X", 35],
@@ -16885,9 +16875,18 @@ RunFunctionAtEnd(function () {
 					action : ["bonus action", ""]
 				},
 				autoSelectExtrachoices : [{
+					extrachoice : "deft strike"
+				}, {
 					extrachoice : "sharpen the blade",
-					minlevel : 11
+					minlevel : 11,
+					extraname : "Way of the Kensei 11"
 				}]
+			},
+			"subclassfeature17" : {
+				name : "Unerring Accuracy",
+				source : ["X", 35],
+				minlevel : 17,
+				description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
 			}
 		}
 	});
@@ -31123,12 +31122,6 @@ AddSubClass("monk", "way of the kensei", {
 			minlevel : 3,
 			description : " [3 martial weapons proficiencies]" + "\n   " + "Martial weapons I am proficient with count as kensei weapons for me" + "\n   " + "With these, I can use Dex instead of Str and use the Martial Arts damage die" + "\n   " + "As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
 			action: ["bonus action", " (after hit)"],
-			extraname : "Way of the Kensei 3",
-			"kensei defense" : {
-				name : "Kensei Defense",
-				source : ["UA:MMT", 1],
-				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
-			},
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -31148,6 +31141,12 @@ AddSubClass("monk", "way of the kensei", {
 					},
 					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n \u2022 If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
 				]
+			},
+			extraname : "Way of the Kensei 3",
+			"kensei defense" : {
+				name : "Kensei Defense",
+				source : ["UA:MMT", 1],
+				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
 			},
 			autoSelectExtrachoices : [{ extrachoice : "kensei defense" }]
 		},
@@ -31184,13 +31183,7 @@ AddSubClass("monk", "way of the kensei", {
 					},
 					"If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."
 				]
-			}
-		},
-		"subclassfeature17" : {
-			name : "Unerring Accuracy",
-			source : ["UA:MMT", 1],
-			minlevel : 17,
-			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses",
+			},
 			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
@@ -31202,6 +31195,12 @@ AddSubClass("monk", "way of the kensei", {
 				extrachoice : "sharpen the blade",
 				minlevel : 11
 			}]
+		},
+		"subclassfeature17" : {
+			name : "Unerring Accuracy",
+			source : ["UA:MMT", 1],
+			minlevel : 17,
+			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses"
 		}
 	}
 });
@@ -38717,14 +38716,6 @@ AddSubClass("monk", "way of the kensei2", {
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
-			autoSelectExtrachoices : [{ extrachoice : "precise strike" }]
-		},
-		"subclassfeature17" : {
-			name : "Unerring Accuracy",
-			source : ["UA:RS", 5],
-			minlevel : 17,
-			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
-			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
 				source : ["UA:RS", 5],
@@ -38736,9 +38727,18 @@ AddSubClass("monk", "way of the kensei2", {
 				action : ["bonus action", ""]
 			},
 			autoSelectExtrachoices : [{
+				extrachoice : "precise strike"
+			}, {
 				extrachoice : "sharpen the blade",
-				minlevel : 11
+				minlevel : 11,
+				extraname : "Way of the Kensei 11"
 			}]
+		},
+		"subclassfeature17" : {
+			name : "Unerring Accuracy",
+			source : ["UA:RS", 5],
+			minlevel : 17,
+			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
 		}
 	}
 });
