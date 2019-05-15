@@ -834,7 +834,7 @@ MagicItemsList["returning weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
 				}
