@@ -1466,7 +1466,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			name : "Channel Divinity: Vow of Enmity",
 			source : ["P", 88],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I utter a vow against a creature I can see within 10 ft" + "\n   " + "I have advantage on attack rolls against it for 1 minute or until it is at 0 HP/unconscious",
+			description : "\n   " + "As a bonus action, I utter a vow against a creature I can see within 10 ft" + "\n   " + "I get adv. on attacks against it for 1 minute or until it drops to 0 HP or falls unconscious",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature7" : {
