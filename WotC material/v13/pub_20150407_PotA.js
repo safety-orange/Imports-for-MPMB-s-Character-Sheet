@@ -354,6 +354,7 @@ MagicItemsList["storm boomerang"] = {
 	weaponsAdd : ["Storm Boomerang"],
 	weaponOptions : {
 		baseWeapon : "javelin",
+		name : "Storm Boomerang",
 		regExpSearch : /^(?=.*storm)(?=.*boomerang).*$/i,
 		list : "melee",
 		ability : 2,

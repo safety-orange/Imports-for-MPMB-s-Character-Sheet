@@ -1607,7 +1607,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			name : "Channel Divinity: Vow of Enmity",
 			source : ["P", 88],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I utter a vow against a creature I can see within 10 ft" + "\n   " + "I have advantage on attack rolls against it for 1 minute or until it is at 0 HP/unconscious",
+			description : "\n   " + "As a bonus action, I utter a vow against a creature I can see within 10 ft" + "\n   " + "I get adv. on attacks against it for 1 minute or until it drops to 0 HP or falls unconscious",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature7" : {
@@ -6284,7 +6284,13 @@ MagicItemsList["rod of resurrection"] = {
 		spells : ["resurrection"],
 		selection : ["resurrection"],
 		firstCol : 5
-	}]
+	}],
+	spellChanges : {
+		"resurrection" : {
+			time : "1 a",
+			changes : "Casting time is only 1 action instead of 1 hour."
+		}
+	}
 }
 MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 	name : "Rod of the Pact Keeper, +1, +2, or +3",
@@ -7203,6 +7209,7 @@ MagicItemsList["storm boomerang"] = {
 	weaponOptions : {
 		baseWeapon : "javelin",
 		regExpSearch : /^(?=.*storm)(?=.*boomerang).*$/i,
+		name : "Storm Boomerang",
 		list : "melee",
 		ability : 2,
 		damage : [1, 4, "bludgeoning"],

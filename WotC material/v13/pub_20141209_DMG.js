@@ -809,7 +809,13 @@ MagicItemsList["rod of resurrection"] = {
 		spells : ["resurrection"],
 		selection : ["resurrection"],
 		firstCol : 5
-	}]
+	}],
+	spellChanges : {
+		"resurrection" : {
+			time : "1 a",
+			changes : "Casting time is only 1 action instead of 1 hour."
+		}
+	}
 }
 MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 	name : "Rod of the Pact Keeper, +1, +2, or +3",

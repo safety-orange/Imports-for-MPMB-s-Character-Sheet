@@ -313,10 +313,8 @@ AddSubClass("artificer-ua2", "alchemist", {
 			name : "Tools of the Trade",
 			source : ["UA:A2", 6],
 			minlevel : 3,
-			description : desc([
-				"I gain proficiency with alchemist's supplies and the herbalism kit",
-				"I can craft magical potions for half the usual gold and in a quarter of the usual time"
-			]),
+			description : "\n   I can craft magical potions for half the usual gold and in a quarter of the usual time",
+			additional : "alchemist's and herbalism kit proficiency",
 			toolProfs : ["Alchemist's supplies", "Herbalism kit"],
 			eval : function () {
 				AddToInv("gear", "l", "Alchemist's supplies", "", 8);
@@ -452,20 +450,16 @@ AddSubClass("artificer-ua2", "alchemist", {
 			name : "Chemical Savant",
 			source : ["UA:A2", 7],
 			minlevel : 14,
-			description : "I have resistance to acid and poison damage, and I'm immune to the poisoned condition",
-			dmgres : ["acid", "poison"],
-			savetxt : { immune : ["poisoned condition"] }
-		},
-		"subclassfeature14.1" : {
-			name : "Chemical Savant: Greater Restoration",
-			source : ["UA:A2", 7],
-			minlevel : 14,
 			description : desc([
-				"I can cast Greater Restoration without using a spell slot or needing material components ",
+				"I always have resistance to acid and poison damage and immunity to being poisoned",
+				"Once per long rest, I can cast Greater Restoration without a spell slot or material comp.",
 				"To do so, I have to use alchemist's supplies as my spellcasting focus"
 			]),
+			dmgres : ["Acid", "Poison"],
+			savetxt : { immune : ["poisoned condition"] },
 			usages : 1,
 			recovery : "long rest",
+			additional : "Greater Restoration",
 			spellcastingBonus : {
 				name : "Chemical Savant",
 				spells : ["greater restoration"],
@@ -517,7 +511,7 @@ CreatureList["alchemical homunculus-uaa2"] = {
 	}],
 	features : [{
 		name : "Creator",
-		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It taking its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
+		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
 	}, {
 		name : "Healing",
 		description : "The homunculus regains 2d6 HP whenever the Mending spell is cast on it."
@@ -984,9 +978,6 @@ var SetArtificerSpells = function(){
 		["ring of protection", 16],
 		["ring of the ram", 16]
 	];
-	for (var a = 0; a < artMi.length; a++) {
-		if (!MagicItemsList[artMi[a][0]]) console.println(artMi[a][0]);
-	}
 	var theObj = ClassList['artificer-ua2'].features["infuse item"];
 	for (var a = 0; a < artMi.length; a++) {
 		var MI0 = artMi[a][0];

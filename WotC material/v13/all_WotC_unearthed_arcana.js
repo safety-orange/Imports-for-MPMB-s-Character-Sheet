@@ -14563,24 +14563,25 @@ RaceList["viashino"] = {
 	action : ["reaction", "Lashing Tail (after being hit)"],
 	trait : "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage."
 };
-var iFileName = "ua_20190228_Artificer.js";
+var iFileName = "ua_20190514_Artificer.js";
 RequiredSheetVersion(13);
-// This file adds the content from the Unearthed Arcana: Artificer 2019 article to MPMB's Character Record Sheet
+// This file adds the content from the second Unearthed Arcana: Artificer article of 2019 to MPMB's Character Record Sheet
+// It doesn't change anything compared to the UA article of 2019/02/28, but adds additional options: more spells, subclasses, and magic items
 
 // Define the source
-SourceList["UA:A2"] = {
-	name : "Unearthed Arcana: Artificer 2019",
-	abbreviation : "UA:A2",
+SourceList["UA:A3"] = {
+	name : "Unearthed Arcana: Artificer 2019v2",
+	abbreviation : "UA:A3",
 	group : "Unearthed Arcana",
-	url : "https://media.wizards.com/2019/dnd/downloads/UA-Artificer-2019.pdf",
-	date : "2019/02/28"
+	url : "https://media.wizards.com/2019/dnd/downloads/UA-Artificer2-2019.pdf",
+	date : "2019/05/14"
 };
 
-// Adds a new class, the Artificer, with 2 subclasses
-ClassList['artificer-ua2'] = {
+// Adds a new class, the Artificer, with 4 subclasses
+ClassList['artificer-ua3'] = {
 	regExpSearch : /^(?=.*artificer)(?!.*wizard).*$/i,
 	name : "Artificer",
-	source : ["UA:A2", 1],
+	source : ["UA:A3", 1],
 	primaryAbility : "Intelligence",
 	abilitySave : 4,
 	prereqs : "Intelligence 13",
@@ -14610,6 +14611,7 @@ ClassList['artificer-ua2'] = {
 	subclasses : ["Artificer Specialist", []],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	spellcastingFactor : 2,
+	spellcastingFactorRoundupMulti : true, // 2019v2
 	spellcastingTable : [[0, 0, 0, 0, 0, 0, 0, 0, 0]].concat(levels.map(function (n) {
 		return defaultSpellTable[Math.ceil(n / 2)];
 	})),
@@ -14621,7 +14623,7 @@ ClassList['artificer-ua2'] = {
 	features : {
 		"magical tinkering" : {
 			name : "Magical Tinkering",
-			source : ["UA:A2", 2],
+			source : ["UA:A3", 2],
 			minlevel : 1,
 			description : desc([
 				"As an action, I use thieves' or an artisan's tools to give max 1 property to a tiny object:",
@@ -14634,7 +14636,7 @@ ClassList['artificer-ua2'] = {
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
-			source : ["UA:A2", 3],
+			source : ["UA:A3", 3],
 			minlevel : 1,
 			description : desc([
 				"I can cast prepared artificer cantrips/spells, using Intelligence as my spellcasting ability",
@@ -14648,8 +14650,8 @@ ClassList['artificer-ua2'] = {
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic && spName == "artificer-ua2") {
-							spellObj.compMaterial = (spellObj.compMaterial ? spellObj.compMaterial + "; " : "") + "My artificer spellcasting focus: thieves' tools, artisan's tools I'm proficient with, " + (classes.known["artificer-ua2"].subclass.indexOf("artillerist") !== -1 ? "rod, staff, wand, " : "") + "or an item infused by me.";
+						if (!spellObj.psionic && spName == "artificer-ua3") {
+							spellObj.compMaterial = (spellObj.compMaterial ? spellObj.compMaterial + "; " : "") + "My artificer spellcasting focus: thieves' tools, artisan's tools I'm proficient with, " + (classes.known["artificer-ua3"].subclass.indexOf("artillerist") !== -1 ? "rod, staff, wand, " : "") + "or an item infused by me.";
 							if (!spellObj.components) {
 								spellObj.components = "M\u0192";
 							} else if (spellObj.components.indexOf("M") == -1) {
@@ -14666,7 +14668,7 @@ ClassList['artificer-ua2'] = {
 			extraname : "Artificer 2",
 			"infuse item" : {
 				name : "Infuse Item",
-				source : ["UA:A2", 5],
+				source : ["UA:A3", 5],
 				description : desc([
 					"When I finish a long rest, I can turn nonmagical objects into magic items using my infusions",
 					"I can attune to it immediately; If I infuse too many items, the oldest loses its magic",
@@ -14685,7 +14687,7 @@ ClassList['artificer-ua2'] = {
 		},
 		"infuse item" : {
 			name : "Infuse Item",
-			source : ["UA:A2", 5],
+			source : ["UA:A3", 5],
 			minlevel : 2,
 			description : desc([
 				"Use the \"Choose Feature\" button above to add Artificer Infusions to the third page",
@@ -14695,19 +14697,19 @@ ClassList['artificer-ua2'] = {
 				return n < 2 ? "" : (n < 4 ? 3 : n < 7 ? 4 : n < 11 ? 5 : n < 15 ? 6 : n < 19 ? 7 : 8) + " infusions known; max " + (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + " infused items";
 			}),
 			extraname : "Artificer Infusion",
-			extrachoices : ["Boots of the Winding Path (prereq: level 4 artificer)", "Enhanced Defense", "Enhanced Weapon", "Many-Handed Pouch (prereq: level 4 artificer)", "Radiant Weapon (prereq: level 8 artificer)", "Resistant Armor (prereq: level 8 artificer)", "Returning Weapon"],
+			extrachoices : ["Boots of the Winding Path (prereq: level 4 artificer)", "Enhanced Defense", "Enhanced Weapon", "Enhanced Wand", "Many-Handed Pouch (prereq: level 4 artificer)", "Radiant Weapon (prereq: level 8 artificer)", "Repeating Shot", "Repulsion Shield (prereq: level 8 artificer)", "Resistant Armor (prereq: level 8 artificer)", "Returning Weapon"],
 			extraTimes : levels.map(function (n) {
 				return n < 2 ? 0 : n < 4 ? 3 : n < 7 ? 4 : n < 11 ? 5 : n < 15 ? 6 : n < 19 ? 7 : 8;
 			}),
 			"boots of the winding path (prereq: level 4 artificer)" : {
 				name : "Boots of the Winding Path",
-				source : ["UA:A2", 9],
+				source : ["UA:A3", 12],
 				description : desc([
 					"The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
 					"It must be a space that the wearer had occupied some time during the current turn"
 				]),
 				additional : "pair of boots; requires attunement",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; },
+				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 4; },
 				eval : function (lvl, chc) { AddMagicItem("Boots of the Winding Path"); },
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("boots of the winding path");
@@ -14717,13 +14719,13 @@ ClassList['artificer-ua2'] = {
 			},
 			"enhanced defense" : {
 				name : "Enhanced Defense",
-				source : ["UA:A2", 9],
+				source : ["UA:A3", 12],
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 12 ? 1 : 2) + " magical";
 				}),
 				eval : function (lvl, chc) {
-					AddMagicItem("Armor +" + (classes.known["artificer-ua2"].level < 12 ? 1 : 2));
+					AddMagicItem("Armor +" + (classes.known["artificer-ua3"].level < 12 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("armor, +1, +2, or +3");
@@ -14731,15 +14733,31 @@ ClassList['artificer-ua2'] = {
 					MagicItemClear(loc + 1, true);
 				}
 			},
+			"enhanced wand" : { // 2019v2
+				name : "Enhanced Wand",
+				source : ["UA:A3", 12],
+				description : "",
+				additional : levels.map(function (n) {
+					return "Wand of the War Mage +" + (n < 12 ? 1 : 2) + " magical";
+				}),
+				eval : function (lvl, chc) {
+					AddMagicItem("Wand of the War Mage +" + (classes.known["artificer-ua3"].level < 12 ? 1 : 2));
+				},
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("wand of the war mage, +1, +2, or +3");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
+			},
 			"enhanced weapon" : {
 				name : "Enhanced Weapon",
-				source : ["UA:A2", 9],
+				source : ["UA:A3", 12],
 				description : "",
 				additional : levels.map(function (n) {
 					return "simple/martial weapon; +" + (n < 12 ? 1 : 2) + " magical";
 				}),
 				eval : function (lvl, chc) {
-					AddMagicItem("Weapon +" + (classes.known["artificer-ua2"].level < 12 ? 1 : 2));
+					AddMagicItem("Weapon +" + (classes.known["artificer-ua3"].level < 12 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("weapon, +1, +2, or +3");
@@ -14749,7 +14767,7 @@ ClassList['artificer-ua2'] = {
 			},
 			"many-handed pouch (prereq: level 4 artificer)" : {
 				name : "Many-Handed Pouch",
-				source : ["UA:A2", 9],
+				source : ["UA:A3", 13],
 				description : desc([
 					"The infused pouches all share one interdimensional space the size of a single pouch",
 					"Thus, reaching into any of the pouches allows access to the same storage space",
@@ -14757,7 +14775,7 @@ ClassList['artificer-ua2'] = {
 					"When the infusion ends, the contents is moved to one of the pouches, chosen randomly"
 				]),
 				additional : "2-5 pouches",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 4; },
+				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 4; },
 				eval : function (lvl, chc) { AddMagicItem("Many-Handed Pouch"); },
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("many-handed pouch");
@@ -14767,7 +14785,7 @@ ClassList['artificer-ua2'] = {
 			},
 			"radiant weapon (prereq: level 8 artificer)" : {
 				name : "Radiant Weapon",
-				source : ["UA:A2", 9],
+				source : ["UA:A3", 13],
 				description : desc([
 					"The weapon has a +1 bonus to attack and damage rolls made with it and it sheds light",
 					"As a bonus action, its wielder can start/stop the light, 30-ft radius bright + 30 ft dim light",
@@ -14775,7 +14793,7 @@ ClassList['artificer-ua2'] = {
 					"The attack must succeed on a Con save (spell save DC) or be blinded until its next turn ends"
 				]),
 				additional : "simple/martial weapon; requires attunement",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; },
+				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
 				eval : function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("radiant weapon");
@@ -14783,15 +14801,48 @@ ClassList['artificer-ua2'] = {
 					MagicItemClear(loc + 1, true);
 				}
 			},
+			"repeating shot" : { // 2019v2
+				name : "Repeating Shot",
+				source : ["UA:A3", 13],
+				description : desc([
+					"The weapon requiring ammunition has a +1 bonus to attack and damage rolls made with it",
+					"It magically produces one piece of ammunition whenever it is used to make a ranged attack",
+					"Thus, it doesn't require ammunition and ignores the loading property if it has it"
+				]),
+				additional : "weapon with ammo; requires attunement",
+				eval : function (lvl, chc) { AddMagicItem("Repeating Shot"); },
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("repeating shot");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
+			},
+			"repulsion shield (prereq: level 8 artificer)" : { // 2019v2
+				name : "Repulsion Shield",
+				source : ["UA:A3", 14],
+				description : desc([
+					"The shield gives its wearer an additional +1 bonus to AC",
+					"As a reaction when hit by a melee attack, the wearer can push their attacker up to 15 ft",
+					"This reaction can only be used once per short or long rest"
+				]),
+				additional : "shield; requires attunement",
+				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
+				eval : function (lvl, chc) { AddMagicItem("Repulsion Shield"); },
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("repulsion shield");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
+			},
 			"resistant armor (prereq: level 8 artificer)" : {
 				name : "Resistant Armor",
-				source : ["UA:A2", 10],
+				source : ["UA:A3", 14],
 				description : desc([
 					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
 					"Choose from: acid,	 cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
 				]),
 				additional : "suit of armor; requires attunement",
-				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; },
+				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
 				eval : function (lvl, chc) { AddMagicItem("Armor of Resistance"); },
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("armor of resistance");
@@ -14801,7 +14852,7 @@ ClassList['artificer-ua2'] = {
 			},
 			"returning weapon" : {
 				name : "Returning Weapon",
-				source : ["UA:A2", 10],
+				source : ["UA:A3", 14],
 				description : "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
 				additional : "simple/martial weapon with the thrown property",
 				eval : function (lvl, chc) { AddMagicItem("Returning Weapon"); },
@@ -14814,7 +14865,7 @@ ClassList['artificer-ua2'] = {
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
-			source : ["UA:A2", 5],
+			source : ["UA:A3", 5],
 			minlevel : 3,
 			description : " [expertise with all tools I am proficient with]",
 			skillstxt : "expertise with all tools I am proficient with",
@@ -14823,28 +14874,28 @@ ClassList['artificer-ua2'] = {
 		},
 		"subclassfeature3" : {
 			name : "Artificer Specialist",
-			source : ["UA:A2", 5],
+			source : ["UA:A3", 5],
 			minlevel : 3,
 			description : desc([
 				'Choose a specialism and put it in the "Class" field on the first page',
-				"Choose either alchemist or artillerist"
+				"Choose either alchemist, archivist, artillerist, or battle smith"
 			])
 		},
 		"arcane armament" : {
 			name : "Arcane Armament",
-			source : ["UA:A2", 5],
+			source : ["UA:A3", 6],
 			minlevel : 5,
 			description : " [as Extra Attack, but only with magic weapon]"
 		},
 		"the right cantrip for the job" : {
 			name : "The Right Cantrip for the Job",
-			source : ["UA:A2", 5],
+			source : ["UA:A3", 6],
 			minlevel : 10,
 			description : "\n   " + "Whenever I finish a short/long rest, I can swap one of my artificer cantrips for another"
 		},
 		"spell-storing item" : {
 			name : "Spell-Storing Item",
-			source : ["UA:A2", 5],
+			source : ["UA:A3", 6],
 			minlevel : 18,
 			description : desc([
 				"When I finish a long rest, I can infuse a 1st-/2nd-level artificer spell into an item I touch",
@@ -14856,32 +14907,72 @@ ClassList['artificer-ua2'] = {
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
-			source : ["UA:A2", 6],
+			source : ["UA:A3", 6],
 			minlevel : 20,
 			description : " [+1 on all saves per attuned magic item (max 6)]",
 			savetxt : {
 				text : ["+1 to all saves per attuned magic item"]
 			}
 		}
+	},
+	artificerCompFunc : {
+		add : function (compName) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			var prefix = false;
+			if (AScompA) {
+				for (var a = 1; a < AScompA.length; a++) {
+					if (!What(AScompA[a] + 'Comp.Race')) {
+						prefix = AScompA[a];
+						break;
+					}
+				}
+			}
+			if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+			Value(prefix + 'Comp.Race', compName);
+			Value(prefix + 'Comp.Type', "Construct");
+			return prefix;
+		},
+		remove : function (compName) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			if (!AScompA) return;
+			compName = compName.toLowerCase();
+			for (var a = 1; a < AScompA.length; a++) {
+				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) {
+					DoTemplate("AScomp", "Remove", AScompA[a], true);
+				}
+			}
+		},
+		update : function (compName, newHP, newProf) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			var prefixes = [];
+			if (!AScompA) return prefixes;
+			compName = compName.toLowerCase();
+			for (var a = 1; a < AScompA.length; a++) {
+				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) {
+					if (newHP !== undefined) Value(AScompA[a] + "Comp.Use.HP.Max", newHP);
+					if (newProf !== undefined) Value(AScompA[a] + "Comp.Use.Proficiency Bonus", newProf);
+					prefixes.push(AScompA[a]);
+				}
+			}
+			return prefixes;
+		}
 	}
 };
 
 // Add the Alchemist specialism
-AddSubClass("artificer-ua2", "alchemist", {
+AddSubClass("artificer-ua3", "alchemist", {
 	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
 	subname : "Alchemist",
 	fullname : "Alchemist",
-	source : ["UA:A2", 6],
+	source : ["UA:A3", 6],
 	spellcastingExtra : ["purify food and drink", "ray of sickness", "melf's acid arrow", "web", "create food and water", "stinking cloud", "blight", "death ward", "cloudkill", "raise dead"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
-			source : ["UA:A2", 6],
+			source : ["UA:A3", 6],
 			minlevel : 3,
-			description : desc([
-				"I gain proficiency with alchemist's supplies and the herbalism kit",
-				"I can craft magical potions for half the usual gold and in a quarter of the usual time"
-			]),
+			description : "\n   I can craft magical potions for half the usual gold and in a quarter of the usual time",
+			additional : "alchemist's and herbalism kit proficiency",
 			toolProfs : ["Alchemist's supplies", "Herbalism kit"],
 			eval : function () {
 				AddToInv("gear", "l", "Alchemist's supplies", "", 8);
@@ -14890,7 +14981,7 @@ AddSubClass("artificer-ua2", "alchemist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Alchemical Homunculus",
-			source : ["UA:A2", 6],
+			source : ["UA:A3", 6],
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use alchemist's supplies to create an alchemical homunculus",
@@ -14903,44 +14994,21 @@ AddSubClass("artificer-ua2", "alchemist", {
 			]),
 			action : [["action", " (restore)"], ["bonus action", " (command)"]],
 			eval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
-				}
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', "Alchemical Homunculus");
-				Value(prefix + 'Comp.Type', "Construct");
+				var prefix = ClassList['artificer-ua3'].artificerCompFunc.add("Alchemical Homunculus");
 				AddSkillProf("Perception", true, false, false, 2, prefix);
 			},
 			removeeval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
-						DoTemplate("AScomp", "Remove", AScompA[a], true);
-					}
-				}
+				ClassList['artificer-ua3'].artificerCompFunc.remove("alchemical homunculus");
 			},
 			changeeval : function (lvlA) {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
-						Value(AScompA[a] + "Comp.Use.HP.Max", Math.round(lvlA[1] * 5 + What("Int mod")));
-						Value(AScompA[a] + "Comp.Use.Proficiency Bonus", ProficiencyBonusList[classes.totallevel - 1]);
-					}
-				}
+				var newProf = ProficiencyBonusList[classes.totallevel - 1];
+				var newHP = Math.round(lvlA[1] * 5 + What("Int mod"));
+				ClassList['artificer-ua3'].artificerCompFunc.update("alchemical homunculus", newHP, newProf);
 			}
 		},
 		"subclassfeature6" : {
 			name : "Alchemical Mastery",
-			source : ["UA:A2", 7],
+			source : ["UA:A3", 7],
 			minlevel : 6,
 			description : desc([
 				"I can enhance the spell I cast when I use alchemist's supplies as my spellcasting focus",
@@ -14949,7 +15017,7 @@ AddSubClass("artificer-ua2", "alchemist", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.thisWeapon[3] && v.thisWeapon[4].indexOf("artificer-ua2") !== -1 && (/poison|acid/i).test(fields.Damage_Type)) {
+						if (v.thisWeapon[3] && v.thisWeapon[4].indexOf("artificer-ua3") !== -1 && (/poison|acid/i).test(fields.Damage_Type)) {
 							output.extraDmg += Math.max(Number(What("Int Mod")), 1);
 						}
 					},
@@ -14957,7 +15025,7 @@ AddSubClass("artificer-ua2", "alchemist", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.psionic || spName !== "artificer-ua2" || (/color spray|sleep/).test(spellKey)) return;
+						if (spellObj.psionic || spName !== "artificer-ua3" || (/color spray|sleep/).test(spellKey)) return;
 						var startDescr = spellObj.description;
 						var toAdd = Math.max(Number(What("Int Mod")), 1);
 						switch (spellKey) {
@@ -14993,7 +15061,7 @@ AddSubClass("artificer-ua2", "alchemist", {
 		},
 		"subclassfeature6.1" : {
 			name : "Alchemical Mastery: Lesser Restoration",
-			source : ["UA:A2", 7],
+			source : ["UA:A3", 7],
 			minlevel : 6,
 			description : "\n   I can cast Lesser Restoration without a spell slot if I use alchemist's supplies as a focus",
 			usages : "Int mod per ",
@@ -15017,20 +15085,16 @@ AddSubClass("artificer-ua2", "alchemist", {
 			name : "Chemical Savant",
 			source : ["UA:A2", 7],
 			minlevel : 14,
-			description : "I have resistance to acid and poison damage, and I'm immune to the poisoned condition",
-			dmgres : ["acid", "poison"],
-			savetxt : { immune : ["poisoned condition"] }
-		},
-		"subclassfeature14.1" : {
-			name : "Chemical Savant: Greater Restoration",
-			source : ["UA:A2", 7],
-			minlevel : 14,
 			description : desc([
-				"I can cast Greater Restoration without using a spell slot or needing material components ",
+				"I always have resistance to acid and poison damage and immunity to being poisoned",
+				"Once per long rest, I can cast Greater Restoration without a spell slot or material comp.",
 				"To do so, I have to use alchemist's supplies as my spellcasting focus"
 			]),
+			dmgres : ["Acid", "Poison"],
+			savetxt : { immune : ["poisoned condition"] },
 			usages : 1,
 			recovery : "long rest",
+			additional : "Greater Restoration",
 			spellcastingBonus : {
 				name : "Chemical Savant",
 				spells : ["greater restoration"],
@@ -15049,9 +15113,9 @@ AddSubClass("artificer-ua2", "alchemist", {
 	}
 });
 // Add the Alchemist's Alchemical Homunculus
-CreatureList["alchemical homunculus-uaa2"] = {
+CreatureList["alchemical homunculus-uaa3"] = {
 	name : "Alchemical Homunculus",
-	source : ["UA:A2", 6],
+	source : ["UA:A3", 7],
 	size : 5,
 	type : "Construct",
 	subtype : "",
@@ -15082,7 +15146,7 @@ CreatureList["alchemical homunculus-uaa2"] = {
 	}],
 	features : [{
 		name : "Creator",
-		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It taking its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
+		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
 	}, {
 		name : "Healing",
 		description : "The homunculus regains 2d6 HP whenever the Mending spell is cast on it."
@@ -15096,17 +15160,156 @@ CreatureList["alchemical homunculus-uaa2"] = {
 	}]
 }
 
+// Add the Archivist specialism (new in 2019v2)
+AddSubClass("artificer-ua3", "archivist", {
+	regExpSearch : /^(?=.*archivist)(?!.*wizard).*$/i,
+	subname : "Archivist",
+	fullname : "Archivist",
+	source : ["UA:A3", 7],
+	spellcastingExtra : ["comprehend languages", "dissonant whispers", "detect thoughts", "locate object", "hypnotic pattern", "tongues", "locate creature", "phantasmal killer", "legend lore", "modify memory"],
+	features : {
+		"subclassfeature3" : {
+			name : "Tools of the Trade",
+			source : ["UA:A3", 7],
+			minlevel : 3,
+			description : desc([
+				"I gain proficiency with calligrapher's supplies and the forgery kit",
+				"I can craft magical scrolls for half the usual gold and in a quarter of the usual time"
+			]),
+			toolProfs : ["Calligrapher's supplies", "Forgery kit"],
+			eval : function () {
+				AddToInv("gear", "l", "Calligrapher's supplies", "", 5);
+				AddToInv("gear", "l", "Forgery kit", "", 5);
+			}
+		},
+		"subclassfeature3.1" : {
+			name : "Artificial Mind",
+			source : ["UA:A3", 8],
+			minlevel : 3,
+			description : desc([
+				"When I end a long rest, I can use calligrapher's supplies on a tiny nonmagical object",
+				"It gain a magical keen mind; I can have only 1 at a time, creating more kills the older",
+				"See 3rd page for the telepathic advisor and manifest mind features of this magic item",
+				"As an action, I can use its information overload: a target in 5 ft must make an Int save",
+				"If fail, it takes psychic damage & the 1st attack vs. it before my next turn ends has adv.",
+				"If this deals damage, I can expend a spell slot to add damage of 1d8 + 1d8 per slot level"
+			]),
+			additional : levels.map(function (n, idx) {
+				return n < 3 ? "" : (cantripDie[idx]) + 'd8 psychic damage';
+			}),
+			weaponsAdd : ["Information Overload"],
+			weaponOptions : {
+				regExpSearch : /^(?=.*information)(?=.*overload).*$/i,
+				name : "Information Overload",
+				source : ["UA:A3", 8],
+				ability : 4,
+				type : "Spell",
+				damage : [1, 8, "psychic"],
+				range : "5 ft of mind",
+				description : "Int save; Fail - damage and 1st attack before my next turn ends vs. target has adv; Use spell slot for extra damage",
+				dc : true,
+				monkweapon : false,
+				abilitytodamage : false,
+				isInformationOverload : true
+			},
+			calcChanges : {
+				atkAdd : [function (fields, v) {
+					if (v.theWea.isInformationOverload && classes.known['artificer-ua3'] && classes.known['artificer-ua3'].level > 4) {
+						fields.Damage_Die = cantripDie[classes.known['artificer-ua3'].level - 1] + "d8";
+					};
+				}]
+			},
+			action : [["bonus action", "Manifest Mind (start/stop/move)"], ["action", "Manifest Mind (use its senses)"]],
+			extraname : "Artificial Mind",
+			"telepathic advisor" : {
+				name : "Telepathic Advisor",
+				source : ["UA:A3", 8],
+				description : desc([
+					"While my artificial mind is on my person, it telepathically grants me two skill proficiencies",
+					"I can choose which skills when I create the artificial mind, depending on its raw material",
+					"Animal raw material: two from Animal Handling, Insight, Medicine, Perception, \u0026 Survival",
+					"Mineral raw material: two from Deception, Intimidation, Performance, and Persuasion",
+					"Plant raw material: two Arcana, History, Investigation, Nature, and Religion"
+				]),
+				skillstxt : "\n   Animal raw material: two from Animal Handling, Insight, Medicine, Perception, and Survival;\n   Mineral raw material: two from Deception, Intimidation, Performance, and Persuasion;\n   Plant raw material: two Arcana, History, Investigation, Nature, and Religion"
+			},
+			"manifest mind" : {
+				name : "Manifest Mind",
+				source : ["UA:A3", 8],
+				description : desc([
+					"As a bonus action, I can have the artificial mind create a spectral presence within 60 ft",
+					"This requires the item to be on my person and it stops if the presence goes beyond 300 ft",
+					"I decide its spectral appearance; It is intangible, invulnerable, and sheds dim light in 10 ft",
+					"While manifested, the spectral mind can hear and see, and has 60 ft darkvision",
+					"As an action, I can use the mind's senses instead of my own until I stop concentrating on it",
+					"As a bonus action, I can cause the spectral mind to hover 30 ft, passing through creatures",
+					"When I cast an artificer spell on my turn, I can have the origins of it be the spectral mind",
+					"I can cast spells through it a number of times per long rest equal to my Intelligence mod"
+				]),
+				extraLimitedFeatures : [{
+					name : "Cast spell through Manifest Mind",
+					usages : "Intelligence modifier per ",
+					usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+					recovery : "long rest"
+				}]
+			},
+			autoSelectExtrachoices : [{ extrachoice : "telepathic advisor" }, { extrachoice : "manifest mind" }]
+		},
+		"subclassfeature6" : {
+			name : "Mind Network",
+			source : ["UA:A3", 9],
+			minlevel : 6,
+			description : desc([
+				"I add my Int mod to artificer spells that deal psychic damage and information overload",
+				"With my artificial mind, I communicate telepathically with anyone carrying my infusions"
+			]),
+			calcChanges : {
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.theWea.isInformationOverload || (v.isSpell && (/psychic/i).test(fields.Damage_Type) && v.thisWeapon[4].indexOf('artificer-ua3') !== -1)) {
+							output.extraDmg += Math.max(1, What('Int Mod'));
+						};
+					},
+					"My artificer cantrips and spells that deal psychic damage, as well as my artificial mind's information overload get my Intelligence modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName == 'artificer-ua3' && !spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", "Int", true);
+					},
+					"My artificer cantrips and spells that deal psychic damage get my Intelligence modifier added to their damage."
+				]
+			}
+		},
+		"subclassfeature14" : {
+			name : "Pure Information",
+			source : ["UA:A3", 9],
+			minlevel : 14,
+			description : desc([
+				"When I use a spell slot to boost information overload, its target must make another save",
+				"On a failed Intelligence saving throw it is stunned until the end of my next turn",
+				"As an action while my artificial mind is on my person, I can teleport (infoportation)",
+				"I teleport to an unoccupied space nearest to the spectral mind or an item infused by me",
+				"I can do this once per long rest for free or by expending a spell slot of 2nd level or higher"
+			]),
+			usages : 1,
+			recovery : "long rest",
+			additional : "Infoportation",
+			action : [["action", ""]]
+		}
+	}
+});
+
 // Add the Artillerist specialism
-AddSubClass("artificer-ua2", "artillerist", {
+AddSubClass("artificer-ua3", "artillerist", {
 	regExpSearch : /^(?=.*artillerist)(?!.*wizard).*$/i,
 	subname : "Artillerist",
 	fullname : "Artillerist",
-	source : ["UA:A2", 7],
+	source : ["UA:A3", 8],
 	spellcastingExtra : ["shield", "thunderwave", "scorching ray", "shatter", "fireball", "wind wall", "ice storm", "wall of fire", "cone of cold", "wall of force"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
-			source : ["UA:A2", 7],
+			source : ["UA:A3", 9],
 			minlevel : 3,
 			description : desc([
 				"I can use rods, wands, and staffs as a spellcasting focus",
@@ -15122,7 +15325,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Turret",
-			source : ["UA:A2", 7],
+			source : ["UA:A3", 10],
 			minlevel : 3,
 			description: desc([
 				"As an action, I can use smith's tools to summon a Medium turret within 5 ft of me",
@@ -15142,42 +15345,18 @@ AddSubClass("artificer-ua2", "artillerist", {
 			}),
 			action: [["action", " (summon/detonate)"], ["bonus action", " (command)"]],
 			eval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
-				}
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', "Arcane Turret");
-				Value(prefix + 'Comp.Type', "Construct");
+				ClassList['artificer-ua3'].artificerCompFunc.add("Arcane Turret");
 			},
 			removeeval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("arcane turret") !== -1) {
-						DoTemplate("AScomp", "Remove", AScompA[a], true);
-					}
-				}
+				ClassList['artificer-ua3'].artificerCompFunc.remove("arcane turret");
 			},
 			changeeval : function (lvlA) {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("arcane turret") !== -1) {
-						Value(AScompA[a] + "Comp.Use.HP.Max", lvlA[1] * 5);
-					}
-				}
+				ClassList['artificer-ua3'].artificerCompFunc.update("arcane turret", lvlA[1] * 5);
 			}
 		},
 		"subclassfeature6" : {
 			name : "Wand Prototype",
-			source : ["UA:A2", 8],
+			source : ["UA:A3", 10],
 			minlevel : 6,
 			description: desc([
 				"When I finish a long rest, I can use woodcarver's tools to turn a wand into a magic item",
@@ -15191,7 +15370,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 			}),
 			spellcastingBonus : {
 				name : "Wand Prototype",
-				"class" : "artificer-ua2",
+				"class" : "artificer-ua3",
 				notspells : ["magic stone", "mending", "shillelagh"], // all cantrips with a casting time that is not 1 action
 				level : [0, 0],
 				times : levels.map(function(n) {
@@ -15202,10 +15381,10 @@ AddSubClass("artificer-ua2", "artillerist", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (!v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1) return;
-						var artSp = CurrentSpells["artificer-ua2"];
-						if (!artSp || !artSp.selectBo || !v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua2") == -1 || artSp.selectCa.indexOf(v.thisWeapon[3]) !== -1) return;
-						var artBoSp = CurrentSpells["artificer-ua2"].bonus.subclassfeature6.selection;
+						if (!v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua3") == -1) return;
+						var artSp = CurrentSpells["artificer-ua3"];
+						if (!artSp || !artSp.selectBo || !v.thisWeapon[3] || v.thisWeapon[4].indexOf("artificer-ua3") == -1 || artSp.selectCa.indexOf(v.thisWeapon[3]) !== -1) return;
+						var artBoSp = CurrentSpells["artificer-ua3"].bonus.subclassfeature6.selection;
 						if (artBoSp && artBoSp.indexOf(v.thisWeapon[3]) !== -1) {
 							output.die = output.die.replace(/C/g, 1).replace(/B/g, 0).replace(/0.?d\d+/g, 0);
 							output.extraDmg += Math.max(Number(What("Int Mod")), 1);
@@ -15215,8 +15394,8 @@ AddSubClass("artificer-ua2", "artillerist", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName, isDuplicate) {
-						if (spName != "artificer-ua2" || isDuplicate || !CurrentSpells["artificer-ua2"]) return;
-						var artBoSp = CurrentSpells["artificer-ua2"].bonus.subclassfeature6.selection;
+						if (spName != "artificer-ua3" || isDuplicate || !CurrentSpells["artificer-ua3"]) return;
+						var artBoSp = CurrentSpells["artificer-ua3"].bonus.subclassfeature6.selection;
 						if (!artBoSp || artBoSp.indexOf(spellKey) == -1) return;
 						spellObj.components = "";
 						spellObj.compMaterial = "Spells cast by magic items don't require any components.";
@@ -15243,16 +15422,16 @@ AddSubClass("artificer-ua2", "artillerist", {
 		},
 		"subclassfeature14" : {
 			name : "Fortified Position",
-			source : ["UA:A2", 8],
+			source : ["UA:A3", 10],
 			minlevel : 14,
 			description: "\n   My allies and I have half cover while within 10 ft of an arcane turret I created"
 		}
 	}
 });
 // Add the Artillerist's Arcane Turret
-CreatureList["arcane turret"] = {
+CreatureList["arcane turret-uaa3"] = {
 	name : "Arcane Turret",
-	source : ["UA:A2", 7],
+	source : ["UA:A3", 10],
 	size : 3,
 	type : "Construct",
 	subtype : "",
@@ -15321,11 +15500,170 @@ CreatureList["arcane turret"] = {
 	}]
 };
 
+// Add the Battle Smith specialism (new in 2019v2)
+AddSubClass("artificer-ua3", "battle smith", {
+	regExpSearch : /^(?=.*battle)(?=.*smith)(?!.*wizard).*$/i,
+	subname : "Battle Smith",
+	fullname : "Battle Smith",
+	source : ["UA:A3", 11],
+	spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"],
+	features : {
+		"subclassfeature3" : {
+			name : "Tools of the Trade \u0026 Battle Ready",
+			source : ["UA:A3", 11],
+			minlevel : 3,
+			description : desc([
+				"I gain proficiency with leatherworker's tools, smith's tools, and martial weapons",
+				"I can craft magical armor for half the usual gold and in a quarter of the usual time",
+				"I can use my Intelligence modifier instead of Strength or Dexterity for magic weapons"
+			]),
+			toolProfs : ["Leatherworker's tools", "Smith's tools"],
+			eval : function () {
+				AddToInv("gear", "l", "Leatherworker's tools", "", 5);
+				AddToInv("gear", "l", "Smith's tools", "", 8);
+			},
+			removeeval : function () {
+				if (CurrentEvals.BattleSmith) delete CurrentEvals.BattleSmith;
+			},
+			weaponProfs : [false, true],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && (v.theWea.isMagicWeapon || v.thisWeapon[1]) && fields.Mod > 0 && fields.Mod < 3 && What("Int") > What(fields.Mod == 1 ? "Str" : "Dex")) {
+							fields.Mod = 4;
+						}
+					},
+					'I can use my Intelligence modifier instead of Strength or Dexterity for the attack and damage rolls of magic weapons.'
+				]
+			}
+		},
+		"subclassfeature3.1" : {
+			name : "Iron Defender",
+			source : ["UA:A3", 11],
+			minlevel : 3,
+			description : desc([
+				"When I end a long rest, I can use smith's tools to create an iron defender",
+				"I determine its appearance; I can have only 1 at a time, making a new one kills the older",
+				"It obeys my commands, is friendly to my allies and I, and acts on my initiative, after me",
+				"Unless I use a bonus action to command it, it only takes reactions and the Dodge action",
+				"If commanded to, it can only take an action to bite, repair, Dash, Disengage, or Help",
+				"Its HP maximum is equal to five times my artificer level + my Int Mod + its Con mod"
+			]),
+			action : [["action", " (restore)"], ["bonus action", " (command)"]],
+			eval : function () {
+				var prefix = ClassList['artificer-ua3'].artificerCompFunc.add("Iron Defender");
+				AddSkillProf("Perception", true, false, false, 2, prefix);
+			},
+			removeeval : function () {
+				ClassList['artificer-ua3'].artificerCompFunc.remove("iron defender");
+			},
+			changeeval : function (lvlA) {
+				var newProf = ProficiencyBonusList[classes.totallevel - 1];
+				var pres = ClassList['artificer-ua3'].artificerCompFunc.update("iron defender", undefined, newProf);
+				if (!pres.length) return;
+				var lvlH = Math.max(lvlA[0], lvlA[1]), lvlL = Math.min(lvlA[0], lvlA[1]);
+				var newHP = Math.round(lvlA[1] * 5 + What("Int mod"));
+				for (var i = 0; i < pres.length; i++) {
+					Value(pres[i] + "Comp.Use.HP.Max", newHP + What(pres[i] + "Comp.Use.Ability.Con.Mod"));
+					if (lvlL < 6 && lvlH >= 6) { // Arcane Jolt
+						Value(pres[i] + "Comp.Use.Attack.1.Description", lvlA[1] >= 6 ? "Counts as magical; Can channel energy (Arcane Jolt)" : "");
+					}
+					if (lvlL < 14 && lvlH >= 14) { // Improved Defender
+						Value(pres[i] + "Comp.Use.Attack.2.Weapon Selection", lvlA[1]>= 14 ? "Defensive Pounce" : "");
+						if (lvlA[1] >= 14) {
+							Value(pres[i] + "Comp.Use.Attack.2.Range", "Melee (5 ft)");
+							Value(pres[i] + "Comp.Use.Attack.2.Description", "As reaction on target that attacks another; Automatically hits and target has disadv. on its attack");
+							Value(pres[i] + "Comp.Use.Attack.2.Damage Type", "Force");
+							PickDropdown(pres[i] + "Comp.Use.Attack.2.Mod", 5);
+							Value(pres[i] + "BlueText.Comp.Use.Attack.2.Damage Die", "1d4");
+							Value(pres[i] + "BlueText.Comp.Use.Attack.2.Damage Bonus", "oInt-Wis");
+						}
+					}
+				}
+			}
+		},
+		"subclassfeature6" : {
+			name : "Arcane Jolt",
+			source : ["UA:A3", 12],
+			minlevel : 6,
+			description : desc([
+				"The bite attack of my iron defender is considered magical",
+				"I can channel energy through the defender's bite attack and my magic weapon attacks",
+				"Once per turn when such an attack hits, I can have it do extra force damage or heal",
+				"If I choose to heal, I restore HP to a creature that I can see within 30 ft of the target"
+			]),
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return n < 6 ? "" : (n < 14 ? 2 : 4) + "d4";
+			})
+		},
+		"subclassfeature14" : {
+			name : "Improved Defender",
+			source : ["UA:A3", 14],
+			minlevel : 14,
+			description : desc([
+				"My iron defender's defensive pounce now also deals 1d4 + my Int mod in force damage",
+				"The damage and healing from arcane jolt increases from 2d4 to 4d4"
+			])
+		}
+	}
+});
+// Add the Battle Smith's Iron Defender (new in 2019v2)
+CreatureList["iron defender-uaa3"] = {
+	name : "Iron Defender",
+	source : ["UA:A3", 11],
+	size : 3,
+	type : "Construct",
+	subtype : "",
+	alignment : "Neutral",
+	ac : 15,
+	hp : 7,
+	hd : [0, 0],
+	speed : "40 ft",
+	scores : [14, 12, 14, 4, 10, 6], //[Str, Dex, Con, Int, Wis, Cha]
+	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	skills : { "perception" : 4 },
+	damage_immunities : "poison",
+	condition_immunities : "charmed, exhaustion, poisoned",
+	passivePerception : 10,
+	senses : "Darkvision 60 ft",
+	languages : "understands the languages of its creator but can't speak",
+	challengeRating : "1",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Bite",
+		ability : 1,
+		damage : [1, 8, "piercing"],
+		range : "Melee (5 ft)",
+		modifiers : ["", "Prof-2", ""]
+	}],
+	features : [{
+		name : "Creator",
+		description : "The iron defender obeys the commands of its creator and has the same proficiency bonus. It takes its turn after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Bite, Repair, Dash, Disengage, or Help action. Within an hour of its death, its creator can expend a spell slot as an action while within 5 ft to have it return to full HP after 1 minute."
+	}],
+	actions : [{
+		name : "Healing",
+		description : "The iron defender regains 2d6 HP whenever the Mending spell is cast on it."
+	}, {
+		name : "Vigilant",
+		description : "The iron defender can't be surprised."
+	}, {
+		name : "Repair (3/Day)",
+		description : "As an action, the magical mechanisms inside the iron defender restore 2d8 + its proficiency bonus in hit points to itself or to one construct or object within 5 ft of it."
+	}, {
+		name : "Defensive Pounce (reaction)",
+		description : "As a reaction, the iron defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the iron defender."
+	}]
+};
+
 // Add the new spell
-SpellsList["arcane weapon-uaa2"] = {
+SpellsList["arcane weapon-uaa3"] = {
 	name : "Arcane Weapon",
-	classes : ["artificer-ua2"],
-	source : ["UA:A2", 10],
+	classes : ["artificer-ua3"],
+	source : ["UA:A3", 14],
 	level : 1,
 	school : "Trans",
 	time : "1 bns",
@@ -15339,7 +15677,7 @@ SpellsList["arcane weapon-uaa2"] = {
 // Add the new magic items
 MagicItemsList["boots of the winding path"] = {
 	name : "Boots of the Winding Path",
-	source : ["UA:A2", 9],
+	source : ["UA:A3", 12],
 	type : "wondrous item",
 	description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
 	descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
@@ -15348,7 +15686,7 @@ MagicItemsList["boots of the winding path"] = {
 }
 MagicItemsList["many-handed pouch"] = {
 	name : "Many-Handed Pouch",
-	source : ["UA:A2", 9],
+	source : ["UA:A3", 13],
 	type : "wondrous item",
 	description : "These 2-5 pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch only functions if it is within 100 miles of another pouch of its set.",
 	descriptionFull : "The infused pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch operates as long as it is within 100 miles of another one of the pouches; the pouch is otherwise empty and won't accept any contents.\n   If this infusion ends, the items stored in the shared space move into one of the pouches, determined at random. The rest of the pouches become empty."
@@ -15356,7 +15694,7 @@ MagicItemsList["many-handed pouch"] = {
 MagicItemsList["radiant weapon"] = {
 	name : "Radiant Weapon",
 	nameTest : "Radiant",
-	source : ["UA:A2", 9],
+	source : ["UA:A3", 13],
 	type : "weapon (any)",
 	description : "This magic double-bladed scimitar adds a +1 on its attacks and damage. As a bonus action, I can start or stop it shedding light, bright in 30 ft and dim for another 30 ft. Once per short rest as a reaction when hit by a melee attack, I can blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
@@ -15381,10 +15719,57 @@ MagicItemsList["radiant weapon"] = {
 		]
 	}
 }
+MagicItemsList["repeating shot"] = { // 2019v2
+	name : "Repeating Shot",
+	source : ["UA:A3", 13],
+	type : "weapon (any with ammunition)",
+	description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
+	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
+	attunement : true,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "weapon"],
+		excludeCheck : function (inObjKey, inObj) {
+			return !(/ammunition/i).test(inObj.description);
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(;|,)? ?loading/i, '');
+				}
+			},
+			'If I include the words "Repeating Shot" in the name of a weapon with the ammunition property, it will be treated as the magic weapon Repeating Shot. It has +1 to hit and damage and produces its own ammunition, thus its loading property is removed if it has it.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+		]
+	}
+}
+MagicItemsList["repulsion shield"] = { // 2019v2
+	name : "Repulsion Shield",
+	source : ["UA:A3", 14],
+	type : "shield",
+	description : "I gain a +1 bonus to Armor Class while wielding this shield. As a reaction immediately after being hit by a melee attack, I can push the attacker up to 15 ft away. Once used, this reaction can't be used again until I finish a short or long rest.",
+	descriptionFull : "A creature gains a +1 bonus to Armor Class while wielding this shield. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to push the attacker up to 15 feet away. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
+	weight : 6,
+	attunement : true,
+	usages : 1,
+	recovery : "short rest",
+	action : [["reaction", ""]],
+	shieldAdd : ["Repulsion Shield", 3, 6],
+}
 MagicItemsList["returning weapon"] = {
 	name : "Returning Weapon",
 	nameTest : "Returning",
-	source : ["UA:A2", 10],
+	source : ["UA:A3", 14],
 	type : "weapon (any thrown)",
 	description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
@@ -15399,7 +15784,7 @@ MagicItemsList["returning weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
 				}
@@ -15420,11 +15805,14 @@ MagicItemsList["returning weapon"] = {
 var SetArtificerSpells = function(){
 	var artSp = [
 		"acid splash",
+		"create bonfire", // 2019v2
 		"dancing lights",
 		"fire bolt",
+		"frostbite", // 2019v2
 		"guidance",
 		"light",
 		"mage hand",
+		"magic stone", // 2019v2
 		"mending",
 		"message",
 		"poison spray",
@@ -15434,19 +15822,24 @@ var SetArtificerSpells = function(){
 		"shocking grasp",
 		"spare the dying",
 		"thorn whip",
+		"thunderclap", // 2019v2
 		// level 1
+		"absorb elements", // 2019v2
 		"alarm",
+		"catapult", // 2019v2
 		"cure wounds",
 		"detect magic",
 		"disguise self",
 		"expeditious retreat",
+		"faerie fire", // 2019v2
 		"false life",
+		"feather fall", // 2019v2
 		"grease",
 		"identify",
 		"jump",
 		"longstrider",
 		"sanctuary",
-		"shield of faith",
+		"snare-xgte", // 2019v2, replaces "shield of faith"
 		// level 2
 		"aid",
 		"alter self",
@@ -15463,23 +15856,29 @@ var SetArtificerSpells = function(){
 		"magic mouth",
 		"magic weapon",
 		"protection from poison",
+		"pyrotechnics", // 2019v2
 		"rope trick",
 		"see invisibility",
+		"skywrite", // 2019v2
 		"spider climb",
 		// level 3
 		"blink",
+		"catnap", // 2019v2
 		"dispel magic",
 		"elemental weapon",
+		"flame arrows", // 2019v2
 		"fly",
 		"gaseous form",
 		"glyph of warding",
 		"haste",
 		"protection from energy",
 		"revivify",
+		"tiny servant", // 2019v2
 		"water breathing",
 		"water walk",
 		// level 4
 		"arcane eye",
+		"elemental bane", // 2019v2
 		"fabricate",
 		"freedom of movement",
 		"leomund's secret chest",
@@ -15488,16 +15887,19 @@ var SetArtificerSpells = function(){
 		"otiluke's resilient sphere",
 		"stone shape",
 		"stoneskin",
+		"vitriolic sphere", // 2019v2
 		// level 5
 		"animate objects",
 		"bigby's hand",
 		"creation",
 		"greater restoration",
+		"skill empowerment", // 2019v2
+		"transmute rock", // 2019v2
 		"wall of stone"
 	];
 	for (var a = 0; a < artSp.length; a++) {
 		var aArtSp = SpellsList[artSp[a]];
-		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer-ua2") === -1) aArtSp.classes.push("artificer-ua2");
+		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer-ua3") === -1) aArtSp.classes.push("artificer-ua3");
 	};
 	var artMi = [
 		["alchemy jug"],
@@ -15549,10 +15951,7 @@ var SetArtificerSpells = function(){
 		["ring of protection", 16],
 		["ring of the ram", 16]
 	];
-	for (var a = 0; a < artMi.length; a++) {
-		if (!MagicItemsList[artMi[a][0]]) console.println(artMi[a][0]);
-	}
-	var theObj = ClassList['artificer-ua2'].features["infuse item"];
+	var theObj = ClassList['artificer-ua3'].features["infuse item"];
 	for (var a = 0; a < artMi.length; a++) {
 		var MI0 = artMi[a][0];
 		var MI1 = artMi[a][1];
@@ -15576,7 +15975,7 @@ var SetArtificerSpells = function(){
 			removeeval : MI2 ? 'if (CurrentMagicItems.choices.indexOf("' + MI2 + '") != -1) { MagicItemClear(CurrentMagicItems.choices.indexOf("' + MI2 + '") + 1, true); };' : 'if (CurrentMagicItems.known.indexOf("' + MI0 + '") != -1) { MagicItemClear(CurrentMagicItems.known.indexOf("' + MI0 + '") + 1, true); };'
 		};
 		if (anArtMi.attunement) theObj[theILC].additional = "requires attunement";
-		if (MI1) theObj[theILC].prereqeval = "classes.known['artificer-ua2'].level >= " + MI1;
+		if (MI1) theObj[theILC].prereqeval = "classes.known['artificer-ua3'].level >= " + MI1;
 		theObj.extrachoices.push(theI);
 	};
 }();

@@ -313,7 +313,7 @@ ClassList['artificer-ua3'] = {
 			minlevel : 3,
 			description : desc([
 				'Choose a specialism and put it in the "Class" field on the first page',
-				"Choose either alchemist or artillerist"
+				"Choose either alchemist, archivist, artillerist, or battle smith"
 			])
 		},
 		"arcane armament" : {
@@ -349,6 +349,48 @@ ClassList['artificer-ua3'] = {
 				text : ["+1 to all saves per attuned magic item"]
 			}
 		}
+	},
+	artificerCompFunc : {
+		add : function (compName) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			var prefix = false;
+			if (AScompA) {
+				for (var a = 1; a < AScompA.length; a++) {
+					if (!What(AScompA[a] + 'Comp.Race')) {
+						prefix = AScompA[a];
+						break;
+					}
+				}
+			}
+			if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+			Value(prefix + 'Comp.Race', compName);
+			Value(prefix + 'Comp.Type', "Construct");
+			return prefix;
+		},
+		remove : function (compName) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			if (!AScompA) return;
+			compName = compName.toLowerCase();
+			for (var a = 1; a < AScompA.length; a++) {
+				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) {
+					DoTemplate("AScomp", "Remove", AScompA[a], true);
+				}
+			}
+		},
+		update : function (compName, newHP, newProf) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			var prefixes = [];
+			if (!AScompA) return prefixes;
+			compName = compName.toLowerCase();
+			for (var a = 1; a < AScompA.length; a++) {
+				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) {
+					if (newHP !== undefined) Value(AScompA[a] + "Comp.Use.HP.Max", newHP);
+					if (newProf !== undefined) Value(AScompA[a] + "Comp.Use.Proficiency Bonus", newProf);
+					prefixes.push(AScompA[a]);
+				}
+			}
+			return prefixes;
+		}
 	}
 };
 
@@ -364,10 +406,8 @@ AddSubClass("artificer-ua3", "alchemist", {
 			name : "Tools of the Trade",
 			source : ["UA:A3", 6],
 			minlevel : 3,
-			description : desc([
-				"I gain proficiency with alchemist's supplies and the herbalism kit",
-				"I can craft magical potions for half the usual gold and in a quarter of the usual time"
-			]),
+			description : "\n   I can craft magical potions for half the usual gold and in a quarter of the usual time",
+			additional : "alchemist's and herbalism kit proficiency",
 			toolProfs : ["Alchemist's supplies", "Herbalism kit"],
 			eval : function () {
 				AddToInv("gear", "l", "Alchemist's supplies", "", 8);
@@ -389,39 +429,16 @@ AddSubClass("artificer-ua3", "alchemist", {
 			]),
 			action : [["action", " (restore)"], ["bonus action", " (command)"]],
 			eval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
-				}
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', "Alchemical Homunculus");
-				Value(prefix + 'Comp.Type', "Construct");
+				var prefix = ClassList['artificer-ua3'].artificerCompFunc.add("Alchemical Homunculus");
 				AddSkillProf("Perception", true, false, false, 2, prefix);
 			},
 			removeeval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
-						DoTemplate("AScomp", "Remove", AScompA[a], true);
-					}
-				}
+				ClassList['artificer-ua3'].artificerCompFunc.remove("alchemical homunculus");
 			},
 			changeeval : function (lvlA) {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
-						Value(AScompA[a] + "Comp.Use.HP.Max", Math.round(lvlA[1] * 5 + What("Int mod")));
-						Value(AScompA[a] + "Comp.Use.Proficiency Bonus", ProficiencyBonusList[classes.totallevel - 1]);
-					}
-				}
+				var newProf = ProficiencyBonusList[classes.totallevel - 1];
+				var newHP = Math.round(lvlA[1] * 5 + What("Int mod"));
+				ClassList['artificer-ua3'].artificerCompFunc.update("alchemical homunculus", newHP, newProf);
 			}
 		},
 		"subclassfeature6" : {
@@ -501,22 +518,18 @@ AddSubClass("artificer-ua3", "alchemist", {
 		},
 		"subclassfeature14" : {
 			name : "Chemical Savant",
-			source : ["UA:A3", 7],
-			minlevel : 14,
-			description : "I have resistance to acid and poison damage, and I'm immune to the poisoned condition",
-			dmgres : ["acid", "poison"],
-			savetxt : { immune : ["poisoned condition"] }
-		},
-		"subclassfeature14.1" : {
-			name : "Chemical Savant: Greater Restoration",
-			source : ["UA:A3", 7],
+			source : ["UA:A2", 7],
 			minlevel : 14,
 			description : desc([
-				"I can cast Greater Restoration without using a spell slot or needing material components ",
+				"I always have resistance to acid and poison damage and immunity to being poisoned",
+				"Once per long rest, I can cast Greater Restoration without a spell slot or material comp.",
 				"To do so, I have to use alchemist's supplies as my spellcasting focus"
 			]),
+			dmgres : ["Acid", "Poison"],
+			savetxt : { immune : ["poisoned condition"] },
 			usages : 1,
 			recovery : "long rest",
+			additional : "Greater Restoration",
 			spellcastingBonus : {
 				name : "Chemical Savant",
 				spells : ["greater restoration"],
@@ -568,7 +581,7 @@ CreatureList["alchemical homunculus-uaa3"] = {
 	}],
 	features : [{
 		name : "Creator",
-		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It taking its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
+		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action."
 	}, {
 		name : "Healing",
 		description : "The homunculus regains 2d6 HP whenever the Mending spell is cast on it."
@@ -583,6 +596,143 @@ CreatureList["alchemical homunculus-uaa3"] = {
 }
 
 // Add the Archivist specialism (new in 2019v2)
+AddSubClass("artificer-ua3", "archivist", {
+	regExpSearch : /^(?=.*archivist)(?!.*wizard).*$/i,
+	subname : "Archivist",
+	fullname : "Archivist",
+	source : ["UA:A3", 7],
+	spellcastingExtra : ["comprehend languages", "dissonant whispers", "detect thoughts", "locate object", "hypnotic pattern", "tongues", "locate creature", "phantasmal killer", "legend lore", "modify memory"],
+	features : {
+		"subclassfeature3" : {
+			name : "Tools of the Trade",
+			source : ["UA:A3", 7],
+			minlevel : 3,
+			description : desc([
+				"I gain proficiency with calligrapher's supplies and the forgery kit",
+				"I can craft magical scrolls for half the usual gold and in a quarter of the usual time"
+			]),
+			toolProfs : ["Calligrapher's supplies", "Forgery kit"],
+			eval : function () {
+				AddToInv("gear", "l", "Calligrapher's supplies", "", 5);
+				AddToInv("gear", "l", "Forgery kit", "", 5);
+			}
+		},
+		"subclassfeature3.1" : {
+			name : "Artificial Mind",
+			source : ["UA:A3", 8],
+			minlevel : 3,
+			description : desc([
+				"When I end a long rest, I can use calligrapher's supplies on a tiny nonmagical object",
+				"It gain a magical keen mind; I can have only 1 at a time, creating more kills the older",
+				"See 3rd page for the telepathic advisor and manifest mind features of this magic item",
+				"As an action, I can use its information overload: a target in 5 ft must make an Int save",
+				"If fail, it takes psychic damage & the 1st attack vs. it before my next turn ends has adv.",
+				"If this deals damage, I can expend a spell slot to add damage of 1d8 + 1d8 per slot level"
+			]),
+			additional : levels.map(function (n, idx) {
+				return n < 3 ? "" : (cantripDie[idx]) + 'd8 psychic damage';
+			}),
+			weaponsAdd : ["Information Overload"],
+			weaponOptions : {
+				regExpSearch : /^(?=.*information)(?=.*overload).*$/i,
+				name : "Information Overload",
+				source : ["UA:A3", 8],
+				ability : 4,
+				type : "Spell",
+				damage : [1, 8, "psychic"],
+				range : "5 ft of mind",
+				description : "Int save; Fail - damage and 1st attack before my next turn ends vs. target has adv; Use spell slot for extra damage",
+				dc : true,
+				monkweapon : false,
+				abilitytodamage : false,
+				isInformationOverload : true
+			},
+			calcChanges : {
+				atkAdd : [function (fields, v) {
+					if (v.theWea.isInformationOverload && classes.known['artificer-ua3'] && classes.known['artificer-ua3'].level > 4) {
+						fields.Damage_Die = cantripDie[classes.known['artificer-ua3'].level - 1] + "d8";
+					};
+				}]
+			},
+			action : [["bonus action", "Manifest Mind (start/stop/move)"], ["action", "Manifest Mind (use its senses)"]],
+			extraname : "Artificial Mind",
+			"telepathic advisor" : {
+				name : "Telepathic Advisor",
+				source : ["UA:A3", 8],
+				description : desc([
+					"While my artificial mind is on my person, it telepathically grants me two skill proficiencies",
+					"I can choose which skills when I create the artificial mind, depending on its raw material",
+					"Animal raw material: two from Animal Handling, Insight, Medicine, Perception, \u0026 Survival",
+					"Mineral raw material: two from Deception, Intimidation, Performance, and Persuasion",
+					"Plant raw material: two Arcana, History, Investigation, Nature, and Religion"
+				]),
+				skillstxt : "\n   Animal raw material: two from Animal Handling, Insight, Medicine, Perception, and Survival;\n   Mineral raw material: two from Deception, Intimidation, Performance, and Persuasion;\n   Plant raw material: two Arcana, History, Investigation, Nature, and Religion"
+			},
+			"manifest mind" : {
+				name : "Manifest Mind",
+				source : ["UA:A3", 8],
+				description : desc([
+					"As a bonus action, I can have the artificial mind create a spectral presence within 60 ft",
+					"This requires the item to be on my person and it stops if the presence goes beyond 300 ft",
+					"I decide its spectral appearance; It is intangible, invulnerable, and sheds dim light in 10 ft",
+					"While manifested, the spectral mind can hear and see, and has 60 ft darkvision",
+					"As an action, I can use the mind's senses instead of my own until I stop concentrating on it",
+					"As a bonus action, I can cause the spectral mind to hover 30 ft, passing through creatures",
+					"When I cast an artificer spell on my turn, I can have the origins of it be the spectral mind",
+					"I can cast spells through it a number of times per long rest equal to my Intelligence mod"
+				]),
+				extraLimitedFeatures : [{
+					name : "Cast spell through Manifest Mind",
+					usages : "Intelligence modifier per ",
+					usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+					recovery : "long rest"
+				}]
+			},
+			autoSelectExtrachoices : [{ extrachoice : "telepathic advisor" }, { extrachoice : "manifest mind" }]
+		},
+		"subclassfeature6" : {
+			name : "Mind Network",
+			source : ["UA:A3", 9],
+			minlevel : 6,
+			description : desc([
+				"I add my Int mod to artificer spells that deal psychic damage and information overload",
+				"With my artificial mind, I communicate telepathically with anyone carrying my infusions"
+			]),
+			calcChanges : {
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.theWea.isInformationOverload || (v.isSpell && (/psychic/i).test(fields.Damage_Type) && v.thisWeapon[4].indexOf('artificer-ua3') !== -1)) {
+							output.extraDmg += Math.max(1, What('Int Mod'));
+						};
+					},
+					"My artificer cantrips and spells that deal psychic damage, as well as my artificial mind's information overload get my Intelligence modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName == 'artificer-ua3' && !spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", "Int", true);
+					},
+					"My artificer cantrips and spells that deal psychic damage get my Intelligence modifier added to their damage."
+				]
+			}
+		},
+		"subclassfeature14" : {
+			name : "Pure Information",
+			source : ["UA:A3", 9],
+			minlevel : 14,
+			description : desc([
+				"When I use a spell slot to boost information overload, its target must make another save",
+				"On a failed Intelligence saving throw it is stunned until the end of my next turn",
+				"As an action while my artificial mind is on my person, I can teleport (infoportation)",
+				"I teleport to an unoccupied space nearest to the spectral mind or an item infused by me",
+				"I can do this once per long rest for free or by expending a spell slot of 2nd level or higher"
+			]),
+			usages : 1,
+			recovery : "long rest",
+			additional : "Infoportation",
+			action : [["action", ""]]
+		}
+	}
+});
 
 // Add the Artillerist specialism
 AddSubClass("artificer-ua3", "artillerist", {
@@ -594,7 +744,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
-			source : ["UA:A3", 8],
+			source : ["UA:A3", 9],
 			minlevel : 3,
 			description : desc([
 				"I can use rods, wands, and staffs as a spellcasting focus",
@@ -610,7 +760,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Turret",
-			source : ["UA:A3", 9],
+			source : ["UA:A3", 10],
 			minlevel : 3,
 			description: desc([
 				"As an action, I can use smith's tools to summon a Medium turret within 5 ft of me",
@@ -630,42 +780,18 @@ AddSubClass("artificer-ua3", "artillerist", {
 			}),
 			action: [["action", " (summon/detonate)"], ["bonus action", " (command)"]],
 			eval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
-				}
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', "Arcane Turret");
-				Value(prefix + 'Comp.Type', "Construct");
+				ClassList['artificer-ua3'].artificerCompFunc.add("Arcane Turret");
 			},
 			removeeval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("arcane turret") !== -1) {
-						DoTemplate("AScomp", "Remove", AScompA[a], true);
-					}
-				}
+				ClassList['artificer-ua3'].artificerCompFunc.remove("arcane turret");
 			},
 			changeeval : function (lvlA) {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("arcane turret") !== -1) {
-						Value(AScompA[a] + "Comp.Use.HP.Max", lvlA[1] * 5);
-					}
-				}
+				ClassList['artificer-ua3'].artificerCompFunc.update("arcane turret", lvlA[1] * 5);
 			}
 		},
 		"subclassfeature6" : {
 			name : "Wand Prototype",
-			source : ["UA:A3", 9],
+			source : ["UA:A3", 10],
 			minlevel : 6,
 			description: desc([
 				"When I finish a long rest, I can use woodcarver's tools to turn a wand into a magic item",
@@ -731,7 +857,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 		},
 		"subclassfeature14" : {
 			name : "Fortified Position",
-			source : ["UA:A3", 9],
+			source : ["UA:A3", 10],
 			minlevel : 14,
 			description: "\n   My allies and I have half cover while within 10 ft of an arcane turret I created"
 		}
@@ -740,7 +866,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 // Add the Artillerist's Arcane Turret
 CreatureList["arcane turret-uaa3"] = {
 	name : "Arcane Turret",
-	source : ["UA:A3", 9],
+	source : ["UA:A3", 10],
 	size : 3,
 	type : "Construct",
 	subtype : "",
@@ -810,7 +936,116 @@ CreatureList["arcane turret-uaa3"] = {
 };
 
 // Add the Battle Smith specialism (new in 2019v2)
-// Add the Battle Smith's Iron Defender
+AddSubClass("artificer-ua3", "battle smith", {
+	regExpSearch : /^(?=.*battle)(?=.*smith)(?!.*wizard).*$/i,
+	subname : "Battle Smith",
+	fullname : "Battle Smith",
+	source : ["UA:A3", 11],
+	spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"],
+	features : {
+		"subclassfeature3" : {
+			name : "Tools of the Trade \u0026 Battle Ready",
+			source : ["UA:A3", 11],
+			minlevel : 3,
+			description : desc([
+				"I gain proficiency with leatherworker's tools, smith's tools, and martial weapons",
+				"I can craft magical armor for half the usual gold and in a quarter of the usual time",
+				"I can use my Intelligence modifier instead of Strength or Dexterity for magic weapons"
+			]),
+			toolProfs : ["Leatherworker's tools", "Smith's tools"],
+			eval : function () {
+				AddToInv("gear", "l", "Leatherworker's tools", "", 5);
+				AddToInv("gear", "l", "Smith's tools", "", 8);
+			},
+			removeeval : function () {
+				if (CurrentEvals.BattleSmith) delete CurrentEvals.BattleSmith;
+			},
+			weaponProfs : [false, true],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && (v.theWea.isMagicWeapon || v.thisWeapon[1]) && fields.Mod > 0 && fields.Mod < 3 && What("Int") > What(fields.Mod == 1 ? "Str" : "Dex")) {
+							fields.Mod = 4;
+						}
+					},
+					'I can use my Intelligence modifier instead of Strength or Dexterity for the attack and damage rolls of magic weapons.'
+				]
+			}
+		},
+		"subclassfeature3.1" : {
+			name : "Iron Defender",
+			source : ["UA:A3", 11],
+			minlevel : 3,
+			description : desc([
+				"When I end a long rest, I can use smith's tools to create an iron defender",
+				"I determine its appearance; I can have only 1 at a time, making a new one kills the older",
+				"It obeys my commands, is friendly to my allies and I, and acts on my initiative, after me",
+				"Unless I use a bonus action to command it, it only takes reactions and the Dodge action",
+				"If commanded to, it can only take an action to bite, repair, Dash, Disengage, or Help",
+				"Its HP maximum is equal to five times my artificer level + my Int Mod + its Con mod"
+			]),
+			action : [["action", " (restore)"], ["bonus action", " (command)"]],
+			eval : function () {
+				var prefix = ClassList['artificer-ua3'].artificerCompFunc.add("Iron Defender");
+				AddSkillProf("Perception", true, false, false, 2, prefix);
+			},
+			removeeval : function () {
+				ClassList['artificer-ua3'].artificerCompFunc.remove("iron defender");
+			},
+			changeeval : function (lvlA) {
+				var newProf = ProficiencyBonusList[classes.totallevel - 1];
+				var pres = ClassList['artificer-ua3'].artificerCompFunc.update("iron defender", undefined, newProf);
+				if (!pres.length) return;
+				var lvlH = Math.max(lvlA[0], lvlA[1]), lvlL = Math.min(lvlA[0], lvlA[1]);
+				var newHP = Math.round(lvlA[1] * 5 + What("Int mod"));
+				for (var i = 0; i < pres.length; i++) {
+					Value(pres[i] + "Comp.Use.HP.Max", newHP + What(pres[i] + "Comp.Use.Ability.Con.Mod"));
+					if (lvlL < 6 && lvlH >= 6) { // Arcane Jolt
+						Value(pres[i] + "Comp.Use.Attack.1.Description", lvlA[1] >= 6 ? "Counts as magical; Can channel energy (Arcane Jolt)" : "");
+					}
+					if (lvlL < 14 && lvlH >= 14) { // Improved Defender
+						Value(pres[i] + "Comp.Use.Attack.2.Weapon Selection", lvlA[1]>= 14 ? "Defensive Pounce" : "");
+						if (lvlA[1] >= 14) {
+							Value(pres[i] + "Comp.Use.Attack.2.Range", "Melee (5 ft)");
+							Value(pres[i] + "Comp.Use.Attack.2.Description", "As reaction on target that attacks another; Automatically hits and target has disadv. on its attack");
+							Value(pres[i] + "Comp.Use.Attack.2.Damage Type", "Force");
+							PickDropdown(pres[i] + "Comp.Use.Attack.2.Mod", 5);
+							Value(pres[i] + "BlueText.Comp.Use.Attack.2.Damage Die", "1d4");
+							Value(pres[i] + "BlueText.Comp.Use.Attack.2.Damage Bonus", "oInt-Wis");
+						}
+					}
+				}
+			}
+		},
+		"subclassfeature6" : {
+			name : "Arcane Jolt",
+			source : ["UA:A3", 12],
+			minlevel : 6,
+			description : desc([
+				"The bite attack of my iron defender is considered magical",
+				"I can channel energy through the defender's bite attack and my magic weapon attacks",
+				"Once per turn when such an attack hits, I can have it do extra force damage or heal",
+				"If I choose to heal, I restore HP to a creature that I can see within 30 ft of the target"
+			]),
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return n < 6 ? "" : (n < 14 ? 2 : 4) + "d4";
+			})
+		},
+		"subclassfeature14" : {
+			name : "Improved Defender",
+			source : ["UA:A3", 14],
+			minlevel : 14,
+			description : desc([
+				"My iron defender's defensive pounce now also deals 1d4 + my Int mod in force damage",
+				"The damage and healing from arcane jolt increases from 2d4 to 4d4"
+			])
+		}
+	}
+});
+// Add the Battle Smith's Iron Defender (new in 2019v2)
 CreatureList["iron defender-uaa3"] = {
 	name : "Iron Defender",
 	source : ["UA:A3", 11],
@@ -841,15 +1076,21 @@ CreatureList["iron defender-uaa3"] = {
 		modifiers : ["", "Prof-2", ""]
 	}],
 	features : [{
-		name : "Vigilant",
-		description : "The iron defender can't be surprised."
+		name : "Creator",
+		description : "The iron defender obeys the commands of its creator and has the same proficiency bonus. It takes its turn after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Bite, Repair, Dash, Disengage, or Help action. Within an hour of its death, its creator can expend a spell slot as an action while within 5 ft to have it return to full HP after 1 minute."
 	}],
 	actions : [{
+		name : "Healing",
+		description : "The iron defender regains 2d6 HP whenever the Mending spell is cast on it."
+	}, {
+		name : "Vigilant",
+		description : "The iron defender can't be surprised."
+	}, {
 		name : "Repair (3/Day)",
-		description : "The magical mechanisms inside the iron defender restore 2d8 + its proficiency bonus in hit points to itself or to one construct or object within 5 ft of it."
+		description : "As an action, the magical mechanisms inside the iron defender restore 2d8 + its proficiency bonus in hit points to itself or to one construct or object within 5 ft of it."
 	}, {
 		name : "Defensive Pounce (reaction)",
-		description : "The iron defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the iron defender."
+		description : "As a reaction, the iron defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the iron defender."
 	}]
 };
 
@@ -1145,9 +1386,6 @@ var SetArtificerSpells = function(){
 		["ring of protection", 16],
 		["ring of the ram", 16]
 	];
-	for (var a = 0; a < artMi.length; a++) {
-		if (!MagicItemsList[artMi[a][0]]) console.println(artMi[a][0]);
-	}
 	var theObj = ClassList['artificer-ua3'].features["infuse item"];
 	for (var a = 0; a < artMi.length; a++) {
 		var MI0 = artMi[a][0];
