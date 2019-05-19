@@ -997,7 +997,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 				var pres = ClassList['artificer-ua3'].artificerCompFunc.update("iron defender", undefined, newProf);
 				if (!pres.length) return;
 				var lvlH = Math.max(lvlA[0], lvlA[1]), lvlL = Math.min(lvlA[0], lvlA[1]);
-				var newHP = Math.round(lvlA[1] * 5 + What("Int mod"));
+				var newHP = Math.round(lvlA[1] * 5 + What("Int Mod"));
 				for (var i = 0; i < pres.length; i++) {
 					Value(pres[i] + "Comp.Use.HP.Max", newHP + What(pres[i] + "Comp.Use.Ability.Con.Mod"));
 					if (lvlL < 6 && lvlH >= 6) { // Arcane Jolt
