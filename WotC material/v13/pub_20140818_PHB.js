@@ -953,7 +953,7 @@ AddSubClass("fighter", "eldritch knight", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Evoc", "Abjur"],
-		level : [0, 4] //lower and higher limit
+		level : [0, 4]
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -974,12 +974,12 @@ AddSubClass("fighter", "eldritch knight", {
 			source : ["P", 75],
 			minlevel : 3,
 			description : "\n   " + "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
-			additional : ["2 cantrips known", "2 cantrips known", "2 cantrips \u0026 3 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 5 spells known", "2 cantrips \u0026 6 spells known", "2 cantrips \u0026 6 spells known", "3 cantrips \u0026 7 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 9 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 12 spells known", "3 cantrips \u0026 13 spells known"],
-			spellcastingBonus : { //for the spells gained at level 3, 8, 14, 20
-				name : "From any School",
+			additional : ["", "", "2 cantrips \u0026 3 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 5 spells known", "2 cantrips \u0026 6 spells known", "2 cantrips \u0026 6 spells known", "3 cantrips \u0026 7 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 9 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 12 spells known", "3 cantrips \u0026 13 spells known"],
+			spellcastingBonus : { // the spells gained at level 3, 8, 14, 20
+				name : "From any school",
 				"class" : "wizard",
 				times : [0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4],
-				level : [1, 4], //lower and higher limit
+				level : [1, 4]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -1547,7 +1547,7 @@ AddSubClass("rogue", "arcane trickster", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Ench", "Illus"],
-		level : [0, 4] //lower and higher limit
+		level : [0, 4]
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -1560,15 +1560,15 @@ AddSubClass("rogue", "arcane trickster", {
 			minlevel : 3,
 			description : "\n   " + "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
 			additional : ["", "", "3 cantrips \u0026 3 spells known", "3 cantrips \u0026 4 spells known", "3 cantrips \u0026 4 spells known", "3 cantrips \u0026 4 spells known", "3 cantrips \u0026 5 spells known", "3 cantrips \u0026 6 spells known", "3 cantrips \u0026 6 spells known", "4 cantrips \u0026 7 spells known", "4 cantrips \u0026 8 spells known", "4 cantrips \u0026 8 spells known", "4 cantrips \u0026 9 spells known", "4 cantrips \u0026 10 spells known", "4 cantrips \u0026 10 spells known", "4 cantrips \u0026 11 spells known", "4 cantrips \u0026 11 spells known", "4 cantrips \u0026 11 spells known", "4 cantrips \u0026 12 spells known", "4 cantrips \u0026 13 spells known"],
-			spellcastingBonus : [{//for the Mage Hand cantrip gained at level 1
-				name : "Mage Hand cantrip",
+			spellcastingBonus : [{
+				name : "Mage Hand cantrip", // the Mage Hand cantrip gained at level 1
 				spells : ["mage hand"],
 				selection : ["mage hand"]
-			}, { //for the spells gained at level 3, 8, 14, 20
-				name : "From any School",
+			}, {
+				name : "From any school", // the spells gained at level 3, 8, 14, 20
 				"class" : "wizard",
 				times : [0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4],
-				level : [1, 4], //lower and higher limit
+				level : [1, 4]
 			}]
 		},
 		"subclassfeature3.1" : {
