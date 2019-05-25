@@ -1371,7 +1371,7 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons and that that have the heavy or special property
-		if (!(/simple|martial/i).test(aWea.type) || (/^(?=.*heavy)(?=.*special).*$/i).test(aWea.Description)) continue;
+		if (!(/simple|martial/i).test(aWea.type) || (/^(?=.*heavy)(?=.*special).*$/i).test(aWea.description)) continue;
 		itsFea.extrachoices.push(aWea.name);
 		itsFea[aWea.name.toLowerCase()] = {
 			name : aWea.name,

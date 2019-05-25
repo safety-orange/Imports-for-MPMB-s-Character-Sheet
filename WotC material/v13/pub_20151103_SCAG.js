@@ -1017,7 +1017,7 @@ AddSubClass("wizard", "bladesinging", {
 			name : "Song of Defense",
 			source : ["S", 142],
 			minlevel : 10,
-			description : "\n   " + "As a reaction while my bladesong is active, I can expand a spell slot to reduce damage" + "\n   " + "The damage I take is reduced by 5 for every level of the spell slot I expand",
+			description : "\n   " + "As a reaction while my bladesong is active, I can expend a spell slot to reduce damage" + "\n   " + "The damage I take is reduced by 5 for every level of the spell slot I expend",
 			action : ["reaction", " (in bladesong)"]
 
 		},

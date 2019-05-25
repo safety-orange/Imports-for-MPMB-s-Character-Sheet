@@ -285,7 +285,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	description : desc([
 		"As a pact weapon, I can create a black, lead flail with grasping tentacles for a head",
 		"It has reach and can reduce a creature's speed to 0 on a hit until the end of my next turn",
-		"On a hit, I can expand a spell slot to have it do +2d8 necrotic damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 necrotic damage per spell slot level"
 	]),
 	source : ["UA:WnW", 3],
 	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
@@ -316,7 +316,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		"As a pact weapon, I can create a silver greatsword with black runes etched in the blade",
 		"If I bring a target of my hexblade's curse to 0 HP with it, I can move the curse to another",
 		"It can reduce a creature's speed to 0 on a hit until the end of my next turn",
-		"On a hit, I can expand a spell slot to have it do +2d8 slashing damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 slashing damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
@@ -414,7 +414,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	description : desc([
 		"As a pact weapon, I can create an iron mace forged in Dis, the 2nd layer of the Nine Hells",
 		"I can knock a target prone with it on a hit, if the target's size is Huge or smaller",
-		"On a hit, I can expand a spell slot to have it do +2d8 force damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 force damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
@@ -433,7 +433,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	description : desc([
 		"As a pact weapon, I can create a longbow that creates arrows of white wood when drawn",
 		"Its arrows last for 1 minute; I have advantage on attack rolls against lycanthropes with it",
-		"On a hit, I can expand a spell slot to have it do +2d8 radiant damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 radiant damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },

@@ -54,6 +54,12 @@ if (!RaceList["baalzebul tiefling"]) {
 					spells : ["ray of sickness"],
 					selection : ["ray of sickness"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"ray of sickness" : {
+						description : "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
+						changes : "Using Legacy of Maladomini, I cast Ray of Sickness as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"crown of madness" : {
@@ -169,6 +175,12 @@ if (!RaceList["fierna tiefling"]) {
 					spells : ["charm person"],
 					selection : ["charm person"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"charm person" : {
+						description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
+						changes : "Using Legacy of Phlegethos, I cast Charm Person as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"suggestion" : {
@@ -285,6 +297,12 @@ if (!RaceList["levistus tiefling"]) {
 					spells : ["armor of agathys"],
 					selection : ["armor of agathys"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"armor of agathys" : {
+						description : "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
+						changes : "Using Legacy of Stygia, I cast Armor of Agathys as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"darkness" : {
@@ -408,6 +426,12 @@ RaceList["mephistopheles tiefling"] = {
 				spells : ["magic missile"],
 				selection : ["magic missile"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"magic missile" : {
+					description : "4 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+					changes : "Using Legacy of Cania, I cast Magic Missile as if I'm using a 2nd-level spell slot."
+				}
 			}
 		},
 		"web" : {
@@ -465,6 +489,12 @@ if (!RaceList["zariel tiefling"]) {
 					spells : ["searing smite"],
 					selection : ["searing smite"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"searing smite" : {
+						description : "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
+						changes : "Using Legacy of Avernus, I cast Searing Smite as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"branding smite" : {

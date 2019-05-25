@@ -1094,7 +1094,7 @@ AddSubClass("fighter", "eldritch knight", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Evoc", "Abjur"],
-		level : [0, 4] //lower and higher limit
+		level : [0, 4]
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -1115,12 +1115,12 @@ AddSubClass("fighter", "eldritch knight", {
 			source : ["P", 75],
 			minlevel : 3,
 			description : "\n   " + "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
-			additional : ["2 cantrips known", "2 cantrips known", "2 cantrips \u0026 3 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 5 spells known", "2 cantrips \u0026 6 spells known", "2 cantrips \u0026 6 spells known", "3 cantrips \u0026 7 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 9 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 12 spells known", "3 cantrips \u0026 13 spells known"],
-			spellcastingBonus : { //for the spells gained at level 3, 8, 14, 20
-				name : "From any School",
+			additional : ["", "", "2 cantrips \u0026 3 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 5 spells known", "2 cantrips \u0026 6 spells known", "2 cantrips \u0026 6 spells known", "3 cantrips \u0026 7 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 9 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 12 spells known", "3 cantrips \u0026 13 spells known"],
+			spellcastingBonus : { // the spells gained at level 3, 8, 14, 20
+				name : "From any school",
 				"class" : "wizard",
 				times : [0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4],
-				level : [1, 4], //lower and higher limit
+				level : [1, 4]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -1688,7 +1688,7 @@ AddSubClass("rogue", "arcane trickster", {
 	spellcastingList : {
 		"class" : "wizard",
 		school : ["Ench", "Illus"],
-		level : [0, 4] //lower and higher limit
+		level : [0, 4]
 	},
 	spellcastingKnown : {
 		cantrips : [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -1701,15 +1701,15 @@ AddSubClass("rogue", "arcane trickster", {
 			minlevel : 3,
 			description : "\n   " + "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
 			additional : ["", "", "3 cantrips \u0026 3 spells known", "3 cantrips \u0026 4 spells known", "3 cantrips \u0026 4 spells known", "3 cantrips \u0026 4 spells known", "3 cantrips \u0026 5 spells known", "3 cantrips \u0026 6 spells known", "3 cantrips \u0026 6 spells known", "4 cantrips \u0026 7 spells known", "4 cantrips \u0026 8 spells known", "4 cantrips \u0026 8 spells known", "4 cantrips \u0026 9 spells known", "4 cantrips \u0026 10 spells known", "4 cantrips \u0026 10 spells known", "4 cantrips \u0026 11 spells known", "4 cantrips \u0026 11 spells known", "4 cantrips \u0026 11 spells known", "4 cantrips \u0026 12 spells known", "4 cantrips \u0026 13 spells known"],
-			spellcastingBonus : [{//for the Mage Hand cantrip gained at level 1
-				name : "Mage Hand cantrip",
+			spellcastingBonus : [{
+				name : "Mage Hand cantrip", // the Mage Hand cantrip gained at level 1
 				spells : ["mage hand"],
 				selection : ["mage hand"]
-			}, { //for the spells gained at level 3, 8, 14, 20
-				name : "From any School",
+			}, {
+				name : "From any school", // the spells gained at level 3, 8, 14, 20
 				"class" : "wizard",
 				times : [0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4],
-				level : [1, 4], //lower and higher limit
+				level : [1, 4]
 			}]
 		},
 		"subclassfeature3.1" : {
@@ -10673,7 +10673,7 @@ AddSubClass("wizard", "bladesinging", {
 			name : "Song of Defense",
 			source : ["S", 142],
 			minlevel : 10,
-			description : "\n   " + "As a reaction while my bladesong is active, I can expand a spell slot to reduce damage" + "\n   " + "The damage I take is reduced by 5 for every level of the spell slot I expand",
+			description : "\n   " + "As a reaction while my bladesong is active, I can expend a spell slot to reduce damage" + "\n   " + "The damage I take is reduced by 5 for every level of the spell slot I expend",
 			action : ["reaction", " (in bladesong)"]
 
 		},
@@ -12403,7 +12403,7 @@ MagicItemsList["korolnor scepter"] = {
 	rarity : "legendary",
 	storyItemAL : true,
 	description : "This tapered mithral rod the size of a dwarf's forearm has 10 charges, regaining 1d6+4 at dawn. It can be wielded as a +3 club. As an action while below sea level, I can expend 1 charge to determine the distance to the surface. I can also use the charges to cast Sending (2 charges) and Teleport (3 charges).",
-	descriptionFull : "The Korolnor Scepter is one of ten Ruling Scepters of Shanatar, forged by the dwarven gods and given to the ruling houses of the ancient dwarven empire. The Korolnor Scepter's location was unknown for the longest time until a storm giant queen, Neri, found it in a barnacle-covered shipwreck at the bottom of the Trackless Sea. The Ruling Scepters are all roughly the same size and shape, but their materials and properties vary.\n   The Korolnor Scepter is a tapered mithral rod as thick and long as a dwarf's forearm, with a small platinum knob at the bottom and a rounded disk adorned with a ring of seven tiny blue gems at the top.\n   You gain a +3 bonus to attack and damage rolls made with this scepter, which can be wielded as a magic club.\n   You can use the properties of the Wyrmskull Throne, as well as the properties of the scepter itself. The scepter has 10 charges, and it regains 1d6+4 expanded charges at dawn. Its properties are as follows.\n   If you are underground or underwater, you can use an action to expend 1 charge to determine the distance to the surface.\n   As an action: you can expend 2 charges to cast the Sending spell from the scepter.\n   As an action: you can expend 3 charges to cast the Teleport spell from the scepter. If the destination is within 60 feet of the Wyrmskull Throne, there is no chance of a teleport error or mishap occurring.",
+	descriptionFull : "The Korolnor Scepter is one of ten Ruling Scepters of Shanatar, forged by the dwarven gods and given to the ruling houses of the ancient dwarven empire. The Korolnor Scepter's location was unknown for the longest time until a storm giant queen, Neri, found it in a barnacle-covered shipwreck at the bottom of the Trackless Sea. The Ruling Scepters are all roughly the same size and shape, but their materials and properties vary.\n   The Korolnor Scepter is a tapered mithral rod as thick and long as a dwarf's forearm, with a small platinum knob at the bottom and a rounded disk adorned with a ring of seven tiny blue gems at the top.\n   You gain a +3 bonus to attack and damage rolls made with this scepter, which can be wielded as a magic club.\n   You can use the properties of the Wyrmskull Throne, as well as the properties of the scepter itself. The scepter has 10 charges, and it regains 1d6+4 expended charges at dawn. Its properties are as follows.\n   If you are underground or underwater, you can use an action to expend 1 charge to determine the distance to the surface.\n   As an action: you can expend 2 charges to cast the Sending spell from the scepter.\n   As an action: you can expend 3 charges to cast the Teleport spell from the scepter. If the destination is within 60 feet of the Wyrmskull Throne, there is no chance of a teleport error or mishap occurring.",
 	attunement : true,
 	weight : 2,
 	usages : 10,
@@ -16900,7 +16900,7 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons and that that have the heavy or special property
-		if (!(/simple|martial/i).test(aWea.type) || (/^(?=.*heavy)(?=.*special).*$/i).test(aWea.Description)) continue;
+		if (!(/simple|martial/i).test(aWea.type) || (/^(?=.*heavy)(?=.*special).*$/i).test(aWea.description)) continue;
 		itsFea.extrachoices.push(aWea.name);
 		itsFea[aWea.name.toLowerCase()] = {
 			name : aWea.name,
@@ -20802,6 +20802,12 @@ RaceList["baalzebul tiefling"] = {
 				spells : ["ray of sickness"],
 				selection : ["ray of sickness"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"ray of sickness" : {
+					description : "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
+					changes : "Using Legacy of Maladomini, I cast Ray of Sickness as if I'm using a 2nd-level spell slot."
+				}
 			}
 		},
 		"crown of madness" : {
@@ -20914,6 +20920,12 @@ RaceList["fierna tiefling"] = {
 				spells : ["charm person"],
 				selection : ["charm person"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"charm person" : {
+					description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
+					changes : "Using Legacy of Phlegethos, I cast Charm Person as if I'm using a 2nd-level spell slot."
+				}
 			}
 		},
 		"suggestion" : {
@@ -21026,6 +21038,12 @@ RaceList["levistus tiefling"] = {
 				spells : ["armor of agathys"],
 				selection : ["armor of agathys"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"armor of agathys" : {
+					description : "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
+					changes : "Using Legacy of Stygia, I cast Armor of Agathys as if I'm using a 2nd-level spell slot."
+				}
 			}
 		},
 		"darkness" : {
@@ -21145,6 +21163,12 @@ RaceList["mephistopheles tiefling-mtof"] = {
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"burning hands" : {
+					description : "All in area 4d6 Fire dmg; save halves; unattended flammable objects ignite",
+					changes : "Using Legacy of Cania, I cast Burning Hands as if I'm using a 2nd-level spell slot."
+				}
 			}
 		},
 		"flame blade" : {
@@ -21201,6 +21225,12 @@ RaceList["zariel tiefling"] = {
 				spells : ["searing smite"],
 				selection : ["searing smite"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"searing smite" : {
+					description : "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
+					changes : "Using Legacy of Avernus, I cast Searing Smite as if I'm using a 2nd-level spell slot."
+				}
 			}
 		},
 		"branding smite" : {

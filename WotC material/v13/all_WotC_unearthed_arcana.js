@@ -6277,7 +6277,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	description : desc([
 		"As a pact weapon, I can create a black, lead flail with grasping tentacles for a head",
 		"It has reach and can reduce a creature's speed to 0 on a hit until the end of my next turn",
-		"On a hit, I can expand a spell slot to have it do +2d8 necrotic damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 necrotic damage per spell slot level"
 	]),
 	source : ["UA:WnW", 3],
 	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
@@ -6308,7 +6308,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		"As a pact weapon, I can create a silver greatsword with black runes etched in the blade",
 		"If I bring a target of my hexblade's curse to 0 HP with it, I can move the curse to another",
 		"It can reduce a creature's speed to 0 on a hit until the end of my next turn",
-		"On a hit, I can expand a spell slot to have it do +2d8 slashing damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 slashing damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
@@ -6406,7 +6406,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	description : desc([
 		"As a pact weapon, I can create an iron mace forged in Dis, the 2nd layer of the Nine Hells",
 		"I can knock a target prone with it on a hit, if the target's size is Huge or smaller",
-		"On a hit, I can expand a spell slot to have it do +2d8 force damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 force damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
@@ -6425,7 +6425,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	description : desc([
 		"As a pact weapon, I can create a longbow that creates arrows of white wood when drawn",
 		"Its arrows last for 1 minute; I have advantage on attack rolls against lycanthropes with it",
-		"On a hit, I can expand a spell slot to have it do +2d8 radiant damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 radiant damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
 	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
@@ -13032,6 +13032,12 @@ if (!RaceList["baalzebul tiefling"]) {
 					spells : ["ray of sickness"],
 					selection : ["ray of sickness"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"ray of sickness" : {
+						description : "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
+						changes : "Using Legacy of Maladomini, I cast Ray of Sickness as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"crown of madness" : {
@@ -13147,6 +13153,12 @@ if (!RaceList["fierna tiefling"]) {
 					spells : ["charm person"],
 					selection : ["charm person"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"charm person" : {
+						description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
+						changes : "Using Legacy of Phlegethos, I cast Charm Person as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"suggestion" : {
@@ -13263,6 +13275,12 @@ if (!RaceList["levistus tiefling"]) {
 					spells : ["armor of agathys"],
 					selection : ["armor of agathys"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"armor of agathys" : {
+						description : "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
+						changes : "Using Legacy of Stygia, I cast Armor of Agathys as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"darkness" : {
@@ -13386,6 +13404,12 @@ RaceList["mephistopheles tiefling"] = {
 				spells : ["magic missile"],
 				selection : ["magic missile"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"magic missile" : {
+					description : "4 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+					changes : "Using Legacy of Cania, I cast Magic Missile as if I'm using a 2nd-level spell slot."
+				}
 			}
 		},
 		"web" : {
@@ -13443,6 +13467,12 @@ if (!RaceList["zariel tiefling"]) {
 					spells : ["searing smite"],
 					selection : ["searing smite"],
 					firstCol : 'oncelr'
+				},
+				spellChanges : {
+					"searing smite" : {
+						description : "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
+						changes : "Using Legacy of Avernus, I cast Searing Smite as if I'm using a 2nd-level spell slot."
+					}
 				}
 			},
 			"branding smite" : {
