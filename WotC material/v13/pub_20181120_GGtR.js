@@ -101,7 +101,7 @@ RaceList["loxodon-ggtr"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common"],
+	languageProfs : ["Common", "Loxodon"],
 	savetxt : { adv_vs : ["charmed", "frightened"] },
 	armorOptions : {
 		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
@@ -544,7 +544,7 @@ AddSubClass("druid", "circle of spores-ggtr", {
 });
 
 BackgroundList["azorius functionary"] = {
-	regExpSearch :  /^(?=.*azorius)(?=.*functionary).*$/i,
+	regExpSearch : /^(?=.*azorius)(?=.*functionary).*$/i,
 	name : "Azorius Functionary",
 	source : ["G", 33],
 	skills : ["Insight", "Intimidation"],
@@ -614,7 +614,7 @@ BackgroundFeatureList["legal authority"] = {
 };
 
 BackgroundList["boros legionnaire"] = {
-	regExpSearch :  /^(?=.*boros)(?=.*legionnaire).*$/i,
+	regExpSearch : /^(?=.*boros)(?=.*legionnaire).*$/i,
 	name : "Boros Legionnaire",
 	source : ["G", 40],
 	skills : ["Athletics", "Intimidation"],
@@ -686,7 +686,7 @@ BackgroundFeatureList["legion station"] = {
 };
 
 BackgroundList["dimir operative"] = {
-	regExpSearch :  /^(?=.*dimir)(?=.*operative).*$/i,
+	regExpSearch : /^(?=.*dimir)(?=.*operative).*$/i,
 	name : "Dimir Operative",
 	source : ["G", 46],
 	skills : ["Deception", "Stealth"],
@@ -767,7 +767,7 @@ BackgroundFeatureList["false guild identity"] = {
 };
 
 BackgroundList["golgari agent"] = {
-	regExpSearch :  /^(?=.*golgari)(?=.*agent).*$/i,
+	regExpSearch : /^(?=.*golgari)(?=.*agent).*$/i,
 	name : "Golgari Agent",
 	source : ["G", 53],
 	skills : ["Nature", "Survival"],
@@ -837,7 +837,7 @@ BackgroundFeatureList["undercity paths"] = {
 };
 
 BackgroundList["gruul anarch"] = {
-	regExpSearch :  /^(?=.*gruul)(?=.*anarch).*$/i,
+	regExpSearch : /^(?=.*gruul)(?=.*anarch).*$/i,
 	name : "Gruul Anarch",
 	source : ["G", 60],
 	skills : ["Nature", "Survival"],
@@ -920,7 +920,7 @@ BackgroundFeatureList["rubblebelt refuge"] = {
 };
 
 BackgroundList["izzet engineer"] = {
-	regExpSearch :  /^(?=.*izzet)(?=.*engineer).*$/i,
+	regExpSearch : /^(?=.*izzet)(?=.*engineer).*$/i,
 	name : "Izzet Engineer",
 	source : ["G", 66],
 	skills : ["Arcana", "Investigation"],
@@ -992,7 +992,7 @@ BackgroundFeatureList["urban infrastructure"] = {
 };
 
 BackgroundList["orzhov representative"] = {
-	regExpSearch :  /^(?=.*orzhov)(?=.*representative).*$/i,
+	regExpSearch : /^(?=.*orzhov)(?=.*representative).*$/i,
 	name : "Orzhov Representative",
 	source : ["G", 72],
 	skills : ["Intimidation", "Religion"],
@@ -1059,7 +1059,7 @@ BackgroundFeatureList["leverage"] = {
 };
 
 BackgroundList["rakdos cultist"] = {
-	regExpSearch :  /^(?=.*rakdos)(?=.*cultist).*$/i,
+	regExpSearch : /^(?=.*rakdos)(?=.*cultist).*$/i,
 	name : "Rakdos Cultist",
 	source : ["G", 79],
 	skills : ["Acrobatics", "Performance"],
@@ -1145,7 +1145,7 @@ BackgroundFeatureList["fearsome reputation"] = {
 };
 
 BackgroundList["selesnya initiate"] = {
-	regExpSearch :  /^(?=.*selesnya)(?=.*initiate).*$/i,
+	regExpSearch : /^(?=.*selesnya)(?=.*initiate).*$/i,
 	name : "Selesnya Initiate",
 	source : ["G", 86],
 	skills : ["Nature", "Persuasion"],
@@ -1215,7 +1215,7 @@ BackgroundFeatureList["conclave's shelter"] = {
 };
 
 BackgroundList["simic scientist"] = {
-	regExpSearch :  /^(?=.*simic)(?=.*scientist).*$/i,
+	regExpSearch : /^(?=.*simic)(?=.*scientist).*$/i,
 	name : "Simic Scientist",
 	source : ["G", 93],
 	skills : ["Arcana", "Medicine"],

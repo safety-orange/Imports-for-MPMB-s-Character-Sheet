@@ -109,7 +109,7 @@ RaceList["loxodon-ggtr"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common"],
+	languageProfs : ["Common", "Loxodon"],
 	savetxt : { adv_vs : ["charmed", "frightened"] },
 	addarmor : "Loxodon Natural Armor (Con)",
 	vision : [["Keen Smell", 0]],

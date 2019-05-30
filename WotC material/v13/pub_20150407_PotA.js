@@ -243,7 +243,7 @@ MagicItemsList["ironfang"] = {
 			changes : "Cast as if using a 2nd-level spell slot."
 		}
 	},
-	vision : [["Tremorsense", "fixed60"]],
+	vision : [["Tremorsense", "fixed 60"]],
 	weaponsAdd : ["Ironfang"],
 	weaponOptions : {
 		baseWeapon : "war pick",

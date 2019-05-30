@@ -100,7 +100,7 @@ MagicItemsList["dragon mask"] = {
 	descriptionFull : "Each dragon mask is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any dragon mask and attuned to it, you gain the following benefits." + tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage*?\n/, "You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR dragons", "dragons that share the mask's color"),
 	attunement : true,
 	languageProfs : ["Draconic"],
-	vision : [["Darkvision", "fixed60"], ["Darkvision", "+60"]],
+	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	usages : 1,
 	recovery : "Day",
 	additional : "Legendary Resistance",

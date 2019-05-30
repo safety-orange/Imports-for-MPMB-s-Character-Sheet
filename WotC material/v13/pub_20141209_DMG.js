@@ -272,7 +272,24 @@ AddSubClass("paladin", "oathbreaker", {
 			source : ["D", 97],
 			minlevel : 7,
 			description : "\n   " + "Fiends/undead within range and I add my Cha mod as bonus on melee weapon damage" + "\n   " + "Multiple Auras of Hate don't stack; only the strongest applies",
-			additional : ["", "", "", "", "", "", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "30-foot aura", "30-foot aura", "30-foot aura"]
+			additional : ["", "", "", "", "", "", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "30-foot aura", "30-foot aura", "30-foot aura"],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Cha mod added to damage';
+						}
+					},
+					"I add my Charisma modifier to my melee weapon damage."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isMeleeWeapon) {
+							output.extraDmg += Number(What("Cha Mod"));
+						};
+					}
+				]
+			}
 		},
 		"subclassfeature15" : {
 			name : "Supernatural Resistance",
