@@ -26657,7 +26657,7 @@ RequiredSheetVersion(13);
 
 // Define the source
 SourceList["GoS"] = {
-	name : "Ghosts of Saltmarsh",
+	name : "Ghosts of Saltmarsh [backgrounds, beasts, items]",
 	abbreviation : "GoS",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/ghosts-saltmarsh",
