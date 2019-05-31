@@ -11,13 +11,11 @@ SourceList["UA:GSS"] = {
 	date : "2018/06/11"
 };
 
-// Add the Centaur race
-AddSubClass("sorcerer", "giant soul sorcerer", {
+AddSubClass("sorcerer", "giant soul", {
 	regExpSearch : /^(?=.*giant)(?=.*soul)(?=.*sorcerer).*$/i,
 	subname : "Giant Soul",
 	source : ["UA:GSS", 1],
 	fullname : "Giant Soul Sorcerer",
-	abilitySave : 3,
 	features : {
 		"subclassfeature1" : {
 			name : "Jotun Resilience",
@@ -145,6 +143,15 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 							if (v.baseWeaponName == 'fire bolt') output.extraDmg += Math.max(What('Con Mod'), 1);
 						},
 						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"
+					],
+					spellAdd : [
+						function (spellKey, spellObj, spName) {
+							if (spName == "sorcerer" && (/^(fire bolt|burning hands|flaming sphere)$/i).test(spellKey)) {
+								spellObj.description = spellObj.description.replace(/d(6|10)/, "d$1+" + Math.max(1, What("Con Mod")));
+								return true;
+							};
+						},
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"
 					]
 				}
 			},
@@ -208,7 +215,8 @@ AddSubClass("sorcerer", "giant soul sorcerer", {
 			source : ["UA:GSS", 2],
 			minlevel : 18,
 			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22",
-			scores : [0, 0, 2, 0, 0, 0]
+			scores : [0, 0, 2, 0, 0, 0],
+			scoresMaximum : [0,0,22,0,0,0]
 		}
 	}
 });

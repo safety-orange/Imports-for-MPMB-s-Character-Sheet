@@ -13787,13 +13787,11 @@ SourceList["UA:GSS"] = {
 	date : "2018/06/11"
 };
 
-// Add the Centaur race
-AddSubClass("sorcerer", "giant soul sorcerer", {
+AddSubClass("sorcerer", "giant soul", {
 	regExpSearch : /^(?=.*giant)(?=.*soul)(?=.*sorcerer).*$/i,
 	subname : "Giant Soul",
 	source : ["UA:GSS", 1],
 	fullname : "Giant Soul Sorcerer",
-	abilitySave : 3,
 	features : {
 		"subclassfeature1" : {
 			name : "Jotun Resilience",
