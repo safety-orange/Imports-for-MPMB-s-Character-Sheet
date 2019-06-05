@@ -14,7 +14,7 @@ SourceList["GoS"] = {
 BackgroundList["fisher"] = {
 	regExpSearch : /fisher/i,
 	name : "Fisher",
-	source : ["GoS", 29],
+	source : [["GoS", 29], ["ALbackground", 0]],
 	skills : ["History", "Survival"],
 	gold : 10,
 	equipleft : [
@@ -82,7 +82,7 @@ BackgroundFeatureList["harvest the water"] = {
 BackgroundList["marine"] = {
 	regExpSearch : /marine/i,
 	name : "Marine",
-	source : ["GoS", 31],
+	source : [["GoS", 31], ["ALbackground", 0]],
 	skills : ["Athletics", "Survival"],
 	gold : 10,
 	equipleft : [
@@ -147,7 +147,7 @@ BackgroundFeatureList["steady"] = {
 BackgroundList["shipwright"] = {
 	regExpSearch : /shipwright/i,
 	name : "Shipwright",
-	source : ["GoS", 33],
+	source : [["GoS", 33], ["ALbackground", 0]],
 	skills : ["History", "Perception"],
 	gold : 10,
 	equipleft : [
@@ -214,7 +214,7 @@ BackgroundFeatureList["i'll patch it!"] = {
 BackgroundList["smuggler"] = {
 	regExpSearch : /smuggler/i,
 	name : "Smuggler",
-	source : ["GoS", 34],
+	source : [["GoS", 34], ["ALbackground", 0]],
 	skills : ["Athletics", "Deception"],
 	gold : 15,
 	equipright : [

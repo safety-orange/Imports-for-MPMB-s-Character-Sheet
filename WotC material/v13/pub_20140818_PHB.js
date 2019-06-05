@@ -1031,7 +1031,7 @@ AddSubClass("monk", "way of the four elements", {
 				return n < 3 ? "" : ((n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " known; ") + (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " max ki";
 			}),
 			extraname : "Elemental Discipline",
-			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
+			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Elemental Attunement", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
 			extraTimes : levels.map(function (n) {
 				return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5;
 			}),
@@ -2306,7 +2306,7 @@ BackgroundList["charlatan"] = {
 	lifestyle : "comfortable"
 };
 BackgroundList["criminal"] = {
-	regExpSearch : /(criminal|blackmailer|burglar|fence|robber|killer|assassin|pickpocket|smuggler)/i,
+	regExpSearch : /criminal/i,
 	name : "Criminal",
 	source : [["P", 129], ["ALbackground", 0]],
 	skills : ["Deception", "Stealth"],

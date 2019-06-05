@@ -2056,7 +2056,7 @@ BackgroundList["charlatan"] = {
 	lifestyle : "comfortable"
 };
 BackgroundList["criminal"] = {
-	regExpSearch : /(criminal|blackmailer|burglar|fence|robber|killer|assassin|pickpocket|smuggler)/i,
+	regExpSearch : /criminal/i,
 	name : "Criminal",
 	source : [["P", 129], ["ALbackground", 0]],
 	skills : ["Deception", "Stealth"],
