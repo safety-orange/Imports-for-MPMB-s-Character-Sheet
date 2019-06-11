@@ -16826,14 +16826,8 @@ RunFunctionAtEnd(function () {
 				additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 				toolProfs : ["calligrapher's or painter's supplies"],
 				extraname : "Kensei Weapon",
-				extrachoices : ["Longbow"], // add the rest via the RunFunctionAtEnd function, see below
+				extrachoices : [], // add these dymanically, see below
 				extraTimes : levels.map( function(n) { return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5; }),
-				"longbow" : {
-					name : "Longbow",
-					description : "",
-					source : [["SRD", 66], ["P", 149]],
-					weaponProfs : [false, false, ["longbow"]]
-				},
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -16916,8 +16910,8 @@ RunFunctionAtEnd(function () {
 	var itsFea = ClassSubList[theKenseiSubclassName].features.subclassfeature3;
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
-		// skip attacks that are not simple or martial weapons and that that have the heavy or special property
-		if (!(/simple|martial/i).test(aWea.type) || (/^(?=.*heavy)(?=.*special).*$/i).test(aWea.description)) continue;
+		// skip attacks that are not simple or martial weapons, that have the heavy or special property, are magic weapons, or those that are spells or cantrips
+		if (weapon !== "longbow" && (testSource(weapon, aWea, "weapExcl") || aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list))) continue;
 		itsFea.extrachoices.push(aWea.name);
 		itsFea[aWea.name.toLowerCase()] = {
 			name : aWea.name,
@@ -16926,7 +16920,7 @@ RunFunctionAtEnd(function () {
 			weaponProfs : [false, false, [weapon]]
 		}
 	}
-})
+});
 if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
 	// the Way of the Sun Soul subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
 	AddSubClass("monk", "way of the sun soul", {
