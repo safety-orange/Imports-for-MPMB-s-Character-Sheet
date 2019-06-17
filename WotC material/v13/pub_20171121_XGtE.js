@@ -2499,7 +2499,7 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				atkAdd : [
 					function (fields, v) {
 						var hasPactWeapon = GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade';
-						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*\b(2|two).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
+						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*\b(2|two).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
 							fields.Mod = 6;
 						};
 					},
@@ -2676,7 +2676,10 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactWeapon = true;
+				}
+				if (!v.thisWeapon[1] && v.pactWeapon) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};
@@ -2688,7 +2691,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
 					v.pactWeapon = true;
 					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				};
 			}, ""]
 	}
