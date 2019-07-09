@@ -482,7 +482,7 @@ ClassSubList["mystic-wu jen"] = {
 			name : "Bonus Disciplines",
 			source : ["UA:TMC", 8],
 			minlevel : 1,
-			description : " [+2 awakened disciplines]",
+			description : " [+2 wu jen disciplines]",
 			spellcastingBonus : {
 				name : "Bonus Disciplines",
 				"class" : "mystic",

@@ -4465,7 +4465,7 @@ AddSubClass("fighter", "sharpshooter", {
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
 					}, ""]
 			}
 		},
@@ -7110,7 +7110,7 @@ ClassSubList["mystic-wu jen"] = {
 			name : "Bonus Disciplines",
 			source : ["UA:TMC", 8],
 			minlevel : 1,
-			description : " [+2 awakened disciplines]",
+			description : " [+2 wu jen disciplines]",
 			spellcastingBonus : {
 				name : "Bonus Disciplines",
 				"class" : "mystic",

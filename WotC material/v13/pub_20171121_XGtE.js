@@ -2679,7 +2679,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
 					v.pactWeapon = true;
 				}
-				if (!v.thisWeapon[1] && v.pactWeapon) {
+				if (!v.theWea.isMagicWeapon && !v.thisWeapon[1] && v.pactWeapon) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};
@@ -2691,7 +2691,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
 					v.pactWeapon = true;
 					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				};
 			}, ""]
 	}

@@ -3925,9 +3925,9 @@ FeatsList["spell sniper"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.spellSniper && !v.isDC && v.isSpell && (/^(?!.*melee).*\d+(\.\d+|,\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) {
+				if (!v.spellSniper && !v.isDC && v.isSpell && (/\d+ ?(f.{0,2}t|m)/i).test(fields.Range)) {
 					v.spellSniper = true;
-					var rangeNmbr = fields.Range.match(/\d+(\.\d+|,\d+)?/g);
+					var rangeNmbr = fields.Range.match(/\d+([.,]\d+)?/g);
 					var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|')));
 					fields.Range = '';
 					rangeNmbr.forEach(function (dR, idx) {
@@ -3943,13 +3943,13 @@ FeatsList["spell sniper"] = {
 					}
 				};
 			},
-			"My spells and cantrips that require a ranged attack roll have their range doubled."
+			"My spells and cantrips that require an attack roll have their range doubled."
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName) {
-				if (!spellObj.spellSniper && ((/^(booming blade|green-flame blade)$/).test(spellKey) || ((/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(-rad|touch|self)).*\d+(\.\d+|,\d+)? ?(f.{0,2}t|m).*$/i).test(spellObj.range)))) {
+				if (!spellObj.spellSniper && !spellObj.psionic && ((/^(booming blade|green-flame blade)$/).test(spellKey) || ((/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(-rad|touch|self)).*\d+([.,]\d+)? ?(f.{0,2}t|m).*$/i).test(spellObj.range)))) {
 					spellObj.spellSniper = true;
-					var rangeNmbr = spellObj.range.match(/\d+(\.\d+|,\d+)?/g);
+					var rangeNmbr = spellObj.range.match(/\d+([.,]\d+)?/g);
 					var notNmbrs = spellObj.range.split(RegExp(rangeNmbr.join('|')));
 					spellObj.range = '';
 					rangeNmbr.forEach(function (dR, idx) {
@@ -3966,13 +3966,13 @@ FeatsList["spell sniper"] = {
 					return true;
 				};
 			},
-			"My spells and cantrips that require a ranged attack roll have their range doubled."
+			"My spells and cantrips that require an attack roll have their range doubled."
 		]
 	},
 	choices : ["Intelligence caster (Wizard)", "Wisdom caster (Cleric / Druid)", "Charisma caster (Bard / Sorcerer / Warlock)"],
 	"intelligence caster (wizard)" : {
 		name : "Spell Sniper [Intelligence]",
-		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
 		spellcastingBonus : {
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 4,
@@ -3984,7 +3984,7 @@ FeatsList["spell sniper"] = {
 	},
 	"wisdom caster (cleric / druid)" : {
 		name : "Spell Sniper [Wisdom]",
-		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one cleric or druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one cleric or druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
 		spellcastingBonus : {
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 5,
@@ -3996,7 +3996,7 @@ FeatsList["spell sniper"] = {
 	},
 	"charisma caster (bard / sorcerer / warlock)" : {
 		name : "Spell Sniper [Charisma]",
-		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one bard, sorcerer, or warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one bard, sorcerer, or warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
 		spellcastingBonus : {
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,
@@ -11237,7 +11237,7 @@ SpellsList["booming blade"] = {
 	duration : "Instantaneous",
 	description : "Melee wea atk with cast; if hit, it 0d8, if it moves next rnd it 1d8 Thunder dmg; +1d8 at CL5, 11, \u0026 17",
 	descriptionCantripDie : "Melee wea atk with cast; if hit, it `CD-1`d8 Thunder dmg, and if it moves next rnd it `CD`d8 Thunder dmg",
-	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends." + AtHigherLevels + "This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level."
+	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["green-flame blade"] = {
 	name : "Green-Flame Blade",
@@ -11251,8 +11251,8 @@ SpellsList["green-flame blade"] = {
 	compMaterial : "A weapon",
 	duration : "Instantaneous",
 	description : "Melee wea atk with cast; atk +0d8 Fire dmg, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL5/11/17",
-	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD`d8+spellcasting ability modifier Fire dmg",
-	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier." + "\n   " + "This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level."
+	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
+	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["lightning lure"] = {
 	name : "Lightning Lure",
@@ -18046,7 +18046,7 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				atkAdd : [
 					function (fields, v) {
 						var hasPactWeapon = GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade';
-						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*\b(2|two).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
+						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*\b(2|two).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
 							fields.Mod = 6;
 						};
 					},
@@ -18223,7 +18223,10 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactWeapon = true;
+				}
+				if (!v.theWea.isMagicWeapon && !v.thisWeapon[1] && v.pactWeapon) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};
@@ -18235,7 +18238,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
 					v.pactWeapon = true;
 					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				};
 			}, ""]
 	}
@@ -25376,7 +25379,7 @@ BackgroundList["izzet engineer"] = {
 	]
 };
 BackgroundFeatureList["urban infrastructure"] = {
-	description : "Although the Izzet League is infamous for mad inventions it is also involved in construction of the city's infrastructure. I have a basic knowledge of the structure of buildings and what is behind its walls. I can find their blueprints showing entry points, secret pases, structural weaknesses, or secret spaces. My guild won't protect me if I use this knowledge unlawfully.",
+	description : "Although the Izzet League is infamous for mad inventions it is also involved in construction of the city's infrastructure. I have a basic knowledge of the structure of buildings and what is behind its walls. I can find their blueprints showing entry points, secret spaces, structural weaknesses, or secret spaces. My guild won't protect me if I use this knowledge unlawfully.",
 	source : ["G", 66]
 };
 
@@ -31630,7 +31633,7 @@ AddSubClass("fighter", "sharpshooter", {
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
 					}, ""]
 			}
 		},
@@ -34275,7 +34278,7 @@ ClassSubList["mystic-wu jen"] = {
 			name : "Bonus Disciplines",
 			source : ["UA:TMC", 8],
 			minlevel : 1,
-			description : " [+2 awakened disciplines]",
+			description : " [+2 wu jen disciplines]",
 			spellcastingBonus : {
 				name : "Bonus Disciplines",
 				"class" : "mystic",

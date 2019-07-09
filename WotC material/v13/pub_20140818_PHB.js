@@ -3783,9 +3783,9 @@ FeatsList["spell sniper"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.spellSniper && !v.isDC && v.isSpell && (/^(?!.*melee).*\d+(\.\d+|,\d+)? ?(f.{0,2}t|m).*$/i).test(fields.Range)) {
+				if (!v.spellSniper && !v.isDC && v.isSpell && (/\d+ ?(f.{0,2}t|m)/i).test(fields.Range)) {
 					v.spellSniper = true;
-					var rangeNmbr = fields.Range.match(/\d+(\.\d+|,\d+)?/g);
+					var rangeNmbr = fields.Range.match(/\d+([.,]\d+)?/g);
 					var notNmbrs = fields.Range.split(RegExp(rangeNmbr.join('|')));
 					fields.Range = '';
 					rangeNmbr.forEach(function (dR, idx) {
@@ -3801,13 +3801,13 @@ FeatsList["spell sniper"] = {
 					}
 				};
 			},
-			"My spells and cantrips that require a ranged attack roll have their range doubled."
+			"My spells and cantrips that require an attack roll have their range doubled."
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName) {
-				if (!spellObj.spellSniper && ((/^(booming blade|green-flame blade)$/).test(spellKey) || ((/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(-rad|touch|self)).*\d+(\.\d+|,\d+)? ?(f.{0,2}t|m).*$/i).test(spellObj.range)))) {
+				if (!spellObj.spellSniper && !spellObj.psionic && ((/^(booming blade|green-flame blade)$/).test(spellKey) || ((/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(-rad|touch|self)).*\d+([.,]\d+)? ?(f.{0,2}t|m).*$/i).test(spellObj.range)))) {
 					spellObj.spellSniper = true;
-					var rangeNmbr = spellObj.range.match(/\d+(\.\d+|,\d+)?/g);
+					var rangeNmbr = spellObj.range.match(/\d+([.,]\d+)?/g);
 					var notNmbrs = spellObj.range.split(RegExp(rangeNmbr.join('|')));
 					spellObj.range = '';
 					rangeNmbr.forEach(function (dR, idx) {
@@ -3824,13 +3824,13 @@ FeatsList["spell sniper"] = {
 					return true;
 				};
 			},
-			"My spells and cantrips that require a ranged attack roll have their range doubled."
+			"My spells and cantrips that require an attack roll have their range doubled."
 		]
 	},
 	choices : ["Intelligence caster (Wizard)", "Wisdom caster (Cleric / Druid)", "Charisma caster (Bard / Sorcerer / Warlock)"],
 	"intelligence caster (wizard)" : {
 		name : "Spell Sniper [Intelligence]",
-		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
 		spellcastingBonus : {
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 4,
@@ -3842,7 +3842,7 @@ FeatsList["spell sniper"] = {
 	},
 	"wisdom caster (cleric / druid)" : {
 		name : "Spell Sniper [Wisdom]",
-		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one cleric or druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one cleric or druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
 		spellcastingBonus : {
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 5,
@@ -3854,7 +3854,7 @@ FeatsList["spell sniper"] = {
 	},
 	"charisma caster (bard / sorcerer / warlock)" : {
 		name : "Spell Sniper [Charisma]",
-		description : "Any spell that I cast that has a ranged attack roll has its range doubled and ignores half cover and three-quarters cover. I learn one bard, sorcerer, or warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one bard, sorcerer, or warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
 		spellcastingBonus : {
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,

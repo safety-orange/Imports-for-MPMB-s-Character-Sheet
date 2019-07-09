@@ -292,7 +292,7 @@ AddSubClass("fighter", "sharpshooter", {
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
 					}, ""]
 			}
 		},

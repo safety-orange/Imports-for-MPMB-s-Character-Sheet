@@ -913,7 +913,7 @@ BackgroundList["izzet engineer"] = {
 	]
 };
 BackgroundFeatureList["urban infrastructure"] = {
-	description : "Although the Izzet League is infamous for mad inventions it is also involved in construction of the city's infrastructure. I have a basic knowledge of the structure of buildings and what is behind its walls. I can find their blueprints showing entry points, secret pases, structural weaknesses, or secret spaces. My guild won't protect me if I use this knowledge unlawfully.",
+	description : "Although the Izzet League is infamous for mad inventions it is also involved in construction of the city's infrastructure. I have a basic knowledge of the structure of buildings and what is behind its walls. I can find their blueprints showing entry points, secret spaces, structural weaknesses, or secret spaces. My guild won't protect me if I use this knowledge unlawfully.",
 	source : ["G", 66]
 };
 
