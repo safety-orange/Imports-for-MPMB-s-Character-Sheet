@@ -21767,7 +21767,7 @@ RaceList["kalashtar"] = { //this code includes contributions by /u/SoilentBrad
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	skillstxt : "Advantage with one: Insight, Intimidation, Performance, or Persuasion",
+	skillstxt : "Advantage with either Insight, Intimidation, Performance, or Persuasion",
 	languageProfs : ["Common", "Quori", 1],
 	savetxt : { immune : ["effects that require me to dream"] },
 	dmgres : ["Psychic"],
@@ -21980,6 +21980,7 @@ RaceList["envoy warforged"] = {
 		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
 		name : "Composite plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "medium",
 		ac : 13,
 		addMod : true,
 		dex : 2
@@ -21987,10 +21988,10 @@ RaceList["envoy warforged"] = {
 		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
 		name : "Heavy plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "heavy",
 		ac : 16,
 		addMod : true,
-		stealthdis : true,
-		dex : -10
+		stealthdis : true
 	}]
 };
 RaceList["juggernaut warforged"] = {
@@ -22056,6 +22057,7 @@ RaceList["juggernaut warforged"] = {
 		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
 		name : "Composite plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "medium",
 		ac : 13,
 		addMod : true,
 		dex : 2
@@ -22063,10 +22065,10 @@ RaceList["juggernaut warforged"] = {
 		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
 		name : "Heavy plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "heavy",
 		ac : 16,
 		addMod : true,
-		stealthdis : true,
-		dex : -10
+		stealthdis : true
 	}]
 };
 RaceList["skirmisher warforged"] = {
@@ -22123,6 +22125,7 @@ RaceList["skirmisher warforged"] = {
 		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
 		name : "Composite plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "medium",
 		ac : 13,
 		addMod : true,
 		dex : 2
@@ -22130,10 +22133,10 @@ RaceList["skirmisher warforged"] = {
 		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
 		name : "Heavy plating (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "heavy",
 		ac : 16,
 		addMod : true,
-		stealthdis : true,
-		dex : -10
+		stealthdis : true
 	}]
 };
 
@@ -30497,9 +30500,9 @@ ClassSubList["rangerua-deep stalker"] = {
 			name : "Deep Stalker Magic",
 			source : ["UA:RR", 8],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
 			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
-			vision : [["Darkvision", 90]]
+			vision : [["Darkvision", "fixed 90"], ["Darkvision", "+30"]]
 		},
 		"subclassfeature7" : {
 			name : "Iron Mind",
