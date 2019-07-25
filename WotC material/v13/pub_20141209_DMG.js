@@ -857,7 +857,7 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type != "prepare" && spellcasters.indexOf("warlock") != -1) return 1;
+					if (type != "prepare" && (/warlock/).test(spellcasters)) return 1;
 				},
 				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
 			]
@@ -871,7 +871,7 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type != "prepare" && spellcasters.indexOf("warlock") != -1) return 2;
+					if (type != "prepare" && (/warlock/).test(spellcasters)) return 2;
 				},
 				"I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
 			]
@@ -885,7 +885,7 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type != "prepare" && spellcasters.indexOf("warlock") != -1) return 3;
+					if (type != "prepare" && (/warlock/).test(spellcasters)) return 3;
 				},
 				"I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
 			]
