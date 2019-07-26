@@ -4301,13 +4301,13 @@ AddSubClass("paladin", "oath of conquest", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
 	source : ["UA:PSO", 1],
-	spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "blight", "dominate beast", "dominate person", "insect plague"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conquering Strike",
 			source : ["UA:PSO", 1],
 			minlevel : 3,
-			description : "\n   " + "I can use my channel divinity to break a foe's will that I hit with my melee weapon" + "\n   " + "The target must make a Wisdom saving throw or become frightened for 1 minute" + "\n   " + "The target can repeat this save at the end of each or its turn to end the effect"
+			description : "\n   " + "I can use my channel divinity to break a foe's will that I hit with my melee weapon" + "\n   " + "The target must make a Wisdom saving throw or become frightened for 1 minute" + "\n   " + "The target can repeat this save at the end of each or its turn to end the effect",
+			spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "blight", "dominate beast", "dominate person", "insect plague"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Guided Strike",
@@ -4344,7 +4344,6 @@ AddSubClass("paladin", "oath of treachery", {
 	regExpSearch : /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Treachery",
 	source : ["UA:PSO", 2],
-	spellcastingExtra : ["charm person", "expeditious retreat", "invisibility", "mirror image", "gaseous form", "haste", "confusion", "greater invisibility", "dominate person", "passwall"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conjure Duplicate",
@@ -4353,7 +4352,8 @@ AddSubClass("paladin", "oath of treachery", {
 			description : "\n   " + "As an action, I create 1 illusory duplicate of myself within 30 ft of me for 1 min (conc)" + "\n   " + "As a bonus action, I can move it up to 30 ft to a space I can see within 120 ft of me" + "\n   " + "I can cast spells as though I was in its space, but still have to use my own senses" + "\n   " + "I have advantage on attacks if the target is within 5 ft of the duplicate and me",
 			action : ["action", ""],
 			eval : "AddAction('bonus action', 'Move Duplicate', 'Paladin (Oath of Treachery) - Channel Divinity: Conjure Duplicate')",
-			removeeval : "RemoveAction('bonus action', 'Move Duplicate')"
+			removeeval : "RemoveAction('bonus action', 'Move Duplicate')",
+			spellcastingExtra : ["charm person", "expeditious retreat", "invisibility", "mirror image", "gaseous form", "haste", "confusion", "greater invisibility", "dominate person", "passwall"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Poison Strike",
@@ -10545,14 +10545,14 @@ AddSubClass("paladin", "oath of redemption", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
 	source : ["UA:AToS", 1],
-	spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"],
 	features : {
 		"subclassfeature3" : {
 			name : "Armor of Peace",
 			source : ["UA:AToS", 2],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
-			addarmor : "Armor of Peace"
+			addarmor : "Armor of Peace",
+			spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",
@@ -12157,7 +12157,6 @@ AddSubClass("paladin", "oath of conquest2", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
 	source : ["UA:RCO", 3],
-	spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conquering Presence",
@@ -12167,7 +12166,8 @@ AddSubClass("paladin", "oath of conquest2", {
 				"As an action, all creatures of my choice within 30-ft radius must make a Wisdom save",
 				"If failed, a target is frightened for 1 minute; It can save again at the end of each turn"
 			]),
-			action : ["action", ""]
+			action : ["action", ""],
+			spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Guided Strike",
@@ -13328,7 +13328,6 @@ AddSubClass("druid", "circle of spores", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
 	source : ["UA:TS", 1],
-	spellcastingExtra : ["gentle repose", "ray of enfeeblement", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"],
 	features : {
 		"subclassfeature2" : {
 			name : "Circle Spells",
@@ -13344,7 +13343,8 @@ AddSubClass("druid", "circle of spores", {
 				spells : ["chill touch"],
 				selection : ["chill touch"],
 				atwill : true
-			}
+			},
+			spellcastingExtra : ["gentle repose", "ray of enfeeblement", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"]
 		},
 		"subclassfeature2.1" : {
 			name : "Halo of Spores",

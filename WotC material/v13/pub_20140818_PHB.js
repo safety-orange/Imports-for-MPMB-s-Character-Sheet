@@ -1406,14 +1406,14 @@ AddSubClass("paladin", "oath of the ancients", {
 	regExpSearch : /^(((?=.*(ancient|nature|natural|green|fey|horned))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*(green|fey|horned))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of the Ancients",
 	source : ["P", 87],
-	spellcastingExtra : ["ensnaring strike", "speak with animals", "moonbeam", "misty step", "plant growth", "protection from energy", "ice storm", "stoneskin", "commune with nature", "tree stride"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Nature's Wrath",
 			source : ["P", 87],
 			minlevel : 3,
 			description : "\n   " + "As an action, a creature I can see within 10 ft must make a Str/Dex save (its choice)" + "\n   " + "If it fails this save, it is restrained until it succeeds on a save at the end of its turn",
-			action : ["action", ""]
+			action : ["action", ""],
+			spellcastingExtra : ["ensnaring strike", "speak with animals", "moonbeam", "misty step", "plant growth", "protection from energy", "ice storm", "stoneskin", "commune with nature", "tree stride"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Turn the Faithless",
@@ -1453,14 +1453,14 @@ AddSubClass("paladin", "oath of vengeance", {
 	regExpSearch : /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
 	subname : "Oath of Vengeance",
 	source : ["P", 88],
-	spellcastingExtra : ["bane", "hunter's mark", "hold person", "misty step", "haste", "protection from energy", "banishment", "dimension door", "hold monster", "scrying"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Abjure Enemy",
 			source : ["P", 88],
 			minlevel : 3,
 			description : "\n   " + "As an action, one creature within 60 ft that I can see me must make a Wisdom save" + "\n   " + "If failed, it is frightened and its speed is 0 despite bonuses; if success, its speed is halved" + "\n   " + "This lasts for 1 minute or until it takes damage; Undead/fiends have disadv. on save",
-			action : ["action", ""]
+			action : ["action", ""],
+			spellcastingExtra : ["bane", "hunter's mark", "hold person", "misty step", "haste", "protection from energy", "banishment", "dimension door", "hold monster", "scrying"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Vow of Enmity",

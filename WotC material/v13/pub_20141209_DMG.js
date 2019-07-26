@@ -251,14 +251,14 @@ AddSubClass("paladin", "oathbreaker", {
 	regExpSearch : /^((?=.*blackguard)|((?=.*(oath.*breaker|breaker.*oath))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))).*$/i,
 	subname : "Oathbreaker",
 	source : ["D", 97],
-	spellcastingExtra : ["hellish rebuke", "inflict wounds", "crown of madness", "darkness", "animate dead", "bestow curse", "blight", "confusion", "contagion", "dominate person"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Control Undead",
 			source : ["D", 97],
 			minlevel : 3,
 			description : "\n   " + "As an action, one undead (CR < paladin level) I can see in 30 ft must make a Wis save" + "\n   " + "If failed, it must obey my commands for 24 hours or until I use this on another",
-			action : ["action", ""]
+			action : ["action", ""],
+			spellcastingExtra : ["hellish rebuke", "inflict wounds", "crown of madness", "darkness", "animate dead", "bestow curse", "blight", "confusion", "contagion", "dominate person"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Dreadful Aspect",

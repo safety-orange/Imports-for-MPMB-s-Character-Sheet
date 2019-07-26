@@ -1471,7 +1471,6 @@ AddSubClass("paladin", "oath of conquest-xgte", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
 	source : ["X", 37],
-	spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conquering Presence",
@@ -1481,7 +1480,8 @@ AddSubClass("paladin", "oath of conquest-xgte", {
 				"As an action, all creatures of my choice within a 30-ft radius must make a Wisdom save",
 				"If failed, a target is frightened for 1 minute; It can save again at the end of each turn"
 			]),
-			action : ["action", ""]
+			action : ["action", ""],
+			spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Guided Strike",
@@ -1531,14 +1531,14 @@ AddSubClass("paladin", "oath of redemption-xgte", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
 	source : ["X", 38],
-	spellcastingExtra : ["sanctuary", "sleep", "calm emotions", "hold person", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Emissary of Peace",
 			source : ["X", 39],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I grant myself +5 on Charisma (Persuasion) checks for 10 minutes",
-			action : ["bonus action", ""]
+			action : ["bonus action", ""],
+			spellcastingExtra : ["sanctuary", "sleep", "calm emotions", "hold person", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Rebuke the Violent",

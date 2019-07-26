@@ -400,7 +400,6 @@ AddSubClass("artificer-ua3", "alchemist", {
 	subname : "Alchemist",
 	fullname : "Alchemist",
 	source : ["UA:A3", 6],
-	spellcastingExtra : ["purify food and drink", "ray of sickness", "melf's acid arrow", "web", "create food and water", "stinking cloud", "blight", "death ward", "cloudkill", "raise dead"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
@@ -412,7 +411,8 @@ AddSubClass("artificer-ua3", "alchemist", {
 			eval : function () {
 				AddToInv("gear", "l", "Alchemist's supplies", "", 8);
 				AddToInv("gear", "l", "Herbalism kit", "", 3);
-			}
+			},
+			spellcastingExtra : ["purify food and drink", "ray of sickness", "melf's acid arrow", "web", "create food and water", "stinking cloud", "blight", "death ward", "cloudkill", "raise dead"]
 		},
 		"subclassfeature3.1" : {
 			name : "Alchemical Homunculus",
@@ -601,7 +601,6 @@ AddSubClass("artificer-ua3", "archivist", {
 	subname : "Archivist",
 	fullname : "Archivist",
 	source : ["UA:A3", 7],
-	spellcastingExtra : ["comprehend languages", "dissonant whispers", "detect thoughts", "locate object", "hypnotic pattern", "tongues", "locate creature", "phantasmal killer", "legend lore", "modify memory"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
@@ -615,7 +614,8 @@ AddSubClass("artificer-ua3", "archivist", {
 			eval : function () {
 				AddToInv("gear", "l", "Calligrapher's supplies", "", 5);
 				AddToInv("gear", "l", "Forgery kit", "", 5);
-			}
+			},
+			spellcastingExtra : ["comprehend languages", "dissonant whispers", "detect thoughts", "locate object", "hypnotic pattern", "tongues", "locate creature", "phantasmal killer", "legend lore", "modify memory"]
 		},
 		"subclassfeature3.1" : {
 			name : "Artificial Mind",
@@ -740,7 +740,6 @@ AddSubClass("artificer-ua3", "artillerist", {
 	subname : "Artillerist",
 	fullname : "Artillerist",
 	source : ["UA:A3", 8],
-	spellcastingExtra : ["shield", "thunderwave", "scorching ray", "shatter", "fireball", "wind wall", "ice storm", "wall of fire", "cone of cold", "wall of force"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
@@ -756,7 +755,8 @@ AddSubClass("artificer-ua3", "artillerist", {
 				AddToInv("gear", "l", "Smith's tools", "", 8);
 				AddToInv("gear", "l", "Woodcarver's tools", "", 5);
 				AddToInv("gear", "r", "Wooden wand", "", 1);
-			}
+			},
+			spellcastingExtra : ["shield", "thunderwave", "scorching ray", "shatter", "fireball", "wind wall", "ice storm", "wall of fire", "cone of cold", "wall of force"]
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Turret",
@@ -941,7 +941,6 @@ AddSubClass("artificer-ua3", "battle smith", {
 	subname : "Battle Smith",
 	fullname : "Battle Smith",
 	source : ["UA:A3", 11],
-	spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade \u0026 Battle Ready",
@@ -970,7 +969,8 @@ AddSubClass("artificer-ua3", "battle smith", {
 					},
 					'I can use my Intelligence modifier instead of Strength or Dexterity for the attack and damage rolls of magic weapons.'
 				]
-			}
+			},
+			spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"]
 		},
 		"subclassfeature3.1" : {
 			name : "Iron Defender",

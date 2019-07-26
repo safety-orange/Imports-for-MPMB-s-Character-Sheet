@@ -57,14 +57,14 @@ AddSubClass("paladin", "oath of redemption", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
 	source : ["UA:AToS", 1],
-	spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"],
 	features : {
 		"subclassfeature3" : {
 			name : "Armor of Peace",
 			source : ["UA:AToS", 2],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
-			addarmor : "Armor of Peace"
+			addarmor : "Armor of Peace",
+			spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",

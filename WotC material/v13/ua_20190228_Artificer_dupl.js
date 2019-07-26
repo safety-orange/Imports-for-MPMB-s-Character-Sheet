@@ -307,7 +307,6 @@ AddSubClass("artificer-ua2", "alchemist", {
 	subname : "Alchemist",
 	fullname : "Alchemist",
 	source : ["UA:A2", 6],
-	spellcastingExtra : ["purify food and drink", "ray of sickness", "melf's acid arrow", "web", "create food and water", "stinking cloud", "blight", "death ward", "cloudkill", "raise dead"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
@@ -319,7 +318,8 @@ AddSubClass("artificer-ua2", "alchemist", {
 			eval : function () {
 				AddToInv("gear", "l", "Alchemist's supplies", "", 8);
 				AddToInv("gear", "l", "Herbalism kit", "", 3);
-			}
+			},
+			spellcastingExtra : ["purify food and drink", "ray of sickness", "melf's acid arrow", "web", "create food and water", "stinking cloud", "blight", "death ward", "cloudkill", "raise dead"]
 		},
 		"subclassfeature3.1" : {
 			name : "Alchemical Homunculus",
@@ -531,7 +531,6 @@ AddSubClass("artificer-ua2", "artillerist", {
 	subname : "Artillerist",
 	fullname : "Artillerist",
 	source : ["UA:A2", 7],
-	spellcastingExtra : ["shield", "thunderwave", "scorching ray", "shatter", "fireball", "wind wall", "ice storm", "wall of fire", "cone of cold", "wall of force"],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
@@ -547,7 +546,8 @@ AddSubClass("artificer-ua2", "artillerist", {
 				AddToInv("gear", "l", "Smith's tools", "", 8);
 				AddToInv("gear", "l", "Woodcarver's tools", "", 5);
 				AddToInv("gear", "r", "Wooden wand", "", 1);
-			}
+			},
+			spellcastingExtra : ["shield", "thunderwave", "scorching ray", "shatter", "fireball", "wind wall", "ice storm", "wall of fire", "cone of cold", "wall of force"]
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Turret",

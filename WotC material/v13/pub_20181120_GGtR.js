@@ -454,7 +454,6 @@ AddSubClass("druid", "circle of spores-ggtr", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
 	source : ["G", 26],
-	spellcastingExtra : ["blindness/deafness", "gentle repose", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"],
 	features : {
 		"subclassfeature2" : {
 			name : "Circle Spells",
@@ -468,7 +467,8 @@ AddSubClass("druid", "circle of spores-ggtr", {
 				name : "Circle Spells",
 				spells : ["chill touch"],
 				selection : ["chill touch"]
-			}
+			},
+			spellcastingExtra : ["blindness/deafness", "gentle repose", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"]
 		},
 		"subclassfeature2.1" : {
 			name : "Halo of Spores",

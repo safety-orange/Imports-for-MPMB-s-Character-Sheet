@@ -423,3 +423,23 @@ SpellsList["motivational speech"] = {
 	description : "5 crea that hear me 5+5/SL temp HP, adv. Wis saves, if hit adv. on next atk; stops when temp HP gone",
 	descriptionFull : "You address allies, staff, or innocent bystanders to exhort and inspire them to greatness, whether they have anything to get excited about or not. Choose up to five creatures within range that can hear you. For the duration, each affected creature gains 5 temporary hit points and has advantage on Wisdom saving throws. If an affected creature is hit by an attack, it has advantage on the next attack roll it makes. Once an affected creature loses the temporary hit points granted by this spell, the spell ends for that creature." + AtHigherLevels + "At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the temporary hit points increase by 5 for each slot level above 3rd."
 };
+
+// Magic Item from the adventure
+MagicItemsList["piercer"] = {
+	name : "Piercer",
+	source : ["AcqInc", 121],
+	type : "weapon (shortsword)",
+	rarity : "rare",
+	description : "I gain a +1 bonus to attack and damage rolls made with this magical shortsword. I regain the maximum possible number of hit points from expended Hit Dice. However, I must eat twice as much food each day to avoid exhaustion, a minimum of 2 lb.",
+	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon.\n   A character attuned to the sword regains the maximum possible number of hit points from expended Hit Dice. However, the attuned character must eat twice as much food each day (a minimum of 2 pounds) to avoid exhaustion (see \"The Environment\" in chapter 8 of the Player's Handbook.)",
+	attunement : true,
+	weight : 3,
+	weaponsAdd : ["Piercer"],
+	weaponOptions : {
+		baseWeapon : "shortsword",
+		regExpSearch : /piercer/i,
+		name : "Piercer",
+		source : ["AcqInc", 121],
+		modifiers : [1, 1]
+	}
+};
