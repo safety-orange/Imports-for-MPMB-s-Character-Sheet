@@ -664,9 +664,9 @@ AddSubClass("artificer-ua3", "archivist", {
 					"I can choose which skills when I create the artificial mind, depending on its raw material",
 					"Animal raw material: two from Animal Handling, Insight, Medicine, Perception, \u0026 Survival",
 					"Mineral raw material: two from Deception, Intimidation, Performance, and Persuasion",
-					"Plant raw material: two Arcana, History, Investigation, Nature, and Religion"
+					"Plant raw material: two from Arcana, History, Investigation, Nature, and Religion"
 				]),
-				skillstxt : "\n   Animal raw material: two from Animal Handling, Insight, Medicine, Perception, and Survival;\n   Mineral raw material: two from Deception, Intimidation, Performance, and Persuasion;\n   Plant raw material: two Arcana, History, Investigation, Nature, and Religion"
+				skillstxt : "I can choose two skill proficiencies based on the raw material the Artificial Mind is made from:\n   - Animal raw material: two from Animal Handling, Insight, Medicine, Perception, and Survival\n   - Mineral raw material: two from Deception, Intimidation, Performance, and Persuasion\n   - Plant raw material: two Arcana, History, Investigation, Nature, and Religion"
 			},
 			"manifest mind" : {
 				name : "Manifest Mind",
