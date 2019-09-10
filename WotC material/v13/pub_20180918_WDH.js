@@ -204,7 +204,7 @@ MagicItemsList["knave's eye patch"] = { // contains contributions by Pengsloth
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
-	description : "While wearing this eye patch I have advantage on Perception checks that rely on sight, I am unaffected be Sunlight Sensitivity if I have it, and I am immune to magic that would read my thoughts or determine whether I'm lying. Creatures can communicate telepathically with me only if I allow it.",
+	description : "While wearing this eye patch I have advantage on Perception checks that rely on sight, I am unaffected by Sunlight Sensitivity if I have it, and I am immune to magic that would read my thoughts or determine whether I'm lying. Creatures can communicate telepathically with me only if I allow it.",
 	descriptionFull : "While wearing this eye patch, you gain these benefits:\n \u2022 You have advantage on Wisdom (Perception) checks that rely on sight.\n \u2022 If you have the Sunlight Sensitivity trait, you are unaffected by the trait.\n \u2022 You are immune to magic that allows other creatures to read your thoughts or determine whether you are lying. Creatures can communicate telepathically with you only if you allow it.",
 	attunement : true,
 	vision : [["Adv. on Perception checks relying on sight", 0]]

@@ -100,7 +100,7 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	},
 	spellChanges : {
 		"gate" : {
-			description : "Create a portal to a precise location in the far realm; can transport named crea to you",
+			description : "Create a portal to a precise location in the far realm; can transport named crea to me",
 			changes : "The spell can only connect to the Far Realm."
 		}
 	}

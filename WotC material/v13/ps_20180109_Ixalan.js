@@ -198,7 +198,7 @@ FeatsList["vampiric exultation"] = {
 	prerequisite : "Being an Ixalan Vampire",
 	prereqeval : function () { return CurrentRace.known == 'ixalan vampire' },
 	descriptionFull : "As an action, you can transform the lower half of your body into an inky black vapor, allowing you to float through the air. While transformed, you have a flying speed of 30 feet. You can maintain this form for up to 10 minutes. Once you use this ability, you can't use it again until you finish a short or long rest.",
-	description : "As an action, I can transform the lower half of my body into an inky black vapor for up to 10 minutes. While transformed, I have a flying speed of 30 ft. Once I use this ability, I can't use it again until you finish a short or long rest.",
+	description : "As an action, I can transform the lower half of my body into an inky black vapor for up to 10 minutes. While transformed, I have a flying speed of 30 ft. Once I use this ability, I can't use it again until I finish a short or long rest.",
 	action : ["action", ""],
 	usages : 1,
 	recovery : "short rest"
