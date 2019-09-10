@@ -11,7 +11,7 @@ SourceList["UA:BnM"] = {
 	date : "2019/08/15"
 };
 
-// A a subclasses for the Barbarian and one for the Monk
+// Add a subclasses for the Barbarian and one for the Monk
 AddSubClass("barbarian", "path of the wild soul", {
 	regExpSearch : /^(?=.*\bwild\b)(?=.*\bsoul\b).*$/i,
 	subname : "Path of the Wild Soul",

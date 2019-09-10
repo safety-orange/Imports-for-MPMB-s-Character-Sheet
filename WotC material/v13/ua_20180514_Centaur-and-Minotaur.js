@@ -61,7 +61,7 @@ RaceList["centaur"] = {
 // Add the Minotaur race
 RaceList["minotaur-uacnm"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Minotaur",
 	sortname : "Minotaur",
 	source : ["UA:CnM", 2],
 	plural : "Minotaurs",

@@ -744,7 +744,7 @@ MagicItemsList["instrument of the bards"] = {
 }
 MagicItemsList["mariner's armor"] = {
 	name : "Mariner's Armor",
-	name : "Mariner's",
+	nameTest : "Mariner's",
 	source : ["D", 188],
 	type : "armor (light, medium, or heavy)",
 	rarity : "uncommon",

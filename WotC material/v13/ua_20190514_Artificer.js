@@ -67,39 +67,7 @@ ClassList['artificer-ua3'] = {
 				"If I instill a property in more objects than I can have active, the oldest loses its property"
 			]),
 			additional : "Intelligence modifier of active objects",
-			action : [["action", " (add/remove)"]]
-		},
-		"spellcasting" : {
-			name : "Spellcasting",
-			source : ["UA:A3", 3],
-			minlevel : 1,
-			description : desc([
-				"I can cast prepared artificer cantrips/spells, using Intelligence as my spellcasting ability",
-				"To cast, I must use thieves' or artisan's tools I'm proficient with as a spellcasting focus",
-				"I can cast my prepared artificer spells as rituals if they have the ritual tag",
-				"Whenever I gain an artificer level, I can swap one artificer cantrip I know for another"
-			]),
-			additional : levels.map(function (n, idx) {
-				return [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4][idx] + " cantrips known";
-			}),
-			calcChanges : {
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic && spName == "artificer-ua3") {
-							spellObj.compMaterial = (spellObj.compMaterial ? spellObj.compMaterial + "; " : "") + "My artificer spellcasting focus: thieves' tools, artisan's tools I'm proficient with, " + (classes.known["artificer-ua3"].subclass.indexOf("artillerist") !== -1 ? "rod, staff, wand, " : "") + "or an item infused by me.";
-							if (!spellObj.components) {
-								spellObj.components = "M\u0192";
-							} else if (spellObj.components.indexOf("M") == -1) {
-								spellObj.components += ",M\u0192";
-							} else if ((/M([^\u0192\u2020]|$)/).test(spellObj.components)) {
-								spellObj.components = spellObj.components.replace("M", "M\u0192");
-							}
-							return true;
-						}
-					},
-					"My artificer spells always require me to use a spellcasting focus: thieves' tools, artisan's tools I'm proficient with, or an item infused by me."
-				]
-			},
+			action : [["action", " (add/remove)"]],
 			extraname : "Artificer 2",
 			"infuse item" : {
 				name : "Infuse Item",
@@ -119,6 +87,47 @@ ClassList['artificer-ua3'] = {
 				extrachoice : "infuse item",
 				minlevel : 2
 			}]
+		},
+		"spellcasting" : {
+			name : "Spellcasting",
+			source : ["UA:A3", 3],
+			minlevel : 1,
+			description : desc([
+				"I can cast prepared artificer cantrips/spells, using Intelligence as my spellcasting ability",
+				"To cast, I must use thieves' or artisan's tools I'm proficient with as a spellcasting focus",
+				"I can cast my prepared artificer spells as rituals if they have the ritual tag",
+				"Whenever I gain an artificer level, I can swap one artificer cantrip I know for another"
+			]),
+			additional : levels.map(function (n, idx) {
+				return [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4][idx] + " cantrips known";
+			}),
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic && spName == "artificer-ua3") {
+							spellObj.compMaterial = (spellObj.compMaterial ? spellObj.compMaterial + "; " : "") + "My artificer spellcasting focus: thieves' tools, artisan's tools I'm proficient with, " + (classes.known["artificer-ua3"].subclass.indexOf("artillerist") !== -1 ? "rod, staff, wand, " : "") + "or an item infused by me.";
+							if (GetFeatureChoice("classes", "artificer-ua3", "spellcasting", true).indexOf("don't change component column on spell sheet") != -1) {
+								// do nothing if set to do so
+							} else if (!spellObj.components) {
+								spellObj.components = "M\u0192";
+							} else if (spellObj.components.indexOf("M") == -1) {
+								spellObj.components += ",M\u0192";
+							} else if ((/M([^\u0192\u2020]|$)/).test(spellObj.components)) {
+								spellObj.components = spellObj.components.replace("M", "M\u0192");
+							}
+							return true;
+						}
+					},
+					"My artificer spells always require me to use a spellcasting focus: thieves' tools, artisan's tools I'm proficient with, or an item infused by me."
+				]
+			},
+			extrachoices : ["Don't change component column on spell sheet"],
+			extraname : "Artificer Spellcasting",
+			"don't change component column on spell sheet" : {
+				name : "[Meta] Don't alter spell sheets",
+				source : ["UA:A3", 3],
+				description : "\n   The automation will not add M\u0192 to each artificer spell on the generated spell sheets"
+			}
 		},
 		"infuse item" : {
 			name : "Infuse Item",

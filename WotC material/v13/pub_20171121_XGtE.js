@@ -2360,7 +2360,7 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 };
 
 // Add 2 subclasses for the Warlock
-AddSubClass("warlock", "the celestal-xgte", {
+AddSubClass("warlock", "the celestial-xgte", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
 	source : ["X", 54],

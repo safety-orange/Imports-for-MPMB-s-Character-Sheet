@@ -3880,14 +3880,21 @@ FeatsList["sharpshooter"] = {
 	descriptionFull : "You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:\n \u2022 Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n \u2022 Your ranged weapon attacks ignore half cover and three-quarters cover.\n \u2022 Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
 	description : "My ranged weapon attacks don't have disadvantage on long range and ignore half cover and three-quarters cover. With a ranged weapon that I am proficient with, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
 	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.isRangedWeapon || (!v.isSpell && (/thrown/i).test(fields.Description))) {
+					fields.Description += (fields.Description ? '; ' : '') + "No disadv. at long range; Ignore \u00BD and \u00BE cover";
+				};
+			},
+			"My ranged weapon attacks suffer no disadvantage for long range and ignore half cover and three-quarters cover. This includes thrown weapons.\n \u2022 If I include the words 'Power Attack', 'Sharpshooter', or 'Sharpshot' in the name or description of a ranged weapon that I'm proficient with, the calculation will put a -5 penalty on the attack's To Hit and a +10 bonus to its Damage. This does not work with thrown weapons."
+		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isRangedWeapon && (/power.{0,3}attack|sharp.{0,3}shoo?t/i).test(v.WeaponText)) {
+				if (v.isRangedWeapon && fields.Proficiency && (/power.{0,3}attack|sharp.{0,3}shoo?t/i).test(v.WeaponText)) {
 					output.extraDmg += 10;
 					output.extraHit -= 5;
 				};
-			},
-			"If I include the words 'Power Attack', 'Sharpshooter', or 'Sharpshot' in a ranged weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."
+			}, ''
 		]
 	}
 };
@@ -6219,7 +6226,7 @@ MagicItemsList["instrument of the bards"] = {
 }
 MagicItemsList["mariner's armor"] = {
 	name : "Mariner's Armor",
-	name : "Mariner's",
+	nameTest : "Mariner's",
 	source : ["D", 188],
 	type : "armor (light, medium, or heavy)",
 	rarity : "uncommon",
@@ -17906,7 +17913,7 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 };
 
 // Add 2 subclasses for the Warlock
-AddSubClass("warlock", "the celestal-xgte", {
+AddSubClass("warlock", "the celestial-xgte", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
 	source : ["X", 54],

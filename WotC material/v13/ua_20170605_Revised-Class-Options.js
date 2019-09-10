@@ -250,7 +250,7 @@ AddSubClass("paladin", "oath of conquest2", {
 		}
 	}
 });
-AddSubClass("warlock", "the celestal", {
+AddSubClass("warlock", "the celestial", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
 	source : ["UA:RCO", 4],
