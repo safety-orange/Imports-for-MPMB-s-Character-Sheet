@@ -1196,7 +1196,18 @@ MagicItemsList["weapon of warning"] = {
 		prefixOrSuffix : "prefix",
 		descriptionChange : ["replace", "weapon"]
 	},
-	advantages : [["Initiative", true]]
+	advantages : [["Initiative", true]],
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/warning/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the word "Warning" in the name of a weapon, it will be treated as the magic weapon Weapon of Warning.'
+		]
+	}
 }
 
 // Sentient Items

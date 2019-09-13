@@ -314,6 +314,17 @@ MagicItemsList["ingot of the skold rune"] = {
 			excludeCheck : function (inObjKey, inObj) {
 				return !(/melee/i).test(inObj.range) || !(/\b(2|two).?hand(ed)?s?\b/i).test(inObj.description);
 			}
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bskold\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					}
+				},
+				'If I include the words "Skold Rune" in the name of a weapon, it will be treated as the magic weapon Skold Rune Weapon.'
+			]
 		}
 	}
 }
@@ -405,7 +416,7 @@ MagicItemsList["opal of the ild rune"] = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + '+1d6 fire damage';

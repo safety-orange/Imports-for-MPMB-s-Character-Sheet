@@ -6678,7 +6678,18 @@ MagicItemsList["weapon of warning"] = {
 		prefixOrSuffix : "prefix",
 		descriptionChange : ["replace", "weapon"]
 	},
-	advantages : [["Initiative", true]]
+	advantages : [["Initiative", true]],
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/warning/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the word "Warning" in the name of a weapon, it will be treated as the magic weapon Weapon of Warning.'
+		]
+	}
 }
 
 // Sentient Items
@@ -12417,6 +12428,17 @@ MagicItemsList["ingot of the skold rune"] = {
 			excludeCheck : function (inObjKey, inObj) {
 				return !(/melee/i).test(inObj.range) || !(/\b(2|two).?hand(ed)?s?\b/i).test(inObj.description);
 			}
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bskold\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					}
+				},
+				'If I include the words "Skold Rune" in the name of a weapon, it will be treated as the magic weapon Skold Rune Weapon.'
+			]
 		}
 	}
 }
@@ -12508,7 +12530,7 @@ MagicItemsList["opal of the ild rune"] = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + '+1d6 fire damage';
@@ -20511,6 +20533,17 @@ MagicItemsList["moon-touched sword"] = {
 			var testRegex = /sword|scimitar|rapier/i;
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the words "Moon-Touched" in the name of a sword, it will be treated as the magic weapon Moon-Touched Sword.'
+		]
 	}
 }
 MagicItemsList["mystery key"] = {

@@ -6679,7 +6679,18 @@ MagicItemsList["weapon of warning"] = {
 		prefixOrSuffix : "prefix",
 		descriptionChange : ["replace", "weapon"]
 	},
-	advantages : [["Initiative", true]]
+	advantages : [["Initiative", true]],
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/warning/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the word "Warning" in the name of a weapon, it will be treated as the magic weapon Weapon of Warning.'
+		]
+	}
 }
 
 // Sentient Items
@@ -12418,6 +12429,17 @@ MagicItemsList["ingot of the skold rune"] = {
 			excludeCheck : function (inObjKey, inObj) {
 				return !(/melee/i).test(inObj.range) || !(/\b(2|two).?hand(ed)?s?\b/i).test(inObj.description);
 			}
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bskold\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					}
+				},
+				'If I include the words "Skold Rune" in the name of a weapon, it will be treated as the magic weapon Skold Rune Weapon.'
+			]
 		}
 	}
 }
@@ -12509,7 +12531,7 @@ MagicItemsList["opal of the ild rune"] = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + '+1d6 fire damage';
@@ -20512,6 +20534,17 @@ MagicItemsList["moon-touched sword"] = {
 			var testRegex = /sword|scimitar|rapier/i;
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the words "Moon-Touched" in the name of a sword, it will be treated as the magic weapon Moon-Touched Sword.'
+		]
 	}
 }
 MagicItemsList["mystery key"] = {
@@ -43191,9 +43224,6 @@ AddSubClass("artificer-ua3", "battle smith", {
 				AddToInv("gear", "l", "Leatherworker's tools", "", 5);
 				AddToInv("gear", "l", "Smith's tools", "", 8);
 			},
-			removeeval : function () {
-				if (CurrentEvals.BattleSmith) delete CurrentEvals.BattleSmith;
-			},
 			weaponProfs : [false, true],
 			calcChanges : {
 				atkAdd : [
@@ -43366,7 +43396,7 @@ MagicItemsList["radiant weapon"] = {
 	nameTest : "Radiant",
 	source : ["UA:A3", 13],
 	type : "weapon (any)",
-	description : "This magic double-bladed scimitar adds a +1 on its attacks and damage. As a bonus action, I can start or stop it shedding light, bright in 30 ft and dim for another 30 ft. Once per short rest as a reaction when hit by a melee attack, I can blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
+	description : "This magic weapon adds a +1 on its attacks and damage. As a bonus action, I can start or stop it shedding light, bright in 30 ft and dim for another 30 ft. Once per short rest as a reaction when hit by a melee attack, I can blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
 	attunement : true,
 	usages : 1,
@@ -43379,13 +43409,22 @@ MagicItemsList["radiant weapon"] = {
 		descriptionChange : ["replace", "weapon"]
 	},
 	calcChanges : {
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/radiant/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 1;
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/radiant/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Reaction to blind attacker';
 				}
 			},
 			'If I include the word "Radiant" in the name of a weapon, it will be treated as the magic weapon Radiant Weapon. It has +1 to hit and damage and can be used to shed light or blind an attacker.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && !v.isSpell && (/radiant/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}
 		]
 	}
 }
@@ -43407,16 +43446,16 @@ MagicItemsList["repeating shot"] = { // 2019v2
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
 					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(;|,)? ?loading/i, '');
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '').replace(/(;|,)? ?loading/i, '');
 				}
 			},
 			'If I include the words "Repeating Shot" in the name of a weapon with the ammunition property, it will be treated as the magic weapon Repeating Shot. It has +1 to hit and damage and produces its own ammunition, thus its loading property is removed if it has it.'
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
+				if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText) && !v.isSpell) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			}, ''
@@ -43456,6 +43495,7 @@ MagicItemsList["returning weapon"] = {
 			function (fields, v) {
 				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
 					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
 				}
 			},
