@@ -12,6 +12,52 @@ SourceList.SKT={
 };
 
 // Creatures
+CreatureList["sheep"] = {
+	name : "Sheep",
+	source : ["SKT", 142],
+	size : 4, //Small
+	type : "Beast",
+	subtype : "",
+	alignment : "Unaligned",
+	ac : 10,
+	hp : 3,
+	hd : [1, 6],
+	speed : "30 ft",
+	scores : [12, 10, 11, 2, 10, 5],
+	saves : ["", "", "", "", "", ""],
+	senses : "",
+	passivePerception : 10,
+	languages : "",
+	challengeRating : "0",
+	proficiencyBonus : 2,
+	attacksAction : 0,
+	attacks : [],
+	traits : [{
+		name : "Sure-Footed",
+		description : "The sheep has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
+	}]
+};
+CreatureList["pig"] = {
+	name : "Pig",
+	source : ["SKT", 143],
+	size : 3, //Medium
+	type : "Beast",
+	subtype : "",
+	alignment : "Unaligned",
+	ac : 10,
+	hp : 5,
+	hd : [1, 8],
+	speed : "30 ft",
+	scores : [13, 11, 12, 2, 9, 5],
+	saves : ["", "", "", "", "", ""],
+	senses : "",
+	passivePerception : 9,
+	languages : "",
+	challengeRating : "0",
+	proficiencyBonus : 2,
+	attacksAction : 0,
+	attacks : []
+};
 CreatureList["crag cat"] = {
 	name : "Crag Cat",
 	source : ["SKT", 240],

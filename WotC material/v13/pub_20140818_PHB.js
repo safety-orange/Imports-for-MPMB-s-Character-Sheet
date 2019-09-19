@@ -376,12 +376,12 @@ AddSubClass("cleric", "knowledge domain", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0) return;
+						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-						} else if (!spellObj.psionic && spellObj.level == 0) {
-							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+							return true;
 						}
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -457,12 +457,12 @@ AddSubClass("cleric", "light domain", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0) return;
+						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-						} else if (!spellObj.psionic && spellObj.level == 0) {
-							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+							return true;
 						}
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
