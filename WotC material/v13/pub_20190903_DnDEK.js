@@ -9,7 +9,7 @@ RequiredSheetVersion(13);
 	For example, the ability score improvements here are left to the player, while the rules say which score increases.
 
 	Also, the sidekicks here gain increases to their proficiency bonus just like normal classes because that is hard-coded into the sheet.
-	According to the official rules, the sidekicks only get an proficiency bonus increase at 5th level, and at no other levels.
+	According to the official rules, the sidekicks only get a proficiency bonus increase at 5th level, and at no other levels.
 */
 
 // Define the source

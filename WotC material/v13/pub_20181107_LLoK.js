@@ -211,6 +211,7 @@ MagicItemsList["leather golem armor"] = {
 	source : ["LLoK", 55],
 	type : "armor (leather)",
 	rarity : "rare",
+	magicItemTable : "G",
 	description : "I am unwilling to part with this leather armor until its curse is lifted from me, see Notes page. The curse makes me go berserk and have an aversion to fire. It gives me a +1 bonus to AC and saves vs. spells and magical effects. I have resistance to lightning damage and when I suffer such damage, I gain 5 temporary HP.",
 	descriptionFull : leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
@@ -360,7 +361,7 @@ SpellsList["flock of familiars"] = {
     components: "V,S",
     duration: "Conc, 1 h",
     description : "Summon 3+1/SL familiars as Find Familiar; can see through their eyes and deliver touch spells; see B",
-    descriptionFull: "You temporarily summon three familiars—spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
+    descriptionFull: "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
 }
 SpellsList["galder's speedy courier"] = {
     name: "Galder's Speedy Courier",

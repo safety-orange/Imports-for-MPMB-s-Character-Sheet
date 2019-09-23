@@ -41,7 +41,7 @@ BackgroundList["celebrity adventurer's scion"] = {
 		["Power", "Power. The only way to get ahead in this world is to attain power and hold onto it with all your might. (Evil)"],
 		["Peace", "Peace. Those who can find or make peace in the chaotic world around them have everything. (Lawful)"],
 		["Fame", "Fame. I've seen what fame can bring. And I'll do anything to get all that for myself. (Neutral)"],
-		["Training", "Training. Hard work, sacrifice, and training lead to success—and eventually to perfection. (Any)"],
+		["Training", "Training. Hard work, sacrifice, and training lead to success\u2014and eventually to perfection. (Any)"],
 		["Anonymity", "Anonymity. I want to be successful. And alone. With lots of guards and wards between me and everyone else in the world. (Any)"],
 		["Wisdom", "Wisdom. Material wealth is an illusion. Wisdom is the real treasure. (Good)"]
 	],
@@ -90,7 +90,7 @@ BackgroundList["failed merchant"] = {
 		"To prosper, you have to be in control.",
 		"The customer is always right.",
 		"I was cutting corners and breaking deals to maximize profit. That's why I failed.",
-		"When I get an idea, I am single-minded in its execution—even if it's a terrible idea.",
+		"When I get an idea, I am single-minded in its execution\u2014even if it's a terrible idea.",
 		"If I can be everyone's friend, I'll always have support.",
 		"My heart wasn't in being a merchant, so I failed. I'm not all that keen on adventuring either, but I need the money."
 	],
@@ -155,7 +155,7 @@ BackgroundList["gambler"] = {
 		["Knowledge", "Knowledge. Knowledge is power, and knowing which horse to back is the key to success. (Any)"],
 		["Fate", "Fate. Whatever happens is fated, regardless of any planning or striving. (Lawful)"],
 		["Bravery", "Bravery. If you want to succeed, you have to take risks. (Chaotic)"],
-		["Survival", "Survival. You can't win if you're dead. Live to fight another day—when the odds might be more in your favor. (Any)"],
+		["Survival", "Survival. You can't win if you're dead. Live to fight another day\u2014when the odds might be more in your favor. (Any)"],
 		["Reliability", "Reliability. When I was in need, I was able to rely on others. Now I want to be the one others rely on. (Good)"],
 		["Victory", "Victory. Winning is the real measure of a person. In the end, the only thing that matters is the scoreboard. (Evil)"]
 	],
@@ -364,7 +364,7 @@ SpellsList["gift of gab"] = {
 	compMaterial : "2 gp royalty component",
 	duration : "Conc, 1 h",
 	description : "Cast when talking, any crea within 5 ft think what I said in the last 6 seconds was only to cast a spell",
-	descriptionFull : "Jim Darkmagic is said to have invented this spell, originally calling it 'I said what?!'. Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened—by ensuring that no one knows it happened.\n   When you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell."
+	descriptionFull : "Jim Darkmagic is said to have invented this spell, originally calling it 'I said what?!'. Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened\u2014by ensuring that no one knows it happened.\n   When you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell."
 };
 SpellsList["incite greed"] = {
 	name : "Incite Greed",

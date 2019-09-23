@@ -674,7 +674,7 @@ BackgroundList["boros legionnaire"] = {
 		"I act bravely when I'm in a group, but I'm a coward when I'm alone.",
 		"I see everything in clear-cut black and white.",
 		"I'm just a little fascinated by the ways of the Gruul.",
-		"I trust the chain of command more than anything—more even than my closest friends.",
+		"I trust the chain of command more than anything\u2014more even than my closest friends.",
 		"I'm slow to trust members of other guilds.",
 		"I've been known to turn a blind eye to injustice, with the help of a modest bribe."
 	],
@@ -734,7 +734,7 @@ BackgroundList["dimir operative"] = {
 		["Nihilism", "Nihilism: I don't believe in anything, and anyone who does is a fool. (Neutral)"]
 	],
 	bond : [
-		"I discovered a secret I can't let anyone else uncover—including my guild superiors.",
+		"I discovered a secret I can't let anyone else uncover\u2014including my guild superiors.",
 		"I formed a close friendship or romance with someone in the guild I'm infiltrating.",
 		"The Dimir agent who recruited me was unmasked and killed. My revenge on the killers will be thorough and painful.",
 		"I spend as much time as I can in the Ismeri Library because I'm certain an information hub operates behind its facade. I want its secrets!",
@@ -804,7 +804,7 @@ BackgroundList["golgari agent"] = {
 		"I have accepted my death. Hence, I don't fear it.",
 		"Like roots growing through stone, I am relentless and determined in my action.",
 		"I put my knowledge of anatomy to use by narrating the injuries my enemies suffer in grisly detail.",
-		"Like a wild animal, I lash out viciously when I'm provoked—and I'm easily provoked."
+		"Like a wild animal, I lash out viciously when I'm provoked\u2014and I'm easily provoked."
 	],
 	ideal : [
 		["Guild", "Guild: My guild is all that really matters. (Any)"],
@@ -870,7 +870,7 @@ BackgroundList["gruul anarch"] = {
 	feature : "Rubblebelt Refuge",
 	trait : [
 		"Unlike people, the beasts of the wild are friends who won't stab me in the back.",
-		"Go ahead and insult me—I dare you.",
+		"Go ahead and insult me\u2014I dare you.",
 		"I scorn those who can't survive away from the comforts of the city.",
 		"Don't tell me I'm not allowed to do something.",
 		"Laws are for people who are afraid to face their inner beasts.",
@@ -887,7 +887,7 @@ BackgroundList["gruul anarch"] = {
 		["Tradition", "Tradition: The Old Ways must be preserved and upheld. (Any)"]
 	],
 	bond : [
-		"I am determined that one day I will lead my clan—or a new one.",
+		"I am determined that one day I will lead my clan\u2014or a new one.",
 		"I would give my life for my clan chieftain.",
 		"The chieftain of another clan has a grudge against me.",
 		"I am devoted to a sacred site in the midst of the rubblebelt.",
@@ -954,7 +954,7 @@ BackgroundList["izzet engineer"] = {
 	trait : [
 		"I have a hard time staying focused on ... oh, and my brain tends to jump from one ... did I mention focus?",
 		"I get really excited about my ideas and I can't wait to talk about them and start putting them into practice and tinkering with them and I want to tell you about how exciting it all is!",
-		"It's not magic—or anything, really—if you do it only halfway. Whatever I do, I give it all I've got.",
+		"It's not magic\u2014or anything, really\u2014if you do it only halfway. Whatever I do, I give it all I've got.",
 		"I do what my gut tells me.",
 		"Life's an experiment, and I can't wait to see what happens.",
 		"I pepper my speech with the incomprehensible jargon of my trade, like mizzium droplets inserted into a weird-field suspension.",
@@ -1034,7 +1034,7 @@ BackgroundList["orzhov representative"] = {
 		["Power", "Power: One day, I will be the one giving orders. (Evil)"],
 		["Prestige", "Prestige: I want to be admired, respected, feared, or even hated for my position and wealth. (Evil)"],
 		["Stability", "Stability: The economy functions best when chaos is kept under control and everyone knows their place. (Lawful)"],
-		["Eternity", "Eternity: I want to live forever—in the flesh as long as possible, and as a spirit afterward. (Any)"]
+		["Eternity", "Eternity: I want to live forever\u2014in the flesh as long as possible, and as a spirit afterward. (Any)"]
 	],
 	bond : [
 		"The unbearable weight of my debt has driven me to desperation.",
@@ -1045,7 +1045,7 @@ BackgroundList["orzhov representative"] = {
 		"I want to prove myself more worthy than an older sibling and thereby ensure that I inherit a greater share of my parents' wealth."
 	],
 	flaw : [
-		"I hold a scandalous secret that could ruin my family forever—but could also earn me the favor of the Ghost Council.",
+		"I hold a scandalous secret that could ruin my family forever\u2014but could also earn me the favor of the Ghost Council.",
 		"I'm convinced that everyone I know is plotting against me.",
 		"I'll brave any risk if the monetary reward is great enough.",
 		"I am convinced that I am far more important than anyone else is willing to acknowledge.",
@@ -1106,7 +1106,7 @@ BackgroundList["rakdos cultist"] = {
 	ideal : [
 		["Guild", "Guild: My guild is all that really matters. (Any)"],
 		["Hedonism", "Hedonism: Death comes for everyone, so take as much pleasure as you can from every moment of life. (Neutral)"],
-		["Creativity", "Creativity: I strive to find more ways to express my art through pain—my own as well as others'. (Chaotic)"],
+		["Creativity", "Creativity: I strive to find more ways to express my art through pain\u2014my own as well as others'. (Chaotic)"],
 		["Freedom", "Freedom: No one tells me what to do. (Chaotic)"],
 		["Equality", "Equality: I want to see Ravnica remade, with no guilds and no hierarchies. (Chaotic)"],
 		["Spectacle", "Spectacle: People are inspired by the greatness they see in art. (Any)"]
@@ -1261,7 +1261,7 @@ BackgroundList["simic scientist"] = {
 	],
 	ideal : [
 		["Guild", "Guild: My guild is all that really matters. (Any)"],
-		["Change", "Change: All life is meant to progress toward perfection, and our work is to hurry it along—no matter what must be upended along the way. (Chaotic)"],
+		["Change", "Change: All life is meant to progress toward perfection, and our work is to hurry it along\u2014no matter what must be upended along the way. (Chaotic)"],
 		["Knowledge", "Knowledge: Understanding the world is more important than what you do with your knowledge. (Neutral)"],
 		"Greater Good. I want to reshape the world into higher forms of life so that all can enjoy evolution. (Good)",
 		["Logic", "Logic: It's foolish to let emotions and principles interfere with the conclusions of logic. (Lawful)"],
@@ -1270,7 +1270,7 @@ BackgroundList["simic scientist"] = {
 	bond : [
 		"I helped create a krasis that I love like a pet and would carry with me everywhere ... except it's the size of a building, and it might eat me.",
 		"In my laboratory, I discovered something that I think could eliminate half the life on Ravnica.",
-		"The other researchers in my clade are my family—a big, eccentric family including members and parts of many species.",
+		"The other researchers in my clade are my family\u2014a big, eccentric family including members and parts of many species.",
 		"The laboratory where I did my research contains everything that is precious to me.",
 		"I will get revenge on the shortsighted fool who killed my precious krasis creation.",
 		"Everything I do is an attempt to impress someone I love."

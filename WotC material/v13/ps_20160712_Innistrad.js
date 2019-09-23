@@ -130,7 +130,7 @@ BackgroundList["inquisitor"] = {
 			"Piety: Devotion to the angels and the rites of the church is all that keeps the world from destruction. (Good)"
 		],
 		["Order",
-			"Order: The laws of Avacyn are meant to preserve the social order—everything in its proper place. (Lawful)"
+			"Order: The laws of Avacyn are meant to preserve the social order\u2014everything in its proper place. (Lawful)"
 		],
 		["Humanity",
 			"Humanity: Human life is to be cherished and preserved against the horrors of the night. (Good)"

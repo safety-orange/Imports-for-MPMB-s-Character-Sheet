@@ -21784,7 +21784,7 @@ MagicItemsList["greater silver sword"] = {
 }
 MagicItemsList["infernal tack"] = {
 	name : "Infernal Tack",
-	source : ["MToF", 167],
+	source : [["MToF", 167], ["DiA", 224]],
 	type : "wondrous item",
 	rarity : "legendary",
 	description : "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",
@@ -24289,6 +24289,7 @@ MagicItemsList["leather golem armor"] = {
 	source : ["LLoK", 55],
 	type : "armor (leather)",
 	rarity : "rare",
+	magicItemTable : "G",
 	description : "I am unwilling to part with this leather armor until its curse is lifted from me, see Notes page. The curse makes me go berserk and have an aversion to fire. It gives me a +1 bonus to AC and saves vs. spells and magical effects. I have resistance to lightning damage and when I suffer such damage, I gain 5 temporary HP.",
 	descriptionFull : leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
@@ -24438,7 +24439,7 @@ SpellsList["flock of familiars"] = {
     components: "V,S",
     duration: "Conc, 1 h",
     description : "Summon 3+1/SL familiars as Find Familiar; can see through their eyes and deliver touch spells; see B",
-    descriptionFull: "You temporarily summon three familiars—spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
+    descriptionFull: "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
 }
 SpellsList["galder's speedy courier"] = {
     name: "Galder's Speedy Courier",
@@ -25154,7 +25155,7 @@ BackgroundList["boros legionnaire"] = {
 		"I act bravely when I'm in a group, but I'm a coward when I'm alone.",
 		"I see everything in clear-cut black and white.",
 		"I'm just a little fascinated by the ways of the Gruul.",
-		"I trust the chain of command more than anything—more even than my closest friends.",
+		"I trust the chain of command more than anything\u2014more even than my closest friends.",
 		"I'm slow to trust members of other guilds.",
 		"I've been known to turn a blind eye to injustice, with the help of a modest bribe."
 	],
@@ -25214,7 +25215,7 @@ BackgroundList["dimir operative"] = {
 		["Nihilism", "Nihilism: I don't believe in anything, and anyone who does is a fool. (Neutral)"]
 	],
 	bond : [
-		"I discovered a secret I can't let anyone else uncover—including my guild superiors.",
+		"I discovered a secret I can't let anyone else uncover\u2014including my guild superiors.",
 		"I formed a close friendship or romance with someone in the guild I'm infiltrating.",
 		"The Dimir agent who recruited me was unmasked and killed. My revenge on the killers will be thorough and painful.",
 		"I spend as much time as I can in the Ismeri Library because I'm certain an information hub operates behind its facade. I want its secrets!",
@@ -25284,7 +25285,7 @@ BackgroundList["golgari agent"] = {
 		"I have accepted my death. Hence, I don't fear it.",
 		"Like roots growing through stone, I am relentless and determined in my action.",
 		"I put my knowledge of anatomy to use by narrating the injuries my enemies suffer in grisly detail.",
-		"Like a wild animal, I lash out viciously when I'm provoked—and I'm easily provoked."
+		"Like a wild animal, I lash out viciously when I'm provoked\u2014and I'm easily provoked."
 	],
 	ideal : [
 		["Guild", "Guild: My guild is all that really matters. (Any)"],
@@ -25350,7 +25351,7 @@ BackgroundList["gruul anarch"] = {
 	feature : "Rubblebelt Refuge",
 	trait : [
 		"Unlike people, the beasts of the wild are friends who won't stab me in the back.",
-		"Go ahead and insult me—I dare you.",
+		"Go ahead and insult me\u2014I dare you.",
 		"I scorn those who can't survive away from the comforts of the city.",
 		"Don't tell me I'm not allowed to do something.",
 		"Laws are for people who are afraid to face their inner beasts.",
@@ -25367,7 +25368,7 @@ BackgroundList["gruul anarch"] = {
 		["Tradition", "Tradition: The Old Ways must be preserved and upheld. (Any)"]
 	],
 	bond : [
-		"I am determined that one day I will lead my clan—or a new one.",
+		"I am determined that one day I will lead my clan\u2014or a new one.",
 		"I would give my life for my clan chieftain.",
 		"The chieftain of another clan has a grudge against me.",
 		"I am devoted to a sacred site in the midst of the rubblebelt.",
@@ -25434,7 +25435,7 @@ BackgroundList["izzet engineer"] = {
 	trait : [
 		"I have a hard time staying focused on ... oh, and my brain tends to jump from one ... did I mention focus?",
 		"I get really excited about my ideas and I can't wait to talk about them and start putting them into practice and tinkering with them and I want to tell you about how exciting it all is!",
-		"It's not magic—or anything, really—if you do it only halfway. Whatever I do, I give it all I've got.",
+		"It's not magic\u2014or anything, really\u2014if you do it only halfway. Whatever I do, I give it all I've got.",
 		"I do what my gut tells me.",
 		"Life's an experiment, and I can't wait to see what happens.",
 		"I pepper my speech with the incomprehensible jargon of my trade, like mizzium droplets inserted into a weird-field suspension.",
@@ -25514,7 +25515,7 @@ BackgroundList["orzhov representative"] = {
 		["Power", "Power: One day, I will be the one giving orders. (Evil)"],
 		["Prestige", "Prestige: I want to be admired, respected, feared, or even hated for my position and wealth. (Evil)"],
 		["Stability", "Stability: The economy functions best when chaos is kept under control and everyone knows their place. (Lawful)"],
-		["Eternity", "Eternity: I want to live forever—in the flesh as long as possible, and as a spirit afterward. (Any)"]
+		["Eternity", "Eternity: I want to live forever\u2014in the flesh as long as possible, and as a spirit afterward. (Any)"]
 	],
 	bond : [
 		"The unbearable weight of my debt has driven me to desperation.",
@@ -25525,7 +25526,7 @@ BackgroundList["orzhov representative"] = {
 		"I want to prove myself more worthy than an older sibling and thereby ensure that I inherit a greater share of my parents' wealth."
 	],
 	flaw : [
-		"I hold a scandalous secret that could ruin my family forever—but could also earn me the favor of the Ghost Council.",
+		"I hold a scandalous secret that could ruin my family forever\u2014but could also earn me the favor of the Ghost Council.",
 		"I'm convinced that everyone I know is plotting against me.",
 		"I'll brave any risk if the monetary reward is great enough.",
 		"I am convinced that I am far more important than anyone else is willing to acknowledge.",
@@ -25586,7 +25587,7 @@ BackgroundList["rakdos cultist"] = {
 	ideal : [
 		["Guild", "Guild: My guild is all that really matters. (Any)"],
 		["Hedonism", "Hedonism: Death comes for everyone, so take as much pleasure as you can from every moment of life. (Neutral)"],
-		["Creativity", "Creativity: I strive to find more ways to express my art through pain—my own as well as others'. (Chaotic)"],
+		["Creativity", "Creativity: I strive to find more ways to express my art through pain\u2014my own as well as others'. (Chaotic)"],
 		["Freedom", "Freedom: No one tells me what to do. (Chaotic)"],
 		["Equality", "Equality: I want to see Ravnica remade, with no guilds and no hierarchies. (Chaotic)"],
 		["Spectacle", "Spectacle: People are inspired by the greatness they see in art. (Any)"]
@@ -25741,7 +25742,7 @@ BackgroundList["simic scientist"] = {
 	],
 	ideal : [
 		["Guild", "Guild: My guild is all that really matters. (Any)"],
-		["Change", "Change: All life is meant to progress toward perfection, and our work is to hurry it along—no matter what must be upended along the way. (Chaotic)"],
+		["Change", "Change: All life is meant to progress toward perfection, and our work is to hurry it along\u2014no matter what must be upended along the way. (Chaotic)"],
 		["Knowledge", "Knowledge: Understanding the world is more important than what you do with your knowledge. (Neutral)"],
 		"Greater Good. I want to reshape the world into higher forms of life so that all can enjoy evolution. (Good)",
 		["Logic", "Logic: It's foolish to let emotions and principles interfere with the conclusions of logic. (Lawful)"],
@@ -25750,7 +25751,7 @@ BackgroundList["simic scientist"] = {
 	bond : [
 		"I helped create a krasis that I love like a pet and would carry with me everywhere ... except it's the size of a building, and it might eat me.",
 		"In my laboratory, I discovered something that I think could eliminate half the life on Ravnica.",
-		"The other researchers in my clade are my family—a big, eccentric family including members and parts of many species.",
+		"The other researchers in my clade are my family\u2014a big, eccentric family including members and parts of many species.",
 		"The laboratory where I did my research contains everything that is precious to me.",
 		"I will get revenge on the shortsighted fool who killed my precious krasis creation.",
 		"Everything I do is an attempt to impress someone I love."
@@ -26497,7 +26498,7 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	source : ["WDotMM", 284],
 	type : "wondrous item",
 	rarity : "legendary",
-	notLegalAL : true,
+	magicItemTable : "I",
 	description : "As an action once per dawn, I can use the tablet to cast Eyebite or Gate, but the latter only links to the Far Realm. When attuning to it, I must make a DC 20 Wisdom saving throw or be afflicted by afflicted long-term madness (see table at SRD 201 or DMG 259).",
 	descriptionFull : "Any creature that attunes to the tablet must make a DC 20 Wisdom saving throw at the end of its next long rest. On a failed save, the creature becomes afflicted with a random form of long-term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).\n   As an action, a creature attuned to the Black Crystal Tablet can use it to cast Eyebite or Gate (the portal created by this spell links to the Far Realm only). After the tablet is used to cast a spell, it cannot be used again until the next dawn.",
 	attunement : true,
@@ -26778,7 +26779,7 @@ BackgroundList["fisher"] = {
 	],
 	ideal : [
 		["Camaraderie", "Camaraderie. Good people make even the longest voyage bearable. (Good)"],
-		["Luck", "Luck. Our luck depends on respecting its rules—now throw this salt over your shoulder. (Lawful)"],
+		["Luck", "Luck. Our luck depends on respecting its rules\u2014now throw this salt over your shoulder. (Lawful)"],
 		["Daring", "Daring. The richest bounty goes to those who risk everything. (Chaotic)"],
 		["Plunder", "Plunder. Take all that you can and leave nothing for the scavengers. (Evil)"],
 		["Balance", "Balance. Do not fish the same spot twice in a row; suppress your greed, and nature will reward you. (Neutral)"],
@@ -26848,7 +26849,7 @@ BackgroundList["marine"] = {
 		["Code", "Code. The marines' code provides a solution for every problem, and following it is imperative. (Lawful)"],
 		["Embracing", "Embracing. Life is messy. Throwing yourself into the worst of it is necessary to get the job done. (Chaotic)"],
 		["Might", "Might. The strong train so that they might rule those who are weak. (Evil)"],
-		["Bravery", "Bravery. To act when others quake in fear—this is the essence of the warrior. (Any)"],
+		["Bravery", "Bravery. To act when others quake in fear\u2014this is the essence of the warrior. (Any)"],
 		["Perseverance", "Perseverance. No injury or obstacle can turn me from my goal. (Any)"]
 	],
 	bond : [
@@ -26905,7 +26906,7 @@ BackgroundList["shipwright"] = {
 		"I'm extremely fond of puzzles.",
 		"I thrive under pressure.",
 		"I love sketching and designing objects, especially boats.",
-		"I'm not afraid of hard work—in fact, I prefer it.",
+		"I'm not afraid of hard work\u2014in fact, I prefer it.",
 		"A pipe, an ale, and the smell of the sea: paradise.",
 		"I have an endless supply of cautionary tales related to the sea.",
 		"I don't mind getting my hands dirty."
@@ -27016,6 +27017,7 @@ MagicItemsList["charm of plant command"] = {
 	source : ["GoS", 229],
 	type : "wondrous item",
 	rarity : "rare",
+	magicItemTable : "C",
 	description : "This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. It has 3 charges, regain all at dawn. As an action, I can expend 1 charge to cast Speak With Plants. While that spell lasts, I also have adv. on Charisma checks made to influence the behavior, demeanor, and attitude of plants.",
 	descriptionFull : "This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. Hung on a leather thong, it is typically worn around the neck or attached to a belt.\n   This charm has 3 charges. While you bear the charm, you can expend 1 charge as an action to cast the Speak With Plants spell. For the duration of the spell, you also have advantage on Charisma checks made to influence the behavior, demeanor, and attitude of plants. The charm regains all expended charges at dawn each day.",
 	attunement : true,
@@ -27040,6 +27042,7 @@ MagicItemsList["cursed luckstone"] = {
 	source : ["GoS", 229],
 	type : "wondrous item",
 	rarity : "uncommon",
+	magicItemTable : "C",
 	description : "This flat, gray-and-black river stone is inscribed with an arcane symbol. It is cursed and attuning to it curses me. Once per dawn while it is on my person, I can gain adv. on one ability check of my choice, but disadv. on my next two ability checks. Discarding the stone will cause it to teleport back into my pocket.",
 	descriptionFull : "This flat, gray-and-black river stone is inscribed with an unknown arcane symbol and feels cool to the touch. While carrying the stone, you can gain advantage on one ability check of your choice. The stone can't be used this way again until the next dawn.\n   " + toUni("Curse") + "This item is cursed. Attuning to it curses you until you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
 	attunement : true,
@@ -27051,6 +27054,7 @@ MagicItemsList["helm of underwater action"] = {
 	source : ["GoS", 229],
 	type : "wondrous item",
 	rarity : "uncommon",
+	magicItemTable : "F",
 	description : "While wearing this brass helmet, I can breathe underwater, I gain darkvision with a range of 60 ft, and I gain a swimming speed of 30 ft.",
 	descriptionFull : "While wearing this brass helmet, you can breathe underwater, you gain darkvision with a range of 60 feet, and you gain a swimming speed of 30 feet.",
 	attunement : true,
@@ -27073,8 +27077,8 @@ MagicItemsList["pressure capsule"] = {
 	source : ["GoS", 229],
 	type : "wondrous item",
 	rarity : "common",
-	description : "Consuming this capsule of beeswax, sand, and enchanted water plants will prevent the effects of swimming at depths greater than 100 ft. Thus, a creature without a swimming speed does not multiply the time spend swimming at depth for the purpose of determining exhaustion.",
-	descriptionFull : "This small capsule is made of beeswax blended with sand and a variety of enchanted water plants. A creature who consumes a pressure capsule ignores the effects of swimming at depths greater than 100 feet (see \"Unusual Environments\" in chapter 5 of the Dungeon Master's Guide)."
+	description : "Consuming this capsule of beeswax, sand, and enchanted water plants will prevent the effects of swimming at depths greater than 100 ft for 1 hour. Thus, a creature without a swimming speed does not multiply the time spend swimming at depth for the purpose of determining exhaustion.",
+	descriptionFull : "This small capsule is made of beeswax blended with sand and a variety of enchanted water plants. A creature who consumes a pressure capsule ignores the effects of swimming at depths greater than 100 feet for 1 hour (see \"Unusual Environments\" in chapter 5 of the Dungeon Master's Guide)." // addition of 1 hour duration from AL content catalogue v8.08
 }
 MagicItemsList["sekolahian worshiping statuette"] = {
 	name : "Sekolahian Worshiping Statuette",
@@ -27297,7 +27301,7 @@ BackgroundList["celebrity adventurer's scion"] = {
 		["Power", "Power. The only way to get ahead in this world is to attain power and hold onto it with all your might. (Evil)"],
 		["Peace", "Peace. Those who can find or make peace in the chaotic world around them have everything. (Lawful)"],
 		["Fame", "Fame. I've seen what fame can bring. And I'll do anything to get all that for myself. (Neutral)"],
-		["Training", "Training. Hard work, sacrifice, and training lead to success—and eventually to perfection. (Any)"],
+		["Training", "Training. Hard work, sacrifice, and training lead to success\u2014and eventually to perfection. (Any)"],
 		["Anonymity", "Anonymity. I want to be successful. And alone. With lots of guards and wards between me and everyone else in the world. (Any)"],
 		["Wisdom", "Wisdom. Material wealth is an illusion. Wisdom is the real treasure. (Good)"]
 	],
@@ -27346,7 +27350,7 @@ BackgroundList["failed merchant"] = {
 		"To prosper, you have to be in control.",
 		"The customer is always right.",
 		"I was cutting corners and breaking deals to maximize profit. That's why I failed.",
-		"When I get an idea, I am single-minded in its execution—even if it's a terrible idea.",
+		"When I get an idea, I am single-minded in its execution\u2014even if it's a terrible idea.",
 		"If I can be everyone's friend, I'll always have support.",
 		"My heart wasn't in being a merchant, so I failed. I'm not all that keen on adventuring either, but I need the money."
 	],
@@ -27411,7 +27415,7 @@ BackgroundList["gambler"] = {
 		["Knowledge", "Knowledge. Knowledge is power, and knowing which horse to back is the key to success. (Any)"],
 		["Fate", "Fate. Whatever happens is fated, regardless of any planning or striving. (Lawful)"],
 		["Bravery", "Bravery. If you want to succeed, you have to take risks. (Chaotic)"],
-		["Survival", "Survival. You can't win if you're dead. Live to fight another day—when the odds might be more in your favor. (Any)"],
+		["Survival", "Survival. You can't win if you're dead. Live to fight another day\u2014when the odds might be more in your favor. (Any)"],
 		["Reliability", "Reliability. When I was in need, I was able to rely on others. Now I want to be the one others rely on. (Good)"],
 		["Victory", "Victory. Winning is the real measure of a person. In the end, the only thing that matters is the scoreboard. (Evil)"]
 	],
@@ -27620,7 +27624,7 @@ SpellsList["gift of gab"] = {
 	compMaterial : "2 gp royalty component",
 	duration : "Conc, 1 h",
 	description : "Cast when talking, any crea within 5 ft think what I said in the last 6 seconds was only to cast a spell",
-	descriptionFull : "Jim Darkmagic is said to have invented this spell, originally calling it 'I said what?!'. Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened—by ensuring that no one knows it happened.\n   When you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell."
+	descriptionFull : "Jim Darkmagic is said to have invented this spell, originally calling it 'I said what?!'. Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened\u2014by ensuring that no one knows it happened.\n   When you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell."
 };
 SpellsList["incite greed"] = {
 	name : "Incite Greed",
@@ -27710,7 +27714,7 @@ RequiredSheetVersion(13);
 	For example, the ability score improvements here are left to the player, while the rules say which score increases.
 
 	Also, the sidekicks here gain increases to their proficiency bonus just like normal classes because that is hard-coded into the sheet.
-	According to the official rules, the sidekicks only get an proficiency bonus increase at 5th level, and at no other levels.
+	According to the official rules, the sidekicks only get a proficiency bonus increase at 5th level, and at no other levels.
 */
 
 // Define the source
@@ -28447,3 +28451,278 @@ AddSubClass("sidekick-spellcaster", "healer", {
 		}
 	}
 });
+var iFileName = "pub_20190917_DiA.js";
+RequiredSheetVersion(13);
+// This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["DiA"] = {
+	name : "Baldur's Gate: Descent into Avernus [items]",
+	abbreviation : "DiA",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/baldursgate_descent",
+	date : "2019/09/17"
+};
+
+MagicItemsList["battle standard of infernal power"] = {
+	name : "Battle Standard of Infernal Power",
+	source : ["DiA", 223],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "While holding the banner, my weapon attacks and those of my allies within 300 ft of me count as magical for the purposes of overcoming damage immunities and resistances. The standard has a small unopenable cage with an incapacitated quasit within. It turns to smoke if killed or released and a new one appears.",
+	descriptionLong : "While holding the banner, my weapon attacks and those of my allies within 300 ft of me count as magical for the purposes of overcoming damage immunities and resistances.\nThis hell-forged battle standard is made of infernal iron and fitted with a small, unopenable cage containing a quasit. The trapped quasit is incapacitated, and its cage has AC 19, 10 hit points, and immunity to all types of damage except force damage. If killed or somehow released, the quasit disappears in a cloud of smoke, and a new one appears in the cage, provided the cage is intact.",
+	descriptionFull : "This hell-forged battle standard is made of infernal iron and fitted with a small, unopenable cage containing a quasit. The trapped quasit is incapacitated, and its cage has AC 19, 10 hit points, and immunity to all types of damage except force damage. If killed or somehow released, the quasit disappears in a cloud of smoke, and a new one appears in the cage, provided the cage is intact.\n   While you hold the banner, your weapon attacks and those of all allied creatures within 300 feet of you count as magical for the purposes of overcoming damage immunities and resistances.",
+	attunement : true,
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.isSpell && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+				};
+			},
+			"My weapon attacks count as magical for overcoming resistances and immunities."
+		]
+	}
+}
+MagicItemsList["gauntlets of flaming fury"] = {
+	name : "Gauntlets of Flaming Fury",
+	source : ["DiA", 223],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This last until I sheath or let go of a weapon.",
+	descriptionFull : "While you wear both of these steel gauntlets, any non- magical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheath or let go of either weapon. Once used, this property can't be used again until the next dawn.",
+	attunement : true,
+	action : [["bonus action", ""]],
+	usages : 1,
+	recovery : "dawn",
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.isSpell && !v.isNaturalWeapon && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/dancing|counts as( a)? magical/i).test(fields.Description)) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+				};
+			},
+			"Any nonmagical weapons that I grasp with my Gauntlets of Flaming Fury count as magical for overcoming resistances and immunities."
+		]
+	}
+}
+MagicItemsList["fane-eater"] = {
+	name : "Fane-Eater",
+	source : ["DiA", 223],
+	type : "weapon (battleaxe)",
+	rarity : "legendary",
+	description : "This battleaxe adds a +3 bonus to attack and damage rolls made with it. When I use it to attack a creature and roll a 20 on the attack roll, the creature takes an extra 2d8 necrotic damage, and I regain a number of hit points equal to the necrotic damage taken.",
+	descriptionFull : "Fane-Eater is a battleaxe belonging to Arkhan the Cruel.\n   You gain a +3 bonus to attack and damage rolls with Fane-Eater. If you attack a creature with this weapon and roll a 20 on the attack roll, the creature takes an extra 2d8 necrotic damage, and you regain a number of hit points equal to the necrotic damage taken.",
+	attunement : true,
+	prerequisite : "Requires attunement by an evil cleric or paladin",
+	prereqeval : function(v) { return (classes.known.paladin || classes.known.cleric) && (/evil/i).test(What("Alignment")); },
+	weight : 4,
+	weaponsAdd : ["Fane-Eater"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /fane-eater/i,
+		name : "Fane-Eater",
+		source : ["DiA", 223],
+		description : "Versatile (1d10); On 20 to hit: +2d8 necrotic damage and I heal same amount"
+	}
+}
+MagicItemsList["hellfire weapon"] = {
+	name : "Hellfire Weapon",
+	nameTest : "Hellfire",
+	source : ["DiA", 223],
+	type : "weapon (any)",
+	rarity : "uncommon",
+	description : "This weapon is fashioned from infernal iron and traced with veins of hellfire that shed dim light in a 5-ft radius. Any humanoid killed by an attack made with this weapon has its soul funneled into the River Styx, where it's reborn instantly as a lemure devil.",
+	descriptionFull : "This weapon is fashioned from infernal iron and traced with veins of hellfire that shed dim light in a 5-foot-radius.\n   Any humanoid killed by an attack made with this weapon has its soul funneled into the River Styx, where it's reborn instantly as a lemure devil.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "weapon"]
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && (/hellfire/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Humanoids killed lose their soul';
+				}
+			},
+			'If I include the word "Hellfire" in a the name of a weapon, it will be treated as the magic weapon Hellfire Weapon. Any humanoid killed by the weapon has its soul funneled into the River Styx, and are instantly reborn as a lemure devil.'
+		]
+	}
+}
+MagicItemsList["helm of devil command"] = {
+	name : "Helm of Devil Command",
+	source : ["DiA", 223],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "This helm has 3 charges, regaining all 24 h after using the last. I can use 1 charge to cast Dominate Monster on a devil, but it knows I tried to charm it. It allows me to know the exact location of all devils within 1000 ft and I can telepathically communicate with one of them at a time, or broadcast my thoughts to all.",
+	descriptionLong : "This bulky, eyeless helmet resizes to fit my head and allows me to see out of it as if I was not wearing it. It has 3 charges, regaining all 24 hours after using the last charge. I can use 1 charge to cast Dominate Monster on a devil, but if it can see me do so, the devil knows I tried to charm it. The helm also allows me to know the exact location of all devils within 1000 ft and I can telepathically communicate with one of them at a time, or broadcast my thoughts to all within range, but they have no special means of replying. If I use its dominating power while I'm on the Nine Hells, there is a chance it attracts a narzugon.",
+	descriptionFull : "This bulky, eyeless helmet is made for a pit fiend but magically resizes to fit the heads of other wearers.\n   While wearing the helm, you can see out of it as though you weren't wearing it. In addition, you know the exact location and type of all devils within 1,000 feet of you. You can telepathically communicate with a devil within range, or you can broadcast your thoughts to all devils within range. The devils receiving your broadcasted thoughts have no special means of replying to them.\n   The helm has 3 charges. As an action, you can expend 1 charge to cast dominate monster (save DC 21), which affects devils only. (The spell fails and the charge is wasted if you target any creature that's not a devil.) If a devil can see you when you cast this spell on it, the devil knows you tried to charm it. The helm regains all its charges 24 hours after its last charge is expended.\n   If you are not a devil, using the helm's dominate monster property in the Nine Hells has a 20 percent chance of attracting a narzugon, which arrives on the back of a nightmare mount in 1d4 hours. The narzugon tries to recover the helm, killing you if necessary to obtain it. If it gets the helm, the narzugon tries to deliver it to its infernal master.",
+	attunement : true,
+	prerequisite : "Requires attunement by a creature that can speak infernal",
+	prereqeval : function(v) { return (/infernal/i).test(v.languageProfs); },
+	usages : 3,
+	recovery : "Special",
+	fixedDC : 21,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["dominate monster"],
+		selection : ["dominate monster"],
+		firstCol : 1
+	},
+	spellChanges : {
+		"dominate monster" : {
+			description : "Devil save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			changes : "Can only affect a devil."
+		}
+	}
+}
+MagicItemsList["infernal puzzle box"] = {
+	name : "Infernal Puzzle Box",
+	source : ["DiA", 224],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts. It can't be magically opened and is immune to all damage. I can figure out how to open it in 1 hour with a DC 30 Investigation check. If failed by 5 or more, I take 12d6 psychic damage, Wis DC 18 halves.",
+	descriptionLong : "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts made from materials found in the Nine Hells. It can't be magically opened and is immune to all damage while shut. Every infernal puzzle box has an unique mundane way of opening it. I can figure out how to open this box in 1 hour with a DC 30 Investigation check, but if I fail this check by 5 or more, I take 12d6 psychic damage, Wisdom save DC 18 halves. Once I figure out the trick or sequence of steps needed to open this box, I can open it as an action, allowing access to the box's contents.",
+	descriptionFull : "An infernal puzzle box is a cube-shaped container 5 to 6 inches on a side, composed of airtight, interlocking parts made from materials found in the Nine Hells. Most of these boxes are made of infernal iron, though some are carved from bone or horn. Infernal puzzle boxes are used to safeguard diabolical contracts signed between devils and mortals, even after the terms of these contracts are fulfilled. An empty infernal puzzle box weighs 3 pounds regardless of the materials used to fashion it.\n   When an object small enough to fit inside an infernal puzzle box is placed in it, the container magically seals shut around the object, and no magic can force the box open. The sealed box becomes immune to all damage as well. Every infernal puzzle box is constructed with a unique means of opening it. The trick to solving the puzzle is always mundane, never magical. Once a creature figures out the trick or sequence of steps needed to open a particular infernal puzzle box, that creature can open the box as an action, allowing access to the box's contents.\n   A creature that spends 1 hour holding an infernal puzzle box while trying to open it can make a DC 30 Intelligence (Investigation) check. If the check succeeds, the creature figures out the trick or sequence of steps needed to open the box. If the check fails by 5 or more, the creature must make a DC 18 Wisdom saving throw, taking 42 (12d6) psychic damage on a failed save, or half as much damage on a successful one.",
+	weight : 3
+}
+if (!SourceList.MToF) {
+	MagicItemsList["infernal tack"] = {
+		name : "Infernal Tack",
+		source : [["MToF", 167], ["DiA", 224]],
+		type : "wondrous item",
+		rarity : "legendary",
+		description : "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",
+		descriptionLong : "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
+		descriptionFull : "A narzugon binds a nightmare to its service with infernal tack, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.\n   You can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.\n   The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil.",
+		attunement : true,
+		weight : 26, // riding saddle (25) + bit and bridle (1)
+		prerequisite : "Requires attunement by a creature of evil alignment",
+		prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
+		action : [["action", ""]]
+	}
+}
+MagicItemsList["matalotok"] = {
+	name : "Matalotok",
+	source : ["DiA", 224],
+	type : "weapon (warhammer)",
+	rarity : "legendary",
+	description : "This ancient warhammer, the Frost Father, was fashioned by Thrym. It is frigid to the touch and wreathed in mist. I'm immune to cold damage while holding it. Whenever I deal damage to a creature with it, it radiates a burst of intense cold in a 30-ft radius sphere, dealing 3d6 cold damage to all creatures within.",
+	descriptionFull : "Matalotok, the Frost Father, is an ancient hammer fashioned by Thrym, the god of frost giants. The favored weapon of the demon lord Kostchtchie, Matalotok is frigid to the touch and wreathed in mist.\n   You are immune to cold damage while holding Matalotok. Whenever it deals damage to a creature, the hammer radiates a burst of intense cold in a 30-foot-radius sphere. Each creature in that area takes 10 (3d6) cold damage.",
+	attunement : true,
+	weight : 2,
+	weaponsAdd : ["Matalotok"],
+	weaponOptions : {
+		baseWeapon : "warhammer",
+		regExpSearch : /matalotok/i,
+		name : "Matalotok",
+		source : ["DiA", 224],
+		description : "Versatile (1d10); On hit: all in 30-ft radius take 3d6 cold damage"
+	},
+	savetxt : { immune : ["cold"] }
+}
+MagicItemsList["obsidian flint dragon plate"] = {
+	name : "Obsidian Flint Dragon Plate",
+	source : ["DiA", 224],
+	type : "armor (plate)",
+	rarity : "legendary",
+	description : "I gain a +2 bonus to AC and resistance to poison damage while I wear this plate armor. In addition, I gain advantage on ability checks and saving throws made to avoid or end the grappled condition on myself.",
+	descriptionFull : "You gain a +2 bonus to AC and resistance to poison damage while you wear this armor. In addition, you gain advantage on ability checks and saving throws made to avoid or end the grappled condition on yourself.",
+	armorAdd : "Obsidian Flint Dragon Plate",
+	armorOptions : {
+		regExpSearch : /^(?=.*obsidian)(?=.*flint)(?=.*dragon)(?=.*plate).*$/i,
+		name : "Obsidian Flint Dragon Plate",
+		source : ["DiA", 224],
+		type : "heavy",
+		ac : 20,
+		stealthdis : true,
+		weight : 65,
+		strReq : 15
+	},
+	dmgres : ["Poison"],
+	savetxt : { adv_vs : ["grappled"] }
+}
+var shieldOfTheHiddenLordFullDescription = [
+	"The Shield of the Hidden Lord is of celestial origin and serves as a prison for the pit fiend Gargauth, whose mortal followers revere it as a god. Over time, Gargauth's evil has warped the shield's appearance, so that its celestial motif and designs have become twisted into a fiendish face that subtly moves in disturbing ways.",
+	"While holding this shield, you gain a +2 bonus to AC and resistance to fire damage.",
+	">>Sentience<<. The Shield of the Hidden Lord is sentient as long as it imprisons Gargauth. While sentient, the shield has the following properties:",
+	"\u2022 The shield has an Intelligence of 22, a Wisdom of 18, and a Charisma of 24, as well as hearing and truesight out to a range of 120 feet.",
+	"\u2022 The shield can speak, read, and understand Common and Infernal, and it can communicate telepathically with any creature it can sense within 120 feet of it. Its voice is a deep, hollow whisper.",
+	"\u2022 The shield has 3 charges. You can use an action to expend 1 charge to cast Fireball or 2 charges to cast Wall of Fire from the shield (save DC 21 for each). The Wall of Fire spell lasts for 1 minute (no concentration required). The shield regains all expended charges daily at dawn.",
+	"\u2022 Anytime during your turn, the shield can choose to radiate an aura of dread for 1 minute. (This is not a power of the shield that you control.) Any creature hostile to you that starts its turn within 20 feet of the shield must make a DC 18 Wisdom saving throw. On a failed save, the creature is frightened until the start of its next turn. On a successful save, the creature is immune to this power of the shield for the next 24 hours. Once the shield uses this power, it can't use it again until the next dawn.\n",
+	">>Gargauth's Personality<<. Gargauth desperately seeks freedom but can't escape on its own. The pit fiend won't reveal its true nature, referring to itself only as the Hidden Lord. It drops hints and subtle suggestions that it is an angel trapped in an unholy prison. If released from the shield, the pit fiend honors the terms of whatever bargain it struck to facilitate its escape.",
+	"While trapped in the shield, Gargauth carefully steers the shield's current owner toward committing acts of cruelty and domination, hoping to condemn the individual's soul to the Nine Hells. Conflict occurs if the shield's owner does anything that would make it more difficult for Gargauth to escape its prison, such as leaving the shield in a place where others are unlikely to find it.",
+	"Gargauth doesn't know how to escape from the shield. The pit fiend believes (incorrectly) that it can break free of the shield if it's brought to the Nine Hells, for it's convinced that the shield's powers are weaker there.",
+	">>Freeing Gargauth<<. Casting dispel evil and good on the shield has a 1 percent chance of freeing the pit fiend, or automatically succeeds if the spell is cast by a solar, a planetar, or an archdevil. A god can release the pit fiend by touching the shield and speaking Gargauth's name. When released, Gargauth appears in a random, unoccupied space as close to the shield as possible."
+];
+MagicItemsList["shield of the hidden lord"] = {
+	name : "Shield of the Hidden Lord",
+	source : ["DiA", 225],
+	type : "shield",
+	rarity : "legendary",
+	description : "This shield grants me +2 bonus to AC and resistance to fire damage. It has 3 charges, regaining all at dawn. I can expend 1 charge to cast Fireball or 2 charges to cast Wall of Fire from it at DC 21. The shield is sentient and can communicate telepathically with any creature within 120 ft of it. See \"Notes\" page for more.",
+	descriptionFull : shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	attunement : true,
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of the Shield of the Hidden Lord",
+		note : desc(shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}],
+	weight : 6,
+	shieldAdd : ["Shield of the Hidden Lord", 4, 6],
+	usages : 3,
+	recovery : "Dawn",
+	fixedDC : 21,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["fireball"],
+		selection : ["fireball"],
+		firstCol : 1
+	}, {
+		name : "2 charges",
+		spells : ["wall of fire"],
+		selection : ["wall of fire"],
+		firstCol : 2
+	}],
+	spellChanges : {
+		"wall of fire" : {
+			duration : "1 min",
+			changes : "The Wall of Fire lasts for 1 minute and does not require concentration."
+		}
+	}
+}
+var soulCoinFullDescription = [
+	"Soul coins are about 5 inches across and about 1 inch thick, minted from infernal iron. Each coin weighs one-third of a pound, and is inscribed with Infernal writing and a spell that magically binds a single soul to the coin. Because each soul coin has a unique soul trapped within it, each has a story. A creature might have been imprisoned as a result of defaulting on a deal, while another might be the victim of a night hag's curse.",
+	">>Carrying Soul Coins<<. To hold a soul coin is to feel the soul bound within it\u2014overcome with rage or fraught with despair.",
+	"An evil creature can carry as many soul coins as it wishes (up to its maximum weight allowance). A non-evil creature can carry a number of soul coins equal to or less than its Constitution modifier without penalty. A non-evil creature carrying a number of soul coins greater than its Constitution modifier has disadvantage on its attack rolls, ability checks, and saving throws.",
+	">>Using a Soul Coin<<. A soul coin has 3 charges. A creature carrying the coin can use its action to expend 1 charge from a soul coin and use it to do one of the following:",
+	"\u2022 >>Drain Life<<. You siphon away some of the soul's essence and gain 1d10 temporary hit points.",
+	"\u2022 >>Query<<. You telepathically ask the soul a question and receive a brief telepathic response, which you can understand. The soul knows only what it knew in life, but it must answer you truthfully and to the best of its ability. The answer is no more than a sentence or two and might be cryptic.\n",
+	">>Freeing a Soul<<. Casting a spell that removes a curse on a soul coin frees the soul trapped within it, as does expending all of the coin's charges. The coin itself rusts from within and is destroyed once the soul is released. A freed soul travels to the realm of the god it served or the outer plane most closely tied to its alignment (DM's choice). The souls of lawful evil creatures released from soul coins typically emerge from the River Styx as lemure devils.",
+	"A soul can also be freed by destroying the coin that contains it. A soul coin has AC 19, 1 hit point for each charge it has remaining, and immunity to all damage except that which is dealt by a hellfire weapon or an infernal war machine's furnace.",
+	"Freeing a soul from a soul coin is considered a good act, even if the soul belongs to an evil creature.",
+	">>Hellish Currency<<. Soul coins are a currency of the Nine Hells and are highly valued by devils. The coins are used among the infernal hierarchy to barter for favors, bribe the unwilling, and reward the faithful for services rendered.",
+	"Soul coins are created by Mammon and his greater devils on Minauros, the third layer of the Nine Hells, in a vast chamber where the captured souls of evil mortals are bound into the coins. These coins are then distributed throughout the Nine Hells to be used for goods and services, infernal deals, dark bargains, and bribes."
+];
+MagicItemsList["soul coin"] = {
+	name : "Soul Coin",
+	source : ["DiA", 225],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
+	descriptionFull : soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Soul Coins",
+		note : desc(soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I ")
+	}],
+	weight : 0.3,
+	usages : 3,
+	recovery : "Never",
+	action : [["action", ""]]
+}

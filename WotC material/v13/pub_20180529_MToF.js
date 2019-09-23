@@ -933,7 +933,7 @@ MagicItemsList["greater silver sword"] = {
 }
 MagicItemsList["infernal tack"] = {
 	name : "Infernal Tack",
-	source : ["MToF", 167],
+	source : [["MToF", 167], ["DiA", 224]],
 	type : "wondrous item",
 	rarity : "legendary",
 	description : "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",

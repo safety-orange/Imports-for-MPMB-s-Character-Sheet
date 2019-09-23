@@ -33,7 +33,7 @@ BackgroundList["initiate"] = {
 	trait : [
 		"I always have a joke on hand when the mood gets too serious.",
 		"I use sarcasm and insults to keep a distance between myself and my crop-mates, because I don't want to get attached to them.",
-		"I'll settle for nothing less than perfection—in myself, in my cropmates, in everything.",
+		"I'll settle for nothing less than perfection\u2014in myself, in my cropmates, in everything.",
 		"I'm so focused on the glorious afterlife that nothing in this life can shake my calm resolve.",
 		"I enjoy using my skills to help those who lack those same skills.",
 		"I train hard so that I can play hard at the end of the day. I fully expect to play even harder in the glorious afterlife, but I'm not in a hurry to get there.",
@@ -45,13 +45,13 @@ BackgroundList["initiate"] = {
 			"Solidarity: The thing that matters most of all is that we're there for each other. (Lawful)"
 		],
 		["Knowledge",
-			"Knowledge: The world is a puzzle—a mystery waiting to be solved. (Neutral)"
+			"Knowledge: The world is a puzzle\u2014a mystery waiting to be solved. (Neutral)"
 		],
 		["Strength",
 			"Strength: All that matters to me is my own perfection. Let everyone else seek that perfection in their own way. (Any)"
 		],
 		["Ambition",
-			"Ambition: I'm going to prove that I deserve only the best—of everything. (Evil)"
+			"Ambition: I'm going to prove that I deserve only the best\u2014of everything. (Evil)"
 		],
 		["Zeal",
 			"Zeal: Anything worth doing is worth throwing my whole self into. (Any)"
@@ -131,7 +131,7 @@ BackgroundList["vizier"] = {
 		"My loyalty to my companions embodies the ideal of loyalty to my god. (Oketra)",
 		"The teachings of my god are more precious to me than any possession. (Kefnet)",
 		"I would do anything to defend the temple of my god from any harm or desecration. (Rhonas)",
-		"I am committed to the service of my god—because it's my sure ticket into the afterlife. (Bontu)",
+		"I am committed to the service of my god\u2014because it's my sure ticket into the afterlife. (Bontu)",
 		"I love my god and never want my service to end. (Hazoret)",
 		"I have a close friend or lover who is also a vizier."
 	],
