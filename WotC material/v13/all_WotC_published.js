@@ -28457,11 +28457,152 @@ RequiredSheetVersion(13);
 
 // Define the source
 SourceList["DiA"] = {
-	name : "Baldur's Gate: Descent into Avernus [items]",
+	name : "Baldur's Gate: Descent into Avernus [background, items]",
 	abbreviation : "DiA",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/baldursgate_descent",
 	date : "2019/09/17"
+};
+
+BackgroundList["faceless"] = {
+	regExpSearch : /faceless/i,
+	name : "Faceless",
+	source : ["DiA", 203],
+	skills : ["Deception", "Intimidation"],
+	gold : 10,
+	languageProfs : [1],
+	toolProfs : ["Disguise kit"],
+	equipleft : [
+		["Disguise kit", "", 3]
+	],
+	equipright : [
+		["Costume", "", 4],
+		["Belt pouch (with coins)", "", 1]
+	],
+	feature : "Dual Personalities",
+	trait : [
+		"I'm earnest and uncommonly direct.",
+		"I strive to have no personality\u2014it's easier to forget what's hardly there.",
+		"I treasure a memento of the person or instance that set me upon my path.",
+		"I sleep just as much as I need to and on an unusual schedule.",
+		"I think far ahead, a detachedness often mistaken for daydreaming.",
+		"I cultivate a single obscure hobby or study and eagerly discuss it at length.",
+		"I am ever learning how to be among others\u2014when to stay quiet, when to laugh.",
+		"I behave like an extreme opposite of my persona."
+	],
+	ideal : [
+		["Justice",
+			"Justice. Place in society shouldn't determine one's access to what is right. (Good)"
+		],
+		["Security",
+			"Security. Doing what must be done can't bring the innocent to harm. (Lawful)"
+		],
+		["Confusion",
+			"Confusion. Deception is a weapon. Strike from where your foes won't expect. (Chaotic)"
+		],
+		["Infamy",
+			"Infamy. My name will be a malediction, a curse that fulfills my will. (Evil)"
+		],
+		["Incorruptibility",
+			"Incorruptibility. Be a symbol, and leave your flawed being behind. (Any)"
+		],
+		["Anonymity",
+			"Anonymity. It's my deeds that should be remembered, not their instrument. (Any)"
+		]
+	],
+	bond : [
+		"I do everything for my family. My first thought is keeping them safe.",
+		"What I do, I do for the world. The people don't realize how much they need me.",
+		"I've seen too many in need. I must not fail them as everyone else has.",
+		"I stand in opposition, lest the wicked go unopposed.",
+		"I am exceptional. I do this because no one else can, and no one can stop me.",
+		"I do everything for those who were taken from me."
+	],
+	flaw : [
+		"I am callous about death. It comes to us all eventually.",
+		"I never make eye contact or hold it unflinchingly.",
+		"I have no sense of humor. Laughing is uncomfortable and embarrassing.",
+		"I overexert myself, sometimes needing to recuperate for a day or more.",
+		"I think far ahead, a detachedness often mistaken for daydreaming.",
+		"I see morality entirely in black and white."
+	],
+	extra : [
+		"Select a Faceless Persona",
+		"Flamboyant spy or brigand",
+		"Incarnation of nation or people",
+		"Scoundrel with masked guise",
+		"Vengeful spirit",
+		"Manifestation of deity or faith",
+		"Beauty accented with makeup",
+		"Impersonation of another hero",
+		"Embodiment of a school of magic",
+		"Warrior with distinctive armor",
+		"Fear-inspiring monstrous disguise"
+	]
+};
+BackgroundFeatureList["religious community"] = {
+	description : "I'm tightly connected with the religious community of the city. I know if a deity has a following in the city, any places that faith openly congregates, and the neighborhoods those faithful typically inhabit. While this isn't remarkable for most of the city's larger faiths, keeping track of the hundreds of religions newcomers bring with them is no mean feat.",
+	source : ["DiA", 202]
+};
+BackgroundFeatureList["long-lost heir"] = {
+	description : "I can pose as the long-lost heir to some imaginary or dead lineage. I'm well-versed in the mannerisms and idiosyncrasies of nobility, imitating them smoothly enough to convince anybody of my authenticity. However, any true test is likely to reveal my deception. I can enter places that only nobility can and might be able to bluff other through with me.",
+	source : ["DiA", 202]
+};
+BackgroundFeatureList["criminal connections"] = {
+	description : "In a big city, crime is just another business. As a result, I can arrange a meeting with a low-ranking operative of nearly any business, noble family, crew, government institution, or guild. This operative will hear me out and, at their discretion, take my information or request up their chain of command. These meetings almost always occur in shady venues.",
+	source : ["DiA", 202]
+};
+BackgroundFeatureList["backstage pass"] = {
+	description : "I know that most of the real business, in entertainment or otherwise, happens behind the scenes. It's easy for me to case what sorts of audiences attend a venue. After a successful performance, I may meet an enthusiastic member of the crowd\u2014someone of an occupation or social class that frequents the venue, who is delighted to talk with me, and to listen.",
+	source : ["DiA", 202]
+};
+BackgroundFeatureList["dual personalities"] = {
+	description : "The world knows me as my persona and those who seek to learn more about me find themselves stymied by my disguise. I'm unidentifiable as my true self while disguised and behaving as my persona, allowing me to change appearances between my two personalities as I wish. My deception might lose its effectiveness if someone realize the connection.",
+	source : ["DiA", 204]
+};
+BackgroundFeatureList["social vengeance"] = {
+	description : "I've lived my whole life amongst the lower class of the city, seeing the upper class flaunt their wealth while my hardworking neighbors struggled. I know their eagerness to give the wealthy their comeuppance. I can convince 1d6 commoners in a busy area in 2d10 min" + (typePF ? "utes" : "") + " to perform a non-illegal act that inconveniences a guard, noble, or wealthy looking individual.",
+	source : ["DiA", 204]
+};
+BackgroundFeatureList["professional courtesy"] = {
+	description : "I conduct my business in one of the city's districts and I'm familiar with its local crews, their territories, and inter-crew politics. When I need information about something in my district, I can learn the local gossip from crew members. Within my district, I can gain entry to nearly any bank, guild hall, place of business, workhouse, or crew meeting place.",
+	source : ["DiA", 205]
+};
+BackgroundFeatureList["the real city"] = {
+	description : "I know the city that most of its inhabitants ignore, the dog-eat-dog world of the homeless and unfortunate. I know where to go for anonymity. In these slums and alley camps, I can get a damp bed and a bad meal, but also a degree of privacy and no questions asked. Living here isn't comfortable, but it's unlikely any will find me\u2014and I can stay as long as I want.",
+	source : ["DiA", 205]
+};
+BackgroundFeatureList["patriar"] = {
+	description : "As a member of an elite family of the city, I may pass through without paying tolls, enter the better part of town and stay there after dark, mingle among the nobility unquestioned, and impress those looking for wealthy patrons. My word is accepted over others' without question, and any corruption among guards or officials tends to work in my favor.",
+	source : ["DiA", 206]
+};
+BackgroundFeatureList["immigrant experience"] = {
+	description : "Even after my short time in the city, I've learned it holds more walls and gates than those the guards patrol. I'm known within the city's immigrant communities. Should I ever need to learn about a foreign land, people, tradition, or history, I know where to find someone with firsthand experience\u2014likely somewhere in the poorer part of town.",
+	source : ["DiA", 206]
+};
+BackgroundFeatureList["rumor monger"] = {
+	description : "Via my personal rumor mill and published articles, I can surmise a great deal about the secrets of the city's inhabitants\u2014necromancy, spying, smuggling, dealing in magical wares. Whenever a noteworthy crime or happening occurs in the city, I immediately have a list of 1d4 suspects who, if they aren't involved, have a strong chance of knowing who is.",
+	source : ["DiA", 206]
+};
+BackgroundFeatureList["smuggler's sense"] = {
+	description : "I'm familiar with the docks of the city, the movement of inspectors and tax collectors, the way cargo and coin flows, the movements of the harbor guards, and how to operate the port's machinery for moving wares. As a result, it's easy for me to hustle a load of cargo ashore or see such a cargo onto a cooperative ship without attracting suspicion or taxation.",
+	source : ["DiA", 207]
+};
+BackgroundFeatureList["city guard: lower city (the flaming fists)"] = {
+	description : "I'm required to take a regular shift patrolling the lower or outer city and I must report for training once every ten days. In return, I have access to the guard's fortresses and a direct line of communication with officers and other soldiers. I can also pass through the city's gates and go to the upper city without question, but can't bring guests to the upper city.",
+	source : ["DiA", 207]
+};
+BackgroundFeatureList["city guard: upper city (the watch)"] = {
+	description : "I'm required to take a regular shift patrolling the upper city or its gates and I must report for training once every ten days. In return, I have access to the citadel and a direct line of communication with officers and officials. My word carries considerable weight. I can escort people into the upper city unimpeded, but I'm regarded with suspicion in the lower city.",
+	source : ["DiA", 207]
+};
+BackgroundFeatureList["loyalty test"] = {
+	description : "I can spot the behaviors common to corrupt guards and military officers a mile away. While this doesn't equate to evidence, and my sense isn't foolproof, my instinct proves a starting point to determine who might take a bribe, who might turn a blind eye to a crime, who might have criminal connections, or who might fulfill their duties strictly by the book.",
+	source : ["DiA", 207]
+};
+BackgroundFeatureList["gateguide connection"] = {
+	description : "I've associated with enough of the Gateguides crew that I know their torch-based code. From the lighting, placement, and type of torch arranged on or near a structure, I can gather information about those who live or do business there\u2014if they deal fairly with strangers, have guild or government connections, or their standing with the Gateguides.",
+	source : ["DiA", 207]
 };
 
 MagicItemsList["battle standard of infernal power"] = {
