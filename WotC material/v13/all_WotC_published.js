@@ -28080,7 +28080,7 @@ ClassList["sidekick-warrior"] = {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isSpell && !v.CritChance && classes.known.fighter && classes.known.fighter.level < 15) {
+						if (!v.isSpell && !v.CritChance && classes.known["sidekick-warrior"]) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 							v.CritChance = 19;
 						};
