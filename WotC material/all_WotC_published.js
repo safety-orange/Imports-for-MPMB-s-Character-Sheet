@@ -19816,7 +19816,7 @@ BackgroundList["plaintiff"] = {
 	]
 };
 BackgroundFeatureList["legalese"] = {
-	description : "I am acquainted with a network of smugglers who are willing to help me out of tight spots. While in a particular town, city, or other similarly sized community, my companions and I can stay for free in safe houses. Safe houses provide a poor lifestyle. While staying at a safe house, I can choose to keep my presence (and that of my companions) a secret.",
+	description : "My experience with the local legal system has given me a firm knowledge of its ins and outs. Even when the law is not on my side, I can use complex terms like \"ex injuria jus non oritur\" to frighten people into thinking I know what I'm talking about. I might be able to intimidate or deceive folks who don't know any better to get favors or special treatment.",
 	source : ["AcqInc", 50]
 };
 
