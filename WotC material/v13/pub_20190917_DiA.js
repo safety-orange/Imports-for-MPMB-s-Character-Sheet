@@ -152,6 +152,46 @@ BackgroundFeatureList["gateguide connection"] = {
 	source : ["DiA", 207]
 };
 
+CreatureList["abyssal chicken"] = {
+	name : "Abyssal Chicken",
+	source : ["DiA", 97],
+	size : 5,
+	type : "Fiend",
+	subtype : "demon",
+	alignment : "Chaotic Evil",
+	ac : 13,
+	hp : 10,
+	hd : [3, 4],
+	speed : "30 ft,\nfly 30 ft",
+	scores : [6, 14, 13, 4, 9, 5],
+	saves : ["", "", "", "", "", ""],
+	damage_immunities : "cold, fire, lightning",
+	condition_immunities : "blinded, poisoned",
+	senses : "Blindsight 30 ft (blind beyond this radius)",
+	passivePerception : 9,
+	languages : "understands Abyssal but can't speak",
+	challengeRating : "1/4",
+	proficiencyBonus : 2,
+	attacksAction : 2,
+	attacks : [{
+		name : "Bite",
+		ability : 2,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+		description : "One bite and one claws attack as an Attack action"
+	}, {
+		name : "Claws",
+		ability : 2,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+		description : "One claws and one bite attack as an Attack action"
+	}],
+	traits : [{
+		name : "Bad Flier",
+		description : "The abyssal chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed."
+	}]
+}
+
 MagicItemsList["battle standard of infernal power"] = {
 	name : "Battle Standard of Infernal Power",
 	source : ["DiA", 223],

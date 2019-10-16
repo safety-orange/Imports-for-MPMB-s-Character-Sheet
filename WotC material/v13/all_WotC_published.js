@@ -898,7 +898,13 @@ AddSubClass("druid", "circle of the moon", {
 			description : "\n   " + "As a bonus action, I assume the shape of a beast I have seen before with these rules:" + "\n    - " + "I gain all its game statistics except Intelligence, Wisdom, or Charisma" + "\n    - " + "I get its skill/saving throw prof. while keeping my own, using whichever is higher" + "\n    - " + "I assume the beast's HP and HD; I get mine back when I revert back" + "\n    - " + "I can't cast spells in beast form, but transforming doesn't break concentration" + "\n    - " + "I retain features from class, race, etc., but I don't retain special senses" + "\n    - " + "I can choose whether equipment falls to the ground, merges, or stays worn" + "\n    - " + "I revert if out of time or unconscious; if KOd by damage, excess damage carries over",
 			usages : [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "\u221E\u00D7 per "],
 			recovery : "short rest",
-			additional : ["", "CR 1, no fly/swim; 1 hour", "CR 1, no fly/swim; 1 hour", "CR 1, no fly; 2 hours", "CR 1, no fly; 2 hours", "CR 2, no fly; 3 hours", "CR 2, no fly; 3 hours", "CR 2; 4 hours", "CR 3; 4 hours", "CR 3; 5 hours", "CR 3; 5 hours", "CR 4; 6 hours", "CR 4; 6 hours", "CR 4; 7 hours", "CR 5; 7 hours", "CR 5; 8 hours", "CR 5; 8 hours", "CR 6; 9 hours", "CR 6; 9 hours", "CR 6; 10 hours"],
+			additional : levels.map(function (n) {
+				if (n < 2) return "";
+				var cr = Math.max(1, Math.floor(n/3));
+				var hr = Math.floor(n/2);
+				var restr = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
+				return "CR " + cr + restr + "; " + hr + (restr.length ? " h" : " hours");
+			}),
 			action : ["bonus action", " (start/stop)"],
 			eval : function() {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
@@ -2262,7 +2268,7 @@ AddSubClass("wizard", "illusion", {
 	}
 });
 AddSubClass("wizard", "necromancy", {
-	regExpSearch : /(necromancy|necromancer|necromantic)/i,
+	regExpSearch : /necromancy|necromancer|necromantic/i,
 	subname : "School of Necromancy",
 	fullname : "Necromancer",
 	source : ["P", 118],
@@ -5152,7 +5158,7 @@ CreatureList["pteranodon"] = {
 	ac : 13,
 	hp : 13,
 	hd : [3, 8], //[#, die]
-	speed : "10 ft, fly 60 ft",
+	speed : "10 ft,\nfly 60 ft",
 	scores : [12, 15, 10, 2, 9, 5], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
@@ -5190,7 +5196,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	ac : 15,
 	hp : 14,
 	hd : [4, 4],
-	speed : "10 ft, fly 60 ft",
+	speed : "10 ft,\nfly 60 ft",
 	scores : [3, 20, 13, 14, 12, 16], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
@@ -5288,7 +5294,7 @@ CreatureList["peryton"] = {
 	ac : 13,
 	hp : 33,
 	hd : [6, 8], //[#, die]
-	speed : "20 ft, fly 60 ft",
+	speed : "20 ft,\nfly 60 ft",
 	scores : [16, 12, 13, 9, 12, 10], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
@@ -18170,6 +18176,13 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				]));
 				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
 				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
+				var changeMsg = "The Accursed Specter has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
+				CurrentUpdates.types.push("notes");
+				if (!CurrentUpdates.notesChanges) {
+					CurrentUpdates.notesChanges = [changeMsg];
+				} else {
+					CurrentUpdates.notesChanges.push(changeMsg);
+				}
 			},
 			removeeval : function() {
 				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
@@ -28604,6 +28617,46 @@ BackgroundFeatureList["gateguide connection"] = {
 	description : "I've associated with enough of the Gateguides crew that I know their torch-based code. From the lighting, placement, and type of torch arranged on or near a structure, I can gather information about those who live or do business there\u2014if they deal fairly with strangers, have guild or government connections, or their standing with the Gateguides.",
 	source : ["DiA", 207]
 };
+
+CreatureList["abyssal chicken"] = {
+	name : "Abyssal Chicken",
+	source : ["DiA", 97],
+	size : 5,
+	type : "Fiend",
+	subtype : "demon",
+	alignment : "Chaotic Evil",
+	ac : 13,
+	hp : 10,
+	hd : [3, 4],
+	speed : "30 ft,\nfly 30 ft",
+	scores : [6, 14, 13, 4, 9, 5],
+	saves : ["", "", "", "", "", ""],
+	damage_immunities : "cold, fire, lightning",
+	condition_immunities : "blinded, poisoned",
+	senses : "Blindsight 30 ft (blind beyond this radius)",
+	passivePerception : 9,
+	languages : "understands Abyssal but can't speak",
+	challengeRating : "1/4",
+	proficiencyBonus : 2,
+	attacksAction : 2,
+	attacks : [{
+		name : "Bite",
+		ability : 2,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+		description : "One bite and one claws attack as an Attack action"
+	}, {
+		name : "Claws",
+		ability : 2,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+		description : "One claws and one bite attack as an Attack action"
+	}],
+	traits : [{
+		name : "Bad Flier",
+		description : "The abyssal chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed."
+	}]
+}
 
 MagicItemsList["battle standard of infernal power"] = {
 	name : "Battle Standard of Infernal Power",

@@ -374,6 +374,13 @@ ClassList['artificer-ua3'] = {
 			if (!prefix) prefix = DoTemplate('AScomp', 'Add');
 			Value(prefix + 'Comp.Race', compName);
 			Value(prefix + 'Comp.Type', "Construct");
+			var changeMsg = "The " + compName + " has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
+			CurrentUpdates.types.push("notes");
+			if (!CurrentUpdates.notesChanges) {
+				CurrentUpdates.notesChanges = [changeMsg];
+			} else {
+				CurrentUpdates.notesChanges.push(changeMsg);
+			}
 			return prefix;
 		},
 		remove : function (compName) {
@@ -446,7 +453,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 			},
 			changeeval : function (lvlA) {
 				var newProf = ProficiencyBonusList[classes.totallevel - 1];
-				var newHP = Math.round(lvlA[1] * 5 + What("Int mod"));
+				var newHP = Math.round(lvlA[1] * 5 + What("Int Mod"));
 				ClassList['artificer-ua3'].artificerCompFunc.update("alchemical homunculus", newHP, newProf);
 			}
 		},
@@ -567,7 +574,7 @@ CreatureList["alchemical homunculus-uaa3"] = {
 	ac : 13,
 	hp : 5,
 	hd : [2, 4],
-	speed : "20 ft, fly 30 ft",
+	speed : "20 ft,\nfly 30 ft",
 	scores : [4, 15, 11, 10, 10, 7],
 	saves : ["", "", "", "", "", ""],
 	skills : {

@@ -2549,6 +2549,13 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				]));
 				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
 				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
+				var changeMsg = "The Accursed Specter has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
+				CurrentUpdates.types.push("notes");
+				if (!CurrentUpdates.notesChanges) {
+					CurrentUpdates.notesChanges = [changeMsg];
+				} else {
+					CurrentUpdates.notesChanges.push(changeMsg);
+				}
 			},
 			removeeval : function() {
 				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;

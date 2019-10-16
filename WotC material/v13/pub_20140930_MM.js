@@ -93,7 +93,7 @@ CreatureList["pteranodon"] = {
 	ac : 13,
 	hp : 13,
 	hd : [3, 8], //[#, die]
-	speed : "10 ft, fly 60 ft",
+	speed : "10 ft,\nfly 60 ft",
 	scores : [12, 15, 10, 2, 9, 5], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
@@ -131,7 +131,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	ac : 15,
 	hp : 14,
 	hd : [4, 4],
-	speed : "10 ft, fly 60 ft",
+	speed : "10 ft,\nfly 60 ft",
 	scores : [3, 20, 13, 14, 12, 16], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
@@ -229,7 +229,7 @@ CreatureList["peryton"] = {
 	ac : 13,
 	hp : 33,
 	hd : [6, 8], //[#, die]
-	speed : "20 ft, fly 60 ft",
+	speed : "20 ft,\nfly 60 ft",
 	scores : [16, 12, 13, 9, 12, 10], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {

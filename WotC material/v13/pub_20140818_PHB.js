@@ -757,7 +757,13 @@ AddSubClass("druid", "circle of the moon", {
 			description : "\n   " + "As a bonus action, I assume the shape of a beast I have seen before with these rules:" + "\n    - " + "I gain all its game statistics except Intelligence, Wisdom, or Charisma" + "\n    - " + "I get its skill/saving throw prof. while keeping my own, using whichever is higher" + "\n    - " + "I assume the beast's HP and HD; I get mine back when I revert back" + "\n    - " + "I can't cast spells in beast form, but transforming doesn't break concentration" + "\n    - " + "I retain features from class, race, etc., but I don't retain special senses" + "\n    - " + "I can choose whether equipment falls to the ground, merges, or stays worn" + "\n    - " + "I revert if out of time or unconscious; if KOd by damage, excess damage carries over",
 			usages : [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "\u221E\u00D7 per "],
 			recovery : "short rest",
-			additional : ["", "CR 1, no fly/swim; 1 hour", "CR 1, no fly/swim; 1 hour", "CR 1, no fly; 2 hours", "CR 1, no fly; 2 hours", "CR 2, no fly; 3 hours", "CR 2, no fly; 3 hours", "CR 2; 4 hours", "CR 3; 4 hours", "CR 3; 5 hours", "CR 3; 5 hours", "CR 4; 6 hours", "CR 4; 6 hours", "CR 4; 7 hours", "CR 5; 7 hours", "CR 5; 8 hours", "CR 5; 8 hours", "CR 6; 9 hours", "CR 6; 9 hours", "CR 6; 10 hours"],
+			additional : levels.map(function (n) {
+				if (n < 2) return "";
+				var cr = Math.max(1, Math.floor(n/3));
+				var hr = Math.floor(n/2);
+				var restr = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
+				return "CR " + cr + restr + "; " + hr + (restr.length ? " h" : " hours");
+			}),
 			action : ["bonus action", " (start/stop)"],
 			eval : function() {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
@@ -2121,7 +2127,7 @@ AddSubClass("wizard", "illusion", {
 	}
 });
 AddSubClass("wizard", "necromancy", {
-	regExpSearch : /(necromancy|necromancer|necromantic)/i,
+	regExpSearch : /necromancy|necromancer|necromantic/i,
 	subname : "School of Necromancy",
 	fullname : "Necromancer",
 	source : ["P", 118],

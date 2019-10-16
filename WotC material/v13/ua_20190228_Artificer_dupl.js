@@ -365,7 +365,7 @@ AddSubClass("artificer-ua2", "alchemist", {
 				if (!AScompA) return;
 				for (var a = 1; a < AScompA.length; a++) {
 					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("alchemical homunculus") !== -1) {
-						Value(AScompA[a] + "Comp.Use.HP.Max", Math.round(lvlA[1] * 5 + What("Int mod")));
+						Value(AScompA[a] + "Comp.Use.HP.Max", Math.round(lvlA[1] * 5 + What("Int Mod")));
 						Value(AScompA[a] + "Comp.Use.Proficiency Bonus", ProficiencyBonusList[classes.totallevel - 1]);
 					}
 				}
@@ -488,7 +488,7 @@ CreatureList["alchemical homunculus-uaa2"] = {
 	ac : 13,
 	hp : 5,
 	hd : [2, 4],
-	speed : "20 ft, fly 30 ft",
+	speed : "20 ft,\nfly 30 ft",
 	scores : [4, 15, 11, 10, 10, 7],
 	saves : ["", "", "", "", "", ""],
 	skills : {
