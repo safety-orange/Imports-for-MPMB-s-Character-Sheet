@@ -1486,7 +1486,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : ["P", 88],
 			minlevel : 15,
 			description : "\n   " + "When an enemy I have an active Vow of Enmity against makes an attack, I can react" + "\n   " + "As a reaction, I can make a melee weapon attack against it if it is within range",
-			action : ["reaction", " (with Vow of Enmity"]
+			action : ["reaction", " (with Vow of Enmity)"]
 		},
 		"subclassfeature20" : {
 			name : "Avenging Angel",

@@ -31,7 +31,7 @@ RaceList["baalzebul tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Ray of Sickness spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Crown of Madness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Ray of Sickness once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Crown of Madness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Maladomini (1)",
@@ -93,7 +93,7 @@ RaceList["dispater tiefling-mtof"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
-	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Detect Thoughts spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Detect Thoughts once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Dis (level 1)",
@@ -149,7 +149,7 @@ RaceList["fierna tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 0, 1, 2],
-	trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast Charm Person once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Phlegethos (1)",
@@ -211,7 +211,7 @@ RaceList["glasya tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
-	trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Invisibility once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Malbolge (1)",
@@ -267,7 +267,7 @@ RaceList["levistus tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 1, 0, 0, 2],
-	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast Armor of Agathys once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Darkness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Stygia (1)",
@@ -329,7 +329,7 @@ RaceList["mammon tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Tenser's Floating Disk spell once per short rest.\n   At 5th level, I can also cast the Arcane Lock spell without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Tenser's Floating Disk once per short rest.\n   At 5th level, I can also cast Arcane Lock without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Minauros (1)",
@@ -392,7 +392,7 @@ RaceList["mephistopheles tiefling-mtof"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Flame Blade spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Burning Hands once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Flame Blade once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Cania (level 1)",
@@ -454,7 +454,7 @@ RaceList["zariel tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 0, 0, 0, 2],
-	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Searing Smite spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Branding Smite spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Searing Smite once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Branding Smite once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Avernus (1)",
@@ -651,8 +651,8 @@ RaceList["githyanki-mtof"] = {
 	scores : [2, 0, 0, 1, 0, 0],
 	trait : "Githyanki (+2 Strength, +1 Intelligence)\n" + (typePF ? "\n" : "") + "Githyanki Psionics:" + desc([
 		"I know the Mage Hand cantrip, but the hand is invisible.",
-		"At 3rd level, I can cast the Jump spell once per long rest.",
-		"At 5th level, I can also cast the Misty Step spell once per long rest.",
+		"At 3rd level, I can cast Jump once per long rest.",
+		"At 5th level, I can also cast Misty Step once per long rest.",
 		"Intelligence is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells."
 	]),
@@ -719,8 +719,8 @@ RaceList["githzerai-mtof"] = {
 	scores : [0, 0, 0, 1, 2, 0],
 	trait : "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Githzerai Psionics:" + desc([
 		"I know the Mage Hand cantrip, but the hand is invisible.",
-		"At 3rd level, I can cast the Shield spell once per long rest.",
-		"At 5th level, I can also cast the Detect Thoughts spell once per long rest.",
+		"At 3rd level, I can cast Shield once per long rest.",
+		"At 5th level, I can also cast Detect Thoughts once per long rest.",
 		"Wisdom is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells."
 	]),

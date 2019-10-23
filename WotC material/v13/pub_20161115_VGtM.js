@@ -15,7 +15,7 @@ SourceList.V={
 RaceList["fallen aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*fallen).*$/i,
 	name : "Fallen Aasimar",
-	source : ["V", 104],
+	source : [["V", 104]],
 	plural : "Fallen Aasimar",
 	sortname : "Aasimar, Fallen",
 	size : 3,
@@ -62,7 +62,7 @@ RaceList["fallen aasimar"] = {
 RaceList["protector aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*protector).*$/i,
 	name : "Protector Aasimar",
-	source : ["V", 104],
+	source : [["V", 104]],
 	plural : "Protector Aasimar",
 	sortname : "Aasimar, Protector",
 	size : 3,
@@ -108,7 +108,7 @@ RaceList["protector aasimar"] = {
 RaceList["scourge aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*scourge).*$/i,
 	name : "Scourge Aasimar",
-	source : ["V", 104],
+	source : [["V", 104]],
 	plural : "Scourge Aasimar",
 	sortname : "Aasimar, Scourge",
 	size : 3,
@@ -580,7 +580,7 @@ RaceList["yuan-ti pureblood"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Yuan-Ti Pureblood: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)\n\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast the spell Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)\n\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",

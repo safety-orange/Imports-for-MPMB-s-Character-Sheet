@@ -1627,7 +1627,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : ["P", 88],
 			minlevel : 15,
 			description : "\n   " + "When an enemy I have an active Vow of Enmity against makes an attack, I can react" + "\n   " + "As a reaction, I can make a melee weapon attack against it if it is within range",
-			action : ["reaction", " (with Vow of Enmity"]
+			action : ["reaction", " (with Vow of Enmity)"]
 		},
 		"subclassfeature20" : {
 			name : "Avenging Angel",
@@ -10013,7 +10013,7 @@ AddRacialVariant("tiefling", "hellfire", {
 AddRacialVariant("tiefling", "winged", {
 	regExpSearch : /wing/i,
 	name : "Winged tiefling",
-	source : ["S", 118],
+	source : [["S", 118]],
 	plural : "Winged tieflings",
 	speed : {
 		walk : { spd : 30, enc : 20 },
@@ -12911,7 +12911,7 @@ SourceList.V={
 RaceList["fallen aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*fallen).*$/i,
 	name : "Fallen Aasimar",
-	source : ["V", 104],
+	source : [["V", 104]],
 	plural : "Fallen Aasimar",
 	sortname : "Aasimar, Fallen",
 	size : 3,
@@ -12958,7 +12958,7 @@ RaceList["fallen aasimar"] = {
 RaceList["protector aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*protector).*$/i,
 	name : "Protector Aasimar",
-	source : ["V", 104],
+	source : [["V", 104]],
 	plural : "Protector Aasimar",
 	sortname : "Aasimar, Protector",
 	size : 3,
@@ -13004,7 +13004,7 @@ RaceList["protector aasimar"] = {
 RaceList["scourge aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*scourge).*$/i,
 	name : "Scourge Aasimar",
-	source : ["V", 104],
+	source : [["V", 104]],
 	plural : "Scourge Aasimar",
 	sortname : "Aasimar, Scourge",
 	size : 3,
@@ -13476,7 +13476,7 @@ RaceList["yuan-ti pureblood"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Yuan-Ti Pureblood: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)\n\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast the spell Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)\n\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",
@@ -20895,7 +20895,7 @@ RaceList["baalzebul tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Ray of Sickness spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Crown of Madness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Ray of Sickness once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Crown of Madness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Maladomini (1)",
@@ -20957,7 +20957,7 @@ RaceList["dispater tiefling-mtof"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
-	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Detect Thoughts spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Detect Thoughts once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Dis (level 1)",
@@ -21013,7 +21013,7 @@ RaceList["fierna tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 0, 1, 2],
-	trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast Charm Person once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Phlegethos (1)",
@@ -21075,7 +21075,7 @@ RaceList["glasya tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
-	trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Invisibility once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Malbolge (1)",
@@ -21131,7 +21131,7 @@ RaceList["levistus tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 1, 0, 0, 2],
-	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast Armor of Agathys once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Darkness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Stygia (1)",
@@ -21193,7 +21193,7 @@ RaceList["mammon tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Tenser's Floating Disk spell once per short rest.\n   At 5th level, I can also cast the Arcane Lock spell without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Tenser's Floating Disk once per short rest.\n   At 5th level, I can also cast Arcane Lock without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Minauros (1)",
@@ -21256,7 +21256,7 @@ RaceList["mephistopheles tiefling-mtof"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Flame Blade spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Burning Hands once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Flame Blade once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Cania (level 1)",
@@ -21318,7 +21318,7 @@ RaceList["zariel tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 0, 0, 0, 2],
-	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Searing Smite spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Branding Smite spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Searing Smite once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Branding Smite once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Legacy of Avernus (1)",
@@ -21515,8 +21515,8 @@ RaceList["githyanki-mtof"] = {
 	scores : [2, 0, 0, 1, 0, 0],
 	trait : "Githyanki (+2 Strength, +1 Intelligence)\n" + (typePF ? "\n" : "") + "Githyanki Psionics:" + desc([
 		"I know the Mage Hand cantrip, but the hand is invisible.",
-		"At 3rd level, I can cast the Jump spell once per long rest.",
-		"At 5th level, I can also cast the Misty Step spell once per long rest.",
+		"At 3rd level, I can cast Jump once per long rest.",
+		"At 5th level, I can also cast Misty Step once per long rest.",
 		"Intelligence is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells."
 	]),
@@ -21583,8 +21583,8 @@ RaceList["githzerai-mtof"] = {
 	scores : [0, 0, 0, 1, 2, 0],
 	trait : "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Githzerai Psionics:" + desc([
 		"I know the Mage Hand cantrip, but the hand is invisible.",
-		"At 3rd level, I can cast the Shield spell once per long rest.",
-		"At 5th level, I can also cast the Detect Thoughts spell once per long rest.",
+		"At 3rd level, I can cast Shield once per long rest.",
+		"At 5th level, I can also cast Detect Thoughts once per long rest.",
 		"Wisdom is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells."
 	]),
@@ -28920,3 +28920,57 @@ MagicItemsList["soul coin"] = {
 	recovery : "Never",
 	action : [["action", ""]]
 }
+var iFileName = "pub_20190917_DiA.js";
+RequiredSheetVersion(13);
+// This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["ALPGs9"] = {
+	name : "AL Player's Guide v9.1: Inglorious Redemption",
+	abbreviation : "ALPGs9",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/product/208178",
+	date : "2019/09/17"
+};
+
+/*
+	Add this source to the Aasimar from VGtM and the Winged Tiefling variant from SCAG
+	Also, add a winged variant to the three Aasimar subraces from VGtM
+*/
+[
+	["fallen aasimar", false],
+	["protector aasimar", false],
+	["scourge aasimar", false],
+	["tiefling-winged", true],
+	["feral tiefling-winged", true]
+].forEach(function (rac) {
+	var rObj = rac[1] ? RaceSubList[rac[0]] : RaceList[rac[0]];
+	if (!rObj) return;
+	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6], ["ALbackground", 0]]);
+	if (rac[0].indexOf("aasimar") !== -1) {
+		AddRacialVariant(rac[0], "winged", {
+			regExpSearch : /wing/i,
+			name : "Winged " + rObj.name,
+			source : [["ALPGs9", 6], ["ALbackground", 0]],
+			plural : "Winged " + rObj.plural,
+			speed : {
+				walk : { spd : 30, enc : 20 },
+				fly : { spd : 30, enc : 0 }
+			},
+			trait : "Winged " + rObj.trait.replace(/\)(\r|\n|.)+/, ")\n\nHealing Hands:\n   As an action, once per long rest, I can touch to heal for my level in HP.\nWings:\n   Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 feet when I'm not wearing heavy armor."),
+			features : {
+				"healing hands" : {
+					name : "Healing Hands",
+					usages : 1,
+					minlevel : 1,
+					recovery : "long rest",
+					additional : levels.map(function (n) { return n + " HP"; }),
+					action : ["action", ""]
+				}
+			},
+			abilitySave : "",
+			spellcastingAbility : "",
+			spellcastingBonus : ""
+		});
+	}
+});

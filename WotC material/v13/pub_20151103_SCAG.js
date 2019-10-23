@@ -316,7 +316,7 @@ AddRacialVariant("tiefling", "hellfire", {
 AddRacialVariant("tiefling", "winged", {
 	regExpSearch : /wing/i,
 	name : "Winged tiefling",
-	source : ["S", 118],
+	source : [["S", 118]],
 	plural : "Winged tieflings",
 	speed : {
 		walk : { spd : 30, enc : 20 },
