@@ -1280,14 +1280,14 @@ RunFunctionAtEnd(function () {
 				additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 				toolProfs : ["calligrapher's or painter's supplies"],
 				extraname : "Kensei Weapon",
-				extrachoices : [], // add these dymanically, see below
+				extrachoices : [], // add these dynamically, see below
 				extraTimes : levels.map( function(n) { return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5; }),
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
 							if (!classes.known.monk || classes.known.monk.level < 2 || v.isSpell) return;
 							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
-							if (theKenseiWeapons.indexOf(v.baseWeaponName) || ((/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
+							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
 								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 								try {
 									var curDie = eval(fields.Damage_Die.replace('d', '*'));
@@ -1371,7 +1371,8 @@ RunFunctionAtEnd(function () {
 			name : aWea.name,
 			description : "",
 			source : aWea.source,
-			weaponProfs : [false, false, [weapon]]
+			weaponProfs : [false, false, [weapon]],
+			weaponsAdd : [aWea.name]
 		}
 	}
 });

@@ -17249,7 +17249,7 @@ AddSubClass("fighter", "rune knight", {
 			minlevel : 7,
 			description : desc([
 				"As a reaction when I see a creature get hit by an attack within 60 ft, I can grant it AC",
-				"The creature adds my Int mod (min 1) to its AC for the attack; I also learn another rune"
+				"The creature adds 1 + my Int mod (min 2) to its AC for the attack; I learn another rune"
 			]),
 			action : [["reaction", ""]]
 		},

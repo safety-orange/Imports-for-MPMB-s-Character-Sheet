@@ -160,20 +160,20 @@ BackgroundList["gambler"] = {
 		["Victory", "Victory. Winning is the real measure of a person. In the end, the only thing that matters is the scoreboard. (Evil)"]
 	],
 	bond : [
-		"I must visit all the oceans of the world and behold the ships that sail there.",
-		"Much of the treasure I claim will be used to enrich my community.",
-		"I must find a kind of wood rumored to possess magical qualities.",
-		"I repair broken things to redeem what's broken in myself.",
-		"I will craft a boat capable of sailing through the most dangerous of storms.",
-		"A kraken destroyed my masterpiece; its teeth shall adorn my hearth."
-	],
-	flaw : [
 		"One person in particular owes me a lot of money, and I need to keep them alive if I want to be repaid.",
 		"I'm loyal to the friend or family member who taught me how to gamble.",
 		"The person who saved me from my gambling addiction is the only reason I'm alive today.",
 		"A patron once fronted me money in exchange for a percentage of my winnings. I owe them a debt of gratitude. And a lot of cash.",
 		"A criminal syndicate I once played for isn't happy I left the game, and its enforcers are looking for me.",
 		"Urchins once helped me find marks for my games. Now I'm driven to help them escape the streets."
+	],
+	flaw : [
+		"I don't know when to quit. Especially when everyone else is telling me to.",
+		"I save my sympathy for my friends, and I have no friends.",
+		"You think we're in trouble now? Let me tell you how bad things are likely to get!",
+		"You can loan me a little, right? I've got a sure thing. I'll double your money, guaranteed.",
+		"I was once a terribly flawed person, like you. Let me tell you how you can save yourself.",
+		"I'm a great gambler. I'm just bad at math and logic."
 	]
 };
 BackgroundFeatureList["never tell me the odds"] = {
