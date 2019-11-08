@@ -968,7 +968,7 @@ AddSubClass("fighter", "battle master", {
 			name : "Maneuvers",
 			source : ["P", 73],
 			minlevel : 3,
-			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + 'Use the "Choose Feature" button above to add a Maneuver to the third page' + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : (n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9) + " known";
 			}),
@@ -977,6 +977,17 @@ AddSubClass("fighter", "battle master", {
 			extraTimes : levels.map(function (n) {
 				return n < 3 ? 0 : n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9;
 			}),
+			eval : function () {
+				// If the martial adept feat was selected before adding the Combat Superiority class feature, increase it with one use per day
+				// This has to happen after the Combat Superiority feature has been added fully, hence this eval is not part of that feature
+				if (CurrentFeats.known.indexOf("martial adept") != -1) {
+					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Martial Adept feat or ', 'bonus');
+				}
+				// The same goes for the optional fighting style Superior Technique
+				if (GetFeatureChoice("classes", "fighter", "fighting style", false) == "superior technique") {
+					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
+				}
+			},
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : ["P", 74],
@@ -3687,11 +3698,15 @@ FeatsList["martial adept"] = {
 	name : "Martial Adept",
 	source : ["P", 168],
 	descriptionFull : "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
-	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
+	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(What('Proficiency Bonus')) + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
 	eval : function () {
 		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');
+		DontPrint("Class Features Menu");
 	},
-	removeeval : function () { RemoveFeature('Combat Superiority ', 1); }
+	removeeval : function () {
+		RemoveFeature('Combat Superiority ', 1);
+		if (!MakeClassMenu()) Hide("Class Features Menu");
+	}
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
@@ -4039,7 +4054,7 @@ FeatsList["tavern brawler"] = {
 					fields.Damage_Die = '1d4';
 				};
 			},
-			"My unarmed strikes do 1d4 damage instead of 1;\n \u2022 After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
+			"My unarmed strikes deal 1d4 damage instead of 1;\n \u2022 After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
 		]
 	}
 };
@@ -16993,14 +17008,15 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy or special property, are magic weapons, or those that are spells or cantrips
-		if (weapon !== "longbow" && (testSource(weapon, aWea, "weapExcl") || aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list))) continue;
+		if (weapon !== "longbow" && (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list))) continue;
 		itsFea.extrachoices.push(aWea.name);
 		itsFea[aWea.name.toLowerCase()] = {
 			name : aWea.name,
 			description : "",
 			source : aWea.source,
 			weaponProfs : [false, false, [weapon]],
-			weaponsAdd : [aWea.name]
+			weaponsAdd : [aWea.name],
+			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : true;'
 		}
 	}
 });
@@ -17233,7 +17249,7 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 			source : ["X", 42],
 			minlevel : 3,
 			description : desc([
-				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
 			spellcastingExtra : ["disguise self", "rope trick", "fear", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown")
@@ -17291,7 +17307,7 @@ AddSubClass("ranger", "horizon walker-xgte", {
 			source : ["X", 42],
 			minlevel : 3,
 			description : desc([
-				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
 			spellcastingExtra : ["protection from evil and good", "misty step", "haste", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
@@ -30636,7 +30652,7 @@ AddSubClass("ranger", "deep stalker", {
 			name : "Deep Stalker Magic",
 			source : ["UA:LDU", 2],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
 			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
 			vision : [["Darkvision", 90]]
 		},
@@ -32307,7 +32323,7 @@ ClassSubList["rangerua-deep stalker"] = {
 			name : "Deep Stalker Magic",
 			source : ["UA:RR", 8],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
 			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
 			vision : [["Darkvision", "fixed 90"], ["Darkvision", "+30"]]
 		},
@@ -34454,7 +34470,7 @@ var theHorizonWalkerSubclass = {
 			source : ["UA:RnR", 1],
 			minlevel : 3,
 			description : desc([
-				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
 			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")

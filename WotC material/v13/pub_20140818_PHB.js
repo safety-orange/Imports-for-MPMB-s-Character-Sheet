@@ -826,7 +826,7 @@ AddSubClass("fighter", "battle master", {
 			name : "Maneuvers",
 			source : ["P", 73],
 			minlevel : 3,
-			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + 'Use the "Choose Feature" button above to add a Maneuver to the third page' + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : (n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9) + " known";
 			}),
@@ -835,6 +835,17 @@ AddSubClass("fighter", "battle master", {
 			extraTimes : levels.map(function (n) {
 				return n < 3 ? 0 : n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9;
 			}),
+			eval : function () {
+				// If the martial adept feat was selected before adding the Combat Superiority class feature, increase it with one use per day
+				// This has to happen after the Combat Superiority feature has been added fully, hence this eval is not part of that feature
+				if (CurrentFeats.known.indexOf("martial adept") != -1) {
+					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Martial Adept feat or ', 'bonus');
+				}
+				// The same goes for the optional fighting style Superior Technique
+				if (GetFeatureChoice("classes", "fighter", "fighting style", false) == "superior technique") {
+					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
+				}
+			},
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : ["P", 74],
@@ -3545,11 +3556,15 @@ FeatsList["martial adept"] = {
 	name : "Martial Adept",
 	source : ["P", 168],
 	descriptionFull : "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
-	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master archetype. The saving throw DC for this is ' + (8 + What('Proficiency Bonus') + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
+	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(What('Proficiency Bonus')) + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
 	eval : function () {
 		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');
+		DontPrint("Class Features Menu");
 	},
-	removeeval : function () { RemoveFeature('Combat Superiority ', 1); }
+	removeeval : function () {
+		RemoveFeature('Combat Superiority ', 1);
+		if (!MakeClassMenu()) Hide("Class Features Menu");
+	}
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
@@ -3897,7 +3912,7 @@ FeatsList["tavern brawler"] = {
 					fields.Damage_Die = '1d4';
 				};
 			},
-			"My unarmed strikes do 1d4 damage instead of 1;\n \u2022 After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
+			"My unarmed strikes deal 1d4 damage instead of 1;\n \u2022 After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
 		]
 	}
 };

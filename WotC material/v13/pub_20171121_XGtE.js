@@ -1365,14 +1365,15 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy or special property, are magic weapons, or those that are spells or cantrips
-		if (weapon !== "longbow" && (testSource(weapon, aWea, "weapExcl") || aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list))) continue;
+		if (weapon !== "longbow" && (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list))) continue;
 		itsFea.extrachoices.push(aWea.name);
 		itsFea[aWea.name.toLowerCase()] = {
 			name : aWea.name,
 			description : "",
 			source : aWea.source,
 			weaponProfs : [false, false, [weapon]],
-			weaponsAdd : [aWea.name]
+			weaponsAdd : [aWea.name],
+			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : true;'
 		}
 	}
 });
@@ -1605,7 +1606,7 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 			source : ["X", 42],
 			minlevel : 3,
 			description : desc([
-				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
 			spellcastingExtra : ["disguise self", "rope trick", "fear", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown")
@@ -1663,7 +1664,7 @@ AddSubClass("ranger", "horizon walker-xgte", {
 			source : ["X", 42],
 			minlevel : 3,
 			description : desc([
-				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
 			spellcastingExtra : ["protection from evil and good", "misty step", "haste", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")

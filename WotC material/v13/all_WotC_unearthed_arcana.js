@@ -1658,7 +1658,7 @@ AddSubClass("ranger", "deep stalker", {
 			name : "Deep Stalker Magic",
 			source : ["UA:LDU", 2],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
 			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
 			vision : [["Darkvision", 90]]
 		},
@@ -3329,7 +3329,7 @@ ClassSubList["rangerua-deep stalker"] = {
 			name : "Deep Stalker Magic",
 			source : ["UA:RR", 8],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
 			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
 			vision : [["Darkvision", "fixed 90"], ["Darkvision", "+30"]]
 		},
@@ -5476,7 +5476,7 @@ var theHorizonWalkerSubclass = {
 			source : ["UA:RnR", 1],
 			minlevel : 3,
 			description : desc([
-				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
 			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
