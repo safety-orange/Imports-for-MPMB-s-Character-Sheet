@@ -19216,7 +19216,7 @@ BackgroundList["fisher"] = {
 };
 BackgroundFeatureList["harvest the water"] = {
 	description : "I gain advantage on ability checks made using fishing tackle. If I have access to a body of water that sustains marine life, I can maintain a moderate lifestyle while working as a fisher, and I can catch enough food to feed myself and up to ten other people each day.",
-	source : ["GoS", 29]
+	source : [["GoS", 29], ["ALbackground", 0]]
 };
 
 BackgroundList["marine"] = {
@@ -19281,7 +19281,7 @@ BackgroundList["marine"] = {
 };
 BackgroundFeatureList["steady"] = {
 	description : "I can move twice the normal amount of time (up to 16 hours) each day before being subject to the effect of a forced march and need to make Constitution saves at the end of each extra hour to avoid gaining a level of exhaustion. Additionally, I can automatically find a safe route to land a boat on shore, provided such a route exists.",
-	source : ["GoS", 31]
+	source : [["GoS", 31], ["ALbackground", 0]]
 };
 
 BackgroundList["shipwright"] = {
@@ -19348,7 +19348,7 @@ BackgroundList["shipwright"] = {
 };
 BackgroundFeatureList["i'll patch it!"] = {
 	description : "Provided I have carpenter's tools and wood, I can perform repairs on a water vehicle. When I use this ability, I restore a number of hit points to the hull of a water vehicle equal to 5\xD7 my proficiency modifier. A vehicle cannot be patched by me in this way again until after it has been pulled ashore and fully repaired.",
-	source : ["GoS", 33]
+	source : [["GoS", 33], ["ALbackground", 0]]
 };
 
 BackgroundList["smuggler"] = {
@@ -19410,7 +19410,7 @@ BackgroundList["smuggler"] = {
 };
 BackgroundFeatureList["down low"] = {
 	description : "I am acquainted with a network of smugglers who are willing to help me out of tight spots. While in a particular town, city, or other similarly sized community, my companions and I can stay for free in safe houses. Safe houses provide a poor lifestyle. While staying at a safe house, I can choose to keep my presence (and that of my companions) a secret.",
-	source : ["GoS", 34]
+	source : [["GoS", 34], ["ALbackground", 0]]
 };
 
 CreatureList["fish"] = {

@@ -26845,7 +26845,7 @@ BackgroundList["fisher"] = {
 };
 BackgroundFeatureList["harvest the water"] = {
 	description : "I gain advantage on ability checks made using fishing tackle. If I have access to a body of water that sustains marine life, I can maintain a moderate lifestyle while working as a fisher, and I can catch enough food to feed myself and up to ten other people each day.",
-	source : ["GoS", 29]
+	source : [["GoS", 29], ["ALbackground", 0]]
 };
 
 BackgroundList["marine"] = {
@@ -26910,7 +26910,7 @@ BackgroundList["marine"] = {
 };
 BackgroundFeatureList["steady"] = {
 	description : "I can move twice the normal amount of time (up to 16 hours) each day before being subject to the effect of a forced march and need to make Constitution saves at the end of each extra hour to avoid gaining a level of exhaustion. Additionally, I can automatically find a safe route to land a boat on shore, provided such a route exists.",
-	source : ["GoS", 31]
+	source : [["GoS", 31], ["ALbackground", 0]]
 };
 
 BackgroundList["shipwright"] = {
@@ -26977,7 +26977,7 @@ BackgroundList["shipwright"] = {
 };
 BackgroundFeatureList["i'll patch it!"] = {
 	description : "Provided I have carpenter's tools and wood, I can perform repairs on a water vehicle. When I use this ability, I restore a number of hit points to the hull of a water vehicle equal to 5\xD7 my proficiency modifier. A vehicle cannot be patched by me in this way again until after it has been pulled ashore and fully repaired.",
-	source : ["GoS", 33]
+	source : [["GoS", 33], ["ALbackground", 0]]
 };
 
 BackgroundList["smuggler"] = {
@@ -27039,7 +27039,7 @@ BackgroundList["smuggler"] = {
 };
 BackgroundFeatureList["down low"] = {
 	description : "I am acquainted with a network of smugglers who are willing to help me out of tight spots. While in a particular town, city, or other similarly sized community, my companions and I can stay for free in safe houses. Safe houses provide a poor lifestyle. While staying at a safe house, I can choose to keep my presence (and that of my companions) a secret.",
-	source : ["GoS", 34]
+	source : [["GoS", 34], ["ALbackground", 0]]
 };
 
 MagicItemsList["charm of plant command"] = {
@@ -28572,67 +28572,67 @@ BackgroundList["faceless"] = {
 };
 BackgroundFeatureList["religious community"] = {
 	description : "I'm tightly connected with the religious community of the city. I know if a deity has a following in the city, any places that faith openly congregates, and the neighborhoods those faithful typically inhabit. While this isn't remarkable for most of the city's larger faiths, keeping track of the hundreds of religions newcomers bring with them is no mean feat.",
-	source : ["DiA", 202]
+	source : [["DiA", 202], ["ALbackground", 0]]
 };
 BackgroundFeatureList["long-lost heir"] = {
 	description : "I can pose as the long-lost heir to some imaginary or dead lineage. I'm well-versed in the mannerisms and idiosyncrasies of nobility, imitating them smoothly enough to convince anybody of my authenticity. However, any true test is likely to reveal my deception. I can enter places that only nobility can and might be able to bluff other through with me.",
-	source : ["DiA", 202]
+	source : [["DiA", 202], ["ALbackground", 0]]
 };
 BackgroundFeatureList["criminal connections"] = {
 	description : "In a big city, crime is just another business. As a result, I can arrange a meeting with a low-ranking operative of nearly any business, noble family, crew, government institution, or guild. This operative will hear me out and, at their discretion, take my information or request up their chain of command. These meetings almost always occur in shady venues.",
-	source : ["DiA", 202]
+	source : [["DiA", 202], ["ALbackground", 0]]
 };
 BackgroundFeatureList["backstage pass"] = {
 	description : "I know that most of the real business, in entertainment or otherwise, happens behind the scenes. It's easy for me to case what sorts of audiences attend a venue. After a successful performance, I may meet an enthusiastic member of the crowd\u2014someone of an occupation or social class that frequents the venue, who is delighted to talk with me, and to listen.",
-	source : ["DiA", 202]
+	source : [["DiA", 202], ["ALbackground", 0]]
 };
 BackgroundFeatureList["dual personalities"] = {
 	description : "The world knows me as my persona and those who seek to learn more about me find themselves stymied by my disguise. I'm unidentifiable as my true self while disguised and behaving as my persona, allowing me to change appearances between my two personalities as I wish. My deception might lose its effectiveness if someone realize the connection.",
-	source : ["DiA", 204]
+	source : [["DiA", 204], ["ALbackground", 0]]
 };
 BackgroundFeatureList["social vengeance"] = {
 	description : "I've lived my whole life amongst the lower class of the city, seeing the upper class flaunt their wealth while my hardworking neighbors struggled. I know their eagerness to give the wealthy their comeuppance. I can convince 1d6 commoners in a busy area in 2d10 min" + (typePF ? "utes" : "") + " to perform a non-illegal act that inconveniences a guard, noble, or wealthy looking individual.",
-	source : ["DiA", 204]
+	source : [["DiA", 204], ["ALbackground", 0]]
 };
 BackgroundFeatureList["professional courtesy"] = {
 	description : "I conduct my business in one of the city's districts and I'm familiar with its local crews, their territories, and inter-crew politics. When I need information about something in my district, I can learn the local gossip from crew members. Within my district, I can gain entry to nearly any bank, guild hall, place of business, workhouse, or crew meeting place.",
-	source : ["DiA", 205]
+	source : [["DiA", 205], ["ALbackground", 0]]
 };
 BackgroundFeatureList["the real city"] = {
 	description : "I know the city that most of its inhabitants ignore, the dog-eat-dog world of the homeless and unfortunate. I know where to go for anonymity. In these slums and alley camps, I can get a damp bed and a bad meal, but also a degree of privacy and no questions asked. Living here isn't comfortable, but it's unlikely any will find me\u2014and I can stay as long as I want.",
-	source : ["DiA", 205]
+	source : [["DiA", 205], ["ALbackground", 0]]
 };
 BackgroundFeatureList["patriar"] = {
 	description : "As a member of an elite family of the city, I may pass through without paying tolls, enter the better part of town and stay there after dark, mingle among the nobility unquestioned, and impress those looking for wealthy patrons. My word is accepted over others' without question, and any corruption among guards or officials tends to work in my favor.",
-	source : ["DiA", 206]
+	source : [["DiA", 206], ["ALbackground", 0]]
 };
 BackgroundFeatureList["immigrant experience"] = {
 	description : "Even after my short time in the city, I've learned it holds more walls and gates than those the guards patrol. I'm known within the city's immigrant communities. Should I ever need to learn about a foreign land, people, tradition, or history, I know where to find someone with firsthand experience\u2014likely somewhere in the poorer part of town.",
-	source : ["DiA", 206]
+	source : [["DiA", 206], ["ALbackground", 0]]
 };
 BackgroundFeatureList["rumor monger"] = {
 	description : "Via my personal rumor mill and published articles, I can surmise a great deal about the secrets of the city's inhabitants\u2014necromancy, spying, smuggling, dealing in magical wares. Whenever a noteworthy crime or happening occurs in the city, I immediately have a list of 1d4 suspects who, if they aren't involved, have a strong chance of knowing who is.",
-	source : ["DiA", 206]
+	source : [["DiA", 206], ["ALbackground", 0]]
 };
 BackgroundFeatureList["smuggler's sense"] = {
 	description : "I'm familiar with the docks of the city, the movement of inspectors and tax collectors, the way cargo and coin flows, the movements of the harbor guards, and how to operate the port's machinery for moving wares. As a result, it's easy for me to hustle a load of cargo ashore or see such a cargo onto a cooperative ship without attracting suspicion or taxation.",
-	source : ["DiA", 207]
+	source : [["DiA", 207], ["ALbackground", 0]]
 };
 BackgroundFeatureList["city guard: lower city (the flaming fists)"] = {
 	description : "I'm required to take a regular shift patrolling the lower or outer city and I must report for training once every ten days. In return, I have access to the guard's fortresses and a direct line of communication with officers and other soldiers. I can also pass through the city's gates and go to the upper city without question, but can't bring guests to the upper city.",
-	source : ["DiA", 207]
+	source : [["DiA", 207], ["ALbackground", 0]]
 };
 BackgroundFeatureList["city guard: upper city (the watch)"] = {
 	description : "I'm required to take a regular shift patrolling the upper city or its gates and I must report for training once every ten days. In return, I have access to the citadel and a direct line of communication with officers and officials. My word carries considerable weight. I can escort people into the upper city unimpeded, but I'm regarded with suspicion in the lower city.",
-	source : ["DiA", 207]
+	source : [["DiA", 207], ["ALbackground", 0]]
 };
 BackgroundFeatureList["loyalty test"] = {
 	description : "I can spot the behaviors common to corrupt guards and military officers a mile away. While this doesn't equate to evidence, and my sense isn't foolproof, my instinct proves a starting point to determine who might take a bribe, who might turn a blind eye to a crime, who might have criminal connections, or who might fulfill their duties strictly by the book.",
-	source : ["DiA", 207]
+	source : [["DiA", 207], ["ALbackground", 0]]
 };
 BackgroundFeatureList["gateguide connection"] = {
 	description : "I've associated with enough of the Gateguides crew that I know their torch-based code. From the lighting, placement, and type of torch arranged on or near a structure, I can gather information about those who live or do business there\u2014if they deal fairly with strangers, have guild or government connections, or their standing with the Gateguides.",
-	source : ["DiA", 207]
+	source : [["DiA", 207], ["ALbackground", 0]]
 };
 
 CreatureList["abyssal chicken"] = {
