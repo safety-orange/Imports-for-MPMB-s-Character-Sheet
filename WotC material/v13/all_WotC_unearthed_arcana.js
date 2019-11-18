@@ -18145,21 +18145,31 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 				}
 			},
 			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
-		],
-		changeeval : function() {
-			// as another subclass might override the 'extra' attribute in the CurrentSpells object, add it through an eval
-			if (!CurrentSpells.ranger) return;
-			var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
-			if (!CurrentSpells.ranger.extra) CurrentSpells.ranger.extra = [];
-			if (CurrentSpells.ranger.extra.toString().indexOf(bonusSpells.toString()) == -1) {
-				var newExtra = [];
-				for (var i = 0; i < CurrentSpells.ranger.extra.length; i++) {
-					var anExtra = CurrentSpells.ranger.extra[i];
-					if (anExtra && anExtra !== "AddToKnown" && bonusSpells.indexOf(anExtra) == -1) newExtra.push(anExtra);
-				}
-				CurrentSpells.ranger.extra = newExtra.concat(bonusSpells);
-				CurrentSpells.ranger.extra[100] = "AddToKnown";
+		]
+	},
+	changeeval : function() {
+		// as another subclass might override the 'extra' attribute in the CurrentSpells object, add it through an eval
+		if (!CurrentSpells.ranger) return;
+		var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+		if (!CurrentSpells.ranger.extra) CurrentSpells.ranger.extra = [];
+		if (CurrentSpells.ranger.extra.toString().indexOf(bonusSpells.toString()) == -1) {
+			var newExtra = [];
+			for (var i = 0; i < CurrentSpells.ranger.extra.length; i++) {
+				var anExtra = CurrentSpells.ranger.extra[i];
+				if (anExtra && anExtra !== "AddToKnown" && bonusSpells.indexOf(anExtra) == -1) newExtra.push(anExtra);
 			}
+			CurrentSpells.ranger.extra = newExtra.concat(bonusSpells);
+			CurrentSpells.ranger.extra[100] = "AddToKnown";
+		}
+	},
+	removeeval : function() {
+		// remove the extra spells
+		if (!CurrentSpells.ranger || !CurrentSpells.ranger.extra) return;
+		var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+		if (CurrentSpells.ranger.extra.toString().indexOf(bonusSpells.toString()) !== -1) {
+			var newExtra = CurrentSpells.ranger.extra.join("##").replace(bonusSpells.join("##"), "").replace("AddToKnown", "").replace(/#+$/, '');
+			CurrentSpells.ranger.extra = newExtra.split("##");
+			CurrentSpells.ranger.extra[100] = "AddToKnown";
 		}
 	}
 });
