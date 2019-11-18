@@ -33,7 +33,6 @@ CreateClassFeatureVariant("barbarian", "fast movement", "Instinctive Pounce", {
 	action : [["reaction", ""]]
 });
 
-
 // Bard alternative class features enhancements
 AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Expanded Spell List", {
 	name : "Expanded Bard Spell List",
@@ -63,7 +62,6 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Spell Versatility"
 	source : ["UA:CFV", 3],
 	description : "\n   After a long rest, I can swap a bard cantrip or spell I know for another of the same level"
 }, "Bard Spellcasting Enhancement");
-
 
 // Cleric alternative class features and enhancements
 AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Cantrip Versatility", {
@@ -447,7 +445,6 @@ AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity
 	action : [["bonus action", ""]]
 }, "Channel Divinity Enhancement");
 
-
 // Ranger alternative class features and enhancements
 
 // Make natural explorer into a choice (can't be done by automation because of extrachoices) and add "Deft Explorer" variant option
@@ -455,15 +452,15 @@ var origNatExpl = ClassList.ranger.features["natural explorer"];
 var origNatExplNm = "\x1B[original] " + origNatExpl.name;
 origNatExpl.choices = [origNatExplNm];
 origNatExpl.defaultChoice = origNatExplNm.toLowerCase();
-origFavoredEnemy[origFavoredEnemyNm.toLowerCase()] = {
-	name : origFavoredEnemy.name,
-	source : origFavoredEnemy.source,
-	description : origFavoredEnemy.description,
-	additional : origFavoredEnemy.additional,
-	extraname : origFavoredEnemy.extraname,
-	extrachoices : origFavoredEnemy.extrachoices
+origNatExpl[origNatExplNm.toLowerCase()] = {
+	name : origNatExpl.name,
+	source : origNatExpl.source,
+	description : origNatExpl.description,
+	additional : origNatExpl.additional,
+	extraname : origNatExpl.extraname,
+	extrachoices : origNatExpl.extrachoices
 };
-delete origFavoredEnemy.additional;
+delete origNatExpl.additional;
 origNatExpl.description = '\n   Select ' + origNatExpl.name + ' or a variant using the "Choose Feature" button above';
 origNatExpl.name = origNatExpl.name + " or a Variant";
 origNatExpl.resetNatExplExtrachoices = function () {
@@ -622,7 +619,7 @@ AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Expanded Spell L
 AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spell Versatility", {
 	name : "Spell Versatility",
 	source : ["UA:CFV", 8],
-	description : "\n   Whenever I finish a long rest, I can replace a ranger spell I know with another of the same level"
+	description : "\n   When I finish a long rest, I can replace a ranger spell I know with another of the same level"
 }, "Ranger Spellcasting Enhancement");
 AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spellcasting Focus", {
 	name : "Spellcasting Focus",
@@ -883,7 +880,7 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Unerring Spell
 AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Spell Versatility", {
 	name : "Spell Versatility",
 	source : ["UA:CFV", 10],
-	description : "\n   Whenever I finish a long rest, I can replace a warlock spell I know with another of the same level"
+	description : "\n   After a long rest, I can swap a warlock cantrip or spell I know for another of the same level"
 }, "Pact Magic Enhancement");
 AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell List", {
 	name : "Expanded Warlock Spell List",
@@ -947,56 +944,98 @@ AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Far 
 	name : "Far Scribe",
 	source : ["UA:CFV", 11],
 	description : desc([
-		"",
-		""
+		"My book of shadows has a new page; As an action, a creature can write its name on it",
+		"This page can hold my Cha mod (min 1) in creature names; I can remove one as an action",
+		"I can cast Sending without a spell slot or material components, targeting one on the page",
+		"Instead of saying the message, I write it on the page and any reply appears there as well",
+		"This writing disappears after 1 minute; The target still hears the message in their mind"
 	]),
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
+	},
+	action : [["action", " (erase name)"]],
+	spellcastingBonus : {
+		name : "Far Scribe",
+		spells : ["sending"],
+		selection : ["sending"],
+		firstCol : "atwill"
+	},
+	spellChanges : {
+		"sending" : {
+			components : "V,S",
+			compMaterial : "",
+			description : "Send 25 word message to crea named in book of shadows; it recognizes me and can respond 25 words",
+			changes : "By using Far Scribe, I can cast Sending without using a spell slot or material components, but only to target one of the creatures that wrote their name in my book of shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind."
+		}
 	}
 });
 AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Gift of the Protectors (prereq: level 9 warlock, Pact of the Tome)", {
 	name : "Gift of the Protectors",
 	source : ["UA:CFV", 11],
 	description : desc([
-		"",
-		""
+		"My book of shadows has a new page; As an action, a creature can write its name on it",
+		"This page can hold my Cha mod (min 1) in creature names; I can remove one as an action",
+		"If a creature whose name is on the page drops to 0 HP, it magically drops to 1 HP instead",
+		"This doesn't work if the creature would be killed outright"
 	]),
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
-	}
+	},
+	action : [["action", " (erase name)"]],
+	usages : 1,
+	recovery : "long rest"
 });
 AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Investment of the Chain Master (prereq: Pact of the Chain)", {
 	name : "Investment of the Chain Master",
 	source : ["UA:CFV", 11],
 	description : desc([
-		"",
-		""
+		"When I cast Find Familiar, the summoned create has additional benefits:",
+		"\u2022 It gains a flying or swimming speed of 40 ft (my choice at casting)",
+		"\u2022 It no longer needs to breathe",
+		"\u2022 Its weapon attacks are considered magical for overcoming immunities and resistances",
+		"\u2022 If it forces a creature to make a saving throw, it uses my spell save DC",
+		"Note that the automation will only add this to current familiars and on a level change"
 	]),
 	prereqeval : function(v) {
 		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain';
+	},
+	changeeval : function(lvlA) {
+		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+		if (!AScompA) return;
+		var aStr = "My Investment of the Chain Master eldritch invocation grants my familiar the following:"+
+		"\n\u2022 The familiar gains a flying or swimming speed of 40 ft (my choice at casting)"+
+		"\n\u2022 The familiar no longer needs to breathe"+
+		"\n\u2022 Its weapon attacks are considered magical for overcoming immunities and resistances"+
+		"\n\u2022 If the familiar forces a creature to make a saving throw, it uses my spell save DC";
+		var aFnc = !lvlA[1] ? RemoveString : AddString;
+		for (var a = 1; a < AScompA.length; a++) {
+			if (What(AScompA[a] + 'Comp.Type') == "Familiar") {
+				aFnc(AScompA[a] + "Cnote.Left", aStr, true);
+			}
+		}
 	}
 });
 AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Protection of the Talisman (prereq: level 9 warlock, Pact of the Talisman)", {
 	name : "Protection of the Talisman",
 	source : ["UA:CFV", 12],
-	description : desc([
-		"",
-		""
-	]),
+	description : "\n   The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency",
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the talisman';
-	}
+	},
+	savetxt : { text : ["+1d4 to nonproficient saves"] }
 });
 AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 	name : "Rebuke of the Talisman",
 	source : ["UA:CFV", 12],
 	description : desc([
-		"",
-		""
+		"As a reaction when the wearer of my talisman is hit, I deal damage and push the attacker",
+		"To be able to do this, I have to see the attacker and it has to be within 30 ft of me",
+		"I deal my Cha mod in psychic damage (min 1) and push it 10 ft away from the talisman"
 	]),
 	prereqeval : function(v) {
 		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the talisman';
-	}
+	},
+	action : [["reaction", ""]]
 });
 // Pact Boon options
 AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Talisman", {
@@ -1009,7 +1048,6 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Ta
 		"This ceremony destroys the previous amulet and can be done during a short or long rest"
 	])
 });
-
 
 // Wizard alternative class features and enhancements
 AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Cantrip Versatility", {
