@@ -17952,7 +17952,7 @@ delete origNatExpl.additional;
 origNatExpl.description = '\n   Select ' + origNatExpl.name + ' or a variant using the "Choose Feature" button above';
 origNatExpl.name = origNatExpl.name + " or a Variant";
 origNatExpl.resetNatExplExtrachoices = function () {
-	var extraSel = GetFeatureChoice("classes", "ranger', 'natural explorer", true);
+	var extraSel = GetFeatureChoice("classes", "ranger", "natural explorer", true);
 	for (var i = 0; i < extraSel.length; i++) {
 		ClassFeatureOptions(['ranger', 'natural explorer', extraSel[i], 'extra'], "remove");
 	};
@@ -17964,17 +17964,21 @@ AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
 	eval : function() {
 		var natExplFea = ClassList.ranger.features["natural explorer"];
 		natExplFea.resetNatExplExtrachoices();
-		natExplFea.extraname = natExplFea["def explorer"].extraname;
-		natExplFea.extrachoices = natExplFea["def explorer"].extrachoices;
+		natExplFea.extraname = natExplFea["deft explorer"].extraname;
+		natExplFea.extrachoices = natExplFea["deft explorer"].extrachoices;
 	},
-	removeeval : function() {
+	removeeval : function(lvlA, choiceA) {
 		var natExplFea = ClassList.ranger.features["natural explorer"];
-		var newChoice = GetFeatureChoice("classes", "ranger', 'natural explorer", false);
+		var newChoice = choiceA[1];
 		natExplFea.resetNatExplExtrachoices();
-		natExplFea.extraname = "Ranger 1";
-		ClassFeatureOptions(['ranger', 'natural explorer', "travel benefits", 'extra']);
-		natExplFea.extraname = natExplFea[newChoice].extraname;
-		natExplFea.extrachoices = natExplFea[newChoice].extrachoices;
+		if (newChoice == "\x1B[original] natural explorer") {
+			natExplFea.extraname = "Ranger 1";
+			ClassFeatureOptions(['ranger', 'natural explorer', "travel benefits", 'extra']);
+		}
+		if (newChoice && natExplFea[newChoice]) {
+			natExplFea.extraname = natExplFea[newChoice].extraname ? natExplFea[newChoice].extraname : "";
+			natExplFea.extrachoices = natExplFea[newChoice].extrachoices ? natExplFea[newChoice].extrachoices : "";
+		}
 	},
 	additional :  levels.map(function (n) {
 		return n < 6 ? "1 benefit" : (n < 10 ? 2 : 3) + " benefits";
@@ -18060,7 +18064,7 @@ AddFeatureChoice(origFavoredEnemy, false, "Favored Foe", {
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
-				if (spName == "ranger") {
+				if (spName == "ranger" && spType.indexOf("bonus") == -1) {
 					if (!spList.notspells) spList.notspells = [];
 					spList.notspells = spList.notspells.concat(["hunter's mark"]);
 				}
