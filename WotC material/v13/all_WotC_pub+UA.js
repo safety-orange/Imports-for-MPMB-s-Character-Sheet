@@ -21818,6 +21818,7 @@ MagicItemsList["infernal tack"] = {
 	source : [["MToF", 167], ["DiA", 224]],
 	type : "wondrous item",
 	rarity : "legendary",
+	notLegalAL : true,
 	description : "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",
 	descriptionLong : "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
 	descriptionFull : "A narzugon binds a nightmare to its service with infernal tack, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.\n   You can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.\n   The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil.",
@@ -28808,6 +28809,7 @@ if (!SourceList.MToF) {
 		source : [["MToF", 167], ["DiA", 224]],
 		type : "wondrous item",
 		rarity : "legendary",
+		notLegalAL : true,
 		description : "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",
 		descriptionLong : "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
 		descriptionFull : "A narzugon binds a nightmare to its service with infernal tack, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.\n   You can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.\n   The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil.",
@@ -28876,6 +28878,7 @@ MagicItemsList["shield of the hidden lord"] = {
 	source : ["DiA", 225],
 	type : "shield",
 	rarity : "legendary",
+	storyItemAL : true,
 	description : "This shield grants me +2 bonus to AC and resistance to fire damage. It has 3 charges, regaining all at dawn. I can expend 1 charge to cast Fireball or 2 charges to cast Wall of Fire from it at DC 21. The shield is sentient and can communicate telepathically with any creature within 120 ft of it. See \"Notes\" page for more.",
 	descriptionFull : shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
@@ -46577,7 +46580,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (!aDomain || !aDomain.features.subclassfeature8 || !(/divine strike|potent spellcasting/i).test(aDomain.features.subclassfeature8.name)) continue;
-		CreateClassFeatureVariant(aDomain, "subclassfeature8", "Blessed Strikes", {
+		CreateClassFeatureVariant(ClassList.cleric.subclasses[1][i], "subclassfeature8", "Blessed Strikes", {
 			name : "Blessed Strikes",
 			source : ["UA:CFV", 4],
 			description : desc([
@@ -47138,7 +47141,7 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 					spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
 				}
 			},
-			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
+			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature. I can also cast each of them once per long rest without expending a spell slot."
 		]
 	},
 	changeeval : function() {
@@ -47386,7 +47389,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell
 		spellList : [
 			function(spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
-				if (spName !== "warlock" || spType.indexOf("bonus") !== -1) return;
+				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["thunderwave", "knock", "animate dead", "life transference", "greater invisibility", "phantasmal killer", "mislead", "modify memory", "planar binding", "teleportation circle", "create homunculus", "magic jar", "project image", "abi-dalzim's horrid wilting", "gate", "shapechange", "weird"]);
 			},
 			"This alternative class feature enhancement expands the spells list of the warlock class."

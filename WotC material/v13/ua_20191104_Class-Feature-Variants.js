@@ -95,7 +95,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (!aDomain || !aDomain.features.subclassfeature8 || !(/divine strike|potent spellcasting/i).test(aDomain.features.subclassfeature8.name)) continue;
-		CreateClassFeatureVariant(aDomain, "subclassfeature8", "Blessed Strikes", {
+		CreateClassFeatureVariant(ClassList.cleric.subclasses[1][i], "subclassfeature8", "Blessed Strikes", {
 			name : "Blessed Strikes",
 			source : ["UA:CFV", 4],
 			description : desc([
@@ -656,7 +656,7 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 					spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
 				}
 			},
-			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
+			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature. I can also cast each of them once per long rest without expending a spell slot."
 		]
 	},
 	changeeval : function() {
@@ -904,7 +904,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell
 		spellList : [
 			function(spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
-				if (spName !== "warlock" || spType.indexOf("bonus") !== -1) return;
+				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["thunderwave", "knock", "animate dead", "life transference", "greater invisibility", "phantasmal killer", "mislead", "modify memory", "planar binding", "teleportation circle", "create homunculus", "magic jar", "project image", "abi-dalzim's horrid wilting", "gate", "shapechange", "weird"]);
 			},
 			"This alternative class feature enhancement expands the spells list of the warlock class."
