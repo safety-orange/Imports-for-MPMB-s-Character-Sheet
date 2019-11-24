@@ -964,7 +964,7 @@ AddSubClass("fighter", "battle master", {
 			usages : [0, 0, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6],
 			recovery : "short rest"
 		},
-		"subclassfeature3.1" : {
+		"subclassfeature3.maneuvers" : {
 			name : "Maneuvers",
 			source : ["P", 73],
 			minlevel : 3,
@@ -46744,12 +46744,12 @@ if (ClassSubList["fighter-battle master"]) {
 		source : ["UA:CFV", 5],
 		description : "\n   Whenever I finish a long rest, I can replace a Maneuver I know with another"
 	}, "Maneuvers Enhancement");
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Ambush", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Ambush", {
 		name : "Ambush",
 		source : ["UA:CFV", 5],
 		description : "\n   When I make an initiative roll or a Dex (Stealth) check, I can add a superiority die to it"
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Bait and Switch", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Bait and Switch", {
 		name : "Bait and Switch",
 		source : ["UA:CFV", 5],
 		description : desc([
@@ -46758,7 +46758,7 @@ if (ClassSubList["fighter-battle master"]) {
 			"The ally then adds the superiority die to its AC until the start of my next turn"
 		])
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Brace", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Brace", {
 		name : "Brace",
 		source : ["UA:CFV", 5],
 		description : desc([
@@ -46767,7 +46767,7 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action : [["reaction", ""]]
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Restraining Strike", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Restraining Strike", {
 		name : "Restraining Strike",
 		source : ["UA:CFV", 5],
 		description : desc([
@@ -46777,12 +46777,12 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action : [["bonus action", " (after melee weapon hit)"]]
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Silver Tongue", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Silver Tongue", {
 		name : "Silver Tongue",
 		source : ["UA:CFV", 5],
 		description : "\n   When I make a Cha (Deception) or Cha (Persuasion) check, I can add a superiority die to it"
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Snipe", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Snipe", {
 		name : "Snipe",
 		source : ["UA:CFV", 5],
 		description : desc([
@@ -46791,7 +46791,7 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action : [["bonus action", ""]]
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Studious Eye", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Studious Eye", {
 		name : "Studious Eye",
 		source : ["UA:CFV", 5],
 		description : "\n   When I make a Wis (Insight) or Int (Investigation) check, I can add a superiority die to it"
@@ -47354,7 +47354,7 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Elemental Spel
 	name : "Elemental Spell",
 	source : ["UA:CFV", 10],
 	description : " [1 sorcery point]" + desc([
-		"I can change the damage type a spell deals to acid, cold, fire, lightning, or thunder",
+		"I can change the damage type of a spell to acid, cold, fire, lightning, or thunder instead",
 		"I can only do this if the spell originally deals one of these damage types"
 	])
 });

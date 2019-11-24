@@ -822,7 +822,7 @@ AddSubClass("fighter", "battle master", {
 			usages : [0, 0, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6],
 			recovery : "short rest"
 		},
-		"subclassfeature3.1" : {
+		"subclassfeature3.maneuvers" : {
 			name : "Maneuvers",
 			source : ["P", 73],
 			minlevel : 3,
