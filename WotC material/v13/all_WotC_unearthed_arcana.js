@@ -17728,10 +17728,6 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.baseWeaponName == "unarmed strike" || (/improvised/i).test(v.WeaponName + v.baseWeaponName) || (/improvised weapon/i).test(v.theWea.type)) {
-					fields.Proficiency = true;
-					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + 'After hit, can attempt to grapple as a bonus action';
-				};
 				if (v.baseWeaponName == "unarmed strike") {
 					if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4") fields.Damage_Die = '1d6';
 					fields.Description += (fields.Description ? '; ' : '') + 'Versatile (d8)';
@@ -17953,8 +17949,11 @@ origNatExpl.description = '\n   Select ' + origNatExpl.name + ' or a variant usi
 origNatExpl.name = origNatExpl.name + " or a Variant";
 origNatExpl.resetNatExplExtrachoices = function () {
 	var extraSel = GetFeatureChoice("classes", "ranger", "natural explorer", true);
+	var curExtraName = ClassList.ranger.features["natural explorer"].extraname;
 	for (var i = 0; i < extraSel.length; i++) {
+		if (extraSel[i] == "travel benefits") ClassList.ranger.features["natural explorer"].extraname = "Ranger 1";
 		ClassFeatureOptions(['ranger', 'natural explorer', extraSel[i], 'extra'], "remove");
+		if (extraSel[i] == "travel benefits") ClassList.ranger.features["natural explorer"].extraname = curExtraName;
 	};
 };
 AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
@@ -18033,7 +18032,8 @@ origFavoredEnemy[origFavoredEnemyNm.toLowerCase()] = {
 delete origFavoredEnemy.additional;
 origFavoredEnemy.description = '\n   Select ' + origFavoredEnemy.name + ' or a variant using the "Choose Feature" button above';
 origFavoredEnemy.name = origFavoredEnemy.name + " or a Variant";
-origFavoredEnemy.extrachoicesNotInMenu = GetFeatureChoice("classes", "ranger", "favored enemy", false) != ClassList.ranger.features["favored enemy"].choices[0];
+var curFavEnemyChoice = GetFeatureChoice("classes", "ranger", "favored enemy", false);
+origFavoredEnemy.extrachoicesNotInMenu = !!curFavEnemyChoice && curFavEnemyChoice != ClassList.ranger.features["favored enemy"].choices[0].toLowerCase();
 AddFeatureChoice(origFavoredEnemy, false, "Favored Foe", {
 	name : "Favored Foe",
 	source : ["UA:CFV", 7],
