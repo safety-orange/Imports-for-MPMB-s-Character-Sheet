@@ -4779,15 +4779,48 @@ MagicItemsList["dark shard amulet"] = {
 	prereqeval : function (v) { return classes.known.warlock ? true : false; },
 	usages : 1,
 	recovery : "long rest",
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// Remove the already known Warlock cantrips
+				if (spName == 'warlock-dark shard amulet' && CurrentSpells.warlock && CurrentSpells.warlock.selectCa) {
+					var warlockCantrips = CreateSpellList({"class" : "warlock", level : [0,0]});
+					var notCantrips = [];
+					for (var i = 0; i < warlockCantrips.length; i++) {
+						if (CurrentSpells.warlock.selectCa.indexOf(warlockCantrips[i]) !== -1) notCantrips.push(warlockCantrips[i]);
+					}
+					if (!spList.notspells) spList.notspells = [];
+					spList.notspells = spList.notspells.concat(notCantrips);
+				}
+			}
+		],
+		spellAdd : [
+			function (spellKey, spellObj, spName, isDuplicate) {
+				if (spName == 'warlock-dark shard amulet') {
+					spellObj.firstCol = "";
+				};
+			}
+		]
+	},
 	eval : function () {
-		CurrentSpells['dark shard amulet'] = {
+		CurrentSpells['warlock-dark shard amulet'] = {
 			name : 'Dark Shard Amulet (item)',
 			ability : "class",
 			list : { 'class' : 'warlock', level : [0, 0] },
 			known : { cantrips : 0, spells : 'list' },
-			bonus : {},
+			bonus : {
+				bon1 : {
+					name : 'Just select "Full List"',
+					spells : []
+				},
+				bon2 : {
+					name : 'in the bottom right',
+					spells : []
+				}
+			},
 			typeList : 4,
-			refType : "item"
+			refType : "item",
+			firstCol : ""
 		};
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 	},

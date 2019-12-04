@@ -285,35 +285,6 @@ if (!SourceList.WGtE) {
 			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 		}
 	};
-	RaceList["dragonmark passage human-ua-d"] = { // different in Unearthed Arcana
-		regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
-		name : "Human (dragonmark)",
-		sortname : "Dragonmark, Passage (Human)",
-		source : ["UA:D", 4],
-		plural : "Humans (dragonmark)",
-		size : 3,
-		speed : {
-			walk : { spd : 40, enc : 30 }
-		},
-		languageProfs : ["Common", 1],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-		weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-		heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-		weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-		scorestxt : "+2 Dexterity and +1 to another ability score of my choice",
-		scores : [0, 2, 0, 0, 0, 0],
-		trait : "Human, Dragonmark of Passage (+2 Dexterity and +1 to another ability score)\n   Intuitive Motion: I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Orien's Grace: I can forgo half my movement speed for my turn to no longer provoke opportunity attacks for the rest of that turn.\n   Shared Passage: As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
-		features : {
-			"shared passage" : {
-				name : "Shared Passage",
-				minlevel : 1,
-				usages : 1,
-				recovery : "long rest",
-				action : ["bonus action", ""]
-			}
-		}
-	};
 	RaceList["dragonmark scribing gnome"] = {
 		regExpSearch : /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
 		name : "Gnome (dragonmark)",
@@ -914,6 +885,35 @@ if (!SourceList.WGtE) {
 		}]
 	};
 }
+RaceList["dragonmark passage human-ua-d"] = { // different in Unearthed Arcana
+	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Passage (Human)",
+	source : ["UA:D", 4],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 40, enc : 30 }
+	},
+	languageProfs : ["Common", 1],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	scorestxt : "+2 Dexterity and +1 to another ability score of my choice",
+	scores : [0, 2, 0, 0, 0, 0],
+	trait : "Human, Dragonmark of Passage (+2 Dexterity and +1 to another ability score)\n   Intuitive Motion: I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Orien's Grace: I can forgo half my movement speed for my turn to no longer provoke opportunity attacks for the rest of that turn.\n   Shared Passage: As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
+	features : {
+		"shared passage" : {
+			name : "Shared Passage",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest",
+			action : ["bonus action", ""]
+		}
+	}
+};
 
 // Control Winds reprint (only in Unearthed Arcana article, not in WGtE)
 if (!SpellsList["control winds"]) {
