@@ -356,7 +356,7 @@ var origMartialArts = ClassList.monk.features["martial arts"];
 origMartialArts.extrachoices = [];
 origMartialArts.extraname = "Monk Weapon";
 origMartialArts.extraTimes = ["5 + Wisdom Modifier"];
-origMartialArts.extrachoicesNotInMenu = GetFeatureChoice("classes", "monk", "martial arts", false) != "choose monk weapons";
+origMartialArts.extrachoicesNotInMenu = GetFeatureChoice("classes", "monk", "martial arts") != "choose monk weapons";
 RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
@@ -544,7 +544,7 @@ origFavoredEnemy[origFavoredEnemyNm.toLowerCase()] = {
 delete origFavoredEnemy.additional;
 origFavoredEnemy.description = '\n   Select ' + origFavoredEnemy.name + ' or a variant using the "Choose Feature" button above';
 origFavoredEnemy.name = origFavoredEnemy.name + " or a Variant";
-var curFavEnemyChoice = GetFeatureChoice("classes", "ranger", "favored enemy", false);
+var curFavEnemyChoice = GetFeatureChoice("classes", "ranger", "favored enemy");
 origFavoredEnemy.extrachoicesNotInMenu = !!curFavEnemyChoice && curFavEnemyChoice != ClassList.ranger.features["favored enemy"].choices[0].toLowerCase();
 AddFeatureChoice(origFavoredEnemy, false, "Favored Foe", {
 	name : "Favored Foe",
@@ -721,7 +721,7 @@ CreatureList["beast of the air"] = {
 	ac : 13,
 	hp : 6,
 	hd : [1, 6],
-	speed : "10 ft,\nfly 50 ft",
+	speed : "10 ft,\nfly 60 ft",
 	scores : [6, 16, 13, 8, 14, 11],
 	saves : ["", 5, 3, "", 4, ""],
 	skills : {

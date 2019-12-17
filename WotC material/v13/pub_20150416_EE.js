@@ -525,7 +525,7 @@ SpellsList["frostbite"] = {
 SpellsList["gust"] = {
 	name : "Gust",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
+	source : [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",

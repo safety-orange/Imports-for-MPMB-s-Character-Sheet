@@ -14,7 +14,7 @@ SourceList["UA:E"] = {
 
 // Adds three races:
 // Changeling
-RaceList["changeling"] = {
+RaceList["changeling-ua"] = {
 	regExpSearch : /changeling/i,
 	name : "Changeling",
 	source : ["UA:E", 1],
@@ -35,7 +35,7 @@ RaceList["changeling"] = {
 	action : ['action', 'Polymorph']
 };
 // Warforged
-RaceList["warforged"] = {
+RaceList["warforged-ua"] = {
 	regExpSearch : /warforged/i,
 	name : "Warforged",
 	source : ["UA:E", 3],
@@ -50,7 +50,7 @@ RaceList["warforged"] = {
 	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")",
 	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)",
 	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 0],
 	trait : "Warforged (+1 Strength, +1 Constitution)\nLiving Construct:\n   Even though I was constructed, I am a living creature. I am immune to disease. I do not need to eat or breathe, but I can ingest food and drink if I wish.\n   Instead of sleeping, I enter an inactive state for 4 hours each day. I do not dream in this state; I am fully aware of my surroundings and notice approaching enemies and other events as normal. I still need 8 hours for a long rest.",
 	extraAC : {
@@ -60,7 +60,7 @@ RaceList["warforged"] = {
 	}
 };
 // Shifter and its 6 subraces
-RaceList["shifter"] = {
+RaceList["shifter-ua"] = {
 	regExpSearch : /shifter/i,
 	name : "Shifter",
 	source : ["UA:E", 2],
@@ -72,10 +72,10 @@ RaceList["shifter"] = {
 	languageProfs : ["Common", "Sylvan"],
 	vision : [["Darkvision", 60]],
 	age : " reach adulthood at the end of their teens and live around 100 years",
-	height : " range from under 5 to 6 feet tall (4'6\" + 2d8\")",
-	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 135 lb (90 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt : "+1 Dexterity and +1 to other ability score depending on type of shifter",
 	scores : [0, 1, 0, 0, 0, 0],
 	trait : "Shifter (+1 Dexterity and +1 to other ability score depending on type of shifter)\n   Use the \"Racial Options\" button to select type of shifter.\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and another bonus depending on the type of shifter.",
@@ -89,7 +89,7 @@ RaceList["shifter"] = {
 		}
 	}
 };
-AddRacialVariant("shifter", "beasthide", {
+AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch : /beasthide/i,
 	name : "Beasthide shifter",
 	source : ["UA:E", 2],
@@ -98,7 +98,7 @@ AddRacialVariant("shifter", "beasthide", {
 	scores : [0, 1, 1, 0, 0, 0],
 	trait : "Beasthide Shifter (+1 Dexterity, +1 Constitution)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a +1 bonus to my AC."
 });
-AddRacialVariant("shifter", "cliffwalk", {
+AddRacialVariant("shifter-ua", "cliffwalk", {
 	regExpSearch : /cliffwalk/i,
 	name : "Cliffwalk shifter",
 	source : ["UA:E", 2],
@@ -107,7 +107,7 @@ AddRacialVariant("shifter", "cliffwalk", {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Cliffwalk Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a climb speed of 30 feet."
 });
-AddRacialVariant("shifter", "longstride", {
+AddRacialVariant("shifter-ua", "longstride", {
 	regExpSearch : /longstride/i,
 	name : "Longstride shifter",
 	source : ["UA:E", 2],
@@ -116,7 +116,7 @@ AddRacialVariant("shifter", "longstride", {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Longstride Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I can use the Dash action as a bonus action."
 });
-AddRacialVariant("shifter", "longtooth", {
+AddRacialVariant("shifter-ua", "longtooth", {
 	regExpSearch : /(longtooth|longteeth)/i,
 	name : "Longtooth shifter",
 	source : ["UA:E", 2],
@@ -137,7 +137,7 @@ AddRacialVariant("shifter", "longtooth", {
 	scores : [1, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled."
 });
-AddRacialVariant("shifter", "razorclaw", {
+AddRacialVariant("shifter-ua", "razorclaw", {
 	regExpSearch : /razorclaw/i,
 	name : "Razorclaw shifter",
 	source : ["UA:E", 2],
@@ -155,7 +155,7 @@ AddRacialVariant("shifter", "razorclaw", {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage."
 });
-AddRacialVariant("shifter", "wildhunt", {
+AddRacialVariant("shifter-ua", "wildhunt", {
 	regExpSearch : /wildhunt/i,
 	name : "Wildhunt shifter",
 	source : ["UA:E", 3],
@@ -166,7 +166,7 @@ AddRacialVariant("shifter", "wildhunt", {
 });
 
 // 12 variants of the Dragonmark feat
-FeatsList["dragonmark"] = {
+FeatsList["dragonmark-ua"] = {
 	name : "Dragonmark",
 	source : ["UA:E", 6],
 	description : "Select the type of dragonmark using the little square button in this feat line.",
@@ -1279,7 +1279,7 @@ ClassList["ua-playtest-ranger"] = {
 		secondary : [true, true]
 	},
 	equipment : "Playtest Ranger starting equipment:\n \u2022 leather armor;\n \u2022 Two shortswords -or- two martial melee weapons -or- a martial weapon and a shield;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows -or- a martial weapon.",
-	subclasses : ["Ranger Path", ["ua-playtest-ranger-guardian", "ua-playtest-ranger-seeker", "ua-playtest-ranger-stalker"]],
+	subclasses : ["Ranger Path", []],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"ambuscade" : {
@@ -1317,7 +1317,7 @@ ClassList["ua-playtest-ranger"] = {
 		"primeval awareness" : ClassList.ranger.features["primeval awareness"]
 	}
 };
-ClassSubList["ua-playtest-ranger-guardian"] = {
+AddSubClass("ua-playtest-ranger", "guardian", {
 	regExpSearch : /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Guardian",
 	source : ["UA:R", 3],
@@ -1343,8 +1343,8 @@ ClassSubList["ua-playtest-ranger-guardian"] = {
 			description :"\n   " + "When I call my spirit animal, I grant me or an ally I can see 2d6 + Wis mod temp HP"
 		}
 	}
-};
-ClassSubList["ua-playtest-ranger-seeker"] = {
+});
+AddSubClass("ua-playtest-ranger", "seeker", {
 	regExpSearch : /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Seeker",
 	source : ["UA:R", 4],
@@ -1373,8 +1373,8 @@ ClassSubList["ua-playtest-ranger-seeker"] = {
 			])
 		}
 	}
-};
-ClassSubList["ua-playtest-ranger-stalker"] = {
+});
+AddSubClass("ua-playtest-ranger", "stalker", {
 	regExpSearch : /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Stalker",
 	source : ["UA:R", 4],
@@ -1403,7 +1403,7 @@ ClassSubList["ua-playtest-ranger-stalker"] = {
 			])
 		}
 	}
-};
+});
 var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Prestige Classes and Rune Magic article to MPMB's Character Record Sheet
@@ -3014,7 +3014,7 @@ ClassList["rangerua"] = {
 		secondary : [true, true]
 	},
 	equipment : "Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-	subclasses : ["Ranger Conclaves", ["rangerua-beast master", "rangerua-deep stalker", "rangerua-hunter"]],
+	subclasses : ["Ranger Conclaves", []],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 2,
 	spellcastingList : {
@@ -3182,7 +3182,7 @@ ClassList["rangerua"] = {
 		}
 	}
 };
-ClassSubList["rangerua-beast master"] = {
+AddSubClass("rangerua", "beast master", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Conclave",
 	source : ["UA:RR", 5],
@@ -3225,8 +3225,8 @@ ClassSubList["rangerua-beast master"] = {
 			description : "\n   " + "My companion can, as a reaction, halve an attack's damage from attacker that it sees"
 		}
 	}
-};
-ClassSubList["rangerua-hunter"] = {
+});
+AddSubClass("rangerua", "hunter", {
 	regExpSearch : /^(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i,
 	subname : "Hunter Conclave",
 	source : ["UA:RR", 7],
@@ -3312,8 +3312,8 @@ ClassSubList["rangerua-hunter"] = {
 			}
 		}
 	}
-};
-ClassSubList["rangerua-deep stalker"] = {
+});
+AddSubClass("rangerua", "deep stalker", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker Conclave",
 	source : ["UA:RR", 7],
@@ -3354,7 +3354,7 @@ ClassSubList["rangerua-deep stalker"] = {
 			action : ["reaction", " (when attacked)"]
 		}
 	}
-};
+});
 
 // By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!
@@ -4819,7 +4819,7 @@ SourceList["UA:A"] = {
 ClassList['artificer-ua'] = {
 	regExpSearch : /^(?=.*artificer)(?!.*wizard).*$/i,
 	name : "Artificer",
-	source : ["UA:A", 1],
+	source : [["UA:A", 1]],
 	primaryAbility : "Intelligence",
 	abilitySave : 4,
 	prereqs : "Intelligence 13",
@@ -4841,7 +4841,7 @@ ClassList['artificer-ua'] = {
 		primary : [true, false]
 	},
 	equipment : "Artificer starting equipment:\n \u2022 A handaxe and a light hammer -or- any two simple weapons;\n \u2022 Scale mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts;\n \u2022 A dungeoneer's pack;\n \u2022 Thieves' tools.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-	subclasses : ["Artificer Specialism", ["artificer-alchemist", "artificer-gunsmith"]],
+	subclasses : ["Artificer Specialism", []],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 3,
 	spellcastingKnown : {
@@ -4973,10 +4973,11 @@ ClassList['artificer-ua'] = {
 	}
 };
 // Alchemist subclass for the Artificer
-ClassSubList["artificer-alchemist"] = {
-	regExpSearch : /^(?=.*artificer)(?=.*alchemist)(?!.*wizard).*$/i,
+AddSubClass("artificer-ua", "alchemist", {
+	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
 	subname : "Alchemist",
-	source : ["UA:A", 5],
+	fullname : "Alchemist",
+	source : [["UA:A", 5]],
 	features : {
 		"subclassfeature1" : {
 			name : "Alchemist's Satchel",
@@ -5138,12 +5139,14 @@ ClassSubList["artificer-alchemist"] = {
 			}
 		}
 	}
-};
+});
+
 // Gunsmith subclass for the Artificer
-ClassSubList["artificer-gunsmith"] = {
-	regExpSearch : /^(?=.*artificer)(?=.*gunsmith)(?!.*wizard).*$/i,
+AddSubClass("artificer-ua", "gunsmith", {
+	regExpSearch : /^(?=.*gunsmith)(?!.*wizard).*$/i,
 	subname : "Gunsmith",
-	source : ["UA:A", 6],
+	fullname : "Gunsmith",
+	source : [["UA:A", 6]],
 	features : {
 		"subclassfeature1" : {
 			name : "Master Smith",
@@ -5339,7 +5342,7 @@ ClassSubList["artificer-gunsmith"] = {
 			weaponsAdd : ['Thunder Cannon (Explosive Round)']
 		}
 	}
-};
+});
 
 // Set the Artificer class spell list and Create the choices for the wondrous items class feature of the artificer
 var SetArtificerAttr = function(){
@@ -6589,7 +6592,7 @@ ClassList.mystic = {
 		primary : [true, false]
 	},
 	equipment : "Mystic starting equipment:\n \u2022 A spear -or- a mace;\n \u2022 Leather mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts -or- any simple weapon;\n \u2022 A scholar's pack -or- an explorer's pack.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-	subclasses : ["Mystic Order", ["mystic-avatar", "mystic-awakened", "mystic-immortal", "mystic-nomad", "mystic-soul knife", "mystic-wu jen"]],
+	subclasses : ["Mystic Order", []],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : "psionic0",
 	spellcastingKnown : {
@@ -6761,7 +6764,7 @@ ClassList.mystic = {
 	}
 };
 // Order of the Avatar subclass for the Mystic
-ClassSubList["mystic-avatar"] = {
+AddSubClass("mystic", "avatar", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*avatar).*$/i,
 	subname : "Order of the Avatar",
 	source : ["UA:TMC", 5],
@@ -6824,9 +6827,9 @@ ClassSubList["mystic-avatar"] = {
 			description : "\n   " + "Allies within 30 ft of me can use Dash as a bonus action while I'm not incapacitated"
 		}
 	}
-};
+});
 // Order of the Awakened subclass for the Mystic
-ClassSubList["mystic-awakened"] = {
+AddSubClass("mystic", "awakened", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*awakened).*$/i,
 	subname : "Order of the Awakened",
 	source : ["UA:TMC", 6],
@@ -6890,9 +6893,9 @@ ClassSubList["mystic-awakened"] = {
 			action : ["action", ""]
 		}
 	}
-};
+});
 // Order of the Immortal subclass for the Mystic
-ClassSubList["mystic-immortal"] = {
+AddSubClass("mystic", "immortal", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*immortal).*$/i,
 	subname : "Order of the Immortal",
 	source : ["UA:TMC", 6],
@@ -6967,9 +6970,9 @@ ClassSubList["mystic-immortal"] = {
 			})
 		}
 	}
-};
+});
 // Order of the Nomad subclass for the Mystic
-ClassSubList["mystic-nomad"] = {
+AddSubClass("mystic", "nomad", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*nomad).*$/i,
 	subname : "Order of the Nomad",
 	source : ["UA:TMC", 7],
@@ -7045,9 +7048,9 @@ ClassSubList["mystic-nomad"] = {
 			])
 		}
 	}
-};
+});
 // Order of the Soul Knife subclass for the Mystic
-ClassSubList["mystic-soul knife"] = {
+AddSubClass("mystic", "soul knife", {
 	regExpSearch : /^(?=.*soul)(?=.*knife).*$/i,
 	subname : "Order of the Soul Knife",
 	source : ["UA:TMC", 7],
@@ -7098,9 +7101,9 @@ ClassSubList["mystic-soul knife"] = {
 			action : ["action", ""]
 		}
 	}
-};
+});
 // Order of the Wu Jen subclass for the Mystic
-ClassSubList["mystic-wu jen"] = {
+AddSubClass("mystic", "wu jen", {
 	regExpSearch : /^(?=.*wu)(?=.*jen).*$/i,
 	subname : "Order of the Wu Jen",
 	source : ["UA:TMC", 8],
@@ -7164,7 +7167,7 @@ ClassSubList["mystic-wu jen"] = {
 			])
 		}
 	}
-};
+});
 
 // The Psionic Talents for the Mystic (with contributions by rabidknave)
 PsionicsList["beacon"] = {
@@ -14345,6 +14348,765 @@ AddSubClass("sorcerer", "giant soul", {
 		}
 	}
 });
+var iFileName = "ua_20180723_Races-of-Eberron.js";
+RequiredSheetVersion(13);
+// This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
+// Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
+
+// Define the sources
+SourceList["UA:RoE"] = {
+	name : "Unearthed Arcana: Races of Eberron",
+	abbreviation : "UA:RoE",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2018/dnd/downloads/723UA_EberronRaces7232018.pdf",
+	date : "2018/07/23"
+};
+
+// The changeling
+RaceList["changeling-ua2"] = {
+	regExpSearch : /changeling/i,
+	name : "Changeling",
+	source : [["WGtE", 61], ["UA:RoE", 2]],
+	plural : "Changelings",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	skillstxt : "Choose two from Deception, Intimidation, Insight, and Persuasion",
+	languageProfs : ["Common", 2],
+	toolProfs : [["Any tool", 1]],
+	age : " reach adulthood in their early teens and live around 80 years",
+	height : " stand between 5 and 6 feet tall (5'1\" + 2d4\")",
+	weight : " weigh around 140 lb (115 + 2d4 \xD7 2d4 lb)",
+	heightMetric : " stand between 1,5 to over 1,8 metres tall (155 + 5d4 cm)",
+	weightMetric : " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
+	scorestxt : "+2 Charisma, and +1 Dexterity or +1 Intelligence",
+	scores : [0, 0, 0, 0, 0, 2],
+	trait : "Changeling (+2 Charisma, and +1 Dexterity or +1 Intelligence)\nChange Appearance: As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.\nUnsettling Visage: As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.\nDivergent Persona: I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
+	action : ["action", "Change Appearance"],
+	features : {
+		"unsettling visage" : {
+			name : "Unsettling Visage",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["reaction", ""]
+		}
+	}
+};
+
+// The kalashtar
+RaceList["kalashtar-ua"] = { //this code includes contributions by /u/SoilentBrad
+	regExpSearch : /kalashtar/i,
+	name : "Kalashtar",
+	source : [["WGtE", 63], ["UA:RoE", 4]],
+	plural : "Kalashtar",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	skillstxt : "Advantage with either Insight, Intimidation, Performance, or Persuasion",
+	languageProfs : ["Common", "Quori", 1],
+	savetxt : { immune : ["effects that require me to dream"] },
+	dmgres : ["Psychic"],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from 5 and a half to well over 6 feet tall (5'4\" + 2d6\")",
+	weight : " weigh around 145 lb (110 + 2d6 \xD7 1d6 lb)",
+	heightMetric : " range from 1,7 to 1,9 metres tall (160 + 5d6 cm)",
+	weightMetric : " weigh around 65 kg (50 + 5d6 \xD7 2d6 / 10 kg)",
+	scorestxt : "+1 Wisdom, +1 Charisma, and +1 to one other ability score of my choice",
+	scores : [0, 0, 0, 0, 1, 1],
+	trait : "Kalashtar (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")\nDual Mind: As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.\nMind Link: I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.\nPsychic Glamour: I have adv. on Insight, Intimidation, Performance, or Persuasion checks.\nSevered from Dreams: I don't dream and thus immune to spells that affect dreams.",
+	action : [['bonus action', 'Mind Link'], ['reaction', 'Dual Mind']]
+};
+
+// The four subraces of the shifter
+RaceList["beasthide shifter-ua"] = {
+	regExpSearch : /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
+	name : "Beasthide shifter",
+	sortname : "Shifter, Beasthide",
+	source : [["WGtE", 66], ["UA:RoE", 6]],
+	plural : "Beasthide shifters",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common"],
+	vision : [["Darkvision", 60]],
+	skills : ["Athletics", "Perception"],
+	age : " reach young adulthood at age 10 and rarely live over 70",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 135 lb (90 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
+	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
+	scores : [0, 1, 2, 0, 0, 0],
+	trait : "Beasthide Shifter: (+1 Dexterity, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC",
+	features : {
+		"shift" : {
+			name : "Shift",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", " (start/end)"]
+		}
+	}
+};
+RaceList["longtooth shifter-ua"] = {
+	regExpSearch : /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
+	name : "Longtooth shifter",
+	sortname : "Shifter, Longtooth",
+	source : [["WGtE", 66], ["UA:RoE", 6]],
+	plural : "Longtooth shifters",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
+		name : "Longtooth Fangs",
+		source : [["WGtE", 66], ["UA:RoE", 6]],
+		damage : [1, 6, "piercing"],
+		description : "Only while shifted; One attack as bonus action"
+	},
+	weaponsAdd : ["Longtooth Fangs"],
+	vision : [["Darkvision", 60]],
+	skills : ["Intimidation", "Perception"],
+	age : " reach young adulthood at age 10 and rarely live over 70",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 135 lb (90 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
+	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
+	scores : [2, 1, 0, 0, 0, 0],
+	trait : "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	action : ['bonus action', 'Attack with Longtooth Fangs'],
+	features : {
+		"shift" : {
+			name : "Shift",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", " (start/end)"]
+		}
+	}
+};
+RaceList["swiftstride shifter-ua"] = {
+	regExpSearch : /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
+	name : "Swiftstride shifter",
+	sortname : "Shifter, Swiftstride",
+	source : [["WGtE", 66], ["UA:RoE", 6]],
+	plural : "Swiftstride shifters",
+	size : 3,
+	speed : {
+		walk : { spd : 35, enc : 25 }
+	},
+	languageProfs : ["Common"],
+	vision : [["Darkvision", 60]],
+	skills : ["Acrobatics", "Perception"],
+	age : " reach young adulthood at age 10 and rarely live over 70",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 135 lb (90 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
+	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
+	scores : [0, 2, 0, 0, 0, 1],
+	trait : "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 5 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	action : ['reaction', 'Stride (while shifted)'],
+	features : {
+		"shift" : {
+			name : "Shift",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", " (start/end)"]
+		}
+	}
+};
+RaceList["wildhunt shifter-ua"] = {
+	regExpSearch : /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
+	name : "Wildhunt shifter",
+	sortname : "Shifter, Wildhunt",
+	source : [["WGtE", 66], ["UA:RoE", 6]],
+	plural : "Wildhunt shifters",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common"],
+	vision : [["Darkvision", 60]],
+	skills : ["Perception", "Survival"],
+	age : " reach young adulthood at age 10 and rarely live over 70",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 135 lb (90 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
+	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
+	scores : [0, 1, 0, 0, 2, 0],
+	trait : "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can transform and get adv. on Wis checks." + (typePF ? " " : "\n") + "This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nMark the Scent: As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
+	features : {
+		"shift" : {
+			name : "Shift",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", " (start/end)"]
+		},
+		"mark the scent" : {
+			name : "Mark the Scent",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		}
+	}
+};
+
+// The three subraces of the warforged
+RaceList["envoy warforged-ua"] = {
+	regExpSearch : /^(?=.*warforged)(?=.*envoy).*$/i,
+	name : "Envoy warforged",
+	sortname : "Warforged, Envoy",
+	source : [["WGtE", 69], ["UA:RoE", 9]],
+	plural : "Envoy warforged",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	toolProfs : [["Any tool", 1]],
+	skillstxt : "Choose any one skill, any one tool, and expertise with any one tool I'm proficient with",
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		immune : ["disease", "exhaustion from lack of rest"],
+		adv_vs : ["poison"]
+	},
+	dmgres : ["Poison"],
+	age : " are created as adults and will only start to show signs of physical deterioration after 150 years, but have no further aging effects",
+	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")",
+	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)",
+	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
+	scorestxt : "+1 Constitution and +1 to two other ability scores of my choice",
+	scores : [0, 0, 1, 0, 0, 0],
+	trait : "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
+	eval : function() {
+		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
+		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
+			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
+			CurrentRace.armorAdd = 'Composite Plating (Prof)';
+		} else {
+			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+		};
+	},
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
+	armorOptions : [{
+		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
+		name : "Darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11
+	}, {
+		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
+		name : "Darkwood core (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11,
+		addMod : true
+	}, {
+		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
+		name : "Composite plating (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "medium",
+		ac : 13,
+		addMod : true,
+		dex : 2
+	}, {
+		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
+		name : "Heavy plating (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "heavy",
+		ac : 16,
+		addMod : true,
+		stealthdis : true
+	}]
+};
+RaceList["juggernaut warforged-ua"] = {
+	regExpSearch : /^(?=.*warforged)(?=.*juggernaut).*$/i,
+	name : "Juggernaut warforged",
+	sortname : "Warforged, Juggernaut",
+	source : [["WGtE", 70], ["UA:RoE", 9]],
+	plural : "Juggernaut warforged",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
+		name : "Warforged iron fists",
+		source : [["WGtE", 70], ["UA:RoE", 9]],
+		damage : [1, 4, "bludgeoning"]
+	},
+	weaponsAdd : ["Warforged Iron Fists"],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		immune : ["disease", "exhaustion from lack of rest"],
+		adv_vs : ["poison"]
+	},
+	dmgres : ["Poison"],
+	age : " are created as adults and will only start to show signs of physical deterioration after 150 years, but have no further aging effects",
+	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")",
+	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)",
+	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
+	scores : [2, 0, 1, 0, 0, 0],
+	trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+	carryingCapacity : 2,
+	eval : function() {
+		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
+		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
+			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
+			CurrentRace.armorAdd = 'Composite Plating (Prof)';
+		} else {
+			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+		};
+	},
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
+	armorOptions : [{
+		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
+		name : "Darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11
+	}, {
+		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
+		name : "Darkwood core (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11,
+		addMod : true
+	}, {
+		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
+		name : "Composite plating (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "medium",
+		ac : 13,
+		addMod : true,
+		dex : 2
+	}, {
+		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
+		name : "Heavy plating (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "heavy",
+		ac : 16,
+		addMod : true,
+		stealthdis : true
+	}]
+};
+RaceList["skirmisher warforged-ua"] = {
+	regExpSearch : /^(?=.*warforged)(?=.*skirmisher).*$/i,
+	name : "Skirmisher warforged",
+	sortname : "Warforged, Skirmisher",
+	source : [["WGtE", 70], ["UA:RoE", 9]],
+	plural : "Skirmisher warforged",
+	size : 3,
+	speed : {
+		walk : { spd : 35, enc : 25 }
+	},
+	languageProfs : ["Common"],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		immune : ["disease", "exhaustion from lack of rest"],
+		adv_vs : ["poison"]
+	},
+	dmgres : ["Poison"],
+	age : " are created as adults and will only start to show signs of physical deterioration after 150 years, but have no further aging effects",
+	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")",
+	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)",
+	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
+	scores : [0, 2, 1, 0, 0, 0],
+	trait : "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+	eval : function() {
+		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
+		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
+			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
+			CurrentRace.armorAdd = 'Composite Plating (Prof)';
+		} else {
+			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+		};
+	},
+	removeeval : function () {
+		if ((/darkwood core|composite plating|heavy plating/).test(CurrentArmour.known)) {
+			tDoc.resetForm(['AC Armor Description']);
+		};
+	},
+	armorOptions : [{
+		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
+		name : "Darkwood core",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11
+	}, {
+		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
+		name : "Darkwood core (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		ac : 11,
+		addMod : true
+	}, {
+		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
+		name : "Composite plating (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "medium",
+		ac : 13,
+		addMod : true,
+		dex : 2
+	}, {
+		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
+		name : "Heavy plating (Prof)",
+		source : [["WGtE", 69], ["UA:RoE", 9]],
+		type : "heavy",
+		ac : 16,
+		addMod : true,
+		stealthdis : true
+	}]
+};
+var iFileName = "ua_20180810_Magic-Items-of-Eberron.js";
+RequiredSheetVersion(13);
+// This file adds the content from the Unearthed Arcana: Magic Items of Eberron to MPMB's Character Record Sheet
+// Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
+
+// Define the sources
+SourceList["UA:MIoE"] = {
+	name : "Unearthed Arcana: Magic Items of Eberron",
+	abbreviation : "UA:MIoE",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2018/dnd/downloads/UA_Magic_Items_of_Eberron.pdf",
+	date : "2018/08/10"
+};
+
+if (!SourceList.WGtE) {
+	MagicItemsList["imbued wood"] = {
+		name : "Imbued Wood",
+		source : [["WGtE", 114], ["UA:MIoE", 1]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "While holding a rod, wand, or staff made of imbued wood, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
+		descriptionFull : "Powerful manifest zones can infuse local trees with planar energies. A gifted artificer can tap into this to create a wand, staff, or rod that is especially effective at channeling a particular type of energy.\n   When you cast a spell that deals damage of the type associated with the material your arcane focus is made from, the spell gains a +1 bonus to one damage roll of that spell. The materials and their associated damage types are listed here.\n \u2022 Fernian ash: Fire damage.\n \u2022 Irian rosewood: Radiant damage.\n \u2022 Kythrian manchineel: Acid or poison damage.\n \u2022 Lamannian oak: Lightning or thunder damage.\n \u2022 Mabaran ebony: Necrotic damage.\n \u2022 Quori beech, Xorian wenge: Psychic damage.\n \u2022 Risian pine: Cold damage.\n \u2022 Shavarran birch: Force damage.",
+		attunement : true,
+		allowDuplicates : true,
+		choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Quori Beech (psychic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
+		"fernian ash (fire)" : {
+			name : "Fernian Ash Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Fernian ash, spells I cast that deal fire damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire", 1, true, true);
+				},
+				"Cantrips and spells that deal fire damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"irian rosewood (radiant)" : {
+			name : "Irian Rosewood Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Irian rosewood, spells I cast that deal radiant damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "radiant", 1, true, true);
+				},
+				"Cantrips and spells that deal radiant damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"kythrian manchineel (acid and poison)" : {
+			name : "Kythrian Manchineel Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Kythrian manchineel, spells I cast that deal acid or poison damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "acid|poison", 1, true, true);
+				},
+				"Cantrips and spells that deal acid or poison damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"lamannian oak (lightning and thunder)" : {
+			name : "Lamannian Oak Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Lamannian oak, spells I cast that deal lightning or thunder damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
+				},
+				"Cantrips and spells that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"mabaran ebony (necrotic)" : {
+			name : "Mabaran Ebony Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Mabaran ebony, spells I cast that deal necrotic damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necrotic", 1, true, true);
+				},
+				"Cantrips and spells that deal necrotic damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"quori beech (psychic)" : {
+			name : "Quori Beech Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Quori beech, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
+				},
+				"Cantrips and spells that deal psychic damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"risian pine (cold)" : {
+			name : "Risian Pine Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Risian pine, spells I cast that deal cold damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "cold", 1, true, true);
+				},
+				"Cantrips and spells that deal cold damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"shavarran birch (force)" : {
+			name : "Shavarran Birch Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Shavarran birch, spells I cast that deal force damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "force", 1, true, true);
+				},
+				"Cantrips and spells that deal force damage get a +1 bonus added to one of their damage rolls."
+			]
+		},
+		"xorian wenge (psychic)" : {
+			name : "Xorian Wenge Arcane Focus",
+			description : "While holding a rod, wand, or staff made of Xorian wenge, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
+				},
+				"Cantrips and spells that deal psychic damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	}
+	MagicItemsList["orb of shielding"] = {
+		name : "Orb of Shielding",
+		source : [["WGtE", 114], ["UA:MIoE", 1]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "An orb of shielding is made from crystal or stone aligned to one of the planes. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4.",
+		descriptionFull : "An orb of shielding is made from crystal or stone aligned to one of the planes. While you are holding the orb and take damage of the type associated with the material your orb is made from, you can use your reaction to reduce the damage by 1d4. The materials and their associated damage types are listed below.\n" +
+		"\n \u2022 Fernian basalt: Fire damage" +
+		"\n \u2022 Irian quartz: Radiant damage" +
+		"\n \u2022 Kythrian skarn: Acid or poison damage" +
+		"\n \u2022 Lamannian flint: Lightning or thunder damage" +
+		"\n \u2022 Mabaran obsidian: Necrotic damage" +
+		"\n \u2022 Quori celestine, Xorian marble: Psychic damage" +
+		"\n \u2022 Risian shale: Cold damage" +
+		"\n \u2022 Shavaran chert: Force damage",
+		attunement : true,
+		weight : 3,
+		action : [["reaction", ""]],
+		choices : ["Fernian Basalt (fire)", "Irian Quartz (radiant)", "Kythrian Skarn (acid or poison)", "Lamannian Flint (lightning or thunder)", "Mabaran Obsidian (necrotic)", "Quori Celestine (psychic)", "Risian Shale (cold)", "Shavaran Chert (force)", "Xorian Marble (psychic)"],
+		"fernian basalt (fire)" : {
+			name : "Orb of Shielding [Fernian Basalt]",
+			description : "This stone orb is made from fernian basalt. As a reaction while I am holding the orb and take fire damage, I can reduce the damage by 1d4."
+		},
+		"irian quartz (radiant)" : {
+			name : "Orb of Shielding [Irian Quartz]",
+			description : "This crystal orb is made from irian quartz. As a reaction while I am holding the orb and take radiant damage, I can reduce the damage by 1d4."
+		},
+		"kythrian skarn (acid or poison)" : {
+			name : "Orb of Shielding [Kythrian Skarn]",
+			description : "This stone orb is made from kythrian skarn. As a reaction while I am holding the orb and take acid or poison damage, I can reduce the damage by 1d4."
+		},
+		"lamannian flint (lightning or thunder)" : {
+			name : "Orb of Shielding [Lamannian Flint]",
+			description : "This stone orb is made from lamannian flint. As a reaction while I am holding the orb and take lightning or thunder damage, I can reduce the damage by 1d4."
+		},
+		"mabaran obsidian (necrotic)" : {
+			name : "Orb of Shielding [Mabaran Obsidian]",
+			description : "This crystal orb is made from mabaran obsidian. As a reaction while I am holding the orb and take necrotic damage, I can reduce the damage by 1d4."
+		},
+		"quori celestine (psychic)" : {
+			name : "Orb of Shielding [Quori Celestine]",
+			description : "This crystal orb is made from quori celestine. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4."
+		},
+		"risian shale (cold)" : {
+			name : "Orb of Shielding [Risian Shale]",
+			description : "This stone orb is made from risian shale. As a reaction while I am holding the orb and take cold damage, I can reduce the damage by 1d4."
+		},
+		"shavaran chert (force)" : {
+			name : "Orb of Shielding [Shavaran Chert]",
+			description : "This stone orb is made from shavaran chert. As a reaction while I am holding the orb and take force damage, I can reduce the damage by 1d4."
+		},
+		"xorian marble (psychic)" : {
+			name : "Orb of Shielding [Xorian Marble]",
+			description : "This stone orb is made from xorian marble. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4."
+		}
+	}
+	MagicItemsList["band of loyalty"] = {
+		name : "Band of Loyalty",
+		source : [["WGtE", 115], ["UA:MIoE", 2]],
+		type : "ring",
+		rarity : "common",
+		description : "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
+		descriptionFull : "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
+		attunement : true
+	}
+	MagicItemsList["cleansing stone"] = {
+		name : "Cleansing Stone",
+		source : [["WGtE", 115], ["UA:MIoE", 2]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
+		descriptionFull : "A cleansing stone is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
+		action : [["action", ""]]
+	}
+	var docentFullDescription = [
+		"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
+		">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
+		"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
+		">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.",
+		"The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
+		">>Languages<<. All docents understand Common and Giant, but a docent knows up to four additional languages. Elvish and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
+		">>Properties<<. A docent possesses up to three of the following properties:",
+		"\u2022 The docent can cast the detect magic spell at will.",
+		"\u2022 The docent can cast the detect evil and good spell at will.",
+		"\u2022 The docent can detect any form of divination or scrying targeting it and its warforged host.",
+		"\u2022 The docent has a +7 bonus to Intelligence (Arcana) checks.",
+		"\u2022 The docent has a +7 bonus to Intelligence (History) checks.",
+		"\u2022 The docent has a +7 bonus to Intelligence (Investigation) checks.",
+		"\u2022 The docent has a +7 bonus to Intelligence (Nature) checks.",
+		"\u2022 The docent has a +6 bonus to Wisdom (Insight) checks.",
+		"\u2022 The docent has a +6 bonus to Wisdom (Perception) checks.",
+		"\u2022 The docent has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the docent will automatically attempt to stabilize them once each turn.",
+		"You can use a bonus action on your turn to request that the docent use one of its properties on your behalf."
+	];
+	MagicItemsList["docent"] = {
+		name : "Docent",
+		source : [["WGtE", 121], ["UA:MIoE", 3]],
+		type : "wondrous item",
+		rarity : "rare",
+		description : "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
+		descriptionFull : docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		attunement : true,
+		prerequisite : "Requires attunement by a warforged",
+		prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
+		action : [["bonus action", ""]],
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of Docent",
+			note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		}]
+	}
+	MagicItemsList["everbright lantern"] = {
+		name : "Everbright Lantern",
+		source : [["WGtE", 115], ["UA:MIoE", 2]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
+		descriptionFull : "An everbright lantern contains an Eberron dragonshard imbued with the effect of a continual flame spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An everbright lantern provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out."
+	}
+	MagicItemsList["feather token"] = {
+		name : "Feather Token",
+		source : [["WGtE", 115], ["UA:MIoE", 2]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
+		descriptionFull : "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast feather fall as a bonus action. A feather token only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides."
+	}
+	MagicItemsList["glamerweave"] = {
+		name : "Glamerweave",
+		source : [["WGtE", 115], ["UA:MIoE", 2]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
+		descriptionFull : "Glamerweave clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.\n\n" + [
+			toUni("1d8\tDescription"),
+			"  1\tA hat orbited by the twelve moons",
+			"  2\tLong gloves wreathed in cold flames",
+			"  3\tA traveler's cloak lined with glittering stars",
+			"  4\tA scarlet gown that glows with inner radiance",
+			"  5\tA cloth shirt that appears to be a chain shirt",
+			"  6\tA silver gown surrounded by drifting snowflakes",
+			"  7\tA robe with two dragons wrestling across the back",
+			"  8\tA cloak that slowly and subtly shifts colors"
+		].join("\n")
+	}
+	MagicItemsList["shiftweave"] = {
+		name : "Shiftweave",
+		source : [["WGtE", 115], ["UA:MIoE", 2]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
+		descriptionFull : "Transmutation magic is woven into the fabric of shiftweave clothing. When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your shiftweave outfit into one of the other designs contained within it. To determine the price of a suit of shiftweave, combine the value of all of the outfits it contains and add 25 gp to that amount.",
+		action : [["action", ""]]
+	}
+	MagicItemsList["spellshard"] = {
+		name : "Spellshard",
+		source : [["WGtE", 115], ["UA:MIoE", 3]],
+		type : "wondrous item",
+		description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
+		allowDuplicates : true,
+		choices : ["normal", "advanced"],
+		"normal" : {
+			name : "Spellshard ",
+			allowDuplicates : true,
+			rarity : "common",
+			description : "This dragonshard is imbued with a work of literature. By holding it and concentrating, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
+			descriptionLong : "This polished dragonshard fits into the palm of my hand. It is imbued with a particular work of literature. By holding it and concentrating, I can see its pages in my mind's eye. Thinking of a particular phrase or topic will draw me to the first section that addresses it. I can add content to it with a simple ritual, allowing me to use it as a wizard's spellbook costing 1 gp per \"page\" in the shard, but otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals."
+		},
+		"advanced" : {
+			name : "Advanced Spellshard",
+			allowDuplicates : true,
+			rarity : "uncommon",
+			description : "This dragonshard is imbued with a text. By concentrating and speaking the passphrase, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
+			descriptionLong : "This polished dragonshard fits into the palm of my hand. It is imbued with a particular work of literature. By holding it, concentrating, and speaking its passphrase, I can see its pages in my mind's eye. Thinking of a particular phrase or topic will draw me to the first section that addresses it. I can add content to it with a simple ritual, allowing me to use it as a wizard's spellbook costing 1 gp per \"page\" in the shard, but otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals."
+		}
+	}
+	MagicItemsList["armblade"] = {
+		name : "Armblade",
+		source : [["WGtE", 120], ["UA:MIoE", 3]],
+		type : "weapon (any one-handed melee weapon)",
+		rarity : "common",
+		description : "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
+		descriptionFull : "An armblade is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an armblade by attuning to it. An attached armblade cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the armblade.\n   An armblade isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an armblade, so you could acquire a vicious armblade or a vorpal armblade.",
+		attunement : true,
+		prerequisite : "Requires attunement by a warforged",
+		prereqeval : function (v) {
+			return (/warforged/i).test(CurrentRace.known);
+		},
+		allowDuplicates : true,
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "brackets",
+			descriptionChange : ["replace", "weapon"],
+			excludeCheck : function (inObjKey, inObj) {
+				return (!inObj.description || (/two.{0,3}handed/i).test(inObj.description)) || (!inObj.range || !(/melee/i).test(inObj.range));
+			}
+		}
+	}
+	MagicItemsList["wand sheath"] = {
+		name : "Wand Sheath",
+		source : [["WGtE", 115], ["UA:MIoE", 4]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
+		descriptionLong : "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
+		descriptionFull : "A wand sheath is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a wand sheath by attuning to it. While the wand sheath is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the wand sheath.\n   You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:\n \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.\n \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.\n \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+		attunement : true,
+		prerequisite : "Requires attunement by a warforged",
+		prereqeval : function (v) {
+			return (/warforged/i).test(CurrentRace.known);
+		},
+		action : [["action", " (insert)"], ["bonus action", " (extend/retract)"]]
+	}
+}
 var iFileName = "ua_20180813_Races-of-Ravnica.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Races of Ravnica article to MPMB's Character Record Sheet
@@ -14601,6 +15363,937 @@ RaceList["viashino"] = {
 	action : ["reaction", "Lashing Tail (after being hit)"],
 	trait : "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage."
 };
+var iFileName = "ua_20180910_Dragonmarks.js";
+RequiredSheetVersion(13);
+// This file adds the content from the Unearthed Arcana: Dragonmarks article to MPMB's Character Record Sheet
+// Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
+
+// Define the sources
+SourceList["UA:D"] = {
+	name : "Unearthed Arcana: Dragonmarks",
+	abbreviation : "UA:D",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2018/dnd/downloads/UA_Dragonmarks.pdf",
+	date : "2018/09/10"
+};
+
+// Dragonmarks subraces
+RaceList["dragonmark detection half-elf-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
+	name : "Half-elf (dragonmark)",
+	sortname : "Dragonmark, Detection (Half-Elf)",
+	source : [["WGtE", 96], ["UA:D", 2]],
+	plural : "Half-elves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	age : " reach adulthood around age 20 and often live over 180 years",
+	height : " range from 5 to 6 feet tall (4'9\" + 2d8\")",
+	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	scorestxt : "+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice",
+	scores : [0, 0, 0, 1, 0, 1],
+	trait : "Half-Elf, Dragonmark of Detection (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Deductive Intuition: I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.\n" + (typePF ? "\n" : "   ") + "Sense Threats: I can cast Detect Magic and Detect Poison and Disease as rituals using Intelligence as my spellcasting ability.",
+	spellcastingAbility : 4,
+	spellcastingBonus : {
+		name : "Sense Threats",
+		spells : ["detect magic", "detect poison and disease"],
+		selection : ["detect magic", "detect poison and disease"],
+		firstCol : "(R)",
+		times : 2
+	},
+	spellChanges : {
+		"detect magic" : {
+			time : "10 min",
+			changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
+		},
+		"detect poison and disease" : {
+			time : "10 min",
+			changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
+		}
+	}
+};
+RaceList["dragonmark finding half-orc-ua"] = {
+	regExpSearch : /^(?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
+	name : "Half-orc (dragonmark)",
+	sortname : "Dragonmark, Finding (Half-Orc)",
+	source : [["WGtE", 97], ["UA:D", 2]],
+	plural : "Half-orcs (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Orc"],
+	vision : [["Darkvision", 60]],
+	age : " reach adulthood around age 14 and rarely live longer than 75 years",
+	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
+	weight : " weigh around 215 lb (140 + 2d10 \xD7 2d6 lb)",
+	heightMetric : " range from 1,5 to well over 1,8 metres tall (150 + 5d10 cm)",
+	weightMetric : " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
+	scorestxt : "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
+	scores : [1, 0, 0, 0, 1, 0],
+	trait : "Half-Orc, Dragonmark of Finding (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint a target I can see in 30 ft or with a Survival check when tracking it, lasting until it dies or I use this again. I double my Intuition Die for tracking it, sense its general location in 60 ft, my attacks vs. it ignore half cover and don't have disadv. if I can't see it, and it has no adv. vs. me if I can't see it.\n" + (typePF ? "Nature's Voice: cast Locate Animals/Plants as a ritual from 3rd level." : "   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual."),
+	features : {
+		"imprint prey" : {
+			name : "Imprint Prey",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		},
+		"locate animals or plants" : {
+			name : "Locate Animals or Plants",
+			minlevel : 3,
+			spellcastingBonus : {
+				name : "Nature's Voice",
+				spells : ["locate animals or plants"],
+				selection : ["locate animals or plants"],
+				firstCol : "(R)"
+			},
+			spellChanges : {
+				"locate animals or plants" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
+				}
+			}
+		}
+	}
+};
+RaceList["dragonmark handling human-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Handling (Human)",
+	source : [["WGtE", 98], ["UA:D", 3]],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	scorestxt : "+1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice",
+	scores : [0, 1, 0, 0, 1, 0],
+	trait : "Human, Dragonmark of Handling (+1 Dex" + (typePF ? ", +1 Wis, +1 to one ability" : "terity, +1 Wisdom, +1 to any one ability score") + ")\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: Once per short rest, I can cast Animal Friendship using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".\n   " + (typePF ? "The Bigger They Are: My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "Bigger They Are: My spells that affect only beasts, also affect monstrosities with Int < 4."),
+	spellcastingAbility : 5,
+	features : {
+		"animal friendship" : {
+			name : "Primal Connection",
+			limfeaname : "Animal Friendship",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			spellcastingBonus : {
+				name : "Primal Connection",
+				spells : ["animal friendship"],
+				selection : ["animal friendship"],
+				firstCol : 'oncesr'
+			}
+		}
+	},
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				switch (spellKey) {
+					case "animal friendship" :
+						spellObj.description = spellObj.description.replace("beasts", "beasts/monstrosities");
+						return true;
+					case "beast bond" :
+						spellObj.description = "Telepathic link with 1 beast/monstrosity Int<4 while in sight; it has adv. on atks vs. crea I can see";
+						return true;
+					case "beast sense" :
+						spellObj.description = "Use senses of 1 willing monstrosity Int<4 or beast; I'm blinded and deafened while doing so";
+						return true;
+					case "dominate beast" :
+						spellObj.description = "1 monstrosity Int<4 or beast save or charmed, follows telepathic commands, 1 a for complete control";
+						return true;
+					case "speak with animals" :
+						spellObj.description = "Communicate verbally with monstrosities Int<4 or beasts for duration; interactions limited by their Int";
+						return true;
+				}
+			},
+			"Spells I cast that only affect beasts can also affect monstrosities with an Intelligence score of 3 or lower."
+		]
+	}
+};
+RaceList["dragonmark healing halfling-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
+	name : "Halfling (dragonmark)",
+	sortname : "Dragonmark, Healing (Halfling)",
+	source : [["WGtE", 99], ["UA:D", 3]],
+	plural : "Halflings (dragonmark)",
+	size : 4,
+	speed : {
+		walk : { spd : 25, enc : 15 }
+	},
+	languageProfs : ["Common", "Halfling"],
+	savetxt : { adv_vs : ["frightened"] },
+	age : " reach adulthood at age 20 and live around 150 years",
+	height : " average about 3 feet tall (2'7\" + 2d4\")",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " average about 90 cm tall (80 + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	scores : [0, 2, 0, 0, 1, 0],
+	trait : "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n  " : "") + 
+		" Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + desc([
+		"Halfling Nimbleness: I can move through the space of Medium and larger creatures.",
+		"Medical Intuition: I " + (typePF ? "" : "can") + " add my Intuition Die (1d4) to " + (typePF ? "Medicine" : "my Wisdom (Medicine)") + " checks.",
+		"Healing Touch: As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
+		"Jorasco's Blessing: I know the Spare the Dying cantrip."
+	]),
+	features : {
+		"healing touch" : {
+			name : "Healing Touch",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["action", ""]
+		}
+	},
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Jorasco's Blessing",
+		spells : ["spare the dying"],
+		selection : ["spare the dying"],
+		firstCol : 'atwill'
+	}
+};
+RaceList["dragonmark hospitality halfling-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
+	name : "Halfling (dragonmark)",
+	sortname : "Dragonmark, Hospitality (Halfling)",
+	source : [["WGtE", 100], ["UA:D", 4]],
+	plural : "Halflings (dragonmark)",
+	size : 4,
+	speed : {
+		walk : { spd : 25, enc : 15 }
+	},
+	languageProfs : ["Common", "Halfling"],
+	savetxt : { adv_vs : ["frightened"] },
+	age : " reach adulthood at age 20 and live around 150 years",
+	height : " average about 3 feet tall (2'7\" + 2d4\")",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " average about 90 cm tall (80 + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	scores : [0, 2, 0, 0, 0, 1],
+	trait : "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nHalfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.\nInnkeeper's Charms: I know Friends and Prestidigitation with Cha as my spellcasting ability.",
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Innkeeper's Charms",
+		spells : ["friends", "prestidigitation"],
+		selection : ["friends", "prestidigitation"],
+		firstCol : 'atwill',
+		times : 2
+	}
+};
+RaceList["dragonmark making human-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Making (Human)",
+	source : [["WGtE", 101], ["UA:D", 4]],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	toolProfs : [["Artisan's tools", 1]],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	scorestxt : "+1 Dexterity, +1 Intelligence, and +1 to any one ability score of my choice",
+	scores : [0, 1, 0, 1, 0, 0],
+	trait : "Human, Dragonmark of Making (+1 Dex" + (typePF ? ", +2 Int or +2 Dex, +1 Int" : "terity, +1 Intelligence, +1 to Dex or Int, my choice") + ")\nArtisan's Intuition: I can add my Intuition Die (1d4) to ability checks with artisan's tools.\nMagecraft: I can create a magic item that gives me the ability to cast one wizard cantrip of my choice, using Intelligence as my spellcasting ability. This works while the item is in my possession. At the end of a long rest, I can replace it with a new item and cantrip.\nSpellsmith: Once per long rest, I can spend 1 minute to make a nonmagical armor or weapon gain a +1 bonus for the next hour. Maker's Gift: I know the mending cantrip.",
+	features : {
+		"spellsmith" : {
+			name : "Spellsmith",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest"
+		}
+	},
+	eval : function () {
+		CurrentSpells['dragonmark making human'] = {
+			name : 'Human (dragonmark)',
+			ability : 4,
+			list : { 'class' : 'wizard', level : [0, 0], notspells : ['mending'] },
+			known : { cantrips : 1, spells : 'list' },
+			bonus : {
+				bonus1 : {
+					name : "Maker's Gift",
+					spells : ['mending'],
+					selection : ['mending'],
+					firstCol : 'atwill'
+				}
+			},
+			typeList : 2,
+			refType : "race"
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['dragonmark making human'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
+};
+RaceList["dragonmark passage human-ua"] = { // different in Unearthed Arcana
+	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Passage (Human)",
+	source : ["UA:D", 4],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 40, enc : 30 }
+	},
+	languageProfs : ["Common", 1],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	scorestxt : "+2 Dexterity and +1 to another ability score of my choice",
+	scores : [0, 2, 0, 0, 0, 0],
+	trait : "Human, Dragonmark of Passage (+2 Dexterity and +1 to another ability score)\n   Intuitive Motion: I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Orien's Grace: I can forgo half my movement speed for my turn to no longer provoke opportunity attacks for the rest of that turn.\n   Shared Passage: As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
+	features : {
+		"shared passage" : {
+			name : "Shared Passage",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest",
+			action : ["bonus action", ""]
+		}
+	}
+};
+RaceList["dragonmark scribing gnome-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
+	name : "Gnome (dragonmark)",
+	sortname : "Dragonmark, Scribing (Gnome)",
+	source : [["WGtE", 103], ["UA:D", 5]],
+	plural : "Gnomes (dragonmark)",
+	size : 4,
+	speed : {
+		walk : { spd : 25, enc : 15 }
+	},
+	languageProfs : ["Common", "Gnomish", 1],
+	toolProfs : ["Calligrapher's supplies", "Forgery kits"],
+	vision : [["Darkvision", 60]],
+	savetxt : { text : ["Adv. on Int/Wis/Cha saves vs. magic"] },
+	age : " start adult life around age 40 and can live 350 to almost 500 years",
+	height : " are 3 to 4 feet tall (2'11\" + 2d4\")",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	scores : [0, 0, 0, 2, 0, 1],
+	trait : "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
+	spellcastingAbility : 4,
+	spellcastingBonus : {
+		name : "Whispering Wind",
+		spells : ["message"],
+		selection : ["message"],
+		firstCol : 'atwill'
+	},
+	features : {
+		"comprehend languages" : {
+			name : "Scribe's Insight",
+			limfeaname : "Comprehend Languages",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Scribe's Insight",
+				spells : ["comprehend languages"],
+				selection : ["comprehend languages"],
+				firstCol : 'oncelr'
+			}
+		}
+	}
+};
+RaceList["dragonmark sentinel human-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
+	name : "Human (dragonmark)",
+	sortname : "Dragonmark, Sentinel (Human)",
+	source : [["WGtE", 104], ["UA:D", 5]],
+	plural : "Humans (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	scorestxt : "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
+	scores : [1, 0, 0, 0, 1, 0],
+	trait : "Human, Dragonmark of Sentinel (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Sentinel's Intuition: I can add my Intuition Die (1d4) to Initiative rolls and my Wisdom (Perception) checks.\n   Sentinel's Shield: I know the Blade Ward cantrip. I can cast Shield once per short rest.\n   Vigilant Guardian: As an action, I can designate an ally as my ward, gaining adv. on Insight and Perception checks to spot threats to it. As a reaction when I see my ward being attacked while within 5 ft, I can swap places with it, becoming the target of the attack.",
+	action : [['action', 'Vigilant Guardian (designate ward)'], ['reaction', 'Vigilant Guardian (swap with ward)']],
+	features : {
+		"shield" : {
+			name : "Sentinel's Shield",
+			limfeaname : "Shield",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["reaction", ""],
+			spellcastingBonus : [{
+				name : "Sentinel's Shield",
+				spells : ["blade ward"],
+				selection : ["blade ward"],
+				firstCol : 'atwill'
+			}, {
+				name : "Sentinel's Shield",
+				spells : ["shield"],
+				selection : ["shield"],
+				firstCol : 'oncesr'
+			}]
+		}
+	}
+};
+RaceList["dragonmark shadow elf-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
+	name : "Elf (dragonmark)",
+	sortname : "Dragonmark, Shadow (Elf)",
+	source : [["WGtE", 105], ["UA:D", 6]],
+	plural : "Elves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	skills : ["Perception"],
+	skillstxt : "Perception and proficiency with either Performance or one musical instrument",
+	age : " typically claim adulthood around age 100 and can live to be 750 years old",
+	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
+	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
+	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
+	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
+	scores : [0, 2, 0, 0, 0, 1],
+	trait : "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nGift of the Shadows: I can add my Intuition Die (1d4) to Performance and Stealth checks.\nShape Shadows: I know the Minor Illusion cantrip using Charisma as my spellcasting ability.\nSlip Into Shadow: As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Shape Shadows",
+		spells : ["minor illusion"],
+		selection : ["minor illusion"],
+		firstCol : 'atwill'
+	},
+	features : {
+		"slip into shadow" : {
+			name : "Slip Into Shadow",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : ["bonus action", ""]
+		}
+	}
+};
+AddRacialVariant("dragonmark shadow elf-ua", "performance, ", {
+	regExpSearch : /performance/i,
+	source : [["WGtE", 105], ["UA:D", 6]],
+	skills : ["Perception", "Performance"],
+	skillstxt : ""
+});
+AddRacialVariant("dragonmark shadow elf-ua", "musical instrument, ", {
+	regExpSearch : /musical instrument/i,
+	source : [["WGtE", 105], ["UA:D", 6]],
+	skillstxt : "",
+	toolProfs : [["Musical instrument", 1]]
+});
+RaceList["dragonmark storm half-elf-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
+	name : "Half-elf (dragonmark)",
+	sortname : "Dragonmark, Storm (Half-Elf)",
+	source : [["WGtE", 106], ["UA:D", 6]],
+	plural : "Half-elves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 },
+		swim : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	dmgres : ["Lightning"],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	age : " reach adulthood around age 20 and often live over 180 years",
+	height : " range from 5 to 6 feet tall (4'9\" + 2d8\")",
+	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	scorestxt : "+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice",
+	scores : [0, 1, 0, 0, 0, 1],
+	trait : "Half-Elf, Dragonmark of Storm (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Windwright's Intuition: I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n" + (typePF ? "\n" : "   ") + "Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.",
+	spellcastingAbility : 6, // Not mentioned in WGtE, but essential!
+	spellcastingBonus : {
+		name : "Headwinds (level 1)",
+		spells : ["gust"],
+		selection : ["gust"],
+		firstCol : 'atwill'
+	},
+	features : {
+		"gust of wind" : {
+			name : "Headwinds (level 3)",
+			limfeaname : "Gust of Wind",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Headwinds (level 3)",
+				spells : ["gust of wind"],
+				selection : ["gust of wind"],
+				firstCol : 'oncelr'
+			}
+		}
+	}
+};
+RaceList["dragonmark warding dwarf-ua"] = {
+	regExpSearch : /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
+	name : "Dwarf (dragonmark)",
+	sortname : "Dragonmark, Warding (Dwarf)",
+	source : [["WGtE", 108], ["UA:D", 7]],
+	plural : "Dwarves (dragonmark)",
+	size : 3,
+	speed : {
+		walk : { spd : 25, enc : 25 }
+	},
+	languageProfs : ["Common", "Dwarvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : { adv_vs : ["poison"] },
+	dmgres : ["Poison"],
+	weaponProfs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
+	toolProfs : [["Smith, brewer, or mason tools", 1]],
+	age : " are considered young until they are 50 and live about 350 years",
+	height : " stand between 4 and 5 feet tall (4' + 2d4\")",
+	weight : " weigh around 150 lb (130 + 2d4 \xD7 2d6 lb)",
+	heightMetric : " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
+	weightMetric : " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
+	scores : [0, 1, 2, 1, 0, 0],
+	trait : "Dwarf, Dragonmark of Warding (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")\n   Stonecunning: When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.\n   Master of Locks: I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.\n   Wards and Seals: I can cast Alarm as a ritual. Once I reach 3rd level, I can cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these.",
+	spellcastingAbility : 4,
+	spellcastingBonus : {
+		name : "Wards and Seals (level 1)",
+		spells : ["alarm"],
+		selection : ["alarm"],
+		firstCol : "(R)"
+	},
+	spellChanges : {
+		"alarm" : {
+			time : "11 min",
+			changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
+		}
+	},
+	features : {
+		"arcane lock" : {
+			name : "Wards and Seals (level 3)",
+			limfeaname : "Arcane Lock",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Wards and Seals (level 3)",
+				spells : ["arcane lock"],
+				selection : ["arcane lock"],
+				firstCol : 'oncelr'
+			}
+		}
+	}
+};
+
+// Greater Dragonmark feats
+FeatsList["greater dragonmark-ua"] = {
+	name : "Greater Dragonmark",
+	source : [["WGtE", 110], ["UA:D", 7]],
+	descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
+	description : "Select the type of greater dragonmark using the square button on this feat line.\nMy Intuition Die increases with one step (for example d4 to d6), I gain spellcating abilities, and an increase to one ability score.",
+	eval : function () {
+		var raceTrait = What('Racial Traits');
+		if ((/my Intuition Die \(1d4\)/i).test(raceTrait)) {
+			Value('Racial Traits', raceTrait.replace(/my Intuition Die \(1d4\)/i, 'my Intuition Die (1d6)'));
+		};
+	},
+	removeeval : function () {
+		var raceTrait = What('Racial Traits');
+		if ((/my Intuition Die \(1d6\)/i).test(raceTrait)) {
+			Value('Racial Traits', raceTrait.replace(/my Intuition Die \(1d6\)/i, 'my Intuition Die (1d4)'));
+		};
+	},
+	choices : ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
+	"detection" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Detection",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*detection).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
+		scorestxt : "+1 Charisma or Intelligence",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["see invisibility", "true seeing"],
+			selection : ["see invisibility", "true seeing"],
+			spellcastingAbility : 4,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"see invisibility" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"true seeing" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "1 willing crea gains truesight 120 ft; see through illusions, hidden doors, ethereal plane",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"finding" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Finding",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
+		scorestxt : "+1 Strength, Dexterity, or Wisdom",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["locate creature", "find the path"],
+			selection : ["locate creature", "find the path"],
+			spellcastingAbility : 5,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"locate creature" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"find the path" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Know the shortest route to a location I am familiar with and are on the same plane with",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"handling" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Handling",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*handling).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+		scorestxt : "+1 Dexterity or Wisdom",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["beast sense", "dominate beast"],
+			selection : ["beast sense", "dominate beast"],
+			spellcastingAbility : 5,
+			firstCol : 'oncelr',
+			times : 2
+		}
+	},
+	"healing" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*healing).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+		scorestxt : "+1 Dexterity or Wisdom",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["mass healing word", "greater restoration"],
+			selection : ["mass healing word", "greater restoration"],
+			spellcastingAbility : 5,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"greater restoration" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Reduce exhaustion or end charm, petrify, curse, stat or max HP reduction",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"hospitality" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Hospitality",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+		scorestxt : "+1 Dexterity or Charisma",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["sanctuary", "mordenkainen's magnificent mansion"],
+			selection : ["sanctuary", "mordenkainen's magnificent mansion"],
+			spellcastingAbility : 6,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"sanctuary" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"mordenkainen's magnificent mansion" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Create extradimensional mansion with rooms, food and servants to serve 100 people; see book",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"making" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Making",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*making).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
+		scorestxt : "+1 Dexterity or Intelligence",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["fabricate", "creation"],
+			selection : ["fabricate", "creation"],
+			spellcastingAbility : 4,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"creation" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"passage" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Passage",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*passage).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
+		scorestxt : "+1 Dexterity or Constitution",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["blink", "teleportation circle"],
+			selection : ["blink", "teleportation circle"],
+			spellcastingAbility : 3,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"teleportation circle" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Create a circle to teleport to another teleportation circle on same plane; see book",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"scribing" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Scribing",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
+		scorestxt : "+1 Intelligence or Charisma",
+		spellcastingBonus : {
+			name : "1\u00D7 per short",
+			spells : ["sending", "tongues"],
+			selection : ["sending", "tongues"],
+			spellcastingAbility : 4,
+			firstCol : 'oncesr',
+			times : 2
+		},
+		spellChanges : {
+			"sending" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"tongues" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"sentinel" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Sentinel",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
+		scorestxt : "+1 Strength or Wisdom",
+		spellcastingBonus : {
+			name : "1\u00D7 per short",
+			spells : ["compelled duel", "warding bond"],
+			selection : ["compelled duel", "warding bond"],
+			spellcastingAbility : 5,
+			firstCol : 'oncesr',
+			times : 2
+		},
+		spellChanges : {
+			"warding bond" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "1 crea +1 AC, +1 saves, resistance all dmg; if it takes dmg I take same dmg; ends if >60 ft away",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"shadow" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Shadow",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*shadow).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+		scorestxt : "+1 Dexterity or Charisma",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["nondetection", "mislead"],
+			selection : ["nondetection", "mislead"],
+			spellcastingAbility : 6,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"nondetection" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "1 crea or object up to 10 cu ft hidden from all divination magic",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"storm" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Storm",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+		scorestxt : "+1 Dexterity or Charisma",
+		spellcastingBonus : {
+			name : "1\u00D7 per long",
+			spells : ["control water", "control winds"],
+			selection : ["control water", "control winds"],
+			spellcastingAbility : 6,
+			firstCol : 'oncelr',
+			times : 2
+		},
+		spellChanges : {
+			"control water" : {
+				components : "V,S",
+				compMaterial : "",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			}
+		}
+	},
+	"warding" : {
+		prerequisite : "Being level 8 or higher and possessing the Dragonmark of Warding",
+		prereqeval : function(v) { return v.characterLevel > 7 && (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known); },
+		descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
+		description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
+		scorestxt : "+1 Dexterity or Intelligence",
+		spellcastingBonus : [{
+			name : "1\u00D7 per long",
+			spells : ["knock", "glyph of warding"],
+			selection : ["knock", "glyph of warding"],
+			spellcastingAbility : 4,
+			firstCol : 'oncelr',
+			times : 2
+		}, {
+			name : "with Siberys dragonshard",
+			spells : ["leomund's secret chest"],
+			selection : ["leomund's secret chest"],
+			firstCol : 'oncelr'
+		}],
+		spellChanges : {
+			"glyph of warding" : {
+				components : "V,S",
+				compMaterial : "",
+				description : "Create a glyph that triggers on set condition; Int(Investigation) vs. Spell DC; see book",
+				changes : "Spells cast through my Greater Dragonmark don't require material components."
+			},
+			"glyph of warding" : {
+				compMaterial : "A Siberys dragonshard with a value of at least 100 gp",
+				description : "Hide chest with content in Ethereal Plane for 60 days, after that chance of loss; 1 a reappear (100gp)",
+				changes : "Leomund's Secret Chest cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica."
+			}
+		}
+	}
+};
+
+// Aberrant Dragonmark feat
+FeatsList["aberrant dragonmark-ua"] = {
+	name : "Aberrant Dragonmark",
+	source : [["WGtE", 112], ["UA:D", 9]],
+	prerequisite : "Not having a dragonmark",
+	prereqeval : function(v) { return !(/dragonmark/i).test(CurrentRace.known); },
+	descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
+	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
+	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
+	scores : [0, 0, 1, 0, 0, 0],
+	spellcastingAbility : 3,
+	spellcastingBonus : [{
+		name : "Sorcerer cantrip",
+		'class' : 'sorcerer',
+		level : [0, 0],
+		firstCol : 'atwill'
+	}, {
+		name : "Sorcerer 1st-level spell",
+		'class' : 'sorcerer',
+		level : [1, 1],
+		firstCol : 'oncelr'
+	}]
+};
+
+// Gust cantrip reprint
+if (!SpellsList["gust"]) {
+	SpellsList["gust"] = {
+		name : "Gust",
+		classes : ["druid", "sorcerer", "wizard"],
+		source : [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
+		level : 0,
+		school : "Trans",
+		time : "1 a",
+		range : "30 ft",
+		components : "V,S",
+		duration : "Instantaneous",
+		save : "Str",
+		description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
+		descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
+	};
+}
+
+// Control Winds reprint (only in Unearthed Arcana article, not in WGtE)
+if (!SpellsList["control winds"]) {
+	SpellsList["control winds"] = {
+		name : "Control Winds",
+		classes : ["druid", "sorcerer", "wizard"],
+		source : [["X", 152], ["E", 16], ["UA:D", 8]],
+		level : 5,
+		school : "Trans",
+		time : "1 a",
+		range : "300 ft",
+		components : "V,S",
+		duration : "Conc, 1 h",
+		description : "100-ft cube of air either gusts, downdraft, or updraft; affects flying/jump/ranged; 1 a change; see B",
+		descriptionFull : "You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted." + "\n   " + toUni("Gusts") + ": A wind picks up within the cube, continually blowing in a horizontal direction you designate. You choose the intensity of the wind: calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that enter or leave the cube or pass through it have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved." + "\n   " + toUni("Downdraft") + ": You cause a sustained blast of strong wind to blow downward from the top of the cube. Ranged weapon attacks that pass through the cube or that are made against targets within it have disadvantage on their attack rolls. A creature must make a Strength saving throw if it flies into the cube for the first time on a turn or starts its turn there flying. On a failed save, the creature is knocked prone." + "\n   " + toUni("Updraft") + ": You cause a sustained updraft within the cube, rising upward from the cube's bottom side. Creatures that end a fall within the cube take only half damage from the fall. When a creature in the cube makes a vertical jump, the creature can jump up to 10 feet higher than normal."
+	};
+}
 var iFileName = "ua_20190514_Artificer.js";
 RequiredSheetVersion(13);
 // This file adds the content from the second Unearthed Arcana: Artificer article of 2019 to MPMB's Character Record Sheet
@@ -14630,7 +16323,7 @@ ClassList['artificer-ua3'] = {
 		primary : "Choose two from Arcana, History, Investigation, Medicine, Nature, Perception, and Sleight of Hand"
 	},
 	toolProfs : {
-		primary : [["Thieves' tools", "Dex"], "Tinker's tools", ["Any artisan's tool", 1]],
+		primary : [["Thieves' tools", "Dex"], "Tinker's tools", ["Artisan's tools", 1]],
 		secondary : [["Thieves' tools", "Dex"], "Tinker's tools"]
 	},
 	armorProfs : {
@@ -14641,7 +16334,7 @@ ClassList['artificer-ua3'] = {
 		primary : [true, false, ["hand crossbow", "heavy crossbow"]]
 	},
 	equipment : "Artificer starting equipment:" +
-		"\n \u2022 any two simple weapons;" +
+		"\n \u2022 Any two simple weapons;" +
 		"\n \u2022 A light crossbow and 20 bolts;" +
 		"\n \u2022 Studded leather armor -or- scale mail;" +
 		"\n \u2022 Thieves' tools and a dungeoneer's pack;" +
@@ -14843,7 +16536,7 @@ ClassList['artificer-ua3'] = {
 				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
 				eval : function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("radiant weapon");
+					var loc = CurrentMagicItems.known.indexOf("radiant weapon") != -1 ? CurrentMagicItems.known.indexOf("radiant weapon") : CurrentMagicItems.known.indexOf("radiant weapon-ua");
 					if (loc == -1) return;
 					MagicItemClear(loc + 1, true);
 				}
@@ -14876,7 +16569,7 @@ ClassList['artificer-ua3'] = {
 				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
 				eval : function (lvl, chc) { AddMagicItem("Repulsion Shield"); },
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("repulsion shield");
+					var loc = CurrentMagicItems.known.indexOf("repulsion shield") != -1 ? CurrentMagicItems.known.indexOf("repulsion shield") : CurrentMagicItems.known.indexOf("repulsion shield-ua");
 					if (loc == -1) return;
 					MagicItemClear(loc + 1, true);
 				}
@@ -14886,7 +16579,7 @@ ClassList['artificer-ua3'] = {
 				source : ["UA:A3", 14],
 				description : desc([
 					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
-					"Choose from: acid,	 cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
+					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
 				]),
 				additional : "suit of armor; requires attunement",
 				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
@@ -15079,33 +16772,26 @@ AddSubClass("artificer-ua3", "alchemist", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.psionic || spName !== "artificer-ua3" || (/color spray|sleep/).test(spellKey)) return;
+						if (spellObj.psionic || spName !== "artificer" || (/color spray|sleep/).test(spellKey)) return;
 						var startDescr = spellObj.description;
 						var toAdd = Math.max(Number(What("Int Mod")), 1);
-						switch (spellKey) {
-							case "cloudkill" :
-								spellObj.description = spellObj.description.replace("obscured, difficult terrain", "obsc., dif. ter.; 1\xD7 +" + toAdd + " dmg");
-								break;
-							case "hunger of hadar" :
-								spellObj.description = spellObj.description.replace(/all /i, '') + " (1\xD7 +" + toAdd + ")";
-								break;
-							case "healing spirit" :
-								spellObj.description += " (+" + toAdd + " once)";
-								break;
-							case "vitriolic sphere" :
-								spellObj.description = spellObj.description.replace('now and', 'now, ');
-							default :
-								if (genericSpellDmgEdit(spellKey, spellObj, "acid|poison", "Int", true, true)) return true;
-								var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
-								var theMatch = spellObj.description.match(testRegex);
-								if (!theMatch) return false;
-								if (theMatch[2]) {
-									var theMid = Number(theMatch[2]) + toAdd;
-									if (theMid > -1) theMid = "+" + theMid;
-								} else {
-									var theMid = "+" + toAdd;
-								}
-								spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
+						if ((/healing spirit|aura of vitality/i).test(spellKey)) {
+							spellObj.description += " (+" + toAdd + " once)";
+							return true;
+						} else if (genericSpellDmgEdit(spellKey, spellObj, "acid|poison", toAdd < 2 ? 1 : "Int", true, true)) {
+							return true;
+						} else {
+							// other healing spells
+							var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
+							var theMatch = spellObj.description.match(testRegex);
+							if (!theMatch) return false;
+							if (theMatch[2]) {
+								var theMid = Number(theMatch[2]) + toAdd;
+								if (theMid > -1) theMid = "+" + theMid;
+							} else {
+								var theMid = "+" + toAdd;
+							}
+							spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
 						}
 						return startDescr !== spellObj.description;
 					},
@@ -15167,16 +16853,16 @@ AddSubClass("artificer-ua3", "alchemist", {
 	}
 });
 // Add the Alchemist's Alchemical Homunculus
-CreatureList["alchemical homunculus-uaa3"] = {
+CreatureList["alchemical homunculus-ua"] = {
 	name : "Alchemical Homunculus",
-	source : ["UA:A3", 7],
+	source : [["UA:A3", 7], ["UA:A2", 6]],
 	size : 5,
 	type : "Construct",
 	subtype : "",
 	alignment : "Neutral",
 	ac : 13,
 	hp : 5,
-	hd : [2, 4],
+	hd : [],
 	speed : "20 ft,\nfly 30 ft",
 	scores : [4, 15, 11, 10, 10, 7],
 	saves : ["", "", "", "", "", ""],
@@ -15196,7 +16882,8 @@ CreatureList["alchemical homunculus-uaa3"] = {
 		name : "Acidic Spittle",
 		ability : 2,
 		damage : [1, 6, "acid"],
-		range : "30 ft"
+		range : "30 ft",
+		modifiers : ["", "Prof-2", ""]
 	}],
 	features : [{
 		name : "Creator",
@@ -15483,9 +17170,9 @@ AddSubClass("artificer-ua3", "artillerist", {
 	}
 });
 // Add the Artillerist's Arcane Turret
-CreatureList["arcane turret-uaa3"] = {
+CreatureList["arcane turret-ua"] = {
 	name : "Arcane Turret",
-	source : ["UA:A3", 10],
+	source : [["UA:A3", 10], ["UA:A2", 7]],
 	size : 3,
 	type : "Construct",
 	subtype : "",
@@ -15493,9 +17180,9 @@ CreatureList["arcane turret-uaa3"] = {
 	ac : 18,
 	hp : 15,
 	hd : [0, 0],
-	speed : "15 ft, climb 15 ft",
-	scores : [10, 10, 10, 10, 10, 10], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	speed : "15 ft,\nclimb 15 ft",
+	scores : [10, 10, 10, 10, 10, 10],
+	saves : ["", "", "", "", "", ""],
 	damage_immunities : "poison, psychic",
 	condition_immunities : "all conditions",
 	passivePerception : 10,
@@ -15586,7 +17273,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 					'I can use my Intelligence modifier instead of Strength or Dexterity for the attack and damage rolls of magic weapons.'
 				]
 			},
-			spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"]
+			spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"]
 		},
 		"subclassfeature3.1" : {
 			name : "Iron Defender",
@@ -15662,7 +17349,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 	}
 });
 // Add the Battle Smith's Iron Defender (new in 2019v2)
-CreatureList["iron defender-uaa3"] = {
+CreatureList["iron defender-ua"] = {
 	name : "Iron Defender",
 	source : ["UA:A3", 11],
 	size : 3,
@@ -15671,7 +17358,7 @@ CreatureList["iron defender-uaa3"] = {
 	alignment : "Neutral",
 	ac : 15,
 	hp : 7,
-	hd : [0, 0],
+	hd : [],
 	speed : "40 ft",
 	scores : [14, 12, 14, 4, 10, 6], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
@@ -15711,10 +17398,10 @@ CreatureList["iron defender-uaa3"] = {
 };
 
 // Add the new spell
-SpellsList["arcane weapon-uaa3"] = {
+SpellsList["arcane weapon-ua"] = {
 	name : "Arcane Weapon",
-	classes : ["artificer-ua3"],
-	source : ["UA:A3", 14],
+	classes : ["artificer-ua3", "artificer-ua2"],
+	source : [["UA:A3", 14], ["UA:A2", 10]],
 	level : 1,
 	school : "Trans",
 	time : "1 bns",
@@ -15726,26 +17413,28 @@ SpellsList["arcane weapon-uaa3"] = {
 };
 
 // Add the new magic items
-MagicItemsList["boots of the winding path"] = {
-	name : "Boots of the Winding Path",
-	source : ["UA:A3", 12],
-	type : "wondrous item",
-	description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
-	descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
-	attunement : true,
-	action : [["bonus action", ""]]
+if (!MagicItemsList["boots of the winding path"]) {
+	MagicItemsList["boots of the winding path"] = {
+		name : "Boots of the Winding Path",
+		source : [["E:RLW", 62], ["UA:A2", 9], ["UA:A3", 12]],
+		type : "wondrous item",
+		description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
+		descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
+		attunement : true,
+		action : [["bonus action", ""]]
+	}
 }
-MagicItemsList["many-handed pouch"] = {
+MagicItemsList["many-handed pouch-ua"] = {
 	name : "Many-Handed Pouch",
-	source : ["UA:A3", 13],
+	source : [["UA:A3", 13], ["UA:A2", 9]],
 	type : "wondrous item",
 	description : "These 2-5 pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch only functions if it is within 100 miles of another pouch of its set.",
 	descriptionFull : "The infused pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch operates as long as it is within 100 miles of another one of the pouches; the pouch is otherwise empty and won't accept any contents.\n   If this infusion ends, the items stored in the shared space move into one of the pouches, determined at random. The rest of the pouches become empty."
 }
-MagicItemsList["radiant weapon"] = {
+MagicItemsList["radiant weapon-ua"] = {
 	name : "Radiant Weapon",
 	nameTest : "Radiant",
-	source : ["UA:A3", 13],
+	source : [["UA:A3", 13], ["UA:A2", 9]],
 	type : "weapon (any)",
 	description : "This magic weapon adds a +1 on its attacks and damage. As a bonus action, I can start or stop it shedding light, bright in 30 ft and dim for another 30 ft. Once per short rest as a reaction when hit by a melee attack, I can blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
@@ -15768,7 +17457,7 @@ MagicItemsList["radiant weapon"] = {
 					fields.Description += (fields.Description ? '; ' : '') + 'Reaction to blind attacker';
 				}
 			},
-			'If I include the word "Radiant" in the name of a weapon, it will be treated as the magic weapon Radiant Weapon. It has +1 to hit and damage and can be used to shed light or blind an attacker.'
+			'If I include the word "Radiant" in the name of a weapon, it will be treated as the magic weapon Radiant Weapon. It has +1 to hit and damage and can be used to shed light and to blind an attacker.'
 		],
 		atkCalc : [
 			function (fields, v, output) {
@@ -15779,41 +17468,43 @@ MagicItemsList["radiant weapon"] = {
 		]
 	}
 }
-MagicItemsList["repeating shot"] = { // 2019v2
-	name : "Repeating Shot",
-	source : ["UA:A3", 13],
-	type : "weapon (any with ammunition)",
-	description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
-	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
-	attunement : true,
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "suffix",
-		descriptionChange : ["replace", "weapon"],
-		excludeCheck : function (inObjKey, inObj) {
-			return !(/ammunition/i).test(inObj.description);
+if (!MagicItemsList["repeating shot"]) {
+	MagicItemsList["repeating shot"] = { // 2019v2
+		name : "Repeating Shot",
+		source : [["E:RLW", 62], ["UA:A3", 13]],
+		type : "weapon (any with ammunition)",
+		description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
+		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
+		attunement : true,
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/ammunition/i).test(inObj.description);
+			}
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '').replace(/(;|,)? ?loading/i, '');
+					}
+				},
+				'If I include the words "Repeating Shot" in the name of a weapon with the ammunition property, it will be treated as the magic weapon Repeating Shot. It has +1 to hit and damage and produces its own ammunition, thus its loading property is removed if it has it.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText) && !v.isSpell) {
+						output.magic = v.thisWeapon[1] + 1;
+					}
+				}, ''
+			]
 		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '').replace(/(;|,)? ?loading/i, '');
-				}
-			},
-			'If I include the words "Repeating Shot" in the name of a weapon with the ammunition property, it will be treated as the magic weapon Repeating Shot. It has +1 to hit and damage and produces its own ammunition, thus its loading property is removed if it has it.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText) && !v.isSpell) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-		]
 	}
 }
-MagicItemsList["repulsion shield"] = { // 2019v2
+MagicItemsList["repulsion shield-ua"] = { // 2019v2
 	name : "Repulsion Shield",
 	source : ["UA:A3", 14],
 	type : "shield",
@@ -15826,39 +17517,41 @@ MagicItemsList["repulsion shield"] = { // 2019v2
 	action : [["reaction", ""]],
 	shieldAdd : ["Repulsion Shield", 3, 6],
 }
-MagicItemsList["returning weapon"] = {
-	name : "Returning Weapon",
-	nameTest : "Returning",
-	source : ["UA:A3", 14],
-	type : "weapon (any thrown)",
-	description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
-	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "suffix",
-		descriptionChange : ["replace", "weapon"],
-		excludeCheck : function (inObjKey, inObj) {
-			return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
+if (!MagicItemsList["returning weapon"]) {
+	MagicItemsList["returning weapon"] = {
+		name : "Returning Weapon",
+		nameTest : "Returning",
+		source : [["E:RLW", 63], ["UA:A3", 14], ["UA:A2", 10]],
+		type : "weapon (any thrown)",
+		description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
+		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
+			}
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+						fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
+					}
+				},
+				'If I include the word "Returning" in the name of a thrown weapon, it will be treated as the magic weapon Returning Weapon. It has +1 to hit and damage and returns to my hand immediately after I use it to make a ranged attack.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+						output.magic = v.thisWeapon[1] + 1;
+					}
+				}, ''
+			]
 		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
-				}
-			},
-			'If I include the word "Returning" in the name of a thrown weapon, it will be treated as the magic weapon Returning Weapon. It has +1 to hit and damage and returns to my hand immediately after I use it to make a ranged attack.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-		]
 	}
 }
 
@@ -16023,7 +17716,7 @@ var SetArtificerSpells = function(){
 			anArtMi = {
 				name : MagicItemsList[MI0][MI2].name ? MagicItemsList[MI0][MI2].name : MagicItemsList[MI0].name + " [" + MI2.capitalize() + "]",
 				source : MagicItemsList[MI0][MI2].source ? MagicItemsList[MI0][MI2].source : MagicItemsList[MI0].source,
-				attunement : MagicItemsList[MI0][MI2].attunement ? MagicItemsList[MI0][MI2].attunement : MagicItemsList[MI0].attunement
+				attunement : MagicItemsList[MI0][MI2].attunement !== undefined ? MagicItemsList[MI0][MI2].attunement : MagicItemsList[MI0].attunement
 			}
 		}
 		var theI = "Replicate: " + anArtMi.name + (MI1 ? " (prereq: level " + MI1 + " artificer)" : "");
@@ -17844,7 +19537,7 @@ var origMartialArts = ClassList.monk.features["martial arts"];
 origMartialArts.extrachoices = [];
 origMartialArts.extraname = "Monk Weapon";
 origMartialArts.extraTimes = ["5 + Wisdom Modifier"];
-origMartialArts.extrachoicesNotInMenu = GetFeatureChoice("classes", "monk", "martial arts", false) != "choose monk weapons";
+origMartialArts.extrachoicesNotInMenu = GetFeatureChoice("classes", "monk", "martial arts") != "choose monk weapons";
 RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
@@ -18032,7 +19725,7 @@ origFavoredEnemy[origFavoredEnemyNm.toLowerCase()] = {
 delete origFavoredEnemy.additional;
 origFavoredEnemy.description = '\n   Select ' + origFavoredEnemy.name + ' or a variant using the "Choose Feature" button above';
 origFavoredEnemy.name = origFavoredEnemy.name + " or a Variant";
-var curFavEnemyChoice = GetFeatureChoice("classes", "ranger", "favored enemy", false);
+var curFavEnemyChoice = GetFeatureChoice("classes", "ranger", "favored enemy");
 origFavoredEnemy.extrachoicesNotInMenu = !!curFavEnemyChoice && curFavEnemyChoice != ClassList.ranger.features["favored enemy"].choices[0].toLowerCase();
 AddFeatureChoice(origFavoredEnemy, false, "Favored Foe", {
 	name : "Favored Foe",
@@ -18209,7 +19902,7 @@ CreatureList["beast of the air"] = {
 	ac : 13,
 	hp : 6,
 	hd : [1, 6],
-	speed : "10 ft,\nfly 50 ft",
+	speed : "10 ft,\nfly 60 ft",
 	scores : [6, 16, 13, 8, 14, 11],
 	saves : ["", 5, 3, "", 4, ""],
 	skills : {

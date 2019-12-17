@@ -13,7 +13,7 @@ SourceList["UA:E"] = {
 
 // Adds three races:
 // Changeling
-RaceList["changeling"] = {
+RaceList["changeling-ua"] = {
 	regExpSearch : /changeling/i,
 	name : "Changeling",
 	source : ["UA:E", 1],
@@ -34,7 +34,7 @@ RaceList["changeling"] = {
 	action : ['action', 'Polymorph']
 };
 // Warforged
-RaceList["warforged"] = {
+RaceList["warforged-ua"] = {
 	regExpSearch : /warforged/i,
 	name : "Warforged",
 	source : ["UA:E", 3],
@@ -49,7 +49,7 @@ RaceList["warforged"] = {
 	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")",
 	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)",
 	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 0],
 	trait : "Warforged (+1 Strength, +1 Constitution)\nLiving Construct:\n   Even though I was constructed, I am a living creature. I am immune to disease. I do not need to eat or breathe, but I can ingest food and drink if I wish.\n   Instead of sleeping, I enter an inactive state for 4 hours each day. I do not dream in this state; I am fully aware of my surroundings and notice approaching enemies and other events as normal. I still need 8 hours for a long rest.",
 	extraAC : {
@@ -59,7 +59,7 @@ RaceList["warforged"] = {
 	}
 };
 // Shifter and its 6 subraces
-RaceList["shifter"] = {
+RaceList["shifter-ua"] = {
 	regExpSearch : /shifter/i,
 	name : "Shifter",
 	source : ["UA:E", 2],
@@ -71,10 +71,10 @@ RaceList["shifter"] = {
 	languageProfs : ["Common", "Sylvan"],
 	vision : [["Darkvision", 60]],
 	age : " reach adulthood at the end of their teens and live around 100 years",
-	height : " range from under 5 to 6 feet tall (4'6\" + 2d8\")",
-	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 135 lb (90 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt : "+1 Dexterity and +1 to other ability score depending on type of shifter",
 	scores : [0, 1, 0, 0, 0, 0],
 	trait : "Shifter (+1 Dexterity and +1 to other ability score depending on type of shifter)\n   Use the \"Racial Options\" button to select type of shifter.\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and another bonus depending on the type of shifter.",
@@ -88,7 +88,7 @@ RaceList["shifter"] = {
 		}
 	}
 };
-AddRacialVariant("shifter", "beasthide", {
+AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch : /beasthide/i,
 	name : "Beasthide shifter",
 	source : ["UA:E", 2],
@@ -97,7 +97,7 @@ AddRacialVariant("shifter", "beasthide", {
 	scores : [0, 1, 1, 0, 0, 0],
 	trait : "Beasthide Shifter (+1 Dexterity, +1 Constitution)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a +1 bonus to my AC."
 });
-AddRacialVariant("shifter", "cliffwalk", {
+AddRacialVariant("shifter-ua", "cliffwalk", {
 	regExpSearch : /cliffwalk/i,
 	name : "Cliffwalk shifter",
 	source : ["UA:E", 2],
@@ -106,7 +106,7 @@ AddRacialVariant("shifter", "cliffwalk", {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Cliffwalk Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a climb speed of 30 feet."
 });
-AddRacialVariant("shifter", "longstride", {
+AddRacialVariant("shifter-ua", "longstride", {
 	regExpSearch : /longstride/i,
 	name : "Longstride shifter",
 	source : ["UA:E", 2],
@@ -115,7 +115,7 @@ AddRacialVariant("shifter", "longstride", {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Longstride Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I can use the Dash action as a bonus action."
 });
-AddRacialVariant("shifter", "longtooth", {
+AddRacialVariant("shifter-ua", "longtooth", {
 	regExpSearch : /(longtooth|longteeth)/i,
 	name : "Longtooth shifter",
 	source : ["UA:E", 2],
@@ -136,7 +136,7 @@ AddRacialVariant("shifter", "longtooth", {
 	scores : [1, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled."
 });
-AddRacialVariant("shifter", "razorclaw", {
+AddRacialVariant("shifter-ua", "razorclaw", {
 	regExpSearch : /razorclaw/i,
 	name : "Razorclaw shifter",
 	source : ["UA:E", 2],
@@ -154,7 +154,7 @@ AddRacialVariant("shifter", "razorclaw", {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage."
 });
-AddRacialVariant("shifter", "wildhunt", {
+AddRacialVariant("shifter-ua", "wildhunt", {
 	regExpSearch : /wildhunt/i,
 	name : "Wildhunt shifter",
 	source : ["UA:E", 3],
@@ -165,7 +165,7 @@ AddRacialVariant("shifter", "wildhunt", {
 });
 
 // 12 variants of the Dragonmark feat
-FeatsList["dragonmark"] = {
+FeatsList["dragonmark-ua"] = {
 	name : "Dragonmark",
 	source : ["UA:E", 6],
 	description : "Select the type of dragonmark using the little square button in this feat line.",

@@ -59,7 +59,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 	RaceList["goblin"] = {
 		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
 		name : "Goblin",
-		source : [["V", 119], ["G", 17]],
+		source : [["V", 119], ["G", 17], ["E:RLW", 26]],
 		plural : "Goblins",
 		size : 4,
 		speed : {
@@ -84,7 +84,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 			"nimble escape" : {
 				name : "Nimble Escape",
 				minlevel : 1,
-				action : ["bonus action", " (disengage/hide)"]
+				action : [["bonus action", " (disengage/hide)"]]
 			}
 		},
 		trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."

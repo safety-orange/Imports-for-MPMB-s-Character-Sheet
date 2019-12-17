@@ -157,7 +157,7 @@ RaceList["scourge aasimar"] = {
 RaceList["bugbear"] = {
 	regExpSearch : /bugbear/i,
 	name : "Bugbear",
-	source : ["V", 119],
+	source : [["V", 119], ["E:RLW", 25]],
 	plural : "Bugbears",
 	size : 3,
 	speed : {
@@ -242,7 +242,7 @@ RaceList["firbolg"] = {
 RaceList["goblin"] = {
 	regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
 	name : "Goblin",
-	source : [["V", 119], ["G", 17]],
+	source : [["V", 119], ["G", 17], ["E:RLW", 26]],
 	plural : "Goblins",
 	size : 4,
 	speed : {
@@ -267,7 +267,7 @@ RaceList["goblin"] = {
 		"nimble escape" : {
 			name : "Nimble Escape",
 			minlevel : 1,
-			action : ["bonus action", " (disengage/hide)"]
+			action : [["bonus action", " (disengage/hide)"]]
 		}
 	},
 	trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
@@ -307,7 +307,7 @@ if (!RaceList["goliath"]) { //reprint from Elemental Evil Player's Companion
 RaceList["hobgoblin"] = {
 	regExpSearch : /hobgoblin/i,
 	name : "Hobgoblin",
-	source : ["V", 119],
+	source : [["V", 119], ["E:RLW", 26]],
 	plural : "Hobgoblins",
 	size : 3,
 	speed : {
@@ -430,7 +430,7 @@ RaceList["lizardfolk"] = {
 	trait : "Lizardfolk (+2 Constitution, +1 Wisdom) Bite: I can use my fanged maw to make unarmed strikes dealing 1d6 piercing damage." + (typePF ? "\n" : " ") + "Cunning Artisan: As part of a short rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\n" : " ") + "Hold Breath: I can hold my breath for up to 15 minutes at a time." + (typePF ? "\n" : " ") + "Natural Armor: I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\n" : " ") + "Hungry Jaws: As a bonus action, once per short rest, I can make a special bite attack and if it hits I gain temporary HP equal to my Con modifier (min 1)."
 };
 RaceList["orc"] = {
-	regExpSearch : /^(?!.*half)(?=.*\bor(c|k)).*$/i,
+	regExpSearch : /^(?!.*(half|eberron))(?=.*\bor(c|k)).*$/i,
 	name : "Orc",
 	source : ["V", 120],
 	plural : "Orcs",
@@ -447,14 +447,8 @@ RaceList["orc"] = {
 	heightMetric : " are usually over 1,8 metres tall (160 + 5d8 cm)",
 	weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores : [2, 0, 1, -2, 0, 0],
-	features : {
-		"aggressive" : {
-			name : "Aggressive",
-			minlevel : 1,
-			action : ["bonus action", " (dash to enemy)"]
-		}
-	},
 	trait : "Orc (+2 Strength, +1 Constitution, -2 Intelligence)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
+	action : ["bonus action", "Aggressive (dash to enemy)"],
 	carryingCapacity : 2
 };
 RaceList["tabaxi"] = {

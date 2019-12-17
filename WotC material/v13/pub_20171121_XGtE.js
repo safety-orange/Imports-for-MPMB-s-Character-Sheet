@@ -3301,7 +3301,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["gust"] = {
 		name : "Gust",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
+		source : [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
 		level : 0,
 		school : "Trans",
 		time : "1 a",
@@ -3338,7 +3338,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V",
 		duration : "Conc, 1 min",
 		save : "Dex",
-		description : "1 crea save or 8d6 Fire dmg and burns for 4d6 Fire dmg/rnd; save each rnd to end; half dmg on save",
+		description : "1 crea save or 8d6 Fire dmg (half on save) and burns for 4d6 Fire dmg/rnd; save each rnd to end; half dmg on save",
 		descriptionFull : "Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes 4d6 fire damage on a failed save, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means." + "\n   " + "If damage from this spell kills a target, the target is turned to ash."
 	};
 	SpellsList["investiture of flame"] = {
@@ -3552,7 +3552,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		components : "V,S",
 		duration : "Conc, 1 min",
 		save : "Str",
-		description : "20-ft rad dif. ter.; all crea now/end turn save 2d6 bludg.; bns 60 ft spell atk 4d6 lightn. dmg; +1d6/SL",
+		description : "20-ft rad dif. ter.; all crea cast/end turn save 2d6 Bludg.; bns 60 ft spell atk 4d6 Lightn. dmg; +1d6/SL",
 		descriptionFull : "A 20-foot-radius sphere of whirling air springs into existence centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain." + "\n   " + "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage." + "\n   " + "Creatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks made to listen." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases for each of its effects by 1d6 for each slot level above 4th."
 	};
 	SpellsList["thunderclap"] = {
@@ -3934,7 +3934,7 @@ SpellsList["holy weapon"] = {
 	components : "V,S",
 	duration : "Conc, 1 h",
 	save : "Con",
-	description : "Wea +2d8 Radiant dmg; bns a end spell, 30-ft rad all crea 4d8 Radiant dmg, blind; save half, no blind",
+	description : "Wea +2d8 Radiant dmg; bns a end spell: 30-ft rad all crea 4d8 Radiant dmg, blind; save half, no blind",
 	descriptionFull : "You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration." + "\n   " + "As a bonus action on your turn, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of you must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success."
 };
 SpellsList["illusory dragon"] = {
@@ -3978,6 +3978,7 @@ SpellsList["infestation-xgte"] = {
 	duration : "Instantaneous",
 	save : "Con",
 	description : "1 crea save or 1d6 Poison dmg and moved 5 ft in random direction; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea save or `CD`d6 Poison dmg and moved 5 ft in random direction",
 	descriptionFull : "You cause a cloud of mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d6 poison damage and moves 5 feet in a random direction if it can move and its speed is at least 5 feet. Roll a d4 for the direction:" + "\n\n" + toUni("d4") + "\t" + toUni("Direction") + "\n  1\tNorth" + "\n  2\tSouth" + "\n  3\tEast" + "\n  4\tWest" + "\n\n   " + "This movement doesn't provoke opportunity attacks, and if the direction rolled is blocked, the target doesn't move." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["invulnerability"] = {
@@ -4048,7 +4049,7 @@ SpellsList["mental prison"] = {
 	components : "S",
 	duration : "Conc, 1 min",
 	save : "Int",
-	description : "1 crea 5d10 Psychic dmg; save or restrained, blind, deaf, and takes 10d10 dmg if moved; charm effect",
+	description : "1 crea 5d10 Psychic dmg; save or restrained, blind, deaf, and if moved: 10d10 dmg, ends; charm effect",
 	descriptionFull : "You attempt to bind a creature within an illusory cell that only it perceives. One creature you can see within range must make an Intelligence saving throw. The target succeeds automatically if it is immune to being charmed. On a successful save, the target takes 5d10 psychic damage, and the spell ends. On a failed save, the target takes 5d10 psychic damage, and you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't see or hear anything beyond it and is restrained for the spell's duration. If the target is moved out of the illusion, makes a melee attack through it, or reaches any part of its body through it, the target takes 10d10 psychic damage, and the spell ends."
 };
 SpellsList["mighty fortress"] = {
@@ -4315,7 +4316,7 @@ SpellsList["tenser's transformation"] = {
 	components : "V,S,M",
 	compMaterial : "A few hairs from a bull",
 	duration : "Conc, 10 min",
-	description : "50 temp HP; prof Str/Con save, all wea/arm; extra atk; adv., +1d12 Force dmg on wea atks; no spellc.",
+	description : "50 temp HP; prof Str/Con save, all wea/arm; extra atk; adv., +2d12 Force dmg on wea atks; no spellc.",
 	descriptionFull : "You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:" + "\n \u2022 " + "You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost." + "\n \u2022 " + "You have advantage on attack rolls that you make with simple and martial weapons." + "\n \u2022 " + "When you hit a target with a weapon attack, that target takes an extra 2d12 force damage." + "\n \u2022 " + "You have proficiency with all armor, shields, simple weapons, and martial weapons." + "\n \u2022 " + "You have proficiency in Strength and Constitution saving throws." + "\n \u2022 " + "You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature, like Extra Attack, that gives you extra attacks." + "\n   " + "Immediately after the spell ends, you must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion."
 };
 SpellsList["thunder step"] = {

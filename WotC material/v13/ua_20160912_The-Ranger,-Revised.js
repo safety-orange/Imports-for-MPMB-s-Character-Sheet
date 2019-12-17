@@ -35,7 +35,7 @@ ClassList["rangerua"] = {
 		secondary : [true, true]
 	},
 	equipment : "Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-	subclasses : ["Ranger Conclaves", ["rangerua-beast master", "rangerua-deep stalker", "rangerua-hunter"]],
+	subclasses : ["Ranger Conclaves", []],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 2,
 	spellcastingList : {
@@ -203,7 +203,7 @@ ClassList["rangerua"] = {
 		}
 	}
 };
-ClassSubList["rangerua-beast master"] = {
+AddSubClass("rangerua", "beast master", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Conclave",
 	source : ["UA:RR", 5],
@@ -246,8 +246,8 @@ ClassSubList["rangerua-beast master"] = {
 			description : "\n   " + "My companion can, as a reaction, halve an attack's damage from attacker that it sees"
 		}
 	}
-};
-ClassSubList["rangerua-hunter"] = {
+});
+AddSubClass("rangerua", "hunter", {
 	regExpSearch : /^(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i,
 	subname : "Hunter Conclave",
 	source : ["UA:RR", 7],
@@ -333,8 +333,8 @@ ClassSubList["rangerua-hunter"] = {
 			}
 		}
 	}
-};
-ClassSubList["rangerua-deep stalker"] = {
+});
+AddSubClass("rangerua", "deep stalker", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker Conclave",
 	source : ["UA:RR", 7],
@@ -375,7 +375,7 @@ ClassSubList["rangerua-deep stalker"] = {
 			action : ["reaction", " (when attacked)"]
 		}
 	}
-};
+});
 
 // By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!

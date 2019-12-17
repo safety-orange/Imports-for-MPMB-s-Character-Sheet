@@ -223,7 +223,7 @@ ClassList['artificer-ua2'] = {
 				source : ["UA:A2", 10],
 				description : desc([
 					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
-					"Choose from: acid,	 cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
+					"Choose from: acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
 				]),
 				additional : "suit of armor; requires attunement",
 				prereqeval : function(v) { return classes.known["artificer-ua2"].level >= 8; },
@@ -390,33 +390,26 @@ AddSubClass("artificer-ua2", "alchemist", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.psionic || spName !== "artificer-ua2" || (/color spray|sleep/).test(spellKey)) return;
+						if (spellObj.psionic || spName !== "artificer" || (/color spray|sleep/).test(spellKey)) return;
 						var startDescr = spellObj.description;
 						var toAdd = Math.max(Number(What("Int Mod")), 1);
-						switch (spellKey) {
-							case "cloudkill" :
-								spellObj.description = spellObj.description.replace("obscured, difficult terrain", "obsc., dif. ter.; 1\xD7 +" + toAdd + " dmg");
-								break;
-							case "hunger of hadar" :
-								spellObj.description = spellObj.description.replace(/all /i, '') + " (1\xD7 +" + toAdd + ")";
-								break;
-							case "healing spirit" :
-								spellObj.description += " (+" + toAdd + " once)";
-								break;
-							case "vitriolic sphere" :
-								spellObj.description = spellObj.description.replace('now and', 'now, ');
-							default :
-								if (genericSpellDmgEdit(spellKey, spellObj, "acid|poison", "Int", true, true)) return true;
-								var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
-								var theMatch = spellObj.description.match(testRegex);
-								if (!theMatch) return false;
-								if (theMatch[2]) {
-									var theMid = Number(theMatch[2]) + toAdd;
-									if (theMid > -1) theMid = "+" + theMid;
-								} else {
-									var theMid = "+" + toAdd;
-								}
-								spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
+						if ((/healing spirit|aura of vitality/i).test(spellKey)) {
+							spellObj.description += " (+" + toAdd + " once)";
+							return true;
+						} else if (genericSpellDmgEdit(spellKey, spellObj, "acid|poison", toAdd < 2 ? 1 : "Int", true, true)) {
+							return true;
+						} else {
+							// other healing spells
+							var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
+							var theMatch = spellObj.description.match(testRegex);
+							if (!theMatch) return false;
+							if (theMatch[2]) {
+								var theMid = Number(theMatch[2]) + toAdd;
+								if (theMid > -1) theMid = "+" + theMid;
+							} else {
+								var theMid = "+" + toAdd;
+							}
+							spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
 						}
 						return startDescr !== spellObj.description;
 					},
@@ -478,16 +471,16 @@ AddSubClass("artificer-ua2", "alchemist", {
 	}
 });
 // Add the Alchemist's Alchemical Homunculus
-CreatureList["alchemical homunculus-uaa2"] = {
+CreatureList["alchemical homunculus-ua"] = {
 	name : "Alchemical Homunculus",
-	source : ["UA:A2", 6],
+	source : [["UA:A3", 7], ["UA:A2", 6]],
 	size : 5,
 	type : "Construct",
 	subtype : "",
 	alignment : "Neutral",
 	ac : 13,
 	hp : 5,
-	hd : [2, 4],
+	hd : [],
 	speed : "20 ft,\nfly 30 ft",
 	scores : [4, 15, 11, 10, 10, 7],
 	saves : ["", "", "", "", "", ""],
@@ -507,7 +500,8 @@ CreatureList["alchemical homunculus-uaa2"] = {
 		name : "Acidic Spittle",
 		ability : 2,
 		damage : [1, 6, "acid"],
-		range : "30 ft"
+		range : "30 ft",
+		modifiers : ["", "Prof-2", ""]
 	}],
 	features : [{
 		name : "Creator",
@@ -679,9 +673,9 @@ AddSubClass("artificer-ua2", "artillerist", {
 	}
 });
 // Add the Artillerist's Arcane Turret
-CreatureList["arcane turret"] = {
+CreatureList["arcane turret-ua"] = {
 	name : "Arcane Turret",
-	source : ["UA:A2", 7],
+	source : [["UA:A3", 10], ["UA:A2", 7]],
 	size : 3,
 	type : "Construct",
 	subtype : "",
@@ -689,9 +683,9 @@ CreatureList["arcane turret"] = {
 	ac : 18,
 	hp : 15,
 	hd : [0, 0],
-	speed : "15 ft, climb 15 ft",
-	scores : [10, 10, 10, 10, 10, 10], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	speed : "15 ft,\nclimb 15 ft",
+	scores : [10, 10, 10, 10, 10, 10],
+	saves : ["", "", "", "", "", ""],
 	damage_immunities : "poison, psychic",
 	condition_immunities : "all conditions",
 	passivePerception : 10,
@@ -751,10 +745,10 @@ CreatureList["arcane turret"] = {
 };
 
 // Add the new spell
-SpellsList["arcane weapon-uaa2"] = {
+SpellsList["arcane weapon-ua"] = {
 	name : "Arcane Weapon",
-	classes : ["artificer-ua2"],
-	source : ["UA:A2", 10],
+	classes : ["artificer-ua3", "artificer-ua2"],
+	source : [["UA:A3", 14], ["UA:A2", 10]],
 	level : 1,
 	school : "Trans",
 	time : "1 bns",
@@ -766,26 +760,28 @@ SpellsList["arcane weapon-uaa2"] = {
 };
 
 // Add the new magic items
-MagicItemsList["boots of the winding path"] = {
-	name : "Boots of the Winding Path",
-	source : ["UA:A2", 9],
-	type : "wondrous item",
-	description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
-	descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
-	attunement : true,
-	action : [["bonus action", ""]]
+if (!MagicItemsList["boots of the winding path"]) {
+	MagicItemsList["boots of the winding path"] = {
+		name : "Boots of the Winding Path",
+		source : [["E:RLW", 62], ["UA:A2", 9], ["UA:A3", 12]],
+		type : "wondrous item",
+		description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
+		descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
+		attunement : true,
+		action : [["bonus action", ""]]
+	}
 }
-MagicItemsList["many-handed pouch"] = {
+MagicItemsList["many-handed pouch-ua"] = {
 	name : "Many-Handed Pouch",
-	source : ["UA:A2", 9],
+	source : [["UA:A3", 13], ["UA:A2", 9]],
 	type : "wondrous item",
 	description : "These 2-5 pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch only functions if it is within 100 miles of another pouch of its set.",
 	descriptionFull : "The infused pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch operates as long as it is within 100 miles of another one of the pouches; the pouch is otherwise empty and won't accept any contents.\n   If this infusion ends, the items stored in the shared space move into one of the pouches, determined at random. The rest of the pouches become empty."
 }
-MagicItemsList["radiant weapon"] = {
+MagicItemsList["radiant weapon-ua"] = {
 	name : "Radiant Weapon",
 	nameTest : "Radiant",
-	source : ["UA:A2", 9],
+	source : [["UA:A3", 13], ["UA:A2", 9]],
 	type : "weapon (any)",
 	description : "This magic weapon adds a +1 on its attacks and damage. As a bonus action, I can start or stop it shedding light, bright in 30 ft and dim for another 30 ft. Once per short rest as a reaction when hit by a melee attack, I can blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
@@ -822,7 +818,7 @@ MagicItemsList["radiant weapon"] = {
 MagicItemsList["returning weapon"] = {
 	name : "Returning Weapon",
 	nameTest : "Returning",
-	source : ["UA:A2", 10],
+	source : [["E:RLW", 63], ["UA:A3", 14], ["UA:A2", 10]],
 	type : "weapon (any thrown)",
 	description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
@@ -999,7 +995,7 @@ var SetArtificerSpells = function(){
 			anArtMi = {
 				name : MagicItemsList[MI0][MI2].name ? MagicItemsList[MI0][MI2].name : MagicItemsList[MI0].name + " [" + MI2.capitalize() + "]",
 				source : MagicItemsList[MI0][MI2].source ? MagicItemsList[MI0][MI2].source : MagicItemsList[MI0].source,
-				attunement : MagicItemsList[MI0][MI2].attunement ? MagicItemsList[MI0][MI2].attunement : MagicItemsList[MI0].attunement
+				attunement : MagicItemsList[MI0][MI2].attunement !== undefined ? MagicItemsList[MI0][MI2].attunement : MagicItemsList[MI0].attunement
 			}
 		}
 		var theI = "Replicate: " + anArtMi.name + (MI1 ? " (prereq: level " + MI1 + " artificer)" : "");

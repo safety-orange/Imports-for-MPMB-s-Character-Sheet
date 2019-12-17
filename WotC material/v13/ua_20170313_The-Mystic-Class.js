@@ -33,7 +33,7 @@ ClassList.mystic = {
 		primary : [true, false]
 	},
 	equipment : "Mystic starting equipment:\n \u2022 A spear -or- a mace;\n \u2022 Leather mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts -or- any simple weapon;\n \u2022 A scholar's pack -or- an explorer's pack.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-	subclasses : ["Mystic Order", ["mystic-avatar", "mystic-awakened", "mystic-immortal", "mystic-nomad", "mystic-soul knife", "mystic-wu jen"]],
+	subclasses : ["Mystic Order", []],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : "psionic0",
 	spellcastingKnown : {
@@ -205,7 +205,7 @@ ClassList.mystic = {
 	}
 };
 // Order of the Avatar subclass for the Mystic
-ClassSubList["mystic-avatar"] = {
+AddSubClass("mystic", "avatar", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*avatar).*$/i,
 	subname : "Order of the Avatar",
 	source : ["UA:TMC", 5],
@@ -268,9 +268,9 @@ ClassSubList["mystic-avatar"] = {
 			description : "\n   " + "Allies within 30 ft of me can use Dash as a bonus action while I'm not incapacitated"
 		}
 	}
-};
+});
 // Order of the Awakened subclass for the Mystic
-ClassSubList["mystic-awakened"] = {
+AddSubClass("mystic", "awakened", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*awakened).*$/i,
 	subname : "Order of the Awakened",
 	source : ["UA:TMC", 6],
@@ -334,9 +334,9 @@ ClassSubList["mystic-awakened"] = {
 			action : ["action", ""]
 		}
 	}
-};
+});
 // Order of the Immortal subclass for the Mystic
-ClassSubList["mystic-immortal"] = {
+AddSubClass("mystic", "immortal", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*immortal).*$/i,
 	subname : "Order of the Immortal",
 	source : ["UA:TMC", 6],
@@ -411,9 +411,9 @@ ClassSubList["mystic-immortal"] = {
 			})
 		}
 	}
-};
+});
 // Order of the Nomad subclass for the Mystic
-ClassSubList["mystic-nomad"] = {
+AddSubClass("mystic", "nomad", {
 	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*nomad).*$/i,
 	subname : "Order of the Nomad",
 	source : ["UA:TMC", 7],
@@ -489,9 +489,9 @@ ClassSubList["mystic-nomad"] = {
 			])
 		}
 	}
-};
+});
 // Order of the Soul Knife subclass for the Mystic
-ClassSubList["mystic-soul knife"] = {
+AddSubClass("mystic", "soul knife", {
 	regExpSearch : /^(?=.*soul)(?=.*knife).*$/i,
 	subname : "Order of the Soul Knife",
 	source : ["UA:TMC", 7],
@@ -542,9 +542,9 @@ ClassSubList["mystic-soul knife"] = {
 			action : ["action", ""]
 		}
 	}
-};
+});
 // Order of the Wu Jen subclass for the Mystic
-ClassSubList["mystic-wu jen"] = {
+AddSubClass("mystic", "wu jen", {
 	regExpSearch : /^(?=.*wu)(?=.*jen).*$/i,
 	subname : "Order of the Wu Jen",
 	source : ["UA:TMC", 8],
@@ -608,7 +608,7 @@ ClassSubList["mystic-wu jen"] = {
 			])
 		}
 	}
-};
+});
 
 // The Psionic Talents for the Mystic (with contributions by rabidknave)
 PsionicsList["beacon"] = {

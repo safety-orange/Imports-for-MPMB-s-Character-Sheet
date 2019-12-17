@@ -842,7 +842,7 @@ AddSubClass("fighter", "battle master", {
 					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Martial Adept feat or ', 'bonus');
 				}
 				// The same goes for the optional fighting style Superior Technique
-				if (GetFeatureChoice("classes", "fighter", "fighting style", false) == "superior technique") {
+				if (GetFeatureChoice("classes", "fighter", "fighting style") == "superior technique") {
 					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
 				}
 			},

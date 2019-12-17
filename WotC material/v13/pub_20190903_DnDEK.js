@@ -534,7 +534,7 @@ ClassList["sidekick-spellcaster"] = {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						var subclass = classes.known["sidekick-spellcaster"].subclass;
-						var spSchool = GetFeatureChoice("classes", "sidekick-spellcaster", "empowered spells", false);
+						var spSchool = GetFeatureChoice("classes", "sidekick-spellcaster", "empowered spells");
 						if (!subclass || !ClassSubList[subclass].abilitySave || !spSchool || spellObj.psionic || !spellObj.level) return;
 						for (var aSchl in spellSchoolList) {
 							if (spellSchoolList[aSchl] == spSchool) {

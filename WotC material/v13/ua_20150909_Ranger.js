@@ -44,7 +44,7 @@ ClassList["ua-playtest-ranger"] = {
 		secondary : [true, true]
 	},
 	equipment : "Playtest Ranger starting equipment:\n \u2022 leather armor;\n \u2022 Two shortswords -or- two martial melee weapons -or- a martial weapon and a shield;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows -or- a martial weapon.",
-	subclasses : ["Ranger Path", ["ua-playtest-ranger-guardian", "ua-playtest-ranger-seeker", "ua-playtest-ranger-stalker"]],
+	subclasses : ["Ranger Path", []],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"ambuscade" : {
@@ -82,7 +82,7 @@ ClassList["ua-playtest-ranger"] = {
 		"primeval awareness" : ClassList.ranger.features["primeval awareness"]
 	}
 };
-ClassSubList["ua-playtest-ranger-guardian"] = {
+AddSubClass("ua-playtest-ranger", "guardian", {
 	regExpSearch : /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Guardian",
 	source : ["UA:R", 3],
@@ -108,8 +108,8 @@ ClassSubList["ua-playtest-ranger-guardian"] = {
 			description :"\n   " + "When I call my spirit animal, I grant me or an ally I can see 2d6 + Wis mod temp HP"
 		}
 	}
-};
-ClassSubList["ua-playtest-ranger-seeker"] = {
+});
+AddSubClass("ua-playtest-ranger", "seeker", {
 	regExpSearch : /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Seeker",
 	source : ["UA:R", 4],
@@ -138,8 +138,8 @@ ClassSubList["ua-playtest-ranger-seeker"] = {
 			])
 		}
 	}
-};
-ClassSubList["ua-playtest-ranger-stalker"] = {
+});
+AddSubClass("ua-playtest-ranger", "stalker", {
 	regExpSearch : /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Stalker",
 	source : ["UA:R", 4],
@@ -168,4 +168,4 @@ ClassSubList["ua-playtest-ranger-stalker"] = {
 			])
 		}
 	}
-};
+});

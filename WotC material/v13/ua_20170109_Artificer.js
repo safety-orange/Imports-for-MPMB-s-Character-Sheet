@@ -17,7 +17,7 @@ SourceList["UA:A"] = {
 ClassList['artificer-ua'] = {
 	regExpSearch : /^(?=.*artificer)(?!.*wizard).*$/i,
 	name : "Artificer",
-	source : ["UA:A", 1],
+	source : [["UA:A", 1]],
 	primaryAbility : "Intelligence",
 	abilitySave : 4,
 	prereqs : "Intelligence 13",
@@ -39,7 +39,7 @@ ClassList['artificer-ua'] = {
 		primary : [true, false]
 	},
 	equipment : "Artificer starting equipment:\n \u2022 A handaxe and a light hammer -or- any two simple weapons;\n \u2022 Scale mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts;\n \u2022 A dungeoneer's pack;\n \u2022 Thieves' tools.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-	subclasses : ["Artificer Specialism", ["artificer-alchemist", "artificer-gunsmith"]],
+	subclasses : ["Artificer Specialism", []],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 3,
 	spellcastingKnown : {
@@ -171,10 +171,11 @@ ClassList['artificer-ua'] = {
 	}
 };
 // Alchemist subclass for the Artificer
-ClassSubList["artificer-alchemist"] = {
-	regExpSearch : /^(?=.*artificer)(?=.*alchemist)(?!.*wizard).*$/i,
+AddSubClass("artificer-ua", "alchemist", {
+	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
 	subname : "Alchemist",
-	source : ["UA:A", 5],
+	fullname : "Alchemist",
+	source : [["UA:A", 5]],
 	features : {
 		"subclassfeature1" : {
 			name : "Alchemist's Satchel",
@@ -336,12 +337,14 @@ ClassSubList["artificer-alchemist"] = {
 			}
 		}
 	}
-};
+});
+
 // Gunsmith subclass for the Artificer
-ClassSubList["artificer-gunsmith"] = {
-	regExpSearch : /^(?=.*artificer)(?=.*gunsmith)(?!.*wizard).*$/i,
+AddSubClass("artificer-ua", "gunsmith", {
+	regExpSearch : /^(?=.*gunsmith)(?!.*wizard).*$/i,
 	subname : "Gunsmith",
-	source : ["UA:A", 6],
+	fullname : "Gunsmith",
+	source : [["UA:A", 6]],
 	features : {
 		"subclassfeature1" : {
 			name : "Master Smith",
@@ -537,7 +540,7 @@ ClassSubList["artificer-gunsmith"] = {
 			weaponsAdd : ['Thunder Cannon (Explosive Round)']
 		}
 	}
-};
+});
 
 // Set the Artificer class spell list and Create the choices for the wondrous items class feature of the artificer
 var SetArtificerAttr = function(){

@@ -27,7 +27,7 @@ ClassList['artificer-ua3'] = {
 		primary : "Choose two from Arcana, History, Investigation, Medicine, Nature, Perception, and Sleight of Hand"
 	},
 	toolProfs : {
-		primary : [["Thieves' tools", "Dex"], "Tinker's tools", ["Any artisan's tool", 1]],
+		primary : [["Thieves' tools", "Dex"], "Tinker's tools", ["Artisan's tools", 1]],
 		secondary : [["Thieves' tools", "Dex"], "Tinker's tools"]
 	},
 	armorProfs : {
@@ -38,7 +38,7 @@ ClassList['artificer-ua3'] = {
 		primary : [true, false, ["hand crossbow", "heavy crossbow"]]
 	},
 	equipment : "Artificer starting equipment:" +
-		"\n \u2022 any two simple weapons;" +
+		"\n \u2022 Any two simple weapons;" +
 		"\n \u2022 A light crossbow and 20 bolts;" +
 		"\n \u2022 Studded leather armor -or- scale mail;" +
 		"\n \u2022 Thieves' tools and a dungeoneer's pack;" +
@@ -240,7 +240,7 @@ ClassList['artificer-ua3'] = {
 				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
 				eval : function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("radiant weapon");
+					var loc = CurrentMagicItems.known.indexOf("radiant weapon") != -1 ? CurrentMagicItems.known.indexOf("radiant weapon") : CurrentMagicItems.known.indexOf("radiant weapon-ua");
 					if (loc == -1) return;
 					MagicItemClear(loc + 1, true);
 				}
@@ -273,7 +273,7 @@ ClassList['artificer-ua3'] = {
 				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
 				eval : function (lvl, chc) { AddMagicItem("Repulsion Shield"); },
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("repulsion shield");
+					var loc = CurrentMagicItems.known.indexOf("repulsion shield") != -1 ? CurrentMagicItems.known.indexOf("repulsion shield") : CurrentMagicItems.known.indexOf("repulsion shield-ua");
 					if (loc == -1) return;
 					MagicItemClear(loc + 1, true);
 				}
@@ -283,7 +283,7 @@ ClassList['artificer-ua3'] = {
 				source : ["UA:A3", 14],
 				description : desc([
 					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
-					"Choose from: acid,	 cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
+					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
 				]),
 				additional : "suit of armor; requires attunement",
 				prereqeval : function(v) { return classes.known["artificer-ua3"].level >= 8; },
@@ -476,33 +476,26 @@ AddSubClass("artificer-ua3", "alchemist", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.psionic || spName !== "artificer-ua3" || (/color spray|sleep/).test(spellKey)) return;
+						if (spellObj.psionic || spName !== "artificer" || (/color spray|sleep/).test(spellKey)) return;
 						var startDescr = spellObj.description;
 						var toAdd = Math.max(Number(What("Int Mod")), 1);
-						switch (spellKey) {
-							case "cloudkill" :
-								spellObj.description = spellObj.description.replace("obscured, difficult terrain", "obsc., dif. ter.; 1\xD7 +" + toAdd + " dmg");
-								break;
-							case "hunger of hadar" :
-								spellObj.description = spellObj.description.replace(/all /i, '') + " (1\xD7 +" + toAdd + ")";
-								break;
-							case "healing spirit" :
-								spellObj.description += " (+" + toAdd + " once)";
-								break;
-							case "vitriolic sphere" :
-								spellObj.description = spellObj.description.replace('now and', 'now, ');
-							default :
-								if (genericSpellDmgEdit(spellKey, spellObj, "acid|poison", "Int", true, true)) return true;
-								var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
-								var theMatch = spellObj.description.match(testRegex);
-								if (!theMatch) return false;
-								if (theMatch[2]) {
-									var theMid = Number(theMatch[2]) + toAdd;
-									if (theMid > -1) theMid = "+" + theMid;
-								} else {
-									var theMid = "+" + toAdd;
-								}
-								spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
+						if ((/healing spirit|aura of vitality/i).test(spellKey)) {
+							spellObj.description += " (+" + toAdd + " once)";
+							return true;
+						} else if (genericSpellDmgEdit(spellKey, spellObj, "acid|poison", toAdd < 2 ? 1 : "Int", true, true)) {
+							return true;
+						} else {
+							// other healing spells
+							var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
+							var theMatch = spellObj.description.match(testRegex);
+							if (!theMatch) return false;
+							if (theMatch[2]) {
+								var theMid = Number(theMatch[2]) + toAdd;
+								if (theMid > -1) theMid = "+" + theMid;
+							} else {
+								var theMid = "+" + toAdd;
+							}
+							spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
 						}
 						return startDescr !== spellObj.description;
 					},
@@ -564,16 +557,16 @@ AddSubClass("artificer-ua3", "alchemist", {
 	}
 });
 // Add the Alchemist's Alchemical Homunculus
-CreatureList["alchemical homunculus-uaa3"] = {
+CreatureList["alchemical homunculus-ua"] = {
 	name : "Alchemical Homunculus",
-	source : ["UA:A3", 7],
+	source : [["UA:A3", 7], ["UA:A2", 6]],
 	size : 5,
 	type : "Construct",
 	subtype : "",
 	alignment : "Neutral",
 	ac : 13,
 	hp : 5,
-	hd : [2, 4],
+	hd : [],
 	speed : "20 ft,\nfly 30 ft",
 	scores : [4, 15, 11, 10, 10, 7],
 	saves : ["", "", "", "", "", ""],
@@ -593,7 +586,8 @@ CreatureList["alchemical homunculus-uaa3"] = {
 		name : "Acidic Spittle",
 		ability : 2,
 		damage : [1, 6, "acid"],
-		range : "30 ft"
+		range : "30 ft",
+		modifiers : ["", "Prof-2", ""]
 	}],
 	features : [{
 		name : "Creator",
@@ -880,9 +874,9 @@ AddSubClass("artificer-ua3", "artillerist", {
 	}
 });
 // Add the Artillerist's Arcane Turret
-CreatureList["arcane turret-uaa3"] = {
+CreatureList["arcane turret-ua"] = {
 	name : "Arcane Turret",
-	source : ["UA:A3", 10],
+	source : [["UA:A3", 10], ["UA:A2", 7]],
 	size : 3,
 	type : "Construct",
 	subtype : "",
@@ -890,9 +884,9 @@ CreatureList["arcane turret-uaa3"] = {
 	ac : 18,
 	hp : 15,
 	hd : [0, 0],
-	speed : "15 ft, climb 15 ft",
-	scores : [10, 10, 10, 10, 10, 10], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	speed : "15 ft,\nclimb 15 ft",
+	scores : [10, 10, 10, 10, 10, 10],
+	saves : ["", "", "", "", "", ""],
 	damage_immunities : "poison, psychic",
 	condition_immunities : "all conditions",
 	passivePerception : 10,
@@ -983,7 +977,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 					'I can use my Intelligence modifier instead of Strength or Dexterity for the attack and damage rolls of magic weapons.'
 				]
 			},
-			spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"]
+			spellcastingExtra : ["heroism", "searing smite", "branding smite", "warding bond", "aura of vitality", "blinding smite", "aura of purity", "staggering smite", "banishing smite", "mass cure wounds"]
 		},
 		"subclassfeature3.1" : {
 			name : "Iron Defender",
@@ -1059,7 +1053,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 	}
 });
 // Add the Battle Smith's Iron Defender (new in 2019v2)
-CreatureList["iron defender-uaa3"] = {
+CreatureList["iron defender-ua"] = {
 	name : "Iron Defender",
 	source : ["UA:A3", 11],
 	size : 3,
@@ -1068,7 +1062,7 @@ CreatureList["iron defender-uaa3"] = {
 	alignment : "Neutral",
 	ac : 15,
 	hp : 7,
-	hd : [0, 0],
+	hd : [],
 	speed : "40 ft",
 	scores : [14, 12, 14, 4, 10, 6], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
@@ -1108,10 +1102,10 @@ CreatureList["iron defender-uaa3"] = {
 };
 
 // Add the new spell
-SpellsList["arcane weapon-uaa3"] = {
+SpellsList["arcane weapon-ua"] = {
 	name : "Arcane Weapon",
-	classes : ["artificer-ua3"],
-	source : ["UA:A3", 14],
+	classes : ["artificer-ua3", "artificer-ua2"],
+	source : [["UA:A3", 14], ["UA:A2", 10]],
 	level : 1,
 	school : "Trans",
 	time : "1 bns",
@@ -1123,26 +1117,28 @@ SpellsList["arcane weapon-uaa3"] = {
 };
 
 // Add the new magic items
-MagicItemsList["boots of the winding path"] = {
-	name : "Boots of the Winding Path",
-	source : ["UA:A3", 12],
-	type : "wondrous item",
-	description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
-	descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
-	attunement : true,
-	action : [["bonus action", ""]]
+if (!MagicItemsList["boots of the winding path"]) {
+	MagicItemsList["boots of the winding path"] = {
+		name : "Boots of the Winding Path",
+		source : [["E:RLW", 62], ["UA:A2", 9], ["UA:A3", 12]],
+		type : "wondrous item",
+		description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
+		descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
+		attunement : true,
+		action : [["bonus action", ""]]
+	}
 }
-MagicItemsList["many-handed pouch"] = {
+MagicItemsList["many-handed pouch-ua"] = {
 	name : "Many-Handed Pouch",
-	source : ["UA:A3", 13],
+	source : [["UA:A3", 13], ["UA:A2", 9]],
 	type : "wondrous item",
 	description : "These 2-5 pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch only functions if it is within 100 miles of another pouch of its set.",
 	descriptionFull : "The infused pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch operates as long as it is within 100 miles of another one of the pouches; the pouch is otherwise empty and won't accept any contents.\n   If this infusion ends, the items stored in the shared space move into one of the pouches, determined at random. The rest of the pouches become empty."
 }
-MagicItemsList["radiant weapon"] = {
+MagicItemsList["radiant weapon-ua"] = {
 	name : "Radiant Weapon",
 	nameTest : "Radiant",
-	source : ["UA:A3", 13],
+	source : [["UA:A3", 13], ["UA:A2", 9]],
 	type : "weapon (any)",
 	description : "This magic weapon adds a +1 on its attacks and damage. As a bonus action, I can start or stop it shedding light, bright in 30 ft and dim for another 30 ft. Once per short rest as a reaction when hit by a melee attack, I can blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
@@ -1165,7 +1161,7 @@ MagicItemsList["radiant weapon"] = {
 					fields.Description += (fields.Description ? '; ' : '') + 'Reaction to blind attacker';
 				}
 			},
-			'If I include the word "Radiant" in the name of a weapon, it will be treated as the magic weapon Radiant Weapon. It has +1 to hit and damage and can be used to shed light or blind an attacker.'
+			'If I include the word "Radiant" in the name of a weapon, it will be treated as the magic weapon Radiant Weapon. It has +1 to hit and damage and can be used to shed light and to blind an attacker.'
 		],
 		atkCalc : [
 			function (fields, v, output) {
@@ -1176,41 +1172,43 @@ MagicItemsList["radiant weapon"] = {
 		]
 	}
 }
-MagicItemsList["repeating shot"] = { // 2019v2
-	name : "Repeating Shot",
-	source : ["UA:A3", 13],
-	type : "weapon (any with ammunition)",
-	description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
-	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
-	attunement : true,
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "suffix",
-		descriptionChange : ["replace", "weapon"],
-		excludeCheck : function (inObjKey, inObj) {
-			return !(/ammunition/i).test(inObj.description);
+if (!MagicItemsList["repeating shot"]) {
+	MagicItemsList["repeating shot"] = { // 2019v2
+		name : "Repeating Shot",
+		source : [["E:RLW", 62], ["UA:A3", 13]],
+		type : "weapon (any with ammunition)",
+		description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
+		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
+		attunement : true,
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/ammunition/i).test(inObj.description);
+			}
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '').replace(/(;|,)? ?loading/i, '');
+					}
+				},
+				'If I include the words "Repeating Shot" in the name of a weapon with the ammunition property, it will be treated as the magic weapon Repeating Shot. It has +1 to hit and damage and produces its own ammunition, thus its loading property is removed if it has it.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText) && !v.isSpell) {
+						output.magic = v.thisWeapon[1] + 1;
+					}
+				}, ''
+			]
 		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '').replace(/(;|,)? ?loading/i, '');
-				}
-			},
-			'If I include the words "Repeating Shot" in the name of a weapon with the ammunition property, it will be treated as the magic weapon Repeating Shot. It has +1 to hit and damage and produces its own ammunition, thus its loading property is removed if it has it.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText) && !v.isSpell) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-		]
 	}
 }
-MagicItemsList["repulsion shield"] = { // 2019v2
+MagicItemsList["repulsion shield-ua"] = { // 2019v2
 	name : "Repulsion Shield",
 	source : ["UA:A3", 14],
 	type : "shield",
@@ -1223,39 +1221,41 @@ MagicItemsList["repulsion shield"] = { // 2019v2
 	action : [["reaction", ""]],
 	shieldAdd : ["Repulsion Shield", 3, 6],
 }
-MagicItemsList["returning weapon"] = {
-	name : "Returning Weapon",
-	nameTest : "Returning",
-	source : ["UA:A3", 14],
-	type : "weapon (any thrown)",
-	description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
-	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "suffix",
-		descriptionChange : ["replace", "weapon"],
-		excludeCheck : function (inObjKey, inObj) {
-			return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
+if (!MagicItemsList["returning weapon"]) {
+	MagicItemsList["returning weapon"] = {
+		name : "Returning Weapon",
+		nameTest : "Returning",
+		source : [["E:RLW", 63], ["UA:A3", 14], ["UA:A2", 10]],
+		type : "weapon (any thrown)",
+		description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
+		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
+			}
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+						fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
+					}
+				},
+				'If I include the word "Returning" in the name of a thrown weapon, it will be treated as the magic weapon Returning Weapon. It has +1 to hit and damage and returns to my hand immediately after I use it to make a ranged attack.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+						output.magic = v.thisWeapon[1] + 1;
+					}
+				}, ''
+			]
 		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
-				}
-			},
-			'If I include the word "Returning" in the name of a thrown weapon, it will be treated as the magic weapon Returning Weapon. It has +1 to hit and damage and returns to my hand immediately after I use it to make a ranged attack.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-		]
 	}
 }
 
@@ -1420,7 +1420,7 @@ var SetArtificerSpells = function(){
 			anArtMi = {
 				name : MagicItemsList[MI0][MI2].name ? MagicItemsList[MI0][MI2].name : MagicItemsList[MI0].name + " [" + MI2.capitalize() + "]",
 				source : MagicItemsList[MI0][MI2].source ? MagicItemsList[MI0][MI2].source : MagicItemsList[MI0].source,
-				attunement : MagicItemsList[MI0][MI2].attunement ? MagicItemsList[MI0][MI2].attunement : MagicItemsList[MI0].attunement
+				attunement : MagicItemsList[MI0][MI2].attunement !== undefined ? MagicItemsList[MI0][MI2].attunement : MagicItemsList[MI0].attunement
 			}
 		}
 		var theI = "Replicate: " + anArtMi.name + (MI1 ? " (prereq: level " + MI1 + " artificer)" : "");
