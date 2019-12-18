@@ -4191,7 +4191,7 @@ SpellsList["banishing smite"] = {
 	range : "Self",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "Next melee hit +5d10 Force dmg; if this brings target HP<50, I banish it until spell ends",
+	description : "Next weapon hit +5d10 Force dmg; if this brings target HP<50, I banish it until spell ends",
 	descriptionFull : "The next time you hit a creature with a weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra 5d10 force damage to the target. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it. If the target is native to a different plane of existence than the one you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is incapacitated. It remains there until the spell ends, at which point the tart reappears in the space it left or in the nearest unoccupied space if that space is occupied."
 };
 SpellsList["beast sense"] = {
@@ -4232,7 +4232,7 @@ SpellsList["blinding smite"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Con",
-	description : "Next melee hit +3d8 Radiant dmg; save or blinded; extra save at end of every turn",
+	description : "Next melee weapon hit +3d8 Radiant dmg; save or blinded; extra save at end of every turn",
 	descriptionFull : "The next time you hit a creature with a melee weapon attack during this spell's duration, you weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends." + "\n   " + "A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded."
 };
 SpellsList["chromatic orb"] = {
@@ -4471,7 +4471,7 @@ SpellsList["hail of thorns"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "Next ranged weapon attack, all within 5 ft of target 1d10+1d10/SL Piercing dmg; save halves",
+	description : "Next ranged weapon hit, all within 5 ft of target 1d10+1d10/SL Piercing dmg; save halves",
 	descriptionFull : "The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st (to a maximum of 6d10)."
 };
 SpellsList["hex"] = {
@@ -8537,7 +8537,7 @@ SpellsList["storm sphere"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Str",
-	description : "20-ft rad dif. ter.; all crea now/end turn save 2d6 bludg.; bns 60 ft spell atk 4d6 lightn. dmg; +1d6/SL",
+	description : "20-ft rad dif. ter.; all crea cast/end turn save 2d6 Bludg.; bns 60 ft spell atk 4d6 Lightn. dmg; +1d6/SL",
 	descriptionFull : "A 20-foot-radius sphere of whirling air springs into existence centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain." + "\n   " + "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage." + "\n   " + "Creatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks made to listen." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases for each of its effects by 1d6 for each slot level above 4th."
 };
 SpellsList["thunderclap"] = {
@@ -8596,7 +8596,7 @@ SpellsList["vitriolic sphere"] = {
 	compMaterial : "A drop of giant slug bile",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "20-ft rad all crea 10d4+2d4/SL now and 5d4 Acid dmg at end next turn; save half \u0026 no dmg next rnd",
+	description : "20-ft rad all crea 10d4+2d4/SL Acid dmg, +5d4 crea next turn end; save half \u0026 no dmg next turn",
 	descriptionFull : "You point at a location within range, and a glowing, 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage and another 5d4 acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the initial damage increases by 2d4 for each slot level above 4th."
 };
 SpellsList["wall of sand"] = {
@@ -11273,8 +11273,8 @@ SpellsList["booming blade"] = {
 	components : "V,M",
 	compMaterial : "A weapon",
 	duration : "Instantaneous",
-	description : "Melee wea atk with cast; if hit, it 0d8, if it moves next rnd it 1d8 Thunder dmg; +1d8 at CL5, 11, \u0026 17",
-	descriptionCantripDie : "Melee wea atk with cast; if hit, it `CD-1`d8 Thunder dmg, and if it moves next rnd it `CD`d8 Thunder dmg",
+	description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next rnd +1d8; +1d8 at CL5, 11, \u0026 17",
+	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if it moves next round +`CD`d8 Thunder dmg",
 	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["green-flame blade"] = {
@@ -19247,7 +19247,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		compMaterial : "A drop of giant slug bile",
 		duration : "Instantaneous",
 		save : "Dex",
-		description : "20-ft rad all crea 10d4+2d4/SL now and 5d4 Acid dmg at end next turn; save half \u0026 no dmg next rnd",
+		description : "20-ft rad all crea 10d4+2d4/SL Acid dmg, +5d4 crea next turn end; save half \u0026 no dmg next turn",
 		descriptionFull : "You point at a location within range, and a glowing, 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage and another 5d4 acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the initial damage increases by 2d4 for each slot level above 4th."
 	};
 	SpellsList["wall of sand"] = {
@@ -19952,7 +19952,7 @@ SpellsList["tenser's transformation"] = {
 	components : "V,S,M",
 	compMaterial : "A few hairs from a bull",
 	duration : "Conc, 10 min",
-	description : "50 temp HP; prof Str/Con save, all wea/arm; extra atk; adv., +2d12 Force dmg on wea atks; no spellc.",
+	description : "50 temp HP; prof Str/Con save, all wea/arm; extra atk; adv., wea atks +2d12 Force dmg; no spellc.",
 	descriptionFull : "You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:" + "\n \u2022 " + "You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost." + "\n \u2022 " + "You have advantage on attack rolls that you make with simple and martial weapons." + "\n \u2022 " + "When you hit a target with a weapon attack, that target takes an extra 2d12 force damage." + "\n \u2022 " + "You have proficiency with all armor, shields, simple weapons, and martial weapons." + "\n \u2022 " + "You have proficiency in Strength and Constitution saving throws." + "\n \u2022 " + "You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature, like Extra Attack, that gives you extra attacks." + "\n   " + "Immediately after the spell ends, you must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion."
 };
 SpellsList["thunder step"] = {
@@ -19993,8 +19993,8 @@ SpellsList["toll the dead"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Wis",
-	description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full HP); +1d12/1d8 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 crea save or `CD`d12 Necrotic damage (only `CD`d8 if at full hp)",
+	description : "1 crea save or 1d12 Necrotic dmg (d8 instead of d12 if at full HP); +1d12/1d8 at CL 5, 11, \u0026 17",
+	descriptionCantripDie : "1 crea save or `CD`d12 Necrotic damage (d8 instead of d12 if at full HP)",
 	descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
 };
 SpellsList["wall of light"] = {
@@ -20039,7 +20039,7 @@ SpellsList["wrath of nature"] = {
 	range : "120 ft",
 	components : "V,S",
 	duration : "Conc, 1 min",
-	description : "60-ft cu dif. ter., tree: Dex or 4d6 Slash. dmg, root: Str or restr., rock: rngd atk 3d8 Bludg. dmg; see B ",
+	description : "60-ft cu dif. ter., tree: Dex or 4d6 Slash. dmg, root: Str or restr., rock: rngd atk 3d8 Bludg. dmg; see B",
 	descriptionFull : "You call out to the spirits of nature to rouse them against your enemies. Choose a point you can see within range. The spirits cause trees, rocks, and grasses in a 60-foot cube centered on that point to become animated until the spell ends." + "\n   " + toUni("Grasses and Undergrowth") + ": Any area of ground in the cube that is covered by grass or undergrowth is difficult terrain for your enemies." + "\n   " + toUni("Trees") + ": At the start of each of your turns, each of your enemies within 10 feet of any tree in the cube must succeed on a Dexterity saving throw or take 4d6 slashing damage from whipping branches." + "\n   " + toUni("Roots and Vines") + ": At the end of each of your turns, one creature of your choice that is on the ground in the cube must succeed on a Strength saving throw or become restrained until the spell ends. A restrained creature can use an action to make a Strength (Athletics) check against your spell save DC, ending the effect on itself on a success." + "\n   " + toUni("Rocks") + ": As a bonus action on your turn, you can cause a loose rock in the cube to launch at a creature you can see in the cube. Make a ranged spell attack against the target. On a hit, the target takes 3d8 nonmagical bludgeoning damage, and it must succeed on a Strength saving throw or fall prone."
 };
 SpellsList["zephyr strike-xgte"] = { 
@@ -29272,10 +29272,10 @@ AddSubClass("artificer", "artillerist", {
 						if (v.thisWeapon[3] && v.thisWeapon[4].indexOf("artificer") !== -1) {
 							fields.Damage_Die = fields.Damage_Die.replace(/D/g, 'd');
 							var d8Regex = /(\d+)d8/;
-							if (fields.Damage_Die.indexOf('Cd8') != -1) {
-								fields.Damage_Die = fields.Damage_Die.replace('Cd8', 'Qd8');
-							} else if (fields.Damage_Die.indexOf('Bd8') != -1) {
+							if (fields.Damage_Die.indexOf('Bd8') != -1) {
 								fields.Damage_Die = fields.Damage_Die.replace('Bd8', 'Cd8');
+							} else if (fields.Damage_Die.indexOf('Cd8') != -1) {
+								fields.Damage_Die = fields.Damage_Die.replace('Cd8', 'Qd8');
 							} else if (d8Regex.test(fields.Damage_Die)) {
 								fields.Damage_Die = fields.Damage_Die.replace(d8Regex, Number(fields.Damage_Die.replace(d8Regex, '$1')) + 1 + 'd8');
 							} else {
@@ -29354,8 +29354,8 @@ AddSubClass("artificer", "battle smith", {
 			source : [["E:RLW", 61]],
 			minlevel : 3,
 			description : desc([
-				"",
-				""
+				"I gain proficiency with martial weapons",
+				"I can use my Int mod instead of Str or Dex mod when attacking with a magic weapon"
 			]),
 			weaponProfs : [false, true]
 		},
@@ -29364,27 +29364,89 @@ AddSubClass("artificer", "battle smith", {
 			source : [["E:RLW", 61]],
 			minlevel : 3,
 			description : desc([
-				"",
-				""
+				"When I end a long rest, I can use smith's tools to create an iron defender",
+				"I determine its appearance: It obeys my commands and it acts on my initiative, after me",
+				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
+				"I can't have multiple at once; Select \"Steel Defender\" on a companion page for its stats"
 			]),
+			eval : function (lvl, chc) {
+				ClassList.artificer.artificerCompFunc.add("Steel Defender");
+			},
+			removeeval : function (lvl, chc) {
+				ClassList.artificer.artificerCompFunc.remove("steel defender");
+				if (CreatureList["steel defender"]) CreatureList["steel defender cannon"].removeeval();
+			}
 		},
 		"subclassfeature9" : {
 			name : "Arcane Jolt",
 			source : [["E:RLW", 61]],
 			minlevel : 9,
 			description : desc([
-				"",
-				""
+				"Once per turn when my steel defender or my magic weapon hits a target, I can chose to:",
+				" \u2022 Have the target take an extra +Xd6 force damage",
+				" \u2022 Restore Xd6 HP to another target within 30 ft of the target that was hit"
 			]),
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return n < 9 ? "" : (n < 15 ? 2 : 4) + "d6";
+			}),
+			eval : function (lvl, chc) {
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
+				}
+			},
+			removeeval : function (lvl, chc) {
+				if (!lvl[1]) return;
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					Value(prefix + "Comp.Use.Attack.1.Description", "");
+				}
+			},
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.isMagicWeapon || v.thisWeapon[1]) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Arcane Jolt (' + (classes.known.artificer && classes.known.artificer.level >= 15 ? 4 : 2) + 'd6)';
+						}
+					},
+					"Once per turn when I hit with a magic weapon or my steel defender hits with its attack, I can use my Arcane Jolt class feature to have the hit either deal extra force damage or heal somebody within 30 ft of the target hit."
+				]
+			}
 		},
 		"subclassfeature15" : {
 			name : "Improved Defender",
 			source : [["E:RLW", 61]],
 			minlevel : 15,
 			description : desc([
-				"",
-				""
+				"My defender's Deflect Attack now deals its attacker 1d4 + my Int mod force damage",
+				"My arcane jolt damage/healing increases to 4d6; My steel defender gains +2 AC"
 			]),
+			eval : function (lvl, chc) {
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					var ACfld = prefix + "Comp.Use.AC";
+					if (What(ACfld)) Value(ACfld, Number(What(ACfld) + 2));
+					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (4d6): On hit, deal force damage or heal target in 30 ft");
+					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack");
+				}
+			},
+			removeeval : function (lvl, chc) {
+				if (!lvl[1]) return;
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					var ACfld = prefix + "Comp.Use.AC";
+					if (What(ACfld)) Value(ACfld, Number(What(ACfld) - 2));
+					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
+					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
+				}
+			}
 		}
 	}
 });
@@ -29961,7 +30023,7 @@ CreatureList["homunculus servant"] = {
 	}],
 	features : [{
 		name : "Creator",
-		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action on its turn, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Force Strike, Dash, Disengage, Help, Hide, or Search action."
+		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Force Strike, Dash, Disengage, Help, Hide, or Search action."
 	}],
 	traits : [{
 		name : "Healing",
@@ -29983,10 +30045,11 @@ CreatureList["homunculus servant"] = {
 		var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
 		ProfFld.setAction("Calculate", "event.value = Number(How('Proficiency Bonus'));");
 		ProfFld.readonly = true;
+		ProfFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack.1.To Hit").calcOrderIndex - 1;
 		// set perception to proficiency + 2 instead of expertise
 		AddSkillProf("Perception", true, false, false, 2, prefix);
 		// add bonus action to first page
-		processActions(true, "Homunculus Servant", [["bonus action", ""]], "Command Homunculus Servant");
+		processActions(true, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
 	},
 	removeeval : function(prefix) {
 		if (prefix) {
@@ -30002,9 +30065,9 @@ CreatureList["homunculus servant"] = {
 			ProfFld.readonly = false;
 		}
 		// remove action
-		processActions(false, "Homunculus Servant", [["bonus action", ""]], "Command Homunculus Servant");
+		processActions(false, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
 	}
-}
+};
 CreatureList["eldritch cannon"] = {
 	name : "Eldritch Cannon",
 	source : [["E:RLW", 59]],
@@ -30028,7 +30091,7 @@ CreatureList["eldritch cannon"] = {
 	attacksAction : 0,
 	attacks : [{
 		name : "Flamethrower",
-		ability : 4,
+		ability : 0,
 		damage : [2, 8, "fire"],
 		range : "15-ft cone",
 		description : "Dex save, success - half damage; Unattended flammable objects ignite",
@@ -30037,7 +30100,7 @@ CreatureList["eldritch cannon"] = {
 		tooltip : "The cannon exhales fire in an adjacent 15-ft cone that its creator designates. Each creature in that area must make a Dexterity saving throw against its creator's artificer spell save DC, taking 2d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
 	}, {
 		name : "Force Ballista",
-		ability : 4,
+		ability : 0,
 		damage : [2, 8, "force"],
 		range : "120 ft",
 		description : "Creature hit is pushed 5 ft away",
@@ -30045,7 +30108,7 @@ CreatureList["eldritch cannon"] = {
 		tooltip : "The cannon's creator makes a ranged spell attack, originating from the cannon, at one creature or object within 120 ft of it. On a hit, the target takes 2d8 force damage, and if the target is a creature, it is pushed up to 5 ft away from the cannon."
 	}, {
 		name : "Detonate",
-		ability : 4,
+		ability : 0,
 		damage : [3, 8, "force"],
 		range : "20-ft radius",
 		description : "Dex save, success - half damage; Destroys cannon; [prereq: 9th level artificer]",
@@ -30085,7 +30148,7 @@ CreatureList["eldritch cannon"] = {
 		HPmaxFld.readonly = true;
 		Hide(prefix + "Buttons.Comp.Use.HP.Max");
 		// set attacks
-		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level > 9;
+		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level >= 9;
 		for (var i = 1; i <= 3; i++) {
 			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
 			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType];\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
@@ -30094,7 +30157,7 @@ CreatureList["eldritch cannon"] = {
 			if (artLvl9) Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
 		}
 		// add bonus action to first page
-		processActions(true, "Eldritch Cannon", [["bonus action", ""]], "Activate Eldritch Cannon");
+		processActions(true, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
 	},
 	removeeval : function(prefix) {
 		if (prefix) {
@@ -30114,6 +30177,110 @@ CreatureList["eldritch cannon"] = {
 		}
 		// remove action
 		processActions(false, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
+	}
+};
+CreatureList["steel defender"] = {
+	name : "Steel Defender",
+	source : [["E:RLW", 61]],
+	size : 3,
+	type : "Construct",
+	subtype : "",
+	alignment : "Neutral",
+	ac : 15,
+	hp : 7,
+	hd : [],
+	speed : "40 ft",
+	scores : [14, 12, 14, 4, 10, 6],
+	saves : ["", 3, 4, "", "", ""],
+	skills : {
+		"athletics" : 4,
+		"perception" : 4
+	},
+	damage_immunities : "poison",
+	condition_immunities : "charmed, exhaustion, poisoned",
+	passivePerception : 14,
+	senses : "Darkvision 60 ft",
+	languages : "understands the languages of its creator but can't speak",
+	challengeRating : "1",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Force-Empowered Rend",
+		ability : 1,
+		damage : [1, 8, "piercing"],
+		range : "Melee (5 ft)",
+		modifiers : ["", "Prof-2", ""]
+	}, {
+		name : "Deflect Attack (reaction)",
+		ability : 0,
+		damage : [1, 4, "force"],
+		range : "Melee (5 ft)",
+		modifiers : ["-Prof", "oInt", ""],
+		description : "After using the reaction, the attacker takes this damage, no attack roll required"
+	}],
+	features : [{
+		name : "Creator",
+		description : "The steel defender obeys the commands of its creator and shares its proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Repair, Dash, Force-Empowered Rend, Disengage, Help, Hide, or Search action."
+	}, {
+		name : "Vigilant",
+		description : "The " + (typePF ? "" : "steel ") + "defender can't be surprised."
+	}],
+	actions : [{
+		name : "Healing",
+		description : "The steel defender regains 2d6 HP whenever the Mending spell is cast on it. Its HP total is equal to its creator's artificer level times five + its creator's Intelligence modifier + its Constitution modifier. Within an hour of its death, while within 5 ft, its creator can take an action to use smith's tools and expend a spell slot to have it return to full HP after 1 minute."
+	}, {
+		name : "Repair (3/Day)",
+		description : "As an action, the " + (typePF ? "" : "magical mechanisms inside the ") + "steel defender restore" + (typePF ? "s" : "") + " 2d8 + its proficiency bonus in HP to itself or to one construct or object within 5 ft of it."
+	}, {
+		name : "Deflect Attack (reaction)",
+		description : "As a reaction, the steel defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the steel defender. If its creator is a 9th level artificer (battle smith), this also deals 1d4 + its creator's Int modifier in force damage to the attacker."
+	}],
+	eval : function(prefix) {
+		// set type in the top right
+		Value(prefix + 'Comp.Type', "Construct");
+		// auto calculate HP
+		var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
+		HPmaxFld.setAction("Calculate", "event.value = (classes.known.artificer ? classes.known.artificer.level : classes.totallevel) * 5 + Number(What('Int Mod')) + Number(What('" + prefix + "Comp.Use.Ability.Con.Mod'));");
+		HPmaxFld.readonly = true;
+		Hide(prefix + "Buttons.Comp.Use.HP.Max");
+		// auto calculate proficiency bonus
+		var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
+		ProfFld.setAction("Calculate", "event.value = Number(How('Proficiency Bonus'));");
+		ProfFld.readonly = true;
+		ProfFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack.1.To Hit").calcOrderIndex - 1;
+		// set perception to proficiency + 2 instead of expertise
+		AddSkillProf("Perception", true, false, false, 2, prefix);
+		// add bonus action to first page
+		processActions(true, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
+		// set extra abilities from artificer level
+		var artLvl = classes.known.artificer && classes.known.artificer.subclass == "artificer-battle smith" ? classes.known.artificer.level : 0;
+		if (artLvl >= 9) {
+			// Extra damage or healing on attack hit
+			Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (" + (artLvl < 15 ? 2 : 4) + "d6): On hit, deal force damage or heal target in 30 ft");
+		}
+		if (artLvl >= 15) {
+			// +2 AC if level 15 "artificer-battle smith" or higher
+			Value(prefix + "Comp.Use.AC", 17);
+		} else {
+			// Remove Deflect Attack
+			Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
+		}
+	},
+	removeeval : function(prefix) {
+		if (prefix) {
+			// reset type in top right
+			Value(prefix + 'Comp.Type', "Companion");
+			// reset HP and proficiency bonus calculation
+			var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
+			HPmaxFld.setAction("Calculate", "1");
+			HPmaxFld.readonly = false;
+			DontPrint(prefix + "Buttons.Comp.Use.HP.Max");
+			var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
+			ProfFld.setAction("Calculate", "1");
+			ProfFld.readonly = false;
+		}
+		// remove action
+		processActions(false, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
 	}
 };
 

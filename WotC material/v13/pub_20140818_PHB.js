@@ -4050,7 +4050,7 @@ SpellsList["banishing smite"] = {
 	range : "Self",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "Next melee hit +5d10 Force dmg; if this brings target HP<50, I banish it until spell ends",
+	description : "Next weapon hit +5d10 Force dmg; if this brings target HP<50, I banish it until spell ends",
 	descriptionFull : "The next time you hit a creature with a weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra 5d10 force damage to the target. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it. If the target is native to a different plane of existence than the one you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is incapacitated. It remains there until the spell ends, at which point the tart reappears in the space it left or in the nearest unoccupied space if that space is occupied."
 };
 SpellsList["beast sense"] = {
@@ -4091,7 +4091,7 @@ SpellsList["blinding smite"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Con",
-	description : "Next melee hit +3d8 Radiant dmg; save or blinded; extra save at end of every turn",
+	description : "Next melee weapon hit +3d8 Radiant dmg; save or blinded; extra save at end of every turn",
 	descriptionFull : "The next time you hit a creature with a melee weapon attack during this spell's duration, you weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends." + "\n   " + "A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded."
 };
 SpellsList["chromatic orb"] = {
@@ -4330,7 +4330,7 @@ SpellsList["hail of thorns"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "Next ranged weapon attack, all within 5 ft of target 1d10+1d10/SL Piercing dmg; save halves",
+	description : "Next ranged weapon hit, all within 5 ft of target 1d10+1d10/SL Piercing dmg; save halves",
 	descriptionFull : "The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st (to a maximum of 6d10)."
 };
 SpellsList["hex"] = {

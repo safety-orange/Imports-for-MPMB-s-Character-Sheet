@@ -2309,10 +2309,10 @@ AddSubClass("artificer", "artillerist", {
 						if (v.thisWeapon[3] && v.thisWeapon[4].indexOf("artificer") !== -1) {
 							fields.Damage_Die = fields.Damage_Die.replace(/D/g, 'd');
 							var d8Regex = /(\d+)d8/;
-							if (fields.Damage_Die.indexOf('Cd8') != -1) {
-								fields.Damage_Die = fields.Damage_Die.replace('Cd8', 'Qd8');
-							} else if (fields.Damage_Die.indexOf('Bd8') != -1) {
+							if (fields.Damage_Die.indexOf('Bd8') != -1) {
 								fields.Damage_Die = fields.Damage_Die.replace('Bd8', 'Cd8');
+							} else if (fields.Damage_Die.indexOf('Cd8') != -1) {
+								fields.Damage_Die = fields.Damage_Die.replace('Cd8', 'Qd8');
 							} else if (d8Regex.test(fields.Damage_Die)) {
 								fields.Damage_Die = fields.Damage_Die.replace(d8Regex, Number(fields.Damage_Die.replace(d8Regex, '$1')) + 1 + 'd8');
 							} else {
@@ -2391,8 +2391,8 @@ AddSubClass("artificer", "battle smith", {
 			source : [["E:RLW", 61]],
 			minlevel : 3,
 			description : desc([
-				"",
-				""
+				"I gain proficiency with martial weapons",
+				"I can use my Int mod instead of Str or Dex mod when attacking with a magic weapon"
 			]),
 			weaponProfs : [false, true]
 		},
@@ -2401,27 +2401,89 @@ AddSubClass("artificer", "battle smith", {
 			source : [["E:RLW", 61]],
 			minlevel : 3,
 			description : desc([
-				"",
-				""
+				"When I end a long rest, I can use smith's tools to create an iron defender",
+				"I determine its appearance: It obeys my commands and it acts on my initiative, after me",
+				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
+				"I can't have multiple at once; Select \"Steel Defender\" on a companion page for its stats"
 			]),
+			eval : function (lvl, chc) {
+				ClassList.artificer.artificerCompFunc.add("Steel Defender");
+			},
+			removeeval : function (lvl, chc) {
+				ClassList.artificer.artificerCompFunc.remove("steel defender");
+				if (CreatureList["steel defender"]) CreatureList["steel defender cannon"].removeeval();
+			}
 		},
 		"subclassfeature9" : {
 			name : "Arcane Jolt",
 			source : [["E:RLW", 61]],
 			minlevel : 9,
 			description : desc([
-				"",
-				""
+				"Once per turn when my steel defender or my magic weapon hits a target, I can chose to:",
+				" \u2022 Have the target take an extra +Xd6 force damage",
+				" \u2022 Restore Xd6 HP to another target within 30 ft of the target that was hit"
 			]),
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return n < 9 ? "" : (n < 15 ? 2 : 4) + "d6";
+			}),
+			eval : function (lvl, chc) {
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
+				}
+			},
+			removeeval : function (lvl, chc) {
+				if (!lvl[1]) return;
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					Value(prefix + "Comp.Use.Attack.1.Description", "");
+				}
+			},
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.isMagicWeapon || v.thisWeapon[1]) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Arcane Jolt (' + (classes.known.artificer && classes.known.artificer.level >= 15 ? 4 : 2) + 'd6)';
+						}
+					},
+					"Once per turn when I hit with a magic weapon or my steel defender hits with its attack, I can use my Arcane Jolt class feature to have the hit either deal extra force damage or heal somebody within 30 ft of the target hit."
+				]
+			}
 		},
 		"subclassfeature15" : {
 			name : "Improved Defender",
 			source : [["E:RLW", 61]],
 			minlevel : 15,
 			description : desc([
-				"",
-				""
+				"My defender's Deflect Attack now deals its attacker 1d4 + my Int mod force damage",
+				"My arcane jolt damage/healing increases to 4d6; My steel defender gains +2 AC"
 			]),
+			eval : function (lvl, chc) {
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					var ACfld = prefix + "Comp.Use.AC";
+					if (What(ACfld)) Value(ACfld, Number(What(ACfld) + 2));
+					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (4d6): On hit, deal force damage or heal target in 30 ft");
+					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack");
+				}
+			},
+			removeeval : function (lvl, chc) {
+				if (!lvl[1]) return;
+				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				for (var c = 0; c < cannons.length; c++) {
+					var prefix = cannons[c];
+					var ACfld = prefix + "Comp.Use.AC";
+					if (What(ACfld)) Value(ACfld, Number(What(ACfld) - 2));
+					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
+					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
+				}
+			}
 		}
 	}
 });
@@ -2998,7 +3060,7 @@ CreatureList["homunculus servant"] = {
 	}],
 	features : [{
 		name : "Creator",
-		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action on its turn, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Force Strike, Dash, Disengage, Help, Hide, or Search action."
+		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Force Strike, Dash, Disengage, Help, Hide, or Search action."
 	}],
 	traits : [{
 		name : "Healing",
@@ -3020,10 +3082,11 @@ CreatureList["homunculus servant"] = {
 		var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
 		ProfFld.setAction("Calculate", "event.value = Number(How('Proficiency Bonus'));");
 		ProfFld.readonly = true;
+		ProfFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack.1.To Hit").calcOrderIndex - 1;
 		// set perception to proficiency + 2 instead of expertise
 		AddSkillProf("Perception", true, false, false, 2, prefix);
 		// add bonus action to first page
-		processActions(true, "Homunculus Servant", [["bonus action", ""]], "Command Homunculus Servant");
+		processActions(true, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
 	},
 	removeeval : function(prefix) {
 		if (prefix) {
@@ -3039,9 +3102,9 @@ CreatureList["homunculus servant"] = {
 			ProfFld.readonly = false;
 		}
 		// remove action
-		processActions(false, "Homunculus Servant", [["bonus action", ""]], "Command Homunculus Servant");
+		processActions(false, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
 	}
-}
+};
 CreatureList["eldritch cannon"] = {
 	name : "Eldritch Cannon",
 	source : [["E:RLW", 59]],
@@ -3065,7 +3128,7 @@ CreatureList["eldritch cannon"] = {
 	attacksAction : 0,
 	attacks : [{
 		name : "Flamethrower",
-		ability : 4,
+		ability : 0,
 		damage : [2, 8, "fire"],
 		range : "15-ft cone",
 		description : "Dex save, success - half damage; Unattended flammable objects ignite",
@@ -3074,7 +3137,7 @@ CreatureList["eldritch cannon"] = {
 		tooltip : "The cannon exhales fire in an adjacent 15-ft cone that its creator designates. Each creature in that area must make a Dexterity saving throw against its creator's artificer spell save DC, taking 2d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
 	}, {
 		name : "Force Ballista",
-		ability : 4,
+		ability : 0,
 		damage : [2, 8, "force"],
 		range : "120 ft",
 		description : "Creature hit is pushed 5 ft away",
@@ -3082,7 +3145,7 @@ CreatureList["eldritch cannon"] = {
 		tooltip : "The cannon's creator makes a ranged spell attack, originating from the cannon, at one creature or object within 120 ft of it. On a hit, the target takes 2d8 force damage, and if the target is a creature, it is pushed up to 5 ft away from the cannon."
 	}, {
 		name : "Detonate",
-		ability : 4,
+		ability : 0,
 		damage : [3, 8, "force"],
 		range : "20-ft radius",
 		description : "Dex save, success - half damage; Destroys cannon; [prereq: 9th level artificer]",
@@ -3122,7 +3185,7 @@ CreatureList["eldritch cannon"] = {
 		HPmaxFld.readonly = true;
 		Hide(prefix + "Buttons.Comp.Use.HP.Max");
 		// set attacks
-		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level > 9;
+		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level >= 9;
 		for (var i = 1; i <= 3; i++) {
 			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
 			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType];\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
@@ -3131,7 +3194,7 @@ CreatureList["eldritch cannon"] = {
 			if (artLvl9) Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
 		}
 		// add bonus action to first page
-		processActions(true, "Eldritch Cannon", [["bonus action", ""]], "Activate Eldritch Cannon");
+		processActions(true, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
 	},
 	removeeval : function(prefix) {
 		if (prefix) {
@@ -3151,6 +3214,110 @@ CreatureList["eldritch cannon"] = {
 		}
 		// remove action
 		processActions(false, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
+	}
+};
+CreatureList["steel defender"] = {
+	name : "Steel Defender",
+	source : [["E:RLW", 61]],
+	size : 3,
+	type : "Construct",
+	subtype : "",
+	alignment : "Neutral",
+	ac : 15,
+	hp : 7,
+	hd : [],
+	speed : "40 ft",
+	scores : [14, 12, 14, 4, 10, 6],
+	saves : ["", 3, 4, "", "", ""],
+	skills : {
+		"athletics" : 4,
+		"perception" : 4
+	},
+	damage_immunities : "poison",
+	condition_immunities : "charmed, exhaustion, poisoned",
+	passivePerception : 14,
+	senses : "Darkvision 60 ft",
+	languages : "understands the languages of its creator but can't speak",
+	challengeRating : "1",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Force-Empowered Rend",
+		ability : 1,
+		damage : [1, 8, "piercing"],
+		range : "Melee (5 ft)",
+		modifiers : ["", "Prof-2", ""]
+	}, {
+		name : "Deflect Attack (reaction)",
+		ability : 0,
+		damage : [1, 4, "force"],
+		range : "Melee (5 ft)",
+		modifiers : ["-Prof", "oInt", ""],
+		description : "After using the reaction, the attacker takes this damage, no attack roll required"
+	}],
+	features : [{
+		name : "Creator",
+		description : "The steel defender obeys the commands of its creator and shares its proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Repair, Dash, Force-Empowered Rend, Disengage, Help, Hide, or Search action."
+	}, {
+		name : "Vigilant",
+		description : "The " + (typePF ? "" : "steel ") + "defender can't be surprised."
+	}],
+	actions : [{
+		name : "Healing",
+		description : "The steel defender regains 2d6 HP whenever the Mending spell is cast on it. Its HP total is equal to its creator's artificer level times five + its creator's Intelligence modifier + its Constitution modifier. Within an hour of its death, while within 5 ft, its creator can take an action to use smith's tools and expend a spell slot to have it return to full HP after 1 minute."
+	}, {
+		name : "Repair (3/Day)",
+		description : "As an action, the " + (typePF ? "" : "magical mechanisms inside the ") + "steel defender restore" + (typePF ? "s" : "") + " 2d8 + its proficiency bonus in HP to itself or to one construct or object within 5 ft of it."
+	}, {
+		name : "Deflect Attack (reaction)",
+		description : "As a reaction, the steel defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the steel defender. If its creator is a 9th level artificer (battle smith), this also deals 1d4 + its creator's Int modifier in force damage to the attacker."
+	}],
+	eval : function(prefix) {
+		// set type in the top right
+		Value(prefix + 'Comp.Type', "Construct");
+		// auto calculate HP
+		var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
+		HPmaxFld.setAction("Calculate", "event.value = (classes.known.artificer ? classes.known.artificer.level : classes.totallevel) * 5 + Number(What('Int Mod')) + Number(What('" + prefix + "Comp.Use.Ability.Con.Mod'));");
+		HPmaxFld.readonly = true;
+		Hide(prefix + "Buttons.Comp.Use.HP.Max");
+		// auto calculate proficiency bonus
+		var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
+		ProfFld.setAction("Calculate", "event.value = Number(How('Proficiency Bonus'));");
+		ProfFld.readonly = true;
+		ProfFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack.1.To Hit").calcOrderIndex - 1;
+		// set perception to proficiency + 2 instead of expertise
+		AddSkillProf("Perception", true, false, false, 2, prefix);
+		// add bonus action to first page
+		processActions(true, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
+		// set extra abilities from artificer level
+		var artLvl = classes.known.artificer && classes.known.artificer.subclass == "artificer-battle smith" ? classes.known.artificer.level : 0;
+		if (artLvl >= 9) {
+			// Extra damage or healing on attack hit
+			Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (" + (artLvl < 15 ? 2 : 4) + "d6): On hit, deal force damage or heal target in 30 ft");
+		}
+		if (artLvl >= 15) {
+			// +2 AC if level 15 "artificer-battle smith" or higher
+			Value(prefix + "Comp.Use.AC", 17);
+		} else {
+			// Remove Deflect Attack
+			Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
+		}
+	},
+	removeeval : function(prefix) {
+		if (prefix) {
+			// reset type in top right
+			Value(prefix + 'Comp.Type', "Companion");
+			// reset HP and proficiency bonus calculation
+			var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
+			HPmaxFld.setAction("Calculate", "1");
+			HPmaxFld.readonly = false;
+			DontPrint(prefix + "Buttons.Comp.Use.HP.Max");
+			var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
+			ProfFld.setAction("Calculate", "1");
+			ProfFld.readonly = false;
+		}
+		// remove action
+		processActions(false, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
 	}
 };
 
