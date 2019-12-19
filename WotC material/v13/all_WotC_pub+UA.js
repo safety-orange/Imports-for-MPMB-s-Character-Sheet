@@ -28534,7 +28534,7 @@ ClassList.artificer = {
 				return n < 2 ? "" : (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12) + " infusions known; max " + (n < 6 ? 2 : n < 10 ? 3 : n < 14 ? 4 : n < 18 ? 5 : 6) + " infused items";
 			}),
 			extraname : "Artificer Infusion",
-			extrachoices : ["Boots of the Winding Path (prereq: level 6 artificer)", "Enhanced Arcane Focus", "Enhanced Defense", "Enhanced Weapon", "Homunculus Servant", "Radiant Weapon (prereq: level 6 artificer)", "Repeating Shot", "Repulsion Shield (prereq: level 6 artificer)", "Resistant Armor (prereq: level 6 artificer)", "Returning Weapon"],
+			extrachoices : ["Boots of the Winding Path (prereq: level 6 artificer)", "Enhanced Arcane Focus", "Enhanced Defense", "Enhanced Weapon", "Homunculus Servant (prereq: level 6 artificer)", "Radiant Weapon (prereq: level 6 artificer)", "Repeating Shot", "Repulsion Shield (prereq: level 6 artificer)", "Resistant Armor (prereq: level 6 artificer)", "Returning Weapon"],
 			extraTimes : levels.map(function (n) {
 				return n < 2 ? 0 : n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12;
 			}),
@@ -28602,7 +28602,7 @@ ClassList.artificer = {
 					MagicItemClear(loc + 1, true);
 				}
 			},
-			"homunculus servant" : {
+			"homunculus servant (prereq: level 6 artificer)" : {
 				name : "Homunculus Servant",
 				source : [["E:RLW", 62]],
 				description : desc([
@@ -28611,6 +28611,7 @@ ClassList.artificer = {
 					'Select "Homunculus Servant" on a companion page to see its game statistics'
 				]),
 				additional : "gem of 100+ gp or a dragonshard",
+				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
 				eval : function (lvl, chc) {
 					ClassList.artificer.artificerCompFunc.add("Homunculus Servant");
 				},
@@ -29304,7 +29305,7 @@ AddSubClass("artificer", "artillerist", {
 			description : "\n   My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft",
 			action : [["action", "Eldritch Cannon (detonate)"]],
 			eval : function (lvl, chc) {
-				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				var cannons = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
 				for (var c = 0; c < cannons.length; c++) {
 					var prefix = cannons[c];
 					for (var i = 1; i <= 3; i++) {
@@ -29314,7 +29315,7 @@ AddSubClass("artificer", "artillerist", {
 			},
 			removeeval : function (lvl, chc) {
 				if (!lvl[1]) return;
-				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				var cannons = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
 				for (var c = 0; c < cannons.length; c++) {
 					var prefix = cannons[c];
 					for (var i = 1; i <= 3; i++) {
@@ -29345,31 +29346,36 @@ AddSubClass("artificer", "battle smith", {
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
-			name : "Tools Proficiency",
-			source : [["E:RLW", 60]],
-			minlevel : 3,
-			description : " [proficient with smith's tools]",
-			toolProfs : ["Smith's tools"],
-			spellcastingExtra : ["heroism", "shield", "branding smite", "warding bond", "aura of vitality", "conjure barrage", "aura of purity", "fire shield", "banishing smite", "mass cure wounds"]
-		},
-		"subclassfeature3.1" : {
-			name : "Battle Ready",
+			name : "Battle Ready \u0026 Battle Ready",
 			source : [["E:RLW", 61]],
 			minlevel : 3,
 			description : desc([
-				"I gain proficiency with martial weapons",
-				"I can use my Int mod instead of Str or Dex mod when attacking with a magic weapon"
+				"I gain proficiency with martial weapons and smith's tools",
+				"I can use my Intelligence modifier instead of Strength or Dexterity for magic weapons"
 			]),
-			weaponProfs : [false, true]
+			toolProfs : ["Smith's tools"],
+			spellcastingExtra : ["heroism", "shield", "branding smite", "warding bond", "aura of vitality", "conjure barrage", "aura of purity", "fire shield", "banishing smite", "mass cure wounds"],
+			weaponProfs : [false, true],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && (v.theWea.isMagicWeapon || v.thisWeapon[1]) && fields.Mod > 0 && fields.Mod < 3 && What("Int") > What(fields.Mod == 1 ? "Str" : "Dex")) {
+							fields.Mod = 4;
+						}
+					},
+					'I can use my Intelligence modifier instead of Strength or Dexterity for the attack and damage rolls of magic weapons.'
+				]
+			}
 		},
 		"subclassfeature3.2" : {
 			name : "Steel Defender",
 			source : [["E:RLW", 61]],
 			minlevel : 3,
 			description : desc([
-				"When I end a long rest, I can use smith's tools to create an iron defender",
+				"When I end a long rest, I can use smith's tools to create a steel defender",
 				"I determine its appearance: It obeys my commands and it acts on my initiative, after me",
 				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
+				"It can take reactions and move on its turn even if I don't command it",
 				"I can't have multiple at once; Select \"Steel Defender\" on a companion page for its stats"
 			]),
 			eval : function (lvl, chc) {
@@ -29377,7 +29383,7 @@ AddSubClass("artificer", "battle smith", {
 			},
 			removeeval : function (lvl, chc) {
 				ClassList.artificer.artificerCompFunc.remove("steel defender");
-				if (CreatureList["steel defender"]) CreatureList["steel defender cannon"].removeeval();
+				if (CreatureList["steel defender"]) CreatureList["steel defender"].removeeval();
 			}
 		},
 		"subclassfeature9" : {
@@ -29396,7 +29402,7 @@ AddSubClass("artificer", "battle smith", {
 				return n < 9 ? "" : (n < 15 ? 2 : 4) + "d6";
 			}),
 			eval : function (lvl, chc) {
-				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				var cannons = ClassList.artificer.artificerCompFunc.find("steel defender");
 				for (var c = 0; c < cannons.length; c++) {
 					var prefix = cannons[c];
 					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
@@ -29404,7 +29410,7 @@ AddSubClass("artificer", "battle smith", {
 			},
 			removeeval : function (lvl, chc) {
 				if (!lvl[1]) return;
-				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
+				var cannons = ClassList.artificer.artificerCompFunc.find("steel defender");
 				for (var c = 0; c < cannons.length; c++) {
 					var prefix = cannons[c];
 					Value(prefix + "Comp.Use.Attack.1.Description", "");
@@ -30304,6 +30310,9 @@ CreatureList["homunculus servant"] = {
 	traits : [{
 		name : "Healing",
 		description : "The homunculus regains 2d6 hit points whenever the Mending spell is cast on it. Its HP total is equal to its creator's artificer level + its creator's Intelligence modifier + its Constitution modifier. If it dies, it vanishes, leaving its heart in its space."
+	}, {
+		name : "Evasion",
+		description : "If the homunculus is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. It can't use this trait if it's incapacitated."
 	}],
 	actions : [{
 		name : "Channel Magic",
@@ -44709,117 +44718,6 @@ AddSubClass("cleric", "order domain", {
 		}
 	}
 });
-var iFileName = "ua_20180514_Centaur-and-Minotaur.js";
-RequiredSheetVersion(13);
-// This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
-
-// Define the source
-SourceList["UA:CnM"] = {
-	name : "Unearthed Arcana: Centaur and Minotaur",
-	abbreviation : "UA:CnM",
-	group : "Unearthed Arcana",
-	url : "https://media.wizards.com/2018/dnd/downloads/UA-Centaur.pdf",
-	date : "2018/05/14"
-};
-
-// Add the Centaur race
-RaceList["centaur"] = {
-	regExpSearch : /centaur/i,
-	name : "Centaur",
-	sortname : "Centaur",
-	source : ["UA:CnM", 1],
-	plural : "Centaurs",
-	size : 3,
-	speed : {
-		walk : { spd : 40, enc : 30 }
-	},
-	languageProfs : ["Common", "Sylvan"],
-	weaponOptions : {
-		regExpSearch : /\b(hoofs?|hooves)\b/i,
-		name : "Hooves",
-		source : ["UA:CnM", 2],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 6, "bludgeoning"],
-		range : "Melee",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Hooves"],
-	skills : ["Survival"],
-	age : " reach adulthood in their late teens and live around 100 years",
-	height : " stand between 7 and 8 feet tall (front hooves to their crowns) and 6 to 8 feet long (from their chest to the back of their rumps)", // from 3.5e Races of Faerun
-	weight : " weigh anywhere from 950 to 1200 lb", // from 3.5e Races of Faerun
-	heightMetric : " stand between 2,1 and 2,4 metres tall (front hooves to their crowns) and 1,8 to 2,4 metres long (from their chests to the back of their rumps)",
-	weightMetric : " weigh anywhere from 430 to 550 kg",
-	scores : [2, 0, 0, 0, 1, 0],
-	trait : "Centaur (+2 Strength +1 Wisdom)" + desc([
-		"Hooves: I can use my hooves in melee (1d6 bludgeoning damage).",
-		"Charge: Once per short rest, if I move 20 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can roll the weapon's damage dice twice.",
-		"Equine Build: I count as one size larger for my carrying capacity. While climbing, 1 ft of movement costs me 5 ft. A medium or smaller creature can ride me as a mount.",
-		"Hybrid Nature: I am affected by effects that work on either humanoids or monstrosities."
-	]),
-	features : {
-		"charge" : {
-			name : "Charge",
-			minlevel : 1,
-			usages : 1,
-			recovery : "short rest"
-		}
-	},
-	carryingCapacity : 2
-};
-
-// Add the Minotaur race
-RaceList["minotaur-uacnm"] = {
-	regExpSearch : /minotaur/i,
-	name : "Minotaur",
-	sortname : "Minotaur",
-	source : ["UA:CnM", 2],
-	plural : "Minotaurs",
-	size : 3,
-	speed : {
-		walk : { spd : 30, enc : 20 }
-	},
-	languageProfs : ["Common", "Minotaur"],
-	weaponOptions : {
-		regExpSearch : /\bhorns?\b/i,
-		name : "Horns",
-		source : ["UA:CnM", 2],
-		ability : 1,
-		type : "Natural",
-		damage : [1, 6, "piercing"],
-		range : "Melee",
-		description : "One horns attack as a bonus action if taking the Dash action",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Horns"],
-	skills : ["Intimidation"],
-	age : " reach adulthood around age 17 and live up to 150 years",
-	height : " are well over 6 feet tall",
-	weight : " weigh around 300 lb",
-	heightMetric : " are well over 1,8 metres tall",
-	weightMetric : " weigh around 135 kg",
-	scores : [2, 0, 1, 0, 0, 0],
-	abilitySave : 1,
-	trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
-		"Horns: I have horns that I can use in melee (1d6 piercing damage).",
-		"Goring Rush: When taking a Dash action, I can make a horns attack as a bonus action.",
-		"Hammering Horns: As a reaction after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is no more than one size larger than me. It must make a Str save (DC 8 + Str mod + prof bonus) or be pushed up to 5 ft away from me.",
-		"Hybrid Nature: I am affected by effects that work on either humanoids or monstrosities."
-	]),
-	features : {
-		"goring rush" : {
-			name : "Goring Rush",
-			minlevel : 1,
-			action : ["bonus action", " (with Dash)"]
-		},
-		"hammering horns" : {
-			name : "Hammering Horns",
-			minlevel : 1,
-			action : ["reaction", " (after hit)"]
-		}
-	}
-};
 var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
