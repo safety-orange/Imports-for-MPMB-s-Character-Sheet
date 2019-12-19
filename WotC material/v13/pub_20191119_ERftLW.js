@@ -2315,6 +2315,8 @@ AddSubClass("artificer", "artillerist", {
 								fields.Damage_Die = fields.Damage_Die.replace('Cd8', 'Qd8');
 							} else if (d8Regex.test(fields.Damage_Die)) {
 								fields.Damage_Die = fields.Damage_Die.replace(d8Regex, Number(fields.Damage_Die.replace(d8Regex, '$1')) + 1 + 'd8');
+							} else if (v.thisWeapon[3] == "eldritch blast") {
+								fields.Description += (fields.Description ? '; ' : '') + "One ray +1d8 dmg";
 							} else {
 								fields.Damage_Die += '+1d8';
 							}
@@ -2619,15 +2621,37 @@ MagicItemsList["returning weapon"] = {
 	}
 }
 
-/* NOG NIET KLAAR
 // Magic Items
+MagicItemsList["arcane propulsion arm"] = {
+	name : "Arcane Propulsion Arm",
+	source : [["E:RLW", 276]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "Once attached to my wrist, elbow, or shoulder, this prosthetic magically forms a copy of the appendage it's replacing. It can't be removed against my will, but I can as an action. I am can use it as a proficient melee weapon with the thrown property. After a throwing attack with it, it returns and reattaches immediately.",
+	descriptionFull : "This prosthetic appendage was developed by artificers of House Cannith. To attune to this item, you must attach it to your arm at the wrist, elbow, or shoulder, at which point the prosthetic magically forms a copy of the appendage it's replacing.\n\nWhile attached, the prosthetic provides these benefits:\n \u2022 The prosthetic is a fully capable part of your body.\n \u2022 You can take an action to remove the prosthetic, and it removes itself if your attunement to it ends. It can't be removed against your will.\n \u2022 The prosthetic is a magic melee weapon with which you're proficient. It deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the prosthetic detaches and flies at the target of the attack, then immediately returns to you and reattaches.",
+	attunement : true,
+	prerequisite : "Requires attunement by a creature missing a hand or an arm",
+	prereqeval : function (v) { return false; },
+	weaponsAdd : ["Arcane Propulsion Arm"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*arcane)(?=.*propulsion)(?=.*arm).*$/i,
+		name : "Arcane Propulsion Arm",
+		source : [["E:RLW", 276]],
+		ability : 1,
+		type : "AlwaysProf",
+		damage : [1, 8, "force"],
+		range : "Melee, 20/60 ft",
+		description : "Thrown; Returns immediately after thrown",
+		abilitytodamage : true
+	}
+}
 MagicItemsList["armblade"] = {
 	name : "Armblade",
-	source : [["WGtE", 120], ["UA:MIoE", 3]],
+	source : [["E:RLW", 276]],
 	type : "weapon (any one-handed melee weapon)",
 	rarity : "common",
-	description : "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
-	descriptionFull : "An armblade is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an armblade by attuning to it. An attached armblade cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the armblade.\n   An armblade isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an armblade, so you could acquire a vicious armblade or a vorpal armblade.",
+	description : "While attuned to it, this magic double-bladed scimitar is attached to my arm and inseparable from me. As a bonus action, I can retract it into my forearm or extend it from there. While it is extended, I can use the weapon as if I was holding it, and I can't use that hand for other purposes.",
+	descriptionFull : "An armblade is a magic weapon that attaches to your arm, becoming inseparable from you as long as you're attuned to it. To attune to this item, you must hold it against your forearm for the entire attunement period.\n   As a bonus action, you can retract the armblade into your forearm or extend it from there. While it is extended, you can use the weapon as if you were holding it, and you can't use that hand for other purposes.",
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
 	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
@@ -2641,389 +2665,640 @@ MagicItemsList["armblade"] = {
 		}
 	}
 }
-MagicItemsList["bag of bounty"] = {
-	name : "Bag of Bounty",
-	source : ["WGtE", 116],
+MagicItemsList["belashyrra's beholder crown"] = {
+	name : "Belashyrra's Beholder Crown",
+	nameAlt : "Beholder Crown",
+	source : [["E:RLW", 276]],
 	type : "wondrous item",
-	rarity : "uncommon",
-	description : "As an action three times per dawn, I can cast Create Food and Water, but can try and create fine food with a Cha check. If I'm proficient with cook's utensils, I add my proficiency bonus. Meal quality: modest (DC 10), comfortable (DC 13), wealthy (DC 15), aristocratic (DC 18). Failure results in a sour and squalid meal. ",
-	descriptionFull : "This is a sturdy leather sack with tiny Siberys shards embedded into the lining. If you have the Mark of Hospitality you can use an action to cast create food and water, drawing a feast from within the bag. You shape this meal with your thoughts. You can create the standard bland fare without requiring any sort of check, but you can attempt to create finer food by making a Charisma check; if you're proficient with cook's utensils, add your bonus to this check. A failed check results in a sour and squalid meal.\n\n" + toUni("DC\tFood Quality") + "\nNo roll\tPoor\n10\tModest\n13\tComfortable\n15\tWealthy\n18\tAristocratic\n\nA bag of bounty can be used up to three times over the course of a day. After that, the bag can't be used again until the next dawn.",
-	prerequisite : "Can only be used by someone with a Dragonmark of Hospitality",
-	prereqeval : function (v) {
-		return (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known);
-	},
+	rarity : "legendary",
+	description : "This symbiotic crown of dark purple and mauve stone attaches to my skull and removing it requires ending a curse. It allows me to see normally in magical and normal darkness (devil's sight) out to 120 ft. It has 10 charges, regaining 1d6+3 at dawn, which I can use to cast several spells with spell save DC 16.",
+	descriptionLong : "This symbiotic crown of dark purple and mauve stone attaches to my skull once I attune to it and removing it requires ending a curse. It allows me to see normally in magical and normal darkness (devil's sight) out to 120 ft. It has 10 charges, regaining 1d6+3 at dawn, which I can use to cast several spells with spell save DC 16. These are: Charm Person (1 charge), Disintegrate (6 charges), Fear (3 charges), Finger of Death (7 charges), Flesh to Stone (6 charges), Hold Person (2 charges), Ray of Enfeeblement (2 charges), Sleep (1 charge), Slow (3 charges), and Telekinesis (5 charges).",
+	descriptionFull : "This symbiotic crown is carved from dark purple and mauve stone, with ten points like stalks set with gemstones resembling the eyestalks of a beholder. To attune to this item, you must wear it on your head for the entire attunement period, during which the crown's hidden tendrils burrow into your scalp to bond with your skull.\n   While wearing the crown, you can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.\n   " + toUni("Spells") + ". The crown has 10 charges. While wearing it, you can use an action to expend some of its charges to cast one of the following spells from it (spell save DC 16): charm person (1 charge), disintegrate (6 charges), fear (3 charges), finger of death (7 charges), flesh to stone (6 charges), hold person (2 charges), ray of enfeeblement (2 charges), sleep (1 charge), slow (3 charges), telekinesis (5 charges).\n   The crown regains 1d6 + 3 expended charges daily at dawn.\n   " + toUni("Symbiotic Nature") + ". The crown can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the crown ends, and it detaches from you.\n   The daelkyr Belashyrra made these crowns. While on the same plane of existence as the crown, Belashyrra can see through its eyestalks.",
+	attunement : true,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+3",
+	fixedDC : 16,
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
-		name : "3 times per long rest",
-		spells : ["create food and water"],
-		selection : ["create food and water"],
-		firstCol : 1
-	},
-	spellChanges : {
-		"create food and water" : {
-			description : "Create 45 lb food and 30 gal water; feeds 15 humanoids or 5 steeds for 24h; Cha check for quality",
-			changes : "Using the Bag of Bounty, I can create the standard bland fare without requiring any sort of check, but I can attempt to create finer food by making a Charisma check, adding my proficiency bonus if I'm proficient with cook's utensils. A failed check results in a sour and squalid meal."
-		}
-	},
-	usages : 3,
-	recovery : "dawn"
-}
-MagicItemsList["band of loyalty"] = {
-	name : "Band of Loyalty",
-	source : [["WGtE", 115], ["UA:MIoE", 2]],
-	type : "ring",
-	rarity : "common",
-	description : "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
-	descriptionFull : "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
-	attunement : true
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["charm person", "sleep"],
+		selection : ["charm person", "sleep"],
+		firstCol : 1,
+		times : 2
+	}, {
+		name : "2 charges",
+		spells : ["hold person", "ray of enfeeblement"],
+		selection : ["hold person", "ray of enfeeblement"],
+		firstCol : 2,
+		times : 2
+	}, {
+		name : "3 charges",
+		spells : ["fear", "slow"],
+		selection : ["fear", "slow"],
+		firstCol : 3,
+		times : 2
+	}, {
+		name : "5 charges",
+		spells : ["telekinesis"],
+		selection : ["telekinesis"],
+		firstCol : 5
+	}, {
+		name : "6 charges",
+		spells : ["disintegrate", "flesh to stone"],
+		selection : ["disintegrate", "flesh to stone"],
+		firstCol : 6,
+		times : 2
+	}, {
+		name : "7 charges",
+		spells : ["finger of death"],
+		selection : ["finger of death"],
+		firstCol : 7
+	}]
 }
 MagicItemsList["cleansing stone"] = {
 	name : "Cleansing Stone",
-	source : [["WGtE", 115], ["UA:MIoE", 2]],
+	source : [["E:RLW", 276], ["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
-	descriptionFull : "A cleansing stone is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
-	action : [["action", ""]]
+	descriptionFull : "A cleansing stone is a sphere 1 foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person.\n   Such stones are often embedded in pedestals in public squares in Aundair or in high-end Ghallanda inns.",
+	action : [["action", ""]],
+	weight : 88 // using average marble/limestone density of 2.711 g/cm3
 }
 var docentFullDescription = [
-	"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
-	">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
-	"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
-	">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.",
-	"The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
-	">>Languages<<. All docents understand Common and Giant, but a docent knows up to four additional languages. Elvish and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
-	">>Properties<<. A docent possesses up to three of the following properties:",
-	"\u2022 The docent can cast the detect magic spell at will.",
-	"\u2022 The docent can cast the detect evil and good spell at will.",
-	"\u2022 The docent can detect any form of divination or scrying targeting it and its warforged host.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Arcana) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (History) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Investigation) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Nature) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Insight) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Perception) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the docent will automatically attempt to stabilize them once each turn.",
-	"You can use a bonus action on your turn to request that the docent use one of its properties on your behalf."
+	"A docent is a small metal sphere, about 2 inches across, studded with dragonshards. To attune to a docent, you must embed the item somewhere on your body, such as your chest or your eye socket.",
+	'>>Sentience<<. A docent is a sentient item of any alignment with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It perceives the world through your senses. It communicates telepathically with you and can speak, read, and understand any language it knows (see "Random Properties" below).',
+	">>Life Support<<. Whenever you end your turn with 0 hit points, the docent can make a Wisdom (Medicine) check with a +6 bonus. If this check succeeds, the docent stabilizes you.",
+	">>Random Properties<<. A docent has the following properties:",
+	" \u2022 >>Languages<<. The docent knows Common, Giant, and 1d4 additional languages chosen by the DM. If a docent knows fewer than six languages, it can learn a new language after it hears or reads the language through your senses.",
+	" \u2022 >>Skills<<. The docent has a +7 bonus to one of the following skills (roll a d4): (1) Arcana, (2) History, (3) Investigation, or (4) Nature.",
+	" \u2022 >>Spells<<. The docent knows one of the following spells and can cast it at will, requiring no components (roll a d6): (1–2) detect evil and good or (3–6) detect magic. The docent decides when to cast the spell.",
+	">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent, it might refuse to assist you."
 ];
 MagicItemsList["docent"] = {
 	name : "Docent",
-	source : [["WGtE", 121], ["UA:MIoE", 3]],
+	source : [["E:RLW", 276]],
 	type : "wondrous item",
 	rarity : "rare",
-	description : "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
+	description : "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
 	descriptionFull : docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
 	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
-	action : [["bonus action", ""]],
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Docent",
-		note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["dyrrn's tentacle whip"] = {
+	name : "Dyrrn's Tentacle Whip",
+	nameAlt : "Tentacle Whip",
+	source : [["E:RLW", 276]],
+	type : "weapon (whip)",
+	rarity : "very rare",
+	description : "This magic whip embeds itself in my arm once I attune to it and removing it requires ending a curse. It has a +2 bonus to attack and damage rolls, deals +1d6 psychic damage, but has disadv. vs. aberrations. On a roll of 20 to hit, the target is stunned until it next turn ends. As a bonus action, I can draw/sheath it in my arm",
+	descriptionFull : "This long, whip-like strand of tough muscle bears a sharp stinger at one end. To attune to this symbiotic weapon, you wrap the whip around your wrist for the entire attunement period, during which time the whip painfully embeds its tendrils into your arm.\n   You gain a +2 bonus to attack and damage rolls made with this magic whip, but attack rolls made against aberrations with this weapon have disadvantage. A creature hit by this weapon takes an extra 1d6 psychic damage. When you roll a 20 on the d20 for an attack roll with this weapon, the target is stunned until the end of its next turn.\n   As a bonus action, you can sheathe the whip by causing it to retract into your arm, or draw the whip out of your arm again.\n   " + toUni("Symbiotic Nature") + ". The whip can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the whip ends, and it detaches from you.",
+	attunement : true,
+	weight : 3,
+	action : [["bonus action", "Tentacle Whip (draw/sheath)"]],
+	weaponsAdd : ["Dyrrn's Tentacle Whip"],
+	weaponOptions : {
+		baseWeapon : "whip",
+		regExpSearch : /^(?=.*tentacle)(?=.*whip).*$/i,
+		name : "Dyrrn's Tentacle Whip",
+		source : [["E:RLW", 276]],
+		description : "Finesse, reach; +1d6 psychic dmg; On 20 to hit: stun until its next turn ends; Disadv. vs. aberrations",
+		modifiers : [2, 2]
+	}
+}
+MagicItemsList["earworm"] = {
+	name : "Earworm",
+	source : [["E:RLW", 277]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast Detect Thoughts (2 charges) or Dissonant Whispers (1 charge) with DC 15. It allows me to speak, read, and write deep speech.",
+	descriptionFull : "To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the earworm is inside you, you can speak, read, and write Deep Speech.\n   " + toUni("Spells") + ". The earworm has 4 charges. You can cast the following spells from it, expending the necessary number of charges (spell save DC 15): detect thoughts (2 charges) or dissonant whispers (1 charge). Each time you use the earworm to cast the detect thoughts spell, it sends the information gleaned to the nearest daelkyr, or to the next nearest earworm until it reaches a daelkyr.\n   The earworm regains 1d4 expended charges daily at dawn.\n   " + toUni("Symbiotic Nature") + ". The earworm can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the earworm ends, and it exits your body.",
+	attunement : true,
+	languageProfs : ["Deep Speech"],
+	usages : 4,
+	recovery : "dawn",
+	additional : "regains 1d4",
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["dissonant whispers"],
+		selection : ["dissonant whispers"],
+		firstCol : 1
+	}, {
+		name : "2 charges",
+		spells : ["detect thoughts"],
+		selection : ["detect thoughts"],
+		firstCol : 2
 	}]
 }
 MagicItemsList["everbright lantern"] = {
 	name : "Everbright Lantern",
-	source : [["WGtE", 115], ["UA:MIoE", 2]],
+	source : [["E:RLW", 277], ["WGtE", 115], ["UA:MIoE", 2]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
-	descriptionFull : "An everbright lantern contains an Eberron dragonshard imbued with the effect of a continual flame spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An everbright lantern provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out."
+	description : "This bullseye lantern is powered by a dragonshard that sheds light comparable to that produced by a Continual Flame spell. The light never goes out, but it can be shuttered off. It sheds light in a 120-ft cone; the closest 60 ft is bright light, and the farthest 60 ft is dim light.",
+	descriptionFull : "This bullseye lantern contains an Eberron dragonshard that sheds light comparable to that produced by a continual flame spell. An everbright lantern sheds light in a 120-foot cone; the closest 60 feet is bright light, and the farthest 60 feet is dim light.",
+	weight : 2
 }
 MagicItemsList["feather token"] = {
 	name : "Feather Token",
-	source : [["WGtE", 115], ["UA:MIoE", 2]],
+	source : [["E:RLW", 277]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
-	descriptionFull : "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast feather fall as a bonus action. A feather token only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides."
+	description : "This small metal disk is inscribed with the image of a feather. When I fall at least 20 ft while the token is on my person, I descend 60 ft per round and take no damage from falling. The token's magic is expended after landing, whereupon the disk becomes nonmagical.",
+	descriptionFull : "This small metal disk is inscribed with the image of a feather. When you fall at least 20 feet while the token is on your person, you descend 60 feet per round and take no damage from falling. The token's magic is expended after you land, whereupon the disk becomes nonmagical."
+}
+MagicItemsList["finder's goggles"] = {
+	name : "Finder's Goggles",
+	source : [["E:RLW", 277]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "These goggles with dragonshard lenses grant me +1d4 on Wis (Insight) checks. As an action once per dawn, I can use them to find the last creature to touch an object with a Wis (Insight) check DC 13 + days since last contact. I learn the creature's type and can immediately cast Locate Creature to find the creature.",
+	descriptionFull : "The lenses of these garish goggles are carved from Siberys dragonshards. While wearing these lenses, you gain the following benefits:\n \u2022 When you make a Wisdom (Insight) check, you can roll a d4 and add the number rolled to the check.\n \u2022 As an action, you can use the goggles to examine an object to identify the aura of the last creature that touched it. Make a Wisdom (Insight) check against a DC of 13 + the number of days since the last contact occurred. On a success, you learn the creature's type and can immediately use the goggles to cast locate creature to find that creature. This property can't be used again until the next dawn.",
+	action : [["action", ""]],
+	attunement : true,
+	prerequisite : "Requires attunement by a creature with the Dragonmark of Finding",
+	prereqeval : function (v) {
+		return (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known);
+	},
+	usages : 4,
+	recovery : "dawn",
+	additional : "regains 1d4",
+	fixedDC : 15,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["dissonant whispers"],
+		selection : ["dissonant whispers"],
+		firstCol : 1
+	}, {
+		name : "2 charges",
+		spells : ["detect thoughts"],
+		selection : ["detect thoughts"],
+		firstCol : 2
+	}]
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",
-	source : [["WGtE", 115], ["UA:MIoE", 2]],
+	source : [["E:RLW", 277]],
 	type : "wondrous item",
-	rarity : "common",
-	description : "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
-	descriptionFull : "Glamerweave clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.\n\n" + [
-		toUni("1d8\tDescription"),
-		"  1\tA hat orbited by the twelve moons",
-		"  2\tLong gloves wreathed in cold flames",
-		"  3\tA traveler's cloak lined with glittering stars",
-		"  4\tA scarlet gown that glows with inner radiance",
-		"  5\tA cloth shirt that appears to be a chain shirt",
-		"  6\tA silver gown surrounded by drifting snowflakes",
-		"  7\tA robe with two dragons wrestling across the back",
-		"  8\tA cloak that slowly and subtly shifts colors"
-	].join("\n")
-}
-MagicItemsList["imbued wood"] = {
-	name : "Imbued Wood",
-	source : [["WGtE", 114], ["UA:MIoE", 1]],
-	type : "wondrous item",
-	rarity : "common",
-	description : "While holding a rod, wand, or staff made of imbued wood, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-	descriptionFull : "Powerful manifest zones can infuse local trees with planar energies. A gifted artificer can tap into this to create a wand, staff, or rod that is especially effective at channeling a particular type of energy.\n   When you cast a spell that deals damage of the type associated with the material your arcane focus is made from, the spell gains a +1 bonus to one damage roll of that spell. The materials and their associated damage types are listed here.\n \u2022 Fernian ash: Fire damage.\n \u2022 Irian rosewood: Radiant damage.\n \u2022 Kythrian manchineel: Acid or poison damage.\n \u2022 Lamannian oak: Lightning or thunder damage.\n \u2022 Mabaran ebony: Necrotic damage.\n \u2022 Quori beech, Xorian wenge: Psychic damage.\n \u2022 Risian pine: Cold damage.\n \u2022 Shavarran birch: Force damage.",
-	attunement : true,
-	allowDuplicates : true,
-	choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Quori Beech (psychic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
-	"fernian ash (fire)" : {
-		name : "Fernian Ash Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Fernian ash, spells I cast that deal fire damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire", 1, true, true);
-			},
-			"Cantrips and spells that deal fire damage get a +1 bonus added to one of their damage rolls."
-		]
+	description : "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can turn the pattern within the cloth into a moving illusory pattern. For the uncommon version, this pattern extends beyond the cloth and gives me +1d4 on a Performance or Persuasion check.",
+	descriptionFull : "Glamerweave is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.\n   Uncommon glamerweave can have the pattern rise from the cloth. For example, a glamerweave gown might be wreathed in harmless, illusory flames, while a glam­erweave hat might have illusory butterflies fluttering around it.\n   When you make a Charisma (Performance) or Cha­risma (Persuasion) check while wearing the uncommon version of glamerweave, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn. ",
+	action : [["bonus action", ""]],
+	choices : ["Common (moving illusory pattern)", "Uncommon (pattern rises from the cloth)"],
+	"common (moving illusory pattern)" : {
+		name : "Glamerweave ",
+		rarity : "common",
+		description : "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can create a moving illusory pattern within the cloth.",
+		descriptionFull : "Glamerweave is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth."
 	},
-	"irian rosewood (radiant)" : {
-		name : "Irian Rosewood Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Irian rosewood, spells I cast that deal radiant damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "radiant", 1, true, true);
-			},
-			"Cantrips and spells that deal radiant damage get a +1 bonus added to one of their damage rolls."
-		]
-	},
-	"kythrian manchineel (acid and poison)" : {
-		name : "Kythrian Manchineel Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Kythrian manchineel, spells I cast that deal acid or poison damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "acid|poison", 1, true, true);
-			},
-			"Cantrips and spells that deal acid or poison damage get a +1 bonus added to one of their damage rolls."
-		]
-	},
-	"lamannian oak (lightning and thunder)" : {
-		name : "Lamannian Oak Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Lamannian oak, spells I cast that deal lightning or thunder damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
-			},
-			"Cantrips and spells that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls."
-		]
-	},
-	"mabaran ebony (necrotic)" : {
-		name : "Mabaran Ebony Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Mabaran ebony, spells I cast that deal necrotic damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necrotic", 1, true, true);
-			},
-			"Cantrips and spells that deal necrotic damage get a +1 bonus added to one of their damage rolls."
-		]
-	},
-	"quori beech (psychic)" : {
-		name : "Quori Beech Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Quori beech, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
-			},
-			"Cantrips and spells that deal psychic damage get a +1 bonus added to one of their damage rolls."
-		]
-	},
-	"risian pine (cold)" : {
-		name : "Risian Pine Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Risian pine, spells I cast that deal cold damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "cold", 1, true, true);
-			},
-			"Cantrips and spells that deal cold damage get a +1 bonus added to one of their damage rolls."
-		]
-	},
-	"shavarran birch (force)" : {
-		name : "Shavarran Birch Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Shavarran birch, spells I cast that deal force damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "force", 1, true, true);
-			},
-			"Cantrips and spells that deal force damage get a +1 bonus added to one of their damage rolls."
-		]
-	},
-	"xorian wenge (psychic)" : {
-		name : "Xorian Wenge Arcane Focus",
-		description : "While holding a rod, wand, or staff made of Xorian wenge, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
-			},
-			"Cantrips and spells that deal psychic damage get a +1 bonus added to one of their damage rolls."
-		]
+	"uncommon (pattern rises from the cloth)" : {
+		name : "Uncommon Glamerweave",
+		rarity : "uncommon",
+		description : "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can have the pattern within them rise as an illusory visage (e.g. wreathed in flames). Once per dawn, I can use this to gives me +1d4 on a Charisma (Performance) or Charisma (Persuasion) check.",
+		descriptionFull : "Glamerweave is clothing imbued with harmless illusory magic. While wearing these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.\n   You can have the pattern rise from the cloth. For example, a glamerweave gown might be wreathed in harmless, illusory flames, while a glamerweave hat might have illusory butterflies fluttering around it.\n   When you make a Charisma (Performance) or Charisma (Persuasion) check while wearing the glamerweave, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn.",
+		usages : 1,
+		recovery : "dawn"
 	}
 }
-MagicItemsList["inquisitive's goggles"] = {
-	name : "Inquisitive's Goggles",
-	source : ["WGtE", 115],
+MagicItemsList["imbued wood focus"] = {
+	// Note that this item is implemented here against RAW,
+	// because according to PHB page 203 a spellcasting focus can only be used for
+	// spells with a material component that is neither costly nor consumed.
+	// See also https://dnd.wizards.com/articles/sage-advice/rules-spellcasting
+	// This would mean that the Imbued Wood Focus in only useful for a limited number of spells.
+	// Instead, this code just applies the damage bonus to all damage spells that roll for their damage.
+	name : "Imbued Wood Focus",
+	source : [["E:RLW", 277], ["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
-	rarity : "uncommon",
-	description : "I can add my Intuition Die to my Wis (Insight) checks. When I examine an object, I can make a Wis (Perception) check to sense the aura of the last living creature to touch it (DC is 13 + days since last contact). On a success, I learn the creature's species and I can immediately use my Imprint Prey ability to target it.",
-	descriptionLong : "The lenses of these garish goggles are carved from Siberys dragonshards. It allows me to can add my Intuition Die to my Wisdom (Insight) checks. When I examine an object, I can use it to make a Wisdom (Perception) check to identify the aura of the last living creature to touch the object.The DC is 13 + the number of days since the last contact occurred. If the check is successful, I learn the species of the creature and I can immediately use my Imprint Prey ability to target this creature.",
-	descriptionFull : "The lenses of these goggles are carved from Siberys dragonshards. While garish in appearance, these goggles are a boon to any Tharashk inquisitive. To attune to the goggles, you must possess the Mark of Finding. As long as this condition is met, you gain the following benefits:\n \u2022 You can add your Intuition die from the Hunter's Intuition trait of the mark when you make Wisdom (Insight) checks.\n \u2022 When you examine an object, you can make a Wisdom (Perception) check to identify the aura of the last living creature to touch the object. The DC is 13 + the number of days since the last contact occurred. If the check is successful, you learn the species of the creature and you can immediately use your Imprint Prey ability to target this creature.",
+	rarity : "common",
+	description : "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
+	descriptionFull : "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spell­caster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n" + toUni("Wood\t\t\tDamage Type") + "\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
 	attunement : true,
-	prerequisite : "Requires attunement by someone with a Dragonmark of Finding",
-	prereqeval : function (v) {
-		return (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known);
+	allowDuplicates : true,
+	weight : 2,
+	choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
+	"fernian ash (fire)" : {
+		name : "Fernian Ash Rod, Wand, or Staff",
+		nameTest :  /^(?=.*fernian)(?=.*ash)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Fernian ash, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal fire damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && (/fire/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal fire damage get a +1 bonus added to one of their damage rolls."
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal fire damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	},
+	"irian rosewood (radiant)" : {
+		name : "Irian Rosewood Rod, Wand, or Staff",
+		nameTest :  /^(?=.*irian)(?=.*rosewood)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Irian rosewood, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal radiant damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && (/radiant/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal radiant damage get a +1 bonus added to one of their damage rolls."
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "radiant", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal radiant damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	},
+	"kythrian manchineel (acid and poison)" : {
+		name : "Kythrian Manchineel Rod, Wand, or Staff",
+		nameTest :  /^(?=.*kythrian)(?=.*manchineel)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Kythrian manchineel, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal acid or poison damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && (/acid|poison/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal acid or poison damage get a +1 bonus added to one of their damage rolls."
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "acid|poison", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal acid or poison damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	},
+	"lamannian oak (lightning and thunder)" : {
+		name : "Lamannian Oak Rod, Wand, or Staff",
+		nameTest :  /^(?=.*lamannian)(?=.*oak)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Lamannian oak, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal lightning or thunder damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && (/lightning|thunder/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls."
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	},
+	"mabaran ebony (necrotic)" : {
+		name : "Mabaran Ebony Rod, Wand, or Staff",
+		nameTest :  /^(?=.*mabaran)(?=.*ebony)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Mabaran ebony, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal necrotic damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && (/necrotic/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal necrotic damage get a +1 bonus added to one of their damage rolls."
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necrotic", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal necrotic damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	},
+	"risian pine (cold)" : {
+		name : "Risian Pine Rod, Wand, or Staff",
+		nameTest :  /^(?=.*risian)(?=.*pine)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Risian pine, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal cold damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && (/cold/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal cold damage get a +1 bonus added to one of their damage rolls."
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "cold", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal cold damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	},
+	"shavarran birch (force)" : {
+		name : "Shavarran Birch Rod, Wand, or Staff",
+		nameTest :  /^(?=.*shavarran)(?=.*birch)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Shavarran birch, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal force damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (v.thisWeapon[3] && v.thisWeapon[3] == "eldritch blast") {
+						fields.Description += (fields.Description ? '; ' : '') + "One ray +1 dmg";
+					}
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal force damage get a +1 bonus added to one of their damage rolls."
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && v.thisWeapon[3] != "eldritch blast" && (/force/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				}
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "force", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal force damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
+	},
+	"xorian wenge (psychic)" : {
+		name : "Xorian Wenge Rod, Wand, or Staff",
+		nameTest :  /^(?=.*xorian)(?=.*wenge)(?=.*(rod|wand|staff)).*$/i,
+		description : "This rod, wand, or staff made of Xorian wenge, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.thisWeapon[3] && (/psychic/i).test(fields.Damage_Type)) output.extraDmg += 1;
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
+				},
+				"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
+			]
+		}
 	}
 }
 MagicItemsList["keycharm"] = {
 	name : "Keycharm",
-	source : ["WGtE", 115],
+	source : [["E:RLW", 277]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "When I cast Alarm, Arcane Lock, Glyph of Warding, or a similar abjuration effect, I can tie it to the keycharm. Whoever holds the keycharm is considered to be the owner of this effect. For example, they receive the notification from Alarm, can safely avoid a Glyph of Warding, or can circumvent the Arcane Lock.",
-	descriptionFull : "This simple object plays a vital role in the work of House Kundarak. If you possess the Mark of Warding, when you cast alarm, arcane lock, glyph of warding, or similar abjuration effects, you can tie the effect to the keycharm. Whoever holds the keycharm is considered to the owner of this enchantment; they receive the notification from alarm, they can safely avoid a glyph, and they can deactivate any associated effect.",
-	prerequisite : "Can only be used by someone with a Dragonmark of Warding",
+	description : "When I cast Alarm, Arcane Lock, or Glyph of Warding, I can tie the effect to the keycharm. Its holder receives the notification from Alarm, bypasses the Arcane Lock, or avoids triggering the Glyph of Warding. It can have up to 3 tied spells at one time. As an action, the holder can speak the command to end a tied spell.",
+	descriptionFull : "This small stylized key plays a vital role in the work of House Kundarak. If you cast the alarm, arcane lock, or glyph of warding spell, you can tie the effect to the keycharm so that whoever holds it receives the notification from the alarm spell, bypasses the lock of the arcane lock spell, or avoids triggering the glyph placed by the glyph of warding spell. In addition, the holder (who needn't be attuned to the item) can take an action to end any one spell tied to it, provided the holder knows the command word you set for ending the tied spells. The keycharm can have up to three tied spells at one time.",
+	attunement : true,
+	prerequisite : "Requires attunement by a creature with the Dragonmark of Warding",
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*warding).*$/i).test(CurrentRace.known);
 	}
 }
+MagicItemsList["kyrzin's ooze"] = {
+	name : "Kyrzin's Ooze",
+	source : [["E:RLW", 278]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "Once I attune to this opalescent goo by drinking it, it can't only be removed by ending a curse. It gives me resistance to acid and poison damage and immunity to the poisoned condition. Each as an action once per short rest, I can exhale acid breath or become amorphous for 1 minute along with my equipment.",
+	descriptionLong : "I can only attune to this opalescent, symbiotic goo by drinking it. I can't remove it or end the attunement voluntarily, but it seeps out of me if the curse is removed. It gives me resistance to acid and poison damage and immunity to the poisoned condition. As an action once per dawn, I can become amorphous for 1 minute along with my equipment and can move through a space as narrow as 1 inch wide. As an action once per dawn, I can exhale a 30-ft line, 5-ft wide acid breath that deals 8d8 acid damage (Dexterity save DC 15 halves). If I die while it is inside me, it turns my corpse into a black pudding.",
+	descriptionFull : "This opalescent, symbiotic goo comes sealed in a jar and slowly shifts and moves, as if endlessly exploring the jar's interior. To attune to this item, you must first drink the contents of the jar, unlocking the following properties.\n   " + toUni("Resistant") + ". While attuned to Kyrzin's ooze, you have resistance to poison and acid damage, and you're immune to the poisoned condition.\n   " + toUni("Amorphous") + ". As an action, you can speak a command word and cause your body to assume the amorphous qualities of an ooze. For the next minute, you (along with any equipment you're wearing or carrying) can move through a space as narrow as 1 inch wide without squeezing. Once you use this property, it can't be used again until the next dawn.\n   " + toUni("Acid Breath") + ". As an action, you can exhale acid in a 30-foot line that is 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 36 (8d8) acid damage on a failed save, or half as much damage on a successful one. Once you use this property, it can't be used again until the next dawn.\n   " + toUni("Symbiotic Nature") + ". The ooze can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the ooze ends, as it seeps out of you.\n   If you die while the ooze is inside you, it bursts out and engulfs you, turning your corpse into a black pudding allied with the daelkyr.",
+	attunement : true,
+	dmgres : ["Acid", "Poison"],
+	savetxt : { immune : ["poisoned condition"] },
+	action : [["action", " (amorphous/acid breath)"]],
+	extraLimitedFeatures : [{
+		name : "Kyrzin's Ooze [Amorphous]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Kyrzin's Ooze [Acid Breath]",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	weaponsAdd : ["Kyrzin's Ooze Acid Breath"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*ooze)(?=.*acid)(?=.*breath).*$/i,
+		name : "Kyrzin's Ooze Acid Breath",
+		source : [["E:RLW", 278]],
+		ability : 0,
+		type : "Magic Item",
+		damage : [8, 8, "acid"],
+		range : '5-ft \u00D7 30-ft line',
+		description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
+		abilitytodamage : false,
+		modifiers : ["dc+7", ""]
+	}
+}
+MagicItemsList["living armor"] = {
+	name : "Living Armor",
+	source : [["E:RLW", 278]],
+	type : "armor (any)",
+	rarity : "very rare",
+	description : "This armor of black chitin attaches itself to me once I attune to it and removing it requires ending a curse. It gives me +1 AC and resistance to necrotic, poison, and psychic damage. Whenever I finish a long rest, I must either feed it half my remaining HD (rounding up) or take 1 level of exhaustion.",
+	descriptionFull : "This hideous armor is formed from black chitin, beneath which veins pulse and red sinews glisten. To attune to this item, you must wear it for the entire attunement period, during which tendrils on the inside burrow into you.\n   While wearing this armor, you have a +1 bonus to Armor Class, and you have resistance to the following damage types: necrotic, poison, and psychic.\n   " + toUni("Symbiotic Nature") + ". The armor can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the armor ends, and it detaches from you.\n   The armor requires fresh blood be fed to it. Immediately after you finish any long rest, you must either feed half of your remaining Hit Dice to the armor (round up) or take 1 level of exhaustion.",
+	attunement : true,
+	dmgres : ["Necrotic", "Poison", "Psychic"],
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "brackets",
+		descriptionChange : ["prefix", "armor"],
+		itemName1stPage : ["suffix", "+1 Living"]
+	}
+}
+MagicItemsList["living gloves"] = {
+	name : "Living Gloves",
+	source : [["E:RLW", 278]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "These gloves made of thin chitin and sinew bond with my skin once I attune to them and removing them requires ending a curse. Once I attune to them, I can choose to become proficient and gain expertise with either sleight of hand, thieves' tools, or an artisan's tools or musical instrument of my choice.",
+	descriptionFull : "These symbiotic gloves—made of thin chitin and sinew—pulse with a life of their own. To attune to them, you must wear them for the entire attunement period, during which the gloves bond with your skin.\n   While attuned to these gloves, you gain one of the following proficiencies (your choice when you attune to the gloves):\n \u2022 Sleight of Hand\n \u2022 Thieves' tools\n \u2022 One kind of artisan's tools of your choice\n \u2022 One kind of musical instrument of your choice\n\nWhen you make an ability check using the chosen proficiency, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.\n   " + toUni("Symbiotic Nature") + ". The gloves can't be removed from you while you're attuned to them, and you can't voluntarily end your attunement to them. If you're targeted by a spell that ends a curse, your attunement to the gloves ends, and they can be removed.",
+	attunement : true,
+	choices : ["Proficiency and expertise with Sleight of Hand", "Proficiency and expertise with Thieves' Tools", "Proficiency and expertise with chosen artisan's tools", "Proficiency and expertise with chosen musical instrument"],
+	"proficiency and expertise with sleight of hand" : {
+		name : "Living Gloves [Sleight of Hand]",
+		description : "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and expertise with sleight of hand.",
+		skills : [["Sleight of Hand", "full"]]
+	},
+	"proficiency and expertise with thieves' tools" : {
+		name : "Living Gloves [Thieves' Tools]",
+		description : "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and expertise with thieves' tools.",
+		toolProfs : [["Thieves' tools", "Dex"]],
+		eval : function () {
+			if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+				Checkbox('Too Exp', true);
+			};
+		},
+		removeeval : function () {
+			if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
+				Checkbox('Too Exp', false);
+			};
+		}
+	},
+	"proficiency and expertise with chosen artisan's tools" : {
+		name : "Living Gloves [Artisan's Tools]",
+		description : "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and expertise with a set of artisan's tools of my choice (chosen when I attune to them).",
+		toolProfs : [["Artisan's tools", 1]],
+	},
+	"proficiency and expertise with chosen musical instrument" : {
+		name : "Living Gloves [Musical Instrument]",
+		description : "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and expertise with a musical instrument of my choice (chosen when I attune to them).",
+		toolProfs : [["Musical instrument", 1]],
+	}
+}
 MagicItemsList["orb of shielding"] = {
 	name : "Orb of Shielding",
-	source : [["WGtE", 114], ["UA:MIoE", 1]],
+	source : [["E:RLW", 278], ["WGtE", 114], ["UA:MIoE", 1]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "An orb of shielding is made from crystal or stone aligned to one of the planes. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4.",
-	descriptionFull : "An orb of shielding is made from crystal or stone aligned to one of the planes. While you are holding the orb and take damage of the type associated with the material your orb is made from, you can use your reaction to reduce the damage by 1d4. The materials and their associated damage types are listed below.\n" +
-	"\n \u2022 Fernian basalt: Fire damage" +
-	"\n \u2022 Irian quartz: Radiant damage" +
-	"\n \u2022 Kythrian skarn: Acid or poison damage" +
-	"\n \u2022 Lamannian flint: Lightning or thunder damage" +
-	"\n \u2022 Mabaran obsidian: Necrotic damage" +
-	"\n \u2022 Quori celestine, Xorian marble: Psychic damage" +
-	"\n \u2022 Risian shale: Cold damage" +
-	"\n \u2022 Shavaran chert: Force damage",
+	description : "An orb of shielding is made from crystal or stone aligned to one of the planes. I can use it as my spellcasting focus. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4 (to a minimum of 0).",
+	descriptionFull : "An orb of shielding is a polished, spherical chunk of crystal or stone aligned to one of the planes of existence. If you're a spellcaster, you can use this orb as a spell­casting focus.\n   If you're holding the orb when you take damage of the type associated with the orb's material, you can use your reaction to reduce the damage by ld4 (to a minimum of 0). The materials and their associated damage types are listed in the Orb of Shielding table.\n\n" + toUni("Planar Material\t\tDamage Type") + "\nFernian Basalt\t\tFire\nIrian Quartz\t\tRadiant\nKythrian Skarn\t\tAcid or Poison\nLamannian Flint\t\tLightning or Thunder\nMabaran Obsidian      \tNecrotic\nRisian Shale\t\tCold\nShavarran Chert\t\tForce\nXorian Marble\t\tPsychic",
 	attunement : true,
+	allowDuplicates : true,
 	weight : 3,
 	action : [["reaction", ""]],
-	choices : ["Fernian Basalt (fire)", "Irian Quartz (radiant)", "Kythrian Skarn (acid or poison)", "Lamannian Flint (lightning or thunder)", "Mabaran Obsidian (necrotic)", "Quori Celestine (psychic)", "Risian Shale (cold)", "Shavaran Chert (force)", "Xorian Marble (psychic)"],
+	choices : ["Fernian Basalt (fire)", "Irian Quartz (radiant)", "Kythrian Skarn (acid or poison)", "Lamannian Flint (lightning or thunder)", "Mabaran Obsidian (necrotic)", "Risian Shale (cold)", "Shavaran Chert (force)", "Xorian Marble (psychic)"],
 	"fernian basalt (fire)" : {
 		name : "Orb of Shielding [Fernian Basalt]",
-		description : "This stone orb is made from fernian basalt. As a reaction while I am holding the orb and take fire damage, I can reduce the damage by 1d4."
+		description : "This stone orb is made from fernian basalt. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take fire damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	},
 	"irian quartz (radiant)" : {
 		name : "Orb of Shielding [Irian Quartz]",
-		description : "This crystal orb is made from irian quartz. As a reaction while I am holding the orb and take radiant damage, I can reduce the damage by 1d4."
+		description : "This crystal orb is made from irian quartz. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take radiant damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	},
 	"kythrian skarn (acid or poison)" : {
 		name : "Orb of Shielding [Kythrian Skarn]",
-		description : "This stone orb is made from kythrian skarn. As a reaction while I am holding the orb and take acid or poison damage, I can reduce the damage by 1d4."
+		description : "This stone orb is made from kythrian skarn. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take acid or poison damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	},
 	"lamannian flint (lightning or thunder)" : {
 		name : "Orb of Shielding [Lamannian Flint]",
-		description : "This stone orb is made from lamannian flint. As a reaction while I am holding the orb and take lightning or thunder damage, I can reduce the damage by 1d4."
+		description : "This stone orb is made from lamannian flint. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take lightning or thunder damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	},
 	"mabaran obsidian (necrotic)" : {
 		name : "Orb of Shielding [Mabaran Obsidian]",
-		description : "This crystal orb is made from mabaran obsidian. As a reaction while I am holding the orb and take necrotic damage, I can reduce the damage by 1d4."
-	},
-	"quori celestine (psychic)" : {
-		name : "Orb of Shielding [Quori Celestine]",
-		description : "This crystal orb is made from quori celestine. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4."
+		description : "This crystal orb is made from mabaran obsidian. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take necrotic damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	},
 	"risian shale (cold)" : {
 		name : "Orb of Shielding [Risian Shale]",
-		description : "This stone orb is made from risian shale. As a reaction while I am holding the orb and take cold damage, I can reduce the damage by 1d4."
+		description : "This stone orb is made from risian shale. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take cold damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	},
 	"shavaran chert (force)" : {
 		name : "Orb of Shielding [Shavaran Chert]",
-		description : "This stone orb is made from shavaran chert. As a reaction while I am holding the orb and take force damage, I can reduce the damage by 1d4."
+		description : "This stone orb is made from shavaran chert. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take force damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	},
 	"xorian marble (psychic)" : {
 		name : "Orb of Shielding [Xorian Marble]",
-		description : "This stone orb is made from xorian marble. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4."
+		description : "This stone orb is made from xorian marble. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	}
 }
-MagicItemsList["rings of shared suffering"] = {
-	name : "Rings of Shared Suffering",
-	source : ["WGtE", 117],
-	type : "ring",
-	rarity : "uncommon",
-	description : "I can only attune to one of these rings. As a bonus action, I can link this ring to the other of its pair, if a creature is attuned to it. From then on, when that creature takes damage, they only suffer half and I take the rest. This effect has no range limit and lasts until either of us ends it as a bonus action or removes their ring.",
-	descriptionFull : "These rings come in linked pairs. If you possess the Mark of Sentinel, you can use a bonus action to form a link to the creature attuned to the other ring; from then on, whenever that creature suffers damage, they only suffer half of that damage and you take the rest. This effect continues until you end it as a bonus action or until you or the other creature removes their ring. This effect isn't limited by range. A creature cannot be attuned to more than one ring of shared suffering.",
+MagicItemsList["prosthetic limb"] = {
+	name : "Prosthetic Limb",
+	source : [["E:RLW", 278]],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This artificial limb replaces a hand, arm, foot, leg, or similar appendage that was lost or removed and functions identically to the body part it is replacing. I can detach or reattach it as an action, and it can't be removed by anyone else. Attuning to multiple prosthetics limbs still only counts as a single attument.",
+	descriptionFull : "This artificial limb replaces a hand, arm, foot, leg, or similar appendage that was lost or removed. While the prosthetic is attached and attuned to you, it functions identically to the body part it is replacing. You can detach or reattach it as an action, and it can't be removed by anyone else.\n   If you have multiple prosthetic limbs, they count as a single magic item with regard to the number of magic items you can attune to.",
 	attunement : true,
-	prerequisite : "Requires attunement by someone with a Dragonmark of Sentinel",
-	prereqeval : function (v) {
-		return (/^(?=.*dragonmark)(?=.*sentinel).*$/i).test(CurrentRace.known);
-	}
+	prerequisite : "Requires attunement by a creature missing some or all of a limb",
+	prereqeval : function (v) { return false; }
 }
 MagicItemsList["scribe's pen"] = {
 	name : "Scribe's Pen",
-	source : ["WGtE", 115],
+	source : [["E:RLW", 278]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "I can use this quill to write on any surface. This can be visible(traced in glowing mystical lines) or invisible to any creature without the Mark of Scribing. Detect Magic reveals the invisible writing. As an action, I or others with the Mark of Scribing can make it (in)visible. Marks on living creatures fade within a week.",
-	descriptionFull : "If you possess the Mark of Scribing, you can use this quill to write on any surface. This can be visible\u2014traced in glowing mystical lines\u2014or invisible to any creature without the Mark of Scribing. Invisible writing will be revealed by Detect Magic, See Invisibility, or True Seeing. Any creature with the Mark of Scribing can also reveal your writing or make it invisible as an action. If you mark a living creature, the mark will fade within a week.",
-	prerequisite : "Can only be used by someone with a Dragonmark of Scribing",
+	description : "I can use this pen to write on any surface. I decide whether the writing is visible or invisible, but it is always visible to creatures with the Mark of Scribing. As an action, I or others with the Mark of Scribing can touch the writing and make it visible to all. Writing on creatures other than constructs fades after 7 days.",
+	descriptionFull : "You can use this pen to write on any surface. You decide whether the writing is visible or invisible, but the writing is always visible to a person with the Mark of Scribing.\n   Any creature with the Mark of Scribing can use an action to touch the invisible writing, making it visible to all.\n   If you use the pen to write on a creature that isn't a construct, the writing fades after 7 days.",
+	attunement : true,
+	prerequisite : "Requires attunement by a creature with the Dragonmark of Scribing",
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known);
 	}
 }
 MagicItemsList["shiftweave"] = {
 	name : "Shiftweave",
-	source : [["WGtE", 115], ["UA:MIoE", 2]],
+	source : [["E:RLW", 279]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
-	descriptionFull : "Transmutation magic is woven into the fabric of shiftweave clothing. When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your shiftweave outfit into one of the other designs contained within it. To determine the price of a suit of shiftweave, combine the value of all of the outfits it contains and add 25 gp to that amount.",
-	action : [["action", ""]]
+	description : "Up to five different outfits are embedded into these clothes. As a bonus action, I can speak its command word to transform the outfit into one of the other designs contained within. Regardless of its appearance, the outfit can't be anything but clothing or gain properties of other magical clothing.",
+	descriptionFull : "When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. While wearing the clothing, you can speak its command word as a bonus action to transform your outfit into your choice of one of the other designs contained within it. Regardless of its appearance, the outfit can't be anything but clothing. Although it can duplicate the look of other magical clothing, it doesn't gain their magical properties.",
+	action : [["bonus action", ""]]
+}
+MagicItemsList["speaking stone"] = {
+	name : "Speaking Stone",
+	source : [["E:RLW", 279]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "This dragonshard is inscribed with arcane symbols that uniquely identify it. By touching it, I can cast Sending to any other speaking stone whose location or unique sequence of symbols I know. A creature within 5 ft of the receiving speaking stone hears the message as if they were the target of the Sending.",
+	descriptionFull : "The key to long-distance, virtually instantaneous communication across Khorvaire is House Sivis's network of message stations. Each station contains at least one speaking stone, which is carved from a Siberys dragonshard and inscribed with arcane symbols that uniquely identify it. If you're a gnome with the Mark of Scribing, you can touch the stone and use an action to cast the sending spell from it. The target is any other speaking stone whose location or unique sequence of symbols you know. A creature within 5 feet of the stone hears the message as if they were the target.\n   In a Sivis message station, a gnome is always on duty by the speaking stone, listening for messages that might come in and transcribing them for delivery to their intended recipients.",
+	prerequisite : "Can only be used by a gnome with the Dragonmark of Scribing",
+	prereqeval : function (v) {
+		return (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known);
+	},
+	spellcastingBonus : {
+		name : "At will",
+		spells : ["sending"],
+		selection : ["sending"],
+		firstCol : "atwill"
+	}
 }
 MagicItemsList["spellshard"] = {
 	name : "Spellshard",
-	source : [["WGtE", 115], ["UA:MIoE", 3]],
+	source : [["E:RLW", 279], ["WGtE", 115], ["UA:MIoE", 3]],
 	type : "wondrous item",
-	description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
-	allowDuplicates : true,
-	choices : ["normal", "advanced"],
-	"normal" : {
-		name : "Spellshard ",
-		allowDuplicates : true,
-		rarity : "common",
-		description : "This dragonshard is imbued with a work of literature. By holding it and concentrating, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
-		descriptionLong : "This polished dragonshard fits into the palm of my hand. It is imbued with a particular work of literature. By holding it and concentrating, I can see its pages in my mind's eye. Thinking of a particular phrase or topic will draw me to the first section that addresses it. I can add content to it with a simple ritual, allowing me to use it as a wizard's spellbook costing 1 gp per \"page\" in the shard, but otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals."
+	rarity : "common",
+	description : "This dragonshard can store up to 320 pages of text or spells. As an action while holding it (and speaking its passphrase if it has one), I can open my mind to its content and concentrate on it to subsequently read from and write to it in the same amount of time as a normal book (same cost as a normal spellbook).",
+	descriptionFull : 'This polished Eberron dragonshard fits in the hand and stores information similar to a book. The shard can hold the equivalent of one book that\'s no more than 320 pages long. A shard can be created blank or already filled with information. When the shard is created, the creator can set a passphrase that must be spoken to access the information stored within.\n   While holding the shard, you can use an action to open your mind to the shard, seeing its content in your mind. On subsequent rounds, reading the text or scribing new text on blank "pages" in the shard requires concentration (as if concentrating on a spell) and takes the same amount of time it takes you to read and write normally. Thinking of a particular phrase or topic draws you to the first section in the shard that addresses it.\n   A wizard can use a spellshard as a spellbook, with the usual cost in gold and time to "scribe" a spell into the shard.',
+	action : [["action", ""]]
+}
+MagicItemsList["ventilating lungs"] = {
+	name : "Ventilating Lungs",
+	source : [["E:RLW", 279]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "These lungs replace those in my chest while I'm attuned to them. Their function can't be suppressed by (anti)magic. They allow me to breath normally in any environment and give me advantage on saves against harmful gases and vapors. Once per dawn, I can use them to cast Gust of Wind (save DC 15) by exhaling.",
+	descriptionFull : "These metallic nodules were created in response to the poisonous gases used on the battlefields of the Last War. When you attune to these lungs, they replace the lungs in your chest, which disappear. The lungs allow you to breathe normally, even in an antimagic field, and their breathing function can't be suppressed by magic.\n   Outside an antimagic field or any other effect that suppresses magic, these lungs allow you to breathe normally in any environment (including a vacuum), and you have advantage on saving throws against harmful gases such as those created by a cloudkill spell, a stinking cloud spell, inhaled poisons, and gaseous breath weapons.\n   As an action, you can use these lungs to exhale a gust of wind, as if you had cast the gust of wind spell (spell save DC 15) with no components. This property of the lungs can't be used again until the next dawn.\n   If your attunement to the lungs ends, your original lungs reappear.",
+	attunement : true,
+	usages : 1,
+	recovery : "dawn",
+	additional : "Gust of Wind",
+	fixedDC : 15,
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["gust of wind"],
+		selection : ["gust of wind"],
+		firstCol : "oncelr"
 	},
-	"advanced" : {
-		name : "Advanced Spellshard",
-		allowDuplicates : true,
-		rarity : "uncommon",
-		description : "This dragonshard is imbued with a text. By concentrating and speaking the passphrase, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
-		descriptionLong : "This polished dragonshard fits into the palm of my hand. It is imbued with a particular work of literature. By holding it, concentrating, and speaking its passphrase, I can see its pages in my mind's eye. Thinking of a particular phrase or topic will draw me to the first section that addresses it. I can add content to it with a simple ritual, allowing me to use it as a wizard's spellbook costing 1 gp per \"page\" in the shard, but otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals."
-	}
+	savetxt : { adv_vs : ["gases", "vapors"] }
 }
 MagicItemsList["wand sheath"] = {
 	name : "Wand Sheath",
-	source : [["WGtE", 115], ["UA:MIoE", 4]],
+	source : [["E:RLW", 279]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
-	descriptionLong : "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
-	descriptionFull : "A wand sheath is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a wand sheath by attuning to it. While the wand sheath is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the wand sheath.\n   You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:\n \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.\n \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.\n \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+	description : "This sheath clamps unto my arm and can't be removed while I'm attuned to it. As an action, I can insert a wand in it, which then doesn't count to the number of items I can attune to. As a bonus action, I can then retract the wand or extend the wand and use it as if holding it, while keeping my hand free.",
+	descriptionFull : "A wand sheath clamps onto your arm and imparts the following benefits:\n \u2022 The wand sheath can't be removed from you while you're attuned to it.\n \u2022 You can insert a wand into the sheath as an action. The sheath can hold only one wand at a time.\n \u2022 You can retract or extend a wand from the sheath as a bonus action. While the wand is extended, you can use it as if you were holding it, but your hand remains free.\n\nIf a sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand count as a single magic item with regard to the number of magic items you can attune to. If you remove the wand from the sheath, your attunement to the wand ends.",
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
-	prereqeval : function (v) {
-		return (/warforged/i).test(CurrentRace.known);
-	},
+	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
 	action : [["action", " (insert)"], ["bonus action", " (extend/retract)"]]
 }
 MagicItemsList["wheel of wind and water"] = {
 	name : "Wheel of Wind and Water",
-	source : ["WGtE", 115],
+	source : [["E:RLW", 280], ["WGtE", 115]],
 	type : "wondrous item",
 	rarity : "uncommon",
-	description : "I can telepathically control the elemental bound into the elemental galleon or airship that has this wheel mounted at its helm. If a wheel of wind and water is mounted on a mundane sailing ship, I can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
-	descriptionFull : "When mounted at the helm of an elemental galleon or airship, this allows a character who possesses the Mark of Storm to telepathically control the elemental bound into the vessel.\n   If a wheel of wind and water is mounted on a mundane sailing ship, a character with the Mark of Storm can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
-	prerequisite : "Can only be used by someone with a Dragonmark of Storm",
+	description : "I can telepathically control the elemental bound into the elemental galleon or airship that has this wheel mounted at its helm. If I use a wheel of wind and water that is mounted on a mundane sailing ship, I can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
+	descriptionFull : "When mounted at the helm of an elemental galleon or airship, this wheel allows a creature that possesses the Mark of Storm to telepathically control the elemental bound inside the vessel.\n   If a wheel of wind and water is mounted on a mundane sailing ship, a creature with the Mark of Storm who is using the wheel can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
+	prerequisite : "Can only be used by a creature with the Dragonmark of Storm",
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*storm).*$/i).test(CurrentRace.known);
 	}
 }
-*/
 
 // Add the special artificer constructs, the Homunculus Servant and Iron Defender
 CreatureList["homunculus servant"] = {

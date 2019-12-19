@@ -5122,7 +5122,7 @@ MagicItemsList["smoldering armor"] = {
 	name : "Smoldering Armor",
 	nameTest : "Smoldering",
 	source : ["X", 139],
-	type : "armor (light, medium, or heavy",
+	type : "armor (light, medium, or heavy)",
 	rarity : "common",
 	description : "Wisps of harmless, odorless smoke rise from this armor while it is worn.",
 	descriptionFull : "Wisps of harmless, odorless smoke rise from this armor while it is worn.",
