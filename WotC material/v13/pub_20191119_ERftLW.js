@@ -1598,7 +1598,7 @@ ClassList.artificer = {
 					return "Wand of the War Mage +" + (n < 10 ? 1 : 2);
 				}),
 				eval : function (lvl, chc) {
-					AddMagicItem("Wand of the War Mage +" + (classes.known.artificer.level < 10 ? 1 : 2));
+					AddMagicItem("Arcane Focus of the War Mage +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("wand of the war mage, +1, +2, or +3");
@@ -2903,7 +2903,7 @@ MagicItemsList["imbued wood focus"] = {
 	choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
 	"fernian ash (fire)" : {
 		name : "Fernian Ash Rod, Wand, or Staff",
-		nameTest :  /^(?=.*fernian)(?=.*ash)(?=.*(rod|wand|staff)).*$/i,
+		nameTest : /^(?=.*fernian)(?=.*ash)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Fernian ash, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal fire damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkCalc : [

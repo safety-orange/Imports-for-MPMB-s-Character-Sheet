@@ -646,7 +646,7 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 					return true;
 				};
 			},
-			"I can cast the spell gained from my Primal Awareness class feature each once per long rest without expending a spell slot, but also as normal by expending a spell slot."
+			"I can cast these spells each once per long rest without expending a spell slot, but also as normal by expending a spell slot."
 		],
 		spellList : [
 			function(spList, spName, spType) {
