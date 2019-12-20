@@ -111,7 +111,7 @@ AddSubClass("cleric", "twilight domain", {
 							return true;
 						}
 					},
-					"When I cast Darkness using a spell slot, I can chose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness."
+					"When I cast Darkness using a spell slot, I can choose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness."
 				]
 			}
 		}

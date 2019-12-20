@@ -1239,7 +1239,7 @@ SpellsList["system backdoor"] = {
 // There isn't any way to implement this, so the hit dice is recorded as a d12.
 // Also note that there is no automation for the companion page included in this.
 //
-// You will have to chose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
+// You will have to choose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
 var iFileName = "ua_20150909_Ranger.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Ranger article to MPMB's Character Record Sheet
@@ -1299,7 +1299,7 @@ ClassList["ua-playtest-ranger"] = {
 			source : ["UA:R", 3],
 			minlevel : 2,
 			description : desc([
-				"At the start of my turn, I can chose a creature I'm hidden from",
+				"At the start of my turn, I can choose a creature I'm hidden from",
 				"During that turn, I remain hidden from it, regardless of my actions",
 				"As a bonus action at the end of my turn, I can use the Hide action"
 			]),
@@ -1368,7 +1368,7 @@ AddSubClass("ua-playtest-ranger", "seeker", {
 			source : ["UA:R", 4],
 			minlevel : 3,
 			description : desc([
-				"When I call my spirit animal, I can chose a creature that I can see",
+				"When I call my spirit animal, I can choose a creature that I can see",
 				"Until the end of my next turn, all attacks against the target have advantage"
 			])
 		}
@@ -1398,7 +1398,7 @@ AddSubClass("ua-playtest-ranger", "stalker", {
 			source : ["UA:R", 4],
 			minlevel : 3,
 			description : desc([
-				"When I call my spirit animal, I can chose a creature that I can see",
+				"When I call my spirit animal, I can choose a creature that I can see",
 				"The target's next weapon attack hit deals 2d6 + Wis mod extra slashing damage"
 			])
 		}
@@ -18562,7 +18562,7 @@ AddSubClass("cleric", "twilight domain", {
 							return true;
 						}
 					},
-					"When I cast Darkness using a spell slot, I can chose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness."
+					"When I cast Darkness using a spell slot, I can choose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness."
 				]
 			}
 		}
@@ -19927,7 +19927,7 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 					return true;
 				};
 			},
-			"I can cast this spell as normal by expending a spell slot and once per long rest without expending a spell slot."
+			"I can cast the spell gained from my Primal Awareness class feature each once per long rest without expending a spell slot, but also as normal by expending a spell slot."
 		],
 		spellList : [
 			function(spList, spName, spType) {
@@ -19937,7 +19937,7 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 					spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
 				}
 			},
-			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature. I can also cast each of them once per long rest without expending a spell slot."
+			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
 		]
 	},
 	changeeval : function() {
@@ -20037,6 +20037,7 @@ CreatureList["beast of the air"] = {
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "event.value = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua ? classes.known.rangerua.level : 1;");
 	},
 	removeeval : function(prefix) {
+		if (!prefix) return;
 		tDoc.getField(prefix + "Comp.Use.HP.Max").setAction("Calculate", "");
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "");
 	}
@@ -20090,6 +20091,7 @@ CreatureList["beast of the earth"] = {
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "event.value = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua ? classes.known.rangerua.level : 1;");
 	},
 	removeeval : function(prefix) {
+		if (!prefix) return;
 		tDoc.getField(prefix + "Comp.Use.HP.Max").setAction("Calculate", "");
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "");
 	}

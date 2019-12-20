@@ -29305,21 +29305,22 @@ AddSubClass("artificer", "artillerist", {
 			description : "\n   My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft",
 			action : [["action", "Eldritch Cannon (detonate)"]],
 			eval : function (lvl, chc) {
-				var cannons = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
-				for (var c = 0; c < cannons.length; c++) {
-					var prefix = cannons[c];
+				if (lvl[0] < 3) return; // Creature's own eval will take care of it
+				var crea = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
+				for (var c = 0; c < crea.length; c++) {
+					var prefix = crea[c];
 					for (var i = 1; i <= 3; i++) {
 						Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
 					}
 				}
 			},
 			removeeval : function (lvl, chc) {
-				if (!lvl[1]) return;
-				var cannons = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
-				for (var c = 0; c < cannons.length; c++) {
-					var prefix = cannons[c];
+				if (lvl[1] < 3) return; // Removing all creatures anyway
+				var crea = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
+				for (var c = 0; c < crea.length; c++) {
+					var prefix = crea[c];
 					for (var i = 1; i <= 3; i++) {
-						if (What(prefix + "Comp.Use.Attack." + i + ".Weapon Selection").toLowerCase().indexOf('detonate') != -1) return;
+						if (What(prefix + "Comp.Use.Attack." + i + ".Weapon Selection").toLowerCase().indexOf('detonate') != -1) continue;
 						Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "2d8");
 					}
 				}
@@ -29359,7 +29360,7 @@ AddSubClass("artificer", "battle smith", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isSpell && (v.theWea.isMagicWeapon || v.thisWeapon[1]) && fields.Mod > 0 && fields.Mod < 3 && What("Int") > What(fields.Mod == 1 ? "Str" : "Dex")) {
+						if (!v.isSpell && (v.theWea.isMagicWeapon || v.thisWeapon[1]) && fields.Mod > 0 && fields.Mod < 3 && Number(What("Int")) > Number(What(fields.Mod == 1 ? "Str" : "Dex"))) {
 							fields.Mod = 4;
 						}
 					},
@@ -29367,7 +29368,7 @@ AddSubClass("artificer", "battle smith", {
 				]
 			}
 		},
-		"subclassfeature3.2" : {
+		"subclassfeature3.1" : {
 			name : "Steel Defender",
 			source : [["E:RLW", 61]],
 			minlevel : 3,
@@ -29390,11 +29391,17 @@ AddSubClass("artificer", "battle smith", {
 			name : "Arcane Jolt",
 			source : [["E:RLW", 61]],
 			minlevel : 9,
-			description : desc([
-				"Once per turn when my steel defender or my magic weapon hits a target, I can chose to:",
-				" \u2022 Have the target take an extra +Xd6 force damage",
-				" \u2022 Restore Xd6 HP to another target within 30 ft of the target that was hit"
-			]),
+			description : function () {
+				var descr9 = desc([
+					"Once per turn when my steel defender or magic weapon hits a target, I can have it:",
+					" \u2022 Deal an extra +2d6 force damage to the target",
+					" \u2022 Restore 2d6 HP to another target within 30 ft of the one that was hit"
+				]);
+				var descr15 = descr9.replace(/2d6/g, '4d6');
+				return levels.map(function (n) {
+					return n < 9 ? "" : n < 15 ? descr9 : descr15;
+				});
+			}(),
 			usages : "Intelligence modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
 			recovery : "long rest",
@@ -29402,17 +29409,18 @@ AddSubClass("artificer", "battle smith", {
 				return n < 9 ? "" : (n < 15 ? 2 : 4) + "d6";
 			}),
 			eval : function (lvl, chc) {
-				var cannons = ClassList.artificer.artificerCompFunc.find("steel defender");
-				for (var c = 0; c < cannons.length; c++) {
-					var prefix = cannons[c];
+				if (lvl[0] < 3) return; // Creature's own eval will take care of it
+				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
+				for (var c = 0; c < crea.length; c++) {
+					var prefix = crea[c];
 					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
 				}
 			},
 			removeeval : function (lvl, chc) {
-				if (!lvl[1]) return;
-				var cannons = ClassList.artificer.artificerCompFunc.find("steel defender");
-				for (var c = 0; c < cannons.length; c++) {
-					var prefix = cannons[c];
+				if (lvl[1] < 3) return; // Removing all creatures anyway
+				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
+				for (var c = 0; c < crea.length; c++) {
+					var prefix = crea[c];
 					Value(prefix + "Comp.Use.Attack.1.Description", "");
 				}
 			},
@@ -29436,20 +29444,21 @@ AddSubClass("artificer", "battle smith", {
 				"My arcane jolt damage/healing increases to 4d6; My steel defender gains +2 AC"
 			]),
 			eval : function (lvl, chc) {
-				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
-				for (var c = 0; c < cannons.length; c++) {
-					var prefix = cannons[c];
+				if (lvl[0] < 3) return; // Creature's own eval will take care of it
+				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
+				for (var c = 0; c < crea.length; c++) {
+					var prefix = crea[c];
 					var ACfld = prefix + "Comp.Use.AC";
 					if (What(ACfld)) Value(ACfld, Number(What(ACfld) + 2));
 					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (4d6): On hit, deal force damage or heal target in 30 ft");
-					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack");
+					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack (reaction)");
 				}
 			},
 			removeeval : function (lvl, chc) {
-				if (!lvl[1]) return;
-				var cannons = ClassList.artificer.artificerCompFunc.find("Eldritch Cannon");
-				for (var c = 0; c < cannons.length; c++) {
-					var prefix = cannons[c];
+				if (lvl[1] < 3) return; // Removing all creatures anyway
+				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
+				for (var c = 0; c < crea.length; c++) {
+					var prefix = crea[c];
 					var ACfld = prefix + "Comp.Use.AC";
 					if (What(ACfld)) Value(ACfld, Number(What(ACfld) - 2));
 					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
@@ -30270,7 +30279,7 @@ MagicItemsList["wheel of wind and water"] = {
 	}
 }
 
-// Add the special artificer constructs, the Homunculus Servant and Iron Defender
+// Add the special artificer constructs, the Homunculus Servant and Steel Defender
 CreatureList["homunculus servant"] = {
 	name : "Homunculus Servant",
 	source : [["E:RLW", 62]],
@@ -30350,7 +30359,7 @@ CreatureList["homunculus servant"] = {
 			ProfFld.readonly = false;
 		}
 		// remove action
-		processActions(false, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
+		if (!ClassList.artificer || ClassList.artificer.artificerCompFunc.find("homunculus servant").length < (prefix ? 2 : 1)) processActions(false, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
 	}
 };
 CreatureList["eldritch cannon"] = {
@@ -30461,7 +30470,7 @@ CreatureList["eldritch cannon"] = {
 			}
 		}
 		// remove action
-		processActions(false, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
+		if (!ClassList.artificer || ClassList.artificer.artificerCompFunc.find("eldritch cannon").length < (prefix ? 2 : 1)) processActions(false, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
 	}
 };
 CreatureList["steel defender"] = {
@@ -30565,7 +30574,7 @@ CreatureList["steel defender"] = {
 			ProfFld.readonly = false;
 		}
 		// remove action
-		processActions(false, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
+		if (!ClassList.artificer || ClassList.artificer.artificerCompFunc.find("steel defender").length < (prefix ? 2 : 1)) processActions(false, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
 	}
 };
 
@@ -31942,7 +31951,7 @@ SpellsList["system backdoor"] = {
 // There isn't any way to implement this, so the hit dice is recorded as a d12.
 // Also note that there is no automation for the companion page included in this.
 //
-// You will have to chose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
+// You will have to choose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
 var iFileName = "ua_20150909_Ranger.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Ranger article to MPMB's Character Record Sheet
@@ -32002,7 +32011,7 @@ ClassList["ua-playtest-ranger"] = {
 			source : ["UA:R", 3],
 			minlevel : 2,
 			description : desc([
-				"At the start of my turn, I can chose a creature I'm hidden from",
+				"At the start of my turn, I can choose a creature I'm hidden from",
 				"During that turn, I remain hidden from it, regardless of my actions",
 				"As a bonus action at the end of my turn, I can use the Hide action"
 			]),
@@ -32071,7 +32080,7 @@ AddSubClass("ua-playtest-ranger", "seeker", {
 			source : ["UA:R", 4],
 			minlevel : 3,
 			description : desc([
-				"When I call my spirit animal, I can chose a creature that I can see",
+				"When I call my spirit animal, I can choose a creature that I can see",
 				"Until the end of my next turn, all attacks against the target have advantage"
 			])
 		}
@@ -32101,7 +32110,7 @@ AddSubClass("ua-playtest-ranger", "stalker", {
 			source : ["UA:R", 4],
 			minlevel : 3,
 			description : desc([
-				"When I call my spirit animal, I can chose a creature that I can see",
+				"When I call my spirit animal, I can choose a creature that I can see",
 				"The target's next weapon attack hit deals 2d6 + Wis mod extra slashing damage"
 			])
 		}
@@ -49265,7 +49274,7 @@ AddSubClass("cleric", "twilight domain", {
 							return true;
 						}
 					},
-					"When I cast Darkness using a spell slot, I can chose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness."
+					"When I cast Darkness using a spell slot, I can choose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness."
 				]
 			}
 		}
@@ -50630,7 +50639,7 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 					return true;
 				};
 			},
-			"I can cast this spell as normal by expending a spell slot and once per long rest without expending a spell slot."
+			"I can cast the spell gained from my Primal Awareness class feature each once per long rest without expending a spell slot, but also as normal by expending a spell slot."
 		],
 		spellList : [
 			function(spList, spName, spType) {
@@ -50640,7 +50649,7 @@ CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (bon
 					spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
 				}
 			},
-			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature. I can also cast each of them once per long rest without expending a spell slot."
+			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
 		]
 	},
 	changeeval : function() {
@@ -50740,6 +50749,7 @@ CreatureList["beast of the air"] = {
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "event.value = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua ? classes.known.rangerua.level : 1;");
 	},
 	removeeval : function(prefix) {
+		if (!prefix) return;
 		tDoc.getField(prefix + "Comp.Use.HP.Max").setAction("Calculate", "");
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "");
 	}
@@ -50793,6 +50803,7 @@ CreatureList["beast of the earth"] = {
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "event.value = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua ? classes.known.rangerua.level : 1;");
 	},
 	removeeval : function(prefix) {
+		if (!prefix) return;
 		tDoc.getField(prefix + "Comp.Use.HP.Max").setAction("Calculate", "");
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "");
 	}
