@@ -2383,7 +2383,7 @@ AddSubClass("artificer", "battle smith", {
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
-			name : "Battle Ready \u0026 Battle Ready",
+			name : "Battle Ready \u0026 Tool Proficiency",
 			source : [["E:RLW", 61]],
 			minlevel : 3,
 			description : desc([
