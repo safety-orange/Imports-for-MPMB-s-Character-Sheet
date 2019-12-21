@@ -27161,7 +27161,7 @@ RaceList["kalashtar-erlw"] = {
 RaceList["orc-erlw"] = {
 	regExpSearch : /^(?!.*half)(?=.*\bor(c|k))(?=.*eberron).*$/i,
 	name : "Orc",
-	sortName : "Orc, Eberron",
+	sortname : "Orc, Eberron",
 	source : [["E:RLW", 32]],
 	plural : "Orcs",
 	size : 3,
