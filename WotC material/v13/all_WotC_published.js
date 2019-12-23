@@ -29628,7 +29628,7 @@ MagicItemsList["armblade"] = {
 	source : [["E:RLW", 276]],
 	type : "weapon (any one-handed melee weapon)",
 	rarity : "common",
-	description : "While attuned to it, this magic double-bladed scimitar is attached to my arm and inseparable from me. As a bonus action, I can retract it into my forearm or extend it from there. While it is extended, I can use the weapon as if I was holding it, and I can't use that hand for other purposes.",
+	description : "While attuned to it, this magic weapon is attached to my arm and inseparable from me. As a bonus action, I can retract it into my forearm or extend it from there. While it is extended, I can use the weapon as if I was holding it, and I can't use that hand for other purposes.",
 	descriptionFull : "An armblade is a magic weapon that attaches to your arm, becoming inseparable from you as long as you're attuned to it. To attune to this item, you must hold it against your forearm for the entire attunement period.\n   As a bonus action, you can retract the armblade into your forearm or extend it from there. While it is extended, you can use the weapon as if you were holding it, and you can't use that hand for other purposes.",
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
