@@ -28534,7 +28534,7 @@ ClassList.artificer = {
 				return n < 2 ? "" : (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12) + " infusions known; max " + (n < 6 ? 2 : n < 10 ? 3 : n < 14 ? 4 : n < 18 ? 5 : 6) + " infused items";
 			}),
 			extraname : "Artificer Infusion",
-			extrachoices : ["Boots of the Winding Path (prereq: level 6 artificer)", "Enhanced Arcane Focus", "Enhanced Defense", "Enhanced Weapon", "Homunculus Servant (prereq: level 6 artificer)", "Radiant Weapon (prereq: level 6 artificer)", "Repeating Shot", "Repulsion Shield (prereq: level 6 artificer)", "Resistant Armor (prereq: level 6 artificer)", "Returning Weapon"],
+			extrachoices : ["Boots of the Winding Path (prereq: level 6 artificer)", "Enhanced Arcane Focus", "Enhanced Defense (armor)", "Enhanced Defense (shield)", "Enhanced Weapon", "Homunculus Servant (prereq: level 6 artificer)", "Radiant Weapon (prereq: level 6 artificer)", "Repeating Shot", "Repulsion Shield (prereq: level 6 artificer)", "Resistant Armor (prereq: level 6 artificer)", "Returning Weapon"],
 			extraTimes : levels.map(function (n) {
 				return n < 2 ? 0 : n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12;
 			}),
@@ -28570,18 +28570,40 @@ ClassList.artificer = {
 					MagicItemClear(loc + 1, true);
 				}
 			},
-			"enhanced defense" : {
+			"enhanced defense (armor)" : {
 				name : "Enhanced Defense",
 				source : [["E:RLW", 62]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
 				}),
+				prereqeval : function(v) {
+					return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (shield)") == -1;
+				},
 				eval : function (lvl, chc) {
 					AddMagicItem("Armor +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("armor, +1, +2, or +3");
+					if (loc == -1) return;
+					MagicItemClear(loc + 1, true);
+				}
+			},
+			"enhanced defense (shield)" : {
+				name : "Enhanced Defense",
+				source : [["E:RLW", 62]],
+				description : "",
+				additional : levels.map(function (n) {
+					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
+				}),
+				prereqeval : function(v) {
+					return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (armor)") == -1;
+				},
+				eval : function (lvl, chc) {
+					AddMagicItem("Shield +" + (classes.known.artificer.level < 10 ? 1 : 2));
+				},
+				removeeval : function (lvl, chc) {
+					var loc = CurrentMagicItems.known.indexOf("shield, +1, +2, or +3");
 					if (loc == -1) return;
 					MagicItemClear(loc + 1, true);
 				}
@@ -30527,7 +30549,7 @@ CreatureList["steel defender"] = {
 		description : "As an action, the " + (typePF ? "" : "magical mechanisms inside the ") + "steel defender restore" + (typePF ? "s" : "") + " 2d8 + its proficiency bonus in HP to itself or to one construct or object within 5 ft of it."
 	}, {
 		name : "Deflect Attack (reaction)",
-		description : "As a reaction, the steel defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the steel defender. If its creator is a 9th level artificer (battle smith), this also deals 1d4 + its creator's Int modifier in force damage to the attacker."
+		description : "As a reaction, the steel defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the steel defender. If its creator is a 15th level artificer (battle smith), this also deals 1d4 + its creator's Int modifier in force damage to the attacker."
 	}],
 	eval : function(prefix) {
 		// set type in the top right
@@ -33483,30 +33505,6 @@ AddSubClass("warlock", "the seeker", {
 			recovery : "short rest",
 			action : ["bonus action", ""]
 		},
-		"pact boon" : function () {
-			var pactBoon = newObj(ClassList.warlock.features["pact boon"]);
-			pactBoon.choices.push("Pact of the Star Chain");
-			pactBoon["pact of the star chain"] = {
-				name : "Pact of the Star Chain",
-				source : ["UA:TF", 1],
-				description : "\n   " + "My patron grants me an item of power which disappears when I die" + "\n   " + "While it is on my person, I can cast Augury as a ritual (PHB 215)" + "\n   " + "Additionally, once per short rest, I can get advantage on an Intelligence check" + "\n   " + "If I lose this item I can perform a 1-hour ceremony to get a replacement",
-				usages : 1,
-				recovery : "short rest",
-				spellcastingBonus : {
-					name : "Pact of the Star Chain",
-					spells : ["augury"],
-					selection : ["augury"],
-					firstCol : "(R)"
-				},
-				spellChanges : {
-					"augury" : {
-						time : "11 min",
-						changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it."
-					}
-				}
-			};
-			return pactBoon;
-		}(),
 		"subclassfeature6" : {
 			name : "Astral Refuge",
 			source : ["UA:TF", 2],
@@ -33529,6 +33527,35 @@ AddSubClass("warlock", "the seeker", {
 			usages : 1,
 			recovery : "long rest"
 		}
+	}
+});
+
+// Add a Pact Boon option that is only available for "the Seeker" subclass
+AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Star Chain", {
+	name : "Pact of the Star Chain",
+	source : ["UA:TF", 1],
+	description : desc([
+		"My patron grants me an item of power which disappears when I die",
+		"While it is on my person, I can cast Augury as a ritual",
+		"Additionally, once per short rest, I can get advantage on an Intelligence check",
+		"If I lose this item I can perform a 1-hour ceremony to get a replacement"
+	]),
+	usages : 1,
+	recovery : "short rest",
+	spellcastingBonus : {
+		name : "Pact of the Star Chain",
+		spells : ["augury"],
+		selection : ["augury"],
+		firstCol : "(R)"
+	},
+	spellChanges : {
+		"augury" : {
+			time : "11 min",
+			changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it."
+		}
+	},
+	prereqeval : function(v) {
+		return classes.known.warlock && classes.known.warlock.subclass == "warlock-the seeker" ? true : "skip";
 	}
 });
 RunFunctionAtEnd(function() {
@@ -51046,7 +51073,7 @@ AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Rebu
 	},
 	action : [["reaction", ""]]
 });
-// Pact Boon options
+// Pact Boon option
 AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Talisman", {
 	name : "Pact of the Talisman",
 	source : ["UA:CFV", 12],

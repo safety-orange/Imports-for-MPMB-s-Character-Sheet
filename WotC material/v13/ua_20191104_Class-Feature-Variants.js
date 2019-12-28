@@ -1053,7 +1053,7 @@ AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Rebu
 	},
 	action : [["reaction", ""]]
 });
-// Pact Boon options
+// Pact Boon option
 AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Talisman", {
 	name : "Pact of the Talisman",
 	source : ["UA:CFV", 12],

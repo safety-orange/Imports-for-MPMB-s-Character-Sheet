@@ -27,30 +27,6 @@ AddSubClass("warlock", "the seeker", {
 			recovery : "short rest",
 			action : ["bonus action", ""]
 		},
-		"pact boon" : function () {
-			var pactBoon = newObj(ClassList.warlock.features["pact boon"]);
-			pactBoon.choices.push("Pact of the Star Chain");
-			pactBoon["pact of the star chain"] = {
-				name : "Pact of the Star Chain",
-				source : ["UA:TF", 1],
-				description : "\n   " + "My patron grants me an item of power which disappears when I die" + "\n   " + "While it is on my person, I can cast Augury as a ritual (PHB 215)" + "\n   " + "Additionally, once per short rest, I can get advantage on an Intelligence check" + "\n   " + "If I lose this item I can perform a 1-hour ceremony to get a replacement",
-				usages : 1,
-				recovery : "short rest",
-				spellcastingBonus : {
-					name : "Pact of the Star Chain",
-					spells : ["augury"],
-					selection : ["augury"],
-					firstCol : "(R)"
-				},
-				spellChanges : {
-					"augury" : {
-						time : "11 min",
-						changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it."
-					}
-				}
-			};
-			return pactBoon;
-		}(),
 		"subclassfeature6" : {
 			name : "Astral Refuge",
 			source : ["UA:TF", 2],
@@ -73,6 +49,35 @@ AddSubClass("warlock", "the seeker", {
 			usages : 1,
 			recovery : "long rest"
 		}
+	}
+});
+
+// Add a Pact Boon option that is only available for "the Seeker" subclass
+AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Star Chain", {
+	name : "Pact of the Star Chain",
+	source : ["UA:TF", 1],
+	description : desc([
+		"My patron grants me an item of power which disappears when I die",
+		"While it is on my person, I can cast Augury as a ritual",
+		"Additionally, once per short rest, I can get advantage on an Intelligence check",
+		"If I lose this item I can perform a 1-hour ceremony to get a replacement"
+	]),
+	usages : 1,
+	recovery : "short rest",
+	spellcastingBonus : {
+		name : "Pact of the Star Chain",
+		spells : ["augury"],
+		selection : ["augury"],
+		firstCol : "(R)"
+	},
+	spellChanges : {
+		"augury" : {
+			time : "11 min",
+			changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it."
+		}
+	},
+	prereqeval : function(v) {
+		return classes.known.warlock && classes.known.warlock.subclass == "warlock-the seeker" ? true : "skip";
 	}
 });
 RunFunctionAtEnd(function() {
