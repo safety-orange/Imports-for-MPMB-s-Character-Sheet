@@ -1593,12 +1593,12 @@ ClassList.artificer = {
 			"enhanced arcane focus" : {
 				name : "Enhanced Arcane Focus",
 				source : [["E:RLW", 62]],
-				description : "\n   Can also be a rod or a staff (e.g. Rod of the War Mage +1); Requires attunement",
+				description : "\n   The holder has a bonus to spell attack rolls and ignores half cover with spell attacks",
 				additional : levels.map(function (n) {
-					return "Wand of the War Mage +" + (n < 10 ? 1 : 2);
+					return "rod/staff/wand; attunement; +" + (n < 10 ? 1 : 2);
 				}),
 				eval : function (lvl, chc) {
-					AddMagicItem("Arcane Focus of the War Mage +" + (classes.known.artificer.level < 10 ? 1 : 2));
+					AddMagicItem("Enhanced Arcane Focus +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("wand of the war mage, +1, +2, or +3");

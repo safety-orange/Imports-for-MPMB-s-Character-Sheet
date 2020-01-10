@@ -225,31 +225,33 @@ AddSubClass("warlock", "the lurker in the deep", {
 });
 
 // Add a new cantrip and its weaponlist entry
-SpellsList["mind sliver-ua"] = {
-	name : "Mind Sliver",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:SnW", 4],
-	level : 0,
-	school : "Ench",
-	time : "1 a",
-	range : "60 ft",
-	components : "V",
-	duration : "1 rnd",
-	save : "Int",
-	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
-	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-};
-WeaponsList["mind sliver-ua"] = {
-	regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
-	name : "Mind Sliver",
-	source : ["UA:SnW", 4],
-	list : "spell",
-	ability : 5,
-	type : "Cantrip",
-	damage : ["C", 6, "psychic"],
-	range : "60 ft",
-	description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
-	abilitytodamage : false,
-	dc : true
-};
+if (!SpellsList["mind sliver-ua"]) {
+	SpellsList["mind sliver-ua"] = {
+		name : "Mind Sliver",
+		classes : ["sorcerer", "warlock", "wizard"],
+		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
+		level : 0,
+		school : "Ench",
+		time : "1 a",
+		range : "60 ft",
+		components : "V",
+		duration : "1 rnd",
+		save : "Int",
+		description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
+		descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
+		descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+	};
+	WeaponsList["mind sliver-ua"] = {
+		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
+		name : "Mind Sliver",
+		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
+		list : "spell",
+		ability : 6,
+		type : "Cantrip",
+		damage : ["C", 6, "psychic"],
+		range : "60 ft",
+		description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
+		abilitytodamage : false,
+		dc : true
+	};
+}

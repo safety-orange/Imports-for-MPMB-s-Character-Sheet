@@ -149,7 +149,7 @@ AddSubClass("fighter", "rune knight", {
 				recovery : "short rest",
 				advantages : [ ["Arcana", true] ],
 				savetxt : { immune : ["surprised"] },
-			}			
+			}
 		},
 		"subclassfeature3.2" : {
 			name : "Giant Might",

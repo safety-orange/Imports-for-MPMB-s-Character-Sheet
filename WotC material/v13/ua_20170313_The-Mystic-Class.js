@@ -14,7 +14,7 @@ SourceList["UA:TMC"] = {
 
 // Adds a new class, the Mystic, with 6 subclasses
 ClassList.mystic = {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior)).*$/i,
+	regExpSearch : /psion\b|mystic/i,
 	name : "Mystic",
 	source : ["UA:TMC", 1],
 	primaryAbility : "Intelligence",
@@ -206,7 +206,7 @@ ClassList.mystic = {
 };
 // Order of the Avatar subclass for the Mystic
 AddSubClass("mystic", "avatar", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*avatar).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*avatar).*$/i,
 	subname : "Order of the Avatar",
 	source : ["UA:TMC", 5],
 	features : {
@@ -271,7 +271,7 @@ AddSubClass("mystic", "avatar", {
 });
 // Order of the Awakened subclass for the Mystic
 AddSubClass("mystic", "awakened", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*awakened).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*awakened).*$/i,
 	subname : "Order of the Awakened",
 	source : ["UA:TMC", 6],
 	features : {
@@ -337,7 +337,7 @@ AddSubClass("mystic", "awakened", {
 });
 // Order of the Immortal subclass for the Mystic
 AddSubClass("mystic", "immortal", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*immortal).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*immortal).*$/i,
 	subname : "Order of the Immortal",
 	source : ["UA:TMC", 6],
 	features : {
@@ -414,7 +414,7 @@ AddSubClass("mystic", "immortal", {
 });
 // Order of the Nomad subclass for the Mystic
 AddSubClass("mystic", "nomad", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*nomad).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*nomad).*$/i,
 	subname : "Order of the Nomad",
 	source : ["UA:TMC", 7],
 	features : {
@@ -492,7 +492,7 @@ AddSubClass("mystic", "nomad", {
 });
 // Order of the Soul Knife subclass for the Mystic
 AddSubClass("mystic", "soul knife", {
-	regExpSearch : /^(?=.*soul)(?=.*knife).*$/i,
+	regExpSearch : /^(?=.*soul\b)(?=.*\bknife).*$/i,
 	subname : "Order of the Soul Knife",
 	source : ["UA:TMC", 7],
 	fullname : "Soul Knife",
@@ -513,7 +513,19 @@ AddSubClass("mystic", "soul knife", {
 				"As a bonus action, I can create or dismiss my soul knives on both my fists",
 				"As a bonus action, I can parry with these to get +2 AC until the start of my next turn"
 			]),
-			action : [["bonus action", " (create/dismiss)"], ['bonus action', ' Parry']]
+			action : [["bonus action", " (create/dismiss)"], ['bonus action', ' Parry']],
+			weaponsAdd : ["Soul Knife"],
+			weaponOptions : [{
+				regExpSearch : /^(?=.*\bsoul)(?=.*(knives|knife|weapon)\b).*$/i,
+				name : "Soul Knife",
+				source : ["UA:TMC", 8],
+				ability : 1,
+				type : "Martial",
+				damage : [1, 8, "psychic"],
+				range : "Melee",
+				description : "Finesse, light",
+				abilitytodamage : true
+			}]
 		},
 		"subclassfeature3" : {
 			name : "Hone the Blade",
@@ -545,7 +557,7 @@ AddSubClass("mystic", "soul knife", {
 });
 // Order of the Wu Jen subclass for the Mystic
 AddSubClass("mystic", "wu jen", {
-	regExpSearch : /^(?=.*wu)(?=.*jen).*$/i,
+	regExpSearch : /^(?=.*\bwu\b)(?=.*\bjen\b).*$/i,
 	subname : "Order of the Wu Jen",
 	source : ["UA:TMC", 8],
 	fullname : "Wu Jen",
@@ -611,7 +623,7 @@ AddSubClass("mystic", "wu jen", {
 });
 
 // The Psionic Talents for the Mystic (with contributions by rabidknave)
-PsionicsList["beacon"] = {
+PsionicsList["beacon-ua-psy"] = {
 	name : "Beacon",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -623,7 +635,7 @@ PsionicsList["beacon"] = {
 	description : "My body sheds bright light 20-ft rad and dim light 20-ft, in chosen color; dismiss as a bonus action",
 	descriptionFull : "As a bonus action, you cause bright light to radiate from your body in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. The light lasts for 1 hour, and you can extinguish it earlier as a bonus action."
 };
-PsionicsList["blade meld"] = {
+PsionicsList["blade meld-ua-psy"] = {
 	name : "Blade Meld",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -635,7 +647,7 @@ PsionicsList["blade meld"] = {
 	description : "One-handed melee weapon I'm holding merges with hand; it can't be removed for the duration",
 	descriptionFull : "As a bonus action, a one-handed melee weapon you hold becomes one with your hand. For the next minute, you can't let go of the weapon nor can it be forced from your grasp."
 };
-PsionicsList["blind spot"] = {
+PsionicsList["blind spot-ua-psy"] = {
 	name : "Blind Spot",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -648,7 +660,7 @@ PsionicsList["blind spot"] = {
 	description : "1 creature save or treats me as invisible until the end of my next turn",
 	descriptionFull : "As an action, you erase your image from the mind of one creature you can see within 120 feet of you; the target must succeed on a Wisdom saving throw, or you are invisible to it until the end of your next turn."
 };
-PsionicsList["delusion"] = {
+PsionicsList["delusion-ua-psy"] = {
 	name : "Delusion",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -660,7 +672,7 @@ PsionicsList["delusion"] = {
 	description : "1 crea either hears a sound (whisper-scream), or sees up to 5-ft cube object that disappears on touch",
 	descriptionFull : "As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create." + "\n   " + "If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute." + "\n   " + "If you create an object, it must fit within a 5-foot cube and can't move or be reflective. The image can't create any effect that influences a sense other than sight. The image lasts for 1 minute, and it disappears if the creature touches it."
 };
-PsionicsList["energy beam"] = {
+PsionicsList["energy beam-ua-psy"] = {
 	name : "Energy Beam",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -674,7 +686,7 @@ PsionicsList["energy beam"] = {
 	descriptionCantripDie : "1 crea save or `CD`d8 Acid, Cold, Fire, Lightning, or Thunder dmg",
 	descriptionFull : "As an action, you target one creature you can see within 90 feet of you. The target must succeed on a Dexterity saving throw or take 1d8 acid, cold, fire, lightning, or thunder damage (your choice)." + "\n   " + "The talent's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)"
 };
-PsionicsList["light step"] = {
+PsionicsList["light step-ua-psy"] = {
 	name : "Light Step",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -686,7 +698,7 @@ PsionicsList["light step"] = {
 	description : "My walking speed increases by 10 ft; standing up costs 0 movement, once",
 	descriptionFull : "As a bonus action, you alter your density and weight to improve your mobility. For the rest of your turn, your walking speed increases by 10 feet, and the first time you stand up this turn, you do so without expending any of your movement if your speed is greater than 0."
 };
-PsionicsList["mind meld"] = {
+PsionicsList["mind meld-ua-psy"] = {
 	name : "Mind Meld",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -698,7 +710,7 @@ PsionicsList["mind meld"] = {
 	description : "I communicate telepathically with 1 willing crea (int > 1) and gain access to 1 memory of theirs",
 	descriptionFull : "As a bonus action, you can communicate telepathically with one willing creature you can see within 120 feet of you. The target must have an Intelligence of at least 2, otherwise this talent fails and the action is wasted." + "\n   " + "This communication can occur until the end of the current turn. You don't need to share a language with the target for it to understand your telepathic utterances, and it understands you even if it lacks a language. You also gain access to one memory of the target's choice, gaining perfect recall of one thing it saw or did."
 };
-PsionicsList["mind slam"] = {
+PsionicsList["mind slam-ua-psy"] = {
 	name : "Mind Slam",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -712,7 +724,7 @@ PsionicsList["mind slam"] = {
 	descriptionCantripDie : "1 crea save or `CD`d6 Force dmg, and knocked prone if Large or smaller",
 	descriptionFull : "As an action, you target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, it is knocked prone." + "\n   " + "The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)"
 };
-PsionicsList["mind thrust"] = {
+PsionicsList["mind thrust-ua-psy"] = {
 	name : "Mind Thrust",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -726,7 +738,7 @@ PsionicsList["mind thrust"] = {
 	descriptionCantripDie : "1 crea save or `CD`d10 Psychic dmg",
 	descriptionFull : "As an action, you target one creature you can see within 120 feet of you. The target must succeed on an Intelligence saving throw or take 1d10 psychic damage." + "\n   " + "The talent's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
 };
-PsionicsList["mystic charm"] = {
+PsionicsList["mystic charm-ua-psy"] = {
 	name : "Mystic Charm",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -739,7 +751,7 @@ PsionicsList["mystic charm"] = {
 	description : "1 humanoid save or charmed until end of my next turn",
 	descriptionFull : "As an action, you beguile one humanoid you can see within 120 feet of you. The target must succeed on a Charisma saving throw or be charmed by you until the end of your next turn."
 };
-PsionicsList["mystic hand"] = {
+PsionicsList["mystic hand-ua-psy"] = {
 	name : "Mystic Hand",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -751,7 +763,7 @@ PsionicsList["mystic hand"] = {
 	description : "Move 1 unattended object (up to 10 lbs) up to 30 ft, or manipulate an object",
 	descriptionFull : "You can use your action to manipulate or move one object within 30 feet of you. The object can't weigh more than 10 pounds, and you can't affect an object being worn or carried by another creature. If the object is loose, you can move it up to 30 feet in any direction." + "\n   " + "This talent allows you to open an unlocked door, pour out a beer stein, and so on." + "\n   " + "The object falls to the ground at the end of your turn if you leave it suspended in midair."
 };
-PsionicsList["psychic hammer"] = {
+PsionicsList["psychic hammer-ua-psy"] = {
 	name : "Psychic Hammer",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -768,7 +780,7 @@ PsionicsList["psychic hammer"] = {
 
 // Psionic Disciplines for the Mystic
 //the adaptive body discipline
-PsionicsList["adaptive body"] = {
+PsionicsList["adaptive body-ua-psy"] = {
 	name : "Adaptive Body",
 	classes : ["mystic"],
 	source : ["UA:TMC", 10],
@@ -838,7 +850,7 @@ PsionicsList["ab4-energy immunity"] = {
 	firstCol : 7
 };
 //the aura sight discipline (contributed by Justin W.)
-PsionicsList["aura sight"] = {
+PsionicsList["aura sight-ua-psy"] = {
 	name : "Aura Sight",
 	classes : ["mystic"],
 	source : ["UA:TMC", 10],
@@ -907,7 +919,7 @@ PsionicsList["as4-perceive the unseen"] = {
 	firstCol : 5
 };
 //the bestial form discipline (contributed by rabidknave)
-PsionicsList["bestial form"] = {
+PsionicsList["bestial form-ua-psy"] = {
 	name : "Bestial Form",
 	classes : ["mystic"],
 	source : ["UA:TMC", 11],
@@ -1041,7 +1053,7 @@ PsionicsList["bf9-bt - tough hide"] = {
 	firstCol : 2
 };
 //the brute force discipline (contributed by rabidknave)
-PsionicsList["brute force"] = {
+PsionicsList["brute force-ua-psy"] = {
 	name : "Brute Force",
 	classes : ["mystic"],
 	source : ["UA:TMC", 11],
@@ -1111,7 +1123,7 @@ PsionicsList["bf4-feat of strength"] = {
 	firstCol : 2
 };
 //the celerity discipline (contributed by rabidknave)
-PsionicsList["celerity"] = {
+PsionicsList["celerity-ua-psy"] = {
 	name : "Celerity",
 	classes : ["mystic"],
 	source : ["UA:TMC", 12],
@@ -1193,7 +1205,7 @@ PsionicsList["c5-surge of action"] = {
 	firstCol : 5
 };
 //the corrosive metabolism discipline (contributed by rabidknave)
-PsionicsList["corrosive metabolism"] = {
+PsionicsList["corrosive metabolism-ua-psy"] = {
 	name : "Corrosive Metabolism",
 	classes : ["mystic"],
 	source : ["UA:TMC", 11],
@@ -1281,7 +1293,7 @@ PsionicsList["cm5-breath of the green dragon"] = {
 	firstCol : 7
 };
 //the crown of despair discipline (contributed by rabidknave)
-PsionicsList["crown of despair"] = {
+PsionicsList["crown of despair-ua-psy"] = {
 	name : "Crown of Despair",
 	classes : ["mystic"],
 	source : ["UA:TMC", 12],
@@ -1354,7 +1366,7 @@ PsionicsList["cd4-dolorous mind"] = {
 	firstCol : 5
 };
 //the crown of disgust discipline
-PsionicsList["crown of disgust"] = {
+PsionicsList["crown of disgust-ua-psy"] = {
 	name : "Crown of Disgust",
 	classes : ["mystic"],
 	source : ["UA:TMC", 13],
@@ -1428,7 +1440,7 @@ PsionicsList["cd4-world of horror"] = {
 	firstCol : 7
 };
 //the crown of rage discipline
-PsionicsList["crown of rage"] = {
+PsionicsList["crown of rage-ua-psy"] = {
 	name : "Crown of Rage",
 	classes : ["mystic"],
 	source : ["UA:TMC", 13],
@@ -1501,7 +1513,7 @@ PsionicsList["cr4-punishing fury"] = {
 	firstCol : 5
 };
 //the diminution discipline (contributed by mattohara & TheBob427)
-PsionicsList["diminution"] = {
+PsionicsList["diminution-ua-psy"] = {
 	name : "Diminution",
 	classes : ["mystic"],
 	source : ["UA:TMC", 14],
@@ -1573,7 +1585,7 @@ PsionicsList["d4-microscopic form"] = {
 	firstCol : 7
 };
 //the giant growth discipline (contributed by mattohara & TheBob427)
-PsionicsList["giant growth"] = {
+PsionicsList["giant growth-ua-psy"] = {
 	name : "Giant Growth",
 	classes : ["mystic"],
 	source : ["UA:TMC", 14],
@@ -1616,7 +1628,7 @@ PsionicsList["gg2-giant form"] = {
 	firstCol : 7
 };
 //the intellect fortress discipline (contributed by TheBob427)
-PsionicsList["intellect fortress"] = {
+PsionicsList["intellect fortress-ua-psy"] = {
 	name : "Intellect Fortress",
 	classes : ["mystic"],
 	source : ["UA:TMC", 14],
@@ -1672,7 +1684,7 @@ PsionicsList["if3-psychic redoubt"] = {
 	firstCol : 5
 };
 //the iron durability discipline (contributed by mattohara)
-PsionicsList["iron durability"] = {
+PsionicsList["iron durability-ua-psy"] = {
 	name : "Iron Durability",
 	classes : ["mystic"],
 	source : ["UA:TMC", 15],
@@ -1728,7 +1740,7 @@ PsionicsList["id3-iron resistance"] = {
 	firstCol : 7
 };
 //the mantle of awe discipline (contributed by mattohara)
-PsionicsList["mantle of awe"] = {
+PsionicsList["mantle of awe-ua-psy"] = {
 	name : "Mantle of Awe",
 	classes : ["mystic"],
 	source : ["UA:TMC", 15],
@@ -1786,7 +1798,7 @@ PsionicsList["moa3-invoke awe"] = {
 	firstCol : 7
 };
 //the mantle of command discipline
-PsionicsList["mantle of command"] = {
+PsionicsList["mantle of command-ua-psy"] = {
 	name : "Mantle of Command",
 	classes : ["mystic"],
 	source : ["UA:TMC", 15],
@@ -1868,7 +1880,7 @@ PsionicsList["mc5-overwhelming attack"] = {
 	firstCol : 7
 };
 //the mantle of courage discipline
-PsionicsList["mantle of courage"] = {
+PsionicsList["mantle of courage-ua-psy"] = {
 	name : "Mantle of Courage",
 	classes : ["mystic"],
 	source : ["UA:TMC", 16],
@@ -1924,7 +1936,7 @@ PsionicsList["mc3-pillar of confidence"] = {
 	firstCol : 6
 };
 //the mantle of fear discipline
-PsionicsList["mantle of fear"] = {
+PsionicsList["mantle of fear-ua-psy"] = {
 	name : "Mantle of Fear",
 	classes : ["mystic"],
 	source : ["UA:TMC", 16],
@@ -1982,7 +1994,7 @@ PsionicsList["mf3-incite panic"] = {
 	firstCol : 5
 };
 //the mantle of fury discipline
-PsionicsList["mantle of fury"] = {
+PsionicsList["mantle of fury-ua-psy"] = {
 	name : "Mantle of Fury",
 	classes : ["mystic"],
 	source : ["UA:TMC", 16],
@@ -2052,7 +2064,7 @@ PsionicsList["mf4-overwhelming fury"] = {
 	firstCol : 5
 };
 //the mantle of joy discipline
-PsionicsList["mantle of joy"] = {
+PsionicsList["mantle of joy-ua-psy"] = {
 	name : "Mantle of Joy",
 	classes : ["mystic"],
 	source : ["UA:TMC", 17],
@@ -2121,7 +2133,7 @@ PsionicsList["mj4-beacon of recovery"] = {
 	firstCol : 5
 };
 //the mastery of air discipline (contributed by mattohara)
-PsionicsList["mastery of air"] = {
+PsionicsList["mastery of air-ua-psy"] = {
 	name : "Mastery of Air",
 	classes : ["mystic"],
 	source : ["UA:TMC", 17],
@@ -2218,7 +2230,7 @@ PsionicsList["ma6-animate air"] = {
 	firstCol : 7
 };
 //the mastery of fire discipline
-PsionicsList["mastery of fire"] = {
+PsionicsList["mastery of fire-ua-psy"] = {
 	name : "Mastery of Fire",
 	classes : ["mystic"],
 	source : ["UA:TMC", 17],
@@ -2302,7 +2314,7 @@ PsionicsList["mf5-animate fire"] = {
 	firstCol : 7
 };
 //the mastery of force discipline
-PsionicsList["mastery of force"] = {
+PsionicsList["mastery of force-ua-psy"] = {
 	name : "Mastery of Force",
 	classes : ["mystic"],
 	source : ["UA:TMC", 18],
@@ -2413,7 +2425,7 @@ PsionicsList["mf7-move (with grasp)"] = {
 	firstCol : "1-7"
 };
 //the mastery of ice discipline (contributed by Justin W.)
-PsionicsList["mastery of ice"] = {
+PsionicsList["mastery of ice-ua-psy"] = {
 	name : "Mastery of Ice",
 	classes : ["mystic"],
 	source : ["UA:TMC", 19],
@@ -2499,7 +2511,7 @@ PsionicsList["mi5-ice barrier"] = {
 	firstCol : 6
 };
 //the mastery of light and darkness discipline (contributed by Justin W.)
-PsionicsList["mastery of light and darkness"] = {
+PsionicsList["mastery of light and darkness-ua-psy"] = {
 	name : "Mastery of Light and Darkness",
 	nameShort : "Mastery of Light \u0026 Dark",
 	classes : ["mystic"],
@@ -2571,7 +2583,7 @@ PsionicsList["mld4-radiant beam"] = {
 	firstCol : "5-7"
 };
 //the mastery of water discipline (contributed by Justin W.)
-PsionicsList["mastery of water"] = {
+PsionicsList["mastery of water-ua-psy"] = {
 	name : "Mastery of Water",
 	classes : ["mystic"],
 	source : ["UA:TMC", 19],
@@ -2671,7 +2683,7 @@ PsionicsList["mwa6-animate water"] = {
 	firstCol : 7
 };
 //the mastery of weather discipline (contributed by Justin W.)
-PsionicsList["mastery of weather"] = {
+PsionicsList["mastery of weather-ua-psy"] = {
 	name : "Mastery of Weather",
 	classes : ["mystic"],
 	source : ["UA:TMC", 20],
@@ -2785,7 +2797,7 @@ PsionicsList["mw7-thunder clap"] = {
 	firstCol : 7
 };
 //the mastery of wood and earth discipline (contributed by Justin W.)
-PsionicsList["mastery of wood and earth"] = {
+PsionicsList["mastery of wood and earth-ua-psy"] = {
 	name : "Mastery of Wood and Earth",
 	nameShort : "Mastery of Wood \u0026 Earth",
 	classes : ["mystic"],
@@ -2883,7 +2895,7 @@ PsionicsList["mwe6-animate earth"] = {
 	firstCol : 7
 };
 //the nomadic arrow discipline (contributed by mattohara)
-PsionicsList["nomadic arrow"] = {
+PsionicsList["nomadic arrow-ua-psy"] = {
 	name : "Nomadic Arrow",
 	classes : ["mystic"],
 	source : ["UA:TMC", 21],
@@ -2939,7 +2951,7 @@ PsionicsList["na3-faithful archer"] = {
 	firstCol : 5
 };
 //the nomadic chameleon discipline (contributed by mattohara)
-PsionicsList["nomadic chameleon"] = {
+PsionicsList["nomadic chameleon-ua-psy"] = {
 	name : "Nomadic Chameleon",
 	classes : ["mystic"],
 	source : ["UA:TMC", 22],
@@ -2995,7 +3007,7 @@ PsionicsList["nc3-enduring invisibility"] = {
 	firstCol : 7
 };
 //the nomadic mind discipline (contributed by mattohara)
-PsionicsList["nomadic mind"] = {
+PsionicsList["nomadic mind-ua-psy"] = {
 	name : "Nomadic Mind",
 	classes : ["mystic"],
 	source : ["UA:TMC", 22],
@@ -3091,7 +3103,7 @@ PsionicsList["nm6-phasing eye"] = {
 	firstCol : 7
 };
 //the nomadic step discipline (contributed by Justin W.)
-PsionicsList["nomadic step"] = {
+PsionicsList["nomadic step-ua-psy"] = {
 	name : "Nomadic Step",
 	classes : ["mystic"],
 	source : ["UA:TMC", 22],
@@ -3213,7 +3225,7 @@ PsionicsList["ns8-nomad's gate"] = {
 	firstCol : 7
 };
 //the precognition discipline (contributed by Justin W.)
-PsionicsList["precognition"] = {
+PsionicsList["precognition-ua-psy"] = {
 	name : "Precognition",
 	classes : ["mystic"],
 	source : ["UA:TMC", 23],
@@ -3282,7 +3294,7 @@ PsionicsList["p4-victory before battle"] = {
 	firstCol : 7
 };
 //the psionic restoration discipline (contributed by Justin W.)
-PsionicsList["psionic restoration"] = {
+PsionicsList["psionic restoration-ua-psy"] = {
 	name : "Psionic Restoration",
 	classes : ["mystic"],
 	source : ["UA:TMC", 23],
@@ -3351,7 +3363,7 @@ PsionicsList["pr4-restore vigor"] = {
 	firstCol : 7
 };
 //the psionic weapon discipline (contributed by Justin W.)
-PsionicsList["psionic weapon"] = {
+PsionicsList["psionic weapon-ua-psy"] = {
 	name : "Psionic Weapon",
 	classes : ["mystic"],
 	source : ["UA:TMC", 24],
@@ -3407,7 +3419,7 @@ PsionicsList["pw3-augmented weapon"] = {
 	firstCol : 5
 };
 //the psychic assault discipline
-PsionicsList["psychic assault"] = {
+PsionicsList["psychic assault-ua-psy"] = {
 	name : "Psychic Assault",
 	classes : ["mystic"],
 	source : ["UA:TMC", 24],
@@ -3493,7 +3505,7 @@ PsionicsList["pa5-psychic crush"] = {
 	firstCol : 7
 };
 //the psychic disruption discipline (contributed by Justin W.)
-PsionicsList["psychic disruption"] = {
+PsionicsList["psychic disruption-ua-psy"] = {
 	name : "Psychic Disruption",
 	classes : ["mystic"],
 	source : ["UA:TMC", 24],
@@ -3552,7 +3564,7 @@ PsionicsList["pd3-mind storm"] = {
 	firstCol : "5-7"
 };
 //the psychic inquisition discipline (contributed by Justin W.)
-PsionicsList["psychic inquisition"] = {
+PsionicsList["psychic inquisition-ua-psy"] = {
 	name : "Psychic Inquisition",
 	classes : ["mystic"],
 	source : ["UA:TMC", 25],
@@ -3625,7 +3637,7 @@ PsionicsList["pi4-phantom idea"] = {
 	firstCol : 6
 };
 //the psychic phantoms discipline (contributed by Justin W.)
-PsionicsList["psychic phantoms"] = {
+PsionicsList["psychic phantoms-ua-psy"] = {
 	name : "Psychic Phantoms",
 	classes : ["mystic"],
 	source : ["UA:TMC", 25],
@@ -3698,7 +3710,7 @@ PsionicsList["pp4-phantom riches"] = {
 	firstCol : 7
 };
 //the telepathic contact discipline (contributed by Justin W.)
-PsionicsList["telepathic contact"] = {
+PsionicsList["telepathic contact-ua-psy"] = {
 	name : "Telepathic Contact",
 	classes : ["mystic"],
 	source : ["UA:TMC", 26],
@@ -3785,7 +3797,7 @@ PsionicsList["tc5-psychic domination"] = {
 	firstCol : 7
 };
 //the third eye discipline (contributed by Justin W.)
-PsionicsList["third eye"] = {
+PsionicsList["third eye-ua-psy"] = {
 	name : "Third Eye",
 	classes : ["mystic"],
 	source : ["UA:TMC", 26],
@@ -3855,7 +3867,7 @@ PsionicsList["te4-truesight"] = {
 };
 
 // Psionic Discipline 'Mastery of Force' power 'Inertial Armour'
-ArmourList["inertial armor"] = {
+ArmourList["inertial armor-ua-psy"] = {
 	regExpSearch : /^(?=.*(inertial|psychic|psionic))(?=.*armou?r).*$/i,
 	name : "Inertial armor",
 	source : ["UA:TMC", 18],
@@ -3864,7 +3876,7 @@ ArmourList["inertial armor"] = {
 };
 
 // Psionic Talents that work like damage cantrips
-WeaponsList["energy beam"] = {
+WeaponsList["energy beam-ua-psy"] = {
 	regExpSearch : /^(?=.*\benergy\b)(?=.*\bbeam\b).*$/i,
 	name : "Energy Beam",
 	source : ["UA:TMC", 27],
@@ -3877,7 +3889,7 @@ WeaponsList["energy beam"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["mind slam"] = {
+WeaponsList["mind slam-ua-psy"] = {
 	regExpSearch : /^(?=.*\bmind\b)(?=.*\bslam\b).*$/i,
 	name : "Mind Slam",
 	source : ["UA:TMC", 28],
@@ -3890,7 +3902,7 @@ WeaponsList["mind slam"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["mind thrust"] = {
+WeaponsList["mind thrust-ua-psy"] = {
 	regExpSearch : /^(?=.*\bmind\b)(?=.*\bthrust\b).*$/i,
 	name : "Mind Thrust",
 	source : ["UA:TMC", 28],
@@ -3903,7 +3915,7 @@ WeaponsList["mind thrust"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["psychic hammer"] = {
+WeaponsList["psychic hammer-ua-psy"] = {
 	regExpSearch : /^(?=.*\bpsychic\b)(?=.*\bhammer\b).*$/i,
 	name : "Psychic Hammer",
 	source : ["UA:TMC", 28],
@@ -3915,15 +3927,4 @@ WeaponsList["psychic hammer"] = {
 	description : "Str save, success - no damage, fail - also move 10 ft in chosen direction (UA:TMC 28)",
 	abilitytodamage : false,
 	dc : true
-};
-WeaponsList["soul knife"] = {
-	regExpSearch : /^(?=.*\bsoul)(?=.*(knives|knife|weapon)\b).*$/i,
-	name : "Soul Knife",
-	source : ["UA:TMC", 8],
-	ability : 1,
-	type : "Martial",
-	damage : [1, 8, "psychic"],
-	range : "Melee",
-	description : "Finesse, light",
-	abilitytodamage : true
 };

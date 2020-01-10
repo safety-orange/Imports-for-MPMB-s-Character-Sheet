@@ -95,7 +95,13 @@ ClassList["rangerua"] = {
 			"travel benefits" : {
 				name : "Travel Benefits",
 				source : ["UA:RR", 3],
-				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
+				description: desc([
+					"After one hour of traveling in the wilderness I gain the following benefits:",
+					" \u2022 My allies and I are not slowed by difficult terrain and can't get lost except by magic",
+					" \u2022 I am alert to danger even when doing something else; I forage twice as much food",
+					" \u2022 If alone (or alone with animal companion), I can move stealthily at my normal pace",
+					" \u2022 When tracking others, I also learn their exact number, size, and time since passing"
+				])
 			},
 			autoSelectExtrachoices : [{ extrachoice : "travel benefits" }],
 			advantages : [["Initiative", true]]

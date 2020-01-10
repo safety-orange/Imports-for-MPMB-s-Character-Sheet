@@ -391,7 +391,16 @@ AddSubClass("cleric", "knowledge domain", {
 			name : "Visions of the Past",
 			source : ["P", 60],
 			minlevel : 17,
-			description : "\n   " + "I can see recent events of an object or area by concentrating and praying for 1 min" + "\n   " + "I can meditate this way for up to a number of minutes equal to my Wisdom score" + "\n   - " + "Object Reading (after meditating for 1 minute per owner):" + "\n      " + "If an owner owned it in the last Wis score in days, I learn how that owner got/lost it" + "\n      " + "I also learn the most recent significant event involving the object and the owner" + "\n   - " + "Area Reading (my immediate surroundings, up to a 50-foot cube):" + "\n      " + "Going back my Wisdom score in days, per minute I meditate, I learn about one event" + "\n      " + "This starts with the most recent event; It can be significant or just important to me",
+			description : desc([
+				"I can see recent events of an object or area by concentrating and praying for 1 min",
+				"I can meditate this way for up to a number of minutes equal to my Wisdom score",
+				"\u2022 Object Reading (after meditating for 1 minute per owner):",
+				"   If an owner owned it in the last Wis score in days, I learn how that owner got/lost it",
+				"   I also learn the most recent significant event involving the object and the owner",
+				"\u2022 Area Reading (my immediate surroundings, up to a 50-foot cube):",
+				"   Going back my Wisdom score in days, per minute I meditate, I learn about one event",
+				"   This starts with the most recent event; It can be significant or just important to me"
+			]),
 			usages : 1,
 			recovery : "short rest"
 		}
@@ -754,7 +763,16 @@ AddSubClass("druid", "circle of the moon", {
 			name : "Wild Shape",
 			source : ["P", 66],
 			minlevel : 2,
-			description : "\n   " + "As a bonus action, I assume the shape of a beast I have seen before with these rules:" + "\n    - " + "I gain all its game statistics except Intelligence, Wisdom, or Charisma" + "\n    - " + "I get its skill/saving throw prof. while keeping my own, using whichever is higher" + "\n    - " + "I assume the beast's HP and HD; I get mine back when I revert back" + "\n    - " + "I can't cast spells in beast form, but transforming doesn't break concentration" + "\n    - " + "I retain features from class, race, etc., but I don't retain special senses" + "\n    - " + "I can choose whether equipment falls to the ground, merges, or stays worn" + "\n    - " + "I revert if out of time or unconscious; if KOd by damage, excess damage carries over",
+			description : desc([
+				"As a bonus action, I assume the shape of a beast I have seen before with these rules:",
+				" \u2022 I gain all its game statistics except Intelligence, Wisdom, or Charisma",
+				" \u2022 I get its skill/saving throw prof. while keeping my own, using whichever is higher",
+				" \u2022 I assume the beast's HP and HD; I get mine back when I revert back",
+				" \u2022 I can't cast spells in beast form, but transforming doesn't break concentration",
+				" \u2022 I retain features from class, race, etc., but I don't retain special senses",
+				" \u2022 I can choose whether equipment falls to the ground, merges, or stays worn",
+				" \u2022 I revert if out of time or unconscious; if KOd by damage, excess damage carries over"
+			]),
 			usages : [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "\u221E\u00D7 per "],
 			recovery : "short rest",
 			additional : levels.map(function (n) {
@@ -1459,7 +1477,12 @@ AddSubClass("paladin", "oath of the ancients", {
 			name : "Elder Champion",
 			source : ["P", 87],
 			minlevel : 20,
-			description : "\n   " + "As an action, I assume the form of a force of nature for 1 minute and gain benefits:" + "\n    - " + "At the start of each of my turns, I regain 10 hit points" + "\n    - " + "I can cast paladin spells with a casting time of 1 action as a bonus action instead" + "\n    - " + "Enemies within 10 ft have disadv. on saves vs. my paladin spells and channel divinity",
+			description : desc([
+				"As an action, I assume the form of a force of nature for 1 minute and gain benefits:",
+				" \u2022 At the start of each of my turns, I regain 10 hit points",
+				" \u2022 I can cast paladin spells with a casting time of 1 action as a bonus action instead",
+				" \u2022 Enemies within 10 ft have disadv. on saves vs. my paladin spells and channel divinity"
+			]),
 			recovery : "long rest",
 			usages : 1,
 			action : ["action", ""]
@@ -1503,7 +1526,11 @@ AddSubClass("paladin", "oath of vengeance", {
 			name : "Avenging Angel",
 			source : ["P", 88],
 			minlevel : 20,
-			description : "\n   " + "As an action, I gain a flying speed of 60 ft and a 30 ft aura of menace for 1 hour" + "\n   " + "When a creature first enters or starts its turn in the aura, it must make a Wis save" + "\n   " + "If failed, for 1 min or until it takes damage, it is frightened and attacks vs. it have adv.",
+			description : desc([
+				"As an action, I gain a flying speed of 60 ft and a 30 ft aura of menace for 1 hour",
+				"When a creature first enters or starts its turn in the aura, it must make a Wis save",
+				"If failed, for 1 min or until it takes damage, it is frightened and attacks vs. it have adv."
+			]),
 			recovery : "long rest",
 			usages : 1,
 			action : ["action", ""]
@@ -1592,7 +1619,13 @@ AddSubClass("rogue", "arcane trickster", {
 			name : "Mage Hand Legerdemain",
 			source : ["P", 98],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I can direct my Mage Hand" + "\n   " + "With a Dex (Sleight of Hand) vs. Wis (Perception) checks, I can do so discreetly" + "\n   " + "I can make it invisible and perform the following tasks:" + "\n    - " + "Stow/retrieve an object the hand is holding in a container worn/carried by another" + "\n    - " + "Use thieves' tools to pick locks and disarm traps at range",
+			description : desc([
+				"As a bonus action, I can direct my Mage Hand",
+				"With a Dex (Sleight of Hand) vs. Wis (Perception) checks, I can do so discreetly",
+				"I can make it invisible and perform the following tasks:",
+				" \u2022 Stow/retrieve an object the hand is holding in a container worn/carried by another",
+				" \u2022 Use thieves' tools to pick locks and disarm traps at range"
+			]),
 			action : ["bonus action", ""],
 			spellChanges : {
 				"mage hand" : {
@@ -2210,7 +2243,15 @@ AddSubClass("wizard", "transmutation", {
 			name : "Transmuter's Stone",
 			source : ["P", 119],
 			minlevel : 6,
-			description : "\n   " + "In 8 hours, I can create a transmuter's stone that gives its wielder one of the following:" + "\n    - " + "Darkvision 60 ft" + "\n    - " + "10 ft increase to speed while unencumbered" + "\n    - " + "Proficiency in Constitution saving throws" + "\n    - " + "Resistance to either acid, cold, fire, lightning, or thunder damage" + "\n   " + "The benefit is chosen at creation; I can have only one active stone at a time" + "\n   " + "I can change the benefit when I cast a 1st-level or higher transmutation spell with it"
+			description : desc([
+				"In 8 hours, I can create a transmuter's stone that gives its wielder one of the following:",
+				" \u2022 Darkvision 60 ft",
+				" \u2022 10 ft increase to speed while unencumbered",
+				" \u2022 Proficiency in Constitution saving throws",
+				" \u2022 Resistance to either acid, cold, fire, lightning, or thunder damage",
+				"The benefit is chosen at creation; I can have only one active stone at a time",
+				"I can change the benefit when I cast a 1st-level or higher transmutation spell with it"
+			])
 		},
 		"subclassfeature10" : {
 			name : "Shapechanger",

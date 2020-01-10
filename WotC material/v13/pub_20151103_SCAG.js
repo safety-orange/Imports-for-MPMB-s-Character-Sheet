@@ -749,7 +749,11 @@ AddSubClass("paladin", "oath of the crown", {
 			name : "Exalted Champion",
 			source : ["S", 133],
 			minlevel : 20,
-			description : "\n   " + "As an action, I gain the following benefits for 1 hour or until I'm incapacitated:" + "\n    - " + "Resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons" + "\n    - " + "My allies within 30 ft of me and I have advantage on Wisdom and Death saves",
+			description : desc([
+				"As an action, I gain the following benefits for 1 hour or until I'm incapacitated:",
+				" \u2022 " + "Resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons",
+				" \u2022 " + "My allies within 30 ft of me and I have advantage on Wisdom and Death saves"
+			]),
 			recovery : "long rest",
 			usages : 1,
 			action : ["action", ""]
@@ -1008,7 +1012,15 @@ AddSubClass("wizard", "bladesinging", {
 			name : "Bladesong",
 			source : ["S", 142],
 			minlevel : 2,
-			description : "\n   " + "As a bonus action, I can start the bladesong for 1 minute; I can dismiss it at any time" + "\n   " + "It stops when I wear a shield, medium or heavy armor, or attack with two hands" + "\n   " + "While the bladesong is active I have the following benefits:" + "\n    - " + "Intelligence modifier (min 1) to AC" + "\n    - " + "Base walking speed increases by 10 foot" + "\n    - " + "Advantage on Dexterity (Acrobatics) checks" + "\n    - " + "Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell",
+			description : desc([
+				"As a bonus action, I can start the bladesong for 1 minute; I can dismiss it at any time",
+				"It stops when I wear a shield, medium or heavy armor, or attack with two hands",
+				"While the bladesong is active I have the following benefits:",
+				" \u2022 Intelligence modifier (min 1) to AC",
+				" \u2022 Base walking speed increases by 10 foot",
+				" \u2022 Advantage on Dexterity (Acrobatics) checks",
+				" \u2022 Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell"
+			]),
 			action : ["bonus action", " (start)"],
 			recovery : "short rest",
 			usages : 2
@@ -1091,7 +1103,11 @@ var AmendTotemWarriorSCAG = function() {
 		feature : {
 			name : "Tiger Attunement",
 			source : ["S", 122],
-			description : "\n   " + "As a bonus action while raging, I can make a melee weapon attack on these conditions:" + "\n    - " + "I move at least 20 ft in a straight line towards the target that is Large or smaller" + "\n    - " + "I make a melee weapon attack against it after the bonus action",
+			description : desc([
+				"As a bonus action while raging, I can make a melee weapon attack on these conditions:",
+				" \u2022 I move at least 20 ft in a straight line towards the target that is Large or smaller",
+				" \u2022 I make a melee weapon attack against it after the bonus action"
+			]),
 			action : ["bonus action", " (in rage)"]
 		}
 	}]

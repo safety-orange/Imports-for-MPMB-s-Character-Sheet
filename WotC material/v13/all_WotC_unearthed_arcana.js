@@ -3079,7 +3079,13 @@ ClassList["rangerua"] = {
 			"travel benefits" : {
 				name : "Travel Benefits",
 				source : ["UA:RR", 3],
-				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
+				description: desc([
+					"After one hour of traveling in the wilderness I gain the following benefits:",
+					" \u2022 My allies and I are not slowed by difficult terrain and can't get lost except by magic",
+					" \u2022 I am alert to danger even when doing something else; I forage twice as much food",
+					" \u2022 If alone (or alone with animal companion), I can move stealthily at my normal pace",
+					" \u2022 When tracking others, I also learn their exact number, size, and time since passing"
+				])
 			},
 			autoSelectExtrachoices : [{ extrachoice : "travel benefits" }],
 			advantages : [["Initiative", true]]
@@ -6578,7 +6584,7 @@ SourceList["UA:TMC"] = {
 
 // Adds a new class, the Mystic, with 6 subclasses
 ClassList.mystic = {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior)).*$/i,
+	regExpSearch : /psion\b|mystic/i,
 	name : "Mystic",
 	source : ["UA:TMC", 1],
 	primaryAbility : "Intelligence",
@@ -6770,7 +6776,7 @@ ClassList.mystic = {
 };
 // Order of the Avatar subclass for the Mystic
 AddSubClass("mystic", "avatar", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*avatar).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*avatar).*$/i,
 	subname : "Order of the Avatar",
 	source : ["UA:TMC", 5],
 	features : {
@@ -6835,7 +6841,7 @@ AddSubClass("mystic", "avatar", {
 });
 // Order of the Awakened subclass for the Mystic
 AddSubClass("mystic", "awakened", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*awakened).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*awakened).*$/i,
 	subname : "Order of the Awakened",
 	source : ["UA:TMC", 6],
 	features : {
@@ -6901,7 +6907,7 @@ AddSubClass("mystic", "awakened", {
 });
 // Order of the Immortal subclass for the Mystic
 AddSubClass("mystic", "immortal", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*immortal).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*immortal).*$/i,
 	subname : "Order of the Immortal",
 	source : ["UA:TMC", 6],
 	features : {
@@ -6978,7 +6984,7 @@ AddSubClass("mystic", "immortal", {
 });
 // Order of the Nomad subclass for the Mystic
 AddSubClass("mystic", "nomad", {
-	regExpSearch : /^((?=.*(psion|mystic))|(?=.*psychic)(?=.*warrior))(?=.*nomad).*$/i,
+	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*nomad).*$/i,
 	subname : "Order of the Nomad",
 	source : ["UA:TMC", 7],
 	features : {
@@ -7056,7 +7062,7 @@ AddSubClass("mystic", "nomad", {
 });
 // Order of the Soul Knife subclass for the Mystic
 AddSubClass("mystic", "soul knife", {
-	regExpSearch : /^(?=.*soul)(?=.*knife).*$/i,
+	regExpSearch : /^(?=.*soul\b)(?=.*\bknife).*$/i,
 	subname : "Order of the Soul Knife",
 	source : ["UA:TMC", 7],
 	fullname : "Soul Knife",
@@ -7077,7 +7083,19 @@ AddSubClass("mystic", "soul knife", {
 				"As a bonus action, I can create or dismiss my soul knives on both my fists",
 				"As a bonus action, I can parry with these to get +2 AC until the start of my next turn"
 			]),
-			action : [["bonus action", " (create/dismiss)"], ['bonus action', ' Parry']]
+			action : [["bonus action", " (create/dismiss)"], ['bonus action', ' Parry']],
+			weaponsAdd : ["Soul Knife"],
+			weaponOptions : [{
+				regExpSearch : /^(?=.*\bsoul)(?=.*(knives|knife|weapon)\b).*$/i,
+				name : "Soul Knife",
+				source : ["UA:TMC", 8],
+				ability : 1,
+				type : "Martial",
+				damage : [1, 8, "psychic"],
+				range : "Melee",
+				description : "Finesse, light",
+				abilitytodamage : true
+			}]
 		},
 		"subclassfeature3" : {
 			name : "Hone the Blade",
@@ -7109,7 +7127,7 @@ AddSubClass("mystic", "soul knife", {
 });
 // Order of the Wu Jen subclass for the Mystic
 AddSubClass("mystic", "wu jen", {
-	regExpSearch : /^(?=.*wu)(?=.*jen).*$/i,
+	regExpSearch : /^(?=.*\bwu\b)(?=.*\bjen\b).*$/i,
 	subname : "Order of the Wu Jen",
 	source : ["UA:TMC", 8],
 	fullname : "Wu Jen",
@@ -7175,7 +7193,7 @@ AddSubClass("mystic", "wu jen", {
 });
 
 // The Psionic Talents for the Mystic (with contributions by rabidknave)
-PsionicsList["beacon"] = {
+PsionicsList["beacon-ua-psy"] = {
 	name : "Beacon",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -7187,7 +7205,7 @@ PsionicsList["beacon"] = {
 	description : "My body sheds bright light 20-ft rad and dim light 20-ft, in chosen color; dismiss as a bonus action",
 	descriptionFull : "As a bonus action, you cause bright light to radiate from your body in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. The light lasts for 1 hour, and you can extinguish it earlier as a bonus action."
 };
-PsionicsList["blade meld"] = {
+PsionicsList["blade meld-ua-psy"] = {
 	name : "Blade Meld",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -7199,7 +7217,7 @@ PsionicsList["blade meld"] = {
 	description : "One-handed melee weapon I'm holding merges with hand; it can't be removed for the duration",
 	descriptionFull : "As a bonus action, a one-handed melee weapon you hold becomes one with your hand. For the next minute, you can't let go of the weapon nor can it be forced from your grasp."
 };
-PsionicsList["blind spot"] = {
+PsionicsList["blind spot-ua-psy"] = {
 	name : "Blind Spot",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -7212,7 +7230,7 @@ PsionicsList["blind spot"] = {
 	description : "1 creature save or treats me as invisible until the end of my next turn",
 	descriptionFull : "As an action, you erase your image from the mind of one creature you can see within 120 feet of you; the target must succeed on a Wisdom saving throw, or you are invisible to it until the end of your next turn."
 };
-PsionicsList["delusion"] = {
+PsionicsList["delusion-ua-psy"] = {
 	name : "Delusion",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -7224,7 +7242,7 @@ PsionicsList["delusion"] = {
 	description : "1 crea either hears a sound (whisper-scream), or sees up to 5-ft cube object that disappears on touch",
 	descriptionFull : "As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create." + "\n   " + "If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute." + "\n   " + "If you create an object, it must fit within a 5-foot cube and can't move or be reflective. The image can't create any effect that influences a sense other than sight. The image lasts for 1 minute, and it disappears if the creature touches it."
 };
-PsionicsList["energy beam"] = {
+PsionicsList["energy beam-ua-psy"] = {
 	name : "Energy Beam",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -7238,7 +7256,7 @@ PsionicsList["energy beam"] = {
 	descriptionCantripDie : "1 crea save or `CD`d8 Acid, Cold, Fire, Lightning, or Thunder dmg",
 	descriptionFull : "As an action, you target one creature you can see within 90 feet of you. The target must succeed on a Dexterity saving throw or take 1d8 acid, cold, fire, lightning, or thunder damage (your choice)." + "\n   " + "The talent's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)"
 };
-PsionicsList["light step"] = {
+PsionicsList["light step-ua-psy"] = {
 	name : "Light Step",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -7250,7 +7268,7 @@ PsionicsList["light step"] = {
 	description : "My walking speed increases by 10 ft; standing up costs 0 movement, once",
 	descriptionFull : "As a bonus action, you alter your density and weight to improve your mobility. For the rest of your turn, your walking speed increases by 10 feet, and the first time you stand up this turn, you do so without expending any of your movement if your speed is greater than 0."
 };
-PsionicsList["mind meld"] = {
+PsionicsList["mind meld-ua-psy"] = {
 	name : "Mind Meld",
 	classes : ["mystic"],
 	source : ["UA:TMC", 27],
@@ -7262,7 +7280,7 @@ PsionicsList["mind meld"] = {
 	description : "I communicate telepathically with 1 willing crea (int > 1) and gain access to 1 memory of theirs",
 	descriptionFull : "As a bonus action, you can communicate telepathically with one willing creature you can see within 120 feet of you. The target must have an Intelligence of at least 2, otherwise this talent fails and the action is wasted." + "\n   " + "This communication can occur until the end of the current turn. You don't need to share a language with the target for it to understand your telepathic utterances, and it understands you even if it lacks a language. You also gain access to one memory of the target's choice, gaining perfect recall of one thing it saw or did."
 };
-PsionicsList["mind slam"] = {
+PsionicsList["mind slam-ua-psy"] = {
 	name : "Mind Slam",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -7276,7 +7294,7 @@ PsionicsList["mind slam"] = {
 	descriptionCantripDie : "1 crea save or `CD`d6 Force dmg, and knocked prone if Large or smaller",
 	descriptionFull : "As an action, you target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, it is knocked prone." + "\n   " + "The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)"
 };
-PsionicsList["mind thrust"] = {
+PsionicsList["mind thrust-ua-psy"] = {
 	name : "Mind Thrust",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -7290,7 +7308,7 @@ PsionicsList["mind thrust"] = {
 	descriptionCantripDie : "1 crea save or `CD`d10 Psychic dmg",
 	descriptionFull : "As an action, you target one creature you can see within 120 feet of you. The target must succeed on an Intelligence saving throw or take 1d10 psychic damage." + "\n   " + "The talent's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
 };
-PsionicsList["mystic charm"] = {
+PsionicsList["mystic charm-ua-psy"] = {
 	name : "Mystic Charm",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -7303,7 +7321,7 @@ PsionicsList["mystic charm"] = {
 	description : "1 humanoid save or charmed until end of my next turn",
 	descriptionFull : "As an action, you beguile one humanoid you can see within 120 feet of you. The target must succeed on a Charisma saving throw or be charmed by you until the end of your next turn."
 };
-PsionicsList["mystic hand"] = {
+PsionicsList["mystic hand-ua-psy"] = {
 	name : "Mystic Hand",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -7315,7 +7333,7 @@ PsionicsList["mystic hand"] = {
 	description : "Move 1 unattended object (up to 10 lbs) up to 30 ft, or manipulate an object",
 	descriptionFull : "You can use your action to manipulate or move one object within 30 feet of you. The object can't weigh more than 10 pounds, and you can't affect an object being worn or carried by another creature. If the object is loose, you can move it up to 30 feet in any direction." + "\n   " + "This talent allows you to open an unlocked door, pour out a beer stein, and so on." + "\n   " + "The object falls to the ground at the end of your turn if you leave it suspended in midair."
 };
-PsionicsList["psychic hammer"] = {
+PsionicsList["psychic hammer-ua-psy"] = {
 	name : "Psychic Hammer",
 	classes : ["mystic"],
 	source : ["UA:TMC", 28],
@@ -7332,7 +7350,7 @@ PsionicsList["psychic hammer"] = {
 
 // Psionic Disciplines for the Mystic
 //the adaptive body discipline
-PsionicsList["adaptive body"] = {
+PsionicsList["adaptive body-ua-psy"] = {
 	name : "Adaptive Body",
 	classes : ["mystic"],
 	source : ["UA:TMC", 10],
@@ -7402,7 +7420,7 @@ PsionicsList["ab4-energy immunity"] = {
 	firstCol : 7
 };
 //the aura sight discipline (contributed by Justin W.)
-PsionicsList["aura sight"] = {
+PsionicsList["aura sight-ua-psy"] = {
 	name : "Aura Sight",
 	classes : ["mystic"],
 	source : ["UA:TMC", 10],
@@ -7471,7 +7489,7 @@ PsionicsList["as4-perceive the unseen"] = {
 	firstCol : 5
 };
 //the bestial form discipline (contributed by rabidknave)
-PsionicsList["bestial form"] = {
+PsionicsList["bestial form-ua-psy"] = {
 	name : "Bestial Form",
 	classes : ["mystic"],
 	source : ["UA:TMC", 11],
@@ -7605,7 +7623,7 @@ PsionicsList["bf9-bt - tough hide"] = {
 	firstCol : 2
 };
 //the brute force discipline (contributed by rabidknave)
-PsionicsList["brute force"] = {
+PsionicsList["brute force-ua-psy"] = {
 	name : "Brute Force",
 	classes : ["mystic"],
 	source : ["UA:TMC", 11],
@@ -7675,7 +7693,7 @@ PsionicsList["bf4-feat of strength"] = {
 	firstCol : 2
 };
 //the celerity discipline (contributed by rabidknave)
-PsionicsList["celerity"] = {
+PsionicsList["celerity-ua-psy"] = {
 	name : "Celerity",
 	classes : ["mystic"],
 	source : ["UA:TMC", 12],
@@ -7757,7 +7775,7 @@ PsionicsList["c5-surge of action"] = {
 	firstCol : 5
 };
 //the corrosive metabolism discipline (contributed by rabidknave)
-PsionicsList["corrosive metabolism"] = {
+PsionicsList["corrosive metabolism-ua-psy"] = {
 	name : "Corrosive Metabolism",
 	classes : ["mystic"],
 	source : ["UA:TMC", 11],
@@ -7845,7 +7863,7 @@ PsionicsList["cm5-breath of the green dragon"] = {
 	firstCol : 7
 };
 //the crown of despair discipline (contributed by rabidknave)
-PsionicsList["crown of despair"] = {
+PsionicsList["crown of despair-ua-psy"] = {
 	name : "Crown of Despair",
 	classes : ["mystic"],
 	source : ["UA:TMC", 12],
@@ -7918,7 +7936,7 @@ PsionicsList["cd4-dolorous mind"] = {
 	firstCol : 5
 };
 //the crown of disgust discipline
-PsionicsList["crown of disgust"] = {
+PsionicsList["crown of disgust-ua-psy"] = {
 	name : "Crown of Disgust",
 	classes : ["mystic"],
 	source : ["UA:TMC", 13],
@@ -7992,7 +8010,7 @@ PsionicsList["cd4-world of horror"] = {
 	firstCol : 7
 };
 //the crown of rage discipline
-PsionicsList["crown of rage"] = {
+PsionicsList["crown of rage-ua-psy"] = {
 	name : "Crown of Rage",
 	classes : ["mystic"],
 	source : ["UA:TMC", 13],
@@ -8065,7 +8083,7 @@ PsionicsList["cr4-punishing fury"] = {
 	firstCol : 5
 };
 //the diminution discipline (contributed by mattohara & TheBob427)
-PsionicsList["diminution"] = {
+PsionicsList["diminution-ua-psy"] = {
 	name : "Diminution",
 	classes : ["mystic"],
 	source : ["UA:TMC", 14],
@@ -8137,7 +8155,7 @@ PsionicsList["d4-microscopic form"] = {
 	firstCol : 7
 };
 //the giant growth discipline (contributed by mattohara & TheBob427)
-PsionicsList["giant growth"] = {
+PsionicsList["giant growth-ua-psy"] = {
 	name : "Giant Growth",
 	classes : ["mystic"],
 	source : ["UA:TMC", 14],
@@ -8180,7 +8198,7 @@ PsionicsList["gg2-giant form"] = {
 	firstCol : 7
 };
 //the intellect fortress discipline (contributed by TheBob427)
-PsionicsList["intellect fortress"] = {
+PsionicsList["intellect fortress-ua-psy"] = {
 	name : "Intellect Fortress",
 	classes : ["mystic"],
 	source : ["UA:TMC", 14],
@@ -8236,7 +8254,7 @@ PsionicsList["if3-psychic redoubt"] = {
 	firstCol : 5
 };
 //the iron durability discipline (contributed by mattohara)
-PsionicsList["iron durability"] = {
+PsionicsList["iron durability-ua-psy"] = {
 	name : "Iron Durability",
 	classes : ["mystic"],
 	source : ["UA:TMC", 15],
@@ -8292,7 +8310,7 @@ PsionicsList["id3-iron resistance"] = {
 	firstCol : 7
 };
 //the mantle of awe discipline (contributed by mattohara)
-PsionicsList["mantle of awe"] = {
+PsionicsList["mantle of awe-ua-psy"] = {
 	name : "Mantle of Awe",
 	classes : ["mystic"],
 	source : ["UA:TMC", 15],
@@ -8350,7 +8368,7 @@ PsionicsList["moa3-invoke awe"] = {
 	firstCol : 7
 };
 //the mantle of command discipline
-PsionicsList["mantle of command"] = {
+PsionicsList["mantle of command-ua-psy"] = {
 	name : "Mantle of Command",
 	classes : ["mystic"],
 	source : ["UA:TMC", 15],
@@ -8432,7 +8450,7 @@ PsionicsList["mc5-overwhelming attack"] = {
 	firstCol : 7
 };
 //the mantle of courage discipline
-PsionicsList["mantle of courage"] = {
+PsionicsList["mantle of courage-ua-psy"] = {
 	name : "Mantle of Courage",
 	classes : ["mystic"],
 	source : ["UA:TMC", 16],
@@ -8488,7 +8506,7 @@ PsionicsList["mc3-pillar of confidence"] = {
 	firstCol : 6
 };
 //the mantle of fear discipline
-PsionicsList["mantle of fear"] = {
+PsionicsList["mantle of fear-ua-psy"] = {
 	name : "Mantle of Fear",
 	classes : ["mystic"],
 	source : ["UA:TMC", 16],
@@ -8546,7 +8564,7 @@ PsionicsList["mf3-incite panic"] = {
 	firstCol : 5
 };
 //the mantle of fury discipline
-PsionicsList["mantle of fury"] = {
+PsionicsList["mantle of fury-ua-psy"] = {
 	name : "Mantle of Fury",
 	classes : ["mystic"],
 	source : ["UA:TMC", 16],
@@ -8616,7 +8634,7 @@ PsionicsList["mf4-overwhelming fury"] = {
 	firstCol : 5
 };
 //the mantle of joy discipline
-PsionicsList["mantle of joy"] = {
+PsionicsList["mantle of joy-ua-psy"] = {
 	name : "Mantle of Joy",
 	classes : ["mystic"],
 	source : ["UA:TMC", 17],
@@ -8685,7 +8703,7 @@ PsionicsList["mj4-beacon of recovery"] = {
 	firstCol : 5
 };
 //the mastery of air discipline (contributed by mattohara)
-PsionicsList["mastery of air"] = {
+PsionicsList["mastery of air-ua-psy"] = {
 	name : "Mastery of Air",
 	classes : ["mystic"],
 	source : ["UA:TMC", 17],
@@ -8782,7 +8800,7 @@ PsionicsList["ma6-animate air"] = {
 	firstCol : 7
 };
 //the mastery of fire discipline
-PsionicsList["mastery of fire"] = {
+PsionicsList["mastery of fire-ua-psy"] = {
 	name : "Mastery of Fire",
 	classes : ["mystic"],
 	source : ["UA:TMC", 17],
@@ -8866,7 +8884,7 @@ PsionicsList["mf5-animate fire"] = {
 	firstCol : 7
 };
 //the mastery of force discipline
-PsionicsList["mastery of force"] = {
+PsionicsList["mastery of force-ua-psy"] = {
 	name : "Mastery of Force",
 	classes : ["mystic"],
 	source : ["UA:TMC", 18],
@@ -8977,7 +8995,7 @@ PsionicsList["mf7-move (with grasp)"] = {
 	firstCol : "1-7"
 };
 //the mastery of ice discipline (contributed by Justin W.)
-PsionicsList["mastery of ice"] = {
+PsionicsList["mastery of ice-ua-psy"] = {
 	name : "Mastery of Ice",
 	classes : ["mystic"],
 	source : ["UA:TMC", 19],
@@ -9063,7 +9081,7 @@ PsionicsList["mi5-ice barrier"] = {
 	firstCol : 6
 };
 //the mastery of light and darkness discipline (contributed by Justin W.)
-PsionicsList["mastery of light and darkness"] = {
+PsionicsList["mastery of light and darkness-ua-psy"] = {
 	name : "Mastery of Light and Darkness",
 	nameShort : "Mastery of Light \u0026 Dark",
 	classes : ["mystic"],
@@ -9135,7 +9153,7 @@ PsionicsList["mld4-radiant beam"] = {
 	firstCol : "5-7"
 };
 //the mastery of water discipline (contributed by Justin W.)
-PsionicsList["mastery of water"] = {
+PsionicsList["mastery of water-ua-psy"] = {
 	name : "Mastery of Water",
 	classes : ["mystic"],
 	source : ["UA:TMC", 19],
@@ -9235,7 +9253,7 @@ PsionicsList["mwa6-animate water"] = {
 	firstCol : 7
 };
 //the mastery of weather discipline (contributed by Justin W.)
-PsionicsList["mastery of weather"] = {
+PsionicsList["mastery of weather-ua-psy"] = {
 	name : "Mastery of Weather",
 	classes : ["mystic"],
 	source : ["UA:TMC", 20],
@@ -9349,7 +9367,7 @@ PsionicsList["mw7-thunder clap"] = {
 	firstCol : 7
 };
 //the mastery of wood and earth discipline (contributed by Justin W.)
-PsionicsList["mastery of wood and earth"] = {
+PsionicsList["mastery of wood and earth-ua-psy"] = {
 	name : "Mastery of Wood and Earth",
 	nameShort : "Mastery of Wood \u0026 Earth",
 	classes : ["mystic"],
@@ -9447,7 +9465,7 @@ PsionicsList["mwe6-animate earth"] = {
 	firstCol : 7
 };
 //the nomadic arrow discipline (contributed by mattohara)
-PsionicsList["nomadic arrow"] = {
+PsionicsList["nomadic arrow-ua-psy"] = {
 	name : "Nomadic Arrow",
 	classes : ["mystic"],
 	source : ["UA:TMC", 21],
@@ -9503,7 +9521,7 @@ PsionicsList["na3-faithful archer"] = {
 	firstCol : 5
 };
 //the nomadic chameleon discipline (contributed by mattohara)
-PsionicsList["nomadic chameleon"] = {
+PsionicsList["nomadic chameleon-ua-psy"] = {
 	name : "Nomadic Chameleon",
 	classes : ["mystic"],
 	source : ["UA:TMC", 22],
@@ -9559,7 +9577,7 @@ PsionicsList["nc3-enduring invisibility"] = {
 	firstCol : 7
 };
 //the nomadic mind discipline (contributed by mattohara)
-PsionicsList["nomadic mind"] = {
+PsionicsList["nomadic mind-ua-psy"] = {
 	name : "Nomadic Mind",
 	classes : ["mystic"],
 	source : ["UA:TMC", 22],
@@ -9655,7 +9673,7 @@ PsionicsList["nm6-phasing eye"] = {
 	firstCol : 7
 };
 //the nomadic step discipline (contributed by Justin W.)
-PsionicsList["nomadic step"] = {
+PsionicsList["nomadic step-ua-psy"] = {
 	name : "Nomadic Step",
 	classes : ["mystic"],
 	source : ["UA:TMC", 22],
@@ -9777,7 +9795,7 @@ PsionicsList["ns8-nomad's gate"] = {
 	firstCol : 7
 };
 //the precognition discipline (contributed by Justin W.)
-PsionicsList["precognition"] = {
+PsionicsList["precognition-ua-psy"] = {
 	name : "Precognition",
 	classes : ["mystic"],
 	source : ["UA:TMC", 23],
@@ -9846,7 +9864,7 @@ PsionicsList["p4-victory before battle"] = {
 	firstCol : 7
 };
 //the psionic restoration discipline (contributed by Justin W.)
-PsionicsList["psionic restoration"] = {
+PsionicsList["psionic restoration-ua-psy"] = {
 	name : "Psionic Restoration",
 	classes : ["mystic"],
 	source : ["UA:TMC", 23],
@@ -9915,7 +9933,7 @@ PsionicsList["pr4-restore vigor"] = {
 	firstCol : 7
 };
 //the psionic weapon discipline (contributed by Justin W.)
-PsionicsList["psionic weapon"] = {
+PsionicsList["psionic weapon-ua-psy"] = {
 	name : "Psionic Weapon",
 	classes : ["mystic"],
 	source : ["UA:TMC", 24],
@@ -9971,7 +9989,7 @@ PsionicsList["pw3-augmented weapon"] = {
 	firstCol : 5
 };
 //the psychic assault discipline
-PsionicsList["psychic assault"] = {
+PsionicsList["psychic assault-ua-psy"] = {
 	name : "Psychic Assault",
 	classes : ["mystic"],
 	source : ["UA:TMC", 24],
@@ -10057,7 +10075,7 @@ PsionicsList["pa5-psychic crush"] = {
 	firstCol : 7
 };
 //the psychic disruption discipline (contributed by Justin W.)
-PsionicsList["psychic disruption"] = {
+PsionicsList["psychic disruption-ua-psy"] = {
 	name : "Psychic Disruption",
 	classes : ["mystic"],
 	source : ["UA:TMC", 24],
@@ -10116,7 +10134,7 @@ PsionicsList["pd3-mind storm"] = {
 	firstCol : "5-7"
 };
 //the psychic inquisition discipline (contributed by Justin W.)
-PsionicsList["psychic inquisition"] = {
+PsionicsList["psychic inquisition-ua-psy"] = {
 	name : "Psychic Inquisition",
 	classes : ["mystic"],
 	source : ["UA:TMC", 25],
@@ -10189,7 +10207,7 @@ PsionicsList["pi4-phantom idea"] = {
 	firstCol : 6
 };
 //the psychic phantoms discipline (contributed by Justin W.)
-PsionicsList["psychic phantoms"] = {
+PsionicsList["psychic phantoms-ua-psy"] = {
 	name : "Psychic Phantoms",
 	classes : ["mystic"],
 	source : ["UA:TMC", 25],
@@ -10262,7 +10280,7 @@ PsionicsList["pp4-phantom riches"] = {
 	firstCol : 7
 };
 //the telepathic contact discipline (contributed by Justin W.)
-PsionicsList["telepathic contact"] = {
+PsionicsList["telepathic contact-ua-psy"] = {
 	name : "Telepathic Contact",
 	classes : ["mystic"],
 	source : ["UA:TMC", 26],
@@ -10349,7 +10367,7 @@ PsionicsList["tc5-psychic domination"] = {
 	firstCol : 7
 };
 //the third eye discipline (contributed by Justin W.)
-PsionicsList["third eye"] = {
+PsionicsList["third eye-ua-psy"] = {
 	name : "Third Eye",
 	classes : ["mystic"],
 	source : ["UA:TMC", 26],
@@ -10419,7 +10437,7 @@ PsionicsList["te4-truesight"] = {
 };
 
 // Psionic Discipline 'Mastery of Force' power 'Inertial Armour'
-ArmourList["inertial armor"] = {
+ArmourList["inertial armor-ua-psy"] = {
 	regExpSearch : /^(?=.*(inertial|psychic|psionic))(?=.*armou?r).*$/i,
 	name : "Inertial armor",
 	source : ["UA:TMC", 18],
@@ -10428,7 +10446,7 @@ ArmourList["inertial armor"] = {
 };
 
 // Psionic Talents that work like damage cantrips
-WeaponsList["energy beam"] = {
+WeaponsList["energy beam-ua-psy"] = {
 	regExpSearch : /^(?=.*\benergy\b)(?=.*\bbeam\b).*$/i,
 	name : "Energy Beam",
 	source : ["UA:TMC", 27],
@@ -10441,7 +10459,7 @@ WeaponsList["energy beam"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["mind slam"] = {
+WeaponsList["mind slam-ua-psy"] = {
 	regExpSearch : /^(?=.*\bmind\b)(?=.*\bslam\b).*$/i,
 	name : "Mind Slam",
 	source : ["UA:TMC", 28],
@@ -10454,7 +10472,7 @@ WeaponsList["mind slam"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["mind thrust"] = {
+WeaponsList["mind thrust-ua-psy"] = {
 	regExpSearch : /^(?=.*\bmind\b)(?=.*\bthrust\b).*$/i,
 	name : "Mind Thrust",
 	source : ["UA:TMC", 28],
@@ -10467,7 +10485,7 @@ WeaponsList["mind thrust"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["psychic hammer"] = {
+WeaponsList["psychic hammer-ua-psy"] = {
 	regExpSearch : /^(?=.*\bpsychic\b)(?=.*\bhammer\b).*$/i,
 	name : "Psychic Hammer",
 	source : ["UA:TMC", 28],
@@ -10479,17 +10497,6 @@ WeaponsList["psychic hammer"] = {
 	description : "Str save, success - no damage, fail - also move 10 ft in chosen direction (UA:TMC 28)",
 	abilitytodamage : false,
 	dc : true
-};
-WeaponsList["soul knife"] = {
-	regExpSearch : /^(?=.*\bsoul)(?=.*(knives|knife|weapon)\b).*$/i,
-	name : "Soul Knife",
-	source : ["UA:TMC", 8],
-	ability : 1,
-	type : "Martial",
-	damage : [1, 8, "psychic"],
-	range : "Melee",
-	description : "Finesse, light",
-	abilitytodamage : true
 };
 var iFileName = "ua_20170320_Wizard-Revisited.js";
 RequiredSheetVersion(13);
@@ -18289,34 +18296,36 @@ AddSubClass("warlock", "the lurker in the deep", {
 });
 
 // Add a new cantrip and its weaponlist entry
-SpellsList["mind sliver-ua"] = {
-	name : "Mind Sliver",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:SnW", 4],
-	level : 0,
-	school : "Ench",
-	time : "1 a",
-	range : "60 ft",
-	components : "V",
-	duration : "1 rnd",
-	save : "Int",
-	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
-	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-};
-WeaponsList["mind sliver-ua"] = {
-	regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
-	name : "Mind Sliver",
-	source : ["UA:SnW", 4],
-	list : "spell",
-	ability : 5,
-	type : "Cantrip",
-	damage : ["C", 6, "psychic"],
-	range : "60 ft",
-	description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
-	abilitytodamage : false,
-	dc : true
-};
+if (!SpellsList["mind sliver-ua"]) {
+	SpellsList["mind sliver-ua"] = {
+		name : "Mind Sliver",
+		classes : ["sorcerer", "warlock", "wizard"],
+		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
+		level : 0,
+		school : "Ench",
+		time : "1 a",
+		range : "60 ft",
+		components : "V",
+		duration : "1 rnd",
+		save : "Int",
+		description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
+		descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
+		descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+	};
+	WeaponsList["mind sliver-ua"] = {
+		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
+		name : "Mind Sliver",
+		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
+		list : "spell",
+		ability : 6,
+		type : "Cantrip",
+		damage : ["C", 6, "psychic"],
+		range : "60 ft",
+		description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
+		abilitytodamage : false,
+		dc : true
+	};
+}
 var iFileName = "ua_20190918_Bard-and-Paladin.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Bard and Paladin article to MPMB's Character Record Sheet
@@ -19022,7 +19031,7 @@ AddSubClass("fighter", "rune knight", {
 				recovery : "short rest",
 				advantages : [ ["Arcana", true] ],
 				savetxt : { immune : ["surprised"] },
-			}			
+			}
 		},
 		"subclassfeature3.2" : {
 			name : "Giant Might",
@@ -20372,3 +20381,614 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell L
 		]
 	}
 }, "Wizard Spellcasting Enhancement");
+var iFileName = "ua_20191125_Fighter-Rogue-and-Wizard.js";
+RequiredSheetVersion(13);
+// This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["UA:FRnW"] = {
+	name : "Unearthed Arcana: Fighter, Rogue, and Wizard",
+	abbreviation : "UA:FRnW",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2019/dnd/downloads/UA-PsychicSoulPsionics.pdf",
+	date : "2019/11/25"
+};
+
+// Add a subclass for the Fighter
+AddSubClass("fighter", "psychic warrior", {
+	regExpSearch : /^(?=.*psychic)(?=.*warrior).*$/i,
+	subname : "Psychic Warrior",
+	source : [["UA:FRnW", 1]],
+	fullname : "Psychic Warrior",
+	abilitySave : 4,
+	features : {
+		"subclassfeature3" : {
+			name : "Psionic Armament",
+			source : [["UA:FRnW", 1]],
+			minlevel : 3,
+			description : function () {
+				var a = desc([
+					"When I finish a long rest, I can choose to augment my defenses or strikes until the next",
+					" \u2022 As a reaction, augmented defenses allow me to reduce the damage taken by 1d10",
+					"   I can reduce the damage taken by myself or by a creature that I can see within 30 ft",
+					" \u2022 Once per turn, augmented strikes adds +1d4 psychic damage to my weapon attack"
+				]);
+				return levels.map(function (n) {
+					return n < 10 ? a : a.replace('1d10', '1d12').replace('1d4', '1d6');
+				});
+			}(),
+			additional : levels.map(function (n) {
+				return n < 3 ? "" : n < 10 ? "1d10 defense; 1d4 offense" : "1d12 defense; 1d6 offense";
+			}),
+			action : [["reaction", "Augmented Defenses"]]
+		},
+		"subclassfeature3.1" : {
+			name : "Telekinetic Hand",
+			source : [["UA:FRnW", 1]],
+			minlevel : 3,
+			description : "\n   I learn the Mage Hand cantrip, can cast it without components, and can make it invisible",
+			spellcastingBonus : {
+				name : "Telekinetic Hand",
+				spells : ["mage hand"],
+				selection : ["mage hand"],
+				firstCol : "atwill"
+			},
+			spellChanges : {
+				"mage hand" : {
+					components : "",
+					description : "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiples",
+					changes : "My Telekinetic Hand class feature allows me to cast Mage Hand without components and I can make the spectral hand invisible."
+				}
+			}
+		},
+		"subclassfeature7" : {
+			name : "Strength of Mind",
+			source : [["UA:FRnW", 1]],
+			minlevel : 7,
+			description : desc([
+				"As a bonus action, I can have a creature I can see within 20 ft make a Strength save",
+				"It takes 2d6 + Int mod psychic damage \u0026 moves 15 ft away or towards me (my choice)",
+				"If its save succeeds, it takes half damage and isn't moved; DC 8 + Prof bonus + Int mod"
+			]),
+			action : [["bonus action", ""]],
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest"
+		},
+		"subclassfeature10" : {
+			name : "Telekinetic Bulwark",
+			source : [["UA:FRnW", 1]],
+			minlevel : 10,
+			description : desc([
+				"When I take the Attack action, I can forgo one of the attacks to project psionic power",
+				"Myself and my allies within 10 ft of me gain half cover and adv. on Strength saves",
+				"This 10-ft radius bastion around me lasts for 1 minute or until I'm incapacitated",
+				"I regain the usage of this feature after I use my second wind feature"
+			]),
+			recovery : "long rest",
+			usages : 1,
+			limfeaname : "Telekinetic Bulwark [Second Wind regains]"
+		},
+		"subclassfeature15" : {
+			name : "Agonizing Strikes",
+			source : [["UA:FRnW", 2]],
+			minlevel : 15,
+			description : desc([
+				"When I hit a creature with a weapon attack, I can deal an extra +2d10 psychic damage",
+				"The target also has to make a Constitution save (DC 8 + my Prof bonus + my Int mod)",
+				"If it fails, it falls prone and has disadv. on its next ability check until my next turn starts"
+			]),
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest"
+		},
+		"subclassfeature18" : {
+			name : "Psychic Dreadnaught",
+			source : [["UA:FRnW", 2]],
+			minlevel : 18,
+			description : desc([
+				"As a reaction when I take damage, I can give myself the following benefits for 1 minute:",
+				" \u2022 At the start of each of my turns, I regain 10 hit points",
+				" \u2022 My walking speed increases by +10 ft",
+				" \u2022 If I'm prone, I can stand up by spending 5 ft of movement",
+				"These benefits also end when I'm incapacitated"
+			]),
+			recovery : "long rest",
+			usages : 1,
+			action : [["reaction", ""]]
+		}
+	}
+});
+
+// Add a subclass for the Rogue
+AddSubClass("rogue", "soulknife", {
+	regExpSearch : /soulknife/i,
+	subname : "Soulknife",
+	source : [["UA:FRnW", 2]],
+	fullname : "Soulknife",
+	abilitySave : 4,
+	features : {
+		"subclassfeature3" : {
+			name : "Psychic Blade",
+			source : [["UA:FRnW", 2]],
+			minlevel : 3,
+			description : desc([
+				"As a bonus action, I can create a magical blade from one or both of my hands",
+				"Disappear if I'm incapacitated, leave my hand (not thrown), or I dismiss it (no action)"
+			]),
+			action : [["bonus action", " (create)"]],
+			weaponsAdd : ["Soulknife's Psychic Blade"],
+			weaponOptions : [{
+				regExpSearch : /^(?=.*soulknife)(?=.*psychic)(?=.*blade).*$/i,
+				name : "Soulknife's Psychic Blade",
+				source : [["UA:FRnW", 2]],
+				ability : 1,
+				type : "Simple",
+				damage : [1, 6, "psychic"],
+				range : "Melee, 30/60 ft",
+				description : "Finesse, light, thrown",
+				abilitytodamage : true,
+				isSoulknifePsychicBlade : true
+			}]
+		},
+		"subclassfeature3.1" : {
+			name : "Psionic Enhancement",
+			source : [["UA:FRnW", 2]],
+			minlevel : 3,
+			description : desc([
+				"When I finish a long rest, I can choose one of these benefits until my next long rest:",
+				" \u2022 Talk telepathically with those I can see in 30 ft; Can respond if they know a language",
+				" \u2022 Increase my walking speed by 5 ft",
+				" \u2022 Increase my maximum and current HP with my Intelligence modifier plus rogue level"
+			])
+		},
+		"subclassfeature9" : {
+			name : "Terrifying Blade",
+			source : [["UA:FRnW", 3]],
+			minlevel : 9,
+			description : desc([
+				"When I damage a creature with my psychic blade, it must make a Wisdom saving throw",
+				"If it fails, it is frightened of me until my the start of my next turn",
+				"If it succeeds, it is immune to this for 24 hours; DC 8 + my Prof bonus + my Int mod"
+			]),
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.isSoulknifePsychicBlade) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Wis save or frightened for 1 round';
+						};
+					}
+				]
+			}
+		},
+		"subclassfeature13" : {
+			name : "Psychic Veil",
+			source : [["UA:FRnW", 3]],
+			minlevel : 13,
+			description : desc([
+				"As an action, I can become invisible along with everything I'm wearing or carrying",
+				"This ends after 10 minutes, if I make an attack, or if I force a creature to make a save"
+			]),
+			action : [["action", ""]],
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest"
+		},
+		"subclassfeature17" : {
+			name : "Rend Mind",
+			source : [["UA:FRnW", 3]],
+			minlevel : 17,
+			description : desc([
+				"As an action, I can deal 12d6 psychic damage to a creature I can see within 30 ft",
+				"It also makes an Int save or is stunned until my next turn starts; Half damage on success",
+				"It has disadv. on the save if I'm hidden from it; DC 10 + my Prof bonus + my Int mod",
+				"I must have a psychic blade manifested to do so and one vanishes when I use this feature"
+			]),
+			action : [["action", ""]],
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest"
+		}
+	}
+});
+
+// Add a subclass for the Wizard
+AddSubClass("wizard", "psionics", {
+	regExpSearch : /^((?=.*(wizard|mage|magus))(?=.*psionics)|(?=.*(psionicist|mentalist)))(?!.*(wild mage|\bpsion\b|mystic)).*$/i,
+	subname : "Psionics",
+	source : [["UA:FRnW", 3]],
+	fullname : "Psionicist",
+	features : {
+		"subclassfeature2" : {
+			name : "Psionic Focus",
+			source : [["UA:FRnW", 3]],
+			minlevel : 2,
+			description : desc([
+				"I learn to channel psionic energy through an object special to me, my psionic focus",
+				"It allows me to reroll a roll of 1 on any psychic or force damage die for my wizard spells",
+				"I can use this as my spellcasting focus; If lost, I can recreate it by meditating for 1 hour"
+			])
+		},
+		"subclassfeature2.1" : {
+			name : "Psionic Devotion",
+			source : [["UA:FRnW", 4]],
+			minlevel : 2,
+			description : desc([
+				'I learn one cantrip: Friends, Mage Hand, or Message; Use "Choose Feature" button above',
+				"While my psionic focus is on me, I can cast it as a bonus action without components"
+			]),
+			choices : ["Friends", "Mage Hand", "Message"],
+			"friends" : {
+				name : "Psionic Devotion: Friends",
+				description : desc([
+					"I learn the Friends cantrip and while my psionic focus in on me, I am better at casting it",
+					"I can cast it as a bonus action without components and the target doesn't become hostile"
+				]),
+				spellcastingBonus : {
+					name : "Psionic Devotion",
+					spells : ["friends"],
+					selection : ["friends"],
+					firstCol : "atwill"
+				},
+				spellChanges : {
+					"friends" : {
+						time : "1 bns",
+						components : "",
+						compMaterial : "",
+						description : "Adv. on Cha checks vs. 1 crea currently not hostile; when spell ends, crea realizes I used magic",
+						changes : "While my psionic focus is on my person, I can cast Friends as a bonus action without requiring any components and when the spell ends, the target doesn't become hostile to me."
+					}
+				}
+			},
+			"mage hand" : {
+				name : "Psionic Devotion: Mage Hand",
+				description : desc([
+					"I learn Mage Hand and while my psionic focus in on me, I am better at casting it",
+					"I can then cast it as a bonus action without components and can make the hand invisible",
+					"Also, I can control the hand as a bonus action instead of an action"
+				]),
+				spellcastingBonus : {
+					name : "Psionic Devotion",
+					spells : ["mage hand"],
+					selection : ["mage hand"],
+					firstCol : "atwill"
+				},
+				spellChanges : {
+					"mage hand" : {
+						time : "1 bns",
+						components : "",
+						description : "Create invisible hand for simple tasks or carry up to 10 lb; 1 bns action to control; can't have multiples",
+						changes : "While my psionic focus is on my person, I can cast Mage Hand as a bonus action without requiring any components, can make the hand invisible, and controlling the hand is a bonus action for me."
+					}
+				}
+			},
+			"message" : {
+				name : "Psionic Devotion: Message",
+				description : desc([
+					"I learn the Message cantrip and while my psionic focus in on me, I'm better at casting it",
+					"I can then cast it as a bonus action without components",
+					"Also, I don't need to point at the target or whisper the message out loud"
+				]),
+				spellcastingBonus : {
+					name : "Psionic Devotion",
+					spells : ["message"],
+					selection : ["message"],
+					firstCol : "atwill"
+				},
+				spellChanges : {
+					"message" : {
+						time : "1 bns",
+						components : "",
+						compMaterial : "",
+						description : "1 crea hears message I think; can reply with a whisper; nobody can overhear; needs no straight line",
+						changes : "While my psionic focus is on my person, I can cast Message as a bonus action without requiring any components, don't need to point toward the target, and I don't need to whisper my message out loud."
+					}
+				}
+			}
+		},
+		"subclassfeature6" : {
+			name : "Thought Form",
+			source : [["UA:FRnW", 4]],
+			minlevel : 6,
+			description : desc([
+				"As a bonus action, I can use my psionic focus to transform my body into luminous energy",
+				"I chose the shape (my size); It sheds 5-ft radius dim light; My equipment melds into it",
+				"My psionic focus hovers within the energy; In this form, I have the following benefits:",
+				" \u2022 Spells I cast require no verbal, somatic, or material components without a gold cost",
+				" \u2022 I have resistance to psychic and nonmagical bludgeoning/piercing/slashing damage",
+				"This lasts for 10 minutes or until I'm incapacitated, die, or use a bonus action to end it"
+			]),
+			action : [["bonus action", ""]],
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest"
+		},
+		"subclassfeature10" : {
+			name : "Mental Discipline",
+			source : [["UA:FRnW", 4]],
+			minlevel : 10,
+			description : desc([
+				'I learn one spell: Dominate Person, Scrying, or Telekinesis; Use "Choose Feature" button',
+				"I can cast the spell without a spell slot once per long rest (and normally with a spell slot)"
+			]),
+			usages : 1,
+			recovery : "long rest",
+			choices : ["Dominate Person", "Scrying", "Telekinesis"],
+			"dominate person" : {
+				name : "Mental Discipline: Dominate Person",
+				description : desc([
+					"I add Dominate Person to my spellbook and can cast it without requiring components",
+					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal"
+				]),
+				limfeaname : "Dominate Person (without spell slot)",
+				spellcastingBonus : {
+					name : "Mental Discipline",
+					spells : ["dominate person"],
+					selection : ["dominate person"]
+				},
+				spellChanges : {
+					"dominate person" : {
+						components : "",
+						changes : "I can cast Dominate Person without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal."
+					}
+				}
+			},
+			"scrying" : {
+				name : "Mental Discipline: Scrying",
+				description : desc([
+					"I add Scrying to my spellbook and can cast it without requiring components",
+					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal"
+				]),
+				limfeaname : "Scrying (without spell slot)",
+				spellcastingBonus : {
+					name : "Mental Discipline",
+					spells : ["scrying"],
+					selection : ["scrying"]
+				},
+				spellChanges : {
+					"scrying" : {
+						components : "",
+						compMaterial : "",
+						changes : "I can cast Scrying without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal."
+					}
+				}
+			},
+			"telekinesis" : {
+				name : "Mental Discipline: Telekinesis",
+				description : desc([
+					"I add Telekinesis to my spellbook and can cast it without requiring components",
+					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal"
+				]),
+				limfeaname : "Telekinesis (without spell slot)",
+				spellcastingBonus : {
+					name : "Mental Discipline",
+					spells : ["telekinesis"],
+					selection : ["telekinesis"]
+				},
+				spellChanges : {
+					"telekinesis" : {
+						components : "",
+						changes : "I can cast Telekinesis without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal."
+					}
+				}
+			}
+		},
+		"subclassfeature10.1" : {
+			name : "Empowered Psionics",
+			source : [["UA:FRnW", 5]],
+			minlevel : 10,
+			description : "\n   I add my Int modifier to one target of my wizard spells that do psychic or force damage",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName.indexOf("wizard") != -1) {
+							return genericSpellDmgEdit(spellKey, spellObj, "force|psychic", "Int", true);
+						}
+					},
+					"When I deal psychic or force damage with a wizard spell, I can add my Intelligence modifier to the damage against one of the spell's targets."
+				]
+			}
+		},
+		"subclassfeature14" : {
+			name : "Thought Travel",
+			source : [["UA:FRnW", 5]],
+			minlevel : 14,
+			description : desc([
+				"While in my thought form, I gain a fly speed equal to my walking speed and I can hover",
+				"I can then also move through creatures and objects as if they were difficult terrain",
+				"I take 1d10 force damage if I end my turn inside an object",
+				"If I end my though form while inside an object, I'm shunted to the nearest empty space",
+				"I then take 1d10 force damage for every 5 ft traveled"
+			])
+		}
+	}
+});
+
+// The new spells
+SpellsList["ego whip-ua"] = {
+	name : "Ego Whip",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 7]],
+	level : 4,
+	school : "Ench",
+	time : "1 a",
+	range : "30 ft",
+	components : "V",
+	duration : "Conc, 1 min",
+	save : "Int",
+	description : "1 crea save or can't cast spells and disadv. on atks, checks, and saves; save end of each turn to end",
+	descriptionFull : "You lash the mind of one creature you can see within range, filling it with despair. The target must succeed on an Intelligence saving throw or suffer disadvantage on attack rolls, ability checks, and saving throws, and it can't cast spells. At the end of each of its turns, the target can make another Intelligence saving throw. On a success, the spell ends on the target."
+};
+SpellsList["id insinuation-ua"] = {
+	name : "Id Insinuation",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 7]],
+	level : 1,
+	school : "Ench",
+	time : "1 a",
+	range : "60 ft",
+	components : "V,S",
+	duration : "Conc, 1 min",
+	save : "Wis",
+	description : "1 crea save or incapacitated and end of each turn 1d12 Psychic damage, after which it can save to end",
+	descriptionFull : "You unleash a torrent of conflicting desires in the mind of one creature you can see within range, impairing its ability to make decisions. The target must succeed on a Wisdom saving throw or be incapacitated. At the end of each of its turns, it takes 1d12 psychic damage, and it can then make another Wisdom saving throw. On a success, the spell ends on the target."
+};
+SpellsList["intellect fortress-ua"] = {
+	name : "Intellect Fortress",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 7]],
+	level : 5,
+	school : "Abjur",
+	time : "1 a",
+	range : "Self",
+	components : "V,S",
+	duration : "Conc, 10 min",
+	description : "I have advantage on all saves and I can use my reaction to have a creature in 30 ft reroll a failed save",
+	descriptionFull : "You create a faintly shimmering barrier of protective psychic power around you. For the duration, you have advantage on all saving throws.\n   When another creature that you can see within 30 feet of you fails a saving throw, you can use your reaction to allow them to reroll the save. They must use the new roll."
+};
+SpellsList["mental barrier-ua"] = {
+	name : "Mental Barrier",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 7]],
+	level : 2,
+	school : "Abjur",
+	time : "1 rea",
+	range : "Self",
+	components : "V",
+	duration : "1 rnd",
+	description : "I have Psychic damage resistance and adv. on Int, Wis, and Cha saves until the start of my next turn",
+	descriptionFull : "You protect your mind with a wall of looping, repetitive thought. Until the start of your next turn, you have advantage on Intelligence, Wisdom, and Charisma saving throws, and you have resistance to psychic damage."
+};
+SpellsList["mind sliver-ua"] = { // almost duplicate from UA:SnW, but now also on the Bard's spell list
+	name : "Mind Sliver",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:SnW", 4], [["UA:FRnW", 7]]],
+	level : 0,
+	school : "Ench",
+	time : "1 a",
+	range : "60 ft",
+	components : "V",
+	duration : "1 rnd",
+	save : "Int",
+	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
+	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+};
+if (!WeaponsList["mind sliver-ua"]) {
+	WeaponsList["mind sliver-ua"] = {
+		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
+		name : "Mind Sliver",
+		source : [["UA:SnW", 4], [["UA:FRnW", 7]]],
+		list : "spell",
+		ability : 6,
+		type : "Cantrip",
+		damage : ["C", 6, "psychic"],
+		range : "60 ft",
+		description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
+		abilitytodamage : false,
+		dc : true
+	};
+}
+SpellsList["mind thrust-ua"] = {
+	name : "Mind Thrust",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 7]],
+	level : 2,
+	school : "Ench",
+	time : "1 bns",
+	range : "60 ft",
+	components : "V,S",
+	duration : "1 rnd",
+	save : "Int",
+	description : "1+1/SL crea, all max 30 ft apart, 3d6 Psychic dmg, only Dash/Diseng. next turn; save half, any action",
+	descriptionFull : "You propel a lance of psionic disruption into the mind of one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can use its action only to Dash or Disengage on its next turn. On a successful save, the target takes half as much damage, and this spell doesn't limit its action options." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them."
+};
+SpellsList["psionic blast-ua"] = {
+	name : "Psionic Blast",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 8]],
+	level : 3,
+	school : "Evoc",
+	time : "1 a",
+	range : "30-ft cone",
+	components : "V",
+	duration : "Instantaneous",
+	save : "Dex",
+	description : "All crea 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
+	descriptionFull : "You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd."
+};
+SpellsList["psychic crush-ua"] = {
+	name : "Psychic Crush",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 8]],
+	level : 6,
+	school : "Ench",
+	time : "1 a",
+	range : "60 ft",
+	components : "V,S",
+	duration : "1 min",
+	save : "Int",
+	description : "1 crea 12d6 Psychic damage and stunned for 1 min; save half, not stunned; save at turn end to stop",
+	descriptionFull : "You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.\n   The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target."
+};
+SpellsList["thought shield-ua"] = {
+	name : "Thought Shield",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:FRnW", 8]],
+	level : 2,
+	school : "Abjur",
+	time : "1 a",
+	range : "Touch",
+	components : "V,S",
+	duration : "8 h",
+	description : "1 crea's mind can't be read/detected, telepathy only if wanted, adv. on saves vs. lie detecting effects",
+	descriptionFull : "You weave a clouding veil over the mind of one creature you touch. For the duration, the target's mind can't be read or detected, creatures can't telepathically communicate with the target unless the target allows it, and the target has advantage on saving throws against any effect that would determine whether it is telling the truth."
+};
+
+// Add the two psionic-themed feats
+FeatsList["telekinetic-ua"] = {
+	name : "Telekinetic",
+	source : [["UA:FRnW", 8]],
+	descriptionFull : "You learn to move things with your mind. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible.\n \u2022 As a bonus action, you can try to shove one creature you can see within 5 feet of the spectral hand created by your mage hand spell. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be pushed 5 feet away from you.",
+	description : "I learn the Mage Hand cantrip, can cast it without components, and can make it invisible. As a bonus action, I can use it to try and shove a creature I can see within 5 ft of it. The target must make a Str save (Int based) or be shoved 5 ft away from me. [+1 Intelligence]",
+	scores : [0, 0, 0, 1, 0, 0],
+	spellcastingBonus : {
+		name : "Telekinetic",
+		spellcastingAbility : 4,
+		spells : ["mage hand"],
+		selection : ["mage hand"],
+		firstCol : "atwill"
+	},
+	spellChanges : {
+		"mage hand" : {
+			components : "",
+			save : "Str",
+			description : "Invisible hand, simple tasks, carries 10 lb; 1 a to control; not multiple; 1 bns 1 crea save or shove 5 ft",
+			changes : "My Telekinetic feat allows me to cast Mage Hand without verbal or somatic components and I can make the spectral hand invisible."
+		}
+	}
+};
+FeatsList["telepathic-ua"] = {
+	name : "Telepathic",
+	source : [["UA:FRnW", 8]],
+	descriptionFull : "You awaken the ability to mentally connect with others. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in one skill of your choice from the following list: Deception, Insight, Intimidation, or Persuasion.\n \u2022 You can communicate telepathically with any creature you can see within 30 feet of you. If it understands at least one language, it can respond to you telepathically.",
+	description : "I gain proficiency with one skill chosen from Deception, Insight, Intimidation, or Persuasion. I can communicate telepathically with any creature I can see within 30 feet of me. If it understands at least one language, it can respond to me telepathically. [+1 Intelligence]",
+	scores : [0, 0, 0, 1, 0, 0],
+	choices : ["Deception", "Insight", "Intimidation", "Persuasion"],
+	"deception" : {
+		description : "I gain proficiency with Deception. I can communicate telepathically with any creature I can see within 30 ft of me. If the creature understands at least one language, it can respond to me telepathically. [+1 Intelligence]",
+		skills : ["Deception"]
+	},
+	"insight" : {
+		description : "I gain proficiency with Insight. I can communicate telepathically with any creature I can see within 30 ft of me. If the creature understands at least one language, it can respond to me telepathically. [+1 Intelligence]",
+		skills : ["Insight"]
+	},
+	"intimidation" : {
+		description : "I gain proficiency with Intimidation. I can communicate telepathically with any creature I can see within 30 ft of me. If the creature understands at least one language, it can respond to me telepathically. [+1 Intelligence]",
+		skills : ["Intimidation"]
+	},
+	"persuasion" : {
+		description : "I gain proficiency with Persuasion. I can communicate telepathically with any creature I can see within 30 ft of me. If the creature understands at least one language, it can respond to me telepathically. [+1 Intelligence]",
+		skills : ["Persuasion"]
+	}
+};
