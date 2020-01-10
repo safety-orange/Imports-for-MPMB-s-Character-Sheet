@@ -42416,7 +42416,7 @@ FeatsList["flames of phlegethos"] = {
 	scorestxt : "+1 Intelligence or Charisma"	
 };
 FeatsList["grudge-bearer"] = {
-	name : "Grudge-Bearer [2 humanoids]",
+	name : "Grudge-Bearer",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Dwarf",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
