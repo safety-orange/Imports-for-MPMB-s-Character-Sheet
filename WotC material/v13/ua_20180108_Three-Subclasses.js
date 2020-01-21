@@ -97,7 +97,7 @@ AddSubClass("druid", "circle of spores", {
 		}
 	}
 });
-AddSubClass("fighter", "brute", {
+var fighterBruteSubclassUA = AddSubClass("fighter", "brute", {
 	regExpSearch : /brute/i,
 	subname : "Brute",
 	source : ["UA:TS", 2],
@@ -132,14 +132,6 @@ AddSubClass("fighter", "brute", {
 			]),
 			savetxt : { text : ["Add 1d6 to all saves"] }
 		},
-		"subclassfeature10" : function () {
-			var FSfea = newObj(Base_ClassList.fighter.features["fighting style"]);
-			FSfea.name = "Additional Fighting Style";
-			FSfea.source = ["UA:TS", 2];
-			FSfea.minlevel = 10;
-			FSfea.description = "\n   " + "Choose an Additional Fighting Style using the \"Choose Feature\" button above ";
-			return FSfea;
-		}(),
 		"subclassfeature15" : {
 			name : "Devastating Critical",
 			source : ["UA:TS", 2],
@@ -157,6 +149,15 @@ AddSubClass("fighter", "brute", {
 			])
 		}
 	}
+});
+RunFunctionAtEnd(function () {
+	var FSfea = newObj(ClassList.fighter.features["fighting style"]);
+	FSfea.name = "Additional Fighting Style";
+	FSfea.source = ["UA:TS", 2];
+	FSfea.minlevel = 10;
+	FSfea.extrachoices = "";
+	FSfea.description = '\n   Choose an Additional Fighting Style using the "Choose Feature" button above ';
+	ClassSubList[fighterBruteSubclassUA].features.subclassfeature10 = FSfea;
 });
 AddSubClass("wizard", "school of invention", {
 	regExpSearch : /^(?=.*wizard)(?=.*invent(ion|or)).*$/i,

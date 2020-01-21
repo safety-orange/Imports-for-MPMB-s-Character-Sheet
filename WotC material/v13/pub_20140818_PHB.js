@@ -3846,7 +3846,7 @@ FeatsList["spell sniper"] = {
 	name : "Spell Sniper",
 	source : ["P", 170],
 	descriptionFull : "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n \u2022 When you cast a spell that requires you to make an attack roll, the spell's range is doubled.\n \u2022 Your ranged spell attacks ignore half cover and three-quarters cover.\n \u2022 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
-	description : "Select a spellcasting ability using the square button on this feat line. I learn one cantrip requiring an attack roll from the spell list of a class with the chosen spellcasting ability. Any spell I cast requiring an attack roll has its range doubled and ignores half and 3/4 cover.",
+	description : "Select a spellcasting class using the square button on this feat line. I learn one cantrip requiring an attack roll from the spell list of the chosen class. Any spell I cast requiring an attack roll has its range doubled and ignores half and 3/4 cover.",
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : function(v) { return v.isSpellcaster; },
 	calcChanges : {
@@ -3896,38 +3896,68 @@ FeatsList["spell sniper"] = {
 			"My spells and cantrips that require an attack roll have their range doubled."
 		]
 	},
-	choices : ["Intelligence caster (Wizard)", "Wisdom caster (Cleric / Druid)", "Charisma caster (Bard / Sorcerer / Warlock)"],
-	"intelligence caster (wizard)" : {
-		name : "Spell Sniper [Intelligence]",
+	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
+	"bard" : {
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one bard cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
+		spellcastingBonus : {
+			name : "Spell Attack Cantrip",
+			spellcastingAbility : 6,
+			'class' : 'bard',
+			level : [0, 0],
+			attackOnly : true,
+			firstCol : "atwill"
+		}
+	},
+	"cleric" : {
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one cleric cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
+		spellcastingBonus : {
+			name : "Spell Attack Cantrip",
+			spellcastingAbility : 5,
+			'class' : 'cleric',
+			level : [0, 0],
+			attackOnly : true,
+			firstCol : "atwill"
+		}
+	},
+	"druid" : {
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
+		spellcastingBonus : {
+			name : "Spell Attack Cantrip",
+			spellcastingAbility : 5,
+			'class' : 'druid',
+			level : [0, 0],
+			attackOnly : true,
+			firstCol : "atwill"
+		}
+	},
+	"sorcerer" : {
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one sorcerer cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
+		spellcastingBonus : {
+			name : "Spell Attack Cantrip",
+			spellcastingAbility : 6,
+			'class' : 'sorcerer',
+			level : [0, 0],
+			attackOnly : true,
+			firstCol : "atwill"
+		}
+	},
+	"warlock" : {
+		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
+		spellcastingBonus : {
+			name : "Spell Attack Cantrip",
+			spellcastingAbility : 6,
+			'class' : 'warlock',
+			level : [0, 0],
+			attackOnly : true,
+			firstCol : "atwill"
+		}
+	},
+	"wizard" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
 		spellcastingBonus : {
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 4,
 			'class' : 'wizard',
-			level : [0, 0],
-			attackOnly : true,
-			firstCol : "atwill"
-		}
-	},
-	"wisdom caster (cleric / druid)" : {
-		name : "Spell Sniper [Wisdom]",
-		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one cleric or druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		spellcastingBonus : {
-			name : "Spell Attack Cantrip",
-			spellcastingAbility : 5,
-			'class' : ['cleric', 'druid'],
-			level : [0, 0],
-			attackOnly : true,
-			firstCol : "atwill"
-		}
-	},
-	"charisma caster (bard / sorcerer / warlock)" : {
-		name : "Spell Sniper [Charisma]",
-		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one bard, sorcerer, or warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		spellcastingBonus : {
-			name : "Spell Attack Cantrip",
-			spellcastingAbility : 6,
-			'class' : ['bard', 'sorcerer', 'warlock'],
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"

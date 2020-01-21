@@ -479,7 +479,7 @@ SpellsList["mental barrier-ua"] = {
 SpellsList["mind sliver-ua"] = { // almost duplicate from UA:SnW, but now also on the Bard's spell list
 	name : "Mind Sliver",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
-	source : [["UA:SnW", 4], [["UA:FRnW", 7]]],
+	source : [["UA:SnW", 4], ["UA:FRnW", 7]],
 	level : 0,
 	school : "Ench",
 	time : "1 a",
@@ -495,7 +495,7 @@ if (!WeaponsList["mind sliver-ua"]) {
 	WeaponsList["mind sliver-ua"] = {
 		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
 		name : "Mind Sliver",
-		source : [["UA:SnW", 4], [["UA:FRnW", 7]]],
+		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
 		list : "spell",
 		ability : 6,
 		type : "Cantrip",

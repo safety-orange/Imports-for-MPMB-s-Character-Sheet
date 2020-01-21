@@ -50,7 +50,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 			},
 			armorAdd : "Warped Being"
 		},
-		"subclassfeature6": {
+		"subclassfeature6" : {
 			name : "Psionic Sorcery",
 			source : ["UA:SnW", 2],
 			minlevel : 6,
@@ -72,7 +72,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 				return fullReObj;
 			}()
 		},
-		"subclassfeature6.1": {
+		"subclassfeature6.1" : {
 			name : "Psychic Defenses",
 			source : ["UA:SnW", 2],
 			minlevel : 6,
@@ -80,7 +80,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 			dmgres : ["Psychic"],
 			savetxt : { adv_vs : ["charmed", "frightened"] }
 		},
-		"subclassfeature14": {
+		"subclassfeature14" : {
 			name : "Revelation in Flesh",
 			source : ["UA:SnW", 2],
 			minlevel : 14,
@@ -96,7 +96,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 			action : [["bonus action", ""]],
 			additional : "1+ sorcery points"
 		},
-		"subclassfeature18": {
+		"subclassfeature18" : {
 			name : "Warp Reality",
 			source : ["UA:SnW", 2],
 			minlevel : 18,
@@ -120,7 +120,7 @@ AddSubClass("warlock", "the lurker in the deep", {
 	source : ["UA:SnW", 2],
 	spellcastingExtra : ["create or destroy water", "thunderwave", "gust of wind", "shatter", "lightning bolt", "sleet storm", "control water", "evard's black tentacles", "commune with nature", "cone of cold"],
 	features : {
-		"subclassfeature1": {
+		"subclassfeature1" : {
 			name : "Grasp of the Deep",
 			source : ["UA:SnW", 3],
 			minlevel : 1,
@@ -161,7 +161,7 @@ AddSubClass("warlock", "the lurker in the deep", {
 				]
 			}
 		},
-		"subclassfeature1.1": {
+		"subclassfeature1.1" : {
 			name : "Scion of the Deep",
 			source : ["UA:SnW", 3],
 			minlevel : 1,
@@ -170,7 +170,7 @@ AddSubClass("warlock", "the lurker in the deep", {
 				"The creature must be within 120 ft of me and have an innate swimming speed"
 			])
 		},
-		"subclassfeature6": {
+		"subclassfeature6" : {
 			name : "Fathomless Soul",
 			source : ["UA:SnW", 3],
 			minlevel : 6,
@@ -178,7 +178,7 @@ AddSubClass("warlock", "the lurker in the deep", {
 			dmgres : ["Cold"],
 			speed : { swim : { spd : "walk", enc : "walk" } }
 		},
-		"subclassfeature6.1": {
+		"subclassfeature6.1" : {
 			name : "Guardian Grasp",
 			source : ["UA:SnW", 3],
 			minlevel : 6,
@@ -188,7 +188,7 @@ AddSubClass("warlock", "the lurker in the deep", {
 			]),
 			action : [["reaction", ""]]
 		},
-		"subclassfeature10": {
+		"subclassfeature10" : {
 			name : "Devouring Maw",
 			source : ["UA:SnW", 3],
 			minlevel : 10,
@@ -205,7 +205,7 @@ AddSubClass("warlock", "the lurker in the deep", {
 			recovery : "short rest",
 			usages : 1
 		},
-		"subclassfeature14": {
+		"subclassfeature14" : {
 			name : "Unleash the Depths",
 			source : ["UA:SnW", 4],
 			minlevel : 14,
