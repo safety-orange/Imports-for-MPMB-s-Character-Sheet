@@ -955,7 +955,7 @@ AddSubClass("monk", "way of the four elements", {
 			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
 			additional : ["", "", "2 known", "2 known", "2 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 4 max ki", "3 known; 4 max ki", "4 known; 4 max ki", "4 known; 4 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki"],
 			extraname : "Elemental Discipline",
-			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
+			extrachoices : ["Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "River of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)"],
 			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'elemental attunement', 'extra']);",
 			removeeval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'elemental attunement', 'extra'], 'remove');",
 			"elemental attunement" : {
@@ -1089,13 +1089,13 @@ AddSubClass("monk", "way of the four elements", {
 				spellFirstColTitle : "Ki",
 				prereqeval : "classes.known.monk.level >= 11"
 			},
-			"rive of hungry flame (prereq: level 17 monk)" : {
-				name : "Rive of Hungry Flame",
+			"river of hungry flame (prereq: level 17 monk)" : {
+				name : "River of Hungry Flame",
 				source : ["P", 81],
 				description : " [5 ki points]" + "\n   " + "As an action, I can cast Wall of Fire without material components (PHB 285)",
 				action : ["action", ""],
 				spellcastingBonus : {
-					name : "Rive of Hungry Flame",
+					name : "River of Hungry Flame",
 					spells : ["wall of fire"],
 					selection : ["wall of fire"],
 					firstCol : 5
@@ -16603,7 +16603,7 @@ RaceList["beasthide shifter"] = {
 	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Beasthide Shifter: +1 Dexterity, +2 Constitution;",
 	scores : [0, 1, 2, 0, 0, 0],
 	trait : "Beasthide Shifter: (+1 Dexterity, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC",
@@ -16636,7 +16636,7 @@ RaceList["longtooth shifter"] = {
 	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Longtooth Shifter: +2 Strength, +1 Dexterity;",
 	scores : [2, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
@@ -16682,7 +16682,7 @@ RaceList["swiftstride shifter"] = {
 	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Swiftstride Shifter: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
 	trait : "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 5 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
@@ -16716,7 +16716,7 @@ RaceList["wildhunt shifter"] = {
 	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Wildhunt Shifter: +1 Dexterity, +2 Wisdom;",
 	scores : [0, 1, 0, 0, 2, 0],
 	trait : "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can transform and get adv. on Wis checks." + (typePF ? " " : "\n") + "This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nMark the Scent: As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
@@ -16764,7 +16764,7 @@ RaceList["envoy warforged"] = {
 	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
 	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
 	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	improvements : "Envoy Warforged: +1 Constitution and +1 to two other ability scores of my choice;",
 	scores : [0, 0, 1, 0, 0, 0],
 	trait : "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
@@ -16793,7 +16793,7 @@ RaceList["juggernaut warforged"] = {
 	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
 	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
 	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	improvements : "Juggernaut Warforged: +2 Strength, +1 Constitution;",
 	scores : [2, 0, 1, 0, 0, 0],
 	trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
@@ -16833,7 +16833,7 @@ RaceList["skirmisher warforged"] = {
 	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
 	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
 	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	improvements : "Skirmisher Warforged: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
 	trait : "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
@@ -20060,7 +20060,7 @@ RaceList["warforged"] = {
 	height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")",
 	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)",
 	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	improvements : "Warforged: +1 Strength, +1 Constitution;",
 	scores : [1, 0, 1, 0, 0, 0],
 	trait : "Warforged (+1 Strength, +1 Constitution)\nLiving Construct:\n   Even though I was constructed, I am a living creature. I am immune to disease. I do not need to eat or breathe, but I can ingest food and drink if I wish.\n   Instead of sleeping, I enter an inactive state for 4 hours each day. I do not dream in this state; I am fully aware of my surroundings and notice approaching enemies and other events as normal. I still need 8 hours for a long rest.",
@@ -20083,7 +20083,7 @@ RaceList["shifter"] = {
 	height : " range from under 5 to 6 feet tall (4'6\" + 2d8\")",
 	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 	improvements : "Shifter: +1 Dexterity and +1 to other ability score depending on type of shifter;",
 	scores : [0, 1, 0, 0, 0, 0],
 	trait : "Shifter (+1 Dexterity and +1 to other ability score depending on type of shifter)\n   Use the \"Racial Options\" button to select type of shifter.\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and another bonus depending on the type of shifter.",
@@ -34083,7 +34083,7 @@ if (!SourceList.WGtE) {
 		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 		improvements : "Beasthide Shifter: +1 Dexterity, +2 Constitution;",
 		scores : [0, 1, 2, 0, 0, 0],
 		trait : "Beasthide Shifter: (+1 Dexterity, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC",
@@ -34116,7 +34116,7 @@ if (!SourceList.WGtE) {
 		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 		improvements : "Longtooth Shifter: +2 Strength, +1 Dexterity;",
 		scores : [2, 1, 0, 0, 0, 0],
 		trait : "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
@@ -34162,7 +34162,7 @@ if (!SourceList.WGtE) {
 		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 		improvements : "Swiftstride Shifter: +2 Dexterity, +1 Charisma;",
 		scores : [0, 2, 0, 0, 0, 1],
 		trait : "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 5 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
@@ -34196,7 +34196,7 @@ if (!SourceList.WGtE) {
 		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")", // Taken from 3e Eberron Campaign Setting
 		weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)", // Taken from 3e Eberron Campaign Setting
 		heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / kg)",
+		weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
 		improvements : "Wildhunt Shifter: +1 Dexterity, +2 Wisdom;",
 		scores : [0, 1, 0, 0, 2, 0],
 		trait : "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can transform and get adv. on Wis checks." + (typePF ? " " : "\n") + "This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nMark the Scent: As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
@@ -34244,7 +34244,7 @@ if (!SourceList.WGtE) {
 		height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
 		weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
 		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		improvements : "Envoy Warforged: +1 Constitution and +1 to two other ability scores of my choice;",
 		scores : [0, 0, 1, 0, 0, 0],
 		trait : "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
@@ -34273,7 +34273,7 @@ if (!SourceList.WGtE) {
 		height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
 		weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
 		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		improvements : "Juggernaut Warforged: +2 Strength, +1 Constitution;",
 		scores : [2, 0, 1, 0, 0, 0],
 		trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
@@ -34313,7 +34313,7 @@ if (!SourceList.WGtE) {
 		height : " stand between 6 and 7 feet tall (5'10\" + 2d6\")", // Taken from 3e Eberron Campaign Setting
 		weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)", // Taken from 3e Eberron Campaign Setting
 		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
-		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / kg)",
+		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		improvements : "Skirmisher Warforged: +2 Dexterity, +1 Constitution;",
 		scores : [0, 2, 1, 0, 0, 0],
 		trait : "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
