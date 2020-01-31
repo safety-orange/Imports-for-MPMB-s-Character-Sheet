@@ -615,7 +615,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 			spellChanges : {
 				"spare the dying" : {
 					time : "1 bns",
-					range : "Touch",
+					range : "30 ft",
 					changes : "I can cast spare the dying as a bonus action instead of an action, and it has a range of 30 ft instead of touch."
 				}
 			}
@@ -4163,6 +4163,19 @@ SpellsList["shadow blade"] = {
 	description : "Sword 2d8 Psychic dmg, finesse, light, thrown (20/60ft), adv. if target in dim/dark; +1d8 at SL3/5/7",
 	descriptionMetric : "Sword: 2d8 Psychic dmg, finesse, light, thrown (6/18m), adv. if target in dim/dark; +1d8 at SL3/5/7",
 	descriptionFull : "You weave together threads of shadow to create a sword of solidified gloom in your hand. This magic sword lasts until the spell ends. It counts as a simple melee weapon with which you are proficient. It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties (range 20/60). In addition, when you use the sword to attack a target that is in dim light or darkness, you make the attack roll with advantage." + "\n   " + "If you drop the weapon or throw it, it dissipates at the end of the turn. Thereafter, while the spell persists, you can use a bonus action to cause the sword to reappear in your hand." + AtHigherLevels + "When you cast this spell using a 3rd- or 4th-level spell slot, the damage increases to 3d8. When you cast it using a 5th- or 6th-level spell slot, the damage increases to 4d8. When you cast it using a spell slot of 7th level or higher, the damage increases to 5d8."
+};
+WeaponsList["shadow blade"] = {
+    regExpSearch : /(?=.*shadow)(?=.*blade).*$/i,
+    name : "Shadow Blade",
+    source : ["X", 164],
+    list : "spell",
+    ability : 1,
+    type : "Simple",
+    damage : [2, 8, "psychic"],
+    range : "Melee, 20/60 ft",
+    description : "Finesse, light, thrown; +1d8 at SL3/5/7; Adv. if target in dim light/darkness",
+	abilitytodamage : true,
+	isAlwaysProf : true
 };
 SpellsList["shadow of moil"] = {
 	name : "Shadow of Moil",
