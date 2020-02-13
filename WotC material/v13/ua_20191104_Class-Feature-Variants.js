@@ -468,6 +468,7 @@ origNatExpl.resetNatExplExtrachoices = function () {
 		if (extraSel[i] == "travel benefits") ClassList.ranger.features["natural explorer"].extraname = curExtraName;
 	};
 };
+// Add the new feature
 AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
 	name : "Deft Explorer",
 	source : ["UA:CFV", 7],
@@ -482,7 +483,7 @@ AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
 		var natExplFea = ClassList.ranger.features["natural explorer"];
 		var newChoice = choiceA[1];
 		natExplFea.resetNatExplExtrachoices();
-		if (newChoice == "\x1B[original] natural explorer") {
+		if (newChoice.indexOf("\x1B[original]") !== -1) {
 			natExplFea.extraname = "Ranger 1";
 			ClassFeatureOptions(['ranger', 'natural explorer', "travel benefits", 'extra']);
 		}
@@ -530,6 +531,13 @@ origNatExpl.tireless = {
 	usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 	recovery : "long rest"
 };
+// Now set the extraname and extrachoices to the current selection
+var origNatExplCurSel = GetFeatureChoice("classes", "ranger", "natural explorer", false);
+if (origNatExplCurSel) {
+	origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
+	origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
+}
+
 // Make favored enemy into a choice (can't be done by automation because of extrachoices) and add "Favored Foe" variant option
 var origFavoredEnemy = ClassList.ranger.features["favored enemy"];
 var origFavoredEnemyNm = "\x1B[original] " + origFavoredEnemy.name;
@@ -814,6 +822,198 @@ CreatureList["beast of the earth"] = {
 		tDoc.getField(prefix + "Comp.Use.HP.Max").setAction("Calculate", "");
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "");
 	}
+}
+
+// Add the Ranger alternative class features also to the Revised Ranger, if it exists
+if (ClassList["rangerua"]) {
+	// Make natural explorer into a choice (can't be done by automation because of extrachoices) and add "Deft Explorer" variant option
+	var origNatExpl = ClassList.rangerua.features["natural explorer"];
+	var origNatExplNm = "\x1B[original] " + origNatExpl.name;
+	origNatExpl.choices = [origNatExplNm];
+	origNatExpl.defaultChoice = origNatExplNm.toLowerCase();
+	origNatExpl[origNatExplNm.toLowerCase()] = {
+		name : origNatExpl.name,
+		source : origNatExpl.source,
+		description : origNatExpl.description,
+		extraname : origNatExpl.extraname
+	};
+	origNatExpl.description = '\n   Select ' + origNatExpl.name + ' or a variant using the "Choose Feature" button above';
+	origNatExpl.name = origNatExpl.name + " or a Variant";
+	origNatExpl.resetNatExplExtrachoices = function () {
+		var extraSel = GetFeatureChoice("classes", "rangerua", "natural explorer", true);
+		for (var i = 0; i < extraSel.length; i++) {
+			ClassFeatureOptions(['rangerua', 'natural explorer', extraSel[i], 'extra'], "remove");
+		};
+	};
+	AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
+		name : "Deft Explorer",
+		source : ["UA:CFV", 7],
+		description : '\n   Use the "Choose Feature" button above to add a deft explorer benefit to the third page',
+		eval : function() {
+			var natExplFea = ClassList.rangerua.features["natural explorer"];
+			natExplFea.resetNatExplExtrachoices();
+			natExplFea.extraname = natExplFea["deft explorer"].extraname;
+			natExplFea.extrachoices = natExplFea["deft explorer"].extrachoices;
+		},
+		removeeval : function(lvlA, choiceA) {
+			var natExplFea = ClassList.rangerua.features["natural explorer"];
+			var newChoice = choiceA[1];
+			natExplFea.resetNatExplExtrachoices();
+			if (newChoice && natExplFea[newChoice]) {
+				natExplFea.extraname = natExplFea[newChoice].extraname ? natExplFea[newChoice].extraname : "";
+				natExplFea.extrachoices = natExplFea[newChoice].extrachoices ? natExplFea[newChoice].extrachoices : "";
+				if (newChoice.indexOf("\x1B[original]") !== -1) {
+					ClassFeatureOptions(['rangerua', 'natural explorer', "travel benefits", 'extra']);
+				}
+			}
+		},
+		additional :  levels.map(function (n) {
+			return n < 6 ? "1 benefit" : (n < 10 ? 2 : 3) + " benefits";
+		}),
+		extraname : "Deft Explorer Benefit",
+		extrachoices : ["Canny", "Roving", "Tireless"]
+	});
+	origNatExpl.canny = {
+		name : "Canny",
+		source : ["UA:CFV", 7],
+		description : desc([
+			"I learn two language of my choice, and proficiency and expertise with one skill of my choice",
+			"The skill I have to choose from: Animal Handling, Athletics, History, Insight, Investigation,",
+			"Medicine, Nature, Perception, Stealth, or Survival"
+		]),
+		languageProfs : [2],
+		skillstxt : "Proficiency and expertise with one from Animal Handling, Athletics, History, Insight, Investigation, Medicine, Nature, Perception, Stealth, or Survival"
+	};
+	origNatExpl.roving = {
+		name : "Roving",
+		source : ["UA:CFV", 7],
+		description : "\n   I gain +5 ft walking speed and climbing and swimin speed equal to my walking speed",
+		speed : {
+			walk : { spd : "+5", enc : "+5" },
+			climb : { spd : "walk", enc : "walk" },
+			swim : { spd : "walk", enc : "walk" }
+		}
+	};
+	origNatExpl.tireless = {
+		name : "Tireless",
+		source : ["UA:CFV", 7],
+		description : desc([
+			"Whenever I finish a short or long rest, I reduce my exhaustion level, if any, by 1",
+			"As an action a number of times per day, I can give myself temp HP of 1d10 + Wis mod"
+		]),
+		action : [["action", ""]],
+		usages : "Wisdom modifier per ",
+		usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
+		recovery : "long rest"
+	};
+	// Now set the extraname and extrachoices to the current selection
+	var origNatExplCurSel = GetFeatureChoice("classes", "rangerua", "natural explorer", false);
+	if (origNatExplCurSel) {
+		origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
+		origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
+	}
+
+	// Make favored enemy into a choice (can't be done by automation because of choices) and add "Favored Foe" variant option
+	
+	// NOG NAAR KIJKEN !!!
+
+	// The enhancement option for fighting styles has to be added to each class separately
+	AddFeatureChoice(ClassList.rangerua.features["fighting style"], true, "Martial Versatility", {
+		name : "Martial Versatility",
+		source : ["UA:CFV", 12],
+		description : "\n   Whenever I gain a ranger level, I can swap a fighting style I know for another I'm allowed"
+	}, "Fighting Style Enhancement");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Expanded Spell List", {
+		name : "Expanded Ranger Spell List",
+		source : ["UA:CFV", 7],
+		description : "",
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					// Stop this is not the class' spell list or if this is for a bonus spell entry
+					if (spName !== "rangerua" || spType.indexOf("bonus") !== -1) return;
+					spList.extraspells = spList.extraspells.concat(["aid", "entangle", "searing smite", "gust of wind", "magic weapon", "enhance ability", "warding bond", "blinding smite", "meld into stone", "revivify", "tongues", "death ward", "dominate beast", "awaken", "greater restoration"]);
+				},
+				"This alternative class feature enhancement expands the spells list of the ranger class."
+			]
+		}
+	}, "Ranger Spellcasting Enhancement");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spell Versatility", {
+		name : "Spell Versatility",
+		source : ["UA:CFV", 8],
+		description : "\n   When I finish a long rest, I can replace a ranger spell I know with another of the same level"
+	}, "Ranger Spellcasting Enhancement");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spellcasting Focus", {
+		name : "Spellcasting Focus",
+		source : ["UA:CFV", 8],
+		description : "\n   I can use a druidic focus as a spellcasting focus for my ranger spells"
+	}, "Ranger Spellcasting Enhancement");
+	CreateClassFeatureVariant("rangerua", "primeval awareness", "Primal Awareness (bonus spells)", {
+		name : "Primal Awareness",
+		source : ["UA:CFV", 8],
+		description : desc([
+			"I get bonus spells known, which do not count against the number of spells I can know",
+			"In addition, I can cast each once per long rest without expending a spell slot"
+		]),
+		calcChanges : {
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+					if (spName == "rangerua" && bonusSpells.indexOf(spellKey) != -1) {
+						spellObj.firstCol = "oncelr";
+						return true;
+					};
+				},
+				"I can cast these spells each once per long rest without expending a spell slot, but also as normal by expending a spell slot."
+			],
+			spellList : [
+				function(spList, spName, spType) {
+					// Remove the bonus spells from the normally selectable list
+					if (spName == "rangerua") {
+						if (!spList.notspells) spList.notspells = [];
+						spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
+					}
+				},
+				"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
+			]
+		},
+		changeeval : function() {
+			// as another subclass might override the 'extra' attribute in the CurrentSpells object, add it through an eval
+			if (!CurrentSpells.rangerua) return;
+			var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+			if (!CurrentSpells.rangerua.extra) CurrentSpells.rangerua.extra = [];
+			if (CurrentSpells.rangerua.extra.toString().indexOf(bonusSpells.toString()) == -1) {
+				var newExtra = [];
+				for (var i = 0; i < CurrentSpells.rangerua.extra.length; i++) {
+					var anExtra = CurrentSpells.rangerua.extra[i];
+					if (anExtra && anExtra !== "AddToKnown" && bonusSpells.indexOf(anExtra) == -1) newExtra.push(anExtra);
+				}
+				CurrentSpells.rangerua.extra = newExtra.concat(bonusSpells);
+				CurrentSpells.rangerua.extra[100] = "AddToKnown";
+			}
+		},
+		removeeval : function() {
+			// remove the extra spells
+			if (!CurrentSpells.rangerua || !CurrentSpells.rangerua.extra) return;
+			var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+			if (CurrentSpells.rangerua.extra.toString().indexOf(bonusSpells.toString()) !== -1) {
+				var newExtra = CurrentSpells.rangerua.extra.join("##").replace(bonusSpells.join("##"), "").replace("AddToKnown", "").replace(/#+$/, '');
+				CurrentSpells.rangerua.extra = newExtra.split("##");
+				CurrentSpells.rangerua.extra[100] = "AddToKnown";
+			}
+		}
+	});
+	CreateClassFeatureVariant("rangerua", "hide in plain sight", "Fade Away", {
+		name : "Fade Away",
+		source : ["UA:CFV", 8],
+		description : desc([
+			"As a bonus action, I can become invisible along with any equipment I'm wearing/carrying",
+			"This invisibility lasts until the start of my next turn"
+		]),
+		action : [["bonus action", ""]],
+		usages : 1,
+		recovery : "short rest"
+	});
 }
 
 // Rogue alternative class feature enhancement

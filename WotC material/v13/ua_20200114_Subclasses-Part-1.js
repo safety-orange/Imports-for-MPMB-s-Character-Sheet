@@ -11,7 +11,7 @@ SourceList["UA:SP1"] = {
 	date : "2020/01/14"
 };
 
-// Add a subclasses for the Barbarian and one for the Monk
+// Add a subclasses for the Barbarian, Monk, Paladin, and Warlock
 AddSubClass("barbarian", "path of the beast-ua", {
 	regExpSearch : /^(?=.*\bbeast\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
 	subname : "Path of the Beast",

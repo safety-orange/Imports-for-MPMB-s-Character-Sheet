@@ -2432,7 +2432,7 @@ AddSubClass("artificer", "battle smith", {
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use smith's tools to create a steel defender",
-				"I determine its appearance: It obeys my commands and it acts on my initiative, after me",
+				"I determine its appearance; It obeys my commands and it acts on my initiative, after me",
 				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
 				"It can take reactions and move on its turn even if I don't command it",
 				"I can't have multiple at once; Select \"Steel Defender\" on a companion page for its stats"
@@ -3503,7 +3503,7 @@ CreatureList["eldritch cannon"] = {
 		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level >= 9;
 		for (var i = 1; i <= 3; i++) {
 			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
-			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType];\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
+			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType] ? CurrentSpells.artificer.calcSpellScores[atkType] : false;\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
 			ToHitFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack." + i + ".To Hit").calcOrderIndex - 1;
 			ToHitFld.readonly = true;
 			if (artLvl9) Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");

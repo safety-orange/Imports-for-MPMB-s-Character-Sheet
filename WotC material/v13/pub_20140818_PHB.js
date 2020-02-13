@@ -376,7 +376,7 @@ AddSubClass("cleric", "knowledge domain", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
 							return true;
@@ -466,7 +466,7 @@ AddSubClass("cleric", "light domain", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
 							return true;

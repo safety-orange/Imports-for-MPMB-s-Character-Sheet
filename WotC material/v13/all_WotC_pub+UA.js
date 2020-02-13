@@ -518,7 +518,7 @@ AddSubClass("cleric", "knowledge domain", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
 							return true;
@@ -608,7 +608,7 @@ AddSubClass("cleric", "light domain", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
 							return true;
@@ -10289,7 +10289,7 @@ AddSubClass("cleric", "arcana domain", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
 							return true;
@@ -16316,7 +16316,7 @@ AddSubClass("cleric", "forge domain-xgte", {
 	}
 });
 AddSubClass("cleric", "grave domain-xgte", {
-	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(grave)).*$/i,
+	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*grave).*$/i,
 	subname : "Grave Domain",
 	source : ["X", 19],
 	spellcastingExtra : ["bane", "false life", "gentle repose", "ray of enfeeblement", "revivify", "vampiric touch", "blight", "death ward", "antilife shell", "raise dead"],
@@ -16392,7 +16392,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
 							return true;
@@ -29496,7 +29496,7 @@ AddSubClass("artificer", "battle smith", {
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use smith's tools to create a steel defender",
-				"I determine its appearance: It obeys my commands and it acts on my initiative, after me",
+				"I determine its appearance; It obeys my commands and it acts on my initiative, after me",
 				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
 				"It can take reactions and move on its turn even if I don't command it",
 				"I can't have multiple at once; Select \"Steel Defender\" on a companion page for its stats"
@@ -30567,7 +30567,7 @@ CreatureList["eldritch cannon"] = {
 		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level >= 9;
 		for (var i = 1; i <= 3; i++) {
 			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
-			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType];\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
+			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType] ? CurrentSpells.artificer.calcSpellScores[atkType] : false;\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
 			ToHitFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack." + i + ".To Hit").calcOrderIndex - 1;
 			ToHitFld.readonly = true;
 			if (artLvl9) Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
@@ -50598,6 +50598,7 @@ origNatExpl.resetNatExplExtrachoices = function () {
 		if (extraSel[i] == "travel benefits") ClassList.ranger.features["natural explorer"].extraname = curExtraName;
 	};
 };
+// Add the new feature
 AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
 	name : "Deft Explorer",
 	source : ["UA:CFV", 7],
@@ -50612,7 +50613,7 @@ AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
 		var natExplFea = ClassList.ranger.features["natural explorer"];
 		var newChoice = choiceA[1];
 		natExplFea.resetNatExplExtrachoices();
-		if (newChoice == "\x1B[original] natural explorer") {
+		if (newChoice.indexOf("\x1B[original]") !== -1) {
 			natExplFea.extraname = "Ranger 1";
 			ClassFeatureOptions(['ranger', 'natural explorer', "travel benefits", 'extra']);
 		}
@@ -50660,6 +50661,13 @@ origNatExpl.tireless = {
 	usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 	recovery : "long rest"
 };
+// Now set the extraname and extrachoices to the current selection
+var origNatExplCurSel = GetFeatureChoice("classes", "ranger", "natural explorer", false);
+if (origNatExplCurSel) {
+	origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
+	origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
+}
+
 // Make favored enemy into a choice (can't be done by automation because of extrachoices) and add "Favored Foe" variant option
 var origFavoredEnemy = ClassList.ranger.features["favored enemy"];
 var origFavoredEnemyNm = "\x1B[original] " + origFavoredEnemy.name;
@@ -50944,6 +50952,198 @@ CreatureList["beast of the earth"] = {
 		tDoc.getField(prefix + "Comp.Use.HP.Max").setAction("Calculate", "");
 		tDoc.getField(prefix + "Comp.Use.HD.Level").setAction("Calculate", "");
 	}
+}
+
+// Add the Ranger alternative class features also to the Revised Ranger, if it exists
+if (ClassList["rangerua"]) {
+	// Make natural explorer into a choice (can't be done by automation because of extrachoices) and add "Deft Explorer" variant option
+	var origNatExpl = ClassList.rangerua.features["natural explorer"];
+	var origNatExplNm = "\x1B[original] " + origNatExpl.name;
+	origNatExpl.choices = [origNatExplNm];
+	origNatExpl.defaultChoice = origNatExplNm.toLowerCase();
+	origNatExpl[origNatExplNm.toLowerCase()] = {
+		name : origNatExpl.name,
+		source : origNatExpl.source,
+		description : origNatExpl.description,
+		extraname : origNatExpl.extraname
+	};
+	origNatExpl.description = '\n   Select ' + origNatExpl.name + ' or a variant using the "Choose Feature" button above';
+	origNatExpl.name = origNatExpl.name + " or a Variant";
+	origNatExpl.resetNatExplExtrachoices = function () {
+		var extraSel = GetFeatureChoice("classes", "rangerua", "natural explorer", true);
+		for (var i = 0; i < extraSel.length; i++) {
+			ClassFeatureOptions(['rangerua', 'natural explorer', extraSel[i], 'extra'], "remove");
+		};
+	};
+	AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
+		name : "Deft Explorer",
+		source : ["UA:CFV", 7],
+		description : '\n   Use the "Choose Feature" button above to add a deft explorer benefit to the third page',
+		eval : function() {
+			var natExplFea = ClassList.rangerua.features["natural explorer"];
+			natExplFea.resetNatExplExtrachoices();
+			natExplFea.extraname = natExplFea["deft explorer"].extraname;
+			natExplFea.extrachoices = natExplFea["deft explorer"].extrachoices;
+		},
+		removeeval : function(lvlA, choiceA) {
+			var natExplFea = ClassList.rangerua.features["natural explorer"];
+			var newChoice = choiceA[1];
+			natExplFea.resetNatExplExtrachoices();
+			if (newChoice && natExplFea[newChoice]) {
+				natExplFea.extraname = natExplFea[newChoice].extraname ? natExplFea[newChoice].extraname : "";
+				natExplFea.extrachoices = natExplFea[newChoice].extrachoices ? natExplFea[newChoice].extrachoices : "";
+				if (newChoice.indexOf("\x1B[original]") !== -1) {
+					ClassFeatureOptions(['rangerua', 'natural explorer', "travel benefits", 'extra']);
+				}
+			}
+		},
+		additional :  levels.map(function (n) {
+			return n < 6 ? "1 benefit" : (n < 10 ? 2 : 3) + " benefits";
+		}),
+		extraname : "Deft Explorer Benefit",
+		extrachoices : ["Canny", "Roving", "Tireless"]
+	});
+	origNatExpl.canny = {
+		name : "Canny",
+		source : ["UA:CFV", 7],
+		description : desc([
+			"I learn two language of my choice, and proficiency and expertise with one skill of my choice",
+			"The skill I have to choose from: Animal Handling, Athletics, History, Insight, Investigation,",
+			"Medicine, Nature, Perception, Stealth, or Survival"
+		]),
+		languageProfs : [2],
+		skillstxt : "Proficiency and expertise with one from Animal Handling, Athletics, History, Insight, Investigation, Medicine, Nature, Perception, Stealth, or Survival"
+	};
+	origNatExpl.roving = {
+		name : "Roving",
+		source : ["UA:CFV", 7],
+		description : "\n   I gain +5 ft walking speed and climbing and swimin speed equal to my walking speed",
+		speed : {
+			walk : { spd : "+5", enc : "+5" },
+			climb : { spd : "walk", enc : "walk" },
+			swim : { spd : "walk", enc : "walk" }
+		}
+	};
+	origNatExpl.tireless = {
+		name : "Tireless",
+		source : ["UA:CFV", 7],
+		description : desc([
+			"Whenever I finish a short or long rest, I reduce my exhaustion level, if any, by 1",
+			"As an action a number of times per day, I can give myself temp HP of 1d10 + Wis mod"
+		]),
+		action : [["action", ""]],
+		usages : "Wisdom modifier per ",
+		usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
+		recovery : "long rest"
+	};
+	// Now set the extraname and extrachoices to the current selection
+	var origNatExplCurSel = GetFeatureChoice("classes", "rangerua", "natural explorer", false);
+	if (origNatExplCurSel) {
+		origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
+		origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
+	}
+
+	// Make favored enemy into a choice (can't be done by automation because of choices) and add "Favored Foe" variant option
+	
+	// NOG NAAR KIJKEN !!!
+
+	// The enhancement option for fighting styles has to be added to each class separately
+	AddFeatureChoice(ClassList.rangerua.features["fighting style"], true, "Martial Versatility", {
+		name : "Martial Versatility",
+		source : ["UA:CFV", 12],
+		description : "\n   Whenever I gain a ranger level, I can swap a fighting style I know for another I'm allowed"
+	}, "Fighting Style Enhancement");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Expanded Spell List", {
+		name : "Expanded Ranger Spell List",
+		source : ["UA:CFV", 7],
+		description : "",
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					// Stop this is not the class' spell list or if this is for a bonus spell entry
+					if (spName !== "rangerua" || spType.indexOf("bonus") !== -1) return;
+					spList.extraspells = spList.extraspells.concat(["aid", "entangle", "searing smite", "gust of wind", "magic weapon", "enhance ability", "warding bond", "blinding smite", "meld into stone", "revivify", "tongues", "death ward", "dominate beast", "awaken", "greater restoration"]);
+				},
+				"This alternative class feature enhancement expands the spells list of the ranger class."
+			]
+		}
+	}, "Ranger Spellcasting Enhancement");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spell Versatility", {
+		name : "Spell Versatility",
+		source : ["UA:CFV", 8],
+		description : "\n   When I finish a long rest, I can replace a ranger spell I know with another of the same level"
+	}, "Ranger Spellcasting Enhancement");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spellcasting Focus", {
+		name : "Spellcasting Focus",
+		source : ["UA:CFV", 8],
+		description : "\n   I can use a druidic focus as a spellcasting focus for my ranger spells"
+	}, "Ranger Spellcasting Enhancement");
+	CreateClassFeatureVariant("rangerua", "primeval awareness", "Primal Awareness (bonus spells)", {
+		name : "Primal Awareness",
+		source : ["UA:CFV", 8],
+		description : desc([
+			"I get bonus spells known, which do not count against the number of spells I can know",
+			"In addition, I can cast each once per long rest without expending a spell slot"
+		]),
+		calcChanges : {
+			spellAdd : [
+				function (spellKey, spellObj, spName) {
+					var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+					if (spName == "rangerua" && bonusSpells.indexOf(spellKey) != -1) {
+						spellObj.firstCol = "oncelr";
+						return true;
+					};
+				},
+				"I can cast these spells each once per long rest without expending a spell slot, but also as normal by expending a spell slot."
+			],
+			spellList : [
+				function(spList, spName, spType) {
+					// Remove the bonus spells from the normally selectable list
+					if (spName == "rangerua") {
+						if (!spList.notspells) spList.notspells = [];
+						spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
+					}
+				},
+				"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
+			]
+		},
+		changeeval : function() {
+			// as another subclass might override the 'extra' attribute in the CurrentSpells object, add it through an eval
+			if (!CurrentSpells.rangerua) return;
+			var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+			if (!CurrentSpells.rangerua.extra) CurrentSpells.rangerua.extra = [];
+			if (CurrentSpells.rangerua.extra.toString().indexOf(bonusSpells.toString()) == -1) {
+				var newExtra = [];
+				for (var i = 0; i < CurrentSpells.rangerua.extra.length; i++) {
+					var anExtra = CurrentSpells.rangerua.extra[i];
+					if (anExtra && anExtra !== "AddToKnown" && bonusSpells.indexOf(anExtra) == -1) newExtra.push(anExtra);
+				}
+				CurrentSpells.rangerua.extra = newExtra.concat(bonusSpells);
+				CurrentSpells.rangerua.extra[100] = "AddToKnown";
+			}
+		},
+		removeeval : function() {
+			// remove the extra spells
+			if (!CurrentSpells.rangerua || !CurrentSpells.rangerua.extra) return;
+			var bonusSpells = ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"];
+			if (CurrentSpells.rangerua.extra.toString().indexOf(bonusSpells.toString()) !== -1) {
+				var newExtra = CurrentSpells.rangerua.extra.join("##").replace(bonusSpells.join("##"), "").replace("AddToKnown", "").replace(/#+$/, '');
+				CurrentSpells.rangerua.extra = newExtra.split("##");
+				CurrentSpells.rangerua.extra[100] = "AddToKnown";
+			}
+		}
+	});
+	CreateClassFeatureVariant("rangerua", "hide in plain sight", "Fade Away", {
+		name : "Fade Away",
+		source : ["UA:CFV", 8],
+		description : desc([
+			"As a bonus action, I can become invisible along with any equipment I'm wearing/carrying",
+			"This invisibility lasts until the start of my next turn"
+		]),
+		action : [["bonus action", ""]],
+		usages : 1,
+		recovery : "short rest"
+	});
 }
 
 // Rogue alternative class feature enhancement
@@ -51840,7 +52040,7 @@ SourceList["UA:SP1"] = {
 	date : "2020/01/14"
 };
 
-// Add a subclasses for the Barbarian and one for the Monk
+// Add a subclasses for the Barbarian, Monk, Paladin, and Warlock
 AddSubClass("barbarian", "path of the beast-ua", {
 	regExpSearch : /^(?=.*\bbeast\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
 	subname : "Path of the Beast",
@@ -52194,6 +52394,376 @@ AddSubClass("warlock", "the noble genie-ua", {
 					changes : "When I use my Collector's Call feature to cast Legend Lore, it doesn't require any material components."
 				}
 			}
+		}
+	}
+});
+var iFileName = "ua_20200206_Subclasses-Part-2.js";
+RequiredSheetVersion(13);
+// This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 2 article to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["UA:SP2"] = {
+	name : "Unearthed Arcana: Subclasses, Part 2",
+	abbreviation : "UA:SP2",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2020/dnd/downloads/UA2020_02_06_Subclasses2.pdf",
+	date : "2020/02/06"
+};
+
+// Add a subclass for the Bard and the functionality for its Dancing Item
+AddSubClass("bard", "college of creation-ua", {
+	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*creation).*$/i,
+	subname : "College of Creation",
+	source : [["UA:SP2", 1]],
+	features : {
+		"subclassfeature3" : {
+			name : "Note of Potential",
+			source : [["UA:SP2", 1]],
+			minlevel : 3,
+			description : desc([
+				"I can also grant a note of potential to whomever I give a bardic inspiration die",
+				"This tiny, invulnerable object orbits in 5 ft; It enhances the use of the inspiration die:",
+				"\u2022 Note of Destruction (used for attack roll): others within 5 ft must make a Con save",
+				"  If failed, they take the die roll in thunder damage; This uses my spell save DC",
+				"\u2022 Note of Protection (used for save): Grants temp HP equal to the roll + my Cha mod",
+				"\u2022 Note of Ingenuity (used for check): Roll the die twice and choose which result to use"
+			])
+		},
+		"subclassfeature6" : {
+			name : "Animating Performance",
+			source : [["UA:SP2", 1]],
+			minlevel : 6,
+			description : desc([
+				"As an action, I can animate a Large or smaller nonmagical item I can see within 30 ft",
+				"It lasts for 1 hour or until it has 0 HP; I control it and it acts on my initiative, after me",
+				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
+				"When I use bardic inspiration, I can command the item as part of the same bonus action",
+				"I can't have multiple at once; Select \"Dancing Item\" on a companion page for its stats",
+				"In addition to once per long rest, I can also do this with a spell slot of 3rd-level or higher"
+			]),
+			action : [["action", ""]],
+			usages : 1,
+			recovery : "long rest",
+			eval : function (lvl, chc) {
+				var useFunct = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.bard.artificerCompFunc;
+				useFunct.add("Dancing Item");
+			},
+			removeeval : function (lvl, chc) {
+				var useFunct = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.bard.artificerCompFunc;
+				useFunct.remove("dancing item");
+				if (CreatureList["dancing item-ua"]) CreatureList["dancing item-ua"].removeeval();
+			}
+		},
+		"subclassfeature14" : {
+			name : "Performance of Creation",
+			source : [["UA:SP2", 2]],
+			minlevel : 14,
+			description : desc([
+				"As an action, I create a Large or smaller nonmagical item in an empty space in 10 ft",
+				"Its value is limited; I can't have multiple, creating more makes the first one vanish",
+				"It vanishes when my next turn ends, unless I use my action to extend its life 1 extra turn",
+				"If I sustain it for 1 minute this way, it continues to exists for my bard level in hours",
+				"In addition to once per long rest, I can also do this with a spell slot of 5th-level or higher"
+			]),
+			action : [["action", ""]],
+			usages : 1,
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return n < 14 ? "" : n * 20 + " gp";
+			})
+		}
+	}
+});
+CreatureList["dancing item-ua"] = {
+	name : "Dancing Item",
+	source : [["UA:SP2", 2]],
+	size : 4,
+	type : "Construct",
+	subtype : "",
+	alignment : "Neutral",
+	ac : 16,
+	hp : 33,
+	hd : [],
+	speed : "40 ft",
+	scores : [18, 12, 16, 4, 10, 6],
+	saves : ["", "", "", "", "", ""],
+	damage_immunities : "poison",
+	condition_immunities : "charmed, exhaustion, poisoned, frightened",
+	passivePerception : 10,
+	senses : "Darkvision 60 ft",
+	languages : "understands the languages of its creator but can't speak",
+	challengeRating : "1",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Force-Empowered Slam",
+		ability : 0,
+		damage : [1, 10, "force"],
+		range : "Melee (5 ft)",
+		modifiers : ["", "oCha", false]
+	}],
+	features : [{
+		name : "Creator",
+		description : "The item obeys the commands of its creator and uses its creator's spell attack modifier to hit for its attack rolls. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Dash, Force-Empowered Slam (and possibly Endless Waltz), Disengage, Help, Hide, or Search action."
+	}],
+	actions : [{
+		name : "Immutable Form",
+		description : "The item is immune to any spell or effect that would alter its form."
+	}, {
+		name : "Endless Waltz",
+		description : "Immediately after the item makes a slam attack, it can take the Dodge action as a bonus action."
+	}],
+	eval : function(prefix) {
+		// set type in the top right
+		Value(prefix + 'Comp.Type', "Animated");
+		// auto calculate HP
+		var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
+		HPmaxFld.setAction("Calculate", "event.value = (classes.known.bard ? classes.known.bard.level : classes.totallevel) * 5 + Number(What('Cha Mod')) + Number(What('" + prefix + "Comp.Use.Ability.Con.Mod'));");
+		HPmaxFld.readonly = true;
+		Hide(prefix + "Buttons.Comp.Use.HP.Max");
+		// set attacks
+		for (var i = 1; i <= 3; i++) {
+			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
+			ToHitFld.setAction("Calculate", "if (What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection')).toLowerCase().indexOf('force-empowered slam') !== -1) {\n\tevent.value = (CurrentSpells.bard && CurrentSpells.bard.calcSpellScores && CurrentSpells.bard.calcSpellScores.attack ? CurrentSpells.bard.calcSpellScores.attack : 'oProf+oCha') + '-Prof';\n\tevent.target.readonly = true;\n} else {\n\tevent.target.readonly = false;\n};");
+			ToHitFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack." + i + ".To Hit").calcOrderIndex - 1;
+		}
+		// add bonus action to first page
+		processActions(true, "Dancing Item", [["bonus action", " (command)"]], "Dancing Item");
+	},
+	removeeval : function(prefix) {
+		if (prefix) {
+			// reset type in top right
+			Value(prefix + 'Comp.Type', "Companion");
+			// reset HP calculation
+			var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
+			HPmaxFld.setAction("Calculate", "1");
+			HPmaxFld.readonly = false;
+			DontPrint(prefix + "Buttons.Comp.Use.HP.Max");
+			// reset readonly of attack fields
+			for (var i = 1; i <= 3; i++) {
+				tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus").readonly = false;
+			}
+		}
+		// remove action
+		var useFunct = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.bard.artificerCompFunc;
+		if (useFunct.find("dancing item").length < (prefix ? 2 : 1)) processActions(false, "Dancing Item", [["bonus action", " (command)"]], "Dancing Item")
+	}
+};
+// Add the artificer companion functions to the main bard class object if the artificer is not defined
+if (!ClassList.artificer) {
+	ClassList.bard.artificerCompFunc = {
+		add : function (compName) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			var prefix = false;
+			if (AScompA) {
+				for (var a = 1; a < AScompA.length; a++) {
+					if (!What(AScompA[a] + 'Comp.Race')) {
+						prefix = AScompA[a];
+						break;
+					}
+				}
+			}
+			if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+			Value(prefix + 'Comp.Race', compName);
+			var changeMsg = "The " + compName + " has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
+			CurrentUpdates.types.push("notes");
+			if (!CurrentUpdates.notesChanges) {
+				CurrentUpdates.notesChanges = [changeMsg];
+			} else {
+				CurrentUpdates.notesChanges.push(changeMsg);
+			}
+			return prefix;
+		},
+		remove : function (compName) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			if (!AScompA) return;
+			compName = compName.toLowerCase();
+			for (var a = 1; a < AScompA.length; a++) {
+				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) {
+					DoTemplate("AScomp", "Remove", AScompA[a], true);
+				}
+			}
+		},
+		find : function (compName) {
+			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+			var prefixes = [];
+			if (!AScompA) return prefixes;
+			compName = compName.toLowerCase();
+			for (var a = 1; a < AScompA.length; a++) {
+				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) prefixes.push(AScompA[a]);
+			}
+			return prefixes;
+		}
+	}
+};
+
+// Add a subclass for the Cleric
+AddSubClass("cleric", "unity domain-ua", {
+	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*unity).*$/i,
+	subname : "Unity Domain",
+	source : [["UA:SP2", 2]],
+	spellcastingExtra : ["heroism", "shield of faith", "aid", "warding bond", "beacon of hope", "sending", "aura of purity", "guardian of faith", "greater restoration", "rary's telepathic bond"],
+	features : {
+		"subclassfeature1" : {
+			name : "Emboldening Bond",
+			source : [["UA:SP2", 3]],
+			minlevel : 1,
+			action : ["bonus action", ""],
+			description : function () {
+				var descr = desc([
+					"As an action, I can magically bond two willing targets I can see in 30 ft (can be me)",
+					"While within 30 ft of the other, a bonded target can add +d4 to a save, attack, or check",
+					"The +d4 can only be added once per turn; The bond lasts 1 hour or until I use this again",
+					"In addition to once per long rest, I can also use this feature by expending a spell slot"
+				]);
+				var descr17 = descr.replace('While within 30 ft of the other', 'While on the same plane');
+				return levels.map(function (n) {
+					return n < 17 ? descr : descr17;
+				});
+			}(),
+			action : [["action", ""]],
+			usages : 1,
+			recovery : "long rest"
+		},
+		"subclassfeature2" : {
+			name : "Channel Divinity: Shared Burden",
+			source : [["UA:SP2", 3]],
+			minlevel : 2,
+			description : desc([
+				"As a reaction when a creature I can see in 30 ft takes damage, I can divide that damage",
+				"I then choose a number of willing creatures that I can see equal to my Wis mod (min 1)",
+				"I distribute the damage over these and the original target, each taking at least 1 damage",
+				"Damage resistances and vulnerabilities are only applied after the damage is distributed"
+			]),
+			action : ["reaction", ""]
+		},
+		"subclassfeature6" : {
+			name : "Protective Bond",
+			source : [["UA:SP2", 3]],
+			minlevel : 6,
+			description : desc([
+				"My emboldening bond now also allows the two bonded to shield each other of damage",
+				"When the other takes damage, one can use its reaction to give it resistance to all damage",
+				"This resistance lasts until the end of the current turn"
+			]),
+			additional : levels.map(function (n) {
+				return n < 6 ? "" : n < 17 ? "the bonded must be within 30 ft" : "the bonded must be on the same plane";
+			})
+		},
+		"subclassfeature8" : {
+			name : "Potent Spellcasting",
+			source : [["UA:SP2", 3]],
+			minlevel : 8,
+			description : "\n   I add my Wisdom modifier to the damage I deal with my cleric cantrips",
+			calcChanges : {
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spellKey == "shillelagh") {
+							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
+							return true;
+						}
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
+			}
+		},
+		"subclassfeature17" : {
+			name : "Enduring Unity",
+			source : [["UA:SP2", 3]],
+			minlevel : 17,
+			description : desc([
+				"The 30 ft restriction no longer applies to my emboldening and protective bond features",
+				"My emboldening bond now also empowers a bonded if the other is reduced to 0 HP",
+				"If that happens, the bonded creature above 0 HP gains the following benefits:",
+				" \u2022 Advantage on attack rolls, ability checks, and saving throws; Resistance to all damage",
+				" \u2022 As an action, it can touch its bonded partner to expend and roll HD to heal",
+				"These benefits lasts for 1 minute or until the downed creature regains at least 1 HP"
+			])
+		}
+	}
+});
+
+// Add a subclass for the Sorcerer
+AddSubClass("sorcerer", "clockwork soul", {
+	regExpSearch : /^((?=.*(sorcerer|witch))(?=.*mechanus)|(?=.*clockwork)(?=.*soul)).*$/i,
+	subname : "Clockwork Soul",
+	source : [["UA:SP2", 4]],
+	fullname : "Clockwork Soul",
+	spellcastingExtra : ["alarm", "protection from evil and good", "find traps", "heat metal", "counterspell", "glyph of warding", "arcane eye", "otiluke's resilient sphere", "animate objects", "wall of force"].concat(new Array(90)).concat("AddToKnown"),
+	features : {
+		"subclassfeature1" : {
+			name : "Clockwork Magic",
+			source : [["UA:SP2", 4]],
+			minlevel : 1,
+			description : "\n   I learn additional spells, which do not count towards the number of spell I can know"
+		},
+		"subclassfeature1.1" : {
+			name : "Restore Balance",
+			source : [["UA:SP2", 4]],
+			minlevel : 1,
+			description : desc([
+				"As a reaction when a creature I can see in 60 ft is about to roll a d20 with adv./disadv.,",
+				"I can prevent that roll from being affected by advantage and disadvantage."
+			]),
+			usages : "Charisma modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
+			recovery : "long rest",
+			action : [["reaction", ""]]
+		},
+		"subclassfeature6" : {
+			name : "Bulwark of Law",
+			source : [["UA:SP2", 4]],
+			minlevel : 6,
+			description : desc([
+				"As an action, I can imbue a creature I can see within 30 ft with a magical ward",
+				"I grant it a number of d8s equal to the number of sorcery points I expend when I do this",
+				"When it takes damage, it can use its reaction to spend and roll any number of those dice",
+				"The dice roll reduces the damage; The ward lasts until I finish a long rest or do this again"
+			]),
+			additional : "1-5 sorcery points; 1d8 per point",
+			action : [["action", ""]]
+		},
+		"subclassfeature14" : {
+			name : "Trance of Order",
+			source : [["UA:SP2", 4]],
+			minlevel : 14,
+			description : desc([
+				"As a bonus action, I can enter a state of clockwork consciousness for 1 minute",
+				"While in this state, attack rolls against me can't benefit from advantage",
+				"Also, I can then treat a d20 roll below 9 as a 10 for my attack rolls, checks, and saves",
+				"In addition to once per long rest, I can also do this feature by expending 5 sorcery points"
+			]),
+			action : [["bonus action", ""]],
+			additional : "or 5 sorcery points",
+			usages : 1,
+			recovery : "long rest"
+		},
+		"subclassfeature18" : {
+			name : "Clockwork Cavalcade",
+			source : [["UA:SP2", 5]],
+			minlevel : 18,
+			description : desc([
+				"As an action, I can call spirits to bring balance in a 30-ft cube originating from me",
+				"Inside the cube, the intangible spirits do all the following before vanishing:",
+				" \u2022 Restore up to 100 HP, divided among the creatures in the cube as I see fit",
+				" \u2022 Repair all damaged objects in the cube",
+				" \u2022 End spells of my choice of 6th-level or lower on objects or creatures in the cube",
+				"In addition to once per long rest, I can also do this feature by expending 7 sorcery points"
+			]),
+			action : [["action", ""]],
+			additional : "or 7 sorcery p.",
+			usages : 1,
+			recovery : "long rest"
 		}
 	}
 });

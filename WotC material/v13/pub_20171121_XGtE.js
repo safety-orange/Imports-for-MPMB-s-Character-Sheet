@@ -592,7 +592,7 @@ AddSubClass("cleric", "forge domain-xgte", {
 	}
 });
 AddSubClass("cleric", "grave domain-xgte", {
-	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(grave)).*$/i,
+	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*grave).*$/i,
 	subname : "Grave Domain",
 	source : ["X", 19],
 	spellcastingExtra : ["bane", "false life", "gentle repose", "ray of enfeeblement", "revivify", "vampiric touch", "blight", "death ward", "antilife shell", "raise dead"],
@@ -668,7 +668,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spName != "cleric" || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
 						if (spellKey == "shillelagh") {
 							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
 							return true;
