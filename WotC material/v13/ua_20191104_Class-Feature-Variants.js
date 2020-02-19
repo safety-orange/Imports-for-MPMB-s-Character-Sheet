@@ -478,6 +478,7 @@ AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
 		natExplFea.resetNatExplExtrachoices();
 		natExplFea.extraname = natExplFea["deft explorer"].extraname;
 		natExplFea.extrachoices = natExplFea["deft explorer"].extrachoices;
+		natExplFea.extraTimes = natExplFea["deft explorer"].extraTimes;
 	},
 	removeeval : function(lvlA, choiceA) {
 		var natExplFea = ClassList.ranger.features["natural explorer"];
@@ -490,10 +491,14 @@ AddFeatureChoice(origNatExpl, false, "Deft Explorer", {
 		if (newChoice && natExplFea[newChoice]) {
 			natExplFea.extraname = natExplFea[newChoice].extraname ? natExplFea[newChoice].extraname : "";
 			natExplFea.extrachoices = natExplFea[newChoice].extrachoices ? natExplFea[newChoice].extrachoices : "";
+			natExplFea.extraTimes = natExplFea[newChoice].extraTimes ? natExplFea[newChoice].extraTimes : "";
 		}
 	},
-	additional :  levels.map(function (n) {
+	additional : levels.map(function (n) {
 		return n < 6 ? "1 benefit" : (n < 10 ? 2 : 3) + " benefits";
+	}),
+	extraTimes : levels.map(function (n) {
+		return n < 6 ? 1 : n < 10 ? 2 : 3;
 	}),
 	extraname : "Deft Explorer Benefit",
 	extrachoices : ["Canny", "Roving", "Tireless"]
@@ -536,6 +541,7 @@ var origNatExplCurSel = GetFeatureChoice("classes", "ranger", "natural explorer"
 if (origNatExplCurSel) {
 	origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
 	origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
+	natExplFea.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
 }
 
 // Make favored enemy into a choice (can't be done by automation because of extrachoices) and add "Favored Foe" variant option
@@ -854,6 +860,7 @@ if (ClassList["rangerua"]) {
 			natExplFea.resetNatExplExtrachoices();
 			natExplFea.extraname = natExplFea["deft explorer"].extraname;
 			natExplFea.extrachoices = natExplFea["deft explorer"].extrachoices;
+			natExplFea.extraTimes = natExplFea["deft explorer"].extraTimes;
 		},
 		removeeval : function(lvlA, choiceA) {
 			var natExplFea = ClassList.rangerua.features["natural explorer"];
@@ -862,13 +869,17 @@ if (ClassList["rangerua"]) {
 			if (newChoice && natExplFea[newChoice]) {
 				natExplFea.extraname = natExplFea[newChoice].extraname ? natExplFea[newChoice].extraname : "";
 				natExplFea.extrachoices = natExplFea[newChoice].extrachoices ? natExplFea[newChoice].extrachoices : "";
+				natExplFea.extraTimes = natExplFea[newChoice].extraTimes ? natExplFea[newChoice].extraTimes : "";
 				if (newChoice.indexOf("\x1B[original]") !== -1) {
 					ClassFeatureOptions(['rangerua', 'natural explorer', "travel benefits", 'extra']);
 				}
 			}
 		},
-		additional :  levels.map(function (n) {
+		additional : levels.map(function (n) {
 			return n < 6 ? "1 benefit" : (n < 10 ? 2 : 3) + " benefits";
+		}),
+		extraTimes : levels.map(function (n) {
+			return n < 6 ? 1 : n < 10 ? 2 : 3;
 		}),
 		extraname : "Deft Explorer Benefit",
 		extrachoices : ["Canny", "Roving", "Tireless"]
@@ -911,11 +922,53 @@ if (ClassList["rangerua"]) {
 	if (origNatExplCurSel) {
 		origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
 		origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
+		natExplFea.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
 	}
 
 	// Make favored enemy into a choice (can't be done by automation because of choices) and add "Favored Foe" variant option
-	
-	// NOG NAAR KIJKEN !!!
+	var origFavoredEnemy = ClassList.rangerua.features["favored enemy"];
+	// Move some attributes from the main object to the favored enemy choice objects
+	var moveOrigFavoredEnemyAttributes = function () {
+		var attr = ['additional', 'languageProfs', 'calcChanges'];
+		for (var j = 0; j < attr.length; j++) {
+			// Move the attribute to each of the choices
+			for (var i = 0; i < origFavoredEnemy.choices.length; i++) {
+				var aCh = origFavoredEnemy[origFavoredEnemy.choices[i].toLowerCase()];
+				aCh[attr[j]] = origFavoredEnemy[attr[j]];
+			}
+			// Now delete the attributes from the parent object
+			delete origFavoredEnemy[attr[j]];
+		}
+	}();
+	// Now add the alternative class feature as another choice
+	AddFeatureChoice(origFavoredEnemy, false, "[alternative feature] Favored Foe", {
+		name : "Favored Foe",
+		source : ["UA:CFV", 7],
+		description : desc([
+			"I know Hunter's Mark and it doesn't count against the number of spells I can know",
+			"I can cast it a number of times without using a spell slot or requiring concentration",
+			"I can also use a spell slot to cast it as normal, but then it does require concentration"
+		]),
+		spellcastingBonus : {
+			name : "Favored Foe",
+			spells : ["hunter's mark"],
+			selection : ["hunter's mark"],
+			firstCol : "Sp"
+		},
+		usages : "Wisdom modifier per ",
+		usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
+		recovery : "long rest",
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					if (spName == "uaranger" && spType.indexOf("bonus") == -1) {
+						if (!spList.notspells) spList.notspells = [];
+						spList.notspells = spList.notspells.concat(["hunter's mark"]);
+					}
+				}
+			]
+		}
+	});
 
 	// The enhancement option for fighting styles has to be added to each class separately
 	AddFeatureChoice(ClassList.rangerua.features["fighting style"], true, "Martial Versatility", {

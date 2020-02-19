@@ -2620,7 +2620,7 @@ MagicItemsList["repulsion shield"] = {
 	additional : "regains 1d4",
 	recovery : "dawn",
 	action : [["reaction", " (1 charge)"]],
-	shieldAdd : ["Repulsion Shield", 3, 6],
+	shieldAdd : ["Repulsion Shield", 3, 6]
 }
 MagicItemsList["returning weapon"] = {
 	name : "Returning Weapon",
