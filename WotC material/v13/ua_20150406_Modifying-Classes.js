@@ -66,7 +66,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var cDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (cDomain && cDomain.spellcastingExtra) {
-			var eSpells = eval(cDomain.spellcastingExtra.toSource());
+			var eSpells = newObj(cDomain.spellcastingExtra);
 			eSpells[100] = "AddToKnown";
 			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source :[["UA:MC", 8]];
 			

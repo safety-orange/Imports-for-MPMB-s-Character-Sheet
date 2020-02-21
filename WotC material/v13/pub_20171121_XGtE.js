@@ -1179,7 +1179,7 @@ AddSubClass("fighter", "samurai-xgte", {
 				"I gain proficiency with Wis saves, or if I'm already proficient, either Int or Cha saves"
 			]),
 			saves : ["Wis"],
-			addMod : { type : "skill", field : "Pers", mod : "Wis", text : "I can add my Wisdom modifier to any Charisma (Persuasion) checks I make." }
+			addMod : { type : "skill", field : "Pers", mod : "max(Wis|0)", text : "I can add my Wisdom modifier to any Charisma (Persuasion) checks I make." }
 		},
 		"subclassfeature10" : {
 			name : "Tireless Spirit",
@@ -1290,7 +1290,7 @@ RunFunctionAtEnd(function () {
 							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
 								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 								try {
-									var curDie = eval(fields.Damage_Die.replace('d', '*'));
+									var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 								} catch (e) {
 									var curDie = 'x';
 								};
@@ -1599,7 +1599,7 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 				"In the first turn of combat I get +10 ft speed and an extra attack with the Attack action",
 				"If I take the Attack action and that extra attack hits, it does +1d8 damage"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Wis", text : "I can add my Wisdom modifier to my initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Wis|0)", text : "I can add my Wisdom modifier to my initiative rolls." }
 		},
 		"subclassfeature3.1" : {
 			name : "Gloom Stalker Magic",
@@ -1997,7 +1997,7 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbrev
 					"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
 					"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
 				]),
-				addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
+				addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
 			},
 			"subclassfeature9" : {
 				name : "Panache",
@@ -2818,7 +2818,7 @@ AddSubClass("wizard", "war magic-xgte", {
 			source : ["X", 60],
 			minlevel : 2,
 			description : "\n   " + "I gain a bonus to my initiative rolls equal to my Intelligence modifier",
-			addMod : { type : "skill", field : "Init", mod : "Int", text : "I can add my Intelligence modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int|0)", text : "I can add my Intelligence modifier to initiative rolls." }
 		},
 		"subclassfeature6" : {
 			name : "Power Surge",

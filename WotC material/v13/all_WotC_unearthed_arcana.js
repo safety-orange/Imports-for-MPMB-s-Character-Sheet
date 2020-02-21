@@ -429,7 +429,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var cDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (cDomain && cDomain.spellcastingExtra) {
-			var eSpells = eval(cDomain.spellcastingExtra.toSource());
+			var eSpells = newObj(cDomain.spellcastingExtra);
 			eSpells[100] = "AddToKnown";
 			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source :[["UA:MC", 8]];
 			
@@ -1886,7 +1886,7 @@ var addAbyssalTiefling = function(){
 	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
 	RaceList["abyssal tiefling"].variants.forEach( function(nVar) {
 		if (!RaceSubList["tiefling-" + nVar]) return;
-		RaceSubList["abyssal tiefling-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList["abyssal tiefling-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList["abyssal tiefling-" + nVar];
 		thisVar.trait = thisVar.trait.replace(replaceTraitTxt[0], replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
@@ -2937,13 +2937,13 @@ RunFunctionAtEnd(function() {
 			var dFea = aDomain.features[aFea];
 			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
 			};
 			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature6"].choices.push(entryDoNm);
-					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -2956,7 +2956,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature10"].choices.push(entryDoNm);
-					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -2969,7 +2969,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature14"].choices.push(entryDoNm);
-					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -4540,7 +4540,7 @@ AddSubClass("monk", "way of the kensei", {
 						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.baseWeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
-								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 							} catch (e) {
 								var curDie = 'x';
 							};
@@ -6126,7 +6126,7 @@ AddSubClass("warlock", "the raven queen", {
 				"After a short rest, I can recall it to me regardless of its location or if it died"
 			]),
 			vision : [["Darkvision", 30]],
-			addMod : { type : "skill", field : "Perc", mod : "Cha", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
+			addMod : { type : "skill", field : "Perc", mod : "max(Cha|0)", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
 		},
 		"subclassfeature6" : {
 			name : "Soul of the Raven",
@@ -6181,7 +6181,7 @@ AddSubClass("wizard", "lore mastery", {
 				"I get expertise with each Arcana, History, Nature, and Religion, if I'm proficient with it"
 			]),
 			skills : [["Arcana", "only"], ["History", "only"], ["Nature", "only"], ["Religion", "only"]],
-			addMod : { type : "skill", field : "Init", mod : "Int-Dex", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int-Dex|0)", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." }
 		},
 		"subclassfeature2.1" : {
 			name : "Spell Secrets: Elements",
@@ -10536,7 +10536,7 @@ AddSubClass("wizard", "war magic", {
 			description : desc([
 				"I gain a bonus to my initiative rolls equal to my Intelligence modifier"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Int", text : "I can add my Intelligence modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int|0)", text : "I can add my Intelligence modifier to initiative rolls." }
 		},
 		"subclassfeature6" : {
 			name : "Power Surge",
@@ -10684,13 +10684,13 @@ RunFunctionAtEnd(function() {
 			var dFea = aDomain.features[aFea];
 			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
 			};
 			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature6"].choices.push(entryDoNm);
-					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -10703,7 +10703,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature10"].choices.push(entryDoNm);
-					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -10716,7 +10716,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature14"].choices.push(entryDoNm);
-					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -12090,7 +12090,7 @@ AddSubClass("monk", "way of the kensei2", {
 						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
-								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 							} catch (e) {
 								var curDie = 'x';
 							};
@@ -19631,7 +19631,7 @@ CreateClassFeatureVariant("monk", "martial arts", "Choose Monk Weapons", {
 				if (classes.known.monk && classes.known.monk.level && (monkWeapons.indexOf(v.baseWeaponName) != -1 || (/monk weapon/i).test(v.WeaponText))) {
 					var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 					try {
-						var curDie = eval(fields.Damage_Die.replace('d', '*'));
+						var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 					} catch (e) {
 						var curDie = 'x';
 					};
@@ -21499,7 +21499,7 @@ AddSubClass("paladin", "oath of the watchers-ua", {
 			minlevel : 7,
 			description : "\n   If I'm not incapacitated, chosen creatures in range and I add my Cha mod to Initiative",
 			additional : levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
-			addMod : [{ type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier (min +1) to initiative rolls." }]
+			addMod : [{ type : "skill", field : "Init", mod : "max(Cha|1)", text : "I can add my Charisma modifier (min +1) to initiative rolls." }]
 		},
 		"subclassfeature15" : {
 			name : "Vigilant Rebuke",

@@ -251,7 +251,7 @@ AddSubClass("paladin", "oath of the watchers-ua", {
 			minlevel : 7,
 			description : "\n   If I'm not incapacitated, chosen creatures in range and I add my Cha mod to Initiative",
 			additional : levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
-			addMod : [{ type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier (min +1) to initiative rolls." }]
+			addMod : [{ type : "skill", field : "Init", mod : "max(Cha|1)", text : "I can add my Charisma modifier (min +1) to initiative rolls." }]
 		},
 		"subclassfeature15" : {
 			name : "Vigilant Rebuke",

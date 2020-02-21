@@ -342,14 +342,14 @@ RunFunctionAtEnd(function() {
 		trait : "Feral Tiefling (+2 Dexterity, +1 Intelligence)\n\nInfernal Legacy:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells."
 	};
 	// Create the RaceList entry
-	RaceList[tRace.objname] = eval(RaceList.tiefling.toSource());
+	RaceList[tRace.objname] = newObj(RaceList.tiefling);
 	for (var rFea in tRace) {
 		if ((/objname|replaceTraitTxt|replaceNameTxt/).test(rFea)) continue;
 		RaceList[tRace.objname][rFea] = tRace[rFea];
 	};
 	// Create feral tiefling variants
 	RaceList[tRace.objname].variants.forEach( function(nVar) {
-		RaceSubList[tRace.objname + "-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList[tRace.objname + "-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
 		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
@@ -842,7 +842,7 @@ AddSubClass("rogue", "swashbuckler", {
 				"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
 				"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
 		},
 		"subclassfeature9" : {
 			name : "Panache",

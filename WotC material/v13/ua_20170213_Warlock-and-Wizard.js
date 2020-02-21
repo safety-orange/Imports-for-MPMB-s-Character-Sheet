@@ -120,7 +120,7 @@ AddSubClass("warlock", "the raven queen", {
 				"After a short rest, I can recall it to me regardless of its location or if it died"
 			]),
 			vision : [["Darkvision", 30]],
-			addMod : { type : "skill", field : "Perc", mod : "Cha", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
+			addMod : { type : "skill", field : "Perc", mod : "max(Cha|0)", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
 		},
 		"subclassfeature6" : {
 			name : "Soul of the Raven",
@@ -175,7 +175,7 @@ AddSubClass("wizard", "lore mastery", {
 				"I get expertise with each Arcana, History, Nature, and Religion, if I'm proficient with it"
 			]),
 			skills : [["Arcana", "only"], ["History", "only"], ["Nature", "only"], ["Religion", "only"]],
-			addMod : { type : "skill", field : "Init", mod : "Int-Dex", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int-Dex|0)", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." }
 		},
 		"subclassfeature2.1" : {
 			name : "Spell Secrets: Elements",

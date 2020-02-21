@@ -335,7 +335,7 @@ CreateClassFeatureVariant("monk", "martial arts", "Choose Monk Weapons", {
 				if (classes.known.monk && classes.known.monk.level && (monkWeapons.indexOf(v.baseWeaponName) != -1 || (/monk weapon/i).test(v.WeaponText))) {
 					var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 					try {
-						var curDie = eval(fields.Damage_Die.replace('d', '*'));
+						var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 					} catch (e) {
 						var curDie = 'x';
 					};

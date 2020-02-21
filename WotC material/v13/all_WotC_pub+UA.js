@@ -10126,14 +10126,14 @@ RunFunctionAtEnd(function() {
 		trait : "Feral Tiefling (+2 Dexterity, +1 Intelligence)\n\nInfernal Legacy:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells."
 	};
 	// Create the RaceList entry
-	RaceList[tRace.objname] = eval(RaceList.tiefling.toSource());
+	RaceList[tRace.objname] = newObj(RaceList.tiefling);
 	for (var rFea in tRace) {
 		if ((/objname|replaceTraitTxt|replaceNameTxt/).test(rFea)) continue;
 		RaceList[tRace.objname][rFea] = tRace[rFea];
 	};
 	// Create feral tiefling variants
 	RaceList[tRace.objname].variants.forEach( function(nVar) {
-		RaceSubList[tRace.objname + "-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList[tRace.objname + "-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
 		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
@@ -10626,7 +10626,7 @@ AddSubClass("rogue", "swashbuckler", {
 				"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
 				"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
 		},
 		"subclassfeature9" : {
 			name : "Panache",
@@ -16903,7 +16903,7 @@ AddSubClass("fighter", "samurai-xgte", {
 				"I gain proficiency with Wis saves, or if I'm already proficient, either Int or Cha saves"
 			]),
 			saves : ["Wis"],
-			addMod : { type : "skill", field : "Pers", mod : "Wis", text : "I can add my Wisdom modifier to any Charisma (Persuasion) checks I make." }
+			addMod : { type : "skill", field : "Pers", mod : "max(Wis|0)", text : "I can add my Wisdom modifier to any Charisma (Persuasion) checks I make." }
 		},
 		"subclassfeature10" : {
 			name : "Tireless Spirit",
@@ -17014,7 +17014,7 @@ RunFunctionAtEnd(function () {
 							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
 								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 								try {
-									var curDie = eval(fields.Damage_Die.replace('d', '*'));
+									var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 								} catch (e) {
 									var curDie = 'x';
 								};
@@ -17323,7 +17323,7 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 				"In the first turn of combat I get +10 ft speed and an extra attack with the Attack action",
 				"If I take the Attack action and that extra attack hits, it does +1d8 damage"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Wis", text : "I can add my Wisdom modifier to my initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Wis|0)", text : "I can add my Wisdom modifier to my initiative rolls." }
 		},
 		"subclassfeature3.1" : {
 			name : "Gloom Stalker Magic",
@@ -17721,7 +17721,7 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbrev
 					"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
 					"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
 				]),
-				addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
+				addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
 			},
 			"subclassfeature9" : {
 				name : "Panache",
@@ -18542,7 +18542,7 @@ AddSubClass("wizard", "war magic-xgte", {
 			source : ["X", 60],
 			minlevel : 2,
 			description : "\n   " + "I gain a bonus to my initiative rolls equal to my Intelligence modifier",
-			addMod : { type : "skill", field : "Init", mod : "Int", text : "I can add my Intelligence modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int|0)", text : "I can add my Intelligence modifier to initiative rolls." }
 		},
 		"subclassfeature6" : {
 			name : "Power Surge",
@@ -29684,7 +29684,7 @@ MagicItemsList["repulsion shield"] = {
 	additional : "regains 1d4",
 	recovery : "dawn",
 	action : [["reaction", " (1 charge)"]],
-	shieldAdd : ["Repulsion Shield", 3, 6],
+	shieldAdd : ["Repulsion Shield", 3, 6]
 }
 MagicItemsList["returning weapon"] = {
 	name : "Returning Weapon",
@@ -31263,7 +31263,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var cDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (cDomain && cDomain.spellcastingExtra) {
-			var eSpells = eval(cDomain.spellcastingExtra.toSource());
+			var eSpells = newObj(cDomain.spellcastingExtra);
 			eSpells[100] = "AddToKnown";
 			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source :[["UA:MC", 8]];
 			
@@ -32720,7 +32720,7 @@ var addAbyssalTiefling = function(){
 	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
 	RaceList["abyssal tiefling"].variants.forEach( function(nVar) {
 		if (!RaceSubList["tiefling-" + nVar]) return;
-		RaceSubList["abyssal tiefling-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList["abyssal tiefling-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList["abyssal tiefling-" + nVar];
 		thisVar.trait = thisVar.trait.replace(replaceTraitTxt[0], replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
@@ -33771,13 +33771,13 @@ RunFunctionAtEnd(function() {
 			var dFea = aDomain.features[aFea];
 			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
 			};
 			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature6"].choices.push(entryDoNm);
-					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -33790,7 +33790,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature10"].choices.push(entryDoNm);
-					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -33803,7 +33803,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature14"].choices.push(entryDoNm);
-					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -35374,7 +35374,7 @@ AddSubClass("monk", "way of the kensei", {
 						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.baseWeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
-								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 							} catch (e) {
 								var curDie = 'x';
 							};
@@ -36960,7 +36960,7 @@ AddSubClass("warlock", "the raven queen", {
 				"After a short rest, I can recall it to me regardless of its location or if it died"
 			]),
 			vision : [["Darkvision", 30]],
-			addMod : { type : "skill", field : "Perc", mod : "Cha", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
+			addMod : { type : "skill", field : "Perc", mod : "max(Cha|0)", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
 		},
 		"subclassfeature6" : {
 			name : "Soul of the Raven",
@@ -37015,7 +37015,7 @@ AddSubClass("wizard", "lore mastery", {
 				"I get expertise with each Arcana, History, Nature, and Religion, if I'm proficient with it"
 			]),
 			skills : [["Arcana", "only"], ["History", "only"], ["Nature", "only"], ["Religion", "only"]],
-			addMod : { type : "skill", field : "Init", mod : "Int-Dex", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int-Dex|0)", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." }
 		},
 		"subclassfeature2.1" : {
 			name : "Spell Secrets: Elements",
@@ -41370,7 +41370,7 @@ AddSubClass("wizard", "war magic", {
 			description : desc([
 				"I gain a bonus to my initiative rolls equal to my Intelligence modifier"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Int", text : "I can add my Intelligence modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int|0)", text : "I can add my Intelligence modifier to initiative rolls." }
 		},
 		"subclassfeature6" : {
 			name : "Power Surge",
@@ -41518,13 +41518,13 @@ RunFunctionAtEnd(function() {
 			var dFea = aDomain.features[aFea];
 			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
 			};
 			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature6"].choices.push(entryDoNm);
-					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -41537,7 +41537,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature10"].choices.push(entryDoNm);
-					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -41550,7 +41550,7 @@ RunFunctionAtEnd(function() {
 			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature14"].choices.push(entryDoNm);
-					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -42924,7 +42924,7 @@ AddSubClass("monk", "way of the kensei2", {
 						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
-								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 							} catch (e) {
 								var curDie = 'x';
 							};
@@ -50465,7 +50465,7 @@ CreateClassFeatureVariant("monk", "martial arts", "Choose Monk Weapons", {
 				if (classes.known.monk && classes.known.monk.level && (monkWeapons.indexOf(v.baseWeaponName) != -1 || (/monk weapon/i).test(v.WeaponText))) {
 					var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 					try {
-						var curDie = eval(fields.Damage_Die.replace('d', '*'));
+						var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 					} catch (e) {
 						var curDie = 'x';
 					};
@@ -52333,7 +52333,7 @@ AddSubClass("paladin", "oath of the watchers-ua", {
 			minlevel : 7,
 			description : "\n   If I'm not incapacitated, chosen creatures in range and I add my Cha mod to Initiative",
 			additional : levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
-			addMod : [{ type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier (min +1) to initiative rolls." }]
+			addMod : [{ type : "skill", field : "Init", mod : "max(Cha|1)", text : "I can add my Charisma modifier (min +1) to initiative rolls." }]
 		},
 		"subclassfeature15" : {
 			name : "Vigilant Rebuke",

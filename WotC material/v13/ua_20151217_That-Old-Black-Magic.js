@@ -76,7 +76,7 @@ var addAbyssalTiefling = function(){
 	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
 	RaceList["abyssal tiefling"].variants.forEach( function(nVar) {
 		if (!RaceSubList["tiefling-" + nVar]) return;
-		RaceSubList["abyssal tiefling-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList["abyssal tiefling-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList["abyssal tiefling-" + nVar];
 		thisVar.trait = thisVar.trait.replace(replaceTraitTxt[0], replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());

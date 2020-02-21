@@ -10125,14 +10125,14 @@ RunFunctionAtEnd(function() {
 		trait : "Feral Tiefling (+2 Dexterity, +1 Intelligence)\n\nInfernal Legacy:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells."
 	};
 	// Create the RaceList entry
-	RaceList[tRace.objname] = eval(RaceList.tiefling.toSource());
+	RaceList[tRace.objname] = newObj(RaceList.tiefling);
 	for (var rFea in tRace) {
 		if ((/objname|replaceTraitTxt|replaceNameTxt/).test(rFea)) continue;
 		RaceList[tRace.objname][rFea] = tRace[rFea];
 	};
 	// Create feral tiefling variants
 	RaceList[tRace.objname].variants.forEach( function(nVar) {
-		RaceSubList[tRace.objname + "-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList[tRace.objname + "-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
 		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
@@ -10625,7 +10625,7 @@ AddSubClass("rogue", "swashbuckler", {
 				"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
 				"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
 		},
 		"subclassfeature9" : {
 			name : "Panache",
@@ -16902,7 +16902,7 @@ AddSubClass("fighter", "samurai-xgte", {
 				"I gain proficiency with Wis saves, or if I'm already proficient, either Int or Cha saves"
 			]),
 			saves : ["Wis"],
-			addMod : { type : "skill", field : "Pers", mod : "Wis", text : "I can add my Wisdom modifier to any Charisma (Persuasion) checks I make." }
+			addMod : { type : "skill", field : "Pers", mod : "max(Wis|0)", text : "I can add my Wisdom modifier to any Charisma (Persuasion) checks I make." }
 		},
 		"subclassfeature10" : {
 			name : "Tireless Spirit",
@@ -17013,7 +17013,7 @@ RunFunctionAtEnd(function () {
 							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
 								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 								try {
-									var curDie = eval(fields.Damage_Die.replace('d', '*'));
+									var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 								} catch (e) {
 									var curDie = 'x';
 								};
@@ -17322,7 +17322,7 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 				"In the first turn of combat I get +10 ft speed and an extra attack with the Attack action",
 				"If I take the Attack action and that extra attack hits, it does +1d8 damage"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Wis", text : "I can add my Wisdom modifier to my initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Wis|0)", text : "I can add my Wisdom modifier to my initiative rolls." }
 		},
 		"subclassfeature3.1" : {
 			name : "Gloom Stalker Magic",
@@ -17720,7 +17720,7 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbrev
 					"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
 					"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
 				]),
-				addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
+				addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
 			},
 			"subclassfeature9" : {
 				name : "Panache",
@@ -18541,7 +18541,7 @@ AddSubClass("wizard", "war magic-xgte", {
 			source : ["X", 60],
 			minlevel : 2,
 			description : "\n   " + "I gain a bonus to my initiative rolls equal to my Intelligence modifier",
-			addMod : { type : "skill", field : "Init", mod : "Int", text : "I can add my Intelligence modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Int|0)", text : "I can add my Intelligence modifier to initiative rolls." }
 		},
 		"subclassfeature6" : {
 			name : "Power Surge",
@@ -29683,7 +29683,7 @@ MagicItemsList["repulsion shield"] = {
 	additional : "regains 1d4",
 	recovery : "dawn",
 	action : [["reaction", " (1 charge)"]],
-	shieldAdd : ["Repulsion Shield", 3, 6],
+	shieldAdd : ["Repulsion Shield", 3, 6]
 }
 MagicItemsList["returning weapon"] = {
 	name : "Returning Weapon",

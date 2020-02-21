@@ -29,7 +29,7 @@ AddSubClass("monk", "way of the kensei", {
 						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.baseWeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
-								var curDie = eval(fields.Damage_Die.replace('d', '*'));
+								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
 							} catch (e) {
 								var curDie = 'x';
 							};
