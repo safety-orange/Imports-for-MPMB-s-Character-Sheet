@@ -17650,8 +17650,11 @@ AddSubClass("rogue", "scout-xgte", {
 			name : "Skirmisher",
 			source : ["X", 47],
 			minlevel : 3,
-			description : "\n   " + "As a reaction when a hostile ends its turn within 5 ft of me, I can move half my speed",
-			action : ["reaction", ""]
+			description : desc([
+				"As a reaction when a hostile ends its turn within 5 ft of me, I can move half my speed",
+				"This movement does not provoke attacks of opportunity"
+			]),
+			action : [["reaction", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Survivalist",
