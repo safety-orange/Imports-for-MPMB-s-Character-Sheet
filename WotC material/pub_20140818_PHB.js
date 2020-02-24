@@ -2967,7 +2967,7 @@ BackgroundFeatureList["researcher"] = {
 	source : [["P", 138], ["ALbackground", 0]]
 };
 BackgroundFeatureList["retainers"] = {
-	description : "I have the service of three retainers loyal to me family, one of whom is another noble and my squire. My other retainers are commoners who can perform mundane tasks for me, but they do not fight for me, will not follow me into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.",
+	description : "I have the service of three retainers loyal to my family, one of whom is another noble and my squire. My other retainers are commoners who can perform mundane tasks for me, but they do not fight for me, will not follow me into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.",
 	source : [["P", 136], ["ALbackground", 0]]
 };
 BackgroundFeatureList["rustic hospitality"] = {

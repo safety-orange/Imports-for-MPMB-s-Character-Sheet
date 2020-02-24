@@ -502,7 +502,7 @@ RaceList["tabaxi"] = {
 			tooltip : " (can be replenished by not moving for one whole turn)"
 		}
 	},
-	trait : "Tabaxi (+2 Dexterity, +1 Charisma)\n\nCat's Claws: I can use my fanged claws to make unarmed strikes dealing 1d4 slashing damage. They also give me a climbing speed of 20 feet.\n\nFeline Agility: When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns."
+	trait : "Tabaxi (+2 Dexterity, +1 Charisma)\n\nCat's Claws: I can use my retractable claws to make unarmed strikes dealing 1d4 slashing damage. They also give me a climbing speed of 20 ft.\n\nFeline Agility: When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns."
 };
 RaceList["triton"] = {
 	regExpSearch : /triton/i,

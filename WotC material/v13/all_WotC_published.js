@@ -3416,7 +3416,7 @@ BackgroundFeatureList["researcher"] = {
 	source : [["P", 138], ["ALbackground", 0]]
 };
 BackgroundFeatureList["retainers"] = {
-	description : "I have the service of three retainers loyal to me family, one of whom is another noble and my squire. My other retainers are commoners who can perform mundane tasks for me, but they do not fight for me, will not follow me into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.",
+	description : "I have the service of three retainers loyal to my family, one of whom is another noble and my squire. My other retainers are commoners who can perform mundane tasks for me, but they do not fight for me, will not follow me into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.",
 	source : [["P", 136], ["ALbackground", 0]]
 };
 BackgroundFeatureList["rustic hospitality"] = {
@@ -13464,12 +13464,12 @@ RaceList["tabaxi"] = {
 	vision : [["Darkvision", 60]],
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
-		regExpSearch : /^(?=.*fanged)(?=.*claw).*$/i,
-		name : "Fanged Claws",
+		regExpSearch : /^(?=.*(tabaxi|\bcat\b))(?=.*claw).*$/i,
+		name : "Tabaxi Claws",
 		source : ["V", 115],
 		damage : [1, 4, "slashing"]
 	},
-	weaponsAdd : ["Fanged Claws"],
+	weaponsAdd : ["Tabaxi Claws"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
@@ -13486,7 +13486,7 @@ RaceList["tabaxi"] = {
 			tooltip : " (can be replenished by not moving for one whole turn)"
 		}
 	},
-	trait : "Tabaxi (+2 Dexterity, +1 Charisma)\n\nCat's Claws: I can use my fanged claws to make unarmed strikes dealing 1d4 slashing damage. They also give me a climbing speed of 20 feet.\n\nFeline Agility: When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns."
+	trait : "Tabaxi (+2 Dexterity, +1 Charisma)\n\nCat's Claws: I can use my retractable claws to make unarmed strikes dealing 1d4 slashing damage. They also give me a climbing speed of 20 ft.\n\nFeline Agility: When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns."
 };
 RaceList["triton"] = {
 	regExpSearch : /triton/i,
