@@ -3,7 +3,7 @@ This git repository holds different fan-created materials that can be used with 
 
 Discussion about this repository is found at https://www.reddit.com/r/mpmb/
 
-# Minification
+# Concatenation and Minification
 
 ## Setup
 
