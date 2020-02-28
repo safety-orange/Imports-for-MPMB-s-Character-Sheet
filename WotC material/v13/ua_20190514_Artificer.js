@@ -734,10 +734,11 @@ AddSubClass("artificer-ua3", "archivist", {
 				"On a failed Intelligence saving throw it is stunned until the end of my next turn",
 				"As an action while my artificial mind is on my person, I can teleport (infoportation)",
 				"I teleport to an unoccupied space nearest to the spectral mind or an item infused by me",
-				"I can do this once per long rest for free or by expending a spell slot of 2nd level or higher"
+				"I can do this once per long rest, or by expending a 2nd-level or higher spell slot (SS 2+)"
 			]),
 			usages : 1,
 			recovery : "long rest",
+			altResource : "SS 2+",
 			additional : "Infoportation",
 			action : [["action", ""]]
 		}

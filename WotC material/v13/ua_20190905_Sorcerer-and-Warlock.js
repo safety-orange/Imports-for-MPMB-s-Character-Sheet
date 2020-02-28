@@ -21,7 +21,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 	spellcastingExtra : UA_abberantMindExtraSpell.concat(new Array(90)).concat("AddToKnown"),
 	features : {
 		"subclassfeature1" : {
-			name : "Bonus Proficiencies",
+			name : "Invasive Thoughts",
 			source : ["UA:SnW", 1],
 			minlevel : 1,
 			description : desc([

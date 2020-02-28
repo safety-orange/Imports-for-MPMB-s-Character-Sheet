@@ -203,7 +203,7 @@ AddSubClass("fighter", "rune knight", {
 });
 
 // Add a subclass for the Ranger (and also to the Revised Ranger)
-var RangeSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
+var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
 	source : ["UA:FRnR", 3],
@@ -299,7 +299,7 @@ var RangeSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(RangeSubclassSwarmkeeperUA); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassSwarmkeeperUA); };
 
 // Add a subclass for the Rogue
 AddSubClass("rogue", "the revived", {

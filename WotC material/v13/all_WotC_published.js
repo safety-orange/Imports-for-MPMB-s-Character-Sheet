@@ -6781,7 +6781,8 @@ MagicItemsList["weapon of warning"] = {
 			},
 			'If I include the word "Warning" in the name of a weapon, it will be treated as the magic weapon Weapon of Warning.'
 		]
-	}
+	},
+	savetxt : { immune : ["surprised"] }
 }
 
 // Sentient Items
@@ -29273,7 +29274,7 @@ AddSubClass("artificer", "alchemist", {
 			}
 		},
 		"subclassfeature9" : {
-			name : "Restorative Reagents", // of opsplitsen in twee dingen?
+			name : "Restorative Reagents",
 			source : [["E:RLW", 59]],
 			minlevel : 9,
 			description : desc([
@@ -29364,7 +29365,7 @@ AddSubClass("artificer", "artillerist", {
 			minlevel : 3,
 			description : desc([
 				"As an action, I can use woodcarver's or smith's tools to create an eldritch cannon in 5 ft",
-				"I can do so once per long rest for free, or by spending a spell slot to create one cannon",
+				"I can do this once per long rest, or by expending a spell slot (SS 1+) to create one cannon",
 				"I decide its size (Small/Tiny), appearance, type: flamethrower, force ballista, or protector",
 				"It disappears after 1 hour, when reduced to 0 HP, or if I dismiss it as an action",
 				"As a bonus action when within 60 ft of it, I can activate it to move and do its action",
@@ -29372,6 +29373,7 @@ AddSubClass("artificer", "artillerist", {
 			]),
 			usages : 1,
 			recovery: "long rest",
+			altResource : "SS 1+",
 			additional : levels.map(function(n) {
 				return n < 3 ? "" : n < 15 ? "create 1 cannon" : "create 2 cannons";
 			}),
@@ -30569,7 +30571,7 @@ CreatureList["eldritch cannon"] = {
 		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level >= 9;
 		for (var i = 1; i <= 3; i++) {
 			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
-			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType] ? CurrentSpells.artificer.calcSpellScores[atkType] : false;\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
+			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType] ? CurrentSpells.artificer.calcSpellScores[atkType] : false;\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'dc+oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
 			ToHitFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack." + i + ".To Hit").calcOrderIndex - 1;
 			ToHitFld.readonly = true;
 			if (artLvl9) Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");

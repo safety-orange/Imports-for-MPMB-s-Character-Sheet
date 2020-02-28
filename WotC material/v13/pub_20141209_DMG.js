@@ -1207,7 +1207,8 @@ MagicItemsList["weapon of warning"] = {
 			},
 			'If I include the word "Warning" in the name of a weapon, it will be treated as the magic weapon Weapon of Warning.'
 		]
-	}
+	},
+	savetxt : { immune : ["surprised"] }
 }
 
 // Sentient Items

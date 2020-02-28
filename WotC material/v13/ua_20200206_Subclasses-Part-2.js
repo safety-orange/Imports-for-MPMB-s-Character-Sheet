@@ -40,11 +40,12 @@ AddSubClass("bard", "college of creation-ua", {
 				"Unless I use a bonus action to command it, it only takes the Dodge action on its turn",
 				"When I use bardic inspiration, I can command the item as part of the same bonus action",
 				"I can't have multiple at once; Select \"Dancing Item\" on a companion page for its stats",
-				"In addition to once per long rest, I can also do this with a spell slot of 3rd-level or higher"
+				"I can do this once per long rest, or by expending a 3rd-level or higher spell slot (SS 3+)"
 			]),
 			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest",
+			altResource : "SS 3+",
 			eval : function (lvl, chc) {
 				var useFunct = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.bard.artificerCompFunc;
 				useFunct.add("Dancing Item");
@@ -64,11 +65,12 @@ AddSubClass("bard", "college of creation-ua", {
 				"Its value is limited; I can't have multiple, creating more makes the first one vanish",
 				"It vanishes when my next turn ends, unless I use my action to extend its life 1 extra turn",
 				"If I sustain it for 1 minute this way, it continues to exists for my bard level in hours",
-				"In addition to once per long rest, I can also do this with a spell slot of 5th-level or higher"
+				"I can do this once per long rest, or by expending a 5th-level or higher spell slot (SS 5+)"
 			]),
 			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest",
+			altResource : "SS 5+",
 			additional : levels.map(function (n) {
 				return n < 14 ? "" : n * 20 + " gp";
 			})
@@ -125,7 +127,7 @@ CreatureList["dancing item-ua"] = {
 		// set attacks
 		for (var i = 1; i <= 3; i++) {
 			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
-			ToHitFld.setAction("Calculate", "if (What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection')).toLowerCase().indexOf('force-empowered slam') !== -1) {\n\tevent.value = (CurrentSpells.bard && CurrentSpells.bard.calcSpellScores && CurrentSpells.bard.calcSpellScores.attack ? CurrentSpells.bard.calcSpellScores.attack : 'oProf+oCha') + '-Prof';\n\tevent.target.readonly = true;\n} else {\n\tevent.target.readonly = false;\n};");
+			ToHitFld.setAction("Calculate", "if (What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection')).toLowerCase().indexOf('force-empowered slam') !== -1) {\n\tevent.value = CurrentSpells.bard && CurrentSpells.bard.calcSpellScores && CurrentSpells.bard.calcSpellScores.attack ? CurrentSpells.bard.calcSpellScores.attack + '-Prof' : 'oCha';\n\tevent.target.readonly = true;\n} else {\n\tevent.target.readonly = false;\n};");
 			ToHitFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack." + i + ".To Hit").calcOrderIndex - 1;
 		}
 		// add bonus action to first page
@@ -215,7 +217,7 @@ AddSubClass("cleric", "unity domain-ua", {
 					"As an action, I can magically bond two willing targets I can see in 30 ft (can be me)",
 					"While within 30 ft of the other, a bonded target can add +d4 to a save, attack, or check",
 					"The +d4 can only be added once per turn; The bond lasts 1 hour or until I use this again",
-					"In addition to once per long rest, I can also use this feature by expending a spell slot"
+					"I can do this once per long rest, after which I can do so by expending a spell slot (SS 1+)"
 				]);
 				var descr17 = descr.replace('While within 30 ft of the other', 'While on the same plane');
 				return levels.map(function (n) {
@@ -224,7 +226,8 @@ AddSubClass("cleric", "unity domain-ua", {
 			}(),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			altResource : "SS 1+"
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Shared Burden",
@@ -342,12 +345,12 @@ AddSubClass("sorcerer", "clockwork soul", {
 				"As a bonus action, I can enter a state of clockwork consciousness for 1 minute",
 				"While in this state, attack rolls against me can't benefit from advantage",
 				"Also, I can then treat a d20 roll below 9 as a 10 for my attack rolls, checks, and saves",
-				"In addition to once per long rest, I can also do this feature by expending 5 sorcery points"
+				"I can do this once per long rest, or by expending a 5 sorcery points (5 SP)"
 			]),
 			action : [["bonus action", ""]],
-			additional : "or 5 sorcery points",
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			altResource : "5 SP"
 		},
 		"subclassfeature18" : {
 			name : "Clockwork Cavalcade",
@@ -359,12 +362,12 @@ AddSubClass("sorcerer", "clockwork soul", {
 				" \u2022 Restore up to 100 HP, divided among the creatures in the cube as I see fit",
 				" \u2022 Repair all damaged objects in the cube",
 				" \u2022 End spells of my choice of 6th-level or lower on objects or creatures in the cube",
-				"In addition to once per long rest, I can also do this feature by expending 7 sorcery points"
+				"I can do this once per long rest, or by expending a 7 sorcery points (7 SP)"
 			]),
 			action : [["action", ""]],
-			additional : "or 7 sorcery p.",
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			altResource : "7 SP"
 		}
 	}
 });
