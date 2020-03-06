@@ -414,7 +414,7 @@ AddSubClass("wizard", "psionics", {
 				"While in my thought form, I gain a fly speed equal to my walking speed and I can hover",
 				"I can then also move through creatures and objects as if they were difficult terrain",
 				"I take 1d10 force damage if I end my turn inside an object",
-				"If I end my though form while inside an object, I'm shunted to the nearest empty space",
+				"If I end my thought form while inside an object, I'm shunted to the nearest empty space",
 				"I then take 1d10 force damage for every 5 ft traveled"
 			])
 		}

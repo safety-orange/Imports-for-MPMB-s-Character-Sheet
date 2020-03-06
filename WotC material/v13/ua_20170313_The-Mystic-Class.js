@@ -2778,7 +2778,7 @@ PsionicsList["mw6-wall of thunder"] = {
 	duration : "Conc, 10 min",
 	save : "Str",
 	description : "60\u00D71\u00D715 ft (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 30 ft, prone",
-	descriptionMetric : "20×0,3×5 m (l×w×h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
+	descriptionMetric : "20\u00D70,3\u00D75 m (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
 	descriptionFull : "As an action, you create a wall of thunder, at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Every foot moved through the wall costs 1 extra foot of movement. When a creature moves into the wall's space for the first time on a turn or starts its turn there, that creature must succeed on a Strength saving throw, or it takes 6d6 thunder damage, is pushed in a straight line up to 30 feet away from the wall, and is knocked prone.",
 	firstCol : 6
 };

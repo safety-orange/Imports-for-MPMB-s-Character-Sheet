@@ -541,7 +541,7 @@ var origNatExplCurSel = GetFeatureChoice("classes", "ranger", "natural explorer"
 if (origNatExplCurSel) {
 	origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
 	origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
-	natExplFea.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
+	origNatExpl.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
 }
 
 // Make favored enemy into a choice (can't be done by automation because of extrachoices) and add "Favored Foe" variant option
@@ -922,7 +922,7 @@ if (ClassList["rangerua"]) {
 	if (origNatExplCurSel) {
 		origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
 		origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
-		natExplFea.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
+		origNatExpl.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
 	}
 
 	// Make favored enemy into a choice (can't be done by automation because of choices) and add "Favored Foe" variant option

@@ -22759,7 +22759,7 @@ RaceList["loxodon-ggtr"] = {
 	trait : "Loxodon (+2 Constitution, +1 Wisdom)" +
 		"\n  Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." +
 		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield." +
-		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5× my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
+		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5\xD7 my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
 		"\n  Keen Smell: I have " + (typePF ? "advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." : "adv. on Perception, Survival, and Investigation checks involving smell."),
 	carryingCapacity : 2
 };

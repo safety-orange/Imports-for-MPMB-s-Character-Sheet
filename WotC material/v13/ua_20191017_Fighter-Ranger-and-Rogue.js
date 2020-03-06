@@ -405,7 +405,7 @@ AddSubClass("rogue", "the revived", {
 				description : desc([
 					"I can now use my cunning action to teleport to an unoccupied space within 30 ft",
 					"I don't need to see where I'm going, but it fails if I'd go through a magical force effect",
-					"I'm shunted if I appear in an occupied space and take force damage of 2× the ft moved"
+					"I'm shunted if I appear in an occupied space and take force damage of 2\xD7 the ft moved"
 				])
 			}
 		}

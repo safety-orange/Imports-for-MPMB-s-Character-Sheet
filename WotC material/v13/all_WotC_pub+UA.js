@@ -22760,7 +22760,7 @@ RaceList["loxodon-ggtr"] = {
 	trait : "Loxodon (+2 Constitution, +1 Wisdom)" +
 		"\n  Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." +
 		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield." +
-		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5× my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
+		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5\xD7 my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
 		"\n  Keen Smell: I have " + (typePF ? "advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." : "adv. on Perception, Survival, and Investigation checks involving smell."),
 	carryingCapacity : 2
 };
@@ -40190,7 +40190,7 @@ PsionicsList["mw6-wall of thunder"] = {
 	duration : "Conc, 10 min",
 	save : "Str",
 	description : "60\u00D71\u00D715 ft (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 30 ft, prone",
-	descriptionMetric : "20×0,3×5 m (l×w×h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
+	descriptionMetric : "20\u00D70,3\u00D75 m (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
 	descriptionFull : "As an action, you create a wall of thunder, at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Every foot moved through the wall costs 1 extra foot of movement. When a creature moves into the wall's space for the first time on a turn or starts its turn there, that creature must succeed on a Strength saving throw, or it takes 6d6 thunder damage, is pushed in a straight line up to 30 feet away from the wall, and is knocked prone.",
 	firstCol : 6
 };
@@ -50131,7 +50131,7 @@ AddSubClass("rogue", "the revived", {
 				description : desc([
 					"I can now use my cunning action to teleport to an unoccupied space within 30 ft",
 					"I don't need to see where I'm going, but it fails if I'd go through a magical force effect",
-					"I'm shunted if I appear in an occupied space and take force damage of 2× the ft moved"
+					"I'm shunted if I appear in an occupied space and take force damage of 2\xD7 the ft moved"
 				])
 			}
 		}
@@ -50680,7 +50680,7 @@ var origNatExplCurSel = GetFeatureChoice("classes", "ranger", "natural explorer"
 if (origNatExplCurSel) {
 	origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
 	origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
-	natExplFea.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
+	origNatExpl.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
 }
 
 // Make favored enemy into a choice (can't be done by automation because of extrachoices) and add "Favored Foe" variant option
@@ -51061,7 +51061,7 @@ if (ClassList["rangerua"]) {
 	if (origNatExplCurSel) {
 		origNatExpl.extraname = origNatExpl[origNatExplCurSel].extraname ? origNatExpl[origNatExplCurSel].extraname : "";
 		origNatExpl.extrachoices = origNatExpl[origNatExplCurSel].extrachoices ? origNatExpl[origNatExplCurSel].extrachoices : "";
-		natExplFea.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
+		origNatExpl.extraTimes = origNatExpl[origNatExplCurSel].extraTimes ? origNatExpl[origNatExplCurSel].extraTimes : "";
 	}
 
 	// Make favored enemy into a choice (can't be done by automation because of choices) and add "Favored Foe" variant option
@@ -51894,7 +51894,7 @@ AddSubClass("wizard", "psionics", {
 				"While in my thought form, I gain a fly speed equal to my walking speed and I can hover",
 				"I can then also move through creatures and objects as if they were difficult terrain",
 				"I take 1d10 force damage if I end my turn inside an object",
-				"If I end my though form while inside an object, I'm shunted to the nearest empty space",
+				"If I end my thought form while inside an object, I'm shunted to the nearest empty space",
 				"I then take 1d10 force damage for every 5 ft traveled"
 			])
 		}
