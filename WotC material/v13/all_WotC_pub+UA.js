@@ -2073,12 +2073,22 @@ AddSubClass("wizard", "abjuration", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spellKey == "dispel magic" || spellKey == "counterspell") {
-							var theDC = Number(spellObj.description.replace(/.*DC (\d+).*/i, "$1"));
-							spellObj.description = spellObj.description.replace("DC " + theDC, "DC " + (theDC - Number(How("Proficiency Bonus"))));
+							var profB = Number(How("Proficiency Bonus"));
+							var checkRx = RegExp("(" + AbilityScores.names.join("|") + ") check \\(([+-]?\\d+)\\)", "i");
+							if (CurrentCasters.amendSpDescr && checkRx.test(spellObj.description)) {
+								var theMatch = spellObj.description.match(checkRx);
+								var jackOf = tDoc.getField("Jack of All Trades").isBoxChecked(0) === 1;
+								var remAth = tDoc.getField("Remarkable Athlete").isBoxChecked(0) === 1 && theMatch[1].test(/Str|Dex|Con/);
+								var theBonus = Number(theMatch[2]) + (remAth ? Math.floor(profB/2) : jackOf ? Math.ceil(profB/2) : profB);
+								spellObj.description = spellObj.description.replace(checkRx, theMatch[1] + " check (" + (theBonus >= 0 ? "+" + theBonus : theBonus) + ")");
+							} else {
+								var theDC = Number(spellObj.description.replace(/.*DC (\d+).*/i, "$1"));
+								spellObj.description = spellObj.description.replace("DC " + theDC, "DC " + (theDC - profB) );
+							}
 							return true;
 						};
 					},
-					"I add my proficiency bonus to ability checks required by abjuration spells, thus lowering the DC."
+					"I add my proficiency bonus to ability checks required by abjuration spells. This is shown on the spell sheet by a lowered DC or higher bonus on the check."
 				]
 			}
 		},
