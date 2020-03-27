@@ -1,6 +1,5 @@
 var iFileName = "pub_20200317_EGtW.js";
 RequiredSheetVersion(13);
-// This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.W={
@@ -282,3 +281,183 @@ var companionUtil = {
 		return prefixes;
 	}
 };
+
+// Races
+
+// Draconblood
+var breathWeaponDesc = function(dmgType, shape) {
+	var shapeStr = shape === "line" ? "5 ft by 30 ft line" : "15 ft cone";
+	var capitailzedDmgType = dmgType.charAt(0).toUpperCase() + dmgType.slice(1);
+	var saveStat = ["cold", "poison"].indexOf(dmgType) >= 0 ? "Con" : "Dex";
+	return capitailzedDmgType + " Breath Weapon: As an action once per short rest, I can deal 2d6 " + dmgType + " damage to all in a " + shapeStr + ", " + saveStat + " save halves (DC 8 + Dex mod + prof bonus).\nThis damage increases to 3d6 at level 6, 4d6 at level 11, and 5d6 at level 16.";
+};
+
+var acidBreath = breathWeaponDesc("acid", "line");
+var lightningBreath = breathWeaponDesc("lightning", "line");
+var coneFireBreath = breathWeaponDesc("fire", "cone");
+var coldBreath = breathWeaponDesc("cold", "cone");
+
+var forcefulPresenceStr = "Forceful Presence: Once per short rest, I can give myself adv. on an Intimidation or Persuasion check.";
+
+RaceList["draconblood"] = {
+	regExpSearch : /^(?=.*draconblood)(?=.*dragonborn)?.*$/i,
+	name : "Draconblood Dragonborn",
+	sortname : "Dragonborn, Draconblood",
+	source : [["W", 168]],
+	plural : "Draconblood Dragonborn",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Draconic"],
+	vision : [["Darkvision", 60]],
+	weaponOptions : {
+		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
+		name : "Breath weapon",
+		source : [["SRD", 5], ["P", 34]],
+		ability : 3,
+		type : "Natural",
+		damage : [2, 6, "fire"],
+		range : "15-ft cone",
+		description : "Hits all in area; Dex save, success - half damage; Usable only once per short rest",
+		abilitytodamage : false,
+		dc : true,
+		dbBreathWeapon : true
+	},
+	weaponsAdd : ["Breath Weapon"],
+	age : " reach adulthood by 15 and live around 80 years",
+	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
+	weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
+	heightMetric : " stand well over 1,8 metres tall (170 + 5d8 cm)",
+	weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
+	scores : [0, 0, 0, 2, 0, 1],
+	trait : "Draconblood Dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		"Draconic Ancestry: Choose one type of dragon using the \"Racial Options\" button. I gain a breath weapon as determined by the dragon type chosen.",
+		forcefulPresenceStr
+	]),
+	features : {
+		"draconic ancestry" : {
+			name : "Draconic Ancestry",
+			limfeaname : "Breath Weapon",
+			minlevel : 1,
+			usages : 1,
+			additional : levels.map(function (n) {
+				return (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + 'd6';
+			}),
+			recovery : "short rest",
+			action : ["action", ""],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.dbBreathWeapon && CurrentRace.known === 'draconblood') {
+							fields.Damage_Die = (CurrentRace.level < 6 ? 2 : CurrentRace.level < 11 ? 3 : CurrentRace.level < 16 ? 4 : 5) + 'd6';
+							if (CurrentRace.variant) {
+								fields.Damage_Type = CurrentRace.breathDmgType;
+								fields.Description = fields.Description.replace(/(dex|con) save/i, ((/cold|poison/i).test(CurrentRace.breathDmgType) ? 'Con' : 'Dex') + ' save');
+								fields.Range = (/black|blue|brass|bronze|copper/i).test(CurrentRace.variant) ? '5-ft \u00D7 30-ft line' : '15-ft cone';
+							}
+						};
+					}
+				]
+			}
+		},
+		"forceful presence" : {
+			name : "Forceful Presence",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest"
+		}
+	},
+	variants : []
+};
+
+AddRacialVariant("draconblood", "black", {
+	regExpSearch : /black/i,
+	name : "Black draconblood dragonborn",
+	trait : "Black draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		acidBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "acid"
+});
+AddRacialVariant("draconblood", "blue", {
+	regExpSearch : /blue/i,
+	name : "Blue draconblood dragonborn",
+	trait : "Blue draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		lightningBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "lightning"
+});
+AddRacialVariant("draconblood", "brass", {
+	regExpSearch : /brass/i,
+	name : "Brass draconblood dragonborn",
+	trait : "Brass draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		breathWeaponDesc("fire", "line"),
+		forcefulPresenceStr
+	]),
+	breathDmgType : "fire"
+});
+AddRacialVariant("draconblood", "bronze", {
+	regExpSearch : /bronze/i,
+	name : "Bronze draconblood dragonborn",
+	trait : "Bronze draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		lightningBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "lightning"
+});
+AddRacialVariant("draconblood", "copper", {
+	regExpSearch : /copper/i,
+	name : "Copper draconblood dragonborn",
+	trait : "Copper draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		acidBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "acid"
+});
+AddRacialVariant("draconblood", "gold", {
+	regExpSearch : /gold/i,
+	name : "Gold draconblood dragonborn",
+	trait : "Gold draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		coneFireBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "fire"
+});
+AddRacialVariant("draconblood", "green", {
+	regExpSearch : /green/i,
+	name : "Green draconblood dragonborn",
+	trait : "Green draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		breathWeaponDesc("poison", "cone"),
+		forcefulPresenceStr
+	]),
+	breathDmgType : "poison"
+});
+AddRacialVariant("draconblood", "red", {
+	regExpSearch : /red/i,
+	name : "Red draconblood dragonborn",
+	trait : "Red draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		coneFireBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "fire"
+});
+AddRacialVariant("draconblood", "silver", {
+	regExpSearch : /silver/i,
+	name : "Silver draconblood dragonborn",
+	trait : "Silver draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		coldBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "cold"
+});
+AddRacialVariant("draconblood", "white", {
+	regExpSearch : /white/i,
+	name : "White draconblood dragonborn",
+	trait : "White draconblood dragonborn (+2 Intelligence, +1 Charisma)" + desc([
+		coldBreath,
+		forcefulPresenceStr
+	]),
+	breathDmgType : "cold"
+});
