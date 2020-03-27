@@ -289,7 +289,7 @@ var breathWeaponDesc = function(dmgType, shape) {
 	var shapeStr = shape === "line" ? "5 ft by 30 ft line" : "15 ft cone";
 	var capitailzedDmgType = dmgType.charAt(0).toUpperCase() + dmgType.slice(1);
 	var saveStat = ["cold", "poison"].indexOf(dmgType) >= 0 ? "Con" : "Dex";
-	return capitailzedDmgType + " Breath Weapon: As an action once per short rest, I can deal 2d6 " + dmgType + " damage to all in a " + shapeStr + ", " + saveStat + " save halves (DC 8 + Dex mod + prof bonus).\nThis damage increases to 3d6 at level 6, 4d6 at level 11, and 5d6 at level 16.";
+	return capitailzedDmgType + " Breath Weapon: As an action once per short rest, I can deal 2d6 " + dmgType + " damage to all in a " + shapeStr + ", " + saveStat + " save halves (DC 8 + Con mod + prof bonus).\nThis damage increases to 3d6 at level 6, 4d6 at level 11, and 5d6 at level 16.";
 };
 
 var acidBreath = breathWeaponDesc("acid", "line");
