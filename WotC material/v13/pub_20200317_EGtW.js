@@ -282,9 +282,9 @@ var companionUtil = {
 	}
 };
 
-// Races
+// Races TODO: Page numbers
 
-// Draconblood
+// Dragonborn
 var breathWeaponDesc = function(dmgType, shape) {
 	var shapeStr = shape === "line" ? "5 ft by 30 ft line" : "15 ft cone";
 	var capitailzedDmgType = dmgType.charAt(0).toUpperCase() + dmgType.slice(1);
@@ -297,6 +297,7 @@ var lightningBreath = breathWeaponDesc("lightning", "line");
 var coneFireBreath = breathWeaponDesc("fire", "cone");
 var coldBreath = breathWeaponDesc("cold", "cone");
 
+// Draconblood
 var forcefulPresenceStr = "Forceful Presence: Once per short rest, I can give myself adv. on an Intimidation or Persuasion check.";
 
 RaceList["draconblood"] = {
@@ -461,3 +462,270 @@ AddRacialVariant("draconblood", "white", {
 	]),
 	breathDmgType : "cold"
 });
+
+// Ravenite
+var vengefulAssaultStr = "Vengeful Assault: When I take damage from a creature in range of a weapon that I'm holding, I can use my reaction to make an attack. This can be used once per short rest.";
+
+RaceList["ravenite"] = {
+	regExpSearch : /^(?=.*ravenite)(?=.*dragonborn)?.*$/i,
+	name : "Ravenite Dragonborn",
+	sortname : "Dragonborn, Ravenite",
+	source : [["W", 169]],
+	plural : "Ravenite Dragonborn",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Draconic"],
+	vision : [["Darkvision", 60]],
+	weaponOptions : {
+		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
+		name : "Breath weapon",
+		source : [["SRD", 5], ["P", 34]],
+		ability : 3,
+		type : "Natural",
+		damage : [2, 6, "fire"],
+		range : "15-ft cone",
+		description : "Hits all in area; Dex save, success - half damage; Usable only once per short rest",
+		abilitytodamage : false,
+		dc : true,
+		dbBreathWeapon : true
+	},
+	weaponsAdd : ["Breath Weapon"],
+	age : " reach adulthood by 15 and live around 80 years",
+	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
+	weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
+	heightMetric : " stand well over 1,8 metres tall (170 + 5d8 cm)",
+	weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
+	scores : [2, 1, 0, 0, 0, 0],
+	trait : "Ravenite Dragonborn (+2 Strength, +1 Constitution)" + desc([
+		"Draconic Ancestry: Choose one type of dragon using the \"Racial Options\" button. I gain a breath weapon as determined by the dragon type chosen.",
+		vengefulAssaultStr
+	]),
+	features : {
+		"draconic ancestry" : {
+			name : "Draconic Ancestry",
+			limfeaname : "Breath Weapon",
+			minlevel : 1,
+			usages : 1,
+			additional : levels.map(function (n) {
+				return (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + 'd6';
+			}),
+			recovery : "short rest",
+			action : ["action", ""],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.dbBreathWeapon && CurrentRace.known === 'ravenite') {
+							fields.Damage_Die = (CurrentRace.level < 6 ? 2 : CurrentRace.level < 11 ? 3 : CurrentRace.level < 16 ? 4 : 5) + 'd6';
+							if (CurrentRace.variant) {
+								fields.Damage_Type = CurrentRace.breathDmgType;
+								fields.Description = fields.Description.replace(/(dex|con) save/i, ((/cold|poison/i).test(CurrentRace.breathDmgType) ? 'Con' : 'Dex') + ' save');
+								fields.Range = (/black|blue|brass|bronze|copper/i).test(CurrentRace.variant) ? '5-ft \u00D7 30-ft line' : '15-ft cone';
+							}
+						};
+					}
+				]
+			}
+		},
+		"vengeful assault" : {
+			name : "Vengeful Assault",
+			minlevel : 1,
+			usages : 1,
+			action : [["reaction", ""]],
+			recovery : "short rest"
+		}
+	},
+	variants : []
+};
+
+AddRacialVariant("ravenite", "black", {
+	regExpSearch : /black/i,
+	name : "Black ravenite dragonborn",
+	trait : "Black ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		acidBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "acid"
+});
+AddRacialVariant("ravenite", "blue", {
+	regExpSearch : /blue/i,
+	name : "Blue ravenite dragonborn",
+	trait : "Blue ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		lightningBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "lightning"
+});
+AddRacialVariant("ravenite", "brass", {
+	regExpSearch : /brass/i,
+	name : "Brass ravenite dragonborn",
+	trait : "Brass ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		breathWeaponDesc("fire", "line"),
+		vengefulAssaultStr
+	]),
+	breathDmgType : "fire"
+});
+AddRacialVariant("ravenite", "bronze", {
+	regExpSearch : /bronze/i,
+	name : "Bronze ravenite dragonborn",
+	trait : "Bronze ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		lightningBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "lightning"
+});
+AddRacialVariant("ravenite", "copper", {
+	regExpSearch : /copper/i,
+	name : "Copper ravenite dragonborn",
+	trait : "Copper ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		acidBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "acid"
+});
+AddRacialVariant("ravenite", "gold", {
+	regExpSearch : /gold/i,
+	name : "Gold ravenite dragonborn",
+	trait : "Gold ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		coneFireBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "fire"
+});
+AddRacialVariant("ravenite", "green", {
+	regExpSearch : /green/i,
+	name : "Green ravenite dragonborn",
+	trait : "Green ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		breathWeaponDesc("poison", "cone"),
+		vengefulAssaultStr
+	]),
+	breathDmgType : "poison"
+});
+AddRacialVariant("ravenite", "red", {
+	regExpSearch : /red/i,
+	name : "Red ravenite dragonborn",
+	trait : "Red ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		coneFireBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "fire"
+});
+AddRacialVariant("ravenite", "silver", {
+	regExpSearch : /silver/i,
+	name : "Silver ravenite dragonborn",
+	trait : "Silver ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		coldBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "cold"
+});
+AddRacialVariant("ravenite", "white", {
+	regExpSearch : /white/i,
+	name : "White ravenite dragonborn",
+	trait : "White ravenite dragonborn (+2 Strength, +1 Constitution)" + desc([
+		coldBreath,
+		vengefulAssaultStr
+	]),
+	breathDmgType : "cold"
+});
+
+// Elves
+// Sea
+RaceList["sea elf"] = {
+	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
+	name : "Sea elf",
+	sortname : "Elf, Sea",
+	source : [["MToF", 62], ["UA:ES", 1], ["W", 0]],
+	plural : "Sea elves",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 },
+		swim : { spd : 30, enc : 20 }
+	},
+	weaponProfs : [false, false, ["spear", "trident", "light crossbow", "net"]],
+	languageProfs : ["Common", "Elvish", "Aquan"],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	skills : ["Perception"],
+	age : " typically claim adulthood around age 100 and can live to be 750 years old",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
+	heightMetric : " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
+	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
+	scores : [0, 2, 1, 0, 0, 0],
+	trait : "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
+		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
+		"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
+	])
+};
+
+// Pallid
+RaceList["pallid elf"] = {
+	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(pallid|pale)\b)).*$/i,
+	name : "Pallid elf",
+	sortname : "Elf, Pallid",
+	source : [["MToF", 62], ["UA:ES", 1], ["W", 0]],
+	plural : "Pallid elves",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	skills : ["Perception"],
+	age : " typically claim adulthood around age 100 and can live to be 750 years old",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
+	heightMetric : " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
+	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
+	scores : [0, 2, 0, 0, 1, 0],
+	trait : "Pallid Elf (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n   " : " ") + [
+		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"Incisive Sense. I have adv. on Investigation and Insight checks.",
+		"Blessing of the Moon Weaver: I know the Light cantrip. At 3rd level, I can cast the Sleep spell once per long rest. At 5th level, I can cast the Invisibility spell on myself once per long rest. Wisdom is my spellcasting ability for these spells."
+	].join(typePF ? "\n   ": " "),
+	spellcastingAbility : 5,
+	spellcastingBonus : {
+		name : "Blessing of the Moon Weaver (1)",
+		spells : ["light"],
+		selection : ["light"],
+		firstCol : 'atwill'
+	},
+	features : {
+		"sleep" : {
+			name : "Blessing of the Moon Weaver (level 3)",
+			limfeaname : "Sleep",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Blessing of the Moon Weaver (3)",
+				spells : ["sleep"],
+				selection : ["sleep"],
+				firstCol : 'oncelr'
+			}
+		},
+		"invisibility" : {
+			name : "Blessing of the Moon Weaver (level 5)",
+			limfeaname : "Invisibility",
+			minlevel : 5,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Blessing of the Moon Weaver (5)",
+				spells : ["invisibility"],
+				selection : ["invisibility"],
+				firstCol : 'oncelr'
+			}
+		}
+	}
+};
