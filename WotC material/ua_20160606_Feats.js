@@ -45,7 +45,7 @@ FeatsList["flail mastery"] = {
 FeatsList["spear mastery"] = {
 	name : "Spear Mastery",
 	source : ["UA:F", 3],
-	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the speer's reach with 5 ft.",
+	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the spear's reach by 5 ft.",
 	calcChanges : {
 		atkAdd : ["if (WeaponName === 'spear') { fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die; fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)'); }; ", "With a spear, I get the following benefits:\n - +1 to hit;\n - The spear damage die increases to d8 (versatile d10)."],
 		atkCalc : ["if (WeaponName === 'spear') {output.extraHit += 1;}; ", ""]
