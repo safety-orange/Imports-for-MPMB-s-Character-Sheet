@@ -279,7 +279,7 @@ WeaponsList["primal savagery-uass"] = {
 	description : "Does either Piercing or Slashing damage (my choice) (UA:SS 3)",
 	abilitytodamage : false
 };
-
+// dupl_start
 if (!SourceList.X) {
 	SpellsList["toll the dead"] = {
 		name : "Toll the Dead",
@@ -309,4 +309,4 @@ if (!SourceList.X) {
 		abilitytodamage : false,
 		dc : true
 	};
-}
+} // dupl_end

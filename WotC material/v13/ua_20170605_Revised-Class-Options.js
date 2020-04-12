@@ -343,6 +343,7 @@ AddSubClass("warlock", "the celestial", {
 });
 
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
+// dupl_start
 if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 	AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 		name : "Aspect of the Moon",
@@ -452,7 +453,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			}
 		}
 	});
-}
+} // dupl_end
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Eldritch Smite",
 	description : desc([

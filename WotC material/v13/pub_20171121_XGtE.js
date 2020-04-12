@@ -1377,6 +1377,7 @@ RunFunctionAtEnd(function () {
 		}
 	}
 });
+// dupl_start
 if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
 	// the Way of the Sun Soul subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
 	AddSubClass("monk", "way of the sun soul", {
@@ -1466,7 +1467,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 			}
 		}
 	});
-};
+}; // dupl_end
 
 // Add 2 subclasses for the Paladin
 AddSubClass("paladin", "oath of conquest-xgte", {
@@ -1856,6 +1857,7 @@ AddSubClass("rogue", "inquisitive-xgte", {
 		}
 	}
 });
+// dupl_start
 if (!ClassSubList["rogue-mastermind"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
 	// the Mastermind subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
 	AddSubClass("rogue", "mastermind", {
@@ -1917,7 +1919,7 @@ if (!ClassSubList["rogue-mastermind"] && (!SourceList.S || SourceList.S.abbrevia
 			}
 		}
 	});
-};
+}; // dupl_end
 AddSubClass("rogue", "scout-xgte", {
 	regExpSearch : /scout/i,
 	subname : "Scout",
@@ -1975,6 +1977,7 @@ AddSubClass("rogue", "scout-xgte", {
 		}
 	}
 });
+// dupl_start
 if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
 	// the Swashbuckler subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
 	AddSubClass("rogue", "swashbuckler", {
@@ -2033,7 +2036,7 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbrev
 			}
 		}
 	});
-};
+}; // dupl_end
 
 // Add 3 subclasses for the Sorcerer
 AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contributions by SoilentBrad
@@ -2286,6 +2289,7 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 		}
 	}
 });
+// dupl_start
 if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
 	// the Storm Sorcery subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
 	AddSubClass("sorcerer", "storm sorcery", {
@@ -2362,7 +2366,7 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 			}
 		}
 	});
-};
+}; // dupl_end
 
 // Add 2 subclasses for the Warlock
 AddSubClass("warlock", "the celestial-xgte", {
@@ -3070,7 +3074,7 @@ FeatsList["wood elf magic-xgte"] = {
 	}]
 };
 
-// Add spells, first those taken from the Elemental Evil Player's Companion, if not already present
+// [dupl_start] Add spells, first those taken from the Elemental Evil Player's Companion, if not already present
 if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.name)) {
 	SpellsList["abi-dalzim's horrid wilting"] = {
 		name : "Abi-Dalzim's Horrid Wilting",
@@ -3690,7 +3694,8 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		description : "10-ft rad 30-ft high all crea 10d6 Bludg. dmg; save halves; restrains; 1 a move 30 ft; see book",
 		descriptionFull : "A whirlwind howls down to a point that you can see on the ground within range. The whirlwind is a 10-foot-radius, 30-foot-high cylinder centered on that point. Until the spell ends, you can use your action to move the whirlwind up to 30 feet in any direction along the ground. The whirlwind sucks up any Medium or smaller objects that aren't secured to anything and that aren't worn or carried by anyone." + "\n   " + "A creature must make a Dexterity saving throw the first time on a turn that it enters the whirlwind or that the whirlwind enters its space, including when the whirlwind first appears. A creature takes 10d6 bludgeoning damage on a failed save, or half as much damage on a successful one. In addition, a Large or smaller creature that fails the save must succeed on a Strength saving throw or become restrained in the whirlwind until the spell ends. When a creature starts its turn restrained by the whirlwind, the creature is pulled 5 feet higher inside it, unless the creature is at the top. A restrained creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft." + "\n   " + "A restrained creature can use an action to make a Strength or Dexterity check against your spell save DC. If successful, the creature is no longer restrained by the whirlwind and is hurled 3d6 \u00D7 10 feet away from it in a random direction."
 	};
-};
+}; // dupl_end
+
 // Then add the new spells from XGtE (contains contributions by SoilentBrad)
 SpellsList["catnap"] = {
 	name : "Catnap",

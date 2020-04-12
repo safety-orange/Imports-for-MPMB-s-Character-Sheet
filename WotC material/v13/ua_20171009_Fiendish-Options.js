@@ -12,8 +12,8 @@ SourceList["UA:FO"] = {
 };
 
 // Adds 8 subraces for the Tiefling, even though it doesn't have any in the PHB/SRD
-// Note that the Abyssal Tiefling is the same as the Tiefling in the PHB/SRD, so it is not added (again) by this code
 // Much of this code was contributed by Friedrich
+// [dupl_start] Note that the Abyssal Tiefling is the same as the Tiefling in the PHB/SRD, so it is not added (again) by this code
 if (!RaceList["baalzebul tiefling"]) {
 	RaceList["baalzebul tiefling"] = {
 		regExpSearch : /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
@@ -78,62 +78,6 @@ if (!RaceList["baalzebul tiefling"]) {
 		}
 	};
 }
-RaceList["dispater tiefling"] = {
-	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
-	name : "Dispater tiefling",
-	sortname : "Tiefling, Dispater",
-	source : ["UA:FO", 1],
-	plural : "Dispater tieflings",
-	size : 3,
-	speed : {
-		walk : { spd : 30, enc : 20 }
-	},
-	languageProfs : ["Common", "Infernal"],
-	vision : [["Darkvision", 60]],
-	dmgres : ["Fire"],
-	age : " reach adulthood in their late teens and live around 100 years",
-	height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-	scores : [0, 1, 0, 0, 0, 2],
-	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-	spellcastingAbility : 6,
-	spellcastingBonus : {
-		name : "Legacy of Dis (level 1)",
-		spells : ["thaumaturgy"],
-		selection : ["thaumaturgy"],
-		firstCol : 'atwill'
-	},
-	features : {
-		"disguise self" : {
-			name : "Legacy of Dis (level 3)",
-			limfeaname : "Disguise Self",
-			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : {
-				name : "Legacy of Dis (level 3)",
-				spells : ["disguise self"],
-				selection : ["disguise self"],
-				firstCol : 'oncelr'
-			}
-		},
-		"invisibility" : {
-			name : "Legacy of Dis (level 5)",
-			limfeaname : "Invisibility",
-			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : {
-				name : "Legacy of Dis (level 5)",
-				spells : ["invisibility"],
-				selection : ["invisibility"],
-				firstCol : 'oncelr'
-			}
-		}
-	}
-};
 if (!RaceList["fierna tiefling"]) {
 	RaceList["fierna tiefling"] = {
 		regExpSearch : /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
@@ -387,68 +331,6 @@ if (!RaceList["mammon tiefling"]) {
 	};
 
 }
-RaceList["mephistopheles tiefling"] = {
-	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
-	name : "Mephistopheles tiefling",
-	sortname : "Tiefling, Mephistopheles",
-	source : ["UA:FO", 2],
-	plural : "Mephistopheles tieflings",
-	size : 3,
-	speed : {
-		walk : { spd : 30, enc : 20 }
-	},
-	languageProfs : ["Common", "Infernal"],
-	vision : [["Darkvision", 60]],
-	dmgres : ["Fire"],
-	age : " reach adulthood in their late teens and live around 100 years",
-	height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Magic Missile spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Web spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-	spellcastingAbility : 6,
-	spellcastingBonus : {
-		name : "Legacy of Cania (level 1)",
-		spells : ["mage hand"],
-		selection : ["mage hand"],
-		firstCol : 'atwill'
-	},
-	features : {
-		"magic missile" : {
-			name : "Legacy of Cania (level 3)",
-			limfeaname : "Magic Missile (2 darts)",
-			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : {
-				name : "Legacy of Cania (level 3)",
-				spells : ["magic missile"],
-				selection : ["magic missile"],
-				firstCol : 'oncelr'
-			},
-			spellChanges : {
-				"magic missile" : {
-					description : "4 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
-					changes : "Using Legacy of Cania, I cast Magic Missile as if I'm using a 2nd-level spell slot."
-				}
-			}
-		},
-		"web" : {
-			name : "Legacy of Cania (level 5)",
-			limfeaname : "Web",
-			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : {
-				name : "Legacy of Cania (level 5)",
-				spells : ["web"],
-				selection : ["web"],
-				firstCol : 'oncelr'
-			}
-		}
-	}
-};
 if (!RaceList["zariel tiefling"]) {
 	RaceList["zariel tiefling"] = {
 		regExpSearch : /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
@@ -512,4 +394,122 @@ if (!RaceList["zariel tiefling"]) {
 			}
 		}
 	};
-}
+} // dupl_end
+RaceList["dispater tiefling"] = {
+	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
+	name : "Dispater tiefling",
+	sortname : "Tiefling, Dispater",
+	source : ["UA:FO", 1],
+	plural : "Dispater tieflings",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Infernal"],
+	vision : [["Darkvision", 60]],
+	dmgres : ["Fire"],
+	age : " reach adulthood in their late teens and live around 100 years",
+	height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
+	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	scores : [0, 1, 0, 0, 0, 2],
+	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Legacy of Dis (level 1)",
+		spells : ["thaumaturgy"],
+		selection : ["thaumaturgy"],
+		firstCol : 'atwill'
+	},
+	features : {
+		"disguise self" : {
+			name : "Legacy of Dis (level 3)",
+			limfeaname : "Disguise Self",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Legacy of Dis (level 3)",
+				spells : ["disguise self"],
+				selection : ["disguise self"],
+				firstCol : 'oncelr'
+			}
+		},
+		"invisibility" : {
+			name : "Legacy of Dis (level 5)",
+			limfeaname : "Invisibility",
+			minlevel : 5,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Legacy of Dis (level 5)",
+				spells : ["invisibility"],
+				selection : ["invisibility"],
+				firstCol : 'oncelr'
+			}
+		}
+	}
+};
+RaceList["mephistopheles tiefling"] = {
+	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
+	name : "Mephistopheles tiefling",
+	sortname : "Tiefling, Mephistopheles",
+	source : ["UA:FO", 2],
+	plural : "Mephistopheles tieflings",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Infernal"],
+	vision : [["Darkvision", 60]],
+	dmgres : ["Fire"],
+	age : " reach adulthood in their late teens and live around 100 years",
+	height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
+	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	scores : [0, 0, 0, 1, 0, 2],
+	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Magic Missile spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Web spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Legacy of Cania (level 1)",
+		spells : ["mage hand"],
+		selection : ["mage hand"],
+		firstCol : 'atwill'
+	},
+	features : {
+		"magic missile" : {
+			name : "Legacy of Cania (level 3)",
+			limfeaname : "Magic Missile (2 darts)",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Legacy of Cania (level 3)",
+				spells : ["magic missile"],
+				selection : ["magic missile"],
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"magic missile" : {
+					description : "4 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+					changes : "Using Legacy of Cania, I cast Magic Missile as if I'm using a 2nd-level spell slot."
+				}
+			}
+		},
+		"web" : {
+			name : "Legacy of Cania (level 5)",
+			limfeaname : "Web",
+			minlevel : 5,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Legacy of Cania (level 5)",
+				spells : ["web"],
+				selection : ["web"],
+				firstCol : 'oncelr'
+			}
+		}
+	}
+};

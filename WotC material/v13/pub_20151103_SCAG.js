@@ -104,7 +104,8 @@ RaceList["gray dwarf"] = {
 		}
 	}
 };
-if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion
+// [dupl_start] Reprint from Elemental Evil Player's Companion
+if (!RaceList["deep gnome"]) {
 	RaceList["deep gnome"] = {
 		regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 		name : "Svirfneblin",
@@ -126,7 +127,7 @@ if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion
 		scores : [0, 1, 0, 2, 0, 0],
 		trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 	};
-}
+} // dupl_end
 
 // Racial variants
 AddRacialVariant("half-elf", "aquatic", {
@@ -1531,7 +1532,7 @@ WeaponsList["sword burst"] = {
 	dc : true
 };
 
-// Feat
+// [dupl_start] Feat reprint from Elemental Evil Player's Companion
 if (!FeatsList["svirfneblin magic"]) {
 	FeatsList["svirfneblin magic"] = {
 		name : "Svirfneblin Magic",
@@ -1563,7 +1564,7 @@ if (!FeatsList["svirfneblin magic"]) {
 			}
 		}
 	};
-}
+} // dupl_end
 
 // Spells
 SpellsList["booming blade"] = {

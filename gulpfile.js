@@ -1,13 +1,12 @@
 /*jshint esversion: 6 */
 
 const { series, parallel, src, dest } = require('gulp');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const header = require('gulp-header');
-const concat = require('gulp-concat');
-const del = require('gulp-rm-lines');
-const replace = require('gulp-replace');
 const log = require('fancy-log');
+const concat = require('gulp-concat');
+const header = require('gulp-header');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const uglify = require('gulp-uglify');
 
 const stableVersion = 12.999;
 const betaVersion = 13;
@@ -18,12 +17,9 @@ function concatAndMin(glob, fileName, beta) {
 	const folder = `WotC material${beta ? betaFolder : ''}`;
 	const requiredVersion = beta ? betaVersion : stableVersion;
 	return src([`${folder}/${glob}_*.js`, `!${folder}/${glob}_*_dupl.js`])
-		.pipe(del({
-			filters: [
-				/RequiredSheetVersion\([0-9.]+\);/
-			]
-		}))
-		.pipe(replace(/var iFileName ?= ?['"]([^"']+)['"];/,"// $1"))
+		.pipe(replace(/var iFileName ?= ?['"](.*?)['"];/g,"// $1"))
+		.pipe(replace(/RequiredSheetVersion\(.*?\)[,;][\r\n]*/g, ""))
+		.pipe(replace(/\/\/.*?dupl_start[\s\S]*?dupl_end.*?[\r\n]*/ig,""))
 		.pipe(concat(`${fileName}.js`, {newLine: '\n'}))
 		.pipe(header(`var iFileName = "${fileName}.js";\nRequiredSheetVersion(${requiredVersion});\n`))
 		.pipe(dest(folder))
@@ -41,8 +37,7 @@ function combine(minified, beta) {
 	const fileName = `${fileHead}pub+UA${ext}`;
 	const requiredVersion = beta ? betaVersion : stableVersion;
 	return src([`${path}published${ext}`, `${path}unearthed_arcana${ext}`])
-		.pipe(replace(/var iFileName ?= ?['"]([^"']+)['"];\n?/, ""))
-		.pipe(replace(/RequiredSheetVersion\([0-9.]+\)[,;]\n?/, ""))
+		.pipe(replace(/var iFileName[\s\S]*?RequiredSheetVersion\(.*?\)[,;][\r\n]*/, ""))
 		.pipe(concat(fileName, {newLine: minified ? '' : '\n'}))
 		.pipe(header(`var iFileName = "${fileName}";${minified ? '' : '\n'}RequiredSheetVersion(${requiredVersion})${minified ? ',' : ';\n'}`))
 		.pipe(dest(folder));

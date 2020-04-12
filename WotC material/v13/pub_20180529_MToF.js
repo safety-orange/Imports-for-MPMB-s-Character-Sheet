@@ -762,8 +762,8 @@ RaceList["githzerai-mtof"] = {
 	}
 };
 
-// Reprints
-if (!RaceList["gray dwarf"]) { //reprint from Sword Coast Adventure Guide
+// [dupl_start] Reprint from Sword Coast Adventure Guide
+if (!RaceList["gray dwarf"]) { 
 	RaceList["gray dwarf"] = {
 		regExpSearch : /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
 		name : "Duergar",
@@ -837,7 +837,8 @@ if (!RaceList["gray dwarf"]) { //reprint from Sword Coast Adventure Guide
 		}
 	};
 }
-if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion and Sword Coast Adventure Guide
+// Reprint from Elemental Evil Player's Companion and Sword Coast Adventure Guide
+if (!RaceList["deep gnome"]) {
 	RaceList["deep gnome"] = {
 		regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 		name : "Svirfneblin",
@@ -860,8 +861,7 @@ if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion
 		trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 	};
 }
-
-// Feat
+// Feat reprint from Elemental Evil Player's Companion
 if (!FeatsList["svirfneblin magic"]) {
 	FeatsList["svirfneblin magic"] = {
 		name : "Svirfneblin Magic",
@@ -893,7 +893,7 @@ if (!FeatsList["svirfneblin magic"]) {
 			}
 		}
 	};
-}
+} // dupl_end
 
 // Magic Items
 MagicItemsList["greater silver sword"] = {

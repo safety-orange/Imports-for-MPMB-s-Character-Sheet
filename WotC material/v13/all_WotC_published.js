@@ -1,6 +1,6 @@
 var iFileName = "all_WotC_published.js";
-var iFileName = "pub_20140715_LMoP.js";
 RequiredSheetVersion(13);
+// pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
 // Define the source
@@ -139,8 +139,8 @@ MagicItemsList["staff of defense"] = {
 	},
 	extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
 }
-var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion(13);
+
+// pub_20140818_PHB.js
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -4768,8 +4768,8 @@ SpellsList["wrathful smite"] = {
 	description : "Next melee weapon hit +1d6 Psychic dmg and save or frightened; it can take 1 a for extra save",
 	descriptionFull : "The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1d6 psychic damage. Additionally, if the target is a creature, it must make a Wisdom saving throw or be frightened of you until the spell ends. As an action, the creature can make a Wisdom check against your spell save DC to steel its resolve and end this spell."
 };
-var iFileName = "pub_20140819_HotDQ+20141104_RoT.js";
-RequiredSheetVersion(13);
+
+// pub_20140819_HotDQ+20141104_RoT.js
 // This file adds the background features and magic items from the Hoard of the Dragon Queen and Rise of Tiamat  adventure books to MPMB's Character Record Sheet
 
 // Define the source
@@ -5159,8 +5159,8 @@ MagicItemsList["dragontooth dagger"] = {
 		modifiers : [1,1]
 	}
 }
-var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion(12.999);
+
+// pub_20140930_MM.js
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
@@ -5582,8 +5582,8 @@ CreatureList["gas spore"] = {
 	],
 	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
 };
-var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion(13);
+
+// pub_20141209_DMG.js
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -6990,8 +6990,8 @@ MagicItemsList["whelm"] = {
 		firstCol : "oncelr"
 	}
 }
-var iFileName = "pub_20150407_PotA.js";
-RequiredSheetVersion(13);
+
+// pub_20150407_PotA.js
 // This file adds the magic items from the Princes of the Apocalypse adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -7482,8 +7482,7 @@ MagicItemsList["wingwear"] = {
 	additional : "recharge: 1 h in air node",
 	action : [["bonus action", ""]]
 }
-var iFileName = "pub_20150415_AL-EE.js";
-RequiredSheetVersion(12.999);
+// pub_20150415_AL-EE.js
 // This file adds the optional backgrounds from the Adventurers League season 2 (Elemental Evil) to MPMB's Character Record Sheet
 
 // Define the source
@@ -7841,8 +7840,8 @@ BackgroundFeatureList["phlan survivor"] = {
 	description : "Whatever my prior standing I'm now one of the many refugees that came to Mulmaster. I'm able to find refuge with others from Phlan and those who sympathize with my plight. Within Mulmaster this means that I can find a place to sleep, recover, and hide from the watch with either other refugees from Phlan, or the Zhents within the ghettos.",
 	source : [["AL:EE", 6], ["ALbackground", 0]]
 };
-var iFileName = "pub_20150416_EE.js";
-RequiredSheetVersion(13);
+
+// pub_20150416_EE.js
 // This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
 
 // Define the source
@@ -8807,8 +8806,8 @@ WeaponsList["thunderclap"] = {
 	abilitytodamage : false,
 	dc : true
 };
-var iFileName = "pub_20150714_AL-RoD.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150714_AL-RoD.js
 // This file adds the optional backgrounds from the Adventurers League season 3 (Rage of Demons) to MPMB's Character Record Sheet
 
 // Define the source
@@ -9308,8 +9307,8 @@ BackgroundFeatureList["trade contact"] = {
 	description : "My family and I have trade contacts such as caravan masters, sailors, artisans, farmers, and shopkeepers throughout the Moonsea region and all along the Sword Coast. When adventuring in either of those areas, I can use those contacts to get information about the local area or to pass a message to someone in those areas, even across great distance.",
 	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };
-var iFileName = "pub_20150915_OotA.js";
-RequiredSheetVersion(13);
+
+// pub_20150915_OotA.js
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -9792,8 +9791,8 @@ MagicItemsList["wand of viscid globs"] = {
 		]
 	}
 }
-var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion(13);
+
+// pub_20151103_SCAG.js
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -9898,30 +9897,6 @@ RaceList["gray dwarf"] = {
 		}
 	}
 };
-if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion
-	RaceList["deep gnome"] = {
-		regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
-		name : "Svirfneblin",
-		sortname : "Gnome, Deep (Svirfneblin)",
-		source : [["E", 7], ["S", 115], ["MToF", 113]],
-		plural : "Svirfneblin",
-		size : 4,
-		speed : {
-			walk : { spd : 25, enc : 15 }
-		},
-		languageProfs : ["Common", "Gnomish", "Undercommon"],
-		vision : [["Darkvision", 120]],
-		savetxt : { text : ["Adv. on Int/Wis/Cha saves vs. magic"] },
-		age : " are considered full-grown adults when they reach 25 and live 200 to 250 years",
-		height : " stand between 3 and 3 1/2 feet tall (2'9\" + 2d4\")",
-		weight : " weigh around 90 lb (80 + 2d4 \xD7 1d4 lb)",
-		heightMetric : " stand between 90 and 105 cm tall (85 + 5d4 cm)",
-		weightMetric : " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
-		scores : [0, 1, 0, 2, 0, 0],
-		trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
-	};
-}
-
 // Racial variants
 AddRacialVariant("half-elf", "aquatic", {
 	regExpSearch : /aquatic/i,
@@ -11325,40 +11300,6 @@ WeaponsList["sword burst"] = {
 	dc : true
 };
 
-// Feat
-if (!FeatsList["svirfneblin magic"]) {
-	FeatsList["svirfneblin magic"] = {
-		name : "Svirfneblin Magic",
-		source : [["E", 7], ["S", 115], ["MToF", 114]],
-		prerequisite : "Being a Svirfneblin (Deep Gnome)",
-		prereqeval : function(v) { return CurrentRace.known === 'deep gnome'; },
-		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
-		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
-		spellcastingBonus : [{
-			name : "at will (self only)",
-			spellcastingAbility : 4,
-			spells : ["nondetection"],
-			selection : ["nondetection"],
-			firstCol : 'atwill'
-		}, {
-			name : "1x long rest (self only)",
-			spells : ["blindness/deafness", "blur", "disguise self"],
-			selection : ["blindness/deafness", "blur", "disguise self"],
-			firstCol : 'oncelr',
-			times : 3
-		}],
-		spellChanges : {
-			"nondetection" : {
-				range : "Self",
-				components : "V,S",
-				compMaterial : "",
-				description : "I am hidden from all divination magic",
-				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
-			}
-		}
-	};
-}
-
 // Spells
 SpellsList["booming blade"] = {
 	name : "Booming Blade",
@@ -11420,8 +11361,8 @@ SpellsList["sword burst"] = {
 	descriptionCantripDie : "All crea in range save or `CD`d6 Force damage",
 	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. Each creature within range, other than you, must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
-var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion(13);
+
+// pub_20160315_CoS.js
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
@@ -12231,8 +12172,8 @@ MagicItemsList["sunsword"] = {
 		]) + "\n\n" + sentientItemConflictTxt
 	}]
 }
-var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion(13);
+
+// pub_20160906_SKT.js
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -13007,8 +12948,8 @@ MagicItemsList["ancient relic boulder"] = {
 		}
 	}
 }
-var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion(13);
+
+// pub_20161115_VGtM.js
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -13280,38 +13221,6 @@ RaceList["goblin"] = {
 		}
 	},
 	trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
-};
-if (!RaceList["goliath"]) { //reprint from Elemental Evil Player's Companion
-	RaceList["goliath"] = {
-		regExpSearch : /goliath/i,
-		name : "Goliath",
-		source : [["E", 11], ["V", 108]],
-		plural : "Goliaths",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Giant"],
-		skills : ["Athletics"],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
-		weight : " weigh between 280 and 340 lb (200 + 2d10 \xD7 2d6 lb)",
-		heightMetric : " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
-		weightMetric : " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
-		scores : [2, 0, 1, 0, 0, 0],
-		features : {
-			"stone's endurance" : {
-				name : "Stone's Endurance",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				tooltip : "",
-				action : ["reaction", ""]
-			}
-		},
-		trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-		carryingCapacity : 2
-	};
 };
 RaceList["hobgoblin"] = {
 	regExpSearch : /hobgoblin/i,
@@ -14309,8 +14218,8 @@ MagicItemsList["survival mantle"] = {
 		weight : 40
 	}
 }
-var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170404_TftYP.js
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -14912,8 +14821,8 @@ MagicItemsList["plantslayer longsword"] = {
 		description : "Versatile (1d10); +2d6 damage vs. plants"
 	}
 }
-var iFileName = "pub_20170915_Tortle.js";
-RequiredSheetVersion(13);
+
+// pub_20170915_Tortle.js
 // This file adds the Tortle Race from the Tortle Package from DMs Guild to MPMB's Character Record Sheet
 
 // Define the source
@@ -14968,8 +14877,8 @@ RaceList["tortle"] = {
 	},
 	trait : "Tortle (+2 Strength, +1 Wisdom)\nClaws: I can use my claws to make unarmed strikes dealing 1d4 slashing damage.\nHold Breath: I can hold my breath for up to 1 hour at a time.\nNatural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armour.\nShell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell."
 };
-var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170919_ToA.js
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -15188,256 +15097,6 @@ GearList["insect repellent incense"] = {
 };
 
 // Creatures
-CreatureList["brontosaurus"] = {
-	name : "Brontosaurus",
-	source : [["V", 139], ["ToA", 215]],
-	size : 0, //Gargantuan
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 15,
-	hp : 121,
-	hd : [9, 20], //[#, die]
-	speed : "30 ft",
-	scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
-	passivePerception : 10,
-	languages : "",
-	challengeRating : "5",
-	proficiencyBonus : 3,
-	attacksAction : 1,
-	attacks : [{
-			name : "Stomp",
-			ability : 1,
-			damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
-		}, {
-			name : "Tail",
-			ability : 1,
-			damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["deinonychus"] = {
-	name : "Deinonychus",
-	source : [["V", 139], ["ToA", 217]],
-	size : 3, //Medium
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 26,
-	hd : [4, 8], //[#, die]
-	speed : "40 ft",
-	scores : [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 3
-	},
-	senses : "",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 3,
-	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
-		}
-	],
-	traits : [{
-			name : "Multiattack",
-			description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-		}, {
-			name : "Pounce",
-			description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
-		}
-	]
-};
-CreatureList["dimetrodon"] = {
-	name : "Dimetrodon",
-	source : [["V", 139], ["ToA", 217]],
-	size : 3, //Medium
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 12,
-	hp : 19,
-	hd : [3, 8], //[#, die]
-	speed : "30 ft, swim 20 ft",
-	scores : [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["hadrosaurus"] = {
-	name : "Hadrosaurus",
-	source : [["V", 140], ["ToA", 224]],
-	size : 2, //Large
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 11,
-	hp : 19,
-	hd : [3, 10], //[#, die]
-	speed : "40 ft",
-	scores : [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Tail",
-			ability : 1,
-			damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["quetzalcoatlus"] = {
-	name : "Quetzalcoatlus",
-	source : [["V", 140], ["ToA", 230]],
-	size : 1, //Huge
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 30,
-	hd : [4, 12], //[#, die]
-	speed : "10 ft, fly 80 ft",
-	scores : [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "2",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
-		}
-	],
-	traits : [{
-			name : "Dive Attack",
-			description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
-		}, {
-			name : "Flyby",
-			description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
-		}
-	]
-};
-CreatureList["stegosaurus"] = {
-	name : "Stegosaurus",
-	source : [["V", 140], ["ToA", 231]],
-	size : 1, //Huge
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 76,
-	hd : [8, 12], //[#, die]
-	speed : "40 ft",
-	scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
-	passivePerception : 10,
-	languages : "",
-	challengeRating : "4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["velociraptor"] = {
-	name : "Velociraptor",
-	source : [["V", 140], ["ToA", 235]],
-	size : 5, //Tiny
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 10,
-	hd : [3, 4], //[#, die]
-	speed : "30 ft",
-	scores : [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 3
-	},
-	senses : "",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 2,
-	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}, {
-			name : "Claw",
-			ability : 2,
-			damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}
-	],
-	traits : [{
-			name : "Pack Tactics",
-			description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
-		}
-	]
-};
 // The following creatures were transcribed with the help of SoilentBrand and @lowbrr
 CreatureList["almiraj"] = {
 	name : "Almiraj",
@@ -15732,8 +15391,8 @@ MagicItemsList["scorpion armor"] = {
 		strReq : 15
 	}
 }
-var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion(13);
+
+// pub_20171121_XGtE.js
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -17111,97 +16770,6 @@ RunFunctionAtEnd(function () {
 		}
 	}
 });
-if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
-	// the Way of the Sun Soul subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
-	AddSubClass("monk", "way of the sun soul", {
-		regExpSearch : /^(?=.*\bsun)(?=.*\b(soul|spirit))((?=.*(warrior|monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
-		subname : "Way of the Sun Soul",
-		source : [["S", 131], ["X", 35]],
-		features : {
-			"subclassfeature3" : {
-				name : "Radiant Sun Bolt",
-				source : [["S", 131], ["X", 35]],
-				minlevel : 3,
-				additional : "1 ki point for 2 extra attacks",
-				description : desc([
-					"I gain a ranged spell attack that I can use as an attack in the Attack action",
-					"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
-				]),
-				action : ["bonus action", " (2\u00D7 with Attack action)"],
-				weaponOptions : {
-					regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
-					name : "Radiant Sun Bolt",
-					source : [["S", 131], ["X", 35]],
-					ability : 2,
-					type : "Spell",
-					damage : [1, 4, "radiant"],
-					range : "30 ft",
-					description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
-					monkweapon : true,
-					abilitytodamage : true
-				},
-				weaponsAdd : ['Radiant Sun Bolt'],
-				extraname : "Way of the Sun Soul 6",
-				"searing arc strike" : {
-					name : "Searing Arc Strike",
-					source : [["S", 131], ["X", 35]],
-					description : desc([
-						"After taking the Attack action, I can cast Burning Hands as a bonus action [PHB 220]",
-						"For every additional ki point I spend, Burning hands is cast at 1 higher spell level",
-						"The maximum total ki points I can spend for this (including the 2) is half my Monk level"
-					]),
-					additional : levels.map(function (n) {
-						if (n < 3) return "";
-						var xtrKi = Math.max(0,Math.floor(n/2) - 2);
-						return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
-					}),
-					action : ["bonus action", " (after Attack action)"],
-					spellcastingBonus : {
-						name : "Searing Arc Strike",
-						spells : ["burning hands"],
-						selection : ["burning hands"],
-						firstCol : 2
-					},
-					spellFirstColTitle : "Ki",
-					spellChanges : {
-						"burning hands" : {
-							time : "1 bns",
-							description : "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
-							changes : "After I use the Attack action, I can cast Burning Hands as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level."
-						}
-					}
-				},
-				autoSelectExtrachoices : [{
-					extrachoice : "searing arc strike",
-					minlevel : 6
-				}]
-			},
-			"subclassfeature11" : {
-				name : "Searing Sunburst",
-				source : [["S", 131], ["X", 35]],
-				minlevel : 11,
-				description : desc([
-					"As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save",
-					"If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) radiant damage"
-				]),
-				action : ["action", ""],
-				additional : "0 ki points + max 3 ki points"
-			},
-			"subclassfeature17" : {
-				name : "Sun Shield",
-				source : [["S", 131], ["X", 35]],
-				minlevel : 17,
-				description : desc([
-					"As a reaction, when I'm hit by a melee attack, I can deal 5 + Wis mod radiant damage",
-					"I can only do this while my light aura is on; I can turn it on/off as a bonus action"
-				]),
-				action : [["bonus action", " (start/stop)"], ["reaction", " (hit in melee)"]],
-				additional : "30-ft rad bright + 30-ft dim light"
-			}
-		}
-	});
-};
-
 // Add 2 subclasses for the Paladin
 AddSubClass("paladin", "oath of conquest-xgte", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
@@ -17590,68 +17158,6 @@ AddSubClass("rogue", "inquisitive-xgte", {
 		}
 	}
 });
-if (!ClassSubList["rogue-mastermind"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
-	// the Mastermind subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
-	AddSubClass("rogue", "mastermind", {
-		regExpSearch : /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*(mastermind|strategist)).*$/i,
-		subname : "Mastermind",
-		fullname : "Mastermind",
-		source : [["S", 135], ["X", 46]],
-		features : {
-			"subclassfeature3" : {
-				name : "Master of Intrigue",
-				source : [["S", 135], ["X", 46]],
-				minlevel : 3,
-				description : desc([
-					"I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages",
-					"I can mimic speech patterns and accents if I've heard them for at least 1 minute"
-				]),
-				languageProfs : [2],
-				toolProfs : ["Disguise kit", "Forgery kit", ["Gaming set", 1]]
-			},
-			"subclassfeature3.1" : {
-				name : "Master of Tactics",
-				source : [["S", 135], ["X", 46]],
-				minlevel : 3,
-				description : desc([
-					"I can use the Help action as a bonus action",
-					"This even works if the ally attacks a target within 30 ft of me that can see or hear me"
-				]),
-				action : ["bonus action", ""]
-			},
-			"subclassfeature9" : {
-				name : "Insightful Manipulator",
-				source : [["S", 135], ["X", 46]],
-				minlevel : 9,
-				description : desc([
-					"By spending 1 minute observing/interacting outside of combat I can learn capabilities",
-					"The DM tells me if the target is my equal, superior, or inferior in regard to two things:",
-					" - Intelligence score    - Wisdom score    - Charisma score    - Class levels (if any)"
-				])
-			},
-			"subclassfeature13" : {
-				name : "Misdirection",
-				source : [["S", 135], ["X", 46]],
-				minlevel : 13,
-				description : desc([
-					"As a reaction, I can redirect an attack meant for me to a creature within 5 ft of me",
-					"This only works if the creature is providing me with cover against the attack"
-				]),
-				action : ["reaction", ""]
-			},
-			"subclassfeature17" : {
-				name : "Soul of Deceit",
-				source : [["S", 135], ["X", 46]],
-				minlevel : 17,
-				description : desc([
-					"My thoughts can't be read by telepathy or similar means; I can project false thoughts",
-					"For that, I must pass a Cha (Deception) vs. Wis (Insight) check to fool the mind reader",
-					"Magic always determines I'm truthful; I can't be magically compelled to tell the truth"
-				])
-			}
-		}
-	});
-};
 AddSubClass("rogue", "scout-xgte", {
 	regExpSearch : /scout/i,
 	subname : "Scout",
@@ -17709,66 +17215,6 @@ AddSubClass("rogue", "scout-xgte", {
 		}
 	}
 });
-if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
-	// the Swashbuckler subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
-	AddSubClass("rogue", "swashbuckler", {
-		regExpSearch : /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*swashbuckl).*$/i,
-		subname : "Swashbuckler",
-		fullname : "Swashbuckler",
-		source : [["S", 135], ["X", 47]],
-		features : {
-			"subclassfeature3" : {
-				name : "Fancy Footwork",
-				source : [["S", 135], ["X", 47]],
-				minlevel : 3,
-				description : desc([
-					"Enemies I make a melee attack against in my turn can't use opportunity attacks on me",
-					"This lasts until the end of my current turn"
-				])
-			},
-			"subclassfeature3.1" : {
-				name : "Rakish Audacity",
-				source : [["S", 136], ["X", 47]],
-				minlevel : 3,
-				description : desc([
-					"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
-					"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
-				]),
-				addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
-			},
-			"subclassfeature9" : {
-				name : "Panache",
-				source : [["S", 136], ["X", 47]],
-				minlevel : 9,
-				description : desc([
-					"As an action, I can beguile a creature that hears and understands me, for 1 minute",
-					"It must succeed a Wis (Insight) check opposed by my Cha (Persuasion) or be affected as:",
-					"\u2022 A hostile target gains disadv. on attacks and can't do opportunity attacks vs. not-me",
-					"  This effect ends if an ally attacks or casts a spell vs. it, or if it and I are 60 ft apart",
-					"\u2022 Targets that are not hostile are charmed and regard me as a friendly acquaintance",
-					"  This effect ends if me or an ally do anything harmful to it"
-				]),
-				action : ["action", ""]
-			},
-			"subclassfeature13" : {
-				name : "Elegant Maneuver",
-				source : [["S", 136], ["X", 47]],
-				minlevel : 13,
-				description : "\n   " + "As a bonus action, I can gain adv. on my next Dex (Acrobatics) or Str (Athletics) check",
-				action : ["bonus action", ""]
-			},
-			"subclassfeature17" : {
-				name : "Master Duelist",
-				source : [["S", 136], ["X", 47]],
-				minlevel : 17,
-				description : "\n   " + "Once per short rest, when I miss with an attack roll, I can roll again with advantage",
-				recovery : "short rest",
-				usages : 1
-			}
-		}
-	});
-};
-
 // Add 3 subclasses for the Sorcerer
 AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contributions by SoilentBrad
 	regExpSearch : /^(?=.*divine)(?=.*soul).*$/i,
@@ -18020,84 +17466,6 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 		}
 	}
 });
-if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.abbreviation.toLowerCase() !== "scag")) {
-	// the Storm Sorcery subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
-	AddSubClass("sorcerer", "storm sorcery", {
-		regExpSearch : /^(?=.*(sorcerer|witch))((?=.*(storm|tempest|hurricane))|((?=.*air)(?=.*element))).*$/i,
-		subname : "Storm Sorcery",
-		fullname : "Storm Sorcerer",
-		source : [["S", 137], ["X", 51]],
-		features : {
-			"subclassfeature1" : {
-				name : "Wind Speaker",
-				source : [["S", 137], ["X", 52]],
-				minlevel : 1,
-				description : "\n   " + "I can speak, read, and write Primordial (and its dialects Aquan, Auran, Ignan, Terran)",
-				languageProfs : ["Primordial"]
-			},
-			"subclassfeature1.1" : {
-				name : "Tempestuous Magic",
-				source : [["S", 137], ["X", 52]],
-				minlevel : 1,
-				description : desc([
-					"As a bonus action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
-					"This movement doesn't provoke opportunity attacks as whirling gust of air surround me"
-				]),
-				action : ["bonus action", " (with casting)"]
-			},
-			"subclassfeature6" : {
-				name : "Heart of the Storm",
-				source : [["S", 137], ["X", 52]],
-				minlevel : 6,
-				description : desc([
-					"I have resistance to lightning and thunder damage",
-					"When I start casting a 1st-level or higher spell that deals lightning or thunder damage,",
-					"I deal lightning or thunder damage to a creature within 10 ft of me that I can see"
-				]),
-				additional : levels.map(function (n) { return n < 6 ? "" : Math.floor(n/2) + " damage"; }),
-				dmgres : ["Lightning", "Thunder"]
-			},
-			"subclassfeature6.1" : {
-				name : "Storm Guide",
-				source : [["S", 137], ["X", 52]],
-				minlevel : 6,
-				description : desc([
-					"As an action, I can stop rain around me in 20-ft radius; bonus action for it to resume",
-					"As a bonus action, I can choose the direction of wind around me in a 100-ft radius",
-					"This lasts until the end of my next turn and doesn't alter the wind's speed"
-				]),
-				action : ["bonus action", ""]
-			},
-			"subclassfeature14" : {
-				name : "Storm's Fury",
-				source : [["S", 137], ["X", 52]],
-				minlevel : 14,
-				description : desc([
-					"As a reaction when hit by a melee attack, I can deal lightning damage to the attacker",
-					"The attacker must also make a Strength save or be pushed up to 20 ft away from me"
-				]),
-				action : ["reaction", ""],
-				additional : levels.map(function (n) { return n < 14 ? "" : n + " lightning damage"; })
-			},
-			"subclassfeature18" : {
-				name : "Wind Soul",
-				source : [["S", 137], ["X", 52]],
-				minlevel : 18,
-				description : desc([
-					"I have immunity to lightning and thunder damage and gain magical 60 ft fly speed",
-					"As an action, I reduce my fly speed to 30 ft and give allies 30 ft fly speed for 1 hour",
-					"I can do this once per short rest for up to 3 + my Charisma modifier allies within 30 ft"
-				]),
-				action : ["action", ""],
-				savetxt : { immune : ["lightning", "thunder"] },
-				speed : { fly : { spd : "fixed 60", enc : "fixed 60" } },
-				usages : 1,
-				recovery : "short rest"
-			}
-		}
-	});
-};
-
 // Add 2 subclasses for the Warlock
 AddSubClass("warlock", "the celestial-xgte", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
@@ -18804,627 +18172,6 @@ FeatsList["wood elf magic-xgte"] = {
 	}]
 };
 
-// Add spells, first those taken from the Elemental Evil Player's Companion, if not already present
-if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.name)) {
-	SpellsList["abi-dalzim's horrid wilting"] = {
-		name : "Abi-Dalzim's Horrid Wilting",
-		nameShort : "Abi-D's Horrid Wilting",
-		nameAlt : "Horrid Wilting",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 150], ["E", 15]],
-		level : 8,
-		school : "Necro",
-		time : "1 a",
-		range : "150 ft",
-		components : "V,S,M",
-		compMaterial : "A bit of sponge",
-		duration : "Instantaneous",
-		save : "Con",
-		description : "30-ft cube all crea 12d8 Necrotic dmg; save halves; plants/water elem. dis. const/undead immune",
-		descriptionFull : "You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren't affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 12d8 necrotic damage on a failed save, or half as much damage on a successful one." + "\n   " + "Nonmagical plants in the area that aren't creatures, such as trees and shrubs, wither and die instantly."
-	};
-	SpellsList["absorb elements"] = {
-		name : "Absorb Elements",
-		classes : ["druid", "ranger", "sorcerer", "wizard"],
-		source : [["X", 150], ["E", 15]],
-		level : 1,
-		school : "Abjur",
-		time : "1 rea",
-		range : "Self",
-		components : "S",
-		duration : "1 rnd",
-		description : "Acid, Cold, Fire, Lightning, or Thunder resistance vs. 1 atk; first melee hit next rnd +1d6+1d6/SL dmg",
-		descriptionFull : "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st."
-	};
-	SpellsList["aganazzar's scorcher"] = {
-		name : "Aganazzar's Scorcher",
-		nameAlt : "Scorch", //as per the Spell Compandium's (DnD 3.5e) alternative name
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 150], ["E", 15]],
-		level : 2,
-		school : "Evoc",
-		time : "1 a",
-		range : "30-ft line",
-		components : "V,S,M",
-		compMaterial : "A red dragon's scale",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "30-ft long 5-ft wide line all creatures 3d8+1d8/SL Fire dmg; save halves",
-		descriptionFull : "A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 3d8 fire damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
-	};
-	SpellsList["beast bond"] = {
-		name : "Beast Bond",
-		classes : ["druid", "ranger"],
-		source : [["X", 150], ["E", 15]],
-		level : 1,
-		school : "Div",
-		time : "1 a",
-		range : "Touch",
-		components : "V,S,M",
-		compMaterial : "A bit of fur wrapped in a cloth",
-		duration : "Conc, 10 min",
-		description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea I can see",
-		descriptionFull : "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beast's Intelligence is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on attack rolls against any creature within 5 feet of you that you can see."
-	};
-	SpellsList["bones of the earth"] = {
-		name : "Bones of the Earth",
-		classes : ["druid"],
-		source : [["X", 150], ["E", 15]],
-		level : 6,
-		school : "Trans",
-		time : "1 a",
-		range : "120 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "6+2/SL 2.5-ft rad ground burst up 30-ft, \u2265 Med. creas save or lifted, 6d6 bludg. dmg if ceiling; see B",
-		descriptionFull : "You cause up to six pillars of stone to burst from places on the ground that you can see within range. Each pillar is a cylinder that has a diameter of 5 feet and a height of up to 30 feet. The ground where a pillar appears must be wide enough for its diameter, and you can target the ground under a creature if that creature is Medium or smaller. Each pillar has AC 5 and 30 hit points. When reduced to 0 hit points, a pillar crumbles into rubble, which creates an area of difficult terrain with a 10-foot radius that lasts until the rubble is cleared. Each 5-foot-diameter portion of the area requires at least 1 minute to clear by hand." + "\n   " + "If a pillar is created under a creature, that creature must succeed on a Dexterity saving throw or be lifted by the pillar. A creature can choose to fail the save." + "\n   " + "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar takes 6d6 bludgeoning damage and is restrained, pinched between the pillar and the obstacle. The restrained creature can use an action to make a Strength or Dexterity check (the creature's choice) against the spell's save DC. On a success, the creature is no longer restrained and must either move off the pillar or fall off it." + AtHigherLevels + "When you cast this spell using a spell slot of 7th level or higher, you can create."
-	};
-	SpellsList["catapult"] = {
-		name : "Catapult",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 150], ["E", 15]],
-		level : 1,
-		school : "Trans",
-		time : "1 a",
-		range : "60 ft",
-		components : "S",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "Send 5+5/SL lb unattended object in 90 ft straight line; if hits crea, save or 3d8+1d8/SL Bludg. dmg",
-		descriptionFull : "Choose one object weighing 1 to 5 pounds within range that isn't being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage."
-	};
-	SpellsList["control flames"] = {
-		name : "Control Flames",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 152], ["E", 16]],
-		level : 0,
-		school : "Trans",
-		time : "1 a",
-		range : "60 ft",
-		components : "S",
-		duration : "Instant. or 1 h",
-		description : "Nonmagical flame up to 5 cu ft; instant: expand/extinguish, 1h: brighten/dim/color/create shapes",
-		descriptionFull : "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways." + "\n \u2022 " + "You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location." + "\n \u2022 " + "You instantaneously extinguish the flames within the cube." + "\n \u2022 " + "You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour." + "\n \u2022 " + "You cause simple shapes-such as the vague form of a creature, an inanimate object, or a location-to appear within the flames and animate as you like. The shapes last for 1 hour." + "\n   " + "If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
-	};
-	SpellsList["control winds"] = {
-		name : "Control Winds",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 152], ["E", 16], ["UA:D", 8]],
-		level : 5,
-		school : "Trans",
-		time : "1 a",
-		range : "300 ft",
-		components : "V,S",
-		duration : "Conc, 1 h",
-		description : "100-ft cube of air either gusts, downdraft, or updraft; affects flying/jump/ranged; 1 a change; see B",
-		descriptionFull : "You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted." + "\n   " + toUni("Gusts") + ": A wind picks up within the cube, continually blowing in a horizontal direction you designate. You choose the intensity of the wind: calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that enter or leave the cube or pass through it have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved." + "\n   " + toUni("Downdraft") + ": You cause a sustained blast of strong wind to blow downward from the top of the cube. Ranged weapon attacks that pass through the cube or that are made against targets within it have disadvantage on their attack rolls. A creature must make a Strength saving throw if it flies into the cube for the first time on a turn or starts its turn there flying. On a failed save, the creature is knocked prone." + "\n   " + toUni("Updraft") + ": You cause a sustained updraft within the cube, rising upward from the cube's bottom side. Creatures that end a fall within the cube take only half damage from the fall. When a creature in the cube makes a vertical jump, the creature can jump up to 10 feet higher than normal."
-	};
-	SpellsList["create bonfire"] = {
-		name : "Create Bonfire",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 152], ["E", 16]],
-		level : 0,
-		school : "Conj",
-		time : "1 a",
-		range : "60 ft",
-		components : "V,S",
-		duration : "Conc, 1 min",
-		save : "Dex",
-		description : "5-ft cube all crea at casting or entering save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
-		descriptionCantripDie : "5-ft cube all crea at casting or entering save or `CD`d8 Fire dmg; ignites flammable",
-		descriptionFull : "You create a bonfire on ground that you can see within range. Until the spell ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it moves into the bonfire's space for the first time on a turn or ends its turn there." + "\n   " + "The bonfire ignites flammable objects in its area that aren't being worn or carried." + "\n   " + "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
-	};
-	SpellsList["dust devil"] = {
-		name : "Dust Devil",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 154], ["E", 17]],
-		level : 2,
-		school : "Conj",
-		time : "1 a",
-		range : "60 ft",
-		components : "V,S,M",
-		compMaterial : "A pinch of dust",
-		duration : "Conc, 1 min",
-		save : "Str",
-		description : "5-ft cube; all in 5-ft 1d8+1d8/SL Bludg. dmg and pushed 10 ft away; save halves, no push; see book",
-		descriptionFull : "Choose an unoccupied 5-foot cube of air that you can see within range. An elemental force that resembles a dust devil appears in the cube and lasts for the spell's duration." + "\n   " + "Any creature that ends its turn within 5 feet of the dust devil must make a Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning damage and is pushed 10 feet away from the dust devil. On a successful save, the creature takes half as much damage and isn't pushed." + "\n   " + "As a bonus action, you can move the dust devil up to 30 feet in any direction. If the dust devil moves over sand, dust, loose dirt, or light gravel, it sucks up the material and forms a 10-foot-radius cloud of debris around itself that lasts until the start of your next turn. The cloud heavily obscures its area." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
-	};
-	SpellsList["earthbind"] = {
-		name : "Earthbind",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 154], ["E", 17]],
-		level : 2,
-		school : "Trans",
-		time : "1 a",
-		range : "300 ft",
-		components : "V",
-		duration : "Conc, 1 min",
-		save : "Str",
-		description : "1 creatures save or fly speed is reduced to 0; airborne creatures safely descend at 60 ft per round",
-		descriptionFull : "Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw, or its flying speed (if any) is reduced to 0 feet for the spell's duration. An airborne creature affected by this spell safely descends at 60 feet per round until it reaches the ground or the spell ends."
-	};
-	SpellsList["earth tremor"] = {
-		name : "Earth Tremor",
-		classes : ["bard", "druid", "sorcerer", "wizard"],
-		source : [["X", 155], ["E", 17]],
-		level : 1,
-		school : "Evoc",
-		time : "1 a",
-		range : "10 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "All crea in range except me save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
-		descriptionFull : "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
-	};
-	SpellsList["elemental bane"] = {
-		name : "Elemental Bane",
-		classes : ["druid", "warlock", "wizard"],
-		source : [["X", 155], ["E", 17]],
-		level : 4,
-		school : "Trans",
-		time : "1 a",
-		range : "90 ft",
-		components : "V,S",
-		duration : "Conc, 1 min",
-		save : "Con",
-		description : "1+1/SL crea, each max 30 ft apart, save or 1 energy: lose resist. to it & +2d6 to first dmg with it/turn",
-		descriptionFull : "Choose one creature you can see within range, and choose one of the following damage types - acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them."
-	};
-	SpellsList["erupting earth"] = {
-		name : "Erupting Earth",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 155], ["E", 17]],
-		level : 3,
-		school : "Trans",
-		time : "1 a",
-		range : "120 ft",
-		components : "V,S,M",
-		compMaterial : "A piece of obsidian",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "20-ft cube all crea 3d12+1d12/SL Bludgeoning dmg; save halves; area becomes difficult terrain",
-		descriptionFull : "Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes 3d12 bludgeoning damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d12 for each slot level above 3rd."
-	};
-	SpellsList["flame arrows"] = {
-		name : "Flame Arrows",
-		classes : ["druid", "ranger", "sorcerer", "wizard"],
-		source : [["X", 156], ["E", 18]],
-		level : 3,
-		school : "Trans",
-		time : "1 a",
-		range : "Touch",
-		components : "V,S",
-		duration : "Conc, 1 h",
-		description : "12+2/SL ammunition drawn from touched quiver do +1d6 Fire damage on a successful hit",
-		descriptionFull : "You touch a quiver containing arrows or bolts. When a target is hit by a ranged weapon attack using a piece of ammunition drawn from the quiver, the target takes an extra 1d6 fire damage. The spell's magic ends on the piece of ammunition when it hits or misses, and the spell ends when twelve pieces of ammunition have been drawn from the quiver." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the number of pieces of ammunition you can affect with this spell increases by two for each slot level above 3rd."
-	};
-	SpellsList["frostbite"] = {
-		name : "Frostbite",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 156], ["E", 18]],
-		level : 0,
-		school : "Evoc",
-		time : "1 a",
-		range : "60 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Con",
-		description : "1 crea save or 1d6 Cold dmg and dis. on next weapon attack roll; +1d6 at CL 5, 11, and 17",
-		descriptionCantripDie : "1 crea save or `CD`d6 Cold dmg and dis. on next weapon attack roll",
-		descriptionFull : "You cause numbing frost to form on one creature that you can see within range. The target must make a Constitution saving throw. On a failed save, the target takes 1d6 cold damage, and it has disadvantage on the next weapon attack roll it makes before the end of its next turn." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-	};
-	SpellsList["gust"] = {
-		name : "Gust",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
-		level : 0,
-		school : "Trans",
-		time : "1 a",
-		range : "30 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Str",
-		description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
-		descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
-	};
-	SpellsList["ice knife"] = {
-		name : "Ice Knife",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 157], ["E", 19]],
-		level : 1,
-		school : "Conj",
-		time : "1 a",
-		range : "60 ft",
-		components : "S,M",
-		compMaterial : "A drop of water or piece of ice",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "Ranged atk for 1d10 Piercing dmg; hit/miss 5-ft rad on target all crea save or 2d6+1d6/SL Cold dmg",
-		descriptionFull : "You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the cold damage increases by 1d6 for each slot level above 1st."
-	};
-	SpellsList["immolation"] = {
-		name : "Immolation",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 158], ["E", 19]],
-		level : 5,
-		school : "Evoc",
-		time : "1 a",
-		range : "90 ft",
-		components : "V",
-		duration : "Conc, 1 min",
-		save : "Dex",
-		description : "1 crea save or 8d6 Fire dmg (half on save) and burns for 4d6 Fire dmg/rnd; save each rnd to end; half dmg on save",
-		descriptionFull : "Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes 4d6 fire damage on a failed save, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means." + "\n   " + "If damage from this spell kills a target, the target is turned to ash."
-	};
-	SpellsList["investiture of flame"] = {
-		name : "Investiture of Flame",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 159], ["E", 19]],
-		level : 6,
-		school : "Trans",
-		time : "1 a",
-		range : "Self",
-		components : "V,S",
-		duration : "Conc, 10 min",
-		save : "Dex",
-		description : "Fire immune; Cold res.; 1d10 Fire dmg in 5 ft; 1 a 15-ft long 5-ft wide all crea 4d8 Fire dmg, save half",
-		descriptionFull : "Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits." + "\n " + "\u2022 You are immune to fire damage and have resistance to cold damage." + "\n " + "\u2022 Any creature that moves within 5 feet of you for the first time on a turn or ends its turn there takes 1d10 fire damage." + "\n " + "\u2022 You can use your action to create a line of fire 15 feet long and 5 feet wide extending from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 4d8 fire damage on a failed save, or half as much damage on a successful one."
-	};
-	SpellsList["investiture of ice"] = {
-		name : "Investiture of Ice",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 159], ["E", 19]],
-		level : 6,
-		school : "Trans",
-		time : "1 a",
-		range : "Self",
-		components : "V,S",
-		duration : "Conc, 10 min",
-		save : "Con",
-		description : "Cold immune; Fire resist; 10-ft rad dif. ter.; 1 a 15-ft cone all crea 4d6 Cold dmg, half speed, save half",
-		descriptionFull : "Until the spell ends, ice rimes your body, and you gain the following benefits." + "\n " + "\u2022 You are immune to cold damage and have resistance to fire damage." + "\n " + "\u2022 You can move across difficult terrain created by ice or snow without spending extra movement." + "\n " + "\u2022 The ground in a 10-foot radius around you is icy and is difficult terrain for creatures other than you. The radius moves with you." + "\n " + "\u2022 You can use your action to create a 15-foot cone of freezing wind extending from your outstretched hand in a direction you choose. Each creature in the cone must make a Constitution saving throw. A creature takes 4d6 cold damage on a failed save, or half as much damage on a successful one. A creature that fails its save against this effect has its speed halved until the start of your next turn."
-	};
-	SpellsList["investiture of stone"] = {
-		name : "Investiture of Stone",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 159], ["E", 19]],
-		level : 6,
-		school : "Trans",
-		time : "1 a",
-		range : "Self",
-		components : "V,S",
-		duration : "Conc, 10 min",
-		save : "Dex",
-		description : "Nonmagical Bludg/Pierc/Slash resist.; 1 a 15-ft rad all crea save or prone; move through earth/stone",
-		descriptionFull : "Until the spell ends, bits of rock spread across your body, and you gain the following benefits:" + "\n \u2022 " + "You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks." + "\n \u2022 " + "You can use your action to create a small earthquake on the ground in a 15-foot radius centered on you. Other creatures on that ground must succeed on a Dexterity saving throw or be knocked prone." + "\n \u2022 " + "You can move across difficult terrain made of earth or stone without spending extra movement. You can move through solid earth or stone as if it was air and without destabilizing it, but you can't end your movement there. If you do so, you are ejected to the nearest unoccupied space, this spell ends, and you are stunned until the end of your next turn."
-	};
-	SpellsList["investiture of wind"] = {
-		name : "Investiture of Wind",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 160], ["E", 20]],
-		level : 6,
-		school : "Trans",
-		time : "1 a",
-		range : "Self",
-		components : "V,S",
-		duration : "Conc, 10 min",
-		save : "Con",
-		description : "Rngd wea atks dis. vs. me; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
-		descriptionFull : "Until the spell ends, wind whirls around you, and you gain the following benefits." + "\n " + "\u2022 Ranged weapon attacks made against you have disadvantage on the attack roll." + "\n " + "\u2022 You gain a flying speed of 60 feet. If you are still flying when the spell ends, you fall, unless you can somehow prevent it." + "\n " + "\u2022 You can use your action to create a 15-foot cube of swirling wind centered on a point you can see within 60 feet of you. Each creature in that area must make a Constitution saving throw. A creature takes 2d10 bludgeoning damage on a failed save, or half as much damage on a successful one. If a Large or smaller creature fails the save, that creature is also pushed up to 10 feet away from the center of the cube."
-	};
-	SpellsList["maelstrom"] = {
-		name : "Maelstrom",
-		classes : ["druid"],
-		source : [["X", 160], ["E", 20]],
-		level : 5,
-		school : "Evoc",
-		time : "1 a",
-		range : "120 ft",
-		components : "V,S,M",
-		compMaterial : "Paper or leaf in the shape of a funnel",
-		duration : "Conc, 1 min",
-		save : "Str",
-		description : "5-ft deep 30-ft rad dif. ter.; all crea starting turn in save or 6d6 Bludg. dmg and pulled 10 ft to center",
-		descriptionFull : "A mass of 5-foot-deep water appears and swirls in a 30-foot radius centered on a point you can see within range. The point must be on ground or in a body of water. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take 6d6 bludgeoning damage and be pulled 10 feet toward the center."
-	};
-	SpellsList["magic stone"] = {
-		name : "Magic Stone",
-		classes : ["druid", "warlock"],
-		source : [["X", 160], ["E", 20]],
-		level : 0,
-		school : "Trans",
-		time : "1 bns",
-		range : "Touch",
-		components : "V,S",
-		duration : "1 min",
-		description : "Imbue 3 pebbles for spell attacks, thrown 60 ft or with sling, do 1d6+spellcasting mod Bludg. dmg",
-		descriptionFull : "You touch one to three pebbles and imbue them with magic. You or someone else can make a ranged spell attack with one of the pebbles by throwing it or hurling it with a sling. If thrown, it has a range of 60 feet. If someone else attacks with the pebble, that attacker adds your spellcasting ability modifier, not the attacker's, to the attack roll. On a hit, the target takes bludgeoning damage equal to 1d6 + your spellcasting ability modifier. Hit or miss, the spell then ends on the stone." + "\n   " + "If you cast this spell again, the spell ends early on any pebbles still affected by it."
-	};
-	SpellsList["maximilian's earthen grasp"] = {
-		name : "Maximilian's Earthen Grasp",
-		nameShort : "Max's Earthen Grasp",
-		nameAlt : "Earthen Grasp",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 161], ["E", 20]],
-		level : 2,
-		school : "Trans",
-		time : "1 a",
-		range : "30 ft",
-		components : "V,S,M",
-		compMaterial : "A miniature hand sculpted from clay",
-		duration : "Conc, 1 min",
-		save : "Str",
-		description : "Medium hand atks 1 crea: save or 2d6 Bludg. dmg \u0026 restrained; 1 a hand moves/atks, releases; see B",
-		descriptionFull : "You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The target must make a Strength saving throw. On a failed save, the target takes 2d6 bludgeoning damage and is restrained for the spell's duration." + "\n   " + "As an action, you can cause the hand to crush the restrained target, which must make a Strength saving throw. The target takes 2d6 bludgeoning damage on a failed save, or half as much damage on a successful one." + "\n   " + "To break out, the restrained target can use its action to make a Strength check against your spell save DC. On a success, the target escapes and is no longer restrained by the hand." + "\n   " + "As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a restrained target if you do either."
-	};
-	SpellsList["melf's minute meteors"] = {
-		name : "Melf's Minute Meteors",
-		nameAlt : "Minute Meteors",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 161], ["E", 20]],
-		level : 3,
-		school : "Evoc",
-		time : "1 a",
-		range : "Self",
-		components : "V,S,M",
-		compMaterial : "Niter, sulfur, and pine tar formed into a bead",
-		duration : "Conc, 10 min",
-		save : "Dex",
-		description : "6+2/SL meteors; at casting/bns a send up to two 120 ft for 5-ft rad all crea 2d6 Fire dmg; save half",
-		descriptionFull : "You create six tiny meteors in your space. They float in the air and orbit you for the spell's duration. When you cast the spell-and as a bonus action on each of your turns thereafter-you can expend one or two of the meteors, sending them streaking toward a point or points you choose within 120 feet of you. Once a meteor reaches its destination or impacts against a solid surface, the meteor explodes. Each creature within 5 feet of the point where the meteor explodes must make a Dexterity saving throw. A creature takes 2d6 fire damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the number of meteors created increases by two for each slot level above 3rd."
-	};
-	SpellsList["mold earth"] = {
-		name : "Mold Earth",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 162], ["E", 21]],
-		level : 0,
-		school : "Trans",
-		time : "1 a",
-		range : "30 ft",
-		components : "S",
-		duration : "Instant. or 1 h",
-		description : "5 cu ft earth; instant.: excavate; 1h: change to difficult or normal terrain, or change shape and color",
-		descriptionFull : "You choose a portion of dirt or stone that you can see within range and that fits within a 5-foot cube. You manipulate it in one of the following ways." + "\n " + "\u2022 If you target an area of loose earth, you can instantaneously excavate it, move it along the ground, and deposit it up to 5 feet away. This movement doesn't have enough force to cause damage." + "\n " + "\u2022 You cause shapes, colors, or both to appear on the dirt or stone, spelling out words, creating images, or shaping patterns. The changes last for 1 hour." + "\n " + "\u2022 If the dirt or stone you target is on the ground, you cause it to become difficult terrain. Alternatively, you can cause the ground to become normal terrain if it is already difficult terrain. This change lasts for 1 hour." + "\n\n" + "If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
-	};
-	SpellsList["primordial ward"] = {
-		name : "Primordial Ward",
-		classes : ["druid"],
-		source : [["X", 163], ["E", 21]],
-		level : 6,
-		school : "Abjur",
-		time : "1 a",
-		range : "Self",
-		components : "V,S",
-		duration : "Conc, 1 min",
-		description : "Acid, Cold, Fire, Lightning, and Thunder resistance; use rea to gain 1 immunity for 1 rnd, spell ends",
-		descriptionFull : "You have resistance to acid, cold, fire, lightning, and thunder damage for the spell's duration." + "\n   " + "When you take damage of one of those types, you can use your reaction to gain immunity to that type of damage, including against the triggering damage. If you do so, the resistances end, and you have the immunity until the end of your next turn, at which time the spell ends."
-	};
-	SpellsList["pyrotechnics"] = {
-		name : "Pyrotechnics",
-		classes : ["bard", "sorcerer", "wizard"],
-		source : [["X", 163], ["E", 21]],
-		level : 2,
-		school : "Trans",
-		time : "1 a",
-		range : "60 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Con",
-		description : "5 cu ft nonma. flame extinguish, or 10-ft rad all crea save or blind 1 rnd, or 20-ft rad hvy obsc. 1 min",
-		descriptionFull : "Choose an area of nonmagical flame that you can see and that fits within a 5-foot cube within range. You can extinguish the fire in that area, and you create either fireworks or smoke when you do so." + "\n   " + toUni("Fireworks") + ": The target explodes with a dazzling display of colors. Each creature within 10 feet of the target must succeed on a Constitution saving throw or become blinded until the end of your next turn." + "\n   " + toUni("Smoke") + ": Thick black smoke spreads out from the target in a 20-foot radius, moving around corners. The area of the smoke is heavily obscured. The smoke persists for 1 minute or until a strong wind disperses it."
-	};
-	SpellsList["shape water"] = {
-		name : "Shape Water",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 164], ["E", 21]],
-		level : 0,
-		school : "Trans",
-		time : "1 a",
-		range : "30 ft",
-		components : "S",
-		duration : "Instant. or 1 h",
-		description : "5 cu ft water; instant: move/change flow; 1h: simple shapes/change color or opacity/freeze",
-		descriptionFull : "You choose an area of water that you can see within range and that fits within a 5-foot cube. You manipulate it in one of the following ways." + "\n " + "\u2022 You instantaneously move or otherwise change the flow of the water as you direct, up to 5 feet in any direction. This movement doesn't have enough force to cause damage." + "\n " + "\u2022 You cause the water to form into simple shapes and animate at your direction. This change lasts for 1 hour." + "\n " + "\u2022 You change the water's color or opacity. The water must be changed in the same way throughout. This change lasts for 1 hour." + "\n " + "\u2022 You freeze the water, provided that there are no creatures in it. The water unfreezes in 1 hour." + "\n\n" + "If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
-	};
-	SpellsList["skywrite"] = {
-		name : "Skywrite",
-		classes : ["bard", "druid", "wizard"],
-		source : [["X", 165], ["E", 22]],
-		ritual : true,
-		level : 2,
-		school : "Trans",
-		time : "1 a",
-		range : "Sight",
-		components : "V,S",
-		duration : "Conc, 1 h",
-		description : "Write up to 10 words with clouds in a part of the sky I can see; strong wind can diperse the clouds",
-		descriptionFull : "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early."
-	};
-	SpellsList["snilloc's snowball swarm"] = {
-		name : "Snilloc's Snowball Swarm",
-		nameAlt : "Snowball Swarm",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 165], ["E", 22]],
-		level : 2,
-		school : "Evoc",
-		time : "1 a",
-		range : "90 ft",
-		components : "V,S,M",
-		compMaterial : "A piece of ice or a small white rock chip",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "5-ft radius all creatures 3d6+1d6/SL Cold damage; save halves",
-		descriptionFull : "A flurry of magic snowballs erupts from a point you choose within range. Each creature in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. A creature takes 3d6 cold damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot level above 2nd."
-	};
-	SpellsList["storm sphere"] = {
-		name : "Storm Sphere",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 166], ["E", 22]],
-		level : 4,
-		school : "Evoc",
-		time : "1 a",
-		range : "150 ft",
-		components : "V,S",
-		duration : "Conc, 1 min",
-		save : "Str",
-		description : "20-ft rad dif. ter.; all crea cast/end turn save 2d6 Bludg.; bns 60 ft spell atk 4d6 Lightn. dmg; +1d6/SL",
-		descriptionFull : "A 20-foot-radius sphere of whirling air springs into existence centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain." + "\n   " + "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage." + "\n   " + "Creatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks made to listen." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases for each of its effects by 1d6 for each slot level above 4th."
-	};
-	SpellsList["thunderclap"] = {
-		name : "Thunderclap",
-		classes : ["bard", "druid", "sorcerer", "warlock", "wizard"],
-		source : [["X", 168], ["E", 22]],
-		level : 0,
-		school : "Evoc",
-		time : "1 a",
-		range : "5 ft",
-		components : "S",
-		duration : "Instantaneous",
-		save : "Con",
-		description : "100-ft rad audible; all crea but me in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
-		descriptionCantripDie : "100-ft rad audible; all crea but me in area save or `CD`d6 Thunder dmg",
-		descriptionFull : "You create a burst of thunderous sound that can be heard up to 100 feet away. Each creature within range, other than you, must succeed on a Constitution saving throw or take 1d6 thunder damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-	};
-	SpellsList["tidal wave"] = {
-		name : "Tidal Wave",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 168], ["E", 22]],
-		level : 3,
-		school : "Conj",
-		time : "1 a",
-		range : "120 ft",
-		components : "V,S,M",
-		compMaterial : "A drop of water",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "30-ft x 10-ft, 10-ft high all crea 4d8 Bludg. dmg and prone; save halves not prone; extinguish flames",
-		descriptionFull : "You conjure up a wave of water that crashes down on an area within range. The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 4d8 bludgeoning damage and is knocked prone. On a successful save, a creature takes half as much damage and isn't knocked prone. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes."
-	};
-	SpellsList["transmute rock"] = {
-		name : "Transmute Rock",
-		classes : ["druid", "wizard"],
-		source : [["X", 169], ["E", 22]],
-		level : 5,
-		school : "Trans",
-		time : "1 a",
-		range : "120 ft",
-		components : "V,S,M",
-		compMaterial : "Clay and water",
-		duration : "Until dispelled",
-		description : "40 cu ft stone to mud or mud to stone; mud and stone restrains; mud from ceiling falls; see book",
-		descriptionFull : "You choose an area of stone or mud that you can see that fits within a 40-foot cube and is within range, and choose one of the following effects." + "\n   " + toUni("Transmute Rock to Mud") + ": Nonmagical rock of any sort in the area becomes an equal volume of thick, flowing mud that remains for the spell's duration." + "\n   " + "The ground in the spell's area becomes muddy enough that creatures can sink into it. Each foot that a creature moves through the mud costs 4 feet of movement, and any creature on the ground when you cast the spell must make a Strength saving throw. A creature must also make the saving throw when it moves into the area for the first time on a turn or ends its turn there. On a failed save, a creature sinks into the mud and is restrained, though it can use an action to end the restrained condition on itself by pulling itself free of the mud." + "\n   " + "If you cast the spell on a ceiling, the mud falls. Any creature under the mud when it falls must make a Dexterity saving throw. A creature takes 4d8 bludgeoning damage on a failed save, or half as much damage on a successful one." + "\n   " + toUni("Transmute Mud to Rock") + ": Nonmagical mud or quicksand in the area no more than 10 feet deep transforms into soft stone for the spell's duration. Any creature in the mud when it transforms must make a Dexterity saving throw. On a successful save, a creature is shunted safely to the surface in an unoccupied space. On a failed save, a creature becomes restrained by the rock. A restrained creature, or another creature within reach, can use an action to try to break the rock by succeeding on a DC 20 Strength check or by dealing damage to it. The rock has AC 15 and 25 hit points, and it is immune to poison and psychic damage."
-	};
-	SpellsList["vitriolic sphere"] = {
-		name : "Vitriolic Sphere",
-		classes : ["sorcerer", "wizard"],
-		source : [["X", 170], ["E", 23]],
-		level : 4,
-		school : "Evoc",
-		time : "1 a",
-		range : "150 ft",
-		components : "V,S,M",
-		compMaterial : "A drop of giant slug bile",
-		duration : "Instantaneous",
-		save : "Dex",
-		description : "20-ft rad all crea 10d4+2d4/SL Acid dmg, +5d4 crea next turn end; save half \u0026 no dmg next turn",
-		descriptionFull : "You point at a location within range, and a glowing, 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage and another 5d4 acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the initial damage increases by 2d4 for each slot level above 4th."
-	};
-	SpellsList["wall of sand"] = {
-		name : "Wall of Sand",
-		classes : ["wizard"],
-		source : [["X", 170], ["E", 23]],
-		level : 3,
-		school : "Evoc",
-		time : "1 a",
-		range : "90 ft",
-		components : "V,S,M",
-		compMaterial : "A handful of sand",
-		duration : "Conc, 10 min",
-		description : "30\u00D710\u00D710ft (l\u00D7w\u00D7h) wall on the ground; blocks line of sight; blinded while inside; 1/3 move",
-		descriptionMetric : "9\u00D73\u00D73m (l\u00D7w\u00D7h) wall on the ground; blocks line of sight; blinded while inside; 1/3 move",
-		descriptionFull : "You conjure up a wall of swirling sand on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 10 feet thick, and it vanishes when the spell ends. It blocks line of sight but not movement. A creature is blinded while in the wall's space and must spend 3 feet of movement for every 1 foot it moves there."
-	};
-	SpellsList["wall of water"] = {
-		name : "Wall of Water",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 170], ["E", 23]],
-		level : 3,
-		school : "Evoc",
-		time : "1 a",
-		range : "60 ft",
-		components : "V,S,M",
-		compMaterial : "A drop of water",
-		duration : "Conc, 10 min",
-		description : "30\u00D71\u00D710ft (l\u00D7w\u00D7h) or 20-ft rad 20-ft high; dif. ter.; range wea dis.; Fire dmg half; Cold dmg freezes",
-		descriptionMetric : "9\u00D70,3\u00D73m (l\u00D7w\u00D7h) or 6-m rad 6-m high; dif. ter.; ranged wea dis.; Fire dmg half; Cold dmg freezes",
-		descriptionFull : "You conjure up a wall of water on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain." + "\n   " + "Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot square section is frozen). Each 5-foot-square frozen section has AC 5 and 15 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it."
-	};
-	SpellsList["warding wind"] = {
-		name : "Warding Wind",
-		classes : ["bard", "druid", "sorcerer", "wizard"],
-		source : [["X", 170], ["E", 23]],
-		level : 2,
-		school : "Evoc",
-		time : "1 a",
-		range : "10-ft rad",
-		components : "V",
-		duration : "Conc, 10 min",
-		description : "Strong (20 mph) wind in area deafens/extinguishes unprotected flames/dif. ter./ranged wea have dis",
-		descriptionFull : "A strong wind (20 miles per hour) blows around you in a 10-foot radius and moves with you, remaining centered on you. The wind lasts for the spell's duration." + "\n   " + "The wind has the following effects." + "\n " + "\u2022 It deafens you and other creatures in its area." + "\n " + "\u2022 It extinguishes unprotected flames in its area that are torch-sized or smaller." + "\n " + "\u2022 The area is difficult terrain for creatures other than you." + "\n " + "\u2022 The attack rolls of ranged weapon attacks have disadvantage if they pass in or out of the wind." + "\n " + "\u2022 It hedges out vapor, gas, and fog that can be dispersed by strong wind."
-	};
-	SpellsList["watery sphere"] = {
-		name : "Watery Sphere",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 170], ["E", 23]],
-		level : 4,
-		school : "Conj",
-		time : "1 a",
-		range : "90 ft",
-		components : "V,S,M",
-		compMaterial : "A droplet of water",
-		duration : "Conc, 1 min",
-		save : "Str",
-		description : "5-ft rad all crea < Huge save or restrained; on save ejected; save each rnd; 1 a move sphere 30 ft",
-		descriptionFull : "You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell's duration." + "\n   " + "Any creature in the sphere's space must make a Strength saving throw. On a successful save, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the saving throw automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is restrained by the sphere and is engulfed by the water. At the end of each of its turns, a restrained target can repeat the saving throw, ending the effect on itself on a success." + "\n   " + "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already restrained by the sphere falls out of it and lands prone in a space within 5 feet of it." + "\n   " + "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature restrained by the sphere moves with it. You can ram the sphere into creatures, forcing them to make the saving throw." + "\n   " + "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature restrained by the sphere is knocked prone in the space where it falls. The water then vanishes."
-	};
-	SpellsList["whirlwind"] = {
-		name : "Whirlwind",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 171], ["E", 24]],
-		level : 7,
-		school : "Evoc",
-		time : "1 a",
-		range : "300 ft",
-		components : "V,M",
-		compMaterial : "A piece of straw",
-		duration : "Conc, 1 min",
-		save : "Dex",
-		description : "10-ft rad 30-ft high all crea 10d6 Bludg. dmg; save halves; restrains; 1 a move 30 ft; see book",
-		descriptionFull : "A whirlwind howls down to a point that you can see on the ground within range. The whirlwind is a 10-foot-radius, 30-foot-high cylinder centered on that point. Until the spell ends, you can use your action to move the whirlwind up to 30 feet in any direction along the ground. The whirlwind sucks up any Medium or smaller objects that aren't secured to anything and that aren't worn or carried by anyone." + "\n   " + "A creature must make a Dexterity saving throw the first time on a turn that it enters the whirlwind or that the whirlwind enters its space, including when the whirlwind first appears. A creature takes 10d6 bludgeoning damage on a failed save, or half as much damage on a successful one. In addition, a Large or smaller creature that fails the save must succeed on a Strength saving throw or become restrained in the whirlwind until the spell ends. When a creature starts its turn restrained by the whirlwind, the creature is pulled 5 feet higher inside it, unless the creature is at the top. A restrained creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft." + "\n   " + "A restrained creature can use an action to make a Strength or Dexterity check against your spell save DC. If successful, the creature is no longer restrained by the whirlwind and is hurled 3d6 \u00D7 10 feet away from it in a random direction."
-	};
-};
 // Then add the new spells from XGtE (contains contributions by SoilentBrad)
 SpellsList["catnap"] = {
 	name : "Catnap",
@@ -21021,8 +19768,8 @@ MagicItemsList["wand of smiles"] = {
 	usages : 3,
 	recovery : "dawn"
 }
-var iFileName = "pub_20180529_MToF.js";
-RequiredSheetVersion(13);
+
+// pub_20180529_MToF.js
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
 
 // Define the source
@@ -21785,139 +20532,6 @@ RaceList["githzerai-mtof"] = {
 	}
 };
 
-// Reprints
-if (!RaceList["gray dwarf"]) { //reprint from Sword Coast Adventure Guide
-	RaceList["gray dwarf"] = {
-		regExpSearch : /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
-		name : "Duergar",
-		sortname : "Dwarf, Gray (Duergar)",
-		source : [["S", 104], ["MToF", 81]],
-		plural : "Duergar",
-		size : 3,
-		speed : {
-			walk : { spd : 25, enc : 25 }
-		},
-		languageProfs : ["Common", "Dwarvish", "Undercommon"],
-		vision : [["Darkvision", 120], ["Sunlight Sensitivity", 0]],
-		savetxt : { adv_vs : ["charmed", "illusions", "paralyzed", "poison"] },
-		dmgres : ["Poison"],
-		weaponProfs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
-		toolProfs : [["Smith, brewer, or mason tools", 1]],
-		age : " are considered young until they are 50 and live about 350 years",
-		height : " stand between 4 and 5 feet tall (3'8\" + 2d4\")",
-		weight : " weigh around 150 lb (115 + 2d4 \xD7 2d6 lb)",
-		heightMetric : " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
-		weightMetric : " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
-		scores : [1, 0, 2, 0, 0, 0],
-		trait : "Duergar (+2 Constitution, +1 Strength)\nStonecunning: Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDuergar Magic: 3rd: Enlarge/Reduce to enlarge; 5th: Invisibility. If not in direct sunlight," + (!typePF ? "\n" : " ") + "I can cast both spells on myself once per long rest without material components, using Int.",
-		spellcastingAbility : 4,
-		features : {
-			"enlarge" : {
-				name : "Duergar Magic (level 3)",
-				limfeaname : "Enlarge (self only)",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Duergar Magic (level 3)",
-					spells : ["enlarge/reduce"],
-					selection : ["enlarge/reduce"],
-					firstCol : 'oncelr'
-				},
-				spellChanges : {
-					"enlarge/reduce" : {
-						name : "Enlarge",
-						range : "Self",
-						components : "V,S",
-						compMaterial : "",
-						description : "I'm enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
-						changes : "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself."
-					}
-				}
-			},
-			"invisibility" : {
-				name : "Duergar Magic (level 5)",
-				limfeaname : "Invisibility (self only)",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Duergar Magic (level 5)",
-					spells : ["invisibility"],
-					selection : ["invisibility"],
-					firstCol : 'oncelr'
-				},
-				spellChanges : {
-					"invisibility" : {
-						range : "Self",
-						components : "V,S",
-						compMaterial : "",
-						description : "I and worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight",
-						changes : "Me and my worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight"
-					}
-				}
-			}
-		}
-	};
-}
-if (!RaceList["deep gnome"]) {  //reprint from Elemental Evil Player's Companion and Sword Coast Adventure Guide
-	RaceList["deep gnome"] = {
-		regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
-		name : "Svirfneblin",
-		sortname : "Gnome, Deep (Svirfneblin)",
-		source : [["E", 7], ["S", 115], ["MToF", 113]],
-		plural : "Svirfneblin",
-		size : 4,
-		speed : {
-			walk : { spd : 25, enc : 15 }
-		},
-		languageProfs : ["Common", "Gnomish", "Undercommon"],
-		vision : [["Darkvision", 120]],
-		savetxt : { text : ["Adv. on Int/Wis/Cha saves vs. magic"] },
-		age : " are considered full-grown adults when they reach 25 and live 200 to 250 years",
-		height : " stand between 3 and 3 1/2 feet tall (2'9\" + 2d4\")",
-		weight : " weigh around 90 lb (80 + 2d4 \xD7 1d4 lb)",
-		heightMetric : " stand between 90 and 105 cm tall (85 + 5d4 cm)",
-		weightMetric : " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
-		scores : [0, 1, 0, 2, 0, 0],
-		trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
-	};
-}
-
-// Feat
-if (!FeatsList["svirfneblin magic"]) {
-	FeatsList["svirfneblin magic"] = {
-		name : "Svirfneblin Magic",
-		source : [["E", 7], ["S", 115], ["MToF", 114]],
-		prerequisite : "Being a Svirfneblin (Deep Gnome)",
-		prereqeval : function(v) { return CurrentRace.known === 'deep gnome'; },
-		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
-		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
-		spellcastingBonus : [{
-			name : "at will (self only)",
-			spellcastingAbility : 4,
-			spells : ["nondetection"],
-			selection : ["nondetection"],
-			firstCol : 'atwill'
-		}, {
-			name : "1x long rest (self only)",
-			spells : ["blindness/deafness", "blur", "disguise self"],
-			selection : ["blindness/deafness", "blur", "disguise self"],
-			firstCol : 'oncelr',
-			times : 3
-		}],
-		spellChanges : {
-			"nondetection" : {
-				range : "Self",
-				components : "V,S",
-				compMaterial : "",
-				description : "I am hidden from all divination magic",
-				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
-			}
-		}
-	};
-}
-
 // Magic Items
 MagicItemsList["greater silver sword"] = {
 	name : "Greater Silver Sword",
@@ -21969,8 +20583,8 @@ MagicItemsList["infernal tack"] = {
 	prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
 	action : [["action", ""]]
 }
-var iFileName = "pub_20180918_WDH.js";
-RequiredSheetVersion(13);
+
+// pub_20180918_WDH.js
 // This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -22242,8 +20856,8 @@ MagicItemsList["smokepowder"] = {
 		weight : 12 // 7000 grains per lb, 100 grains per shot (+2 for the keg itself)
 	}
 }
-var iFileName = "pub_20181107_LLoK.js";
-RequiredSheetVersion(13);
+
+// pub_20181107_LLoK.js
 // This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -22645,8 +21259,8 @@ SpellsList["galder's tower"] = {
 	"\n\nThe interior of the tower is warm and dry, regardless of conditions outside. Any equipment or furnishings conjured with the tower dissipate into smoke if removed from it. At the end of the spell's duration, all creatures and objects within the tower that were not created by the spell appear safely outside on the ground, and all traces of the tower and its furnishings disappear." +
 	"\n   You can cast this spell again while it is active to maintain the tower's existence for another 24 hours. You can create a permanent tower by casting this spell in the same location and with the same configuration every day for one year." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the tower can have one additional story for each slot level beyond 3rd."
 }
-var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion(13);
+
+// pub_20181120_GGtR.js
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -22701,43 +21315,6 @@ RaceList["centaur-ggtr"] = {
 	},
 	carryingCapacity : 2
 };
-
-if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
-	RaceList["goblin"] = {
-		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
-		name : "Goblin",
-		source : [["V", 119], ["G", 17], ["E:RLW", 26]],
-		plural : "Goblins",
-		size : 4,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Goblin"],
-		vision : [["Darkvision", 60]],
-		age : " rearch adulthood at age 8 and live up to 60 years",
-		height : " are between 3 and a half and 4 feet tall (3'5\" + 2d4\")",
-		weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
-		heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
-		weightMetric : " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
-		scores : [0, 2, 1, 0, 0, 0],
-		features : {
-			"fury of the small" : {
-				name : "Fury of the Small",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				additional : levels.map(function (n) { return "+" + n + " damage"; })
-			},
-			"nimble escape" : {
-				name : "Nimble Escape",
-				minlevel : 1,
-				action : [["bonus action", " (disengage/hide)"]]
-			}
-		},
-		trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
-	};
-}
-
 // Add Loxodon
 RaceList["loxodon-ggtr"] = {
 	regExpSearch : /loxodon/i,
@@ -23959,22 +22536,6 @@ SpellsList["encode thoughts"] = {
 	description : "Make physical through strand of memory or vice versa; works with detect thoughts \u0026 modify memory",
 	descriptionFull : "Putting a finger to your head, you pull a memory, an idea, or a message from your mind and transform it into a tangible string of glowing energy called a thought strand, which persists for the duration or until you cast this spell again. The thought strand appears in an unoccupied space within 5 feet of you as a Tiny, weightless, semisolid object that can be held and carried like a ribbon. It is otherwise stationary." + "\n   " + "If you cast this spell while concentrating on a spell or an ability that allows you to read or manipulate the thoughts of others (such as detect thoughts or modify memory), you can transform the thoughts or memories you read, rather than your own, into a thought strand." + "\n   " + "Casting this spell while holding a thought strand allows you to instantly receive whatever memory, idea, or message the thought strand contains. (Casting detect thoughts on the strand has the same effect.)"
 };
-if (!SourceList.X) { // reprint from Xanathar's Guide to Everything
-	SpellsList["chaos bolt-xgte"] = {
-		name : "Chaos Bolt",
-		classes : ["sorcerer"],
-		source : [["X", 151], ["G", 67]],
-		level : 1,
-		school : "Evoc",
-		time : "1 a",
-		range : "120 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		description : "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
-		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st."
-	};
-}
-
 // Magic Items
 MagicItemsList["guild keyrune"] = {
 	name : "Guild Keyrune",
@@ -24580,8 +23141,8 @@ MagicItemsList["voyager staff"] = {
 		firstCol : 7
 	}]
 }
-var iFileName = "pub_20181120_WDotMM.js";
-RequiredSheetVersion(13);
+
+// pub_20181120_WDotMM.js
 // This file adds the magic items from the Waterdeep: Dungeon of the Mad Mage adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -24903,8 +23464,8 @@ MagicItemsList["vial of stardust"] = {
 	description : "Once as an action, I can sprinkles the stardust contained in this vial over myself. After I do so, I gain the ability to cast Dream once as an action (spell save DC 15), requiring no components.",
 	descriptionFull : "Any creature that sprinkles the contents of a Vial of Stardust over itself gains the ability to cast the Dream spell once as an action (spell save DC 15), requiring no components."
 }
-var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion(13);
+
+// pub_20190521_GoS.js
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -25424,8 +23985,8 @@ CreatureList["sea lion"] = {
 		description : "The sea lion makes three attacks: one with its bite and two with its claws."
 	}]
 }
-var iFileName = "pub_20190618_AcqInc.js";
-RequiredSheetVersion(13);
+
+// pub_20190618_AcqInc.js
 // This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
 
 // Define the source
@@ -25869,8 +24430,8 @@ MagicItemsList["piercer"] = {
 		modifiers : [1, 1]
 	}
 };
-var iFileName = "pub_20190903_DnDEK.js";
-RequiredSheetVersion(13);
+
+// pub_20190903_DnDEK.js
 // This file adds the sidekick rules from the Dungeons & Dragons Essentials Kit adventures to MPMB's Character Record Sheet
 /* - NOTICE -
 	These sidekick classes are available as normal classes because the sheet doesn't support classes for the companion page
@@ -26617,8 +25178,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 		}
 	}
 });
-var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion(13);
+// pub_20190917_DiA.js
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -26937,23 +25497,6 @@ MagicItemsList["infernal puzzle box"] = {
 	descriptionFull : "An infernal puzzle box is a cube-shaped container 5 to 6 inches on a side, composed of airtight, interlocking parts made from materials found in the Nine Hells. Most of these boxes are made of infernal iron, though some are carved from bone or horn. Infernal puzzle boxes are used to safeguard diabolical contracts signed between devils and mortals, even after the terms of these contracts are fulfilled. An empty infernal puzzle box weighs 3 pounds regardless of the materials used to fashion it.\n   When an object small enough to fit inside an infernal puzzle box is placed in it, the container magically seals shut around the object, and no magic can force the box open. The sealed box becomes immune to all damage as well. Every infernal puzzle box is constructed with a unique means of opening it. The trick to solving the puzzle is always mundane, never magical. Once a creature figures out the trick or sequence of steps needed to open a particular infernal puzzle box, that creature can open the box as an action, allowing access to the box's contents.\n   A creature that spends 1 hour holding an infernal puzzle box while trying to open it can make a DC 30 Intelligence (Investigation) check. If the check succeeds, the creature figures out the trick or sequence of steps needed to open the box. If the check fails by 5 or more, the creature must make a DC 18 Wisdom saving throw, taking 42 (12d6) psychic damage on a failed save, or half as much damage on a successful one.",
 	weight : 3
 }
-if (!SourceList.MToF) {
-	MagicItemsList["infernal tack"] = {
-		name : "Infernal Tack",
-		source : [["MToF", 167], ["DiA", 224]],
-		type : "wondrous item",
-		rarity : "legendary",
-		notLegalAL : true,
-		description : "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",
-		descriptionLong : "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
-		descriptionFull : "A narzugon binds a nightmare to its service with infernal tack, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.\n   You can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.\n   The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil.",
-		attunement : true,
-		weight : 26, // riding saddle (25) + bit and bridle (1)
-		prerequisite : "Requires attunement by a creature of evil alignment",
-		prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
-		action : [["action", ""]]
-	}
-}
 MagicItemsList["matalotok"] = {
 	name : "Matalotok",
 	source : ["DiA", 224],
@@ -27075,8 +25618,8 @@ MagicItemsList["soul coin"] = {
 	recovery : "Never",
 	action : [["action", ""]]
 }
-var iFileName = "pub_20191119_ERFtLW.js";
-RequiredSheetVersion(13);
+
+// pub_20191119_ERFtLW.js
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the sources
@@ -27152,101 +25695,6 @@ FeatsList["revenant blade-erlw"] = {
 		stopeval : function (v) { return v.usingShield && !(/animated/i).test(What("AC Shield Bonus Description")) || !CurrentWeapons.known.some(function (n) { return n[0] == "double-bladed scimitar" || (WeaponsList[n[0]] && WeaponsList[n[0]].baseWeapon == "double-bladed scimitar"); }); }
 	}
 };
-
-if (!SourceList.V) { //reprint from Volo's Guide to Monsters
-	RaceList["bugbear"] = {
-		regExpSearch : /bugbear/i,
-		name : "Bugbear",
-		source : [["V", 119], ["E:RLW", 25]],
-		plural : "Bugbears",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Goblin"],
-		vision : [["Darkvision", 60]],
-		skills : ["Stealth"],
-		age : " rearch adulthood at age 16 and live up to 80 years",
-		height : " are between 6 and 8 feet tall (6'0\" + 2d12\")",
-		weight : " weigh between 250 and 350 lb (200 + 2d12 \xD7 2d6 lb)",
-		heightMetric : " are between 1,9 and 2,4 metres tall (185 + 5d12 cm)",
-		weightMetric : " weigh between 115 and 160 kg (90 + 5d12 \xD7 4d6 / 10 kg)",
-		scores : [2, 1, 0, 0, 0, 0],
-		features : {
-			"surprise attack" : {
-				name : "Surprise Attack",
-				minlevel : 1,
-				usages : 1,
-				recovery : "Combat",
-				additional : "2d6"
-			}
-		},
-		trait : "Bugbear (+2 Strength, +1 Dexterity)\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\nLong-Limbed: I have an additional 5 feet reach with melee attacks that I make on my turn.\nSurprise Attack: If I hit a surprised creature on my first turn in combat, that attack deals an extra 2d6 damage. I can do this only once per combat.",
-		carryingCapacity : 2
-	};
-	RaceList["goblin"] = {
-		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
-		name : "Goblin",
-		source : [["V", 119], ["G", 17], ["E:RLW", 26]],
-		plural : "Goblins",
-		size : 4,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Goblin"],
-		vision : [["Darkvision", 60]],
-		age : " rearch adulthood at age 8 and live up to 60 years",
-		height : " are between 3 and a half and 4 feet tall (3'5\" + 2d4\")",
-		weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
-		heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
-		weightMetric : " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
-		scores : [0, 2, 1, 0, 0, 0],
-		features : {
-			"fury of the small" : {
-				name : "Fury of the Small",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				additional : levels.map(function (n) { return "+" + n + " damage"; })
-			},
-			"nimble escape" : {
-				name : "Nimble Escape",
-				minlevel : 1,
-				action : [["bonus action", " (disengage/hide)"]]
-			}
-		},
-		trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
-	};
-	RaceList["hobgoblin"] = {
-		regExpSearch : /hobgoblin/i,
-		name : "Hobgoblin",
-		source : [["V", 119], ["E:RLW", 26]],
-		plural : "Hobgoblins",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Goblin"],
-		vision : [["Darkvision", 60]],
-		armorProfs : [true, false, false, false],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-		weight : " weigh between 150 and 200 lb (110 + 2d10 \xD7 2d4 lb)",
-		heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-		weightMetric : " weigh between 70 and 90 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-		scores : [0, 0, 2, 1, 0, 0],
-		features : {
-			"saving face" : {
-				name : "Saving Face",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest"
-			}
-		},
-		trait : "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 feet of me (max +5)."
-	};
-}
-
 // The kalashtar
 RaceList["kalashtar-erlw"] = {
 	regExpSearch : /kalashtar/i,
@@ -28315,24 +26763,6 @@ RaceList["dragonmark warding dwarf-erlw"] = {
 		]
 	}
 };
-
-// Gust cantrip reprint
-if (!SpellsList["gust"]) {
-	SpellsList["gust"] = {
-		name : "Gust",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
-		level : 0,
-		school : "Trans",
-		time : "1 a",
-		range : "30 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Str",
-		description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
-		descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
-	};
-}
 
 // Aberrant Dragonmark feat
 FeatsList["aberrant dragonmark-erlw"] = {
@@ -30792,8 +29222,8 @@ CreatureList["fastieth"] = {
 		description : "The fastiets can take the Dodge action as a bonus action."
 	}]
 };
-var iFileName = "pub_al_20190917_ALPG-v9.1.js";
-RequiredSheetVersion(13);
+
+// pub_al_20190917_ALPG-v9.1.js
 // This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet
 
 // Define the source

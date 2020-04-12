@@ -69,7 +69,7 @@ AddSubClass("wizard", "war magic", {
 		}
 	}
 });
-// This doesn't add the Theurgy subclass if the source UA:TF is present, as that class is identical to the one found in Unearthed Arcana: The Faithful of (2016/08/01)
+// [dupl_start] Don't add the Theurgy subclass if the source UA:TF is present, as that class is identical to the one found in Unearthed Arcana: The Faithful (2016/08/01)
 if (!SourceList["UA:TF"]) {
 RunFunctionAtEnd(function() {
 	var theTheurgySubclass = AddSubClass("wizard", "theurgy", {
@@ -229,4 +229,4 @@ RunFunctionAtEnd(function() {
 		};
 	};
 });
-};
+}; // dupl_end

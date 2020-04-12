@@ -1173,6 +1173,20 @@ MagicItemsList["radiant weapon-ua"] = {
 		]
 	}
 }
+MagicItemsList["repulsion shield-ua"] = { // 2019v2
+	name : "Repulsion Shield",
+	source : ["UA:A3", 14],
+	type : "shield",
+	description : "I gain a +1 bonus to Armor Class while wielding this shield. As a reaction immediately after being hit by a melee attack, I can push the attacker up to 15 ft away. Once used, this reaction can't be used again until I finish a short or long rest.",
+	descriptionFull : "A creature gains a +1 bonus to Armor Class while wielding this shield. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to push the attacker up to 15 feet away. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
+	weight : 6,
+	attunement : true,
+	usages : 1,
+	recovery : "short rest",
+	action : [["reaction", ""]],
+	shieldAdd : ["Repulsion Shield", 3, 6],
+}
+// dupl_start
 if (!MagicItemsList["repeating shot"]) {
 	MagicItemsList["repeating shot"] = { // 2019v2
 		name : "Repeating Shot",
@@ -1208,19 +1222,6 @@ if (!MagicItemsList["repeating shot"]) {
 			]
 		}
 	}
-}
-MagicItemsList["repulsion shield-ua"] = { // 2019v2
-	name : "Repulsion Shield",
-	source : ["UA:A3", 14],
-	type : "shield",
-	description : "I gain a +1 bonus to Armor Class while wielding this shield. As a reaction immediately after being hit by a melee attack, I can push the attacker up to 15 ft away. Once used, this reaction can't be used again until I finish a short or long rest.",
-	descriptionFull : "A creature gains a +1 bonus to Armor Class while wielding this shield. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to push the attacker up to 15 feet away. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
-	weight : 6,
-	attunement : true,
-	usages : 1,
-	recovery : "short rest",
-	action : [["reaction", ""]],
-	shieldAdd : ["Repulsion Shield", 3, 6],
 }
 if (!MagicItemsList["returning weapon"]) {
 	MagicItemsList["returning weapon"] = {
@@ -1258,7 +1259,7 @@ if (!MagicItemsList["returning weapon"]) {
 			]
 		}
 	}
-}
+} // dupl_end
 
 // Set the Artificer class spell list
 var SetArtificerSpells = function(){

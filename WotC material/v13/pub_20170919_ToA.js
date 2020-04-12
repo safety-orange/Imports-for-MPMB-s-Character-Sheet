@@ -218,256 +218,259 @@ GearList["insect repellent incense"] = {
 };
 
 // Creatures
-CreatureList["brontosaurus"] = {
-	name : "Brontosaurus",
-	source : [["V", 139], ["ToA", 215]],
-	size : 0, //Gargantuan
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 15,
-	hp : 121,
-	hd : [9, 20], //[#, die]
-	speed : "30 ft",
-	scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
-	passivePerception : 10,
-	languages : "",
-	challengeRating : "5",
-	proficiencyBonus : 3,
-	attacksAction : 1,
-	attacks : [{
-			name : "Stomp",
-			ability : 1,
-			damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
-		}, {
-			name : "Tail",
-			ability : 1,
-			damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["deinonychus"] = {
-	name : "Deinonychus",
-	source : [["V", 139], ["ToA", 217]],
-	size : 3, //Medium
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 26,
-	hd : [4, 8], //[#, die]
-	speed : "40 ft",
-	scores : [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 3
-	},
-	senses : "",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 3,
-	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
-		}
-	],
-	traits : [{
-			name : "Multiattack",
-			description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-		}, {
-			name : "Pounce",
-			description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
-		}
-	]
-};
-CreatureList["dimetrodon"] = {
-	name : "Dimetrodon",
-	source : [["V", 139], ["ToA", 217]],
-	size : 3, //Medium
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 12,
-	hp : 19,
-	hd : [3, 8], //[#, die]
-	speed : "30 ft, swim 20 ft",
-	scores : [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["hadrosaurus"] = {
-	name : "Hadrosaurus",
-	source : [["V", 140], ["ToA", 224]],
-	size : 2, //Large
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 11,
-	hp : 19,
-	hd : [3, 10], //[#, die]
-	speed : "40 ft",
-	scores : [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Tail",
-			ability : 1,
-			damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["quetzalcoatlus"] = {
-	name : "Quetzalcoatlus",
-	source : [["V", 140], ["ToA", 230]],
-	size : 1, //Huge
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 30,
-	hd : [4, 12], //[#, die]
-	speed : "10 ft, fly 80 ft",
-	scores : [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "2",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
-		}
-	],
-	traits : [{
-			name : "Dive Attack",
-			description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
-		}, {
-			name : "Flyby",
-			description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
-		}
-	]
-};
-CreatureList["stegosaurus"] = {
-	name : "Stegosaurus",
-	source : [["V", 140], ["ToA", 231]],
-	size : 1, //Huge
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 76,
-	hd : [8, 12], //[#, die]
-	speed : "40 ft",
-	scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
-	passivePerception : 10,
-	languages : "",
-	challengeRating : "4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["velociraptor"] = {
-	name : "Velociraptor",
-	source : [["V", 140], ["ToA", 235]],
-	size : 5, //Tiny
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 10,
-	hd : [3, 4], //[#, die]
-	speed : "30 ft",
-	scores : [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 3
-	},
-	senses : "",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 2,
-	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}, {
-			name : "Claw",
-			ability : 2,
-			damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}
-	],
-	traits : [{
-			name : "Pack Tactics",
-			description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
-		}
-	]
-};
+// [dupl_start] reprints from Volo's Guide to Monsters
+if (!SourceList.V) {
+	CreatureList["brontosaurus"] = {
+		name : "Brontosaurus",
+		source : [["V", 139], ["ToA", 215]],
+		size : 0, //Gargantuan
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 15,
+		hp : 121,
+		hd : [9, 20], //[#, die]
+		speed : "30 ft",
+		scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		senses : "",
+		passivePerception : 10,
+		languages : "",
+		challengeRating : "5",
+		proficiencyBonus : 3,
+		attacksAction : 1,
+		attacks : [{
+				name : "Stomp",
+				ability : 1,
+				damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+				range : "Melee (20 ft)",
+				description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
+			}, {
+				name : "Tail",
+				ability : 1,
+				damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+				range : "Melee (20 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["deinonychus"] = {
+		name : "Deinonychus",
+		source : [["V", 139], ["ToA", 217]],
+		size : 3, //Medium
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 26,
+		hd : [4, 8], //[#, die]
+		speed : "40 ft",
+		scores : [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 3
+		},
+		senses : "",
+		passivePerception : 13,
+		languages : "",
+		challengeRating : "1",
+		proficiencyBonus : 2,
+		attacksAction : 3,
+		attacks : [{
+				name : "Claw",
+				ability : 1,
+				damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
+			}, {
+				name : "Bite",
+				ability : 1,
+				damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
+			}
+		],
+		traits : [{
+				name : "Multiattack",
+				description : "The deinonychus makes three attacks: two with its claws and one with its bite."
+			}, {
+				name : "Pounce",
+				description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
+			}
+		]
+	};
+	CreatureList["dimetrodon"] = {
+		name : "Dimetrodon",
+		source : [["V", 139], ["ToA", 217]],
+		size : 3, //Medium
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 12,
+		hp : 19,
+		hd : [3, 8], //[#, die]
+		speed : "30 ft, swim 20 ft",
+		scores : [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 2
+		},
+		senses : "",
+		passivePerception : 12,
+		languages : "",
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["hadrosaurus"] = {
+		name : "Hadrosaurus",
+		source : [["V", 140], ["ToA", 224]],
+		size : 2, //Large
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 11,
+		hp : 19,
+		hd : [3, 10], //[#, die]
+		speed : "40 ft",
+		scores : [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 2
+		},
+		senses : "",
+		passivePerception : 12,
+		languages : "",
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Tail",
+				ability : 1,
+				damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["quetzalcoatlus"] = {
+		name : "Quetzalcoatlus",
+		source : [["V", 140], ["ToA", 230]],
+		size : 1, //Huge
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 30,
+		hd : [4, 12], //[#, die]
+		speed : "10 ft, fly 80 ft",
+		scores : [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 2
+		},
+		senses : "",
+		passivePerception : 12,
+		languages : "",
+		challengeRating : "2",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (10 ft)",
+				description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
+			}
+		],
+		traits : [{
+				name : "Dive Attack",
+				description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
+			}, {
+				name : "Flyby",
+				description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+			}
+		]
+	};
+	CreatureList["stegosaurus"] = {
+		name : "Stegosaurus",
+		source : [["V", 140], ["ToA", 231]],
+		size : 1, //Huge
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 76,
+		hd : [8, 12], //[#, die]
+		speed : "40 ft",
+		scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		senses : "",
+		passivePerception : 10,
+		languages : "",
+		challengeRating : "4",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (10 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["velociraptor"] = {
+		name : "Velociraptor",
+		source : [["V", 140], ["ToA", 235]],
+		size : 5, //Tiny
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 10,
+		hd : [3, 4], //[#, die]
+		speed : "30 ft",
+		scores : [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 3
+		},
+		senses : "",
+		passivePerception : 13,
+		languages : "",
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 2,
+		attacks : [{
+				name : "Bite",
+				ability : 2,
+				damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "One bite and one claw attack as an Attack action"
+			}, {
+				name : "Claw",
+				ability : 2,
+				damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "One bite and one claw attack as an Attack action"
+			}
+		],
+		traits : [{
+				name : "Pack Tactics",
+				description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
+			}
+		]
+	};
+} // dupl_end
 // The following creatures were transcribed with the help of SoilentBrand and @lowbrr
 CreatureList["almiraj"] = {
 	name : "Almiraj",

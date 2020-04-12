@@ -179,25 +179,27 @@ RaceList["ibis-headed aven"] = { // Includes contributions by /u/MILKB0T
 	scores : [0, 2, 0, 1, 0, 0],
 	trait : "Ibis-Headed Aven (+2 Dexterity, +1 Intelligence)\n\nKefnet's Blessing: I can add half my proficiency bonus, rounded down, to any Intelligence check I make that doesn't already include my proficiency bonus."
 };
-RaceList["hawk-headed aven"] = { // Includes contributions by /u/MILKB0T
-	regExpSearch : /^(?=.*aven)(?=.*hawk).*$/i,
-	name : "Hawk-Headed Aven",
-	sortname : "Aven, Hawk-Headed",
-	source : [["PS:A", 16], ["PS:D", 6]],
-	plural : "Hawk-Headed Avens",
-	size : 3,
-	speed : {
-		walk : { spd : 25, enc : 15 },
-		fly : { spd : 30, enc : 0 }
-	},
-	languageProfs : ["Common", "Aven"],
-	skills : ["Perception"],
-	age : " age like humans and can live into their 80s",
-	height : " stand between 5 and 6 feet tall",
-	weight : " are very slender and their bones are partially hollow to facilitate their flight",
-	heightMetric : " stand between 1,5 and 1,8 metres tall",
-	scores : [0, 2, 0, 0, 2, 0],
-	trait : "Hawk-Headed Aven (+2 Dexterity, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls."
+if (!SourceList["PS:D"]) {
+	RaceList["hawk-headed aven"] = { // Includes contributions by /u/MILKB0T
+		regExpSearch : /^(?=.*aven)(?=.*hawk).*$/i,
+		name : "Hawk-Headed Aven",
+		sortname : "Aven, Hawk-Headed",
+		source : [["PS:A", 16], ["PS:D", 6]],
+		plural : "Hawk-Headed Avens",
+		size : 3,
+		speed : {
+			walk : { spd : 25, enc : 15 },
+			fly : { spd : 30, enc : 0 }
+		},
+		languageProfs : ["Common", "Aven"],
+		skills : ["Perception"],
+		age : " age like humans and can live into their 80s",
+		height : " stand between 5 and 6 feet tall",
+		weight : " are very slender and their bones are partially hollow to facilitate their flight",
+		heightMetric : " stand between 1,5 and 1,8 metres tall",
+		scores : [0, 2, 0, 0, 2, 0],
+		trait : "Hawk-Headed Aven (+2 Dexterity, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls."
+	};
 };
 RaceList["khenra"] = { // Includes contributions by /u/juju2569
 	regExpSearch : /khenra/i,

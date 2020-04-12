@@ -78,6 +78,7 @@ RaceList["grugach"] = {
 if (RaceList["wood elf"]) {
 	RaceList["wood elf"].regExpSearch = RaceList["wood elf"].regExpSearch.replace(/grugach\|?|wilds\?\|?/g, "");
 }
+// dupl_start
 if (!SourceList.MToF) {
 	RaceList["sea elf"] = {
 		regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
@@ -110,7 +111,7 @@ if (!SourceList.MToF) {
 			"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
 		]) // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
 	};
-}
+} // dupl_end
 RaceList["shadar-kai"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name : "Shadar-kai",

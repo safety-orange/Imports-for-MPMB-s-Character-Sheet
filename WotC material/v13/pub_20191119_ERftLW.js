@@ -75,8 +75,8 @@ FeatsList["revenant blade-erlw"] = {
 		stopeval : function (v) { return v.usingShield && !(/animated/i).test(What("AC Shield Bonus Description")) || !CurrentWeapons.known.some(function (n) { return n[0] == "double-bladed scimitar" || (WeaponsList[n[0]] && WeaponsList[n[0]].baseWeapon == "double-bladed scimitar"); }); }
 	}
 };
-
-if (!SourceList.V) { //reprint from Volo's Guide to Monsters
+// [dupl_start] reprints from Volo's Guide to Monsters
+if (!SourceList.V) {
 	RaceList["bugbear"] = {
 		regExpSearch : /bugbear/i,
 		name : "Bugbear",
@@ -168,7 +168,7 @@ if (!SourceList.V) { //reprint from Volo's Guide to Monsters
 		},
 		trait : "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 feet of me (max +5)."
 	};
-}
+} // dupl_end
 
 // The kalashtar
 RaceList["kalashtar-erlw"] = {
@@ -1239,7 +1239,7 @@ RaceList["dragonmark warding dwarf-erlw"] = {
 	}
 };
 
-// Gust cantrip reprint
+// [dupl_start] Gust cantrip reprint
 if (!SpellsList["gust"]) {
 	SpellsList["gust"] = {
 		name : "Gust",
@@ -1255,7 +1255,7 @@ if (!SpellsList["gust"]) {
 		description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
 		descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
 	};
-}
+} // dupl_end
 
 // Aberrant Dragonmark feat
 FeatsList["aberrant dragonmark-erlw"] = {

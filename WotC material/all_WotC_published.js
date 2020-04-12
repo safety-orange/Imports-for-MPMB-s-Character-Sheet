@@ -1,6 +1,6 @@
 var iFileName = "all_WotC_published.js";
-var iFileName = "pub_20140818_PHB.js";
 RequiredSheetVersion(12.999);
+// pub_20140818_PHB.js
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -4205,8 +4205,8 @@ if (typeof AddToNotes === 'undefined') {
 		};
 	};
 };
-var iFileName = "pub_20140819_HotDQ.js";
-RequiredSheetVersion(12.999);
+
+// pub_20140819_HotDQ.js
 // This file adds the background features from the Hoard of the Dragon Queen adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -4227,8 +4227,8 @@ BackgroundFeatureList["dragon scholar"] = {
 	description : "I have studied dragons and their lore for many years. I can automatically identify locations built or used by dragons, and I can identify dragon eggs and scales by sight. If I fail an Intelligence check to recall lore relating to dragons, I know someone or some book that I can consult for the answer unless the DM rules that the lore is unknown.",
 	source : [["HotDQ", 87], ["ALbackground", 0]]
 };
-var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion(12.999);
+
+// pub_20140930_MM.js
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
@@ -4650,8 +4650,8 @@ CreatureList["gas spore"] = {
 	],
 	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
 };
-var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion(12.999);
+
+// pub_20141209_DMG.js
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -5045,8 +5045,8 @@ AmmoList["energy cell"] = {
 };
 
 
-var iFileName = "pub_20150415_AL-EE.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150415_AL-EE.js
 // This file adds the optional backgrounds from the Adventurers League season 2 (Elemental Evil) to MPMB's Character Record Sheet
 
 // Define the source
@@ -5404,8 +5404,8 @@ BackgroundFeatureList["phlan survivor"] = {
 	description : "Whatever my prior standing I'm now one of the many refugees that came to Mulmaster. I'm able to find refuge with others from Phlan and those who sympathize with my plight. Within Mulmaster this means that I can find a place to sleep, recover, and hide from the watch with either other refugees from Phlan, or the Zhents within the ghettos.",
 	source : [["AL:EE", 6], ["ALbackground", 0]]
 };
-var iFileName = "pub_20150416_EE.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150416_EE.js
 // This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
 
 // Define the source
@@ -6360,8 +6360,8 @@ WeaponsList["thunderclap"] = {
 	abilitytodamage : false,
 	dc : true
 };
-var iFileName = "pub_20150714_AL-RoD.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150714_AL-RoD.js
 // This file adds the optional backgrounds from the Adventurers League season 3 (Rage of Demons) to MPMB's Character Record Sheet
 
 // Define the source
@@ -6861,8 +6861,8 @@ BackgroundFeatureList["trade contact"] = {
 	description : "My family and I have trade contacts such as caravan masters, sailors, artisans, farmers, and shopkeepers throughout the Moonsea region and all along the Sword Coast. When adventuring in either of those areas, I can use those contacts to get information about the local area or to pass a message to someone in those areas, even across great distance.",
 	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };
-var iFileName = "pub_20150915_OotA.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150915_OotA.js
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -6977,8 +6977,8 @@ CreatureList["steeder, male"] = {
 		}
 	]
 };
-var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion(12.999);
+
+// pub_20151103_SCAG.js
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -8484,8 +8484,8 @@ SpellsList["sword burst"] = {
 	description : "All crea in range save or 1d6 Force damage; +1d6 at CL 5, 11, and 17",
 	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. Each creature within range, other than you, must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
-var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion(12.999);
+
+// pub_20160315_CoS.js
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
@@ -9004,8 +9004,8 @@ PacksList.monsterhunter = {
 		["Torches", 3, 1]
 	]
 };
-var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion(12.999);
+
+// pub_20160906_SKT.js
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -9156,8 +9156,8 @@ CreatureList["tressym"] = {
 	],
 	wildshapeString : "\u25C6 Languages: understands Common but can't speak.\n\u25C6 Senses: Darkvision 60 ft; Advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Detect Invisibility: Magical invisibility fails to conceal anything from sight, out to 60 ft.\n\u25C6 Immune to: poison damage, poisoned condition.\n\u25C6 Poison Sense: Detect whether a substance is poisonous by taste, touch, or smell."
 };
-var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion(12.999);
+
+// pub_20161115_VGtM.js
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -10404,8 +10404,8 @@ CreatureList["gazer"] = {
 		}
 	]
 };
-var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170404_TftYP.js
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -10591,8 +10591,8 @@ CreatureList["giant subterranean lizard"] = {
 	],
 	wildshapeString : "\u25C6 Swallow: If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement."
 };
-var iFileName = "pub_20170915_Tortle.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170915_Tortle.js
 // This file adds the Tortle Race from the Tortle Package from DMs Guild to MPMB's Character Record Sheet
 
 // Define the source
@@ -10660,8 +10660,8 @@ WeaponsList["claws"] = {
 	abilitytodamage : true,
 	monkweapon : true
 };
-var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170919_ToA.js
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -11291,8 +11291,8 @@ CreatureList["jaculi"] = {
 	],
 	wildshapeString : "\u25C6 Senses: Blindsight 30 ft.\n\u25C6 Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n\u25C6 Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
 };
-var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion(12.999);
+
+// pub_20171121_XGtE.js
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -15664,8 +15664,8 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 		description : ""
 	}]
 };
-var iFileName = "pub_20180529_MToF.js";
-RequiredSheetVersion(12.999);
+
+// pub_20180529_MToF.js
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
 
 // Define the source
@@ -16513,8 +16513,7 @@ RaceList["deep gnome"] = { //reprint from Elemental Evil Player's Companion and 
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 };
-var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion(12.999);
+// pub_20180723_WGtE.js
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 
 // Define the sources
@@ -17931,8 +17930,8 @@ FeatsList["aberrant dragonmark"] = {
 		oncelr : true
 	}]
 };
-var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion(12.999);
+
+// pub_20181120_GGtR.js
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -19140,8 +19139,8 @@ if (!SourceList.X) { // reprint from Xanathar's Guide to Everything
 		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st."
 	};
 }
-var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion(12.999);
+
+// pub_20190521_GoS.js
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -19584,8 +19583,8 @@ CreatureList["sea lion"] = {
 		description : "The sea lion makes three attacks: one with its bite and two with its claws."
 	}]
 }
-var iFileName = "pub_20190618_AcqInc.js";
-RequiredSheetVersion(12.999);
+
+// pub_20190618_AcqInc.js
 // This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
 
 // Define the source

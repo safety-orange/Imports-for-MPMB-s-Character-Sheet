@@ -1,6 +1,6 @@
 var iFileName = "all_WotC_unearthed_arcana.js";
-var iFileName = "ua_20150202_Eberron.js";
 RequiredSheetVersion(13);
+// ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -361,8 +361,8 @@ AddSubClass("wizard", "artificer", {
 		}
 	}
 });
-var iFileName = "ua_20150406_Modifying-Classes.js";
-RequiredSheetVersion(13);
+
+// ua_20150406_Modifying-Classes.js
 // This file adds the content from the Unearthed Arcana: Modifying Classes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -680,8 +680,8 @@ if (ClassSubList["ranger-beast master"]) {
 	};
 	AddSubClass("spell-less ranger", "beast master", SLR_Beast_Master);
 };
-var iFileName = "ua_20150504_Waterborne-Adventures.js";
-RequiredSheetVersion(13);
+
+// ua_20150504_Waterborne-Adventures.js
 // This file adds the content from the Unearthed Arcana: Waterborne Adventures article to MPMB's Character Record Sheet
 
 // Define the source
@@ -778,8 +778,8 @@ AddRacialVariant("minotaur", "strength", {
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
-var iFileName = "ua_20150803_Modern-Magic.js";
-RequiredSheetVersion(13);
+
+// ua_20150803_Modern-Magic.js
 // This file adds the content from the Unearthed Arcana: Modern Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -1233,6 +1233,7 @@ SpellsList["system backdoor"] = {
 	description : "Gain admin access to 1 system; defeats 3rd or lower technomancy spells; SL5+: defeats same or lower",
 	descriptionFull : "[Technomagic]\n   This spell allows you to bypass system security in order to create a secure login on a foreign system. The login you create allows you administrator-level privileges in any computer system not enhanced through technomagic. The login defeats any technomagic spells of 3rd level or lower." + "\n   " + "Once the duration of the spell expires, the login and all privileges are wiped from the system." + "\n   " + "System logs still show the activity of the user, but the user identification cannot be found or traced." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you are able to bypass technomagic spells if the spell's level is equal to or less than the level of the spell slot you used."
 };
+
 // This code was contributed by Lewis Henderson
 //
 // Please note that the original .pdf has the hit dice as 2d6 per level.
@@ -1240,8 +1241,7 @@ SpellsList["system backdoor"] = {
 // Also note that there is no automation for the companion page included in this.
 //
 // You will have to choose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
-var iFileName = "ua_20150909_Ranger.js";
-RequiredSheetVersion(13);
+// ua_20150909_Ranger.js
 // This file adds the content from the Unearthed Arcana: Ranger article to MPMB's Character Record Sheet
 
 // Define the source
@@ -1404,8 +1404,8 @@ AddSubClass("ua-playtest-ranger", "stalker", {
 		}
 	}
 });
-var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
-RequiredSheetVersion(13);
+
+// ua_20151005_Prestige Classes and Rune Magic.js
 // This file adds the content from the Unearthed Arcana: Prestige Classes and Rune Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -1606,8 +1606,8 @@ ClassList["rune scribe"] = {
 		}
 	}
 };
-var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion(13);
+
+// ua_20151102_Light,-Dark,-Underdark!.js
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source
@@ -1808,8 +1808,8 @@ AddSubClass("warlock", "the undying light", {
 		}
 	}
 });
-var iFileName = "ua_20151217_That-Old-Black-Magic.js";
-RequiredSheetVersion(13);
+
+// ua_20151217_That-Old-Black-Magic.js
 // This file adds the content from the Unearthed Arcana: That Old Black Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -1968,8 +1968,8 @@ SpellsList["conjure vrock"] = {
 	description : "Summon a vrock that I might control for some rounds, depending on gem value, see B (100gp cons.)",
 	descriptionFull : "You summon a vrock that appears in an unoccupied space you can see within range. The vrock disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The vrock's attitude depends on the value of the gem used as a material component for this spell. Roll initiative for the vrock, which has its own turns. At the start of the vrock's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the gem's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the vrock and have it obey you as long as you succeed on the Charisma check." + "\n   " + "If the check fails, the spell no longer requires concentration and the vrock is no longer under your control. The vrock takes no actions on its next turn and uses its telepathy to tell any creature it can see that it will fight in exchange for treasure. The creature that gives the vrock the most expensive gem can command it for the next 1d6 rounds. At the end of that time, it offers the bargain again. If no one offers the vrock treasure before its next turn begins, it attacks the nearest creatures for 1d6 rounds before returning to the Abyss." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned vrock cannot cross the circle or target anyone in it while the spell lasts."
 };
-var iFileName = "ua_20160104_Kits-of-Old.js";
-RequiredSheetVersion(13);
+
+// ua_20160104_Kits-of-Old.js
 // This file adds the content from the Unearthed Arcana: Kits of Old article to MPMB's Character Record Sheet
 
 // Define the source
@@ -2196,8 +2196,8 @@ AddSubClass("fighter", "scout", {
 		}
 	}
 });
-var iFileName = "ua_20160404_Gothic-Heroes.js";
-RequiredSheetVersion(13);
+
+// ua_20160404_Gothic-Heroes.js
 // This file adds the content from the Unearthed Arcana: Gothic Heroes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -2568,8 +2568,8 @@ AddSubClass("rogue", "inquisitive", {
 		}
 	}
 });
-var iFileName = "ua_20160606_Feats.js";
-RequiredSheetVersion(13);
+
+// ua_20160606_Feats.js
 // This file adds the content from the Unearthed Arcana: Feats article to MPMB's Character Record Sheet
 
 // Define the source
@@ -2649,7 +2649,7 @@ FeatsList["spear mastery"] = {
 	name : "Spear Mastery",
 	source : ["UA:F", 3],
 	descriptionFull : "Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a spear.\n \u2022 When you use a spear, its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands. (This benefit has no effect if another feature has already improved the weapon's die.)\n \u2022 You can set your spear to receive a charge. As a bonus action, choose a creature you can see that is at least 20 feet away from you. If that creature moves within your spear's reach on its next turn, you can make a melee attack against it with your spear as a reaction. If the attack hits, the target takes an extra 1d8 piercing damage, or an extra 1d10 piercing damage if you wield the spear with two hands. You can't use this ability if the creature used the Disengage action before moving.\n \u2022 As a bonus action on your turn, you can increase your reach with a spear by 5 feet for the rest of your turn.",
-	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the speer's reach with 5 ft.",
+	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the spear's reach by 5 ft.",
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -2742,8 +2742,8 @@ FeatsList["master of disguise"] = {
 		};
 	}
 };
-var iFileName = "ua_20160801_The-Faithful.js";
-RequiredSheetVersion(13);
+
+// ua_20160801_The-Faithful.js
 // This file adds the content from the Unearthed Arcana: The Faithful article to MPMB's Character Record Sheet
 
 // Define the source
@@ -2982,8 +2982,8 @@ RunFunctionAtEnd(function() {
 		};
 	};
 });
-var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion(13);
+
+// ua_20160912_The-Ranger,-Revised.js
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source
@@ -3380,8 +3380,8 @@ var AddXGtErangerSubclassesToRevisedRanger = function() {
 		};
 	};
 }();
-var iFileName = "ua_20161107_Barbarian-Primal-Paths.js";
-RequiredSheetVersion(13);
+
+// ua_20161107_Barbarian-Primal-Paths.js
 // This file adds the content from the Unearthed Arcana: Barbarian Primal Paths article to MPMB's Character Record Sheet
 
 // Define the source
@@ -3586,8 +3586,8 @@ AddSubClass("barbarian", "zealot", {
 		}
 	}
 });
-var iFileName = "ua_20161114_Bard-Colleges.js";
-RequiredSheetVersion(13);
+
+// ua_20161114_Bard-Colleges.js
 // This file adds the content from the Unearthed Arcana: Bard Colleges article to MPMB's Character Record Sheet
 
 // Define the source
@@ -3713,8 +3713,8 @@ AddSubClass("bard", "college of whispers", {
 		}
 	}
 });
-var iFileName = "ua_20161121_Cleric-Divine-Domains.js";
-RequiredSheetVersion(13);
+
+// ua_20161121_Cleric-Divine-Domains.js
 // This file adds the content from the Unearthed Arcana: Cleric Divine Domains article to MPMB's Character Record Sheet
 
 // Define the source
@@ -3973,8 +3973,8 @@ AddSubClass("cleric", "protection domain", {
 		}
 	}
 });
-var iFileName = "ua_20161128_Druid-Circles.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161128_Druid-Circles.js
 // This file adds the content from the Unearthed Arcana: Druid Circles article to MPMB's Character Record Sheet
 
 // Define the source
@@ -4182,8 +4182,8 @@ AddSubClass("druid", "circle of twilight", {
 		}
 	}
 });
-var iFileName = "ua_20161205_Fighter-Martial-Archetypes.js";
-RequiredSheetVersion(13);
+
+// ua_20161205_Fighter-Martial-Archetypes.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -4509,8 +4509,8 @@ AddSubClass("fighter", "sharpshooter", {
 		}
 	}
 });
-var iFileName = "ua_20161212_Monk-Monastic-Traditions.js";
-RequiredSheetVersion(13);
+
+// ua_20161212_Monk-Monastic-Traditions.js
 // This file adds the content from the Unearthed Arcana: Monk Monastic Traditions article to MPMB's Character Record Sheet
 
 // Define the source
@@ -4682,8 +4682,8 @@ AddSubClass("monk", "way of tranquility", {
 		}
 	}
 });
-var iFileName = "ua_20161219_Paladin-Sacred-Oaths.js";
-RequiredSheetVersion(13);
+
+// ua_20161219_Paladin-Sacred-Oaths.js
 // This file adds the content from the Unearthed Arcana: Paladin Sacred Oaths article to MPMB's Character Record Sheet
 
 // Define the source
@@ -4811,8 +4811,8 @@ AddSubClass("paladin", "oath of treachery", {
 		}
 	}
 });
-var iFileName = "ua_20170109_Artificer.js";
-RequiredSheetVersion(13);
+
+// ua_20170109_Artificer.js
 // This file adds the content from the Unearthed Arcana: Artificer article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Artificer; the ones provided here are extrapolated from other classes
 
@@ -5464,8 +5464,8 @@ var SetArtificerAttr = function(){
 		theObj.extrachoices.push(theI);
 	};
 }();
-var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion(13);
+
+// ua_20170116_Ranger-and-Rogue.js
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -5679,8 +5679,8 @@ AddSubClass("rogue", "scout", {
 		}
 	}
 });
-var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion(13);
+
+// ua_20170206_Sorcerous-Origins.js
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -6007,8 +6007,8 @@ AddSubClass("sorcerer", "stone sorcery", {
 		}
 	}
 });
-var iFileName = "ua_20170213_Warlock-and-Wizard.js";
-RequiredSheetVersion(13);
+
+// ua_20170213_Warlock-and-Wizard.js
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -6571,8 +6571,8 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 		]
 	}
 });
-var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion(13);
+
+// ua_20170313_The-Mystic-Class.js
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -10501,8 +10501,8 @@ WeaponsList["psychic hammer-ua-psy"] = {
 	abilitytodamage : false,
 	dc : true
 };
-var iFileName = "ua_20170320_Wizard-Revisited.js";
-RequiredSheetVersion(13);
+
+// ua_20170320_Wizard-Revisited.js
 // This file adds the content from the Unearthed Arcana: Wizard Revisited article to MPMB's Character Record Sheet
 
 // Define the source
@@ -10572,169 +10572,8 @@ AddSubClass("wizard", "war magic", {
 		}
 	}
 });
-// This doesn't add the Theurgy subclass if the source UA:TF is present, as that class is identical to the one found in Unearthed Arcana: The Faithful of (2016/08/01)
-if (!SourceList["UA:TF"]) {
-RunFunctionAtEnd(function() {
-	var theTheurgySubclass = AddSubClass("wizard", "theurgy", {
-		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
-		subname : "Theurgy",
-		source : [["UA:TF", 1], ["UA:WR", 1]],
-		fullname : "Theurgist",
-		features : {
-			"subclassfeature2" : {
-				name : "Arcane Initiate",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
-				description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
-				calcChanges : {
-					spellList : [
-						function(spList, spName, spType) {
-							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
-							var domainSpells = CurrentSpells.wizard.extra;
-							// now stop this function if even one of the domain spells is not already in the spellbook
-							var knownSpells = CurrentSpells.wizard.selectSp;
-							for (var i = 0; i < domainSpells.length; i++) {
-								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
-							}
-							// get all the cleric spells, level 1-9
-							var clericSpells = CreateSpellList({"class" : "cleric", level : [1,9]}, false, false, false);
-							spList.extraspells = spList.extraspells.concat(clericSpells);
-						},
-						"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up."
-					]
-				},
-				choices : [],
-				choiceDependencies : [{
-					feature : "subclassfeature2.3"
-				}, {
-					feature : "subclassfeature6"
-				}, {
-					feature : "subclassfeature10"
-				}, {
-					feature : "subclassfeature14"
-				}]
-			},
-			"subclassfeature2.1" : {
-				name : "Channel Arcana",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
-				description : "\n   " + "I can channel arcane energy from my deity; the save for this is my wizard spell DC",
-				usages : [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
-				recovery : "short rest"
-			},
-			"subclassfeature2.2" : {
-				name : "Channel Arcana: Divine Arcana",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
-				description : "\n   " + "As a bonus action, I speak a prayer to control the flow of magic around me" + "\n   " + "The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
-				action : ["bonus action", ""]
-			},
-			"subclassfeature2.3" : {
-				name : "Channel Arcana: Domain",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-				choices : [],
-				choicesNotInMenu : true
-			},
-			"subclassfeature6" : {
-				name : "Arcane Acolyte",
-				source : [["UA:TF", 3], ["UA:WR", 1]],
-				minlevel : 6,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-				choices : [],
-				choicesNotInMenu : true
-			},
-			"subclassfeature10" : {
-				name : "Arcane Priest",
-				source : [["UA:TF", 3], ["UA:WR", 2]],
-				minlevel : 10,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-				choices : [],
-				choicesNotInMenu : true
-			},
-			"subclassfeature14" : {
-				name : "Arcane High Priest",
-				source : [["UA:TF", 3], ["UA:WR", 2]],
-				minlevel : 14,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
-				choices : [],
-				choicesNotInMenu : true
-			}
-		}
-	});
-	var MTfeat = ClassSubList[theTheurgySubclass].features;
-	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
-		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
-		if (!aDomain) continue;
-		var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
-		
-		var suffix = 1;
-		var entryDoNm = aDomain.subname;
-		while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
-			suffix += 1;
-			entryDoNm = aDomain.subname + " (" + suffix + ")";
-		};
-		MTfeat["subclassfeature2"].choices.push(entryDoNm);
-		MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
-			name : "Arcane Initiate: " + aDomain.subname,
-			source : dSource,
-			spellcastingExtra : aDomain.spellcastingExtra,
-			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks"
-		};
-		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
-		for (var aFea in aDomain.features) {
-			var dFea = aDomain.features[aFea];
-			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
-				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
-			};
-			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
-				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
-					MTfeat["subclassfeature6"].choices.push(entryDoNm);
-					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
-				} else { //add to the existing entry
-					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
-					theFea.name += " \u0026 " + dFea.name;
-					theFea.description += dFea.description;
-					for (var subFea in dFea) {
-						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
-					};
-				};
-			};
-			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
-				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
-					MTfeat["subclassfeature10"].choices.push(entryDoNm);
-					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
-				} else { //add to the existing entry
-					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
-					theFea.name += " \u0026 " + dFea.name;
-					theFea.description += dFea.description;
-					for (var subFea in dFea) {
-						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
-					};
-				};
-			};
-			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
-				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
-					MTfeat["subclassfeature14"].choices.push(entryDoNm);
-					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
-				} else { //add to the existing entry
-					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
-					theFea.name += " \u0026 " + dFea.name;
-					theFea.description += dFea.description;
-					for (var subFea in dFea) {
-						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
-					};
-				};
-			};
-		};
-	};
-});
-};
-var iFileName = "ua_20170327_A Trio-of-Subclasses.js";
-RequiredSheetVersion(13);
+
+// ua_20170327_A Trio-of-Subclasses.js
 // This file adds the content from the Unearthed Arcana: A Trio of Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -10919,8 +10758,8 @@ var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer", {
 	}
 });
 if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassMonsterSlayerUA); };
-var iFileName = "ua_20170403_Starter-Spells.js";
-RequiredSheetVersion(13);
+
+// ua_20170403_Starter-Spells.js
 // This file adds the content from the Unearthed Arcana: Starter Spells article to MPMB's Character Record Sheet
 
 // Define the source
@@ -11201,38 +11040,7 @@ WeaponsList["primal savagery-uass"] = {
 	abilitytodamage : false
 };
 
-if (!SourceList.X) {
-	SpellsList["toll the dead"] = {
-		name : "Toll the Dead",
-		classes : ["cleric", "warlock", "wizard"],
-		source : [["X", 169], ["UA:SS", 4]],
-		level : 0,
-		school : "Necro",
-		time : "1 a",
-		range : "60 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Wis",
-		description : "1 crea save or 1d12 Necrotic damage (only 1d8 if at full HP); +1d12/1d8 at CL 5, 11, and 17",
-		descriptionCantripDie : "1 crea save or `CD`d12 Necrotic damage (only `CD`d8 if at full hp)",
-		descriptionFull : "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12)."
-	};
-	WeaponsList["toll the dead"] = {
-		regExpSearch : /^(?=.*toll)(?=.*the)(?=.*dead).*$/i,
-		name : "Toll the Dead",
-		source : [["X", 169], ["UA:SS", 4]],
-		list : "spell",
-		ability : 5,
-		type : "Cantrip",
-		damage : ["C", 12, "necrotic"],
-		range : "60 ft",
-		description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage (UA:SS 4)",
-		abilitytodamage : false,
-		dc : true
-	};
-}
-var iFileName = "ua_20170417_Feats-for-Skills.js";
-RequiredSheetVersion(13);
+// ua_20170417_Feats-for-Skills.js
 // This file adds the content from the Unearthed Arcana: Feats for Skills article to MPMB's Character Record Sheet
 
 // Define the source
@@ -11439,8 +11247,8 @@ FeatsList["theologian"] = {
 		firstCol : "oncelr"
 	}]
 };
-var iFileName = "ua_20170424_Feats-for-Races.js";
-RequiredSheetVersion(13);
+
+// ua_20170424_Feats-for-Races.js
 // This file adds the content from the Unearthed Arcana: Feats for Races article to MPMB's Character Record Sheet
 
 // Define the source
@@ -11803,8 +11611,8 @@ FeatsList["wood elf magic"] = {
 		firstCol : 'oncelr'
 	}]
 };
-var iFileName = "ua_20170501_Revised-Subclasses.js";
-RequiredSheetVersion(13);
+
+// ua_20170501_Revised-Subclasses.js
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12261,8 +12069,8 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 		}
 	}
 });
-var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion(13);
+
+// ua_20170605_Revised-Class-Options.js
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12606,116 +12414,6 @@ AddSubClass("warlock", "the celestial", {
 });
 
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
-if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
-	AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
-		name : "Aspect of the Moon",
-		description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
-		source : [["X", 56], ["UA:RCO", 5]],
-		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
-		savetxt : { text : ["Nothing can force me to sleep"] }
-	});
-	AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
-		name : "Cloak of Flies",
-		description : desc([
-			"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
-			"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
-			"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
-			"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
-		]),
-		source : [["X", 56], ["UA:RCO", 5]],
-		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
-		recovery : "short rest",
-		usages : 1,
-		action : ["bonus action", " (start/stop)"]
-	});
-	AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
-		name : "Gift of the Depths",
-		description : desc([
-			"I can breathe underwater and I have a swim speed equal to my walking speed",
-			"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
-		]),
-		source : [["X", 57], ["UA:RCO", 6]],
-		spellcastingBonus : {
-			name : "Gift of the Depths",
-			spells : ["water breathing"],
-			selection : ["water breathing"],
-			firstCol : 'oncelr'
-		},
-		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
-		speed : { swim : { spd : "walk", enc : "walk" } }
-	});
-	AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
-		name : "Gift of the Ever-Living Ones",
-		description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
-		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
-	});
-	AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
-		name : "Grasp of Hadar",
-		description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
-		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : function(v) { return v.hasEldritchBlast; },
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
-				},
-				"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
-			]
-		}
-	});
-	AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
-		name : "Shroud of Shadow",
-		description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
-		source : [["X", 57], ["UA:RCO", 6]],
-		spellcastingBonus : {
-			name : "Shroud of Shadow",
-			spells : ["invisibility"],
-			selection : ["invisibility"],
-			firstCol : 'atwill'
-		},
-		prereqeval : function(v) { return classes.known.warlock.level >= 15; },
-		spellChanges : {
-			"invisibility" : {
-				description : "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
-				changes : "With the Shroud of Shadow invocation I can cast Invisibility at will, but when I do so I am unable to cast it using a higher level spell slot."
-			}
-		}
-	});
-	AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
-		name : "Tomb of Levistus",
-		description : desc([
-			"As a reaction when I take damage, I can entomb myself in ice until the end of my turn",
-			"During, I get 10 temp. HP per warlock level, which I use to absorb the triggering damage",
-			"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
-		]),
-		source : [["X", 57], ["UA:RCO", 6]],
-		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
-		recovery : "short rest",
-		usages : 1,
-		action : ["reaction", ""],
-		additional : levels.map( function(n) { return (n * 10) + " temp HP"; })
-	});
-	AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
-		name : "Trickster's Escape",
-		description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
-		source : [["X", 57], ["UA:RCO", 7]],
-		spellcastingBonus : {
-			name : "Trickster's Escape",
-			spells : ["freedom of movement"],
-			selection : ["freedom of movement"],
-			firstCol : 'oncelr'
-		},
-		prereqeval : function(v) { return classes.known.warlock.level >= 7; },
-		spellChanges : {
-			"freedom of movement" : {
-				range : "Self",
-				description : "Magic can't reduce my speed, paralyze or restrain me; I can use 5 ft to escape nonmagical restrains",
-				changes : "With the Trickster's Escape invocation I can cast Freedom of Movement, but only on myself."
-			}
-		}
-	});
-}
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Eldritch Smite",
 	description : desc([
@@ -12806,8 +12504,8 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	action : ["bonus action", ""]
 });
-var iFileName = "ua_20170911_Eladrin-and-Gith.js";
-RequiredSheetVersion(13);
+
+// ua_20170911_Eladrin-and-Gith.js
 // This file adds the content from the Unearthed Arcana: Eladrin and Gith article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12994,8 +12692,8 @@ RaceList["githzerai"] = {
 		stopeval : function (v) { return v.mediumArmor || v.heavyArmor || v.usingShield; }
 	}
 };
-var iFileName = "ua_20171009_Fiendish-Options.js";
-RequiredSheetVersion(13);
+
+// ua_20171009_Fiendish-Options.js
 // This file adds the content from the Unearthed Arcana: Fiendish Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -13008,72 +12706,7 @@ SourceList["UA:FO"] = {
 };
 
 // Adds 8 subraces for the Tiefling, even though it doesn't have any in the PHB/SRD
-// Note that the Abyssal Tiefling is the same as the Tiefling in the PHB/SRD, so it is not added (again) by this code
 // Much of this code was contributed by Friedrich
-if (!RaceList["baalzebul tiefling"]) {
-	RaceList["baalzebul tiefling"] = {
-		regExpSearch : /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
-		name : "Baalzebul tiefling",
-		sortname : "Tiefling, Baalzebul",
-		source : [["MToF", 21], ["UA:FO", 1]],
-		plural : "Baalzebul tieflings",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Infernal"],
-		vision : [["Darkvision", 60]],
-		dmgres : ["Fire"],
-		age : " reach adulthood in their late teens and live around 100 years",
-		height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scores : [0, 0, 0, 1, 0, 2],
-		trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Ray of Sickness spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Crown of Madness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Legacy of Maladomini (1)",
-			spells : ["thaumaturgy"],
-			selection : ["thaumaturgy"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"ray of sickness" : {
-				name : "Legacy of Maladomini (level 3)",
-				limfeaname : "Ray of Sickness (3d8)",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Maladomini (3)",
-					spells : ["ray of sickness"],
-					selection : ["ray of sickness"],
-					firstCol : 'oncelr'
-				},
-				spellChanges : {
-					"ray of sickness" : {
-						description : "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
-						changes : "Using Legacy of Maladomini, I cast Ray of Sickness as if I'm using a 2nd-level spell slot."
-					}
-				}
-			},
-			"crown of madness" : {
-				name : "Legacy of Maladomini (level 5)",
-				limfeaname : "Crown of Madness",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Maladomini (5)",
-					spells : ["crown of madness"],
-					selection : ["crown of madness"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-}
 RaceList["dispater tiefling"] = {
 	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
 	name : "Dispater tiefling",
@@ -13130,259 +12763,6 @@ RaceList["dispater tiefling"] = {
 		}
 	}
 };
-if (!RaceList["fierna tiefling"]) {
-	RaceList["fierna tiefling"] = {
-		regExpSearch : /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
-		name : "Fierna tiefling",
-		sortname : "Tiefling, Fierna",
-		source : [["MToF", 21], ["UA:FO", 1]],
-		plural : "Fierna tieflings",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Infernal"],
-		vision : [["Darkvision", 60]],
-		dmgres : ["Fire"],
-		age : " reach adulthood in their late teens and live around 100 years",
-		height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scores : [0, 0, 0, 0, 1, 2],
-		trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-		abilitySave : 6,
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Legacy of Phlegethos (1)",
-			spells : ["friends"],
-			selection : ["friends"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"charm person" : {
-				name : "Legacy of Phlegethos (level 3)",
-				limfeaname : "Charm Person (2 targets)",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Phlegethos (3)",
-					spells : ["charm person"],
-					selection : ["charm person"],
-					firstCol : 'oncelr'
-				},
-				spellChanges : {
-					"charm person" : {
-						description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
-						changes : "Using Legacy of Phlegethos, I cast Charm Person as if I'm using a 2nd-level spell slot."
-					}
-				}
-			},
-			"suggestion" : {
-				name : "Legacy of Phlegethos (level 5)",
-				limfeaname : "Suggestion",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Phlegethos (5)",
-					spells : ["suggestion"],
-					selection : ["suggestion"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-}
-if (!RaceList["glasya tiefling"]) {
-	RaceList["glasya tiefling"] = {
-		regExpSearch : /^(?=.*glasya)(?=.*tiefling|planetouched).*$/i,
-		name : "Glasya tiefling",
-		sortname : "Tiefling, Glasya",
-		source : [["MToF", 22], ["UA:FO", 2]],
-		plural : "Glasya tieflings",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Infernal"],
-		vision : [["Darkvision", 60]],
-		dmgres : ["Fire"],
-		age : " reach adulthood in their late teens and live around 100 years",
-		height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scores : [0, 1, 0, 0, 0, 2],
-		trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Legacy of Malbolge (1)",
-			spells : ["minor illusion"],
-			selection : ["minor illusion"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"disguise self" : {
-				name : "Legacy of Malbolge (level 3)",
-				limfeaname : "Disguise Self",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Malbolge (3)",
-					spells : ["disguise self"],
-					selection : ["disguise self"],
-					firstCol : 'oncelr'
-				}
-			},
-			"invisibility" : {
-				name : "Legacy of Malbolge (level 5)",
-				limfeaname : "Invisibility",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Malbolge (5)",
-					spells : ["invisibility"],
-					selection : ["invisibility"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-}
-if (!RaceList["levistus tiefling"]) {
-	RaceList["levistus tiefling"] = {
-		regExpSearch : /^(?=.*levistus)(?=.*tiefling|planetouched).*$/i,
-		name : "Levistus tiefling",
-		sortname : "Tiefling, Levistus",
-		source : [["MToF", 22], ["UA:FO", 2]],
-		plural : "Levistus tieflings",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Infernal"],
-		vision : [["Darkvision", 60]],
-		dmgres : ["Fire"],
-		age : " reach adulthood in their late teens and live around 100 years",
-		height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scores : [0, 0, 1, 0, 0, 2],
-		trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Legacy of Stygia (1)",
-			spells : ["ray of frost"],
-			selection : ["ray of frost"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"armor of agathys" : {
-				name : "Legacy of Stygia (level 3)",
-				limfeaname : "Armor of Agathys (2nd-level)",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Stygia (3)",
-					spells : ["armor of agathys"],
-					selection : ["armor of agathys"],
-					firstCol : 'oncelr'
-				},
-				spellChanges : {
-					"armor of agathys" : {
-						description : "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
-						changes : "Using Legacy of Stygia, I cast Armor of Agathys as if I'm using a 2nd-level spell slot."
-					}
-				}
-			},
-			"darkness" : {
-				name : "Legacy of Stygia (level 5)",
-				limfeaname : "Darkness",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Stygia (5)",
-					spells : ["darkness"],
-					selection : ["darkness"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-}
-if (!RaceList["mammon tiefling"]) {
-	RaceList["mammon tiefling"] = {
-		regExpSearch : /^(?=.*mammon)(?=.*tiefling|planetouched).*$/i,
-		name : "Mammon tiefling",
-		sortname : "Tiefling, Mammon",
-		source : [["MToF", 22], ["UA:FO", 2]],
-		plural : "Mammon tieflings",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Infernal"],
-		vision : [["Darkvision", 60]],
-		dmgres : ["Fire"],
-		age : " reach adulthood in their late teens and live around 100 years",
-		height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scores : [0, 0, 0, 1, 0, 2],
-		trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Tenser's Floating Disk spell once per short rest.\n   At 5th level, I can also cast the Arcane Lock spell without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Legacy of Minauros (1)",
-			spells : ["mage hand"],
-			selection : ["mage hand"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"tenser's floating disk" : {
-				name : "Legacy of Minauros (level 3)",
-				limfeaname : "Tenser's Floating Disk",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Minauros (3)",
-					spells : ["tenser's floating disk"],
-					selection : ["tenser's floating disk"],
-					firstCol : 'oncesr'
-				}
-			},
-			"arcane lock" : {
-				name : "Legacy of Minauros (level 5)",
-				limfeaname : "Arcane Lock",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Minauros (5)",
-					spells : ["arcane lock"],
-					selection : ["arcane lock"],
-					firstCol : 'oncelr'
-				},
-				spellChanges : {
-					"arcane lock" : {
-						components : "V,S",
-						compMaterial : "",
-						changes : "I can cast this spell once per long rest without requiring material components."
-					}
-				}
-			}
-		}
-	};
-
-}
 RaceList["mephistopheles tiefling"] = {
 	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
 	name : "Mephistopheles tiefling",
@@ -13445,72 +12825,8 @@ RaceList["mephistopheles tiefling"] = {
 		}
 	}
 };
-if (!RaceList["zariel tiefling"]) {
-	RaceList["zariel tiefling"] = {
-		regExpSearch : /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
-		name : "Zariel tiefling",
-		sortname : "Tiefling, Zariel",
-		source : [["MToF", 23], ["UA:FO", 2]],
-		plural : "Zariel tieflings",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Infernal"],
-		vision : [["Darkvision", 60]],
-		dmgres : ["Fire"],
-		age : " reach adulthood in their late teens and live around 100 years",
-		height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
-		weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
-		heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-		weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-		scores : [1, 0, 0, 0, 0, 2],
-		trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Searing Smite spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Branding Smite spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-		spellcastingAbility : 6,
-		spellcastingBonus : {
-			name : "Legacy of Avernus (1)",
-			spells : ["thaumaturgy"],
-			selection : ["thaumaturgy"],
-			firstCol : 'atwill'
-		},
-		features : {
-			"searing smite" : {
-				name : "Legacy of Avernus (level 3)",
-				limfeaname : "Searing Smite (2d6)",
-				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Avernus (3)",
-					spells : ["searing smite"],
-					selection : ["searing smite"],
-					firstCol : 'oncelr'
-				},
-				spellChanges : {
-					"searing smite" : {
-						description : "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
-						changes : "Using Legacy of Avernus, I cast Searing Smite as if I'm using a 2nd-level spell slot."
-					}
-				}
-			},
-			"branding smite" : {
-				name : "Legacy of Avernus (level 5)",
-				limfeaname : "Branding Smite",
-				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
-				spellcastingBonus : {
-					name : "Legacy of Avernus (5)",
-					spells : ["branding smite"],
-					selection : ["branding smite"],
-					firstCol : 'oncelr'
-				}
-			}
-		}
-	};
-}
-var iFileName = "ua_20171113_Elf-Subraces.js";
-RequiredSheetVersion(13);
+
+// ua_20171113_Elf-Subraces.js
 // This file adds the content from the Unearthed Arcana: Elf Subraces article to MPMB's Character Record Sheet
 
 // Define the source
@@ -13589,39 +12905,6 @@ RaceList["grugach"] = {
 if (RaceList["wood elf"]) {
 	RaceList["wood elf"].regExpSearch = RaceList["wood elf"].regExpSearch.replace(/grugach\|?|wilds\?\|?/g, "");
 }
-if (!SourceList.MToF) {
-	RaceList["sea elf"] = {
-		regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
-		name : "Sea elf",
-		sortname : "Elf, Sea",
-		source : [["MToF", 62], ["UA:ES", 1]],
-		plural : "Sea elves",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 },
-			swim : { spd : 30, enc : 20 }
-		},
-		weaponProfs : [false, false, ["spear", "trident", "light crossbow", "net"]],
-		languageProfs : ["Common", "Elvish", "Aquan"],
-		vision : [["Darkvision", 60]],
-		savetxt : {
-			text : ["Magic can't put me to sleep"],
-			adv_vs : ["charmed"]
-		},
-		skills : ["Perception"],
-		age : " typically claim adulthood around age 100 and can live to be 750 years old",
-		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
-		weight : " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
-		heightMetric : " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
-		weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
-		scores : [0, 2, 1, 0, 0, 0],
-		trait : "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
-			"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
-			"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
-			"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
-		]) // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
-	};
-}
 RaceList["shadar-kai"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name : "Shadar-kai",
@@ -13662,8 +12945,8 @@ RaceList["shadar-kai"] = {
 		}
 	}
 };
-var iFileName = "ua_20180108_Three-Subclasses.js";
-RequiredSheetVersion(13);
+
+// ua_20180108_Three-Subclasses.js
 // This file adds the content from the Unearthed Arcana: Three Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -13943,8 +13226,8 @@ AddSubClass("wizard", "school of invention", {
 		}
 	}
 });
-var iFileName = "ua_20180409_Order-Domain.js";
-RequiredSheetVersion(13);
+
+// ua_20180409_Order-Domain.js
 // This file adds the content from the Unearthed Arcana: Order Domain article to MPMB's Character Record Sheet
 
 // Define the source
@@ -14031,8 +13314,8 @@ AddSubClass("cleric", "order domain", {
 		}
 	}
 });
-var iFileName = "ua_20180514_Centaur-and-Minotaur.js";
-RequiredSheetVersion(13);
+
+// ua_20180514_Centaur-and-Minotaur.js
 // This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
 
 // Define the source
@@ -14142,8 +13425,8 @@ RaceList["minotaur-uacnm"] = {
 		}
 	}
 };
-var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
-RequiredSheetVersion(13);
+
+// ua_20180611_Giant-Soul-Sorcerer.js
 // This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
 
 // Define the source
@@ -14364,8 +13647,8 @@ AddSubClass("sorcerer", "giant soul", {
 		}
 	}
 });
-var iFileName = "ua_20180723_Races-of-Eberron.js";
-RequiredSheetVersion(13);
+
+// ua_20180723_Races-of-Eberron.js
 // This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -14793,8 +14076,8 @@ RaceList["skirmisher warforged-ua"] = {
 		stealthdis : true
 	}]
 };
-var iFileName = "ua_20180810_Magic-Items-of-Eberron.js";
-RequiredSheetVersion(13);
+
+// ua_20180810_Magic-Items-of-Eberron.js
 // This file adds the content from the Unearthed Arcana: Magic Items of Eberron to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -14807,303 +14090,6 @@ SourceList["UA:MIoE"] = {
 	date : "2018/08/10"
 };
 
-// Duplicates from Eberron: Rising from the Last War
-if (!SourceList["E:RLW"]) {
-	MagicItemsList["cleansing stone"] = {
-		name : "Cleansing Stone",
-		source : [["E:RLW", 276], ["WGtE", 115], ["UA:MIoE", 2]],
-		type : "wondrous item",
-		rarity : "common",
-		description : "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
-		descriptionFull : "A cleansing stone is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
-		action : [["action", ""]],
-		weight : 88 // using average marble/limestone density of 2.711 g/cm3
-	}
-	MagicItemsList["everbright lantern"] = {
-		name : "Everbright Lantern",
-		source : [["E:RLW", 277], ["WGtE", 115], ["UA:MIoE", 2]],
-		type : "wondrous item",
-		rarity : "common",
-		description : "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
-		descriptionFull : "An everbright lantern contains an Eberron dragonshard imbued with the effect of a continual flame spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An everbright lantern provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out.",
-		weight : 2
-	}
-	MagicItemsList["imbued wood focus"] = {
-		// Note that this item is implemented here against RAW,
-		// because according to PHB page 203 a spellcasting focus can only be used for
-		// spells with a material component that is neither costly nor consumed.
-		// See also https://dnd.wizards.com/articles/sage-advice/rules-spellcasting
-		// This would mean that the Imbued Wood Focus in only useful for a limited number of spells.
-		// Instead, this code just applies the damage bonus to all damage spells that roll for their damage.
-		name : "Imbued Wood Focus",
-		source : [["E:RLW", 277], ["WGtE", 114], ["UA:MIoE", 1]],
-		type : "wondrous item",
-		rarity : "common",
-		description : "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-		descriptionFull : "Powerful manifest zones can infuse local trees with planar energies. A gifted artificer can tap into this to create a wand, staff, or rod that is especially effective at channeling a particular type of energy.\n   When you cast a spell that deals damage of the type associated with the material your arcane focus is made from, the spell gains a +1 bonus to one damage roll of that spell. The materials and their associated damage types are listed here.\n \u2022 Fernian ash: Fire damage.\n \u2022 Irian rosewood: Radiant damage.\n \u2022 Kythrian manchineel: Acid or poison damage.\n \u2022 Lamannian oak: Lightning or thunder damage.\n \u2022 Mabaran ebony: Necrotic damage.\n \u2022 Quori beech, Xorian wenge: Psychic damage.\n \u2022 Risian pine: Cold damage.\n \u2022 Shavarran birch: Force damage.",
-		attunement : true,
-		allowDuplicates : true,
-		weight : 2,
-		choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Quori Beech (psychic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
-		"fernian ash (fire)" : {
-			name : "Fernian Ash Rod, Wand, or Staff",
-			nameTest :  /^(?=.*fernian)(?=.*ash)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Fernian ash, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal fire damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/fire/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal fire damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal fire damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"irian rosewood (radiant)" : {
-			name : "Irian Rosewood Rod, Wand, or Staff",
-			nameTest :  /^(?=.*irian)(?=.*rosewood)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Irian rosewood, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal radiant damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/radiant/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal radiant damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "radiant", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal radiant damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"kythrian manchineel (acid and poison)" : {
-			name : "Kythrian Manchineel Rod, Wand, or Staff",
-			nameTest :  /^(?=.*kythrian)(?=.*manchineel)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Kythrian manchineel, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal acid or poison damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/acid|poison/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal acid or poison damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "acid|poison", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal acid or poison damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"lamannian oak (lightning and thunder)" : {
-			name : "Lamannian Oak Rod, Wand, or Staff",
-			nameTest :  /^(?=.*lamannian)(?=.*oak)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Lamannian oak, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal lightning or thunder damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/lightning|thunder/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"mabaran ebony (necrotic)" : {
-			name : "Mabaran Ebony Rod, Wand, or Staff",
-			nameTest :  /^(?=.*mabaran)(?=.*ebony)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Mabaran ebony, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal necrotic damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/necrotic/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal necrotic damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necrotic", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal necrotic damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"quori beech (psychic)" : {
-			name : "Quori Beech Rod, Wand, or Staff",
-			nameTest :  /^(?=.*quori)(?=.*beech)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Quori beech, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/psychic/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"risian pine (cold)" : {
-			name : "Risian Pine Rod, Wand, or Staff",
-			nameTest :  /^(?=.*risian)(?=.*pine)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Risian pine, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal cold damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/cold/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal cold damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "cold", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal cold damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"shavarran birch (force)" : {
-			name : "Shavarran Birch Rod, Wand, or Staff",
-			nameTest :  /^(?=.*shavarran)(?=.*birch)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Shavarran birch, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal force damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkAdd : [
-					function (fields, v) {
-						if (v.thisWeapon[3] && v.thisWeapon[3] == "eldritch blast") {
-							fields.Description += (fields.Description ? '; ' : '') + "One ray +1 dmg";
-						}
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal force damage get a +1 bonus added to one of their damage rolls."
-				],
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && v.thisWeapon[3] != "eldritch blast" && (/force/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					}
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "force", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal force damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		},
-		"xorian wenge (psychic)" : {
-			name : "Xorian Wenge Rod, Wand, or Staff",
-			nameTest :  /^(?=.*xorian)(?=.*wenge)(?=.*(rod|wand|staff)).*$/i,
-			description : "This rod, wand, or staff made of Xorian wenge, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.thisWeapon[3] && (/psychic/i).test(fields.Damage_Type)) output.extraDmg += 1;
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
-					},
-					"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
-				]
-			}
-		}
-	}
-	MagicItemsList["orb of shielding"] = {
-		name : "Orb of Shielding",
-		source : [["E:RLW", 278], ["WGtE", 114], ["UA:MIoE", 1]],
-		type : "wondrous item",
-		rarity : "common",
-		description : "An orb of shielding is made from crystal or stone aligned to one of the planes. I can use it as my spellcasting focus. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4 (to a minimum of 0).",
-		descriptionFull : "An orb of shielding is made from crystal or stone aligned to one of the planes. While you are holding the orb and take damage of the type associated with the material your orb is made from, you can use your reaction to reduce the damage by 1d4. The materials and their associated damage types are listed below.\n" +
-		"\n \u2022 Fernian basalt: Fire damage" +
-		"\n \u2022 Irian quartz: Radiant damage" +
-		"\n \u2022 Kythrian skarn: Acid or poison damage" +
-		"\n \u2022 Lamannian flint: Lightning or thunder damage" +
-		"\n \u2022 Mabaran obsidian: Necrotic damage" +
-		"\n \u2022 Quori celestine, Xorian marble: Psychic damage" +
-		"\n \u2022 Risian shale: Cold damage" +
-		"\n \u2022 Shavaran chert: Force damage",
-		attunement : true,
-		allowDuplicates : true,
-		weight : 3,
-		action : [["reaction", ""]],
-		choices : ["Fernian Basalt (fire)", "Irian Quartz (radiant)", "Kythrian Skarn (acid or poison)", "Lamannian Flint (lightning or thunder)", "Mabaran Obsidian (necrotic)", "Quori Celestine (psychic)", "Risian Shale (cold)", "Shavaran Chert (force)", "Xorian Marble (psychic)"],
-		"fernian basalt (fire)" : {
-			name : "Orb of Shielding [Fernian Basalt]",
-			description : "This stone orb is made from fernian basalt. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take fire damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"irian quartz (radiant)" : {
-			name : "Orb of Shielding [Irian Quartz]",
-			description : "This crystal orb is made from irian quartz. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take radiant damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"kythrian skarn (acid or poison)" : {
-			name : "Orb of Shielding [Kythrian Skarn]",
-			description : "This stone orb is made from kythrian skarn. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take acid or poison damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"lamannian flint (lightning or thunder)" : {
-			name : "Orb of Shielding [Lamannian Flint]",
-			description : "This stone orb is made from lamannian flint. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take lightning or thunder damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"mabaran obsidian (necrotic)" : {
-			name : "Orb of Shielding [Mabaran Obsidian]",
-			description : "This crystal orb is made from mabaran obsidian. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take necrotic damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"quori celestine (psychic)" : {
-			name : "Orb of Shielding [Quori Celestine]",
-			description : "This crystal orb is made from quori celestine. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"risian shale (cold)" : {
-			name : "Orb of Shielding [Risian Shale]",
-			description : "This stone orb is made from risian shale. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take cold damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"shavaran chert (force)" : {
-			name : "Orb of Shielding [Shavaran Chert]",
-			description : "This stone orb is made from shavaran chert. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take force damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		},
-		"xorian marble (psychic)" : {
-			name : "Orb of Shielding [Xorian Marble]",
-			description : "This stone orb is made from xorian marble. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4 (to a minimum of 0)."
-		}
-	}
-	MagicItemsList["spellshard"] = {
-		name : "Spellshard",
-		source : [["E:RLW", 279], ["WGtE", 115], ["UA:MIoE", 3]],
-		type : "wondrous item",
-		description : "This dragonshard is imbued with a text. By concentrating while holding it, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
-		allowDuplicates : true,
-		choices : ["normal", "advanced"],
-		"normal" : {
-			name : "Spellshard ",
-			allowDuplicates : true,
-			rarity : "common",
-			description : "This dragonshard is imbued with a work of literature. By holding it and concentrating, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
-			descriptionLong : "This polished dragonshard fits into the palm of my hand. It is imbued with a particular work of literature. By holding it and concentrating, I can see its pages in my mind's eye. Thinking of a particular phrase or topic will draw me to the first section that addresses it. I can add content to it with a simple ritual, allowing me to use it as a wizard's spellbook costing 1 gp per \"page\" in the shard, but otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals."
-		},
-		"advanced" : {
-			name : "Advanced Spellshard",
-			allowDuplicates : true,
-			rarity : "uncommon",
-			description : "This dragonshard is imbued with a text. By concentrating and speaking the passphrase, I can see its pages in my mind's eye and it will draw me to the right section if I think of a topic. I can add content to it with a simple ritual and can use it as a wizard's spellbook, costing 1 gp per \"page\" I add to the shard.",
-			descriptionLong : "This polished dragonshard fits into the palm of my hand. It is imbued with a particular work of literature. By holding it, concentrating, and speaking its passphrase, I can see its pages in my mind's eye. Thinking of a particular phrase or topic will draw me to the first section that addresses it. I can add content to it with a simple ritual, allowing me to use it as a wizard's spellbook costing 1 gp per \"page\" in the shard, but otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals."
-		}
-	}
-}
 // Different or not available in Eberron: Rising from the Last War
 MagicItemsList["band of loyalty-ua"] = {
 	name : "Band of Loyalty",
@@ -15223,8 +14209,8 @@ MagicItemsList["wand sheath-ua"] = {
 	},
 	action : [["action", " (insert)"], ["bonus action", " (extend/retract)"]]
 }
-var iFileName = "ua_20180813_Races-of-Ravnica.js";
-RequiredSheetVersion(13);
+
+// ua_20180813_Races-of-Ravnica.js
 // This file adds the content from the Unearthed Arcana: Races of Ravnica article to MPMB's Character Record Sheet
 
 // Define the source
@@ -15479,8 +14465,8 @@ RaceList["viashino"] = {
 	action : ["reaction", "Lashing Tail (after being hit)"],
 	trait : "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage."
 };
-var iFileName = "ua_20180910_Dragonmarks.js";
-RequiredSheetVersion(13);
+
+// ua_20180910_Dragonmarks.js
 // This file adds the content from the Unearthed Arcana: Dragonmarks article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -16376,42 +15362,8 @@ FeatsList["aberrant dragonmark-ua"] = {
 	}]
 };
 
-// Gust cantrip reprint
-if (!SpellsList["gust"]) {
-	SpellsList["gust"] = {
-		name : "Gust",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
-		level : 0,
-		school : "Trans",
-		time : "1 a",
-		range : "30 ft",
-		components : "V,S",
-		duration : "Instantaneous",
-		save : "Str",
-		description : "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
-		descriptionFull : "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze."
-	};
-}
 
-// Control Winds reprint (only in Unearthed Arcana article, not in WGtE)
-if (!SpellsList["control winds"]) {
-	SpellsList["control winds"] = {
-		name : "Control Winds",
-		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 152], ["E", 16], ["UA:D", 8]],
-		level : 5,
-		school : "Trans",
-		time : "1 a",
-		range : "300 ft",
-		components : "V,S",
-		duration : "Conc, 1 h",
-		description : "100-ft cube of air either gusts, downdraft, or updraft; affects flying/jump/ranged; 1 a change; see B",
-		descriptionFull : "You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted." + "\n   " + toUni("Gusts") + ": A wind picks up within the cube, continually blowing in a horizontal direction you designate. You choose the intensity of the wind: calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that enter or leave the cube or pass through it have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved." + "\n   " + toUni("Downdraft") + ": You cause a sustained blast of strong wind to blow downward from the top of the cube. Ranged weapon attacks that pass through the cube or that are made against targets within it have disadvantage on their attack rolls. A creature must make a Strength saving throw if it flies into the cube for the first time on a turn or starts its turn there flying. On a failed save, the creature is knocked prone." + "\n   " + toUni("Updraft") + ": You cause a sustained updraft within the cube, rising upward from the cube's bottom side. Creatures that end a fall within the cube take only half damage from the fall. When a creature in the cube makes a vertical jump, the creature can jump up to 10 feet higher than normal."
-	};
-}
-var iFileName = "ua_20190514_Artificer.js";
-RequiredSheetVersion(13);
+// ua_20190514_Artificer.js
 // This file adds the content from the second Unearthed Arcana: Artificer article of 2019 to MPMB's Character Record Sheet
 // It doesn't change anything compared to the UA article of 2019/02/28, but adds additional options: more spells, subclasses, and magic items
 
@@ -17585,42 +16537,6 @@ MagicItemsList["radiant weapon-ua"] = {
 		]
 	}
 }
-if (!MagicItemsList["repeating shot"]) {
-	MagicItemsList["repeating shot"] = { // 2019v2
-		name : "Repeating Shot",
-		source : [["E:RLW", 62], ["UA:A3", 13]],
-		type : "weapon (any with ammunition)",
-		description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
-		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
-		attunement : true,
-		chooseGear : {
-			type : "weapon",
-			prefixOrSuffix : "suffix",
-			descriptionChange : ["replace", "weapon"],
-			excludeCheck : function (inObjKey, inObj) {
-				return !(/ammunition/i).test(inObj.description);
-			}
-		},
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText)) {
-						v.theWea.isMagicWeapon = true;
-						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '').replace(/(;|,)? ?loading/i, '');
-					}
-				},
-				'If I include the words "Repeating Shot" in the name of a weapon with the ammunition property, it will be treated as the magic weapon Repeating Shot. It has +1 to hit and damage and produces its own ammunition, thus its loading property is removed if it has it.'
-			],
-			atkCalc : [
-				function (fields, v, output) {
-					if ((/^(?=.*repeating shot)(?=.*ammunition).*$/i).test(v.WeaponText) && !v.isSpell) {
-						output.magic = v.thisWeapon[1] + 1;
-					}
-				}, ''
-			]
-		}
-	}
-}
 MagicItemsList["repulsion shield-ua"] = { // 2019v2
 	name : "Repulsion Shield",
 	source : ["UA:A3", 14],
@@ -17634,44 +16550,6 @@ MagicItemsList["repulsion shield-ua"] = { // 2019v2
 	action : [["reaction", ""]],
 	shieldAdd : ["Repulsion Shield", 3, 6],
 }
-if (!MagicItemsList["returning weapon"]) {
-	MagicItemsList["returning weapon"] = {
-		name : "Returning Weapon",
-		nameTest : "Returning",
-		source : [["E:RLW", 63], ["UA:A3", 14], ["UA:A2", 10]],
-		type : "weapon (any thrown)",
-		description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
-		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
-		chooseGear : {
-			type : "weapon",
-			prefixOrSuffix : "suffix",
-			descriptionChange : ["replace", "weapon"],
-			excludeCheck : function (inObjKey, inObj) {
-				return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
-			}
-		},
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
-						v.theWea.isMagicWeapon = true;
-						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-						fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
-					}
-				},
-				'If I include the word "Returning" in the name of a thrown weapon, it will be treated as the magic weapon Returning Weapon. It has +1 to hit and damage and returns to my hand immediately after I use it to make a ranged attack.'
-			],
-			atkCalc : [
-				function (fields, v, output) {
-					if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
-						output.magic = v.thisWeapon[1] + 1;
-					}
-				}, ''
-			]
-		}
-	}
-}
-
 // Set the Artificer class spell list
 var SetArtificerSpells = function(){
 	var artSp = [
@@ -17850,8 +16728,8 @@ var SetArtificerSpells = function(){
 		theObj.extrachoices.push(theI);
 	};
 }();
-var iFileName = "ua_20190815_Barbarian-and-Monk.js";
-RequiredSheetVersion(13);
+
+// ua_20190815_Barbarian-and-Monk.js
 // This file adds the content from the Unearthed Arcana: Barbarian and Monk article to MPMB's Character Record Sheet
 
 // Define the source
@@ -18074,8 +16952,8 @@ AddSubClass("monk", "way of the astral self", {
 		}
 	}
 });
-var iFileName = "ua_20190905_Sorcerer-and-Warlock.js";
-RequiredSheetVersion(13);
+
+// ua_20190905_Sorcerer-and-Warlock.js
 // This file adds the content from the Unearthed Arcana: Sorcerer and Warlock article to MPMB's Character Record Sheet
 
 // Define the source
@@ -18301,38 +17179,36 @@ AddSubClass("warlock", "the lurker in the deep", {
 });
 
 // Add a new cantrip and its weaponlist entry
-if (!SpellsList["mind sliver-ua"]) {
-	SpellsList["mind sliver-ua"] = {
-		name : "Mind Sliver",
-		classes : ["sorcerer", "warlock", "wizard"],
-		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
-		level : 0,
-		school : "Ench",
-		time : "1 a",
-		range : "60 ft",
-		components : "V",
-		duration : "1 rnd",
-		save : "Int",
-		description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
-		descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
-		descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-	};
-	WeaponsList["mind sliver-ua"] = {
-		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
-		name : "Mind Sliver",
-		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
-		list : "spell",
-		ability : 6,
-		type : "Cantrip",
-		damage : ["C", 6, "psychic"],
-		range : "60 ft",
-		description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
-		abilitytodamage : false,
-		dc : true
-	};
-}
-var iFileName = "ua_20190918_Bard-and-Paladin.js";
-RequiredSheetVersion(13);
+SpellsList["mind sliver-ua"] = {
+	name : "Mind Sliver",
+	classes : ["sorcerer", "warlock", "wizard"],
+	source : [["UA:SnW", 4], ["UA:FRnW", 7]],
+	level : 0,
+	school : "Ench",
+	time : "1 a",
+	range : "60 ft",
+	components : "V",
+	duration : "1 rnd",
+	save : "Int",
+	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
+	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+};
+WeaponsList["mind sliver-ua"] = {
+	regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
+	name : "Mind Sliver",
+	source : [["UA:SnW", 4], ["UA:FRnW", 7]],
+	list : "spell",
+	ability : 6,
+	type : "Cantrip",
+	damage : ["C", 6, "psychic"],
+	range : "60 ft",
+	description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
+	abilitytodamage : false,
+	dc : true
+};
+
+// ua_20190918_Bard-and-Paladin.js
 // This file adds the content from the Unearthed Arcana: Bard and Paladin article to MPMB's Character Record Sheet
 
 // Define the source
@@ -18468,8 +17344,7 @@ AddSubClass("paladin", "oath of heroism", {
 		}
 	}
 });
-var iFileName = "ua_20191003_Cleric-Druid-and-Wizard.js";
-RequiredSheetVersion(13);
+// ua_20191003_Cleric-Druid-and-Wizard.js
 // This file adds the content from the Unearthed Arcana: Cleric, Druid, and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -18885,8 +17760,8 @@ AddSubClass("wizard", "onomancy", {
 		}
 	}
 });
-var iFileName = "ua_20191017_Fighter-Ranger-and-Rogue.js";
-RequiredSheetVersion(13);
+
+// ua_20191017_Fighter-Ranger-and-Rogue.js
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -19298,8 +18173,8 @@ AddSubClass("rogue", "the revived", {
 		}
 	}
 });
-var iFileName = "ua_20191104_Class-Feature-Variants.js";
-RequiredSheetVersion(13);
+
+// ua_20191104_Class-Feature-Variants.js
 // This file adds the content from the Unearthed Arcana: Class Feature Variants article to MPMB's Character Record Sheet
 
 // Define the source
@@ -20639,8 +19514,8 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell L
 		]
 	}
 }, "Wizard Spellcasting Enhancement");
-var iFileName = "ua_20191125_Fighter-Rogue-and-Wizard.js";
-RequiredSheetVersion(13);
+
+// ua_20191125_Fighter-Rogue-and-Wizard.js
 // This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21132,21 +20007,6 @@ SpellsList["mind sliver-ua"] = { // almost duplicate from UA:SnW, but now also o
 	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
 	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
-if (!WeaponsList["mind sliver-ua"]) {
-	WeaponsList["mind sliver-ua"] = {
-		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
-		name : "Mind Sliver",
-		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
-		list : "spell",
-		ability : 6,
-		type : "Cantrip",
-		damage : ["C", 6, "psychic"],
-		range : "60 ft",
-		description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
-		abilitytodamage : false,
-		dc : true
-	};
-}
 SpellsList["mind thrust-ua"] = {
 	name : "Mind Thrust",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
@@ -21250,8 +20110,8 @@ FeatsList["telepathic-ua"] = {
 		skills : ["Persuasion"]
 	}
 };
-var iFileName = "ua_20200114_Subclasses-Part-1.js";
-RequiredSheetVersion(13);
+
+// ua_20200114_Subclasses-Part-1.js
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 1 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21620,8 +20480,8 @@ AddSubClass("warlock", "the noble genie-ua", {
 		}
 	}
 });
-var iFileName = "ua_20200206_Subclasses-Part-2.js";
-RequiredSheetVersion(13);
+
+// ua_20200206_Subclasses-Part-2.js
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 2 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21993,8 +20853,8 @@ AddSubClass("sorcerer", "clockwork soul", {
 		}
 	}
 });
-var iFileName = "ua_20200206_Subclasses-Part-3.js";
-RequiredSheetVersion(13);
+
+// ua_20200206_Subclasses-Part-3.js
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 3 article to MPMB's Character Record Sheet
 
 // Define the source

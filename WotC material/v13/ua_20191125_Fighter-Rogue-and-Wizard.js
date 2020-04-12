@@ -491,6 +491,7 @@ SpellsList["mind sliver-ua"] = { // almost duplicate from UA:SnW, but now also o
 	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
 	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
+// dupl_start
 if (!WeaponsList["mind sliver-ua"]) {
 	WeaponsList["mind sliver-ua"] = {
 		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
@@ -505,7 +506,7 @@ if (!WeaponsList["mind sliver-ua"]) {
 		abilitytodamage : false,
 		dc : true
 	};
-}
+} // dupl_end
 SpellsList["mind thrust-ua"] = {
 	name : "Mind Thrust",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],

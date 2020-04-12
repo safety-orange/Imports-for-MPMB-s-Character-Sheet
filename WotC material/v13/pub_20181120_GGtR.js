@@ -54,8 +54,8 @@ RaceList["centaur-ggtr"] = {
 	},
 	carryingCapacity : 2
 };
-
-if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
+// [dupl_start] Reprint from Volo's Guide to Monsters
+if (!RaceList["goblin"]) {
 	RaceList["goblin"] = {
 		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
 		name : "Goblin",
@@ -89,7 +89,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 		},
 		trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
 	};
-}
+} // dupl_end
 
 // Add Loxodon
 RaceList["loxodon-ggtr"] = {
@@ -1312,7 +1312,8 @@ SpellsList["encode thoughts"] = {
 	description : "Make physical through strand of memory or vice versa; works with detect thoughts \u0026 modify memory",
 	descriptionFull : "Putting a finger to your head, you pull a memory, an idea, or a message from your mind and transform it into a tangible string of glowing energy called a thought strand, which persists for the duration or until you cast this spell again. The thought strand appears in an unoccupied space within 5 feet of you as a Tiny, weightless, semisolid object that can be held and carried like a ribbon. It is otherwise stationary." + "\n   " + "If you cast this spell while concentrating on a spell or an ability that allows you to read or manipulate the thoughts of others (such as detect thoughts or modify memory), you can transform the thoughts or memories you read, rather than your own, into a thought strand." + "\n   " + "Casting this spell while holding a thought strand allows you to instantly receive whatever memory, idea, or message the thought strand contains. (Casting detect thoughts on the strand has the same effect.)"
 };
-if (!SourceList.X) { // reprint from Xanathar's Guide to Everything
+// [dupl_start] Chaos Bolt reprinted from Xanathar's Guide to Everything
+if (!SourceList.X) {
 	SpellsList["chaos bolt-xgte"] = {
 		name : "Chaos Bolt",
 		classes : ["sorcerer"],
@@ -1326,7 +1327,7 @@ if (!SourceList.X) { // reprint from Xanathar's Guide to Everything
 		description : "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
 		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st."
 	};
-}
+} // dupl_end
 
 // Magic Items
 MagicItemsList["guild keyrune"] = {

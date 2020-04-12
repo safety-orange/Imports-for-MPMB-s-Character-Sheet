@@ -12,7 +12,7 @@ SourceList["UA:MIoE"] = {
 	date : "2018/08/10"
 };
 
-// Duplicates from Eberron: Rising from the Last War
+// [dupl_start] Duplicates from Eberron: Rising from the Last War
 if (!SourceList["E:RLW"]) {
 	MagicItemsList["cleansing stone"] = {
 		name : "Cleansing Stone",
@@ -308,7 +308,7 @@ if (!SourceList["E:RLW"]) {
 			descriptionLong : "This polished dragonshard fits into the palm of my hand. It is imbued with a particular work of literature. By holding it, concentrating, and speaking its passphrase, I can see its pages in my mind's eye. Thinking of a particular phrase or topic will draw me to the first section that addresses it. I can add content to it with a simple ritual, allowing me to use it as a wizard's spellbook costing 1 gp per \"page\" in the shard, but otherwise functions as a mundane spellbook. Spellshards can also be used as diaries or journals."
 		}
 	}
-}
+} // dupl_end
 // Different or not available in Eberron: Rising from the Last War
 MagicItemsList["band of loyalty-ua"] = {
 	name : "Band of Loyalty",

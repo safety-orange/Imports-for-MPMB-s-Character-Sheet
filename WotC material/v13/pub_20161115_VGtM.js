@@ -272,7 +272,8 @@ RaceList["goblin"] = {
 	},
 	trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
 };
-if (!RaceList["goliath"]) { //reprint from Elemental Evil Player's Companion
+// [dupl_start] Reprint from Elemental Evil Player's Companion
+if (!RaceList["goliath"]) {
 	RaceList["goliath"] = {
 		regExpSearch : /goliath/i,
 		name : "Goliath",
@@ -303,7 +304,7 @@ if (!RaceList["goliath"]) { //reprint from Elemental Evil Player's Companion
 		trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
 		carryingCapacity : 2
 	};
-};
+}; // dupl_end
 RaceList["hobgoblin"] = {
 	regExpSearch : /hobgoblin/i,
 	name : "Hobgoblin",

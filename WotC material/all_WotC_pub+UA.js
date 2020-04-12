@@ -1,7 +1,6 @@
 var iFileName = "all_WotC_pub+UA.js";
-var iFileName = "all_WotC_published.js";
-var iFileName = "pub_20140818_PHB.js";
 RequiredSheetVersion(12.999);
+// pub_20140818_PHB.js
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -4206,8 +4205,8 @@ if (typeof AddToNotes === 'undefined') {
 		};
 	};
 };
-var iFileName = "pub_20140819_HotDQ.js";
-RequiredSheetVersion(12.999);
+
+// pub_20140819_HotDQ.js
 // This file adds the background features from the Hoard of the Dragon Queen adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -4228,8 +4227,8 @@ BackgroundFeatureList["dragon scholar"] = {
 	description : "I have studied dragons and their lore for many years. I can automatically identify locations built or used by dragons, and I can identify dragon eggs and scales by sight. If I fail an Intelligence check to recall lore relating to dragons, I know someone or some book that I can consult for the answer unless the DM rules that the lore is unknown.",
 	source : [["HotDQ", 87], ["ALbackground", 0]]
 };
-var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion(12.999);
+
+// pub_20140930_MM.js
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
@@ -4651,8 +4650,8 @@ CreatureList["gas spore"] = {
 	],
 	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
 };
-var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion(12.999);
+
+// pub_20141209_DMG.js
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -5046,8 +5045,8 @@ AmmoList["energy cell"] = {
 };
 
 
-var iFileName = "pub_20150415_AL-EE.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150415_AL-EE.js
 // This file adds the optional backgrounds from the Adventurers League season 2 (Elemental Evil) to MPMB's Character Record Sheet
 
 // Define the source
@@ -5405,8 +5404,8 @@ BackgroundFeatureList["phlan survivor"] = {
 	description : "Whatever my prior standing I'm now one of the many refugees that came to Mulmaster. I'm able to find refuge with others from Phlan and those who sympathize with my plight. Within Mulmaster this means that I can find a place to sleep, recover, and hide from the watch with either other refugees from Phlan, or the Zhents within the ghettos.",
 	source : [["AL:EE", 6], ["ALbackground", 0]]
 };
-var iFileName = "pub_20150416_EE.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150416_EE.js
 // This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
 
 // Define the source
@@ -6361,8 +6360,8 @@ WeaponsList["thunderclap"] = {
 	abilitytodamage : false,
 	dc : true
 };
-var iFileName = "pub_20150714_AL-RoD.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150714_AL-RoD.js
 // This file adds the optional backgrounds from the Adventurers League season 3 (Rage of Demons) to MPMB's Character Record Sheet
 
 // Define the source
@@ -6862,8 +6861,8 @@ BackgroundFeatureList["trade contact"] = {
 	description : "My family and I have trade contacts such as caravan masters, sailors, artisans, farmers, and shopkeepers throughout the Moonsea region and all along the Sword Coast. When adventuring in either of those areas, I can use those contacts to get information about the local area or to pass a message to someone in those areas, even across great distance.",
 	source : [["AL:RoD", 7], ["ALbackground", 0]]
 };
-var iFileName = "pub_20150915_OotA.js";
-RequiredSheetVersion(12.999);
+
+// pub_20150915_OotA.js
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -6978,8 +6977,8 @@ CreatureList["steeder, male"] = {
 		}
 	]
 };
-var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion(12.999);
+
+// pub_20151103_SCAG.js
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -8485,8 +8484,8 @@ SpellsList["sword burst"] = {
 	description : "All crea in range save or 1d6 Force damage; +1d6 at CL 5, 11, and 17",
 	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. Each creature within range, other than you, must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
-var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion(12.999);
+
+// pub_20160315_CoS.js
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
@@ -9005,8 +9004,8 @@ PacksList.monsterhunter = {
 		["Torches", 3, 1]
 	]
 };
-var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion(12.999);
+
+// pub_20160906_SKT.js
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -9157,8 +9156,8 @@ CreatureList["tressym"] = {
 	],
 	wildshapeString : "\u25C6 Languages: understands Common but can't speak.\n\u25C6 Senses: Darkvision 60 ft; Advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Detect Invisibility: Magical invisibility fails to conceal anything from sight, out to 60 ft.\n\u25C6 Immune to: poison damage, poisoned condition.\n\u25C6 Poison Sense: Detect whether a substance is poisonous by taste, touch, or smell."
 };
-var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion(12.999);
+
+// pub_20161115_VGtM.js
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -10405,8 +10404,8 @@ CreatureList["gazer"] = {
 		}
 	]
 };
-var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170404_TftYP.js
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -10592,8 +10591,8 @@ CreatureList["giant subterranean lizard"] = {
 	],
 	wildshapeString : "\u25C6 Swallow: If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement."
 };
-var iFileName = "pub_20170915_Tortle.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170915_Tortle.js
 // This file adds the Tortle Race from the Tortle Package from DMs Guild to MPMB's Character Record Sheet
 
 // Define the source
@@ -10661,8 +10660,8 @@ WeaponsList["claws"] = {
 	abilitytodamage : true,
 	monkweapon : true
 };
-var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion(12.999);
+
+// pub_20170919_ToA.js
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -11292,8 +11291,8 @@ CreatureList["jaculi"] = {
 	],
 	wildshapeString : "\u25C6 Senses: Blindsight 30 ft.\n\u25C6 Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n\u25C6 Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
 };
-var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion(12.999);
+
+// pub_20171121_XGtE.js
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -15665,8 +15664,8 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 		description : ""
 	}]
 };
-var iFileName = "pub_20180529_MToF.js";
-RequiredSheetVersion(12.999);
+
+// pub_20180529_MToF.js
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
 
 // Define the source
@@ -16514,8 +16513,7 @@ RaceList["deep gnome"] = { //reprint from Elemental Evil Player's Companion and 
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 };
-var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion(12.999);
+// pub_20180723_WGtE.js
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 
 // Define the sources
@@ -17932,8 +17930,8 @@ FeatsList["aberrant dragonmark"] = {
 		oncelr : true
 	}]
 };
-var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion(12.999);
+
+// pub_20181120_GGtR.js
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -19141,8 +19139,8 @@ if (!SourceList.X) { // reprint from Xanathar's Guide to Everything
 		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st."
 	};
 }
-var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion(12.999);
+
+// pub_20190521_GoS.js
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -19585,8 +19583,8 @@ CreatureList["sea lion"] = {
 		description : "The sea lion makes three attacks: one with its bite and two with its claws."
 	}]
 }
-var iFileName = "pub_20190618_AcqInc.js";
-RequiredSheetVersion(12.999);
+
+// pub_20190618_AcqInc.js
 // This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
 
 // Define the source
@@ -20009,9 +20007,8 @@ SpellsList["motivational speech"] = {
 	description : "5 crea that hear me 5+5/SL temp HP, adv. Wis saves, if hit adv. on next atk; stops when temp HP gone",
 	descriptionFull : "You address allies, staff, or innocent bystanders to exhort and inspire them to greatness, whether they have anything to get excited about or not. Choose up to five creatures within range that can hear you. For the duration, each affected creature gains 5 temporary hit points and has advantage on Wisdom saving throws. If an affected creature is hit by an attack, it has advantage on the next attack roll it makes. Once an affected creature loses the temporary hit points granted by this spell, the spell ends for that creature." + AtHigherLevels + "At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the temporary hit points increase by 5 for each slot level above 3rd."
 };
-var iFileName = "all_WotC_unearthed_arcana.js";
-var iFileName = "ua_20150202_Eberron.js";
-RequiredSheetVersion(12.999);
+
+// ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -20385,8 +20382,8 @@ AddSubClass("wizard", "artificer", {
 		}
 	}
 });
-var iFileName = "ua_20150406_Modifying-Classes.js";
-RequiredSheetVersion(12.999);
+
+// ua_20150406_Modifying-Classes.js
 // This file adds the content from the Unearthed Arcana: Modifying Classes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -20695,8 +20692,8 @@ if (ClassSubList["ranger-beast master"]) {
 	};
 	AddSubClass("spell-less ranger", "beast master", SLR_Beast_Master);
 };
-var iFileName = "ua_20150504_Waterborne-Adventures.js";
-RequiredSheetVersion(12.999);
+
+// ua_20150504_Waterborne-Adventures.js
 // This file adds the content from the Unearthed Arcana: Waterborne Adventures article to MPMB's Character Record Sheet
 
 // Define the source
@@ -20792,8 +20789,8 @@ WeaponsList["horns-uawa"] = {
 	description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
 	abilitytodamage : true
 };
-var iFileName = "ua_20150803_Modern-Magic.js";
-RequiredSheetVersion(12.999);
+
+// ua_20150803_Modern-Magic.js
 // This file adds the content from the Unearthed Arcana: Modern Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21244,6 +21241,7 @@ SpellsList["system backdoor"] = {
 	description : "Gain admin access to 1 system; defeats 3rd or lower technomancy spells; SL5+: defeats same or lower",
 	descriptionFull : "[Technomagic]\n   This spell allows you to bypass system security in order to create a secure login on a foreign system. The login you create allows you administrator-level privileges in any computer system not enhanced through technomagic. The login defeats any technomagic spells of 3rd level or lower." + "\n   " + "Once the duration of the spell expires, the login and all privileges are wiped from the system." + "\n   " + "System logs still show the activity of the user, but the user identification cannot be found or traced." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you are able to bypass technomagic spells if the spell's level is equal to or less than the level of the spell slot you used."
 };
+
 // This code was contributed by Lewis Henderson
 //
 // Please note that the original .pdf has the hit dice as 2d6 per level.
@@ -21251,8 +21249,7 @@ SpellsList["system backdoor"] = {
 // Also note that there is no automation for the companion page included in this.
 //
 // You will have to chose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
-var iFileName = "ua_20150909_Ranger.js";
-RequiredSheetVersion(12.999);
+// ua_20150909_Ranger.js
 // This file adds the content from the Unearthed Arcana: Ranger article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21410,8 +21407,8 @@ ClassSubList["ua-playtest-ranger-stalker"] = {
 		}
 	}
 };
-var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
-RequiredSheetVersion(12.999);
+
+// ua_20151005_Prestige Classes and Rune Magic.js
 // This file adds the content from the Unearthed Arcana: Prestige Classes and Rune Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21598,8 +21595,8 @@ ClassList["rune scribe"] = {
 		}
 	}
 };
-var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion(12.999);
+
+// ua_20151102_Light,-Dark,-Underdark!.js
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21778,8 +21775,8 @@ AddSubClass("warlock", "the undying light", {
 		}
 	}
 });
-var iFileName = "ua_20151217_That-Old-Black-Magic.js";
-RequiredSheetVersion(12.999);
+
+// ua_20151217_That-Old-Black-Magic.js
 // This file adds the content from the Unearthed Arcana: That Old Black Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -21948,8 +21945,8 @@ SpellsList["conjure vrock"] = {
 	description : "Summon a vrock that I might control for some rounds, depending on gem value, see B (100gp cons.)",
 	descriptionFull : "You summon a vrock that appears in an unoccupied space you can see within range. The vrock disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The vrock's attitude depends on the value of the gem used as a material component for this spell. Roll initiative for the vrock, which has its own turns. At the start of the vrock's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the gem's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the vrock and have it obey you as long as you succeed on the Charisma check." + "\n   " + "If the check fails, the spell no longer requires concentration and the vrock is no longer under your control. The vrock takes no actions on its next turn and uses its telepathy to tell any creature it can see that it will fight in exchange for treasure. The creature that gives the vrock the most expensive gem can command it for the next 1d6 rounds. At the end of that time, it offers the bargain again. If no one offers the vrock treasure before its next turn begins, it attacks the nearest creatures for 1d6 rounds before returning to the Abyss." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned vrock cannot cross the circle or target anyone in it while the spell lasts."
 };
-var iFileName = "ua_20160104_Kits-of-Old.js";
-RequiredSheetVersion(12.999);
+
+// ua_20160104_Kits-of-Old.js
 // This file adds the content from the Unearthed Arcana: Kits of Old article to MPMB's Character Record Sheet
 
 // Define the source
@@ -22165,8 +22162,8 @@ AddSubClass("fighter", "scout", {
 		}
 	}
 });
-var iFileName = "ua_20160404_Gothic-Heroes.js";
-RequiredSheetVersion(12.999);
+
+// ua_20160404_Gothic-Heroes.js
 // This file adds the content from the Unearthed Arcana: Gothic Heroes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -22501,8 +22498,8 @@ AddSubClass("rogue", "inquisitive", {
 		}
 	}
 });
-var iFileName = "ua_20160606_Feats.js";
-RequiredSheetVersion(12.999);
+
+// ua_20160606_Feats.js
 // This file adds the content from the Unearthed Arcana: Feats article to MPMB's Character Record Sheet
 
 // Define the source
@@ -22548,7 +22545,7 @@ FeatsList["flail mastery"] = {
 FeatsList["spear mastery"] = {
 	name : "Spear Mastery",
 	source : ["UA:F", 3],
-	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the speer's reach with 5 ft.",
+	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the spear's reach by 5 ft.",
 	calcChanges : {
 		atkAdd : ["if (WeaponName === 'spear') { fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die; fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)'); }; ", "With a spear, I get the following benefits:\n - +1 to hit;\n - The spear damage die increases to d8 (versatile d10)."],
 		atkCalc : ["if (WeaponName === 'spear') {output.extraHit += 1;}; ", ""]
@@ -22600,8 +22597,8 @@ FeatsList["master of disguise"] = {
 	eval : "if (CurrentProfs.tool['Disguise kit'] && (/disguise.*kit/i).test(What('Too Text'))) { Checkbox('Too Exp', true); }; ",
 	removeeval : "if (CurrentProfs.tool['Disguise kit'] && (/disguise.*kit/i).test(What('Too Text'))) { Checkbox('Too Exp', false); }; "
 };
-var iFileName = "ua_20160801_The-Faithful.js";
-RequiredSheetVersion(12.999);
+
+// ua_20160801_The-Faithful.js
 // This file adds the content from the Unearthed Arcana: The Faithful article to MPMB's Character Record Sheet
 
 // Define the source
@@ -22812,8 +22809,8 @@ RunFunctionAtEnd(function() {
 		};
 	};
 });
-var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion(12.999);
+
+// ua_20160912_The-Ranger,-Revised.js
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23194,8 +23191,8 @@ var AddXGtErangerSubclassesToRevisedRanger = function() {
 		};
 	};
 }();
-var iFileName = "ua_20161107_Barbarian-Primal-Paths.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161107_Barbarian-Primal-Paths.js
 // This file adds the content from the Unearthed Arcana: Barbarian Primal Paths article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23393,8 +23390,8 @@ AddSubClass("barbarian", "zealot", {
 		}
 	}
 });
-var iFileName = "ua_20161114_Bard-Colleges.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161114_Bard-Colleges.js
 // This file adds the content from the Unearthed Arcana: Bard Colleges article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23509,8 +23506,8 @@ AddSubClass("bard", "college of whispers", {
 		}
 	}
 });
-var iFileName = "ua_20161121_Cleric-Divine-Domains.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161121_Cleric-Divine-Domains.js
 // This file adds the content from the Unearthed Arcana: Cleric Divine Domains article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23709,8 +23706,8 @@ AddSubClass("cleric", "protection domain", {
 		}
 	}
 });
-var iFileName = "ua_20161128_Druid-Circles.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161128_Druid-Circles.js
 // This file adds the content from the Unearthed Arcana: Druid Circles article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23873,8 +23870,8 @@ AddSubClass("druid", "circle of twilight", {
 		}
 	}
 });
-var iFileName = "ua_20161205_Fighter-Martial-Archetypes.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161205_Fighter-Martial-Archetypes.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -24165,8 +24162,8 @@ AddSubClass("fighter", "sharpshooter", {
 		}
 	}
 });
-var iFileName = "ua_20161212_Monk-Monastic-Traditions.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161212_Monk-Monastic-Traditions.js
 // This file adds the content from the Unearthed Arcana: Monk Monastic Traditions article to MPMB's Character Record Sheet
 
 // Define the source
@@ -24294,8 +24291,8 @@ AddSubClass("monk", "way of tranquility", {
 		}
 	}
 });
-var iFileName = "ua_20161219_Paladin-Sacred-Oaths.js";
-RequiredSheetVersion(12.999);
+
+// ua_20161219_Paladin-Sacred-Oaths.js
 // This file adds the content from the Unearthed Arcana: Paladin Sacred Oaths article to MPMB's Character Record Sheet
 
 // Define the source
@@ -24415,8 +24412,8 @@ AddSubClass("paladin", "oath of treachery", {
 		}
 	}
 });
-var iFileName = "ua_20170109_Artificer.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170109_Artificer.js
 // This file adds the content from the Unearthed Arcana: Artificer article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Artificer; the ones provided here are extrapolated from other classes
 
@@ -25344,8 +25341,8 @@ var SetArtificerSpells = function(){
 		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer") === -1) aArtSp.classes.push("artificer");
 	};
 }();
-var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170116_Ranger-and-Rogue.js
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -25548,8 +25545,8 @@ AddSubClass("rogue", "scout", {
 		}
 	}
 });
-var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170206_Sorcerous-Origins.js
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -25878,8 +25875,8 @@ ArmourList["stone's durability"] = {
 	dex : -10,
 	addMod : true
 };
-var iFileName = "ua_20170213_Warlock-and-Wizard.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170213_Warlock-and-Wizard.js
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -26419,8 +26416,8 @@ WeaponsList["moon bow"] = {
 	description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
 	abilitytodamage : true
 };
-var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170313_The-Mystic-Class.js
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -30285,8 +30282,8 @@ WeaponsList["soul knife"] = {
 	description : "Finesse, light",
 	abilitytodamage : true
 };
-var iFileName = "ua_20170320_Wizard-Revisited.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170320_Wizard-Revisited.js
 // This file adds the content from the Unearthed Arcana: Wizard Revisited article to MPMB's Character Record Sheet
 
 // Define the source
@@ -30500,8 +30497,8 @@ if (!SourceList["UA:TF"]) {
 		};
 	});
 };
-var iFileName = "ua_20170327_A Trio-of-Subclasses.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170327_A Trio-of-Subclasses.js
 // This file adds the content from the Unearthed Arcana: A Trio of Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -30691,8 +30688,8 @@ var RangeSubclassMonsterSlayer = AddSubClass("ranger", "monster slayer", {
 	}
 });
 if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(RangeSubclassMonsterSlayer); };
-var iFileName = "ua_20170403_Starter-Spells.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170403_Starter-Spells.js
 // This file adds the content from the Unearthed Arcana: Starter Spells article to MPMB's Character Record Sheet
 
 // Define the source
@@ -31013,8 +31010,8 @@ if (!SourceList.X) {
 		dc : true
 	};
 }
-var iFileName = "ua_20170417_Feats-for-Skills.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170417_Feats-for-Skills.js
 // This file adds the content from the Unearthed Arcana: Feats for Skills article to MPMB's Character Record Sheet
 
 // Define the source
@@ -31256,8 +31253,8 @@ FeatsList["theologian"] = {
 		oncelr : true
 	}]
 };
-var iFileName = "ua_20170424_Feats-for-Races.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170424_Feats-for-Races.js
 // This file adds the content from the Unearthed Arcana: Feats for Races article to MPMB's Character Record Sheet
 
 // Define the source
@@ -31583,8 +31580,8 @@ WeaponsList["claws"] = {
 	abilitytodamage : true,
 	monkweapon : true
 };
-var iFileName = "ua_20170501_Revised-Subclasses.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170501_Revised-Subclasses.js
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -32004,8 +32001,8 @@ AddSubClass("sorcerer", "favoured soul2", {
 		}
 	}
 });
-var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170605_Revised-Class-Options.js
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -32474,8 +32471,8 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	},
 	prereqeval : "classes.known.warlock.level >= 7"
 });
-var iFileName = "ua_20170911_Eladrin-and-Gith.js";
-RequiredSheetVersion(12.999);
+
+// ua_20170911_Eladrin-and-Gith.js
 // This file adds the content from the Unearthed Arcana: Eladrin and Gith article to MPMB's Character Record Sheet
 
 // Define the source
@@ -32665,8 +32662,8 @@ RaceList["githzerai"] = {
 	eval : "AddACMisc(1, 'Monastic Training', '+1 AC while not wearing medium or heavy armor and not using a shield.\\n\\nMonastic Training was gained from being a Githzerai.', \"tDoc.getField('Medium Armor').isBoxChecked(0) || tDoc.getField('Heavy Armor').isBoxChecked(0) || What('AC Shield Bonus')\")",
 	removeeval : "AddACMisc(0, 'Monastic Training', '+1 AC while not wearing medium or heavy armor and not using a shield.\\n\\nMonastic Training was gained from being a Githzerai.')"
 };
-var iFileName = "ua_20171009_Fiendish-Options.js";
-RequiredSheetVersion(12.999);
+
+// ua_20171009_Fiendish-Options.js
 // This file adds the content from the Unearthed Arcana: Fiendish Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -33166,8 +33163,8 @@ RaceList["zariel tiefling"] = {
 		}
 	}
 };
-var iFileName = "ua_20171113_Elf-Subraces.js";
-RequiredSheetVersion(12.999);
+
+// ua_20171113_Elf-Subraces.js
 // This file adds the content from the Unearthed Arcana: Elf Subraces article to MPMB's Character Record Sheet
 
 // Define the source
@@ -33324,8 +33321,8 @@ RaceList["shadar-kai"] = {
 		}
 	}
 };
-var iFileName = "ua_20180108_Three-Subclasses.js";
-RequiredSheetVersion(12.999);
+
+// ua_20180108_Three-Subclasses.js
 // This file adds the content from the Unearthed Arcana: Three Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -33591,8 +33588,8 @@ ArmourList["arcanomechanical"] = {
 	strReq : 0,
 	invName : "Arcanomechanical armor"
 };
-var iFileName = "ua_20180409_Order-Domain.js";
-RequiredSheetVersion(12.999);
+
+// ua_20180409_Order-Domain.js
 // This file adds the content from the Unearthed Arcana: Order Domain article to MPMB's Character Record Sheet
 
 // Define the source
@@ -33672,8 +33669,8 @@ AddSubClass("cleric", "order domain", {
 		}
 	}
 });
-var iFileName = "ua_20180514_Centaur-and-Minotaur.js";
-RequiredSheetVersion(12.999);
+
+// ua_20180514_Centaur-and-Minotaur.js
 // This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
 
 // Define the source
@@ -33788,8 +33785,8 @@ WeaponsList["horns-uacnm"] = {
 	description : "One horns attack as a bonus action if taking the Dash action",
 	abilitytodamage : true
 };
-var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
-RequiredSheetVersion(12.999);
+
+// ua_20180611_Giant-Soul-Sorcerer.js
 // This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
 
 // Define the source
@@ -33996,8 +33993,8 @@ AddSubClass("sorcerer", "giant soul", {
 		}
 	}
 });
-var iFileName = "ua_20180723_Races-of-Eberron.js";
-RequiredSheetVersion(12.999);
+
+// ua_20180723_Races-of-Eberron.js
 // This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -34360,8 +34357,8 @@ if (!SourceList.WGtE) {
 		dex : -10
 	};
 }
-var iFileName = "ua_20180813_Races-of-Ravnica.js";
-RequiredSheetVersion(12.999);
+
+// ua_20180813_Races-of-Ravnica.js
 // This file adds the content from the Unearthed Arcana: Races of Ravnica article to MPMB's Character Record Sheet
 
 // Define the source
@@ -34629,8 +34626,8 @@ WeaponsList["lashing tail"] = {
 	abilitytodamage : true,
 	monkweapon : true
 };
-var iFileName = "ua_20180910_Dragonmarks.js";
-RequiredSheetVersion(12.999);
+
+// ua_20180910_Dragonmarks.js
 // This file adds the content from the Unearthed Arcana: Dragonmarks article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
