@@ -1,0 +1,32 @@
+{
+  "name": "imports-for-mpmb-s-character-sheet",
+  "version": "1.0.0",
+  "description": "This git repository holds different fan-created materials that can be used with the popular MorePurpleMoreBetter's Character Record Sheet. The repository for the sheet is [found here](https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/safety-orange/Imports-for-MPMB-s-Character-Sheet.git"
+  },
+  "scripts": {
+    "minify": "gulp",
+    "minifyStable": "gulp minifyStable",
+    "minifyBeta": "gulp minifyBeta"
+  },
+  "private": true,
+  "author": "safety-orange",
+  "bugs": {
+    "url": "https://github.com/safety-orange/Imports-for-MPMB-s-Character-Sheet/issues"
+  },
+  "homepage": "https://github.com/safety-orange/Imports-for-MPMB-s-Character-Sheet#readme",
+  "devDependencies": {
+    "fancy-log": "^1.3.3",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-delete-lines": "0.0.7",
+    "gulp-header": "^2.0.9",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-rm-lines": "0.0.10",
+    "gulp-uglify": "^3.0.2"
+  }
+}
