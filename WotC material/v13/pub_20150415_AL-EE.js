@@ -29,7 +29,7 @@ BackgroundList["caravan specialist"] = {
 	feature : "Wagonmaster",
 	trait : [
 		"Any group is only as strong as its weakest link. Everyone has to pull their own weight.",
-		"There's always someone out there trying to take what I've got. Always be vigilent.",
+		"There's always someone out there trying to take what I've got. Always be vigilant.",
 		"Anything can be learned if you have the right teacher. Most folks just need a chance.",
 		"Early to bed and early to rise; this much at least is under my control.",
 		"You can listen to me or don't and wish you had. Everyone ends up on one side of that fence.",

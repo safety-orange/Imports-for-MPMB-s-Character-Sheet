@@ -8688,7 +8688,7 @@ BackgroundList["dragon casualty"] = {
 	ideal : [
 		["Survivor", "Survivor: No matter the cost, I will take any action necessary to survive (any)"],
 		["Independence", "Independence: When in trouble, the only person I can rely on is myself (Chaotic)"],
-		["Compassionate", "Compassionate: I have suffered long at the hands of a Dragon, and take pitty and compassion on the suffering of others (Good)"],
+		["Compassionate", "Compassionate: I have suffered long at the hands of a Dragon, and take pity and compassion on the suffering of others (Good)"],
 		["Secretive", "Secretive: I am withdrawn, and hide my monstrous appearance for fear of drawing unwanted attention. (Chaotic)"],
 		["Justice", "Justice: I have been wronged, and will not allow the same fate to befall others. (Lawful)"],
 		["Sycophant", "Sycophant: During my ordeal, I became a willing servant of the Maimed Virulence, and spy on his behalf. (Evil)"]
