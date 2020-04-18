@@ -16,7 +16,7 @@ if (!SourceList.WGtE) {
 	// Add the four new races and their subraces
 	RaceList["changeling-wgte"] = {
 		regExpSearch : /changeling/i,
-		name : "Changeling" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+		name : "Changeling" + (sheetVersion < 13 ? " " : ""),
 		source : [["WGtE", 61], ["UA:RoE", 2]],
 		plural : "Changelings",
 		size : 3,
@@ -76,7 +76,7 @@ if (!SourceList.WGtE) {
 	// The four subraces of the shifter
 	RaceList["beasthide shifter"] = {
 		regExpSearch : /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
-		name : "Beasthide shifter" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+		name : "Beasthide shifter" + (sheetVersion < 13 ? " " : ""),
 		sortname : "Shifter, Beasthide",
 		source : [["WGtE", 66], ["UA:RoE", 6]],
 		plural : "Beasthide shifters",
@@ -108,7 +108,7 @@ if (!SourceList.WGtE) {
 	};
 	RaceList["longtooth shifter"] = {
 		regExpSearch : /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-		name : "Longtooth shifter" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+		name : "Longtooth shifter" + (sheetVersion < 13 ? " " : ""),
 		sortname : "Shifter, Longtooth",
 		source : [["WGtE", 66], ["UA:RoE", 6]],
 		plural : "Longtooth shifters",
@@ -189,7 +189,7 @@ if (!SourceList.WGtE) {
 	};
 	RaceList["wildhunt shifter"] = {
 		regExpSearch : /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
-		name : "Wildhunt shifter" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+		name : "Wildhunt shifter" + (sheetVersion < 13 ? " " : ""),
 		sortname : "Shifter, Wildhunt",
 		source : [["WGtE", 66], ["UA:RoE", 6]],
 		plural : "Wildhunt shifters",

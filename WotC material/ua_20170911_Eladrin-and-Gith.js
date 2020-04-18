@@ -15,7 +15,7 @@ SourceList["UA:EnG"] = {
 // Alternative version of the Eladrin
 RaceList["eladrin-uaeng"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
-	name : "Eladrin" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Eladrin" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Elf, Fey (Eladrin)",
 	source : ["UA:EnG", 1],
 	plural : "Eladrin",

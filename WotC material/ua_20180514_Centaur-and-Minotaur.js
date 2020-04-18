@@ -64,7 +64,7 @@ WeaponsList["hooves"] = {
 // Add the Minotaur race
 RaceList["minotaur-uacnm"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Minotaur" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Minotaur",
 	source : ["UA:CnM", 2],
 	plural : "Minotaurs",

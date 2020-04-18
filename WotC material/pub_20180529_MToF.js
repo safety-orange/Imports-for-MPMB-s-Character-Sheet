@@ -75,7 +75,7 @@ RaceList["baalzebul tiefling"] = {
 };
 RaceList["dispater tiefling-mtof"] = {
 	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
-	name : "Dispater tiefling" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Dispater tiefling" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Tiefling, Dispater",
 	source : ["MToF", 21],
 	plural : "Dispater tieflings",
@@ -377,7 +377,7 @@ RaceList["mammon tiefling"] = {
 };
 RaceList["mephistopheles tiefling-mtof"] = {
 	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
-	name : "Mephistopheles tiefling" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Mephistopheles tiefling" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Tiefling, Mephistopheles",
 	source : ["MToF", 23],
 	plural : "Mephistopheles tieflings",
@@ -501,7 +501,7 @@ RaceList["zariel tiefling"] = {
 // Elf subraces
 RaceList["eladrin-mtof"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
-	name : "Eladrin" + (tDoc.info.SheetVersion < 13 ? "  " : ""),
+	name : "Eladrin" + (sheetVersion < 13 ? "  " : ""),
 	sortname : "Elf, Fey (Eladrin)",
 	source : ["MToF", 61],
 	plural : "Eladrin",
@@ -590,7 +590,7 @@ RaceList["sea elf"] = {
 };
 RaceList["shadar-kai-mtof"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name : "Shadar-kai" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Shadar-kai" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Elf, Shadow (Shadar-kai)",
 	source : ["MToF", 62],
 	plural : "Shadar-kai",
@@ -633,7 +633,7 @@ RaceList["shadar-kai-mtof"] = {
 // Gith and its two subraces
 RaceList["githyanki-mtof"] = {
 	regExpSearch : /githyanki/i,
-	name : "Githyanki" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Githyanki" + (sheetVersion < 13 ? " " : ""),
 	source : ["MToF", 96],
 	plural : "Githyanki",
 	size : 3,
@@ -706,7 +706,7 @@ AddRacialVariant("githyanki-mtof", "skill proficiency", {
 });
 RaceList["githzerai-mtof"] = {
 	regExpSearch : /githzerai/i,
-	name : "Githzerai" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Githzerai" + (sheetVersion < 13 ? " " : ""),
 	source : ["MToF", 96],
 	plural : "Githzerai",
 	size : 3,

@@ -14,7 +14,7 @@ SourceList.G = {
 // Add the Centaur race
 RaceList["centaur-ggtr"] = {
 	regExpSearch : /centaur/i,
-	name : "Centaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Centaur" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Centaur",
 	source : ["G", 15],
 	plural : "Centaurs",
@@ -51,7 +51,7 @@ RaceList["centaur-ggtr"] = {
 // Centaur weapon
 WeaponsList["hooves-ggtr"] = {
 	regExpSearch : /\b(hoofs?|hooves)\b/i,
-	name : "Hooves" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Hooves" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 15],
 	ability : 1,
 	type : "Natural",
@@ -102,7 +102,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 // Add Loxodon
 RaceList["loxodon-ggtr"] = {
 	regExpSearch : /loxodon/i,
-	name : "Loxodon" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Loxodon" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 18],
 	plural : "Loxodons",
 	size : 3,
@@ -144,7 +144,7 @@ ArmourList['loxodon natural armor'] = {
 // Add the Minotaur race
 RaceList["minotaur-ggtr"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Minotaur" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Minotaur",
 	source : ["G", 19],
 	plural : "Minotaurs",
@@ -184,7 +184,7 @@ RaceList["minotaur-ggtr"] = {
 // Minotaur weapon
 WeaponsList["minotaur horns"] = {
 	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Minotaur Horns" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 19],
 	ability : 1,
 	type : "Natural",
@@ -198,7 +198,7 @@ WeaponsList["minotaur horns"] = {
 // Add Simic Hybrid
 RaceList["simic hybrid-ggtr"] = {
 	regExpSearch : /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
-	name : "Simic hybrid" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Simic hybrid" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 20],
 	plural : "Simic hybrids",
 	size : 3,
@@ -338,7 +338,7 @@ WeaponsList["acid spit"] = {
 // Add Vedalken
 RaceList["vedalken-ggtr"] = {
 	regExpSearch : /vedalken/i,
-	name : "Vedalken" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Vedalken" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 21],
 	plural : "Vedalken",
 	size : 3,

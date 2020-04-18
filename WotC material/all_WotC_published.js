@@ -15741,7 +15741,7 @@ RaceList["baalzebul tiefling"] = {
 };
 RaceList["dispater tiefling-mtof"] = {
 	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
-	name : "Dispater tiefling" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Dispater tiefling" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Tiefling, Dispater",
 	source : ["MToF", 21],
 	plural : "Dispater tieflings",
@@ -16043,7 +16043,7 @@ RaceList["mammon tiefling"] = {
 };
 RaceList["mephistopheles tiefling-mtof"] = {
 	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
-	name : "Mephistopheles tiefling" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Mephistopheles tiefling" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Tiefling, Mephistopheles",
 	source : ["MToF", 23],
 	plural : "Mephistopheles tieflings",
@@ -16167,7 +16167,7 @@ RaceList["zariel tiefling"] = {
 // Elf subraces
 RaceList["eladrin-mtof"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
-	name : "Eladrin" + (tDoc.info.SheetVersion < 13 ? "  " : ""),
+	name : "Eladrin" + (sheetVersion < 13 ? "  " : ""),
 	sortname : "Elf, Fey (Eladrin)",
 	source : ["MToF", 61],
 	plural : "Eladrin",
@@ -16256,7 +16256,7 @@ RaceList["sea elf"] = {
 };
 RaceList["shadar-kai-mtof"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name : "Shadar-kai" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Shadar-kai" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Elf, Shadow (Shadar-kai)",
 	source : ["MToF", 62],
 	plural : "Shadar-kai",
@@ -16299,7 +16299,7 @@ RaceList["shadar-kai-mtof"] = {
 // Gith and its two subraces
 RaceList["githyanki-mtof"] = {
 	regExpSearch : /githyanki/i,
-	name : "Githyanki" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Githyanki" + (sheetVersion < 13 ? " " : ""),
 	source : ["MToF", 96],
 	plural : "Githyanki",
 	size : 3,
@@ -16372,7 +16372,7 @@ AddRacialVariant("githyanki-mtof", "skill proficiency", {
 });
 RaceList["githzerai-mtof"] = {
 	regExpSearch : /githzerai/i,
-	name : "Githzerai" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Githzerai" + (sheetVersion < 13 ? " " : ""),
 	source : ["MToF", 96],
 	plural : "Githzerai",
 	size : 3,
@@ -16528,7 +16528,7 @@ SourceList.WGtE = {
 // The changeling
 RaceList["changeling-wgte"] = {
 	regExpSearch : /changeling/i,
-	name : "Changeling" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Changeling" + (sheetVersion < 13 ? " " : ""),
 	source : [["WGtE", 61], ["UA:RoE", 2]],
 	plural : "Changelings",
 	size : 3,
@@ -16589,7 +16589,7 @@ RaceList["kalashtar"] = { //this code includes contributions by /u/SoilentBrad
 // The four subraces of the shifter
 RaceList["beasthide shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
-	name : "Beasthide shifter" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Beasthide shifter" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Shifter, Beasthide",
 	source : [["WGtE", 66], ["UA:RoE", 6]],
 	plural : "Beasthide shifters",
@@ -16621,7 +16621,7 @@ RaceList["beasthide shifter"] = {
 };
 RaceList["longtooth shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-	name : "Longtooth shifter" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Longtooth shifter" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Shifter, Longtooth",
 	source : [["WGtE", 66], ["UA:RoE", 6]],
 	plural : "Longtooth shifters",
@@ -16702,7 +16702,7 @@ RaceList["swiftstride shifter"] = {
 };
 RaceList["wildhunt shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
-	name : "Wildhunt shifter" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Wildhunt shifter" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Shifter, Wildhunt",
 	source : [["WGtE", 66], ["UA:RoE", 6]],
 	plural : "Wildhunt shifters",
@@ -17946,7 +17946,7 @@ SourceList.G = {
 // Add the Centaur race
 RaceList["centaur-ggtr"] = {
 	regExpSearch : /centaur/i,
-	name : "Centaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Centaur" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Centaur",
 	source : ["G", 15],
 	plural : "Centaurs",
@@ -17983,7 +17983,7 @@ RaceList["centaur-ggtr"] = {
 // Centaur weapon
 WeaponsList["hooves-ggtr"] = {
 	regExpSearch : /\b(hoofs?|hooves)\b/i,
-	name : "Hooves" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Hooves" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 15],
 	ability : 1,
 	type : "Natural",
@@ -18034,7 +18034,7 @@ if (!RaceList["goblin"]) { // reprint from Volo's Guide to Monsters
 // Add Loxodon
 RaceList["loxodon-ggtr"] = {
 	regExpSearch : /loxodon/i,
-	name : "Loxodon" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Loxodon" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 18],
 	plural : "Loxodons",
 	size : 3,
@@ -18076,7 +18076,7 @@ ArmourList['loxodon natural armor'] = {
 // Add the Minotaur race
 RaceList["minotaur-ggtr"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Minotaur" + (sheetVersion < 13 ? " " : ""),
 	sortname : "Minotaur",
 	source : ["G", 19],
 	plural : "Minotaurs",
@@ -18116,7 +18116,7 @@ RaceList["minotaur-ggtr"] = {
 // Minotaur weapon
 WeaponsList["minotaur horns"] = {
 	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Minotaur Horns" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 19],
 	ability : 1,
 	type : "Natural",
@@ -18130,7 +18130,7 @@ WeaponsList["minotaur horns"] = {
 // Add Simic Hybrid
 RaceList["simic hybrid-ggtr"] = {
 	regExpSearch : /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
-	name : "Simic hybrid" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Simic hybrid" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 20],
 	plural : "Simic hybrids",
 	size : 3,
@@ -18270,7 +18270,7 @@ WeaponsList["acid spit"] = {
 // Add Vedalken
 RaceList["vedalken-ggtr"] = {
 	regExpSearch : /vedalken/i,
-	name : "Vedalken" + (tDoc.info.SheetVersion < 13 ? " " : ""),
+	name : "Vedalken" + (sheetVersion < 13 ? " " : ""),
 	source : ["G", 21],
 	plural : "Vedalken",
 	size : 3,
