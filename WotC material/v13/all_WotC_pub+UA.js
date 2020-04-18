@@ -48163,7 +48163,7 @@ CreateClassFeatureVariant("ranger", "hide in plain sight", "Fade Away", {
 	recovery : "short rest"
 });
 if (ClassSubList["ranger-beast master"]) {
-	CreateClassFeatureVariant("ranger-beast master", "subclassfeature3", "Beast of the Air/Earth", {
+	AddFeatureChoice(ClassSubList["ranger-beast master"].features["subclassfeature3"], true, "Beast of the Air/Earth", {
 		name : "Beast of the Air/Earth",
 		source : ["UA:CFV", 8],
 		description : desc([
@@ -48175,7 +48175,7 @@ if (ClassSubList["ranger-beast master"]) {
 			"It then returns to life with all its hit points after 1 minute"
 		]),
 		action : [["bonus action", "Command Beast of the Air/Earth"], ["action", "Revive Beast of the Air/Earth"]]
-	});
+	}, "Ranger Companion Enhancement");
 }
 CreatureList["beast of the air"] = {
 	name : "Beast of the Air",
