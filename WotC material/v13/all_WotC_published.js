@@ -13471,7 +13471,7 @@ RaceList["triton"] = {
 	}
 };
 RaceList["yuan-ti pureblood"] = {
-	regExpSearch : /^(?=.*yuan.ti)(?=.*pure.?blood).*$/i,
+	regExpSearch : /^(?!.*human)(?=.*yuan.ti)(?=.*pure.?blood).*$/i,
 	name : "Yuan-Ti Pureblood",
 	source : ["V", 120],
 	plural : "Yuan-Ti Purebloods",
@@ -14883,12 +14883,95 @@ RaceList["tortle"] = {
 
 // Define the source
 SourceList.ToA={
-	name : "Tomb of Annihilation [backgrounds, beasts, items]",
+	name : "Tomb of Annihilation [races, backgrounds, beasts, items]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
 	date : "2017/09/19"
 };
+
+// ToA Races
+
+AddRacialVariant("human", "yuan-ti pureblood", {
+	regExpSearch : /^(?!.*variant)(?=.*yuan.ti)(?=.*pure.?blood)?.*$/i,
+	source : ["ToA", 119],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		immune : ["poison"],
+		adv_vs : ["magic"]
+	},
+	spellcastingAbility : 6,
+	spellcastingBonus : [{
+		name : "Innate Spellcasting (level 1)",
+		spells : ["poison spray"],
+		selection : ["poison spray"],
+		firstCol : 'atwill'
+	}, {
+		name : "Innate Spellcasting (level 1)",
+		spells : ["animal friendship"],
+		selection : ["animal friendship"],
+		firstCol : 'atwill'
+	}],
+	features : {
+		"suggestion" : {
+			name : "Innate Spellcasting (level 3)",
+			limfeaname : "Suggestion",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Innate Spellcasting (level 3)",
+				spells : ["suggestion"],
+				selection : ["suggestion"],
+				firstCol : 'oncelr'
+			}
+		}
+	},
+	trait : "Yuan-ti Human (+1 to all ability scores)\n" + (typePF ? "\n" : "") + "Madness: I suffer from an indefinite madness. (DMG 258)\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells."
+});
+
+AddRacialVariant("human", "yuan-ti pureblood variant", {
+	regExpSearch : /^(?=.*variant)(?=.*yuan.ti)(?=.*pure.?blood)?.*$/i,
+	source : ["ToA", 119],
+	skillstxt : "Choose any one skill",
+	scorestxt : "+1 to two different ability scores of my choice",
+	scores : [0, 0, 0, 0, 0, 0],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		immune : ["poison"],
+		adv_vs : ["magic"]
+	},
+	spellcastingAbility : 6,
+	spellcastingBonus : [{
+		name : "Innate Spellcasting (level 1)",
+		spells : ["poison spray"],
+		selection : ["poison spray"],
+		firstCol : 'atwill'
+	}, {
+		name : "Innate Spellcasting (level 1)",
+		spells : ["animal friendship"],
+		selection : ["animal friendship"],
+		firstCol : 'atwill'
+	}],
+	features : {
+		"suggestion" : {
+			name : "Innate Spellcasting (level 3)",
+			limfeaname : "Suggestion",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Innate Spellcasting (level 3)",
+				spells : ["suggestion"],
+				selection : ["suggestion"],
+				firstCol : 'oncelr'
+			}
+		}
+	},
+	trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n" + (typePF ? "\n" : "") + "Skills: I gain proficiency in one skill of my choice.\nFeat: I gain one feat of my choice.\nMadness: I suffer from an indefinite madness. (DMG 258)\nInnate Spellcasting:" + (typePF ? "\n   " : " ") + "I know the Poison Spray cantrip." + (typePF ? "\n   " : "") + "I can cast Animal Friendship on snakes at will." + (typePF ? "\n   " : "") + "Once I reach 3rd level, I can cast Suggestion once per long rest." + (typePF ? "\n   " : "") + "Charisma is my spellcasting ability for these spells.",
+	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
+	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
+});
 
 // Backgrounds (with contributions by SoilentBrad and @lowbrr)
 BackgroundList["anthropologist"] = {
