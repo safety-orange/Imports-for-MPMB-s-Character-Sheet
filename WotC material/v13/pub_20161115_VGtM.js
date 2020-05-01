@@ -554,7 +554,7 @@ RaceList["triton"] = {
 	}
 };
 RaceList["yuan-ti pureblood"] = {
-	regExpSearch : /^(?=.*yuan.ti)(?=.*pure.?blood).*$/i,
+	regExpSearch : /^(?!.*human)(?=.*yuan.ti)(?=.*pure.?blood).*$/i,
 	name : "Yuan-Ti Pureblood",
 	source : ["V", 120],
 	plural : "Yuan-Ti Purebloods",
