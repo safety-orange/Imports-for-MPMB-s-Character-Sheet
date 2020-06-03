@@ -323,7 +323,8 @@ WeaponsList["pistol"] = {
 	weight : 3,
 	description : "Ammunition, loading",
 	abilitytodamage : true,
-	ammo : "renaissance bullet"
+	ammo : "renaissance bullet",
+	defaultExcluded : true
 };
 WeaponsList["musket"] = {
 	regExpSearch : /musket/i,
@@ -337,7 +338,8 @@ WeaponsList["musket"] = {
 	weight : 10,
 	description : "Ammunition, loading, two handed",
 	abilitytodamage : true,
-	ammo : "renaissance bullet"
+	ammo : "renaissance bullet",
+	defaultExcluded : true
 };
 WeaponsList["pistol automatic"] = {
 	regExpSearch : /^(?!.*rifle)(?=.*pistol)(?=.*automatic).*$/i,
@@ -351,7 +353,8 @@ WeaponsList["pistol automatic"] = {
 	weight : 3,
 	description : "Ammunition, reload (15 shots)",
 	abilitytodamage : true,
-	ammo : "modern bullet"
+	ammo : "modern bullet",
+	defaultExcluded : true
 };
 WeaponsList["revolver"] = {
 	regExpSearch : /revolver/i,
@@ -365,7 +368,8 @@ WeaponsList["revolver"] = {
 	weight : 3,
 	description : "Ammunition, reload (6 shots)",
 	abilitytodamage : true,
-	ammo : "modern bullet"
+	ammo : "modern bullet",
+	defaultExcluded : true
 };
 WeaponsList["rifle hunting"] = {
 	regExpSearch : /^(?!=laser|antimatter)(?=.*hunting)(?=.*rifle).*$/i,
@@ -379,7 +383,8 @@ WeaponsList["rifle hunting"] = {
 	weight : 8,
 	description : "Ammunition, reload (5 shots), two handed",
 	abilitytodamage : true,
-	ammo : "modern bullet"
+	ammo : "modern bullet",
+	defaultExcluded : true
 };
 WeaponsList["rifle automatic"] = {
 	regExpSearch : /^(?!=.*laser|antimatter)(?=.*automatic)(?=.*rifle).*$/i,
@@ -393,7 +398,8 @@ WeaponsList["rifle automatic"] = {
 	weight : 8,
 	description : "Ammunition, burst fire, reload (30 shots), two handed",
 	abilitytodamage : true,
-	ammo : "modern bullet"
+	ammo : "modern bullet",
+	defaultExcluded : true
 };
 WeaponsList["shotgun"] = {
 	regExpSearch : /shotgun/i,
@@ -407,7 +413,8 @@ WeaponsList["shotgun"] = {
 	weight : 7,
 	description : "Ammunition, reload (2 shots), two handed",
 	abilitytodamage : true,
-	ammo : "modern bullet"
+	ammo : "modern bullet",
+	defaultExcluded : true
 };
 WeaponsList["laser pistol"] = {
 	regExpSearch : /^(?=.*laser)(?=.*pistol).*$/i,
@@ -421,7 +428,8 @@ WeaponsList["laser pistol"] = {
 	weight : 2,
 	description : "Ammunition, reload (50 shots), two handed",
 	abilitytodamage : true,
-	ammo : "energy cell"
+	ammo : "energy cell",
+	defaultExcluded : true
 };
 WeaponsList["antimatter rifle"] = {
 	regExpSearch : /^(?!.*laser)(?=.*antimatter)(?=.*rifle).*$/i,
@@ -435,7 +443,8 @@ WeaponsList["antimatter rifle"] = {
 	weight : 10,
 	description : "Ammunition, reload (2 shots), two handed",
 	abilitytodamage : true,
-	ammo : "energy cell"
+	ammo : "energy cell",
+	defaultExcluded : true
 };
 WeaponsList["laser rifle"] = {
 	regExpSearch : /^(?!.*antimatter)(?=.*laser)(?=.*rifle).*$/i,
@@ -449,7 +458,8 @@ WeaponsList["laser rifle"] = {
 	weight : 7,
 	description : "Ammunition, reload (30 shots), two handed",
 	abilitytodamage : true,
-	ammo : "energy cell"
+	ammo : "energy cell",
+	defaultExcluded : true
 };
 AmmoList["renaissance bullet"] = {
 	name : "Bullets, Renaissance",
@@ -459,7 +469,8 @@ AmmoList["renaissance bullet"] = {
 	checks : [".Bullet"],
 	display : 50,
 	invName : "Bullets, renaissance",
-	alternatives : [/^(?=.*bullet)(?=.*renaissance).*$/i]
+	alternatives : [/^(?=.*bullet)(?=.*renaissance).*$/i],
+	defaultExcluded : true
 };
 AmmoList["modern bullet"] = {
 	name : "Bullets, Modern",
@@ -469,7 +480,8 @@ AmmoList["modern bullet"] = {
 	checks : [".Bullet"],
 	display : 50,
 	invName : "Bullets, modern",
-	alternatives : [/^(?=.*bullet)(?=.*modern).*$/i]
+	alternatives : [/^(?=.*bullet)(?=.*modern).*$/i],
+	defaultExcluded : true
 };
 AmmoList["energy cell"] = {
 	name : "Energy Cell",
@@ -478,7 +490,8 @@ AmmoList["energy cell"] = {
 	icon : "Bullets",
 	checks : [".Bullet"],
 	display : 50,
-	invName : "Energy Cell"
+	invName : "Energy Cell",
+	defaultExcluded : true
 };
 
 // Magic Items not found in the SRD

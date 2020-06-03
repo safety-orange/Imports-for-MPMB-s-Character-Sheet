@@ -1,5 +1,5 @@
 var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
