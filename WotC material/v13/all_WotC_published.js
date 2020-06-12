@@ -27412,12 +27412,16 @@ ClassList.artificer = {
 			name : "Spell-Storing Item",
 			source : [["E:RLW", 58]],
 			minlevel : 11,
-			description : " [weapon or a spellcasting focus I can use]" + desc([
+			description : desc([
 				"When I finish a long rest, I can infuse a 1st-/2nd-level artificer spell into an item I touch",
+				"It has to be a weapon or spellcasting focus for me; Stored spells are lost if I do this again",
 				"The spell must have a casting time of 1 action, but I need not have it prepared",
-				"A creature holding an infused item can use an action to cast the spell, using my abilities",
-				"It can cast the spell twice my Int mod (min 2) times or until I store a spell in another"
-			])
+				"A creature holding an infused item can use an action to cast the spell, using my abilities"
+			]),
+			additional : "cast stored spell",
+			usages : "2\u00D7 Int mod per ",
+			usagescalc : "event.value = Math.max(2, Number(What('Int Mod')) * 2);",
+			recovery : "long rest"
 		},
 		"magic item savant" : {
 			name : "Magic Item Savant",

@@ -18019,6 +18019,7 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 			extraname : "Swarmkeeper 11",
 			autoSelectExtrachoices : [{
 				extrachoice : "scuttling eyes",
+				minlevel : 11
 			}, {
 				extrachoice : "storm of minions",
 				extraname : "Swarmkeeper 15",
