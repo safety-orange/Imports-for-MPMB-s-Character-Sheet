@@ -12,7 +12,6 @@ SourceList["WDH"] = {
 };
 
 // Mundane Items
-
 WeaponsList["oversized longbow"] = {
 	regExpSearch : /^(?=.*oversized?)(?=.*longbow).*$/i,
 	name : "Oversized Longbow",
@@ -23,17 +22,18 @@ WeaponsList["oversized longbow"] = {
 	damage : [2, 6, "piercing"],
 	range : "150/600 ft",
 	weight : 2,
-	description : "Ammunition, heavy, two-handed; Damage uses Str instead of Dex; Requires Medium size and Str 18",
-	abilitytodamage : true,
-	modifiers : ["", "Str-Dex"],
-	ammo : "oversized arrow"
+	description : "Ammunition, heavy, two-handed; Damage uses Str; Requires Medium size and Str 18",
+	abilitytodamage : false,
+	modifiers : ["", "Str"],
+	ammo : "oversized arrow",
+	defaultExcluded : true
 };
-
 AmmoList["oversized arrow"] = {
 	name : "Oversized Arrows",
 	source : ["WDH", 201],
 	icon : "Arrows",
-	weight : .10
+	weight : 0.10,
+	defaultExcluded : true
 };
 
 // Magic Items
