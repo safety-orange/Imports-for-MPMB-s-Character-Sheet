@@ -1062,7 +1062,7 @@ var AmendTotemWarriorSCAG = function() {
 		feature : {
 			name : "Elk Spirit",
 			source : ["S", 122],
-			description : "\n   " + "While raging without heavy armor, my base walking speed increases with 15 foot"
+			description : "\n   " + "While raging without heavy armor, my base walking speed increases by 15 feet"
 		}
 	}, {
 		name : "Tiger",
@@ -1095,7 +1095,7 @@ var AmendTotemWarriorSCAG = function() {
 		feature : {
 			name : "Elk Attunement",
 			source : ["S", 122],
-			description : "\n   " + "As a bonus action while raging, I can move through Large or smaller creature's space" + "\n   " + "It must make a Strength save of DC 8 + Strength modifier + Proficiency bonus" + "\n   " + "If failed, it is knocked prone and takes 1d12 + Strength modifier bludgeoning damage",
+			description : "\n   " + "As a bonus action while raging, I can move through a Large or smaller creature's space" + "\n   " + "It must make a Strength save of DC 8 + Strength modifier + Proficiency bonus" + "\n   " + "If failed, it is knocked prone and takes 1d12 + Strength modifier bludgeoning damage",
 			action : ["bonus action", " (in rage)"]
 		}
 	}, {
