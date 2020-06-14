@@ -10835,54 +10835,50 @@ AddSubClass("wizard", "bladesinging", {
 });
 
 // New Totem Warrior options
-var AmendTotemWarriorSCAG = function() {
-	if (!ClassSubList["barbarian-totem warrior"] || ClassSubList["barbarian-totem warrior"].source.indexOf("P") === -1) return;
-	var TWadds = [{
-		name : "Elk",
-		addto : "subclassfeature3.1",
-		feature : {
+if (ClassSubList["barbarian-totem warrior"]) {
+	var TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature3.1"];
+	if (TotemWarriorFeature) {
+		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
 			name : "Elk Spirit",
 			source : ["S", 122],
-			description : "\n   " + "While raging without heavy armor, my base walking speed increases with 15 foot"
-		}
-	}, {
-		name : "Tiger",
-		addto : "subclassfeature3.1",
-		feature : {
+			description : "\n   While raging without heavy armor, my base walking speed increases by 15 ft"
+		});
+		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Spirit",
 			source : ["S", 122],
-			description : "\n   " + "While raging, I can add 10 feet to my long jump and 3 feet to my high jump distance"
-		}
-	}, {
-		name : "Elk",
-		addto : "subclassfeature6",
-		feature : {
+			description : "\n   While raging, I can add 10 ft to my long jump and 3 ft to my high jump distance"
+		});
+	}
+	TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature6"];
+	if (TotemWarriorFeature) {
+		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
 			name : "Aspect of the Elk",
 			source : ["S", 122],
-			description : "\n   " + "While mounted or on foot and not incapacitated, my travel pace is doubled" + "\n   " + "I can extend this benefit to up to ten companions, while they are within 60 ft of me"
-		}
-	}, {
-		name : "Tiger",
-		addto : "subclassfeature6",
-		feature : {
+			description : desc([
+				"While mounted or on foot and not incapacitated, my travel pace is doubled",
+				"I can extend this benefit to up to ten companions, while they are within 60 ft of me"
+			])
+		});
+		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
 			name : "Aspect of the Tiger",
 			source : ["S", 122],
-			description : "\n   " + "I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
+			description : "\n   I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
 			skillstxt : "Choose two from Athletics, Acrobatics, Stealth, and Survival"
-		}
-	}, {
-		name : "Elk",
-		addto : "subclassfeature14",
-		feature : {
+		});
+	}
+	TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature14"];
+	if (TotemWarriorFeature) {
+		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
 			name : "Elk Attunement",
 			source : ["S", 122],
-			description : "\n   " + "As a bonus action while raging, I can move through Large or smaller creature's space" + "\n   " + "It must make a Strength save of DC 8 + Strength modifier + Proficiency bonus" + "\n   " + "If failed, it is knocked prone and takes 1d12 + Strength modifier bludgeoning damage",
-			action : ["bonus action", " (in rage)"]
-		}
-	}, {
-		name : "Tiger",
-		addto : "subclassfeature14",
-		feature : {
+			description : desc([
+				"As a bonus action while raging, I can move through a Large or smaller creature's space",
+				"It must make a Strength save of DC 8 + Strength modifier + Proficiency bonus",
+				"If failed, it is knocked prone and takes 1d12 + Strength modifier bludgeoning damage"
+			]),
+			action : [["bonus action", " (in rage)"]]
+		});
+		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Attunement",
 			source : ["S", 122],
 			description : desc([
@@ -10890,17 +10886,10 @@ var AmendTotemWarriorSCAG = function() {
 				" \u2022 I move at least 20 ft in a straight line towards the target that is Large or smaller",
 				" \u2022 I make a melee weapon attack against it after the bonus action"
 			]),
-			action : ["bonus action", " (in rage)"]
-		}
-	}]
-	var TW = ClassSubList["barbarian-totem warrior"].features;
-	for (var i = 0; i < TWadds.length; i++) {
-		var tA = TWadds[i];
-		var TWfea = TW[tA.addto];
-		TWfea.choices.push(tA.name);
-		TWfea[tA.name.toLowerCase()] = tA.feature;
-	};
-}();
+			action : [["bonus action", " (in rage)"]]
+		});
+	}
+}
 
 // Backgrounds
 BackgroundList["far traveler"] = {
