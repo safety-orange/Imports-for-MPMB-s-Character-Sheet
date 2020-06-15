@@ -4871,10 +4871,11 @@ MagicItemsList["dragon mask"] = {
 	attunement : true,
 	languageProfs : ["Draconic"],
 	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
-	usages : 1,
-	recovery : "Day",
-	additional : "Legendary Resistance",
 	extraLimitedFeatures : [{
+		name : "Dragon Mask (Legendary Resistance)",
+		usages : 1,
+		recovery : "Day"
+	}, {
 		name : "Dragon Mask (Blindsight 30 ft, 5 min)",
 		usages : 1,
 		recovery : "Day"
@@ -5032,7 +5033,7 @@ MagicItemsList["hazirawn"] = {
 		attunement : true,
 		description : "This sentient, neutral evil, greatsword adds +2 to damage and to hit rolls, deals +2d6 necrotic damage, and those hit with it can't regain HP for 1 min, but can make a DC 15 Con save at the end of each turn to stop this effect. It has 4 charges to cast spells, regaining 1d4 at midnight. It speaks Common and Netherese.",
 		extraLimitedFeatures : [{
-			name : "Hazirawn [regains 1d4]",
+			name : "Hazirawn (regains 1d4)",
 			usages : 4,
 			recovery : "Midnight"
 		}],
@@ -7217,6 +7218,7 @@ MagicItemsList["ironfang"] = {
 	usages : 1,
 	recovery : "dawn",
 	fixedDC : 17,
+	limfeaname : "Ironfang [Rumbling ritual]",
 	spellFirstColTitle : "Ch",
 	extraLimitedFeatures : [{
 		name : "Ironfang [Dominate Monster]",
