@@ -321,8 +321,7 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 };
 
 // Add weapons for races
-WeaponsList.khopesh = newObj(WeaponsList["longsword"]);
-WeaponsList.khopesh.regExpSearch = /khopesh/i;
+WeaponsList.longsword.regExpSearch = WeaponsList.longsword.regExpSearch.replace("|", "|khopesh|");
 
 // Adds 4 subclasses for the Cleric
 AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juju2569

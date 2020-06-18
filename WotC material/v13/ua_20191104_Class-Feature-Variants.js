@@ -517,7 +517,7 @@ origNatExpl.canny = {
 origNatExpl.roving = {
 	name : "Roving",
 	source : ["UA:CFV", 7],
-	description : "\n   I gain +5 ft walking speed and climbing and swimin speed equal to my walking speed",
+	description : "\n   I gain +5 ft walking speed and climbing and swimming speed equal to my walking speed",
 	speed : {
 		walk : { spd : "+5", enc : "+5" },
 		climb : { spd : "walk", enc : "walk" },
@@ -898,7 +898,7 @@ if (ClassList["rangerua"]) {
 	origNatExpl.roving = {
 		name : "Roving",
 		source : ["UA:CFV", 7],
-		description : "\n   I gain +5 ft walking speed and climbing and swimin speed equal to my walking speed",
+		description : "\n   I gain +5 ft walking speed and climbing and swimming speed equal to my walking speed",
 		speed : {
 			walk : { spd : "+5", enc : "+5" },
 			climb : { spd : "walk", enc : "walk" },
