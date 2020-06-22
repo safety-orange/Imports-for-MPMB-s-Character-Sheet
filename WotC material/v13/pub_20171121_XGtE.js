@@ -3928,7 +3928,7 @@ SpellsList["healing spirit"] = {
 	range : "60 ft",
 	components : "V,S",
 	duration : "Conc, 1 min",
-	description : "5-ft cube any living crea I can see starts/enters heals 1d6+1d6/SL HP; 1 bns move it 30 ft",
+	description : "5-ft cube living crea I see start/enter heals 1d6+1d6/SL HP; 1 bns move 30 ft; heal 1+spell mod times",
 	descriptionFull : "You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice)." + "\n   " + "Until the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead. The spirit can heal a number of times equal to 1 + your spellcasting ability modifier (minimum of twice). After healing that number of times, the spirit disappears." + "\n   " + "As a bonus action on your turn, you can move the spirit up to 30 feet to a space you can see." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d6 for each slot level above 2nd."
 };
 SpellsList["holy weapon"] = { 
