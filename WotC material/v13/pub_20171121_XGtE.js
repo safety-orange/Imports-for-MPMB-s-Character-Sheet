@@ -3918,7 +3918,7 @@ SpellsList["guardian of nature"] = {
 	description : "I transform into a Primal Beast (offensive bonuses) or a Great Tree (defensive bonuses); see book",
 	descriptionFull : "A nature spirit answers your call and transforms you into a powerful guardian. The transformation lasts until the spell ends. You choose one of the following forms to assume: Primal Beast or Great Tree." + "\n\n" + toUni("Primal Beast") + ": Bestial fur covers your body, your facial features become feral, and you gain the following benefits:" + "\n \u2022 " + "Your walking speed increases by 10 feet." + "\n \u2022 " + "You gain darkvision with a range of 120 feet." + "\n \u2022 " + "You make Strength-based attack rolls with advantage." + "\n \u2022 " + "Your melee weapon attacks deal an extra 1d6 force damage on a hit." + "\n\n" + toUni("Great Tree") + ": Your skin appears barky, leaves sprout from your hair, and you gain the following benefits:" + "\n \u2022 " + "You gain 10 temporary hit points." + "\n \u2022 " + "You make Constitution saving throws with advantage." + "\n \u2022 " + "You make Dexterity- and Wisdom-based attack rolls with advantage." + "\n \u2022 " + "While you are on the ground, the ground within 15 feet of you is difficult terrain for your enemies."
 };
-SpellsList["healing spirit"] = {
+SpellsList["healing spirit"] = { // limited usages (https://media.wizards.com/2020/dnd/downloads/XGtE-Errata.pdf)
 	name : "Healing Spirit",
 	classes : ["druid", "ranger"],
 	source : ["X", 157],
@@ -3928,7 +3928,7 @@ SpellsList["healing spirit"] = {
 	range : "60 ft",
 	components : "V,S",
 	duration : "Conc, 1 min",
-	description : "5-ft cube; living crea I see start/enter heals 1d6+1d6/SL HP; 1 bns move 30 ft; heal 1+spell mod times",
+	description : "5-ft cube; any living crea I see start/enter heals 1d6+1d6/SL HP; 1+spell mod uses; bns a move it 30 ft",
 	descriptionFull : "You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice)." + "\n   " + "Until the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead. The spirit can heal a number of times equal to 1 + your spellcasting ability modifier (minimum of twice). After healing that number of times, the spirit disappears." + "\n   " + "As a bonus action on your turn, you can move the spirit up to 30 feet to a space you can see." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d6 for each slot level above 2nd."
 };
 SpellsList["holy weapon"] = { 
@@ -4003,7 +4003,7 @@ SpellsList["invulnerability"] = {
 	description : "Immune to all damage until the spell ends (500gp cons.)",
 	descriptionFull : "You are immune to all damage until the spell ends."
 };
-SpellsList["life transference"] = {
+SpellsList["life transference"] = { // can't reduce damage taken (https://media.wizards.com/2020/dnd/downloads/XGtE-Errata.pdf)
 	name : "Life Transference",
 	classes : ["cleric", "wizard"],
 	source : ["X", 160],
@@ -4013,7 +4013,7 @@ SpellsList["life transference"] = {
 	range : "30 ft",
 	components : "V,S",
 	duration : "Instantaneous",
-	description : "I take 4d8+1d8/SL Necrotic dmg, and 1 crea in range I can see heals twice that in HP",
+	description : "I take 4d8+1d8/SL Necrotic dmg (in full), and 1 crea in range I can see heals twice that in HP",
 	descriptionFull : "You sacrifice some of your health to mend another creature's injuries. You take 4d8 necrotic damage, which can't be reduced in any way, and one creature of your choice that you can see within range regains a number of hit points equal to twice the necrotic damage you take." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd."
 };
 SpellsList["maddening darkness"] = {
@@ -4074,7 +4074,7 @@ SpellsList["mighty fortress"] = {
 	description : "Create a stone fortress 120 ft on a side for 7 days; see book for effects (500gp cons.)",
 	descriptionFull : "A fortress of stone erupts from a square area of ground of your choice that you can see within range. The area is 120 feet on each side, and it must not have any buildings or other structures on it. Any creatures in the area are harmlessly lifted up as the fortress rises." + "\n   " + "The fortress has four turrets with square bases, each one 20 feet on a side and 30 feet tall, with one turret on each corner. The turrets are connected to each other by stone walls that are each 80 feet long, creating an enclosed area. Each wall is 1 foot thick and is composed of panels that are 10 feet wide and 20 feet tall. Each panel is contiguous with two other panels or one other panel and a turret. You can place up to four stone doors in the fortress's outer wall." + "\n   " + "A small keep stands inside the enclosed area. The keep has a square base that is 50 feet on each side, and it has three floors with 10-foot-high ceilings. Each of the floors can be divided into as many rooms as you like, provided each room is at least 5 feet on each side. The floors of the keep are connected by stone staircases, its walls are 6 inches thick, and interior rooms can have stone doors or open archways as you choose. The keep is furnished and decorated however you like, and it contains sufficient food to serve a nine-course banquet for up to 100 people each day. Furnishings, food, and other objects created by this spell crumble to dust if removed from the fortress." + "\n   " + "A staff of one hundred invisible servants obeys any command given to them by creatures you designate when you cast the spell. Each servant functions as if created by the unseen servant spell." + "\n   " + "The walls, turrets, and keep are all made of stone that can be damaged. Each 10-foot-by-10-foot section of stone has AC 15 and 30 hit points per inch of thickness. It is immune to poison and psychic damage. Reducing a section of stone to 0 hit points destroys it and might cause connected sections to buckle and collapse at the DM's discretion." + "\n   " + "After 7 days or when you cast this spell somewhere else, the fortress harmlessly crumbles and sinks back into the ground, leaving any creatures that were inside it safely on the ground." + "\n   " + "Casting this spell on the same spot once every 7 days for a year makes the fortress permanent."
 };
-SpellsList["mind spike"] = { // +1d8 at higher levels errata (https://twitter.com/JeremyECrawford/status/930603935391293440)
+SpellsList["mind spike"] = { // +1d8 at higher levels errata (https://media.wizards.com/2020/dnd/downloads/XGtE-Errata.pdf)
 	name : "Mind Spike",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["X", 162],
