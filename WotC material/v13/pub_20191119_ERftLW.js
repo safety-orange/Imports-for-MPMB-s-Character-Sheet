@@ -30,7 +30,7 @@ RaceList["changeling-erlw"] = {
 	weightMetric : " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
 	scorestxt : "+2 Charisma and +1 to one ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 2],	
-	trait : "Changeling (+2 Charisma and +1 to one ability scores of my choice)\n\nShapechanger: As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight, but not so much that my size changes. I revert back when I die. I can make yourself appear as a member of another race, though none of my game statistics change.",
+	trait : "Changeling (+2 Charisma and +1 to one ability scores of my choice)\n\nShapechanger: As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight, but not so much that my size changes. I revert back when I die. I can make myself appear as a member of another race, though none of my game statistics change.",
 	action : [["action", "Shapechanger"]]
 };
 
