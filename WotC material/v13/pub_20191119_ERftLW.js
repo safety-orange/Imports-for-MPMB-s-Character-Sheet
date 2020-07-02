@@ -1686,7 +1686,7 @@ ClassList.artificer = {
 					"As a bonus action, its wielder can start/stop the light, 30-ft radius bright + 30 ft dim light",
 					"The weapon has 4 charges, regaining 1d4 expended charges daily at dawn",
 					"As a reaction when hit by an attack, the wielder can expend 1 charge to blind its attacker",
-					"The attack must succeed on a Con save (spell save DC) or be blinded until its next turn ends"
+					"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends"
 				]),
 				additional : "simple/martial weapon; requires attunement",
 				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
