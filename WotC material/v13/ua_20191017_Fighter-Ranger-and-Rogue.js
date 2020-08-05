@@ -346,7 +346,7 @@ AddSubClass("rogue", "the revived", {
 				damage : [1, 6, "necrotic"],
 				range : "30 ft",
 				description : "Immediately after using cunning action; Only if I not yet used sneak attack this turn",
-				abilitytodamage : false,
+				abilitytodamage : true,
 				isBoltsFromTheGrave : true
 			}],
 			calcChanges : {
