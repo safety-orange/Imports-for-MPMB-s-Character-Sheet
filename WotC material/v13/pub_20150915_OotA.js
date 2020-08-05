@@ -53,7 +53,7 @@ CreatureList["steeder"] = { // "Steeder, Female" entry so that just "steeder" al
 		}, {
 			name : "Sticky Leg",
 			ability : 2,
-			damage : ["Grappled", "", ""], //[#, die, type] "" for die is allowed
+			damage : ["\u2015", "", "Grappled"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "Medium or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
 			modifiers : ["", "", false] //[to hit, to damage, add ability to damage] "" means ignore
@@ -99,7 +99,7 @@ CreatureList["steeder, male"] = {
 		}, {
 			name : "Sticky Leg",
 			ability : 1,
-			damage : ["Grappled", "", ""], //[#, die, type] "" for die is allowed
+			damage : ["\u2015", "", "Grappled"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "Small or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
 			modifiers : ["", "", false] //[to hit, to damage, add ability to damage] "" means ignore

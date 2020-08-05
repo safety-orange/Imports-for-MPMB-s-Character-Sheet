@@ -221,7 +221,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isMeleeWeapon && (/thrown/i).test(v.theWea.description)) {
+				if (v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
 					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
 				};
 			},
@@ -361,7 +361,7 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy, two-handed, or special property, are magic weapons, or those that are spells or cantrips
-		if (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special|(2|two).?hand(ed)?s?/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list)) continue;
+		if (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special|((^|[^+-]\b)2|\btwo).?hand(ed)?s?/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list)) continue;
 		origMartialArts.extrachoices.push(aWea.name);
 		origMartialArts[aWea.name.toLowerCase()] = {
 			name : aWea.name,

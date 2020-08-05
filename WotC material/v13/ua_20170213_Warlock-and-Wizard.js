@@ -32,7 +32,7 @@ AddSubClass("warlock", "the hexblade", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && !(/\b(2|two).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
+						if (v.isMeleeWeapon && !(/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
 							fields.Mod = 6;
 						};
 					},

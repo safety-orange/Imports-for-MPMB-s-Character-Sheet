@@ -358,7 +358,7 @@ MagicItemsList["ingot of the skold rune"] = {
 			descriptionChange : ["replace", "weapon"],
 			itemName1stPage : ["suffix", "Skold Rune"],
 			excludeCheck : function (inObjKey, inObj) {
-				return !(/melee/i).test(inObj.range) || !(/\b(2|two).?hand(ed)?s?\b/i).test(inObj.description);
+				return !(/melee/i).test(inObj.range) || !(/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i).test(inObj.description);
 			}
 		},
 		calcChanges : {
