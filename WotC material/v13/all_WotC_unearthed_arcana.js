@@ -6041,7 +6041,7 @@ AddSubClass("warlock", "the hexblade", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && !(/\b(2|two).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
+						if (v.isMeleeWeapon && !(/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
 							fields.Mod = 6;
 						};
 					},
@@ -18108,7 +18108,7 @@ AddSubClass("rogue", "the revived", {
 				damage : [1, 6, "necrotic"],
 				range : "30 ft",
 				description : "Immediately after using cunning action; Only if I not yet used sneak attack this turn",
-				abilitytodamage : false,
+				abilitytodamage : true,
 				isBoltsFromTheGrave : true
 			}],
 			calcChanges : {
@@ -18344,24 +18344,6 @@ if (ClassSubList["druid-circle of the moon"]) {
 	AddFeatureChoice(ClassSubList["druid-circle of the moon"].features["subclassfeature2.wild shape"], true, "Wild Companion", wildCompanionObject, "Wild Shape Enhancement");
 }
 
-// Fighter alternative class features and enhancements
-AddFightingStyle(["fighter"], "Superior Technique", {
-	name : "Superior Technique",
-	source : ["UA:CFV", 5],
-	description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
-		"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
-		"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
-		'Use the \"Choose Feature\" button above to add a Maneuver to the third page'
-	]),
-	eval : function () {
-		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
-		DontPrint("Class Features Menu");
-	},
-	removeeval : function () {
-		RemoveFeature('Combat Superiority ', 1);
-		if (!MakeClassMenu()) Hide("Class Features Menu");
-	}
-});
 // The enhancement option for fighting styles has to be added to each class separately
 AddFeatureChoice(ClassList.fighter.features["fighting style"], true, "Martial Versatility", {
 	name : "Martial Versatility",
@@ -18397,7 +18379,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isMeleeWeapon && (/thrown/i).test(v.theWea.description)) {
+				if (v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
 					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
 				};
 			},
@@ -18426,6 +18408,25 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting", {
 	}
 });
 if (ClassSubList["fighter-battle master"]) {
+	// Fighter alternative class features and enhancements (only if Battle Master subclass exists)
+	AddFightingStyle(["fighter"], "Superior Technique", {
+		name : "Superior Technique",
+		source : ["UA:CFV", 5],
+		description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
+			"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
+			"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
+			'Use the "Choose Feature" button above to add a Maneuver to the third page'
+		]),
+		eval : function () {
+			AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
+			DontPrint("Class Features Menu");
+		},
+		removeeval : function () {
+			RemoveFeature('Combat Superiority ', 1);
+			if (!MakeClassMenu()) Hide("Class Features Menu");
+		}
+	});
+	// New Maneuver options for the Battle Master
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Maneuver Versatility", {
 		name : "Maneuver Versatility",
 		source : ["UA:CFV", 5],
@@ -18537,7 +18538,7 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy, two-handed, or special property, are magic weapons, or those that are spells or cantrips
-		if (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special|(2|two).?hand(ed)?s?/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list)) continue;
+		if (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special|((^|[^+-]\b)2|\btwo).?hand(ed)?s?/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list)) continue;
 		origMartialArts.extrachoices.push(aWea.name);
 		origMartialArts[aWea.name.toLowerCase()] = {
 			name : aWea.name,

@@ -168,24 +168,6 @@ if (ClassSubList["druid-circle of the moon"]) {
 	AddFeatureChoice(ClassSubList["druid-circle of the moon"].features["subclassfeature2.wild shape"], true, "Wild Companion", wildCompanionObject, "Wild Shape Enhancement");
 }
 
-// Fighter alternative class features and enhancements
-AddFightingStyle(["fighter"], "Superior Technique", {
-	name : "Superior Technique",
-	source : ["UA:CFV", 5],
-	description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
-		"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
-		"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
-		'Use the \"Choose Feature\" button above to add a Maneuver to the third page'
-	]),
-	eval : function () {
-		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
-		DontPrint("Class Features Menu");
-	},
-	removeeval : function () {
-		RemoveFeature('Combat Superiority ', 1);
-		if (!MakeClassMenu()) Hide("Class Features Menu");
-	}
-});
 // The enhancement option for fighting styles has to be added to each class separately
 AddFeatureChoice(ClassList.fighter.features["fighting style"], true, "Martial Versatility", {
 	name : "Martial Versatility",
@@ -250,6 +232,25 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting", {
 	}
 });
 if (ClassSubList["fighter-battle master"]) {
+	// Fighter alternative class features and enhancements (only if Battle Master subclass exists)
+	AddFightingStyle(["fighter"], "Superior Technique", {
+		name : "Superior Technique",
+		source : ["UA:CFV", 5],
+		description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
+			"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
+			"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
+			'Use the "Choose Feature" button above to add a Maneuver to the third page'
+		]),
+		eval : function () {
+			AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
+			DontPrint("Class Features Menu");
+		},
+		removeeval : function () {
+			RemoveFeature('Combat Superiority ', 1);
+			if (!MakeClassMenu()) Hide("Class Features Menu");
+		}
+	});
+	// New Maneuver options for the Battle Master
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Maneuver Versatility", {
 		name : "Maneuver Versatility",
 		source : ["UA:CFV", 5],

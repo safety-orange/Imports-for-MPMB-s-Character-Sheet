@@ -2871,22 +2871,16 @@ MagicItemsList["finder's goggles"] = {
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known);
 	},
-	usages : 4,
+	action : [["action", " (examine object)"]],
+	usages : 1,
 	recovery : "dawn",
-	additional : "regains 1d4",
-	fixedDC : 15,
-	spellFirstColTitle : "Ch",
-	spellcastingBonus : [{
-		name : "1 charge",
-		spells : ["dissonant whispers"],
-		selection : ["dissonant whispers"],
-		firstCol : 1
-	}, {
-		name : "2 charges",
-		spells : ["detect thoughts"],
-		selection : ["detect thoughts"],
-		firstCol : 2
-	}]
+	additional : "examine object",
+	spellcastingBonus : {
+		name : "After examining object",
+		spells : ["locate creature"],
+		selection : ["locate creature"],
+		firstCol : "Sp"
+	}
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",

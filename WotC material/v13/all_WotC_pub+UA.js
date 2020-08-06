@@ -5539,7 +5539,7 @@ CreatureList["vine blight"] = {
 	],
 	actions : [{
 			name : "Entangling Plants (Recharge 5-6)",
-			description : "As an action, grasping roots and vines sprout in a 15-foot radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
+			description : "As an action, grasping roots and vines sprout in a 15-ft radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
 		}
 	],
 	wildshapeString : "Blindsight 60 ft (blind beyond)| Immune to blinded, deafened| Entangling Plants (Recharge 5-6): As an action, 15-ft radius is difficult terrain for nonplant creatures, for 1 minute. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to make a DC 12 Str check to free itself or another within reach| False Appearance: While motionless, it's indistinguishable from a tangle of vines."
@@ -9377,7 +9377,7 @@ CreatureList["steeder"] = { // "Steeder, Female" entry so that just "steeder" al
 		}, {
 			name : "Sticky Leg",
 			ability : 2,
-			damage : ["Grappled", "", ""], //[#, die, type] "" for die is allowed
+			damage : ["\u2015", "", "Grappled"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "Medium or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
 			modifiers : ["", "", false] //[to hit, to damage, add ability to damage] "" means ignore
@@ -9423,7 +9423,7 @@ CreatureList["steeder, male"] = {
 		}, {
 			name : "Sticky Leg",
 			ability : 1,
-			damage : ["Grappled", "", ""], //[#, die, type] "" for die is allowed
+			damage : ["\u2015", "", "Grappled"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "Small or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
 			modifiers : ["", "", false] //[to hit, to damage, add ability to damage] "" means ignore
@@ -12536,7 +12536,7 @@ MagicItemsList["ingot of the skold rune"] = {
 			descriptionChange : ["replace", "weapon"],
 			itemName1stPage : ["suffix", "Skold Rune"],
 			excludeCheck : function (inObjKey, inObj) {
-				return !(/melee/i).test(inObj.range) || !(/\b(2|two).?hand(ed)?s?\b/i).test(inObj.description);
+				return !(/melee/i).test(inObj.range) || !(/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i).test(inObj.description);
 			}
 		},
 		calcChanges : {
@@ -17697,7 +17697,7 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				atkAdd : [
 					function (fields, v) {
 						var hasPactWeapon = GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade';
-						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*\b(2|two).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
+						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
 							fields.Mod = 6;
 						};
 					},
@@ -25984,7 +25984,7 @@ RaceList["wildhunt shifter-erlw"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 2, 0],
-	trait : "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have advantage on Wisdom checks and no creature within 30 ft can make an attack roll with advantage against me, unless I'm incapacitated.",
+	trait : "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have advantage on Wisdom checks and no creature within 30 ft can make an attack roll with advantage against me, unless I'm incapacitated.",
 	features : {
 		"shift" : {
 			name : "Shift",
@@ -27309,7 +27309,7 @@ ClassList.artificer = {
 					"As a bonus action, its wielder can start/stop the light, 30-ft radius bright + 30 ft dim light",
 					"The weapon has 4 charges, regaining 1d4 expended charges daily at dawn",
 					"As a reaction when hit by an attack, the wielder can expend 1 charge to blind its attacker",
-					"The attack must succeed on a Con save (spell save DC) or be blinded until its next turn ends"
+					"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends"
 				]),
 				additional : "simple/martial weapon; requires attunement",
 				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
@@ -28494,22 +28494,16 @@ MagicItemsList["finder's goggles"] = {
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*finding).*$/i).test(CurrentRace.known);
 	},
-	usages : 4,
+	action : [["action", " (examine object)"]],
+	usages : 1,
 	recovery : "dawn",
-	additional : "regains 1d4",
-	fixedDC : 15,
-	spellFirstColTitle : "Ch",
-	spellcastingBonus : [{
-		name : "1 charge",
-		spells : ["dissonant whispers"],
-		selection : ["dissonant whispers"],
-		firstCol : 1
-	}, {
-		name : "2 charges",
-		spells : ["detect thoughts"],
-		selection : ["detect thoughts"],
-		firstCol : 2
-	}]
+	additional : "examine object",
+	spellcastingBonus : {
+		name : "After examining object",
+		spells : ["locate creature"],
+		selection : ["locate creature"],
+		firstCol : "Sp"
+	}
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",
@@ -35438,7 +35432,7 @@ AddSubClass("warlock", "the hexblade", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && !(/\b(2|two).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
+						if (v.isMeleeWeapon && !(/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
 							fields.Mod = 6;
 						};
 					},
@@ -47505,7 +47499,7 @@ AddSubClass("rogue", "the revived", {
 				damage : [1, 6, "necrotic"],
 				range : "30 ft",
 				description : "Immediately after using cunning action; Only if I not yet used sneak attack this turn",
-				abilitytodamage : false,
+				abilitytodamage : true,
 				isBoltsFromTheGrave : true
 			}],
 			calcChanges : {
@@ -47741,24 +47735,6 @@ if (ClassSubList["druid-circle of the moon"]) {
 	AddFeatureChoice(ClassSubList["druid-circle of the moon"].features["subclassfeature2.wild shape"], true, "Wild Companion", wildCompanionObject, "Wild Shape Enhancement");
 }
 
-// Fighter alternative class features and enhancements
-AddFightingStyle(["fighter"], "Superior Technique", {
-	name : "Superior Technique",
-	source : ["UA:CFV", 5],
-	description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
-		"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
-		"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
-		'Use the \"Choose Feature\" button above to add a Maneuver to the third page'
-	]),
-	eval : function () {
-		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
-		DontPrint("Class Features Menu");
-	},
-	removeeval : function () {
-		RemoveFeature('Combat Superiority ', 1);
-		if (!MakeClassMenu()) Hide("Class Features Menu");
-	}
-});
 // The enhancement option for fighting styles has to be added to each class separately
 AddFeatureChoice(ClassList.fighter.features["fighting style"], true, "Martial Versatility", {
 	name : "Martial Versatility",
@@ -47794,7 +47770,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isMeleeWeapon && (/thrown/i).test(v.theWea.description)) {
+				if (v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
 					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
 				};
 			},
@@ -47823,6 +47799,25 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting", {
 	}
 });
 if (ClassSubList["fighter-battle master"]) {
+	// Fighter alternative class features and enhancements (only if Battle Master subclass exists)
+	AddFightingStyle(["fighter"], "Superior Technique", {
+		name : "Superior Technique",
+		source : ["UA:CFV", 5],
+		description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
+			"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
+			"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
+			'Use the "Choose Feature" button above to add a Maneuver to the third page'
+		]),
+		eval : function () {
+			AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
+			DontPrint("Class Features Menu");
+		},
+		removeeval : function () {
+			RemoveFeature('Combat Superiority ', 1);
+			if (!MakeClassMenu()) Hide("Class Features Menu");
+		}
+	});
+	// New Maneuver options for the Battle Master
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Maneuver Versatility", {
 		name : "Maneuver Versatility",
 		source : ["UA:CFV", 5],
@@ -47934,7 +47929,7 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy, two-handed, or special property, are magic weapons, or those that are spells or cantrips
-		if (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special|(2|two).?hand(ed)?s?/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list)) continue;
+		if (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special|((^|[^+-]\b)2|\btwo).?hand(ed)?s?/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list)) continue;
 		origMartialArts.extrachoices.push(aWea.name);
 		origMartialArts[aWea.name.toLowerCase()] = {
 			name : aWea.name,
