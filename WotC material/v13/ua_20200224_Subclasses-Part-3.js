@@ -367,6 +367,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		type : "ring",
 		description : "As an action, I can activate this magic ring to recover one expended spell slot. The maximum level of the recovered slot is equal to the number of magic items I am attuned to when I activate this ring. Once used, the ring can't be used again until the next dawn.",
 		descriptionFull : "While wearing this ring, the creature can recover one expended spell slot as an action. The maximum level of the recovered slot is equal to the number of magic items the wearer is currently attuned to. Once used, the ring can't be used again until the next dawn.",
+		attunement : true,
 		action : [["action", ""]],
 		usages : 1,
 		recovery : "dawn"
