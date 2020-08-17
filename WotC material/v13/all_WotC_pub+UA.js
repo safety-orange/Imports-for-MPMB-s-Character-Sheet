@@ -4914,7 +4914,7 @@ MagicItemsList["dragon mask"] = {
 		toNotesPage : [{
 			name : "Features",
 			popupName : "Features of the Black Dragon Mask",
-			note : "\n   This horned mask of glossy ebony has horns and a skull-like mien." + tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "acid").replace("DCOLOUR", "any") + "\n   Water Breathing. I can breathe underwater."
+			note : "\n   This horned mask of glossy ebony has horns and a skull-like mien." + tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "acid").replace("DCOLOUR", "black") + "\n   Water Breathing. I can breathe underwater."
 		}]
 	},
 	/*
