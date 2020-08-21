@@ -450,6 +450,7 @@ MagicItemsList["wand of viscid globs"] = {
 	action : [["action", ""]],
 	weaponsAdd : ["Wand of Viscid Globs"],
 	weaponOptions : {
+		regExpSearch : /^(?=.*wand)(?=.*viscid)(?=.*globs).*$/i,
 		name : "Wand of Viscid Globs",
 		source : ["OotA", 223],
 		ability : 4,
@@ -457,28 +458,7 @@ MagicItemsList["wand of viscid globs"] = {
 		damage : ["\u2015", "", "Restrained"],
 		range : "60 ft",
 		description : "1 charge; Lasts 1 hour or until exposed to sunlight, a pint of alcohol, oil of etherealness, or universal solvent",
-		abilitytodamage : false
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (v.theWea.name === "Wand of Viscid Globs") {
-					// get the highest spellcasting ability score
-					var abiArr = [];
-					for (var aCast in CurrentSpells) {
-						if (!isNaN(CurrentSpells[aCast].ability)) abiArr.push(CurrentSpells[aCast].ability);
-					}
-					var abiDone = [];
-					var abiModArr = [];
-					for (var i = 0; i < abiArr.length; i++) {
-						if (!abiArr[i] || abiDone.indexOf(abiArr[i]) !== -1) continue;
-						abiDone.push(abiArr[i]);
-						var thisMod = What(AbilityScores.abbreviations[abiArr[i] - 1]);
-						if (thisMod > Math.max.apply(Math, abiModArr)) fields.Mod = abiArr[i];
-						abiModArr.push(thisMod);
-					}
-				}
-			}, ''
-		]
+		abilitytodamage : false,
+		useSpellcastingAbility : true
 	}
 }

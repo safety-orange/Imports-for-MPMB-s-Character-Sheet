@@ -9781,29 +9781,8 @@ MagicItemsList["wand of viscid globs"] = {
 		damage : ["\u2015", "", "Restrained"],
 		range : "60 ft",
 		description : "1 charge; Lasts 1 hour or until exposed to sunlight, a pint of alcohol, oil of etherealness, or universal solvent",
-		abilitytodamage : false
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (v.theWea.name === "Wand of Viscid Globs") {
-					// get the highest spellcasting ability score
-					var abiArr = [];
-					for (var aCast in CurrentSpells) {
-						if (!isNaN(CurrentSpells[aCast].ability)) abiArr.push(CurrentSpells[aCast].ability);
-					}
-					var abiDone = [];
-					var abiModArr = [];
-					for (var i = 0; i < abiArr.length; i++) {
-						if (!abiArr[i] || abiDone.indexOf(abiArr[i]) !== -1) continue;
-						abiDone.push(abiArr[i]);
-						var thisMod = What(AbilityScores.abbreviations[abiArr[i] - 1]);
-						if (thisMod > Math.max.apply(Math, abiModArr)) fields.Mod = abiArr[i];
-						abiModArr.push(thisMod);
-					}
-				}
-			}, ''
-		]
+		abilitytodamage : false,
+		useSpellcastingAbility : true
 	}
 }
 
@@ -18750,7 +18729,8 @@ WeaponsList["shadow blade"] = {
     range : "Melee, 20/60 ft",
     description : "Finesse, light, thrown; +1d8 at SL3/5/7; Adv. if target in dim light/darkness",
 	abilitytodamage : true,
-	isAlwaysProf : true
+	isAlwaysProf : true,
+	useSpellcastingMod : false
 };
 SpellsList["shadow of moil"] = {
 	name : "Shadow of Moil",

@@ -4183,7 +4183,8 @@ WeaponsList["shadow blade"] = {
     range : "Melee, 20/60 ft",
     description : "Finesse, light, thrown; +1d8 at SL3/5/7; Adv. if target in dim light/darkness",
 	abilitytodamage : true,
-	isAlwaysProf : true
+	isAlwaysProf : true,
+	useSpellcastingAbility : false
 };
 SpellsList["shadow of moil"] = {
 	name : "Shadow of Moil",
