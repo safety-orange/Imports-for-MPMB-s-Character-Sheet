@@ -259,9 +259,9 @@ RaceList["wood elf"] = {
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
-	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
+	weight : " weigh around 125 lb (100 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
-	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
+	weightMetric : " weigh around 60 kg (45 + 5d10 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Wood Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
 };
@@ -9774,6 +9774,7 @@ MagicItemsList["wand of viscid globs"] = {
 	action : [["action", ""]],
 	weaponsAdd : ["Wand of Viscid Globs"],
 	weaponOptions : {
+		regExpSearch : /^(?=.*wand)(?=.*viscid)(?=.*globs).*$/i,
 		name : "Wand of Viscid Globs",
 		source : ["OotA", 223],
 		ability : 4,
@@ -18730,7 +18731,7 @@ WeaponsList["shadow blade"] = {
     description : "Finesse, light, thrown; +1d8 at SL3/5/7; Adv. if target in dim light/darkness",
 	abilitytodamage : true,
 	isAlwaysProf : true,
-	useSpellcastingMod : false
+	useSpellcastingAbility : false
 };
 SpellsList["shadow of moil"] = {
 	name : "Shadow of Moil",
