@@ -3347,7 +3347,7 @@ CreatureList["homunculus servant"] = {
 	ac : 13,
 	hp : 1,
 	hd : [],
-	speed : "20 ft,\nfly 30 ft",
+	speed : "20 ft, fly 30 ft",
 	scores : [4, 15, 12, 10, 10, 7],
 	saves : ["", 4, "", "", "", ""],
 	skills : {
@@ -3429,7 +3429,7 @@ CreatureList["eldritch cannon"] = {
 	ac : 18,
 	hp : 5,
 	hd : [],
-	speed : "15 ft,\nclimb 15 ft",
+	speed : "15 ft, climb 15 ft",
 	scores : [10, 10, 10, 10, 10, 10],
 	saves : ["", "", "", "", "", ""],
 	damage_immunities : "poison, psychic",

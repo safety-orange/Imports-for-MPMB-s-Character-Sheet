@@ -244,7 +244,7 @@ CreatureList["wildfire spirit-uacdnw"] = {
 	ac : 13,
 	hp : 12,
 	hd : [2, 6],
-	speed : "20 ft,\nfly 30 ft (hover)",
+	speed : "20 ft, fly 30 ft (hover)",
 	scores : [10, 14, 14, 13, 15, 11],
 	saves : ["", 4, 4, "", 4, ""],
 	skills : {

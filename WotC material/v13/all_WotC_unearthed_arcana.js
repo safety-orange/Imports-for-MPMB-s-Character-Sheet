@@ -15931,7 +15931,7 @@ CreatureList["alchemical homunculus-ua"] = {
 	ac : 13,
 	hp : 5,
 	hd : [],
-	speed : "20 ft,\nfly 30 ft",
+	speed : "20 ft, fly 30 ft",
 	scores : [4, 15, 11, 10, 10, 7],
 	saves : ["", "", "", "", "", ""],
 	skills : {
@@ -16249,7 +16249,7 @@ CreatureList["arcane turret-ua"] = {
 	ac : 18,
 	hp : 15,
 	hd : [0, 0],
-	speed : "15 ft,\nclimb 15 ft",
+	speed : "15 ft, climb 15 ft",
 	scores : [10, 10, 10, 10, 10, 10],
 	saves : ["", "", "", "", "", ""],
 	damage_immunities : "poison, psychic",
@@ -17589,7 +17589,7 @@ CreatureList["wildfire spirit-uacdnw"] = {
 	ac : 13,
 	hp : 12,
 	hd : [2, 6],
-	speed : "20 ft,\nfly 30 ft (hover)",
+	speed : "20 ft, fly 30 ft (hover)",
 	scores : [10, 14, 14, 13, 15, 11],
 	saves : ["", 4, 4, "", 4, ""],
 	skills : {
@@ -18912,7 +18912,7 @@ CreatureList["beast of the air"] = {
 	ac : 13,
 	hp : 6,
 	hd : [1, 6],
-	speed : "10 ft,\nfly 60 ft",
+	speed : "10 ft, fly 60 ft",
 	scores : [6, 16, 13, 8, 14, 11],
 	saves : ["", 5, 3, "", 4, ""],
 	skills : {
@@ -18962,7 +18962,7 @@ CreatureList["beast of the earth"] = {
 	ac : 12,
 	hp : 7,
 	hd : [1, 8],
-	speed : "40 ft,\nclimb or swim 40 ft",
+	speed : "40 ft, climb or swim 40 ft",
 	scores : [14, 14, 15, 8, 14, 11],
 	saves : ["", 4, 4, "", 4, ""],
 	skills : {

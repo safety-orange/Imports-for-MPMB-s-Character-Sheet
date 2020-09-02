@@ -736,7 +736,7 @@ CreatureList["beast of the air"] = {
 	ac : 13,
 	hp : 6,
 	hd : [1, 6],
-	speed : "10 ft,\nfly 60 ft",
+	speed : "10 ft, fly 60 ft",
 	scores : [6, 16, 13, 8, 14, 11],
 	saves : ["", 5, 3, "", 4, ""],
 	skills : {
@@ -786,7 +786,7 @@ CreatureList["beast of the earth"] = {
 	ac : 12,
 	hp : 7,
 	hd : [1, 8],
-	speed : "40 ft,\nclimb or swim 40 ft",
+	speed : "40 ft, climb or swim 40 ft",
 	scores : [14, 14, 15, 8, 14, 11],
 	saves : ["", 4, 4, "", 4, ""],
 	skills : {

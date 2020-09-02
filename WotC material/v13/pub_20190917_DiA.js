@@ -162,7 +162,7 @@ CreatureList["abyssal chicken"] = {
 	ac : 13,
 	hp : 10,
 	hd : [3, 4],
-	speed : "30 ft,\nfly 30 ft",
+	speed : "30 ft, fly 30 ft",
 	scores : [6, 14, 13, 4, 9, 5],
 	saves : ["", "", "", "", "", ""],
 	damage_immunities : "cold, fire, lightning",
