@@ -17301,7 +17301,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 			source : ["X", 50],
 			minlevel : 1,
 			description : desc([
-				"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
+				"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 				"These cleric spells count as sorcerer spells for me",
 				"I also learn a spell based on my affinity, use the \"Choose Feature\" button above for this"
 			]),
@@ -17309,7 +17309,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 			"good" : {
 				name : "Divine Magic: Good",
 				description : desc([
-					"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
+					"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 					"I also learn Cure Wounds, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
@@ -17324,7 +17324,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 			"evil" : {
 				name : "Divine Magic: Evil",
 				description : desc([
-					"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
+					"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 					"I also learn Inflict Wounds, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
@@ -17339,7 +17339,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 			"law" : {
 				name : "Divine Magic: Law",
 				description : desc([
-					"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
+					"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 					"I also learn Bless, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
@@ -17354,7 +17354,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 			"chaos" : {
 				name : "Divine Magic: Chaos",
 				description : desc([
-					"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
+					"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 					"I also learn Bane, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
@@ -17369,7 +17369,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 			"neutrality" : {
 				name : "Divine Magic: Neutrality",
 				description : desc([
-					"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
+					"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 					"I learn Protection from Evil \u00D7 Good; It doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
