@@ -4968,11 +4968,11 @@ MagicItemsList["instrument of illusions"] = { // contains contributions by Aelar
 	},
 	"bard (15-ft radius)" : {
 		name : "Instrument\u200A of Illusions",
-		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
 	},
 	"not a bard (5-ft radius)" : {
 		name : "Instrument\u200A\u200A of Illusions",
-		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
 	}
 }
 MagicItemsList["instrument of scribing"] = { // contains contributions by AelarTheElFRogue
@@ -4990,11 +4990,11 @@ MagicItemsList["instrument of scribing"] = { // contains contributions by AelarT
 	},
 	"bard (15-ft radius)" : {
 		name : "Instrument\u200A of Scribing",
-		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
 	},
 	"not a bard (5-ft radius)" : {
 		name : "Instrument\u200A\u200A of Scribing",
-		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
+		description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing."
 	}
 }
 MagicItemsList["lock of trickery"] = {
