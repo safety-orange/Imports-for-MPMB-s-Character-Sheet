@@ -2049,7 +2049,7 @@ AddSubClass("bard", "college of satire", {
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest",
 			spellcastingBonus : {
-				name : "Spirit Walker",
+				name : "Fool's Insight",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : "(S)"
