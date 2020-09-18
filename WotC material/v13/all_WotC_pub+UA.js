@@ -586,7 +586,7 @@ AddSubClass("cleric", "light domain", {
 			action : ["action", ""]
 		},
 		"subclassfeature6" : {
-			name : "Improved Flame",
+			name : "Improved Flare",
 			source : ["P", 61],
 			minlevel : 6,
 			description : "\n   " + "I can also use my Warding Flare if another is attacked by a creature within 30 ft of me"
