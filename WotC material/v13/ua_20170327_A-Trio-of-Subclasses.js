@@ -140,7 +140,8 @@ var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer", {
 			source : ["UA:AToS", 3],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Slayer's Eye",

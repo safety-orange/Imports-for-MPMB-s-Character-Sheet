@@ -491,7 +491,8 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 			source : [["UA:SP3", 5]],
 			minlevel : 3,
 			description : "\n   I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["charm person", "misty step", "dispel magic", "banishment", "mislead"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["charm person", "misty step", "dispel magic", "banishment", "mislead"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Cunning Will",

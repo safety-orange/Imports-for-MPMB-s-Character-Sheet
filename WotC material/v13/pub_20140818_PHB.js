@@ -3417,12 +3417,12 @@ FeatsList["great weapon master"] = {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/heavy/i).test(fields.Description) && (/power.{0,3}attack|great.{0,3}weapon.{0,3}master/i).test(v.WeaponText)) {
+				if (v.isMeleeWeapon && (/heavy/i).test(fields.Description) && (/\bgwm\b|power.{0,3}attack|great.{0,3}weapon.{0,3}master/i).test(v.WeaponText)) {
 					output.extraDmg += 10;
 					output.extraHit -= 5;
 				};
 			},
-			"If I include the words 'Power Attack' or 'Great Weapon Master' in a heavy melee weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."
+			"If I include the words 'Power Attack', 'Great Weapon Master', or just 'GWM' in a heavy melee weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."
 		]
 	}
 };

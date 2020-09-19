@@ -18,7 +18,8 @@ AddSubClass("sorcerer", "aberrant mind", {
 	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
 	subname : "Aberrant Mind",
 	source : ["UA:SnW", 1],
-	spellcastingExtra : UA_abberantMindExtraSpell.concat(new Array(90)).concat("AddToKnown"),
+	spellcastingExtra : UA_abberantMindExtraSpell,
+	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
 			name : "Invasive Thoughts",

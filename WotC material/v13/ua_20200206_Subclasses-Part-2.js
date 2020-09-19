@@ -303,7 +303,8 @@ AddSubClass("sorcerer", "clockwork soul", {
 	subname : "Clockwork Soul",
 	source : [["UA:SP2", 4]],
 	fullname : "Clockwork Soul",
-	spellcastingExtra : ["alarm", "protection from evil and good", "find traps", "heat metal", "counterspell", "glyph of warding", "arcane eye", "otiluke's resilient sphere", "animate objects", "wall of force"].concat(new Array(90)).concat("AddToKnown"),
+	spellcastingExtra : ["alarm", "protection from evil and good", "find traps", "heat metal", "counterspell", "glyph of warding", "arcane eye", "otiluke's resilient sphere", "animate objects", "wall of force"],
+	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
 			name : "Clockwork Magic",

@@ -357,7 +357,8 @@ AddSubClass("rangerua", "deep stalker", {
 			source : ["UA:RR", 8],
 			minlevel : 3,
 			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
-			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
+			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"],
+			spellcastingExtraApplyNonconform : true,
 			vision : [["Darkvision", "fixed 90"], ["Darkvision", "+30"]]
 		},
 		"subclassfeature7" : {

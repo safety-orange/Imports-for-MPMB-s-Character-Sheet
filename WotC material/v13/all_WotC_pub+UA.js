@@ -3558,12 +3558,12 @@ FeatsList["great weapon master"] = {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/heavy/i).test(fields.Description) && (/power.{0,3}attack|great.{0,3}weapon.{0,3}master/i).test(v.WeaponText)) {
+				if (v.isMeleeWeapon && (/heavy/i).test(fields.Description) && (/\bgwm\b|power.{0,3}attack|great.{0,3}weapon.{0,3}master/i).test(v.WeaponText)) {
 					output.extraDmg += 10;
 					output.extraHit -= 5;
 				};
 			},
-			"If I include the words 'Power Attack' or 'Great Weapon Master' in a heavy melee weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."
+			"If I include the words 'Power Attack', 'Great Weapon Master', or just 'GWM' in a heavy melee weapon's name or description, the calculation will put a -5 penalty on the attack's To Hit and +10 on its Damage."
 		]
 	}
 };
@@ -16982,7 +16982,8 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
-			spellcastingExtra : ["disguise self", "rope trick", "fear", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["disguise self", "rope trick", "fear", "greater invisibility", "seeming"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.2" : {
 			name : "Umbral Sight",
@@ -17040,7 +17041,8 @@ AddSubClass("ranger", "horizon walker-xgte", {
 				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
-			spellcastingExtra : ["protection from evil and good", "misty step", "haste", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "misty step", "haste", "banishment", "teleportation circle"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.2" : {
 			name : "Planar Warrior",
@@ -17118,7 +17120,8 @@ AddSubClass("ranger", "monster slayer-xgte", {
 			source : ["X", 43],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "hold monster"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "hold monster"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.2" : {
 			name : "Slayer's Prey",
@@ -31031,7 +31034,8 @@ AddSubClass("ranger", "deep stalker", {
 			source : ["UA:LDU", 2],
 			minlevel : 3,
 			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
-			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
+			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"],
+			spellcastingExtraApplyNonconform : true,
 			vision : [["Darkvision", 90]]
 		},
 		"subclassfeature7" : {
@@ -32713,7 +32717,8 @@ AddSubClass("rangerua", "deep stalker", {
 			source : ["UA:RR", 8],
 			minlevel : 3,
 			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
-			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
+			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"],
+			spellcastingExtraApplyNonconform : true,
 			vision : [["Darkvision", "fixed 90"], ["Darkvision", "+30"]]
 		},
 		"subclassfeature7" : {
@@ -34865,7 +34870,8 @@ var theHorizonWalkerSubclass = {
 				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
-			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Planar Walker",
@@ -34944,7 +34950,8 @@ var thePrimevalGuardianSubclass = {
 			source : ["UA:RnR", 2],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["entangle", "enhance ability", "conjure animals", "giant insect", "insect plague"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["entangle", "enhance ability", "conjure animals", "giant insect", "insect plague"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Guardian Soul",
@@ -40086,7 +40093,8 @@ var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer", {
 			source : ["UA:AToS", 3],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Slayer's Eye",
@@ -46344,7 +46352,8 @@ AddSubClass("sorcerer", "aberrant mind", {
 	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
 	subname : "Aberrant Mind",
 	source : ["UA:SnW", 1],
-	spellcastingExtra : UA_abberantMindExtraSpell.concat(new Array(90)).concat("AddToKnown"),
+	spellcastingExtra : UA_abberantMindExtraSpell,
+	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
 			name : "Invasive Thoughts",
@@ -47358,7 +47367,8 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 				selection : ["mage hand"],
 				firstCol : "atwill"
 			},
-			spellcastingExtra : ["faerie fire", "web", "gaseous form", "giant insect", "insect plague"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["faerie fire", "web", "gaseous form", "giant insect", "insect plague"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Gathered Swarm",
@@ -50159,7 +50169,8 @@ AddSubClass("sorcerer", "clockwork soul", {
 	subname : "Clockwork Soul",
 	source : [["UA:SP2", 4]],
 	fullname : "Clockwork Soul",
-	spellcastingExtra : ["alarm", "protection from evil and good", "find traps", "heat metal", "counterspell", "glyph of warding", "arcane eye", "otiluke's resilient sphere", "animate objects", "wall of force"].concat(new Array(90)).concat("AddToKnown"),
+	spellcastingExtra : ["alarm", "protection from evil and good", "find traps", "heat metal", "counterspell", "glyph of warding", "arcane eye", "otiluke's resilient sphere", "animate objects", "wall of force"],
+	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
 			name : "Clockwork Magic",
@@ -50720,7 +50731,8 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 			source : [["UA:SP3", 5]],
 			minlevel : 3,
 			description : "\n   I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["charm person", "misty step", "dispel magic", "banishment", "mislead"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["charm person", "misty step", "dispel magic", "banishment", "mislead"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Cunning Will",

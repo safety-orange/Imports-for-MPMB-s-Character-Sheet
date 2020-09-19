@@ -27,7 +27,8 @@ var theHorizonWalkerSubclass = {
 				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
-			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Planar Walker",
@@ -106,7 +107,8 @@ var thePrimevalGuardianSubclass = {
 			source : ["UA:RnR", 2],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["entangle", "enhance ability", "conjure animals", "giant insect", "insect plague"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["entangle", "enhance ability", "conjure animals", "giant insect", "insect plague"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Guardian Soul",

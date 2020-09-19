@@ -224,7 +224,8 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 				selection : ["mage hand"],
 				firstCol : "atwill"
 			},
-			spellcastingExtra : ["faerie fire", "web", "gaseous form", "giant insect", "insect plague"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["faerie fire", "web", "gaseous form", "giant insect", "insect plague"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Gathered Swarm",
