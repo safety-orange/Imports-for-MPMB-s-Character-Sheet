@@ -920,7 +920,7 @@ MagicItemsList["scroll of protection"] = {
 	type : "scroll",
 	rarity : "rare",
 	magicItemTable : "C",
-	description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops a creature type from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected..",
+	description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops a creature type from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected.",
 	descriptionFull : "Each scroll of protection works against a specific type of creature chosen by the DM or determined randomly by rolling on the following table.\n\n" + [
 		toUni("d100\tCreature Type\td100\tCreature Type"),
 		"01-10\tAberrations\t41-50\tFey",
