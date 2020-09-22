@@ -6505,7 +6505,7 @@ MagicItemsList["scroll of protection"] = {
 	type : "scroll",
 	rarity : "rare",
 	magicItemTable : "C",
-	description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops a creature type from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected..",
+	description : "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops a creature type from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected.",
 	descriptionFull : "Each scroll of protection works against a specific type of creature chosen by the DM or determined randomly by rolling on the following table.\n\n" + [
 		toUni("d100\tCreature Type\td100\tCreature Type"),
 		"01-10\tAberrations\t41-50\tFey",
@@ -9083,7 +9083,7 @@ BackgroundList["hillsfar smuggler"] = {
 	],
 	flaw : [
 		"My hatred for the Red Plumes burns so brightly that I have difficulty suppressing It around them.",
-		"The Red Plumes caught me once before, and I was branded for my crime. If they catch me again, for any offense, the punishment will be dire..",
+		"The Red Plumes caught me once before, and I was branded for my crime. If they catch me again, for any offense, the punishment will be dire.",
 		"I treat all Hillsfarans poorly. I am disgusted with their failure to revolt against the Great Law of Humanity.",
 		"I have difficulty trusting strangers. Anyone could be a spy for the authorities.",
 		"I am greedy. There Isn't much I won't do for money.",
