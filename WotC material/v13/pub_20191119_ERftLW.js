@@ -3710,6 +3710,6 @@ CreatureList["fastieth"] = {
 	}],
 	traits : [{
 		name : "Quickness (Recharge 5-6)",
-		description : "The fastiets can take the Dodge action as a bonus action."
+		description : "The fastieth can take the Dodge action as a bonus action."
 	}]
 };
