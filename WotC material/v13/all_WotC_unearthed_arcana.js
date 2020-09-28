@@ -17820,7 +17820,7 @@ AddSubClass("fighter", "rune knight", {
 				name : "Haug",
 				source : ["UA:FRnR", 1],
 				description : desc([
-					"While I wear on object inscribed with this rune, I gain a resilience reminiscent of hill giants",
+					"While I wear an object inscribed with this rune, I gain a resilience reminiscent of hill giants",
 					"I always gain advantage on saves against being poisoned and resistance to poison damage",
 					"As a bonus action, I can invoke it to gain resistance to bludg/slash/pierc damage for 1 min"
 				]),
@@ -17836,7 +17836,7 @@ AddSubClass("fighter", "rune knight", {
 				name : "Ild",
 				source : ["UA:FRnR", 1],
 				description : desc([
-					"While I wear on object inscribed with this, I gain craftmanship reminiscent of fire giant",
+					"While I wear an object inscribed with this, I gain craftmanship reminiscent of fire giants",
 					"I always double my proficiency bonus when making an ability check with a tool",
 					"When I hit a creature with a weapon attack, I can invoke it to summon fiery shackles",
 					"It must make a Str save or be restrained for 1 min; Repeat save at end of each of its turns",
@@ -17854,7 +17854,7 @@ AddSubClass("fighter", "rune knight", {
 				name : "Ise",
 				source : ["UA:FRnR", 2],
 				description : desc([
-					"While I wear on object inscribed with this, I gain a stoic clam reminiscent of frost giants",
+					"While I wear an object inscribed with this, I gain a stoic calm reminiscent of frost giants",
 					"I always gain advantage on Wisdom (Animal Handling) and Charisma (Intimidation) checks",
 					"As a bonus action, I can invoke this rune to gain +2 Strength (max 30) for 10 minutes"
 				]),
@@ -17869,7 +17869,7 @@ AddSubClass("fighter", "rune knight", {
 				name : "Skye",
 				source : ["UA:FRnR", 2],
 				description : desc([
-					"While I wear on object inscribed with this, I gain a deceptiveness reminiscent of cloud giants",
+					"While I wear an object inscribed with this, I gain a deceptiveness reminiscent of cloud giants",
 					"I always gain advantage on Dexterity (Sleight of Hand) and Charisma (Deception) checks",
 					"As a reaction when I or a target I see get hit by an attack within 30 ft, I can invoke this",
 					"This causes the attack to target another within 30 ft with the same roll (ignore range)"
@@ -17885,7 +17885,7 @@ AddSubClass("fighter", "rune knight", {
 				name : "Stein",
 				source : ["UA:FRnR", 2],
 				description : desc([
-					"While I wear on object inscribed with this, I gain insightfulness reminiscent of stone giants",
+					"While I wear an object inscribed with this, I gain insightfulness reminiscent of stone giants",
 					"I always gain adv. on Wisdom (Insight) checks and I gain darkvision 60 ft (or +30 ft)",
 					"As a reaction when a creature I can see ends it turn within 30 ft, I can invoke this rune",
 					"This causes the creature to make a Wisdom save or be charmed by me for 1 minute",
@@ -17904,7 +17904,7 @@ AddSubClass("fighter", "rune knight", {
 				name : "Uvar",
 				source : ["UA:FRnR", 2],
 				description : desc([
-					"While I wear on object inscribed with this rune, I can glimpse the future like storm giants",
+					"While I wear an object inscribed with this rune, I can glimpse the future like storm giants",
 					"I always gain adv. on Int (Arcana) checks and I can't be surprised while not incapacitated",
 					"As a bonus action, I can invoke it to enter a prophetic state for 1 min or till incapacitated",
 					"While in this state, I can use a reaction to cause a roll to gain advantage or disadvantage",
