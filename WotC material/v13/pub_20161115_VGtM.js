@@ -272,39 +272,39 @@ RaceList["goblin"] = {
 	},
 	trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
 };
-// [dupl_start] Reprint from Elemental Evil Player's Companion
-if (!RaceList["goliath"]) {
-	RaceList["goliath"] = {
-		regExpSearch : /goliath/i,
-		name : "Goliath",
-		source : [["E", 11], ["V", 108]],
-		plural : "Goliaths",
-		size : 3,
-		speed : {
-			walk : { spd : 30, enc : 20 }
-		},
-		languageProfs : ["Common", "Giant"],
-		skills : ["Athletics"],
-		age : " reach adulthood in their late teens and live less than 100 years",
-		height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
-		weight : " weigh between 280 and 340 lb (200 + 2d10 \xD7 2d6 lb)",
-		heightMetric : " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
-		weightMetric : " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
-		scores : [2, 0, 1, 0, 0, 0],
-		features : {
-			"stone's endurance" : {
-				name : "Stone's Endurance",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				tooltip : "",
-				action : ["reaction", ""]
-			}
-		},
-		trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-		carryingCapacity : 2
-	};
-}; // dupl_end
+
+RaceList["goliath-vgtm"] = {
+	regExpSearch : /goliath/i,
+	name : "Goliath",
+	source : [["V", 108]],
+	plural : "Goliaths",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Giant"],
+	dmgres : ["Cold"],
+	skills : ["Athletics"],
+	age : " reach adulthood in their late teens and live less than 100 years",
+	height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
+	weight : " weigh between 280 and 340 lb (200 + 2d10 \xD7 2d6 lb)",
+	heightMetric : " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
+	weightMetric : " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
+	scores : [2, 0, 1, 0, 0, 0],
+	features : {
+		"stone's endurance" : {
+			name : "Stone's Endurance",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			tooltip : "",
+			action : ["reaction", ""]
+		}
+	},
+	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage. I'm also acclimated to high altitude, including elevations above 20000 feet.",
+	carryingCapacity : 2
+};
+
 RaceList["hobgoblin"] = {
 	regExpSearch : /hobgoblin/i,
 	name : "Hobgoblin",
@@ -368,7 +368,7 @@ RaceList["kobold"] = {
 	weight : " weigh between 25 and 35 lb (25 + 2d4 \xD7 1 lb)",
 	heightMetric : " are between 65 and 90 cm tall (63 + 5d4 cm)",
 	weightMetric : " weigh between 10 and 15 kg (11 + 5d4 \xD7 2 / 10 kg)",
-	scores : [-2, 2, 0, 0, 0, 0],
+	scores : [0, 2, 0, 0, 0, 0],
 	features : {
 		"grovel, cower, and beg" : {
 			name : "Grovel, Cower, and Beg",
@@ -378,7 +378,7 @@ RaceList["kobold"] = {
 			action : ["action", ""]
 		}
 	},
-	trait : "Kobold (-2 Strength, +2 Dexterity)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nGrovel, Cower, and Beg: As an action, I can distract all foes within 10 feet of me that can see me so that my allies gain advantage on attack rolls against them.\nPack Tactics: I have advantage on attack rolls against creatures when at least one of my allies is within 5 feet of that creature and that ally is not incapacitated."
+	trait : "Kobold (+2 Dexterity)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nGrovel, Cower, and Beg: As an action, I can distract all foes within 10 feet of me that can see me so that my allies gain advantage on attack rolls against them.\nPack Tactics: I have advantage on attack rolls against creatures when at least one of my allies is within 5 feet of that creature and that ally is not incapacitated."
 };
 RaceList["lizardfolk"] = {
 	regExpSearch : /lizard(folk|man|men)/i,
@@ -441,14 +441,14 @@ RaceList["orc"] = {
 	},
 	languageProfs : ["Common", "Orc"],
 	vision : [["Darkvision", 60]],
-	skills : ["Intimidation"],
+	skillstxt : "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival",
 	age : " reach adulthood at age 12 and live up to 50 years",
 	height : " are usually over 6 feet tall (5'4\" + 2d8\")",
 	weight : " weigh between 230 and 280 lb (175 + 2d8 \xD7 2d6 lb)",
 	heightMetric : " are usually over 1,8 metres tall (160 + 5d8 cm)",
 	weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-	scores : [2, 0, 1, -2, 0, 0],
-	trait : "Orc (+2 Strength, +1 Constitution, -2 Intelligence)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
+	scores : [2, 0, 1, 0, 0, 0],
+	trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
 	action : ["bonus action", "Aggressive (dash to enemy)"],
 	carryingCapacity : 2
 };
@@ -503,13 +503,14 @@ RaceList["triton"] = {
 	},
 	languageProfs : ["Common", "Primordial"],
 	dmgres : ["Cold"],
+	vision : [["Darkvision", 60]],
 	age : " reach maturity around age 15 and can live up to 200 years",
 	height : " are around 5 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " are around 1,6 metres tall (135 + 5d10 cm)",
 	weightMetric : " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 1],
-	trait : "Triton (+1 Strength, +1 Constitution +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: I have resistance to cold damage and ignore all drawbacks from a deep, underwater environment." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
+	trait : "Triton (+1 Strength, +1 Constitution +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
 	spellcastingAbility : 6,
 	features : {
 		"fog cloud" : {
