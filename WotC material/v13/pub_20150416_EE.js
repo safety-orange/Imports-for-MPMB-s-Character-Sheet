@@ -230,7 +230,7 @@ RaceList["water genasi"] = {
 		}
 	}
 };
-RaceList["goliath"] = {
+RaceList["goliath"] = { // Added cold resistance in accordance with the VGtM 2020 errata https://media.wizards.com/2020/dnd/downloads/VGtM-Errata.pdf
 	regExpSearch : /goliath/i,
 	name : "Goliath",
 	source : [["E", 11], ["V", 108]],
@@ -240,6 +240,7 @@ RaceList["goliath"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Giant"],
+	dmgres : ["Cold"],
 	skills : ["Athletics"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
@@ -256,7 +257,7 @@ RaceList["goliath"] = {
 			action : ["reaction", ""]
 		}
 	},
-	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
+	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 feet.",
 	carryingCapacity : 2
 };
 

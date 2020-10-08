@@ -8087,7 +8087,7 @@ RaceList["water genasi"] = {
 		}
 	}
 };
-RaceList["goliath"] = {
+RaceList["goliath"] = { // Added cold resistance in accordance with the VGtM 2020 errata https://media.wizards.com/2020/dnd/downloads/VGtM-Errata.pdf
 	regExpSearch : /goliath/i,
 	name : "Goliath",
 	source : [["E", 11], ["V", 108]],
@@ -8097,6 +8097,7 @@ RaceList["goliath"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Giant"],
+	dmgres : ["Cold"],
 	skills : ["Athletics"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
@@ -8113,7 +8114,7 @@ RaceList["goliath"] = {
 			action : ["reaction", ""]
 		}
 	},
-	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
+	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 feet.",
 	carryingCapacity : 2
 };
 
@@ -11371,9 +11372,9 @@ BackgroundList["haunted one"] = {
 	name : "Haunted One",
 	source : [["CoS", 209], ["ALbackground", 0]],
 	skills : "",
-	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival", // As only one skill proficiency in Curse of Strahd, but that was corrected in Curse of Strahd: Character Options
-	languageProfs : [1],
-	gold : 0,
+	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
+	languageProfs : [2],
+	gold : 0.01,
 	equipleft : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -11438,7 +11439,7 @@ BackgroundList["haunted one"] = {
 		"Studied an eldritch tome",
 		"Formerly possessed by a fiend",
 		"Avenged a murder"
-	],
+	]
 };
 BackgroundList["black fist double agent"] = {
 	regExpSearch : /black\W*fist/i,
@@ -12169,7 +12170,7 @@ SourceList.SKT={
 	date : "2016/09/06"
 };
 
-// Creatures
+// Creatures [Crag Cat removed, because it is a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf ]
 CreatureList["sheep"] = {
 	name : "Sheep",
 	source : ["SKT", 142],
@@ -12215,56 +12216,6 @@ CreatureList["pig"] = {
 	proficiencyBonus : 2,
 	attacksAction : 0,
 	attacks : []
-};
-CreatureList["crag cat"] = {
-	name : "Crag Cat",
-	source : ["SKT", 240],
-	size : 2, //Large
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 34,
-	hd : [4, 10], //[#, die]
-	speed : "40 ft",
-	scores : [16, 17, 16, 4, 14, 8], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 4,
-		"stealth" : 7
-	},
-	senses : "Darkvision 60 ft",
-	passivePerception : 14,
-	languages : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, see Pounce trait"
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [1, 10, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Can be used in combination with claw while pouncing (see Pounce trait)"
-		}
-	],
-	traits : [{
-			name : "Nondetection",
-			description : "The crag cat can't be targeted or detected by any divination magic or perceived through magical scrying sensors."
-		}, {
-			name : "Pounce",
-			description : "If the crag cat moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the crag cat can make one bite attack against it as a bonus action."
-		}, {
-			name : "Spell Turning",
-			description : "The crag cat has advantage on saving throws against any spell that targets only the cat (not an area). If the crag cat's saving throw succeeds and the spell is of 7th level or lower, the spell has no effect on the crag cat and instead targets the caster."
-		}
-	],
-	wildshapeString : "Darkvision 60 ft| Nondetection: can't be targeted or detected by divination magic or scrying| Pounce: if target is hit with a claw attack after moving 20 ft straight on the same turn, DC 13 Str save or knocked prone and can make one bite attack against it as a bonus action| Spell Turning: adv. on saves vs. spells that targets only me (not area). If successful and spell is 7th level or lower, no effect and instead targets the caster"
 };
 CreatureList["hulking crab"] = {
 	name : "Hulking Crab",
@@ -13269,7 +13220,7 @@ RaceList["kobold"] = {
 	weight : " weigh between 25 and 35 lb (25 + 2d4 \xD7 1 lb)",
 	heightMetric : " are between 65 and 90 cm tall (63 + 5d4 cm)",
 	weightMetric : " weigh between 10 and 15 kg (11 + 5d4 \xD7 2 / 10 kg)",
-	scores : [-2, 2, 0, 0, 0, 0],
+	scores : [0, 2, 0, 0, 0, 0],
 	features : {
 		"grovel, cower, and beg" : {
 			name : "Grovel, Cower, and Beg",
@@ -13279,7 +13230,7 @@ RaceList["kobold"] = {
 			action : ["action", ""]
 		}
 	},
-	trait : "Kobold (-2 Strength, +2 Dexterity)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nGrovel, Cower, and Beg: As an action, I can distract all foes within 10 feet of me that can see me so that my allies gain advantage on attack rolls against them.\nPack Tactics: I have advantage on attack rolls against creatures when at least one of my allies is within 5 feet of that creature and that ally is not incapacitated."
+	trait : "Kobold (+2 Dexterity)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nGrovel, Cower, and Beg: As an action, I can distract all foes within 10 feet of me that can see me so that my allies gain advantage on attack rolls against them.\nPack Tactics: I have advantage on attack rolls against creatures when at least one of my allies is within 5 feet of that creature and that ally is not incapacitated."
 };
 RaceList["lizardfolk"] = {
 	regExpSearch : /lizard(folk|man|men)/i,
@@ -13332,9 +13283,9 @@ RaceList["lizardfolk"] = {
 	trait : "Lizardfolk (+2 Constitution, +1 Wisdom) Bite: I can use my fanged maw to make unarmed strikes dealing 1d6 piercing damage." + (typePF ? "\n" : " ") + "Cunning Artisan: As part of a short rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\n" : " ") + "Hold Breath: I can hold my breath for up to 15 minutes at a time." + (typePF ? "\n" : " ") + "Natural Armor: I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\n" : " ") + "Hungry Jaws: As a bonus action, once per short rest, I can make a special bite attack and if it hits I gain temporary HP equal to my Con modifier (min 1)."
 };
 RaceList["orc"] = {
-	regExpSearch : /^(?!.*(half|eberron))(?=.*\bor(c|k)).*$/i,
+	regExpSearch : /^(?!.*half)(?=.*\bor(c|k)).*$/i,
 	name : "Orc",
-	source : ["V", 120],
+	source : [["V", 120], ["E:RLW", 32]],
 	plural : "Orcs",
 	size : 3,
 	speed : {
@@ -13342,14 +13293,14 @@ RaceList["orc"] = {
 	},
 	languageProfs : ["Common", "Orc"],
 	vision : [["Darkvision", 60]],
-	skills : ["Intimidation"],
+	skillstxt : "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
 	age : " reach adulthood at age 12 and live up to 50 years",
 	height : " are usually over 6 feet tall (5'4\" + 2d8\")",
 	weight : " weigh between 230 and 280 lb (175 + 2d8 \xD7 2d6 lb)",
 	heightMetric : " are usually over 1,8 metres tall (160 + 5d8 cm)",
 	weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-	scores : [2, 0, 1, -2, 0, 0],
-	trait : "Orc (+2 Strength, +1 Constitution, -2 Intelligence)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
+	scores : [2, 0, 1, 0, 0, 0],
+	trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
 	action : ["bonus action", "Aggressive (dash to enemy)"],
 	carryingCapacity : 2
 };
@@ -13404,13 +13355,14 @@ RaceList["triton"] = {
 	},
 	languageProfs : ["Common", "Primordial"],
 	dmgres : ["Cold"],
+	vision : [["Darkvision", 60]],
 	age : " reach maturity around age 15 and can live up to 200 years",
 	height : " are around 5 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " are around 1,6 metres tall (135 + 5d10 cm)",
 	weightMetric : " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 1],
-	trait : "Triton (+1 Strength, +1 Constitution +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: I have resistance to cold damage and ignore all drawbacks from a deep, underwater environment." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
+	trait : "Triton (+1 Strength, +1 Constitution +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
 	spellcastingAbility : 6,
 	features : {
 		"fog cloud" : {
@@ -23916,6 +23868,7 @@ MagicItemsList["sekolahian worshiping statuette"] = {
 	descriptionFull : "Skillfully carved from sandstone, this 1-foot-tall statuette depicts a shark twisting through the water with its mouth open. If any Tiny sea-dwelling animal is within 1 inch of the statuette's mouth, the shark flashes to life and deals 1 piercing damage to it. The shark can deal damage in this way no more than once per hour."
 }
 
+// Creatures [Sea Lion removed, because it was completely rewritten as a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/GoS-Errata.pdf ]
 CreatureList["fish"] = {
 	name : "Fish",
 	source : ["GoS", 215],
@@ -24039,50 +23992,6 @@ CreatureList["giant sea eel"] = {
 	traits : [{
 		name : "Water Breathing",
 		description : "The eel can breathe only underwater."
-	}]
-}
-CreatureList["sea lion"] = {
-	name : "Sea Lion",
-	source : ["GoS", 252],
-	size : 2,
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 16,
-	hp : 15,
-	hd : [2, 10],
-	speed : "15 ft, swim 30 ft",
-	scores : [17, 10, 14, 5, 10, 12],
-	saves : ["", 2, 4, "", "", ""],
-	skills : {
-		"athletics" : 5,
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/2",
-	proficiencyBonus : 2,
-	attacksAction : 3,
-	attacks : [{
-		name : "Bite",
-		ability : 1,
-		damage : [1, 8, "piercing"],
-		range : "Melee (5 ft)",
-		description : "One bite and two claw attacks as an Attack action"
-	}, {
-		name : "Claw",
-		ability : 1,
-		damage : [1, 4, "slashing"],
-		range : "Melee (5 ft)",
-		description : "Target pushed up to 5 ft away; 2 claw and 1 bite attack as Attack action"
-	}],
-	traits : [{
-		name : "Hold Breath",
-		description : "The sea lion can hold its breath for 15 minutes."
-	}, {
-		name : "Multiattack",
-		description : "The sea lion makes three attacks: one with its bite and two with its claws."
 	}]
 }
 
@@ -25817,31 +25726,6 @@ RaceList["kalashtar-erlw"] = {
 	scores : [0, 0, 0, 0, 2, 1],
 	trait : "Kalashtar (+2 Wisdom, +1 Charisma)\n   Dual Mind: I have advantage on Wisdom saving throws.\n   Mind Link: I can speak telepathically to any creature I can see within 10 ft \xD7 my level, as long as it can speak at least one language. As an action, I can give that creature the ability to speak telepathically back to me while it can see me and is within range. This lasts for 1 hour, until I use this ability on another creature, or until I end it as an action.\n   Severed from Dreams: I don't dream and thus immune to spells that affect dreams.",
 	action : [['action', 'Mind Link (start/stop)']]
-};
-
-// The Eberron Orc
-RaceList["orc-erlw"] = {
-	regExpSearch : /^(?!.*half)(?=.*\bor(c|k))(?=.*eberron).*$/i,
-	name : "Orc",
-	sortname : "Orc, Eberron",
-	source : [["E:RLW", 32]],
-	plural : "Orcs",
-	size : 3,
-	speed : {
-		walk : { spd : 30, enc : 20 }
-	},
-	languageProfs : ["Common", "Orc"],
-	vision : [["Darkvision", 60]],
-	skillstxt : "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
-	age : " reach adulthood at age 12 and live up to 50 years",
-	height : " are usually over 6 feet tall (5'4\" + 2d8\")",
-	weight : " weigh between 230 and 280 lb (175 + 2d8 \xD7 2d6 lb)",
-	heightMetric : " are usually over 1,8 metres tall (160 + 5d8 cm)",
-	weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-	scores : [2, 0, 1, 0, 0, 0],
-	trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
-	action : ["bonus action", "Aggressive (dash to enemy)"],
-	carryingCapacity : 2
 };
 
 // The four subraces of the shifter

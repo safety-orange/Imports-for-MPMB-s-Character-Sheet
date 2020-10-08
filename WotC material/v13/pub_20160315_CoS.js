@@ -24,9 +24,9 @@ BackgroundList["haunted one"] = {
 	name : "Haunted One",
 	source : [["CoS", 209], ["ALbackground", 0]],
 	skills : "",
-	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival", // As only one skill proficiency in Curse of Strahd, but that was corrected in Curse of Strahd: Character Options
-	languageProfs : [1],
-	gold : 0,
+	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
+	languageProfs : [2],
+	gold : 0.01,
 	equipleft : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -91,7 +91,7 @@ BackgroundList["haunted one"] = {
 		"Studied an eldritch tome",
 		"Formerly possessed by a fiend",
 		"Avenged a murder"
-	],
+	]
 };
 BackgroundList["black fist double agent"] = {
 	regExpSearch : /black\W*fist/i,

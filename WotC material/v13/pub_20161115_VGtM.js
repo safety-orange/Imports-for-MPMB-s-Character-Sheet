@@ -272,39 +272,40 @@ RaceList["goblin"] = {
 	},
 	trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
 };
-
-RaceList["goliath-vgtm"] = {
-	regExpSearch : /goliath/i,
-	name : "Goliath",
-	source : [["V", 108]],
-	plural : "Goliaths",
-	size : 3,
-	speed : {
-		walk : { spd : 30, enc : 20 }
-	},
-	languageProfs : ["Common", "Giant"],
-	dmgres : ["Cold"],
-	skills : ["Athletics"],
-	age : " reach adulthood in their late teens and live less than 100 years",
-	height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
-	weight : " weigh between 280 and 340 lb (200 + 2d10 \xD7 2d6 lb)",
-	heightMetric : " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
-	weightMetric : " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
-	scores : [2, 0, 1, 0, 0, 0],
-	features : {
-		"stone's endurance" : {
-			name : "Stone's Endurance",
-			minlevel : 1,
-			usages : 1,
-			recovery : "short rest",
-			tooltip : "",
-			action : ["reaction", ""]
-		}
-	},
-	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage. I'm also acclimated to high altitude, including elevations above 20000 feet.",
-	carryingCapacity : 2
-};
-
+// dupl_start
+if (!RaceList["goliath"]) {
+	RaceList["goliath"] = {
+		regExpSearch : /goliath/i,
+		name : "Goliath",
+		source : [["E", 11], ["V", 108]],
+		plural : "Goliaths",
+		size : 3,
+		speed : {
+			walk : { spd : 30, enc : 20 }
+		},
+		languageProfs : ["Common", "Giant"],
+		dmgres : ["Cold"],
+		skills : ["Athletics"],
+		age : " reach adulthood in their late teens and live less than 100 years",
+		height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
+		weight : " weigh between 280 and 340 lb (200 + 2d10 \xD7 2d6 lb)",
+		heightMetric : " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
+		weightMetric : " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
+		scores : [2, 0, 1, 0, 0, 0],
+		features : {
+			"stone's endurance" : {
+				name : "Stone's Endurance",
+				minlevel : 1,
+				usages : 1,
+				recovery : "short rest",
+				tooltip : "",
+				action : ["reaction", ""]
+			}
+		},
+		trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 feet.",
+		carryingCapacity : 2
+	};
+} // dupl_end
 RaceList["hobgoblin"] = {
 	regExpSearch : /hobgoblin/i,
 	name : "Hobgoblin",
@@ -431,9 +432,9 @@ RaceList["lizardfolk"] = {
 	trait : "Lizardfolk (+2 Constitution, +1 Wisdom) Bite: I can use my fanged maw to make unarmed strikes dealing 1d6 piercing damage." + (typePF ? "\n" : " ") + "Cunning Artisan: As part of a short rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\n" : " ") + "Hold Breath: I can hold my breath for up to 15 minutes at a time." + (typePF ? "\n" : " ") + "Natural Armor: I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\n" : " ") + "Hungry Jaws: As a bonus action, once per short rest, I can make a special bite attack and if it hits I gain temporary HP equal to my Con modifier (min 1)."
 };
 RaceList["orc"] = {
-	regExpSearch : /^(?!.*(half|eberron))(?=.*\bor(c|k)).*$/i,
+	regExpSearch : /^(?!.*half)(?=.*\bor(c|k)).*$/i,
 	name : "Orc",
-	source : ["V", 120],
+	source : [["V", 120], ["E:RLW", 32]],
 	plural : "Orcs",
 	size : 3,
 	speed : {
@@ -441,7 +442,7 @@ RaceList["orc"] = {
 	},
 	languageProfs : ["Common", "Orc"],
 	vision : [["Darkvision", 60]],
-	skillstxt : "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival",
+	skillstxt : "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
 	age : " reach adulthood at age 12 and live up to 50 years",
 	height : " are usually over 6 feet tall (5'4\" + 2d8\")",
 	weight : " weigh between 230 and 280 lb (175 + 2d8 \xD7 2d6 lb)",

@@ -168,6 +168,29 @@ if (!SourceList.V) {
 		},
 		trait : "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 feet of me (max +5)."
 	};
+	// The Orc, which is a duplicate from VGtM after the VGtM 2020 errata
+	RaceList["orc"] = {
+		regExpSearch : /^(?!.*half)(?=.*\bor(c|k)).*$/i,
+		name : "Orc",
+		source : [["V", 120], ["E:RLW", 32]],
+		plural : "Orcs",
+		size : 3,
+		speed : {
+			walk : { spd : 30, enc : 20 }
+		},
+		languageProfs : ["Common", "Orc"],
+		vision : [["Darkvision", 60]],
+		skillstxt : "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
+		age : " reach adulthood at age 12 and live up to 50 years",
+		height : " are usually over 6 feet tall (5'4\" + 2d8\")",
+		weight : " weigh between 230 and 280 lb (175 + 2d8 \xD7 2d6 lb)",
+		heightMetric : " are usually over 1,8 metres tall (160 + 5d8 cm)",
+		weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
+		scores : [2, 0, 1, 0, 0, 0],
+		trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
+		action : ["bonus action", "Aggressive (dash to enemy)"],
+		carryingCapacity : 2
+	};
 } // dupl_end
 
 // The kalashtar
@@ -192,31 +215,6 @@ RaceList["kalashtar-erlw"] = {
 	scores : [0, 0, 0, 0, 2, 1],
 	trait : "Kalashtar (+2 Wisdom, +1 Charisma)\n   Dual Mind: I have advantage on Wisdom saving throws.\n   Mind Link: I can speak telepathically to any creature I can see within 10 ft \xD7 my level, as long as it can speak at least one language. As an action, I can give that creature the ability to speak telepathically back to me while it can see me and is within range. This lasts for 1 hour, until I use this ability on another creature, or until I end it as an action.\n   Severed from Dreams: I don't dream and thus immune to spells that affect dreams.",
 	action : [['action', 'Mind Link (start/stop)']]
-};
-
-// The Eberron Orc
-RaceList["orc-erlw"] = {
-	regExpSearch : /^(?!.*half)(?=.*\bor(c|k))(?=.*eberron).*$/i,
-	name : "Orc",
-	sortname : "Orc, Eberron",
-	source : [["E:RLW", 32]],
-	plural : "Orcs",
-	size : 3,
-	speed : {
-		walk : { spd : 30, enc : 20 }
-	},
-	languageProfs : ["Common", "Orc"],
-	vision : [["Darkvision", 60]],
-	skillstxt : "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
-	age : " reach adulthood at age 12 and live up to 50 years",
-	height : " are usually over 6 feet tall (5'4\" + 2d8\")",
-	weight : " weigh between 230 and 280 lb (175 + 2d8 \xD7 2d6 lb)",
-	heightMetric : " are usually over 1,8 metres tall (160 + 5d8 cm)",
-	weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-	scores : [2, 0, 1, 0, 0, 0],
-	trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
-	action : ["bonus action", "Aggressive (dash to enemy)"],
-	carryingCapacity : 2
 };
 
 // The four subraces of the shifter

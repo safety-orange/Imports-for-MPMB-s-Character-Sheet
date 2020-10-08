@@ -350,6 +350,7 @@ MagicItemsList["sekolahian worshiping statuette"] = {
 	descriptionFull : "Skillfully carved from sandstone, this 1-foot-tall statuette depicts a shark twisting through the water with its mouth open. If any Tiny sea-dwelling animal is within 1 inch of the statuette's mouth, the shark flashes to life and deals 1 piercing damage to it. The shark can deal damage in this way no more than once per hour."
 }
 
+// Creatures [Sea Lion removed, because it was completely rewritten as a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/GoS-Errata.pdf ]
 CreatureList["fish"] = {
 	name : "Fish",
 	source : ["GoS", 215],
@@ -473,49 +474,5 @@ CreatureList["giant sea eel"] = {
 	traits : [{
 		name : "Water Breathing",
 		description : "The eel can breathe only underwater."
-	}]
-}
-CreatureList["sea lion"] = {
-	name : "Sea Lion",
-	source : ["GoS", 252],
-	size : 2,
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 16,
-	hp : 15,
-	hd : [2, 10],
-	speed : "15 ft, swim 30 ft",
-	scores : [17, 10, 14, 5, 10, 12],
-	saves : ["", 2, 4, "", "", ""],
-	skills : {
-		"athletics" : 5,
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/2",
-	proficiencyBonus : 2,
-	attacksAction : 3,
-	attacks : [{
-		name : "Bite",
-		ability : 1,
-		damage : [1, 8, "piercing"],
-		range : "Melee (5 ft)",
-		description : "One bite and two claw attacks as an Attack action"
-	}, {
-		name : "Claw",
-		ability : 1,
-		damage : [1, 4, "slashing"],
-		range : "Melee (5 ft)",
-		description : "Target pushed up to 5 ft away; 2 claw and 1 bite attack as Attack action"
-	}],
-	traits : [{
-		name : "Hold Breath",
-		description : "The sea lion can hold its breath for 15 minutes."
-	}, {
-		name : "Multiattack",
-		description : "The sea lion makes three attacks: one with its bite and two with its claws."
 	}]
 }

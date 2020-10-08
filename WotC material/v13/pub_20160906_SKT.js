@@ -11,7 +11,7 @@ SourceList.SKT={
 	date : "2016/09/06"
 };
 
-// Creatures
+// Creatures [Crag Cat removed, because it is a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf ]
 CreatureList["sheep"] = {
 	name : "Sheep",
 	source : ["SKT", 142],
@@ -57,56 +57,6 @@ CreatureList["pig"] = {
 	proficiencyBonus : 2,
 	attacksAction : 0,
 	attacks : []
-};
-CreatureList["crag cat"] = {
-	name : "Crag Cat",
-	source : ["SKT", 240],
-	size : 2, //Large
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 34,
-	hd : [4, 10], //[#, die]
-	speed : "40 ft",
-	scores : [16, 17, 16, 4, 14, 8], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 4,
-		"stealth" : 7
-	},
-	senses : "Darkvision 60 ft",
-	passivePerception : 14,
-	languages : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, see Pounce trait"
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [1, 10, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Can be used in combination with claw while pouncing (see Pounce trait)"
-		}
-	],
-	traits : [{
-			name : "Nondetection",
-			description : "The crag cat can't be targeted or detected by any divination magic or perceived through magical scrying sensors."
-		}, {
-			name : "Pounce",
-			description : "If the crag cat moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the crag cat can make one bite attack against it as a bonus action."
-		}, {
-			name : "Spell Turning",
-			description : "The crag cat has advantage on saving throws against any spell that targets only the cat (not an area). If the crag cat's saving throw succeeds and the spell is of 7th level or lower, the spell has no effect on the crag cat and instead targets the caster."
-		}
-	],
-	wildshapeString : "Darkvision 60 ft| Nondetection: can't be targeted or detected by divination magic or scrying| Pounce: if target is hit with a claw attack after moving 20 ft straight on the same turn, DC 13 Str save or knocked prone and can make one bite attack against it as a bonus action| Spell Turning: adv. on saves vs. spells that targets only me (not area). If successful and spell is 7th level or lower, no effect and instead targets the caster"
 };
 CreatureList["hulking crab"] = {
 	name : "Hulking Crab",
