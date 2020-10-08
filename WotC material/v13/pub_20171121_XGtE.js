@@ -2279,9 +2279,8 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
 				Value(prefix + 'Comp.Race', 'Hound of Ill Omen');
 				var theType = tDoc.getField(prefix + 'Comp.Type');
-				theType.readonly = true;
-				theType.value = 'Monstrosity';
-				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.sorcerer && classes.known.sorcerer.level ? Math.floor(classes.known.sorcerer.level / 2) : event.value;');
+				theType.value = 'Summoned';
+				tDoc.getField(prefix + 'Comp.Use.HP.Temp').value = Math.floor(classes.known.sorcerer.level / 2);
 				var changeMsg = "The Hound of Ill Omen has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
 				CurrentUpdates.types.push("notes");
 				if (!CurrentUpdates.notesChanges) {
@@ -2294,8 +2293,19 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
 				if (AScompA) {
 					for (var a = 1; a < AScompA.length; a++) {
-						if (What(AScompA[a] + 'Comp.Race') == 'Hound of Ill Omen' && What(AScompA[a] + 'Comp.Type') == 'Monstrosity' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
+						if (What(AScompA[a] + 'Comp.Race') == 'Hound of Ill Omen') {
 							DoTemplate("AScomp", "Remove", AScompA[a]);
+							return;
+						}
+					}
+				}
+			},
+			changeeval : function (lvlA, choiceA) {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (What(AScompA[a] + 'Comp.Race') == 'Hound of Ill Omen') {
+							tDoc.getField(AScompA[a] + 'Comp.Use.HP.Temp').value = Math.floor(classes.known.sorcerer.level / 2);
 							return;
 						}
 					}
