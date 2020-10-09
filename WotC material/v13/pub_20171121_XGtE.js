@@ -2255,7 +2255,7 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				"As a bonus action, I summon a hound within 30 ft of a creature I see within 120 ft",
 				"The hound has all the stats of a dire wolf with the following exceptions:",
 				"\u2022 It is medium size and counts as a monstrosity not a beast",
-				"\u2022 It start with a number of temporary hit points equal to half my sorcerer level",
+				"\u2022 It starts with a number of temporary hit points equal to half my sorcerer level",
 				"\u2022 At the start of its turn, it automatically knows where the (hidden) target is",
 				"\u2022 It can only move towards and make (opportunity) attack against the target",
 				"\u2022 It can move through other creatures and objects as if they were difficult terrain",
@@ -2264,7 +2264,53 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				"It disappears if reduced to 0 HP, if the target is reduced to 0 HP, or after 5 minutes"
 			]),
 			additional : levels.map(function (n) { return n < 6 ? "" : "3 sorcery points; " + Math.floor(n/2) + " temporary HP"; }),
-			action : ["bonus action", " (3 sorcery points)"]
+			action : ["bonus action", " (3 sorcery points)"],
+			eval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				var prefix = false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (!What(AScompA[a] + 'Comp.Race')) {
+							prefix = AScompA[a];
+							break;
+						}
+					}
+				}
+				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+				Value(prefix + 'Comp.Race', 'Hound of Ill Omen');
+				var theType = tDoc.getField(prefix + 'Comp.Type');
+				theType.value = 'Summoned';
+				tDoc.getField(prefix + 'Comp.Use.HP.Temp').value = Math.floor(classes.known.sorcerer.level / 2);
+				var changeMsg = "The Hound of Ill Omen has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
+				CurrentUpdates.types.push("notes");
+				if (!CurrentUpdates.notesChanges) {
+					CurrentUpdates.notesChanges = [changeMsg];
+				} else {
+					CurrentUpdates.notesChanges.push(changeMsg);
+				}
+			},
+			removeeval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (What(AScompA[a] + 'Comp.Race') == 'Hound of Ill Omen') {
+							DoTemplate("AScomp", "Remove", AScompA[a]);
+							return;
+						}
+					}
+				}
+			},
+			changeeval : function (lvlA, choiceA) {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (What(AScompA[a] + 'Comp.Race') == 'Hound of Ill Omen') {
+							tDoc.getField(AScompA[a] + 'Comp.Use.HP.Temp').value = Math.floor(classes.known.sorcerer.level / 2);
+							return;
+						}
+					}
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Shadow Walk",
