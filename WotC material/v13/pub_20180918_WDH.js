@@ -96,71 +96,73 @@ MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
 	}]
 }
 var blackstaffFullDescription = "The Blackstaff is a sentient, rune-carved staff set with thin silver veins. It is the symbol of office for the Blackstaff, the highest-ranking wizard in Waterdeep. As the rightful owner of the Blackstaff, Vajra Safahr is the only one who can become attuned to it. The staff can, however, choose a new owner (see \"Personality\" below).\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n   The staff has 20 charges for the following properties. The staff regains 2d8+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain 1d8+2 charges.\n   >>Power Strike<<. When you hit with a melee attack using the staff, you can expend 1 charge to deal an extra 1d6 force damage to the target.\n   >>Spells<<. While holding this staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   >>Retributive Strike<<. You can use an action to break the staff over your knee or against a solid surface, performing a retributive strike. The staff is destroyed and releases its remaining magic in an explosion that expands to fill a 30-foot-radius sphere centered on it.\n   You have a 50% chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take force damage equal to 16 \xD7 the number of charges in the staff. Every other creature in the area must make a DC 17 Dexterity saving throw. On a failed save, a creature takes an amount of damage based on how far away it is from the point of origin, as shown in the following table. On a successful save, a creature takes half as much damage.\n\n>>Distance from Origin\tEffect<<\n10 ft. away or closer\t8 \xD7 the number of charges in the staff\n11 to 20 ft. away\t6 \xD7 the number of charges in the staff\n21 to 30 ft. away\t4 \xD7 the number of charges in the staff\n\n\n   >>Animate Walking Statues<<. You can expend 1 or more of the staff's charges as an action to animate or deactivate one or more of the walking statues of Waterdeep. You must be in the city to use this property, and you can animate or deactivate one statue for each charge expended. An animated statue obeys the telepathic commands of Khelben Arunsun's spirit, which is trapped inside the staff (see \"Personality\" below). A walking statue becomes inanimate if deactivated or if the staff is broken.\n   >>Dispel Magic<<. You can expend 1 of the staff's charges as a bonus action to cast Dispel Magic on a creature, an object, or a magical effect that you touch with the tip of the staff. If the target is an unwilling creature or an object in the possession of such a creature, you must hit the creature with a melee attack using the Blackstaff before you can expend the charge to cast the spell.\n   >>Drain Magic<<. This property affects only creatures that use spell slots. When you hit such a creature with a melee attack using the Blackstaff, you can expend 1 of the staff's charges as a bonus action, causing the target to expend one spell slot of the highest spell level it can cast without casting a spell. If the target has already expended all its spell slots, nothing happens. Spell slots that are expended in this fashion are regained when the target finishes a long rest, as normal.\n   >>Master of Enchantment<<. When you cast an enchantment spell of 1st level or higher while holding the staff, you can make an Intelligence (Arcana) check with a DC of 10 + the level of the spell. If the check succeeds, you cast the spell without expending a spell slot.\n   >>Sentience<<. The Blackstaff is a sentient staff of neutral alignment, with an Intelligence of 22, a Wisdom of 15, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet, and it can communicate telepathically with any creature that is holding it.\n   >>Personality<<. The staff has the spirits of all previous Blackstaffs trapped within it. Its creator, Khelben Arunsun, is the dominant personality among them. Like Khelben, the staff is extremely devious and manipulative. It prefers to counsel its owner without exerting outright control. The staff's primary goal is to protect Waterdeep and its Open Lord, currently Laeral Silverhand. Its secondary goal is to help its wielder become more powerful.\n   In the event that the holder of the office of the Blackstaff no longer serves the staff's wishes, the staff ceases to function until it finds a worthy inheritor\u2014someone whose loyalty to Waterdeep is beyond reproach.\n   >>Spirit Trap<<. When the Blackstaff dies, the spirit of that individual becomes trapped in the staff along with the spirits of the previous Blackstaffs. (A Blackstaff whose spirit is trapped in the staff can't be raised from the dead.)\n   Destroying the staff would release the spirits trapped inside it, but in that event, Khelben's spirit can lodge itself inside any one piece of the staff that remains. The piece containing Khelben's spirit has the staff's Sentience property but none of its other properties. As long as this piece of the staff exists, Khelben's spirit can make the staff whole again whenever he wishes. When the staff is remade, the spirits of the previous Blackstaffs become trapped inside it again.";
-MagicItemsList["blackstaff"] = {
-	name : "Blackstaff",
-	source : ["WDH", 190],
-	type : "staff",
-	rarity : "legendary",
-	storyItemAL : true,
-	description : "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
-	descriptionFull : blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
-	attunement : true,
-	weight : 4,
-	prerequisite : "Requires attunement by the Blackstaff heir, who must be a wizard",
-	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	usages : 20,
-	recovery : "dawn",
-	additional : "regains 2d8+4",
-	weaponsAdd : ["Blackstaff"],
-	weaponOptions : {
-		baseWeapon : "quarterstaff",
-		regExpSearch : /blackstaff/i,
+if (MagicItemsList["staff of power"]) {
+	MagicItemsList["blackstaff"] = {
 		name : "Blackstaff",
 		source : ["WDH", 190],
-		description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
-		modifiers : [2, 2]
-	},
-	calcChanges : {
-		spellCalc : [
-			function (type, spellcasters, ability) {
-				if (type == "attack") return 2;
-			},
-			"While holding the Blackstaff, I have a +2 bonus to spell attack rolls."
-		]
-	},
-	addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Blackstaff, I gain a +2 bonus to all my saving throws." }],
-	extraAC : [{name : "Blackstaff", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
-	action : [
-		["action"," (Animate Walking Statues)"],
-		["action", " (Retributive Strike)"],
-		["bonus action", " (Drain Magic)"]
-	],
-	spellcastingAbility : "class",
-	spellFirstColTitle : "Ch",
-	spellcastingBonus : MagicItemsList["staff of power"].spellcastingBonus.concat([{
-		name : "1 charge",
-		spells : ["dispel magic"],
-		selection : ["dispel magic"],
-		firstCol : 1
-	}]),
-	spellChanges : {
-		"fireball" : MagicItemsList["staff of power"].spellChanges.fireball,
-		"lightning bolt" : MagicItemsList["staff of power"].spellChanges["lightning bolt"],
-		"dispel magic" : {
-			time : "1 bns",
-			range : "Melee atk",
-			description : "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
-			changes : "Can cast as a bonus action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on"
-		}
-	},
-	toNotesPage : [{
-		name : "Features",
-		popupName : "Features of Blackstaff",
-		note : "\n   " + blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ")
-	}, {
-		name : "Sentient Item Features",
-		note : sentientItemConflictTxt
-	}]
+		type : "staff",
+		rarity : "legendary",
+		storyItemAL : true,
+		description : "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
+		descriptionFull : blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by the Blackstaff heir, who must be a wizard",
+		prereqeval : function(v) { return classes.known.wizard ? true : false; },
+		usages : 20,
+		recovery : "dawn",
+		additional : "regains 2d8+4",
+		weaponsAdd : ["Blackstaff"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /blackstaff/i,
+			name : "Blackstaff",
+			source : ["WDH", 190],
+			description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Blackstaff, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Blackstaff, I gain a +2 bonus to all my saving throws." }],
+		extraAC : [{name : "Blackstaff", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
+		action : [
+			["action"," (Animate Walking Statues)"],
+			["action", " (Retributive Strike)"],
+			["bonus action", " (Drain Magic)"]
+		],
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : MagicItemsList["staff of power"].spellcastingBonus.concat([{
+			name : "1 charge",
+			spells : ["dispel magic"],
+			selection : ["dispel magic"],
+			firstCol : 1
+		}]),
+		spellChanges : {
+			"fireball" : MagicItemsList["staff of power"].spellChanges.fireball,
+			"lightning bolt" : MagicItemsList["staff of power"].spellChanges["lightning bolt"],
+			"dispel magic" : {
+				time : "1 bns",
+				range : "Melee atk",
+				description : "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
+				changes : "Can cast as a bonus action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on"
+			}
+		},
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of Blackstaff",
+			note : "\n   " + blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ")
+		}, {
+			name : "Sentient Item Features",
+			note : sentientItemConflictTxt
+		}]
+	}
 }
 MagicItemsList["bracer of flying daggers"] = {
 	name : "Bracer of Flying Daggers",

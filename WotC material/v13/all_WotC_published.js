@@ -6881,69 +6881,71 @@ var waveFullDescription = [
 	"Wave zealously desires to convert mortals to the worship of one or more sea gods, or else to consign the faithless to death. Conflict arises if the wielder fails to further the weapon's objectives in the world. The trident has a nostalgic attachment to the place where it was forged, a desolate island called Thunderforge. A sea god imprisoned a family of storm giants there, and the giants forged Wave in an act of devotion to\u2014or rebellion against\u2014that god.",
 	"Wave harbors a secret doubt about its own nature and purpose. For all its devotion to the sea gods, Wave fears that it was intended to bring about a particular sea god's demise. This destiny is something Wave might not be able to avert."
 ];
-MagicItemsList["wave"] = {
-	name : "Wave",
-	source : ["D", 218],
-	type : "weapon (trident)",
-	rarity : "legendary",
-	notLegalAL : true,
-	description : "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
-	descriptionFull : waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
-	attunement : true,
-	prerequisite : "Requires attunement by a creature that worships a god of the sea",
-	prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
-	weight : 4,
-	weaponsAdd : ["Wave"],
-	weaponOptions : {
-		baseWeapon : "trident",
-		regExpSearch : /wave/i,
+if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warning"] && MagicItemsList["cap of water breathing"] && MagicItemsList["cube of force"]) {
+	MagicItemsList["wave"] = {
 		name : "Wave",
 		source : ["D", 218],
-		description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
-		modifiers : [3,3]
-	},
-	toNotesPage : [{
-		name : "Features",
-		popupName : "Features of Wave",
-		note : desc(waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
-	}, {
-		name : "Contained Items",
-		popupName : "Descriptions of magic items contained in Wave",
-		note : [
-			"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
-			"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
-			"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
-			"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note)
-		].join("\n\n")
-	}],
-	// cube of force & cap of water breathing
-	action : [["action", " (Cap of Water Breathing)"], ["action", " (Cube of Force)"]],
-	extraLimitedFeatures : [{
-		name : "Wave [Cube of Force] (regains 1d20)",
-		usages : 36,
-		recovery : "dawn"
-	}, {
-	// trident of fish command
-		name : "Wave [Fish Command] (regains 1d3)",
-		usages : 3,
-		recovery : "dawn"
-	}],
-	fixedDC : 15,
-	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
-		name : "1 charge",
-		spells : ["dominate beast"],
-		selection : ["dominate beast"],
-		firstCol : 1
-	},
-	spellChanges : {
-		"dominate beast" : {
-			description : "1 beast with swim speed save or charmed, follows telepathic commands, 1 a for complete control",
-			changes : "Can only affect beasts with innate swim speed."
-		}
-	},
-	// weapon of warning
-	advantages : [["Initiative", true]]
+		type : "weapon (trident)",
+		rarity : "legendary",
+		notLegalAL : true,
+		description : "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
+		descriptionFull : waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		attunement : true,
+		prerequisite : "Requires attunement by a creature that worships a god of the sea",
+		prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
+		weight : 4,
+		weaponsAdd : ["Wave"],
+		weaponOptions : {
+			baseWeapon : "trident",
+			regExpSearch : /wave/i,
+			name : "Wave",
+			source : ["D", 218],
+			description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
+			modifiers : [3,3]
+		},
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of Wave",
+			note : desc(waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
+		}, {
+			name : "Contained Items",
+			popupName : "Descriptions of magic items contained in Wave",
+			note : [
+				"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
+				"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
+				"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
+				"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note)
+			].join("\n\n")
+		}],
+		// cube of force & cap of water breathing
+		action : [["action", " (Cap of Water Breathing)"], ["action", " (Cube of Force)"]],
+		extraLimitedFeatures : [{
+			name : "Wave [Cube of Force] (regains 1d20)",
+			usages : 36,
+			recovery : "dawn"
+		}, {
+		// trident of fish command
+			name : "Wave [Fish Command] (regains 1d3)",
+			usages : 3,
+			recovery : "dawn"
+		}],
+		fixedDC : 15,
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["dominate beast"],
+			selection : ["dominate beast"],
+			firstCol : 1
+		},
+		spellChanges : {
+			"dominate beast" : {
+				description : "1 beast with swim speed save or charmed, follows telepathic commands, 1 a for complete control",
+				changes : "Can only affect beasts with innate swim speed."
+			}
+		},
+		// weapon of warning
+		advantages : [["Initiative", true]]
+	}
 }
 var whelmFullDescription = [
 	"Whelm is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.",
@@ -17455,7 +17457,7 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				"As a bonus action, I summon a hound within 30 ft of a creature I see within 120 ft",
 				"The hound has all the stats of a dire wolf with the following exceptions:",
 				"\u2022 It is medium size and counts as a monstrosity not a beast",
-				"\u2022 It start with a number of temporary hit points equal to half my sorcerer level",
+				"\u2022 It starts with a number of temporary hit points equal to half my sorcerer level",
 				"\u2022 At the start of its turn, it automatically knows where the (hidden) target is",
 				"\u2022 It can only move towards and make (opportunity) attack against the target",
 				"\u2022 It can move through other creatures and objects as if they were difficult terrain",
@@ -17464,7 +17466,45 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				"It disappears if reduced to 0 HP, if the target is reduced to 0 HP, or after 5 minutes"
 			]),
 			additional : levels.map(function (n) { return n < 6 ? "" : "3 sorcery points; " + Math.floor(n/2) + " temporary HP"; }),
-			action : ["bonus action", " (3 sorcery points)"]
+			action : ["bonus action", " (3 sorcery points)"],
+			eval : function() {
+				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
+				var prefix = false;
+				if (AScompA) {
+					for (var a = 1; a < AScompA.length; a++) {
+						if (!What(AScompA[a] + 'Comp.Race')) {
+							prefix = AScompA[a];
+							break;
+						}
+					}
+				}
+				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
+				Value(prefix + 'Comp.Race', 'Hound of Ill Omen');
+				Value(prefix + 'Comp.Type', 'Summoned');
+				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The hound of ill omen gains half my sorcerer level as temporary HP when created.");
+				var changeMsg = "The Hound of Ill Omen has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
+				CurrentUpdates.types.push("notes");
+				if (!CurrentUpdates.notesChanges) {
+					CurrentUpdates.notesChanges = [changeMsg];
+				} else {
+					CurrentUpdates.notesChanges.push(changeMsg);
+				}
+			},
+			removeeval : function() {
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "hound of ill omen") {
+						DoTemplate("AScomp", "Remove", prefix, true);
+					}
+				}
+			},
+			changeeval : function (lvlA, choiceA) {
+				if (!classes.known.sorcerer || !classes.known.sorcerer.level) return;
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "hound of ill omen") {
+						Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.sorcerer.level / 2));
+					}
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Shadow Walk",
@@ -17666,12 +17706,12 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 					}
 				}
 				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', 'Specter');
+				Value(prefix + 'Comp.Race', 'Accursed Specter');
 				var theType = tDoc.getField(prefix + 'Comp.Type');
 				theType.readonly = true;
 				theType.value = 'Accursed';
 				for (var a = 1; a <= 3; a++) {
-					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
+					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "max(oCha|0)", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks (min +0).");
 				}
 				Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
 					"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
@@ -17680,7 +17720,6 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 					"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
 					"\u2022 It gains temporary hit points equal to half my warlock level when created"
 				]));
-				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
 				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
 				var changeMsg = "The Accursed Specter has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
 				CurrentUpdates.types.push("notes");
@@ -17691,13 +17730,17 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				}
 			},
 			removeeval : function() {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
-							DoTemplate("AScomp", "Remove", AScompA[a]);
-							return;
-						}
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "specter" && What(prefix + 'Comp.Type') === 'Accursed' && tDoc.getField(prefix + 'Comp.Type').readonly) {
+						DoTemplate("AScomp", "Remove", prefix, true);
+					}
+				}
+			},
+			changeeval : function (lvlA, choiceA) {
+				if (!classes.known.warlock || !classes.known.warlock.level) return;
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "specter" && What(prefix + 'Comp.Type') === 'Accursed' && tDoc.getField(prefix + 'Comp.Type').readonly) {
+						Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.warlock.level / 2));
 					}
 				}
 			}
@@ -20708,71 +20751,73 @@ MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
 	}]
 }
 var blackstaffFullDescription = "The Blackstaff is a sentient, rune-carved staff set with thin silver veins. It is the symbol of office for the Blackstaff, the highest-ranking wizard in Waterdeep. As the rightful owner of the Blackstaff, Vajra Safahr is the only one who can become attuned to it. The staff can, however, choose a new owner (see \"Personality\" below).\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n   The staff has 20 charges for the following properties. The staff regains 2d8+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain 1d8+2 charges.\n   >>Power Strike<<. When you hit with a melee attack using the staff, you can expend 1 charge to deal an extra 1d6 force damage to the target.\n   >>Spells<<. While holding this staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   >>Retributive Strike<<. You can use an action to break the staff over your knee or against a solid surface, performing a retributive strike. The staff is destroyed and releases its remaining magic in an explosion that expands to fill a 30-foot-radius sphere centered on it.\n   You have a 50% chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take force damage equal to 16 \xD7 the number of charges in the staff. Every other creature in the area must make a DC 17 Dexterity saving throw. On a failed save, a creature takes an amount of damage based on how far away it is from the point of origin, as shown in the following table. On a successful save, a creature takes half as much damage.\n\n>>Distance from Origin\tEffect<<\n10 ft. away or closer\t8 \xD7 the number of charges in the staff\n11 to 20 ft. away\t6 \xD7 the number of charges in the staff\n21 to 30 ft. away\t4 \xD7 the number of charges in the staff\n\n\n   >>Animate Walking Statues<<. You can expend 1 or more of the staff's charges as an action to animate or deactivate one or more of the walking statues of Waterdeep. You must be in the city to use this property, and you can animate or deactivate one statue for each charge expended. An animated statue obeys the telepathic commands of Khelben Arunsun's spirit, which is trapped inside the staff (see \"Personality\" below). A walking statue becomes inanimate if deactivated or if the staff is broken.\n   >>Dispel Magic<<. You can expend 1 of the staff's charges as a bonus action to cast Dispel Magic on a creature, an object, or a magical effect that you touch with the tip of the staff. If the target is an unwilling creature or an object in the possession of such a creature, you must hit the creature with a melee attack using the Blackstaff before you can expend the charge to cast the spell.\n   >>Drain Magic<<. This property affects only creatures that use spell slots. When you hit such a creature with a melee attack using the Blackstaff, you can expend 1 of the staff's charges as a bonus action, causing the target to expend one spell slot of the highest spell level it can cast without casting a spell. If the target has already expended all its spell slots, nothing happens. Spell slots that are expended in this fashion are regained when the target finishes a long rest, as normal.\n   >>Master of Enchantment<<. When you cast an enchantment spell of 1st level or higher while holding the staff, you can make an Intelligence (Arcana) check with a DC of 10 + the level of the spell. If the check succeeds, you cast the spell without expending a spell slot.\n   >>Sentience<<. The Blackstaff is a sentient staff of neutral alignment, with an Intelligence of 22, a Wisdom of 15, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet, and it can communicate telepathically with any creature that is holding it.\n   >>Personality<<. The staff has the spirits of all previous Blackstaffs trapped within it. Its creator, Khelben Arunsun, is the dominant personality among them. Like Khelben, the staff is extremely devious and manipulative. It prefers to counsel its owner without exerting outright control. The staff's primary goal is to protect Waterdeep and its Open Lord, currently Laeral Silverhand. Its secondary goal is to help its wielder become more powerful.\n   In the event that the holder of the office of the Blackstaff no longer serves the staff's wishes, the staff ceases to function until it finds a worthy inheritor\u2014someone whose loyalty to Waterdeep is beyond reproach.\n   >>Spirit Trap<<. When the Blackstaff dies, the spirit of that individual becomes trapped in the staff along with the spirits of the previous Blackstaffs. (A Blackstaff whose spirit is trapped in the staff can't be raised from the dead.)\n   Destroying the staff would release the spirits trapped inside it, but in that event, Khelben's spirit can lodge itself inside any one piece of the staff that remains. The piece containing Khelben's spirit has the staff's Sentience property but none of its other properties. As long as this piece of the staff exists, Khelben's spirit can make the staff whole again whenever he wishes. When the staff is remade, the spirits of the previous Blackstaffs become trapped inside it again.";
-MagicItemsList["blackstaff"] = {
-	name : "Blackstaff",
-	source : ["WDH", 190],
-	type : "staff",
-	rarity : "legendary",
-	storyItemAL : true,
-	description : "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
-	descriptionFull : blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
-	attunement : true,
-	weight : 4,
-	prerequisite : "Requires attunement by the Blackstaff heir, who must be a wizard",
-	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	usages : 20,
-	recovery : "dawn",
-	additional : "regains 2d8+4",
-	weaponsAdd : ["Blackstaff"],
-	weaponOptions : {
-		baseWeapon : "quarterstaff",
-		regExpSearch : /blackstaff/i,
+if (MagicItemsList["staff of power"]) {
+	MagicItemsList["blackstaff"] = {
 		name : "Blackstaff",
 		source : ["WDH", 190],
-		description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
-		modifiers : [2, 2]
-	},
-	calcChanges : {
-		spellCalc : [
-			function (type, spellcasters, ability) {
-				if (type == "attack") return 2;
-			},
-			"While holding the Blackstaff, I have a +2 bonus to spell attack rolls."
-		]
-	},
-	addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Blackstaff, I gain a +2 bonus to all my saving throws." }],
-	extraAC : [{name : "Blackstaff", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
-	action : [
-		["action"," (Animate Walking Statues)"],
-		["action", " (Retributive Strike)"],
-		["bonus action", " (Drain Magic)"]
-	],
-	spellcastingAbility : "class",
-	spellFirstColTitle : "Ch",
-	spellcastingBonus : MagicItemsList["staff of power"].spellcastingBonus.concat([{
-		name : "1 charge",
-		spells : ["dispel magic"],
-		selection : ["dispel magic"],
-		firstCol : 1
-	}]),
-	spellChanges : {
-		"fireball" : MagicItemsList["staff of power"].spellChanges.fireball,
-		"lightning bolt" : MagicItemsList["staff of power"].spellChanges["lightning bolt"],
-		"dispel magic" : {
-			time : "1 bns",
-			range : "Melee atk",
-			description : "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
-			changes : "Can cast as a bonus action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on"
-		}
-	},
-	toNotesPage : [{
-		name : "Features",
-		popupName : "Features of Blackstaff",
-		note : "\n   " + blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ")
-	}, {
-		name : "Sentient Item Features",
-		note : sentientItemConflictTxt
-	}]
+		type : "staff",
+		rarity : "legendary",
+		storyItemAL : true,
+		description : "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
+		descriptionFull : blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by the Blackstaff heir, who must be a wizard",
+		prereqeval : function(v) { return classes.known.wizard ? true : false; },
+		usages : 20,
+		recovery : "dawn",
+		additional : "regains 2d8+4",
+		weaponsAdd : ["Blackstaff"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /blackstaff/i,
+			name : "Blackstaff",
+			source : ["WDH", 190],
+			description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Blackstaff, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Blackstaff, I gain a +2 bonus to all my saving throws." }],
+		extraAC : [{name : "Blackstaff", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
+		action : [
+			["action"," (Animate Walking Statues)"],
+			["action", " (Retributive Strike)"],
+			["bonus action", " (Drain Magic)"]
+		],
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : MagicItemsList["staff of power"].spellcastingBonus.concat([{
+			name : "1 charge",
+			spells : ["dispel magic"],
+			selection : ["dispel magic"],
+			firstCol : 1
+		}]),
+		spellChanges : {
+			"fireball" : MagicItemsList["staff of power"].spellChanges.fireball,
+			"lightning bolt" : MagicItemsList["staff of power"].spellChanges["lightning bolt"],
+			"dispel magic" : {
+				time : "1 bns",
+				range : "Melee atk",
+				description : "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
+				changes : "Can cast as a bonus action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on"
+			}
+		},
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of Blackstaff",
+			note : "\n   " + blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ")
+		}, {
+			name : "Sentient Item Features",
+			note : sentientItemConflictTxt
+		}]
+	}
 }
 MagicItemsList["bracer of flying daggers"] = {
 	name : "Bracer of Flying Daggers",
@@ -23229,8 +23274,7 @@ MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
 	description : "This orb is sentient with the personality of a scholar, but no will of its own. It has Int 18, Wis and Cha of 3d6 each. It knows and reads 4 languages, can see/hear as a human out to 60 ft, and has extensive knowledge of 4 narrow academic subjects (+9 on checks). It knows Mage Hand, which it uses to move around.",
 	descriptionFull : "Each professor orb takes the form of a smooth, solid, 5-pound sphere of smoky gray quartz about the size of a grapefruit. Close examination reveals two or more pinpricks of silver light deep inside the sphere.\n   A Professor Orb is sentient and has the personality of a scholar. Its alignment is determined by rolling on the alignment table in the \"Sentient Magic Items\" section in chapter 7 of the Dungeon Master's Guide. Regardless of its disposition, the orb has an Intelligence of 18, and Wisdom and Charisma scores determined by rolling 3d6 for each ability. The orb speaks, reads, and understands four languages, and can see and hear normally out to a range of 60 feet. Unlike most sentient items, the orb has no will of its own and can't initiate a conflict with the creature in possession of it.\n   A Professor Orb has extensive knowledge of four narrow academic subjects. When making an Intelligence check to recall lore from any of its areas of expertise, the orb has a +9 bonus to its roll (including its Intelligence modifier).\n   In addition to the knowledge it possesses, a professor orb can cast the Mage Hand cantrip at will. It uses the spell only to transport itself. Its spellcasting ability is Intelligence."
 }
-MagicItemsList["horn of valhalla"].choices.push("Endless Maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)");
-MagicItemsList["horn of valhalla"]["endless maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)"] = {
+AddFeatureChoice(MagicItemsList["horn of valhalla"], false, "Endless Maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)", {
 	name : "Horn of the Endless Maze",
 	source : ["WDotMM", 163],
 	type : "wondrous item",
@@ -23238,7 +23282,7 @@ MagicItemsList["horn of valhalla"]["endless maze (rare; 3d4+3 berserkers; prereq
 	magicItemTable : "G", // interpretation, made it the same as Brass Horn of Valhalla,
 	description : "As an action once per 7 days, I can blow this horn to summon 3d4+3 minotaurs (use berserker stats) from the Abyss in 60 ft. They return after 1 hour or when they drop to 0 hp. They follow my commands and are friendly to me and my companions if I'm proficient with all simple weapons. Otherwise, they attack me.",
 	descriptionFull : "You can use an action to blow this horn. In response, 3d4+3 warrior spirits from the Abyss appear within 60 feet of you. They look like Minotaurs and use the statistics of a berserker. They return to the Abyss after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.\n   If you blow the horn without having proficiency with all simple weapons, the summoned berserkers attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands."
-}
+});
 MagicItemsList["dodecahedron of doom"] = {
 	name : "Dodecahedron of Doom",
 	source : ["WDotMM", 174],

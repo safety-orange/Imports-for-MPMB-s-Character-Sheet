@@ -2278,9 +2278,8 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				}
 				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
 				Value(prefix + 'Comp.Race', 'Hound of Ill Omen');
-				var theType = tDoc.getField(prefix + 'Comp.Type');
-				theType.value = 'Summoned';
-				tDoc.getField(prefix + 'Comp.Use.HP.Temp').value = Math.floor(classes.known.sorcerer.level / 2);
+				Value(prefix + 'Comp.Type', 'Summoned');
+				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The hound of ill omen gains half my sorcerer level as temporary HP when created.");
 				var changeMsg = "The Hound of Ill Omen has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
 				CurrentUpdates.types.push("notes");
 				if (!CurrentUpdates.notesChanges) {
@@ -2290,24 +2289,17 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				}
 			},
 			removeeval : function() {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (What(AScompA[a] + 'Comp.Race') == 'Hound of Ill Omen') {
-							DoTemplate("AScomp", "Remove", AScompA[a]);
-							return;
-						}
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "hound of ill omen") {
+						DoTemplate("AScomp", "Remove", prefix, true);
 					}
 				}
 			},
 			changeeval : function (lvlA, choiceA) {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (What(AScompA[a] + 'Comp.Race') == 'Hound of Ill Omen') {
-							tDoc.getField(AScompA[a] + 'Comp.Use.HP.Temp').value = Math.floor(classes.known.sorcerer.level / 2);
-							return;
-						}
+				if (!classes.known.sorcerer || !classes.known.sorcerer.level) return;
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "hound of ill omen") {
+						Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.sorcerer.level / 2));
 					}
 				}
 			}
@@ -2591,12 +2583,12 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 					}
 				}
 				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', 'Specter');
+				Value(prefix + 'Comp.Race', 'Accursed Specter');
 				var theType = tDoc.getField(prefix + 'Comp.Type');
 				theType.readonly = true;
 				theType.value = 'Accursed';
 				for (var a = 1; a <= 3; a++) {
-					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "oCha", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks.");
+					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "max(oCha|0)", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks (min +0).");
 				}
 				Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
 					"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
@@ -2605,7 +2597,6 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 					"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
 					"\u2022 It gains temporary hit points equal to half my warlock level when created"
 				]));
-				tDoc.getField(prefix + 'Comp.Use.HP.Temp').setAction('Calculate', 'event.value = classes.known.warlock && classes.known.warlock.level ? Math.floor(classes.known.warlock.level / 2) : event.value;');
 				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
 				var changeMsg = "The Accursed Specter has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
 				CurrentUpdates.types.push("notes");
@@ -2616,13 +2607,17 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 				}
 			},
 			removeeval : function() {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (What(AScompA[a] + 'Comp.Type') == 'Accursed' && tDoc.getField(AScompA[a] + 'Comp.Type').readonly) {
-							DoTemplate("AScomp", "Remove", AScompA[a]);
-							return;
-						}
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "specter" && What(prefix + 'Comp.Type') === 'Accursed' && tDoc.getField(prefix + 'Comp.Type').readonly) {
+						DoTemplate("AScomp", "Remove", prefix, true);
+					}
+				}
+			},
+			changeeval : function (lvlA, choiceA) {
+				if (!classes.known.warlock || !classes.known.warlock.level) return;
+				for (var prefix in CurrentCompRace) {
+					if (CurrentCompRace[prefix].known === "specter" && What(prefix + 'Comp.Type') === 'Accursed' && tDoc.getField(prefix + 'Comp.Type').readonly) {
+						Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.warlock.level / 2));
 					}
 				}
 			}

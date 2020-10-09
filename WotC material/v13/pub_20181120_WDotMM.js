@@ -34,8 +34,7 @@ MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
 	description : "This orb is sentient with the personality of a scholar, but no will of its own. It has Int 18, Wis and Cha of 3d6 each. It knows and reads 4 languages, can see/hear as a human out to 60 ft, and has extensive knowledge of 4 narrow academic subjects (+9 on checks). It knows Mage Hand, which it uses to move around.",
 	descriptionFull : "Each professor orb takes the form of a smooth, solid, 5-pound sphere of smoky gray quartz about the size of a grapefruit. Close examination reveals two or more pinpricks of silver light deep inside the sphere.\n   A Professor Orb is sentient and has the personality of a scholar. Its alignment is determined by rolling on the alignment table in the \"Sentient Magic Items\" section in chapter 7 of the Dungeon Master's Guide. Regardless of its disposition, the orb has an Intelligence of 18, and Wisdom and Charisma scores determined by rolling 3d6 for each ability. The orb speaks, reads, and understands four languages, and can see and hear normally out to a range of 60 feet. Unlike most sentient items, the orb has no will of its own and can't initiate a conflict with the creature in possession of it.\n   A Professor Orb has extensive knowledge of four narrow academic subjects. When making an Intelligence check to recall lore from any of its areas of expertise, the orb has a +9 bonus to its roll (including its Intelligence modifier).\n   In addition to the knowledge it possesses, a professor orb can cast the Mage Hand cantrip at will. It uses the spell only to transport itself. Its spellcasting ability is Intelligence."
 }
-MagicItemsList["horn of valhalla"].choices.push("Endless Maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)");
-MagicItemsList["horn of valhalla"]["endless maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)"] = {
+AddFeatureChoice(MagicItemsList["horn of valhalla"], false, "Endless Maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)", {
 	name : "Horn of the Endless Maze",
 	source : ["WDotMM", 163],
 	type : "wondrous item",
@@ -43,7 +42,7 @@ MagicItemsList["horn of valhalla"]["endless maze (rare; 3d4+3 berserkers; prereq
 	magicItemTable : "G", // interpretation, made it the same as Brass Horn of Valhalla,
 	description : "As an action once per 7 days, I can blow this horn to summon 3d4+3 minotaurs (use berserker stats) from the Abyss in 60 ft. They return after 1 hour or when they drop to 0 hp. They follow my commands and are friendly to me and my companions if I'm proficient with all simple weapons. Otherwise, they attack me.",
 	descriptionFull : "You can use an action to blow this horn. In response, 3d4+3 warrior spirits from the Abyss appear within 60 feet of you. They look like Minotaurs and use the statistics of a berserker. They return to the Abyss after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.\n   If you blow the horn without having proficiency with all simple weapons, the summoned berserkers attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands."
-}
+});
 MagicItemsList["dodecahedron of doom"] = {
 	name : "Dodecahedron of Doom",
 	source : ["WDotMM", 174],

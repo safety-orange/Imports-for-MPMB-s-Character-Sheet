@@ -1296,69 +1296,71 @@ var waveFullDescription = [
 	"Wave zealously desires to convert mortals to the worship of one or more sea gods, or else to consign the faithless to death. Conflict arises if the wielder fails to further the weapon's objectives in the world. The trident has a nostalgic attachment to the place where it was forged, a desolate island called Thunderforge. A sea god imprisoned a family of storm giants there, and the giants forged Wave in an act of devotion to\u2014or rebellion against\u2014that god.",
 	"Wave harbors a secret doubt about its own nature and purpose. For all its devotion to the sea gods, Wave fears that it was intended to bring about a particular sea god's demise. This destiny is something Wave might not be able to avert."
 ];
-MagicItemsList["wave"] = {
-	name : "Wave",
-	source : ["D", 218],
-	type : "weapon (trident)",
-	rarity : "legendary",
-	notLegalAL : true,
-	description : "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
-	descriptionFull : waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
-	attunement : true,
-	prerequisite : "Requires attunement by a creature that worships a god of the sea",
-	prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
-	weight : 4,
-	weaponsAdd : ["Wave"],
-	weaponOptions : {
-		baseWeapon : "trident",
-		regExpSearch : /wave/i,
+if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warning"] && MagicItemsList["cap of water breathing"] && MagicItemsList["cube of force"]) {
+	MagicItemsList["wave"] = {
 		name : "Wave",
 		source : ["D", 218],
-		description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
-		modifiers : [3,3]
-	},
-	toNotesPage : [{
-		name : "Features",
-		popupName : "Features of Wave",
-		note : desc(waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
-	}, {
-		name : "Contained Items",
-		popupName : "Descriptions of magic items contained in Wave",
-		note : [
-			"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
-			"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
-			"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
-			"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note)
-		].join("\n\n")
-	}],
-	// cube of force & cap of water breathing
-	action : [["action", " (Cap of Water Breathing)"], ["action", " (Cube of Force)"]],
-	extraLimitedFeatures : [{
-		name : "Wave [Cube of Force] (regains 1d20)",
-		usages : 36,
-		recovery : "dawn"
-	}, {
-	// trident of fish command
-		name : "Wave [Fish Command] (regains 1d3)",
-		usages : 3,
-		recovery : "dawn"
-	}],
-	fixedDC : 15,
-	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
-		name : "1 charge",
-		spells : ["dominate beast"],
-		selection : ["dominate beast"],
-		firstCol : 1
-	},
-	spellChanges : {
-		"dominate beast" : {
-			description : "1 beast with swim speed save or charmed, follows telepathic commands, 1 a for complete control",
-			changes : "Can only affect beasts with innate swim speed."
-		}
-	},
-	// weapon of warning
-	advantages : [["Initiative", true]]
+		type : "weapon (trident)",
+		rarity : "legendary",
+		notLegalAL : true,
+		description : "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
+		descriptionFull : waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		attunement : true,
+		prerequisite : "Requires attunement by a creature that worships a god of the sea",
+		prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
+		weight : 4,
+		weaponsAdd : ["Wave"],
+		weaponOptions : {
+			baseWeapon : "trident",
+			regExpSearch : /wave/i,
+			name : "Wave",
+			source : ["D", 218],
+			description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
+			modifiers : [3,3]
+		},
+		toNotesPage : [{
+			name : "Features",
+			popupName : "Features of Wave",
+			note : desc(waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
+		}, {
+			name : "Contained Items",
+			popupName : "Descriptions of magic items contained in Wave",
+			note : [
+				"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
+				"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
+				"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
+				"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note)
+			].join("\n\n")
+		}],
+		// cube of force & cap of water breathing
+		action : [["action", " (Cap of Water Breathing)"], ["action", " (Cube of Force)"]],
+		extraLimitedFeatures : [{
+			name : "Wave [Cube of Force] (regains 1d20)",
+			usages : 36,
+			recovery : "dawn"
+		}, {
+		// trident of fish command
+			name : "Wave [Fish Command] (regains 1d3)",
+			usages : 3,
+			recovery : "dawn"
+		}],
+		fixedDC : 15,
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["dominate beast"],
+			selection : ["dominate beast"],
+			firstCol : 1
+		},
+		spellChanges : {
+			"dominate beast" : {
+				description : "1 beast with swim speed save or charmed, follows telepathic commands, 1 a for complete control",
+				changes : "Can only affect beasts with innate swim speed."
+			}
+		},
+		// weapon of warning
+		advantages : [["Initiative", true]]
+	}
 }
 var whelmFullDescription = [
 	"Whelm is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.",
