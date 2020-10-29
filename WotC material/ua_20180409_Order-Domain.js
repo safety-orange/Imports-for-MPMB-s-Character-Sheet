@@ -1,5 +1,5 @@
 var iFileName = "ua_20180409_Order-Domain.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Order Domain article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,7 +23,7 @@ AddSubClass("cleric", "order domain", {
 			source : ["UA:OD", 1],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
-			armor : [false, false, true, false]
+			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Voice of Authority",
@@ -65,7 +65,14 @@ AddSubClass("cleric", "order domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 force damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 force damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra force damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 force damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra force damage."
+				]
 			}
 		},
 		"subclassfeature17" : {

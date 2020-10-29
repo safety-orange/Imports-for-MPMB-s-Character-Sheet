@@ -1,5 +1,5 @@
 var iFileName = "ps_20170216_Kaladesh.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all material from the Plane Shift: Kaladesh article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-kaladesh-2017-02-16) to MPMB's Character Record Sheet
 // This code contains contributions by SoilentBrad and userZynx_name
 
@@ -64,18 +64,32 @@ AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_na
 FeatsList["quicksmithing"] = { // Includes contributions by userZynx_name
 	name : "Quicksmithing",
 	source : ["PS:K", 13],
+	descriptionFull : "You have mastered the art of on-the-fly invention, improvement, and jury-rigging. You can use your talents to create immediate, short-term magical effects similar to spells, given time and an adequate supply of aether.\n   When you choose this feat, you master two magical effects, each of which recreates the effect of a 1st-level spell that has the ritual tag. These spells can come from any class list, but Intelligence is your spellcasting ability for them.\n   If you come across a schematic geared toward quicksmithing or study with another quicksmith, you might be able to add another spell to the effects you have mastered. The spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of mastering the spell takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents aether you use as you experiment with the spell effect to master it.\n   In addition, you have proficiency with artisan's tools (quicksmith's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours unless you spend 1 hour repairing it to keep it functioning. You can use your action to dismantle the device, at which point you can reclaim the materials used to create it. You can have up to three such devices active at a time.\n   When you create a device, choose one of the following options:\n   " + toUni("Clockwork Toy") + ". This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.\n   " + toUni("Fire Starter") + ". This device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\n   " + toUni("Music Box") + ". When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.",
 	description : "I gain the Tinker ability of a Rock Gnome, including proficiency with tinker's tools. I learn two 1st-level ritual spells and can learn more if found and no higher spell level than half my character level. I can cast these as rituals with Intelligence as my spellcasting ability.",
 	prerequisite : "Intelligence 13 or higher",
-	prereqeval : "What('Int') >= 13",
-	eval : "CurrentSpells['quicksmithing'] = {name : 'Quicksmithing Ritual Spells', ability : 4, list : {'class' : 'any', ritual : true}, known : {spells : 'book'}, bonus : { someFeat : { name : '1st-level ritual spell', 'class' : 'any', level : [1, 1], ritual : true, times : 2} } }; SetStringifieds('spells');",
-	removeeval : "delete CurrentSpells['quicksmithing']; SetStringifieds('spells');"
+	prereqeval : function (v) { return What('Int') >= 13; },
+	eval : function () {
+		CurrentSpells['quicksmithing'] = {
+			name : 'Quicksmithing Ritual Spells',
+			ability : 4,
+			list : {'class' : 'any', ritual : true},
+			known : { spells : 'book' },
+			refType : "feat"
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['quicksmithing'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	}
 };
 FeatsList["servo crafting"] = { // Includes contributions by userZynx_name
 	name : "Servo Crafting",
 	source : ["PS:K", 13],
+	descriptionFull : "You are skilled in the creation of servos\u2014tiny constructs that function as personal assistants. You can cast the find familiar spell as a ritual, creating a servo to serve as your familiar instead of an animal. A servo's statistics appear in the \"Artifact Creatures\" section of the Plane Shift: Kaladesh document. In every other way, a servo familiar functions as described in the find familiar spell.\n   You can communicate telepathically with your servo familiar and perceive through its senses as long as you are on the same plane of existence. You can speak through your servo in your own voice.\n   Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your servo familiar to make one attack of its own.",
 	description : "I can cast Find Familiar as a ritual, creating a servo instead of an animal. I can telepathically communicate with it, perceive its senses, and speak through it in my own voice. When I use the Attack action, I can forfeit one attack for it to attack.",
 	prerequisite : "Intelligence 13 or higher",
-	prereqeval : "What('Int') >= 13",
+	prereqeval : function (v) { return What('Int') >= 13; },
 	spellcastingBonus : {
 		name : "Servo Crafting",
 		spellcastingAbility : 4,
@@ -104,7 +118,7 @@ RaceList["aetherborn"] = { // Includes contributions by SoilentBrad
 	height : " range from 5 to over 6 feet tall (4'9\" + 2d8\")",
 	weight : " weigh around 100 lb, and get lighter as they age",
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
-	improvements : "Aetherborn: +2 Charisma, +1 to two others of your choice;",
+	scorestxt : "+2 Charisma, +1 to two others of your choice",
 	scores : [0, 0, 0, 0, 0, 2],
 	trait : "Aetherborn (+2 Charisma, +1 to two others of your choice)\nBorn of Aether: I have resistance to necrotic damage.\nMenacing: I gain proficiency in the Intimidation skill.",
 };
@@ -128,17 +142,10 @@ RaceList["kaladesh dwarf"] = { // Includes contributions by SoilentBrad
 	weight : " weigh around 150 lb (115 + 2d4 \xD7 2d6 lb)",
 	heightMetric : " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
 	weightMetric : " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
-	improvements : "Kaladesh Dwarf: +2 Constitution, +1 Wisdom;",
 	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Kaladesh Dwarf (+2 Constitution, +1 Wisdom)\nArtisan's Expertise: I have proficiency and expertise with two artisan's tools of my choice.\n   Whenever I make an Intelligence (History) check related to the origin of any architectural construction, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.\nDwarven Toughness: My hit point maximum increases by 1 for every level I have.",
-	features : {
-		"dwarven toughness" : {
-			name : "Dwarven Toughness",
-			minlevel : 1,
-			calcChanges : {
-				hp : "extrahp += totalhd; extrastring += '\\n + ' + totalhd + ' from Dwarven Toughness';"
-			}
-		}
+	calcChanges : {
+		hp : function (totalHD) { return [totalHD, "Dwarven Toughness"]; }
 	}
 };
 RaceList["vahadar elf"] = { // Includes contributions by SoilentBrad
@@ -157,23 +164,21 @@ RaceList["vahadar elf"] = { // Includes contributions by SoilentBrad
 		text : ["Magic can't put me to sleep"],
 		adv_vs : ["charmed"]
 	},
-	weaponprofs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
+	weaponProfs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Vahadar: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Vahadar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, but I still need 8 hours for a long rest.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
-	abilitySave : 5,
 	spellcastingAbility : 5,
 	spellcastingBonus : {
 		name : "Vahadar Cantrip",
 		"class" : "druid",
 		level : [0, 0],
-		atwill : true
+		firstCol : 'atwill'
 	}
 };
 RaceList["bishtahar elf"] = {
@@ -192,14 +197,13 @@ RaceList["bishtahar elf"] = {
 		text : ["Magic can't put me to sleep"],
 		adv_vs : ["charmed"]
 	},
-	weaponprofs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
+	weaponProfs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Bishtahar: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Bishtahar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
 };
@@ -219,14 +223,13 @@ RaceList["tirahar elf"] = {
 		text : ["Magic can't put me to sleep"],
 		adv_vs : ["charmed"]
 	},
-	weaponprofs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
+	weaponProfs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Tirahar: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Tirahar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
 };
@@ -245,7 +248,6 @@ RaceList["vedalken-psk"] = { // Includes contributions by SoilentBrad
 	age : " reach adulthood around 40 and live up to 500 years",
 	height : " range from 6 to 6 1/2 feet tall",
 	weight : " weigh less than 200 lb",
-	improvements : "Vedalken: +2 Intelligence, +1 Wisdom;",
 	scores : [0, 0, 0, 2, 1, 0],
 	trait : "Vedalken (+2 Intelligence, +1 Wisdom)\nVedalken Cunning: I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.\nAether Lore: Whenever I make an Intelligence (History) check related to magic items or aether-powered technological devices, I can add twice my proficiency bonus, instead of any proficiency bonus I normally apply."
 };

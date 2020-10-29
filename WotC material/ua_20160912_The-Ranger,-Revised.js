@@ -1,5 +1,5 @@
 var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source
@@ -16,23 +16,26 @@ ClassList["rangerua"] = {
 	regExpSearch : /^((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	name : "Ranger",
 	source : ["UA:RR", 2],
-	primaryAbility : "\n \u2022 Ranger: Dexterity and Wisdom;",
+	primaryAbility : "Dexterity and Wisdom",
 	abilitySave : 5,
-	prereqs : "\n \u2022 Ranger: Dexterity 13 and Wisdom 13;",
+	prereqs : "Dexterity 13 and Wisdom 13",
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 10,
 	saves : ["Str", "Dex"],
-	skills : ["\n\n" + toUni("Ranger") + ": Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "\n\n" + toUni("Multiclass Ranger") + ": Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
-	armor : [
-		[true, true, false, true],
-		[true, true, false, true]
-	],
-	weapons : [
-		[true, true],
-		[true, true]
-	],
+	skillstxt : {
+		primary : "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
+		secondary : "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, or Survival"
+	},
+	armorProfs : {
+		primary : [true, true, false, true],
+		secondary : [true, true, false, true]
+	},
+	weaponProfs : {
+		primary : [true, true],
+		secondary : [true, true]
+	},
 	equipment : "Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-	subclasses : ["Ranger Conclaves", ["rangerua-beast master", "rangerua-deep stalker", "rangerua-hunter"]],
+	subclasses : ["Ranger Conclaves", []],
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 2,
 	spellcastingList : {
@@ -73,7 +76,14 @@ ClassList["rangerua"] = {
 			},
 			languageProfs : [1],
 			calcChanges : {
-				atkCalc : ["if (!isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(WeaponText)) { output.extraDmg += classes.known.rangerua.level < 6 ? 2 : 4; }; ", "If I include the words 'Favored Enemy' in the name or description of a weapon, it gets bonus damage, depending on my Ranger level."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (!v.isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(v.WeaponText)) {
+							output.extraDmg += classes.known.rangerua.level < 6 ? 2 : 4;
+						};
+					},
+					"If I include the words 'Favored Enemy' in the name or description of a weapon, it gets bonus damage, depending on my Ranger level."
+				]
 			}
 		},
 		"natural explorer" : {
@@ -82,13 +92,19 @@ ClassList["rangerua"] = {
 			minlevel : 1,
 			description : "\n   " + "On my first turn in combat, I have adv. on attacks against those that did not yet act" + "\n   " + "I ignore difficult terrain; I have adv. on Initiative; I have benefits in travel, see page 3",
 			extraname : "Natural Explorer",
-			"travel benefit" : {
+			"travel benefits" : {
 				name : "Travel Benefits",
 				source : ["UA:RR", 3],
-				description: "\n   " + "After one hour of traveling in the wilderness I gain the following benefits:" + "\n    - " + "My allies and I are not slowed by difficult terrain and can't get lost except by magic" + "\n    - " + "I am alert to danger even when doing something else; I forage twice as much food" + "\n    - " + "If alone (or alone with animal companion), I can move stealthily at my normal pace" + "\n    - " + "When tracking others, I also learn their exact number, size, and time since passing"
+				description: desc([
+					"After one hour of traveling in the wilderness I gain the following benefits:",
+					" \u2022 My allies and I are not slowed by difficult terrain and can't get lost except by magic",
+					" \u2022 I am alert to danger even when doing something else; I forage twice as much food",
+					" \u2022 If alone (or alone with animal companion), I can move stealthily at my normal pace",
+					" \u2022 When tracking others, I also learn their exact number, size, and time since passing"
+				])
 			},
-			eval : "Checkbox('Init Adv', true, 'Advantage to Initiative checks was gained from Ranger (Natural Explorer)'); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra']);",
-			removeeval : "Checkbox('Init Adv', false, ''); ClassFeatureOptions(['rangerua', 'natural explorer', 'travel benefit', 'extra'], 'remove');"
+			autoSelectExtrachoices : [{ extrachoice : "travel benefits" }],
+			advantages : [["Initiative", true]]
 		},
 		"fighting style" : function () {
 			var FSfea = newObj(ClassList.ranger.features["fighting style"]);
@@ -193,7 +209,7 @@ ClassList["rangerua"] = {
 		}
 	}
 };
-ClassSubList["rangerua-beast master"] = {
+AddSubClass("rangerua", "beast master", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Conclave",
 	source : ["UA:RR", 5],
@@ -236,8 +252,8 @@ ClassSubList["rangerua-beast master"] = {
 			description : "\n   " + "My companion can, as a reaction, halve an attack's damage from attacker that it sees"
 		}
 	}
-};
-ClassSubList["rangerua-hunter"] = {
+});
+AddSubClass("rangerua", "hunter", {
 	regExpSearch : /^(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i,
 	subname : "Hunter Conclave",
 	source : ["UA:RR", 7],
@@ -323,8 +339,8 @@ ClassSubList["rangerua-hunter"] = {
 			}
 		}
 	}
-};
-ClassSubList["rangerua-deep stalker"] = {
+});
+AddSubClass("rangerua", "deep stalker", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker Conclave",
 	source : ["UA:RR", 7],
@@ -340,8 +356,9 @@ ClassSubList["rangerua-deep stalker"] = {
 			name : "Deep Stalker Magic",
 			source : ["UA:RR", 8],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
-			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
+			description : "\n   " + "I have 90 ft darkvision (or +30 ft) and gain extra known spells at level 3, 5, 9, 13, 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"],
+			spellcastingExtraApplyNonconform : true,
 			vision : [["Darkvision", "fixed 90"], ["Darkvision", "+30"]]
 		},
 		"subclassfeature7" : {
@@ -365,7 +382,7 @@ ClassSubList["rangerua-deep stalker"] = {
 			action : ["reaction", " (when attacked)"]
 		}
 	}
-};
+});
 
 // By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!

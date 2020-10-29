@@ -1,5 +1,5 @@
 var iFileName = "ua_20170501_Revised-Subclasses.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -49,7 +49,7 @@ AddSubClass("barbarian", "ancestral guardian2", {
 				name : "Consult the Spirits",
 				spells : ["clairvoyance"],
 				selection : ["clairvoyance"],
-				oncesr : true
+				firstCol : 'oncesr'
 			},
 			usages : 1,
 			recovery : "short rest"
@@ -75,8 +75,8 @@ AddSubClass("bard", "college of swords2", {
 				"I gain proficiency with medium armor and scimitars",
 				"I can use a simple or martial melee weapon that I'm proficient with as spellcasting focus"
 			]),
-			armor : [false, true, false, false],
-			weapons : [false, false, ["scimitar"]]
+			armorProfs : [false, true, false, false],
+			weaponProfs : [false, false, ["scimitar"]]
 		},
 		"subclassfeature3.1" : {
 			name : "Fighting Style",
@@ -135,7 +135,12 @@ AddSubClass("fighter", "arcane archer2", {
 				"This magical arrow gives a +1 bonus to the attack and damage rolls for the one attack"
 			]),
 			calcChanges : {
-				atkCalc : ["if ((/longbow|shortbow/i).test(WeaponName) && !thisWeapon[1]) {output.magic += 1; }; ", "Any longbow or shortbow that doesn't include a magic bonus in its name gets a +1 magical bonus to damage and to hit as any arrows fired with it are automatically made magical."]
+				atkCalc : [
+					function (fields, v, output) {
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && !v.theWea.isMagicWeapon) output.magic += 1;
+					},
+					"Any longbow or shortbow that doesn't include a magic bonus in its name gets a +1 magical bonus to damage and to hit as any arrows fired with it are automatically made magical."
+				]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -153,6 +158,9 @@ AddSubClass("fighter", "arcane archer2", {
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
 			extraname : "Arcane Shot Option",
 			extrachoices : ["Banishing Arrow [Abjuration]", "Brute Bane Arrow [Necromancy]", "Bursting Arrow [Evocation]", "Grasping Arrow [Conjuration]", "Mind-Scrambling Arrow [Enchantment]", "Piercing Arrow [Transmutation]", "Seeking Arrow [Divination]", "Shadow Arrow [Illusion]"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6;
+			}),
 			"banishing arrow [abjuration]" : {
 				name : "Banishing Arrow [Abjuration]",
 				source : ["UA:RS", 3],
@@ -236,7 +244,7 @@ AddSubClass("fighter", "arcane archer2", {
 			source : ["UA:RS", 3],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency with either the Arcana or Nature skill",
-			skillstxt : "\n\n" + toUni("Arcane Archer") + ": Choose Arcana or Nature."
+			skillstxt : "Choose one from: Arcana or Nature"
 		},
 		"subclassfeature7" : {
 			name : "Curving Shot",
@@ -276,7 +284,26 @@ AddSubClass("monk", "way of the kensei2", {
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 			calcChanges : {
 				atkAdd : [
-					"var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && theWea && !isSpell && !theWea.monkweapon && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow') && WeaponText.toLowerCase().indexOf('kensei') !== -1) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; if (theWea.ability === 1) {fields.Mod = StrDex; }; if (isRangedWeapon) {fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage'; }; fields.Proficiency = true; }; ",
+					function (fields, v) {
+						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
+							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							try {
+								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
+							} catch (e) {
+								var curDie = 'x';
+							};
+							if (isNaN(curDie) || curDie < aMonkDie) {
+								fields.Damage_Die = '1d' + aMonkDie;
+							};
+							if (theWea.ability === 1) {
+								fields.Mod = v.StrDex;
+							};
+							if (isRangedWeapon) {
+								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
+							};
+							fields.Proficiency = true;
+						};
+					},
 					"If I include the word 'Kensei' in the name of a weapon that doesn't have the Heavy or Special attribute, or that is a longbow, that weapon gains the same benefits as any other 'Monk Weapon'.\nIn addition, with ranged 'Kensei Weapons', I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 damage."
 				]
 			}
@@ -287,7 +314,14 @@ AddSubClass("monk", "way of the kensei2", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (WeaponText.toLowerCase().indexOf('kensei') !== -1  && theWea && !isSpell && (!(/heavy|special/i).test(fields.Description) || WeaponName === 'longbow'))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : [
+					function (fields, v) {
+						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+						};
+					},
+					"My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."
+				]
 			},
 			extraname : "Way of the Kensei 6",
 			"precise strike" : {
@@ -296,15 +330,6 @@ AddSubClass("monk", "way of the kensei2", {
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
-			eval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra']);",
-			removeeval : "ClassFeatureOptions(['monk', 'ki-empowered strikes', 'precise strike', 'extra'], 'remove');"
-		},
-		"subclassfeature17" : {
-			name : "Unerring Accuracy",
-			source : ["UA:RS", 5],
-			minlevel : 17,
-			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll",
-			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
 				source : ["UA:RS", 5],
@@ -315,11 +340,23 @@ AddSubClass("monk", "way of the kensei2", {
 				additional : "1 to 3 ki points",
 				action : ["bonus action", ""]
 			},
-			changeeval : "if (newClassLvl.monk >= 11 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('sharpen the blade') === -1) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'])} else if (newClassLvl.monk <= 11 && oldClassLvl.monk >= 11) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], 'remove')}"
+			autoSelectExtrachoices : [{
+				extrachoice : "precise strike"
+			}, {
+				extrachoice : "sharpen the blade",
+				minlevel : 11,
+				extraname : "Way of the Kensei 11"
+			}]
+		},
+		"subclassfeature17" : {
+			name : "Unerring Accuracy",
+			source : ["UA:RS", 5],
+			minlevel : 17,
+			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
 		}
 	}
 });
-AddSubClass("sorcerer", "favoured soul2", {
+AddSubClass("sorcerer", "favoured soul-uars", {
 	regExpSearch : /^(?=.*favou?red)(?=.*soul).*$/i,
 	subname : "Favored Soul",
 	source : ["UA:RS", 5],

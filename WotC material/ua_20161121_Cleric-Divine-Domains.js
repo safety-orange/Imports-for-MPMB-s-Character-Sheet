@@ -1,5 +1,5 @@
 var iFileName = "ua_20161121_Cleric-Divine-Domains.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Cleric Divine Domains article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,7 +23,7 @@ AddSubClass("cleric", "forge domain", {
 			source : ["UA:CDD", 1],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
-			armor : [false, false, true, false]
+			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Blessing of the Forge",
@@ -47,8 +47,11 @@ AddSubClass("cleric", "forge domain", {
 			additional : ["", "", "", "", "", "+6 force damage", "+7 force damage", "+8 force damage", "+9 force damage", "+10 force damage", "+11 force damage", "+12 force damage", "+13 force damage", "+14 force damage", "+15 force damage", "+16 force damage", "+17 force damage", "+18 force damage", "+19 force damage", "+20 force damage"],
 			description : "\n   " + "I gain a +1 AC while wearing medium or heavy armor, and resistance to fire damage" + "\n   " + "When I hit a construct with an attack, I deal my cleric level in additional force damage",
 			dmgres : ["Fire"],
-			eval : "AddACMisc(1, 'Soul of the Forge', '+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).', \"!tDoc.getField('Medium Armor').isBoxChecked(0) && !tDoc.getField('Heavy Armor').isBoxChecked(0)\");",
-			removeeval : "AddACMisc(0, 'Soul of the Forge', '+1 AC while wearing Medium or Heavy armor.\\n\\nSoul of the Forge was gained from Cleric (Forge Domain).');"
+			extraAC : {
+				mod : 1,
+				text : "I gain a +1 bonus to AC while I'm wearing medium or heavy armor.",
+				stopeval : function (v) { return !v.heavyArmor && !v.mediumArmor; }
+			}
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -60,7 +63,14 @@ AddSubClass("cleric", "forge domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 fire damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra fire damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra fire damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -84,14 +94,21 @@ AddSubClass("cleric", "grave domain", {
 			source : ["UA:CDD", 2],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
-			armor : [false, false, true, false]
+			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Circle of Mortality",
 			source : ["UA:CDD", 2],
 			minlevel : 1,
 			action : ["bonus action", ""],
-			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "As a bonus action, I can cast the Spare the Dying cantrip, if I know it"
+			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "As a bonus action, I can cast the Spare the Dying cantrip, if I know it",
+			spellChanges : {
+				"spare the dying" : {
+					time : "1 bns",
+					range : "Touch",
+					changes : "I can cast spare the dying as a bonus action instead of an action."
+				}
+			}
 		},
 		"subclassfeature1.2" : {
 			name : "Eyes of the Grave",
@@ -127,7 +144,14 @@ AddSubClass("cleric", "grave domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 necrotic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra necrotic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -149,7 +173,7 @@ AddSubClass("cleric", "protection domain", {
 			source : ["UA:CDD", 3],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
-			armor : [false, false, true, false]
+			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Shield of the Faithful",
@@ -170,7 +194,38 @@ AddSubClass("cleric", "protection domain", {
 			name : "Blessed Healer",
 			source : ["UA:CDD", 3],
 			minlevel : 6,
-			description : "\n   " + "When I cast a spell to heal another using a spell slot, I heal 2 + the spell's level as well"
+			description : "\n   " + "When I restore HP to another with a spell, I regain 2 + the spell (slot) level in HP",
+			calcChanges : {
+				spellAdd : [
+					// note that several healing spells are not present here because they don't restore hp at casting (only later)
+					function (spellKey, spellObj, spName) {
+						var startDescr = spellObj.description;
+						switch (spellKey) {
+							case "life transference" :
+								spellObj.description = spellObj.description.replace("Necrotic", "Necro").replace(", and", ",") + "; I then regain 2+SL HP";
+								break;
+							case "mass heal" :
+								spellObj.description = "Heal 700 HP, split over crea in range, each then +11 HP; also cures blind, deaf, diseases; I heal +11 HP";
+								break;
+							case "power word heal" :
+								spellObj.description = spellObj.description.replace(/heals all.*/i, "full HP; not charmed, frightened, paralyzed, stunned; can stand up as rea; if other, I heal 2+SL");
+								break;
+							case "regenerate" :
+								spellObj.description = spellObj.description.replace(" for rest of duration", "");
+							case "heal" :
+								spellObj.description = spellObj.description.replace("all diseases", "diseases");
+							case "cure wounds" :
+							case "healing word" :
+							case "mass cure wounds" :
+							case "mass healing word" :
+							case "prayer of healing" :
+								spellObj.description = spellObj.description.replace(/creatures?/i, "crea").replace("within", "in").replace("spellcasting ability modifier", "spellcasting ability mod") + "; if other, I heal 2+SL";
+						}
+						return startDescr !== spellObj.description;
+					},
+					"When I cast a spell that restores hit points to another creature than myself at the moment of casting, I also heal 2 + the level of the spell slot (or spell slot equivalent) hit points."
+				]
+			}
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -182,7 +237,14 @@ AddSubClass("cleric", "protection domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 radiant damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra radiant damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra radiant damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -191,10 +253,8 @@ AddSubClass("cleric", "protection domain", {
 			minlevel : 17,
 			usages : 1,
 			recovery : "short rest",
-			action : ["action", " (transfer)"],
-			description : "\n   " + "I gain resistance to two of: bludgeoning, necrotic, piercing, radiant, or slashing damage" + "\n   " + "Whenever I finish a short or long rest, I can change the damage types chosen" + "\n   " + "As an action, I can transfer both resistances to one creature I touch" + "\n   " + "As a bonus action, I can transfer the resistances back to myself" + "\n   " + "Otherwise, the creature keeps this resistance until the end of my next short or long rest",
-			eval : "AddAction('bonus action', 'Indomitable Defense (return)', 'Cleric (Protection Domain)');",
-			removeeval : "RemoveAction('bonus action', 'Indomitable Defense (return)');"
+			action : [["action", " (transfer)"], ['bonus action', ' (return)']],
+			description : "\n   " + "I gain resistance to two of: bludgeoning, necrotic, piercing, radiant, or slashing damage" + "\n   " + "Whenever I finish a short or long rest, I can change the damage types chosen" + "\n   " + "As an action, I can transfer both resistances to one creature I touch" + "\n   " + "As a bonus action, I can transfer the resistances back to myself" + "\n   " + "Otherwise, the creature keeps this resistance until the end of my next short or long rest"
 		}
 	}
 });

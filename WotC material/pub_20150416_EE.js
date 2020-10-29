@@ -1,5 +1,5 @@
 var iFileName = "pub_20150416_EE.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,24 +23,21 @@ RaceList["aarakocra"] = {
 		fly : { spd : 50, enc : 0 }
 	},
 	languageProfs : ["Common", "Aarakocra", "Auran"],
-	weapons : ["talons"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+		regExpSearch : /talon/i,
+		name : "Talons",
+		source : ["E", 5],
+		damage : [1, 4, "slashing"]
+	},
+	weaponsAdd : ["Talons"],
 	age : " rearch maturity by age 3 and live about 30 years",
 	height : " are about 5 feet tall",
 	weight : " weigh between 80 and 100 lb",
 	heightMetric : " are about 1,5 metres tall",
 	weightMetric : " weigh between 36 and 45 kg",
-	improvements : "Aarakocra: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
-	trait : "Aarakocra (+2 Dexterity, +1 Wisdom)\n\nFlight: I have a flying speed of 50 feet. To use this speed, I can't be wearing medium or heavy armor.\n\nTalons: My unarmed strikes deal 1d4 slashing damage on a hit.",
-	features : {
-		"talons" : {
-			name : "Talons",
-			minlevel : 1,
-			calcChanges : {
-				atkAdd : ["if ((/unarmed strike/i).test(WeaponName)) { fields.Damage_Type = 'slashing'; if (fields.Damage_Die == 1) {fields.Damage_Die = '1d4'; }; }; ", "I have talons, which cause my unarmed strikes to deal 1d4 slashing damage."]
-			}
-		}
-	}
+	trait : "Aarakocra (+2 Dexterity, +1 Wisdom)\n\nFlight: I have a flying speed of 50 feet. To use this speed, I can't be wearing medium or heavy armor.\n\nTalons: My unarmed strikes deal 1d4 slashing damage on a hit."
 };
 RaceList["deep gnome"] = {
 	regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
@@ -60,7 +57,6 @@ RaceList["deep gnome"] = {
 	weight : " weigh around 90 lb (80 + 2d4 \xD7 1d4 lb)",
 	heightMetric : " stand between 90 and 105 cm tall (85 + 5d4 cm)",
 	weightMetric : " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
-	improvements : "Svirfneblin: +1 Dexterity, +2 Intelligence;",
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 };
@@ -80,24 +76,28 @@ RaceList["air genasi"] = {
 	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Air Genasi: +1 Dexterity, +2 Constitution;",
 	scores : [0, 1, 2, 0, 0, 0],
 	trait : "Air Genasi (+1 Dexterity, +2 Constitution)\n\nUnending Breath: I can hold my breath indefinitely while I am not incapacitated.\n\nMingle with the Wind: I can cast the Levitate spell once with this trait, requiring no material components, and I regain the ability to cast it this way when I finish a long rest. Constitution is my spellcasting ability for this spell.",
-	abilitySave : 3,
 	spellcastingAbility : 3,
 	features : {
 		"levitate" : {
-			name : "Levitate",
+			name : "Mingle with the Wind",
+			limfeaname : "Levitate",
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Mingle with the Wind)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Mingle with the Wind",
 				spells : ["levitate"],
 				selection : ["levitate"],
-				oncelr : true
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"levitate" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "Using Mingle with the Wind, I can cast Levitate once per long rest without requiring material components."
+				}
 			}
 		}
 	}
@@ -118,23 +118,28 @@ RaceList["earth genasi"] = {
 	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Earth Genasi: +1 Strength, +2 Constitution;",
 	scores : [1, 0, 2, 0, 0, 0],
 	trait : "Earth Genasi (+1 Strength, +2 Constitution)" + (typePF ? "\n" : "") + "\nEarth Walk: I can move across difficult terrain made of earth or stone without expending extra movement." + (typePF ? "\n" : "") + "\nMerge with Stone: I can cast the Pass without Trace spell once with this trait, requiring no material components, and I regain the ability to cast it this way when I finish a long rest. Constitution is my spellcasting ability for this spell.",
 	spellcastingAbility : 3,
 	features : {
 		"pass without trace" : {
-			name : "Pass without Trace",
+			name : "Merge with Stone",
+			limfeaname : "Pass without Trace",
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Merge with Stone)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Merge with Stone",
 				spells : ["pass without trace"],
 				selection : ["pass without trace"],
-				oncelr : true
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"pass without trace" : {
+					components : "V,S",
+					compMaterial : "",
+					changes : "Using Merge with Stone, I can cast Pass without Trace once per long rest without requiring material components."
+				}
 			}
 		}
 	}
@@ -157,30 +162,27 @@ RaceList["fire genasi"] = {
 	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Fire Genasi: +2 Constitution, +1 Intelligence;",
 	scores : [0, 0, 2, 1, 0, 0],
 	trait : "Fire Genasi (+2 Constitution, +1 Intelligence)\n\nReach to the Blaze:\n   I know the Produce Flame cantrip.\n   Once I reach 3rd level, I can cast the Burning Hands spell once as a 1st-level spell.\n   I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
-	abilitySave : 3,
 	spellcastingAbility : 3,
 	spellcastingBonus : {
 		name : "Reach to the Blaze (level 1)",
 		spells : ["produce flame"],
 		selection : ["produce flame"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"burning hands" : {
-			name : "Burning Hands",
+			name : "Reach to the Blaze (level 3)",
+			limfeaname : "Burning Hands",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Reach to the Blaze)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Reach to the Blaze (level 3)",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	}
@@ -203,7 +205,6 @@ RaceList["water genasi"] = {
 	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Water Genasi: +2 Constitution, +1 Wisdom;",
 	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Water Genasi (+2 Constitution, +1 Wisdom)\nAmphibious: I can breathe air and water.\nSwim: I have a swimming speed of 30 feet.\nCall to the Wave: I know the Shape Water cantrip.\n   When I reach 3rd level, I can cast the Create or Destroy Water spell as a 2nd-level spell once with this trait, and I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 	spellcastingAbility : 3,
@@ -211,26 +212,25 @@ RaceList["water genasi"] = {
 		name : "Call to the Wave (level 1)",
 		spells : ["shape water"],
 		selection : ["shape water"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"create or destroy water" : {
-			name : "Create/Destroy Water (level 2)",
+			name : "Call to the Wave (level 3)",
+			limfeaname : "Create/Destroy Water (level 2)",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Call to the Wave)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Call to the Wave (level 3)",
 				spells : ["create or destroy water"],
 				selection : ["create or destroy water"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	}
 };
-RaceList["goliath"] = {
+RaceList["goliath"] = { // Added cold resistance in accordance with the VGtM 2020 errata https://media.wizards.com/2020/dnd/downloads/VGtM-Errata.pdf
 	regExpSearch : /goliath/i,
 	name : "Goliath",
 	source : [["E", 11], ["V", 108]],
@@ -240,13 +240,13 @@ RaceList["goliath"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Giant"],
+	dmgres : ["Cold"],
 	skills : ["Athletics"],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
 	weight : " weigh between 280 and 340 lb (200 + 2d10 \xD7 2d6 lb)",
 	heightMetric : " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
 	weightMetric : " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
-	improvements : "Goliath: +2 Strength, +1 Constitution;",
 	scores : [2, 0, 1, 0, 0, 0],
 	features : {
 		"stone's endurance" : {
@@ -254,35 +254,43 @@ RaceList["goliath"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			tooltip : "",
 			action : ["reaction", ""]
 		}
 	},
-	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I'm acclimated to high altitude, including elevations above 20000 feet. I'm also naturally adapted to cold climates.",
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 feet.",
+	carryingCapacity : 2
 };
 
 // Feat
 FeatsList["svirfneblin magic"] = {
 	name : "Svirfneblin Magic",
-	source : [["E", 7], ["S", 115]],
+	source : [["E", 7], ["S", 115], ["MToF", 114]],
 	prerequisite : "Being a Svirfneblin (Deep Gnome)",
-	prereqeval : "CurrentRace.known === 'deep gnome'",
+	prereqeval : function(v) { return CurrentRace.known === 'deep gnome'; },
+	descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 	description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 	spellcastingBonus : [{
 		name : "at will (self only)",
 		spellcastingAbility : 4,
 		spells : ["nondetection"],
 		selection : ["nondetection"],
-		atwill : true
+		firstCol : 'atwill'
 	}, {
 		name : "1x long rest (self only)",
 		spells : ["blindness/deafness", "blur", "disguise self"],
 		selection : ["blindness/deafness", "blur", "disguise self"],
-		oncelr : true,
+		firstCol : 'oncelr',
 		times : 3
-	}]
+	}],
+	spellChanges : {
+		"nondetection" : {
+			range : "Self",
+			components : "V,S",
+			compMaterial : "",
+			description : "I am hidden from all divination magic",
+			changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+		}
+	}
 };
 
 // Spells
@@ -343,7 +351,7 @@ SpellsList["beast bond"] = {
 	components : "V,S,M",
 	compMaterial : "A bit of fur wrapped in a cloth",
 	duration : "Conc, 10 min",
-	description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea you can see",
+	description : "Telepathic link with 1 beast Int<4 while in line of sight; beast has adv. on attacks vs. crea I can see",
 	descriptionFull : "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beast's Intelligence is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on attack rolls against any creature within 5 feet of you that you can see."
 };
 SpellsList["bones of the earth"] = {
@@ -384,7 +392,7 @@ SpellsList["control flames"] = {
 	range : "60 ft",
 	components : "S",
 	duration : "Instant. or 1 h",
-	description : "Nonmagical flame up to 5 cu ft; instant: expand/exinguish, 1h: brighten/dim/color/create shapes",
+	description : "Nonmagical flame up to 5 cu ft; instant: expand/extinguish, 1h: brighten/dim/color/create shapes",
 	descriptionFull : "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways." + "\n \u2022 " + "You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location." + "\n \u2022 " + "You instantaneously extinguish the flames within the cube." + "\n \u2022 " + "You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour." + "\n \u2022 " + "You cause simple shapes-such as the vague form of a creature, an inanimate object, or a location-to appear within the flames and animate as you like. The shapes last for 1 hour." + "\n   " + "If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
 };
 SpellsList["control winds"] = {
@@ -412,6 +420,7 @@ SpellsList["create bonfire"] = {
 	duration : "Conc, 1 min",
 	save : "Dex",
 	description : "5-ft cube all crea at casting or entering save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+	descriptionCantripDie : "5-ft cube all crea at casting or entering save or `CD`d8 Fire dmg; ignites flammable",
 	descriptionFull : "You create a bonfire on ground that you can see within range. Until the spell ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it moves into the bonfire's space for the first time on a turn or ends its turn there." + "\n   " + "The bonfire ignites flammable objects in its area that aren't being worn or carried." + "\n   " + "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
 SpellsList["dust devil"] = {
@@ -454,7 +463,7 @@ SpellsList["earth tremor"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "All crea in range except you save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
+	description : "All crea in range except me save or 1d6+1d6/SL Bludgeoning dmg and prone; loose ground is dif. ter.",
 	descriptionFull : "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
 };
 SpellsList["elemental bane"] = {
@@ -511,12 +520,13 @@ SpellsList["frostbite"] = {
 	duration : "Instantaneous",
 	save : "Con",
 	description : "1 crea save or 1d6 Cold dmg and dis. on next weapon attack roll; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea save or `CD`d6 Cold dmg and dis. on next weapon attack roll",
 	descriptionFull : "You cause numbing frost to form on one creature that you can see within range. The target must make a Constitution saving throw. On a failed save, the target takes 1d6 cold damage, and it has disadvantage on the next weapon attack roll it makes before the end of its next turn." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["gust"] = {
 	name : "Gust",
 	classes : ["druid", "sorcerer", "wizard"],
-	source : [["WGtE", 107], ["X", 157], ["E", 19], ["UA:D", 6]],
+	source : [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -609,7 +619,7 @@ SpellsList["investiture of wind"] = {
 	components : "V,S",
 	duration : "Conc, 10 min",
 	save : "Con",
-	description : "Rngd wea atks dis. vs. you; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
+	description : "Rngd wea atks dis. vs. me; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
 	descriptionFull : "Until the spell ends, wind whirls around you, and you gain the following benefits." + "\n " + "\u2022 Ranged weapon attacks made against you have disadvantage on the attack roll." + "\n " + "\u2022 You gain a flying speed of 60 feet. If you are still flying when the spell ends, you fall, unless you can somehow prevent it." + "\n " + "\u2022 You can use your action to create a 15-foot cube of swirling wind centered on a point you can see within 60 feet of you. Each creature in that area must make a Constitution saving throw. A creature takes 2d10 bludgeoning damage on a failed save, or half as much damage on a successful one. If a Large or smaller creature fails the save, that creature is also pushed up to 10 feet away from the center of the cube."
 };
 SpellsList["maelstrom"] = {
@@ -737,7 +747,7 @@ SpellsList["skywrite"] = {
 	range : "Sight",
 	components : "V,S",
 	duration : "Conc, 1 h",
-	description : "Write up to 10 words with clouds in a part of the sky you can see; strong wind can diperse the clouds",
+	description : "Write up to 10 words with clouds in a part of the sky I can see; strong wind can diperse the clouds",
 	descriptionFull : "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early."
 };
 SpellsList["snilloc's snowball swarm"] = {
@@ -767,7 +777,7 @@ SpellsList["storm sphere"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Str",
-	description : "20-ft rad dif. ter.; all crea + end turn save or 2d6+1d6/SL Bludg.; bns a 60 ft spell atk 4d6 Lightning",
+	description : "20-ft rad dif. ter.; all crea cast/end turn save 2d6 Bludg.; bns 60 ft spell atk 4d6 Lightn. dmg; +1d6/SL",
 	descriptionFull : "A 20-foot-radius sphere of whirling air springs into existence centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain." + "\n   " + "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage." + "\n   " + "Creatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks made to listen." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases for each of its effects by 1d6 for each slot level above 4th."
 };
 SpellsList["thunderclap"] = {
@@ -781,7 +791,8 @@ SpellsList["thunderclap"] = {
 	components : "S",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "100-ft rad audible; all crea but you in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
+	description : "100-ft rad audible; all crea but me in area save or 1d6 Thunder dmg; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "100-ft rad audible; all crea but me in area save or `CD`d6 Thunder dmg",
 	descriptionFull : "You create a burst of thunderous sound that can be heard up to 100 feet away. Each creature within range, other than you, must succeed on a Constitution saving throw or take 1d6 thunder damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["tidal wave"] = {
@@ -825,7 +836,7 @@ SpellsList["vitriolic sphere"] = {
 	compMaterial : "A drop of giant slug bile",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "20-ft rad all crea 10d4+2d4/SL now and 5d4 Acid dmg at end next turn; save half \u0026 no dmg next rnd",
+	description : "20-ft rad all crea 10d4+2d4/SL Acid dmg, +5d4 crea next turn end; save half \u0026 no dmg next turn",
 	descriptionFull : "You point at a location within range, and a glowing, 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage and another 5d4 acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the initial damage increases by 2d4 for each slot level above 4th."
 };
 SpellsList["wall of sand"] = {

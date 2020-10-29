@@ -1,5 +1,5 @@
 var iFileName = "ua_20150406_Modifying-Classes.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Modifying Classes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -35,8 +35,8 @@ RunFunctionAtEnd(function() {
 				source : ["UA:MC", 9],
 				minlevel : 1,
 				description : "\n   " + "I gain proficiency with light armor, medium armor, shields, and simple weapons",
-				armor : [true, true, false, true],
-				weapons : [true, false]
+				armorProfs : [true, true, false, true],
+				weaponProfs : [true, false]
 			},
 			"subclassfeature1.1" : {
 				name : "Chosen of the Gods",
@@ -66,7 +66,7 @@ RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var cDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (cDomain && cDomain.spellcastingExtra) {
-			var eSpells = eval(cDomain.spellcastingExtra.toSource());
+			var eSpells = newObj(cDomain.spellcastingExtra);
 			eSpells[100] = "AddToKnown";
 			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source :[["UA:MC", 8]];
 			
@@ -92,22 +92,25 @@ ClassList["spell-less ranger"] = {
 	regExpSearch : /^(?=.*spell.?less)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	name : "Spell-less Ranger",
 	source : ["UA:MC", 6],
-	primaryAbility : "\n \u2022 Spell-less Ranger: Dexterity and Wisdom;",
+	primaryAbility : "Dexterity and Wisdom",
 	abilitySave : 1,
 	abilitySaveAlt : 2,
-	prereqs : "\n \u2022 Spell-less Ranger: Dexterity 13 and Wisdom 13;",
+	prereqs : "Dexterity 13 and Wisdom 13",
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
 	die : 10,
 	saves : ["Str", "Dex"],
-	skills : ["\n\n" + toUni("Spell-less Ranger") + ": Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "\n\n" + toUni("Multiclass Spell-less Ranger") + ": Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"],
-	armor : [
-		[true, true, false, true],
-		[true, true, false, true]
-	],
-	weapons : [
-		[true, true],
-		[true, true]
-	],
+	skillstxt : {
+		primary : "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival",
+		secondary : "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"
+	},
+	armorProfs : {
+		primary : [true, true, false, true],
+		secondary : [true, true, false, true]
+	},
+	weaponProfs : {
+		primary : [true, true],
+		secondary : [true, true]
+	},
 	equipment : "Spell-less Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Ranger Archetype", []],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
@@ -136,6 +139,9 @@ ClassList["spell-less ranger"] = {
 			}),
 			extraname : "Maneuver",
 			extrachoices : ["Commander's Strike", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Trip Attack"],
+			extraTimes : levels.map(function (n) {
+				return n < 2 ? 0 : n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6;
+			}),
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : ["P", 74],
@@ -241,8 +247,11 @@ ClassList["spell-less ranger"] = {
 			name : "Primeval Awareness",
 			source : ["UA:MC", 6],
 			minlevel : 3,
-			description : "\n   " + "As an action, I can focus my awareness for 1 min, once per short rest" + "\n   " + "Out to 1 mile (6 in favored terrain), I sense if certain types of creatures are present",
-			additional : "aber/celest/drag/elem/fey/fie/und",
+			description : desc([
+				"As an action, I can focus my awareness for 1 min, once per short rest",
+				"Out to 1 mile (6 in favored terrain), I sense if certain types of creatures are present",
+				"These types are: aberration, celestial, dragon, elemental, fey, fiend, and undead"
+			]),
 			action : ["action", ""],
 			usages : 1,
 			recovery : "short rest"
@@ -285,7 +294,7 @@ ClassList["spell-less ranger"] = {
 			description : "\n   " + "I regain one superiority die if I have no more remaining when I roll initiative"
 		},
 		"feral senses" : ClassList.ranger.features["feral senses"],
-		"foe slayer" : ClassList.ranger.features["foe slayer"],
+		"foe slayer" : ClassList.ranger.features["foe slayer"]
 	}
 };
 // Create the Hunter subclass for the spell-less ranger

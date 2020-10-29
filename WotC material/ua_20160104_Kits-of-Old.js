@@ -1,5 +1,5 @@
 var iFileName = "ua_20160104_Kits-of-Old.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Kits of Old article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,8 +23,8 @@ AddSubClass("bard", "college of swords", {
 			source : ["UA:KoO", 1],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency with medium armor and scimitars",
-			armor : [false, true, false, false],
-			weapons : [false, false, ["scimitar"]]
+			armorProfs : [false, true, false, false],
+			weaponProfs : [false, false, ["scimitar"]]
 		},
 		"subclassfeature3.1" : function () {
 			var FSfea = newObj(FightingStyles.two_weapon);
@@ -59,7 +59,7 @@ AddSubClass("bard", "college of satire", {
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency with thieves' tools, sleight of hand, and one other skill of my choice",
 			skills : ["Sleight of Hand"],
-			skillstxt : "\n\n" + toUni("College of Satire") + ": Thieves' Tools, Sleight of Hand, and any one other skill.",
+			skillstxt : "Thieves' Tools, Sleight of Hand, and any one other skill",
 			toolProfs : [["Thieves' tools", "Dex"]]
 		},
 		"subclassfeature3.1" : {
@@ -76,9 +76,20 @@ AddSubClass("bard", "college of satire", {
 			minlevel : 6,
 			description : "\n   " + "I can cast Detect Thoughts, but on a save the target suffers an embarrassing social gaffe",
 			usages : "Charisma modifier per ",
-			usagescalc : "event.value = Math.max(1, this.getField(\"Cha Mod\").value);",
+			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest",
-			action : ["action", " (Detect Thoughts)"]
+			spellcastingBonus : {
+				name : "Fool's Insight",
+				spells : ["detect thoughts"],
+				selection : ["detect thoughts"],
+				firstCol : "(S)"
+			},
+			spellChanges : {
+				"detect thoughts" : {
+					description : "1 a read thoughts of visible Int>3 crea or detect invisible in 30 ft; save for probing, social gaffe on save",
+					changes : "I can cast this spell a number of times equal to my Charisma modifier per long rest and when I do so and the target makes its save, it suffers an embarrassing social gaffe."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Fool's Luck",
@@ -106,13 +117,13 @@ AddSubClass("fighter", "cavalier", {
 			"1 skill and 1 tool proficiencies" : {
 				name : "Bonus Proficiencies",
 				description : "\n   " + "I gain proficiency with one skill and any one tool of my choice" + "\n   " + "For the skill, I can choose Animal Handling, Insight, Performance, or Persuasion",
-				skillstxt : "\n\n" + toUni("Cavalier") + ": Choose one from: Animal Handling, Insight, Performance, or Persuasion.",
+				skillstxt : "Choose one from: Animal Handling, Insight, Performance, or Persuasion",
 				toolProfs : [["Any tool", 1]]
 			},
 			"2 skill proficiencies" : {
 				name : "Bonus Proficiencies",
 				description : "\n   " + "I gain two skill proficiencies: Animal Handling, Insight, Performance, or Persuasion",
-				skillstxt : "\n\n" + toUni("Cavalier") + ": Choose two from: Animal Handling, Insight, Performance, or Persuasion."
+				skillstxt : "Choose two from: Animal Handling, Insight, Performance, or Persuasion"
 			}
 		},
 		"subclassfeature3.1" : {
@@ -172,7 +183,7 @@ AddSubClass("fighter", "scout", {
 					"I gain proficiency with two skills and Thieves' Tools; For skills choose from:",
 					"Acrobatics, Athletics, Investigation, Medicine, Nature, Perception, Stealth, and Survival"
 				]),
-				skillstxt : "\n\n" + toUni("Scout") + ": Choose two from: Acrobatics, Athletics, Investigation, Medicine, Nature, Perception, Stealth, or Survival.",
+				skillstxt : "Choose two from: Acrobatics, Athletics, Investigation, Medicine, Nature, Perception, Stealth, or Survival",
 				toolProfs : [["Thieves' tools", "Dex"]]
 			},
 			"3 skill proficiencies" : {
@@ -181,7 +192,7 @@ AddSubClass("fighter", "scout", {
 					"I gain proficiency with three skills, chosen from:",
 					"Acrobatics, Athletics, Investigation, Medicine, Nature, Perception, Stealth, and Survival"
 				]),
-				skillstxt : "\n\n" + toUni("Scout") + ": Choose three from: Acrobatics, Athletics, Investigation, Medicine, Nature, Perception, Stealth, or Survival."
+				skillstxt : "Choose three from: Acrobatics, Athletics, Investigation, Medicine, Nature, Perception, Stealth, or Survival"
 			}
 		},
 		"subclassfeature3.1" : {

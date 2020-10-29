@@ -1,5 +1,5 @@
 var iFileName = "ua_20161212_Monk-Monastic-Traditions.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Monk Monastic Traditions article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,17 +23,33 @@ AddSubClass("monk", "way of the kensei", {
 			minlevel : 3,
 			description : " [3 martial weapons proficiencies]" + "\n   " + "Martial weapons I am proficient with count as kensei weapons for me" + "\n   " + "With these, I can use Dex instead of Str and use the Martial Arts damage die" + "\n   " + "As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
 			action: ["bonus action", " (after hit)"],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && !v.isSpell && v.baseWeaponName !== 'shortsword' && (/martial/i).test(v.theWea.type)) {
+							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							try {
+								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
+							} catch (e) {
+								var curDie = 'x';
+							};
+							if (isNaN(curDie) || curDie < aMonkDie) {
+								fields.Damage_Die = '1d' + aMonkDie;
+							};
+							fields.Mod = v.StrDex;
+							fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage';
+						};
+					},
+					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n \u2022 If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
+				]
+			},
 			extraname : "Way of the Kensei 3",
 			"kensei defense" : {
 				name : "Kensei Defense",
 				source : ["UA:MMT", 1],
 				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
 			},
-			eval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra']);",
-			removeeval : "ClassFeatureOptions(['monk', 'subclassfeature3', 'kensei defense', 'extra'], 'remove');",
-			calcChanges : {
-				atkAdd : ["var monkDie = function(n) {return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;}; if (classes.known.monk && classes.known.monk.level > 2 && fields.Proficiency && theWea && !isSpell && !(/shortsword/i).test(theWea.name) && (/martial/i).test(theWea.type)) {var aMonkDie = aMonkDie ? aMonkDie : monkDie(classes.known.monk.level); try {var curDie = eval(fields.Damage_Die.replace('d', '*'));} catch (e) {var curDie = 'x';}; if (isNaN(curDie) || curDie < aMonkDie) {fields.Damage_Die = '1d' + aMonkDie; }; fields.Mod = StrDex; fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 bludg. damage'; }; ", "I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n - If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."]
-			}
+			autoSelectExtrachoices : [{ extrachoice : "kensei defense" }]
 		},
 		"ki-empowered strikes" : {
 			name : "One with the Blade",
@@ -41,7 +57,14 @@ AddSubClass("monk", "way of the kensei", {
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
-				atkAdd : ["if (((/unarmed strike/i).test(WeaponName) || (theWea && !isSpell && (/martial/i).test(theWea.type))) && fields.Description.indexOf('Counts as magical') === -1 && !thisWeapon[1]) {fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';}; ", "My unarmed strikes and Kensei Weapons count as magical for overcoming resistances and immunities."]
+				atkAdd : [
+					function (fields, v) {
+						if ((v.baseWeaponName == "unarmed strike" || (!v.isSpell && (/martial/i).test(v.theWea.type) && fields.Proficiency)) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+						};
+					},
+					"My unarmed strikes and Kensei Weapons count as magical for overcoming resistances and immunities."
+				]
 			}
 		},
 		"subclassfeature6" : {
@@ -53,14 +76,15 @@ AddSubClass("monk", "way of the kensei", {
 			recovery : "short rest",
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkCalc : ["if (!isSpell && !isDC && (/precise.{0,3}strike/i).test(WeaponText)) {output.prof *= 2; }; ", "If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."]
-			}
-		},
-		"subclassfeature17" : {
-			name : "Unerring Accuracy",
-			source : ["UA:MMT", 1],
-			minlevel : 17,
-			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses",
+				atkCalc : [
+					function (fields, v, output) {
+						if (!v.isSpell && !v.isDC && (/precise.{0,3}strike/i).test(v.WeaponText)) {
+							output.prof *= 2;
+						};
+					},
+					"If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."
+				]
+			},
 			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
@@ -68,7 +92,16 @@ AddSubClass("monk", "way of the kensei", {
 				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
 				action : ["bonus action", ""]
 			},
-			changeeval : "if (newClassLvl.monk >= 11 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('sharpen the blade') === -1) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'])} else if (newClassLvl.monk <= 11 && oldClassLvl.monk >= 11) {ClassFeatureOptions(['monk', 'subclassfeature17', 'sharpen the blade', 'extra'], 'remove')}"
+			autoSelectExtrachoices : [{
+				extrachoice : "sharpen the blade",
+				minlevel : 11
+			}]
+		},
+		"subclassfeature17" : {
+			name : "Unerring Accuracy",
+			source : ["UA:MMT", 1],
+			minlevel : 17,
+			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses"
 		}
 	}
 });
@@ -84,11 +117,19 @@ AddSubClass("monk", "way of tranquility", {
 			description : "\n   " + "I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour",
 			usages : 1,
 			recovery : "1 min",
-			action : ["bonus action", ""],
 			spellcastingBonus : {
 				name : "Way of Tranquility",
 				spells : ["sanctuary"],
 				selection : ["sanctuary"]
+			},
+			spellChanges : {
+				"sanctuary" : {
+					components : "V,S",
+					compMaterial : "",
+					time : "8 h",
+					description : "I'm warded; any who want to attack/target must first make save; doesn't protect vs. area spells",
+					changes : "Using my Path of Tranquility class feature I can cast Sanctuary without requiring material components and lasting for 8 hours, but it only affects myself and hostiles can attempt a new save every hour."
+				}
 			}
 		},
 		"subclassfeature3.1" : {
@@ -105,7 +146,7 @@ AddSubClass("monk", "way of tranquility", {
 			source : ["UA:MMT", 2],
 			minlevel : 6,
 			description : " [Performance or Persuasion prof]" + "\n   " + "I get adv. on Cha checks to calm or counsel peace; not with Deception or Intimidation",
-			skillstxt : "\n\n" + toUni("Way of Tranquility") + ": Choose one from Performance or Persuasion.",
+			skillstxt : "Choose one from: Performance or Persuasion",
 			extraname : "Way of Tranquility 11",
 			"douse the flames of war" : {
 				name : "Douse the Flames of War",
@@ -113,7 +154,10 @@ AddSubClass("monk", "way of tranquility", {
 				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
 				action : ["action", ""]
 			},
-			changeeval : "if (newClassLvl.monk >= 11 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('douse the flames of war') === -1) {ClassFeatureOptions(['monk', 'subclassfeature6', 'douse the flames of war', 'extra']);} else if (newClassLvl.monk <= 11 && oldClassLvl.monk >= 11) {ClassFeatureOptions(['monk', 'subclassfeature6', 'douse the flames of war', 'extra'], 'remove');}"
+			autoSelectExtrachoices : [{
+				extrachoice : "douse the flames of war",
+				minlevel : 11
+			}]
 		},
 		"subclassfeature17" : {
 			name : "Anger of a Gentle Soul",

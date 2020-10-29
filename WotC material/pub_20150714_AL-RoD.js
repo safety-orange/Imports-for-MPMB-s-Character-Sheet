@@ -1,5 +1,5 @@
 var iFileName = "pub_20150714_AL-RoD.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the optional backgrounds from the Adventurers League season 3 (Rage of Demons) to MPMB's Character Record Sheet
 
 // Define the source
@@ -260,7 +260,7 @@ BackgroundList["hillsfar smuggler"] = {
 	],
 	flaw : [
 		"My hatred for the Red Plumes burns so brightly that I have difficulty suppressing It around them.",
-		"The Red Plumes caught me once before, and I was branded for my crime. If they catch me again, for any offense, the punishment will be dire..",
+		"The Red Plumes caught me once before, and I was branded for my crime. If they catch me again, for any offense, the punishment will be dire.",
 		"I treat all Hillsfarans poorly. I am disgusted with their failure to revolt against the Great Law of Humanity.",
 		"I have difficulty trusting strangers. Anyone could be a spy for the authorities.",
 		"I am greedy. There Isn't much I won't do for money.",

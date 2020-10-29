@@ -1,5 +1,5 @@
 var iFileName = "ua_20150202_Eberron.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -13,7 +13,7 @@ SourceList["UA:E"] = {
 
 // Adds three races:
 // Changeling
-RaceList["changeling"] = {
+RaceList["changeling-ua"] = {
 	regExpSearch : /changeling/i,
 	name : "Changeling",
 	source : ["UA:E", 1],
@@ -29,14 +29,12 @@ RaceList["changeling"] = {
 	weight : " weigh around 140 lb (115 + 2d4 \xD7 2d4 lb)",
 	heightMetric : " stand between 1,5 to over 1,8 metres tall (155 + 5d4 cm)",
 	weightMetric : " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
-	improvements : "Changeling: +1 Dexterity, +1 Charisma;",
 	scores : [0, 1, 0, 0, 0, 1],
 	trait : "Changeling (+1 Dexterity, +1 Charisma)\nShapechanger:\n   As an action, I can polymorph into any humanoid of my size that I have seen, or back into my true form.\n   However, my equipment does not change with me.\n   If I die, I revert to my natural appearance.",
-	eval : "AddAction('action', 'Polymorph', 'being a Changeling');",
-	removeeval : "RemoveAction('action', 'Polymorph');"
+	action : ['action', 'Polymorph']
 };
 // Warforged
-RaceList["warforged"] = {
+RaceList["warforged-ua"] = {
 	regExpSearch : /warforged/i,
 	name : "Warforged",
 	source : ["UA:E", 3],
@@ -52,14 +50,16 @@ RaceList["warforged"] = {
 	weight : " weigh around 300 lb (270 + 2d6 \xD7 4 lb)",
 	heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
-	improvements : "Warforged: +1 Strength, +1 Constitution;",
 	scores : [1, 0, 1, 0, 0, 0],
 	trait : "Warforged (+1 Strength, +1 Constitution)\nLiving Construct:\n   Even though I was constructed, I am a living creature. I am immune to disease. I do not need to eat or breathe, but I can ingest food and drink if I wish.\n   Instead of sleeping, I enter an inactive state for 4 hours each day. I do not dream in this state; I am fully aware of my surroundings and notice approaching enemies and other events as normal. I still need 8 hours for a long rest.",
-	eval : "AddACMisc(1, 'Composite Plating', 'Composite Plating was gained from being a Warforged')",
-	removeeval : "AddACMisc(0, 'Composite Plating', 'Composite Plating was gained from being a Warforged')"
+	extraAC : {
+		name : "Composite Plating",
+		mod : 1,
+		text : "I gain a +1 bonus to AC."
+	}
 };
 // Shifter and its 6 subraces
-RaceList["shifter"] = {
+RaceList["shifter-ua"] = {
 	regExpSearch : /shifter/i,
 	name : "Shifter",
 	source : ["UA:E", 2],
@@ -71,11 +71,11 @@ RaceList["shifter"] = {
 	languageProfs : ["Common", "Sylvan"],
 	vision : [["Darkvision", 60]],
 	age : " reach adulthood at the end of their teens and live around 100 years",
-	height : " range from under 5 to 6 feet tall (4'6\" + 2d8\")",
-	weight : " weigh around 140 lb (95 + 2d8 \xD7 2d4 lb)",
+	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+	weight : " weigh around 135 lb (90 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
-	weightMetric : " weigh around 65 kg (43 + 5d8 \xD7 4d4 / 10 kg)",
-	improvements : "Shifter: +1 Dexterity and +1 to other ability score depending on type of shifter;",
+	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
+	scorestxt : "+1 Dexterity and +1 to other ability score depending on type of shifter",
 	scores : [0, 1, 0, 0, 0, 0],
 	trait : "Shifter (+1 Dexterity and +1 to other ability score depending on type of shifter)\n   Use the \"Racial Options\" button to select type of shifter.\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and another bonus depending on the type of shifter.",
 	features : {
@@ -84,250 +84,237 @@ RaceList["shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			tooltip : "",
 			action : ["bonus action", ""]
 		}
 	}
 };
-AddRacialVariant("shifter", "beasthide", {
+AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch : /beasthide/i,
 	name : "Beasthide shifter",
 	source : ["UA:E", 2],
 	plural : "Beasthide shifters",
-	improvements : "Beasthide Shifter: +1 Dexterity, +1 Constitution;",
+	scorestxt : "",
 	scores : [0, 1, 1, 0, 0, 0],
 	trait : "Beasthide Shifter (+1 Dexterity, +1 Constitution)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a +1 bonus to my AC."
 });
-AddRacialVariant("shifter", "cliffwalk", {
+AddRacialVariant("shifter-ua", "cliffwalk", {
 	regExpSearch : /cliffwalk/i,
 	name : "Cliffwalk shifter",
 	source : ["UA:E", 2],
 	plural : "Cliffwalk shifters",
-	improvements : "Cliffwalk Shifter: +2 Dexterity;",
+	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Cliffwalk Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a climb speed of 30 feet."
 });
-AddRacialVariant("shifter", "longstride", {
+AddRacialVariant("shifter-ua", "longstride", {
 	regExpSearch : /longstride/i,
 	name : "Longstride shifter",
 	source : ["UA:E", 2],
 	plural : "Longstride shifters",
-	improvements : "Longstride Shifter: +2 Dexterity;",
+	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Longstride Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I can use the Dash action as a bonus action."
 });
-AddRacialVariant("shifter", "longtooth", {
+AddRacialVariant("shifter-ua", "longtooth", {
 	regExpSearch : /(longtooth|longteeth)/i,
 	name : "Longtooth shifter",
 	source : ["UA:E", 2],
 	plural : "Longtooth shifters",
-	weapons : ["longtooth"],
-	improvements : "Longtooth Shifter: +1 Strength, +1 Dexterity;",
+	weaponsAdd : ["longtooth"],
+	weaponOptions : {
+		regExpSearch : /\blongtooth\b/i,
+		name : "Longtooth",
+		source : ["UA:E", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "Only while shifted; Target up to my size is grappled",
+		abilitytodamage : true
+	},
+	scorestxt : "",
 	scores : [1, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled."
 });
-AddRacialVariant("shifter", "razorclaw", {
+AddRacialVariant("shifter-ua", "razorclaw", {
 	regExpSearch : /razorclaw/i,
 	name : "Razorclaw shifter",
 	source : ["UA:E", 2],
 	plural : "Razorclaw shifters",
-	weapons : ["razorclaw"],
-	improvements : "Razorclaw Shifter: +2 Dexterity;",
+	weaponsAdd : ["razorclaw"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+		regExpSearch : /\brazorclaw\b/i,
+		name : "Razorclaw",
+		source : ["UA:E", 2],
+		damage : [1, "", "slashing"],
+		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse"
+	},
+	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage."
 });
-AddRacialVariant("shifter", "wildhunt", {
+AddRacialVariant("shifter-ua", "wildhunt", {
 	regExpSearch : /wildhunt/i,
 	name : "Wildhunt shifter",
 	source : ["UA:E", 3],
 	plural : "Wildhunt shifters",
-	improvements : "Wildhunt Shifter: +1 Dexterity, +1 Wisdom;",
+	scorestxt : "",
 	scores : [0, 1, 0, 0, 1, 0],
 	trait : "Wildhunt Shifter (+1 Dexterity, +1 Wisdom)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain advantage on all Wisdom-based checks and saving throws."
 });
 
-// Shifter weapons
-WeaponsList["longtooth"] = {
-	regExpSearch : /\blongtooth\b/i,
-	name : "Longtooth",
-	source : ["UA:E", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "Only while shifted; Target up to my size is grappled",
-	abilitytodamage : true
-};
-WeaponsList["razorclaw"] = {
-	regExpSearch : /\brazorclaw\b/i,
-	name : "Razorclaw",
-	source : ["UA:E", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, "", "slashing"],
-	range : "Melee",
-	description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
-	monkweapon : true,
-	abilitytodamage : true
-};
-
 // 12 variants of the Dragonmark feat
-FeatsList["dragonmark [detection]"] = {
-	name : "Dragonmark [Detection]",
+FeatsList["dragonmark-ua"] = {
+	name : "Dragonmark",
 	source : ["UA:E", 6],
-	description : "I learn the Mage Hand cantrip. I can also cast Detect Magic, Detect Thoughts (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 5,
-		spells : ["mage hand", "detect magic", "detect thoughts", "clairvoyance"],
-		selection : ["mage hand", "detect magic", "detect thoughts", "clairvoyance"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
+	description : "Select the type of dragonmark using the little square button in this feat line.",
+	choices : ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
+	"detection" : {
+		descriptionFull : "Your have the magical mark of Detection, the dragonmark of House Medani, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Detect Magic, Mage Hand\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Detect Thoughts\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
+		description : "I learn the Mage Hand cantrip. I can also cast Detect Magic, Detect Thoughts (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 5,
+			spells : ["mage hand", "detect magic", "detect thoughts", "clairvoyance"],
+			selection : ["mage hand", "detect magic", "detect thoughts", "clairvoyance"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"finding" : {
+		descriptionFull : "Your have the magical mark of Finding, the dragonmark of House Tharashk, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Identify, Mage Hand\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Locate Object\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
+		description : "I learn the Mage Hand cantrip. I can also cast Identify, Locate Object (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 5,
+			spells : ["mage hand", "identify", "locate object", "clairvoyance"],
+			selection : ["mage hand", "identify", "locate object", "clairvoyance"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"handling" : {
+		descriptionFull : "Your have the magical mark of Handling, the dragonmark of House Vadalis, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Druidcraft, Speak with Animals\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Beast Sense\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Conjure Animals",
+		description : "I learn the Druidcraft cantrip. I can also cast Speak with Animals, Beast Sense (from 5th level onwards), and Conjure Animals (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 5,
+			spells : ["druidcraft", "speak with animals", "beast sense", "conjure animals"],
+			selection : ["druidcraft", "speak with animals", "beast sense", "conjure animals"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"healing" : {
+		descriptionFull : "Your have the magical mark of Healing, the dragonmark of House Jorasco, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Cure Wounds, Spare the Dying\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Lesser Restoration\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Revivify",
+		description : "I learn the Spare the Dying cantrip. I can also cast Cure Wounds, Lesser Restoration (from 5th level onwards), and Revivify (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 5,
+			spells : ["spare the dying", "cure wounds", "lesser restoration", "revivify"],
+			selection : ["spare the dying", "cure wounds", "lesser restoration", "revivify"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"hospitality" : {
+		descriptionFull : "Your have the magical mark of Hospitality, the dragonmark of House Ghallanda, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Friends, Unseen Servant\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Rope Trick\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Leomund's Tiny Hut",
+		description : "I learn the Friends cantrip. I can also cast Unseen Servant, Rope Trick (from 5th level onwards), and Leomund's Tiny Hut (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 6,
+			spells : ["friends", "unseen servant", "rope trick", "leomund's tiny hut"],
+			selection : ["friends", "unseen servant", "rope trick", "leomund's tiny hut"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"making" : {
+		descriptionFull : "Your have the magical mark of Making, the dragonmark of House Cannith, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Identify, Mending\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Magic Weapon\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Fabricate",
+		description : "I learn the Mending cantrip. I can also cast Identify, Magic Weapon (from 5th level onwards), and Fabricate (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 4,
+			spells : ["mending", "identify", "magic weapon", "fabricate"],
+			selection : ["mending", "identify", "magic weapon", "fabricate"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"passage" : {
+		descriptionFull : "Your have the magical mark of Passage, the dragonmark of House Orien, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Expeditious Retreat, Light\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Misty Step\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Teleportation Circle",
+		description : "I learn the Light cantrip. I can also cast Expeditious Retreat, Misty Step (from 5th level onwards), and Teleportation Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 4,
+			spells : ["light", "expeditious retreat", "misty step", "teleportation circle"],
+			selection : ["light", "expeditious retreat", "misty step", "teleportation Circle"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"scribing" : {
+		descriptionFull : "Your have the magical mark of Scribing, the dragonmark of House Sivis, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Comprehend Languages, Message\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Sending\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Tongues",
+		description : "I learn the Message cantrip. I can also cast Comprehend Languages, Sending (from 5th level onwards), and Tongues (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 4,
+			spells : ["message", "comprehend languages", "sending", "tongues"],
+			selection : ["message", "comprehend languages", "sending", "tongues"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"sentinel" : {
+		descriptionFull : "Your have the magical mark of Sentinel, the dragonmark of House Deneith, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Blade Ward, Compelled Duel\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Blur\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Protection from Energy",
+		description : "I learn the Blade Ward cantrip. I can also cast Compelled Duel, Blur (from 5th level onwards), and Protection from Energy (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 5,
+			spells : ["blade ward", "compelled duel", "blur", "protection from energy"],
+			selection : ["blade ward", "compelled duel", "blur", "protection from energy"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"shadow" : {
+		descriptionFull : "Your have the magical mark of Shadow, the dragonmark of House Phiarlan and House Thuranni, and are a member of one of those houses.\n   You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Dancing Lights, Disguise Self\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Darkness\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Nondetection",
+		description : "I learn the Dancing Lights cantrip. I can also cast Disguise Self, Darkness (from 5th level onwards), and Nondetection (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 6,
+			spells : ["dancing lights", "disguise self", "darkness", "nondetection"],
+			selection : ["dancing lights", "disguise self", "darkness", "nondetection"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"storm" : {
+		descriptionFull : "Your have the magical mark of Storm, the dragonmark of House Lyrander, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Fog Cloud, Shocking Grasp\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Gust of Wind\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Sleet Storm",
+		description : "I learn the Shocking Grasp cantrip. I can also cast Fog Cloud, Gust of Wind (from 5th level onwards), and Sleet Storm (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 4,
+			spells : ["shocking grasp", "fog cloud", "gust of wind", "sleet storm"],
+			selection : ["shocking grasp", "fog cloud", "gust of wind", "sleet storm"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
+	},
+	"warding" : {
+		descriptionFull : "Your have the magical mark of Warding, the dragonmark of House Kundarak, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   " + toUni("Least Dragonmark") + ". When you first take this feat, you gain the least dragonmark. You learn the following spells: Alarm, Resistance\n   " + toUni("Lesser Dragonmark") + ". At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Arcane Lock\n   " + toUni("Greater Dragonmark") + ". At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Magic Circle",
+		description : "I learn the Resistance cantrip. I can also cast Alarm, Arcane Lock (from 5th level onwards), and Magic Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		spellcastingBonus : {
+			name : "Dragonmark",
+			spellcastingAbility : 4,
+			spells : ["resistance", "alarm", "arcane lock", "magic circle"],
+			selection : ["resistance", "alarm", "arcane lock", "magic circle"],
+			times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			firstCol : 'oncelr'
+		}
 	}
-};
-FeatsList["dragonmark [finding]"] = {
-	name : "Dragonmark [Finding]",
-	source : ["UA:E", 6],
-	description : "I learn the Mage Hand cantrip. I can also cast Identify, Locate Object (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 5,
-		spells : ["mage hand", "identify", "locate object", "clairvoyance"],
-		selection : ["mage hand", "identify", "locate object", "clairvoyance"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [handling]"] = {
-	name : "Dragonmark [Handling]",
-	source : ["UA:E", 6],
-	description : "I learn the Druidcraft cantrip. I can also cast Speak with Animals, Beast Sense (from 5th level onwards), and Conjure Animals (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 5,
-		spells : ["druidcraft", "speak with animals", "beast sense", "conjure animals"],
-		selection : ["druidcraft", "speak with animals", "beast sense", "conjure animals"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [healing]"] = {
-	name : "Dragonmark [Healing]",
-	source : ["UA:E", 6],
-	description : "I learn the Spare the Dying cantrip. I can also cast Cure Wounds, Lesser Restoration (from 5th level onwards), and Revivify (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 5,
-		spells : ["spare the dying", "cure wounds", "lesser restoration", "revivify"],
-		selection : ["spare the dying", "cure wounds", "lesser restoration", "revivify"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [hospitality]"] = {
-	name : "Dragonmark [Hospitality]",
-	source : ["UA:E", 6],
-	description : "I learn the Friends cantrip. I can also cast Unseen Servant, Rope Trick (from 5th level onwards), and Leomund's Tiny Hut (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 6,
-		spells : ["friends", "unseen servant", "rope trick", "leomund's tiny hut"],
-		selection : ["friends", "unseen servant", "rope trick", "leomund's tiny hut"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [making]"] = {
-	name : "Dragonmark [Making]",
-	source : ["UA:E", 6],
-	description : "I learn the Mending cantrip. I can also cast Identify, Magic Weapon (from 5th level onwards), and Fabricate (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 4,
-		spells : ["mending", "identify", "magic weapon", "fabricate"],
-		selection : ["mending", "identify", "magic weapon", "fabricate"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [passage]"] = {
-	name : "Dragonmark [Passage]",
-	source : ["UA:E", 6],
-	description : "I learn the Light cantrip. I can also cast Expeditious Retreat, Misty Step (from 5th level onwards), and Teleportation Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 4,
-		spells : ["light", "expeditious retreat", "misty step", "teleportation circle"],
-		selection : ["light", "expeditious retreat", "misty step", "teleportation Circle"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [scribing]"] = {
-	name : "Dragonmark [Scribing]",
-	source : ["UA:E", 6],
-	description : "I learn the Message cantrip. I can also cast Comprehend Languages, Sending (from 5th level onwards), and Tongues (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 4,
-		spells : ["message", "comprehend languages", "sending", "tongues"],
-		selection : ["message", "comprehend languages", "sending", "tongues"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [sentinel]"] = {
-	name : "Dragonmark [Sentinel]",
-	source : ["UA:E", 6],
-	description : "I learn the Blade Ward cantrip. I can also cast Compelled Duel, Blur (from 5th level onwards), and Protection from Energy (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 5,
-		spells : ["blade ward", "compelled duel", "blur", "protection from energy"],
-		selection : ["blade ward", "compelled duel", "blur", "protection from energy"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [shadow]"] = {
-	name : "Dragonmark [Shadow]",
-	source : ["UA:E", 6],
-	description : "I learn the Dancing Lights cantrip. I can also cast Disguise Self, Darkness (from 5th level onwards), and Nondetection (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 6,
-		spells : ["dancing lights", "disguise self", "darkness", "nondetection"],
-		selection : ["dancing lights", "disguise self", "darkness", "nondetection"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [storm]"] = {
-	name : "Dragonmark [Storm]",
-	source : ["UA:E", 6],
-	description : "I learn the Shocking Grasp cantrip. I can also cast Fog Cloud, Gust of Wind (from 5th level onwards), and Sleet Storm (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 4,
-		spells : ["shocking grasp", "fog cloud", "gust of wind", "sleet storm"],
-		selection : ["shocking grasp", "fog cloud", "gust of wind", "sleet storm"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
-FeatsList["dragonmark [warding]"] = {
-	name : "Dragonmark [Warding]",
-	source : ["UA:E", 6],
-	description : "I learn the Resistance cantrip. I can also cast Alarm, Arcane Lock (from 5th level onwards), and Magic Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
-	spellcastingBonus : {
-		name : "Dragonmark",
-		spellcastingAbility : 4,
-		spells : ["resistance", "alarm", "arcane lock", "magic circle"],
-		selection : ["resistance", "alarm", "arcane lock", "magic circle"],
-		times : [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		oncelr : true
-	}
-};
+}
 
 // Adds a subclass for the Wizard, called "Tradition of the Artificer"
 AddSubClass("wizard", "artificer", {

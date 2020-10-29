@@ -1,5 +1,5 @@
 var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Prestige Classes and Rune Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -16,22 +16,13 @@ ClassList["rune scribe"] = {
 	regExpSearch : /^(?=.*rune)(?=.*scribe).*$/i,
 	name : "Rune Scribe",
 	source : ["UA:PCRM", 2],
-	primaryAbility : "\n \u2022 Rune Scribe: Dexterity, Intelligence;",
-	prereqs : "\n \u2022 Rune Scribe:\n   - Dexterity 13, Intelligence 13;\n   - Proficiency in the Arcana skill\n   - Complete a special task: You must find a rune and present it to an NPC rune scribe who accepts it in return for tutoring you in the ways of rune magic.",
+	primaryAbility : "Dexterity and Intelligence",
+	prereqs : "\n   - Dexterity 13 and Intelligence 13;\n   - Proficiency in the Arcana skill\n   - Complete a special task: You must find a rune and present it to an NPC rune scribe who accepts it in return for tutoring you in the ways of rune magic",
 	die : 8,
 	improvements : levels.map(function (n) {return 0}),
-	saves : ["", ""],
-	skills : [""],
 	toolProfs : {
 		secondary : ["Calligrapher's Supplies", "Mason's Tools", "Woodcarver's Tools"]
 	},
-	armor : [
-		[false, false, false, false]
-	],
-	weapons : [
-		[false, false]
-	],
-	equipment : "",
 	subclasses : ["", []],
 	prestigeClassPrereq : 5,
 	attacks : levels.map(function (n) {return 1}),
@@ -65,8 +56,7 @@ ClassList["rune scribe"] = {
 					"- Flame Stoker (complex): While attuned, I roll any fire damage twice and use the higher"
 				]),
 				dmgres : ["Cold"],
-				eval : "AddAction('action', 'Ild Rune (Ignite, Fire Tamer, Combusion)', 'Opal of the Ild Rune');",
-				removeeval : "RemoveAction('action', 'Ild Rune (Ignite, Fire Tamer, Combusion)');"
+				action : ['action', 'Ild Rune (Ignite, Fire Tamer, Combusion)']
 			},
 			"orb of the stein rune" : {
 				name : "Orb of the Stein Rune",
@@ -87,15 +77,25 @@ ClassList["rune scribe"] = {
 					"- Overwhelming Bolt (complex): As an action, I expend spell slot and touch a creature",
 					"   It takes 2d8+1d8/SL bludg. dmg and is prone; DC 12+SL Str save for half \u0026 not prone"
 				]),
-				eval : "AddAction('bonus action', 'Stein Rune (Earthen Step)', 'Orb of the Stein Rune'); AddAction('action', 'Stein Rune (Indomitable Stand, Secrets, Bolt)', 'Orb of the Stein Rune');",
-				removeeval : "RemoveAction('bonus action', 'Stein Rune (Earthen Step)'); RemoveAction('action', 'Stein Rune (Indomitable Stand, Secrets, Bolt)');",
+				action : [['action', 'Stein Rune (Indomitable Stand, Secrets, Bolt)']],
 				savetxt : { immune : ["petrified"] },
 				spellcastingBonus : {
 					name : "Orb of the Stein Rune",
 					spells : ["meld into stone"],
 					selection : ["meld into stone"], 
-					oncesr : true
-				}
+					firstCol : 'oncesr'
+				},
+				spellChanges : {
+					"levitate" : {
+						time : "1 bns",
+						changes : "Using my Orb of the Stein Rune, I can cast Meld Into Stone as a bonus action once per short rest."
+					}
+				},
+				extraLimitedFeatures : [{
+					name : "Earthen Step (Orb of the Stein Rune)",
+					usages : 1,
+					recovery : "short rest"
+				}]
 			},
 			"pennant of the vind rune" : {
 				name : "Pennant of the Vind Rune",
@@ -113,15 +113,25 @@ ClassList["rune scribe"] = {
 					"   It 2d8+1d8/SL bludg. dmg \u0026 pushed 10 ft; DC 12+SL Str save for half \u0026 not pushed",
 					"- Wind Walker (complex): I can cast Levitate as a bonus action once per short rest"
 				]),
-				eval : "AddAction('bonus action', 'Vind Rune (Wind Walker)', 'Pennant of the Vind Rune'); AddAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)', 'Pennant of the Vind Rune'); AddAction('reaction', \"Vind Rune (Wind's Grasp)\", 'Pennant of the Vind Rune');",
-				removeeval : "RemoveAction('bonus action', 'Vind Rune (Wind Walker)'); RemoveAction('action', 'Vind Rune (Wind Step, Shrieking Bolt)'); RemoveAction('reaction', 'Vind Rune (Wind Step, Shrieking Bolt)');",
+				action : [['action', 'Vind Rune (Wind Step, Shrieking Bolt)'], ['reaction', "Vind Rune (Wind's Grasp)"]],
 				savetxt : { adv_vs : ["inhaled poison"] },
 				spellcastingBonus : {
 					name : "Pennant of the Vind Rune",
 					spells : ["levitate"],
 					selection : ["levitate"], 
-					oncesr : true
-				}
+					firstCol : 'oncesr'
+				},
+				spellChanges : {
+					"levitate" : {
+						time : "1 bns",
+						changes : "Using my Pennant of the Vind Rune, I can cast Levitate as a bonus action once per short rest."
+					}
+				},
+				extraLimitedFeatures : [{
+					name : "Wind Walker (Pennant of the Vind Rune)",
+					usages : 1,
+					recovery : "short rest"
+				}]
 			},
 			"shard of the kalt rune" : {
 				name : "Shard of the Kalt Rune",
@@ -140,14 +150,18 @@ ClassList["rune scribe"] = {
 					"- Winter's Howl (complex): I can cast Sleet Storm as an action once per short rest"
 				]),
 				dmgres : ["Fire"],
-				eval : "AddAction('action', 'Kalt Rune (Touch, Mantle, Bolt, Howl)', 'Shard of the Kalt Rune');",
-				removeeval : "RemoveAction('action', 'Kalt Rune (Touch, Mantle, Bolt, Howl)');",
+				action : ['action', 'Kalt Rune (Touch, Mantle, Bolt, Howl)'],
 				spellcastingBonus : {
 					name : "Shard of the Kalt Rune",
 					spells : ["sleet storm"],
 					selection : ["sleet storm"],
-					oncesr : true
-				}
+					firstCol : 'oncesr'
+				},
+				extraLimitedFeatures : [{
+					name : "Winter's Howl (Shard of the Kalt Rune)",
+					usages : 1,
+					recovery : "short rest"
+				}]
 			}
 		},
 		"runic magic" : {

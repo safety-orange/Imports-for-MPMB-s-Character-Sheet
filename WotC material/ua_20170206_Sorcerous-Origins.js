@@ -1,5 +1,5 @@
 var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -34,7 +34,11 @@ AddSubClass("sorcerer", "favoured soul", {
 			minlevel : 1,
 			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Supernatural Resilience (Sorcerer)'; }; "
+				hp : function (totalHD) {
+					if (classes.known.sorcerer) {
+						return [classes.known.sorcerer.level, "Supernatural Resilience (sorcerer level)"];
+					}
+				}
 			}
 		},
 		"subclassfeature1.2" : {
@@ -71,9 +75,8 @@ AddSubClass("sorcerer", "favoured soul", {
 				source : ["UA:SO", 1],
 				description : "\n   " + "My appearance takes on an otherworldly quality of imposingness" + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus"
 			},
-			skillstxt : "\n\n" + toUni("Blessed Countenance (Sorcerer)") + ": I gain expertise in any Charisma-based skill I'm proficient with.",
-			eval : "AddSkillProf('Dec', true, 'only'); AddSkillProf('Inti', true, 'only'); AddSkillProf('Perf', true, 'only'); AddSkillProf('Pers', true, 'only');",
-			removeeval : "AddSkillProf('Dec', false, 'only'); AddSkillProf('Inti', false, 'only'); AddSkillProf('Perf', false, 'only'); AddSkillProf('Pers', false, 'only');"
+			skillstxt : "I gain expertise in any Charisma-based skill I'm proficient with",
+			skills : [["Deception", "only"], ["Intimidation", "only"], ["Performance", "only"], ["Persuasion", "only"]]
 		},
 		"subclassfeature14" : {
 			name : "Divine Purity",
@@ -248,8 +251,8 @@ AddSubClass("sorcerer", "stone sorcery", {
 			source : ["UA:SO", 4],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with shields, simple weapons and martial weapons",
-			armor : [false, false, false, true],
-			weapons : [true, true]
+			armorProfs : [false, false, false, true],
+			weaponProfs : [true, true]
 		},
 		"subclassfeature1.1" : {
 			name : "Metal Magic",
@@ -266,13 +269,23 @@ AddSubClass("sorcerer", "stone sorcery", {
 				"As an action, I can gain an AC of 13 + Constitution modifier + shield",
 				"This AC lasts until I don armor, I'm incapacitated, or use a bonus action to end it"
 			]),
-			action : ["action", " (start)"],
-			eval : "AddAction('bonus action', \"Stone's Durability (end)\", \"Stone's Durability (Stone Sorcerer)\");",
-			removeeval : "RemoveAction('bonus action', \"Stone's Durability (end)\");",
+			action : [["action", " (start)"], ['bonus action', " (end)"]],
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + \" from Stone's Durability (Sorcerer)\"; }; "
+				hp : function (totalHD) {
+					if (classes.known.sorcerer) {
+						return [classes.known.sorcerer.level, "Stone's Durability (sorcerer level)"];
+					}
+				}
 			},
-			addarmor : "Stone's Durability (Con)"
+			armorOptions : {
+				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
+				name : "Stone's Durability (Con)",
+				source : ["UA:SO", 4],
+				ac : 13,
+				dex : -10,
+				addMod : true
+			},
+			armorAdd : "Stone's Durability (Con)"
 		},
 		"subclassfeature6" : {
 			name : "Stone Aegis",
@@ -291,9 +304,7 @@ AddSubClass("sorcerer", "stone sorcery", {
 				if (n < 6) return "";
 				return (Math.floor(n / 4) + 2) + " damage reduction; +" + (n < 11 ? 1 : n < 17 ? 2 : 3) + "d10 force damage";
 			}),
-			action : ["bonus action", ""],
-			eval : "AddAction('reaction', 'Aegis Teleport', 'Stone Aegis (Stone Sorcerer)');",
-			removeeval : "RemoveAction('reaction', 'Aegis Teleport');"
+			action : [["bonus action", ""], ['reaction', 'Aegis Teleport']]
 		},
 		"subclassfeature14" : {
 			name : "Stone's Edge",
@@ -315,16 +326,3 @@ AddSubClass("sorcerer", "stone sorcery", {
 		}
 	}
 });
-
-// Stone Sorcerer armour
-ArmourList["stone's durability"] = {
-	regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
-	name : "Stone's Durability (Con)",
-	source : ["UA:SO", 4],
-	type : "",
-	ac : 13,
-	stealthdis : false,
-	strReq : 0,
-	dex : -10,
-	addMod : true
-};

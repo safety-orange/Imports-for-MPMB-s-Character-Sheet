@@ -1,5 +1,5 @@
 var iFileName = "ua_20170417_Feats-for-Skills.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Feats for Skills article to MPMB's Character Record Sheet
 
 // Define the source
@@ -15,229 +15,194 @@ SourceList["UA:FS"] = {
 FeatsList["acrobat"] = {
 	name : "Acrobat",
 	source : ["UA:FS", 1],
+	descriptionFull : "You become more nimble, gaining the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Acrobatics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn't cost you extra movement until the end of the current turn.",
 	description : "I gain expertise with Acrobatics, or proficiency if not so already. As a bonus action, I can make a DC 15 Dexterity (Acrobatics) check to have difficult terrain not cost me extra movement for this turn. [+1 Dexterity]",
-	improvements : "Acrobat (feat): +1 Dexterity;",
 	scores : [0, 1, 0, 0, 0, 0],
-	skills : "\n\n" + toUni("Acrobat (feat)") + ": Acrobatics, or expertise if already proficient.",
-	eval : "AddSkillProf('Acr', true, 'increment')",
-	removeeval : "AddSkillProf('Acr', false, 'increment')",
+	skills : [["Acrobatics", "increment"]],
 	action : ["bonus action", ""]
 };
 FeatsList["animal handler"] = {
 	name : "Animal Handler",
 	source : ["UA:FS", 1],
+	descriptionFull : "You master the techniques needed to train and handle animals. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can use a bonus action on your turn to command one friendly beast within 60 feet of you that can hear you and that isn't currently following the command of someone else. You decide now what action the beast will take and where it will move during its next turn, or you issue a general command that lasts for 1 minute, such as to guard a particular area.",
 	description : "I gain expertise with Animal Handling, or proficiency if not so already. As a bonus action, I can command a friendly beast not under another's command within 60 ft. If it hears me, I decide its next turn or give a general command lasting for 1 minute. [+1 Wisdom]",
-	improvements : "Animal Handler (feat): +1 Wisdom;",
 	scores : [0, 0, 0, 0, 1, 0],
-	skills : "\n\n" + toUni("Animal Handler (feat)") + ": Animal Handling, or expertise if already proficient.",
-	eval : "AddSkillProf('Ani', true, 'increment')",
-	removeeval : "AddSkillProf('Ani', false, 'increment')",
+	skills : [["Animal Handling", "increment"]],
 	action : ["bonus action", ""]
 };
 FeatsList["arcanist"] = {
 	name : "Arcanist",
 	source : ["UA:FS", 1],
+	descriptionFull : "You study the arcane arts, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Arcana skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Prestidigitation and Detect Magic spells. You can cast detect magic once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Arcana, or proficiency if not so already. I learn the Prestidigitation cantrip. I can cast Detect Magic without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
-	improvements : "Arcanist (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
-	skills : "\n\n" + toUni("Arcanist (feat)") + ": Arcana, or expertise if already proficient.",
-	eval : "AddSkillProf('Arc', true, 'increment')",
-	removeeval : "AddSkillProf('Arc', false, 'increment')",
+	skills : [["Arcana", "increment"]],
 	spellcastingBonus : [{
 		name : "Arcanist",
 		spellcastingAbility : 4,
 		spells : ["prestidigitation"],
 		selection : ["prestidigitation"],
-		atwill : true
+		firstCol : "atwill"
 	}, {
 		name : "Arcanist (1x long rest)",
 		spells : ["detect magic"],
 		selection : ["detect magic"],
-		oncelr : true
+		firstCol : "oncelr"
 	}]
 };
 FeatsList["brawny"] = {
 	name : "Brawny",
 	source : ["UA:FS", 1],
+	descriptionFull : "You become stronger, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Athletics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You count as if you were one size larger for the purpose of determining your carrying capacity.",
 	description : "I gain expertise with Athletics, or proficiency if not so already. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift. [+1 Strength]",
-	improvements : "Brawny (feat): +1 Strength;",
 	scores : [1, 0, 0, 0, 0, 0],
-	skills : "\n\n" + toUni("Brawny (feat)") + ": Athletics, or expertise if already proficient.",
-	eval : "AddSkillProf('Ath', true, 'increment'); tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "AddSkillProf('Ath', false, 'increment'); tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
+	skills : [["Athletics", "increment"]],
+	carryingCapacity : 2
 };
 FeatsList["diplomat"] = {
 	name : "Diplomat",
 	source : ["UA:FS", 2],
+	descriptionFull : "You master the arts of diplomacy, gaining the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Persuasion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 minute talking to someone who can understand what you say, you can make a Charisma (Persuasion) check contested by the creature's Wisdom (Insight) check. If you or your companions are fighting the creature, your check automatically fails. If your check succeeds, the target is charmed by you as long as it remains within 60 feet of you and for 1 minute thereafter.",
 	description : "I gain expertise with Persuasion, or proficiency if not so already. With a one minute long conversation outside of combat, I can make a Persuasion vs. its Insight. If successful, it is charmed by me as long as it remains within 60 ft and 1 minute after that [+1 Charisma]",
-	improvements : "Diplomat (feat): +1 Charisma;",
 	scores : [0, 0, 0, 0, 0, 1],
-	skills : "\n\n" + toUni("Diplomat (feat)") + ": Persuasion, or expertise if already proficient.",
-	eval : "AddSkillProf('Pers', true, 'increment')",
-	removeeval : "AddSkillProf('Pers', false, 'increment')"
+	skills : [["Persuasion", "increment"]]
 };
 FeatsList["empathic"] = {
 	name : "Empathic",
 	source : ["UA:FS", 2],
+	descriptionFull : "You possess keen insight into how other people think and feel. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Insight skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can use your action to try to get uncanny insight about one humanoid you can see within 30 feet of you. Make a Wisdom (Insight) check contested by the target's Charisma (Deception) check. If your check succeeds, you have advantage on attack rolls and ability checks against the target until the end of your next turn.",
 	description : "I gain expertise with Insight, or proficiency if not so already. As an action, a humanoid within 30 ft I can see must make its Deception vs. my Insight or I gain advantage on attacks and ability checks against it until the end of my next turn. [+1 Wisdom]",
-	improvements : "Empathic (feat): +1 Wisdom;",
 	scores : [0, 0, 0, 0, 1, 0],
-	skills : "\n\n" + toUni("Empathic (feat)") + ": Insight, or expertise if already proficient.",
-	eval : "AddSkillProf('Ins', true, 'increment')",
-	removeeval : "AddSkillProf('Ins', false, 'increment')"
+	skills : [["Insight", "increment"]]
 };
 FeatsList["historian"] = {
 	name : "Historian",
 	source : ["UA:FS", 2],
+	descriptionFull : "Your study of history rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the History skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Help action to aid another creature's ability check, you can make a DC 15 Intelligence (History) check. On a success, that creature's check gains a bonus equal to your proficiency bonus, as you share pertinent advice and historical examples. To receive this bonus, the creature must be able to understand what you're saying.",
 	description : "I gain expertise with History, or proficiency if not so already. When I use the Help action to help a creature that can understand me with an ability check, I can make a DC 15 Int (History) check to give a bonus equal to my proficiency bonus. [+1 Intelligence]",
-	improvements : "Historian (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
-	skills : "\n\n" + toUni("Historian (feat)") + ": History, or expertise if already proficient.",
-	eval : "AddSkillProf('His', true, 'increment')",
-	removeeval : "AddSkillProf('His', false, 'increment')",
+	skills : [["History", "increment"]],
 	action : ["action", ""]
 };
 FeatsList["investigator"] = {
 	name : "Investigator",
 	source : ["UA:FS", 2],
+	descriptionFull : "You have an eye for detail and can pick out the smallest clues. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Investigation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can take the Search action as a bonus action.",
 	description : "I gain expertise with Investigation, or proficiency if not so already. As a bonus action, I can take the Search action. [+1 Intelligence]",
-	improvements : "Investigator (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
-	skills : "\n\n" + toUni("Investigator (feat)") + ": Investigation, or expertise if already proficient.",
-	eval : "AddSkillProf('Inv', true, 'increment')",
-	removeeval : "AddSkillProf('Inv', false, 'increment')",
+	skills : [["Investigation", "increment"]],
 	action : ["bonus action", " (Search)"]
 };
 FeatsList["medic"] = {
 	name : "Medic",
 	source : ["UA:FS", 2],
+	descriptionFull : "You master the physician's arts, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Medicine skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 During a short rest, you can clean and bind the wounds of up to six willing beasts and humanoids. Make a DC 15 Wisdom (Medicine) check for each creature. On a success, if a creature spends a Hit Die during this rest, that creature can forgo the roll and instead regain the maximum number of hit points the die can restore. A creature can do so only once per rest, regardless of how many Hit Dice it spends.",
 	description : "I gain expertise with Medicine, or proficiency if not so already. During a short rest, I can attend to the wounds of up to 6 creatures. With a DC 15 Wis (Medicine) check for each creature, that target gets the maximum result on one of its HD that it uses. [+1 Wisdom]",
-	improvements : "Medic (feat): +1 Wisdom;",
 	scores : [0, 0, 0, 0, 1, 0],
-	skills : "\n\n" + toUni("Medic (feat)") + ": Medicine, or expertise if already proficient.",
-	eval : "AddSkillProf('Med', true, 'increment')",
-	removeeval : "AddSkillProf('Med', false, 'increment')"
+	skills : [["Medicine", "increment"]]
 };
 FeatsList["menacing"] = {
 	name : "Menacing",
 	source : ["UA:FS", 2],
+	descriptionFull : "You become fearsome to others, gaining the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to demoralize one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Intimidation) check contested by the target's Wisdom (Insight) check. If your check succeeds, the target is frightened until the end of your next turn. If your check fails, the target can't be frightened by you in this way for 1 hour.",
 	description : "I gain expertise with Intimidation, or proficiency if not so already. Instead of 1 attack in my Attack action, a humanoid within 30 ft I can see and that can see and hear me must make its Insight vs. my Intimidation or be frightened until end of my next turn. [+1 Cha]",
-	improvements : "Menacing (feat): +1 Charisma;",
 	scores : [0, 0, 0, 0, 0, 1],
-	skills : "\n\n" + toUni("Menacing (feat)") + ": Intimidation, or expertise if already proficient.",
-	eval : "AddSkillProf('Inti', true, 'increment')",
-	removeeval : "AddSkillProf('Inti', false, 'increment')"
+	skills : [["Intimidation", "increment"]]
 };
 FeatsList["naturalist"] = {
 	name : "Naturalist",
 	source : ["UA:FS", 3],
+	descriptionFull : "Your extensive study of nature rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Nature skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Druidcraft and Detect Poison and Disease spells. You can cast Detect Poison and Disease once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Nature, or proficiency if not so already. I learn the Druidcraft cantrip. I can cast Detect Poison and Disease without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
-	improvements : "Naturalist (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
-	skills : "\n\n" + toUni("Naturalist (feat)") + ": Nature, or expertise if already proficient.",
-	eval : "AddSkillProf('Nat', true, 'increment')",
-	removeeval : "AddSkillProf('Nat', false, 'increment')",
+	skills : [["Nature", "increment"]],
 	spellcastingBonus : [{
 		name : "Naturalist",
 		spellcastingAbility : 4,
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
-		atwill : true
+		firstCol : "atwill"
 	}, {
 		name : "Naturalist (1x long rest)",
 		spells : ["detect poison and disease"],
 		selection : ["detect poison and disease"],
-		oncelr : true
+		firstCol : "oncelr"
 	}]
 };
 FeatsList["perceptive"] = {
 	name : "Perceptive",
 	source : ["UA:FS", 3],
+	descriptionFull : "You hone your senses until they become razor sharp. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Perception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 Being in a lightly obscured area doesn't impose disadvantage on your Wisdom (Perception) checks if you can both see and hear.",
 	description : "I gain expertise with Perception, or proficiency if not so already. I don't have disadvantage on my Perception checks from being in a lightly obscured area (dim light), provided that I can still both see and hear. [+1 Wisdom]",
-	improvements : "Perceptive (feat): +1 Wisdom;",
 	scores : [0, 0, 0, 0, 1, 0],
-	skills : "\n\n" + toUni("Perceptive (feat)") + ": Perception, or expertise if already proficient.",
-	vision : [["No disadv. on Perception in lightly obscured or dim light", 0]],
-	eval : "AddSkillProf('Perc', true, 'increment');",
-	removeeval : "AddSkillProf('Perc', false, 'increment');"
+	skills : [["Perception", "increment"]],
+	vision : [["No disadv. on Perception in lightly obscured or dim light", 0]]
 };
 FeatsList["performer"] = {
 	name : "Performer",
 	source : ["UA:FS", 3],
+	descriptionFull : "You master performance so that you can command any stage. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Performance skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 While performing, you can try to distract one humanoid you can see who can see and hear you. Make a Charisma (Performance) check contested by the humanoid's Wisdom (Insight) check. If your check succeeds, you grab the humanoid's attention enough that it makes Wisdom (Perception) and Intelligence (Investigation) checks with disadvantage until you stop performing.",
 	description : "I gain expertise with Performance, or proficiency if not so already. While performing, I can distract one humanoid. It must make its Insight vs. my Performance or have disadv. on its Perception and Investigation checks until I stop performing. [+1 Charisma]",
-	improvements : "Performer (feat): +1 Charisma;",
 	scores : [0, 0, 0, 0, 0, 1],
-	skills : "\n\n" + toUni("Performer (feat)") + ": Performance, or expertise if already proficient.",
-	eval : "AddSkillProf('Perf', true, 'increment')",
-	removeeval : "AddSkillProf('Perf', false, 'increment')"
+	skills : [["Performance", "increment"]]
 };
 FeatsList["quick-fingered"] = {
 	name : "Quick-Fingered",
 	source : ["UA:FS", 3],
+	descriptionFull : "Your nimble fingers and agility let you perform sleight of hand. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Sleight of Hand skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 As a bonus action, you can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket.",
 	description : "I gain expertise with Sleight of Hand, or proficiency if not so already. As a bonus action, I can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket. [+1 Dexterity]",
-	improvements : "Quick-Fingered (feat): +1 Dexterity;",
 	scores : [0, 1, 0, 0, 0, 0],
-	skills : "\n\n" + toUni("Quick-Fingered (feat)") + ": Sleight of Hand, or expertise if already proficient.",
-	eval : "AddSkillProf('Sle', true, 'increment')",
-	removeeval : "AddSkillProf('Sle', false, 'increment')",
+	skills : [["Sleight of Hand", "increment"]],
 	action : ["bonus action", ""]
 };
 FeatsList["silver-tongued"] = {
 	name : "Silver-Tongued",
 	source : ["UA:FS", 3],
+	descriptionFull : "You develop your conversational skill to better deceive others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Deception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to deceive one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Deception) check contested by the target's Wisdom (Insight) check. If your check succeeds, your movement doesn't provoke opportunity attacks from the target and your attack rolls against it have advantage; both benefits last until the end of your next turn or until you use this ability on a different target. If your check fails, the target can't be deceived by you in this way for 1 hour.",
 	description : "I gain expertise with Deception, or proficiency if not so already. Instead of 1 attack in my Attack action, a humanoid within 30 ft makes its Insight vs. my Deception or until end of my next turn, I gain adv. on attacks and don't provoke its opportunity attacks. [+1 Cha]",
-	improvements : "Silver-Tongued (feat): +1 Charisma;",
 	scores : [0, 0, 0, 0, 0, 1],
-	skills : "\n\n" + toUni("Silver-Tongued (feat)") + ": Deception, or expertise if already proficient.",
-	eval : "AddSkillProf('Dec', true, 'increment')",
-	removeeval : "AddSkillProf('Dec', false, 'increment')"
+	skills : [["Deception", "increment"]]
 };
 FeatsList["stealthy"] = {
 	name : "Stealthy",
 	source : ["UA:FS", 4],
+	descriptionFull : "You know how best to hide. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Stealth skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 If you are hidden, you can move up to 10 feet in the open without revealing yourself if you end the move in a position where you're not clearly visible.",
 	description : "I gain expertise with Stealth, or proficiency if not so already. When I'm hidden, I can move 10 ft to another position without revealing myself, provided that I won't be clearly visible in this new position either. [+1 Dexterity]",
-	improvements : "Stealthy (feat): +1 Dexterity;",
 	scores : [0, 1, 0, 0, 0, 0],
-	skills : "\n\n" + toUni("Stealthy (feat)") + ": Stealth, or expertise if already proficient.",
-	eval : "AddSkillProf('Ste', true, 'increment')",
-	removeeval : "AddSkillProf('Ste', false, 'increment')"
+	skills : [["Stealth", "increment"]]
 };
 FeatsList["survivalist"] = {
 	name : "Survivalist",
 	source : ["UA:FS", 4],
+	descriptionFull : "You master wilderness lore, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Survival skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Alarm spell. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Survival, or proficiency if not so already. I can cast Alarm without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Wisdom]",
-	improvements : "Survivalist (feat): +1 Wisdom;",
 	scores : [0, 0, 0, 0, 1, 0],
-	skills : "\n\n" + toUni("Survivalist (feat)") + ": Survival, or expertise if already proficient.",
-	eval : "AddSkillProf('Sur', true, 'increment')",
-	removeeval : "AddSkillProf('Sur', false, 'increment')",
+	skills : [["Survival", "increment"]],
 	spellcastingBonus : {
 		name : "1x long rest",
 		spellcastingAbility : 5,
 		spells : ["alarm"],
 		selection : ["alarm"],
-		oncelr : true
+		firstCol : "oncelr"
 	}
 };
 FeatsList["theologian"] = {
 	name : "Theologian",
 	source : ["UA:FS", 4],
+	descriptionFull : "Your extensive study of religion rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Religion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Thaumaturgy and Detect Evil and Good spells. You can cast Detect Evil and Good once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
 	description : "I gain expertise with Religion, or proficiency if not so already. I learn the Thaumaturgy cantrip. I can cast Detect Evil and Good without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
-	improvements : "Theologian (feat): +1 Intelligence;",
 	scores : [0, 0, 0, 1, 0, 0],
-	skills : "\n\n" + toUni("Theologian (feat)") + ": Religion, or expertise if already proficient.",
-	eval : "AddSkillProf('Rel', true, 'increment')",
-	removeeval : "AddSkillProf('Rel', false, 'increment')",
+	skills : [["Religion", "increment"]],
 	spellcastingBonus : [{
 		name : "Theologian",
 		spellcastingAbility : 4,
 		spells : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
-		atwill : true
+		firstCol : "atwill"
 	}, {
 		name : "Theologian (1x long rest)",
 		spells : ["detect evil and good"],
 		selection : ["detect evil and good"],
-		oncelr : true
+		firstCol : "oncelr"
 	}]
 };

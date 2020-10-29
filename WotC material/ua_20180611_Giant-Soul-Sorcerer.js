@@ -1,5 +1,5 @@
 var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,7 +23,11 @@ AddSubClass("sorcerer", "giant soul", {
 			minlevel : 1,
 			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
 			calcChanges : {
-				hp : "if (classes.known.sorcerer) {extrahp += classes.known.sorcerer.level; extrastring += '\\n + ' + classes.known.sorcerer.level + ' from Jotun Resilience (Sorcerer)'; }; "
+				hp : function (totalHD) {
+					if (classes.known.sorcerer) {
+						return [classes.known.sorcerer.level, "Jotun Resilience (sorcerer level)"];
+					}
+				}
 			}
 		},
 		"subclassfeature1.1" : {
@@ -46,8 +50,7 @@ AddSubClass("sorcerer", "giant soul", {
 					spells : ["minor illusion", "fog cloud", "invisibility"],
 					selection : ["minor illusion", "fog cloud", "invisibility"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'cloud giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"fire giant" : {
 				name : "Mark of Ordning: Fire Giant",
@@ -60,8 +63,7 @@ AddSubClass("sorcerer", "giant soul", {
 					spells : ["fire bolt", "burning hands", "flaming sphere"],
 					selection : ["fire bolt", "burning hands", "flaming sphere"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'fire giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"frost giant" : {
 				name : "Mark of Ordning: Frost Giant",
@@ -74,8 +76,7 @@ AddSubClass("sorcerer", "giant soul", {
 					spells : ["ray of frost", "armor of agathys", "hold person"],
 					selection : ["ray of frost", "armor of agathys", "hold person"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'frost giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"hill giant" : {
 				name : "Mark of Ordning: Hill Giant",
@@ -88,8 +89,7 @@ AddSubClass("sorcerer", "giant soul", {
 					spells : ["shillelagh", "heroism", "enlarge/reduce"],
 					selection : ["shillelagh", "heroism", "enlarge/reduce"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'hill giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"stone giant" : {
 				name : "Mark of Ordning: Stone Giant",
@@ -102,8 +102,7 @@ AddSubClass("sorcerer", "giant soul", {
 					spells : ["resistance", "entangle", "spike growth"],
 					selection : ["resistance", "entangle", "spike growth"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'stone giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
+				}
 			},
 			"storm giant" : {
 				name : "Mark of Ordning: Storm Giant",
@@ -116,9 +115,9 @@ AddSubClass("sorcerer", "giant soul", {
 					spells : ["thunderwave", "shocking grasp", "gust of wind"],
 					selection : ["thunderwave", "shocking grasp", "gust of wind"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				},
-				eval : "var ToAdd = ['sorcerer', 'subclassfeature6', 'storm giant']; if (classes.known.sorcerer.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)};"
-			}
+				}
+			},
+			choiceDependencies : [{ feature : "subclassfeature6" }]
 		},
 		"subclassfeature6" : {
 			name : "Soul of Lost Ostoria",
@@ -139,7 +138,21 @@ AddSubClass("sorcerer", "giant soul", {
 				name : "Soul of Lost Ostoria: Fire Giant",
 				description : "\n   " + "I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells",
 				calcChanges : {
-					atkCalc : ["if (theWea && WeaponName == 'fire bolt') {output.extraDmg += Math.max(What('Con Mod'), 1); }; ", "I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"]
+					atkCalc : [
+						function (fields, v, output) {
+							if (v.baseWeaponName == 'fire bolt') output.extraDmg += Math.max(What('Con Mod'), 1);
+						},
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"
+					],
+					spellAdd : [
+						function (spellKey, spellObj, spName) {
+							if (spName == "sorcerer" && (/^(fire bolt|burning hands|flaming sphere)$/i).test(spellKey)) {
+								spellObj.description = spellObj.description.replace(/d(6|10)/, "d$1+" + Math.max(1, What("Con Mod")));
+								return true;
+							};
+						},
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere"
+					]
 				}
 			},
 			"frost giant" : {
@@ -173,8 +186,7 @@ AddSubClass("sorcerer", "giant soul", {
 					"Immediately after casting any of my Mark of Ordning spells, I shoot lightning",
 					"Up to 3 targets in 30 ft that I can see take my Con mod (min 1) in lightning damage"
 				])
-			},
-			eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?sorcerer,subclassfeature1.1,(cloud giant|fire giant|frost giant|hill giant|stone giant|storm giant).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'sorcerer,subclassfeature6,' + FeaChoice, false);};};"
+			}
 		},
 		"subclassfeature14" : {
 			name : "Rage of Fallen Ostoria",
@@ -202,7 +214,9 @@ AddSubClass("sorcerer", "giant soul", {
 			name : "Blessing of the All Father",
 			source : ["UA:GSS", 2],
 			minlevel : 18,
-			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22"
+			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22",
+			scores : [0, 0, 2, 0, 0, 0],
+			scoresMaximum : [0,0,22,0,0,0]
 		}
 	}
 });

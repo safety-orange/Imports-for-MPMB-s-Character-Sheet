@@ -1,5 +1,5 @@
 var iFileName = "pub_20190618_AcqInc.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
 
 // Define the source
@@ -41,7 +41,7 @@ BackgroundList["celebrity adventurer's scion"] = {
 		["Power", "Power. The only way to get ahead in this world is to attain power and hold onto it with all your might. (Evil)"],
 		["Peace", "Peace. Those who can find or make peace in the chaotic world around them have everything. (Lawful)"],
 		["Fame", "Fame. I've seen what fame can bring. And I'll do anything to get all that for myself. (Neutral)"],
-		["Training", "Training. Hard work, sacrifice, and training lead to success—and eventually to perfection. (Any)"],
+		["Training", "Training. Hard work, sacrifice, and training lead to success\u2014and eventually to perfection. (Any)"],
 		["Anonymity", "Anonymity. I want to be successful. And alone. With lots of guards and wards between me and everyone else in the world. (Any)"],
 		["Wisdom", "Wisdom. Material wealth is an illusion. Wisdom is the real treasure. (Good)"]
 	],
@@ -90,7 +90,7 @@ BackgroundList["failed merchant"] = {
 		"To prosper, you have to be in control.",
 		"The customer is always right.",
 		"I was cutting corners and breaking deals to maximize profit. That's why I failed.",
-		"When I get an idea, I am single-minded in its execution—even if it's a terrible idea.",
+		"When I get an idea, I am single-minded in its execution\u2014even if it's a terrible idea.",
 		"If I can be everyone's friend, I'll always have support.",
 		"My heart wasn't in being a merchant, so I failed. I'm not all that keen on adventuring either, but I need the money."
 	],
@@ -155,7 +155,7 @@ BackgroundList["gambler"] = {
 		["Knowledge", "Knowledge. Knowledge is power, and knowing which horse to back is the key to success. (Any)"],
 		["Fate", "Fate. Whatever happens is fated, regardless of any planning or striving. (Lawful)"],
 		["Bravery", "Bravery. If you want to succeed, you have to take risks. (Chaotic)"],
-		["Survival", "Survival. You can't win if you're dead. Live to fight another day—when the odds might be more in your favor. (Any)"],
+		["Survival", "Survival. You can't win if you're dead. Live to fight another day\u2014when the odds might be more in your favor. (Any)"],
 		["Reliability", "Reliability. When I was in need, I was able to rely on others. Now I want to be the one others rely on. (Good)"],
 		["Victory", "Victory. Winning is the real measure of a person. In the end, the only thing that matters is the scoreboard. (Evil)"]
 	],
@@ -310,18 +310,19 @@ RaceList["verdan"] = {
 	height : " are between 3 and a half and 4 feet tall, plus 2 feet from 5th level onwards",
 	heightMetric : " are between 100 and 120 cm tall, plus 60 cm from 5th level onwards",
 	scores : [0, 0, 1, 0, 0, 2],
-	improvements : "Verdan: +1 Constitution, +2 Charisma;",
 	trait : "Verdan (+1 Constitution, +2 Charisma)\nSudden Growth Spurt: At 5th level, I grow 2 ft, increasing my size from Small to Medium.\nBlack Blood Healing: When I roll a 1 or 2 on any HD I spend at the end of short rest, I can reroll the die and must use the new roll.\nLimited Telepathy: I can telepathically communicate simple ideas and straightforward concepts to a creature I can see within 30 ft, if it can understand at least one language.\nTelepathic Insight: I have advantage on Wisdom and Charisma saving throws.",
 	features : {
 		"sudden growth spurt" : {
 			name : "Sudden Growth Spurt",
 			minlevel : 5,
-			eval : 'PickDropdown("Size Category", 3);',
-			removeeval : 'PickDropdown("Size Category", 4);'
+			eval : function () { PickDropdown("Size Category", 3); },
+			removeeval : function () { PickDropdown("Size Category", 4); }
 		}
 	},
-	eval : 'Checkbox("Wis ST Adv"); Checkbox("Cha ST Adv");',
-	removeeval : 'Checkbox("Wis ST Adv", false); Checkbox("Cha ST Adv", false);'
+	advantages : [
+		["Wisdom", true],
+		["Charisma", true]
+	]
 }
 
 SpellsList["distort value"] = {
@@ -363,7 +364,7 @@ SpellsList["gift of gab"] = {
 	compMaterial : "2 gp royalty component",
 	duration : "Conc, 1 h",
 	description : "Cast when talking, any crea within 5 ft think what I said in the last 6 seconds was only to cast a spell",
-	descriptionFull : "Jim Darkmagic is said to have invented this spell, originally calling it 'I said what?!'. Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened—by ensuring that no one knows it happened.\n   When you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell."
+	descriptionFull : "Jim Darkmagic is said to have invented this spell, originally calling it 'I said what?!'. Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened\u2014by ensuring that no one knows it happened.\n   When you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell."
 };
 SpellsList["incite greed"] = {
 	name : "Incite Greed",
@@ -406,7 +407,7 @@ SpellsList["jim's magic missile"] = {
 	components : "V,S,R\u2020",
 	compMaterial : "1 gp royalty component per spell slot level used",
 	duration : "Instantaneous",
-	description : "3+1/SL darts, each spell atk for 2d4 Force dmg; 5d4 crit; any 1 to hit, all dmg me 1 (1+1/SL gp cons.)",
+	description : "3+1/SL darts, each spell atk for 2d4 Force dmg, 5d4 crit; any 1 to hit, all dmg me 1 (1+1/SL gp cons.)",
 	descriptionFull : "Any apprentice wizard can cast a boring old magic missile. Sure, it always strikes its target. Yawn. Do away with the drudgery of your grandfather's magic with this improved version of the spell, as used by Jim Darkmagic!\n   You create three twisting, whistling, hypoallergenic, gluten-free darts of magical force. Each dart targets a creature of your choice that you can see within range. Make a ranged spell attack for each missile. On a hit, a missile deals 2d4 force damage to its target.\n   If the attack roll scores a critical hit, the target of that missile takes 5d4 force damage instead of you rolling damage twice for a critical hit. If the attack roll for any missile is a 1, all missiles miss their targets and blow up in your face, dealing 1 force damage per missile to you." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart, and the royalty component increases by 1 gp, for each slot level above 1st."
 };
 SpellsList["motivational speech"] = {
@@ -421,4 +422,24 @@ SpellsList["motivational speech"] = {
 	duration : "1 h",
 	description : "5 crea that hear me 5+5/SL temp HP, adv. Wis saves, if hit adv. on next atk; stops when temp HP gone",
 	descriptionFull : "You address allies, staff, or innocent bystanders to exhort and inspire them to greatness, whether they have anything to get excited about or not. Choose up to five creatures within range that can hear you. For the duration, each affected creature gains 5 temporary hit points and has advantage on Wisdom saving throws. If an affected creature is hit by an attack, it has advantage on the next attack roll it makes. Once an affected creature loses the temporary hit points granted by this spell, the spell ends for that creature." + AtHigherLevels + "At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the temporary hit points increase by 5 for each slot level above 3rd."
+};
+
+// Magic Item from the adventure
+MagicItemsList["piercer"] = {
+	name : "Piercer",
+	source : ["AcqInc", 121],
+	type : "weapon (shortsword)",
+	rarity : "rare",
+	description : "I gain a +1 bonus to attack and damage rolls made with this magical shortsword. I regain the maximum possible number of hit points from expended Hit Dice. However, I must eat twice as much food each day to avoid exhaustion, a minimum of 2 lb.",
+	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon.\n   A character attuned to the sword regains the maximum possible number of hit points from expended Hit Dice. However, the attuned character must eat twice as much food each day (a minimum of 2 pounds) to avoid exhaustion (see \"The Environment\" in chapter 8 of the Player's Handbook.)",
+	attunement : true,
+	weight : 3,
+	weaponsAdd : ["Piercer"],
+	weaponOptions : {
+		baseWeapon : "shortsword",
+		regExpSearch : /piercer/i,
+		name : "Piercer",
+		source : ["AcqInc", 121],
+		modifiers : [1, 1]
+	}
 };

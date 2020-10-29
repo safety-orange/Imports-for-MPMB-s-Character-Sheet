@@ -1,5 +1,5 @@
 var iFileName = "ps_20160427_Zendikar.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all material from the Plane Shift: Zendikar article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-zendikar-2016-04-27) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 
@@ -29,7 +29,6 @@ RaceList["kor"] = {
 	age : " reach adulthood in their late teens and live less than a century",
 	height : " average nearly 6 feet tall (4'9\" + 2d8\")",
 	weight : " are more slender than humans",
-	improvements : "Kor: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Kor (+2 Dexterity, +1 Wisdom)\nKor Climbling: I have proficiency in the Athletics and Acrobatics skills.\nLucky: When I roll a 1 on the d20 for an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nBrave: I have advantage on saving throws against being frightened."
 };
@@ -51,7 +50,6 @@ RaceList["emeria merfolk"] = {
 	weight : " average around 300 pounds",
 	heightMetric : " stand between 1,8 and 2,2 metres tall",
 	skills : ["Deception", "Persuasion"],
-	improvements : "Emeria Creed Merfolk: +2 Wisdom, +1 Charisma;",
 	scores : [0, 0, 0, 0, 2, 1],
 	trait : "Emeria Creed Merfolk (+2 Wisdom, +1 Charisma)\nAmphibious: I can breathe air and water.\nWind Creed Manipulation: I have proficiency in the Deception and Persuasion skills.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
 	spellcastingAbility : 5,
@@ -59,7 +57,7 @@ RaceList["emeria merfolk"] = {
 		name : "Emeria Creed Cantrip",
 		"class" : "druid",
 		level : [0, 0],
-		atwill : true
+		firstCol : 'atwill'
 	}
 };
 RaceList["ula merfolk"] = {
@@ -80,7 +78,6 @@ RaceList["ula merfolk"] = {
 	heightMetric : " stand between 1,8 and 2,2 metres tall",
 	skills : ["Survival"],
 	toolProfs : ["Navigator's tools"],
-	improvements : "Ula Creed Merfolk: +2 Intelligence, +1 Charisma;",
 	scores : [0, 0, 0, 2, 0, 1],
 	trait : "Ula Creed Merfolk (+2 Intelligence, +1 Charisma)\nAmphibious: I can breathe air and water.\nWater Creed Navigation: I have proficiency with navigator's tools and in the Survival skill.\nCantrip: I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
 	spellcastingAbility : 4,
@@ -88,7 +85,7 @@ RaceList["ula merfolk"] = {
 		name : "Ula Creed Cantrip",
 		"class" : "wizard",
 		level : [0, 0],
-		atwill : true
+		firstCol : 'atwill'
 	}
 };
 RaceList["cosi merfolk"] = {
@@ -108,7 +105,6 @@ RaceList["cosi merfolk"] = {
 	weight : " average around 300 pounds",
 	heightMetric : " stand between 1,8 and 2,2 metres tall",
 	skills : ["Sleight of Hand", "Stealth"],
-	improvements : "Ula Creed Merfolk: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Ula Creed Merfolk (+1 Intelligence, +2 Charisma)\nAmphibious: I can breathe air and water.\nCreed of the Trickster: I have proficiency in the Sleight of Hand and Stealth skills.\nCantrip: I know one cantrip of my choice from the bard spell list. Charisma is my spellcasting ability for it.",
 	spellcastingAbility : 6,
@@ -116,7 +112,7 @@ RaceList["cosi merfolk"] = {
 		name : "Cosi Creed Cantrip",
 		"class" : "bard",
 		level : [0, 0],
-		atwill : true
+		firstCol : 'atwill'
 	}
 };
 
@@ -133,24 +129,22 @@ RaceList["zendikar vampire"] = {
 	languageProfs : ["Common", "Vampire"],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Necrotic"],
-	weapons : ["blood thirst"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*blood)(?=.*thirst).*$/i,
+		name : "Blood Thirst",
+		source : ["PS:Z", 15],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "necrotic"],
+		range : "Melee",
+		description : "+1 piercing damage; Reduces max HP by the necrotic damage, while healing me for the same",
+		abilitytodamage : false,
+		monkweapon : false
+	},
+	weaponsAdd : ["Blood Thirst"],
 	age : " don't mature and age in the same way that other races do. Every living vampire is either a bloodchief, infected by Ulamog's influence in the distant reaches of history, or was spawned by a bloodchief from a living human. Most vampires are thus very old, but few have any memory of their earliest years.",
-	improvements : "Vampire: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Vampire (+1 Intelligence, +2 Charisma)\nBlood Thirst: I can drain blood and life energy from a willing creature, or one that is grappled by me, incapacitated, or restrained. With a melee attack, I deal 1 piercing and 1d6 necrotic damage. The target's max HP is reduced by the necrotic damage amount and I regain HP for the same. This max HP reduction lasts until the target finished a long rest.\nNull Transformation: A humanoid killed by my blood thirst ability becomes a null."
-};
-WeaponsList["blood thirst"] = {
-	regExpSearch : /^(?=.*blood)(?=.*thirst).*$/i,
-	name : "Blood Thirst",
-	source : [["PS:Z", 15], ["PS:X", 14]],
-	list : "Melee",
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "necrotic"],
-	range : "Melee",
-	description : "+1 piercing damage; Reduces max HP by the necrotic damage, while healing me for the same",
-	abilitytodamage : false,
-	monkweapon : false
 };
 
 RaceList["grotag tribe goblin"] = {
@@ -167,12 +161,18 @@ RaceList["grotag tribe goblin"] = {
 	vision : [["Darkvision", 60]],
 	dmgres : ["Fire", "Psychic"],
 	skills : ["Animal Handling"],
+	armourOptions : {
+		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
+		name : "Goblin Grit",
+		source : ["PS:Z", 17],
+		ac : 11
+	},
+	armorAdd : "Goblin Grit",
 	age : " reach adulthood at around 12 and rarely live longer than 50 years",
 	height : " average about 3 feet tall (3'\" + 2d4\")",
 	weight : " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",
 	heightMetric : " average about 100 cm tall (100 + 5d4 cm)",
 	weightMetric : " weigh about 20 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
-	improvements : "Grotag Tribe Goblin: +2 Constitution;",
 	scores : [0, 0, 2, 0, 0, 0],
 	trait : "Grotag Tribe Goblin (+2 Constitution)\nGrit: I have resistance to fire damage and psychic damage.\n   In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier."
 };
@@ -189,12 +189,18 @@ RaceList["lavastep tribe goblin"] = {
 	languageProfs : ["Common", "Goblin"],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Fire", "Psychic"],
+	armourOptions : {
+		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
+		name : "Goblin Grit",
+		source : ["PS:Z", 17],
+		ac : 11
+	},
+	armorAdd : "Goblin Grit",
 	age : " reach adulthood at around 12 and rarely live longer than 50 years",
 	height : " average about 3 feet tall (3'\" + 2d4\")",
 	weight : " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",
 	heightMetric : " average about 100 cm tall (100 + 5d4 cm)",
 	weightMetric : " weigh about 20 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
-	improvements : "Lavastep Tribe Goblin: +2 Constitution;",
 	scores : [0, 0, 2, 0, 0, 0],
 	trait : "Lavastep Tribe Goblin (+2 Constitution)\nGrit: I have resistance to fire damage and psychic damage.\n   In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier.\nLavastep Grit: I have advantage on Dexterity (Stealth) checks made to hide in rocky or subterranean environments."
 };
@@ -212,23 +218,20 @@ RaceList["tuktuk tribe goblin"] = {
 	vision : [["Darkvision", 60]],
 	dmgres : ["Fire", "Psychic"],
 	toolProfs : [["Thieves' tools", "Dex"]],
+	armourOptions : {
+		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
+		name : "Goblin Grit",
+		source : ["PS:Z", 17],
+		ac : 11
+	},
+	armorAdd : "Goblin Grit",
 	age : " reach adulthood at around 12 and rarely live longer than 50 years",
 	height : " average about 3 feet tall (3'\" + 2d4\")",
 	weight : " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",
 	heightMetric : " average about 100 cm tall (100 + 5d4 cm)",
 	weightMetric : " weigh about 20 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
-	improvements : "Tuktuk Tribe Goblin: +2 Constitution;",
 	scores : [0, 0, 2, 0, 0, 0],
 	trait : "Tuktuk Tribe Goblin (+2 Constitution)\nGrit: I have resistance to fire damage and psychic damage.\n   In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier."
-};
-ArmourList["goblin grit"] = {
-	regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
-	name : "Goblin Grit",
-	source : ["PS:Z", 17],
-	type : "",
-	ac : 11,
-	stealthdis : false,
-	strReq : 0
 };
 
 RaceList["tajuru elf"] = {
@@ -248,13 +251,12 @@ RaceList["tajuru elf"] = {
 		adv_vs : ["charmed"]
 	},
 	skills : ["Perception"],
-	skillstxt : "Choose any two skills or tools",
+	skillstxt : "Perception and choose any two skills or tools",
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Tajuru Elf: +2 Wisdom, +1 Charisma;",
 	scores : [0, 0, 0, 0, 2, 1],
 	trait : "Tajuru Elf (+2 Wisdom, +1 Charisma)\nTajuru Nation: Tajuru elves are the most open to people of other races, seeing their skills and perspectives as valuable new tools for survival."
 };
@@ -274,14 +276,13 @@ RaceList["joraga elf"] = {
 		text : ["Magic can't put me to sleep"],
 		adv_vs : ["charmed"]
 	},
-	weaponprofs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
+	weaponProfs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Joraga Elf: +1 Dexterity, +2 Wisdom;",
 	scores : [0, 1, 0, 0, 2, 0],
 	trait : "Joraga Elf (+1 Dexterity, +2 Wisdom)\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
 };
@@ -302,50 +303,46 @@ RaceList["mul daya elf"] = {
 		adv_vs : ["charmed"]
 	},
 	skills : ["Perception"],
-	weaponprofs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
+	weaponProfs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Mul Daya Elf: +1 Strength, +2 Wisdom;",
 	scores : [1, 0, 0, 0, 2, 0],
 	trait : "Mul Daya Elf (+1 Strength, +2 Wisdom)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nMul Daya Magic: 1st level: Chill Touch cantrip; 3rd level: Hex; 5th level: Darkness. Both spells can be used once per long rest. Wisdom is my spellcasting ability for these.",
-	abilitySave : 5,
 	spellcastingAbility : 5,
 	spellcastingBonus : {
 		name : "Mul Daya Magic (level 1)",
 		spells : ["chill touch"],
 		selection : ["chill touch"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"faerie fire" : {
-			name : "Faerie Fire",
+			name : "Mul Daya Magic (level 3)",
+			limfeaname : "Faerie Fire",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Mul Daya Magic)",
-			action : ["bonus action", ""],
 			spellcastingBonus : {
 				name : "Mul Daya Magic (level 3)",
 				spells : ["hex"],
 				selection : ["hex"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		},
 		"darkness" : {
-			name : "Darkness",
+			name : "Mul Daya Magic (level 5)",
+			limfeaname : "Darkness",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Mul Daya Magic)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Mul Daya Magic (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	}

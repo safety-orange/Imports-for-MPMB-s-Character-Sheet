@@ -1,5 +1,5 @@
 var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -49,7 +49,23 @@ AddSubClass("druid", "circle of the shepherd2", {
 			name : "Mighty Summoner",
 			source : ["UA:RCO", 2],
 			minlevel : 6,
-			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical"
+			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						switch (spellKey) {
+							case "conjure animals" :
+							case "conjure fey" :
+								spellObj.description += "; each +2 HP/HD, magical natural attacks";
+								return true;
+							case "conjure woodland beings" :
+								spellObj.description = spellObj.description.replace(/fey.*/, "fey; obeys commands if its align. agrees; breaks free if break conc.; +2 HP/HD, magic atks");
+								return true;
+						}
+					},
+					"When I use a spell that restores hit points, it restores an additional 2 + the level of the spell slot (or spell slot equivalent) used to cast the spell."
+				]
+			}
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
@@ -66,13 +82,27 @@ AddSubClass("druid", "circle of the shepherd2", {
 			source : ["UA:RCO", 2],
 			minlevel : 14,
 			description : desc([
-				"When I am reduced to 0 HP or incapacitated against my will, I can summon protectors",
-				"I gain the benefits of a Conjure Animals spell as if cast with a 9th-level spell slot",
-				"It summons 4 beast of my choice with CR 2 or lower within 20 ft of me for 1 hour",
-				"If they receive no commands from me, they protect me from harm and attack my foes"
+				"When I am reduced to 0 HP or incapacitated against my will, I can cast Conjure Animals",
+				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
+				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes"
 			]),
 			usages : 1,
-			recovery : "long rest"
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Faithful Summons",
+				spells : ["conjure animals"],
+				selection : ["conjure animals"],
+				firstCol : "oncelr"
+			},
+			spellChanges : {
+				"conjure animals" : {
+					nameShort : "Conjure Animals (level 9)",
+					range : "20 ft",
+					duration : "1 h",
+					description : "Summon 4 CR 2 beasts; protect me from harm and attack foes",
+					changes : "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast Conjure Animals as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration."
+				}
+			}
 		}
 	}
 });
@@ -100,7 +130,7 @@ AddSubClass("fighter", "cavalier2", {
 			"skill proficiency: animal handling, history, insight, performance, or persuasion" : {
 				name : "Bonus Proficiency",
 				description : "\n   " + "I gain proficiency with Animal Handling, History, Insight, Performance, or Persuasion",
-				skillstxt : "\n\n" + toUni("Cavalier") + ": Choose one from: Animal Handling, History, Insight, Performance, or Persuasion."
+				skillstxt : "Choose one from: Animal Handling, History, Insight, Performance, or Persuasion"
 			}
 		},
 		"subclassfeature3.1" : {
@@ -135,8 +165,7 @@ AddSubClass("fighter", "cavalier2", {
 			additional : ["", "", "d8", "d8", "d8", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d12", "d12", "d12"],
 			usages : [0, 0, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6],
 			recovery : "short rest",
-			eval : "AddAction('reaction', 'Warding Maneuver', 'Cavalier');",
-			removeeval : "RemoveAction('reaction', 'Warding Maneuver');"
+			action : ['reaction', 'Warding Maneuver']
 		},
 		"subclassfeature7" : {
 			name : "Ferocious Charger",
@@ -221,7 +250,7 @@ AddSubClass("paladin", "oath of conquest2", {
 		}
 	}
 });
-AddSubClass("warlock", "the celestal", {
+AddSubClass("warlock", "the celestial", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
 	source : ["UA:RCO", 4],
@@ -268,7 +297,20 @@ AddSubClass("warlock", "the celestal", {
 			]),
 			dmgres : ["Radiant"],
 			calcChanges : {
-				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) {
+							output.extraDmg += What('Cha Mod');
+						}
+					},
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha");
+					},
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature10" : {
@@ -301,27 +343,117 @@ AddSubClass("warlock", "the celestal", {
 });
 
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
-AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
-	name : "Aspect of the Moon",
-	description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
-	source : [["X", 56], ["UA:RCO", 5]],
-	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the tome') !== -1",
-	savetxt : { text : ["Nothing can force me to sleep"] }
-});
-AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
-	name : "Cloak of Flies",
-	description : desc([
-		"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
-		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
-		"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
-		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
-	]),
-	source : [["X", 56], ["UA:RCO", 5]],
-	prereqeval : "classes.known.warlock.level >= 5",
-	recovery : "short rest",
-	usages : 1,
-	action : ["bonus action", " (start/stop)"]
-});
+// dupl_start
+if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
+	AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
+		name : "Aspect of the Moon",
+		description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
+		source : [["X", 56], ["UA:RCO", 5]],
+		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
+		savetxt : { text : ["Nothing can force me to sleep"] }
+	});
+	AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
+		name : "Cloak of Flies",
+		description : desc([
+			"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
+			"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
+			"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
+			"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
+		]),
+		source : [["X", 56], ["UA:RCO", 5]],
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
+		recovery : "short rest",
+		usages : 1,
+		action : ["bonus action", " (start/stop)"]
+	});
+	AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
+		name : "Gift of the Depths",
+		description : desc([
+			"I can breathe underwater and I have a swim speed equal to my walking speed",
+			"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
+		]),
+		source : [["X", 57], ["UA:RCO", 6]],
+		spellcastingBonus : {
+			name : "Gift of the Depths",
+			spells : ["water breathing"],
+			selection : ["water breathing"],
+			firstCol : 'oncelr'
+		},
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
+		speed : { swim : { spd : "walk", enc : "walk" } }
+	});
+	AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
+		name : "Gift of the Ever-Living Ones",
+		description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
+		source : [["X", 57], ["UA:RCO", 6]],
+		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
+	});
+	AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
+		name : "Grasp of Hadar",
+		description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
+		source : [["X", 57], ["UA:RCO", 6]],
+		prereqeval : function(v) { return v.hasEldritchBlast; },
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+				},
+				"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
+			]
+		}
+	});
+	AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
+		name : "Shroud of Shadow",
+		description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
+		source : [["X", 57], ["UA:RCO", 6]],
+		spellcastingBonus : {
+			name : "Shroud of Shadow",
+			spells : ["invisibility"],
+			selection : ["invisibility"],
+			firstCol : 'atwill'
+		},
+		prereqeval : function(v) { return classes.known.warlock.level >= 15; },
+		spellChanges : {
+			"invisibility" : {
+				description : "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
+				changes : "With the Shroud of Shadow invocation I can cast Invisibility at will, but when I do so I am unable to cast it using a higher level spell slot."
+			}
+		}
+	});
+	AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
+		name : "Tomb of Levistus",
+		description : desc([
+			"As a reaction when I take damage, I can entomb myself in ice until the end of my turn",
+			"During, I get 10 temp. HP per warlock level, which I use to absorb the triggering damage",
+			"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
+		]),
+		source : [["X", 57], ["UA:RCO", 6]],
+		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
+		recovery : "short rest",
+		usages : 1,
+		action : ["reaction", ""],
+		additional : levels.map( function(n) { return (n * 10) + " temp HP"; })
+	});
+	AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
+		name : "Trickster's Escape",
+		description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
+		source : [["X", 57], ["UA:RCO", 7]],
+		spellcastingBonus : {
+			name : "Trickster's Escape",
+			spells : ["freedom of movement"],
+			selection : ["freedom of movement"],
+			firstCol : 'oncelr'
+		},
+		prereqeval : function(v) { return classes.known.warlock.level >= 7; },
+		spellChanges : {
+			"freedom of movement" : {
+				range : "Self",
+				description : "Magic can't reduce my speed, paralyze or restrain me; I can use 5 ft to escape nonmagical restrains",
+				changes : "With the Trickster's Escape invocation I can cast Freedom of Movement, but only on myself."
+			}
+		}
+	});
+} // dupl_end
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Eldritch Smite",
 	description : desc([
@@ -331,7 +463,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"If the target takes any of this bonus damage, it is knocked prone if it is Huge or smaller"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 5 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1"
+	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 	name : "Frost Lance",
@@ -340,9 +472,14 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "hasEldritchBlast",
+	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; 1 target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; 1 target -10 ft speed';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
+		]
 	}
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
@@ -352,41 +489,10 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"Objects appear ghostly to me; I also gain 30 ft darkvision for the duration"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
 	action : ["action", ""]
-});
-AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
-	name : "Gift of the Depths",
-	description : desc([
-		"I can breathe underwater and I have a swim speed equal to my walking speed",
-		"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
-	]),
-	source : [["X", 57], ["UA:RCO", 6]],
-	spellcastingBonus : {
-		name : "Gift of the Depths",
-		spells : ["water breathing"],
-		selection : ["water breathing"],
-		oncelr : true
-	},
-	prereqeval : "classes.known.warlock.level >= 5",
-	speed : { swim : { spd : "walk", enc : "walk" } }
-});
-AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
-	name : "Gift of the Ever-Living Ones",
-	description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
-	source : [["X", 57], ["UA:RCO", 6]],
-	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the chain') !== -1"
-});
-AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
-	name : "Grasp of Hadar",
-	description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
-	source : [["X", 57], ["UA:RCO", 6]],
-	prereqeval : "hasEldritchBlast",
-	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
-	}
 });
 AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
@@ -395,9 +501,17 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch Blast cantrip)", {
@@ -407,7 +521,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
@@ -417,7 +531,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 		"It and any of my choice within 5 ft of it take my Cha mod (min 0) in psychic damage"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
@@ -427,44 +541,6 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
 	source : ["UA:RCO", 6],
-	prereqeval : "classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	action : ["bonus action", ""]
-});
-AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
-	name : "Shroud of Shadow",
-	description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
-	source : [["X", 57], ["UA:RCO", 6]],
-	spellcastingBonus : {
-		name : "Shroud of Shadow",
-		spells : ["invisibility"],
-		selection : ["invisibility"],
-		atwill : true
-	},
-	prereqeval : "classes.known.warlock.level >= 15"
-});
-AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
-	name : "Tomb of Levistus",
-	description : desc([
-		"As a reaction when I take damage, I can entomb myself in ice until the end of my turn",
-		"During, I get 10 temp. HP per warlock level, which I use to absorb the triggering damage",
-		"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
-	]),
-	source : [["X", 57], ["UA:RCO", 6]],
-	prereqeval : "classes.known.warlock.level >= 5",
-	recovery : "short rest",
-	usages : 1,
-	action : ["reaction", ""],
-	additional : levels.map( function(n) { return (n * 10) + " temp HP"; })
-});
-AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
-	name : "Trickster's Escape",
-	description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
-	source : [["X", 57], ["UA:RCO", 7]],
-	spellcastingBonus : {
-		name : "Trickster's Escape",
-		spells : ["freedom of movement"],
-		selection : ["freedom of movement"],
-		oncelr : true
-	},
-	prereqeval : "classes.known.warlock.level >= 7"
 });

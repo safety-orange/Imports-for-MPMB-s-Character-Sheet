@@ -1,5 +1,5 @@
 var iFileName = "ua_20161114_Bard-Colleges.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Bard Colleges article to MPMB's Character Record Sheet
 
 // Define the source
@@ -45,8 +45,15 @@ AddSubClass("bard", "college of glamour", {
 				name : "Mantle of Majesty",
 				spells : ["command"],
 				selection : ["command"],
-				oncelr : true
-			}]
+				firstCol : 'oncelr'
+			}],
+			spellChanges : {
+				"command" : {
+					time : "1 bns",
+					description : "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
+					changes : "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target."
+				}
+			}
 		},
 		"subclassfeature14" : {
 			name : "Unbreakable Majesty",
@@ -60,8 +67,15 @@ AddSubClass("bard", "college of glamour", {
 				name : "Unbreakable Majesty",
 				spells : ["sanctuary"],
 				selection : ["sanctuary"],
-				oncesr : true
-			}]
+				firstCol : 'oncesr'
+			}],
+			spellChanges : {
+				"sanctuary" : {
+					time : "Self",
+					description : "Any trying to atk/target me must save or fail, dis. on save vs. spell I cast next turn, I adv. on Cha vs. it",
+					changes : "Using my Unbreakable Majesty class feature, I can cast Sanctuary once per short rest without using a spell slot, but only on myself."
+				}
+			}
 		}
 	}
 });
@@ -95,13 +109,10 @@ AddSubClass("bard", "college of whispers", {
 			"shadow disguise" : {
 				name : "Shadow Disguise",
 				source : ["UA:BC", 2],
-				action : ["action", " (start)"],
-				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends",
-				eval : "AddAction('bonus action', 'Shadow Disguise (end)', 'Bard (College of Whispers)');",
-				removeeval : "RemoveAction('bonus action', 'Shadow Disguise (end)');"
+				action : [["action", " (start)"], ['bonus action', ' (end)']],
+				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends"
 			},
-			eval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra']);",
-			removeeval : "ClassFeatureOptions(['bard', 'subclassfeature6', 'shadow disguise', 'extra'], 'remove');"
+			autoSelectExtrachoices : [{ extrachoice : "shadow disguise" }]
 		},
 		"subclassfeature14" : {
 			name : "Shadow Lore",

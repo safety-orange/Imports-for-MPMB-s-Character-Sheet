@@ -1,10 +1,10 @@
 var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
 SourceList.CoS={
-	name : "Curse of Strahd [background, pack]",
+	name : "Curse of Strahd [background, items, pack]",
 	abbreviation : "CoS",
 	group : "Adventure Books",
 	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
@@ -24,9 +24,9 @@ BackgroundList["haunted one"] = {
 	name : "Haunted One",
 	source : [["CoS", 209], ["ALbackground", 0]],
 	skills : "",
-	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival", // As only one skill proficiency in Curse of Strahd, but that was corrected in Curse of Strahd: Character Options
-	languageProfs : [1],
-	gold : 0,
+	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
+	languageProfs : [2],
+	gold : 0.01,
 	equipleft : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -91,7 +91,7 @@ BackgroundList["haunted one"] = {
 		"Studied an eldritch tome",
 		"Formerly possessed by a fiend",
 		"Avenged a murder"
-	],
+	]
 };
 BackgroundList["black fist double agent"] = {
 	regExpSearch : /black\W*fist/i,
@@ -518,3 +518,294 @@ PacksList.monsterhunter = {
 		["Torches", 3, 1]
 	]
 };
+
+// Magic Items
+MagicItemsList["plantslayer battleaxe"] = {
+	name : "Plantslayer Battleaxe", // name taken from Adventurers League Content Catalogue v8.07, page 28
+	nameAlt : "Adventurer's Battleaxe",
+	source : ["CoS", 198],
+	type : "weapon (battleaxe)",
+	rarity : "rare",
+	magicItemTable : "F",
+	description : "This battleaxe's handle is carved with leaves and vines. It deals an extra 1d8 slashing damage against ordinary plants and plant creatures. When a creature of non-good alignment makes an attack with it, it sprouts thorns, dealing 1 magical piercing damage to the wielder after the attack is made.",
+	descriptionFull : "The axe's handle is carved with leaves and vines, and it weighs half as much as a normal battleaxe. When the axe hits a plant, whether an ordinary plant or a plant creature, the target takes an extra 1d8 slashing damage. When a creature of non-good alignment wields the axe, it sprouts thorns whenever its wielder makes an attack with it. These thorns prick the wielder for 1 piercing damage after the attack is made, and this damage is considered magical.",
+	weight : 2,
+	weaponsAdd : ["Plantslayer Battleaxe"],
+	weaponOptions : {
+		baseWeapon : "battleaxe",
+		regExpSearch : /^(?=.*plantslayer)(?=.*battleaxe).*$/i,
+		name : "Plantslayer Battleaxe",
+		source : ["CoS", 198],
+		description : "Versatile (1d10); +1d8 damage vs. plants",
+		weight : 2
+	}
+}
+MagicItemsList["blood spear"] = {
+	name : "Blood Spear",
+	source : ["CoS", 221],
+	type : "weapon (spear)",
+	rarity : "uncommon",
+	magicItemTable : "G",
+	description : "This spear drains the life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting. When I use it to reduce the target to 0 HP, I gain 2d6 temporary HP. If I'm chosen by Kavan to wield this spear, I gain a +2 bonus to attack and damage rolls made with it.",
+	descriptionFull : "Kavan was a ruthless chieftain whose tribe lived in the Balinok Mountains centuries before the arrival of Strahd von Zarovich. Although he was very much alive, Kavan had some traits in common with vampires: he slept during the day and hunted at night, he drank the blood of his prey, and he lived underground. In battle, he wielded a spear stained with blood. His was the first blood spear, a weapon that drains life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting.\n   When you hit with a melee attack using this magic spear and reduce the target to 0 hit points, you gain 2d6 temporary hit points.\n   Any creature can wield the spear, but only the character chosen by Kavan to wield it gains a +2 bonus to attack and damage rolls made with this magic weapon.",
+	attunement : true,
+	weight : 3,
+	choices : ["Chosen of Kavan", "Not a chosen of Kavan"],
+	"chosen of kavan" : {
+		name : "Blood\u200A Spear",
+		weaponsAdd : ["Blood Spear"],
+		weaponOptions : {
+			baseWeapon : "spear",
+			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
+			name : "Blood Spear",
+			source : ["CoS", 221],
+			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
+			modifiers : [2,2]
+		}
+	},
+	"not a chosen of kavan" : {
+		name : "Blood\u200A\u200A Spear",
+		weaponsAdd : ["Blood Spear"],
+		weaponOptions : {
+			baseWeapon : "spear",
+			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
+			name : "Blood Spear",
+			source : ["CoS", 221],
+			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP"
+		}
+	}
+}
+MagicItemsList["green copper ewer"] = {
+	name : "Green Copper Ewer",
+	source : ["CoS", 188],
+	type : "wondrous item",
+	rarity : "unknown",
+	description : "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. If I speak the ewer's command word while grasping its handle, the ewer fills with 1 gallon of wine. After doing so, it can't produce more wine until the next dawn.",
+	descriptionFull : "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. Furthermore, a creature that grasps the ewer's handle can command the ewer to fill with 1 gallon of wine, and it can't produce more wine until the next dawn."
+}
+MagicItemsList["gulthias staff"] = {
+	name : "Gulthias Staff",
+	source : ["CoS", 221],
+	type : "staff",
+	rarity : "rare",
+	magicItemTable : "G",
+	description : "This black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (DMG 259). While attuned to it, evil plant creatures are indifferent to me.",
+	descriptionLong : "This spongy, black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (see table at SRD 201 or DMG 259). While I'm attuned to the staff, evil plant creatures don't regard me as hostile unless I harm them. If it is broken or burned to ashes, it releases an inhuman scream that can be heard out to 300 ft. All blights that can hear the scream immediately wither and die.",
+	descriptionFull : "Made from the branch of a Gulthias tree (see the blights entry of the Monster Manual), a Gulthias staff is a spongy, black length of wood. Its evil makes beasts visibly uncomfortable while within 30 feet of it. The staff has 10 charges and regains 1d6+4 of its expended charges daily at dusk.\n   If the staff is broken or burned to ashes, its wood releases a terrible, inhuman scream that can be heard out to a range of 300 feet. All blights that can hear the scream immediately wither and die.\n   " + toUni("Vampiric Strike") + ". The staff can be wielded as a magic quarterstaff. On a hit, it deals damage as a normal quarterstaff, and you can expend 1 charge to regain a number of hit points equal to the damage dealt by the weapon. Each time a charge is spent, red blood oozes from the staff's pores, and you must succeed on a DC 12 Wisdom saving throw or be afflicted with short term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).\n   " + toUni("Blight Bane") + ". While you are attuned to the staff, blights and other evil plant creatures don't regard you as hostile unless you harm them.",
+	attunement : true,
+	weight : 4,
+	usages : 10,
+	recovery : "Dusk",
+	additional : "regains 1d6+4",
+	weaponsAdd : ["Gulthias Staff"],
+	weaponOptions : {
+		baseWeapon : "quarterstaff",
+		regExpSearch : /^(?=.*gulthias)(?=.*staff).*$/i,
+		name : "Gulthias Staff",
+		source : ["CoS", 221],
+		description : "Versatile (1d8); On hit, 1 charge to regain HP equal to damage dealt but DC 12 Wis save or madness"
+	},
+}
+MagicItemsList["holy symbol of ravenkind"] = {
+	name : "Holy Symbol of Ravenkind",
+	source : ["CoS", 222],
+	type : "wondrous item",
+	rarity : "legendary",
+	storyItemAL : true,
+	prerequisite : "Requires attunement by a cleric or paladin of good alignment",
+	prereqeval : function(v) { return (/good/i).test(What("Alignment")) && (classes.known.cleric || classes.known.paladin); },
+	description : "This platinum amulet has 10 charges, regaining 1d6+4 at dawn. As an action, I can use 1 charge to hold vampires (see 3rd page notes). I can use 3 charges with Turn Undead to give disadv. on its saves. As an action, ican use 5 charges to shed daylight, 30-ft radius bright light and dim light for another 30-ft for 10 minutes.",
+	descriptionFull : "The Holy Symbol of Ravenkind is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.\n   The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.\n   The holy symbol has 10 charges for the following properties. It regains 1d6+4 charges daily at dawn.\n   " + toUni("Hold Vampires") + ". As an Action, you can expend 1 charge and present the holy symbol to make it flare with holy power. Vampires and vampire spawn within 30 feet of the holy symbol when it flares must make a DC 15 Wisdom saving throw. On a failed save, a target is paralyzed for 1 minute. It can repeat the saving throw at the end of its turns to end the effect on itself.\n   " + toUni("Turn Undead") + ". If you have the Turn Undead or the Turn the Unholy feature, you can expend 3 charges when you present the holy symbol while using that feature. When you do so, undead have disadvantage on their saving throws against the effect.\n   " + toUni("Sunlight") + ". As an action, you can expend 5 charges while presenting the holy symbol to make it shed bright light in a 30-foot radius and dim light for an additional 30 feet. The light is sunlight and lasts for 10 minutes or until you end the effect (no action required).",
+	attunement : true,
+	usages : 10,
+	recovery : "dawn",
+	additional : "regains 1d6+4",
+	action : [["action"]],
+	toNotesPage : [{
+		name : "Hold Vampires",
+		popupName : "Hold Vampires feature of Holy Symbol of Ravenkind",
+		page3notes : true,
+		note : [
+			"As an action, I can use 1 charge to have all vampires within 30 ft make a DC 15 Wis save",
+			"If failed, a target is paralyzed for 1 minute but can repeat the save at the end of its turns"
+		],
+		additional : "1 charge"
+	}]
+}
+MagicItemsList["icon of ravenloft"] = {
+	name : "Icon of Ravenloft",
+	source : ["CoS", 222],
+	type : "wondrous item",
+	rarity : "legendary",
+	storyItemAL : true,
+	prerequisite : "Requires attunement by a creature of good alignment",
+	prereqeval : function(v) { return (/good/i).test(What("Alignment")); },
+	description : "All within 30 ft of this silver statue are under the effect of Protection from Evil and Good that works against fiends and undead. As an action while attuned to it, I can cast Augury or Cure Wounds (3d8+3, 30 ft range) from it, each once per dawn and if I use it for my Turn Undead, the DC increases by 2.",
+	descriptionFull : "The Icon of Ravenloft is a 12-inch tall statuette made of the purest silver, weighing 10 pounds. It depicts a cleric kneeling in supplication.\n   The icon was given to Strahd by the archpriest Ciril Romulich, an old family friend, to consecrate the castle and its chapel.\n   While within 30 feet of the icon, a creature is under the effect of a Protection from Evil and Good spell against fiends and undead. Only a creature attuned to the icon can use its other properties.\n   " + toUni("Augury") + ". You can use an action to cast an Augury spell from the icon, with no material components required. Once used, this property can't be used again until the next dawn.\n   " + toUni("Bane of the Undead") + ". You can use the icon as a holy symbol while using the Turn Undead or Turn the Unholy feature. If you do so, increase the save DC by 2.\n   " + toUni("Cure Wounds") + ". While holding the icon, you can take an action to heal one creature that you can see within 30 feet of you. The target regains 3d8+3 hit points, unless it is an undead, a construct, or a fiend. Once used, this property can't be used again until the next dawn.",
+	attunement : true,
+	weight : 10,
+	extraLimitedFeatures : [{
+		name : "Icon of Ravenloft [Augury]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Icon of Ravenloft [Cure Wounds]",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	spellcastingBonus : [{
+		name : "All in 30 ft",
+		spells : ["protection from evil and good"],
+		selection : ["protection from evil and good"],
+		firstCol : "markedbox"
+	}, {
+		name : "Once per dawn",
+		spells : ["augury", "cure wounds"],
+		selection : ["augury", "cure wounds"],
+		firstCol : "oncelr",
+		times : 2
+	}],
+	spellChanges : {
+		"protection from evil and good" : {
+			range : "30-ft rad",
+			time : "Always",
+			description : "All in range immune to fear, charm, and possession by fiends and undead, they also disadv. on attacks",
+			duration : "Unlimited",
+			changes : "All within 30 ft of the Icon of Ravenloft have this spell protect them from undead and fiends."
+		},
+		"augury" : {
+			time : "1 a",
+			changes : "Using the Icon of Ravenloft, it only takes an action to cast."
+		},
+		"cure wounds" : {
+			range : "30 ft",
+			description : "1 living creature heals 3d8+3 HP if it not an undead, construct, or fiend",
+			changes : "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect undead, a construct, or a fiend."
+		}
+	}
+}
+MagicItemsList["lost sword"] = {
+	name : "Lost Sword",
+	source : ["CoS", 81],
+	type : "weapon (shortsword)",
+	rarity : "very rare",
+	magicItemTable : "G",
+	prerequisite : "Requires attunement by a creature of lawful good alignment",
+	prereqeval : function(v) { return (/^(?=.*lawful)(?=.*good).*$/i).test(What("Alignment")); },
+	description : "This lawful good shortsword is sentient (Int 11, Wis 13, Cha 13). It adds +1 to hit and damage and shines bright light in a 15-ft radius and dim light for an additional 15 ft. Attuning to it takes only 1 minute. Once per dawn, I can use it to cast Crusader's Mantle. Its purpose is to fight evil. See Notes page.",
+	descriptionFull : "The Lost Sword is a sentient lawful good +1 shortsword (Intelligence 11, Wisdom 13, Charisma 13). It has hearing and normal vision out to a range of 120 feet. It communicates by transmitting emotion to the creature carrying or wielding it.\n   The sword's purpose is to fight evil. The sword has the following additional properties:\n \u2022 The sword continually sheds bright light in a 15-foot radius and dim light for an additional 15 feet. Only by destroying the sword can this light be extinguished.\n \u2022 A lawful good creature can attune itself to the sword in 1 minute.\n \u2022 While attuned to the weapon, the sword's wielder can use the sword to cast the Crusader's Mantle spell. Once used, this property of the sword can't be used again until the next dawn.",
+	attunement : true,
+	weight : 2,
+	usages : 1,
+	recovery : "dawn",
+	additional : "Crusader's Mantle",
+	weaponsAdd : ["Lost Sword"],
+	weaponOptions : {
+		baseWeapon : "shortsword",
+		regExpSearch : /^(?=.*lost)(?=.*sword).*$/i,
+		name : "Lost Sword",
+		source : ["CoS", 81],
+		modifiers : [1,1]
+	},
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["crusader's mantle"],
+		selection : ["protection from evil and good"],
+		firstCol : "oncelr"
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of the Lost Sword",
+		note : desc([
+			"The Lost Sword is a sentient lawful good +1 shortsword.",
+			"A lawful good creature can attune itself to the sword in 1 minute.",
+			"It continually sheds bright light in a 15-ft radius and dim light for an additional 15 ft. Only by destroying the sword can this light be extinguished.",
+			"While attuned to the weapon, the sword's wielder can use the sword to cast the Crusader's Mantle spell. Once used, this property of the sword can't be used again until the next dawn.",
+			"It has Intelligence 11, Wisdom 13, and Charisma 13 and can hear and see as a human out to a range of 120 ft. It communicates by transmitting emotion to the creature carrying or wielding it. The sword's purpose is to fight evil."
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}
+MagicItemsList["saint markovia's thighbone"] = {
+	name : "Saint Markovia's Thighbone",
+	source : ["CoS", 222],
+	type : "weapon (mace)",
+	rarity : "rare",
+	description : "This mace sheds bright light in a 20-ft radius and dim light for another 20 ft while held. Fiends and undead hit with it take +2d6 radiant damage, become frightened of me until my next turn ends, and if below 26 HP after its damage, must make a DC 15 Wis save or die. If it hits an undead, it crumbles after the combat.",
+	descriptionFull : "Saint Markovia's thighbone has the properties of a mace of disruption. If it scores one or more hits against a vampire or a vampire spawn in the course of a single battle, the thighbone crumbles into dust once the battle concludes.\n   As a youth, Markovia followed her heart and became a priest of the Morninglord soon after her eighteenth birthday. She proved to be a charismatic proselytizer and, before the age of thirty, had gained a reputation for allowing no evil to stand before her.\n   Markovia had long considered Strahd a mad tyrant, but only after his transformation into a vampire did she dare to challenge him. As she rallied her followers and prepared to march on Castle Ravenloft, Strahd sent a group of vampire spawn to her abbey. They confronted Markovia and were destroyed to a one.\n   Suffused with confidence born of a righteous victory, Markovia advanced on Castle Ravenloft. A great battle raged from the catacombs to the parapets. In the end, Markovia never returned to Barovia, and Strahd long afterward walked with a limp and a grimace of pain. It is said that he trapped Markovia in a crypt beneath his castle, and her remains linger there yet.\n   The essence of Markovia's saintliness passed partly into her bones as the rest of her body decomposed. Her remaining thighbone is imbued with power that inflicts grievous injury on the undead.\n   Mace of Disruption. When you hit a fiend or an undead with this magic weapon, that creature takes an extra 2d6 radiant damage. If the target has 25 hit points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature becomes frightened of you until the end of your next turn.\n   While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.",
+	attunement : true,
+	weight : 4,
+	weaponsAdd : ["Saint Markovia's Thighbone"],
+	weaponOptions : {
+		baseWeapon : "mace",
+		regExpSearch : /^(?=.*markovia)(?=.*thighbone).*$/i,
+		name : "Saint Markovia's Thighbone",
+		source : ["CoS", 222],
+		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if hp<26, DC 15 Wis save or die"
+	}
+}
+MagicItemsList["silver dragon shield +2"] = {
+	name : "Silver Dragon Shield +2",
+	source : ["CoS", 68],
+	type : "shield",
+	rarity : "rare",
+	description : "While holding this shield, I have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC. It is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon. The shield whispers warnings to me, granting me a +2 bonus to initiative while I am not incapacitated.",
+	descriptionFull : "While holding this shield, you have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   The shield is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon (see Curse of Strahd, chapter 7). The shield whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
+	weight : 6,
+	shieldAdd : "Silver Dragon Shield +2",
+	addMod : [{ type : "skill", field : "Init", mod : 2, text : "While I carry the Silver Dragon Shield, it whispers warnings to me, granting me a +2 bonus to initiative rolls." }]
+}
+MagicItemsList["statuette of saint markovia"] = {
+	name : "Statuette of Saint Markovia",
+	source : ["CoS", 152],
+	type : "wondrous item",
+	rarity : "unknown",
+	storyItemAL : true,
+	description : "This golden statuette grants any good-aligned creature that carries it a +1 bonus to saving throws.",
+	descriptionFull : "This golden statuette grants any good-aligned creature that carries it a +1 bonus to saving throws.",
+	addMod : [{ type : "save", field : "all", mod : 1, text : "While I carry the Statuette of Saint Markovia, I gain a +1 bonus to all my saving throws." }]
+}
+MagicItemsList["sunsword"] = {
+	name : "Sunsword",
+	source : ["CoS", 223],
+	type : "weapon (longsword)",
+	rarity : "legendary",
+	storyItemAL : true,
+	description : "As a bonus action, I can have this hilt create a blade of radiance. It acts like a longsword with +2 to hit and damage, does radiant damage (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius and dim light in another 15 ft. As an action, I can change the light's radius by 5 ft. It is sentient, see Notes page.",
+	descriptionLong : "As a bonus action, I can have this longsword hilt create or dismiss a blade of pure radiance. While the blade exists, it acts like a longsword that has +2 to attack and damage rolls, does radiant damage, and has the finesse property. It deals +1d8 damage to undead and emits sunlight, bright light in a 15-ft radius and dim light in an additional 15-ft radius. As an action, I can expand or reduce both the bright and dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. I'm proficient with it if I'm proficient with either longswords or shortswords. It is sentient, see Notes page.",
+	descriptionFull : "The Sunsword is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.\n   Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.\n   The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade.\n   While grasping the hilt, you can use a bonus action to cause a blade of pure radiance to spring into existence, or make the blade disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with the sun blade.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.\n   " + toUni("Sentience") + ". The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.\n   " + toUni("Personality") + ". The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction.",
+	attunement : true,
+	weight : 3,
+	action : [["bonus action", " (start/stop)"], ["action", " (change light)"]],
+	weaponsAdd : ["Sunsword"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /sunsword/i,
+		name : "Sunsword",
+		source : ["CoS", 223],
+		damage : [1, 8, "radiant"],
+		description : "Finesse, versatile (1d10); +1d8 damage to undead",
+		modifiers : [2, 2]
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.theWea.name == "Sunsword" && !fields.Proficiency) {
+					fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
+				}
+			}, ''
+		]
+	},
+	toNotesPage : [{
+		name : "Features",
+		popupName : "Features of Sunsword",
+		note : desc([
+			"The Sunsword is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.",
+			"Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.",
+			"The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade. While grasping the hilt, I can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
+			"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
+			"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
+			"The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.",
+			"The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction"
+		]) + "\n\n" + sentientItemConflictTxt
+	}]
+}

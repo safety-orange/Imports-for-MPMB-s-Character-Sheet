@@ -1,5 +1,5 @@
 var iFileName = "ua_20170327_A Trio-of-Subclasses.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: A Trio of Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -26,8 +26,7 @@ AddSubClass("monk", "way of the drunken master", {
 				"I gain proficiency with the Performance skill",
 				"When using Flurry of Blows, I gain the benefits of a Disengage and +10 ft speed this turn"
 			]),
-			skills : ["Performance"],
-			skillstxt : "\n\n" + toUni("Monk (Way of the Drunken Master)") + ": Performance."
+			skills : ["Performance"]
 		},
 		"subclassfeature6" : {
 			name : "Tipsy Sway",
@@ -63,7 +62,13 @@ AddSubClass("paladin", "oath of redemption", {
 			source : ["UA:AToS", 2],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
-			addarmor : "Armor of Peace",
+			armorOptions : {
+				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
+				name : "Armor of Peace",
+				source : ["UA:AToS", 2],
+				ac : 16
+			},
+			armorAdd : "Armor of Peace",
 			spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
 		"subclassfeature3.1" : {
@@ -122,18 +127,8 @@ AddSubClass("paladin", "oath of redemption", {
 		}
 	}
 });
-// Oath of Redemption Paladin Armor of Peace
-ArmourList["armor of peace"] = {
-	regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
-	name : "Armor of Peace",
-	source : ["UA:AToS", 2],
-	type : "",
-	ac : 16,
-	stealthdis : false,
-	strReq : 0
-};
 // Add the Monster Slayer subclass to both the normal and Revised Ranger (if it is defined)
-var RangeSubclassMonsterSlayer = AddSubClass("ranger", "monster slayer", {
+var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : ["UA:AToS", 3],
@@ -145,7 +140,8 @@ var RangeSubclassMonsterSlayer = AddSubClass("ranger", "monster slayer", {
 			source : ["UA:AToS", 3],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Slayer's Eye",
@@ -188,4 +184,4 @@ var RangeSubclassMonsterSlayer = AddSubClass("ranger", "monster slayer", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(RangeSubclassMonsterSlayer); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassMonsterSlayerUA); };

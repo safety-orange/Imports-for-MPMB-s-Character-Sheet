@@ -1,5 +1,5 @@
 var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source
@@ -17,7 +17,12 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", {
 	source : ["UA:LDU", 1],
 	description : "\n   " + "+1 bonus to attack rolls I make with ranged attacks" + "\n   " + "I don't have disadvantage when making a ranged attack while within 5 ft of a hostile" + "\n   " + "My ranged attacks ignore half and three-quarters cover against targets within 30 ft",
 	calcChanges : {
-		atkCalc : ["if (isRangedWeapon) {output.extraHit += 1; }; ", "My ranged weapons get a +1 bonus on the To Hit."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isRangedWeapon) output.extraHit += 1;
+			},
+			"My ranged weapons get a +1 bonus on the To Hit."
+		]
 	}
 });
 AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", {
@@ -45,8 +50,9 @@ AddSubClass("ranger", "deep stalker", {
 			name : "Deep Stalker Magic",
 			source : ["UA:LDU", 2],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 15" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
-			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"].concat(new Array(95)).concat("AddToKnown"),
+			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"],
+			spellcastingExtraApplyNonconform : true,
 			vision : [["Darkvision", 90]]
 		},
 		"subclassfeature7" : {
@@ -92,6 +98,12 @@ AddSubClass("sorcerer", "shadow sorcerer", {
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 1
+			},
+			spellChanges : {
+				"darkness" : {
+					description : "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL 3+",
+					changes : "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness without issue."
+				}
 			}
 		},
 		"subclassfeature1.1" : {
@@ -149,7 +161,18 @@ AddSubClass("warlock", "the undying light", {
 			}],
 			dmgres : ["Radiant"],
 			calcChanges : {
-				atkCalc : ["if (isSpell && (/fire|radiant/i).test(fields.Damage_Type)) { output.extraDmg += What('Cha Mod'); }; ", "Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to the damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) output.extraDmg += What('Cha Mod');
+					},
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha");
+					},
+					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature6" : {

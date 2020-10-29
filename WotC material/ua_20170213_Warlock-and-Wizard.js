@@ -1,5 +1,5 @@
 var iFileName = "ua_20170213_Warlock-and-Wizard.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -27,10 +27,17 @@ AddSubClass("warlock", "the hexblade", {
 				"I gain proficiency with medium armor, shields, and martial weapons",
 				"With one-handed melee weapons I can use Charisma instead of Strength or Dexterity"
 			]),
-			armor : [false, true, false, true],
-			weapons : [false, true],
+			armorProfs : [false, true, false, true],
+			weaponProfs : [false, true],
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && !(/\\b(2|two).?hand(ed)?s?\\b/i).test(WeaponText)) { fields.Mod = What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') ? 6 : fields.Mod; }; ", "For melee weapons that lack the two-handed property, I can use my Charisma instead of Strength or Dexterity."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && !(/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i).test(v.WeaponText) && What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod')) {
+							fields.Mod = 6;
+						};
+					},
+					"For melee weapons that lack the two-handed property, I can use my Charisma instead of Strength or Dexterity."
+				]
 			}
 		},
 		"subclassfeature1.1" : {
@@ -47,8 +54,19 @@ AddSubClass("warlock", "the hexblade", {
 			usages : levels.map( function(n) { return n < 14 ? 1 : ""; }),
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (!isDC && (/hexblade/i).test(WeaponText) && !CritChance) {var CritChance = 19; fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20'; }; ", "If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."],
-				atkCalc : ["if ((/hexblade/i).test(WeaponText)) {output.extraDmg += output.prof; }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isDC && (/hexblade/i).test(v.WeaponText) && !v.CritChance) {
+							v.CritChance = 19;
+							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
+						};
+					},
+					"If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if ((/hexblade/i).test(v.WeaponText)) output.extraDmg += output.prof;
+					}, ""]
 			}
 		},
 		"subclassfeature6" : {
@@ -102,7 +120,7 @@ AddSubClass("warlock", "the raven queen", {
 				"After a short rest, I can recall it to me regardless of its location or if it died"
 			]),
 			vision : [["Darkvision", 30]],
-			addMod : { type : "skill", field : "Perc", mod : "Cha", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
+			addMod : { type : "skill", field : "Perc", mod : "max(Cha|0)", text : "While my sentinel raven on my shoulder, I can add my Charisma modifier to Perception." }
 		},
 		"subclassfeature6" : {
 			name : "Soul of the Raven",
@@ -115,9 +133,7 @@ AddSubClass("warlock", "the raven queen", {
 				"While merged, I still get all the benefits of my raven being perched on my shoulder",
 				"I can end this as an action"
 			]),
-			action : ["bonus action", " (start)"],
-			eval : "AddAction('action', 'Soul of the Raven (end)', 'Warlock (the Raven Queen)')",
-			removeeval : "RemoveAction('action', 'Soul of the Raven (end)')"
+			action : [["bonus action", " (start)"], ['action', ' (end)']]
 		},
 		"subclassfeature10" : {
 			name : "Raven's Shield",
@@ -138,7 +154,7 @@ AddSubClass("warlock", "the raven queen", {
 				name : "Queen's Right Hand",
 				spells : ["finger of death"],
 				selection : ["finger of death"],
-				oncelr : true
+				firstCol : "oncelr"
 			}
 		}
 	}
@@ -158,10 +174,8 @@ AddSubClass("wizard", "lore mastery", {
 				"I can use my Intelligence modifier for initiative instead of my Dexterity modifier",
 				"I get expertise with each Arcana, History, Nature, and Religion, if I'm proficient with it"
 			]),
-			skillstxt : "\n\n" + toUni("Lore Master") + ": Expertise with Arcana, History, Nature, and Religion if I am already proficient with the skill.",
-			addMod : { type : "skill", field : "Init", mod : "Int-Dex", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." },
-			eval : "['Arc', 'His', 'Nat', 'Rel'].forEach( function(skl) { AddSkillProf(skl, undefined, 'only'); });",
-			removeeval : "['Arc', 'His', 'Nat', 'Rel'].forEach( function(skl) { AddSkillProf(skl, false, 'only'); });"
+			skills : [["Arcana", "only"], ["History", "only"], ["Nature", "only"], ["Religion", "only"]],
+			addMod : { type : "skill", field : "Init", mod : "max(Int-Dex|0)", text : "I use my Intelligence modifier for initiative rolls instead of Dexterity." }
 		},
 		"subclassfeature2.1" : {
 			name : "Spell Secrets: Elements",
@@ -222,7 +236,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",
 	source : ["UA:WnW", 3],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	savetxt : { text : ["Nothing can force me to sleep"] }
 });
 AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
@@ -232,7 +246,7 @@ AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
 		"It immediately takes fire damage equal to my Charisma modifier (min 1)"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
@@ -242,9 +256,8 @@ AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
 		"I have advantage on attack rolls against charmed creatures"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass)",
-	skills : ["Deception", "Stealth"],
-	skillstxt : "\n\n" + toUni("Warlock (Caiphon's Beacon)") + ": Deception and Stealth."
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass); },
+	skills : ["Deception", "Stealth"]
 });
 AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
 	name : "Chilling Hex",
@@ -253,7 +266,7 @@ AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
 		"All creatures within 5 ft of the target take cold damage equal to my Cha modifier (min 1)"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patron, Pact of the Tome)", {
@@ -264,7 +277,7 @@ AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patr
 		"Its spirit writes the answer, to the best of its knowledge, in blood in a language I choose"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the tome') !== -1",
+	prereqeval : function(v) { return (/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of the Blade)", {
@@ -272,12 +285,19 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	description : desc([
 		"As a pact weapon, I can create a black, lead flail with grasping tentacles for a head",
 		"It has reach and can reduce a creature's speed to 0 on a hit until the end of my next turn",
-		"On a hit, I can expand a spell slot to have it do +2d8 necrotic damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 necrotic damage per spell slot level"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
-	eval : "AddWeapon('Claw of Acamar');",
-	removeeval : "RemoveWeapon('Claw of Acamar');"
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
+	weaponOptions : {
+		baseWeapon : "flail",
+		regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
+		name : "Claw of Acamar",
+		source : ["UA:WnW", 3],
+		pactWeapon : true,
+		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level"
+	},
+	weaponsAdd : ['Claw of Acamar']
 });
 AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 	name : "Cloak of Baalzebul",
@@ -287,7 +307,7 @@ AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 		"Creatures starting their turn within 5 ft of me take poison damage equal to my Cha mod"
 	]),
 	source : ["UA:WnW", 3],
-	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", " (start/end)"]
 });
 AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Blade)", {
@@ -296,12 +316,19 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 		"As a pact weapon, I can create a silver greatsword with black runes etched in the blade",
 		"If I bring a target of my hexblade's curse to 0 HP with it, I can move the curse to another",
 		"It can reduce a creature's speed to 0 on a hit until the end of my next turn",
-		"On a hit, I can expand a spell slot to have it do +2d8 slashing damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 slashing damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
-	eval : "AddWeapon('Curse Bringer');",
-	removeeval : "RemoveWeapon('Curse Bringer');"
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
+	weaponOptions : {
+		baseWeapon : "greatsword",
+		regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
+		name : "Curse Bringer",
+		source : ["UA:WnW", 4],
+		pactWeapon : true,
+		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level"
+	},
+	weaponsAdd : ['Curse Bringer']
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
 	name : "Kiss of Mephistopheles",
@@ -310,7 +337,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && classes.known.warlock.level >= 5 && (/\\bfiend\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5 && (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
@@ -320,9 +347,14 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && (/\\barchfey\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return v.hasEldritchBlast && (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target -10 ft speed'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target -10 ft speed';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn."
+		]
 	}
 });
 AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One patron)", {
@@ -331,7 +363,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 		"As an action, I can see through solid object out to 30 ft until the end of my current turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7",
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7; },
 	action : ["action", ""]
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
@@ -340,9 +372,14 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 		"When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return v.hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass); },
 	calcChanges : {
-		atkAdd : ["if (theWea && (/eldritch blast/i).test(theWea.name)) {fields.Description += '; Target moved 10 ft to me'; }; ", "When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.baseWeaponName == 'eldritch blast') fields.Description += '; Target moved 10 ft to me';
+			},
+			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me."
+		]
 	}
 });
 AddWarlockInvocation("Green Lord's Gift (prereq: the Archfey patron)", {
@@ -351,7 +388,7 @@ AddWarlockInvocation("Green Lord's Gift (prereq: the Archfey patron)", {
 		"When I regain HP, all dice for determining the HP I heal are treated as rolling maximum"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)"
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); }
 });
 AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Improved Pact Weapon",
@@ -359,9 +396,17 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "classes.known.warlock.level >= 5 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 1 - pactMag : 1; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Blade)", {
@@ -369,24 +414,38 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	description : desc([
 		"As a pact weapon, I can create an iron mace forged in Dis, the 2nd layer of the Nine Hells",
 		"I can knock a target prone with it on a hit, if the target's size is Huge or smaller",
-		"On a hit, I can expand a spell slot to have it do +2d8 force damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 force damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
-	eval : "AddWeapon('Mace of Dispater');",
-	removeeval : "RemoveWeapon('Mace of Dispater');"
+	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
+	weaponOptions : {
+		baseWeapon : "mace",
+		regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
+		name : "Mace of Dispater",
+		source : ["UA:WnW", 4],
+		pactWeapon : true,
+		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level"
+	},
+	weaponsAdd : ['Mace of Dispater']
 });
 AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)", {
 	name : "Moon Bow",
 	description : desc([
 		"As a pact weapon, I can create a longbow that creates arrows of white wood when drawn",
 		"Its arrows last for 1 minute; I have advantage on attack rolls against lycanthropes with it",
-		"On a hit, I can expand a spell slot to have it do +2d8 radiant damage per spell slot level"
+		"On a hit, I can expend a spell slot to have it do +2d8 radiant damage per spell slot level"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
-	eval : "AddWeapon('Moon Bow');",
-	removeeval : "RemoveWeapon('Moon Bow');"
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
+	weaponOptions : {
+		baseWeapon : "longbow",
+		regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
+		name : "Moon Bow",
+		source : ["UA:WnW", 4],
+		pactWeapon : true,
+		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level"
+	},
+	weaponsAdd : ['Moon Bow']
 });
 AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 	name : "Path of the Seeker",
@@ -395,9 +454,8 @@ AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 		"I also have advantage on checks to escape a grapple, manacles, or rope bindings"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/\\bseeker\\b/).test(classes.known.warlock.subclass)",
-	eval : "AddString('Saving Throw advantages \/ disadvantages', 'Adv. vs. being paralyzed', '; ');",
-	removeeval : "RemoveString('Saving Throw advantages \/ disadvantages', 'Adv. vs. being paralyzed');"
+	prereqeval : function(v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); },
+	savetxt : { adv_vs : ["paralyzed"] }
 });
 AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, Eldritch Blast cantrip)", {
 	name : "Raven Queen's Blessing",
@@ -406,7 +464,7 @@ AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, El
 		"That ally can immediately expend one HD to regain HP, just like after a short rest"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/raven queen/).test(classes.known.warlock.subclass) && hasEldritchBlast"
+	prereqeval : function(v) { return v.hasEldritchBlast && (/raven queen/).test(classes.known.warlock.subclass); }
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patron)", {
 	name : "Relentless Hex",
@@ -415,7 +473,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patr
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5",
+	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
 AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
@@ -428,10 +486,10 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 		name : "Sea Twins' Gift",
 		spells : ["water breathing"],
 		selection : ["water breathing"],
-		oncelr : true
+		firstCol : "oncelr"
 	},
 	source : ["UA:WnW", 5],
-	prereqeval : "(/\\barchfey\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	speed : { swim : { spd : "walk", enc : "walk" } }
 });
 AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
@@ -440,7 +498,7 @@ AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
 		"When I finish a long rest, I pick two languages that I know until I finish my next long rest"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/\\bseeker\\b/).test(classes.known.warlock.subclass)"
+	prereqeval : function(v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); }
 });
 AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old One patron)", {
 	name : "Shroud of Ulban",
@@ -450,7 +508,7 @@ AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old O
 		"However, I only become visible at the end of the current turn"
 	]),
 	source : ["UA:WnW", 4],
-	prereqeval : "(/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18",
+	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18; },
 	action : ["action", ""]
 });
 AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the Blade)", {
@@ -459,9 +517,17 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 		"Any pact weapon I create is a +2 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.level >= 9 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : function(v) { return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 2 - pactMag : 2; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."
+		]
 	}
 });
 AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
@@ -472,7 +538,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
 		"Until the ice is gone, I have vulnerability to fire damage, 0 speed, and am incapacitated"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "(/\\bfiend\\b/).test(classes.known.warlock.subclass)",
+	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	recovery : "short rest",
 	usages : 1,
 	action : ["reaction", ""]
@@ -483,59 +549,16 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 		"Any pact weapon I create is a +3 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:WnW", 5],
-	prereqeval : "classes.known.warlock.level >= 15 && What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : function(v) { return classes.known.warlock.level >= 15 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
-		atkCalc : ["if (!thisWeapon[1] && (/\\bpact\\b/i).test(WeaponText)) { var pactMag = pactMag !== undefined ? 3 - pactMag : 3; output.magic += pactMag; }; ", "If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."]
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
+					output.magic += v.pactMag;
+				};
+			},
+			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."
+		]
 	}
 });
-
-// Weapons specific to Warlock Invocations
-WeaponsList["claw of acamar"] = {
-	regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
-	name : "Claw of Acamar",
-	source : ["UA:WnW", 3],
-	ability : 1,
-	type : "Martial",
-	damage : [1, 8, "bludgeoning"],
-	range : "Melee",
-	weight : 2,
-	description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
-	abilitytodamage : true
-};
-WeaponsList["curse bringer"] = {
-	regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
-	name : "Curse Bringer",
-	source : ["UA:WnW", 4],
-	ability : 1,
-	type : "Martial",
-	damage : [2, 6, "slashing"],
-	range : "Melee",
-	weight : 6,
-	description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
-	abilitytodamage : true
-};
-WeaponsList["mace of dispater"] = {
-	regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
-	name : "Mace of Dispater",
-	source : ["UA:WnW", 4],
-	ability : 1,
-	type : "Simple",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	weight : 4,
-	description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
-	monkweapon : true,
-	abilitytodamage : true
-};
-WeaponsList["moon bow"] = {
-	regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
-	name : "Moon Bow",
-	source : ["UA:WnW", 4],
-	ability : 2,
-	type : "Martial",
-	damage : [1, 8, "piercing"],
-	range : "150/600 ft",
-	weight : 2,
-	description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
-	abilitytodamage : true
-};

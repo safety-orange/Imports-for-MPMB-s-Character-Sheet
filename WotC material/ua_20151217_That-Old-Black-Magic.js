@@ -1,5 +1,5 @@
 var iFileName = "ua_20151217_That-Old-Black-Magic.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: That Old Black Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -30,24 +30,19 @@ RaceList["abyssal tiefling"] = {
 	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-	improvements : "Abyssal Tiefling: +1 Constitution, +2 Charisma;",
 	scores : [0, 0, 1, 0, 0, 2],
-	trait : "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Toughness: My hit point maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
+	trait : "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Fortitude: My HP maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Abyssal Arcana (level 1)",
 		spells : ["dancing lights", "true strike", "light", "message", "spare the dying", "prestidigitation"],
-		atwill : true
+		firstCol : 'atwill'
+	},
+	calcChanges : {
+		hp : function (totalHD) { return [Math.max(1, Math.floor(totalHD / 2)), "Abyssal Fortitude"]; }
 	},
 	features : {
-		"abyssal fortitude" : {
-			name : "Abyssal Fortitude",
-			minlevel : 1,
-			calcChanges : {
-				hp : "extrahp += Math.max(1,Math.floor(totalhd/2)); extrastring += \"\\n + \" + Math.max(1,Math.floor(totalhd/2)) + \" from Abyssal Fortitude\";"
-			}
-		},
 		"abyssal arcana (level 3)" : {
 			name : "Abyssal Arcana (level 3)",
 			minlevel : 3,
@@ -57,7 +52,7 @@ RaceList["abyssal tiefling"] = {
 			spellcastingBonus : {
 				name : "Abyssal Arcana (level 3)",
 				spells : ["burning hands", "charm person", "magic missile", "cure wounds", "tasha's hideous laughter", "thunderwave"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		},
 		"abyssal arcana (level 5)" : {
@@ -69,7 +64,7 @@ RaceList["abyssal tiefling"] = {
 			spellcastingBonus : {
 				name : "Abyssal Arcana (level 5)",
 				spells : ["alter self", "darkness", "invisibility", "levitate", "mirror image", "spider climb"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	},
@@ -81,7 +76,7 @@ var addAbyssalTiefling = function(){
 	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
 	RaceList["abyssal tiefling"].variants.forEach( function(nVar) {
 		if (!RaceSubList["tiefling-" + nVar]) return;
-		RaceSubList["abyssal tiefling-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList["abyssal tiefling-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList["abyssal tiefling-" + nVar];
 		thisVar.trait = thisVar.trait.replace(replaceTraitTxt[0], replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
@@ -98,7 +93,6 @@ SpellsList["conjure lesser demon"] = {
 	name : "Conjure Lesser Demon",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 2],
-	ritual : false,
 	level : 3,
 	school : "Conj",
 	time : "1 a",
@@ -113,7 +107,6 @@ SpellsList["conjure barlgura"] = {
 	name : "Conjure Barlgura",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 2],
-	ritual : false,
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -127,7 +120,6 @@ SpellsList["conjure hezrou"] = {
 	name : "Conjure Hezrou",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 2],
-	ritual : false,
 	level : 7,
 	school : "Conj",
 	time : "1 a",
@@ -142,7 +134,6 @@ SpellsList["conjure shadow demon"] = {
 	name : "Conjure Shadow Demon",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 3],
-	ritual : false,
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -157,7 +148,6 @@ SpellsList["conjure vrock"] = {
 	name : "Conjure Vrock",
 	classes : ["sorcerer", "wizard"],
 	source : ["UA:TOBM", 3],
-	ritual : false,
 	level : 5,
 	school : "Conj",
 	time : "1 a",

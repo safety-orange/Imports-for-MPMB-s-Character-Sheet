@@ -1,5 +1,5 @@
 var iFileName = "ua_20180514_Centaur-and-Minotaur.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,14 +23,23 @@ RaceList["centaur"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
-	weapons : ["Hooves"],
+	weaponOptions : {
+		regExpSearch : /\b(hoofs?|hooves)\b/i,
+		name : "Hooves",
+		source : ["UA:CnM", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		abilitytodamage : true
+	},
+	weaponsAdd : ["Hooves"],
 	skills : ["Survival"],
 	age : " reach adulthood in their late teens and live around 100 years",
 	height : " stand between 7 and 8 feet tall (front hooves to their crowns) and 6 to 8 feet long (from their chest to the back of their rumps)", // from 3.5e Races of Faerun
 	weight : " weigh anywhere from 950 to 1200 lb", // from 3.5e Races of Faerun
 	heightMetric : " stand between 2,1 and 2,4 metres tall (front hooves to their crowns) and 1,8 to 2,4 metres long (from their chests to the back of their rumps)",
 	weightMetric : " weigh anywhere from 430 to 550 kg",
-	improvements : "Centaur: +2 Strength, +1 Wisdom;",
 	scores : [2, 0, 0, 0, 1, 0],
 	trait : "Centaur (+2 Strength +1 Wisdom)" + desc([
 		"Hooves: I can use my hooves in melee (1d6 bludgeoning damage).",
@@ -46,25 +55,13 @@ RaceList["centaur"] = {
 			recovery : "short rest"
 		}
 	},
-	eval : "tDoc.getField('Carrying Capacity Multiplier').value *= 2;",
-	removeeval : "tDoc.getField('Carrying Capacity Multiplier').value /= 2;"
-};
-// Centaur weapon
-WeaponsList["hooves"] = {
-	regExpSearch : /\b(hoofs?|hooves)\b/i,
-	name : "Hooves",
-	source : ["UA:CnM", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	abilitytodamage : true
+	carryingCapacity : 2
 };
 
 // Add the Minotaur race
 RaceList["minotaur-uacnm"] = {
 	regExpSearch : /minotaur/i,
-	name : "Minotaur" + (sheetVersion < 13 ? " " : ""),
+	name : "Minotaur",
 	sortname : "Minotaur",
 	source : ["UA:CnM", 2],
 	plural : "Minotaurs",
@@ -73,14 +70,24 @@ RaceList["minotaur-uacnm"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weapons : ["Minotaur Horns"],
+	weaponOptions : {
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : ["UA:CnM", 2],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "One horns attack as a bonus action if taking the Dash action",
+		abilitytodamage : true
+	},
+	weaponsAdd : ["Horns"],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
 	heightMetric : " are well over 1,8 metres tall",
 	weightMetric : " weigh around 135 kg",
-	improvements : "Minotaur: +2 Strength +1 Constitution;",
 	scores : [2, 0, 1, 0, 0, 0],
 	abilitySave : 1,
 	trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
@@ -101,16 +108,4 @@ RaceList["minotaur-uacnm"] = {
 			action : ["reaction", " (after hit)"]
 		}
 	}
-};
-// Minotaur weapon
-WeaponsList["horns-uacnm"] = {
-	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns",
-	source : ["UA:CnM", 2],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "One horns attack as a bonus action if taking the Dash action",
-	abilitytodamage : true
 };

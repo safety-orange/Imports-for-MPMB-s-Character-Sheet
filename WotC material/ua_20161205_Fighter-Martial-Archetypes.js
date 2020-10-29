@@ -1,5 +1,5 @@
 var iFileName = "ua_20161205_Fighter-Martial-Archetypes.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -24,16 +24,21 @@ AddSubClass("fighter", "arcane archer", {
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I can create one magical arrow that I can fire with a bow" + "\n   " + "A shot with the arrow counts as magical and does additional force damage on a hit" + "\n   " + "When I create the arrow, I can apply one of my known Arcane Shots on it" + "\n   " + "This arrow lasts until the end of my turn or until I hit or miss a target with it",
 			additional : levels.map(function (n) {
-				return n < 3 ? "" :
-					(n < 18 ? "+2" : "+4") + "d6 force damage";
+				return n < 3 ? "" : (n < 18 ? "+2" : "+4") + "d6 force damage";
 			}),
-			additional : ["", "", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+2d6 force damage", "+4d6 force damage", "+4d6 force damage", "+4d6 force damage"],
 			usages : 2,
 			recovery : "short rest",
-			eval : "AddAction('bonus action', 'Create Magical Arrow', 'Arcane Archer (Arcane Arrow)');",
-			removeeval : "RemoveAction('bonus action', 'Create Magical Arrow')",
+			action : ['bonus action', 'Create Magical Arrow'],
 			calcChanges : {
-				atkAdd : ["if ((/longbow|shortbow/i).test(WeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(WeaponText) && classes.known.fighter && classes.known.fighter.level) {fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage' + (thisWeapon[1] ? '' : '; Counts as magical'); }; ", "If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."]
+				atkAdd : [
+					function (fields, v) {
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
+							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage';
+							if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) fields.Description += '; Counts as magical';
+						};
+					},
+					"If I include the words 'Arcane Arrow' in a longbow or shortbow's name, it gets an added description of the damage this Arcane Arrow adds."
+				]
 			}
 		},
 		"subclassfeature3.1" : {
@@ -41,9 +46,12 @@ AddSubClass("fighter", "arcane archer", {
 			source : ["UA:FMA", 1],
 			minlevel : 3,
 			description : "\n   " + "Use the \"Choose Feature\" button above to add Arcane Shots to the third page",
-			additional : ["", "", "2 known", "2 known", "2 known", "2 known", "3 known", "3 known", "3 known", "4 known", "4 known", "4 known", "4 known", "4 known", "5 known", "5 known", "5 known", "6 known", "6 known", "6 known"],
+			additional : levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " known"; }),
 			extraname : "Arcane Shot",
 			extrachoices : ["Beguiling Arrow", "Brute Bane Arrow", "Bursting Arrow", "Defending Arrow", "Grasping Arrow", "Piercing Arrow", "Seeking Arrow", "Shadow Arrow"],
+			extraTimes : levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6;
+			}),
 			"beguiling arrow" : {
 				name : "Beguiling Arrow",
 				source : ["UA:FMA", 1],
@@ -91,7 +99,7 @@ AddSubClass("fighter", "arcane archer", {
 			source : ["UA:FMA", 1],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency with two skills" + "\n   " + "I can choose from: Arcana, Athletics, Nature, Perception, Stealth, or Survival",
-			skillstxt : "\n\n" + toUni("Arcane Archer") + ": Choose two from Arcana, Athletics, Nature, Perception, Stealth, and Survival."
+			skillstxt : "Choose two from Arcana, Athletics, Nature, Perception, Stealth, and Survival"
 		},
 		"subclassfeature7" : {
 			name : "Conjure Arrows",
@@ -133,7 +141,14 @@ AddSubClass("fighter", "knight", {
 			}),
 			action : ["reaction", ""],
 			calcChanges : {
-				atkCalc : ["if (isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\\b(implacable.?mark|marked)\\b/i).test(WeaponText)) { output.extraDmg += classes.known.fighter.level; }; ", "If I include the words 'Implacable Mark' or 'Marked' in the name or description of a melee weapon, it gets my fighter level added to its Damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(implacable.?mark|marked)\b/i).test(v.WeaponText)) {
+							output.extraDmg += classes.known.fighter.level;
+						};
+					},
+					"If I include the words 'Implacable Mark' or 'Marked' in the name or description of a melee weapon, it gets my fighter level added to its Damage."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -150,7 +165,7 @@ AddSubClass("fighter", "knight", {
 			"2 skill proficiencies: animal handling, history, insight, persuasion, or religion" : {
 				name : "Noble Cavalry",
 				description : "\n   " + "I gain 2 skill proficiencies: Animal Handling, History, Insight, Persuasion, or Religion",
-				skillstxt : "\n\n" + toUni("Knight") + ": Choose two from: Animal Handling, History, Insight, Persuasion, or Religion."
+				skillstxt : "Choose two from: Animal Handling, History, Insight, Persuasion, or Religion"
 			}
 		},
 		"subclassfeature10" : {
@@ -163,7 +178,14 @@ AddSubClass("fighter", "knight", {
 			}),
 			action : ["reaction", ""],
 			calcChanges : {
-				atkCalc : ["if (isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 9 && (/holds?.the.line/i).test(WeaponText)) { output.extraDmg += Math.floor(classes.known.fighter.level / 2); }; ", "If I include the words 'Hold the Line' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 9 && (/holds?.the.line/i).test(v.WeaponText)) {
+							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
+						};
+					},
+					"If I include the words 'Hold the Line' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."
+				]
 			}
 		},
 		"subclassfeature15" : {
@@ -177,9 +199,12 @@ AddSubClass("fighter", "knight", {
 			name : "Defender's Blade",
 			source : ["UA:FMA", 3],
 			minlevel : 18,
-			description : "\n   " + "I can do opportunity attacks if I already used my reaction this round, but not this turn" + "\n   " + "I gain +1 bonus to AC when I'm wearing heavy armor",
-			eval : "AddACMisc(1, \"Defender's Blade\", \"When wearing heavy armor, the class feature Defender's Blade gives a +1 bonus to AC\", \"!tDoc.getField('Heavy Armor').isBoxChecked(0)\")",
-			removeeval : "AddACMisc(0, \"Defender's Blade\", \"When wearing heavy armor, the class feature Defender's Blade gives a +1 bonus to AC\")"
+			description : "\n   " + "I can do opportunity attacks if I already used my reaction this round, but not this turn" + "\n   " + "I gain a +1 bonus to AC when I'm wearing heavy armor",
+			extraAC : {
+				mod : 1,
+				text : "I gain a +1 bonus to AC while I'm wearing heavy armor.",
+				stopeval : function (v) { return !v.heavyArmor; }
+			}
 		}
 	}
 });
@@ -212,7 +237,7 @@ AddSubClass("fighter", "samurai", {
 			"skill proficiency: history, insight, or persuasion" : {
 				name : "Elegant Courtier",
 				description : "\n   " + "I can add my Wis modifier to any Cha check to persuade anyone of a high social station" + "\n   " + "I gain proficiency with one skill: History, Insight, or Persuasion",
-				skillstxt : "\n\n" + toUni("Samurai") + ": History, Insight, or Persuasion.",
+				skillstxt : "Choose one from: History, Insight, or Persuasion"
 			}
 		},
 		"subclassfeature10" : {
@@ -257,8 +282,18 @@ AddSubClass("fighter", "sharpshooter", {
 			}),
 			action : ["bonus action", ""],
 			calcChanges : {
-				atkAdd : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover'; }; ", "If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."],
-				atkCalc : ["if (isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); }; ", ""]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(v.WeaponText)) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover';
+						};
+					},
+					"If I include the words 'Steady Aim' in the name of a ranged weapon, it gets 2 + half my fighter level added to its Damage, and the fact that it ignores half and three-quarter cover added to its description."
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(v.WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
+					}, ""]
 			}
 		},
 		"subclassfeature7" : {
@@ -266,7 +301,7 @@ AddSubClass("fighter", "sharpshooter", {
 			source : ["UA:FMA", 4],
 			minlevel : 7,
 			description : "\n   " + "As a bonus action, I can take the Search action" + "\n   " + "I gain proficiency with one skill, Perception, Investigation, or Survival",
-			skillstxt : "\n\n" + toUni("Sharpshooter") + ": Perception, Investigation, or Survival.",
+			skillstxt : "Choose one from: Perception, Investigation, or Survival",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature10" : {

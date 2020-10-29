@@ -1,5 +1,5 @@
 var iFileName = "ps_20170705_Amonkhet.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all material from the Plane Shift: Amonkhet article (https://dnd.wizards.com/articles/features/plane-shift-amonkhet) to MPMB's Character Record Sheet
 // This code contains contributions by /u/MILKB0T and /u/juju2569
 
@@ -33,7 +33,7 @@ BackgroundList["initiate"] = {
 	trait : [
 		"I always have a joke on hand when the mood gets too serious.",
 		"I use sarcasm and insults to keep a distance between myself and my crop-mates, because I don't want to get attached to them.",
-		"I'll settle for nothing less than perfection—in myself, in my cropmates, in everything.",
+		"I'll settle for nothing less than perfection\u2014in myself, in my cropmates, in everything.",
 		"I'm so focused on the glorious afterlife that nothing in this life can shake my calm resolve.",
 		"I enjoy using my skills to help those who lack those same skills.",
 		"I train hard so that I can play hard at the end of the day. I fully expect to play even harder in the glorious afterlife, but I'm not in a hurry to get there.",
@@ -45,13 +45,13 @@ BackgroundList["initiate"] = {
 			"Solidarity: The thing that matters most of all is that we're there for each other. (Lawful)"
 		],
 		["Knowledge",
-			"Knowledge: The world is a puzzle—a mystery waiting to be solved. (Neutral)"
+			"Knowledge: The world is a puzzle\u2014a mystery waiting to be solved. (Neutral)"
 		],
 		["Strength",
 			"Strength: All that matters to me is my own perfection. Let everyone else seek that perfection in their own way. (Any)"
 		],
 		["Ambition",
-			"Ambition: I'm going to prove that I deserve only the best—of everything. (Evil)"
+			"Ambition: I'm going to prove that I deserve only the best\u2014of everything. (Evil)"
 		],
 		["Zeal",
 			"Zeal: Anything worth doing is worth throwing my whole self into. (Any)"
@@ -131,7 +131,7 @@ BackgroundList["vizier"] = {
 		"My loyalty to my companions embodies the ideal of loyalty to my god. (Oketra)",
 		"The teachings of my god are more precious to me than any possession. (Kefnet)",
 		"I would do anything to defend the temple of my god from any harm or desecration. (Rhonas)",
-		"I am committed to the service of my god—because it's my sure ticket into the afterlife. (Bontu)",
+		"I am committed to the service of my god\u2014because it's my sure ticket into the afterlife. (Bontu)",
 		"I love my god and never want my service to end. (Hazoret)",
 		"I have a close friend or lover who is also a vizier."
 	],
@@ -176,30 +176,30 @@ RaceList["ibis-headed aven"] = { // Includes contributions by /u/MILKB0T
 	height : " stand between 5 and 6 feet tall",
 	weight : " are very slender and their bones are partially hollow to facilitate their flight",
 	heightMetric : " stand between 1,5 and 1,8 metres tall",
-	improvements : "Ibis-Headed Aven: +2 Dexterity, +1 Intelligence;",
 	scores : [0, 2, 0, 1, 0, 0],
 	trait : "Ibis-Headed Aven (+2 Dexterity, +1 Intelligence)\n\nKefnet's Blessing: I can add half my proficiency bonus, rounded down, to any Intelligence check I make that doesn't already include my proficiency bonus."
 };
-RaceList["hawk-headed aven"] = { // Includes contributions by /u/MILKB0T
-	regExpSearch : /^(?=.*aven)(?=.*hawk).*$/i,
-	name : "Hawk-Headed Aven",
-	sortname : "Aven, Hawk-Headed",
-	source : ["PS:A", 16],
-	plural : "Hawk-Headed Avens",
-	size : 3,
-	speed : {
-		walk : { spd : 25, enc : 15 },
-		fly : { spd : 30, enc : 0 }
-	},
-	languageProfs : ["Common", "Aven"],
-	skills : ["Perception"],
-	age : " age like humans and can live into their 80s",
-	height : " stand between 5 and 6 feet tall",
-	weight : " are very slender and their bones are partially hollow to facilitate their flight",
-	heightMetric : " stand between 1,5 and 1,8 metres tall",
-	improvements : "Hawk-Headed Aven: +2 Dexterity, +2 Wisdom;",
-	scores : [0, 2, 0, 0, 2, 0],
-	trait : "Hawk-Headed Aven (+2 Dexterity, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls."
+if (!SourceList["PS:D"]) {
+	RaceList["hawk-headed aven"] = { // Includes contributions by /u/MILKB0T
+		regExpSearch : /^(?=.*aven)(?=.*hawk).*$/i,
+		name : "Hawk-Headed Aven",
+		sortname : "Aven, Hawk-Headed",
+		source : [["PS:A", 16], ["PS:D", 6]],
+		plural : "Hawk-Headed Avens",
+		size : 3,
+		speed : {
+			walk : { spd : 25, enc : 15 },
+			fly : { spd : 30, enc : 0 }
+		},
+		languageProfs : ["Common", "Aven"],
+		skills : ["Perception"],
+		age : " age like humans and can live into their 80s",
+		height : " stand between 5 and 6 feet tall",
+		weight : " are very slender and their bones are partially hollow to facilitate their flight",
+		heightMetric : " stand between 1,5 and 1,8 metres tall",
+		scores : [0, 2, 0, 0, 2, 0],
+		trait : "Hawk-Headed Aven (+2 Dexterity, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls."
+	};
 };
 RaceList["khenra"] = { // Includes contributions by /u/juju2569
 	regExpSearch : /khenra/i,
@@ -209,13 +209,12 @@ RaceList["khenra"] = { // Includes contributions by /u/juju2569
 	size : 3,
 	speed : { walk : { spd : 35, enc : 25 } },
 	languageProfs : ["Common", "Khenra"],
-	weaponprofs : [false, false, ["javelin", "khopesh", "spear"]],
+	weaponProfs : [false, false, ["javelin", "khopesh", "spear"]],
 	age : " reaching adulthood in their early teens and rarely live past 60, even without a violent death",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Khenra: +2 Dexterity, +1 Strength;",
 	scores : [1, 2, 0, 0, 0, 0],
 	trait : "Khenra (+2 Dexterity, +1 Strength)\n\nKhenra Twins: If my twin is alive and I can see my twin, I can reroll the die once whenever I roll a 1 on an attack roll, ability check, or saving throw. I must then use the new roll. If my twin is dead (or if I were born without a twin), I can't be frightened."
 };
@@ -228,34 +227,53 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
 	languageProfs : ["Common", "Minotaur"],
-	weapons : ["Horns (unarmed strike)"],
+	weaponsAdd : ["Horns (unarmed strike)"],
 	skills : ["Intimidation"],
 	age : " reach full maturity around the age of 20, but rarely live beyond 40",
 	height : " are well over 6 feet tall",
 	weight : " have strong, stocky builds",
 	heightMetric : " are well over 1,8 metres tall",
-	improvements : "Amonkhet Minotaur: +2 Strength, +1 Constitution;",
 	scores : [2, 0, 1, 0, 0, 0],
 	features : {
 		"horns" : {
 			name : "Horns",
 			minlevel : 1,
 			calcChanges : {
-				atkAdd : ["if ((/unarmed strike/i).test(WeaponName) && fields.Damage_Die == 1) {fields.Damage_Die = '1d6'; }; ", "I can use my horns as a natural weapon to make unarmed strikes, doing 1d6 damage instead of 1."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.baseWeaponName == "unarmed strike" && (fields.Damage_Die == 1 || fields.Damage_Die == '1d4')) {
+							fields.Damage_Die = '1d6';
+						};
+					},
+					"I can use my horns as a natural weapon to make unarmed strikes, doing 1d6 damage instead of 1."
+				]
 			}
 		},
 		"relentless endurance" : {
 			name : "Relentless Endurance",
 			minlevel : 1,
 			usages : 1,
-			recovery : "long rest",
-			tooltip : ""
+			recovery : "long rest"
 		},
 		"savage attacks" : {
 			name : "Savage Attacks",
 			minlevel : 1,
 			calcChanges : {
-				atkAdd : ["if (isMeleeWeapon && (/d\\d+/).test(fields.Damage_Die)) {var pExtraCritM = extraCritM ? extraCritM : 0; var extraCritM = pExtraCritM + 1; if (pExtraCritM) {fields.Description = fields.Description.replace(pExtraCritM + 'd', extraCritM + 'd'); } else {fields.Description += (fields.Description ? '; ' : '') + extraCritM + fields.Damage_Die.replace(/.*(d\\d+).*/, '$1') + ' extra on a crit in melee'; }; }; ", "My melee attacks roll 1 additional dice on a critical hit."]
+				atkAdd : [
+					function (fields, v) {
+						if (v.isMeleeWeapon && (/d\d+/).test(fields.Damage_Die)) {
+							if (v.extraCritM) {
+								v.extraCritM += 1;
+								var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
+								fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + '$1');
+							} else {
+								v.extraCritM = 1;
+								fields.Description += (fields.Description ? '; ' : '') + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, '$1') + ' extra on a crit in melee';
+							}
+						}
+					},
+					"My melee weapon attacks roll 1 additional dice on a critical hit."
+				]
 			}
 		}
 	},
@@ -271,44 +289,39 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 	languageProfs : ["Common", "Naga"],
 	toolProfs : ["Poisoner's kit"],
 	savetxt : { immune : ["poison"] },
-	weapons : ["naga bite", "constrict"],
+	weaponOptions : [{ // Includes contributions by /u/juju2569
+		regExpSearch : /^(?=.*naga)(?=.*bite).*$/i,
+		name : "Naga Bite",
+		source : ["PS:A", 22],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 4, "piercing"],
+		range : "Melee",
+		description : "Target must make Constitution save (DC 8 + Prof bonus + Con mod) or take +1d4 poison damage",
+		abilitytodamage : true
+	}, {
+		regExpSearch : /\bconstrict\b/i,
+		name : "Constrict",
+		source : ["PS:A", 22],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee",
+		description : "Target is grappled and restrained (escape DC 8+Prof+Str mod); Can't use constrict again until grapple ends",
+		abilitytodamage : true
+	}],
+	weaponsAdd : ["Naga Bite", "Constrict"],
 	age : " reach adulthood in their late teens and show no signs of aging beyond that point except for growing larger. They could live well over a century.",
 	height : " stand about 5 feet tall when upright, but the total length of their bodies, head to tail, ranges from 10 to as much as 20 feet",
 	weight : " weigh around 200 lb",
 	heightMetric : " stand about 1,5 metres tall when upright, but the total length of their bodies, head to tail, ranges from 3 to as much as 6 metres",
 	weightMetric : " weigh around 100 kg",
-	improvements : "Naga: +1 Intelligence, +2 Constitution;",
 	scores : [0, 0, 2, 1, 0, 0],
-	trait : "Naga (+1 Intelligence, +2 Constitution)\nSpeed Burst: As a bonus action on my turn, if I have both hands free, I can increase my walking speed by 5 ft until the end of my turn. By lowering my body to the ground and propelling myself with my arms, I can move more quickly for a time.\nNatural Weapons: I can bit with my fanged maw to poison a creature and constrict with my serpentine body. If I hit with a constrict attack, the target is grappled and restrained. Until this grapple ends, I can't use constrict on another target."
+	trait : "Naga (+1 Intelligence, +2 Constitution)\nSpeed Burst: As a bonus action on my turn, if I have both hands free, I can increase my walking speed by 5 ft until the end of my turn. By lowering my body to the ground and propelling myself with my arms, I can move more quickly for a time.\nNatural Weapons: I can bite with my fanged maw to poison a creature and constrict with my serpentine body. If I hit with a constrict attack, the target is grappled and restrained. Until this grapple ends, I can't use constrict on another target."
 };
 
 // Add weapons for races
-WeaponsList["khopesh"] = newObj(WeaponsList["longsword"]);
-WeaponsList["khopesh"].regExpSearch = /khopesh/i;
-WeaponsList["naga bite"] = { // Includes contributions by /u/juju2569
-	regExpSearch : /^(?=.*naga)(?=.*bite).*$/i,
-	name : "Naga Bite",
-	source : ["PS:A", 22],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 4, "piercing"],
-	range : "Melee",
-	description : "Target must make Constitution save (DC 8 + Prof bonus + Con mod) or take +1d4 poison damage",
-	abilitytodamage : true,
-	monkweapon : false
-};
-WeaponsList["constrict"] = { // Includes contributions by /u/juju2569
-	regExpSearch : /\bconstrict\b/i,
-	name : "Constrict",
-	source : ["PS:A", 22],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 6, "bludgeoning"],
-	range : "Melee",
-	description : "Target is grappled and restrained (escape DC 8+Prof+Str mod); Can't use constrict again until grapple ends",
-	abilitytodamage : true,
-	monkweapon : false
-};
+WeaponsList.longsword.regExpSearch = WeaponsList.longsword.regExpSearch.replace("|", "|khopesh|");
 
 // Adds 4 subclasses for the Cleric
 AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juju2569
@@ -322,7 +335,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			source : ["PS:A", 24],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
-			armor : [false, false, true, false]
+			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Solidarity's Action",
@@ -362,7 +375,14 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 weapon damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra weapon damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -383,18 +403,16 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			name : "Acolyte of Strength",
 			source : ["PS:A", 26],
 			minlevel : 1,
-			description : "\n   " + "I learn a druid cantrip and ",
-			skillstxt : "\n\n" + toUni("Nature Domain") + ": Choose one from Animal Handling, Nature, and Survival.",
 			description : desc([
 				"I learn a druid cantrip",
 				"I gain proficiency with one skill: Animal Handling, Athletics, Nature, or Survival"
 			]),
-			skillstxt : "\n\n" + toUni("Strength Domain") + ": Choose one from: Animal Handling, Athletics, Nature, or Survival.",
+			skillstxt : "Choose one from: Animal Handling, Athletics, Nature, or Survival",
 			spellcastingBonus : {
 				name : "Acolyte of Strength",
 				"class" : "druid",
 				level : [0, 0],
-				atwill : true
+				firstCol : 'atwill'
 			}
 		},
 		"subclassfeature1.1" : {
@@ -402,7 +420,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			source : ["PS:A", 26],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
-			armor : [false, false, true, false]
+			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Feat of Strength",
@@ -430,7 +448,14 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 weapon damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra weapon damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -472,9 +497,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 				"I have advantage on attacks if the target is within 5 ft of a duplicate and me"
 			]),
 			additional : levels.map(function (n) { return n < 2 ? "" : (n < 17 ? 1 : 2) + " illusory duplicate" + (n < 17 ? "" : "s"); }),
-			action : ["action", ""],
-			eval : "AddAction('bonus action', 'Move Duplicate(s)', 'Cleric (Trickery Domain) - Channel Divinity: Invoke Duplicity')",
-			removeeval : "RemoveAction('bonus action', 'Move Duplicate(s)')"
+			action : [["action", ""], ['bonus action', 'Move Duplicate(s)']]
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Cloak of Shadows",
@@ -489,7 +512,25 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 			minlevel : 8,
 			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
-				atkCalc : ["if (classes.known.cleric && classes.known.cleric.level > 7 && thisWeapon[4].indexOf('cleric') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Wis Mod'); }; ", "My cleric cantrips get my Wisdom modifier added to their damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spellKey == "shillelagh") {
+							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
+							return true;
+						}
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -514,8 +555,8 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			source : ["PS:A", 28],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with martial weapons and heavy armor",
-			armor : [false, false, true, false],
-			weapons : [false, true]
+			armorProfs : [false, false, true, false],
+			weaponProfs : [false, true]
 		},
 		"subclassfeature1.1" : {
 			name : "Priest of Zeal",
@@ -546,7 +587,14 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 weapon damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra weapon damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra damage."
+				]
 			}
 		},
 		"subclassfeature17" : {

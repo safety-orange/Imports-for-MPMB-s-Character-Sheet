@@ -1,5 +1,5 @@
 var iFileName = "ua_20170911_Eladrin-and-Gith.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Eladrin and Gith article to MPMB's Character Record Sheet
 
 // Define the source
@@ -15,7 +15,7 @@ SourceList["UA:EnG"] = {
 // Alternative version of the Eladrin
 RaceList["eladrin-uaeng"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
-	name : "Eladrin" + (sheetVersion < 13 ? " " : ""),
+	name : "Eladrin",
 	sortname : "Elf, Fey (Eladrin)",
 	source : ["UA:EnG", 1],
 	plural : "Eladrin",
@@ -35,7 +35,7 @@ RaceList["eladrin-uaeng"] = {
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Eladrin: +2 Dexterity, +1 Intelligence or Charisma;",
+	scorestxt : "+2 Dexterity, +1 Intelligence or Charisma",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
 	spellcastingAbility : 6,
@@ -52,7 +52,6 @@ RaceList["eladrin-uaeng"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			tooltip : "",
 			action : ["bonus action", ""]
 		}
 	}
@@ -68,14 +67,13 @@ RaceList["githyanki"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Gith", 1],
-	armor : [true, true, false, false],
+	armorProfs : [true, true, false, false],
 	skillstxt : "Choose any one skill or tool",
 	age : " reach adulthood in their late teens and live for about a century",
 	height : " are more leaner and taller than humans, most are a slender 6 feet tall (5'0\" + 2d12\")",
 	weight : " weigh around 135 lb (100 + 2d12 \xD7 2d4 lb)",
 	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Githyanki: +2 Strength, +1 Intelligence;",
 	scores : [2, 0, 0, 1, 0, 0],
 	trait : "Githyanki (+2 Strength, +1 Intelligence)\nGithyanki Psionics:" + desc([
 		"I know the Mage Hand cantrip.",
@@ -89,35 +87,33 @@ RaceList["githyanki"] = {
 		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"jump" : {
-			name : "Jump",
+			name : "Githyanki Psionics (level 3)",
+			limfeaname : "Jump",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Githyanki Psionics)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
 				selection : ["jump"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		},
 		"misty step" : {
-			name : "Misty Step",
+			name : "Githyanki Psionics (level 5)",
+			limfeaname : "Misty Step",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Githyanki Psionics)",
-			action : ["bonus action", ""],
 			spellcastingBonus : {
 				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
 				selection : ["misty step"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	}
@@ -146,7 +142,6 @@ RaceList["githzerai"] = {
 	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
 	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Githzerai: +1 Intelligence, +2 Wisdom;",
 	scores : [0, 0, 0, 1, 2, 0],
 	trait : "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Monastic Training: I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.\n\nGithzerai Psionics: I know the Mage Hand cantrip. At 3rd level, I can cast the Shield spell once per long rest. At 5th level, I can also cast the Detect Thoughts spell once per long rest. Wisdom is my spellcasting ability for these spells.",
 	spellcastingAbility : 5,
@@ -154,38 +149,40 @@ RaceList["githzerai"] = {
 		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"shield" : {
-			name : "Shield",
+			name : "Githzerai Psionics (level 3)",
+			limfeaname : "Shield",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Githzerai Psionics)",
-			action : ["reaction", ""],
 			spellcastingBonus : {
 				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
 				selection : ["shield"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		},
 		"detect thoughts" : {
-			name : "Detect Thoughts",
+			name : "Githzerai Psionics (level 5)",
+			limfeaname : "Detect Thoughts",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Githzerai Psionics)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	},
-	eval : "AddACMisc(1, 'Monastic Training', '+1 AC while not wearing medium or heavy armor and not using a shield.\\n\\nMonastic Training was gained from being a Githzerai.', \"tDoc.getField('Medium Armor').isBoxChecked(0) || tDoc.getField('Heavy Armor').isBoxChecked(0) || What('AC Shield Bonus')\")",
-	removeeval : "AddACMisc(0, 'Monastic Training', '+1 AC while not wearing medium or heavy armor and not using a shield.\\n\\nMonastic Training was gained from being a Githzerai.')"
+	extraAC : {
+		name : "Monastic Training",
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.",
+		stopeval : function (v) { return v.mediumArmor || v.heavyArmor || v.usingShield; }
+	}
 };

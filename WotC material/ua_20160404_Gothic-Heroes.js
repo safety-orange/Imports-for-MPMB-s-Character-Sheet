@@ -1,5 +1,5 @@
 var iFileName = "ua_20160404_Gothic-Heroes.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Gothic Heroes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -30,7 +30,6 @@ RaceList["aasimar revenant"] = { // Based on the VGtM Aasimar, made with /u/Rebe
 	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Aasimar Revenant: +1 Constitution, +2 Charisma;",
 	scores : [0, 0, 1, 0, 0, 2],
 	trait : "Aasimar Revenant (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip. Healing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
 	spellcastingAbility : 6,
@@ -38,7 +37,7 @@ RaceList["aasimar revenant"] = { // Based on the VGtM Aasimar, made with /u/Rebe
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"healing hands" : {
@@ -65,14 +64,13 @@ RaceList["dwarf revenant"] = {
 	vision : [["Darkvision", 60]],
 	savetxt : { adv_vs : ["poison"] },
 	dmgres : ["Poison"],
-	weaponprofs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
+	weaponProfs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
 	toolProfs : [["Smith, brewer, or mason tools", 1]],
 	age : " are considered young until they are 50 and live about 350 years",
 	height : " stand between 4 and 5 feet tall (4' + 2d4\")",
 	weight : " weigh around 150 lb (130 + 2d4 \xD7 2d6 lb)",
 	heightMetric : " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric : " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
-	improvements : "Dwarf Revenant: +3 Constitution;",
 	scores : [0, 0, 3, 0, 0, 0],
 	trait : "Dwarf Revenant (+3 Constitution)\nStonecunning: I have expertise on Int (History) checks related to the origin of stonework.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal."
 };
@@ -98,7 +96,6 @@ RaceList["elf revenant"] = {
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Elf Revenant: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
 	trait : "Elf Revenant (+2 Dexterity, +1 Constitution)\nTrance: I don't sleep, but meditate for 4 hours a day, needing only 4 hours for a long rest.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal."
 };
@@ -119,7 +116,6 @@ RaceList["halfling revenant"] = {
 	weight : " weigh around 40 lb (35 + 2d4 lb)",
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-	improvements : "Halfling Revenant: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
 	trait : "Halfling Revenant (+2 Dexterity, +1 Constitution)" + (typePF ? "\n" : " ") + "Lucky: I reroll 1's on attack/check/save. Halfling Nimbleness: I can move through the space of anybody of a size larger than me.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal."
 };
@@ -141,7 +137,6 @@ RaceList["gnome revenant"] = {
 	weight : " weigh around 40 lb (35 + 2d4 lb)",
 	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-	improvements : "Gnome Revenant: +1 Constitution, +2 Intelligence;",
 	scores : [0, 0, 1, 2, 0, 0],
 	trait : "Gnome Revenant (+1 Constitution, +2 Intelligence)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane."
 };
@@ -156,25 +151,49 @@ RaceList["dragonborn revenant"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Draconic"],
+	weaponOptions : {
+		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
+		name : "Breath weapon",
+		source : ["UA:GH", 1],
+		ability : 3,
+		type : "Natural",
+		damage : [2, 6, "necrotic"],
+		range : '5-ft \u00D7 30-ft line',
+		description : "Hits all in area; Con save, success - half damage; Usable only once per short rest",
+		abilitytodamage : false,
+		dc : true,
+		dbBreathWeapon : true
+	},
+	weaponsAdd : ["Breath Weapon"],
 	age : " reach adulthood by 15 and live around 80 years",
 	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 	weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
 	heightMetric : " stand well over 1,8 metres tall (170 + 5d8 cm)",
 	weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-	improvements : "Dragonborn Revenant: +1 Strength, +1 Constitution, +1 Charisma;",
 	scores : [1, 0, 1, 0, 0, 1],
 	trait : "Dragonborn Revenant (+1 Strength, +1 Constitution, +1 Charisma)\nBreath Weapon: As an action, 5 ft by 30 ft line, Dex save halves, necrotic damage.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
 	abilitySave : 3,
 	dmgres : ["Necrotic"],
 	features : {
-		"breath weapon" : {
-			name : "Breath Weapon",
+		"draconic ancestry" : {
+			name : "Draconic Ancestry",
+			limfeaname : "Breath Weapon",
 			minlevel : 1,
 			usages : 1,
-			additional : ["2d6", "2d6", "2d6", "2d6", "2d6", "3d6", "3d6", "3d6", "3d6", "3d6", "4d6", "4d6", "4d6", "4d6", "4d6", "5d6", "5d6", "5d6", "5d6", "5d6"],
+			additional : levels.map(function (n) {
+				return (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + 'd6';
+			}),
 			recovery : "short rest",
-			tooltip : " (Draconic Ancestry)",
-			action : ["action", ""]
+			action : ["action", ""],
+			calcChanges : {
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.theWea.dbBreathWeapon && CurrentRace.known === 'dragonborn revenant' && CurrentRace.level > 5) {
+							output.die = output.die.replace('2d6', (CurrentRace.level < 11 ? 3 : CurrentRace.level < 16 ? 4 : 5) + 'd6');
+						};
+					}
+				]
+			}
 		}
 	}
 };
@@ -194,7 +213,7 @@ RaceList["human revenant"] = {
 	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Human Revenant: +1 Constitution and +1 to two different ability scores of my choice;",
+	scorestxt : "+1 Constitution and +1 to two different ability scores of my choice",
 	scores : [0, 0, 1, 0, 0, 0],
 	trait : "Human Revenant (+1 Constitution and +1 to two different ability scores of my choice)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane."
 };
@@ -215,7 +234,6 @@ RaceList["tiefling revenant"] = {
 	weight : " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-	improvements : "Tiefling Revenant: +1 Constitution, +2 Charisma;",
 	scores : [0, 0, 1, 0, 0, 2],
 	trait : "Tiefling Revenant (+1 Constitution, +2 Charisma)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane."
 };
@@ -236,13 +254,13 @@ AddSubClass("fighter", "monster hunter", {
 			"1 skill and 1 tool proficiencies" : {
 				name : "Bonus Proficiencies",
 				description : "\n   " + "I gain proficiency with one skill and any one tool of my choice" + "\n   " + "For the skill, I can choose Arcana, History, Insight, Investigation, Nature, or Perception",
-				skillstxt : "\n\n" + toUni("Monster Hunter") + ": Choose one from: Arcana, History, Insight, Investigation, Nature, or Perception.",
+				skillstxt : "Choose one from: Arcana, History, Insight, Investigation, Nature, or Perception",
 				toolProfs : [["Any tool", 1]]
 			},
 			"2 skill proficiencies" : {
 				name : "Bonus Proficiencies",
 				description : "\n   " + "I gain 2 skill proficiencies: Arcana, History, Insight, Investigation, Nature, or Perception",
-				skillstxt : "\n\n" + toUni("Monster Hunter") + ": Choose two from: Arcana, History, Insight, Investigation, Nature, or Perception."
+				skillstxt : "Choose two from: Arcana, History, Insight, Investigation, Nature, and Perception"
 			}
 		},
 		"subclassfeature3.1" : {
@@ -262,7 +280,25 @@ AddSubClass("fighter", "monster hunter", {
 			recovery : "long rest",			
 			description : "\n   " + "I can cast Detect Magic as a ritual and Protection from Evil & Good once per long rest" + "\n   " + "I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",
 			action : ["action", " (Prot vs. Evil/Good)"],
-			languageProfs : [["Abyssal, Celestial, or Infernal", 1]]
+			languageProfs : [["Abyssal, Celestial, or Infernal", 1]],
+			spellcastingBonus : [{
+				name : "Spirit Seeker",
+				spells : ["detect magic"],
+				selection : ["detect magic"],
+				firstCol : "(R)",
+				spellcastingAbility : 5
+			}, {
+				name : "Spirit Seeker",
+				spells : ["protection from evil and good"],
+				selection : ["protection from evil and good"],
+				firstCol : "oncelr"
+			}],
+			spellChanges : {
+				"detect magic" : {
+					time : "10 min",
+					changes : "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer."
+				}
+			}
 		},
 		"subclassfeature7" : {
 			name : "Monster Slayer",

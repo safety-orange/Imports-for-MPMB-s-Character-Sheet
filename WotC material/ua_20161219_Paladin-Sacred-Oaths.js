@@ -1,5 +1,5 @@
 var iFileName = "ua_20161219_Paladin-Sacred-Oaths.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Paladin Sacred Oaths article to MPMB's Character Record Sheet
 
 // Define the source
@@ -65,22 +65,27 @@ AddSubClass("paladin", "oath of treachery", {
 			source : ["UA:PSO", 2],
 			minlevel : 3,
 			description : "\n   " + "As an action, I create 1 illusory duplicate of myself within 30 ft of me for 1 min (conc)" + "\n   " + "As a bonus action, I can move it up to 30 ft to a space I can see within 120 ft of me" + "\n   " + "I can cast spells as though I was in its space, but still have to use my own senses" + "\n   " + "I have advantage on attacks if the target is within 5 ft of the duplicate and me",
-			action : ["action", ""],
-			eval : "AddAction('bonus action', 'Move Duplicate', 'Paladin (Oath of Treachery) - Channel Divinity: Conjure Duplicate')",
-			removeeval : "RemoveAction('bonus action', 'Move Duplicate')",
+			action : [["action", ""], ['bonus action', 'Move Duplicate']],
 			spellcastingExtra : ["charm person", "expeditious retreat", "invisibility", "mirror image", "gaseous form", "haste", "confusion", "greater invisibility", "dominate person", "passwall"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Poison Strike",
 			source : ["UA:PSO", 2],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I imbue one weapon or piece of ammunition with poison upon touch" + "\n   " + "This poison lasts for 1 minute and will affect the next time I hit a target with it" + "\n   " + "The target takes 2d10 + my paladin level poison damage immediately after the hit" + "\n   " + "You automatically roll 20 on the 2d10 if you had advantage on the attack roll",
+			description : "\n   " + "As a bonus action, I imbue one weapon or piece of ammunition with poison upon touch" + "\n   " + "This poison lasts for 1 minute and will affect the next time I hit a target with it" + "\n   " + "The target takes 2d10 + my paladin level poison damage immediately after the hit" + "\n   " + "I automatically roll 20 on the 2d10 if I have advantage on the attack roll",
 			action : ["bonus action", ""],
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : "2d10+" + n + " damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (!isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(WeaponText)) {fields.Description += (fields.Description ? '; +' : '+') + '2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)'; }; ", "If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(v.WeaponText) && classes.known.paladin && classes.known.paladin.level) {
+							fields.Description += (fields.Description ? '; ' : '') + '+2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)';
+						};
+					},
+					"If I include the words 'Poison Strike' in a weapon's name, it gets an added description of the extra 2d10 + paladin level of poison damage it would do. If I have advantage on the attack, I can treat the 2d10 as rolling 20 in total."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -106,7 +111,6 @@ AddSubClass("paladin", "oath of treachery", {
 			recovery : "short rest",
 			usages : 1,
 			action : ["reaction", ""],
-			changeeval : "if (newClassLvl.paladin >= 20 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('icon of deceit') === -1) {ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'])} else if (newClassLvl.paladin < 20 && oldClassLvl.paladin >= 20) {ClassFeatureOptions(['paladin', 'subclassfeature15', 'icon of deceit', 'extra'], 'remove')};",
 			extraname : "Oath of Treachery 20",
 			"icon of deceit" : {
 				name : "Icon of Deceit",
@@ -115,7 +119,11 @@ AddSubClass("paladin", "oath of treachery", {
 				recovery : "long rest",
 				usages : 1,
 				action : ["action", ""]
-			}
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "icon of deceit",
+				minlevel : 20
+			}]
 		}
 	}
 });

@@ -1,5 +1,5 @@
 var iFileName = "ua_20150504_Waterborne-Adventures.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Waterborne Adventures article to MPMB's Character Record Sheet
 
 // Define the source
@@ -20,8 +20,11 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
 		climb : { spd : "walk", enc : "walk" },
 		swim : { spd : "walk", enc : "walk" }
 	},
-	eval : "AddACMisc(1, 'Mariner Fighting Style', 'When not wearing heavy armor or using a shield, the class feature Mariner Fighting Style gives a +1 bonus to AC', \"ACshield || tDoc.getField('Heavy Armor').isBoxChecked(0)\")",
-	removeeval : "AddACMisc(0, 'Mariner Fighting Style', 'When not wearing heavy armor or using a shield, the class feature Mariner Fighting Style gives a +1 bonus to AC')"
+	extraAC : {
+		mod : 1,
+		text : "I gain a +1 bonus to AC while I'm not wearing heavy armor and not using a shield.",
+		stopeval : function (v) { return v.heavyArmor || v.usingShield; }
+	}
 });
 
 // Add the Minotaur (Krynn) race and its three variants
@@ -36,13 +39,24 @@ RaceList["minotaur"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	weapons : ["Minotaur Horns"],
+	weaponOptions : {
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : ["UA:WA", 1],
+		ability : 1,
+		type : "Natural",
+		damage : [1, 10, "piercing"],
+		range : "Melee",
+		description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
+		abilitytodamage : true
+	},
+	weaponsAdd : ["Horns"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
 	heightMetric : " are well over 1,8 metres tall",
 	weightMetric : " weigh around 135 kg",
-	improvements : "Minotaur: +1 Strength, and either +1 Intelligence, +1 Wisdom, or another +1 Strength;",
+	scorestxt : "+1 Strength, and either +1 Intelligence, +1 Wisdom, or another +1 Strength",
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur (+1 Strength, and either +1 Int, Wis, or Str) use \"Racial Options\" button\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
 	features : {
@@ -62,7 +76,7 @@ AddRacialVariant("minotaur", "cunning", {
 	regExpSearch : /(cunning|wisdom)/i,
 	name : "Minotaur [Cunning]",
 	source : ["UA:WA", 2],
-	improvements : "Minotaur [cunning]: +1 Strength, +1 Wisdom;",
+	scorestxt : "",
 	scores : [1, 0, 0, 0, 1, 0],
 	trait : "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
@@ -70,7 +84,7 @@ AddRacialVariant("minotaur", "intellect", {
 	regExpSearch : /(intellect|intelligence)/i,
 	name : "Minotaur [Intellect]",
 	source : ["UA:WA", 2],
-	improvements : "Minotaur [intellect]: +1 Strength, +1 Intelligence;",
+	scorestxt : "",
 	scores : [1, 0, 0, 1, 0, 0],
 	trait : "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
@@ -82,16 +96,3 @@ AddRacialVariant("minotaur", "strength", {
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
-
-// Minotaur weapon
-WeaponsList["horns-uawa"] = {
-	regExpSearch : /^(?=.*minotaur)(?=.*\bhorns?\b).*$/i,
-	name : "Minotaur Horns",
-	source : ["UA:WA", 1],
-	ability : 1,
-	type : "Natural",
-	damage : [1, 10, "piercing"],
-	range : "Melee",
-	description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
-	abilitytodamage : true
-};

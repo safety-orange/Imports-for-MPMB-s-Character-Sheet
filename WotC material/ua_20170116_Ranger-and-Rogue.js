@@ -1,5 +1,5 @@
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -24,10 +24,11 @@ var theHorizonWalkerSubclass = {
 			source : ["UA:RnR", 1],
 			minlevel : 3,
 			description : desc([
-				"I add a spell to my known spells at level 3, 5, 9, 13, and 15",
+				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
 				"These count as ranger spells, but do not count against the number of spells I can know"
 			]),
-			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["protection from evil and good", "alter self", "protection from energy", "banishment", "teleportation circle"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Planar Walker",
@@ -65,7 +66,15 @@ var theHorizonWalkerSubclass = {
 				name : "Ethereal Step",
 				spells : ["etherealness"],
 				selection : ["etherealness"],
-				oncesr : true
+				firstCol : 'oncesr'
+			},
+			spellChanges : {
+				"etherealness" : {
+					time : "1 bns",
+					duration : "1 rnd",
+					description : "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
+					changes : "Using my Ethereal Step class feature I can cast Etherealness as a bonus action once per short rest, but it only affects myself and lasts until the end of my turn."
+				}
 			}
 		},
 		"subclassfeature11" : {
@@ -98,7 +107,8 @@ var thePrimevalGuardianSubclass = {
 			source : ["UA:RnR", 2],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
-			spellcastingExtra : ["entangle", "enhance ability", "conjure animals", "giant insect", "insect plague"].concat(new Array(95)).concat("AddToKnown")
+			spellcastingExtra : ["entangle", "enhance ability", "conjure animals", "giant insect", "insect plague"],
+			spellcastingExtraApplyNonconform : true
 		},
 		"subclassfeature3.1" : {
 			name : "Guardian Soul",
@@ -114,7 +124,12 @@ var thePrimevalGuardianSubclass = {
 			minlevel : 3,
 			description : "\n   " + "Once each turn, a hit from my weapon attack can deal 1d6 extra piercing damage",
 			calcChanges : {
-				atkAdd : ["if (!isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn, +1d6 piercing damage'; }; ", "My weapon attacks can deal 1d6 extra piercing damage once per turn."]
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell) fields.Description += (fields.Description ? '; ' : '') + 'Once per turn, +1d6 piercing damage';
+					},
+					"My weapon attacks can deal 1d6 extra piercing damage once per turn."
+				]
 			}
 		},
 		"subclassfeature7" : {
@@ -164,16 +179,14 @@ AddSubClass("rogue", "scout", {
 				"As a reaction when a hostile ends its turn within 5 ft of me, I can move half my speed",
 				"This movement does not provoke attacks of opportunity"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Survivalist",
 			source : ["UA:RnR", 3],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency and expertise with the Nature and Survival skills",
-			skillstxt : "\n\n" + toUni("Scout") + ": proficiency and expertise with Nature and Survival.",
-			eval : "AddSkillProf('Nature', true, true); AddSkillProf('Survival', true, true);",
-			removeeval : "AddSkillProf('Nature', false, true); AddSkillProf('Survival', false, true);"
+			skills : [['Nature', 'full'], ['Survival', 'full']]
 		},
 		"subclassfeature9" : {
 			name : "Superior Mobility",

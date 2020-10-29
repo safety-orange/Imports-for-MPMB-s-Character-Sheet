@@ -1,5 +1,5 @@
 var iFileName = "ua_20150803_Modern-Magic.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Modern Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -34,7 +34,7 @@ AddSubClass("cleric", "city domain", {
 			source: ["UA:MM", 1],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with sidearms and land vehicles",
-			weapons : [false, false, ["Sidearms"]],
+			weaponProfs : [false, false, ["Sidearms"]],
 			toolProfs : ["Hacking tools"]
 		},
 		"subclassfeature1.2" : {
@@ -77,7 +77,14 @@ AddSubClass("cleric", "city domain", {
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
 			}),
 			calcChanges : {
-				atkAdd : ["if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."]
+				atkAdd : [
+					function (fields, v) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage';
+						}
+					},
+					"Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -179,7 +186,7 @@ AddSubClass("wizard", "technomancy", {
 			source: ["UA:MM", 3],
 			minlevel: 2,
 			description: "\n   " + "I gain proficiency with sidearms and hacking tools",
-			weapons : [false, false, ["Sidearms"]],
+			weaponProfs : [false, false, ["Sidearms"]],
 			toolProfs : ["Hacking tools"]
 		},
 		"subclassfeature2.1": {
@@ -235,9 +242,18 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 		"My pact weapon can take firearm forms, and I can transform magical firearms into one"
 	]),
 	source : ["UA:MM", 3],
-	prereqeval : "What('Class Features Remember').indexOf('warlock,pact boon,pact of the blade') !== -1",
+	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
-		atkAdd : ["if (isRangedWeapon && ((/firearm/i).test(theWea.type) || (/firearm/i).test(theWea.list)) && (/\\bpact\\b/i).test(WeaponText)) {fields.Proficiency = true; fields.Description += thisWeapon[1] ? '' : (fields.Description ? '; ' : '') + 'Counts as magical'; }; ", "If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."]
+		atkAdd : [
+			function (fields, v) {
+				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponText)) {
+					v.pactWeapon = true;
+					fields.Proficiency = true;
+					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
+				}
+			},
+			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
+		]
 	}
 });
 
@@ -249,7 +265,6 @@ SpellsList["arcane hacking"] = {
 	name : "Arcane Hacking",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 5],
-	ritual : false,
 	level : 2,
 	school : "Trans",
 	time : "1 a",
@@ -278,7 +293,6 @@ SpellsList["conjure knowbot"] = {
 	name : "Conjure Knowbot",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 5],
-	ritual : false,
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -292,7 +306,6 @@ SpellsList["digital phantom"] = {
 	name : "Digital Phantom",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 6],
-	ritual : false,
 	level : 2,
 	school : "Abjur",
 	time : "1 a",
@@ -300,14 +313,13 @@ SpellsList["digital phantom"] = {
 	components : "V,S,M",
 	compMaterial : "A small piece of copper wire",
 	duration : "Conc, 1 h",
-	description : "You and any others in same computer system +10 on Int to avoid detection; leave no trace on exit",
+	description : "Me and any others in same computer system +10 on Int to avoid detection; leave no trace on exit",
 	descriptionFull : "[Technomagic]\n   This spell works to actively hide your presence within a computer system. For the spell's duration, you and any other users you choose on your local network gain a +10 bonus to Intelligence checks to avoid detection by administrators, knowbots, tracking software, and the like. Whenever you and your chosen users leave any computer system you are working in while this spell is in effect, all trace of your previous presence in that system is erased."
 };
 SpellsList["find vehicle"] = {
 	name : "Find Vehicle",
 	classes : ["paladin", "sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 6],
-	ritual : false,
 	level : 2,
 	school : "Conj",
 	time : "10 min",
@@ -321,7 +333,6 @@ SpellsList["haywire"] = {
 	name : "Haywire",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 3,
 	school : "Ench",
 	time : "1 a",
@@ -336,7 +347,6 @@ SpellsList["infallible relay"] = {
 	name : "Infallible Relay",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 1,
 	school : "Div",
 	time : "1 min",
@@ -345,14 +355,13 @@ SpellsList["infallible relay"] = {
 	compMaterial : "A mobile phone",
 	duration : "Conc, 10 min",
 	save : "Cha",
-	description : "1 known crea save or has to answer your call from phone within 100 ft of it; it has to save to end call",
+	description : "1 known crea save or has to answer my call from phone within 100 ft of it; it has to save to end call",
 	descriptionFull : "[Technomagic]\n   With this spell, you can target any creature with whom you have spoken previously, as long as the two of you are on the same plane of existence. When you cast the spell, the nearest functioning telephone or similar communications device within 100 feet of the target begins to ring. If there is no suitable device close enough to the target, the spell fails." + "\n   " + "The target must make a successful Charisma saving throw or be compelled to answer your call. Once the connection is established, the call is crystal clear and cannot be dropped until the conversation has ended or the spell's duration ends. You can end the conversation at any time, but a target must succeed on a Charisma saving throw to end the conversation."
 };
 SpellsList["invisibility to cameras"] = {
 	name : "Invisibility to Cameras",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 3,
 	school : "Illus",
 	time : "1 a",
@@ -367,7 +376,6 @@ SpellsList["on/off"] = {
 	name : "On/Off",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 7],
-	ritual : false,
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -381,7 +389,6 @@ SpellsList["protection from ballistics"] = {
 	name : "Protection from Ballistics",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 3,
 	school : "Abjur",
 	time : "1 a",
@@ -396,21 +403,19 @@ SpellsList["remote access"] = {
 	name : "Remote Access",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 1,
 	school : "Trans",
 	time : "1 a",
 	range : "120 ft",
 	components : "V,S",
 	duration : "10 min",
-	description : "You can use any electronic device within range as if it were in your hands",
+	description : "I can use any electronic device within range as if it were in my hands",
 	descriptionFull : "[Technomagic]\n   You can use any electronic device within range as if it were in your hands. This is not a telekinesis effect. Rather, this spell allows you to simulate a device's mechanical functions electronically. You are able to access only functions that a person using the device manually would be able to access. You can use remote access with only one device at a time."
 };
 SpellsList["shutdown"] = {
 	name : "Shutdown",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 5,
 	school : "Trans",
 	time : "1 a",
@@ -425,7 +430,6 @@ SpellsList["synchronicity"] = {
 	name : "Synchronicity",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 4,
 	school : "Ench",
 	time : "1 a",
@@ -439,7 +443,6 @@ SpellsList["system backdoor"] = {
 	name : "System Backdoor",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : ["UA:MM", 8],
-	ritual : false,
 	level : 4,
 	school : "Trans",
 	time : "1 min",

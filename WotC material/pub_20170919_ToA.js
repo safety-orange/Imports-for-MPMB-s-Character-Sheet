@@ -1,15 +1,102 @@
 var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.ToA={
-	name : "Tomb of Annihilation [backgrounds, beasts, equipment]",
+	name : "Tomb of Annihilation [backgrounds, beasts, items]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
 	date : "2017/09/19"
 };
+
+// Add Human to Yuan-ti tranformation from the ritual (excluded by default)
+AddRacialVariant("human", "yuan-ti transformed", {
+	defaultExcluded : true,
+	regExpSearch : /^(?!.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
+	source : ["ToA", 119],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		immune : ["poison"],
+		adv_vs : ["magic"]
+	},
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Innate Spellcasting (level 1)",
+		spells : ["poison spray", "animal friendship"],
+		selection : ["poison spray", "animal friendship"],
+		firstCol : 'atwill',
+		times : 2
+	},
+	spellChanges : {
+		"animal friendship" : {
+			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
+			changes : "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes."
+		}
+	},
+	features : {
+		"suggestion" : {
+			name : "Innate Spellcasting (level 3)",
+			limfeaname : "Suggestion",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Innate Spellcasting (level 3)",
+				spells : ["suggestion"],
+				selection : ["suggestion"],
+				firstCol : 'oncelr'
+			}
+		}
+	},
+	trait : "Yuan-ti Human (+1 to all ability scores)\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects."
+});
+AddRacialVariant("human", "yuan-ti transformed variant", {
+	defaultExcluded : true,
+	regExpSearch : /^(?=.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
+	source : ["ToA", 119],
+	skillstxt : "Choose any one skill",
+	scorestxt : "+1 to two different ability scores of my choice",
+	scores : [0, 0, 0, 0, 0, 0],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		immune : ["poison"],
+		adv_vs : ["magic"]
+	},
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Innate Spellcasting (level 1)",
+		spells : ["poison spray", "animal friendship"],
+		selection : ["poison spray", "animal friendship"],
+		firstCol : 'atwill',
+		times : 2
+	},
+	spellChanges : {
+		"animal friendship" : {
+			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
+			changes : "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes."
+		}
+	},
+	features : {
+		"suggestion" : {
+			name : "Innate Spellcasting (level 3)",
+			limfeaname : "Suggestion",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Innate Spellcasting (level 3)",
+				spells : ["suggestion"],
+				selection : ["suggestion"],
+				firstCol : 'oncelr'
+			}
+		}
+	},
+	trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
+	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
+	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
+});
 
 // Backgrounds (with contributions by SoilentBrad and @lowbrr)
 BackgroundList["anthropologist"] = {
@@ -200,279 +287,277 @@ GearList["rain catcher"] = {
 	amount : 1,
 	weight : 5
 };
-GearList["insect repellent:"] = {
-	infoname: "Insect repellent:",
-	name: "-",
-	source : ["ToA", 32],
-	amount: "",
-	weight: ""
-};
-GearList["insect repellent: salve"] = {
-	infoname : "   Salve (vial) [5 sp]",
-	name : "Salve, applications of",
+GearList["insect repellent salve"] = {
+	infoname : "Salve (vial) [5 sp]",
+	name : "Insect Repellent Salve, applications of",
 	source : ["ToA", 32],
 	amount : 20,
-	weight : ""
+	weight : "",
+	type : "insect repellent"
 };
-GearList["insect repellent: incense"] = {
-	infoname : "   Incense (block) [1 gp]",
-	name : "Incense, blocks of",
+GearList["insect repellent incense"] = {
+	infoname : "Incense (block) [1 gp]",
+	name : "Insect Repellent Incense, blocks of",
 	source : ["ToA", 32],
 	amount : 1,
-	weight : ""
+	weight : "",
+	type : "insect repellent"
 };
 
 // Creatures
-CreatureList["brontosaurus"] = {
-	name : "Brontosaurus",
-	source : [["V", 139], ["ToA", 215]],
-	size : 0, //Gargantuan
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 15,
-	hp : 121,
-	hd : [9, 20], //[#, die]
-	speed : "30 ft",
-	scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
-	passivePerception : 10,
-	languages : "",
-	challengeRating : "5",
-	proficiencyBonus : 3,
-	attacksAction : 1,
-	attacks : [{
-			name : "Stomp",
-			ability : 1,
-			damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
-		}, {
-			name : "Tail",
-			ability : 1,
-			damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["deinonychus"] = {
-	name : "Deinonychus",
-	source : [["V", 139], ["ToA", 217]],
-	size : 3, //Medium
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 26,
-	hd : [4, 8], //[#, die]
-	speed : "40 ft",
-	scores : [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 3
-	},
-	senses : "",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 3,
-	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
-		}
-	],
-	traits : [{
-			name : "Multiattack",
-			description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-		}, {
-			name : "Pounce",
-			description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
-		}
-	]
-};
-CreatureList["dimetrodon"] = {
-	name : "Dimetrodon",
-	source : [["V", 139], ["ToA", 217]],
-	size : 3, //Medium
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 12,
-	hp : 19,
-	hd : [3, 8], //[#, die]
-	speed : "30 ft, swim 20 ft",
-	scores : [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["hadrosaurus"] = {
-	name : "Hadrosaurus",
-	source : [["V", 140], ["ToA", 224]],
-	size : 2, //Large
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 11,
-	hp : 19,
-	hd : [3, 10], //[#, die]
-	speed : "40 ft",
-	scores : [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Tail",
-			ability : 1,
-			damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["quetzalcoatlus"] = {
-	name : "Quetzalcoatlus",
-	source : [["V", 140], ["ToA", 230]],
-	size : 1, //Huge
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 30,
-	hd : [4, 12], //[#, die]
-	speed : "10 ft, fly 80 ft",
-	scores : [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "2",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
-		}
-	],
-	traits : [{
-			name : "Dive Attack",
-			description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
-		}, {
-			name : "Flyby",
-			description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
-		}
-	]
-};
-CreatureList["stegosaurus"] = {
-	name : "Stegosaurus",
-	source : [["V", 140], ["ToA", 231]],
-	size : 1, //Huge
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 76,
-	hd : [8, 12], //[#, die]
-	speed : "40 ft",
-	scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
-	passivePerception : 10,
-	languages : "",
-	challengeRating : "4",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : ""
-		}
-	]
-};
-CreatureList["velociraptor"] = {
-	name : "Velociraptor",
-	source : [["V", 140], ["ToA", 235]],
-	size : 5, //Tiny
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 10,
-	hd : [3, 4], //[#, die]
-	speed : "30 ft",
-	scores : [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	skills : {
-		"perception" : 3
-	},
-	senses : "",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "1/4",
-	proficiencyBonus : 2,
-	attacksAction : 2,
-	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}, {
-			name : "Claw",
-			ability : 2,
-			damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}
-	],
-	traits : [{
-			name : "Pack Tactics",
-			description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
-		}
-	]
-};
+// [dupl_start] reprints from Volo's Guide to Monsters
+if (!SourceList.V) {
+	CreatureList["brontosaurus"] = {
+		name : "Brontosaurus",
+		source : [["V", 139], ["ToA", 215]],
+		size : 0, //Gargantuan
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 15,
+		hp : 121,
+		hd : [9, 20], //[#, die]
+		speed : "30 ft",
+		scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		senses : "",
+		passivePerception : 10,
+		languages : "",
+		challengeRating : "5",
+		proficiencyBonus : 3,
+		attacksAction : 1,
+		attacks : [{
+				name : "Stomp",
+				ability : 1,
+				damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+				range : "Melee (20 ft)",
+				description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
+			}, {
+				name : "Tail",
+				ability : 1,
+				damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+				range : "Melee (20 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["deinonychus"] = {
+		name : "Deinonychus",
+		source : [["V", 139], ["ToA", 217]],
+		size : 3, //Medium
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 26,
+		hd : [4, 8], //[#, die]
+		speed : "40 ft",
+		scores : [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 3
+		},
+		senses : "",
+		passivePerception : 13,
+		languages : "",
+		challengeRating : "1",
+		proficiencyBonus : 2,
+		attacksAction : 3,
+		attacks : [{
+				name : "Claw",
+				ability : 1,
+				damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
+			}, {
+				name : "Bite",
+				ability : 1,
+				damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
+			}
+		],
+		traits : [{
+				name : "Multiattack",
+				description : "The deinonychus makes three attacks: two with its claws and one with its bite."
+			}, {
+				name : "Pounce",
+				description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
+			}
+		]
+	};
+	CreatureList["dimetrodon"] = {
+		name : "Dimetrodon",
+		source : [["V", 139], ["ToA", 217]],
+		size : 3, //Medium
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 12,
+		hp : 19,
+		hd : [3, 8], //[#, die]
+		speed : "30 ft, swim 20 ft",
+		scores : [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 2
+		},
+		senses : "",
+		passivePerception : 12,
+		languages : "",
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["hadrosaurus"] = {
+		name : "Hadrosaurus",
+		source : [["V", 140], ["ToA", 224]],
+		size : 2, //Large
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 11,
+		hp : 19,
+		hd : [3, 10], //[#, die]
+		speed : "40 ft",
+		scores : [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 2
+		},
+		senses : "",
+		passivePerception : 12,
+		languages : "",
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Tail",
+				ability : 1,
+				damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["quetzalcoatlus"] = {
+		name : "Quetzalcoatlus",
+		source : [["V", 140], ["ToA", 230]],
+		size : 1, //Huge
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 30,
+		hd : [4, 12], //[#, die]
+		speed : "10 ft, fly 80 ft",
+		scores : [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 2
+		},
+		senses : "",
+		passivePerception : 12,
+		languages : "",
+		challengeRating : "2",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (10 ft)",
+				description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
+			}
+		],
+		traits : [{
+				name : "Dive Attack",
+				description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
+			}, {
+				name : "Flyby",
+				description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+			}
+		]
+	};
+	CreatureList["stegosaurus"] = {
+		name : "Stegosaurus",
+		source : [["V", 140], ["ToA", 231]],
+		size : 1, //Huge
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 76,
+		hd : [8, 12], //[#, die]
+		speed : "40 ft",
+		scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		senses : "",
+		passivePerception : 10,
+		languages : "",
+		challengeRating : "4",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (10 ft)",
+				description : ""
+			}
+		]
+	};
+	CreatureList["velociraptor"] = {
+		name : "Velociraptor",
+		source : [["V", 140], ["ToA", 235]],
+		size : 5, //Tiny
+		type : "Beast",
+		subtype : "",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 10,
+		hd : [3, 4], //[#, die]
+		speed : "30 ft",
+		scores : [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		skills : {
+			"perception" : 3
+		},
+		senses : "",
+		passivePerception : 13,
+		languages : "",
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 2,
+		attacks : [{
+				name : "Bite",
+				ability : 2,
+				damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "One bite and one claw attack as an Attack action"
+			}, {
+				name : "Claw",
+				ability : 2,
+				damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
+				range : "Melee (5 ft)",
+				description : "One bite and one claw attack as an Attack action"
+			}
+		],
+		traits : [{
+				name : "Pack Tactics",
+				description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
+			}
+		]
+	};
+} // dupl_end
 // The following creatures were transcribed with the help of SoilentBrand and @lowbrr
 CreatureList["almiraj"] = {
 	name : "Almiraj",
@@ -629,3 +714,141 @@ CreatureList["jaculi"] = {
 	],
 	wildshapeString : "\u25C6 Senses: Blindsight 30 ft.\n\u25C6 Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n\u25C6 Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
 };
+
+// Magic Items
+MagicItemsList["amulet of the black skull"] = {
+	name : "Amulet of the Black Skull",
+	source : ["ToA", 206],
+	type : "wondrous item",
+	rarity : "very rare",
+	magicItemTable : "G",
+	description : "The obsidian amulet has 6 charges, regaining 1d6 at dawn. As an action, I can expend a charge to teleport to a location within 100 ft that I'm familiar with. If I'm not undead, I must make a DC 16 Con save whenever I do so and if I fail, I'm transformed (see table on Notes page) as I arrive at the destination.",
+	descriptionFull : "This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.\n   The amulet has 6 charges and regains 1d6 charges daily at dawn. While wearing the amulet, you can use an action to expend 1 of its charges to transport yourself and anything you are wearing or carrying to a location within 100 feet of you. The destination you choose doesn't need to be in your line of sight, but it must be familiar to you (in other words, a place you have seen or visited), and it must be on the same plane of existence as you. This effect isn't subject to the magic restrictions placed on the Tomb of the Nine Gods; thus, the amulet can be used to enter and exit the tomb.\n   If you aren't undead, you must make a DC 16 Constitution saving throw each time you use the amulet to teleport. On a failed saving throw, the black skull cackles as you are transformed in transit. The transformation takes effect as soon as you arrive at the destination, and is determined randomly by rolling percentile dice and consulting the Black Skull Transformation table.\n\n" + toUni("d100\tTransformation") + "\n01-20\tThe symbol of Acererak is burned into your flesh, a curse that can only be removed with a Remove Curse spell or similar magic. Until the curse ends, your hit points can't be restored by magic.\n21-35\tYou grow larger as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.\n36-50\tYou grow smaller as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.\n51-70\tYou arrive at the destination wearing nothing but the amulet of the black skull. Everything else that you were wearing or carrying appears in a random unoccupied space within 100 feet of you.\n71-95\tYou are paralyzed for 1 minute or until this effect is ended with a Lesser Restoration spell or similar magic.\n96-00\tYou become petrified. This effect can be ended only with a Greater Restoration spell or similar magic.",
+	attunement : true,
+	weight : 1,
+	action : [["action", ""]],
+	usages : 6,
+	recovery : "dawn",
+	additional : "regains 1d6",
+	toNotesPage : [{
+		name : "Transformation Table",
+		popupName : "Amulet of the Black Skull Transformation Table",
+		note : [
+			"This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.",
+			"If I'm not undead, I must make a DC 16 Constitution save each time I use the amulet to teleport. On a failure, the black skull cackles as I'm transformed in transit. The transformation is random (see table below) and takes effect as soon as I arrive at the destination.",
+			"d100\tTRANSFORMATION",
+			"01-20\tThe symbol of Acererak is burned into my flesh, a curse that can only be removed with a Remove Curse spell or similar magic. Until the curse ends, my hit points can't be restored by magic.",
+			"21-35\tI grow larger as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.",
+			"36-50\tI grow smaller as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.",
+			"51-70\tI arrive at the destination wearing nothing but the amulet of the black skull. Everything else that I was wearing or carrying appears in a random unoccupied space within 100 ft.",
+			"71-95\tI am paralyzed for 1 minute or until this effect is ended with a Lesser Restoration spell or similar magic.",
+			"96-00\tI become petrified. This effect can be ended only with a Greater Restoration spell or similar magic."
+		]
+	}]
+}
+MagicItemsList["bookmark"] = {
+	name : "Bookmark",
+	source : ["ToA", 206],
+	type : "weapon (dagger)",
+	rarity : "legendary",
+	notLegalAL : true,
+	description : "This dagger adds +3 to hit and damage. As a bonus action while holding it, I can have it shed bright light in a 20-ft radius and dim light for another 20 ft, go dark, act as a compass, cast Dimension Door once per dawn, or cast Compulsion once per dawn, which effects only spiders of the beast type within 90 ft.",
+	descriptionFull : "This +3 dagger belongs to Artus Cimber. While you have the dagger drawn, you can use a bonus action to activate one of the following properties:\n \u2022 Cause a blue gem set into the dagger's pommel to shed bright light in a 20-foot radius and dim light for an additional 20 feet, or make the gem go dark.\n \u2022 Turn the dagger into a compass that, while resting on your palm, points north.\n \u2022 Cast Dimension Door from the dagger. Once this property is used, it can't be used again until the next dawn.\n \u2022 Cast Compulsion (save DC 15) from the dagger. The range of the spell increases to 90 feet but it targets only spiders that are beasts. Once this property is used, it can't be used again until the next dawn.",
+	attunement : true,
+	weight : 1,
+	action : [["bonus action", ""]],
+	weaponsAdd : ["Bookmark"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /bookmark/i,
+		name : "Bookmark",
+		source : ["ToA", 206],
+		modifiers : [3, 3]
+	},
+	extraLimitedFeatures : [{
+		name : "Compulsion (Bookmark)",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Dimension Door (Bookmark)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	fixedDC : 15,
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["compulsion", "dimension door"],
+		selection : ["compulsion", "dimension door"],
+		firstCol : "oncelr",
+		times : 2
+	},
+	spellChanges : {
+		"compulsion" : {
+			time : "1 bns",
+			range : "90 ft",
+			description : "Any spiders that hear me save or I can, as bns, have it move fully in a direction; save again after move",
+			changes : "Using Bookmark, I can cast this as a bonus action with a range of 90 ft, but it can only target spiders with the beast type."
+		}
+	}
+}
+MagicItemsList["ghost lantern"] = {
+	name : "Ghost Lantern",
+	source : ["ToA", 206],
+	type : "wondrous item",
+	rarity : "legendary",
+	magicItemTable : "C",
+	description : "As a bonus action, I can command the spirit in the lantern to shed bright light in 30-ft radius and dim light for another 30 ft. I can order the spirit to act as my Mage Hand. If I fall unconscious within 10 ft of the lantern, the spirit stabilizes me. Casting Dispel Evil and Good on it releases the spirit and makes it nonmagical.",
+	descriptionFull : "A restless spirit is trapped inside this lantern. While holding the lantern, you can command the spirit as a bonus action to shed bright light in a 30-foot radius and dim light for an additional 30 feet.\n   While holding the lantern, you can use an action to order the spirit to leave the lantern and duplicate the effect of the Mage Hand spell. The spirit returns to the lantern when the spell ends.\n   If you fall unconscious within 10 feet of the lantern, the spirit emerges from it, magically stabilizes you with a touch, and then quickly returns to the lantern.\n   The spirit is bound to the lantern and can't be harmed, turned, or raised from the dead.\n   Casting a Dispel Evil and Good spell on the lantern releases the spirit to the afterlife and renders the lantern nonmagical.",
+	attunement : true,
+	weight : 1,
+	action : [["bonus action", ""]],
+	spellcastingBonus : {
+		name : "At will",
+		spells : ["mage hand"],
+		selection : ["mage hand"],
+		firstCol : "atwill"
+	}
+}
+MagicItemsList["mask of the beast"] = {
+	name : "Mask of the Beast",
+	source : ["ToA", 207],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask I can expend 1 charge and use the mask to cast the Animal Friendship spell as an action. The mask regains all expended charges at dawn.",
+	descriptionFull : "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask you can expend 1 charge and use the mask to cast the Animal Friendship spell as an action. The mask regains all expended charges at dawn.",
+	weight : 1,
+	usages : 3,
+	recovery : "dawn",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["animal friendship"],
+		selection : ["animal friendship"],
+		firstCol : 1
+	}
+}
+MagicItemsList["scorpion armor"] = {
+	name : "Scorpion Armor",
+	source : ["ToA", 208],
+	type : "armor (plate)",
+	rarity : "rare",
+	magicItemTable : "I",
+	description : "This suit of plate armor fashioned from giant scorpion chitin doesn't impose disadv. on stealth or saves against extreme heat. It gives me +5 bonus on initiative while I'm not incapacitated. Whenever I don or doff it, I take 10d10+45 poison damage, DC 15 Con save halves. Only a Wish can remove this curse.",
+	descriptionFull : "This suit of plate armor is fashioned from giant scorpion chitin. While wearing this armor, you gain the following benefits:\n \u2022 The armor improves your combat readiness, granting you a +5 bonus to initiative as long as you aren't incapacitated.\n \u2022 The armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 The armor doesn't impose disadvantage on saving throws made to resist the effects of extreme heat (see chapter 5 of the Dungeon Master's Guide).\n\n" + toUni("Curse") + ". This armor is cursed. Whenever you don or doff it, you must make a DC 15 Constitution saving throw, taking 100 (10d10+45) poison damage on a failed save, or half as much damage on a successful one. Only a Wish spell can remove the armor's curse.",
+	attunement : true,
+	weight : 65,
+	cursed : true,
+	addMod : [{ type : "skill", field : "Init", mod : 5, text : "I gain a +5 bonus on my initiative rolls." }],
+	armorAdd : "Scorpion Armor",
+	armorOptions : {
+		regExpSearch : /^(?=.*scorpion)(?=.*armor).*$/i,
+		name : "Scorpion Armor",
+		source : ["ToA", 208],
+		type : "heavy",
+		ac : 18,
+		stealthdis : false,
+		weight : 65,
+		strReq : 15
+	}
+}

@@ -1,5 +1,5 @@
 var iFileName = "ua_20160801_The-Faithful.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: The Faithful article to MPMB's Character Record Sheet
 
 // Define the source
@@ -27,24 +27,6 @@ AddSubClass("warlock", "the seeker", {
 			recovery : "short rest",
 			action : ["bonus action", ""]
 		},
-		"pact boon" : function () {
-			var pactBoon = newObj(ClassList.warlock.features["pact boon"]);
-			pactBoon.choices.push("Pact of the Star Chain");
-			pactBoon["pact of the star chain"] = {
-				name : "Pact of the Star Chain",
-				source : ["UA:TF", 1],
-				description : "\n   " + "My patron grants me an item of power which disappears when I die" + "\n   " + "While it is on my person, I can cast Augury as a ritual (PHB 215)" + "\n   " + "Additionally, once per short rest, I can get advantage on an Intelligence check" + "\n   " + "If I lose this item I can perform a 1-hour ceremony to get a replacement",
-				usages : 1,
-				recovery : "short rest",
-				spellcastingBonus : {
-					name : "Pact of the Star Chain",
-					spells : ["augury"],
-					selection : ["augury"],
-					firstCol : "(R)"
-				}
-			};
-			return pactBoon;
-		}(),
 		"subclassfeature6" : {
 			name : "Astral Refuge",
 			source : ["UA:TF", 2],
@@ -69,6 +51,35 @@ AddSubClass("warlock", "the seeker", {
 		}
 	}
 });
+
+// Add a Pact Boon option that is only available for "the Seeker" subclass
+AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Star Chain", {
+	name : "Pact of the Star Chain",
+	source : ["UA:TF", 1],
+	description : desc([
+		"My patron grants me an item of power which disappears when I die",
+		"While it is on my person, I can cast Augury as a ritual",
+		"Additionally, once per short rest, I can get advantage on an Intelligence check",
+		"If I lose this item I can perform a 1-hour ceremony to get a replacement"
+	]),
+	usages : 1,
+	recovery : "short rest",
+	spellcastingBonus : {
+		name : "Pact of the Star Chain",
+		spells : ["augury"],
+		selection : ["augury"],
+		firstCol : "(R)"
+	},
+	spellChanges : {
+		"augury" : {
+			time : "11 min",
+			changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it."
+		}
+	},
+	prereqeval : function(v) {
+		return classes.known.warlock && classes.known.warlock.subclass == "warlock-the seeker" ? true : "skip";
+	}
+});
 RunFunctionAtEnd(function() {
 	var theTheurgySubclass = AddSubClass("wizard", "theurgy", {
 		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
@@ -81,7 +92,33 @@ RunFunctionAtEnd(function() {
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
 				description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
-				choices : []
+				calcChanges : {
+					spellList : [
+						function(spList, spName, spType) {
+							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
+							var domainSpells = CurrentSpells.wizard.extra;
+							// now stop this function if even one of the domain spells is not already in the spellbook
+							var knownSpells = CurrentSpells.wizard.selectSp;
+							for (var i = 0; i < domainSpells.length; i++) {
+								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
+							}
+							// get all the cleric spells, level 1-9
+							var clericSpells = CreateSpellList({"class" : "cleric", level : [1,9]}, false, false, false);
+							spList.extraspells = spList.extraspells.concat(clericSpells);
+						},
+						"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up."
+					]
+				},
+				choices : [],
+				choiceDependencies : [{
+					feature : "subclassfeature2.3"
+				}, {
+					feature : "subclassfeature6"
+				}, {
+					feature : "subclassfeature10"
+				}, {
+					feature : "subclassfeature14"
+				}]
 			},
 			"subclassfeature2.1" : {
 				name : "Channel Arcana",
@@ -104,8 +141,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 2,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature2.2,' + FeaChoice, false);};};"
+				choicesNotInMenu : true
 			},
 			"subclassfeature6" : {
 				name : "Arcane Acolyte",
@@ -113,8 +149,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 6,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature6,' + FeaChoice, false);};};"
+				choicesNotInMenu : true
 			},
 			"subclassfeature10" : {
 				name : "Arcane Priest",
@@ -122,8 +157,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 10,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature10,' + FeaChoice, false);};};"
+				choicesNotInMenu : true
 			},
 			"subclassfeature14" : {
 				name : "Arcane High Priest",
@@ -131,8 +165,7 @@ RunFunctionAtEnd(function() {
 				minlevel : 14,
 				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
 				choices : [],
-				choicesNotInMenu : true,
-				eval : "if (FeaChoice === '') {var CFrem = What('Class Features Remember'); var tReg = /.*?wizard,subclassfeature2,(.*?domain).*/i; if ((tReg).test(CFrem)) {FeaChoice = CFrem.replace(tReg, '$1'); AddString('Class Features Remember', 'wizard,subclassfeature14,' + FeaChoice, false);};};"
+				choicesNotInMenu : true
 			}
 		}
 	});
@@ -153,23 +186,20 @@ RunFunctionAtEnd(function() {
 			name : "Arcane Initiate: " + aDomain.subname,
 			source : dSource,
 			spellcastingExtra : aDomain.spellcastingExtra,
-			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
-			eval : ""
+			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks"
 		};
 		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
 		for (var aFea in aDomain.features) {
 			var dFea = aDomain.features[aFea];
 			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
+				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
-				AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature2.3', \"" + entryDoNm.toLowerCase() + "\"]; if (classes.known.wizard.level >= 2 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ";
 			};
-			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons) {
+			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature6"].choices.push(entryDoNm);
-					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-					AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature6', \"" + entryDoNm.toLowerCase() + "\"]; if (classes.known.wizard.level >= 6 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ";
+					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -179,11 +209,10 @@ RunFunctionAtEnd(function() {
 					};
 				};
 			};
-			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons) {
+			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature10"].choices.push(entryDoNm);
-					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-					AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature10', \"" + entryDoNm.toLowerCase() + "\"]; if (classes.known.wizard.level >= 10 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ";
+					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;
@@ -193,11 +222,10 @@ RunFunctionAtEnd(function() {
 					};
 				};
 			};
-			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons) {
+			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
 				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature14"].choices.push(entryDoNm);
-					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = eval(dFea.toSource());
-					AIdomain.eval += "var ToAdd = ['wizard', 'subclassfeature14', \"" + entryDoNm.toLowerCase() + "\"]; if (classes.known.wizard.level >= 14 && What('Class Features Remember').indexOf(ToAdd.toString()) === -1) {ClassFeatureOptions(ToAdd)}; ";
+					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
 				} else { //add to the existing entry
 					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
 					theFea.name += " \u0026 " + dFea.name;

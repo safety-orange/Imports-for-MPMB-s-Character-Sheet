@@ -1,5 +1,5 @@
 var iFileName = "ua_20171113_Elf-Subraces.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana: Elf Subraces article to MPMB's Character Record Sheet
 
 // Define the source
@@ -35,7 +35,6 @@ RaceList["avariel"] = {
 	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Avariel: +2 Dexterity;",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Avariel (+2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nFlight: I have a flying speed of 30 feet. To use this speed, I can't be wearing medium or heavy armor."
 };
@@ -55,64 +54,64 @@ RaceList["grugach"] = {
 		text : ["Magic can't put me to sleep"],
 		adv_vs : ["charmed"]
 	},
-	weaponprofs : [false, false, ["spear", "longbow", "shortbow", "net"]],
+	weaponProfs : [false, false, ["spear", "longbow", "shortbow", "net"]],
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " stand around 5 feet tall (4'5\" + 2d6\")",
 	weight : " weigh around 100 lb (75 + 2d6 \xD7 1d6 lb)",
 	heightMetric : " range from well under to well over 1,5 metres tall (135 + 5d6 cm)",
 	weightMetric : " weigh around 45 kg (35 + 5d6 \xD7 2d6 / 10 kg)",
-	improvements : "Grugach: +1 Strength, +2 Dexterity;",
 	scores : [1, 2, 0, 0, 0, 0],
 	trait : "Grugach (+1 Strength, +2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
-	abilitySave : 5,
 	spellcastingAbility : 5,
 	spellcastingBonus : {
 		name : "Grugach Cantrip",
 		"class" : "druid",
 		level : [0, 0],
-		atwill : true
+		firstCol : 'atwill'
 	},
-	eval : "RemoveLangTool('language', 'Common');"
+	eval : function () {
+		RemoveLangTool('language', 'Common');
+	}
 };
 // Edit the Wood Elf PHB entry, if available, to not match on Grugach
-if (sheetVersion >= 13 && RaceList["wood elf"]) {
+if (RaceList["wood elf"]) {
 	RaceList["wood elf"].regExpSearch = RaceList["wood elf"].regExpSearch.replace(/grugach\|?|wilds\?\|?/g, "");
-} else if (RaceList["wood elf"]) {
-	RaceList["wood elf"].regExpSearch = /^(?!.*half)((?=.*(kagonesti|silhana))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|green)\b))).*$/i;
-};
-RaceList["sea elf"] = {
-	regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
-	name : "Sea elf",
-	sortname : "Elf, Sea",
-	source : [["MToF", 62], ["UA:ES", 1]],
-	plural : "Sea elves",
-	size : 3,
-	speed : {
-		walk : { spd : 30, enc : 20 },
-		swim : { spd : 30, enc : 20 }
-	},
-	weaponprofs : [false, false, ["spear", "trident", "light crossbow", "net"]],
-	languageProfs : ["Common", "Elvish", "Aquan"],
-	vision : [["Darkvision", 60]],
-	savetxt : {
-		text : ["Magic can't put me to sleep"],
-		adv_vs : ["charmed"]
-	},
-	skills : ["Perception"],
-	age : " typically claim adulthood around age 100 and can live to be 750 years old",
-	height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
-	weight : " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
-	heightMetric : " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
-	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
-	improvements : "Sea Elf: +2 Dexterity, +1 Constitution;",
-	scores : [0, 2, 1, 0, 0, 0],
-	trait : "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
-		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
-		"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
-		"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
-	]) // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
-};
+}
+// dupl_start
+if (!SourceList.MToF) {
+	RaceList["sea elf"] = {
+		regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
+		name : "Sea elf",
+		sortname : "Elf, Sea",
+		source : [["MToF", 62], ["UA:ES", 1]],
+		plural : "Sea elves",
+		size : 3,
+		speed : {
+			walk : { spd : 30, enc : 20 },
+			swim : { spd : 30, enc : 20 }
+		},
+		weaponProfs : [false, false, ["spear", "trident", "light crossbow", "net"]],
+		languageProfs : ["Common", "Elvish", "Aquan"],
+		vision : [["Darkvision", 60]],
+		savetxt : {
+			text : ["Magic can't put me to sleep"],
+			adv_vs : ["charmed"]
+		},
+		skills : ["Perception"],
+		age : " typically claim adulthood around age 100 and can live to be 750 years old",
+		height : " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
+		weight : " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
+		heightMetric : " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
+		weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
+		scores : [0, 2, 1, 0, 0, 0],
+		trait : "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
+			"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+			"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
+			"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
+		]) // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
+	};
+} // dupl_end
 RaceList["shadar-kai"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name : "Shadar-kai",
@@ -135,15 +134,13 @@ RaceList["shadar-kai"] = {
 	weight : " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
-	improvements : "Shadar-kai: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
 	trait : "Shadar-kai (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nBlessing of the Raven Queen: Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\n" : " ") + "Cantrip: I know one cantrip: Chill Touch, Spare the Dying, or Thaumaturgy. Charisma is my spellcasting ability for it.",
-	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Shadar-kai Cantrip",
 		spells : ["chill touch", "spare the dying", "thaumaturgy"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"blessing of the raven queen" : {
@@ -151,7 +148,6 @@ RaceList["shadar-kai"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			tooltip : "",
 			action : ["bonus action", ""]
 		}
 	}

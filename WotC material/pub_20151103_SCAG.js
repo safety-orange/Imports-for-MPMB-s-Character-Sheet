@@ -1,5 +1,5 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -29,7 +29,6 @@ RaceList["ghostwise halfling"] = {
 	weight : " weigh around 40 lb (35 + 2d4 lb)",
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
-	improvements : "Ghostwise Halfling: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Ghostwise Halfling (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n" : " ") + "\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + (typePF ? "\n" : " ") + "\nHalfling Nimbleness: I can move through the space of any creature that is of a size larger than me." + (typePF ? "\n" : " ") + "\nSilent Speech: I can speak telepathically to any one creature within 30 feet of me. It only understands me if we share a language."
 };
@@ -47,70 +46,88 @@ RaceList["gray dwarf"] = {
 	vision : [["Darkvision", 120], ["Sunlight Sensitivity", 0]],
 	savetxt : { adv_vs : ["charmed", "illusions", "paralyzed", "poison"] },
 	dmgres : ["Poison"],
-	weaponprofs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
+	weaponProfs : [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
 	toolProfs : [["Smith, brewer, or mason tools", 1]],
 	age : " are considered young until they are 50 and live about 350 years",
 	height : " stand between 4 and 5 feet tall (3'8\" + 2d4\")",
 	weight : " weigh around 150 lb (115 + 2d4 \xD7 2d6 lb)",
 	heightMetric : " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
 	weightMetric : " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
-	improvements : "Duergar: +2 Constitution, +1 Strength;",
 	scores : [1, 0, 2, 0, 0, 0],
 	trait : "Duergar (+2 Constitution, +1 Strength)\nStonecunning: Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDuergar Magic: 3rd: Enlarge/Reduce to enlarge; 5th: Invisibility. If not in direct sunlight," + (!typePF ? "\n" : " ") + "I can cast both spells on myself once per long rest without material components, using Int.",
 	spellcastingAbility : 4,
 	features : {
 		"enlarge" : {
-			name : "Enlarge (self only)",
+			name : "Duergar Magic (level 3)",
+			limfeaname : "Enlarge (self only)",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Duergar Magic)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Duergar Magic (level 3)",
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
-				oncelr : true
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"enlarge/reduce" : {
+					name : "Enlarge",
+					range : "Self",
+					components : "V,S",
+					compMaterial : "",
+					description : "I'm enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					changes : "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself."
+				}
 			}
 		},
 		"invisibility" : {
-			name : "Invisibility (self only)",
+			name : "Duergar Magic (level 5)",
+			limfeaname : "Invisibility (self only)",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Duergar Magic)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Duergar Magic (level 5)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
-				oncelr : true
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"invisibility" : {
+					range : "Self",
+					components : "V,S",
+					compMaterial : "",
+					description : "Me and my worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight",
+					changes : "Using Duergar Magic, I can cast Invisibility while I'm not in direct sunlight, but only on myself."
+				}
 			}
 		}
 	}
 };
-RaceList["deep gnome"] = { // reprint from Elemental Evil Player's Companion
-	regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
-	name : "Svirfneblin",
-	sortname : "Gnome, Deep (Svirfneblin)",
-	source : [["E", 7], ["S", 115], ["MToF", 113]],
-	plural : "Svirfneblin",
-	size : 4,
-	speed : {
-		walk : { spd : 25, enc : 15 }
-	},
-	languageProfs : ["Common", "Gnomish", "Undercommon"],
-	vision : [["Darkvision", 120]],
-	savetxt : { text : ["Adv. on Int/Wis/Cha saves vs. magic"] },
-	age : " are considered full-grown adults when they reach 25 and live 200 to 250 years",
-	height : " stand between 3 and 3 1/2 feet tall (2'9\" + 2d4\")",
-	weight : " weigh around 90 lb (80 + 2d4 \xD7 1d4 lb)",
-	heightMetric : " stand between 90 and 105 cm tall (85 + 5d4 cm)",
-	weightMetric : " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
-	improvements : "Svirfneblin: +1 Dexterity, +2 Intelligence;",
-	scores : [0, 1, 0, 2, 0, 0],
-	trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
-};
+// [dupl_start] Reprint from Elemental Evil Player's Companion
+if (!RaceList["deep gnome"]) {
+	RaceList["deep gnome"] = {
+		regExpSearch : /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
+		name : "Svirfneblin",
+		sortname : "Gnome, Deep (Svirfneblin)",
+		source : [["E", 7], ["S", 115], ["MToF", 113]],
+		plural : "Svirfneblin",
+		size : 4,
+		speed : {
+			walk : { spd : 25, enc : 15 }
+		},
+		languageProfs : ["Common", "Gnomish", "Undercommon"],
+		vision : [["Darkvision", 120]],
+		savetxt : { text : ["Adv. on Int/Wis/Cha saves vs. magic"] },
+		age : " are considered full-grown adults when they reach 25 and live 200 to 250 years",
+		height : " stand between 3 and 3 1/2 feet tall (2'9\" + 2d4\")",
+		weight : " weigh around 90 lb (80 + 2d4 \xD7 1d4 lb)",
+		heightMetric : " stand between 90 and 105 cm tall (85 + 5d4 cm)",
+		weightMetric : " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
+		scores : [0, 1, 0, 2, 0, 0],
+		trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
+	};
+} // dupl_end
 
 // Racial variants
 AddRacialVariant("half-elf", "aquatic", {
@@ -132,13 +149,12 @@ AddRacialVariant("half-elf", "cantrip", {
 	plural : "Half-high elves",
 	skillstxt : "",
 	trait : "Half-High Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nCantrip:\n   I know one cantrip of my choice from the wizard spell list.\n   Intelligence is my spellcasting ability for it.",
-	abilitySave : 4,
 	spellcastingAbility : 4,
 	spellcastingBonus : {
 		name : "High Elf Cantrip",
 		"class" : "wizard",
 		level : [0, 0],
-		atwill : true
+		firstCol : 'atwill'
 	}
 });
 AddRacialVariant("half-elf", "drow magic", {
@@ -148,41 +164,38 @@ AddRacialVariant("half-elf", "drow magic", {
 	plural : "Half-drow",
 	skillstxt : "",
 	trait : "Half-drow (+2 Charisma and +1 to two other ability scores of my choice)\n\nDrow Magic:\n   I know the Dancing Lights cantrip.\n   Once I reach 3rd level, I can cast the Faerie Fire spell once per long rest.\n   Once I reach 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Drow Magic (level 1)",
 		spells : ["dancing lights"],
 		selection : ["dancing lights"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"faerie fire" : {
-			name : "Faerie Fire",
+			name : "Drow Magic (level 3)",
+			limfeaname : "Faerie Fire",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Drow Magic)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Drow Magic (level 3)",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		},
 		"darkness" : {
-			name : "Darkness",
+			name : "Drow Magic (level 5)",
+			limfeaname : "Darkness",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Drow Magic)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Drow Magic (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	}
@@ -192,7 +205,7 @@ AddRacialVariant("half-elf", "elf weapon training", {
 	source : ["S", 116],
 	skillstxt : "",
 	trait : "Half-Elf (+2 Charisma and +1 to two other ability scores of my choice)",
-	weaponprofs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]]
+	weaponProfs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]]
 });
 AddRacialVariant("half-elf", "fleet of foot", {
 	regExpSearch : /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
@@ -223,36 +236,39 @@ AddRacialVariant("tiefling", "devil's tongue", {
 		name : "Devil's Tongue (level 1)",
 		spells : ["vicious mockery"],
 		selection : ["vicious mockery"],
-		atwill : true
+		firstCol : 'atwill'
 	},
 	features : {
 		"charm person" : {
-			name : "Charm Person",
+			name : "Devil's Tongue (level 3)",
+			limfeaname : "Charm Person (2 targets)",
 			minlevel : 3,
 			usages : 1,
-			additional : "2 targets",
 			recovery : "long rest",
-			tooltip : " (Devil's Tongue)",
-			action : ["action", " (2 targets)"],
 			spellcastingBonus : {
 				name : "Devil's Tongue (level 3)",
 				spells : ["charm person"],
 				selection : ["charm person"],
-				oncelr : true
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"charm person" : {
+					description : "2 humanoids, max 30 ft apart, save or charmed; advantage on save if I or my allies are fighting it",
+					changes : "Using Devil's Tongue, I cast Charm Person as if I'm using a 2nd-level spell slot, affecting 2 humanoids."
+				}
 			}
 		},
 		"enthrall" : {
-			name : "Enthrall",
+			name : "Devil's Tongue (level 5)",
+			limfeaname : "Enthrall",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Devil's Tongue)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Devil's Tongue (level 5)",
 				spells : ["enthrall"],
 				selection : ["enthrall"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	}
@@ -265,32 +281,35 @@ AddRacialVariant("tiefling", "hellfire", {
 	trait : "Hellfire Tiefling (+1 Intelligence, +2 Charisma)\n\nInfernal Legacy (Hellfire):\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	features : {
 		"burning hands" : {
-			name : "Burning Hands",
+			name : "Hellfire Legacy (level 3)",
+			limfeaname : "Burning Hands (4d6)",
 			minlevel : 3,
 			usages : 1,
-			additional : "4d6",
 			recovery : "long rest",
-			tooltip : " (Infernal Hellfire Legacy)",
-			action : ["reaction", " (4d6)"],
 			spellcastingBonus : {
 				name : "Hellfire Legacy (level 3)",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
-				oncelr : true
+				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"burning hands" : {
+					description : "4d6 Fire damage; save halves; unattended flammable objects ignite",
+					changes : "Using Hellfire Legacy, I cast Burning Hands as if I'm using a 2nd-level spell slot, doing 4d6 Fire damage."
+				}
 			}
 		},
 		"darkness" : {
-			name : "Darkness",
+			name : "Hellfire Legacy (level 5)",
+			limfeaname : "Darkness",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			tooltip : " (Infernal Hellfire Legacy)",
-			action : ["action", ""],
 			spellcastingBonus : {
 				name : "Infernal Legacy (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
-				oncelr : true
+				firstCol : 'oncelr'
 			}
 		}
 	}
@@ -298,7 +317,7 @@ AddRacialVariant("tiefling", "hellfire", {
 AddRacialVariant("tiefling", "winged", {
 	regExpSearch : /wing/i,
 	name : "Winged tiefling",
-	source : ["S", 118],
+	source : [["S", 118]],
 	plural : "Winged tieflings",
 	speed : {
 		walk : { spd : 30, enc : 20 },
@@ -306,11 +325,10 @@ AddRacialVariant("tiefling", "winged", {
 	},
 	trait : "Winged Tiefling (+1 Intelligence, +2 Charisma)\n\nWings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 feet when I'm not wearing heavy armor.",
 	features : "",
-	abilitySave : 0,
 	spellcastingAbility : "",
 	spellcastingBonus : ""
 });
-var AddTieflingSCAG = function(){
+RunFunctionAtEnd(function() {
 	if (!RaceList.tiefling) return;
 	var tRace = {
 		objname : "feral tiefling",
@@ -318,29 +336,28 @@ var AddTieflingSCAG = function(){
 		replaceNameTxt : ["tiefling", "feral tiefling"],
 		regExpSearch : /^(?=.*feral)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
 		name : "Feral tiefling",
+		sortname : "Tiefling, Feral",
 		source : ["S", 118],
 		plural : "Feral tieflings",
-		sortname : "Tiefling, Feral",
-		improvements : "Feral Tiefling: +2 Dexterity, +1 Intelligence;",
 		scores : [0, 2, 0, 1, 0, 0],
 		trait : "Feral Tiefling (+2 Dexterity, +1 Intelligence)\n\nInfernal Legacy:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells."
 	};
 	// Create the RaceList entry
-	RaceList[tRace.objname] = eval(RaceList.tiefling.toSource());
+	RaceList[tRace.objname] = newObj(RaceList.tiefling);
 	for (var rFea in tRace) {
 		if ((/objname|replaceTraitTxt|replaceNameTxt/).test(rFea)) continue;
 		RaceList[tRace.objname][rFea] = tRace[rFea];
 	};
 	// Create feral tiefling variants
 	RaceList[tRace.objname].variants.forEach( function(nVar) {
-		RaceSubList[tRace.objname + "-" + nVar] = eval(RaceSubList["tiefling-" + nVar].toSource());
+		RaceSubList[tRace.objname + "-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
 		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
 		thisVar.trait = thisVar.trait.replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
 		thisVar.name = thisVar.name.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
 		thisVar.plural = thisVar.plural.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
 	});
-}();
+});
 
 // Subclasses
 AddSubClass("barbarian", "battlerager", {
@@ -359,10 +376,35 @@ AddSubClass("barbarian", "battlerager", {
 				"As a bonus action while raging, I can attack once with my armor spikes",
 				"With my spiked armor I do 3 piercing damage when I use my Attack action to grapple"
 			]),
-			action : ["bonus action", " attack (in rage)"],
-			weapons : [false, false, ["armor spikes"]],
-			eval : "AddString('Proficiency Armor Other Description', 'Spiked Armor', ', '); AddWeapon('Armor Spikes');",
-			removeeval : "RemoveWeapon('Armor Spikes'); RemoveString('Proficiency Armor Other Description', 'Spiked Armor');"
+			action : ["bonus action", "Armor Spikes attack (in rage)"],
+			armorOptions : {
+				regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
+				name : "Spiked armor",
+				source : ["S", 121],
+				type : "medium",
+				ac : 14,
+				stealthdis : true,
+				weight : 45
+			},
+			weaponOptions : {
+				regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
+				name : "Armor spikes",
+				source : ["S", 121],
+				ability : 1,
+				type : "armor spikes",
+				damage : [1, 4, "piercing"],
+				range : "Melee",
+				description : "Does 3 piercing damage when grappling during my Attack action",
+				abilitytodamage : true
+			},
+			weaponProfs : [false, false, ["armor spikes"]],
+			weaponsAdd : ['Armor Spikes'],
+			eval : function() {
+				AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');
+			},
+			removeeval : function () {
+				RemoveString('Proficiency Armor Other Description', 'Spiked Armor');
+			}
 		},
 		"subclassfeature6" : {
 			name : "Reckless Abandon",
@@ -397,7 +439,6 @@ AddSubClass("cleric", "arcana domain", {
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with Arcana and two wizard cantrips that count as cleric cantrips",
 			skills : ["Arcana"],
-			skillstxt : "\n\n" + toUni("Arcane Domain") + ": Arcana.",
 			spellcastingBonus : {
 				name : "Arcane Initiate",
 				"class" : "wizard",
@@ -417,7 +458,37 @@ AddSubClass("cleric", "arcana domain", {
 			name : "Spell Breaker",
 			source : ["S", 126],
 			minlevel : 6,
-			description : "\n   " + "When I restore HP to an ally with a 1st-level or higher spell, I can also end one spell" + "\n   " + "The chosen spell on the ally ends if it is equal or lower level to the spell slot level used"
+			description : "\n   " + "When I restore HP to an ally with a 1st-level or higher spell, I can also end one spell" + "\n   " + "The chosen spell on the ally ends if it is equal or lower level to the spell slot level used",
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {							
+						var startDescr = spellObj.description;
+						switch (spellKey) {
+							case "mass heal" :
+								spellObj.description = "Heal 700 hp, split over crea in range; also cures blindness, deafness, and all diseases; spell breaker";
+								break;
+							case "power word heal" :
+								spellObj.description = spellObj.description.replace(/heals all.*/i, "full hp; no longer charmed, frightened, paralyzed, stunned; can stand up as rea; spell breaker");
+								break;
+							case "goodberry" :
+								spellObj.description = spellObj.description.replace("Create ", "").replace("lose potency after ", "remain");
+							case "regenerate" :
+								spellObj.description = spellObj.description.replace(" for rest of duration", "");
+							case "heal" :
+								spellObj.description = spellObj.description.replace("all diseases", "diseases");
+							case "cure wounds" :
+							case "healing word" :
+							case "life transference" :
+							case "mass cure wounds" :
+							case "mass healing word" :
+							case "prayer of healing" :
+								spellObj.description = spellObj.description.replace(/creatures?/i, "crea").replace("within", "in").replace("spellcasting ability modifier", "spellcasting ability mod") + "; spell breaker";
+						}
+						return startDescr !== spellObj.description;
+					},
+					"When I cast a spell that restores hit points to another creature than myself, I can also end a spell affecting the target. This spell can be of the same level of the spell slot used to cast the healing spell, or lower."
+				]
+			}
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",
@@ -425,7 +496,25 @@ AddSubClass("cleric", "arcana domain", {
 			minlevel : 8,
 			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
-				atkCalc : ["if (classes.known.cleric && classes.known.cleric.level > 7 && thisWeapon[4].indexOf('cleric') !== -1 && thisWeapon[3] && SpellsList[thisWeapon[3]].level === 0) { output.extraDmg += What('Wis Mod'); }; ", "My cleric cantrips get my Wisdom modifier added to their damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
+							output.extraDmg += What('Wis Mod');
+						};
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
+						if (spellKey == "shillelagh") {
+							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
+							return true;
+						}
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+					},
+					"My cleric cantrips get my Wisdom modifier added to their damage."
+				]
 			}
 		},
 		"subclassfeature17" : {
@@ -437,23 +526,23 @@ AddSubClass("cleric", "arcana domain", {
 				name : "Arcane Mastery (6)",
 				"class" : "wizard",
 				level : [6, 6],
-				prepared : true
+				firstCol : 'markedbox'
 			}, {
 				name : "Arcane Mastery (7)",
 				"class" : "wizard",
 				level : [7, 7],
-				prepared : true
+				firstCol : 'markedbox'
 			}, {
 				name : "Arcane Mastery (8)",
 				"class" : "wizard",
 				level : [8, 8],
-				prepared : true
+				firstCol : 'markedbox'
 			}, {
 				name : "Arcane Mastery (9)",
 				"class" : "wizard",
 				level : [9, 9],
-				prepared : true
-			},]
+				firstCol : 'markedbox'
+			}]
 		}
 	}
 });
@@ -468,25 +557,27 @@ AddSubClass("fighter", "purple dragon knight", {
 			source : ["S", 128],
 			minlevel : 3,
 			description : "\n   " + "When I use Second Wind, I also heal three allies within 60 ft that can see or hear me",
-			additional : ["", "", "3 HP", "4 HP", "5 HP", "6 HP", "7 HP", "8 HP", "9 HP", "10 HP", "11 HP", "12 HP", "13 HP", "14 HP", "15 HP", "16 HP", "17 HP", "18 HP", "19 HP", "20 HP"],
-			eval : "RemoveAction('bonus action', 'Second Wind'); AddAction('bonus action', 'Second Wind (+ Rallying Cry)', 'Purple Dragon Knight')",
-			removeeval : "RemoveAction('bonus action', 'Second Wind (+ Rallying Cry)'); AddAction('bonus action', 'Second Wind', 'Fighter')"
+			additional : levels.map(function (n) {
+				return n < 3 ? "" : n + " HP";
+			}),
+			action : [["bonus action", "Second Wind (+Rallying Cry)", "Second Wind"]]
 		},
 		"subclassfeature7" : {
 			name : "Royal Envoy",
 			source : ["S", 128],
 			minlevel : 7,
 			description : "\n   " + "I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Performance",
-			skillstxt : "\n\n" + toUni("Purple Dragon Knight (Royal Envoy)") + ": Persuasion proficiency and expertise; if already proficient, choose one from Animal Handling, Insight, Intimidation, or Performance.",
-			eval : "AddSkillProf('Persuasion', true, true);",
-			removeeval : "AddSkillProf('Persuasion', false, true);"
+			skillstxt : "Persuasion proficiency and expertise; If already proficient, choose one from Animal Handling, Insight, Intimidation, or Performance",
+			skills : ["Persuasion", "full"]
 		},
 		"subclassfeature10" : {
 			name : "Inspiring Surge",
 			source : ["S", 128],
 			minlevel : 10,
 			description : "\n   " + "When I use my Action Surge, I can inspire an ally within 60 ft that can see or hear me" + "\n   " + "The ally can then use its reaction to make one melee or ranged weapon attack",
-			additional : ["", "", "", "", "", "", "", "", "", "1 ally", "1 ally", "1 ally", "1 ally", "1 ally", "1 ally", "1 ally", "1 ally", "2 allies", "2 allies", "2 allies"]
+			additional : levels.map(function (n) {
+				return n < 10 ? "" : n < 18 ? "1 ally" : "2 allies";
+			})
 		},
 		"subclassfeature15" : {
 			name : "Bulwark",
@@ -521,13 +612,16 @@ AddSubClass("monk", "way of the long death", {
 			additional : "1 ki point",
 			description : "\n   " + "When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead",
 			extraname : "Way of the Long Death 17",
-			changeeval : "if (newClassLvl.monk >= 17 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('touch of the long death') === -1) {ClassFeatureOptions(['monk', 'subclassfeature11', 'touch of the long death', 'extra'])} else if (newClassLvl.monk < 17 && oldClassLvl.monk >= 17) {ClassFeatureOptions(['monk', 'subclassfeature11', 'touch of the long death', 'extra'], 'remove')};",
 			"touch of the long death" : {
 				name : "Touch of the Long Death",
 				source : ["S", 131],
 				description : " [1-10 ki points]" + "\n   " + "As an action, a target within 5 ft takes 2d10 necrotic damage per ki point I spent" + "\n   " + "It can make a Constitution saving throw to half the damage",
 				action : ["action", ""]
-			}
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "touch of the long death",
+				minlevel : 17
+			}]
 		}
 	}
 });
@@ -546,10 +640,20 @@ AddSubClass("monk", "way of the sun soul", {
 				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 			]),
 			action : ["bonus action", " (2\u00D7 with Attack action)"],
-			eval : "AddWeapon('Radiant Sun Bolt');",
-			removeeval : "RemoveWeapon('Radiant Sun Bolt');",
+			weaponOptions : {
+				regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
+				name : "Radiant Sun Bolt",
+				source : [["S", 131], ["X", 35]],
+				ability : 2,
+				type : "Spell",
+				damage : [1, 4, "radiant"],
+				range : "30 ft",
+				description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
+				monkweapon : true,
+				abilitytodamage : true
+			},
+			weaponsAdd : ['Radiant Sun Bolt'],
 			extraname : "Way of the Sun Soul 6",
-			changeeval : "if (newClassLvl.monk >= 6 && (What('Extra.Notes') + What('Class Features')).toLowerCase().indexOf('searing arc strike') === -1) {ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'])} else if (newClassLvl.monk < 6 && oldClassLvl.monk >= 6) {ClassFeatureOptions(['monk', 'subclassfeature3', 'searing arc strike', 'extra'], 'remove')};",
 			"searing arc strike" : {
 				name : "Searing Arc Strike",
 				source : [["S", 131], ["X", 35]],
@@ -558,13 +662,31 @@ AddSubClass("monk", "way of the sun soul", {
 					"For every additional ki point I spend, Burning hands is cast at 1 higher spell level",
 					"The maximum total ki points I can spend for this (including the 2) is half my Monk level"
 				]),
-				additional : levels.map(function (n) { 
+				additional : levels.map(function (n) {
 					if (n < 3) return "";
 					var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 				}),
-				action : ["bonus action", " (after Attack action)"]
-			}
+				action : ["bonus action", " (after Attack action)"],
+				spellcastingBonus : {
+					name : "Searing Arc Strike",
+					spells : ["burning hands"],
+					selection : ["burning hands"],
+					firstCol : 2
+				},
+				spellFirstColTitle : "Ki",
+				spellChanges : {
+					"burning hands" : {
+						time : "1 bns",
+						description : "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
+						changes : "After I use the Attack action, I can cast Burning Hands as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level."
+					}
+				}
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "searing arc strike",
+				minlevel : 6
+			}]
 		},
 		"subclassfeature11" : {
 			name : "Searing Sunburst",
@@ -585,10 +707,8 @@ AddSubClass("monk", "way of the sun soul", {
 				"As a reaction, when I'm hit by a melee attack, I can deal 5 + Wis mod radiant damage",
 				"I can only do this while my light aura is on; I can turn it on/off as a bonus action"
 			]),
-			action : ["bonus action", " (start/stop)"],
-			additional : "30-ft rad bright + 30-ft dim light",
-			eval : "AddAction('reaction', 'Sun Shield (hit in melee)', 'Monk (Way of the Sun Soul)')",
-			removeeval : "RemoveAction('reaction', 'Sun Shield');"
+			action : [["bonus action", " (start/stop)"], ["reaction", " (hit in melee)"]],
+			additional : "30-ft rad bright + 30-ft dim light"
 		}
 	}
 });
@@ -630,7 +750,11 @@ AddSubClass("paladin", "oath of the crown", {
 			name : "Exalted Champion",
 			source : ["S", 133],
 			minlevel : 20,
-			description : "\n   " + "As an action, I gain the following benefits for 1 hour or until I'm incapacitated:" + "\n    - " + "Resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons" + "\n    - " + "My allies within 30 ft of me and I have advantage on Wisdom and Death saves",
+			description : desc([
+				"As an action, I gain the following benefits for 1 hour or until I'm incapacitated:",
+				" \u2022 " + "Resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons",
+				" \u2022 " + "My allies within 30 ft of me and I have advantage on Wisdom and Death saves"
+			]),
 			recovery : "long rest",
 			usages : 1,
 			action : ["action", ""]
@@ -719,7 +843,7 @@ AddSubClass("rogue", "swashbuckler", {
 				"I don't need advantage to sneak attack if my target is the only one within 5 ft of me",
 				"I still can't sneak attack if I have disadv.; I add my Charisma modifier to initiative rolls"
 			]),
-			addMod : { type : "skill", field : "Init", mod : "Cha", text : "I can add my Charisma modifier to initiative rolls." }
+			addMod : { type : "skill", field : "Init", mod : "max(Cha|0)", text : "I can add my Charisma modifier to initiative rolls." }
 		},
 		"subclassfeature9" : {
 			name : "Panache",
@@ -866,7 +990,7 @@ AddSubClass("warlock", "the undying", {
 			action : ["bonus action", ""],
 			recovery : "short rest",
 			usages : 1,
-			additional : ["", "", "", "", "", "", "", "", "", "", "", "", "", "1d8 + 14 HP", "1d8 + 15 HP", "1d8 + 16 HP", "1d8 + 17 HP", "1d8 + 18 HP", "1d8 + 19 HP", "1d8 + 20 HP"]
+			additional : levels.map(function (n) { return n < 14 ? "" : "1d8 + " + n + " HP"; })
 		}
 	}
 });
@@ -882,15 +1006,22 @@ AddSubClass("wizard", "bladesinging", {
 			source : ["S", 142],
 			minlevel : 2,
 			description : "\n   " + "I gain proficiency with light armor, a one-handed melee weapon, and Performance",
-			armor : [true, false, false, false],
-			skills : ["Performance"],
-			skillstxt : "\n\n" + toUni("Bladesinger") + ": Performance"
+			armorProfs : [true, false, false, false],
+			skills : ["Performance"]
 		},
 		"subclassfeature2.1" : {
 			name : "Bladesong",
 			source : ["S", 142],
 			minlevel : 2,
-			description : "\n   " + "As a bonus action, I can start the bladesong for 1 minute; I can dismiss it at any time" + "\n   " + "It stops when I wear a shield, medium or heavy armor, or attack with two hands" + "\n   " + "While the bladesong is active I have the following benefits:" + "\n    - " + "Intelligence modifier (min 1) to AC" + "\n    - " + "Base walking speed increases by 10 foot" + "\n    - " + "Advantage on Dexterity (Acrobatics) checks" + "\n    - " + "Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell",
+			description : desc([
+				"As a bonus action, I can start the bladesong for 1 minute; I can dismiss it at any time",
+				"It stops when I wear a shield, medium or heavy armor, or attack with two hands",
+				"While the bladesong is active I have the following benefits:",
+				" \u2022 Intelligence modifier (min 1) to AC",
+				" \u2022 Base walking speed increases by 10 foot",
+				" \u2022 Advantage on Dexterity (Acrobatics) checks",
+				" \u2022 Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell"
+			]),
 			action : ["bonus action", " (start)"],
 			recovery : "short rest",
 			usages : 2
@@ -899,7 +1030,7 @@ AddSubClass("wizard", "bladesinging", {
 			name : "Song of Defense",
 			source : ["S", 142],
 			minlevel : 10,
-			description : "\n   " + "As a reaction while my bladesong is active, I can expand a spell slot to reduce damage" + "\n   " + "The damage I take is reduced by 5 for every level of the spell slot I expand",
+			description : "\n   " + "As a reaction while my bladesong is active, I can expend a spell slot to reduce damage" + "\n   " + "The damage I take is reduced by 5 for every level of the spell slot I expend",
 			action : ["reaction", " (in bladesong)"]
 
 		},
@@ -909,75 +1040,75 @@ AddSubClass("wizard", "bladesinging", {
 			minlevel : 14,
 			description : "\n   " + "While my bladesong is active, I can add my Int mod to melee weapon attack damage",
 			calcChanges : {
-				atkCalc : ["if (classes.known.wizard && classes.known.wizard.level > 13 && isMeleeWeapon && (/blade.?song/i).test(WeaponText)) { output.extraDmg += What('Int Mod'); }; ", "If I include the word 'Bladesong' in the name or description of a melee weapon, it gets my Intelligence modifier added to its Damage."]
+				atkCalc : [
+					function (fields, v, output) {
+						if (classes.known.wizard && classes.known.wizard.level > 13 && v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponText)) {
+							output.extraDmg += What('Int Mod');
+						};
+					},
+					"If I include the word 'Bladesong' in the name or description of a melee weapon, it gets my Intelligence modifier added to its Damage."
+				]
 			}
 		}
 	}
 });
 
 // New Totem Warrior options
-var AmendTotemWarriorSCAG = function() {
-	if (!ClassSubList["barbarian-totem warrior"] || ClassSubList["barbarian-totem warrior"].source.indexOf("P") === -1) return;
-	var TWadds = [{
-		name : "Elk",
-		addto : "subclassfeature3.1",
-		feature : {
+if (ClassSubList["barbarian-totem warrior"]) {
+	var TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature3.1"];
+	if (TotemWarriorFeature) {
+		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
 			name : "Elk Spirit",
 			source : ["S", 122],
-			description : "\n   " + "While raging without heavy armor, my base walking speed increases by 15 ft"
-		}
-	}, {
-		name : "Tiger",
-		addto : "subclassfeature3.1",
-		feature : {
+			description : "\n   While raging without heavy armor, my base walking speed increases by 15 ft"
+		});
+		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Spirit",
 			source : ["S", 122],
-			description : "\n   " + "While raging, I can add 10 feet to my long jump and 3 feet to my high jump distance"
-		}
-	}, {
-		name : "Elk",
-		addto : "subclassfeature6",
-		feature : {
+			description : "\n   While raging, I can add 10 ft to my long jump and 3 ft to my high jump distance"
+		});
+	}
+	TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature6"];
+	if (TotemWarriorFeature) {
+		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
 			name : "Aspect of the Elk",
 			source : ["S", 122],
-			description : "\n   " + "While mounted or on foot and not incapacitated, my travel pace is doubled" + "\n   " + "I can extend this benefit to up to ten companions, while they are within 60 ft of me"
-		}
-	}, {
-		name : "Tiger",
-		addto : "subclassfeature6",
-		feature : {
+			description : desc([
+				"While mounted or on foot and not incapacitated, my travel pace is doubled",
+				"I can extend this benefit to up to ten companions, while they are within 60 ft of me"
+			])
+		});
+		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
 			name : "Aspect of the Tiger",
 			source : ["S", 122],
-			description : "\n   " + "I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
-			skillstxt : "\n\n" + toUni("Aspect of the Tiger") + ": Choose two from Athletics, Acrobatics, Stealth, and Survival."
-		}
-	}, {
-		name : "Elk",
-		addto : "subclassfeature14",
-		feature : {
+			description : "\n   I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
+			skillstxt : "Choose two from Athletics, Acrobatics, Stealth, and Survival"
+		});
+	}
+	TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature14"];
+	if (TotemWarriorFeature) {
+		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
 			name : "Elk Attunement",
 			source : ["S", 122],
-			description : "\n   " + "As a bonus action while raging, I can move through a Large or smaller creature's space" + "\n   " + "It must make a Strength save of DC 8 + Strength modifier + Proficiency bonus" + "\n   " + "If failed, it is knocked prone and takes 1d12 + Strength modifier bludgeoning damage",
-			action : ["bonus action", " (in rage)"]
-		}
-	}, {
-		name : "Tiger",
-		addto : "subclassfeature14",
-		feature : {
+			description : desc([
+				"As a bonus action while raging, I can move through a Large or smaller creature's space",
+				"It must make a Strength save of DC 8 + Strength modifier + Proficiency bonus",
+				"If failed, it is knocked prone and takes 1d12 + Strength modifier bludgeoning damage"
+			]),
+			action : [["bonus action", " (in rage)"]]
+		});
+		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Attunement",
 			source : ["S", 122],
-			description : "\n   " + "As a bonus action while raging, I can make a melee weapon attack on these conditions:" + "\n    - " + "I move at least 20 ft in a straight line towards the target that is Large or smaller" + "\n    - " + "I make a melee weapon attack against it after the bonus action",
-			action : ["bonus action", " (in rage)"]
-		}
-	}]
-	var TW = ClassSubList["barbarian-totem warrior"].features;
-	for (var i = 0; i < TWadds.length; i++) {
-		var tA = TWadds[i];
-		var TWfea = TW[tA.addto];
-		TWfea.choices.push(tA.name);
-		TWfea[tA.name.toLowerCase()] = tA.feature;
-	};
-}();
+			description : desc([
+				"As a bonus action while raging, I can make a melee weapon attack on these conditions:",
+				" \u2022 I move at least 20 ft in a straight line towards the target that is Large or smaller",
+				" \u2022 I make a melee weapon attack against it after the bonus action"
+			]),
+			action : [["bonus action", " (in rage)"]]
+		});
+	}
+}
 
 // Backgrounds
 BackgroundList["far traveler"] = {
@@ -1323,7 +1454,7 @@ BackgroundFeatureList["mercenary life"] = {
 	source : [["S", 152], ["ALbackground", 0]]
 };
 BackgroundFeatureList["respect of the stout folk"] = {
-	description : "No one esteems clan crafters quite so highly as dwarves do. I always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer you (and possibly your compatriots) the finest accommodations and assistance.",
+	description : "No one esteems clan crafters quite so highly as dwarves do. I always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer me (and possibly my compatriots) the finest accommodations and assistance.",
 	source : [["S", 145], ["ALbackground", 0]]
 };
 BackgroundFeatureList["safe haven"] = {
@@ -1339,42 +1470,6 @@ BackgroundFeatureList["watcher's eye"] = {
 	source : [["S", 145], ["ALbackground", 0]]
 };
 
-// Armour
-ArmourList["spiked armor"] = { // battlerager armour
-	regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
-	name : "Spiked armor",
-	source : ["S", 121],
-	type : "medium",
-	ac : 14,
-	stealthdis : true,
-	weight : 45,
-	strReq : 0
-};
-
-// Weapons
-WeaponsList["armor spikes"] = {
-	regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
-	name : "Armor spikes",
-	source : ["S", 121],
-	ability : 1,
-	type : "Other",
-	damage : [1, 4, "piercing"],
-	range : "Melee",
-	description : "Does 3 piercing damage when grappling during my Attack action",
-	abilitytodamage : true
-};
-WeaponsList["radiant sun bolt"] = {
-	regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
-	name : "Radiant Sun Bolt",
-	source : [["S", 131], ["X", 35]],
-	ability : 2,
-	type : "Spell",
-	damage : [1, 4, "radiant"],
-	range : "30 ft",
-	description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
-	monkweapon : true,
-	abilitytodamage : true
-};
 WeaponsList["booming blade"] = {
 	regExpSearch : /^(?=.*booming)(?=.*blade).*$/i,
 	name : "Booming Blade",
@@ -1426,27 +1521,39 @@ WeaponsList["sword burst"] = {
 	dc : true
 };
 
-// Feat
-FeatsList["svirfneblin magic"] = {
-	name : "Svirfneblin Magic",
-	source : [["E", 7], ["S", 115]],
-	prerequisite : "Being a Svirfneblin (Deep Gnome)",
-	prereqeval : "CurrentRace.known === 'deep gnome'",
-	description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
-	spellcastingBonus : [{
-		name : "at will (self only)",
-		spellcastingAbility : 4,
-		spells : ["nondetection"],
-		selection : ["nondetection"],
-		atwill : true
-	}, {
-		name : "1x long rest (self only)",
-		spells : ["blindness/deafness", "blur", "disguise self"],
-		selection : ["blindness/deafness", "blur", "disguise self"],
-		oncelr : true,
-		times : 3
-	}]
-};
+// [dupl_start] Feat reprint from Elemental Evil Player's Companion
+if (!FeatsList["svirfneblin magic"]) {
+	FeatsList["svirfneblin magic"] = {
+		name : "Svirfneblin Magic",
+		source : [["E", 7], ["S", 115], ["MToF", 114]],
+		prerequisite : "Being a Svirfneblin (Deep Gnome)",
+		prereqeval : function(v) { return CurrentRace.known === 'deep gnome'; },
+		descriptionFull : "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+		description : "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
+		spellcastingBonus : [{
+			name : "at will (self only)",
+			spellcastingAbility : 4,
+			spells : ["nondetection"],
+			selection : ["nondetection"],
+			firstCol : 'atwill'
+		}, {
+			name : "1x long rest (self only)",
+			spells : ["blindness/deafness", "blur", "disguise self"],
+			selection : ["blindness/deafness", "blur", "disguise self"],
+			firstCol : 'oncelr',
+			times : 3
+		}],
+		spellChanges : {
+			"nondetection" : {
+				range : "Self",
+				components : "V,S",
+				compMaterial : "",
+				description : "I am hidden from all divination magic",
+				changes : "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself."
+			}
+		}
+	};
+} // dupl_end
 
 // Spells
 SpellsList["booming blade"] = {
@@ -1460,8 +1567,9 @@ SpellsList["booming blade"] = {
 	components : "V,M",
 	compMaterial : "A weapon",
 	duration : "Instantaneous",
-	description : "Melee wea atk with cast; if hit, it 0d8, if it moves next rnd it 1d8 Thunder dmg; +1d8 at CL5, 11, \u0026 17",
-	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends." + AtHigherLevels + "This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level."
+	description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next rnd +1d8; +1d8 at CL5, 11, \u0026 17",
+	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if it moves next round +`CD`d8 Thunder dmg",
+	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["green-flame blade"] = {
 	name : "Green-Flame Blade",
@@ -1474,8 +1582,9 @@ SpellsList["green-flame blade"] = {
 	components : "V,M",
 	compMaterial : "A weapon",
 	duration : "Instantaneous",
-	description : "Melee wea atk with cast; if hit, it 0d8, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL 5, 11, and 17",
-	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier." + "\n   " + "This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level."
+	description : "Melee wea atk with cast; atk +0d8 Fire dmg, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL5/11/17",
+	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
+	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level."
 };
 SpellsList["lightning lure"] = {
 	name : "Lightning Lure",
@@ -1488,7 +1597,8 @@ SpellsList["lightning lure"] = {
 	components : "V",
 	duration : "Instantaneous",
 	save : "Str",
-	description : "1 crea you see save or pull 10 ft to you; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
+	description : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, `CD`d8 Lightning dmg",
 	descriptionFull : "You create a lash of lightning energy that strikes at one creature of your choice that you can see within range. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
 SpellsList["sword burst"] = {
@@ -1503,5 +1613,6 @@ SpellsList["sword burst"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "All crea in range save or 1d6 Force damage; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "All crea in range save or `CD`d6 Force damage",
 	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. Each creature within range, other than you, must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };

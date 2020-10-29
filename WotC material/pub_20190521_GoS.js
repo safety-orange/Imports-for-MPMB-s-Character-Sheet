@@ -1,5 +1,5 @@
 var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion(12.999);
+RequiredSheetVersion(13);
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -40,7 +40,7 @@ BackgroundList["fisher"] = {
 	],
 	ideal : [
 		["Camaraderie", "Camaraderie. Good people make even the longest voyage bearable. (Good)"],
-		["Luck", "Luck. Our luck depends on respecting its rules—now throw this salt over your shoulder. (Lawful)"],
+		["Luck", "Luck. Our luck depends on respecting its rules\u2014now throw this salt over your shoulder. (Lawful)"],
 		["Daring", "Daring. The richest bounty goes to those who risk everything. (Chaotic)"],
 		["Plunder", "Plunder. Take all that you can and leave nothing for the scavengers. (Evil)"],
 		["Balance", "Balance. Do not fish the same spot twice in a row; suppress your greed, and nature will reward you. (Neutral)"],
@@ -110,7 +110,7 @@ BackgroundList["marine"] = {
 		["Code", "Code. The marines' code provides a solution for every problem, and following it is imperative. (Lawful)"],
 		["Embracing", "Embracing. Life is messy. Throwing yourself into the worst of it is necessary to get the job done. (Chaotic)"],
 		["Might", "Might. The strong train so that they might rule those who are weak. (Evil)"],
-		["Bravery", "Bravery. To act when others quake in fear—this is the essence of the warrior. (Any)"],
+		["Bravery", "Bravery. To act when others quake in fear\u2014this is the essence of the warrior. (Any)"],
 		["Perseverance", "Perseverance. No injury or obstacle can turn me from my goal. (Any)"]
 	],
 	bond : [
@@ -167,7 +167,7 @@ BackgroundList["shipwright"] = {
 		"I'm extremely fond of puzzles.",
 		"I thrive under pressure.",
 		"I love sketching and designing objects, especially boats.",
-		"I'm not afraid of hard work—in fact, I prefer it.",
+		"I'm not afraid of hard work\u2014in fact, I prefer it.",
 		"A pipe, an ale, and the smell of the sea: paradise.",
 		"I have an endless supply of cautionary tales related to the sea.",
 		"I don't mind getting my hands dirty."
@@ -273,6 +273,84 @@ BackgroundFeatureList["down low"] = {
 	source : [["GoS", 34], ["ALbackground", 0]]
 };
 
+MagicItemsList["charm of plant command"] = {
+	name : "Charm of Plant Command",
+	source : ["GoS", 229],
+	type : "wondrous item",
+	rarity : "rare",
+	magicItemTable : "C",
+	description : "This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. It has 3 charges, regain all at dawn. As an action, I can expend 1 charge to cast Speak With Plants. While that spell lasts, I also have adv. on Charisma checks made to influence the behavior, demeanor, and attitude of plants.",
+	descriptionFull : "This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. Hung on a leather thong, it is typically worn around the neck or attached to a belt.\n   This charm has 3 charges. While you bear the charm, you can expend 1 charge as an action to cast the Speak With Plants spell. For the duration of the spell, you also have advantage on Charisma checks made to influence the behavior, demeanor, and attitude of plants. The charm regains all expended charges at dawn each day.",
+	attunement : true,
+	usages : 3,
+	recovery : "dawn",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["speak with plants"],
+		selection : ["speak with plants"],
+		firstCol : 1
+	},
+	spellChanges : {
+		"speak with plants" : {
+			description : "Talk with plants about previous 24h; plants to difficult terrain or vice versa; adv. Cha checks vs. plants",
+			changes : "For the duration of the spell, I also have advantage on Charisma checks made to influence the behavior, demeanor, and attitude of plants."
+		}
+	}
+}
+MagicItemsList["cursed luckstone"] = {
+	name : "Cursed Luckstone",
+	source : ["GoS", 229],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "C",
+	description : "This flat, gray-and-black river stone is inscribed with an arcane symbol. It is cursed and attuning to it curses me. Once per dawn while it is on my person, I can gain adv. on one ability check of my choice, but disadv. on my next two ability checks. Discarding the stone will cause it to teleport back into my pocket.",
+	descriptionFull : "This flat, gray-and-black river stone is inscribed with an unknown arcane symbol and feels cool to the touch. While carrying the stone, you can gain advantage on one ability check of your choice. The stone can't be used this way again until the next dawn.\n   " + toUni("Curse") + "This item is cursed. Attuning to it curses you until you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
+	attunement : true,
+	usages : 1,
+	recovery : "dawn"
+}
+MagicItemsList["helm of underwater action"] = {
+	name : "Helm of Underwater Action",
+	source : ["GoS", 229],
+	type : "wondrous item",
+	rarity : "uncommon",
+	magicItemTable : "F",
+	description : "While wearing this brass helmet, I can breathe underwater, I gain darkvision with a range of 60 ft, and I gain a swimming speed of 30 ft.",
+	descriptionFull : "While wearing this brass helmet, you can breathe underwater, you gain darkvision with a range of 60 feet, and you gain a swimming speed of 30 feet.",
+	attunement : true,
+	weight : 1,
+	vision : [["Darkvision", "fixed 60"]],
+	speed : { swim : { spd : 30, enc : 20 } }
+}
+MagicItemsList["pipe of remembrance"] = {
+	name : "Pipe of Remembrance",
+	source : ["GoS", 229],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Smoke exhaled from this delicate wooden pipe with a river stone bowl does not dissipate, but lingers around. Once per dawn, I can have that smoke form moving shapes after 10 minutes. The shapes reenact my most impressive and heroic achievements realistically for 5 minutes, after which the smoke dissipates.",
+	descriptionFull : "This long, delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, smoke exhaled from it does not dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that reenact the bearer's most impressive and heroic achievements for 5 minutes. When this realistic performance is complete, the smoke dissipates. The pipe can't be used this way again until the next dawn.",
+	usages : 1,
+	recovery : "dawn"
+}
+MagicItemsList["pressure capsule"] = {
+	name : "Pressure Capsule",
+	source : ["GoS", 229],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Consuming this capsule of beeswax, sand, and enchanted water plants will prevent the effects of swimming at depths greater than 100 ft for 1 hour. Thus, a creature without a swimming speed does not multiply the time spend swimming at depth for the purpose of determining exhaustion.",
+	descriptionFull : "This small capsule is made of beeswax blended with sand and a variety of enchanted water plants. A creature who consumes a pressure capsule ignores the effects of swimming at depths greater than 100 feet for 1 hour (see \"Unusual Environments\" in chapter 5 of the Dungeon Master's Guide)." // addition of 1 hour duration from AL content catalogue v8.08
+}
+MagicItemsList["sekolahian worshiping statuette"] = {
+	name : "Sekolahian Worshiping Statuette",
+	source : ["GoS", 229],
+	type : "wondrous item",
+	rarity : "common",
+	description : "Skillfully carved from sandstone, this 1-ft-tall statuette depicts a shark twisting through the water with its mouth open. Once per hour when a Tiny sea-dwelling animal is within 1 inch of the statuette's mouth, the shark flashes to life and deals 1 piercing damage to it.",
+	descriptionFull : "Skillfully carved from sandstone, this 1-foot-tall statuette depicts a shark twisting through the water with its mouth open. If any Tiny sea-dwelling animal is within 1 inch of the statuette's mouth, the shark flashes to life and deals 1 piercing damage to it. The shark can deal damage in this way no more than once per hour."
+}
+
+// Creatures [Sea Lion removed, because it was completely rewritten as a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/GoS-Errata.pdf ]
 CreatureList["fish"] = {
 	name : "Fish",
 	source : ["GoS", 215],
@@ -396,49 +474,5 @@ CreatureList["giant sea eel"] = {
 	traits : [{
 		name : "Water Breathing",
 		description : "The eel can breathe only underwater."
-	}]
-}
-CreatureList["sea lion"] = {
-	name : "Sea Lion",
-	source : ["GoS", 252],
-	size : 2,
-	type : "Beast",
-	subtype : "",
-	alignment : "Unaligned",
-	ac : 16,
-	hp : 15,
-	hd : [2, 10],
-	speed : "15 ft, swim 30 ft",
-	scores : [17, 10, 14, 5, 10, 12],
-	saves : ["", 2, 4, "", "", ""],
-	skills : {
-		"athletics" : 5,
-		"perception" : 2
-	},
-	senses : "",
-	passivePerception : 12,
-	languages : "",
-	challengeRating : "1/2",
-	proficiencyBonus : 2,
-	attacksAction : 3,
-	attacks : [{
-		name : "Bite",
-		ability : 1,
-		damage : [1, 8, "piercing"],
-		range : "Melee (5 ft)",
-		description : "One bite and two claw attacks as an Attack action"
-	}, {
-		name : "Claw",
-		ability : 1,
-		damage : [1, 4, "slashing"],
-		range : "Melee (5 ft)",
-		description : "Target pushed up to 5 ft away; 2 claw and 1 bite attack as Attack action"
-	}],
-	traits : [{
-		name : "Hold Breath",
-		description : "The sea lion can hold its breath for 15 minutes."
-	}, {
-		name : "Multiattack",
-		description : "The sea lion makes three attacks: one with its bite and two with its claws."
 	}]
 }
