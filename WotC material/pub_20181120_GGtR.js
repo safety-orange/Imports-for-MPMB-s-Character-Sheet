@@ -1812,7 +1812,6 @@ MagicItemsList["skyblinder staff"] = {
 		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
 		name : "Skyblinder Staff",
 		source : ["G", 181],
-		description : "Versatile (1d8)",
 		modifiers : [1, 1]
 	},
 	calcChanges : {
