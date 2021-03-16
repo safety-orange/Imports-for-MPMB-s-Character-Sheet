@@ -1812,7 +1812,6 @@ MagicItemsList["skyblinder staff"] = {
 		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
 		name : "Skyblinder Staff",
 		source : ["G", 181],
-		description : "Versatile (1d8); On hit, 1 charge for +1d6 force damage",
 		modifiers : [1, 1]
 	},
 	calcChanges : {
