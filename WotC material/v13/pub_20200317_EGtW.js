@@ -232,7 +232,116 @@ AddSubClass("wizard", "graviturgy magic-egtw", {
 		}
 	}
 });
-
+SpellsList["sapping sting"] = { 
+	name : "Sapping Sting",
+	classes : ["wizard"],
+	source : ["EGW", 189],
+	level : 0,
+	school : "Necro",
+	time : "1 a",
+	range : "30 ft",
+	components : "V/S",
+	duration : "Instantaneous",
+	save : "Con",
+	description : "1 visible crea 1d4 Necrotic dmg and fall prone; +1d4 at CL 5, 11, and 17",
+	descriptionFull :  "You sap the vitality of one creature you can see in range. The target must succeed on a Constitution saving throw or take 1d4 necrotic damage and fall prone." + "\n " + "This spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4)."
+};
+SpellsList["gift of alacrity"] = { 
+	name : "Gift of Alacrity",
+	classes : ["wizard"],
+	source : ["EGW", 186],
+	level : 1,
+	school : "Divin",
+	time : "1 min",
+	range : "Touch",
+	components : "V/S",
+	duration : "8 h",
+	descriptionFull :  "You touch a willing creature. For the duration, the target can add 1d8 to its initiative rolls."
+};
+SpellsList["magnify gravity"] = { 
+	name : "Magnify Gravity",
+	classes : ["wizard"],
+	source : ["EGW", 188],
+	level : 1,
+	school : "Trans",
+	time : "1 a",
+	range : "60 ft",
+	components : "V/S",
+	duration : "1 r",
+	description : "10-ft rad 2d8+1d8/SL Force dmg, hlf spd unt. e.o.n.t. Save half+no spd red. Str chk to move free objs.",
+	descriptionFull :  "The gravity in a 10-foot-radius sphere centered on a point you can see within range increases for a moment. Each creature in the sphere on the turn when you cast the spell must make a Constitution saving throw. On a failed save, a creature takes 2d8 force damage, and its speed is halved until the end of its next turn. On a successful save, a creature takes half as much damage and suffers no reduction to its speed." + "\n " + "Until the start of your next turn, any object that isn't being worn or carried in the sphere requires a successful Strength check against your spell save DC to pick up or move." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st."
+};
+SpellsList["fortune's favor"] = { 
+	name : "Fortune's Favor",
+	classes : ["wizard"],
+	source : ["EGW", 186],
+	level : 2,
+	school : "Divin",
+	time : "1 min",
+	range : "Touch",
+	components : "V/S/M",
+	compMaterial : "a white pearl worth at least 100 gp, which the spell consumes",
+	duration : "1 h",
+	description : "1+1/SL crea end effect to roll add. d20 for atk roll/abl. chk./sav. throw or enemy atk. roll against it.",
+	descriptionFull : "You impart latent luck to yourself or one willing creature you can see within range. When the chosen creature makes an attack roll, an ability check, or a saving throw before the spell ends, it can dismiss this spell on itself to roll an additional d20 and choose which of the d20s to use. Alternatively, when an attack roll is made against the chosen creature, it can dismiss this spell on itself to roll a d20 and choose which of the d20s to use, the one it rolled or the one the attacker rolled." + "\n" + "If the original d20 roll has advantage or disadvantage, the creature rolls the additional d20 after advantage or disadvantage has been applied to the original roll." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd."
+};
+SpellsList["immovable object"] = { 
+	name : "Immovable Object",
+	classes : ["wizard"],
+	source : ["EGW", 187],
+	level : 2,
+	school : "Trans",
+	time : "1 a",
+	range : "Touch",
+	components : "V/S/M",
+	compMaterial : "gold dust worth at least 25 gp, which the spell consumes",
+	duration : "1 h",
+	description : "1 obj <10lb fixed in place. Obj can hold <4000lb. Chosen move it; others str chk. DC 10. Psw. access 1m.",
+	descriptionFull : "You touch an object that weighs no more than 10 pounds and cause it to become magically fixed in place. You and the creatures you designate when you cast this spell can move the object normally. You can also set a password that, when spoken within 5 feet of the object, suppresses this spell for 1 minute." + "\n" + "If the object is fixed in the air, it can hold up to 4,000 pounds of weight. More weight causes the object to fall. Otherwise, a creature can use an action to make a Strength check against your spell save DC. On a success, the creature can move the object up to 10 feet." + AtHigherLevels + "If you cast this spell using a spell slot of 4th or 5th level, the DC to move the object increases by 5, it can carry up to 8,000 pounds of weight, and the duration increases to 24 hours. If you cast this spell using a spell slot of 6th level or higher, the DC to move the object increases by 10, it can carry up to 20,000 pounds of weight, and the effect is permanent until dispelled."
+};
+SpellsList["wristpocket"] = { 
+	name : "Wristpocket",
+	classes : ["wizard"],
+	source : ["EGW", 190],
+	ritual : true,
+	level : 2,
+	school : "Conj",
+	time : "1 a",
+	range : "Self",
+	components : "S",
+	duration : "Conc, 1 h",
+	description : "1 held obj <5 lb disappear to alt. dim. 1 a to summon obj to hand or return. Obj appears at feet at end.",
+	descriptionFull : "You flick your wrist, causing one object in your hand to vanish. The object, which only you can be holding and can weigh no more than 5 pounds, is transported to an extradimensional space, where it remains for the duration." + "\n" + "Until the spell ends, you can use your action to summon the object to your free hand, and you can use your action to return the object to the extradimensional space. An object still in the pocket plane when the spell ends appears in your space, at your feet."
+};
+SpellsList["pulse wave"] = { 
+	name : "Pulse Wave",
+	classes : ["wizard"],
+	source : ["EGW", 188],
+	level : 3,
+	school : "Evoc",
+	time : "1 a",
+	range : "Self",
+	components : "V/S",
+	duration : "Instantaneous",
+	save : "Con",
+	description : "30-ft cone 6d6+1d6/SL Force dmg, pull/push 15+5/SL ft; Save hlf/no move.",
+	descriptionFull : "You create intense pressure, unleash it in a 30-foot cone, and decide whether the pressure pulls or pushes creatures and objects. Each creature in that cone must make a Constitution saving throw. A creature takes 6d6 force damage on a failed save, or half as much damage on a successful one. And every creature that fails the save is either pulled 15 feet toward you or pushed 15 feet away from you, depending on the choice you made for the spell." + "\n" + "In addition, unsecured objects that are completely within the cone are likewise pulled or pushed 15 feet." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 and the distance pulled or pushed increases by 5 feet for each slot level above 3rd."
+};
+SpellsList["dark star"] = { 
+	name : "Dark Star",
+	classes : ["wizard"],
+	source : ["EGW", 186],
+	level : 8,
+	school : "Evoc",
+	time : "1 a",
+	range : "150 ft",
+	components : "V/S/M",
+	compMaterial : "A shard of onyx and a drop of the caster's blood, both of which the spell consumes",
+	duration : "Conc, 1 m",
+	save : "Con",
+	description : "40-ft rad 8d10 Force dmg ea turn, save half; darkness/silence/dif. ter./hit unc. crea disintegrate",
+	descriptionFull :  "This spell creates a sphere centered on a point you choose within range. The sphere can have a radius of up to 40 feet. The area within this sphere is filled with magical darkness and crushing gravitational force." + "\n " + "For the duration, the spell's area is difficult terrain. A creature with darkvision can't see through the magical darkness, and nonmagical light can't illuminate it. No sound can be created within or pass through the area. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there." + "\n " + "Any creature that enters the spell's area for the first time on a turn or starts its turn there must make a Constitution saving throw. The creature takes 8d10 force damage on a failed save, or half as much damage on a successful one. A creature reduced to 0 hit points by this damage is disintegrated. A disintegrated creature and everything it is wearing and carrying, except magic items, are reduced to a pile of fine gray dust. " 
+};
 function usagescalcStr(mod) {
 	return "event.value = Math.max(1, What('" + mod + " Mod'));";
 }
