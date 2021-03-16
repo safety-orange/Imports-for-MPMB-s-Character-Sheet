@@ -22,12 +22,12 @@ BackgroundFeatureList["underdark experience"] = {
 };
 
 // Creatures
-CreatureList["steeder"] = { // "Steeder, Female" entry so that just "steeder" also matches this entry
+CreatureList["steeder, female"] = {
 	name : "Steeder, Female",
+	nameAlt : ["Steeder"],
 	source : ["OotA", 231],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 30,
@@ -73,7 +73,6 @@ CreatureList["steeder, male"] = {
 	source : ["OotA", 231],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 13,

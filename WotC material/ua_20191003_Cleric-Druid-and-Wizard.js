@@ -239,7 +239,6 @@ CreatureList["wildfire spirit-uacdnw"] = {
 	source : ["UA:CDnW", 3],
 	size : 4,
 	type : "Elemental",
-	subtype : "",
 	alignment : "Chaotic",
 	ac : 13,
 	hp : 12,

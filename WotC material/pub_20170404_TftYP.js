@@ -17,7 +17,6 @@ CreatureList["giant crayfish"] = {
 	source : ["TftYP", 235],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 15,
 	hp : 45,
@@ -53,7 +52,6 @@ CreatureList["giant ice toad"] = {
 	source : ["TftYP", 235],
 	size : 2, //Large
 	type : "Monstrosity",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 52,
@@ -99,7 +97,6 @@ CreatureList["giant lightning eel"] = {
 	source : ["TftYP", 236],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 42,
@@ -147,7 +144,6 @@ CreatureList["giant subterranean lizard"] = {
 	source : ["TftYP", 236],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 66,

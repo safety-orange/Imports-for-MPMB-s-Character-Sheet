@@ -17,7 +17,6 @@ CreatureList["allosaurus"] = {
 	source : ["M", 79],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 51,
@@ -59,7 +58,6 @@ CreatureList["ankylosaurus"] = {
 	source : ["M", 79],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 15,
 	hp : 68,
@@ -88,7 +86,6 @@ CreatureList["pteranodon"] = {
 	source : ["M", 79],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 13,
@@ -123,10 +120,10 @@ CreatureList["pteranodon"] = {
 // Special familiars not in the SRD
 CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	name : "Faerie Dragon",
+	nameAlt : ["Dragon, Faerie"],
 	source : ["M", 133],
 	size : 5, //Tiny
 	type : "Dragon",
-	subtype : "",
 	alignment : "Chaotic Good",
 	ac : 15,
 	hp : 14,
@@ -188,7 +185,7 @@ CreatureList["crawling claw"] = {
 	source : ["M", 44],
 	size : 5, //Tiny
 	type : "Undead",
-	subtype : "",
+	companion : "familiar_not_al",
 	alignment : "Neutral Evil",
 	ac : 12,
 	hp : 2,
@@ -223,7 +220,6 @@ CreatureList["peryton"] = {
 	source : ["M", 251],
 	size : 3, //Medium
 	type : "Monstrosity",
-	subtype : "",
 	companion : "steed",
 	alignment : "Chaotic Evil",
 	ac : 13,
@@ -274,7 +270,6 @@ CreatureList["needle blight"] = {
 	source : ["M", 32],
 	size : 3, //Medium
 	type : "Plant",
-	subtype : "",
 	alignment : "Neutral Evil",
 	ac : 12,
 	hp : 11,
@@ -309,7 +304,6 @@ CreatureList["twig blight"] = {
 	source : ["M", 32],
 	size : 4, //Small
 	type : "Plant",
-	subtype : "",
 	alignment : "Neutral Evil",
 	ac : 13,
 	hp : 4,
@@ -344,7 +338,6 @@ CreatureList["vine blight"] = {
 	source : ["M", 32],
 	size : 3, //Medium
 	type : "Plant",
-	subtype : "",
 	alignment : "Neutral Evil",
 	ac : 12,
 	hp : 26,
@@ -387,7 +380,6 @@ CreatureList["gas spore"] = {
 	source : ["M", 138],
 	size : 2, //Large
 	type : "Plant",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 5,
 	hp : 1,

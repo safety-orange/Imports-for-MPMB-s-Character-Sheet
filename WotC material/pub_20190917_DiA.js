@@ -158,6 +158,7 @@ CreatureList["abyssal chicken"] = {
 	size : 5,
 	type : "Fiend",
 	subtype : "demon",
+	companion : "familiar_not_al",
 	alignment : "Chaotic Evil",
 	ac : 13,
 	hp : 10,

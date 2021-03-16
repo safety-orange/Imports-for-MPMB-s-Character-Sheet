@@ -312,7 +312,6 @@ if (!SourceList.V) {
 		source : [["V", 139], ["ToA", 215]],
 		size : 0, //Gargantuan
 		type : "Beast",
-		subtype : "",
 		alignment : "Unaligned",
 		ac : 15,
 		hp : 121,
@@ -346,7 +345,6 @@ if (!SourceList.V) {
 		source : [["V", 139], ["ToA", 217]],
 		size : 3, //Medium
 		type : "Beast",
-		subtype : "",
 		alignment : "Unaligned",
 		ac : 13,
 		hp : 26,
@@ -391,7 +389,6 @@ if (!SourceList.V) {
 		source : [["V", 139], ["ToA", 217]],
 		size : 3, //Medium
 		type : "Beast",
-		subtype : "",
 		alignment : "Unaligned",
 		ac : 12,
 		hp : 19,
@@ -422,7 +419,6 @@ if (!SourceList.V) {
 		source : [["V", 140], ["ToA", 224]],
 		size : 2, //Large
 		type : "Beast",
-		subtype : "",
 		alignment : "Unaligned",
 		ac : 11,
 		hp : 19,
@@ -453,7 +449,6 @@ if (!SourceList.V) {
 		source : [["V", 140], ["ToA", 230]],
 		size : 1, //Huge
 		type : "Beast",
-		subtype : "",
 		alignment : "Unaligned",
 		ac : 13,
 		hp : 30,
@@ -492,7 +487,6 @@ if (!SourceList.V) {
 		source : [["V", 140], ["ToA", 231]],
 		size : 1, //Huge
 		type : "Beast",
-		subtype : "",
 		alignment : "Unaligned",
 		ac : 13,
 		hp : 76,
@@ -520,7 +514,6 @@ if (!SourceList.V) {
 		source : [["V", 140], ["ToA", 235]],
 		size : 5, //Tiny
 		type : "Beast",
-		subtype : "",
 		alignment : "Unaligned",
 		ac : 13,
 		hp : 10,
@@ -564,8 +557,7 @@ CreatureList["almiraj"] = {
 	source : ["ToA", 211],
 	size : 4, //Small
 	type : "Beast",
-	subtype : "",
-	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
+	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 3,
@@ -602,8 +594,7 @@ CreatureList["flying monkey"] = {
 	source : ["ToA", 220],
 	size : 4, //Small
 	type : "Beast",
-	subtype : "",
-	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
+	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 3,
@@ -636,7 +627,6 @@ CreatureList["giant snapping turtle"] = {
 	source : ["ToA", 222],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 17,
 	hp : 75,
@@ -672,7 +662,6 @@ CreatureList["jaculi"] = {
 	source : ["ToA", 225],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 16,

@@ -519,7 +519,6 @@ CreatureList["clawfoot raptor"] = {
 	source : ["WGtE", 81],
 	size : 3,
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 16,

@@ -613,7 +613,6 @@ CreatureList["aurochs"] = {
 	source : ["V", 207],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 11,
 	hp : 38,
@@ -646,7 +645,6 @@ CreatureList["cow"] = {
 	source : ["V", 207],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -679,7 +677,6 @@ CreatureList["ox"] = {
 	source : ["V", 208],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -715,7 +712,6 @@ CreatureList["deep rothe"] = {
 	source : ["V", 208],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 13,
@@ -751,7 +747,6 @@ CreatureList["rothe"] = {
 	source : ["V", 208],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -784,7 +779,6 @@ CreatureList["stench kow"] = {
 	source : ["V", 208],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -822,7 +816,6 @@ CreatureList["dolphin"] = {
 	source : ["V", 208],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 11,
@@ -861,7 +854,7 @@ CreatureList["cranium rat"] = {
 	source : ["V", 133],
 	size : 5, //Tiny
 	type : "Beast",
-	subtype : "",
+	companion : "familiar_not_al",
 	alignment : "Lawful Evil",
 	ac : 12,
 	hp : 2,
@@ -898,7 +891,6 @@ CreatureList["brontosaurus"] = {
 	source : [["V", 139], ["ToA", 215]],
 	size : 0, //Gargantuan
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 15,
 	hp : 121,
@@ -932,7 +924,6 @@ CreatureList["deinonychus"] = {
 	source : [["V", 139], ["ToA", 217]],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 26,
@@ -977,7 +968,6 @@ CreatureList["dimetrodon"] = {
 	source : [["V", 139], ["ToA", 217]],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 19,
@@ -1008,7 +998,6 @@ CreatureList["hadrosaurus"] = {
 	source : [["V", 140], ["ToA", 224]],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 11,
 	hp : 19,
@@ -1039,7 +1028,6 @@ CreatureList["quetzalcoatlus"] = {
 	source : [["V", 140], ["ToA", 230]],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 30,
@@ -1078,7 +1066,6 @@ CreatureList["stegosaurus"] = {
 	source : [["V", 140], ["ToA", 231]],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 76,
@@ -1106,7 +1093,6 @@ CreatureList["velociraptor"] = {
 	source : [["V", 140], ["ToA", 235]],
 	size : 5, //Tiny
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 10,
@@ -1148,7 +1134,7 @@ CreatureList["gazer"] = {
 	source : ["V", 126],
 	size : 5, //Tiny
 	type : "Aberration",
-	subtype : "",
+	companion : "familiar_not_al",
 	alignment : "Neutral Evil",
 	ac : 13,
 	hp : 13,
@@ -1194,7 +1180,11 @@ CreatureList["gazer"] = {
 			name : "Eye Rays",
 			description : "1. Dazing Ray: Wisdom saving throw or charmed until the start of the gazer's next turn. While charmed, half speed and disadv. on attacks.\n2. Fear Ray: Wisdom saving throw or frightened until the start of the gazer's next turn.\n3. Frost Ray: Target must make a Dexterity saving throw or 10 (3d6) cold damage.\n4. Telekinetic Ray: Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the gazer. If it is an up to 10 lb unattended object, the gazer moves it up to 30 ft in any direction. It can exert fine control on objects this way."
 		}
-	]
+	],
+	variant : [{
+		name : "Variant: Familiar",
+		description : "The gazer can serve another creature as a familiar, forming a telepathic bond with its willing master, provided that the master is at least a 3rd-level spellcaster. While the two are bonded, the master can sense what the gazer senses as long as they are within 1 mile of each other. If its master causes it physical harm, the gazer will end its service as a familiar, breaking the telepathic bond."
+	}]
 };
 
 // Magic Items

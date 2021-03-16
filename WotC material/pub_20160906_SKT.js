@@ -17,7 +17,6 @@ CreatureList["sheep"] = {
 	source : ["SKT", 142],
 	size : 4, //Small
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 3,
@@ -42,7 +41,6 @@ CreatureList["pig"] = {
 	source : ["SKT", 143],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 5,
@@ -63,7 +61,6 @@ CreatureList["hulking crab"] = {
 	source : ["SKT", 240],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 17,
 	hp : 76,
@@ -103,8 +100,7 @@ CreatureList["tressym"] = {
 	source : ["SKT", 242],
 	size : 5, //Tiny
 	type : "Beast",
-	subtype : "",
-	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
+	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 5,

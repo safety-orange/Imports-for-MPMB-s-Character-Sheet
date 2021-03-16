@@ -210,7 +210,6 @@ CreatureList["frilled deathspitter"] = {
 	source : ["PS:X", 30],
 	size : 4,
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 18,

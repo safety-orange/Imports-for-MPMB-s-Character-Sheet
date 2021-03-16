@@ -82,7 +82,6 @@ CreatureList["dancing item-ua"] = {
 	source : [["UA:SP2", 2]],
 	size : 4,
 	type : "Construct",
-	subtype : "",
 	alignment : "Neutral",
 	ac : 16,
 	hp : 33,
