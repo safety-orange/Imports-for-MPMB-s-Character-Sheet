@@ -1,20 +1,23 @@
 /*jshint esversion: 6 */
 
 const { series, parallel, src, dest } = require('gulp');
-const log = require('fancy-log');
-const concat = require('gulp-concat');
-const header = require('gulp-header');
-const rename = require('gulp-rename');
+const fs      = require('fs');
+const log     = require('fancy-log');
+const concat  = require('gulp-concat');
+const header  = require('gulp-header');
+const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
-const uglify = require('gulp-uglify');
+const uglify  = require('gulp-uglify');
 
-const stableVersion = 12.999;
-const betaVersion = 13;
-const betaFolder = "/v13";
+const stableVersion = 13;
+const betaVersion   = 13.1;
+const betaFolder    = "/v13.1";
+const parentFolder  = "WotC material";
+const hasBetaFolder = fs.existsSync(`${parentFolder}${betaFolder}`);
 
 function concatAndMin(glob, fileName, beta) {
 	log.info(`Minifying and concatenating type '${glob}' for ${beta ? `beta (${betaVersion})` : `stable (${stableVersion})`} version`);
-	const folder = `WotC material${beta ? betaFolder : ''}`;
+	const folder = `${parentFolder}${beta ? betaFolder : ''}`;
 	const requiredVersion = beta ? betaVersion : stableVersion;
 	return src([`${folder}/${glob}_*.js`, `!${folder}/${glob}_*_dupl.js`])
 		.pipe(replace(/var iFileName ?= ?['"](.*?)['"];/g,"// $1"))
@@ -81,8 +84,6 @@ function concatAndMinUABeta() {
 	return concatAndMin("ua", "all_WotC_unearthed_arcana", true);
 }
 
-const combineBeta = combineAllBuilder(true);
-
 const minifyStable = series(
 	parallel(
 		concatAndMinPub,
@@ -91,20 +92,33 @@ const minifyStable = series(
 	combineStable
 );
 
-const minifyBeta = series(
-	parallel(
-		concatAndMinPubBeta,
-		concatAndMinUABeta
-	),
-	combineBeta
-);
+let minify;
 
-const minify = parallel(
-	minifyStable,
-	minifyBeta
-);
+if ( hasBetaFolder ) {
+
+	const combineBeta = combineAllBuilder(true);
+
+	const minifyBeta = series(
+		parallel(
+			concatAndMinPubBeta,
+			concatAndMinUABeta
+		),
+		combineBeta
+	);
+
+	exports.minifyBeta   = minifyBeta;
+	
+	minify = parallel(
+		minifyStable,
+		minifyBeta
+	);
+
+} else {
+
+	minify = minifyStable;
+
+}
 
 exports.minifyStable = minifyStable;
-exports.minifyBeta = minifyBeta;
-exports.minify = minify;
-exports.default = minify;
+exports.minify       = minify;
+exports.default      = minify;
