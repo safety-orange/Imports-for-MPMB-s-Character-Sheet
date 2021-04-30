@@ -12,7 +12,7 @@ SourceList["UA:CnM"] = {
 };
 
 // Add the Centaur race
-RaceList["centaur"] = {
+RaceList["centaur-ua"] = {
 	regExpSearch : /centaur/i,
 	name : "Centaur",
 	sortname : "Centaur",

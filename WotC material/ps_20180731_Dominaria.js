@@ -1,5 +1,5 @@
 var iFileName = "ps_20180731_Dominaria.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Plane Shift: Dominaria article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-dominaria-2018-07-31) to MPMB's Character Record Sheet
 
 // Define the source
@@ -66,7 +66,6 @@ CreatureList["kavu predator"] = {
 	hd : [10, 10],
 	speed : "30 ft, climb 30 ft",
 	scores : [18, 12, 15, 6, 14, 8],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 4,
 		"stealth" : 5
@@ -106,7 +105,6 @@ CreatureList["steel leaf kavu"] = {
 	hd : [15, 10],
 	speed : "30 ft, climb 30 ft",
 	scores : [20, 12, 18, 6, 14, 8],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 4
 	},

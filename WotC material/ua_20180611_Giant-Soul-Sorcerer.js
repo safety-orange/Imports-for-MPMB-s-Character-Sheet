@@ -11,7 +11,7 @@ SourceList["UA:GSS"] = {
 	date : "2018/06/11"
 };
 
-AddSubClass("sorcerer", "giant soul", {
+AddSubClass("sorcerer", "giant soul-ua", {
 	regExpSearch : /^(?=.*giant)(?=.*soul)(?=.*sorcerer).*$/i,
 	subname : "Giant Soul",
 	source : ["UA:GSS", 1],

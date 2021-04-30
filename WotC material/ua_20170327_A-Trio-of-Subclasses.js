@@ -12,7 +12,7 @@ SourceList["UA:AToS"] = {
 };
 
 // Adds three subclass: 1 for the Monk, 1 for the Paladin, and 1 for the Ranger
-AddSubClass("monk", "way of the drunken master", {
+AddSubClass("monk", "way of the drunken master-ua", {
 	regExpSearch : /^((?=.*drunken)(?=.*master))|((?=.*drunk)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Drunken Master",
 	source : ["UA:AToS", 1],
@@ -52,7 +52,7 @@ AddSubClass("monk", "way of the drunken master", {
 		}
 	}
 });
-AddSubClass("paladin", "oath of redemption", {
+AddSubClass("paladin", "oath of redemption-ua", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
 	source : ["UA:AToS", 1],
@@ -128,7 +128,7 @@ AddSubClass("paladin", "oath of redemption", {
 	}
 });
 // Add the Monster Slayer subclass to both the normal and Revised Ranger (if it is defined)
-var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer", {
+var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : ["UA:AToS", 3],

@@ -1,5 +1,5 @@
 var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList.G = {
 };
 
 // Add the Centaur race
-RaceList["centaur-ggtr"] = {
+RaceList["centaur"] = {
 	regExpSearch : /centaur/i,
 	name : "Centaur",
 	sortname : "Centaur",
@@ -92,7 +92,7 @@ if (!RaceList["goblin"]) {
 } // dupl_end
 
 // Add Loxodon
-RaceList["loxodon-ggtr"] = {
+RaceList["loxodon"] = {
 	regExpSearch : /loxodon/i,
 	name : "Loxodon",
 	source : ["G", 18],
@@ -105,13 +105,12 @@ RaceList["loxodon-ggtr"] = {
 	savetxt : { adv_vs : ["charmed", "frightened"] },
 	armorOptions : {
 		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
-		name : "Loxodon Natural Armor (Con)",
+		name : "Loxodon Natural Armor",
 		source : ["G", 18],
-		ac : 12,
-		dex : -10,
-		addMod : true
+		ac : "12+Con",
+		dex : -10
 	},
-	armorAdd : "Loxodon Natural Armor (Con)",
+	armorAdd : "Loxodon Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall (6'7\" + 2d10\")",
@@ -128,7 +127,7 @@ RaceList["loxodon-ggtr"] = {
 };
 
 // Add the Minotaur race
-RaceList["minotaur-ggtr"] = {
+RaceList["minotaur"] = {
 	regExpSearch : /minotaur/i,
 	name : "Minotaur",
 	sortname : "Minotaur",
@@ -176,7 +175,7 @@ RaceList["minotaur-ggtr"] = {
 };
 
 // Add Simic Hybrid
-RaceList["simic hybrid-ggtr"] = {
+RaceList["simic hybrid"] = {
 	regExpSearch : /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
 	name : "Simic hybrid",
 	source : ["G", 20],
@@ -228,7 +227,7 @@ RaceList["simic hybrid-ggtr"] = {
 				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
 				var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
 				var feaTxt = '';
-				var rObjNm = "simic hybrid-ggtr";
+				var rObjNm = "simic hybrid";
 				var rObj = RaceList[rObjNm];
 				var rNm = rObj.name;
 				switch (theChoice) {
@@ -269,7 +268,7 @@ RaceList["simic hybrid-ggtr"] = {
 				var raceRem = What("Race Remember");
 				if (!theRegex.test(raceRem)) return;
 				var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
-				var rObjNm = "simic hybrid-ggtr";
+				var rObjNm = "simic hybrid";
 				var rObj = RaceList[rObjNm];
 				var rNm = rObj.name;
 				switch (theChoice) {
@@ -298,12 +297,12 @@ RaceList["simic hybrid-ggtr"] = {
 		}
 	}
 };
-AddRacialVariant("simic hybrid-ggtr", "manta glide", {
+AddRacialVariant("simic hybrid", "manta glide", {
 	regExpSearch : /manta glide/i,
 	source : ["G", 20],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit."
 });
-AddRacialVariant("simic hybrid-ggtr", "nimble climber", {
+AddRacialVariant("simic hybrid", "nimble climber", {
 	regExpSearch : /nimble climber/i,
 	source : ["G", 20],
 	speed : {
@@ -312,7 +311,7 @@ AddRacialVariant("simic hybrid-ggtr", "nimble climber", {
 	},
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit."
 });
-AddRacialVariant("simic hybrid-ggtr", "underwater adaptation", {
+AddRacialVariant("simic hybrid", "underwater adaptation", {
 	regExpSearch : /underwater adaptation/i,
 	source : ["G", 20],
 	speed : {
@@ -323,7 +322,7 @@ AddRacialVariant("simic hybrid-ggtr", "underwater adaptation", {
 });
 
 // Add Vedalken
-RaceList["vedalken-ggtr"] = {
+RaceList["vedalken"] = {
 	regExpSearch : /vedalken/i,
 	name : "Vedalken",
 	source : ["G", 21],
@@ -359,15 +358,15 @@ RaceList["vedalken-ggtr"] = {
 };
 
 // New Subclass for Cleric: Order Domain
-AddSubClass("cleric", "order domain-ggtr", {
+AddSubClass("cleric", "order domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*order).*$/i,
 	subname : "Order Domain",
-	source : ["G", 25],
+	source : [["G", 25], ["T", 31]],
 	spellcastingExtra : ["command", "heroism", "hold person", "zone of truth", "mass healing word", "slow", "compulsion", "locate creature", "commune", "dominate person"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["G", 26],
+			source : [["G", 26], ["T", 32]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill",
 			armorProfs : [false, false, true, false],
@@ -375,7 +374,7 @@ AddSubClass("cleric", "order domain-ggtr", {
 		},
 		"subclassfeature1.1" : {
 			name : "Voice of Authority",
-			source : ["G", 26],
+			source : [["G", 26], ["T", 32]],
 			minlevel : 1,
 			description : desc([
 				"Whenever I use a spell slot to cast a spell on an ally, it can use its reaction to attack",
@@ -385,18 +384,18 @@ AddSubClass("cleric", "order domain-ggtr", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Order's Demand",
-			source : ["G", 26],
+			source : [["G", 26], ["T", 32]],
 			minlevel : 2,
 			description : desc([
 				"As an action, all chosen targets in 30 ft that can see or hear me must make a Wis save",
 				"If failed, it is charmed by me until the end of my next turn or it takes any damage",
 				"Also, I can choose to have a charmed target drop what its holding when it fails its save"
 			]),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Embodiment of the Law",
-			source : ["G", 26],
+			source : [["G", 26], ["T", 32]],
 			minlevel : 6,
 			description : desc([
 				"When I cast an enchantment spell using a spell slot, I can reduce its casting time",
@@ -419,7 +418,7 @@ AddSubClass("cleric", "order domain-ggtr", {
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["G", 26],
+			source : [["G", 26], ["T", 32]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -430,7 +429,7 @@ AddSubClass("cleric", "order domain-ggtr", {
 				atkAdd : [
 					function (fields, v) {
 						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
-							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage';
+							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage' + (classes.known.cleric.level < 17 ? '' : ' \u0026 again if hit by ally before my next turn');
 						}
 					},
 					"Once per turn, I can have one of my weapon attacks that hit do extra psychic damage."
@@ -439,7 +438,7 @@ AddSubClass("cleric", "order domain-ggtr", {
 		},
 		"subclassfeature17" : {
 			name : "Order's Wrath",
-			source : ["G", 26],
+			source : [["G", 26], ["T", 32]],
 			minlevel : 17,
 			description : desc([
 				"If I deal my Divine Strike damage to a creature, it is cursed until my next turn starts",
@@ -450,14 +449,14 @@ AddSubClass("cleric", "order domain-ggtr", {
 });
 
 // New Subclass for Druid: Circle of Spores
-AddSubClass("druid", "circle of spores-ggtr", {
+AddSubClass("druid", "circle of spores", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
-	source : ["G", 26],
+	source : [["G", 26], ["T", 36]],
 	features : {
 		"subclassfeature2" : {
 			name : "Circle Spells",
-			source : ["G", 27],
+			source : [["G", 27], ["T", 36]],
 			minlevel : 2,
 			description : desc([
 				"I learn the Chill Touch cantrip and gain the ability to cast certain spells",
@@ -472,7 +471,7 @@ AddSubClass("druid", "circle of spores-ggtr", {
 		},
 		"subclassfeature2.1" : {
 			name : "Halo of Spores",
-			source : ["G", 27],
+			source : [["G", 27], ["T", 36]],
 			minlevel : 2,
  			description : desc([
 				"As a reaction when someone I can see in 10 ft starts its turn or moves, I can have it save",
@@ -483,7 +482,7 @@ AddSubClass("druid", "circle of spores-ggtr", {
 		},
 		"subclassfeature2.2" : {
 			name : "Symbiotic Entity",
-			source : ["G", 27],
+			source : [["G", 27], ["T", 37]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I expend a Wild Shape use to boost my spores instead of transforming",
@@ -508,7 +507,7 @@ AddSubClass("druid", "circle of spores-ggtr", {
 		},
 		"subclassfeature6" : {
 			name : "Fungal Infestation",
-			source : ["G", 27],
+			source : [["G", 27], ["T", 37]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction when a Small/Medium beast/humanoid dies in 10 ft, I can animate it",
@@ -522,7 +521,7 @@ AddSubClass("druid", "circle of spores-ggtr", {
 		},
 		"subclassfeature10" : {
 			name : "Spreading Spores",
-			source : ["G", 27],
+			source : [["G", 27], ["T", 37]],
 			minlevel : 10,
 			description : " [only while Symbiotic Entity is active]" + desc([
 				"As a bonus action, I create a 10-ft cube of fungal spores within 30 ft, lasting for 1 min",
@@ -533,7 +532,7 @@ AddSubClass("druid", "circle of spores-ggtr", {
 		},
 		"subclassfeature14" : {
 			name : "Fungal Body",
-			source : ["G", 27],
+			source : [["G", 27], ["T", 38]],
 			minlevel : 14,
 			description : desc([
 				"I'm immune to being blinded, deafened, frightened, poisoned, and critical hits"
@@ -931,7 +930,7 @@ BackgroundList["izzet engineer"] = {
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
-				spList.extraspells = spList.extraspells.concat(["produce flame", "shocking grasp", "chaos bolt-xgte", "create or destroy water", "unseen servant", "heat metal", "rope trick", "call lightning", "elemental weapon", "glyph of warding", "conjure minor elementals", "divination", "otiluke's resilient sphere", "animate objects", "conjure elemental"]);
+				spList.extraspells = spList.extraspells.concat(["produce flame", "shocking grasp", "chaos bolt", "create or destroy water", "unseen servant", "heat metal", "rope trick", "call lightning", "elemental weapon", "glyph of warding", "conjure minor elementals", "divination", "otiluke's resilient sphere", "animate objects", "conjure elemental"]);
 			},
 			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Produce Flame, Shocking Grasp, Chaos Bolt, Create or Destroy Water, Unseen Servant, Heat Metal, Rope Trick, Call Lightning, Elemental Weapon, Glyph of Warding, Conjure Minor Elementals, Divination, Otiluke's Resilient Sphere, Animate Objects, and Conjure Elemental."
 		]
@@ -1314,7 +1313,7 @@ SpellsList["encode thoughts"] = {
 };
 // [dupl_start] Chaos Bolt reprinted from Xanathar's Guide to Everything
 if (!SourceList.X) {
-	SpellsList["chaos bolt-xgte"] = {
+	SpellsList["chaos bolt"] = {
 		name : "Chaos Bolt",
 		classes : ["sorcerer"],
 		source : [["X", 151], ["G", 67]],
@@ -1766,7 +1765,8 @@ MagicItemsList["pyroconverger"] = {
 		range : "10-ft cone",
 		description : "Hits all in area; Dex save, success - half damage; Roll each time for malfunction, see item",
 		abilitytodamage : false,
-		modifiers : ["dc+5", ""]
+		dc : true,
+		modifiers : [5, ""]
 	},
 	usages : 1,
 	recovery : "long rest",

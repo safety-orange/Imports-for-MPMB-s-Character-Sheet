@@ -9,11 +9,12 @@ const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
 const uglify  = require('gulp-uglify');
 
-const stableVersion = 13;
-const betaVersion   = 13.1;
+const stableVersion = '"13.0.6"';
+const betaVersion   = '"13.1.0-beta1"';
 const betaFolder    = "/v13.1";
 const parentFolder  = "WotC material";
 const hasBetaFolder = fs.existsSync(`${parentFolder}${betaFolder}`);
+const pre13check = 'if (sheetVersion < 13) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\\nYou can get the latest version over at www.flapkan.com."; };';
 
 function concatAndMin(glob, fileName, beta) {
 	log.info(`Minifying and concatenating type '${glob}' for ${beta ? `beta (${betaVersion})` : `stable (${stableVersion})`} version`);
@@ -24,7 +25,7 @@ function concatAndMin(glob, fileName, beta) {
 		.pipe(replace(/RequiredSheetVersion\(.*?\)[,;][\r\n]*/g, ""))
 		.pipe(replace(/\/\/.*?dupl_start[\s\S]*?dupl_end.*?[\r\n]*/ig,""))
 		.pipe(concat(`${fileName}.js`, {newLine: '\n'}))
-		.pipe(header(`var iFileName = "${fileName}.js";\nRequiredSheetVersion(${requiredVersion});\n`))
+		.pipe(header(`${pre13check}\nvar iFileName = "${fileName}.js";\nRequiredSheetVersion(${requiredVersion});\n`))
 		.pipe(dest(folder))
 		.pipe(uglify())
 		.pipe(replace(`${fileName}.js`, `${fileName}.min.js`))
@@ -40,9 +41,9 @@ function combine(minified, beta) {
 	const fileName = `${fileHead}pub+UA${ext}`;
 	const requiredVersion = beta ? betaVersion : stableVersion;
 	return src([`${path}published${ext}`, `${path}unearthed_arcana${ext}`])
-		.pipe(replace(/var iFileName[\s\S]*?RequiredSheetVersion\(.*?\)[,;][\r\n]*/, ""))
+		.pipe(replace(/if ?\(sheetVersion ?< ?13\)[ {]*?throw[\s\S]*?var iFileName[\s\S]*?RequiredSheetVersion\(.*?\)[,;][\r\n]*/, ""))
 		.pipe(concat(fileName, {newLine: minified ? '' : '\n'}))
-		.pipe(header(`var iFileName = "${fileName}";${minified ? '' : '\n'}RequiredSheetVersion(${requiredVersion})${minified ? ',' : ';\n'}`))
+		.pipe(header(`${pre13check}\nvar iFileName = "${fileName}";${minified ? '' : '\n'}RequiredSheetVersion(${requiredVersion})${minified ? ',' : ';\n'}`))
 		.pipe(dest(folder));
 }
 

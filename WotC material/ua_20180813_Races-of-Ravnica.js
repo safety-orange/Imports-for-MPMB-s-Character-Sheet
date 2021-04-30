@@ -12,7 +12,7 @@ SourceList["UA:RoR"] = {
 };
 
 // Add Loxodon
-RaceList["loxodon"] = {
+RaceList["loxodon-ua"] = {
 	regExpSearch : /loxodon/i,
 	name : "Loxodon",
 	source : ["UA:RoR", 1],
@@ -48,7 +48,7 @@ RaceList["loxodon"] = {
 };
 
 // Add Simic Hybrid
-RaceList["simic hybrid"] = {
+RaceList["simic hybrid-ua"] = {
 	regExpSearch : /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
 	name : "Simic hybrid",
 	source : ["UA:RoR", 3],
@@ -100,7 +100,7 @@ RaceList["simic hybrid"] = {
 				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
 				var theChoice = AskUserOptions('Simic Hybrid 5th-level Animal Enhancement', 'The Simic Hybrid race offers a choice of animal enhancement at 5th-level. Make a selection to update the sheet accordingly. You can only change this selection by removing the Simic Hybrid race or changing its variant.', AEoptions, 'radio', true);
 				var feaTxt = '';
-				var rObjNm = "simic hybrid";
+				var rObjNm = "simic hybrid-ua";
 				var rObj = RaceList[rObjNm];
 				var rNm = rObj.name;
 				switch (theChoice) {
@@ -140,7 +140,7 @@ RaceList["simic hybrid"] = {
 				var raceRem = What("Race Remember");
 				if (!theRegex.test(raceRem)) return;
 				var theChoice = raceRem.match(theRegex)[1].replace('_', ' ').capitalize();
-				var rObjNm = "simic hybrid";
+				var rObjNm = "simic hybrid-ua";
 				var rObj = RaceList[rObjNm];
 				var rNm = rObj.name;
 				switch (theChoice) {
@@ -168,12 +168,12 @@ RaceList["simic hybrid"] = {
 		}
 	}
 };
-AddRacialVariant("simic hybrid", "manta glide", {
+AddRacialVariant("simic hybrid-ua", "manta glide", {
 	regExpSearch : /manta glide/i,
 	source : ["UA:RoR", 3],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit."
 });
-AddRacialVariant("simic hybrid", "nimble climber", {
+AddRacialVariant("simic hybrid-ua", "nimble climber", {
 	regExpSearch : /nimble climber/i,
 	source : ["UA:RoR", 3],
 	speed : {
@@ -182,7 +182,7 @@ AddRacialVariant("simic hybrid", "nimble climber", {
 	},
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit."
 });
-AddRacialVariant("simic hybrid", "underwater adaptation", {
+AddRacialVariant("simic hybrid-ua", "underwater adaptation", {
 	regExpSearch : /underwater adaptation/i,
 	source : ["UA:RoR", 3],
 	speed : {
@@ -193,7 +193,7 @@ AddRacialVariant("simic hybrid", "underwater adaptation", {
 });
 
 // Add Vedalken
-RaceList["vedalken"] = {
+RaceList["vedalken-ua"] = {
 	regExpSearch : /vedalken/i,
 	name : "Vedalken",
 	source : ["UA:RoR", 4],
@@ -217,7 +217,7 @@ RaceList["vedalken"] = {
 };
 
 // Add Viashino
-RaceList["viashino"] = {
+RaceList["viashino-ua"] = {
 	regExpSearch : /viashino/i,
 	name : "Viashino",
 	source : ["UA:RoR", 5],

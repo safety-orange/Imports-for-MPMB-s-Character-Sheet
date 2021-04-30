@@ -1,5 +1,5 @@
 var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList.X={
 };
 
 // Add 3 subclasses for the Barbarian
-AddSubClass("barbarian", "ancestral guardian-xgte", {
+AddSubClass("barbarian", "ancestral guardian", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
 	source : ["X", 9],
@@ -85,7 +85,7 @@ AddSubClass("barbarian", "ancestral guardian-xgte", {
 		}
 	}
 });
-AddSubClass("barbarian", "storm herald-xgte", {
+AddSubClass("barbarian", "storm herald", {
 	regExpSearch : /^(?=.*storm)(?=.*herald).*$/i,
 	subname : "Path of the Storm Herald",
 	source : ["X", 10],
@@ -231,7 +231,7 @@ AddSubClass("barbarian", "storm herald-xgte", {
 		}
 	}
 });
-AddSubClass("barbarian", "zealot-xgte", {
+AddSubClass("barbarian", "zealot", {
 	regExpSearch : /zealot/i,
 	subname : "Path of the Zealot",
 	source : ["X", 11],
@@ -320,7 +320,7 @@ AddSubClass("barbarian", "zealot-xgte", {
 });
 
 // Add 3 subclasses for the Bard
-AddSubClass("bard", "college of glamour-xgte", {
+AddSubClass("bard", "college of glamour", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname : "College of Glamour",
 	source : ["X", 14],
@@ -393,7 +393,7 @@ AddSubClass("bard", "college of glamour-xgte", {
 		}
 	}
 });
-AddSubClass("bard", "college of swords-xgte", {
+AddSubClass("bard", "college of swords", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
 	source : ["X", 15],
@@ -442,7 +442,7 @@ AddSubClass("bard", "college of swords-xgte", {
 		}
 	}
 });
-AddSubClass("bard", "college of whispers-xgte", {
+AddSubClass("bard", "college of whispers", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname : "College of Whispers",
 	source : ["X", 16],
@@ -506,7 +506,7 @@ AddSubClass("bard", "college of whispers-xgte", {
 });
 
 // Add 2 subclasses for the Cleric
-AddSubClass("cleric", "forge domain-xgte", {
+AddSubClass("cleric", "forge domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(forge|forgery|blacksmith)).*$/i,
 	subname : "Forge Domain",
 	source : ["X", 18],
@@ -591,7 +591,7 @@ AddSubClass("cleric", "forge domain-xgte", {
 		}
 	}
 });
-AddSubClass("cleric", "grave domain-xgte", {
+AddSubClass("cleric", "grave domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*grave).*$/i,
 	subname : "Grave Domain",
 	source : ["X", 19],
@@ -693,7 +693,7 @@ AddSubClass("cleric", "grave domain-xgte", {
 });
 
 // Add 2 subclasses for the Druid
-AddSubClass("druid", "circle of dreams-xgte", {
+AddSubClass("druid", "circle of dreams", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
 	subname : "Circle of Dreams",
 	source : ["X", 22],
@@ -786,7 +786,7 @@ AddSubClass("druid", "circle of dreams-xgte", {
 		}
 	}
 });
-AddSubClass("druid", "circle of the shepherd-xgte", {
+AddSubClass("druid", "circle of the shepherd", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
 	source : ["X", 23],
@@ -881,7 +881,7 @@ AddSubClass("druid", "circle of the shepherd-xgte", {
 });
 
 // Add 3 subclasses for the Fighter
-AddSubClass("fighter", "arcane archer-xgte", {
+AddSubClass("fighter", "arcane archer", {
 	regExpSearch : /^(?=.*arcane)(?=.*archer).*$/i,
 	subname : "Arcane Archer",
 	source : ["X", 28],
@@ -1022,7 +1022,7 @@ AddSubClass("fighter", "arcane archer-xgte", {
 		}
 	}
 });
-AddSubClass("fighter", "cavalier-xgte", {
+AddSubClass("fighter", "cavalier", {
 	regExpSearch : /cavalier/i,
 	subname : "Cavalier",
 	source : ["X", 30],
@@ -1131,7 +1131,7 @@ AddSubClass("fighter", "cavalier-xgte", {
 		}
 	}
 });
-AddSubClass("fighter", "samurai-xgte", {
+AddSubClass("fighter", "samurai", {
 	regExpSearch : /samurai/i,
 	subname : "Samurai",
 	source : ["X", 31],
@@ -1213,7 +1213,7 @@ AddSubClass("fighter", "samurai-xgte", {
 });
 
 // Add 3 subclasses for the Monk
-AddSubClass("monk", "way of the drunken master-xgte", {
+AddSubClass("monk", "way of the drunken master", {
 	regExpSearch : /^((?=.*drunken)(?=.*master))|((?=.*drunk)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Drunken Master",
 	source : ["X", 33],
@@ -1258,7 +1258,7 @@ AddSubClass("monk", "way of the drunken master-xgte", {
 });
 // Create the Kensei and its weapon options last, so we benefit of all possible weapons that were added
 RunFunctionAtEnd(function () {
-	var theKenseiSubclassName = AddSubClass("monk", "way of the kensei-xgte", {
+	var theKenseiSubclassName = AddSubClass("monk", "way of the kensei", {
 		regExpSearch : /kensei/i,
 		subname : "Way of the Kensei",
 		source : ["X", 34],
@@ -1287,7 +1287,7 @@ RunFunctionAtEnd(function () {
 						function (fields, v) {
 							if (!classes.known.monk || classes.known.monk.level < 2 || v.isSpell) return;
 							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
-							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
+							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
 								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 								try {
 									var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
@@ -1327,15 +1327,16 @@ RunFunctionAtEnd(function () {
 						"My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."
 					]
 				},
-				extraname : "Way of the Kensei 6",
 				"deft strike" : {
 					name : "Deft Strike",
+					extraname : "Way of the Kensei 6",
 					source : ["X", 35],
 					description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 					additional : "1 ki point"
 				},
 				"sharpen the blade" : {
 					name : "Sharpen the Blade",
+					extraname : "Way of the Kensei 11",
 					source : ["X", 35],
 					description : desc([
 						"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
@@ -1349,8 +1350,7 @@ RunFunctionAtEnd(function () {
 					extrachoice : "deft strike"
 				}, {
 					extrachoice : "sharpen the blade",
-					minlevel : 11,
-					extraname : "Way of the Kensei 11"
+					minlevel : 11
 				}]
 			},
 			"subclassfeature17" : {
@@ -1365,7 +1365,7 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy or special property, are magic weapons, or those that are spells or cantrips
-		if (weapon !== "longbow" && (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || (/spell|cantrip/i).test(aWea.list))) continue;
+		if (weapon !== "longbow" && (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || aWea.special || (/spell|cantrip/i).test(aWea.list))) continue;
 		itsFea.extrachoices.push(aWea.name);
 		itsFea[aWea.name.toLowerCase()] = {
 			name : aWea.name,
@@ -1373,6 +1373,7 @@ RunFunctionAtEnd(function () {
 			source : aWea.source,
 			weaponProfs : [false, false, [weapon]],
 			weaponsAdd : [aWea.name],
+			submenu : ((/simple/i).test(aWea.type) ? "\x1BSimple weapon, " : "Martial weapon, ") + ((/^(?!.*melee).*\d+.*$/i).test(aWea.range) ? "ranged" : "melee"),
 			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : true;'
 		}
 	}
@@ -1408,9 +1409,9 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					abilitytodamage : true
 				},
 				weaponsAdd : ['Radiant Sun Bolt'],
-				extraname : "Way of the Sun Soul 6",
 				"searing arc strike" : {
 					name : "Searing Arc Strike",
+					extraname : "Way of the Sun Soul 6",
 					source : [["S", 131], ["X", 35]],
 					description : desc([
 						"After taking the Attack action, I can cast Burning Hands as a bonus action [PHB 220]",
@@ -1470,7 +1471,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 }; // dupl_end
 
 // Add 2 subclasses for the Paladin
-AddSubClass("paladin", "oath of conquest-xgte", {
+AddSubClass("paladin", "oath of conquest", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
 	source : ["X", 37],
@@ -1530,7 +1531,7 @@ AddSubClass("paladin", "oath of conquest-xgte", {
 		}
 	}
 });
-AddSubClass("paladin", "oath of redemption-xgte", {
+AddSubClass("paladin", "oath of redemption", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
 	source : ["X", 38],
@@ -1585,7 +1586,7 @@ AddSubClass("paladin", "oath of redemption-xgte", {
 });
 
 // Add 3 subclasses for the Ranger
-AddSubClass("ranger", "gloom stalker-xgte", {
+AddSubClass("ranger", "gloom stalker", {
 	regExpSearch : /^(?=.*gloom)(?=.*stalker).*$/i,
 	subname : "Gloom Stalker",
 	source : ["X", 41],
@@ -1645,7 +1646,7 @@ AddSubClass("ranger", "gloom stalker-xgte", {
 		}
 	}
 });
-AddSubClass("ranger", "horizon walker-xgte", {
+AddSubClass("ranger", "horizon walker", {
 	regExpSearch : /^(?=.*horizon)(?=.*walker).*$/i,
 	subname : "Horizon Walker",
 	source : ["X", 42],
@@ -1724,7 +1725,7 @@ AddSubClass("ranger", "horizon walker-xgte", {
 		}
 	}
 });
-AddSubClass("ranger", "monster slayer-xgte", {
+AddSubClass("ranger", "monster slayer", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : ["X", 43],
@@ -1796,7 +1797,7 @@ AddSubClass("ranger", "monster slayer-xgte", {
 });
 
 // Add 4 subclasses for the Rogue
-AddSubClass("rogue", "inquisitive-xgte", {
+AddSubClass("rogue", "inquisitive", {
 	regExpSearch : /^(?=.*(rogue|miscreant))(?=.*inquisitive).*$/i,
 	subname : "Inquisitive",
 	source : ["X", 45],
@@ -1923,7 +1924,7 @@ if (!ClassSubList["rogue-mastermind"] && (!SourceList.S || SourceList.S.abbrevia
 		}
 	});
 }; // dupl_end
-AddSubClass("rogue", "scout-xgte", {
+AddSubClass("rogue", "scout", {
 	regExpSearch : /scout/i,
 	subname : "Scout",
 	source : ["X", 47],
@@ -2042,7 +2043,7 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbrev
 }; // dupl_end
 
 // Add 3 subclasses for the Sorcerer
-AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contributions by SoilentBrad
+AddSubClass("sorcerer", "divine soul", { // this code includes contributions by SoilentBrad
 	regExpSearch : /^(?=.*divine)(?=.*soul).*$/i,
 	subname : "Divine Soul",
 	source : ["X", 50],
@@ -2207,7 +2208,7 @@ AddSubClass("sorcerer", "divine soul-xgte", { // this code includes contribution
 		}
 	}
 });
-AddSubClass("sorcerer", "shadow magic-xgte", {
+AddSubClass("sorcerer", "shadow magic", {
 	regExpSearch : /^(?=.*(sorcerer|witch))(?=.*shadow).*$/i,
 	subname : "Shadow Magic",
 	source : ["X", 50],
@@ -2249,7 +2250,7 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 		},
 		"subclassfeature6" : {
 			name : "Hound of Ill Omen",
-			source : ["X", 51],
+			source : [["X", 51]],
 			minlevel : 6,
 			description : desc([
 				"As a bonus action, I summon a hound within 30 ft of a creature I see within 120 ft",
@@ -2264,45 +2265,67 @@ AddSubClass("sorcerer", "shadow magic-xgte", {
 				"It disappears if reduced to 0 HP, if the target is reduced to 0 HP, or after 5 minutes"
 			]),
 			additional : levels.map(function (n) { return n < 6 ? "" : "3 sorcery points; " + Math.floor(n/2) + " temporary HP"; }),
-			action : ["bonus action", " (3 sorcery points)"],
-			eval : function() {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
+			action : [["bonus action", " (3 sorcery points)"]],
+			creaturesAdd : [["Hound of Ill Omen", true]],
+			creatureOptions : [{
+				name : "Hound of Ill Omen",
+				source : [["X", 51]],
+				size : 3,
+				type : "Monstrosity",
+				alignment : "Unaligned",
+				ac : 14,
+				hp : 37,
+				hd : [5, 10],
+				speed : "50 ft",
+				scores : [17, 15, 15, 3, 12, 7],
+				skills : {
+					"perception" : 3,
+					"stealth" : 4
+				},
+				senses : "Adv. on Wis (Perception) checks using hearing/smell;\nAt the start of each turn, knows where the target is",
+				passivePerception : 13,
+				challengeRating : "1",
+				proficiencyBonus : 2,
+				attacksAction : 1,
+				attacks : [{
+					name : "Bite",
+					ability : 1,
+					damage : [2, 6, "piercing"],
+					range : "Melee (5 ft)",
+					description : "Target must succeed on a DC 13 Strength saving throw or be knocked prone"
+				}],
+				traits : [{
+					name : "Keen Hearing and Smell",
+					description : "The hound has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+				}, {
+					name : "Pack Tactics",
+					description : "The hound has advantage on an attack roll against a creature if at least one of the hound's allies is within 5 ft of the creature and the ally isn't incapacitated."
+				}],
+				features : [{
+					name : "Actions",
+					description : "The hound can only move towards its targets and make attacks or opportunity attacks against its target."
+				}, {
+					name : "Temporary Hit Points",
+					description : "When the hound is summoned, it gains temporary HP equal to half my sorcerer level."
+				}, {
+					name : "Shadowy Form",
+					description : "The hound can move through other creatures and objects as if they were difficult terrain. It takes 5 force damage if it ends its turn inside an object."
+				}, {
+					name : "Sign of Ill Omen",
+					description : "While the hound is within 5 ft of its target, that target has disadvantage on saving throws versus my spells."
+				}],
+				header : "Summoned",
+				eval : function(prefix, lvl) {
+					AddTooltip(prefix + 'Comp.Use.HP.Temp', "The hound of ill omen gains half my sorcerer level as temporary HP when created.");
+				},
+				removeeval : function(prefix, lvl) {
+					AddTooltip(prefix + 'Comp.Use.HP.Temp', "");
+				},
+				changeeval : function (prefix, lvl) {
+					if (!classes.known.sorcerer) return;
+					Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.sorcerer.level / 2));
 				}
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', 'Hound of Ill Omen');
-				Value(prefix + 'Comp.Type', 'Summoned');
-				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The hound of ill omen gains half my sorcerer level as temporary HP when created.");
-				var changeMsg = "The Hound of Ill Omen has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
-				CurrentUpdates.types.push("notes");
-				if (!CurrentUpdates.notesChanges) {
-					CurrentUpdates.notesChanges = [changeMsg];
-				} else {
-					CurrentUpdates.notesChanges.push(changeMsg);
-				}
-			},
-			removeeval : function() {
-				for (var prefix in CurrentCompRace) {
-					if (CurrentCompRace[prefix].known === "hound of ill omen") {
-						DoTemplate("AScomp", "Remove", prefix, true);
-					}
-				}
-			},
-			changeeval : function (lvlA, choiceA) {
-				if (!classes.known.sorcerer || !classes.known.sorcerer.level) return;
-				for (var prefix in CurrentCompRace) {
-					if (CurrentCompRace[prefix].known === "hound of ill omen") {
-						Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.sorcerer.level / 2));
-					}
-				}
-			}
+			}]
 		},
 		"subclassfeature14" : {
 			name : "Shadow Walk",
@@ -2410,7 +2433,7 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 }; // dupl_end
 
 // Add 2 subclasses for the Warlock
-AddSubClass("warlock", "the celestial-xgte", {
+AddSubClass("warlock", "the celestial", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
 	source : ["X", 54],
@@ -2496,7 +2519,7 @@ AddSubClass("warlock", "the celestial-xgte", {
 		}
 	}
 });
-AddSubClass("warlock", "the hexblade-xgte", { // this code includes contributions by SoilentBrad
+AddSubClass("warlock", "the hexblade", { // this code includes contributions by SoilentBrad
 	regExpSearch : /^(?=.*hexblade)(?=.*warlock).*$/i,
 	subname : "the Hexblade",
 	source : ["X", 55],
@@ -2559,11 +2582,11 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 		},
 		"subclassfeature6" : {
 			name : "Accursed Specter",
-			source : ["X", 56],
+			source : [["X", 56]],
 			minlevel : 6,
 			description : desc([
 				"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
-				"It has the stats of a specter (MM 279) with temporary HP equal to half my warlock level",
+				"It has the stats of a specter with temporary hit points equal to half my warlock level",
 				"It rolls initiative and has its own turns, obeying my verbal commands",
 				"It gains a bonus to attack rolls equal to my Charisma modifier (min +0)",
 				"The specter remains until the end of my next long rest, at which point it vanishes"
@@ -2571,56 +2594,64 @@ AddSubClass("warlock", "the hexblade-xgte", { // this code includes contribution
 			additional : levels.map( function(n) { return n < 6 ? "" : Math.floor(n/2) + " temp HP"; }),
 			usages : 1,
 			recovery : "long rest",
-			eval : function() {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
+			creaturesAdd : [["Accursed Specter", true]],
+			creatureOptions : [{
+				name : "Accursed Specter",
+				nameAlt : ["Accursed Spectre"],
+				source : [["X", 56]],
+				size : 3,
+				type : "Undead",
+				alignment : "Chaotic Evil",
+				ac : 12,
+				hp : 22,
+				hd : [5, 8],
+				speed : "fly 50 ft (hover)",
+				scores : [1, 14, 11, 10, 10, 12],
+				damage_resistances : "acid; cold; fire; lightning; thunder; bludgeoning, piercing, and slashing from nonmagical weapons",
+				damage_immunities : "necrotic, poison",
+				condition_immunities : "charmed, exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious",
+				senses : "Darkvision 60 ft; While in sunlight, disadv. on Wis (Perception) checks using sight",
+				passivePerception : 10,
+				languages : "all languages it knew in life, but can't speak",
+				challengeRating : "1",
+				proficiencyBonus : 2,
+				attacksAction : 1,
+				attacks : [{
+					name : "Life Drain",
+					ability : 2,
+					damage : [3, 6, "necrotic"],
+					range : "Melee (5 ft)",
+					description : "DC 10 Con save or HP max reduced by same as damage taken until a long rest",
+					modifiers : ["max(oCha|0)", ""],
+					abilitytodamage : false,
+					tooltip : "A target of the specter's life drain must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+				}],
+				traits : [{
+					name : "Incorporeal Movement",
+					description : "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
+				}, {
+					name : "Sunlight Sensitivity",
+					description : "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+				}, {
+					name : "Life Drain",
+					description : "A target of the specter's life drain must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+				}],
+				features : [{
+					name : "Bound Spirit",
+					description : "The specter obeys my verbal commands and remains in my service until the end of my next long rest, at which point it vanishes to the afterlife. It acts on its own turn with its own initiative."
+				}],
+				header : "Bound Spirit",
+				eval : function(prefix) {
+					AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
+				},
+				removeeval : function(prefix) {
+					AddTooltip(prefix + 'Comp.Use.HP.Temp', "");
+				},
+				changeeval : function (prefix, newLvl) {
+					if (!classes.known.warlock) return;
+					Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.warlock.level / 2));
 				}
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', 'Accursed Specter');
-				var theType = tDoc.getField(prefix + 'Comp.Type');
-				theType.readonly = true;
-				theType.value = 'Accursed';
-				for (var a = 1; a <= 3; a++) {
-					AddToModFld(prefix + 'BlueText.Comp.Use.Attack.' + a + '.To Hit Bonus', "max(oCha|0)", false, "Accursed Specter", "The accursed specter adds the warlock's Charisma modifier (oCha) to the to hit bonus of its attacks (min +0).");
-				}
-				Value(prefix + 'Cnote.Left', "Accursed Specter (the Hexblade, XGtE 56)" + desc([
-					"When I slay a humanoid, I can curse its soul and have it rise as a specter from its corpse",
-					"It has its own turns and obeys my commands until my next long rest, when it vanishes",
-					"It uses the stats of a specter with the following bonuses:",
-					"\u2022 The accursed specter adds my Charisma modifier to its attack rolls",
-					"\u2022 It gains temporary hit points equal to half my warlock level when created"
-				]));
-				AddTooltip(prefix + 'Comp.Use.HP.Temp', "The accursed specter gains half my warlock level as temporary HP when created.");
-				var changeMsg = "The Accursed Specter has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
-				CurrentUpdates.types.push("notes");
-				if (!CurrentUpdates.notesChanges) {
-					CurrentUpdates.notesChanges = [changeMsg];
-				} else {
-					CurrentUpdates.notesChanges.push(changeMsg);
-				}
-			},
-			removeeval : function() {
-				for (var prefix in CurrentCompRace) {
-					if (CurrentCompRace[prefix].known === "specter" && What(prefix + 'Comp.Type') === 'Accursed' && tDoc.getField(prefix + 'Comp.Type').readonly) {
-						DoTemplate("AScomp", "Remove", prefix, true);
-					}
-				}
-			},
-			changeeval : function (lvlA, choiceA) {
-				if (!classes.known.warlock || !classes.known.warlock.level) return;
-				for (var prefix in CurrentCompRace) {
-					if (CurrentCompRace[prefix].known === "specter" && What(prefix + 'Comp.Type') === 'Accursed' && tDoc.getField(prefix + 'Comp.Type').readonly) {
-						Value(prefix + 'Comp.Use.HP.Temp', Math.floor(classes.known.warlock.level / 2));
-					}
-				}
-			}
+			}]
 		},
 		"subclassfeature10" : {
 			name : "Armor of Hexes",
@@ -2648,6 +2679,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
 	source : [["X", 56], ["UA:RCO", 5]],
+	submenu : "[improves Pact of the Tome]",
 	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
 	savetxt : { text : ["Nothing can force me to sleep"] }
 });
@@ -2660,6 +2692,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 	]),
 	source : [["X", 56], ["UA:RCO", 5]],
+	submenu : "[warlock level  5+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
 	usages : 1,
@@ -2674,6 +2707,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"The target is only knocked prone if it is Huge or smaller"
 	]),
 	source : ["X", 56],
+	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
@@ -2683,6 +2717,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"Objects appear ghostly to me; This lasts up to 1 minute, while I'm concentrating on this"
 	]),
 	source : ["X", 56],
+	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
@@ -2695,6 +2730,7 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
 	]),
 	source : [["X", 57], ["UA:RCO", 6]],
+	submenu : "[warlock level  5+]",
 	spellcastingBonus : {
 		name : "Gift of the Depths",
 		spells : ["water breathing"],
@@ -2708,12 +2744,14 @@ AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)",
 	name : "Gift of the Ever-Living Ones",
 	description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
 	source : [["X", 57], ["UA:RCO", 6]],
+	submenu : "[improves Pact of the Chain]",
 	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
 	description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
 	source : [["X", 57], ["UA:RCO", 6]],
+	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
 		atkAdd : [
@@ -2732,6 +2770,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon"
 	]),
 	source : ["X", 57],
+	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
@@ -2763,6 +2802,7 @@ AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["X", 57],
+	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
 		atkAdd : [
@@ -2781,6 +2821,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 		"The Hex spell and any of my warlock features that curse are considered a hex for this"
 	]),
 	source : ["X", 57],
+	submenu : "[improves Hex spell or warlock feature that curses]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action : ["bonus action", ""]
 });
@@ -2791,6 +2832,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 		"I teleport up to 30 ft to an unoccupied space that I can see within 5 ft of the target"
 	]),
 	source : ["X", 57],
+	submenu : "[improves Hex spell or warlock feature that curses]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action : ["bonus action", ""]
 });
@@ -2798,6 +2840,7 @@ AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 	name : "Shroud of Shadow",
 	description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
 	source : [["X", 57], ["UA:RCO", 6]],
+	submenu : "[warlock level 15+]",
 	spellcastingBonus : {
 		name : "Shroud of Shadow",
 		spells : ["invisibility"],
@@ -2820,6 +2863,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 		"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 	]),
 	source : [["X", 57], ["UA:RCO", 6]],
+	submenu : "[warlock level  5+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
 	usages : 1,
@@ -2830,6 +2874,7 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	name : "Trickster's Escape",
 	description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
 	source : [["X", 57], ["UA:RCO", 7]],
+	submenu : "[warlock level  7+]",
 	spellcastingBonus : {
 		name : "Trickster's Escape",
 		spells : ["freedom of movement"],
@@ -2847,7 +2892,7 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 });
 
 // Add 1 subclass for the Wizard
-AddSubClass("wizard", "war magic-xgte", {
+AddSubClass("wizard", "war magic", {
 	regExpSearch : /^(?=.*war)(?=.*(wizard|magic|mage)).*$/i,
 	subname : "War Magic",
 	source : ["X", 59],
@@ -2908,7 +2953,7 @@ AddSubClass("wizard", "war magic-xgte", {
 });
 
 // Add feats
-FeatsList["bountiful luck-xgte"] = {
+FeatsList["bountiful luck"] = {
 	name : "Bountiful Luck",
 	source : ["X", 73],
 	prerequisite : "Being a Halfling",
@@ -2917,7 +2962,7 @@ FeatsList["bountiful luck-xgte"] = {
 	description : "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
 	action : ["reaction", ""]
 };
-FeatsList["dragon fear-xgte"] = {
+FeatsList["dragon fear"] = {
 	name : "Dragon Fear",
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
@@ -2927,7 +2972,7 @@ FeatsList["dragon fear-xgte"] = {
 	scorestxt : "+1 Strength, Constitution, or Charisma",
 	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
-FeatsList["dragon hide-xgte"] = {
+FeatsList["dragon hide"] = {
 	name : "Dragon Hide",
 	source : ["X", 74],
 	prerequisite : "Being a Dragonborn",
@@ -2951,7 +2996,7 @@ FeatsList["dragon hide-xgte"] = {
 	},
 	armorAdd : "Dragon Hide"
 };
-FeatsList["drow high magic-xgte"] = {
+FeatsList["drow high magic"] = {
 	name : "Drow High Magic",
 	source : ["X", 74],
 	prerequisite : "Being a Drow (Dark Elf)",
@@ -2976,7 +3021,7 @@ FeatsList["drow high magic-xgte"] = {
 		firstCol : 'oncelr'
 	}]
 };
-FeatsList["dwarven fortitude-xgte"] = {
+FeatsList["dwarven fortitude"] = {
 	name : "Dwarven Fortitude",
 	source : ["X", 74],
 	prerequisite : "Being a Dwarf",
@@ -2985,7 +3030,7 @@ FeatsList["dwarven fortitude-xgte"] = {
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
 };
-FeatsList["elven accuracy-xgte"] = {
+FeatsList["elven accuracy"] = {
 	name : "Elven Accuracy",
 	source : ["X", 74],
 	prerequisite : "Being an Elf or a Half-Elf",
@@ -2994,7 +3039,7 @@ FeatsList["elven accuracy-xgte"] = {
 	description : "Whenever I have advantage on an attack roll that uses Dexterity, Intelligence, Wisdom, or Charisma, I can reroll one of the dice once. [+1 Dexterity, Intelligence, Wisdom, or Charisma]",
 	scorestxt : "+1 Dexterity, Intelligence, Wisdom, or Charisma"
 };
-FeatsList["fade away-xgte"] = {
+FeatsList["fade away"] = {
 	name : "Fade Away",
 	source : ["X", 74],
 	prerequisite : "Being a Gnome",
@@ -3006,7 +3051,7 @@ FeatsList["fade away-xgte"] = {
 	usages : 1,
 	recovery : "short rest"
 };
-FeatsList["fey teleportation-xgte"] = { // this code includes contributions by SoilentBrad
+FeatsList["fey teleportation"] = { // this code includes contributions by SoilentBrad
 	name : "Fey Teleportation",
 	source : ["X", 74],
 	prerequisite : "Being a High Elf",
@@ -3025,7 +3070,7 @@ FeatsList["fey teleportation-xgte"] = { // this code includes contributions by S
 	usages : 1,
 	recovery : "short rest"
 };
-FeatsList["flames of phlegethos-xgte"] = {
+FeatsList["flames of phlegethos"] = {
 	name : "Flames of Phlegethos",
 	source : ["X", 74],
 	prerequisite : "Being a Tiefling",
@@ -3034,7 +3079,7 @@ FeatsList["flames of phlegethos-xgte"] = {
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice once. I then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee to take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt : "+1 Intelligence or Charisma"	
 };
-FeatsList["infernal constitution-xgte"] = {
+FeatsList["infernal constitution"] = {
 	name : "Infernal Constitution",
 	source : ["X", 75],
 	prerequisite : "Being a Tiefling",
@@ -3045,7 +3090,7 @@ FeatsList["infernal constitution-xgte"] = {
 	dmgres : ["Cold", "Poison"],
 	savetxt : { adv_vs : ["poison"] }
 };
-FeatsList["orcish fury-xgte"] = {
+FeatsList["orcish fury"] = {
 	name : "Orcish Fury",
 	source : ["X", 75],
 	prerequisite : "Being a Half-Orc",
@@ -3058,7 +3103,7 @@ FeatsList["orcish fury-xgte"] = {
 	recovery : "short rest",
 	additional : "extra damage"
 };
-FeatsList["prodigy-xgte"] = {
+FeatsList["prodigy"] = {
 	name : "Prodigy",
 	source : ["X", 75],
 	prerequisite : "Being a Half-Elf, Half-Orc, or Human",
@@ -3069,7 +3114,7 @@ FeatsList["prodigy-xgte"] = {
 	languageProfs : [1],
 	toolProfs : [["Any tool", 1]]
 };
-FeatsList["second chance-xgte"] = {
+FeatsList["second chance"] = {
 	name : "Second Chance",
 	source : ["X", 75],
 	prerequisite : "Being a Halfling",
@@ -3081,7 +3126,7 @@ FeatsList["second chance-xgte"] = {
 	usages : 1,
 	recovery : "Combat"
 };
-FeatsList["squat nimbleness-xgte"] = {
+FeatsList["squat nimbleness"] = {
 	name : "Squat Nimbleness",
 	source : ["X", 75],
 	prerequisite : "Being a Dwarf or a small race",
@@ -3092,7 +3137,7 @@ FeatsList["squat nimbleness-xgte"] = {
 	skillstxt : "Acrobatics or Athletics",
 	speed : { walk : {spd : "+5", enc : "+5" } }
 };
-FeatsList["wood elf magic-xgte"] = {
+FeatsList["wood elf magic"] = {
 	name : "Wood Elf Magic",
 	source : ["X", 75],
 	prerequisite : "Being a Wood Elf",
@@ -3705,7 +3750,8 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		range : "10-ft rad",
 		components : "V",
 		duration : "Conc, 10 min",
-		description : "Strong (20 mph) wind in area deafens/extinguishes unprotected flames/dif. ter./ranged wea have dis",
+		description : "Strong (20 mph) wind in 10-ft rad of me deafens/extinguishes unprot. flames/dif. ter./ranged wea dis",
+		descriptionMetric : "Strong (32 kph) wind in 3-m rad of me deafens/extinguishes unprot. flames/dif. ter./ranged wea dis",
 		descriptionFull : "A strong wind (20 miles per hour) blows around you in a 10-foot radius and moves with you, remaining centered on you. The wind lasts for the spell's duration." + "\n   " + "The wind has the following effects." + "\n " + "\u2022 It deafens you and other creatures in its area." + "\n " + "\u2022 It extinguishes unprotected flames in its area that are torch-sized or smaller." + "\n " + "\u2022 The area is difficult terrain for creatures other than you." + "\n " + "\u2022 The attack rolls of ranged weapon attacks have disadvantage if they pass in or out of the wind." + "\n " + "\u2022 It hedges out vapor, gas, and fog that can be dispersed by strong wind."
 	};
 	SpellsList["watery sphere"] = {
@@ -3755,7 +3801,7 @@ SpellsList["catnap"] = {
 	description : "3+1/SL willing crea unconscious for 10 min to gain benefits of short rest; Ends if dmg or 1 a to wake",
 	descriptionFull : "You make a calming gesture, and up to three willing creatures of your choice that you can see within range fall unconscious for the spell's duration. The spell ends on a target early if it takes damage or someone uses an action to shake or slap it awake. If a target remains unconscious for the full duration, that target gains the benefit of a short rest, and it can't be affected by this spell again until it finishes a long rest." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, you can target one additional willing creature for each slot level above 3rd."
 };
-SpellsList["cause fear-xgte"] = {
+SpellsList["cause fear"] = {
 	name : "Cause Fear",
 	classes : ["warlock", "wizard"],
 	source : ["X", 151],
@@ -3769,7 +3815,7 @@ SpellsList["cause fear-xgte"] = {
 	description : "1+1/SL crea (not construct/undead), each max 30 ft apart, save or frightened; save end of each turn",
 	descriptionFull : "You awaken the sense of mortality in one creature you can see within range. A construct or an undead is immune to this effect. The target must succeed on a Wisdom saving throw or become frightened of you until the spell ends. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them."
 };
-SpellsList["ceremony-xgte"] = {
+SpellsList["ceremony"] = {
 	name : "Ceremony",
 	classes : ["cleric", "paladin"],
 	source : ["X", 151],
@@ -3784,7 +3830,7 @@ SpellsList["ceremony-xgte"] = {
 	description : "Perform religious ceremony on target(s) within 10 ft throughout the casting; see book (25gp cons.)",
 	descriptionFull : "You perform a special religious ceremony that is infused with magic. When you cast the spell, choose one of the following rites, the target of which must be within 10 feet of you throughout the casting." + "\n   " + toUni("Atonement") + ": You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a successful check, you restore the target to its original alignment." + "\n   " + toUni("Bless Water") + ": You touch one vial of water and cause it to become holy water." + "\n   " + toUni("Coming of Age") + ": You touch one humanoid who is a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this rite only once." + "\n   " + toUni("Dedication") + ": You touch one humanoid who wishes to be dedicated to your god's service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this rite only once." + "\n   " + toUni("Funeral Rite") + ": You touch one corpse, and for the next 7 days, the target can't become undead by any means short of a wish spell." + "\n   " + toUni("Wedding") + ": You touch adult humanoids willing to be bonded together in marriage. For the next 7 days, each target gains a +2 bonus to AC while they are within 30 feet of each other. A creature can benefit from this rite again only if widowed."
 };
-SpellsList["chaos bolt-xgte"] = {
+SpellsList["chaos bolt"] = {
 	name : "Chaos Bolt",
 	classes : ["sorcerer"],
 	source : [["X", 151], ["G", 67]],
@@ -4017,7 +4063,7 @@ SpellsList["infernal calling"] = {
 	description : "Summon 1 devil of CR 6+1/SL; hostile to all, obeys my command if to its liking or Cha check; see B",
 	descriptionFull : "Uttering a dark incantation, you summon a devil from the Nine Hells. You choose the devil's type, which must be one of challenge rating 6 or lower, such as a barbed devil or a bearded devil. The devil appears in an unoccupied space that you can see within range. The devil disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The devil is unfriendly toward you and your companions. Roll initiative for the devil, which has its own turns. It is under the Dungeon Master's control and acts according to its nature on each of its turns, which might result in its attacking you if it thinks it can prevail, or trying to tempt you to undertake an evil act in exchange for limited service. The DM has the creature's statistics." + "\n   " + "On each of your turns, you can try to issue a verbal command to the devil (no action required by you). It obeys the command if the likely outcome is in accordance with its desires, especially if the result would draw you toward evil. Otherwise, you must make a Charisma (Deception, Intimidation, or Persuasion) check contested by its Wisdom (Insight) check. You make the check with advantage if you say the devil's true name. If your check fails, the devil becomes immune to your verbal commands for the duration of the spell, though it can still carry out your commands if it chooses. If your check succeeds, the devil carries out your command \u2014 such as “attack my enemies,” “explore the room ahead,” or “bear this message to the queen” \u2014 until it completes the activity, at which point it returns to you to report having done so." + "\n   " + "If your concentration ends before the spell reaches its full duration, the devil doesn't disappear if it has become immune to your verbal commands. Instead, it acts in whatever manner it chooses for 3d6 minutes, and then it disappears." + "\n   " + "If you possess an individual devil's talisman, you can summon that devil if it is of the appropriate challenge rating plus 1, and it obeys all your commands, with no Charisma checks required." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th."
 };
-SpellsList["infestation-xgte"] = {
+SpellsList["infestation"] = {
 	name : "Infestation",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
 	source : ["X", 158],
@@ -4160,7 +4206,7 @@ SpellsList["power word pain"] = {
 	description : "1 crea with 100 HP or less disadv. atk/check/save, conc. save to cast; save/rnd to end; charm effect",
 	descriptionFull : "You speak a word of power that causes waves of intense pain to assail one creature you can see within range. If the target has 100 hit points or fewer, it is subject to crippling pain. Otherwise, the spell has no effect on it. A target is also unaffected if it is immune to being charmed." + "\n   " + "While the target is affected by crippling pain, any speed it has can be no higher than 10 feet. The target also has disadvantage on attack rolls, ability checks, and saving throws, other than Constitution saving throws. Finally, if the target tries to cast a spell, it must first succeed on a Constitution saving throw, or the casting fails and the spell is wasted." + "\n   " + "A target suffering this pain can make a Constitution saving throw at the end of each of its turns. On a successful save, the pain ends."
 };
-SpellsList["primal savagery-xgte"] = { 
+SpellsList["primal savagery"] = { 
 	name : "Primal Savagery",
 	classes : ["druid"],
 	source : ["X", 163],
@@ -4271,7 +4317,7 @@ SpellsList["skill empowerment"] = {
 	description : "1 willing creature gains expertise in one skill of my choice that it is proficient with for the duration",
 	descriptionFull : "Your magic deepens a creature's understanding of its own talent. You touch one willing creature and give it expertise in one skill of your choice; until the spell ends, the creature doubles its proficiency bonus for ability checks it makes that use the chosen skill." + "\n   " + "You must choose a skill in which the target is proficient and that isn't already benefiting from an effect, such as Expertise, that doubles its proficiency bonus."
 };
-SpellsList["snare-xgte"] = {
+SpellsList["snare"] = {
 	name : "Snare",
 	classes : ["druid", "ranger", "wizard"],
 	source : ["X", 165],
@@ -4472,7 +4518,7 @@ SpellsList["wrath of nature"] = {
 	description : "60-ft cu dif. ter., tree: Dex or 4d6 Slash. dmg, root: Str or restr., rock: rngd atk 3d8 Bludg. dmg; see B",
 	descriptionFull : "You call out to the spirits of nature to rouse them against your enemies. Choose a point you can see within range. The spirits cause trees, rocks, and grasses in a 60-foot cube centered on that point to become animated until the spell ends." + "\n   " + toUni("Grasses and Undergrowth") + ": Any area of ground in the cube that is covered by grass or undergrowth is difficult terrain for your enemies." + "\n   " + toUni("Trees") + ": At the start of each of your turns, each of your enemies within 10 feet of any tree in the cube must succeed on a Dexterity saving throw or take 4d6 slashing damage from whipping branches." + "\n   " + toUni("Roots and Vines") + ": At the end of each of your turns, one creature of your choice that is on the ground in the cube must succeed on a Strength saving throw or become restrained until the spell ends. A restrained creature can use an action to make a Strength (Athletics) check against your spell save DC, ending the effect on itself on a success." + "\n   " + toUni("Rocks") + ": As a bonus action on your turn, you can cause a loose rock in the cube to launch at a creature you can see in the cube. Make a ranged spell attack against the target. On a hit, the target takes 3d8 nonmagical bludgeoning damage, and it must succeed on a Strength saving throw or fall prone."
 };
-SpellsList["zephyr strike-xgte"] = { 
+SpellsList["zephyr strike"] = { 
 	name : "Zephyr Strike",
 	classes : ["ranger"],
 	source : ["X", 171],
@@ -4513,7 +4559,7 @@ WeaponsList["frostbite"] = {
 	abilitytodamage : false,
 	dc : true
 };
-WeaponsList["infestation-xgte"] = {
+WeaponsList["infestation"] = {
 	regExpSearch : /infestation/i,
 	name : "Infestation",
 	source : ["X", 158],
@@ -4538,7 +4584,7 @@ WeaponsList["magic stone"] = {
 	description : "Produces 3 stones that each can be thrown (60 ft) or hurled with a sling (120 ft) as a spell attack (XGtE 160)",
 	abilitytodamage : true
 };
-WeaponsList["primal savagery-xgte"] = {
+WeaponsList["primal savagery"] = {
 	regExpSearch : /^(?=.*primal)(?=.*savagery).*$/i,
 	name : "Primal Savagery",
 	source : ["X", 169],
@@ -4591,59 +4637,6 @@ WeaponsList["word of radiance"] = {
 };
 
 // Add creatures
-CreatureList["hound of ill omen"] = { // Stats for the Sorcerer (Shadow Magic) feature
-	name : "Hound of Ill Omen",
-	source : ["X", 51],
-	size : 3,
-	type : "Monstrosity",
-	alignment : "Unaligned",
-	ac : 14,
-	hp : 37,
-	hd : [5, 10],
-	speed : "50 ft",
-	scores : [17, 15, 15, 3, 12, 7],
-	saves : ["", "", "", "", "", ""],
-	skills : {
-		"perception" : 3,
-		"stealth" : 4
-	},
-	senses : "Adv. on Wis (Perception) checks using hearing/smell;\nAt the start of each turn, knows where the target is",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [2, 6, "piercing"],
-			range : "Melee (5 ft)",
-			description : "Target must succeed on a DC 13 Strength saving throw or be knocked prone"
-		}
-	],
-	traits : [{
-			name : "Keen Hearing and Smell",
-			description : "The hound has advantage on Wisdom (Perception) checks that rely on hearing or smell."
-		}, {
-			name : "Pack Tactics",
-			description : "The hound has advantage on an attack roll against a creature if at least one of the hound's allies is within 5 ft of the creature and the ally isn't incapacitated."
-		}
-	],
-	features : [{
-			name : "Actions",
-			description : "The hound can only move towards its targets and make attacks or opportunity attacks against its target."
-		}, {
-			name : "Temporary Hit Points",
-			description : "When the hound is summoned, it gains temporary HP equal to half my sorcerer level."
-		}, {
-			name : "Shadowy Form",
-			description : "The hound can move through other creatures and objects as if they were difficult terrain. It takes 5 force damage if it ends its turn inside an object."
-		}, {
-			name : "Sign of Ill Omen",
-			description : "While the hound is within 5 ft of its target, that target has disadvantage on saving throws versus my spells."
-		}
-	]
-};
 CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains contributions by SoilentBrad)
 	name : "Tiny Servant",
 	source : ["X", 169],
@@ -4655,12 +4648,10 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 	hd : [4, 4],
 	speed : "30 ft, climb 30 ft",
 	scores : [4, 16, 10, 2, 10, 1],
-	saves : ["", "", "", "", "", ""],
 	damage_immunities : "poison, psychic",
 	condition_immunities : "blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
 	senses : "Blindsight 60 ft (blind beyond this radius)",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 1,

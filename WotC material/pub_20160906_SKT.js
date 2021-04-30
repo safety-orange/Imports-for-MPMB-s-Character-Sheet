@@ -1,5 +1,5 @@
 var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,10 +23,8 @@ CreatureList["sheep"] = {
 	hd : [1, 6],
 	speed : "30 ft",
 	scores : [12, 10, 11, 2, 10, 5],
-	saves : ["", "", "", "", "", ""],
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 0,
@@ -47,10 +45,8 @@ CreatureList["pig"] = {
 	hd : [1, 8],
 	speed : "30 ft",
 	scores : [13, 11, 12, 2, 9, 5],
-	saves : ["", "", "", "", "", ""],
 	senses : "",
 	passivePerception : 9,
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 0,
@@ -67,13 +63,11 @@ CreatureList["hulking crab"] = {
 	hd : [8, 12], //[#, die]
 	speed : "20 ft, swim 30 ft",
 	scores : [19, 8, 16, 3, 11, 3], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"stealth" : 2
 	},
 	senses : "Blindsight 30 ft",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "5",
 	proficiencyBonus : 3,
 	attacksAction : 2,
@@ -83,7 +77,8 @@ CreatureList["hulking crab"] = {
 			damage : [1, "", "slashing"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "",
-			modifiers : [-4, "", false], //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [-4, ""],
+			abilitytodamage : false
 		}
 	],
 	traits : [{
@@ -107,7 +102,6 @@ CreatureList["tressym"] = {
 	hd : [2, 4], //[#, die]
 	speed : "40 ft, climb 30 ft, fly 40 ft",
 	scores : [3, 15, 10, 11, 12, 12], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 5,
 		"stealth" : 4
@@ -126,7 +120,8 @@ CreatureList["tressym"] = {
 			damage : [1, "", "slashing"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "",
-			modifiers : [-4, "", false], //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [-4, ""],
+			abilitytodamage : false
 		}
 	],
 	traits : [{

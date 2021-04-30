@@ -1,5 +1,5 @@
 var iFileName = "ua_20170501_Revised-Subclasses.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["UA:RS"] = {
 };
 
 // Add 5 subclasses from previous Unearthed Arcana articles: 1 for the Barbarian, 1 for the Bard, 1 for the Fighter, 1 for the Monk, and 1 for the Sorcerer
-AddSubClass("barbarian", "ancestral guardian2", {
+AddSubClass("barbarian", "ancestral guardian2-ua", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
 	source : ["UA:RS", 1],
@@ -62,7 +62,7 @@ AddSubClass("barbarian", "ancestral guardian2", {
 		}
 	}
 });
-AddSubClass("bard", "college of swords2", {
+AddSubClass("bard", "college of swords2-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
 	source : ["UA:RS", 1],
@@ -119,7 +119,7 @@ AddSubClass("bard", "college of swords2", {
 		}
 	}
 });
-AddSubClass("fighter", "arcane archer2", {
+AddSubClass("fighter", "arcane archer2-ua", {
 	regExpSearch : /^(?=.*arcane)(?=.*archer).*$/i,
 	subname : "Arcane Archer",
 	source : ["UA:RS", 2],
@@ -264,7 +264,7 @@ AddSubClass("fighter", "arcane archer2", {
 		}
 	}
 });
-AddSubClass("monk", "way of the kensei2", {
+AddSubClass("monk", "way of the kensei2-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
 	source : ["UA:RS", 4],
@@ -285,7 +285,7 @@ AddSubClass("monk", "way of the kensei2", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
+						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
 								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
@@ -323,15 +323,16 @@ AddSubClass("monk", "way of the kensei2", {
 					"My unarmed strikes and any Kensei Weapons count as magical for overcoming resistances and immunities."
 				]
 			},
-			extraname : "Way of the Kensei 6",
 			"precise strike" : {
 				name : "Precise Strike",
+				extraname : "Way of the Kensei 6",
 				source : ["UA:RS", 5],
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
+				extraname : "Way of the Kensei 11",
 				source : ["UA:RS", 5],
 				description : desc([
 					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
@@ -344,8 +345,7 @@ AddSubClass("monk", "way of the kensei2", {
 				extrachoice : "precise strike"
 			}, {
 				extrachoice : "sharpen the blade",
-				minlevel : 11,
-				extraname : "Way of the Kensei 11"
+				minlevel : 11
 			}]
 		},
 		"subclassfeature17" : {

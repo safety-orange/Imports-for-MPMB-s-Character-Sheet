@@ -395,7 +395,7 @@ if (!RaceList["zariel tiefling"]) {
 		}
 	};
 } // dupl_end
-RaceList["dispater tiefling"] = {
+RaceList["dispater tiefling-ua"] = {
 	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
 	name : "Dispater tiefling",
 	sortname : "Tiefling, Dispater",
@@ -451,7 +451,7 @@ RaceList["dispater tiefling"] = {
 		}
 	}
 };
-RaceList["mephistopheles tiefling"] = {
+RaceList["mephistopheles tiefling-ua"] = {
 	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
 	name : "Mephistopheles tiefling",
 	sortname : "Tiefling, Mephistopheles",

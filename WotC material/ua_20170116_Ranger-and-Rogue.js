@@ -95,7 +95,7 @@ var theHorizonWalkerSubclass = {
 		}
 	}
 };
-AddSubClass("ranger", "horizon walker", theHorizonWalkerSubclass);
+AddSubClass("ranger", "horizon walker-ua", theHorizonWalkerSubclass);
 var thePrimevalGuardianSubclass = {
 	regExpSearch : /^(?=.*primeval)(?=.*guardian).*$/i,
 	subname : "Primeval Guardian",
@@ -154,19 +154,19 @@ var thePrimevalGuardianSubclass = {
 		}
 	}
 };
-AddSubClass("ranger", "primeval guardian", thePrimevalGuardianSubclass);
+AddSubClass("ranger", "primeval guardian-ua", thePrimevalGuardianSubclass);
 if (ClassList["rangerua"]) { // add them to the Revised Ranger as well, if it is defined
 	var theHorizonConclaveSubclass = newObj(theHorizonWalkerSubclass);
 	theHorizonConclaveSubclass.subname = "Horizon Conclave";
 	theHorizonConclaveSubclass.regExpSearch = /^(?=.*horizon)(?=.*conclave).*$/i
 	delete theHorizonConclaveSubclass.fullname;
-	AddSubClass("rangerua", "horizon conclave", theHorizonConclaveSubclass);
+	AddSubClass("rangerua", "horizon conclave-ua", theHorizonConclaveSubclass);
 	var thePrimevalGuardianConclaveSubclass = newObj(thePrimevalGuardianSubclass);
 	thePrimevalGuardianConclaveSubclass.subname = "Primeval Guardian Conclave";
 	delete thePrimevalGuardianConclaveSubclass.fullname;
-	AddSubClass("rangerua", "primeval guardian conclave", thePrimevalGuardianConclaveSubclass);
+	AddSubClass("rangerua", "primeval guardian conclave-ua", thePrimevalGuardianConclaveSubclass);
 };
-AddSubClass("rogue", "scout", {
+AddSubClass("rogue", "scout-ua", {
 	regExpSearch : /scout/i,
 	subname : "Scout",
 	source : ["UA:RnR", 2],

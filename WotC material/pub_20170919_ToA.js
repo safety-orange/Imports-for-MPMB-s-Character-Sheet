@@ -1,5 +1,5 @@
 var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -321,7 +321,6 @@ if (!SourceList.V) {
 		saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 		senses : "",
 		passivePerception : 10,
-		languages : "",
 		challengeRating : "5",
 		proficiencyBonus : 3,
 		attacksAction : 1,
@@ -351,13 +350,11 @@ if (!SourceList.V) {
 		hd : [4, 8], //[#, die]
 		speed : "40 ft",
 		scores : [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 		skills : {
 			"perception" : 3
 		},
 		senses : "",
 		passivePerception : 13,
-		languages : "",
 		challengeRating : "1",
 		proficiencyBonus : 2,
 		attacksAction : 3,
@@ -395,13 +392,11 @@ if (!SourceList.V) {
 		hd : [3, 8], //[#, die]
 		speed : "30 ft, swim 20 ft",
 		scores : [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 		skills : {
 			"perception" : 2
 		},
 		senses : "",
 		passivePerception : 12,
-		languages : "",
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
 		attacksAction : 1,
@@ -425,13 +420,11 @@ if (!SourceList.V) {
 		hd : [3, 10], //[#, die]
 		speed : "40 ft",
 		scores : [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 		skills : {
 			"perception" : 2
 		},
 		senses : "",
 		passivePerception : 12,
-		languages : "",
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
 		attacksAction : 1,
@@ -455,13 +448,11 @@ if (!SourceList.V) {
 		hd : [4, 12], //[#, die]
 		speed : "10 ft, fly 80 ft",
 		scores : [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 		skills : {
 			"perception" : 2
 		},
 		senses : "",
 		passivePerception : 12,
-		languages : "",
 		challengeRating : "2",
 		proficiencyBonus : 2,
 		attacksAction : 1,
@@ -493,10 +484,8 @@ if (!SourceList.V) {
 		hd : [8, 12], //[#, die]
 		speed : "40 ft",
 		scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 		senses : "",
 		passivePerception : 10,
-		languages : "",
 		challengeRating : "4",
 		proficiencyBonus : 2,
 		attacksAction : 1,
@@ -520,13 +509,11 @@ if (!SourceList.V) {
 		hd : [3, 4], //[#, die]
 		speed : "30 ft",
 		scores : [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-		saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 		skills : {
 			"perception" : 3
 		},
 		senses : "",
 		passivePerception : 13,
-		languages : "",
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
 		attacksAction : 2,
@@ -564,14 +551,12 @@ CreatureList["almiraj"] = {
 	hd : [1, 6],
 	speed : "50 ft",
 	scores : [2, 16, 10, 2, 14, 10],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 4,
 		"stealth" : 5,
 	},
 	senses : "Darkvision 30 ft; Adv. on Wis (Perception) checks using hearing/sight",
 	passivePerception : 14,
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -601,10 +586,8 @@ CreatureList["flying monkey"] = {
 	hd : [1, 6],
 	speed : "30 ft, climb 20 ft, fly 30 ft",
 	scores : [8, 14, 11, 5, 12, 6],
-	saves : ["", "", "", "", "", ""],
 	senses : "",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -633,10 +616,8 @@ CreatureList["giant snapping turtle"] = {
 	hd : [10, 10],
 	speed : "30 ft, swim 40 ft",
 	scores : [19, 10, 14, 2, 12, 5],
-	saves : ["", "", "", "", "", ""],
 	senses : "Darkvision 60 ft",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "3",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -668,7 +649,6 @@ CreatureList["jaculi"] = {
 	hd : [3, 10],
 	speed : "30 ft, climb 20 ft",
 	scores : [15, 14, 11, 2, 8, 3],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"athletics" : 4,
 		"perception" : 1,
@@ -676,7 +656,6 @@ CreatureList["jaculi"] = {
 	},
 	senses : "Blindsight 30 ft; Adv. on Wis (Perception) checks using smell",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 1,

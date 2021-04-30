@@ -1,8 +1,8 @@
-var iFileName = "pub_20191119_ERFtLW.js";
-RequiredSheetVersion(13);
+var iFileName = "pub_20191119_ERftLW.js";
+RequiredSheetVersion("13.0.6");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
-// Define the sources
+// Define the source
 SourceList["E:RLW"] = {
 	name : "Eberron: Rising from the Last War",
 	abbreviation : "E:RLW",
@@ -28,9 +28,9 @@ RaceList["changeling-erlw"] = {
 	weight : " weigh around 140 lb (115 + 2d4 \xD7 2d4 lb)",
 	heightMetric : " stand between 1,5 to over 1,8 metres tall (155 + 5d4 cm)",
 	weightMetric : " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
-	scorestxt : "+2 Charisma and +1 to one ability scores of my choice",
-	scores : [0, 0, 0, 0, 0, 2],	
-	trait : "Changeling (+2 Charisma and +1 to one ability scores of my choice)\n\nShapechanger: As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight, but not so much that my size changes. I revert back when I die. I can make myself appear as a member of another race, though none of my game statistics change.",
+	scorestxt : "+2 Charisma and +1 to one other ability score of my choice",
+	scores : [0, 0, 0, 0, 0, 2],
+	trait : "Changeling (+2 Charisma and +1 to one other ability score of my choice)\nShapechanger: As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight, but not so much that my size changes. I revert back when I die. I can make myself appear as a member of another race, though none of my game statistics change.",
 	action : [["action", "Shapechanger"]]
 };
 
@@ -46,6 +46,7 @@ WeaponsList["double-bladed scimitar"] = {
 	range : "Melee",
 	weight : 6,
 	description : "Two-handed; With Attack action, one attack as bonus action for 1d4",
+	special : true,
 	abilitytodamage : true
 };
 
@@ -380,7 +381,7 @@ RaceList["warforged-erlw"] = {
 	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scorestxt : "+2 Constitution and +1 to one other ability score of my choice",
 	scores : [0, 0, 2, 0, 0, 0],
-	trait : "Warforged (+2 Constitution and +1 to one other ability score" + (typePF ? "" : " of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: I gain +1 AC and I can don only armor with which I'm proficient. To don or doff armor, I must (un)incorporate it into my body over the course of 1 hour, which can be done during resting. My armor can't be removed against my will while I'm alive.",
+	trait : "Warforged (+2 Constitution and +1 to one other ability score" + (typePF ? "" : " of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: I gain +1 AC and I can don only armor with which I'm proficient. To don or doff armor, I must (un)incorporate it into my body over the course of 1 hour, which can be done during resting. Donned armor can't be removed against my will while I'm alive.",
 	extraAC : {
 		name : "Integrated Protection",
 		mod : 1,
@@ -412,17 +413,17 @@ RaceList["dragonmark detection half-elf-erlw"] = {
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt : "+2 Wisdom and +1 to one other ability score of my choice",
 	scores : [0, 0, 0, 0, 2, 0],
-	trait : "Half-Elf, Dragonmark of Detection (+2 Wisdom " + (typePF ? "and" : "\u0026") + " +1 to one other ability " + (typePF ? "score" : "") + " of my choice)\n   Deductive Intuition: I can add +1d4 to my Intelligence (Investigation) and Wisdom (Insight) checks.\n   Sense Threats: I can cast Detect Magic and Detect Poison and Disease each once per long rest. At 3rd level, I can also cast See Invisibility once per long rest. Intelligence is my spellcasting ability for these and none of them require material components.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
-	spellcastingAbility : 4,
+	trait : "Half-Elf, Dragonmark of Detection (+2 Wisdom \u0026 +1 to one other ability of my choice)\n   Deductive Intuition: I can add +1d4 to my Intelligence (Investigation) and Wisdom (Insight) checks.\n   Magical Detection: I can cast Detect Magic and Detect Poison and Disease each once per long rest. At 3rd level, I can also cast See Invisibility once per long rest. Wisdom is my spellcasting ability for these and none of them require material components.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
+	spellcastingAbility : 5, // changed from Int to Wis by errata
 	features : {
-		"sense threats" : {
-			name : "Sense Threats (level 1)",
+		"magical detection" : {
+			name : "Magical Detection (level 1)",
 			limfeaname : "Detect Magic",
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
 			spellcastingBonus : {
-				name : "Sense Threats (level 1)",
+				name : "Magical Detection (level 1)",
 				spells : ["detect magic", "detect poison and disease"],
 				selection : ["detect magic", "detect poison and disease"],
 				firstCol : "oncelr",
@@ -442,13 +443,13 @@ RaceList["dragonmark detection half-elf-erlw"] = {
 			}
 		},
 		"see invisibility" : {
-			name : "Sense Threats (level 3)",
+			name : "Magical Detection (level 3)",
 			limfeaname : "See Invisibility",
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
 			spellcastingBonus : {
-				name : "Sense Threats (level 3)",
+				name : "Magical Detection (level 3)",
 				spells : ["see invisibility"],
 				selection : ["see invisibility"],
 				firstCol : "oncelr"
@@ -743,22 +744,22 @@ RaceList["dragonmark hospitality halfling-erlw"] = {
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
-	trait : "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\n") + "Halfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks. Innkeeper's Charms: I know the Prestidigitation cantrip and I can cast Purify Food and Drink and Unseen Servant each once per long rest. Charisma as my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
+	trait : "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\n") + "Halfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\n" : " ") + "Innkeeper's Magic: I know the Prestidigitation cantrip and I can cast Purify Food and Drink and Unseen Servant each once per long rest. Charisma as my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
 	spellcastingAbility : 6,
 	features : {
-		"innkeeper's charms" : {
-			name : "Innkeeper's Charms",
+		"innkeeper's magic" : {
+			name : "Innkeeper's Magic",
 			limfeaname : "Purify Food and Drink",
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
 			spellcastingBonus : [{
-				name : "Innkeeper's Charms",
+				name : "Innkeeper's Magic",
 				spells : ["prestidigitation"],
 				selection : ["prestidigitation"],
 				firstCol : 'atwill'
 			}, {
-				name : "Innkeeper's Charms",
+				name : "Innkeeper's Magic",
 				spells : ["purify food and drink", "unseen servant"],
 				selection : ["purify food and drink", "unseen servant"],
 				firstCol : "oncelr",
@@ -1444,7 +1445,7 @@ BackgroundFeatureList["house connections"] = {
 ClassList.artificer = {
 	regExpSearch : /^(?=.*artificer)(?!.*wizard).*$/i,
 	name : "Artificer",
-	source : [["E:RLW", 54]],
+	source : [["E:RLW", 54], ["TCoE", 9]],
 	primaryAbility : "Intelligence",
 	abilitySave : 4,
 	prereqs : "Intelligence 13",
@@ -1486,19 +1487,19 @@ ClassList.artificer = {
 	features : {
 		"magical tinkering" : {
 			name : "Magical Tinkering",
-			source : [["E:RLW", 55]],
+			source : [["E:RLW", 55], ["TCoE", 11]],
 			minlevel : 1,
 			description : desc([
-				"As an action, I use artisan's tools to give max 1 property to a nonmagical tiny object:",
+				"As an action, I use thieves/artisan's tools to give 1 property to a nonmagical tiny object:",
 				" \u2022 Emit light (5-ft radius bright light, equal dim), an odor, or a nonverbal sound",
 				" \u2022 Static visual effect on one surface, or emit a 6-second recorded message when tapped",
 				"If I instill a property in more objects than I can have active, the oldest loses its property"
 			]),
 			additional : "Intelligence modifier of active objects",
 			action : [["action", " (add/remove)"]],
-			extraname : "Artificer 2",
 			"infuse item" : {
 				name : "Infuse Item",
+				extraname : "Artificer 2",
 				source : [["E:RLW", 57]],
 				description : desc([
 					"When I finish a long rest, I can turn nonmagical objects into magic items using my infusions",
@@ -1519,7 +1520,7 @@ ClassList.artificer = {
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
-			source : [["E:RLW", 55]],
+			source : [["E:RLW", 55], ["TCoE", 11]],
 			minlevel : 1,
 			description : desc([
 				"I can cast prepared artificer cantrips/spells, using Intelligence as my spellcasting ability",
@@ -1555,42 +1556,37 @@ ClassList.artificer = {
 			extraname : "Artificer Spellcasting",
 			"don't change component column on spell sheet" : {
 				name : "[Meta] Don't alter spell sheets",
-				source : [["E:RLW", 55]],
+				source : [["E:RLW", 55], ["TCoE", 11]],
 				description : "\n   The automation will not add M\u0192 to each artificer spell on the generated spell sheets"
 			}
 		},
 		"infuse item" : {
 			name : "Infuse Item",
-			source : [["E:RLW", 57]],
+			source : [["E:RLW", 57], ["TCoE", 12]],
 			minlevel : 2,
 			description : '\n   Use the "Choose Feature" button above to add Artificer Infusions to the third page',
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12) + " infusions known; max " + (n < 6 ? 2 : n < 10 ? 3 : n < 14 ? 4 : n < 18 ? 5 : 6) + " infused items";
 			}),
 			extraname : "Artificer Infusion",
-			extrachoices : ["Boots of the Winding Path (prereq: level 6 artificer)", "Enhanced Arcane Focus", "Enhanced Defense (armor)", "Enhanced Defense (shield)", "Enhanced Weapon", "Homunculus Servant (prereq: level 6 artificer)", "Radiant Weapon (prereq: level 6 artificer)", "Repeating Shot", "Repulsion Shield (prereq: level 6 artificer)", "Resistant Armor (prereq: level 6 artificer)", "Returning Weapon"],
+			extrachoices : ["Boots of the Winding Path (prereq: level 6 artificer)", "Enhanced Arcane Focus", "Enhanced Defense (armor)", "Enhanced Defense (shield)", "Enhanced Weapon", "Homunculus Servant", "Radiant Weapon (prereq: level 6 artificer)", "Repeating Shot", "Repulsion Shield (prereq: level 6 artificer)", "Resistant Armor (prereq: level 6 artificer)", "Returning Weapon"],
 			extraTimes : levels.map(function (n) {
 				return n < 2 ? 0 : n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12;
 			}),
 			"boots of the winding path (prereq: level 6 artificer)" : {
 				name : "Boots of the Winding Path",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 21]],
 				description : desc([
 					"The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
 					"It must be a space that the wearer had occupied some time during the current turn"
 				]),
 				additional : "pair of boots; requires attunement",
 				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-				eval : function (lvl, chc) { AddMagicItem("Boots of the Winding Path"); },
-				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("boots of the winding path");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
-				}
+				magicitemsAdd : ["Boots of the Winding Path"]
 			},
 			"enhanced arcane focus" : {
 				name : "Enhanced Arcane Focus",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 21]],
 				description : "\n   The holder has a bonus to spell attack rolls and ignores half cover with spell attacks",
 				additional : levels.map(function (n) {
 					return "rod/staff/wand; attunement; +" + (n < 10 ? 1 : 2);
@@ -1599,14 +1595,12 @@ ClassList.artificer = {
 					AddMagicItem("Enhanced Arcane Focus +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("wand of the war mage, +1, +2, or +3");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
+					RemoveMagicItem("wand of the war mage, +1, +2, or +3");
 				}
 			},
 			"enhanced defense (armor)" : {
 				name : "Enhanced Defense",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 21]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
@@ -1618,14 +1612,12 @@ ClassList.artificer = {
 					AddMagicItem("Armor +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("armor, +1, +2, or +3");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
+					RemoveMagicItem("armor, +1, +2, or +3");
 				}
 			},
 			"enhanced defense (shield)" : {
 				name : "Enhanced Defense",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 21]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
@@ -1637,14 +1629,12 @@ ClassList.artificer = {
 					AddMagicItem("Shield +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("shield, +1, +2, or +3");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
+					RemoveMagicItem("shield, +1, +2, or +3");
 				}
 			},
 			"enhanced weapon" : {
 				name : "Enhanced Weapon",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 21]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "simple/martial weapon; +" + (n < 10 ? 1 : 2) + " magical";
@@ -1653,32 +1643,88 @@ ClassList.artificer = {
 					AddMagicItem("Weapon +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("weapon, +1, +2, or +3");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
+					RemoveMagicItem("weapon, +1, +2, or +3");
 				}
 			},
-			"homunculus servant (prereq: level 6 artificer)" : {
+			"homunculus servant" : {
 				name : "Homunculus Servant",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 21]],
 				description : desc([
 					"The item I infuse becomes the heart of a homunculus that immediately forms around it",
 					"I determine its appearance; It is friendly to me and my allies and obeys my commands",
-					'Select "Homunculus Servant" on a companion page to see its game statistics'
+					'See "Homunculus Servant" on a companion page to see its game statistics'
 				]),
-				additional : "gem of 100+ gp or a dragonshard",
-				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-				eval : function (lvl, chc) {
-					ClassList.artificer.artificerCompFunc.add("Homunculus Servant");
-				},
-				removeeval : function (lvl, chc) {
-					ClassList.artificer.artificerCompFunc.remove("homunculus servant");
-					if (CreatureList["homunculus servant"]) CreatureList["homunculus servant"].removeeval();
-				}
+				additional : "gem or crystal of 100+ gp",
+				action : [["bonus action", " (command)"]],
+				creaturesAdd : [["Homunculus Servant"]],
+				creatureOptions : [{
+					name : "Homunculus Servant",
+					source : [["E:RLW", 62], ["TCoE", 22]],
+					size : 5,
+					type : "Construct",
+					alignment : "Neutral",
+					ac : 13,
+					hp : 3,
+					hd : [2, 4],
+					hdLinked : ["artificer"],
+					speed : "20 ft, fly 30 ft",
+					scores : [4, 15, 12, 10, 10, 7],
+					saves : ["", 4, "", "", "", ""],
+					skills : {
+						"perception" : 4,
+						"stealth" : 4
+					},
+					damage_immunities : "poison",
+					condition_immunities : "exhaustion, poisoned",
+					senses : "Darkvision 60 ft",
+					passivePerception : 14,
+					languages : "understands the languages of its creator but can't speak",
+					challengeRating : "0",
+					proficiencyBonus : 2,
+					proficiencyBonusLinked : true,
+					attacksAction : 1,
+					attacks : [{
+						name : "Force Strike",
+						ability : 4,
+						damage : [1, 4, "force"],
+						range : "30 ft",
+						description : "",
+						modifiers : ["", "Prof"],
+						abilitytodamage : false,
+						useSpellMod : "artificer"
+					}],
+					features : [{
+						name : "Creator",
+						description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command it to take another action. If its creator is incapacitated, it can take any action, not just Dodge."
+					}],
+					traits : [{
+						name : "Healing",
+						description : "The homunculus regains 2d6 hit points whenever the Mending spell is cast on it. Its HP total is equal to 1 + its creator's artificer level + its creator's Intelligence modifier. If it or its creator dies, the homunculus vanishes, leaving its heart in its space."
+					}, {
+						name : "Evasion",
+						description : "If the homunculus is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. It can't use this trait if it's incapacitated."
+					}],
+					actions : [{
+						name : "Channel Magic",
+						description : "As a reaction, the homunculus delivers a spell cast by its creator that has a range of touch. The homunculus must be within 120 ft of its creator to do so."
+					}],
+					header : "Construct",
+					calcChanges : {
+						hp : function (totalHD, HDobj, prefix) {
+							if (!classes.known.artificer) return;
+							var intMod = Number(What('Int Mod'));
+							var artLvl = classes.known.artificer.level;
+							HDobj.alt.push(1 + intMod + artLvl);
+							HDobj.altStr.push(" = 1 as a base\n + " + intMod + " from its creator's Intelligence modifier\n + " + artLvl + " from its creator's artificer level");
+						},
+						setAltHp : true,
+						hpForceRecalc : true
+					}
+				}]
 			},
 			"radiant weapon (prereq: level 6 artificer)" : {
 				name : "Radiant Weapon",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 22]],
 				description : desc([
 					"The weapon has a +1 bonus to attack and damage rolls made with it and it sheds light",
 					"As a bonus action, its wielder can start/stop the light, 30-ft radius bright + 30 ft dim light",
@@ -1688,83 +1734,59 @@ ClassList.artificer = {
 				]),
 				additional : "simple/martial weapon; requires attunement",
 				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-				eval : function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
-				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("radiant weapon") != -1 ? CurrentMagicItems.known.indexOf("radiant weapon") : CurrentMagicItems.known.indexOf("radiant weapon-ua");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
-				}
+				magicitemsAdd : ["Radiant Weapon"]
 			},
 			"repeating shot" : {
 				name : "Repeating Shot",
-				source : [["E:RLW", 62]],
+				source : [["E:RLW", 62], ["TCoE", 22]],
 				description : desc([
 					"The weapon requiring ammunition has a +1 bonus to attack and damage rolls made with it",
 					"It magically produces one piece of ammunition whenever it is used to make a ranged attack",
 					"Thus, it doesn't require ammunition and ignores the loading property if it has it"
 				]),
 				additional : "weapon with ammo; requires attunement",
-				eval : function (lvl, chc) { AddMagicItem("Repeating Shot"); },
-				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("repeating shot");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
-				}
+				magicitemsAdd : ["Repeating Shot"]
 			},
 			"repulsion shield (prereq: level 6 artificer)" : {
 				name : "Repulsion Shield",
-				source : [["E:RLW", 63]],
+				source : [["E:RLW", 63], ["TCoE", 23]],
 				description : desc([
 					"The shield gives its wearer an extra +1 bonus to AC; It has 4 charges, regaining 1d4 daily",
 					"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft"
 				]),
 				additional : "shield; requires attunement",
 				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-				eval : function (lvl, chc) { AddMagicItem("Repulsion Shield"); },
-				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("repulsion shield") != -1 ? CurrentMagicItems.known.indexOf("repulsion shield") : CurrentMagicItems.known.indexOf("repulsion shield-ua");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
-				}
+				magicitemsAdd : ["Repulsion Shield"]
 			},
 			"resistant armor (prereq: level 6 artificer)" : {
 				name : "Resistant Armor",
-				source : [["E:RLW", 63]],
+				source : [["E:RLW", 63], ["TCoE", 23]],
 				description : desc([
 					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
 					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
 				]),
 				additional : "suit of armor; requires attunement",
 				prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-				eval : function (lvl, chc) { AddMagicItem("Armor of Resistance"); },
-				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("armor of resistance");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
-				}
+				magicitemsAdd : ["Armor of Resistance"]
 			},
 			"returning weapon" : {
 				name : "Returning Weapon",
-				source : [["E:RLW", 63]],
+				source : [["E:RLW", 63], ["TCoE", 23]],
 				description : "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
 				additional : "weapon with the thrown property",
-				eval : function (lvl, chc) { AddMagicItem("Returning Weapon"); },
-				removeeval : function (lvl, chc) {
-					var loc = CurrentMagicItems.known.indexOf("returning weapon");
-					if (loc == -1) return;
-					MagicItemClear(loc + 1, true);
-				}
+				magicitemsAdd : ["Returning Weapon"]
 			}
 		},
 		"the right tool for the job" : {
 			name : "The Right Tool for the Job",
-			source : [["E:RLW", 57]],
+			source : [["E:RLW", 57], ["TCoE", 13]],
 			minlevel : 3,
-			description : "\n   In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"
+			description : "\n   In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again",
+			additional : "using thieves' or artisan's tools"
 		},
 		"subclassfeature3" : {
 			name : "Artificer Specialist",
-			source : [["E:RLW", 57]],
+			source : [["E:RLW", 57], ["TCoE", 13]],
 			minlevel : 3,
 			description : desc([
 				'Choose a specialism and put it in the "Class" field on the first page',
@@ -1773,7 +1795,7 @@ ClassList.artificer = {
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
-			source : [["E:RLW", 57]],
+			source : [["E:RLW", 57], ["TCoE", 13]],
 			minlevel : 6,
 			description : " [expertise with all tools I'm proficient with]",
 			skillstxt : "Expertise with all tools I'm proficient with",
@@ -1782,7 +1804,7 @@ ClassList.artificer = {
 		},
 		"flash of genius" : {
 			name : "Flash of Genius",
-			source : [["E:RLW", 57]],
+			source : [["E:RLW", 57], ["TCoE", 13]],
 			minlevel : 7,
 			description : "\n   As a reaction when I or another in 30 ft make a check/save, I can add my Int mod to it",
 			action : [["reaction", ""]],
@@ -1792,7 +1814,7 @@ ClassList.artificer = {
 		},
 		"magic item adept" : {
 			name : "Magic Item Adept",
-			source : [["E:RLW", 57]],
+			source : [["E:RLW", 57], ["TCoE", 13]],
 			minlevel : 10,
 			description : "\n   It takes me half the normal time and gold to craft common and uncommon magic items",
 			additional : levels.map(function (n) {
@@ -1801,7 +1823,7 @@ ClassList.artificer = {
 		},
 		"spell-storing item" : {
 			name : "Spell-Storing Item",
-			source : [["E:RLW", 58]],
+			source : [["E:RLW", 58], ["TCoE", 13]],
 			minlevel : 11,
 			description : desc([
 				"When I finish a long rest, I can infuse a 1st-/2nd-level artificer spell into an item I touch",
@@ -1816,13 +1838,13 @@ ClassList.artificer = {
 		},
 		"magic item savant" : {
 			name : "Magic Item Savant",
-			source : [["E:RLW", 58]],
+			source : [["E:RLW", 58], ["TCoE", 14]],
 			minlevel : 14,
 			description : " [ignore class/race/spell/level attune require.]"
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
-			source : [["E:RLW", 58]],
+			source : [["E:RLW", 58], ["TCoE", 14]],
 			minlevel : 20,
 			description : " [+1 on all saves per attuned magic item]\n   As a reaction when I'm reduced to 0 HP, I can end one infusion to drop to 1 HP instead",
 			action : [["reaction", ""]],
@@ -1831,50 +1853,9 @@ ClassList.artificer = {
 			}
 		}
 	},
-	artificerCompFunc : {
-		add : function (compName) {
-			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-			var prefix = false;
-			if (AScompA) {
-				for (var a = 1; a < AScompA.length; a++) {
-					if (!What(AScompA[a] + 'Comp.Race')) {
-						prefix = AScompA[a];
-						break;
-					}
-				}
-			}
-			if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-			Value(prefix + 'Comp.Race', compName);
-			var changeMsg = "The " + compName + " has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
-			CurrentUpdates.types.push("notes");
-			if (!CurrentUpdates.notesChanges) {
-				CurrentUpdates.notesChanges = [changeMsg];
-			} else {
-				CurrentUpdates.notesChanges.push(changeMsg);
-			}
-			return prefix;
-		},
-		remove : function (compName) {
-			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-			if (!AScompA) return;
-			compName = compName.toLowerCase();
-			for (var a = 1; a < AScompA.length; a++) {
-				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) {
-					DoTemplate("AScomp", "Remove", AScompA[a], true);
-				}
-			}
-		},
-		find : function (compName) {
-			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-			var prefixes = [];
-			if (!AScompA) return prefixes;
-			compName = compName.toLowerCase();
-			for (var a = 1; a < AScompA.length; a++) {
-				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) prefixes.push(AScompA[a]);
-			}
-			return prefixes;
-		}
-	}
+	prereqLvl6 : function(v) { return classes.known.artificer.level >= 6; },
+	prereqLvl10 : function(v) { return classes.known.artificer.level >= 10; },
+	prereqLvl14 : function(v) { return classes.known.artificer.level >= 14; },
 };
 
 // Set the Artificer class spell and infusion lists
@@ -1916,7 +1897,7 @@ RunFunctionAtEnd(function(){
 		"longstrider",
 		"purify food and drink",
 		"sanctuary",
-		"snare-xgte",
+		"snare",
 		// level 2
 		"aid",
 		"alter self",
@@ -1979,66 +1960,15 @@ RunFunctionAtEnd(function(){
 		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer") === -1) aArtSp.classes.push("artificer");
 	};
 	var artMi = [
-		// XGtE common items
-		["armor of gleaming"],
-		["bead of nourishment"],
-		["bead of refreshment"],
-		["boots of false tracks"],
-		["candle of the deep"],
-		["cast-off armor"],
-		["charlatan's die"],
-		["cloak of billowing"],
-		["cloak of many fashions"],
-		["clockwork amulet"],
-		["clothes of mending"],
-		["dark shard amulet"],
-		["dread helm"],
-		["ear horn of hearing"],
-		["enduring spellbook"],
-		["ersatz eye"],
-		["hat of vermin"],
-		["hat of wizardry"],
-		["heward's handy spice pouch"],
-		["horn of silent alarm"],
-		["instrument of illusions"],
-		["instrument of scribing"],
-		["lock of trickery"],
-		["moon-touched sword"],
-		["mystery key"],
-		["orb of direction"],
-		["orb of time"],
-		["perfume of bewitching"],
-		["pipe of smoke monsters"],
-		["pole of angling"],
-		["pole of collapsing"],
-		["pot of awakening"],
-		["rope of mending"],
-		["ruby of the war mage"],
-		["shield of expression"],
-		["smoldering armor"],
-		["staff of adornment"],
-		["staff of birdcalls"],
-		["staff of flowers"],
-		["talking doll"],
-		["tankard of sobriety"],
-		["unbreakable arrow"],
-		["veteran's cane"],
-		["walloping ammunition"],
-		["wand of conducting"],
-		["wand of pyrotechnics"],
-		["wand of scowls"],
-		["wand of smiles"],
 		// 2nd-level artificer
-		["alchemy jug"],
-		["armblade"],
-		["bag of holding"],
-		["cap of water breathing"],
-		["goggles of night"],
-		["prosthetic limb"],
-		["rope of climbing"],
-		["sending stones"],
-		["wand of magic detection"],
-		["wand of secrets"],
+		["alchemy jug", 2],
+		["bag of holding", 2],
+		["cap of water breathing", 2],
+		["goggles of night", 2],
+		["rope of climbing", 2],
+		["sending stones", 2],
+		["wand of magic detection", 2],
+		["wand of secrets", 2],
 		// 6th-level artificer
 		["boots of elvenkind", 6],
 		["cloak of elvenkind", 6],
@@ -2048,7 +1978,6 @@ RunFunctionAtEnd(function(){
 		["lantern of revealing", 6],
 		["pipes of haunting", 6],
 		["ring of water walking", 6],
-		["wand sheath", 6],
 		// 10th-level artificer
 		["boots of striding and springing", 10],
 		["boots of the winterlands", 10],
@@ -2063,6 +1992,7 @@ RunFunctionAtEnd(function(){
 		["headband of intellect", 10],
 		["helm of telepathy", 10],
 		["medallion of thoughts", 10],
+		["necklace of adaptation", 10], // TCoE addition
 		["periapt of wound closure", 10],
 		["pipes of the sewers", 10],
 		["quiver of ehlonna", 10],
@@ -2086,6 +2016,25 @@ RunFunctionAtEnd(function(){
 		["ring of protection", 14],
 		["ring of the ram", 14]
 	];
+	// add all common items (except potions and scrolls)
+	for (var mi in MagicItemsList) {
+		var aMI = MagicItemsList[mi];
+		if (aMI.type && !(/potion|scroll/i).test(aMI.type) &&
+			( (!aMI.rarity && aMI.choices) || (aMI.rarity && aMI.rarity.toLowerCase() === "common") )
+		) {
+			if (aMI.choices) {
+				for (var c = 0; c < aMI.choices.length; c++) {
+					var choiceNmLC = aMI.choices[c].toLowerCase();
+					var aMIchoice = aMI[choiceNmLC];
+					// skip if not common rarity or a potion or a scroll
+					if (!aMIchoice || !aMIchoice.rarity || aMIchoice.rarity.toLowerCase() !== "common" || (/potion|scroll/i).test(aMIchoice.type)) continue;
+					artMi.push([mi, 0, choiceNmLC]);
+				}
+			} else {
+				artMi.push([mi]);
+			}
+		}
+	}
 	var theObj = ClassList.artificer.features["infuse item"];
 	for (var a = 0; a < artMi.length; a++) {
 		var MI0 = artMi[a][0];
@@ -2093,24 +2042,26 @@ RunFunctionAtEnd(function(){
 		var MI2 = artMi[a][2];
 		var anArtMi = MagicItemsList[MI0];
 		if (!anArtMi) continue;
-		if (MI2) {
+		if (MI2 && anArtMi[MI2]) {
 			anArtMi = {
-				name : MagicItemsList[MI0][MI2].name ? MagicItemsList[MI0][MI2].name : MagicItemsList[MI0].name + " [" + MI2.capitalize() + "]",
-				source : MagicItemsList[MI0][MI2].source ? MagicItemsList[MI0][MI2].source : MagicItemsList[MI0].source,
-				attunement : MagicItemsList[MI0][MI2].attunement !== undefined ? MagicItemsList[MI0][MI2].attunement : MagicItemsList[MI0].attunement
+				name : anArtMi[MI2].name ? anArtMi[MI2].name : anArtMi.name + " [" + MI2.capitalize() + "]",
+				rarity : anArtMi[MI2].rarity ? anArtMi[MI2].rarity : anArtMi.rarity,
+				source : anArtMi[MI2].source ? anArtMi[MI2].source : anArtMi.source,
+				attunement : anArtMi[MI2].attunement !== undefined ? anArtMi[MI2].attunement : anArtMi.attunement
 			}
 		}
-		var theI = "Replicate: " + anArtMi.name + (MI1 ? " (prereq: level " + MI1 + " artificer)" : "");
+		var theI = anArtMi.name + (MI1 ? " (prereq: level " + MI1 + " artificer)" : "");
 		var theILC = theI.toLowerCase();
+		if (theObj[theILC]) continue;
 		theObj[theILC] = {
 			name : anArtMi.name,
 			description : "",
 			source : anArtMi.source,
-			eval : 'AddMagicItem("' + anArtMi.name + '");',
-			removeeval : MI2 ? 'if (CurrentMagicItems.choices.indexOf("' + MI2 + '") != -1) { MagicItemClear(CurrentMagicItems.choices.indexOf("' + MI2 + '") + 1, true); };' : 'if (CurrentMagicItems.known.indexOf("' + MI0 + '") != -1) { MagicItemClear(CurrentMagicItems.known.indexOf("' + MI0 + '") + 1, true); };'
+			magicitemsAdd : [anArtMi.name],
+			additional : anArtMi.attunement ? "requires attunement" : undefined,
+			prereqeval : MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
+			submenu : "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" "+MI1).slice(-2) + " artificer)" : " (common magic items)")
 		};
-		if (anArtMi.attunement) theObj[theILC].additional = "requires attunement";
-		if (MI1) theObj[theILC].prereqeval = "classes.known.artificer.level >= " + MI1;
 		theObj.extrachoices.push(theI);
 	};
 });
@@ -2120,11 +2071,11 @@ AddSubClass("artificer", "alchemist", {
 	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
 	subname : "Alchemist",
 	fullname : "Alchemist",
-	source : [["E:RLW", 58]],
+	source : [["E:RLW", 58], ["TCoE", 14]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools Proficiency",
-			source : [["E:RLW", 58]],
+			source : [["E:RLW", 58], ["TCoE", 14]],
 			minlevel : 3,
 			description : " [proficient with alchemist's supplies]",
 			toolProfs : ["Alchemist's supplies"],
@@ -2132,7 +2083,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Experimental Elixir",
-			source : [["E:RLW", 58]],
+			source : [["E:RLW", 58], ["TCoE", 14]],
 			minlevel : 3,
 			description : desc([
 				"When I finish a long rest I can produce a number of elixirs in empty flasks I touch",
@@ -2164,7 +2115,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature5" : {
 			name : "Alchemical Savant",
-			source : [["E:RLW", 58]],
+			source : [["E:RLW", 58], ["TCoE", 15]],
 			minlevel : 5,
 			description : desc([
 				"When I cast spells using alchemist's supplies as my spellcasting focus, I can enhance them",
@@ -2210,7 +2161,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature9" : {
 			name : "Restorative Reagents",
-			source : [["E:RLW", 59]],
+			source : [["E:RLW", 59], ["TCoE", 15]],
 			minlevel : 9,
 			description : desc([
 				"Drinking my experimental elixirs now also grants 2d6 + my Int mod in temp HP (min 1)",
@@ -2236,7 +2187,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature15" : {
 			name : "Chemical Mastery",
-			source : [["E:RLW", 59]],
+			source : [["E:RLW", 59], ["TCoE", 15]],
 			minlevel : 15,
 			description : " [each spell 1\xD7 per long rest]" + desc([
 				"I have resistance to acid and poison damage and immunity to being poisoned",
@@ -2284,11 +2235,11 @@ AddSubClass("artificer", "artillerist", {
 	regExpSearch : /^(?=.*artillerist)(?!.*wizard).*$/i,
 	subname : "Artillerist",
 	fullname : "Artillerist",
-	source : [["E:RLW", 59]],
+	source : [["E:RLW", 59], ["TCoE", 17]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools Proficiency",
-			source : [["E:RLW", 59]],
+			source : [["E:RLW", 59], ["TCoE", 17]],
 			minlevel : 3,
 			description : " [proficient with woodcarver's tools]",
 			toolProfs : ["Woodcarver's tools"],
@@ -2296,7 +2247,7 @@ AddSubClass("artificer", "artillerist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Eldritch Cannon",
-			source : [["E:RLW", 59]],
+			source : [["E:RLW", 59], ["TCoE", 17]],
 			minlevel : 3,
 			description : desc([
 				"As an action, I can use woodcarver's or smith's tools to create an eldritch cannon in 5 ft",
@@ -2312,18 +2263,117 @@ AddSubClass("artificer", "artillerist", {
 			additional : levels.map(function(n) {
 				return n < 3 ? "" : n < 15 ? "create 1 cannon" : "create 2 cannons";
 			}),
-			action: [["action", " (summon/dismiss)"]],
-			eval : function (lvl, chc) {
-				ClassList.artificer.artificerCompFunc.add("Eldritch Cannon");
-			},
-			removeeval : function (lvl, chc) {
-				ClassList.artificer.artificerCompFunc.remove("eldritch cannon");
-				if (CreatureList["eldritch cannon"]) CreatureList["eldritch cannon"].removeeval();
-			}
+			action: [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
+			creaturesAdd : [["Eldritch Cannon"]],
+			creatureOptions : [{
+				name : "Eldritch Cannon",
+				source : [["E:RLW", 59], ["TCoE", 17]],
+				size : 5,
+				type : "Object",
+				alignment : "",
+				ac : 18,
+				hp : 5,
+				hd : ["", ""],
+				speed : "15 ft, climb 15 ft",
+				scores : [10, 10, 10, 10, 10, 10],
+				damage_immunities : "poison, psychic",
+				passivePerception : 10,
+				senses : "",
+				challengeRating : "1",
+				proficiencyBonus : 2,
+				proficiencyBonusLinked : true,
+				attacksAction : 0,
+				attacks : [{
+					name : "Flamethrower",
+					ability : 4,
+					damage : [2, 8, "fire"],
+					range : "15-ft cone",
+					description : "Dex save, success - half damage; Unattended flammable objects ignite",
+					dc : true,
+					useSpellMod : "artificer",
+					abilitytodamage : false,
+					tooltip : "The cannon exhales fire in an adjacent 15-ft cone that its creator designates. Each creature in that area must make a Dexterity saving throw against its creator's artificer spell save DC, taking 2d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
+				}, {
+					name : "Force Ballista",
+					ability : 4,
+					damage : [2, 8, "force"],
+					range : "120 ft",
+					description : "Creature hit is pushed 5 ft away",
+					useSpellMod : "artificer",
+					abilitytodamage : false,
+					tooltip : "The cannon's creator makes a ranged spell attack, originating from the cannon, at one creature or object within 120 ft of it. On a hit, the target takes 2d8 force damage, and if the target is a creature, it is pushed up to 5 ft away from the cannon."
+				}, {
+					name : "Detonate",
+					ability : 4,
+					damage : [3, 8, "force"],
+					range : "20-ft radius",
+					description : "Dex save, success - half damage; Destroys cannon",
+					dc : true,
+					useSpellMod : "artificer",
+					abilitytodamage : false,
+					tooltip : "As an action, its creator can command the cannon to deto­nate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
+				}],
+				features : [{
+					name : "Healing",
+					description : "The cannon regains 2d6 HP whenever Mending is cast on it."
+				}, {
+					name : "Cannon Type",
+					description : "Upon creation, the creator decides what type of cannon it is: Flamethrower, Force Ballista, or Protector. What feature/attack it can use depends on its type."
+				}, {
+					name : "Protector",
+					description : "The cannon emits a burst of positive energy that grants itself and each creature of its creator's choice within 10 ft of it a number of temporary hit points equal to 1d8 + its creator's Intelligence modifier (minimum of +1)."
+				}],
+				traits : [{
+					name: "Creator",
+					description: "As an object, the cannon only acts when activated by its creator, uses its creator's artificer spell attack and save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
+				}, {
+					name: "Activation",
+					description: "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
+				}, {
+					name: "Detonate (Artillerist 9)",
+					minlevel : 9,
+					description: "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
+					eval : function(prefix, lvl) {
+						// add the Detonate attack entry
+						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "Detonate");
+						// Upgrade the damage for the attacks
+						for (var i = 1; i <= 2; i++) {
+							Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
+						}
+					},
+					removeeval : function(prefix, lvl) {
+						// remove the Detonate attack entry
+						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
+						// Reset the damage for the attacks
+						for (var i = 1; i <= 2; i++) {
+							Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "2d8");
+						}
+					}
+				}, {
+					name: "Shimmering Field (Artillerist 15)",
+					minlevel : 15,
+					description: "The creator of the cannon and their allies have half cover while within 10 ft of the cannon."
+				}],
+				minlevelLinked : ["artificer"],
+				header : "Object",
+				calcChanges : {
+					hp : function (totalHD, HDobj, prefix) {
+						if (!classes.known.artificer) return;
+						var artLvl = classes.known.artificer.level;
+						HDobj.alt.push(5 * artLvl);
+						HDobj.altStr.push(" = 5 \xD7 " + artLvl + " from five times its creator's artificer level");
+					},
+					setAltHp : true
+				},
+				eval : function(prefix, lvl) {
+					// remove the Detonate attack if adding this creature before artificer level 9
+					if (lvl[0] < 9) Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
+				}
+			}]
 		},
 		"subclassfeature5" : {
 			name : "Arcane Firearm",
-			source : [["E:RLW", 59]],
+			source : [["E:RLW", 59], ["TCoE", 18]],
 			minlevel : 5,
 			description : " [lasts until I use this feature again]" + desc([
 				"After a long rest, I can use woodcarver's tools to enhance a wand, staff, or rod",
@@ -2361,35 +2411,14 @@ AddSubClass("artificer", "artillerist", {
 		},
 		"subclassfeature9" : {
 			name : "Explosive Cannon",
-			source : [["E:RLW", 60]],
+			source : [["E:RLW", 60], ["TCoE", 18]],
 			minlevel : 9,
 			description : "\n   My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft",
-			action : [["action", "Eldritch Cannon (detonate)"]],
-			eval : function (lvl, chc) {
-				if (lvl[0] < 3) return; // Creature's own eval will take care of it
-				var crea = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
-				for (var c = 0; c < crea.length; c++) {
-					var prefix = crea[c];
-					for (var i = 1; i <= 3; i++) {
-						Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
-					}
-				}
-			},
-			removeeval : function (lvl, chc) {
-				if (lvl[1] < 3) return; // Removing all creatures anyway
-				var crea = ClassList.artificer.artificerCompFunc.find("eldritch cannon");
-				for (var c = 0; c < crea.length; c++) {
-					var prefix = crea[c];
-					for (var i = 1; i <= 3; i++) {
-						if (What(prefix + "Comp.Use.Attack." + i + ".Weapon Selection").toLowerCase().indexOf('detonate') != -1) continue;
-						Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "2d8");
-					}
-				}
-			}
+			action : [["action", "Eldritch Cannon (detonate)"]]
 		},
 		"subclassfeature15" : {
 			name : "Fortified Position",
-			source : [["E:RLW", 60]],
+			source : [["E:RLW", 60], ["TCoE", 18]],
 			minlevel : 15,
 			description : " [cannons grant half cover in 10 ft to allies]" + desc([
 				"I can now have two cannons at the same time and activate both with one bonus action",
@@ -2404,12 +2433,12 @@ AddSubClass("artificer", "battle smith", {
 	regExpSearch : /^(?=.*battle)(?=.*smith)(?!.*wizard).*$/i,
 	subname : "Battle Smith",
 	fullname : "Battle Smith",
-	source : [["E:RLW", 60]],
+	source : [["E:RLW", 60], ["TCoE", 18]],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Battle Ready \u0026 Tool Proficiency",
-			source : [["E:RLW", 61]],
+			source : [["E:RLW", 61], ["TCoE", 19]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with martial weapons and smith's tools",
@@ -2431,7 +2460,7 @@ AddSubClass("artificer", "battle smith", {
 		},
 		"subclassfeature3.1" : {
 			name : "Steel Defender",
-			source : [["E:RLW", 61]],
+			source : [["E:RLW", 61], ["TCoE", 19]],
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use smith's tools to create a steel defender",
@@ -2440,17 +2469,114 @@ AddSubClass("artificer", "battle smith", {
 				"It can take reactions and move on its turn even if I don't command it",
 				"I can't have multiple at once; Select \"Steel Defender\" on a companion page for its stats"
 			]),
-			eval : function (lvl, chc) {
-				ClassList.artificer.artificerCompFunc.add("Steel Defender");
-			},
-			removeeval : function (lvl, chc) {
-				ClassList.artificer.artificerCompFunc.remove("steel defender");
-				if (CreatureList["steel defender"]) CreatureList["steel defender"].removeeval();
-			}
+			action : [["bonus action", " (command)"], ["action", " (restore)"]],
+			creaturesAdd : [["Steel Defender"]],
+			creatureOptions : [{
+				name : "Steel Defender",
+				source : [["E:RLW", 61], ["TCoE", 19]],
+				size : 3,
+				type : "Construct",
+				alignment : "Neutral",
+				ac : 15,
+				hp : 12,
+				hd : [2, 8],
+				hdLinked : ["artificer"],
+				speed : "40 ft",
+				scores : [14, 12, 14, 4, 10, 6],
+				saves : ["", 3, 4, "", "", ""],
+				skills : {
+					"athletics" : 4,
+					"perception" : 4
+				},
+				damage_immunities : "poison",
+				condition_immunities : "charmed, exhaustion, poisoned",
+				passivePerception : 14,
+				senses : "Darkvision 60 ft",
+				languages : "understands the languages of its creator but can't speak",
+				challengeRating : "1",
+				proficiencyBonus : 2,
+				proficiencyBonusLinked : true,
+				attacksAction : 1,
+				attacks : [{
+					name : "Force-Empowered Rend",
+					ability : 4,
+					damage : [1, 8, "piercing"],
+					range : "Melee (5 ft)",
+					description : "",
+					modifiers : ["", "Prof"],
+					abilitytodamage : false,
+					useSpellMod : "artificer"
+				}, {
+					name : "Deflect Attack (reaction)",
+					ability : 0,
+					damage : [1, 4, "force"],
+					range : "Melee (5 ft)",
+					description : "After using the reaction, the attacker takes this damage, no attack roll required",
+					modifiers : ["-Prof", "oInt"],
+					abilitytodamage : false
+				}],
+				features : [{
+					name : "Creator",
+					description : "The steel defender obeys the commands of its creator and shares its proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command it to take another action. If its creator is incapacitated, it can take any action, not just Dodge."
+				}, {
+					name : "Vigilant",
+					description : "The " + (typePF ? "" : "steel ") + "defender can't be surprised."
+				}],
+				traits : [{
+					name : "Healing",
+					description : "The steel defender regains 2d6 HP whenever the Mending spell is cast on it. Its HP total is equal to 2 + its creator's artificer level times five + its creator's Int mod. Within an hour of its death, while within 5 ft, its creator can take an action to use smith's tools and expend a spell slot to have it return to full HP after 1 minute. If its creator dies, " + (typePF ? "the steel defender also perishes" : "so does it") + "."
+				}],
+				actions : [{
+					name : "Repair (3/Day)",
+					description : "As an action, the " + (typePF ? "" : "magical mechanisms inside the ") + "steel defender restore" + (typePF ? "s" : "") + " 2d8 + its proficiency bonus in HP to itself or to one construct or object within 5 ft of it."
+				}, {
+					name : "Deflect Attack (reaction)",
+					description : typePF ? "As a reaction, the steel defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the defender." : "As a reaction, the defender imposes disadv. on the attack roll of one creature it can see within 5 ft, provided the creature attacks another than the defender."
+				}, {
+					name : "Arcane Jolt (Battle Smith 9)",
+					minlevel : 9,
+					eval : function(prefix, lvl) {
+						Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (1d6): On hit, deal force damage or heal target in 30 ft");
+					},
+					removeeval : function(prefix, lvl) {
+						Value(prefix + "Comp.Use.Attack.1.Description", "");
+					}
+				}, {
+					name : "Improved Defender (Battle Smith 15)",
+					minlevel : 15,
+					description : "The steel defender's Deflect Attack now deals 1d4 + its creator's Intelligence modifier in force damage to the attacker.",
+					addMod : [{ type : "", field : "Comp.Use.AC", mod : 2, text : "The steel defender gains a +2 bonus to its AC (base AC of 15)." }],
+					eval : function(prefix, lvl) {
+						Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (1d6)", "Arcane Jolt (2d6)"));
+						Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack (reaction)");
+					},
+					removeeval : function(prefix, lvl) {
+						Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (2d6)", "Arcane Jolt (1d6)"));
+						Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
+					}
+				}],
+				header : "Construct",
+				calcChanges : {
+					hp : function (totalHD, HDobj, prefix) {
+						if (!classes.known.artificer) return;
+						var intMod = Number(What('Int Mod'));
+						var artLvl = classes.known.artificer.level;
+						var artLvl5 = 5 * artLvl;
+						HDobj.alt.push(2 + intMod + artLvl5);
+						HDobj.altStr.push(" = 2 as a base\n + " + intMod + " from its creator's Intelligence modifier\n + 5 \xD7 " + artLvl + " from five times its creator's artificer level (" + artLvl5 + ")");
+					},
+					setAltHp : true,
+					hpForceRecalc : true
+				},
+				eval : function(prefix, lvl) {
+					// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 9
+					if (lvl[0] < 15) Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
+				}
+			}]
 		},
 		"subclassfeature9" : {
 			name : "Arcane Jolt",
-			source : [["E:RLW", 61]],
+			source : [["E:RLW", 61], ["TCoE", 20]],
 			minlevel : 9,
 			description : function () {
 				var descr9 = desc([
@@ -2469,22 +2595,6 @@ AddSubClass("artificer", "battle smith", {
 			additional : levels.map(function (n) {
 				return n < 9 ? "" : (n < 15 ? 2 : 4) + "d6";
 			}),
-			eval : function (lvl, chc) {
-				if (lvl[0] < 3) return; // Creature's own eval will take care of it
-				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
-				for (var c = 0; c < crea.length; c++) {
-					var prefix = crea[c];
-					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
-				}
-			},
-			removeeval : function (lvl, chc) {
-				if (lvl[1] < 3) return; // Removing all creatures anyway
-				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
-				for (var c = 0; c < crea.length; c++) {
-					var prefix = crea[c];
-					Value(prefix + "Comp.Use.Attack.1.Description", "");
-				}
-			},
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -2498,34 +2608,12 @@ AddSubClass("artificer", "battle smith", {
 		},
 		"subclassfeature15" : {
 			name : "Improved Defender",
-			source : [["E:RLW", 61]],
+			source : [["E:RLW", 61], ["TCoE", 20]],
 			minlevel : 15,
 			description : desc([
 				"My defender's Deflect Attack now deals its attacker 1d4 + my Int mod force damage",
 				"My arcane jolt damage/healing increases to 4d6; My steel defender gains +2 AC"
-			]),
-			eval : function (lvl, chc) {
-				if (lvl[0] < 3) return; // Creature's own eval will take care of it
-				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
-				for (var c = 0; c < crea.length; c++) {
-					var prefix = crea[c];
-					var ACfld = prefix + "Comp.Use.AC";
-					if (What(ACfld)) Value(ACfld, Number(What(ACfld) + 2));
-					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (4d6): On hit, deal force damage or heal target in 30 ft");
-					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack (reaction)");
-				}
-			},
-			removeeval : function (lvl, chc) {
-				if (lvl[1] < 3) return; // Removing all creatures anyway
-				var crea = ClassList.artificer.artificerCompFunc.find("steel defender");
-				for (var c = 0; c < crea.length; c++) {
-					var prefix = crea[c];
-					var ACfld = prefix + "Comp.Use.AC";
-					if (What(ACfld)) Value(ACfld, Number(What(ACfld) - 2));
-					Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (2d6): On hit, deal force damage or heal target in 30 ft");
-					Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
-				}
-			}
+			])
 		}
 	}
 });
@@ -2533,7 +2621,7 @@ AddSubClass("artificer", "battle smith", {
 // Add the new special magic items for the artificer class (infusions)
 MagicItemsList["boots of the winding path"] = {
 	name : "Boots of the Winding Path",
-	source : [["E:RLW", 62], ["UA:A2", 9], ["UA:A3", 12]],
+	source : [["E:RLW", 62], ["TCoE", 21], ["UA:A2", 9], ["UA:A3", 12]],
 	type : "wondrous item",
 	description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
 	descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
@@ -2543,7 +2631,7 @@ MagicItemsList["boots of the winding path"] = {
 MagicItemsList["radiant weapon"] = {
 	name : "Radiant Weapon",
 	nameTest : "Radiant",
-	source : [["E:RLW", 62]],
+	source : [["E:RLW", 62], ["TCoE", 22]],
 	type : "weapon (any)",
 	description : "This item adds a +1 on its to hit and damage, has 4 charges, and regains 1d4 at dawn. As a bonus action, I can have it start/stop shedding light, bright in 30 ft, dim in another 30 ft. As a reaction if hit by an attack, I can use 1 charge to blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker suc­ceeds on a Constitution saving throw against your spell save DC. The weapon regains ld4 expended charges daily at dawn. ",
@@ -2579,7 +2667,7 @@ MagicItemsList["radiant weapon"] = {
 }
 MagicItemsList["repeating shot"] = {
 	name : "Repeating Shot",
-	source : [["E:RLW", 62], ["UA:A3", 13]],
+	source : [["E:RLW", 62], ["TCoE", 22], ["UA:A3", 13]],
 	type : "weapon (any with ammunition)",
 	description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic am­munition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
@@ -2613,7 +2701,7 @@ MagicItemsList["repeating shot"] = {
 }
 MagicItemsList["repulsion shield"] = {
 	name : "Repulsion Shield",
-	source : [["E:RLW", 63]],
+	source : [["E:RLW", 63], ["TCoE", 23]],
 	type : "shield",
 	description : "I gain an additional +1 bonus to Armor Class while wielding this shield. The shield has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction immediately after being hit by a melee attack, I can expend 1 charge to push the attacker up to 15 ft away.",
 	descriptionFull : "A creature gains a + 1 bonus to Armor Class while wield­ing this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a me­lee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains ld4 expended charges daily at dawn. ",
@@ -2628,7 +2716,7 @@ MagicItemsList["repulsion shield"] = {
 MagicItemsList["returning weapon"] = {
 	name : "Returning Weapon",
 	nameTest : "Returning",
-	source : [["E:RLW", 63], ["UA:A3", 14], ["UA:A2", 10]],
+	source : [["E:RLW", 63], ["TCoE", 23], ["UA:A3", 14], ["UA:A2", 10]],
 	type : "weapon (any thrown)",
 	description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
@@ -3125,7 +3213,8 @@ MagicItemsList["kyrzin's ooze"] = {
 		range : '5-ft \u00D7 30-ft line',
 		description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 		abilitytodamage : false,
-		modifiers : ["dc+7", ""]
+		dc : true,
+		modifiers : [7, ""]
 	}
 }
 MagicItemsList["living armor"] = {
@@ -3229,16 +3318,13 @@ MagicItemsList["orb of shielding"] = {
 		description : "This stone orb is made from xorian marble. I can use it as my spellcasting focus. As a reaction while I am holding the orb and take psychic damage, I can reduce the damage by 1d4 (to a minimum of 0)."
 	}
 }
-MagicItemsList["prosthetic limb"] = {
+MagicItemsList["prosthetic limb"] = { // no attument as per errata
 	name : "Prosthetic Limb",
 	source : [["E:RLW", 278]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "This artificial limb replaces a hand, arm, foot, leg, or similar appendage that was lost or removed and functions identically to the body part it is replacing. I can detach or reattach it as an action, and it can't be removed by anyone else. Attuning to multiple prosthetics limbs still only counts as a single attument.",
-	descriptionFull : "This artificial limb replaces a hand, arm, foot, leg, or similar appendage that was lost or removed. While the prosthetic is attached and attuned to you, it functions identically to the body part it is replacing. You can detach or reattach it as an action, and it can't be removed by anyone else.\n   If you have multiple prosthetic limbs, they count as a single magic item with regard to the number of magic items you can attune to.",
-	attunement : true,
-	prerequisite : "Requires attunement by a creature missing some or all of a limb",
-	prereqeval : function (v) { return false; }
+	description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
+	descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die."
 }
 MagicItemsList["scribe's pen"] = {
 	name : "Scribe's Pen",
@@ -3334,326 +3420,24 @@ MagicItemsList["wheel of wind and water"] = {
 	}
 }
 
-// Add the special artificer constructs, the Homunculus Servant and Steel Defender
-CreatureList["homunculus servant"] = {
-	name : "Homunculus Servant",
-	source : [["E:RLW", 62]],
-	size : 5,
-	type : "Construct",
-	subtype : "",
-	alignment : "Neutral",
-	ac : 13,
-	hp : 1,
-	hd : [],
-	speed : "20 ft, fly 30 ft",
-	scores : [4, 15, 12, 10, 10, 7],
-	saves : ["", 4, "", "", "", ""],
-	skills : {
-		"perception" : 4,
-		"stealth" : 4
-	},
-	damage_immunities : "poison",
-	condition_immunities : "exhaustion, poisoned",
-	senses : "Darkvision 60 ft",
-	passivePerception : 14,
-	languages : "understands the languages of its creator but can't speak",
-	challengeRating : "0",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Force Strike",
-		ability : 2,
-		damage : [1, 4, "force"],
-		range : "30 ft",
-		modifiers : ["", "Prof-2", ""]
-	}],
-	features : [{
-		name : "Creator",
-		description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Force Strike, Dash, Disengage, Help, Hide, or Search action."
-	}],
-	traits : [{
-		name : "Healing",
-		description : "The homunculus regains 2d6 hit points whenever the Mending spell is cast on it. Its HP total is equal to its creator's artificer level + its creator's Intelligence modifier + its Constitution modifier. If it dies, it vanishes, leaving its heart in its space."
-	}, {
-		name : "Evasion",
-		description : "If the homunculus is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. It can't use this trait if it's incapacitated."
-	}],
-	actions : [{
-		name : "Channel Magic",
-		description : "As a reaction, the homunculus delivers a spell cast by its creator that has a range of touch. The homunculus must be within 120 feet of its creator to do so."
-	}],
-	eval : function(prefix) {
-		// set type in the top right
-		Value(prefix + 'Comp.Type', "Construct");
-		// auto calculate HP
-		var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-		HPmaxFld.setAction("Calculate", "event.value = (classes.known.artificer ? classes.known.artificer.level : classes.totallevel) + Number(What('Int Mod')) + Number(What('" + prefix + "Comp.Use.Ability.Con.Mod'));");
-		HPmaxFld.readonly = true;
-		Hide(prefix + "Buttons.Comp.Use.HP.Max");
-		// auto calculate proficiency bonus
-		var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
-		ProfFld.setAction("Calculate", "event.value = Number(How('Proficiency Bonus'));");
-		ProfFld.readonly = true;
-		ProfFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack.1.To Hit").calcOrderIndex - 1;
-		// set perception to proficiency + 2 instead of expertise
-		AddSkillProf("Perception", true, false, false, 2, prefix);
-		// add bonus action to first page
-		processActions(true, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
-	},
-	removeeval : function(prefix) {
-		if (prefix) {
-			// reset type in top right
-			Value(prefix + 'Comp.Type', "Companion");
-			// reset HP and proficiency bonus calculation
-			var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-			HPmaxFld.setAction("Calculate", "1");
-			HPmaxFld.readonly = false;
-			DontPrint(prefix + "Buttons.Comp.Use.HP.Max");
-			var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
-			ProfFld.setAction("Calculate", "1");
-			ProfFld.readonly = false;
-		}
-		// remove action
-		if (!ClassList.artificer || ClassList.artificer.artificerCompFunc.find("homunculus servant").length < (prefix ? 2 : 1)) processActions(false, "Homunculus Servant", [["bonus action", " (command)"]], "Homunculus Servant");
-	}
-};
-CreatureList["eldritch cannon"] = {
-	name : "Eldritch Cannon",
-	source : [["E:RLW", 59]],
-	size : 5,
-	type : "Construct",
-	subtype : "",
-	alignment : "Neutral",
-	ac : 18,
-	hp : 5,
-	hd : [],
-	speed : "15 ft, climb 15 ft",
-	scores : [10, 10, 10, 10, 10, 10],
-	saves : ["", "", "", "", "", ""],
-	damage_immunities : "poison, psychic",
-	condition_immunities : "all conditions",
-	passivePerception : 10,
-	senses : "",
-	languages : "",
-	challengeRating : "1",
-	proficiencyBonus : 0,
-	attacksAction : 0,
-	attacks : [{
-		name : "Flamethrower",
-		ability : 0,
-		damage : [2, 8, "fire"],
-		range : "15-ft cone",
-		description : "Dex save, success - half damage; Unattended flammable objects ignite",
-		dc : true,
-		abilitytodamage : false,
-		tooltip : "The cannon exhales fire in an adjacent 15-ft cone that its creator designates. Each creature in that area must make a Dexterity saving throw against its creator's artificer spell save DC, taking 2d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
-	}, {
-		name : "Force Ballista",
-		ability : 0,
-		damage : [2, 8, "force"],
-		range : "120 ft",
-		description : "Creature hit is pushed 5 ft away",
-		abilitytodamage : false,
-		tooltip : "The cannon's creator makes a ranged spell attack, originating from the cannon, at one creature or object within 120 ft of it. On a hit, the target takes 2d8 force damage, and if the target is a creature, it is pushed up to 5 ft away from the cannon."
-	}, {
-		name : "Detonate",
-		ability : 0,
-		damage : [3, 8, "force"],
-		range : "20-ft radius",
-		description : "Dex save, success - half damage; Destroys cannon; [prereq: 9th level artificer]",
-		dc : true,
-		abilitytodamage : false,
-		tooltip : "As an action, its creator can command the cannon to deto­nate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
-	}],
-	features : [{
-		name : "Healing",
-		description : "The cannon regains 2d6 HP whenever Mending is cast on it."
-	}, {
-		name : "Cannon Type",
-		description : "Upon creation, the creator decides what type of cannon it is: Flamethrower, Force Ballista, or Protector. What feature/attack it can use depends on its type."
-	}, {
-		name : "Protector",
-		description : "The cannon emits a burst of positive energy that grants itself and each creature of its creator's choice within 10 ft of it a number of temporary hit points equal to 1d8 + its creator's Intelligence modifier (minimum of +1)."
-	}],
-	traits : [{
-		name: "Creator",
-		description: "The cannon doesn't act unless activated by its creator. It uses its creator's artificer spell attack, spell save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
-	}, {
-		name: "Activation",
-		description: "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
-	}, {
-		name: "Detonate",
-		description: "The creator of the cannon, if a 9th level artificer (artillerist), can use an action to detonate the cannon when within 60 ft of it, see the attack section."
-	}, {
-		name: "Shimmering Field",
-		description: "If the creator of the cannon is a 15th level artificer (artillerist), they and their allies have half cover while within 10 ft of the cannon."
-	}],
-	eval : function(prefix) {
-		// set type in the top right
-		Value(prefix + 'Comp.Type', "Construct");
-		// auto calculate HP
-		var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-		HPmaxFld.setAction("Calculate", "event.value = 5 * (classes.known.artificer ? classes.known.artificer.level : classes.totallevel);");
-		HPmaxFld.readonly = true;
-		Hide(prefix + "Buttons.Comp.Use.HP.Max");
-		// set attacks
-		var artLvl9 = classes.known.artificer && classes.known.artificer.subclass == "artificer-artillerist" && classes.known.artificer.level >= 9;
-		for (var i = 1; i <= 3; i++) {
-			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
-			ToHitFld.setAction("Calculate", "var fldVal = What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection'));\nif (fldVal) {\nvar atkType = fldVal.toLowerCase().indexOf('force ballista') == -1 ? 'dc' : 'attack';\nvar curSp = CurrentSpells.artificer && CurrentSpells.artificer.calcSpellScores && CurrentSpells.artificer.calcSpellScores[atkType] ? CurrentSpells.artificer.calcSpellScores[atkType] : false;\nevent.value = atkType == 'dc' ? (curSp ? 'dc+' + (curSp - 8) : 'dc+oProf+oInt') : (curSp ? curSp : 'oProf+oInt');\n};");
-			ToHitFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack." + i + ".To Hit").calcOrderIndex - 1;
-			ToHitFld.readonly = true;
-			if (artLvl9) Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
-		}
-		// add bonus action to first page
-		processActions(true, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
-	},
-	removeeval : function(prefix) {
-		if (prefix) {
-			// reset type in top right
-			Value(prefix + 'Comp.Type', "Companion");
-			// reset HP and proficiency bonus calculation
-			var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-			HPmaxFld.setAction("Calculate", "1");
-			HPmaxFld.readonly = false;
-			DontPrint(prefix + "Buttons.Comp.Use.HP.Max");
-			// reset attacks
-			for (var i = 1; i <= 3; i++) {
-				var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
-				ToHitFld.setAction("Calculate", "1");
-				ToHitFld.readonly = false;
-			}
-		}
-		// remove action
-		if (!ClassList.artificer || ClassList.artificer.artificerCompFunc.find("eldritch cannon").length < (prefix ? 2 : 1)) processActions(false, "Eldritch Cannon", [["bonus action", " (activate)"]], "Eldritch Cannon");
-	}
-};
-CreatureList["steel defender"] = {
-	name : "Steel Defender",
-	source : [["E:RLW", 61]],
-	size : 3,
-	type : "Construct",
-	subtype : "",
-	alignment : "Neutral",
-	ac : 15,
-	hp : 7,
-	hd : [],
-	speed : "40 ft",
-	scores : [14, 12, 14, 4, 10, 6],
-	saves : ["", 3, 4, "", "", ""],
-	skills : {
-		"athletics" : 4,
-		"perception" : 4
-	},
-	damage_immunities : "poison",
-	condition_immunities : "charmed, exhaustion, poisoned",
-	passivePerception : 14,
-	senses : "Darkvision 60 ft",
-	languages : "understands the languages of its creator but can't speak",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Force-Empowered Rend",
-		ability : 1,
-		damage : [1, 8, "piercing"],
-		range : "Melee (5 ft)",
-		modifiers : ["", "Prof-2", ""]
-	}, {
-		name : "Deflect Attack (reaction)",
-		ability : 0,
-		damage : [1, 4, "force"],
-		range : "Melee (5 ft)",
-		modifiers : ["-Prof", "oInt", ""],
-		description : "After using the reaction, the attacker takes this damage, no attack roll required"
-	}],
-	features : [{
-		name : "Creator",
-		description : "The steel defender obeys the commands of its creator and shares its proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Repair, Dash, Force-Empowered Rend, Disengage, Help, Hide, or Search action."
-	}, {
-		name : "Vigilant",
-		description : "The " + (typePF ? "" : "steel ") + "defender can't be surprised."
-	}],
-	actions : [{
-		name : "Healing",
-		description : "The steel defender regains 2d6 HP whenever the Mending spell is cast on it. Its HP total is equal to its creator's artificer level times five + its creator's Intelligence modifier + its Constitution modifier. Within an hour of its death, while within 5 ft, its creator can take an action to use smith's tools and expend a spell slot to have it return to full HP after 1 minute."
-	}, {
-		name : "Repair (3/Day)",
-		description : "As an action, the " + (typePF ? "" : "magical mechanisms inside the ") + "steel defender restore" + (typePF ? "s" : "") + " 2d8 + its proficiency bonus in HP to itself or to one construct or object within 5 ft of it."
-	}, {
-		name : "Deflect Attack (reaction)",
-		description : "As a reaction, the steel defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the steel defender. If its creator is a 15th level artificer (battle smith), this also deals 1d4 + its creator's Int modifier in force damage to the attacker."
-	}],
-	eval : function(prefix) {
-		// set type in the top right
-		Value(prefix + 'Comp.Type', "Construct");
-		// auto calculate HP
-		var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-		HPmaxFld.setAction("Calculate", "event.value = (classes.known.artificer ? classes.known.artificer.level : classes.totallevel) * 5 + Number(What('Int Mod')) + Number(What('" + prefix + "Comp.Use.Ability.Con.Mod'));");
-		HPmaxFld.readonly = true;
-		Hide(prefix + "Buttons.Comp.Use.HP.Max");
-		// auto calculate proficiency bonus
-		var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
-		ProfFld.setAction("Calculate", "event.value = Number(How('Proficiency Bonus'));");
-		ProfFld.readonly = true;
-		ProfFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack.1.To Hit").calcOrderIndex - 1;
-		// set perception to proficiency + 2 instead of expertise
-		AddSkillProf("Perception", true, false, false, 2, prefix);
-		// add bonus action to first page
-		processActions(true, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
-		// set extra abilities from artificer level
-		var artLvl = classes.known.artificer && classes.known.artificer.subclass == "artificer-battle smith" ? classes.known.artificer.level : 0;
-		if (artLvl >= 9) {
-			// Extra damage or healing on attack hit
-			Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (" + (artLvl < 15 ? 2 : 4) + "d6): On hit, deal force damage or heal target in 30 ft");
-		}
-		if (artLvl >= 15) {
-			// +2 AC if level 15 "artificer-battle smith" or higher
-			Value(prefix + "Comp.Use.AC", 17);
-		} else {
-			// Remove Deflect Attack
-			Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
-		}
-	},
-	removeeval : function(prefix) {
-		if (prefix) {
-			// reset type in top right
-			Value(prefix + 'Comp.Type', "Companion");
-			// reset HP and proficiency bonus calculation
-			var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-			HPmaxFld.setAction("Calculate", "1");
-			HPmaxFld.readonly = false;
-			DontPrint(prefix + "Buttons.Comp.Use.HP.Max");
-			var ProfFld = tDoc.getField(prefix + "Comp.Use.Proficiency Bonus");
-			ProfFld.setAction("Calculate", "1");
-			ProfFld.readonly = false;
-		}
-		// remove action
-		if (!ClassList.artificer || ClassList.artificer.artificerCompFunc.find("steel defender").length < (prefix ? 2 : 1)) processActions(false, "Steel Defender", [["bonus action", " (command)"], ["action", " (restore)"]], "Steel Defender");
-	}
-};
-
 // Beasts
 CreatureList["clawfoot"] = {
 	name : "Clawfoot",
 	source : [["E:RLW", 289]],
 	size : 3,
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 19,
 	hd : [3, 8],
 	speed : "40 ft",
 	scores : [12, 16, 14, 4, 12, 6],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 3,
 		"stealth" : 5
 	},
 	senses : "",
 	passivePerception : 13,
-	languages : "",
 	challengeRating : "1",
 	proficiencyBonus : 2,
 	attacksAction : 2,
@@ -3686,17 +3470,14 @@ CreatureList["fastieth"] = {
 	source : [["E:RLW", 289]],
 	size : 3,
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 9,
 	hd : [2, 8],
 	speed : "50 ft",
 	scores : [12, 18, 10, 4, 11, 4],
-	saves : ["", "", "", "", "", ""],
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -3704,7 +3485,8 @@ CreatureList["fastieth"] = {
 		name : "Bite",
 		ability : 2,
 		damage : [1, 8, "piercing"],
-		range : "Melee (5 ft)"
+		range : "Melee (5 ft)",
+		description : ""
 	}],
 	traits : [{
 		name : "Quickness (Recharge 5-6)",

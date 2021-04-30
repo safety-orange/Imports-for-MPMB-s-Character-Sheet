@@ -12,7 +12,7 @@ SourceList["UA:OD"] = {
 };
 
 // New Subclass for Cleric: Order Domain
-AddSubClass("cleric", "order domain", {
+AddSubClass("cleric", "order domain-ua", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*order).*$/i,
 	subname : "Order Domain",
 	source : ["UA:OD", 1],

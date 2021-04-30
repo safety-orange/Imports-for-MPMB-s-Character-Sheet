@@ -1,5 +1,5 @@
 var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,13 +23,11 @@ CreatureList["allosaurus"] = {
 	hd : [6, 10], //[#, die]
 	speed : "60 ft",
 	scores : [19, 13, 17, 2, 12, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 5
 	},
 	senses : "",
 	passivePerception : 15,
-	languages : "",
 	challengeRating : "2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -64,10 +62,8 @@ CreatureList["ankylosaurus"] = {
 	hd : [8, 12], //[#, die]
 	speed : "30 ft",
 	scores : [19, 11, 15, 2, 12, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "3",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -77,7 +73,7 @@ CreatureList["ankylosaurus"] = {
 			damage : [4, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
 			range : "Melee (10 ft)",
 			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
-			modifiers : [1, "", ""] //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [1, ""]
 		}
 	]
 };
@@ -92,13 +88,11 @@ CreatureList["pteranodon"] = {
 	hd : [3, 8], //[#, die]
 	speed : "10 ft, fly 60 ft",
 	scores : [12, 15, 10, 2, 9, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 1
 	},
 	senses : "",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -130,7 +124,6 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	hd : [4, 4],
 	speed : "10 ft, fly 60 ft",
 	scores : [3, 20, 13, 14, 12, 16], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"arcana" : 4,
 		"perception" : 3,
@@ -148,7 +141,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 			damage : [1, "", "piercing"],
 			range : "Melee (5 ft)",
 			description : "",
-			modifiers : ["", "", false]
+			abilitytodamage : false
 		}, {
 			name : "Euphoria Breath (Recharge 5-6)",
 			ability : 3,
@@ -156,7 +149,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 			range : "5 ft",
 			description : "For 1 min, target rolls d6 at turn start: 1-4 move random (no actions), 5-6 save again (no actions/move)",
 			dc : true,
-			modifiers : ["", "", false],
+			abilitytodamage : false,
 			tooltip : "The dragon exhales a puff of euphoria gas at one creature within 5 feet of it. The target must succeed on a DC 11 Wisdom saving throw, or for 1 minute, the target can't take reactions and must roll a d6 at the start of each of its turns to determine its behavior during the turn: 1-4 - the target takes no action or bonus action and uses all its movment to move in a random direction. 5-6 - the target doesn't move, and the only thing it can do on its turn is make a DC 11 Wisdom saving throw, ending the effect on itself on a success."
 		}
 	],
@@ -192,7 +185,6 @@ CreatureList["crawling claw"] = {
 	hd : [1, 4], //[#, die]
 	speed : "20 ft, climb 20 ft",
 	scores : [13, 14, 11, 5, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "Blindsight 30 ft (blind beyond this radius)",
 	damage_immunities : "poison",
 	condition_immunities : "charmed, exhaustion, poisoned",
@@ -227,7 +219,6 @@ CreatureList["peryton"] = {
 	hd : [6, 8], //[#, die]
 	speed : "20 ft, fly 60 ft",
 	scores : [16, 12, 13, 9, 12, 10], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 5
 	},
@@ -276,7 +267,6 @@ CreatureList["needle blight"] = {
 	hd : [2, 8], //[#, die]
 	speed : "30 ft",
 	scores : [12, 12, 13, 4, 8, 3], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	condition_immunities : "blinded, deafened",
 	senses : "Blindsight 60 ft (blind beyond this radius).",
 	passivePerception : 9,
@@ -310,7 +300,6 @@ CreatureList["twig blight"] = {
 	hd : [1, 6], //[#, die]
 	speed : "20 ft",
 	scores : [6, 13, 12, 4, 8, 3], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	damage_vulnerabilities : "fire",
 	condition_immunities : "blinded, deafened",
 	senses : "Blindsight 60 ft (blind beyond this radius).",
@@ -344,7 +333,6 @@ CreatureList["vine blight"] = {
 	hd : [4, 8], //[#, die]
 	speed : "10 ft",
 	scores : [15, 8, 14, 5, 10, 3], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"stealth" : 1
 	},
@@ -386,11 +374,9 @@ CreatureList["gas spore"] = {
 	hd : [1, 10], //[#, die]
 	speed : "fly 10 ft (hover)",
 	scores : [5, 1, 3, 1, 1, 1], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	condition_immunities : "blinded, deafened, frightened",
 	senses : "Blindsight 30 ft (blind beyond this radius).",
 	passivePerception : 5,
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -400,7 +386,8 @@ CreatureList["gas spore"] = {
 			damage : [1, "", "poison"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "DC 10 Con save or infected with Death Burst disease, see traits",
-			modifiers : [1, "", false] //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [1, ""],
+			abilitytodamage : false
 		}
 	],
 	traits : [{

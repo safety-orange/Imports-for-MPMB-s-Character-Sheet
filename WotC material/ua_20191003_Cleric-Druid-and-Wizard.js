@@ -1,5 +1,5 @@
 var iFileName = "ua_20191003_Cleric-Druid-and-Wizard.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Cleric, Druid, and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["UA:CDnW"] = {
 };
 
 // Add a subclass for the Cleric
-AddSubClass("cleric", "twilight domain", {
+AddSubClass("cleric", "twilight domain-ua", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(twilight|transition)).*$/i,
 	subname : "Twilight Domain",
 	source : ["UA:CDnW", 1],
@@ -119,7 +119,7 @@ AddSubClass("cleric", "twilight domain", {
 });
 
 // Add a subclass for the Druid
-AddSubClass("druid", "circle of wildfire", {
+AddSubClass("druid", "circle of wildfire-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*wild.{0,1}fire).*$/i,
 	subname : "Circle of Wildfire",
 	source : ["UA:CDnW", 2],
@@ -154,49 +154,81 @@ AddSubClass("druid", "circle of wildfire", {
 				"Its HP maximum is equal to its Con mod + my Wis mod + five times my druid level"
 			]),
 			action : [["action", ""], ["bonus action", "Command Wildfire"]],
-			eval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				var prefix = false;
-				if (AScompA) {
-					for (var a = 1; a < AScompA.length; a++) {
-						if (!What(AScompA[a] + 'Comp.Race')) {
-							prefix = AScompA[a];
-							break;
-						}
-					}
+			creaturesAdd : [["Wildfire Spirit"]],
+			creatureOptions : [{
+				name : "Wildfire Spirit",
+				source : [["UA:CDnW", 3]],
+				size : 4,
+				type : "Elemental",
+				alignment : "Chaotic",
+				ac : 13,
+				hp : 12,
+				hd : [2, 6],
+				speed : "20 ft, fly 30 ft (hover)",
+				scores : [10, 14, 14, 13, 15, 11],
+				saves : ["", 4, 4, "", 4, ""],
+				skills : {
+					"nature" : 4
+				},
+				damage_immunities : "fire",
+				condition_immunities : "charmed, frightened, grappled, prone, restrained",
+				senses : "Darkvision 60 ft",
+				passivePerception : 12,
+				languages : "understands the languages of its creator",
+				challengeRating : "0",
+				proficiencyBonus : 2,
+				proficiencyBonusLinked : true,
+				attacksAction : 1,
+				attacks : [{
+					name : "Flame Seed",
+					ability : 2,
+					damage : [1, 6, "fire"],
+					range : "30 ft",
+					description : "Ranged weapon attack",
+					modifiers : ["", "Prof"],
+					abilitytodamage : false
+				}, {
+					name : "Fiery Teleportation",
+					ability : 5,
+					damage : [1, 6, "fire"],
+					range : "10 ft",
+					description : "Dex save for all within 10 ft of teleportation origin, success - no damage; See traits",
+					dc : true,
+					modifiers : ["", "Prof"],
+					abilitytodamage : false,
+					useSpellMod : "druid"
+				}, {
+					name : "Fiery Manifestation",
+					ability : 5,
+					damage : [2, 10, "fire"],
+					range : "10 ft",
+					description : "Dex save for all within 10 ft where spirit is summoned, success - no damage",
+					dc : true,
+					abilitytodamage : false,
+					useSpellMod : "druid"
+				}],
+				features : [{
+					name : "Creator",
+					description : "The spirit obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Flame Seed, Fiery Teleportation, Dash, Disengage, Help, or Hide action."
+				}],
+				actions : [{
+					name : "Fiery Teleportation (1\xD7 per short rest)",
+					description : "The spirit and each willing creature of its creator's choice within 5 ft of it teleport up to 30 ft to unoccupied spaces its creator can see. Each creature within 10 ft of the space that the spirit left must succeed on a Dexterity saving throw against its creator's spell save DC or take fire damage equal to 1d6 + its proficiency bonus."
+				}],
+				header : "Wildfire",
+				calcChanges : {
+					hp : function (totalHD, HDobj, prefix) {
+						if (!classes.known.druid) return;
+						var wisMod = Number(What('Wis Mod'));
+						var drdLvl = classes.known.druid.level;
+						var drdLvl5 = 5 * drdLvl;
+						HDobj.alt.push(HDobj.conMod + wisMod + drdLvl5);
+						HDobj.altStr.push(" = " + HDobj.conMod + " from its Constitution modifier\n + " + wisMod + " from its creator's Intelligence modifier\n + 5 \xD7 " + drdLvl + " from five times its creator's druid level (" + drdLvl5 + ")");
+					},
+					setAltHp : true,
+					hpForceRecalc : true
 				}
-				if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-				Value(prefix + 'Comp.Race', "Wildfire Spirit");
-				Value(prefix + 'Comp.Type', "Wildfire");
-				var changeMsg = "The Wildfire Spirit has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
-				CurrentUpdates.types.push("notes");
-				if (!CurrentUpdates.notesChanges) {
-					CurrentUpdates.notesChanges = [changeMsg];
-				} else {
-					CurrentUpdates.notesChanges.push(changeMsg);
-				}
-			},
-			removeeval : function () {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("wildfire spirit") !== -1) {
-						DoTemplate("AScomp", "Remove", AScompA[a], true);
-					}
-				}
-			},
-			changeeval : function (lvlA) {
-				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-				if (!AScompA) return;
-				var newHP = Math.round(lvlA[1] * 5 + What("Wis Mod"));
-				var newProf = ProficiencyBonusList[classes.totallevel - 1];
-				for (var a = 1; a < AScompA.length; a++) {
-					if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf("wildfire spirit") !== -1) {
-						Value(AScompA[a] + "Comp.Use.HP.Max", newHP + What(AScompA[a] + "Comp.Use.Ability.Con.Mod"));
-						Value(AScompA[a] + "Comp.Use.Proficiency Bonus", newProf);
-					}
-				}
-			}
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Enhanced Bond",
@@ -233,57 +265,9 @@ AddSubClass("druid", "circle of wildfire", {
 		}
 	}
 });
-// Add the Cirle of Wildfire companion spirit
-CreatureList["wildfire spirit-uacdnw"] = {
-	name : "Wildfire Spirit",
-	source : ["UA:CDnW", 3],
-	size : 4,
-	type : "Elemental",
-	alignment : "Chaotic",
-	ac : 13,
-	hp : 12,
-	hd : [2, 6],
-	speed : "20 ft, fly 30 ft (hover)",
-	scores : [10, 14, 14, 13, 15, 11],
-	saves : ["", 4, 4, "", 4, ""],
-	skills : {
-		"nature" : 4
-	},
-	damage_immunities : "fire",
-	condition_immunities : "charmed, frightened, grappled, prone, restrained",
-	senses : "Darkvision 60 ft",
-	passivePerception : 12,
-	languages : "understands the languages of its creator",
-	challengeRating : "0",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Flame Seed",
-		ability : 2,
-		damage : [1, 6, "fire"],
-		range : "30 ft",
-		modifiers : ["", "Prof", false],
-		description : "Ranged weapon attack"
-	}, {
-		name : "Fiery Teleportation",
-		ability : 5,
-		damage : [1, 6, "fire"],
-		range : "10 ft",
-		modifiers : ["dc-Wis+oWis", "Prof", false],
-		description : "Dex save for all within 10 ft of teleportation origin, success - no damage; See traits"
-	}],
-	features : [{
-		name : "Creator",
-		description : "The spirit obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Flame Seed, Fiery Teleportation, Dash, Disengage, Help, or Hide action."
-	}],
-	actions : [{
-		name : "Fiery Teleportation (1\xD7 per short rest)",
-		description : "The spirit and each willing creature of its creator's choice within 5 ft of it teleport up to 30 ft to unoccupied spaces its creator can see. Each creature within 10 ft of the space that the spirit left must succeed on a Dexterity saving throw against its creator's spell save DC or take fire damage equal to 1d6 + its proficiency bonus."
-	}]
-}
 
 // Add a subclass for the Wizard
-AddSubClass("wizard", "onomancy", {
+AddSubClass("wizard", "onomancy-ua", {
 	regExpSearch : /onomancy|onomancer/i,
 	subname : "Onomancy",
 	source : ["UA:CDnW", 4],

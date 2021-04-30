@@ -1,5 +1,5 @@
 var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source
@@ -91,9 +91,9 @@ ClassList["rangerua"] = {
 			source : ["UA:RR", 3],
 			minlevel : 1,
 			description : "\n   " + "On my first turn in combat, I have adv. on attacks against those that did not yet act" + "\n   " + "I ignore difficult terrain; I have adv. on Initiative; I have benefits in travel, see page 3",
-			extraname : "Natural Explorer",
 			"travel benefits" : {
 				name : "Travel Benefits",
+				extraname : "Natural Explorer",
 				source : ["UA:RR", 3],
 				description: desc([
 					"After one hour of traveling in the wilderness I gain the following benefits:",
@@ -209,7 +209,7 @@ ClassList["rangerua"] = {
 		}
 	}
 };
-AddSubClass("rangerua", "beast master", {
+AddSubClass("rangerua", "beast master-ua", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Conclave",
 	source : ["UA:RR", 5],
@@ -253,7 +253,7 @@ AddSubClass("rangerua", "beast master", {
 		}
 	}
 });
-AddSubClass("rangerua", "hunter", {
+AddSubClass("rangerua", "hunter-ua", {
 	regExpSearch : /^(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i,
 	subname : "Hunter Conclave",
 	source : ["UA:RR", 7],
@@ -340,7 +340,7 @@ AddSubClass("rangerua", "hunter", {
 		}
 	}
 });
-AddSubClass("rangerua", "deep stalker", {
+AddSubClass("rangerua", "deep stalker-ua", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker Conclave",
 	source : ["UA:RR", 7],
@@ -388,7 +388,7 @@ AddSubClass("rangerua", "deep stalker", {
 // Note that there are no rules by WotC that support doing this!
 var AddXGtErangerSubclassesToRevisedRanger = function() {
 	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
-	var theXGtErangerSubs = ["ranger-gloom stalker-xgte", "ranger-horizon walker-xgte", "ranger-monster slayer-xgte"];
+	var theXGtErangerSubs = ["ranger-gloom stalker", "ranger-horizon walker", "ranger-monster slayer"];
 	for (var i = 0; i < theXGtErangerSubs.length; i++) {
 		var aSub = theXGtErangerSubs[i];
 		if (ClassSubList[aSub]) {

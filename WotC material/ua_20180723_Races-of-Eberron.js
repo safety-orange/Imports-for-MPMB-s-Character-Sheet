@@ -1,5 +1,5 @@
 var iFileName = "ua_20180723_Races-of-Eberron.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -241,9 +241,9 @@ RaceList["envoy warforged-ua"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+			CurrentRace.armorAdd = 'Heavy Plating';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			CurrentRace.armorAdd = 'Composite Plating (Prof)';
+			CurrentRace.armorAdd = 'Composite Plating';
 		} else {
 			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
@@ -262,23 +262,20 @@ RaceList["envoy warforged-ua"] = {
 		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
 		name : "Darkwood core (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
-		ac : 11,
-		addMod : true
+		ac : "11+Prof"
 	}, {
 		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-		name : "Composite plating (Prof)",
+		name : "Composite plating",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		type : "medium",
-		ac : 13,
-		addMod : true,
+		ac : "13+Prof",
 		dex : 2
 	}, {
 		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-		name : "Heavy plating (Prof)",
+		name : "Heavy plating",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		type : "heavy",
-		ac : 16,
-		addMod : true,
+		ac : "16+Prof",
 		stealthdis : true
 	}]
 };
@@ -318,9 +315,9 @@ RaceList["juggernaut warforged-ua"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+			CurrentRace.armorAdd = 'Heavy Plating';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			CurrentRace.armorAdd = 'Composite Plating (Prof)';
+			CurrentRace.armorAdd = 'Composite Plating';
 		} else {
 			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
@@ -339,23 +336,20 @@ RaceList["juggernaut warforged-ua"] = {
 		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
 		name : "Darkwood core (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
-		ac : 11,
-		addMod : true
+		ac : "11+Prof"
 	}, {
 		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-		name : "Composite plating (Prof)",
+		name : "Composite plating",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		type : "medium",
-		ac : 13,
-		addMod : true,
+		ac : "13+Prof",
 		dex : 2
 	}, {
 		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-		name : "Heavy plating (Prof)",
+		name : "Heavy plating",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		type : "heavy",
-		ac : 16,
-		addMod : true,
+		ac : "16+Prof",
 		stealthdis : true
 	}]
 };
@@ -386,9 +380,9 @@ RaceList["skirmisher warforged-ua"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+			CurrentRace.armorAdd = 'Heavy Plating';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			CurrentRace.armorAdd = 'Composite Plating (Prof)';
+			CurrentRace.armorAdd = 'Composite Plating';
 		} else {
 			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
@@ -407,23 +401,20 @@ RaceList["skirmisher warforged-ua"] = {
 		regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
 		name : "Darkwood core (Prof)",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
-		ac : 11,
-		addMod : true
+		ac : "11+Prof"
 	}, {
 		regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-		name : "Composite plating (Prof)",
+		name : "Composite plating",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		type : "medium",
-		ac : 13,
-		addMod : true,
+		ac : "13+Prof",
 		dex : 2
 	}, {
 		regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-		name : "Heavy plating (Prof)",
+		name : "Heavy plating",
 		source : [["WGtE", 69], ["UA:RoE", 9]],
 		type : "heavy",
-		ac : 16,
-		addMod : true,
+		ac : "16+Prof",
 		stealthdis : true
 	}]
 };

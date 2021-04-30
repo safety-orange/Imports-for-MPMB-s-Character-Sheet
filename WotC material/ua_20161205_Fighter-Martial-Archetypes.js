@@ -12,7 +12,7 @@ SourceList["UA:FMA"] = {
 };
 
 // Adds 4 subclasses for the Fighter
-AddSubClass("fighter", "arcane archer", {
+AddSubClass("fighter", "arcane archer-ua", {
 	regExpSearch : /^(?=.*arcane)(?=.*archer).*$/i,
 	subname : "Arcane Archer",
 	source : ["UA:FMA", 1],
@@ -116,7 +116,7 @@ AddSubClass("fighter", "arcane archer", {
 		}
 	}
 });
-AddSubClass("fighter", "knight", {
+AddSubClass("fighter", "knight-ua", {
 	regExpSearch : /^(?!.*(exalted|sacred|holy|divine|nature|natural|purple.*dragon|green|fey|horned))(?=.*knight).*$/i,
 	subname : "Knight",
 	source : ["UA:FMA", 2],
@@ -208,7 +208,7 @@ AddSubClass("fighter", "knight", {
 		}
 	}
 });
-AddSubClass("fighter", "samurai", {
+AddSubClass("fighter", "samurai-ua", {
 	regExpSearch : /samurai/i,
 	subname : "Samurai",
 	source : ["UA:FMA", 3],
@@ -264,7 +264,7 @@ AddSubClass("fighter", "samurai", {
 		}
 	}
 });
-AddSubClass("fighter", "sharpshooter", {
+AddSubClass("fighter", "sharpshooter-ua", {
 	regExpSearch : /sharpshooter/i,
 	subname : "Sharpshooter",
 	source : ["UA:FMA", 3],

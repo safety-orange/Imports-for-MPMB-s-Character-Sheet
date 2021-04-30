@@ -1,5 +1,5 @@
 var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -165,7 +165,6 @@ CreatureList["abyssal chicken"] = {
 	hd : [3, 4],
 	speed : "30 ft, fly 30 ft",
 	scores : [6, 14, 13, 4, 9, 5],
-	saves : ["", "", "", "", "", ""],
 	damage_immunities : "cold, fire, lightning",
 	condition_immunities : "blinded, poisoned",
 	senses : "Blindsight 30 ft (blind beyond this radius)",
@@ -334,7 +333,23 @@ if (!SourceList.MToF) {
 		weight : 26, // riding saddle (25) + bit and bridle (1)
 		prerequisite : "Requires attunement by a creature of evil alignment",
 		prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
-		action : [["action", ""]]
+		action : [["action", ""]],
+		creaturesAdd : [["Nightmare", true,
+		function (AddRemove, prefix) {
+			if (!AddRemove) return;
+			// Show equipment section
+			CompOptions(prefix, ["visible", "comp.eqp"], true);
+			// Add equipment when added
+			var equip = ["bit and bridle", "riding"];
+			for (var i = 0; i < equip.length; i++) {
+				var gear = GearList[equip[i]];
+				if (!gear) continue;
+				AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
+			}
+			// Add notes
+			var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
+			Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
+		}]]
 	}
 } // dupl_end
 MagicItemsList["matalotok"] = {

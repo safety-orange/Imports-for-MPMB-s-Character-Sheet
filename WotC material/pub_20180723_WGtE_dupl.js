@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version, 
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
@@ -243,9 +243,9 @@ if (!SourceList["UA:RoE"]) {
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+				CurrentRace.armorAdd = 'Heavy Plating';
 			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating (Prof)';
+				CurrentRace.armorAdd = 'Composite Plating';
 			} else {
 				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 			};
@@ -264,23 +264,20 @@ if (!SourceList["UA:RoE"]) {
 			regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
 			name : "Darkwood core (Prof)",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11,
-			addMod : true
+			ac : "11+Prof"
 		}, {
 			regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-			name : "Composite plating (Prof)",
+			name : "Composite plating",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
 			type : "medium",
-			ac : 13,
-			addMod : true,
+			ac : "13+Prof",
 			dex : 2
 		}, {
 			regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-			name : "Heavy plating (Prof)",
+			name : "Heavy plating",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
 			type : "heavy",
-			ac : 16,
-			addMod : true,
+			ac : "16+Prof",
 			stealthdis : true
 		}]
 	};
@@ -320,9 +317,9 @@ if (!SourceList["UA:RoE"]) {
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+				CurrentRace.armorAdd = 'Heavy Plating';
 			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating (Prof)';
+				CurrentRace.armorAdd = 'Composite Plating';
 			} else {
 				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 			};
@@ -341,23 +338,20 @@ if (!SourceList["UA:RoE"]) {
 			regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
 			name : "Darkwood core (Prof)",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11,
-			addMod : true
+			ac : "11+Prof"
 		}, {
 			regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-			name : "Composite plating (Prof)",
+			name : "Composite plating",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
 			type : "medium",
-			ac : 13,
-			addMod : true,
+			ac : "13+Prof",
 			dex : 2
 		}, {
 			regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-			name : "Heavy plating (Prof)",
+			name : "Heavy plating",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
 			type : "heavy",
-			ac : 16,
-			addMod : true,
+			ac : "16+Prof",
 			stealthdis : true
 		}]
 	};
@@ -388,9 +382,9 @@ if (!SourceList["UA:RoE"]) {
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating (Prof)';
+				CurrentRace.armorAdd = 'Heavy Plating';
 			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating (Prof)';
+				CurrentRace.armorAdd = 'Composite Plating';
 			} else {
 				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 			};
@@ -409,23 +403,20 @@ if (!SourceList["UA:RoE"]) {
 			regExpSearch : /^(?=.*darkwood)(?=.*core)(?=.*prof).*$/i,
 			name : "Darkwood core (Prof)",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
-			ac : 11,
-			addMod : true
+			ac : "11+Prof"
 		}, {
 			regExpSearch : /^(?=.*composite)(?=.*plating).*$/i,
-			name : "Composite plating (Prof)",
+			name : "Composite plating",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
 			type : "medium",
-			ac : 13,
-			addMod : true,
+			ac : "13+Prof",
 			dex : 2
 		}, {
 			regExpSearch : /^(?=.*heavy)(?=.*plating).*$/i,
-			name : "Heavy plating (Prof)",
+			name : "Heavy plating",
 			source : [["WGtE", 69], ["UA:RoE", 9]],
 			type : "heavy",
-			ac : 16,
-			addMod : true,
+			ac : "16+Prof",
 			stealthdis : true
 		}]
 	};
@@ -482,6 +473,7 @@ if (!WeaponsList["double-bladed scimitar"]){
 		range : "Melee",
 		weight : 6,
 		description : "Two-handed; With Attack action, one attack as bonus action for 1d4",
+		special : true,
 		abilitytodamage : true
 };
 }
@@ -525,7 +517,6 @@ CreatureList["clawfoot raptor"] = {
 	hd : [3, 8],
 	speed : "50 ft",
 	scores : [17, 17, 13, 2, 12, 10],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"athletics" : 5,
 		"perception" : 5,
@@ -533,7 +524,6 @@ CreatureList["clawfoot raptor"] = {
 	},
 	senses : "",
 	passivePerception : 15,
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 1,

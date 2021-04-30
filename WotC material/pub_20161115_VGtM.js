@@ -1,5 +1,5 @@
 var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -619,10 +619,8 @@ CreatureList["aurochs"] = {
 	hd : [4, 10], //[#, die]
 	speed : "50 ft",
 	scores : [20, 10, 19, 2, 12, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -651,10 +649,8 @@ CreatureList["cow"] = {
 	hd : [2, 10], //[#, die]
 	speed : "30 ft",
 	scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -683,10 +679,8 @@ CreatureList["ox"] = {
 	hd : [2, 10], //[#, die]
 	speed : "30 ft",
 	scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -718,10 +712,8 @@ CreatureList["deep rothe"] = {
 	hd : [2, 8], //[#, die]
 	speed : "30 ft",
 	scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "Darkvision 60 ft",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -753,10 +745,8 @@ CreatureList["rothe"] = {
 	hd : [2, 10], //[#, die]
 	speed : "30 ft",
 	scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "Darkvision 30 ft",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -785,11 +775,9 @@ CreatureList["stench kow"] = {
 	hd : [2, 10], //[#, die]
 	speed : "30 ft",
 	scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	damage_resistances : "cold, fire, and poison damage",
 	senses : "Darkvision 60 ft",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -822,13 +810,11 @@ CreatureList["dolphin"] = {
 	hd : [2, 8], //[#, die]
 	speed : "swim 60 ft",
 	scores : [14, 13, 13, 6, 12, 7], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 3
 	},
 	senses : "Blindsight 60 ft",
 	passivePerception : 13,
-	languages : "",
 	challengeRating : "1/8",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -861,10 +847,8 @@ CreatureList["cranium rat"] = {
 	hd : [1, 4], //[#, die]
 	speed : "30 ft",
 	scores : [2, 14, 10, 4, 11, 8], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "Darkvision 30 ft",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -874,7 +858,7 @@ CreatureList["cranium rat"] = {
 			damage : [1, "", "piercing"], //[#, die, type] "" for die is allowed
 			range : "Melee (5 ft)",
 			description : "",
-			modifiers : ["", "", false], //[to hit, to damage, add ability to damage] "" means ignore
+			abilitytodamage : false
 		}
 	],
 	traits : [{
@@ -900,7 +884,6 @@ CreatureList["brontosaurus"] = {
 	saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "5",
 	proficiencyBonus : 3,
 	attacksAction : 1,
@@ -930,13 +913,11 @@ CreatureList["deinonychus"] = {
 	hd : [4, 8], //[#, die]
 	speed : "40 ft",
 	scores : [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 3
 	},
 	senses : "",
 	passivePerception : 13,
-	languages : "",
 	challengeRating : "1",
 	proficiencyBonus : 2,
 	attacksAction : 3,
@@ -974,13 +955,11 @@ CreatureList["dimetrodon"] = {
 	hd : [3, 8], //[#, die]
 	speed : "30 ft, swim 20 ft",
 	scores : [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 2
 	},
 	senses : "",
 	passivePerception : 12,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -1004,13 +983,11 @@ CreatureList["hadrosaurus"] = {
 	hd : [3, 10], //[#, die]
 	speed : "40 ft",
 	scores : [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 2
 	},
 	senses : "",
 	passivePerception : 12,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -1034,13 +1011,11 @@ CreatureList["quetzalcoatlus"] = {
 	hd : [4, 12], //[#, die]
 	speed : "10 ft, fly 80 ft",
 	scores : [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 2
 	},
 	senses : "",
 	passivePerception : 12,
-	languages : "",
 	challengeRating : "2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -1072,10 +1047,8 @@ CreatureList["stegosaurus"] = {
 	hd : [8, 12], //[#, die]
 	speed : "40 ft",
 	scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -1099,13 +1072,11 @@ CreatureList["velociraptor"] = {
 	hd : [3, 4], //[#, die]
 	speed : "30 ft",
 	scores : [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"perception" : 3
 	},
 	senses : "",
 	passivePerception : 13,
-	languages : "",
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
 	attacksAction : 2,
@@ -1148,7 +1119,6 @@ CreatureList["gazer"] = {
 	},
 	senses : "Darkvision 60 ft",
 	passivePerception : 14,
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -1165,7 +1135,7 @@ CreatureList["gazer"] = {
 			range : "60 ft",
 			description : "Shoot two randomly determined different rays as one action; Each ray has its own target; See traits",
 			dc : true,
-			modifiers : ["", "", false], //[to hit, to damage, add ability to damage] "" means ignore
+			abilitytodamage : false
 		}
 	],
 	traits : [{

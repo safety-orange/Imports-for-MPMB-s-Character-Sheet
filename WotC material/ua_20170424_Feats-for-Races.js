@@ -12,7 +12,7 @@ SourceList["UA:FR"] = {
 };
 
 // Adds 46 feats (23 + 13 variants of Grudge-Bearer), all of which have a racial prerequisite
-FeatsList["barbed hide"] = {
+FeatsList["barbed hide-ua"] = {
 	name : "Barbed Hide",
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Tiefling",
@@ -23,7 +23,7 @@ FeatsList["barbed hide"] = {
 	skills : [["Intimidation", "increment"]],
 	action : ["bonus action", ""]
 };
-FeatsList["bountiful luck"] = {
+FeatsList["bountiful luck-ua"] = {
 	name : "Bountiful Luck",
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Halfling",
@@ -32,7 +32,7 @@ FeatsList["bountiful luck"] = {
 	description : "Whenever an ally I can see within 30 feet of me rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll.",
 	action : ["reaction", ""]
 };
-FeatsList["critter friend"] = {
+FeatsList["critter friend-ua"] = {
 	name : "Critter Friend",
 	source : ["UA:FR", 1],
 	prerequisite : "Being a Forest Gnome",
@@ -53,7 +53,7 @@ FeatsList["critter friend"] = {
 		firstCol : 'oncelr'
 	}]
 };
-FeatsList["dragon fear"] = {
+FeatsList["dragon fear-ua"] = {
 	name : "Dragon Fear",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
@@ -63,7 +63,7 @@ FeatsList["dragon fear"] = {
 	scorestxt : "+1 Strength or Charisma",
 	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
-FeatsList["dragon hide"] = {
+FeatsList["dragon hide-ua"] = {
 	name : "Dragon Hide",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
@@ -85,7 +85,7 @@ FeatsList["dragon hide"] = {
 		stopeval : function (v) { return v.wearingArmor; }
 	}
 };
-FeatsList["dragon wings"] = {
+FeatsList["dragon wings-ua"] = {
 	name : "Dragon Wings",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dragonborn",
@@ -94,7 +94,7 @@ FeatsList["dragon wings"] = {
 	description : "I sprout draconic wings. With my wings, I have a flying speed of 20 feet if I am not wearing heavy armor and I am not exceeding my carrying capacity or encumbered.",
 	speed : { fly : { spd : 20, enc : 0 } }
 };
-FeatsList["drow high magic"] = {
+FeatsList["drow high magic-ua"] = {
 	name : "Drow High Magic",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Drow (Dark Elf)",
@@ -119,7 +119,7 @@ FeatsList["drow high magic"] = {
 		firstCol : 'oncelr'
 	}]
 };
-FeatsList["dwarf resilience"] = {
+FeatsList["dwarf resilience-ua"] = {
 	name : "Dwarf Resilience",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Dwarf",
@@ -128,7 +128,7 @@ FeatsList["dwarf resilience"] = {
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0]
 };
-FeatsList["elven accuracy"] = {
+FeatsList["elven accuracy-ua"] = {
 	name : "Elven Accuracy",
 	source : ["UA:FR", 2],
 	prerequisite : "Being an Elf or a Half-Elf",
@@ -137,7 +137,7 @@ FeatsList["elven accuracy"] = {
 	description : "Whenever I have advantage on an attack roll, I can reroll one of the dice once. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0]
 };
-FeatsList["everybody's friend"] = {
+FeatsList["everybody-ua's friend"] = {
 	name : "Everybody's Friend",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Half-Elf",
@@ -147,7 +147,7 @@ FeatsList["everybody's friend"] = {
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Deception", "increment"], ["Persuasion", "increment"]]
 };
-FeatsList["fade away"] = {
+FeatsList["fade away-ua"] = {
 	name : "Fade Away",
 	source : ["UA:FR", 2],
 	prerequisite : "Being a Gnome",
@@ -159,7 +159,7 @@ FeatsList["fade away"] = {
 	usages : 1,
 	recovery : "short rest"
 };
-FeatsList["fey teleportation"] = {
+FeatsList["fey teleportation-ua"] = {
 	name : "Fey Teleportation",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a High Elf",
@@ -177,7 +177,7 @@ FeatsList["fey teleportation"] = {
 	usages : 1,
 	recovery : "short rest"
 };
-FeatsList["flames of phlegethos"] = {
+FeatsList["flames of phlegethos-ua"] = {
 	name : "Flames of Phlegethos",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Tiefling",
@@ -186,7 +186,7 @@ FeatsList["flames of phlegethos"] = {
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice. I can then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt : "+1 Intelligence or Charisma"	
 };
-FeatsList["grudge-bearer"] = {
+FeatsList["grudge-bearer-ua"] = {
 	name : "Grudge-Bearer",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Dwarf",
@@ -238,7 +238,7 @@ FeatsList["grudge-bearer"] = {
 		description : "My hatred for undead gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my prof. bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]"
 	}
 };
-FeatsList["human determination"] = {
+FeatsList["human determination-ua"] = {
 	name : "Human Determination",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Human",
@@ -250,7 +250,7 @@ FeatsList["human determination"] = {
 	recovery : "short rest",
 	additional : "attack/check/save"
 };
-FeatsList["infernal constitution"] = {
+FeatsList["infernal constitution-ua"] = {
 	name : "Infernal Constitution",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Tiefling",
@@ -261,7 +261,7 @@ FeatsList["infernal constitution"] = {
 	dmgres : ["Cold", "Poison"],
 	savetxt : { adv_vs : ["poison"] }
 };
-FeatsList["orcish aggression"] = {
+FeatsList["orcish aggression-ua"] = {
 	name : "Orcish Aggression",
 	source : ["UA:FR", 3],
 	prerequisite : "Being a Half-Orc",
@@ -270,7 +270,7 @@ FeatsList["orcish aggression"] = {
 	description : "As a bonus action, I can move up to my speed toward an enemy of my choice that I can see or hear. I must end this move closer to the enemy than I started.",
 	action : ["bonus action", ""]
 };
-FeatsList["orcish fury"] = {
+FeatsList["orcish fury-ua"] = {
 	name : "Orcish Fury",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Half-Orc",
@@ -283,7 +283,7 @@ FeatsList["orcish fury"] = {
 	recovery : "short rest",
 	additional : "extra damage"
 };
-FeatsList["prodigy"] = {
+FeatsList["prodigy-ua"] = {
 	name : "Prodigy",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Half-Elf or a Human",
@@ -295,7 +295,7 @@ FeatsList["prodigy"] = {
 	languageProfs : [1],
 	toolProfs : [["Any tool", 1]]
 };
-FeatsList["second chance"] = {
+FeatsList["second chance-ua"] = {
 	name : "Second Chance",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Halfling",
@@ -307,7 +307,7 @@ FeatsList["second chance"] = {
 	usages : 1,
 	recovery : "short rest"
 };
-FeatsList["squat nimbleness"] = {
+FeatsList["squat nimbleness-ua"] = {
 	name : "Squat Nimbleness",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Dwarf, Gnome, or Halfling",
@@ -318,7 +318,7 @@ FeatsList["squat nimbleness"] = {
 	skillstxt : "Proficiency with Acrobatics or Athletics; or gain Expertise if already proficient",
 	speed : { walk : {spd : "+5", enc : "+5" } }
 };
-FeatsList["wonder maker"] = {
+FeatsList["wonder maker-ua"] = {
 	name : "Wonder Maker",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Rock Gnome",
@@ -337,7 +337,7 @@ FeatsList["wonder maker"] = {
 		};
 	}
 };
-FeatsList["wood elf magic"] = {
+FeatsList["wood elf magic-ua"] = {
 	name : "Wood Elf Magic",
 	source : ["UA:FR", 4],
 	prerequisite : "Being a Wood Elf",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -1381,9 +1381,9 @@ AddSubClass("monk", "way of shadow", {
 				firstCol : "atwill"
 			},
 			spellFirstColTitle : "Ki",
-			extraname : "Shadow Arts",
 			"shadow spells" : {
 				name : "Shadow Spells",
+				extraname : "Shadow Arts",
 				source : ["P", 80],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Darkness, Darkvision, Pass Without Trace, or Silence" + "\n   " + "I don't require spell slots or material components to cast these spells like this, just ki points",
 				action : ["action", ""],
@@ -1541,11 +1541,11 @@ AddSubClass("ranger", "beast master", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Master",
 	fullname : "Beast Master",
-	source : ["P", 93],
+	source : [["P", 93]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ranger's Companion",
-			source : ["P", 93],
+			source : [["P", 93]],
 			minlevel : 3,
 			description : desc([
 				"It adds my proficiency bonus to AC, attacks, damage, and save/skill proficiencies",
@@ -1555,27 +1555,34 @@ AddSubClass("ranger", "beast master", {
 				"I can still use Extra Attack while commanding it to Attack; No action to order to move"
 			]),
 			additional : "1/4 CR up to medium sized beast",
-			action : ["action", "Command Companion"]
+			creaturesAdd : [["Ranger's Companion", false, function(AddRemove, prefix) {
+				if (!AddRemove) return;
+				var cObj = MakeCompMenu(prefix);
+				var compOptions = cObj.companions.map(function(n) { return n[0] });
+				var selectedRace = AskUserOptions("Select Ranger's Companion", "Select which beast you would like to have as your ranger's companion.\nThis can be any beast that is no larger than Medium and that has a challenge rating of 1/4 or lower.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
+				Value(prefix + "Comp.Race", selectedRace);
+				changeCompType("companion", prefix);
+			}]]
 		},
 		"subclassfeature7" : {
 			name : "Exceptional Training",
-			source : ["P", 93],
+			source : [["P", 93]],
 			minlevel : 7,
 			description : desc([
 				"My beast's attacks count as magical for overcoming resistances and immunities",
 				"As a bonus action, I can command it to take the Dash/Disengage/Help action on its turn"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature11" : {
 			name : "Bestial Fury",
-			source : ["P", 93],
+			source : [["P", 93]],
 			minlevel : 11,
 			description : "\n   " + "When I command my beast to use the Attack action, it can attack twice on its turn"
 		},
 		"subclassfeature15" : {
 			name : "Share Spells",
-			source : ["P", 93],
+			source : [["P", 93]],
 			minlevel : 15,
 			description : "\n   " + "When I cast a spell on myself, I can have it also affect my beast if it is within 30 ft"
 		}
@@ -3884,7 +3891,7 @@ FeatsList["spell sniper"] = {
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName) {
-				if (!spellObj.spellSniper && !spellObj.psionic && ((/^(booming blade|green-flame blade)$/).test(spellKey) || ((/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(-rad|touch|self)).*\d+([.,]\d+)? ?(f.{0,2}t|m).*$/i).test(spellObj.range)))) {
+				if ( !spellObj.spellSniper && !spellObj.psionic && (/spell attack/i).test(spellObj.description + spellObj.descriptionFull) && (/^(?!.*(S:|rad|touch|self|cone|cube)).*\d+([.,]\d+)?[\- ]?(f.{0,2}t|m).*$/i).test(spellObj.range) ) {
 					spellObj.spellSniper = true;
 					var rangeNmbr = spellObj.range.match(/\d+([.,]\d+)?/g);
 					var notNmbrs = spellObj.range.split(RegExp(rangeNmbr.join('|')));
@@ -4075,7 +4082,7 @@ SpellsList["arms of hadar"] = {
 	level : 1,
 	school : "Conj",
 	time : "1 a",
-	range : "10-ft rad",
+	range : "S:10-ft rad",
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Str",
@@ -4089,7 +4096,7 @@ SpellsList["aura of life"] = {
 	level : 4,
 	school : "Abjur",
 	time : "1 a",
-	range : "30-ft rad",
+	range : "S:30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
 	description : "Me + any crea while in area Necrotic dmg resist.; at turn start, 0 HP living in area heal 1 HP",
@@ -4102,7 +4109,7 @@ SpellsList["aura of purity"] = {
 	level : 4,
 	school : "Abjur",
 	time : "1 a",
-	range : "30-ft rad",
+	range : "S:30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
 	description : "Me + any crea while in area Poison dmg resist., immune to disease, adv. on saves vs. conditions",
@@ -4115,7 +4122,7 @@ SpellsList["aura of vitality"] = {
 	level : 3,
 	school : "Evoc",
 	time : "1 a",
-	range : "30-ft rad",
+	range : "S:30-ft rad",
 	components : "V",
 	duration : "Conc, 1 min",
 	description : "I can heal 1 creature in range for 2d6 HP as a bonus action for the duration",
@@ -4196,7 +4203,7 @@ SpellsList["circle of power"] = {
 	level : 5,
 	school : "Abjur",
 	time : "1 a",
-	range : "30-ft rad",
+	range : "S:30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
 	description : "Any crea while in area adv. on saves vs. magical effects; if save would half dmg it takes no dmg",
@@ -4237,7 +4244,7 @@ SpellsList["conjure barrage"] = {
 	level : 3,
 	school : "Conj",
 	time : "1 a",
-	range : "60-ft cone",
+	range : "S:60ft cone",
 	components : "V,S,M",
 	compMaterial : "One piece of ammunition or a thrown weapon",
 	duration : "Instantaneous",
@@ -4296,7 +4303,7 @@ SpellsList["crusader's mantle"] = {
 	level : 3,
 	school : "Evoc",
 	time : "1 a",
-	range : "30-ft rad",
+	range : "S:30-ft rad",
 	components : "V",
 	duration : "Conc, 1 min",
 	description : "Me and allies in range deal extra 1d4 Radiant dmg with weapon attacks",
@@ -4309,7 +4316,7 @@ SpellsList["destructive wave"] = {
 	level : 5,
 	school : "Evoc",
 	time : "1 a",
-	range : "30-ft rad",
+	range : "S:30-ft rad",
 	components : "V",
 	duration : "Instantaneous",
 	save : "Con",

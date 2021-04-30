@@ -12,7 +12,7 @@ SourceList["UA:WR"] = {
 };
 
 // Adds 1 new subclass for the Wizard (with contributions by erickrause)
-AddSubClass("wizard", "war magic", {
+AddSubClass("wizard", "war magic-ua", {
 	regExpSearch : /^(?=.*war)(?=.*(magic|mage)).*$/i,
 	subname : "War Magic",
 	source : ["UA:WR", 2],
@@ -72,7 +72,7 @@ AddSubClass("wizard", "war magic", {
 // [dupl_start] Don't add the Theurgy subclass if the source UA:TF is present, as that class is identical to the one found in Unearthed Arcana: The Faithful (2016/08/01)
 if (!SourceList["UA:TF"]) {
 RunFunctionAtEnd(function() {
-	var theTheurgySubclass = AddSubClass("wizard", "theurgy", {
+	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", {
 		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
 		subname : "Theurgy",
 		source : [["UA:TF", 1], ["UA:WR", 1]],

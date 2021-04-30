@@ -12,7 +12,7 @@ SourceList["UA:DC"] = {
 };
 
 // Adds 3 subclasses for the Druid
-AddSubClass("druid", "circle of dreams", {
+AddSubClass("druid", "circle of dreams-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
 	subname : "Circle of Dreams",
 	source : ["UA:DC", 1],
@@ -70,7 +70,7 @@ AddSubClass("druid", "circle of dreams", {
 		}
 	}
 });
-AddSubClass("druid", "circle of the shepherd", {
+AddSubClass("druid", "circle of the shepherd-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
 	source : ["UA:DC", 1],
@@ -144,7 +144,7 @@ AddSubClass("druid", "circle of the shepherd", {
 		}
 	}
 });
-AddSubClass("druid", "circle of twilight", {
+AddSubClass("druid", "circle of twilight-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*twilight).*$/i,
 	subname : "Circle of Twilight",
 	source : ["UA:DC", 2],

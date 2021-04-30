@@ -257,7 +257,7 @@ MagicItemsList["polymorph blade"] = {
 	type : "weapon (any sword)",
 	rarity : "very rare",
 	magicItemTable : "H",
-	description : "I'm unwilling to part with this magic double-bladed . When I attack a creature with it and roll a 20 to hit, the creature must make a DC 15 Wisdom save or be polymorphed for 1 hour into a random beast (see Notes page). However, on a roll of 1 to hit, I am the one being polymorphed for 1 hour without a save.",
+	description : "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, the creature must make a DC 15 Wisdom save or be polymorphed for 1 hour into a random beast (see Notes page). However, on a roll of 1 to hit, I am the one being polymorphed for 1 hour without a save.",
 	descriptionFull : polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	chooseGear : {

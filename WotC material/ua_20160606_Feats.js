@@ -13,7 +13,7 @@ SourceList["UA:F"] = {
 
 // Add 8 feats: 4 'weapon mastery' feats and 4 'tool' feats
 // This doesn't add the "Warhammer Master" feat, as that is only in the article to illustrate how not to design a feat
-FeatsList["fell handed"] = {
+FeatsList["fell handed-ua"] = {
 	name : "Fell Handed",
 	source : ["UA:F", 2],
 	descriptionFull : "You master the handaxe, battleaxe, greataxe, warhammer, and maul. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 Whenever you have advantage on a melee attack roll you make with the weapon and hit, you can knock the target prone if the lower of the two d20 rolls would also hit the target.\n \u2022 Whenever you have disadvantage on a melee attack roll you make with the weapon, the target takes bludgeoning damage equal to your Strength modifier (minimum of 0) if the attack misses but the higher of the two d20 rolls would have hit.\n \u2022 If you use the Help action to aid an ally's melee attack while you're wielding the weapon, you knock the target's shield aside momentarily. In addition to the ally gaining advantage on the attack roll, the ally gains a +2 bonus to the roll if the target is using a shield.",
@@ -33,7 +33,7 @@ FeatsList["fell handed"] = {
 			}, ""]
 	}
 };
-FeatsList["blade mastery"] = {
+FeatsList["blade mastery-ua"] = {
 	name : "Blade Mastery",
 	source : ["UA:F", 2],
 	descriptionFull : "You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn or until you're not holding the weapon.\n \u2022 When you make an opportunity attack with the weapon, you have advantage on the attack roll.",
@@ -54,7 +54,7 @@ FeatsList["blade mastery"] = {
 	},
 	action : ["reaction", " Parrying Stance"]
 };
-FeatsList["flail mastery"] = {
+FeatsList["flail mastery-ua"] = {
 	name : "Flail Mastery",
 	source : ["UA:F", 3],
 	descriptionFull : "The flail is a tricky weapon to use, but you have spent countless hours mastering it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a flail.\n \u2022 As a bonus action on your turn, you can prepare yourself to extend your flail to sweep over targets' shields. Until the end of this turn, your attack rolls with a flail gain a +2 bonus against any target using a shield.\n \u2022 When you hit with an opportunity attack using a flail, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked prone.",
@@ -75,7 +75,7 @@ FeatsList["flail mastery"] = {
 	},
 	action : ["bonus action", ""]
 };
-FeatsList["spear mastery"] = {
+FeatsList["spear mastery-ua"] = {
 	name : "Spear Mastery",
 	source : ["UA:F", 3],
 	descriptionFull : "Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a spear.\n \u2022 When you use a spear, its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands. (This benefit has no effect if another feature has already improved the weapon's die.)\n \u2022 You can set your spear to receive a charge. As a bonus action, choose a creature you can see that is at least 20 feet away from you. If that creature moves within your spear's reach on its next turn, you can make a melee attack against it with your spear as a reaction. If the attack hits, the target takes an extra 1d8 piercing damage, or an extra 1d10 piercing damage if you wield the spear with two hands. You can't use this ability if the creature used the Disengage action before moving.\n \u2022 As a bonus action on your turn, you can increase your reach with a spear by 5 feet for the rest of your turn.",
@@ -97,7 +97,7 @@ FeatsList["spear mastery"] = {
 	},
 	action : [["bonus action", " (set vs. charge)"], ['bonus action', ' (increase reach)']]
 };
-FeatsList["alchemist"] = {
+FeatsList["alchemist-ua"] = {
 	name : "Alchemist",
 	source : ["UA:F", 4],
 	descriptionFull : "You have studied the secrets of alchemy and are an expert in its practice, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency with alchemist's supplies. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can identify one potion within 5 feet of you, as if you had tasted it. You must see the liquid for this benefit to work.\n \u2022 Over the course of any short rest, you can temporarily improve the potency of one potion of healing of any rarity. To use this benefit, you must have alchemist's supplies with you, and the potion must be within reach. If the potion is drunk no more than 1 hour after the short rest ends, the creature drinking the potion can forgo the potion's die roll and regains the maximum number of hit points that the potion can restore.",
@@ -116,7 +116,7 @@ FeatsList["alchemist"] = {
 		};
 	}
 };
-FeatsList["burglar"] = {
+FeatsList["burglar-ua"] = {
 	name : "Burglar",
 	source : ["UA:F", 4],
 	descriptionFull : "You pride yourself on your quickness and your close study of certain clandestine activities. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with thieves' tools. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
@@ -134,7 +134,7 @@ FeatsList["burglar"] = {
 		};
 	}
 };
-FeatsList["gourmand"] = {
+FeatsList["gourmand-ua"] = {
 	name : "Gourmand",
 	source : ["UA:F", 4],
 	descriptionFull : "You have mastered a variety of special recipes, allowing you to prepare exotic dishes with useful effects. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You gain proficiency with cook's utensils. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can inspect a drink or plate of food within 5 feet of you and determine whether it is poisoned, provided that you can see and smell it.\n \u2022 During a long rest, you can prepare and serve a meal that helps you and your allies recover from the rigors of adventuring, provided you have suitable food, cook's utensils, and other supplies on hand. The meal serves up to six people, and each person who eats it regains two additional Hit Dice at the end of the long rest. In addition, those who partake of the meal have advantage on Constitution saving throws against disease for the next 24 hours.",
@@ -153,7 +153,7 @@ FeatsList["gourmand"] = {
 		};
 	}
 };
-FeatsList["master of disguise"] = {
+FeatsList["master of disguise-ua"] = {
 	name : "Master of Disguise",
 	source : ["UA:F", 4],
 	descriptionFull : "You have honed your ability to shape your personality and to read the personalities of others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency with the disguise kit. If you are already proficient with it, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 hour observing a creature, you can then spend 8 hours crafting a disguise you can quickly don to mimic that creature. Making the disguise requires a disguise kit. You must make checks as normal to disguise yourself, but you can assume the disguise as an action.",

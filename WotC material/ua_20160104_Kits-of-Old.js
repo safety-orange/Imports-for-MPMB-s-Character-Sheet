@@ -12,7 +12,7 @@ SourceList["UA:KoO"] = {
 };
 
 // Adds four subclasses, 2 for the bard, 2 for the fighter
-AddSubClass("bard", "college of swords", {
+AddSubClass("bard", "college of swords-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
 	source : ["UA:KoO", 1],
@@ -48,7 +48,7 @@ AddSubClass("bard", "college of swords", {
 		}
 	}
 });
-AddSubClass("bard", "college of satire", {
+AddSubClass("bard", "college of satire-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*satire).*$/i,
 	subname : "College of Satire",
 	source : ["UA:KoO", 2],
@@ -101,7 +101,7 @@ AddSubClass("bard", "college of satire", {
 		}
 	}
 });
-AddSubClass("fighter", "cavalier", {
+AddSubClass("fighter", "cavalier-ua", {
 	regExpSearch : /cavalier/i,
 	subname : "Cavalier",
 	source : ["UA:KoO", 3],
@@ -166,7 +166,7 @@ AddSubClass("fighter", "cavalier", {
 		}
 	}
 });
-AddSubClass("fighter", "scout", {
+AddSubClass("fighter", "scout-ua", {
 	regExpSearch : /scout/i,
 	subname : "Scout",
 	source : ["UA:KoO", 4],

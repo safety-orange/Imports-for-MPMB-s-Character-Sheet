@@ -1,5 +1,5 @@
 var iFileName = "ua_20161212_Monk-Monastic-Traditions.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Monk Monastic Traditions article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["UA:MMT"] = {
 };
 
 // Adds 2 subclasses for the Monk
-AddSubClass("monk", "way of the kensei", {
+AddSubClass("monk", "way of the kensei-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
 	source : ["UA:MMT", 1],
@@ -43,9 +43,9 @@ AddSubClass("monk", "way of the kensei", {
 					"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any martial weapons I am proficient with (Kensei Weapons).\n \u2022 If I score a hit with one of these kensei weapons as part of an Attack action, I can take a bonus action to have that hit, and any other hit after that as part of the same action, do +1d4 bludgeoning damage."
 				]
 			},
-			extraname : "Way of the Kensei 3",
 			"kensei defense" : {
 				name : "Kensei Defense",
+				extraname : "Way of the Kensei 3",
 				source : ["UA:MMT", 1],
 				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
 			},
@@ -85,9 +85,9 @@ AddSubClass("monk", "way of the kensei", {
 					"If I include the words 'Precise Strike' in a weapon's name, or description it gets twice my proficiency bonus added to its To Hit instead of only once."
 				]
 			},
-			extraname : "Way of the Kensei 11",
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
+				extraname : "Way of the Kensei 11",
 				source : ["UA:MMT", 1],
 				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
 				action : ["bonus action", ""]
@@ -105,7 +105,7 @@ AddSubClass("monk", "way of the kensei", {
 		}
 	}
 });
-AddSubClass("monk", "way of tranquility", {
+AddSubClass("monk", "way of tranquility-ua", {
 	regExpSearch : /^(?=.*tranquility|tranquil|calm|diplomatic|diplomat)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Tranquility",
 	source : ["UA:MMT", 2],
@@ -147,9 +147,9 @@ AddSubClass("monk", "way of tranquility", {
 			minlevel : 6,
 			description : " [Performance or Persuasion prof]" + "\n   " + "I get adv. on Cha checks to calm or counsel peace; not with Deception or Intimidation",
 			skillstxt : "Choose one from: Performance or Persuasion",
-			extraname : "Way of Tranquility 11",
 			"douse the flames of war" : {
 				name : "Douse the Flames of War",
+				extraname : "Way of Tranquility 11",
 				source : ["UA:MMT", 1],
 				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
 				action : ["action", ""]

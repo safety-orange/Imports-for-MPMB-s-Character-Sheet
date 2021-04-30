@@ -12,7 +12,7 @@ SourceList["UA:CDD"] = {
 };
 
 // Adds 3 subclasses for the Cleric
-AddSubClass("cleric", "forge domain", {
+AddSubClass("cleric", "forge domain-ua", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(forge|forgery|blacksmith)).*$/i,
 	subname : "Forge Domain",
 	source : ["UA:CDD", 1],
@@ -83,7 +83,7 @@ AddSubClass("cleric", "forge domain", {
 		}
 	}
 });
-AddSubClass("cleric", "grave domain", {
+AddSubClass("cleric", "grave domain-ua", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(grave)).*$/i,
 	subname : "Grave Domain",
 	source : ["UA:CDD", 2],
@@ -162,7 +162,7 @@ AddSubClass("cleric", "grave domain", {
 		}
 	}
 });
-AddSubClass("cleric", "protection domain", {
+AddSubClass("cleric", "protection domain-ua", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(protection|protect|defend|defense)).*$/i,
 	subname : "Protection Domain",
 	source : ["UA:CDD", 3],

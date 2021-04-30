@@ -1,5 +1,5 @@
 var iFileName = "ps_20180109_Ixalan.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Plane Shift: Ixalan article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-ixalan-2018-01-09) to MPMB's Character Record Sheet
 
 // Define the source
@@ -216,13 +216,11 @@ CreatureList["frilled deathspitter"] = {
 	hd : [4, 6],
 	speed : "40 ft",
 	scores : [12, 16, 13, 4, 12, 6],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 3
 	},
 	senses : "",
 	passivePerception : 13,
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 3,
@@ -244,7 +242,7 @@ CreatureList["frilled deathspitter"] = {
 			damage : [4, 8, "poison"],
 			range : "15/30 ft",
 			description : "Target blinded til end of next turn; DC 13 Con save for half damage and not blinded",
-			modifiers : ["", "", false]
+			abilitytodamage : false
 		}
 	],
 	traits : [{

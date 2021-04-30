@@ -586,7 +586,7 @@ CreatureList["alchemical homunculus-ua"] = {
 		ability : 2,
 		damage : [1, 6, "acid"],
 		range : "30 ft",
-		modifiers : ["", "Prof-2", ""]
+		modifiers : ["", "Prof-2"]
 	}],
 	features : [{
 		name : "Creator",
@@ -900,7 +900,8 @@ CreatureList["arcane turret-ua"] = {
 		damage : [1, 8, "fire"],
 		range : "15-ft cone",
 		description : "Dex save, success - half damage; Unattended flammable objects ignite",
-		modifiers : ["dc+oProf+oInt", "", false],
+		modifiers : ["dc+oProf+oInt", ""],
+		abilitytodamage : false,
 		tooltip : "The turret exhales fire in an adjacent 15-foot cone that the creator designate. Each creature in that area must make a Dexterity saving throw against the creator's spell save DC, taking 1d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
 	}, {
 		name : "Force Ballista",
@@ -908,7 +909,8 @@ CreatureList["arcane turret-ua"] = {
 		damage : [2, 8, "force"],
 		range : "120 ft",
 		description : "Creatures hit are pushed 5 ft away",
-		modifiers : ["oProf+oInt", "", false],
+		modifiers : ["oProf+oInt", ""],
+		abilitytodamage : false,
 		tooltip : "Make a range spell attack, originating from the turret, at one creature or object within 120 feet of it. On a hit, the target takes 2d8 force damage, and if the target is a creature, it is pushed up to 5 feet away from the turret."
 	}, {
 		name : "Detonate",
@@ -916,7 +918,8 @@ CreatureList["arcane turret-ua"] = {
 		damage : [3, 6, "force"],
 		range : "10-ft radius",
 		description : "Dex save, success - half damage; Destroys turret",
-		modifiers : ["dc+oProf+oInt", "", false],
+		modifiers : ["dc+oProf+oInt", ""],
+		abilitytodamage : false,
 		tooltip : "Detonate destroys the turret and forces each creature within 10 feet of it to make a Dexterity saving throw against your spell save DC, taking 3d6 force damage on a failed save or half as much damage on a successful one."
 	}],
 	features : [{
@@ -1078,7 +1081,7 @@ CreatureList["iron defender-ua"] = {
 		ability : 1,
 		damage : [1, 8, "piercing"],
 		range : "Melee (5 ft)",
-		modifiers : ["", "Prof-2", ""]
+		modifiers : ["", "Prof-2"]
 	}],
 	features : [{
 		name : "Creator",
@@ -1118,7 +1121,7 @@ SpellsList["arcane weapon-ua"] = {
 if (!MagicItemsList["boots of the winding path"]) {
 	MagicItemsList["boots of the winding path"] = {
 		name : "Boots of the Winding Path",
-		source : [["E:RLW", 62], ["UA:A2", 9], ["UA:A3", 12]],
+		source : [["E:RLW", 62], ["TCoE", 21], ["UA:A2", 9], ["UA:A3", 12]],
 		type : "wondrous item",
 		description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
 		descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
@@ -1187,7 +1190,7 @@ MagicItemsList["repulsion shield-ua"] = { // 2019v2
 if (!MagicItemsList["repeating shot"]) {
 	MagicItemsList["repeating shot"] = { // 2019v2
 		name : "Repeating Shot",
-		source : [["E:RLW", 62], ["UA:A3", 13]],
+		source : [["E:RLW", 62], ["TCoE", 22], ["UA:A3", 13]],
 		type : "weapon (any with ammunition)",
 		description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
 		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
@@ -1224,7 +1227,7 @@ if (!MagicItemsList["returning weapon"]) {
 	MagicItemsList["returning weapon"] = {
 		name : "Returning Weapon",
 		nameTest : "Returning",
-		source : [["E:RLW", 63], ["UA:A3", 14], ["UA:A2", 10]],
+		source : [["E:RLW", 63], ["TCoE", 23], ["UA:A3", 14], ["UA:A2", 10]],
 		type : "weapon (any thrown)",
 		description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
 		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
@@ -1296,7 +1299,7 @@ var SetArtificerSpells = function(){
 		"jump",
 		"longstrider",
 		"sanctuary",
-		"snare-xgte", // 2019v2, replaces "shield of faith"
+		"snare", // 2019v2, replaces "shield of faith"
 		// level 2
 		"aid",
 		"alter self",

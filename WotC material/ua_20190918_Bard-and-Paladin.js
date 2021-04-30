@@ -12,7 +12,7 @@ SourceList["UA:BnP"] = {
 };
 
 // Add a subclasses for the bard and one for the paladin
-AddSubClass("bard", "college of eloquence", {
+AddSubClass("bard", "college of eloquence-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 	subname : "College of Eloquence",
 	source : ["UA:BnP", 1],
@@ -75,7 +75,7 @@ AddSubClass("bard", "college of eloquence", {
 		}
 	}
 });
-AddSubClass("paladin", "oath of heroism", {
+AddSubClass("paladin", "oath of heroism-ua", {
 	regExpSearch : /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of Heroism",
 	source : ["UA:BnP", 2],

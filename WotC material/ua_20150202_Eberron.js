@@ -317,7 +317,7 @@ FeatsList["dragonmark-ua"] = {
 }
 
 // Adds a subclass for the Wizard, called "Tradition of the Artificer"
-AddSubClass("wizard", "artificer", {
+AddSubClass("wizard", "artificer-ua", {
 	regExpSearch : /^((?=.*(wizard|mage|magus))(?=.*artificer))|(?=.*infuser).*$/i,
 	subname : "Tradition of the Artificer",
 	source : ["UA:E", 3],

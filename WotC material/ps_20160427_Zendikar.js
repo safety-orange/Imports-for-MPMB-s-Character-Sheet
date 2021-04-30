@@ -1,5 +1,5 @@
 var iFileName = "ps_20160427_Zendikar.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Plane Shift: Zendikar article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-zendikar-2016-04-27) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 
@@ -360,10 +360,8 @@ CreatureList["woodcrasher baloth"] = {
 	hd : [10, 12],
 	speed : "50 ft, climb 30 ft",
 	scores : [22, 9, 17, 2, 11, 5],
-	saves : ["", "", "", "", "", ""],
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "5",
 	proficiencyBonus : 3,
 	attacksAction : 1,
@@ -398,13 +396,11 @@ CreatureList["gnarlid"] = {
 	hd : [2, 10],
 	speed : "40 ft, climb 30 ft",
 	scores : [19, 10, 16, 2, 13, 7],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 3,
 	},
 	senses : "Adv. on Wis (Perception) checks using smell",
 	passivePerception : 13,
-	languages : "",
 	challengeRating : "1",
 	proficiencyBonus : 2,
 	attacksAction : 2,
@@ -414,14 +410,14 @@ CreatureList["gnarlid"] = {
 			damage : [1, 4, "piercing"],
 			range : "Melee (5 ft)",
 			description : "1d8 when enlarged; One bite and one claw attack as an Attack action",
-			modifiers : [-1, "", ""],
+			modifiers : [-1, ""],
 		}, {
 			name : "Claw",
 			ability : 1,
 			damage : [1, 6, "slashing"],
 			range : "Melee (5 ft)",
 			description : "2d6 when enlarged; One claw and one bite attack as an Attack action",
-			modifiers : [-1, "", ""]
+			modifiers : [-1, ""]
 		}
 	],
 	traits : [{
@@ -444,10 +440,8 @@ CreatureList["ox"] = {
 	hd : [3, 10],
 	speed : "40 ft",
 	scores : [17, 11, 12, 3, 12, 6],
-	saves : ["", "", "", "", "", ""],
 	senses : "",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -476,10 +470,8 @@ CreatureList["terastodon"] = {
 	hd : [11, 12],
 	speed : "40 ft",
 	scores : [24, 9, 21, 3, 11, 6],
-	saves : ["", "", "", "", "", ""],
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "6",
 	proficiencyBonus : 3,
 	attacksAction : 1,
@@ -514,13 +506,11 @@ CreatureList["terra stomper"] = {
 	hd : [13, 12],
 	speed : "50 ft",
 	scores : [25, 10, 19, 2, 12, 9],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 4,
 	},
 	senses : "",
 	passivePerception : 14,
-	languages : "",
 	challengeRating : "8",
 	proficiencyBonus : 3,
 	attacksAction : 2,
@@ -555,11 +545,9 @@ CreatureList["timbermaw"] = {
 	hd : [6, 8],
 	speed : "30 ft, climb 30 ft",
 	scores : [14, 14, 11, 3, 14, 5],
-	saves : ["", "", "", "", "", ""],
 	damage_resistances : "bludgeoning, piercing, and slashing from nonmagical weapons",
 	senses : "Darkvision 60 ft",
 	passivePerception : 12,
-	languages : "",
 	challengeRating : "2",
 	proficiencyBonus : 2,
 	attacksAction : 2,
@@ -568,15 +556,13 @@ CreatureList["timbermaw"] = {
 			ability : 1,
 			damage : [2, 6, "slashing"],
 			range : "Melee",
-			description : "On hit, can make beak attack",
-			modifiers : [0, "", ""],
+			description : "On hit, can make beak attack"
 		}, {
 			name : "Beak",
 			ability : 1,
 			damage : [1, 6, "piercing"],
 			range : "Melee",
-			description : "Only on hit with a tentacle attack",
-			modifiers : [0, "", ""]
+			description : "Only on hit with a tentacle attack"
 		}
 	],
 	traits : [{
