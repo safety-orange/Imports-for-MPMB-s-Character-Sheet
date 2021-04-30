@@ -82,7 +82,7 @@ ClassList["ua-playtest-ranger"] = {
 		"primeval awareness" : ClassList.ranger.features["primeval awareness"]
 	}
 };
-AddSubClass("ua-playtest-ranger", "guardian", {
+AddSubClass("ua-playtest-ranger", "guardian-ua", {
 	regExpSearch : /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Guardian",
 	source : ["UA:R", 3],
@@ -109,7 +109,7 @@ AddSubClass("ua-playtest-ranger", "guardian", {
 		}
 	}
 });
-AddSubClass("ua-playtest-ranger", "seeker", {
+AddSubClass("ua-playtest-ranger", "seeker-ua", {
 	regExpSearch : /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Seeker",
 	source : ["UA:R", 4],
@@ -139,7 +139,7 @@ AddSubClass("ua-playtest-ranger", "seeker", {
 		}
 	}
 });
-AddSubClass("ua-playtest-ranger", "stalker", {
+AddSubClass("ua-playtest-ranger", "stalker-ua", {
 	regExpSearch : /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Stalker",
 	source : ["UA:R", 4],

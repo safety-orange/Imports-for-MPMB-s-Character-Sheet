@@ -14,7 +14,7 @@ SourceList["UA:SnW"] = {
 // Add a subclasses for the Sorcerer and one for the Warlock
 // Both contain work by /u/KaydeArcane
 var UA_abberantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "compulsion", "evard's black tentacles", "modify memory", "rary's telepathic bond"];
-AddSubClass("sorcerer", "aberrant mind", {
+AddSubClass("sorcerer", "aberrant mind-ua", {
 	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
 	subname : "Aberrant Mind",
 	source : ["UA:SnW", 1],
@@ -115,7 +115,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 		}
 	}
 });
-AddSubClass("warlock", "the lurker in the deep", {
+AddSubClass("warlock", "the lurker in the deep-ua", {
 	regExpSearch : /^(?=.*warlock)(?=.*lurker)(?=.*(deep|depth)).*$/i,
 	subname : "the Lurker in the Deep",
 	source : ["UA:SnW", 2],

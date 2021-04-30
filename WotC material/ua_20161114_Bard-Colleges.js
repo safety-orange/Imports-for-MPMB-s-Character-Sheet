@@ -1,5 +1,5 @@
 var iFileName = "ua_20161114_Bard-Colleges.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Bard Colleges article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["UA:BC"] = {
 };
 
 // Adds 2 subclasses for the Bard
-AddSubClass("bard", "college of glamour", {
+AddSubClass("bard", "college of glamour-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname : "College of Glamour",
 	source : ["UA:BC", 1],
@@ -79,7 +79,7 @@ AddSubClass("bard", "college of glamour", {
 		}
 	}
 });
-AddSubClass("bard", "college of whispers", {
+AddSubClass("bard", "college of whispers-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname : "College of Whispers",
 	source : ["UA:BC", 2],
@@ -105,9 +105,9 @@ AddSubClass("bard", "college of whispers", {
 			minlevel : 6,
 			action : ["reaction", ""],
 			description : "\n   " + "As a reaction when a creature dies within 5 ft or by my hand, I can capture its shadow" + "\n   " + "I can use shadows of those with the same type and size as me (or Medium if I'm Small)" + "\n   " + "I can have only one captured shadow at a time and I can don it as a shadow disguise",
-			extraname : "Mantle of Whispers",
 			"shadow disguise" : {
 				name : "Shadow Disguise",
+				extraname : "Mantle of Whispers",
 				source : ["UA:BC", 2],
 				action : [["action", " (start)"], ['bonus action', ' (end)']],
 				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends"

@@ -74,7 +74,7 @@ RaceList["baalzebul tiefling"] = {
 		}
 	}
 };
-RaceList["dispater tiefling-mtof"] = {
+RaceList["dispater tiefling"] = {
 	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
 	name : "Dispater tiefling",
 	sortname : "Tiefling, Dispater",
@@ -373,7 +373,7 @@ RaceList["mammon tiefling"] = {
 		}
 	}
 };
-RaceList["mephistopheles tiefling-mtof"] = {
+RaceList["mephistopheles tiefling"] = {
 	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
 	name : "Mephistopheles tiefling",
 	sortname : "Tiefling, Mephistopheles",
@@ -589,7 +589,7 @@ RaceList["sea elf"] = {
 		"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed."
 	])
 };
-RaceList["shadar-kai-mtof"] = {
+RaceList["shadar-kai elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name : "Shadar-kai",
 	sortname : "Elf, Shadow (Shadar-kai)",
@@ -944,5 +944,21 @@ MagicItemsList["infernal tack"] = {
 	weight : 26, // riding saddle (25) + bit and bridle (1)
 	prerequisite : "Requires attunement by a creature of evil alignment",
 	prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
-	action : [["action", ""]]
+	action : [["action", ""]],
+	creaturesAdd : [["Nightmare", true,
+	function (AddRemove, prefix) {
+		if (!AddRemove) return;
+		// Show equipment section
+		CompOptions(prefix, ["visible", "comp.eqp"], true);
+		// Add equipment when added
+		var equip = ["bit and bridle", "riding"];
+		for (var i = 0; i < equip.length; i++) {
+			var gear = GearList[equip[i]];
+			if (!gear) continue;
+			AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
+		}
+		// Add notes
+		var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
+		Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
+	}]]
 }

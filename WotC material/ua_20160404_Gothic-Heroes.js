@@ -12,7 +12,7 @@ SourceList["UA:GH"] = {
 };
 
 // Adds 8 new races, the Revenant versions of the Aasimar, Dragonborn, Dwarf, Elf, Gnome, Halfling, Human, and Tiefling
-RaceList["aasimar revenant"] = { // Based on the VGtM Aasimar, made with /u/RebelMage's help
+RaceList["aasimar revenant-ua"] = { // Based on the VGtM Aasimar, made with /u/RebelMage's help
 	regExpSearch : /^(?=.*revenant)((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel)))).*$/i,
 	name : "Aasimar Revenant",
 	sortname : "Revenant, Aasimar",
@@ -50,7 +50,7 @@ RaceList["aasimar revenant"] = { // Based on the VGtM Aasimar, made with /u/Rebe
 		}
 	}
 };
-RaceList["dwarf revenant"] = {
+RaceList["dwarf revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b).*$/i,
 	name : "Dwarf Revenant",
 	sortname : "Revenant, Dwarf",
@@ -74,7 +74,7 @@ RaceList["dwarf revenant"] = {
 	scores : [0, 0, 3, 0, 0, 0],
 	trait : "Dwarf Revenant (+3 Constitution)\nStonecunning: I have expertise on Int (History) checks related to the origin of stonework.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal."
 };
-RaceList["elf revenant"] = {
+RaceList["elf revenant-ua"] = {
 	regExpSearch : /^(?!.*half)(?=.*revenant)(?=.*\b(elfs?|elves|elvish|elven)\b).*$/i,
 	name : "Elf Revenant",
 	sortname : "Revenant, Elf",
@@ -99,7 +99,7 @@ RaceList["elf revenant"] = {
 	scores : [0, 2, 1, 0, 0, 0],
 	trait : "Elf Revenant (+2 Dexterity, +1 Constitution)\nTrance: I don't sleep, but meditate for 4 hours a day, needing only 4 hours for a long rest.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal."
 };
-RaceList["halfling revenant"] = {
+RaceList["halfling revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\b(halflings?|hobbits?)\b).*$/i,
 	name : "Halfling Revenant",
 	sortname : "Revenant, Halfling",
@@ -119,7 +119,7 @@ RaceList["halfling revenant"] = {
 	scores : [0, 2, 1, 0, 0, 0],
 	trait : "Halfling Revenant (+2 Dexterity, +1 Constitution)" + (typePF ? "\n" : " ") + "Lucky: I reroll 1's on attack/check/save. Halfling Nimbleness: I can move through the space of anybody of a size larger than me.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal."
 };
-RaceList["gnome revenant"] = {
+RaceList["gnome revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\bgnomes?\b).*$/i,
 	name : "Gnome Revenant",
 	sortname : "Revenant, Gnome",
@@ -140,7 +140,7 @@ RaceList["gnome revenant"] = {
 	scores : [0, 0, 1, 2, 0, 0],
 	trait : "Gnome Revenant (+1 Constitution, +2 Intelligence)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane."
 };
-RaceList["dragonborn revenant"] = {
+RaceList["dragonborn revenant-ua"] = {
 	regExpSearch : /^(?=.*dragonborn)(?=.*revenant).*$/i,
 	name : "Dragonborn Revenant",
 	sortname : "Revenant, Dragonborn",
@@ -197,7 +197,7 @@ RaceList["dragonborn revenant"] = {
 		}
 	}
 };
-RaceList["human revenant"] = {
+RaceList["human revenant-ua"] = {
 	regExpSearch : /^(?=.*human)(?=.*revenant).*$/i,
 	name : "Human Revenant",
 	sortname : "Revenant, Human",
@@ -217,7 +217,7 @@ RaceList["human revenant"] = {
 	scores : [0, 0, 1, 0, 0, 0],
 	trait : "Human Revenant (+1 Constitution and +1 to two different ability scores of my choice)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane."
 };
-RaceList["tiefling revenant"] = {
+RaceList["tiefling revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
 	name : "Tiefling Revenant",
 	sortname : "Revenant, Tiefling",
@@ -239,7 +239,7 @@ RaceList["tiefling revenant"] = {
 };
 
 // Adds 2 subclasses, 1 for the Fighter and 1 for the rogue
-AddSubClass("fighter", "monster hunter", {
+AddSubClass("fighter", "monster hunter-ua", {
 	regExpSearch : /^(?=.*monster)(?=.*hunter).*$/i,
 	subname : "Monster Hunter",
 	source : ["UA:GH", 2],
@@ -323,7 +323,7 @@ AddSubClass("fighter", "monster hunter", {
 		}
 	}
 });
-AddSubClass("rogue", "inquisitive", {
+AddSubClass("rogue", "inquisitive-ua", {
 	regExpSearch : /^(?=.*(rogue|miscreant))(?=.*inquisitive).*$/i,
 	subname : "Inquisitive",
 	source : ["UA:GH", 3],

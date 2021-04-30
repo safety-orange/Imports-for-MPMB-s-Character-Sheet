@@ -1,5 +1,5 @@
 var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -13,7 +13,7 @@ SourceList["UA:SO"] = {
 
 // Adds 4 subclasses for the Sorcerer
 //this code includes contributions by /u/SoilentBrad, as well as LamentingDemon on GitHub
-AddSubClass("sorcerer", "favoured soul", {
+AddSubClass("sorcerer", "favored soul-ua2", {
 	regExpSearch : /^(?=.*favou?red)(?=.*soul).*$/i,
 	subname : "Favored Soul",
 	source : ["UA:SO", 1],
@@ -97,7 +97,7 @@ AddSubClass("sorcerer", "favoured soul", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad, as well as Toby L.
-AddSubClass("sorcerer", "phoenix sorcery", {
+AddSubClass("sorcerer", "phoenix sorcery-ua", {
 	regExpSearch : /^(?=.*phoenix)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Phoenix Sorcery",
 	source : ["UA:SO", 1],
@@ -167,7 +167,7 @@ AddSubClass("sorcerer", "phoenix sorcery", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad
-AddSubClass("sorcerer", "sea sorcery", {
+AddSubClass("sorcerer", "sea sorcery-ua", {
 	regExpSearch : /^(?=.*sea)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Sea Sorcery",
 	source : ["UA:SO", 2],
@@ -239,7 +239,7 @@ AddSubClass("sorcerer", "sea sorcery", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad
-AddSubClass("sorcerer", "stone sorcery", {
+AddSubClass("sorcerer", "stone sorcery-ua", {
 	regExpSearch : /^(?=.*stone)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Stone Sorcery",
 	source : ["UA:SO", 3],
@@ -279,13 +279,13 @@ AddSubClass("sorcerer", "stone sorcery", {
 			},
 			armorOptions : {
 				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
-				name : "Stone's Durability (Con)",
-				source : ["UA:SO", 4],
-				ac : 13,
+				name : "Stone's Durability",
+				source : [["UA:SO", 4]],
+				ac : "13+Con",
 				dex : -10,
-				addMod : true
+				affectsWildShape : true
 			},
-			armorAdd : "Stone's Durability (Con)"
+			armorAdd : "Stone's Durability"
 		},
 		"subclassfeature6" : {
 			name : "Stone Aegis",

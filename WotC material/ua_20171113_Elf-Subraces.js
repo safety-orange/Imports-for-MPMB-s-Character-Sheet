@@ -12,7 +12,7 @@ SourceList["UA:ES"] = {
 };
 
 // Adds 4 new subraces for the elf
-RaceList["avariel"] = {
+RaceList["avariel-ua"] = {
 	regExpSearch : /^(?!.*half)((?=.*avariel)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(winged?|wings?|flying|air)\b))).*$/i,
 	name : "Avariel",
 	sortname : "Elf, Winged (Avariel)",
@@ -38,7 +38,7 @@ RaceList["avariel"] = {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Avariel (+2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nFlight: I have a flying speed of 30 feet. To use this speed, I can't be wearing medium or heavy armor."
 };
-RaceList["grugach"] = {
+RaceList["grugach elf-ua"] = {
 	regExpSearch : /^(?!.*half)((?=.*grugach)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(wilds?|wilderness)\b))).*$/i,
 	name : "Grugach",
 	sortname : "Elf, Wild (Grugach)",
@@ -112,7 +112,7 @@ if (!SourceList.MToF) {
 		]) // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
 	};
 } // dupl_end
-RaceList["shadar-kai"] = {
+RaceList["shadar-kai elf-ua"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name : "Shadar-kai",
 	sortname : "Elf, Shadow (Shadar-kai)",

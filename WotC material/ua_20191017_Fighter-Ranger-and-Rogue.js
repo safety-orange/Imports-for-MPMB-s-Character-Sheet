@@ -1,5 +1,5 @@
 var iFileName = "ua_20191017_Fighter-Ranger-and-Rogue.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["UA:FRnR"] = {
 };
 
 // Add a subclass for the Fighter
-AddSubClass("fighter", "rune knight", {
+AddSubClass("fighter", "rune knight-ua", {
 	regExpSearch : /^(?=.*rune)(?=.*knight).*$/i,
 	subname : "Rune Knight",
 	source : ["UA:FRnR", 1],
@@ -203,7 +203,7 @@ AddSubClass("fighter", "rune knight", {
 });
 
 // Add a subclass for the Ranger (and also to the Revised Ranger)
-var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
+var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
 	source : ["UA:FRnR", 3],
@@ -255,17 +255,16 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 				" \u2022 I gain climb speed equal to walk speed & need no check for difficult surfaces or ceilings",
 				" \u2022 I gain a 10 ft fly speed and I can hover"
 			]),
-			extraname : "Swarmkeeper 11",
 			autoSelectExtrachoices : [{
 				extrachoice : "scuttling eyes",
 				minlevel : 11
 			}, {
 				extrachoice : "storm of minions",
-				extraname : "Swarmkeeper 15",
 				minlevel : 15
 			}],
 			"scuttling eyes" : {
 				name : "Scuttling Eyes",
+				extraname : "Swarmkeeper 11",
 				source : ["UA:FRnR", 4],
 				description : desc([
 					"As an action, I can from a spirit of my swarm into a Tiny beast of my choice for 1 hour",
@@ -283,6 +282,7 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 			},
 			"storm of minions" : {
 				name : "Storm of Minions",
+				extraname : "Swarmkeeper 15",
 				source : ["UA:FRnR", 4],
 				description : desc([
 					"As an action, I can create a 10-ft radius swarm-filled sphere on a point within 120 ft",
@@ -304,7 +304,7 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper", {
 if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassSwarmkeeperUA); };
 
 // Add a subclass for the Rogue
-AddSubClass("rogue", "the revived", {
+AddSubClass("rogue", "the revived-ua", {
 	regExpSearch : /^(?=.*(rogue|miscreant))(?=.*revived).*$/i,
 	subname : "the Revived",
 	source : ["UA:FRnR", 4],
@@ -398,12 +398,12 @@ AddSubClass("rogue", "the revived", {
 			savetxt : { text : ["Adv. on death saves"] },
 			autoSelectExtrachoices : [{
 				extrachoice : "ethereal jaunt",
-				extraname : "the Revived 17",
 				minlevel : 17
 			}],
 			"ethereal jaunt" : {
 				name : "Ethereal Jaunt",
 				source : ["UA:FRnR", 5],
+				extraname : "the Revived 17",
 				description : desc([
 					"I can now use my cunning action to teleport to an unoccupied space within 30 ft",
 					"I don't need to see where I'm going, but it fails if I'd go through a magical force effect",

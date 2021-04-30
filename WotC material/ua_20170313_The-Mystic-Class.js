@@ -1,5 +1,5 @@
 var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -205,7 +205,7 @@ ClassList.mystic = {
 	}
 };
 // Order of the Avatar subclass for the Mystic
-AddSubClass("mystic", "avatar", {
+AddSubClass("mystic", "avatar-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*avatar).*$/i,
 	subname : "Order of the Avatar",
 	source : ["UA:TMC", 5],
@@ -270,7 +270,7 @@ AddSubClass("mystic", "avatar", {
 	}
 });
 // Order of the Awakened subclass for the Mystic
-AddSubClass("mystic", "awakened", {
+AddSubClass("mystic", "awakened-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*awakened).*$/i,
 	subname : "Order of the Awakened",
 	source : ["UA:TMC", 6],
@@ -336,7 +336,7 @@ AddSubClass("mystic", "awakened", {
 	}
 });
 // Order of the Immortal subclass for the Mystic
-AddSubClass("mystic", "immortal", {
+AddSubClass("mystic", "immortal-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*immortal).*$/i,
 	subname : "Order of the Immortal",
 	source : ["UA:TMC", 6],
@@ -371,12 +371,12 @@ AddSubClass("mystic", "immortal", {
 			},
 			armorOptions : {
 				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
-				name : "Immortal Durability (Con)",
+				name : "Immortal Durability",
 				source : ["UA:TMC", 7],
-				ac : 10,
-				addMod : true
+				ac : "10+Con",
+				affectsWildShape : true
 			},
-			armorAdd : "Immortal Durability (Con)"
+			armorAdd : "Immortal Durability"
 		},
 		"subclassfeature3" : {
 			name : "Psionic Resilience",
@@ -413,7 +413,7 @@ AddSubClass("mystic", "immortal", {
 	}
 });
 // Order of the Nomad subclass for the Mystic
-AddSubClass("mystic", "nomad", {
+AddSubClass("mystic", "nomad-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*nomad).*$/i,
 	subname : "Order of the Nomad",
 	source : ["UA:TMC", 7],
@@ -491,7 +491,7 @@ AddSubClass("mystic", "nomad", {
 	}
 });
 // Order of the Soul Knife subclass for the Mystic
-AddSubClass("mystic", "soul knife", {
+AddSubClass("mystic", "soul knife-ua", {
 	regExpSearch : /^(?=.*soul\b)(?=.*\bknife).*$/i,
 	subname : "Order of the Soul Knife",
 	source : ["UA:TMC", 7],
@@ -556,7 +556,7 @@ AddSubClass("mystic", "soul knife", {
 	}
 });
 // Order of the Wu Jen subclass for the Mystic
-AddSubClass("mystic", "wu jen", {
+AddSubClass("mystic", "wu jen-ua", {
 	regExpSearch : /^(?=.*\bwu\b)(?=.*\bjen\b).*$/i,
 	subname : "Order of the Wu Jen",
 	source : ["UA:TMC", 8],

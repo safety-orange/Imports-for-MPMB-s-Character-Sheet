@@ -12,7 +12,7 @@ SourceList["UA:TF"] = {
 };
 
 // Adds 2 subclasses, 1 for the Warlock and 1 for the Wizard
-AddSubClass("warlock", "the seeker", {
+AddSubClass("warlock", "the seeker-ua", {
 	regExpSearch : /^(?=.*warlock)(?=.*seeker).*$/i,
 	subname : "the Seeker",
 	source : ["UA:TF", 1],
@@ -81,7 +81,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	}
 });
 RunFunctionAtEnd(function() {
-	var theTheurgySubclass = AddSubClass("wizard", "theurgy", {
+	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", {
 		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
 		subname : "Theurgy",
 		source : [["UA:TF", 1], ["UA:WR", 1]],

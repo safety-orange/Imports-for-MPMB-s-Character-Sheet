@@ -28,7 +28,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
 });
 
 // Add the Minotaur (Krynn) race and its three variants
-RaceList["minotaur"] = {
+RaceList["minotaur-ua"] = {
 	regExpSearch : /minotaur/i,
 	name : "Minotaur",
 	source : ["UA:WA", 1],
@@ -72,7 +72,7 @@ RaceList["minotaur"] = {
 		}
 	}
 };
-AddRacialVariant("minotaur", "cunning", {
+AddRacialVariant("minotaur-ua", "cunning", {
 	regExpSearch : /(cunning|wisdom)/i,
 	name : "Minotaur [Cunning]",
 	source : ["UA:WA", 2],
@@ -80,7 +80,7 @@ AddRacialVariant("minotaur", "cunning", {
 	scores : [1, 0, 0, 0, 1, 0],
 	trait : "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
-AddRacialVariant("minotaur", "intellect", {
+AddRacialVariant("minotaur-ua", "intellect", {
 	regExpSearch : /(intellect|intelligence)/i,
 	name : "Minotaur [Intellect]",
 	source : ["UA:WA", 2],
@@ -88,7 +88,7 @@ AddRacialVariant("minotaur", "intellect", {
 	scores : [1, 0, 0, 1, 0, 0],
 	trait : "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
-AddRacialVariant("minotaur", "strength", {
+AddRacialVariant("minotaur-ua", "strength", {
 	regExpSearch : /(strength|strong|\bmight\b)/i,
 	name : "Minotaur [Strength]",
 	source : ["UA:WA", 2],

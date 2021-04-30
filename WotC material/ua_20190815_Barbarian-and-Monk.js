@@ -1,5 +1,5 @@
 var iFileName = "ua_20190815_Barbarian-and-Monk.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Barbarian and Monk article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["UA:BnM"] = {
 };
 
 // Add a subclasses for the Barbarian and one for the Monk
-AddSubClass("barbarian", "path of the wild soul", {
+AddSubClass("barbarian", "path of the wild soul-ua", {
 	regExpSearch : /^(?=.*\bwild\b)(?=.*\bsoul\b).*$/i,
 	subname : "Path of the Wild Soul",
 	source : ["UA:BnM", 1],
@@ -104,7 +104,7 @@ AddSubClass("barbarian", "path of the wild soul", {
 		}
 	}
 });
-AddSubClass("monk", "way of the astral self", {
+AddSubClass("monk", "way of the astral self-ua", {
 	regExpSearch : /^(?=.*astral)(?=.*(self|projection|travel))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Astral Self",
 	source : ["UA:BnM", 2],
@@ -128,9 +128,9 @@ AddSubClass("monk", "way of the astral self", {
 				monkweapon : true,
 				abilitytodamage : true
 			},
-			extraname : "Way of the Astral Self 3",
 			"astral arms" : {
 				name : "Astral Arms",
+				extraname : "Way of the Astral Self 3",
 				source : ["UA:BnM", 2],
 				description : desc([
 					"As a bonus action, I can summon my astral arms for 10 minutes; I choose their appearance",
@@ -151,9 +151,9 @@ AddSubClass("monk", "way of the astral self", {
 			minlevel : 6,
 			description : "\n   I can now also summon the visage of my astral self; See third page notes section",
 			action : [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
-			extraname : "Way of the Astral Self 6",
 			"astral visage" : {
 				name : "Astral Visage",
+				extraname : "Way of the Astral Self 6",
 				source : ["UA:BnM", 3],
 				description : " [1 ki point]" + desc([
 					"As a bonus action (or when summoning my astral arms), I can summon my astral visage",
@@ -168,9 +168,9 @@ AddSubClass("monk", "way of the astral self", {
 			source : ["UA:BnM", 3],
 			minlevel : 11,
 			description : "\n   While having both astral arms and visage summoned, I gain extra benefits, see 3rd page",
-			extraname : "Awakening of the Astral Self",
 			"deflect energy" : {
 				name : "Deflect Energy",
+				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
 				description : " [if both astral arms & visage]" + desc([
 					"As a reaction when I take acid, cold, fire, force, or lightning damage, I can deflect it",
@@ -179,6 +179,7 @@ AddSubClass("monk", "way of the astral self", {
 			},
 			"empowered arms" : {
 				name : "Empowered Arms",
+				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
 				description : " [if both astral arms & visage]" + desc([
 					"Once per turn when I hit an astral arms attack, I can add a martial arts die to its damage"
@@ -186,6 +187,7 @@ AddSubClass("monk", "way of the astral self", {
 			},
 			"word of the spirit" : {
 				name : "Word of the Spirit",
+				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
 				description : " [if both astral arms & visage]" + desc([
 					"I can direct my words to a creature I can see within 30 ft so that only it can hear me",
@@ -207,9 +209,9 @@ AddSubClass("monk", "way of the astral self", {
 				"This spectral body covers my physique like armor, connecting with the arms and visage"
 			]),
 			action : [["bonus action", "Summon Astral Arms and/or Visage, or Complete", "Summon Astral Arms and/or Visage"], ["reaction", "Ki Consumption (Complete Astral Self)"]],
-			extraname : "Way of the Astral Self 17",
 			"astral body" : {
 				name : "Astral Body",
+				extraname : "Way of the Astral Self 17",
 				source : ["UA:BnM", 3],
 				description : " [10 ki points]" + desc([
 					"As a bonus action, I can summon the arms, visage, and body of my astral self for 10 min",

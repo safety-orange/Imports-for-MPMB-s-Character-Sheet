@@ -12,7 +12,7 @@ SourceList["UA:TS"] = {
 };
 
 // Adds 3 subclasses: 1 for the Druid, 1 for the Fighter, and 1 for the Wizard
-AddSubClass("druid", "circle of spores", {
+AddSubClass("druid", "circle of spores-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
 	source : ["UA:TS", 1],
@@ -97,7 +97,7 @@ AddSubClass("druid", "circle of spores", {
 		}
 	}
 });
-var fighterBruteSubclassUA = AddSubClass("fighter", "brute", {
+var fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 	regExpSearch : /brute/i,
 	subname : "Brute",
 	source : ["UA:TS", 2],
@@ -159,7 +159,7 @@ RunFunctionAtEnd(function () {
 	FSfea.description = '\n   Choose an Additional Fighting Style using the "Choose Feature" button above ';
 	ClassSubList[fighterBruteSubclassUA].features.subclassfeature10 = FSfea;
 });
-AddSubClass("wizard", "school of invention", {
+AddSubClass("wizard", "school of invention-ua", {
 	regExpSearch : /^(?=.*wizard)(?=.*invent(ion|or)).*$/i,
 	subname : "School of Invention",
 	source : ["UA:TS", 2],

@@ -57,7 +57,7 @@ RaceList["eladrin-uaeng"] = {
 	}
 };
 // Githyanki and its two variants
-RaceList["githyanki"] = {
+RaceList["githyanki-ua"] = {
 	regExpSearch : /githyanki/i,
 	name : "Githyanki",
 	source : ["UA:EnG", 2],
@@ -118,16 +118,16 @@ RaceList["githyanki"] = {
 		}
 	}
 };
-AddRacialVariant("githyanki", "tool proficiency", {
+AddRacialVariant("githyanki-ua", "tool proficiency", {
 	regExpSearch : /tool proficiency/i,
 	toolProfs : [["Any tool", 1]]
 });
-AddRacialVariant("githyanki", "skill proficiency", {
+AddRacialVariant("githyanki-ua", "skill proficiency", {
 	regExpSearch : /skill proficiency/i,
 	skillstxt : "Choose any one skill"
 });
 // Githzerai
-RaceList["githzerai"] = {
+RaceList["githzerai-ua"] = {
 	regExpSearch : /githzerai/i,
 	name : "Githzerai",
 	source : ["UA:EnG", 3],

@@ -12,7 +12,7 @@ SourceList["UA:BPP"] = {
 };
 
 // A three subclasses for the Barbarian
-AddSubClass("barbarian", "ancestral guardian", {
+AddSubClass("barbarian", "ancestral guardian-ua", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
 	source : ["UA:BPP", 1],
@@ -49,7 +49,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 		}
 	}
 });
-AddSubClass("barbarian", "storm herald", {
+AddSubClass("barbarian", "storm herald-ua", {
 	regExpSearch : /^(?=.*storm)(?=.*herald).*$/i,
 	subname : "Path of the Storm Herald",
 	source : ["UA:BPP", 2],
@@ -148,7 +148,7 @@ AddSubClass("barbarian", "storm herald", {
 		}
 	}
 });
-AddSubClass("barbarian", "zealot", {
+AddSubClass("barbarian", "zealot-ua", {
 	regExpSearch : /zealot/i,
 	subname : "Path of the Zealot",
 	source : ["UA:BPP", 2],

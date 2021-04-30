@@ -1,5 +1,5 @@
 var iFileName = "ua_20200114_Subclasses-Part-1.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 1 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -143,9 +143,9 @@ AddSubClass("monk", "way of mercy-ua", {
 				description : "\n   I gain proficiency in the Medicine skill and with the herbalism kit and the poisoner's kit",
 				skills : ["Medicine"]
 			},
-			extraname : "Way of Mercy 3",
 			"hands of healing" : {
 				name : "Hands of Healing",
+				extraname : "Way of Mercy 3",
 				source : [["UA:SP1", 2]],
 				description : function () {
 					var a = [
@@ -165,6 +165,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			},
 			"hands of harm" : {
 				name : "Hands of Harm",
+				extraname : "Way of Mercy 3",
 				source : [["UA:SP1", 3]],
 				description : desc([
 					"When I hit a creature with an unarmed strike, I can spend 1 ki point to deal extra damage",
@@ -197,9 +198,9 @@ AddSubClass("monk", "way of mercy-ua", {
 			source : [["UA:SP1", 3]],
 			minlevel : 11,
 			description : "\n   With hands of healing I can also end: 1 disease, blinded, deafened, paralyzed, or poisoned",
-			extraname : "Way of Mercy 17",
 			"hand of mercy" : {
 				name : "Hand of Mercy",
+				extraname : "Way of Mercy 17",
 				source : [["UA:SP1", 3]],
 				description : desc([
 					"As an action, I can use 4 ki to have a touched creature make a Con save (can fail willingly)",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -611,9 +611,9 @@ AddSubClass("monk", "way of the long death", {
 			minlevel : 11,
 			additional : "1 ki point",
 			description : "\n   " + "When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead",
-			extraname : "Way of the Long Death 17",
 			"touch of the long death" : {
 				name : "Touch of the Long Death",
+				extraname : "Way of the Long Death 17",
 				source : ["S", 131],
 				description : " [1-10 ki points]" + "\n   " + "As an action, a target within 5 ft takes 2d10 necrotic damage per ki point I spent" + "\n   " + "It can make a Constitution saving throw to half the damage",
 				action : ["action", ""]
@@ -653,9 +653,9 @@ AddSubClass("monk", "way of the sun soul", {
 				abilitytodamage : true
 			},
 			weaponsAdd : ['Radiant Sun Bolt'],
-			extraname : "Way of the Sun Soul 6",
 			"searing arc strike" : {
 				name : "Searing Arc Strike",
+				extraname : "Way of the Sun Soul 6",
 				source : [["S", 131], ["X", 35]],
 				description : desc([
 					"After taking the Attack action, I can cast Burning Hands as a bonus action [PHB 220]",
@@ -999,11 +999,11 @@ AddSubClass("wizard", "bladesinging", {
 	subname : "Tradition of Bladesinging",
 	fullname : "Bladesinger",
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-	source : ["S", 142],
+	source : [["S", 142], ["T", 76]],
 	features : {
 		"subclassfeature2" : {
 			name : "Training in War and Song",
-			source : ["S", 142],
+			source : [["S", 142], ["T", 76]],
 			minlevel : 2,
 			description : "\n   " + "I gain proficiency with light armor, a one-handed melee weapon, and Performance",
 			armorProfs : [true, false, false, false],
@@ -1011,7 +1011,7 @@ AddSubClass("wizard", "bladesinging", {
 		},
 		"subclassfeature2.1" : {
 			name : "Bladesong",
-			source : ["S", 142],
+			source : [["S", 142], ["T", 76]],
 			minlevel : 2,
 			description : desc([
 				"As a bonus action, I can start the bladesong for 1 minute; I can dismiss it at any time",
@@ -1022,28 +1022,41 @@ AddSubClass("wizard", "bladesinging", {
 				" \u2022 Advantage on Dexterity (Acrobatics) checks",
 				" \u2022 Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell"
 			]),
-			action : ["bonus action", " (start)"],
-			recovery : "short rest",
-			usages : 2
+			action : [["bonus action", " (start)"]],
+			usages: "Proficiency bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus')",
+			recovery: "long rest"
+		},
+		"subclassfeature6" : {
+			name : "Extra Attack",
+			source : [["S", 142], ["T", 77]],
+			minlevel : 6,
+			description: desc([
+				"I can attack twice instead of once when I take the Attack action on my turn",
+				"Moreover, I can cast one of my cantrips in place of one of those attacks"
+			])
 		},
 		"subclassfeature10" : {
 			name : "Song of Defense",
-			source : ["S", 142],
+			source : [["S", 142], ["T", 77]],
 			minlevel : 10,
-			description : "\n   " + "As a reaction while my bladesong is active, I can expend a spell slot to reduce damage" + "\n   " + "The damage I take is reduced by 5 for every level of the spell slot I expend",
-			action : ["reaction", " (in bladesong)"]
+			description : desc([
+				"As a reaction while my bladesong is active, I can expend a spell slot to reduce damage",
+				"The damage I take is reduced by 5 for every level of the spell slot I expend"
+			]),
+			action : [["reaction", " (in bladesong)"]]
 
 		},
 		"subclassfeature14" : {
 			name : "Song of Victory",
-			source : ["S", 142],
+			source : [["S", 142], ["T", 77]],
 			minlevel : 14,
-			description : "\n   " + "While my bladesong is active, I can add my Int mod to melee weapon attack damage",
+			description : "\n   " + "While my bladesong is active, I add my Int mod (min 1) to melee weapon attack damage",
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (classes.known.wizard && classes.known.wizard.level > 13 && v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponText)) {
-							output.extraDmg += What('Int Mod');
+						if (v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponText)) {
+							output.extraDmg += Math.max(1, Number(What('Int Mod')));
 						};
 					},
 					"If I include the word 'Bladesong' in the name or description of a melee weapon, it gets my Intelligence modifier added to its Damage."
@@ -1515,7 +1528,7 @@ WeaponsList["sword burst"] = {
 	ability : 6,
 	type : "Cantrip",
 	damage : ["C", 6, "force"],
-	range : "5 ft",
+	range : "5-ft radius",
 	description : "Dex save, success - no damage; all creatures in range (SCAG 143)",
 	abilitytodamage : false,
 	dc : true
@@ -1559,60 +1572,60 @@ if (!FeatsList["svirfneblin magic"]) {
 SpellsList["booming blade"] = {
 	name : "Booming Blade",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["S", 142],
+	source : [["S", 142], ["T", 106]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
-	range : "5 ft",
-	components : "V,M",
-	compMaterial : "A weapon",
-	duration : "Instantaneous",
+	range : "S:5-ft rad",
+	components : "S,M\u0192",
+	compMaterial : "A melee weapon worth at least 1 sp",
+	duration : "1 round",
 	description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next rnd +1d8; +1d8 at CL5, 11, \u0026 17",
 	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if it moves next round +`CD`d8 Thunder dmg",
-	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level."
+	descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8)."
 };
 SpellsList["green-flame blade"] = {
 	name : "Green-Flame Blade",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["S", 143],
+	source : [["S", 143], ["T", 107]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
-	range : "5 ft",
-	components : "V,M",
-	compMaterial : "A weapon",
+	range : "S:5-ft rad",
+	components : "S,M\u0192",
+	compMaterial : "A melee weapon worth at least 1 sp",
 	duration : "Instantaneous",
 	description : "Melee wea atk with cast; atk +0d8 Fire dmg, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL5/11/17",
 	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
-	descriptionFull : "As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level."
+	descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level (2d8 and 2d8) and 17th level (3d8 and 3d8)."
 };
 SpellsList["lightning lure"] = {
 	name : "Lightning Lure",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["S", 143],
+	source : [["S", 143], ["T", 107]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
-	range : "15 ft",
+	range : "S:15-ft rad",
 	components : "V",
 	duration : "Instantaneous",
 	save : "Str",
-	description : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
+	description : "1 crea in 15 ft I see save or pulled 10 ft to me; if it end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
 	descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, `CD`d8 Lightning dmg",
-	descriptionFull : "You create a lash of lightning energy that strikes at one creature of your choice that you can see within range. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
+	descriptionFull : "You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
 SpellsList["sword burst"] = {
 	name : "Sword Burst",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["S", 143],
+	source : [["S", 143], ["T", 115]],
 	level : 0,
 	school : "Conj",
 	time : "1 a",
-	range : "5 ft",
+	range : "S:5-ft rad",
 	components : "V",
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "All crea in range save or 1d6 Force damage; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie : "All crea in range save or `CD`d6 Force damage",
-	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. Each creature within range, other than you, must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };

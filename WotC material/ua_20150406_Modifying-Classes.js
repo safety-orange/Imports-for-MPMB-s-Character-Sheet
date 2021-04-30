@@ -23,7 +23,7 @@ if (!SourceList.P) {
 
 // Adds a subclass for the Sorcerer, called "Favored Soul", but only have it added at the very end, after all cleric subclasses have been defined
 RunFunctionAtEnd(function() {
-	var SorcererSubclassFavoredSoul = AddSubClass("sorcerer", "favored soul", {
+	var SorcererSubclassFavoredSoul = AddSubClass("sorcerer", "favored soul-ua", {
 		regExpSearch : /^(?=.*favou?red)(?=.*soul).*$/i,
 		subname : "Favored Soul",
 		source : ["UA:MC", 8],
@@ -302,7 +302,7 @@ var SLR_Hunter = newObj(ClassSubList["ranger-hunter"]);
 SLR_Hunter.source = ["UA:MC", 6];
 delete SLR_Hunter.fullname;
 SLR_Hunter.regExpSearch = /^(?=.*spell.?less)(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i;
-AddSubClass("spell-less ranger", "hunter", SLR_Hunter);
+AddSubClass("spell-less ranger", "hunter-ua", SLR_Hunter);
 // Create the Beast Master subclass for the spell-less ranger
 if (ClassSubList["ranger-beast master"]) {
 	var SLR_Beast_Master = newObj(ClassSubList["ranger-beast master"]);
@@ -315,5 +315,5 @@ if (ClassSubList["ranger-beast master"]) {
 		minlevel : 15,
 		description : "\n   " + "My companion can, as a reaction, halve an attack's damage from an attacker that I see"
 	};
-	AddSubClass("spell-less ranger", "beast master", SLR_Beast_Master);
+	AddSubClass("spell-less ranger", "beast master-ua", SLR_Beast_Master);
 };

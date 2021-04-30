@@ -1,5 +1,5 @@
 var iFileName = "ua_20161219_Paladin-Sacred-Oaths.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana: Paladin Sacred Oaths article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["UA:PSO"] = {
 };
 
 // Adds 2 subclasses for the Paladin
-AddSubClass("paladin", "oath of conquest", {
+AddSubClass("paladin", "oath of conquest-ua", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
 	source : ["UA:PSO", 1],
@@ -55,7 +55,7 @@ AddSubClass("paladin", "oath of conquest", {
 		}
 	}
 });
-AddSubClass("paladin", "oath of treachery", {
+AddSubClass("paladin", "oath of treachery-ua", {
 	regExpSearch : /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Treachery",
 	source : ["UA:PSO", 2],
@@ -111,9 +111,9 @@ AddSubClass("paladin", "oath of treachery", {
 			recovery : "short rest",
 			usages : 1,
 			action : ["reaction", ""],
-			extraname : "Oath of Treachery 20",
 			"icon of deceit" : {
 				name : "Icon of Deceit",
+				extraname : "Oath of Treachery 20",
 				source : ["UA:PSO", 3],
 				description : "\n   " + "As an action, I can gain the following benefits for 1 minute:" + "\n    - " + "I become invisible" + "\n    - " + "If I have adv. on an attack, I do 20 extra damage with it if it hits" + "\n    - " + "If a creature hits me on its turn, it must make a Wis save or I control its next action" + "\n       " + "Provided it can be charmed and I am not incapacitated when it takes the action",
 				recovery : "long rest",

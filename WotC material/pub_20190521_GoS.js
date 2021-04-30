@@ -1,5 +1,5 @@
 var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -363,10 +363,8 @@ CreatureList["fish"] = {
 	hd : [1, 4],
 	speed : "swim 40 ft",
 	scores : [2, 16, 9, 1, 7, 2],
-	saves : ["", "", "", "", "", ""],
 	senses : "Darkvision 60 ft",
 	passivePerception : 8,
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -387,14 +385,12 @@ CreatureList["giant white moray eel"] = {
 	hd : [8, 12],
 	speed : "swim 40 ft",
 	scores : [19, 14, 12, 1, 10, 3],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 2,
 		"stealth" : 4
 	},
 	senses : "Blindsight 10 ft",
 	passivePerception : 12,
-	languages : "",
 	challengeRating : "2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -421,13 +417,11 @@ CreatureList["giant coral snake"] = {
 	hd : [12, 10],
 	speed : "30 ft, swim 30 ft",
 	scores : [12, 16, 14, 2, 10, 3],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 2
 	},
 	senses : "Blindsight 10 ft",
 	passivePerception : 12,
-	languages : "",
 	challengeRating : "4",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -457,7 +451,6 @@ CreatureList["giant sea eel"] = {
 	},
 	senses : "Darkvision 60 ft",
 	passivePerception : 12,
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 1,

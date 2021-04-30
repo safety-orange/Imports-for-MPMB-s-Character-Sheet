@@ -12,7 +12,7 @@ SourceList["UA:FRnW"] = {
 };
 
 // Add a subclass for the Fighter
-AddSubClass("fighter", "psychic warrior", {
+AddSubClass("fighter", "psychic warrior-ua", {
 	regExpSearch : /^(?=.*psychic)(?=.*warrior).*$/i,
 	subname : "Psychic Warrior",
 	source : [["UA:FRnW", 1]],
@@ -118,7 +118,7 @@ AddSubClass("fighter", "psychic warrior", {
 });
 
 // Add a subclass for the Rogue
-AddSubClass("rogue", "soulknife", {
+AddSubClass("rogue", "soulknife-ua", {
 	regExpSearch : /soulknife/i,
 	subname : "Soulknife",
 	source : [["UA:FRnW", 2]],
@@ -210,7 +210,7 @@ AddSubClass("rogue", "soulknife", {
 });
 
 // Add a subclass for the Wizard
-AddSubClass("wizard", "psionics", {
+AddSubClass("wizard", "psionics-ua", {
 	regExpSearch : /^((?=.*(wizard|mage|magus))(?=.*psionics)|(?=.*(psionicist|mentalist)))(?!.*(wild mage|\bpsion\b|mystic)).*$/i,
 	subname : "Psionics",
 	source : [["UA:FRnW", 3]],

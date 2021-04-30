@@ -1,5 +1,5 @@
 var iFileName = "ua_20200206_Subclasses-Part-3.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 3 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -11,7 +11,7 @@ SourceList["UA:SP3"] = {
 	date : "2020/02/24"
 };
 
-// Add a subclass for the Artificer (but after all other scripts, so that all armor options are present)
+// Add a subclass for the Artificer (but after all other scripts, so that all armour options are present)
 RunFunctionAtEnd(function () {
 	var artificerSubclassArmorerUA = AddSubClass("artificer", "armorer-ua", {
 		regExpSearch : /^(?=.*armou?rer)(?!.*wizard).*$/i,
@@ -229,12 +229,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		]),
 		additional : "suit of armor; requires attunement",
 		prereqeval : function(v) { return classes.known.artificer.level >= 10; },
-		eval : function (lvl, chc) { AddMagicItem("Armor of Magical Strength"); },
-		removeeval : function (lvl, chc) {
-			var loc = CurrentMagicItems.known.indexOf("armor of magical strength-ua");
-			if (loc == -1) return;
-			MagicItemClear(loc + 1, true);
-		}
+		magicitemsAdd : ["Armor of Magical Strength"]
 	});
 	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Tools", {
 		name : "Armor of Tools",
@@ -245,12 +240,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"The wearer can add its Intelligence modifier to checks made with the integrated tools"
 		]),
 		additional : "suit of armor",
-		eval : function (lvl, chc) { AddMagicItem("Armor of Tools"); },
-		removeeval : function (lvl, chc) {
-			var loc = CurrentMagicItems.known.indexOf("armor of tools-ua");
-			if (loc == -1) return;
-			MagicItemClear(loc + 1, true);
-		}
+		magicitemsAdd : ["Armor of Tools"]
 	});
 	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awareness (prereq: level 10 artificer)", {
 		name : "Helm of Awareness",
@@ -258,24 +248,14 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		description : "\n   The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated",
 		additional : "helmet; requires attunement",
 		prereqeval : function(v) { return classes.known.artificer.level >= 10; },
-		eval : function (lvl, chc) { AddMagicItem("Helm of Awareness"); },
-		removeeval : function (lvl, chc) {
-			var loc = CurrentMagicItems.known.indexOf("helm of awareness-ua");
-			if (loc == -1) return;
-			MagicItemClear(loc + 1, true);
-		}
+		magicitemsAdd : ["Helm of Awareness"]
 	});
 	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener", {
 		name : "Mind Sharpener",
 		source : [["UA:SP3", 3]],
 		description : "\n   The wearer can use its reaction to ignore a failed Con save to maintain concentration",
 		additional : "suit of armor or robes",
-		eval : function (lvl, chc) { AddMagicItem("Mind Sharpener"); },
-		removeeval : function (lvl, chc) {
-			var loc = CurrentMagicItems.known.indexOf("mind sharpener-ua");
-			if (loc == -1) return;
-			MagicItemClear(loc + 1, true);
-		}
+		magicitemsAdd : ["Mind Sharpener"]
 	});
 	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refueling Ring (prereq: level 6 artificer)", {
 		name : "Spell-Refueling Ring",
@@ -286,12 +266,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		]),
 		additional : "ring; requires attunement",
 		prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-		eval : function (lvl, chc) { AddMagicItem("Spell-Refueling Ring"); },
-		removeeval : function (lvl, chc) {
-			var loc = CurrentMagicItems.known.indexOf("spell-refueling ring-ua");
-			if (loc == -1) return;
-			MagicItemClear(loc + 1, true);
-		}
+		magicitemsAdd : ["Spell-Refueling Ring"]
 	});
 
 	// Add some special magic items for these Artificer infusions
@@ -455,9 +430,9 @@ AddSubClass("druid", "circle of the stars-ua", {
 				["Piercing", "Piercing (in form)"],
 				["Slashing", "Slashing (in form)"]
 			],
-			extraname : "Circle of the Stars 14",
 			"star flare" : {
 				name : "Star Flare",
+				extraname : "Circle of the Stars 14",
 				source : [["UA:SP3", 3]],
 				description : desc([
 					"As an action, I conjure a 30-ft radius sphere of light on a point within 120 ft I can see",
@@ -535,9 +510,9 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 				" \u2022 It takes 3d10 psychic damage"
 			]),
 			action : [["reaction", ""]],
-			extraname : "Fey Wanderer 15",
 			"misty presence" : {
 				name : "Misty Presence",
+				extraname : "Fey Wanderer 15",
 				source : [["UA:SP3", 6]],
 				description : desc([
 					"As a bonus action, I can have a creature I can see within 30 ft make a Wisdom save",

@@ -1,5 +1,5 @@
 var iFileName = "ua_20200206_Subclasses-Part-2.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 2 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -42,19 +42,64 @@ AddSubClass("bard", "college of creation-ua", {
 				"I can't have multiple at once; Select \"Dancing Item\" on a companion page for its stats",
 				"I can do this once per long rest, or by expending a 3rd-level or higher spell slot (SS 3+)"
 			]),
-			action : [["action", ""]],
+			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
 			recovery : "long rest",
 			altResource : "SS 3+",
-			eval : function (lvl, chc) {
-				var useFunct = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.bard.artificerCompFunc;
-				useFunct.add("Dancing Item");
-			},
-			removeeval : function (lvl, chc) {
-				var useFunct = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.bard.artificerCompFunc;
-				useFunct.remove("dancing item");
-				if (CreatureList["dancing item-ua"]) CreatureList["dancing item-ua"].removeeval();
-			}
+			creaturesAdd : [["Dancing Item"]],
+			creatureOptions : [{
+				name : "Dancing Item",
+				source : [["UA:SP2", 2]],
+				size : 4,
+				type : "Construct",
+				alignment : "Neutral",
+				ac : 16,
+				hp : 33,
+				hd : [],
+				speed : "40 ft",
+				scores : [18, 12, 16, 4, 10, 6],
+				damage_immunities : "poison",
+				condition_immunities : "charmed, exhaustion, poisoned, frightened",
+				passivePerception : 10,
+				senses : "Darkvision 60 ft",
+				languages : "understands the languages of its creator but can't speak",
+				challengeRating : "1",
+				proficiencyBonus : 2,
+				attacksAction : 1,
+				attacks : [{
+					name : "Force-Empowered Slam",
+					ability : 6,
+					damage : [1, 10, "force"],
+					range : "Melee (5 ft)",
+					modifiers : ["", "oCha"],
+					abilitytodamage : false,
+					useSpellMod : "bard"
+				}],
+				features : [{
+					name : "Creator",
+					description : "The item obeys the commands of its creator and uses its creator's spell attack modifier for its attack rolls. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Dash, Force-Empowered Slam (and possibly Endless Waltz), Disengage, Help, Hide, or Search action."
+				}],
+				actions : [{
+					name : "Immutable Form",
+					description : "The item is immune to any spell or effect that would alter its form."
+				}, {
+					name : "Endless Waltz",
+					description : "Immediately after the item makes a slam attack, it can take the Dodge action as a bonus action."
+				}],
+				header : 'Animated',
+				calcChanges : {
+					hp : function (totalHD, HDobj, prefix) {
+						if (!classes.known.bard) return;
+						var chaMod = Number(What('Cha Mod'));
+						var brdLvl = classes.known.bard.level;
+						var brdLvl5 = 5 * brdLvl;
+						HDobj.alt.push(HDobj.conMod + chaMod + brdLvl5);
+						HDobj.altStr.push(" = " + HDobj.conMod + " from its Constitution modifier\n + " + chaMod + " from its creator's Charisma modifier\n + 5 \xD7 " + brdLvl + " from five times its creator's bard level (" + brdLvl5 + ")");
+					},
+					setAltHp : true,
+					hpForceRecalc : true
+				}
+			}]
 		},
 		"subclassfeature14" : {
 			name : "Performance of Creation",
@@ -77,127 +122,6 @@ AddSubClass("bard", "college of creation-ua", {
 		}
 	}
 });
-CreatureList["dancing item-ua"] = {
-	name : "Dancing Item",
-	source : [["UA:SP2", 2]],
-	size : 4,
-	type : "Construct",
-	alignment : "Neutral",
-	ac : 16,
-	hp : 33,
-	hd : [],
-	speed : "40 ft",
-	scores : [18, 12, 16, 4, 10, 6],
-	saves : ["", "", "", "", "", ""],
-	damage_immunities : "poison",
-	condition_immunities : "charmed, exhaustion, poisoned, frightened",
-	passivePerception : 10,
-	senses : "Darkvision 60 ft",
-	languages : "understands the languages of its creator but can't speak",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Force-Empowered Slam",
-		ability : 0,
-		damage : [1, 10, "force"],
-		range : "Melee (5 ft)",
-		modifiers : ["", "oCha", false]
-	}],
-	features : [{
-		name : "Creator",
-		description : "The item obeys the commands of its creator and uses its creator's spell attack modifier to hit for its attack rolls. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Dash, Force-Empowered Slam (and possibly Endless Waltz), Disengage, Help, Hide, or Search action."
-	}],
-	actions : [{
-		name : "Immutable Form",
-		description : "The item is immune to any spell or effect that would alter its form."
-	}, {
-		name : "Endless Waltz",
-		description : "Immediately after the item makes a slam attack, it can take the Dodge action as a bonus action."
-	}],
-	eval : function(prefix) {
-		// set type in the top right
-		Value(prefix + 'Comp.Type', "Animated");
-		// auto calculate HP
-		var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-		HPmaxFld.setAction("Calculate", "event.value = (classes.known.bard ? classes.known.bard.level : classes.totallevel) * 5 + Number(What('Cha Mod')) + Number(What('" + prefix + "Comp.Use.Ability.Con.Mod'));");
-		HPmaxFld.readonly = true;
-		Hide(prefix + "Buttons.Comp.Use.HP.Max");
-		// set attacks
-		for (var i = 1; i <= 3; i++) {
-			var ToHitFld = tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus");
-			ToHitFld.setAction("Calculate", "if (What(event.target.name.replace('BlueText.', '').replace('To Hit Bonus', 'Weapon Selection')).toLowerCase().indexOf('force-empowered slam') !== -1) {\n\tevent.value = CurrentSpells.bard && CurrentSpells.bard.calcSpellScores && CurrentSpells.bard.calcSpellScores.attack ? CurrentSpells.bard.calcSpellScores.attack + '-Prof' : 'oCha';\n\tevent.target.readonly = true;\n} else {\n\tevent.target.readonly = false;\n};");
-			ToHitFld.calcOrderIndex = tDoc.getField(prefix + "Comp.Use.Attack." + i + ".To Hit").calcOrderIndex - 1;
-		}
-		// add bonus action to first page
-		processActions(true, "Dancing Item", [["bonus action", " (command)"]], "Dancing Item");
-	},
-	removeeval : function(prefix) {
-		if (prefix) {
-			// reset type in top right
-			Value(prefix + 'Comp.Type', "Companion");
-			// reset HP calculation
-			var HPmaxFld = tDoc.getField(prefix + "Comp.Use.HP.Max");
-			HPmaxFld.setAction("Calculate", "1");
-			HPmaxFld.readonly = false;
-			DontPrint(prefix + "Buttons.Comp.Use.HP.Max");
-			// reset readonly of attack fields
-			for (var i = 1; i <= 3; i++) {
-				tDoc.getField(prefix + "BlueText.Comp.Use.Attack." + i + ".To Hit Bonus").readonly = false;
-			}
-		}
-		// remove action
-		var useFunct = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.bard.artificerCompFunc;
-		if (useFunct.find("dancing item").length < (prefix ? 2 : 1)) processActions(false, "Dancing Item", [["bonus action", " (command)"]], "Dancing Item")
-	}
-};
-// Add the artificer companion functions to the main bard class object if the artificer is not defined
-if (!ClassList.artificer) {
-	ClassList.bard.artificerCompFunc = {
-		add : function (compName) {
-			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-			var prefix = false;
-			if (AScompA) {
-				for (var a = 1; a < AScompA.length; a++) {
-					if (!What(AScompA[a] + 'Comp.Race')) {
-						prefix = AScompA[a];
-						break;
-					}
-				}
-			}
-			if (!prefix) prefix = DoTemplate('AScomp', 'Add');
-			Value(prefix + 'Comp.Race', compName);
-			var changeMsg = "The " + compName + " has been added to the companion page at page number " + (tDoc.getField(prefix + 'Comp.Race').page + 1);
-			CurrentUpdates.types.push("notes");
-			if (!CurrentUpdates.notesChanges) {
-				CurrentUpdates.notesChanges = [changeMsg];
-			} else {
-				CurrentUpdates.notesChanges.push(changeMsg);
-			}
-			return prefix;
-		},
-		remove : function (compName) {
-			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-			if (!AScompA) return;
-			compName = compName.toLowerCase();
-			for (var a = 1; a < AScompA.length; a++) {
-				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) {
-					DoTemplate("AScomp", "Remove", AScompA[a], true);
-				}
-			}
-		},
-		find : function (compName) {
-			var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-			var prefixes = [];
-			if (!AScompA) return prefixes;
-			compName = compName.toLowerCase();
-			for (var a = 1; a < AScompA.length; a++) {
-				if (What(AScompA[a] + 'Comp.Race').toLowerCase().indexOf(compName) !== -1) prefixes.push(AScompA[a]);
-			}
-			return prefixes;
-		}
-	}
-};
 
 // Add a subclass for the Cleric
 AddSubClass("cleric", "unity domain-ua", {
@@ -297,7 +221,7 @@ AddSubClass("cleric", "unity domain-ua", {
 });
 
 // Add a subclass for the Sorcerer
-AddSubClass("sorcerer", "clockwork soul", {
+AddSubClass("sorcerer", "clockwork soul-ua", {
 	regExpSearch : /^((?=.*(sorcerer|witch))(?=.*mechanus)|(?=.*clockwork)(?=.*soul)).*$/i,
 	subname : "Clockwork Soul",
 	source : [["UA:SP2", 4]],

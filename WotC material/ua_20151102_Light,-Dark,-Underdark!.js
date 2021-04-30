@@ -33,7 +33,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", {
 });
 
 // A subclass for the Ranger, called "Deep Stalker"
-AddSubClass("ranger", "deep stalker", {
+AddSubClass("ranger", "deep stalker-ua", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker",
 	source : ["UA:LDU", 1],
@@ -79,7 +79,7 @@ AddSubClass("ranger", "deep stalker", {
 });
 
 // A subclass for the Sorcerer, called "Shadow"
-AddSubClass("sorcerer", "shadow sorcerer", {
+AddSubClass("sorcerer", "shadow sorcerer-ua", {
 	regExpSearch : /^(?=.*(sorcerer|witch))(?=.*shadow).*$/i,
 	subname : "Shadow",
 	source : ["UA:LDU", 2],
@@ -139,7 +139,7 @@ AddSubClass("sorcerer", "shadow sorcerer", {
 });
 
 // A subclass for the Warlock, called "The Undying Light"
-AddSubClass("warlock", "the undying light", {
+AddSubClass("warlock", "the undying light-ua", {
 	regExpSearch : /^(?=.*warlock)(?=.*light)(?=.*(immortal|undying|neverending|unending)).*$/i,
 	subname : "the Undying Light",
 	source : ["UA:LDU", 3],

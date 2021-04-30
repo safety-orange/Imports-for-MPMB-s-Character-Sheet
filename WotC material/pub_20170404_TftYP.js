@@ -1,5 +1,5 @@
 var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,13 +23,11 @@ CreatureList["giant crayfish"] = {
 	hd : [7, 10], //[#, die]
 	speed : "30 ft, swim 30 ft",
 	scores : [15, 13, 13, 1, 9, 3], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"stealth" : 3
 	},
 	senses : "Blindsight 30 ft",
 	passivePerception : 9,
-	languages : "",
 	challengeRating : "2",
 	proficiencyBonus : 2,
 	attacksAction : 2,
@@ -58,7 +56,6 @@ CreatureList["giant ice toad"] = {
 	hd : [7, 10], //[#, die]
 	speed : "30 ft",
 	scores : [16, 13, 14, 8, 10, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	damage_immunities : "cold",
 	senses : "Darkvision 60 ft",
 	passivePerception : 10,
@@ -103,11 +100,9 @@ CreatureList["giant lightning eel"] = {
 	hd : [5, 10], //[#, die]
 	speed : "5 ft, swim 30 ft",
 	scores : [11, 17, 16, 2, 12, 3], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	damage_resistances : "lightning",
 	senses : "Blindsight 60 ft",
 	passivePerception : 11,
-	languages : "",
 	challengeRating : "3",
 	proficiencyBonus : 2,
 	attacksAction : 2,
@@ -124,7 +119,8 @@ CreatureList["giant lightning eel"] = {
 			range : "Out/in 5/15 ft",
 			dc : true,
 			description : "Out water: 5 ft, 1 crea; In water: all in 15 ft; Con save: fail― stunned until eel's next turn end, success― half damage",
-			modifiers : [-1, "", false], //[to hit, to damage, add ability to damage] "" means ignore
+			modifiers : [-1, ""],
+			abilitytodamage : false,
 			tooltip : "One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned"
 		}
 	],
@@ -150,13 +146,11 @@ CreatureList["giant subterranean lizard"] = {
 	hd : [7, 12], //[#, die]
 	speed : "30 ft, swim 50 ft",
 	scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : {
 		"stealth" : 3
 	},
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "4",
 	proficiencyBonus : 2,
 	attacksAction : 2,

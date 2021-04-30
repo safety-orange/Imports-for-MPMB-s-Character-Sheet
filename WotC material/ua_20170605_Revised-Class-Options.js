@@ -12,7 +12,7 @@ SourceList["UA:RCO"] = {
 };
 
 // Adds 4 revised subclasses from previous Unearthed Arcana articles: 1 for the Druid, 1 for the Fighter, 1 for the Paladin, and 1 for the Warlock
-AddSubClass("druid", "circle of the shepherd2", {
+AddSubClass("druid", "circle of the shepherd2-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
 	source : ["UA:RCO", 1],
@@ -106,7 +106,7 @@ AddSubClass("druid", "circle of the shepherd2", {
 		}
 	}
 });
-AddSubClass("fighter", "cavalier2", {
+AddSubClass("fighter", "cavalier2-ua", {
 	regExpSearch : /cavalier/i,
 	subname : "Cavalier",
 	source : ["UA:RCO", 2],
@@ -190,7 +190,7 @@ AddSubClass("fighter", "cavalier2", {
 		}
 	}
 });
-AddSubClass("paladin", "oath of conquest2", {
+AddSubClass("paladin", "oath of conquest2-ua", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
 	source : ["UA:RCO", 3],
@@ -250,7 +250,7 @@ AddSubClass("paladin", "oath of conquest2", {
 		}
 	}
 });
-AddSubClass("warlock", "the celestial", {
+AddSubClass("warlock", "the celestial-ua", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
 	source : ["UA:RCO", 4],
@@ -349,6 +349,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		name : "Aspect of the Moon",
 		description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
 		source : [["X", 56], ["UA:RCO", 5]],
+		submenu : "[improves Pact of the Tome]",
 		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
 		savetxt : { text : ["Nothing can force me to sleep"] }
 	});
@@ -361,6 +362,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 		]),
 		source : [["X", 56], ["UA:RCO", 5]],
+		submenu : "[warlock level  5+]",
 		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
@@ -373,6 +375,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)"
 		]),
 		source : [["X", 57], ["UA:RCO", 6]],
+		submenu : "[warlock level  5+]",
 		spellcastingBonus : {
 			name : "Gift of the Depths",
 			spells : ["water breathing"],
@@ -386,12 +389,14 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		name : "Gift of the Ever-Living Ones",
 		description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
 		source : [["X", 57], ["UA:RCO", 6]],
+		submenu : "[improves Pact of the Chain]",
 		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
 	});
 	AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 		name : "Grasp of Hadar",
 		description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
 		source : [["X", 57], ["UA:RCO", 6]],
+		submenu : "[improves Eldritch Blast]",
 		prereqeval : function(v) { return v.hasEldritchBlast; },
 		calcChanges : {
 			atkAdd : [
@@ -406,6 +411,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		name : "Shroud of Shadow",
 		description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
 		source : [["X", 57], ["UA:RCO", 6]],
+		submenu : "[warlock level 15+]",
 		spellcastingBonus : {
 			name : "Shroud of Shadow",
 			spells : ["invisibility"],
@@ -428,6 +434,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 		]),
 		source : [["X", 57], ["UA:RCO", 6]],
+		submenu : "[warlock level  5+]",
 		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
@@ -438,6 +445,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		name : "Trickster's Escape",
 		description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
 		source : [["X", 57], ["UA:RCO", 7]],
+		submenu : "[warlock level  7+]",
 		spellcastingBonus : {
 			name : "Trickster's Escape",
 			spells : ["freedom of movement"],
@@ -463,6 +471,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"If the target takes any of this bonus damage, it is knocked prone if it is Huge or smaller"
 	]),
 	source : ["UA:RCO", 6],
+	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
@@ -472,6 +481,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
 		"This speed reduction lasts until the end of my next turn"
 	]),
 	source : ["UA:RCO", 6],
+	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
 		atkAdd : [
@@ -489,6 +499,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"Objects appear ghostly to me; I also gain 30 ft darkvision for the duration"
 	]),
 	source : ["UA:RCO", 6],
+	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
@@ -501,6 +512,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
+	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
 		atkCalc : [
@@ -521,6 +533,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
 	source : ["UA:RCO", 6],
+	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
@@ -531,6 +544,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 		"It and any of my choice within 5 ft of it take my Cha mod (min 0) in psychic damage"
 	]),
 	source : ["UA:RCO", 6],
+	submenu : "[warlock level  5+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
 });
@@ -541,6 +555,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
 	source : ["UA:RCO", 6],
+	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	action : ["bonus action", ""]
 });

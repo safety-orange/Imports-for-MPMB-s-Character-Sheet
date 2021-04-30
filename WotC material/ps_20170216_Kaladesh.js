@@ -1,5 +1,5 @@
 var iFileName = "ps_20170216_Kaladesh.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds all material from the Plane Shift: Kaladesh article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-kaladesh-2017-02-16) to MPMB's Character Record Sheet
 // This code contains contributions by SoilentBrad and userZynx_name
 
@@ -264,10 +264,8 @@ CreatureList["gremlin"] = { // Includes contributions by SoilentBrad
 	hd : [5, 8],
 	speed : "40 ft",
 	scores : [12, 13, 13, 3, 13, 6],
-	saves : ["", "", "", "", "", ""],
 	passivePerception : 11,
 	senses : "Darkvision 60 ft",
-	languages : "",
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -301,13 +299,11 @@ CreatureList["sky whale"] = { // Includes contributions by SoilentBrad
 	hd : [9, 12],
 	speed : "fly 50 ft (hover)",
 	scores : [21, 9, 17, 2, 10, 7],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"stealth" : 5
 	},
 	senses : "",
 	passivePerception : 10,
-	languages : "",
 	challengeRating : "5",
 	proficiencyBonus : 3,
 	attacksAction : 2,
@@ -339,18 +335,17 @@ CreatureList["servo"] = { // Includes contributions by userZynx_name
 	source : ["PS:K", 32],
 	size : 5,
 	type : "Construct",
+	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 11,
 	hp : 10,
 	hd : [3, 4],
 	speed : "20 ft",
 	scores : [4, 11, 12, 3, 10, 7],
-	saves : ["", "", "", "", "", ""],
 	passivePerception : 10,
 	damage_immunities : "poison",
 	condition_immunities : "charmed, poisoned",
 	senses : "",
-	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -360,7 +355,8 @@ CreatureList["servo"] = { // Includes contributions by userZynx_name
 			damage : [1, "", "slashing"],
 			range : "Melee",
 			description : "",
-			modifiers : [1, "", false]
+			modifiers : [1, ""],
+			abilitytodamage : false
 		}
 	]
 };
