@@ -5179,7 +5179,6 @@ CreatureList["allosaurus"] = {
 	source : ["M", 79],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 51,
@@ -5221,7 +5220,6 @@ CreatureList["ankylosaurus"] = {
 	source : ["M", 79],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 15,
 	hp : 68,
@@ -5250,7 +5248,6 @@ CreatureList["pteranodon"] = {
 	source : ["M", 79],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 13,
@@ -5285,10 +5282,10 @@ CreatureList["pteranodon"] = {
 // Special familiars not in the SRD
 CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	name : "Faerie Dragon",
+	nameAlt : ["Dragon, Faerie"],
 	source : ["M", 133],
 	size : 5, //Tiny
 	type : "Dragon",
-	subtype : "",
 	alignment : "Chaotic Good",
 	ac : 15,
 	hp : 14,
@@ -5350,7 +5347,7 @@ CreatureList["crawling claw"] = {
 	source : ["M", 44],
 	size : 5, //Tiny
 	type : "Undead",
-	subtype : "",
+	companion : "familiar_not_al",
 	alignment : "Neutral Evil",
 	ac : 12,
 	hp : 2,
@@ -5385,7 +5382,6 @@ CreatureList["peryton"] = {
 	source : ["M", 251],
 	size : 3, //Medium
 	type : "Monstrosity",
-	subtype : "",
 	companion : "steed",
 	alignment : "Chaotic Evil",
 	ac : 13,
@@ -5436,7 +5432,6 @@ CreatureList["needle blight"] = {
 	source : ["M", 32],
 	size : 3, //Medium
 	type : "Plant",
-	subtype : "",
 	alignment : "Neutral Evil",
 	ac : 12,
 	hp : 11,
@@ -5471,7 +5466,6 @@ CreatureList["twig blight"] = {
 	source : ["M", 32],
 	size : 4, //Small
 	type : "Plant",
-	subtype : "",
 	alignment : "Neutral Evil",
 	ac : 13,
 	hp : 4,
@@ -5506,7 +5500,6 @@ CreatureList["vine blight"] = {
 	source : ["M", 32],
 	size : 3, //Medium
 	type : "Plant",
-	subtype : "",
 	alignment : "Neutral Evil",
 	ac : 12,
 	hp : 26,
@@ -5549,7 +5542,6 @@ CreatureList["gas spore"] = {
 	source : ["M", 138],
 	size : 2, //Large
 	type : "Plant",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 5,
 	hp : 1,
@@ -9349,12 +9341,12 @@ BackgroundFeatureList["underdark experience"] = {
 };
 
 // Creatures
-CreatureList["steeder"] = { // "Steeder, Female" entry so that just "steeder" also matches this entry
+CreatureList["steeder, female"] = {
 	name : "Steeder, Female",
+	nameAlt : ["Steeder"],
 	source : ["OotA", 231],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 30,
@@ -9400,7 +9392,6 @@ CreatureList["steeder, male"] = {
 	source : ["OotA", 231],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 13,
@@ -12178,7 +12169,6 @@ CreatureList["sheep"] = {
 	source : ["SKT", 142],
 	size : 4, //Small
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 3,
@@ -12203,7 +12193,6 @@ CreatureList["pig"] = {
 	source : ["SKT", 143],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 5,
@@ -12224,7 +12213,6 @@ CreatureList["hulking crab"] = {
 	source : ["SKT", 240],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 17,
 	hp : 76,
@@ -12264,8 +12252,7 @@ CreatureList["tressym"] = {
 	source : ["SKT", 242],
 	size : 5, //Tiny
 	type : "Beast",
-	subtype : "",
-	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
+	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 5,
@@ -13466,7 +13453,6 @@ CreatureList["aurochs"] = {
 	source : ["V", 207],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 11,
 	hp : 38,
@@ -13499,7 +13485,6 @@ CreatureList["cow"] = {
 	source : ["V", 207],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -13532,7 +13517,6 @@ CreatureList["ox"] = {
 	source : ["V", 208],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -13568,7 +13552,6 @@ CreatureList["deep rothe"] = {
 	source : ["V", 208],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 13,
@@ -13604,7 +13587,6 @@ CreatureList["rothe"] = {
 	source : ["V", 208],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -13637,7 +13619,6 @@ CreatureList["stench kow"] = {
 	source : ["V", 208],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 10,
 	hp : 15,
@@ -13675,7 +13656,6 @@ CreatureList["dolphin"] = {
 	source : ["V", 208],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 11,
@@ -13714,7 +13694,7 @@ CreatureList["cranium rat"] = {
 	source : ["V", 133],
 	size : 5, //Tiny
 	type : "Beast",
-	subtype : "",
+	companion : "familiar_not_al",
 	alignment : "Lawful Evil",
 	ac : 12,
 	hp : 2,
@@ -13751,7 +13731,6 @@ CreatureList["brontosaurus"] = {
 	source : [["V", 139], ["ToA", 215]],
 	size : 0, //Gargantuan
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 15,
 	hp : 121,
@@ -13785,7 +13764,6 @@ CreatureList["deinonychus"] = {
 	source : [["V", 139], ["ToA", 217]],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 26,
@@ -13830,7 +13808,6 @@ CreatureList["dimetrodon"] = {
 	source : [["V", 139], ["ToA", 217]],
 	size : 3, //Medium
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 19,
@@ -13861,7 +13838,6 @@ CreatureList["hadrosaurus"] = {
 	source : [["V", 140], ["ToA", 224]],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 11,
 	hp : 19,
@@ -13892,7 +13868,6 @@ CreatureList["quetzalcoatlus"] = {
 	source : [["V", 140], ["ToA", 230]],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 30,
@@ -13931,7 +13906,6 @@ CreatureList["stegosaurus"] = {
 	source : [["V", 140], ["ToA", 231]],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 76,
@@ -13959,7 +13933,6 @@ CreatureList["velociraptor"] = {
 	source : [["V", 140], ["ToA", 235]],
 	size : 5, //Tiny
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 10,
@@ -14001,7 +13974,7 @@ CreatureList["gazer"] = {
 	source : ["V", 126],
 	size : 5, //Tiny
 	type : "Aberration",
-	subtype : "",
+	companion : "familiar_not_al",
 	alignment : "Neutral Evil",
 	ac : 13,
 	hp : 13,
@@ -14047,7 +14020,11 @@ CreatureList["gazer"] = {
 			name : "Eye Rays",
 			description : "1. Dazing Ray: Wisdom saving throw or charmed until the start of the gazer's next turn. While charmed, half speed and disadv. on attacks.\n2. Fear Ray: Wisdom saving throw or frightened until the start of the gazer's next turn.\n3. Frost Ray: Target must make a Dexterity saving throw or 10 (3d6) cold damage.\n4. Telekinetic Ray: Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the gazer. If it is an up to 10 lb unattended object, the gazer moves it up to 30 ft in any direction. It can exert fine control on objects this way."
 		}
-	]
+	],
+	variant : [{
+		name : "Variant: Familiar",
+		description : "The gazer can serve another creature as a familiar, forming a telepathic bond with its willing master, provided that the master is at least a 3rd-level spellcaster. While the two are bonded, the master can sense what the gazer senses as long as they are within 1 mile of each other. If its master causes it physical harm, the gazer will end its service as a familiar, breaking the telepathic bond."
+	}]
 };
 
 // Magic Items
@@ -14175,7 +14152,6 @@ CreatureList["giant crayfish"] = {
 	source : ["TftYP", 235],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 15,
 	hp : 45,
@@ -14211,7 +14187,6 @@ CreatureList["giant ice toad"] = {
 	source : ["TftYP", 235],
 	size : 2, //Large
 	type : "Monstrosity",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 52,
@@ -14257,7 +14232,6 @@ CreatureList["giant lightning eel"] = {
 	source : ["TftYP", 236],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 42,
@@ -14305,7 +14279,6 @@ CreatureList["giant subterranean lizard"] = {
 	source : ["TftYP", 236],
 	size : 1, //Huge
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 66,
@@ -14761,19 +14734,19 @@ MagicItemsList["plantslayer longsword"] = {
 }
 
 // pub_20170915_Tortle.js
-// This file adds the Tortle Race from the Tortle Package from DMs Guild to MPMB's Character Record Sheet
+// This file adds the Tortle Race from the Tortle Package from Extra Life to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.TP={
 	name : "Tortle Package",
 	abbreviation : "TP",
-	group : "Adventurers League",
-	url : "https://www.dmsguild.com/product/221716/",
+	group : "Extra Life",
+	url : "https://dnd.wizards.com/products/tabletop-games/digital-only-rpg-products/tortle-package",
 	date : "2017/09/15"
 };
 
 // The Tortle race
-RaceList["tortle"] = {
+RaceList.tortle = {
 	regExpSearch : /tortle/i,
 	name : "Tortle",
 	source : ["TP", 4],
@@ -15128,8 +15101,7 @@ CreatureList["almiraj"] = {
 	source : ["ToA", 211],
 	size : 4, //Small
 	type : "Beast",
-	subtype : "",
-	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
+	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 3,
@@ -15166,8 +15138,7 @@ CreatureList["flying monkey"] = {
 	source : ["ToA", 220],
 	size : 4, //Small
 	type : "Beast",
-	subtype : "",
-	companion : sheetVersion >= 13 ? "familiar_not_al" : "familiar",
+	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 3,
@@ -15200,7 +15171,6 @@ CreatureList["giant snapping turtle"] = {
 	source : ["ToA", 222],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 17,
 	hp : 75,
@@ -15236,7 +15206,6 @@ CreatureList["jaculi"] = {
 	source : ["ToA", 225],
 	size : 2, //Large
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 16,
@@ -17851,7 +17820,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
-		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon",
+		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon",
 		"I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon"
 	]),
 	source : ["X", 57],
@@ -19097,7 +19066,6 @@ CreatureList["hound of ill omen"] = { // Stats for the Sorcerer (Shadow Magic) f
 	source : ["X", 51],
 	size : 3,
 	type : "Monstrosity",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 37,
@@ -19151,7 +19119,6 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 	source : ["X", 169],
 	size : 5,
 	type : "Construct",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 15,
 	hp : 10,
@@ -23116,7 +23083,6 @@ MagicItemsList["skyblinder staff"] = {
 		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
 		name : "Skyblinder Staff",
 		source : ["G", 181],
-		description : "Versatile (1d8); On hit, 1 charge for +1d6 force damage",
 		modifiers : [1, 1]
 	},
 	calcChanges : {
@@ -23918,7 +23884,7 @@ CreatureList["fish"] = {
 	source : ["GoS", 215],
 	size : 5,
 	type : "Beast",
-	subtype : "",
+	companion : "familiar",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 1,
@@ -23943,7 +23909,6 @@ CreatureList["giant white moray eel"] = {
 	source : ["GoS", 216],
 	size : 1,
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 60,
@@ -23978,7 +23943,6 @@ CreatureList["giant coral snake"] = {
 	source : ["GoS", 236],
 	size : 2,
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 90,
@@ -24008,7 +23972,6 @@ CreatureList["giant sea eel"] = {
 	source : ["GoS", 237],
 	size : 2,
 	type : "Beast",
-	subtype : "",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 19,
@@ -25390,6 +25353,7 @@ CreatureList["abyssal chicken"] = {
 	size : 5,
 	type : "Fiend",
 	subtype : "demon",
+	companion : "familiar_not_al",
 	alignment : "Chaotic Evil",
 	ac : 13,
 	hp : 10,
@@ -25671,6 +25635,48 @@ MagicItemsList["soul coin"] = {
 	recovery : "Never",
 	action : [["action", ""]]
 }
+
+// pub_20190919_LR.js
+// This file adds the Locathah from the Locathah Rising adventure from Extra Life to MPMB's Character Record Sheet
+
+SourceList.LR = {
+    name : "Locathah Rising",
+    abbreviation : "LR",
+    group : "Extra Life",
+    url : "https://dnd.wizards.com/products/tabletop-games/digital-only-rpg-products/locathah-rising",
+    date : "2019/09/19"
+};
+
+RaceList.locathah = {
+    source : [["LR", 24]],
+    regExpSearch : /locathah/i,
+    name : "Locathah",
+    plural : "Locathah",
+    size : 3,
+    speed : {
+        walk : { spd : 30, enc : 20 },
+        swim : { spd : 30, enc : 20 },
+    },
+    languageProfs : ["Common", "Aquan"],
+    savetxt : {
+        adv_vs : ["charmed", "frightened", "paralyzed", "poisoned", "stunned", "sleep"],
+    },
+    skills : ["athletics", "perception"],
+    scores : [2, 1, 0, 0, 0, 0],
+    armorOptions : [{
+        regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
+        name : "Natural Armor",
+        source : [["LR", 24]],
+        ac : 12
+    }],
+    armorAdd : "Natural Armor",
+    age : " mature to adulthood by the age of 10 but have been known to live up to 80 years",
+    height : " stand between 5 and 6 feet tall",
+    weight : " average about 150 pounds",
+	heightMetric : " stand between 1,5 and 1,8 metres tall",
+	weightMetric : " weigh around 70 kg",
+    trait : "Locathah (+2 Strength, +1 Dexterity)\n   Limited Amphibiousness: I can breathe air and water, but need to be submerged at least once every 4 hours to avoid suffocating.\n   Leviathan Will: I have advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep.\n   Natural Armor: I have an AC of 12 + Dexterity modifier + shield.\n   Observant & Athletic: I have proficiency in the Athletics and Perception skills."
+};
 
 // pub_20191119_ERFtLW.js
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
@@ -45234,7 +45240,6 @@ CreatureList["alchemical homunculus-ua"] = {
 	source : [["UA:A3", 7], ["UA:A2", 6]],
 	size : 5,
 	type : "Construct",
-	subtype : "",
 	alignment : "Neutral",
 	ac : 13,
 	hp : 5,
@@ -45552,7 +45557,6 @@ CreatureList["arcane turret-ua"] = {
 	source : [["UA:A3", 10], ["UA:A2", 7]],
 	size : 3,
 	type : "Construct",
-	subtype : "",
 	alignment : "Neutral",
 	ac : 18,
 	hp : 15,
@@ -45731,7 +45735,6 @@ CreatureList["iron defender-ua"] = {
 	source : ["UA:A3", 11],
 	size : 3,
 	type : "Construct",
-	subtype : "",
 	alignment : "Neutral",
 	ac : 15,
 	hp : 7,
@@ -46893,7 +46896,6 @@ CreatureList["wildfire spirit-uacdnw"] = {
 	source : ["UA:CDnW", 3],
 	size : 4,
 	type : "Elemental",
-	subtype : "",
 	alignment : "Chaotic",
 	ac : 13,
 	hp : 12,
@@ -48217,7 +48219,6 @@ CreatureList["beast of the air"] = {
 	source : ["UA:CFV", 8],
 	size : 4,
 	type : "Beast",
-	subtype : "",
 	alignment : "Neutral",
 	ac : 13,
 	hp : 6,
@@ -48267,7 +48268,6 @@ CreatureList["beast of the earth"] = {
 	source : ["UA:CFV", 9],
 	size : 3,
 	type : "Beast",
-	subtype : "",
 	alignment : "Neutral",
 	ac : 12,
 	hp : 7,
@@ -49876,7 +49876,6 @@ CreatureList["dancing item-ua"] = {
 	source : [["UA:SP2", 2]],
 	size : 4,
 	type : "Construct",
-	subtype : "",
 	alignment : "Neutral",
 	ac : 16,
 	hp : 33,
@@ -50727,3 +50726,86 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 	}
 });
 if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassFeyWandererUA); };
+
+// ua_20210311_Folk-of-the-Feywild.js
+// This file adds the content from the Unearthed Arcana 2021: Folk of the Feywild article to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["UA:FotF"] = {
+	name : "Unearthed Arcana: Folk of the Feywild",
+	abbreviation : "UA:FotF",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2021/dnd/downloads/UA2021_FeyFolk.pdf",
+	date : "2021/03/11"
+};
+
+// Adds four races:
+
+// Fairy
+RaceList["fairy-ua"] = {
+	regExpSearch : /fairy/i,
+	name : "Fairy",
+	source : ["UA:FotF", 2],
+	plural : "Fairies",
+	size : 4,
+	speed : {
+		walk : { spd : 30, enc : 20 },
+		fly : { spd : "walk", enc : 20 },
+	},
+	languageProfs : ["Common", 1],
+	scorestxt : "+2 to one score and +1 to a different score -OR- +1 to three different scores. Chosen scores cannot be raised above 20",
+	trait : "I am a Small Fey.\nFairy Flight: My flying speed equals my walking speed and I can hover. My flight is magical and does not require the use of wings.\nFairy Magic: I know the druidcraft and faerie fire spells. I can cast faerie fire without expending a spell slot, and I must finish a long rest before I can cast it this way again. I can also cast this spell using any spell slots I have. My spellcasting ability for these spells is Intelligence, Wisdom, or Charisma.\nFey Passage: I can squeeze through a space as narrow as 1 inch wide."
+};
+
+// Hobgoblin of the Feywild
+RaceList["hobgoblin-ua"] = {
+	regExpSearch : /hobgoblin/i,
+	name : "Hobgoblin of the Feywild",
+	source : ["UA:FotF", 2],
+	plural : "Hobgoblins",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 60]],
+	scorestxt : "+2 to one score and +1 to a different score -OR- +1 to three different scores. Chosen scores cannot be raised above 20",
+	trait : "I am a Medium Humanoid.\nDarkvision: I can see in dim light within 60ft as bright and darkness as dim. I discern only shades of gray in darkness.\nFey Ancestry: I have advantage on saving throws I make to avoid or end the charmed condition on myself.\nFortune from the Many: If I miss with an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30ft of me (max +5). I can use this a number of times equal to my proficiency bonus, and regain all expended uses a long rest.\nFey Gift: I can Help as a bonus action a number of times equal to my proficiency bonus. I regain all expended uses after a long rest. Starting at 3rd level, I choose one of these options below each time I Help:\nHospitality: Me and the target of Help each gain a number of temporary hit points equal to 1d6 plus my proficiency bonus.\nPassage: Me and the target of Help each increase walking speed by 10ft until the start of my next turn.\nSpite: Until the start of my turn, the first time me or the target of Help hits a creature with an attack roll, that creature has disadvantage on the next attack roll that it makes within the next minute.",
+	action : ['bonus action', 'Fey Gift']
+};
+
+// Owlfolk
+RaceList["owlfolk-ua"] = {
+	regExpSearch : /owlfolk/i,
+	name : "Owlfolk",
+	source : ["UA:FotF", 3],
+	plural : "Owlfolk",
+	size : 3, // can be medium (3) or small (4)
+	skills : ["Stealth"],
+	speed : {
+		walk : { spd : 30, enc : 20 },
+		fly : { spd : "walk", enc : 20 },
+	},
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 90]],
+	scorestxt : "+2 to one score and +1 to a different score -OR- +1 to three different scores. Chosen scores cannot be raised above 20",
+	trait : "I am a Medium or Small Humanoid.\nDarkvision: I can see in dim light within 90ft as bright and darkness as dim. I discern only shades of gray in darkness.\nMagic Sight: I can cast Detect Magic, only as a ritual. My spellcasting ability for this spell is Intelligence, Wisdom, or Charisma. I can also cast this normally with any spell slots.\nNimble Flight: When I fall, I can use my reaction to make a Dexterity saving throw (DC 10) to fly in place until my next turn.\nSilent Feathers: I am proficient in Stealth.",
+	action : ['reaction', 'Nimble Flight']
+};
+
+// Rabbitfolk
+RaceList["rabbitfolk-ua"] = {
+	regExpSearch : /rabbitfolk/i,
+	name : "Rabbitfolk",
+	source : ["UA:FotF", 3],
+	plural : "Rabbitfolk",
+	size : 3, // can be medium (3) or small (4)
+	skills : ["Perception"],
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	scorestxt : "+2 to one score and +1 to a different score -OR- +1 to three different scores. Chosen scores cannot be raised above 20",
+	trait : "I am a Medium or Small Humanoid.\nHare-Trigger: I add my proficiency bonus to my initiative rolls.\nLeporine Senses: I have proficiency in Perception.\nLucky Footwork: When I fail a Dexterity saving throw, I can use my reaction to roll a d4 and add it to the result.\nRabbit Hop: Once during each of my turns when I walk at least 5 feet, I can hop, rolling a d12 and moving that many feet in any direction. This doesn’t cost movement, but my speed must not be 0.",
+	action : ['reaction', 'Lucky Footwork']
+};
