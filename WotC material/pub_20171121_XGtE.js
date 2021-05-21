@@ -3184,7 +3184,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["absorb elements"] = {
 		name : "Absorb Elements",
-		classes : ["druid", "ranger", "sorcerer", "wizard"],
+		classes : ["artificer", "druid", "ranger", "sorcerer", "wizard"],
 		source : [["X", 150], ["E", 15]],
 		level : 1,
 		school : "Abjur",
@@ -3241,7 +3241,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["catapult"] = {
 		name : "Catapult",
-		classes : ["sorcerer", "wizard"],
+		classes : ["artificer", "sorcerer", "wizard"],
 		source : [["X", 150], ["E", 15]],
 		level : 1,
 		school : "Trans",
@@ -3281,7 +3281,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["create bonfire"] = {
 		name : "Create Bonfire",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
+		classes : ["artificer", "druid", "sorcerer", "warlock", "wizard"],
 		source : [["X", 152], ["E", 16]],
 		level : 0,
 		school : "Conj",
@@ -3339,7 +3339,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["elemental bane"] = {
 		name : "Elemental Bane",
-		classes : ["druid", "warlock", "wizard"],
+		classes : ["artificer", "druid", "warlock", "wizard"],
 		source : [["X", 155], ["E", 17]],
 		level : 4,
 		school : "Trans",
@@ -3368,7 +3368,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["flame arrows"] = {
 		name : "Flame Arrows",
-		classes : ["druid", "ranger", "sorcerer", "wizard"],
+		classes : ["artificer", "druid", "ranger", "sorcerer", "wizard"],
 		source : [["X", 156], ["E", 18]],
 		level : 3,
 		school : "Trans",
@@ -3381,7 +3381,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["frostbite"] = {
 		name : "Frostbite",
-		classes : ["druid", "sorcerer", "warlock", "wizard"],
+		classes : ["artificer", "druid", "sorcerer", "warlock", "wizard"],
 		source : [["X", 156], ["E", 18]],
 		level : 0,
 		school : "Evoc",
@@ -3510,7 +3510,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["magic stone"] = {
 		name : "Magic Stone",
-		classes : ["druid", "warlock"],
+		classes : ["artificer", "druid", "warlock"],
 		source : [["X", 160], ["E", 20]],
 		level : 0,
 		school : "Trans",
@@ -3582,7 +3582,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["pyrotechnics"] = {
 		name : "Pyrotechnics",
-		classes : ["bard", "sorcerer", "wizard"],
+		classes : ["artificer", "bard", "sorcerer", "wizard"],
 		source : [["X", 163], ["E", 21]],
 		level : 2,
 		school : "Trans",
@@ -3609,7 +3609,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["skywrite"] = {
 		name : "Skywrite",
-		classes : ["bard", "druid", "wizard"],
+		classes : ["artificer", "bard", "druid", "wizard"],
 		source : [["X", 165], ["E", 22]],
 		ritual : true,
 		level : 2,
@@ -3653,7 +3653,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["thunderclap"] = {
 		name : "Thunderclap",
-		classes : ["bard", "druid", "sorcerer", "warlock", "wizard"],
+		classes : ["artificer", "bard", "druid", "sorcerer", "warlock", "wizard"],
 		source : [["X", 168], ["E", 22]],
 		level : 0,
 		school : "Evoc",
@@ -3683,7 +3683,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	};
 	SpellsList["transmute rock"] = {
 		name : "Transmute Rock",
-		classes : ["druid", "wizard"],
+		classes : ["artificer", "druid", "wizard"],
 		source : [["X", 169], ["E", 22]],
 		level : 5,
 		school : "Trans",
@@ -3728,7 +3728,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 	SpellsList["wall of water"] = {
 		name : "Wall of Water",
 		classes : ["druid", "sorcerer", "wizard"],
-		source : [["X", 170], ["E", 23]],
+		source : [["X", 170], ["E", 23], ["V", 116], ["MOT", 27]],
 		level : 3,
 		school : "Evoc",
 		time : "1 a",
@@ -3789,7 +3789,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 // Then add the new spells from XGtE (contains contributions by SoilentBrad)
 SpellsList["catnap"] = {
 	name : "Catnap",
-	classes : ["bard", "sorcerer", "wizard"],
+	classes : ["artificer", "bard", "sorcerer", "wizard"],
 	source : ["X", 151],
 	level : 3,
 	school : "Ench",
@@ -4306,7 +4306,7 @@ SpellsList["sickening radiance"] = {
 };
 SpellsList["skill empowerment"] = {
 	name : "Skill Empowerment",
-	classes : ["bard", "sorcerer", "wizard"],
+	classes : ["artificer", "bard", "sorcerer", "wizard"],
 	source : ["X", 165],
 	level : 5,
 	school : "Trans",
@@ -4319,7 +4319,7 @@ SpellsList["skill empowerment"] = {
 };
 SpellsList["snare"] = {
 	name : "Snare",
-	classes : ["druid", "ranger", "wizard"],
+	classes : ["artificer", "druid", "ranger", "wizard"],
 	source : ["X", 165],
 	level : 1,
 	school : "Abjur",
@@ -4447,7 +4447,7 @@ SpellsList["thunder step"] = {
 };
 SpellsList["tiny servant"] = {
 	name : "Tiny Servant",
-	classes : ["wizard"],
+	classes : ["artificer", "wizard"],
 	source : ["X", 168],
 	level : 3,
 	school : "Trans",
@@ -4542,7 +4542,7 @@ WeaponsList["create bonfire"] = {
 	type : "Cantrip",
 	damage : ["C", 8, "fire"],
 	range : "60 ft",
-	description : "5-ft cube; Dex save at casting or when moved into, success - no damage; Conc, 1 min (XGtE 152)",
+	description : "5-ft cube; Dex save at casting or when moved into, success - no damage; Conc, 1 min",
 	abilitytodamage : false,
 	dc : true
 };
@@ -4555,7 +4555,7 @@ WeaponsList["frostbite"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "cold"],
 	range : "60 ft",
-	description : "Con save, success - no damage, fail - also disadv. on next weapon attack roll in next turn; 1 creature (XGtE 156)",
+	description : "Con save, success - no damage, fail - also disadv. on next weapon attack roll in next turn; 1 creature",
 	abilitytodamage : false,
 	dc : true
 };
@@ -4568,7 +4568,7 @@ WeaponsList["infestation"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "poison"],
 	range : "30 ft",
-	description : "Con save, success - no damage, fail - target also moved 5 ft in random direction (XGtE 158)",
+	description : "Con save, success - no damage, fail - target also moved 5 ft in random direction",
 	abilitytodamage : false,
 	dc : true
 };
@@ -4581,7 +4581,7 @@ WeaponsList["magic stone"] = {
 	type : "Cantrip",
 	damage : [1, 6, "bludgeoning"],
 	range : "60/120 ft",
-	description : "Produces 3 stones that each can be thrown (60 ft) or hurled with a sling (120 ft) as a spell attack (XGtE 160)",
+	description : "Produces 3 stones that each can be thrown (60 ft) or hurled with a sling (120 ft) as a spell attack",
 	abilitytodamage : true
 };
 WeaponsList["primal savagery"] = {
@@ -4593,7 +4593,7 @@ WeaponsList["primal savagery"] = {
 	type : "Cantrip",
 	damage : ["C", 10, "acid"],
 	range : "Melee (5 ft)",
-	description : "(XGtE 163)",
+	description : "",
 	abilitytodamage : false
 };
 WeaponsList["thunderclap"] = {
@@ -4605,7 +4605,7 @@ WeaponsList["thunderclap"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "thunder"],
 	range : "5-ft radius",
-	description : "Con save, success - no damage; all creatures in area; audible in 100 ft (XGtE 168)",
+	description : "Con save, success - no damage; all creatures in area; audible in 100 ft",
 	abilitytodamage : false,
 	dc : true
 };
@@ -4618,7 +4618,7 @@ WeaponsList["toll the dead"] = {
 	type : "Cantrip",
 	damage : ["C", 12, "necrotic"],
 	range : "60 ft",
-	description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage (XGtE 169)",
+	description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage",
 	abilitytodamage : false,
 	dc : true
 };
@@ -4631,7 +4631,7 @@ WeaponsList["word of radiance"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "radiant"],
 	range : "5-ft radius",
-	description : "Con save, success - no damage; Only chosen creatures I can see are affected (XGtE 171)",
+	description : "Con save, success - no damage; Only chosen creatures I can see are affected",
 	abilitytodamage : false,
 	dc : true
 };

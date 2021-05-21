@@ -361,12 +361,12 @@ RaceList["vedalken"] = {
 AddSubClass("cleric", "order domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*order).*$/i,
 	subname : "Order Domain",
-	source : [["G", 25], ["T", 31]],
+	source : [["T", 31], ["G", 25]],
 	spellcastingExtra : ["command", "heroism", "hold person", "zone of truth", "mass healing word", "slow", "compulsion", "locate creature", "commune", "dominate person"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : [["G", 26], ["T", 32]],
+			source : [["T", 32], ["G", 26]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill",
 			armorProfs : [false, false, true, false],
@@ -374,7 +374,7 @@ AddSubClass("cleric", "order domain", {
 		},
 		"subclassfeature1.1" : {
 			name : "Voice of Authority",
-			source : [["G", 26], ["T", 32]],
+			source : [["T", 32], ["G", 26]],
 			minlevel : 1,
 			description : desc([
 				"Whenever I use a spell slot to cast a spell on an ally, it can use its reaction to attack",
@@ -384,7 +384,7 @@ AddSubClass("cleric", "order domain", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Order's Demand",
-			source : [["G", 26], ["T", 32]],
+			source : [["T", 32], ["G", 26]],
 			minlevel : 2,
 			description : desc([
 				"As an action, all chosen targets in 30 ft that can see or hear me must make a Wis save",
@@ -395,7 +395,7 @@ AddSubClass("cleric", "order domain", {
 		},
 		"subclassfeature6" : {
 			name : "Embodiment of the Law",
-			source : [["G", 26], ["T", 32]],
+			source : [["T", 32], ["G", 26]],
 			minlevel : 6,
 			description : desc([
 				"When I cast an enchantment spell using a spell slot, I can reduce its casting time",
@@ -418,7 +418,7 @@ AddSubClass("cleric", "order domain", {
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : [["G", 26], ["T", 32]],
+			source : [["T", 32], ["G", 26]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -438,7 +438,7 @@ AddSubClass("cleric", "order domain", {
 		},
 		"subclassfeature17" : {
 			name : "Order's Wrath",
-			source : [["G", 26], ["T", 32]],
+			source : [["T", 32], ["G", 26]],
 			minlevel : 17,
 			description : desc([
 				"If I deal my Divine Strike damage to a creature, it is cursed until my next turn starts",
@@ -448,15 +448,15 @@ AddSubClass("cleric", "order domain", {
 	}
 });
 
-// New Subclass for Druid: Circle of Spores
+// New Subclass for Druid: Circle of Spores (but add TCoE as main source, because it is more likely to be available at a table)
 AddSubClass("druid", "circle of spores", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
-	source : [["G", 26], ["T", 36]],
+	source : [["T", 36], ["G", 26]],
 	features : {
 		"subclassfeature2" : {
 			name : "Circle Spells",
-			source : [["G", 27], ["T", 36]],
+			source : [["T", 36], ["G", 27]],
 			minlevel : 2,
 			description : desc([
 				"I learn the Chill Touch cantrip and gain the ability to cast certain spells",
@@ -471,7 +471,7 @@ AddSubClass("druid", "circle of spores", {
 		},
 		"subclassfeature2.1" : {
 			name : "Halo of Spores",
-			source : [["G", 27], ["T", 36]],
+			source : [["T", 36], ["G", 27]],
 			minlevel : 2,
  			description : desc([
 				"As a reaction when someone I can see in 10 ft starts its turn or moves, I can have it save",
@@ -480,14 +480,14 @@ AddSubClass("druid", "circle of spores", {
 			additional : levels.map(function (n) { return n < 2 ? "" : 'Con save or 1d' + (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : 10) + " necrotic damage"; }),
 			action : ["reaction", ""]
 		},
-		"subclassfeature2.2" : {
+		"subclassfeature2.2" : { // changed from poison to necrotic damage in TCoE
 			name : "Symbiotic Entity",
-			source : [["G", 27], ["T", 37]],
+			source : [["T", 37], ["G", 27]],
 			minlevel : 2,
 			description : desc([
-				"As an action, I expend a Wild Shape use to boost my spores instead of transforming",
+				"As an action, I can expend a Wild Shape use to boost my spores instead of transforming",
 				"I gain 4 temporary hit points per druid level and my Halo of Spores damage increases",
-				"Also, my melee weapon attacks do +1d6 poison damage with every hit",
+				"Also, my melee weapon attacks do +1d6 necrotic damage with every hit",
 				"This lasts for 10 min, until these temporary HP run out, or until I use Wild Shape again"
 			]),
 			additional : levels.map(function (n) {
@@ -498,16 +498,16 @@ AddSubClass("druid", "circle of spores", {
 				atkAdd : [
 					function (fields, v) {
 						if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
-							fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';
+							fields.Description += (fields.Description ? '; ' : '') + '+1d6 necrotic damage';
 						};
 					},
-					"If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 poison damage in the description."
+					"If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 necrotic damage in the description."
 				]
 			}
 		},
 		"subclassfeature6" : {
 			name : "Fungal Infestation",
-			source : [["G", 27], ["T", 37]],
+			source : [["T", 37], ["G", 27]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction when a Small/Medium beast/humanoid dies in 10 ft, I can animate it",
@@ -521,7 +521,7 @@ AddSubClass("druid", "circle of spores", {
 		},
 		"subclassfeature10" : {
 			name : "Spreading Spores",
-			source : [["G", 27], ["T", 37]],
+			source : [["T", 37], ["G", 27]],
 			minlevel : 10,
 			description : " [only while Symbiotic Entity is active]" + desc([
 				"As a bonus action, I create a 10-ft cube of fungal spores within 30 ft, lasting for 1 min",
@@ -532,7 +532,7 @@ AddSubClass("druid", "circle of spores", {
 		},
 		"subclassfeature14" : {
 			name : "Fungal Body",
-			source : [["G", 27], ["T", 38]],
+			source : [["T", 38], ["G", 27]],
 			minlevel : 14,
 			description : desc([
 				"I'm immune to being blinded, deafened, frightened, poisoned, and critical hits"

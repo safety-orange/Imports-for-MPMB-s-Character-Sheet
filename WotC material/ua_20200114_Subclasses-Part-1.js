@@ -46,7 +46,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				type : "Natural",
 				damage : [1, 6, "slashing"],
 				range : "Melee",
-				description : "Only in rage; Extra attack as part of Attack action",
+				description : "Only in rage; Extra attack if used as part of Attack action",
 				abilitytodamage : true,
 				bestialNaturalWeapon : true
 			}, {
@@ -95,7 +95,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				"In rage, when I hit a creature with my natural weapon, I can have it make a Wis save",
 				"If it fails (DC 8 + my Prof bonus + my Con mod) it suffers one effect of my choice:",
 				" \u2022 It uses its reaction to make a melee attack against one creature I can see of my choice",
-				" \u2022 It takes an additional 2d12 psychic damage"
+				" \u2022 It takes 2d12 psychic damage"
 			]),
 			usages : "Constitution modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Con Mod'));",
@@ -147,17 +147,14 @@ AddSubClass("monk", "way of mercy-ua", {
 				name : "Hands of Healing",
 				extraname : "Way of Mercy 3",
 				source : [["UA:SP1", 2]],
-				description : function () {
-					var a = [
-						"As an action, I can spend 1 ki point to touch a creature and restore a number of its HP",
-						"When I do Flurry of Blows, I can do this instead of one unarmed strike (no extra ki cost)"
-					];
-					var b = desc(a);
-					var c = desc([a[0], "It also recovers from one disease or the blinded, deafened, paralyzed, or poisoned condition", a[1]]);
-					return levels.map(function (n) {
-						return n < 11 ? b : c;
-					});
-				}(),
+				description : levels.map(function (n) {
+					var a = "As an action, I can spend 1 ki point to touch a creature and restore a number of its HP";
+					var b6 = "It also recovers from one disease or the blinded, deafened, paralyzed, or poisoned condition";
+					var c = "When I use Flurry of Blows, I can do this instead of one unarmed strike (no extra ki cost)";
+					return desc( n < 6 ? [a, c] :
+						[a, b6, n < 11 ? c : c.replace("one", "each")]
+					);
+				}),
 				action : [["action", ""]],
 				additional : levels.map(function (n) {
 					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " + Wisdom modifier";
@@ -232,7 +229,7 @@ AddSubClass("paladin", "oath of the watchers-ua", {
 			minlevel : 3,
 			description : "\n   As an action, Cha mod of creatures I see in 30 ft adv. on Int/Wis/Cha saves for 1 min",
 			action : [["action", ""]],
-			spellcastingExtra : ["alarm", "chromatic orb", "augury", "moonbeam", "counterspell", "nondetection", "aura of purity", "banishment"]
+			spellcastingExtra : ["alarm", "chromatic orb", "augury", "moonbeam", "counterspell", "nondetection", "aura of purity", "banishment", "hold monster", "hallow"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Abjure the Extraplanar",

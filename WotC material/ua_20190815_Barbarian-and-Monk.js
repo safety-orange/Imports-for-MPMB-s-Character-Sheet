@@ -157,7 +157,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				source : ["UA:BnM", 3],
 				description : " [1 ki point]" + desc([
 					"As a bonus action (or when summoning my astral arms), I can summon my astral visage",
-					"It covers my face like a helmet or mask and choose its appearance; It lasts for 10 minutes",
+					"It covers my face like a helmet or mask and I choose its appearance; It lasts for 10 minutes",
 					"It grants adv. on Insight \u0026 Intimidation, and the ability to see 120 ft in (magical) darkness"
 				])
 			},
@@ -172,7 +172,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				name : "Deflect Energy",
 				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
-				description : " [if both astral arms & visage]" + desc([
+				description : " [if both astral arms \u0026 visage]" + desc([
 					"As a reaction when I take acid, cold, fire, force, or lightning damage, I can deflect it",
 					"By doing so, the damage is reduced by 1d10 + my Wisdom modifier + my Monk level"
 				])
@@ -181,7 +181,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				name : "Empowered Arms",
 				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
-				description : " [if both astral arms & visage]" + desc([
+				description : " [if both astral arms \u0026 visage]" + desc([
 					"Once per turn when I hit an astral arms attack, I can add a martial arts die to its damage"
 				])
 			},
@@ -189,7 +189,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				name : "Word of the Spirit",
 				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
-				description : " [if both astral arms & visage]" + desc([
+				description : " [if both astral arms \u0026 visage]" + desc([
 					"I can direct my words to a creature I can see within 30 ft so that only it can hear me",
 					"Alternatively, I can amplify my voice so that it is heard by all within 600 ft of me"
 				])

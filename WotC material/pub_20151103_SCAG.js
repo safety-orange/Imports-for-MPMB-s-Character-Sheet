@@ -1483,57 +1483,6 @@ BackgroundFeatureList["watcher's eye"] = {
 	source : [["S", 145], ["ALbackground", 0]]
 };
 
-WeaponsList["booming blade"] = {
-	regExpSearch : /^(?=.*booming)(?=.*blade).*$/i,
-	name : "Booming Blade",
-	source : ["S", 142],
-	list : "spell",
-	ability : 6,
-	type : "Cantrip",
-	damage : ["Bd8/Cd8", "", "thunder"],
-	range : "With melee wea",
-	description : "First damage added to the attack; second to the target if it moves next round (SCAG 142)",
-	abilitytodamage : false
-};
-WeaponsList["green-flame blade"] = {
-	regExpSearch : /^(?=.*green)(?=.*flame)(?=.*blade).*$/i,
-	name : "Green-Flame Blade",
-	source : ["S", 143],
-	list : "spell",
-	ability : 6,
-	type : "Cantrip",
-	damage : ["Bd8/Bd8", "", "fire"],
-	range : "With melee wea",
-	description : "First damage added to the attack; second to a target within 5 ft (SCAG 143)",
-	abilitytodamage : true
-};
-WeaponsList["lightning lure"] = {
-	regExpSearch : /^(?=.*lightning)(?=.*lure).*$/i,
-	name : "Lightning Lure",
-	source : ["S", 143],
-	list : "spell",
-	ability : 5,
-	type : "Cantrip",
-	damage : ["C", 8, "lightning"],
-	range : "15 ft",
-	description : "Str save; success - nothing; fail - pulled 10 ft closer to me, only take damage if end within 5 ft of me (SCAG 143)",
-	abilitytodamage : false,
-	dc : true
-};
-WeaponsList["sword burst"] = {
-	regExpSearch : /^(?=.*sword)(?=.*burst).*$/i,
-	name : "Sword Burst",
-	source : ["S", 143],
-	list : "spell",
-	ability : 6,
-	type : "Cantrip",
-	damage : ["C", 6, "force"],
-	range : "5-ft radius",
-	description : "Dex save, success - no damage; all creatures in range (SCAG 143)",
-	abilitytodamage : false,
-	dc : true
-};
-
 // [dupl_start] Feat reprint from Elemental Evil Player's Companion
 if (!FeatsList["svirfneblin magic"]) {
 	FeatsList["svirfneblin magic"] = {
@@ -1571,8 +1520,8 @@ if (!FeatsList["svirfneblin magic"]) {
 // Spells
 SpellsList["booming blade"] = {
 	name : "Booming Blade",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : [["S", 142], ["T", 106]],
+	classes : ["artificer", "sorcerer", "warlock", "wizard"],
+	source : [["T", 106], ["S", 142]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -1586,8 +1535,8 @@ SpellsList["booming blade"] = {
 };
 SpellsList["green-flame blade"] = {
 	name : "Green-Flame Blade",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : [["S", 143], ["T", 107]],
+	classes : ["artificer", "sorcerer", "warlock", "wizard"],
+	source : [["T", 107], ["S", 143]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -1601,8 +1550,8 @@ SpellsList["green-flame blade"] = {
 };
 SpellsList["lightning lure"] = {
 	name : "Lightning Lure",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : [["S", 143], ["T", 107]],
+	classes : ["artificer", "sorcerer", "warlock", "wizard"],
+	source : [["T", 107], ["S", 143]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -1616,8 +1565,8 @@ SpellsList["lightning lure"] = {
 };
 SpellsList["sword burst"] = {
 	name : "Sword Burst",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : [["S", 143], ["T", 115]],
+	classes : ["artificer", "sorcerer", "warlock", "wizard"],
+	source : [["T", 115], ["S", 143]],
 	level : 0,
 	school : "Conj",
 	time : "1 a",
@@ -1628,4 +1577,55 @@ SpellsList["sword burst"] = {
 	description : "All crea in range save or 1d6 Force damage; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie : "All crea in range save or `CD`d6 Force damage",
 	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+};
+
+WeaponsList["booming blade"] = {
+	regExpSearch : /^(?=.*booming)(?=.*blade).*$/i,
+	name : "Booming Blade",
+	source : [["T", 106], ["S", 142]],
+	list : "spell",
+	ability : 6,
+	type : "Cantrip",
+	damage : ["Bd8/Cd8", "", "thunder"],
+	range : "With melee wea",
+	description : "First damage added to the attack; second to the target if it moves next round",
+	abilitytodamage : false
+};
+WeaponsList["green-flame blade"] = {
+	regExpSearch : /^(?=.*green)(?=.*flame)(?=.*blade).*$/i,
+	name : "Green-Flame Blade",
+	source : [["T", 107], ["S", 143]],
+	list : "spell",
+	ability : 6,
+	type : "Cantrip",
+	damage : ["Bd8/Bd8", "", "fire"],
+	range : "With melee wea",
+	description : "First damage added to the attack; second to a target within 5 ft",
+	abilitytodamage : true
+};
+WeaponsList["lightning lure"] = {
+	regExpSearch : /^(?=.*lightning)(?=.*lure).*$/i,
+	name : "Lightning Lure",
+	source : [["T", 107], ["S", 143]],
+	list : "spell",
+	ability : 5,
+	type : "Cantrip",
+	damage : ["C", 8, "lightning"],
+	range : "15 ft",
+	description : "Str save; success - nothing; fail - pulled 10 ft closer to me, only take damage if end within 5 ft of me",
+	abilitytodamage : false,
+	dc : true
+};
+WeaponsList["sword burst"] = {
+	regExpSearch : /^(?=.*sword)(?=.*burst).*$/i,
+	name : "Sword Burst",
+	source : [["T", 115], ["S", 143]],
+	list : "spell",
+	ability : 6,
+	type : "Cantrip",
+	damage : ["C", 6, "force"],
+	range : "5-ft radius",
+	description : "Dex save, success - no damage; all creatures in range",
+	abilitytodamage : false,
+	dc : true
 };

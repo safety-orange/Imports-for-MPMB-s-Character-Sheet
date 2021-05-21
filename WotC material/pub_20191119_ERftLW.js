@@ -1262,7 +1262,7 @@ FeatsList["aberrant dragonmark-erlw"] = {
 	source : [["E:RLW", 52]],
 	prerequisite : "No other dragonmark",
 	prereqeval : function(v) { return !(/dragonmark/i).test(CurrentRace.known); },
-	descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n" + toUni("d8\tFlaw") + "\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
+	descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n" + toUni("d8\tFlaw") + "\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
 	description : "I learn a sorcerer cantrip, and a 1st-level spell that I can cast once per short rest. They use Con as spellcasting ability. I can expend and roll an HD when I cast the level 1 spell. If even, I gain it in temp HP. If odd, a random target in 30 ft takes it in force damage. [+1 Con]",
 	scores : [0, 0, 1, 0, 0, 0],
 	spellcastingAbility : 3,
@@ -1445,7 +1445,7 @@ BackgroundFeatureList["house connections"] = {
 ClassList.artificer = {
 	regExpSearch : /^(?=.*artificer)(?!.*wizard).*$/i,
 	name : "Artificer",
-	source : [["E:RLW", 54], ["TCoE", 9]],
+	source : [["E:RLW", 54], ["T", 9]],
 	primaryAbility : "Intelligence",
 	abilitySave : 4,
 	prereqs : "Intelligence 13",
@@ -1487,7 +1487,7 @@ ClassList.artificer = {
 	features : {
 		"magical tinkering" : {
 			name : "Magical Tinkering",
-			source : [["E:RLW", 55], ["TCoE", 11]],
+			source : [["E:RLW", 55], ["T", 11]],
 			minlevel : 1,
 			description : desc([
 				"As an action, I use thieves/artisan's tools to give 1 property to a nonmagical tiny object:",
@@ -1520,7 +1520,7 @@ ClassList.artificer = {
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
-			source : [["E:RLW", 55], ["TCoE", 11]],
+			source : [["E:RLW", 55], ["T", 11]],
 			minlevel : 1,
 			description : desc([
 				"I can cast prepared artificer cantrips/spells, using Intelligence as my spellcasting ability",
@@ -1535,7 +1535,8 @@ ClassList.artificer = {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (!spellObj.psionic && spName == "artificer" && spellObj.compMaterial === SpellsList[spellKey].compMaterial) {
-							spellObj.compMaterial = (spellObj.compMaterial ? spellObj.compMaterial + ".\n\nAlso a" : "A") + "lways requires my artificer spellcasting focus: thieves' tools, any set of artisan's tools I'm proficient with, " + (classes.known.artificer.subclass.indexOf("artillerist") !== -1 && classes.known.artificer.level > 4 ? "my arcane firearm, " : "") + "or an item infused by me.";
+							var extraFocus = classes.known.artificer.subclass.indexOf("artillerist") !== -1 && classes.known.artificer.level > 4 ? "my arcane firearm, " : classes.known.artificer.subclass.indexOf("armorer") !== -1 && classes.known.artificer.level > 2 ? "my arcane armor, " : "";
+							spellObj.compMaterial = (spellObj.compMaterial ? spellObj.compMaterial + ".\n\nAlso a" : "A") + "lways requires my artificer spellcasting focus: thieves' tools, any set of artisan's tools I'm proficient with, " + extraFocus + "or an item infused by me.";
 							if (GetFeatureChoice("classes", "artificer", "spellcasting", true).indexOf("don't change component column on spell sheet") != -1) {
 								// do nothing if set to do so
 							} else if (!spellObj.components) {
@@ -1556,13 +1557,13 @@ ClassList.artificer = {
 			extraname : "Artificer Spellcasting",
 			"don't change component column on spell sheet" : {
 				name : "[Meta] Don't alter spell sheets",
-				source : [["E:RLW", 55], ["TCoE", 11]],
+				source : [["E:RLW", 55], ["T", 11]],
 				description : "\n   The automation will not add M\u0192 to each artificer spell on the generated spell sheets"
 			}
 		},
 		"infuse item" : {
 			name : "Infuse Item",
-			source : [["E:RLW", 57], ["TCoE", 12]],
+			source : [["E:RLW", 57], ["T", 12]],
 			minlevel : 2,
 			description : '\n   Use the "Choose Feature" button above to add Artificer Infusions to the third page',
 			additional : levels.map(function (n) {
@@ -1575,7 +1576,7 @@ ClassList.artificer = {
 			}),
 			"boots of the winding path (prereq: level 6 artificer)" : {
 				name : "Boots of the Winding Path",
-				source : [["E:RLW", 62], ["TCoE", 21]],
+				source : [["E:RLW", 62], ["T", 21]],
 				description : desc([
 					"The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
 					"It must be a space that the wearer had occupied some time during the current turn"
@@ -1586,7 +1587,7 @@ ClassList.artificer = {
 			},
 			"enhanced arcane focus" : {
 				name : "Enhanced Arcane Focus",
-				source : [["E:RLW", 62], ["TCoE", 21]],
+				source : [["E:RLW", 62], ["T", 21]],
 				description : "\n   The holder has a bonus to spell attack rolls and ignores half cover with spell attacks",
 				additional : levels.map(function (n) {
 					return "rod/staff/wand; attunement; +" + (n < 10 ? 1 : 2);
@@ -1600,7 +1601,7 @@ ClassList.artificer = {
 			},
 			"enhanced defense (armor)" : {
 				name : "Enhanced Defense",
-				source : [["E:RLW", 62], ["TCoE", 21]],
+				source : [["E:RLW", 62], ["T", 21]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
@@ -1617,7 +1618,7 @@ ClassList.artificer = {
 			},
 			"enhanced defense (shield)" : {
 				name : "Enhanced Defense",
-				source : [["E:RLW", 62], ["TCoE", 21]],
+				source : [["E:RLW", 62], ["T", 21]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
@@ -1634,7 +1635,7 @@ ClassList.artificer = {
 			},
 			"enhanced weapon" : {
 				name : "Enhanced Weapon",
-				source : [["E:RLW", 62], ["TCoE", 21]],
+				source : [["E:RLW", 62], ["T", 21]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "simple/martial weapon; +" + (n < 10 ? 1 : 2) + " magical";
@@ -1648,7 +1649,7 @@ ClassList.artificer = {
 			},
 			"homunculus servant" : {
 				name : "Homunculus Servant",
-				source : [["E:RLW", 62], ["TCoE", 21]],
+				source : [["E:RLW", 62], ["T", 21]],
 				description : desc([
 					"The item I infuse becomes the heart of a homunculus that immediately forms around it",
 					"I determine its appearance; It is friendly to me and my allies and obeys my commands",
@@ -1659,7 +1660,7 @@ ClassList.artificer = {
 				creaturesAdd : [["Homunculus Servant"]],
 				creatureOptions : [{
 					name : "Homunculus Servant",
-					source : [["E:RLW", 62], ["TCoE", 22]],
+					source : [["E:RLW", 62], ["T", 22]],
 					size : 5,
 					type : "Construct",
 					alignment : "Neutral",
@@ -1724,7 +1725,7 @@ ClassList.artificer = {
 			},
 			"radiant weapon (prereq: level 6 artificer)" : {
 				name : "Radiant Weapon",
-				source : [["E:RLW", 62], ["TCoE", 22]],
+				source : [["E:RLW", 62], ["T", 22]],
 				description : desc([
 					"The weapon has a +1 bonus to attack and damage rolls made with it and it sheds light",
 					"As a bonus action, its wielder can start/stop the light, 30-ft radius bright + 30 ft dim light",
@@ -1738,7 +1739,7 @@ ClassList.artificer = {
 			},
 			"repeating shot" : {
 				name : "Repeating Shot",
-				source : [["E:RLW", 62], ["TCoE", 22]],
+				source : [["E:RLW", 62], ["T", 22]],
 				description : desc([
 					"The weapon requiring ammunition has a +1 bonus to attack and damage rolls made with it",
 					"It magically produces one piece of ammunition whenever it is used to make a ranged attack",
@@ -1749,7 +1750,7 @@ ClassList.artificer = {
 			},
 			"repulsion shield (prereq: level 6 artificer)" : {
 				name : "Repulsion Shield",
-				source : [["E:RLW", 63], ["TCoE", 23]],
+				source : [["E:RLW", 63], ["T", 23]],
 				description : desc([
 					"The shield gives its wearer an extra +1 bonus to AC; It has 4 charges, regaining 1d4 daily",
 					"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft"
@@ -1760,7 +1761,7 @@ ClassList.artificer = {
 			},
 			"resistant armor (prereq: level 6 artificer)" : {
 				name : "Resistant Armor",
-				source : [["E:RLW", 63], ["TCoE", 23]],
+				source : [["E:RLW", 63], ["T", 23]],
 				description : desc([
 					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
 					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
@@ -1771,7 +1772,7 @@ ClassList.artificer = {
 			},
 			"returning weapon" : {
 				name : "Returning Weapon",
-				source : [["E:RLW", 63], ["TCoE", 23]],
+				source : [["E:RLW", 63], ["T", 23]],
 				description : "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
 				additional : "weapon with the thrown property",
 				magicitemsAdd : ["Returning Weapon"]
@@ -1779,14 +1780,14 @@ ClassList.artificer = {
 		},
 		"the right tool for the job" : {
 			name : "The Right Tool for the Job",
-			source : [["E:RLW", 57], ["TCoE", 13]],
+			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 3,
 			description : "\n   In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again",
 			additional : "using thieves' or artisan's tools"
 		},
 		"subclassfeature3" : {
 			name : "Artificer Specialist",
-			source : [["E:RLW", 57], ["TCoE", 13]],
+			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 3,
 			description : desc([
 				'Choose a specialism and put it in the "Class" field on the first page',
@@ -1795,7 +1796,7 @@ ClassList.artificer = {
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
-			source : [["E:RLW", 57], ["TCoE", 13]],
+			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 6,
 			description : " [expertise with all tools I'm proficient with]",
 			skillstxt : "Expertise with all tools I'm proficient with",
@@ -1804,7 +1805,7 @@ ClassList.artificer = {
 		},
 		"flash of genius" : {
 			name : "Flash of Genius",
-			source : [["E:RLW", 57], ["TCoE", 13]],
+			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 7,
 			description : "\n   As a reaction when I or another in 30 ft make a check/save, I can add my Int mod to it",
 			action : [["reaction", ""]],
@@ -1814,7 +1815,7 @@ ClassList.artificer = {
 		},
 		"magic item adept" : {
 			name : "Magic Item Adept",
-			source : [["E:RLW", 57], ["TCoE", 13]],
+			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 10,
 			description : "\n   It takes me half the normal time and gold to craft common and uncommon magic items",
 			additional : levels.map(function (n) {
@@ -1823,7 +1824,7 @@ ClassList.artificer = {
 		},
 		"spell-storing item" : {
 			name : "Spell-Storing Item",
-			source : [["E:RLW", 58], ["TCoE", 13]],
+			source : [["E:RLW", 58], ["T", 13]],
 			minlevel : 11,
 			description : desc([
 				"When I finish a long rest, I can infuse a 1st-/2nd-level artificer spell into an item I touch",
@@ -1838,13 +1839,13 @@ ClassList.artificer = {
 		},
 		"magic item savant" : {
 			name : "Magic Item Savant",
-			source : [["E:RLW", 58], ["TCoE", 14]],
+			source : [["E:RLW", 58], ["T", 14]],
 			minlevel : 14,
 			description : " [ignore class/race/spell/level attune require.]"
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
-			source : [["E:RLW", 58], ["TCoE", 14]],
+			source : [["E:RLW", 58], ["T", 14]],
 			minlevel : 20,
 			description : " [+1 on all saves per attuned magic item]\n   As a reaction when I'm reduced to 0 HP, I can end one infusion to drop to 1 HP instead",
 			action : [["reaction", ""]],
@@ -1858,107 +1859,8 @@ ClassList.artificer = {
 	prereqLvl14 : function(v) { return classes.known.artificer.level >= 14; },
 };
 
-// Set the Artificer class spell and infusion lists
-RunFunctionAtEnd(function(){
-	var artSp = [
-		"acid splash",
-		"create bonfire",
-		"dancing lights",
-		"fire bolt",
-		"frostbite",
-		"guidance",
-		"light",
-		"mage hand",
-		"magic stone",
-		"mending",
-		"message",
-		"poison spray",
-		"prestidigitation",
-		"ray of frost",
-		"resistance",
-		"shocking grasp",
-		"spare the dying",
-		"thorn whip",
-		"thunderclap",
-		// level 1
-		"absorb elements",
-		"alarm",
-		"catapult",
-		"cure wounds",
-		"detect magic",
-		"disguise self",
-		"expeditious retreat",
-		"faerie fire",
-		"false life",
-		"feather fall",
-		"grease",
-		"identify",
-		"jump",
-		"longstrider",
-		"purify food and drink",
-		"sanctuary",
-		"snare",
-		// level 2
-		"aid",
-		"alter self",
-		"arcane lock",
-		"blur",
-		"continual flame",
-		"darkvision",
-		"enhance ability",
-		"enlarge/reduce",
-		"heat metal",
-		"invisibility",
-		"lesser restoration",
-		"levitate",
-		"magic mouth",
-		"magic weapon",
-		"protection from poison",
-		"pyrotechnics",
-		"rope trick",
-		"see invisibility",
-		"skywrite",
-		"spider climb",
-		"web",
-		// level 3
-		"blink",
-		"catnap",
-		"create food and water",
-		"dispel magic",
-		"elemental weapon",
-		"flame arrows",
-		"fly",
-		"glyph of warding",
-		"haste",
-		"protection from energy",
-		"revivify",
-		"tiny servant",
-		"water breathing",
-		"water walk",
-		// level 4
-		"arcane eye",
-		"elemental bane",
-		"fabricate",
-		"freedom of movement",
-		"leomund's secret chest",
-		"mordenkainen's faithful hound",
-		"mordenkainen's private sanctum",
-		"otiluke's resilient sphere",
-		"stone shape",
-		"stoneskin",
-		// level 5
-		"animate objects",
-		"bigby's hand",
-		"creation",
-		"greater restoration",
-		"skill empowerment",
-		"transmute rock",
-		"wall of stone"
-	];
-	for (var a = 0; a < artSp.length; a++) {
-		var aArtSp = SpellsList[artSp[a]];
-		if(aArtSp && aArtSp.classes && aArtSp.classes.indexOf("artificer") === -1) aArtSp.classes.push("artificer");
-	};
+// Set the Artificer infusion list for Replicate Magic Item
+RunFunctionAtEnd(function() {
 	var artMi = [
 		// 2nd-level artificer
 		["alchemy jug", 2],
@@ -2035,6 +1937,18 @@ RunFunctionAtEnd(function(){
 			}
 		}
 	}
+	var getLetterRange = function(str) {
+		var iCharNr = removeDiacritics(str[0].toLowerCase()).charCodeAt(0) - 97;
+		var oOpt = {
+			"A-F" : ("f").charCodeAt(0) - 97,
+			"G-Q" : ("q").charCodeAt(0) - 97,
+			"R-Z" : ("z").charCodeAt(0) - 97,
+		}
+		for (var sRng in oOpt) {
+			if (iCharNr <= oOpt[sRng]) return sRng;
+		}
+		return sRng; // higher than the last, so just return the last
+	};
 	var theObj = ClassList.artificer.features["infuse item"];
 	for (var a = 0; a < artMi.length; a++) {
 		var MI0 = artMi[a][0];
@@ -2060,7 +1974,7 @@ RunFunctionAtEnd(function(){
 			magicitemsAdd : [anArtMi.name],
 			additional : anArtMi.attunement ? "requires attunement" : undefined,
 			prereqeval : MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
-			submenu : "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" "+MI1).slice(-2) + " artificer)" : " (common magic items)")
+			submenu : "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" "+MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name) + "]")
 		};
 		theObj.extrachoices.push(theI);
 	};
@@ -2071,11 +1985,11 @@ AddSubClass("artificer", "alchemist", {
 	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
 	subname : "Alchemist",
 	fullname : "Alchemist",
-	source : [["E:RLW", 58], ["TCoE", 14]],
+	source : [["E:RLW", 58], ["T", 14]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools Proficiency",
-			source : [["E:RLW", 58], ["TCoE", 14]],
+			source : [["E:RLW", 58], ["T", 14]],
 			minlevel : 3,
 			description : " [proficient with alchemist's supplies]",
 			toolProfs : ["Alchemist's supplies"],
@@ -2083,7 +1997,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Experimental Elixir",
-			source : [["E:RLW", 58], ["TCoE", 14]],
+			source : [["E:RLW", 58], ["T", 14]],
 			minlevel : 3,
 			description : desc([
 				"When I finish a long rest I can produce a number of elixirs in empty flasks I touch",
@@ -2115,7 +2029,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature5" : {
 			name : "Alchemical Savant",
-			source : [["E:RLW", 58], ["TCoE", 15]],
+			source : [["E:RLW", 58], ["T", 15]],
 			minlevel : 5,
 			description : desc([
 				"When I cast spells using alchemist's supplies as my spellcasting focus, I can enhance them",
@@ -2161,7 +2075,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature9" : {
 			name : "Restorative Reagents",
-			source : [["E:RLW", 59], ["TCoE", 15]],
+			source : [["E:RLW", 59], ["T", 15]],
 			minlevel : 9,
 			description : desc([
 				"Drinking my experimental elixirs now also grants 2d6 + my Int mod in temp HP (min 1)",
@@ -2187,7 +2101,7 @@ AddSubClass("artificer", "alchemist", {
 		},
 		"subclassfeature15" : {
 			name : "Chemical Mastery",
-			source : [["E:RLW", 59], ["TCoE", 15]],
+			source : [["E:RLW", 59], ["T", 15]],
 			minlevel : 15,
 			description : " [each spell 1\xD7 per long rest]" + desc([
 				"I have resistance to acid and poison damage and immunity to being poisoned",
@@ -2235,11 +2149,11 @@ AddSubClass("artificer", "artillerist", {
 	regExpSearch : /^(?=.*artillerist)(?!.*wizard).*$/i,
 	subname : "Artillerist",
 	fullname : "Artillerist",
-	source : [["E:RLW", 59], ["TCoE", 17]],
+	source : [["E:RLW", 59], ["T", 17]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools Proficiency",
-			source : [["E:RLW", 59], ["TCoE", 17]],
+			source : [["E:RLW", 59], ["T", 17]],
 			minlevel : 3,
 			description : " [proficient with woodcarver's tools]",
 			toolProfs : ["Woodcarver's tools"],
@@ -2247,7 +2161,7 @@ AddSubClass("artificer", "artillerist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Eldritch Cannon",
-			source : [["E:RLW", 59], ["TCoE", 17]],
+			source : [["E:RLW", 59], ["T", 17]],
 			minlevel : 3,
 			description : desc([
 				"As an action, I can use woodcarver's or smith's tools to create an eldritch cannon in 5 ft",
@@ -2267,8 +2181,8 @@ AddSubClass("artificer", "artillerist", {
 			creaturesAdd : [["Eldritch Cannon"]],
 			creatureOptions : [{
 				name : "Eldritch Cannon",
-				source : [["E:RLW", 59], ["TCoE", 17]],
-				size : 5,
+				source : [["E:RLW", 59], ["T", 17]],
+				size : [4, 5],
 				type : "Object",
 				alignment : "",
 				ac : 18,
@@ -2373,7 +2287,7 @@ AddSubClass("artificer", "artillerist", {
 		},
 		"subclassfeature5" : {
 			name : "Arcane Firearm",
-			source : [["E:RLW", 59], ["TCoE", 18]],
+			source : [["E:RLW", 59], ["T", 18]],
 			minlevel : 5,
 			description : " [lasts until I use this feature again]" + desc([
 				"After a long rest, I can use woodcarver's tools to enhance a wand, staff, or rod",
@@ -2411,14 +2325,14 @@ AddSubClass("artificer", "artillerist", {
 		},
 		"subclassfeature9" : {
 			name : "Explosive Cannon",
-			source : [["E:RLW", 60], ["TCoE", 18]],
+			source : [["E:RLW", 60], ["T", 18]],
 			minlevel : 9,
 			description : "\n   My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft",
 			action : [["action", "Eldritch Cannon (detonate)"]]
 		},
 		"subclassfeature15" : {
 			name : "Fortified Position",
-			source : [["E:RLW", 60], ["TCoE", 18]],
+			source : [["E:RLW", 60], ["T", 18]],
 			minlevel : 15,
 			description : " [cannons grant half cover in 10 ft to allies]" + desc([
 				"I can now have two cannons at the same time and activate both with one bonus action",
@@ -2433,12 +2347,12 @@ AddSubClass("artificer", "battle smith", {
 	regExpSearch : /^(?=.*battle)(?=.*smith)(?!.*wizard).*$/i,
 	subname : "Battle Smith",
 	fullname : "Battle Smith",
-	source : [["E:RLW", 60], ["TCoE", 18]],
+	source : [["E:RLW", 60], ["T", 18]],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Battle Ready \u0026 Tool Proficiency",
-			source : [["E:RLW", 61], ["TCoE", 19]],
+			source : [["E:RLW", 61], ["T", 19]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with martial weapons and smith's tools",
@@ -2460,7 +2374,7 @@ AddSubClass("artificer", "battle smith", {
 		},
 		"subclassfeature3.1" : {
 			name : "Steel Defender",
-			source : [["E:RLW", 61], ["TCoE", 19]],
+			source : [["E:RLW", 61], ["T", 19]],
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use smith's tools to create a steel defender",
@@ -2473,7 +2387,7 @@ AddSubClass("artificer", "battle smith", {
 			creaturesAdd : [["Steel Defender"]],
 			creatureOptions : [{
 				name : "Steel Defender",
-				source : [["E:RLW", 61], ["TCoE", 19]],
+				source : [["E:RLW", 61], ["T", 19]],
 				size : 3,
 				type : "Construct",
 				alignment : "Neutral",
@@ -2576,7 +2490,7 @@ AddSubClass("artificer", "battle smith", {
 		},
 		"subclassfeature9" : {
 			name : "Arcane Jolt",
-			source : [["E:RLW", 61], ["TCoE", 20]],
+			source : [["E:RLW", 61], ["T", 20]],
 			minlevel : 9,
 			description : function () {
 				var descr9 = desc([
@@ -2608,7 +2522,7 @@ AddSubClass("artificer", "battle smith", {
 		},
 		"subclassfeature15" : {
 			name : "Improved Defender",
-			source : [["E:RLW", 61], ["TCoE", 20]],
+			source : [["E:RLW", 61], ["T", 20]],
 			minlevel : 15,
 			description : desc([
 				"My defender's Deflect Attack now deals its attacker 1d4 + my Int mod force damage",
@@ -2621,7 +2535,7 @@ AddSubClass("artificer", "battle smith", {
 // Add the new special magic items for the artificer class (infusions)
 MagicItemsList["boots of the winding path"] = {
 	name : "Boots of the Winding Path",
-	source : [["E:RLW", 62], ["TCoE", 21], ["UA:A2", 9], ["UA:A3", 12]],
+	source : [["E:RLW", 62], ["T", 21], ["UA:A2", 9], ["UA:A3", 12]],
 	type : "wondrous item",
 	description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
 	descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
@@ -2631,7 +2545,7 @@ MagicItemsList["boots of the winding path"] = {
 MagicItemsList["radiant weapon"] = {
 	name : "Radiant Weapon",
 	nameTest : "Radiant",
-	source : [["E:RLW", 62], ["TCoE", 22]],
+	source : [["E:RLW", 62], ["T", 22]],
 	type : "weapon (any)",
 	description : "This item adds a +1 on its to hit and damage, has 4 charges, and regains 1d4 at dawn. As a bonus action, I can have it start/stop shedding light, bright in 30 ft, dim in another 30 ft. As a reaction if hit by an attack, I can use 1 charge to blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker suc­ceeds on a Constitution saving throw against your spell save DC. The weapon regains ld4 expended charges daily at dawn. ",
@@ -2667,7 +2581,7 @@ MagicItemsList["radiant weapon"] = {
 }
 MagicItemsList["repeating shot"] = {
 	name : "Repeating Shot",
-	source : [["E:RLW", 62], ["TCoE", 22], ["UA:A3", 13]],
+	source : [["E:RLW", 62], ["T", 22], ["UA:A3", 13]],
 	type : "weapon (any with ammunition)",
 	description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic am­munition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
@@ -2701,7 +2615,7 @@ MagicItemsList["repeating shot"] = {
 }
 MagicItemsList["repulsion shield"] = {
 	name : "Repulsion Shield",
-	source : [["E:RLW", 63], ["TCoE", 23]],
+	source : [["E:RLW", 63], ["T", 23]],
 	type : "shield",
 	description : "I gain an additional +1 bonus to Armor Class while wielding this shield. The shield has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction immediately after being hit by a melee attack, I can expend 1 charge to push the attacker up to 15 ft away.",
 	descriptionFull : "A creature gains a + 1 bonus to Armor Class while wield­ing this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a me­lee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains ld4 expended charges daily at dawn. ",
@@ -2716,7 +2630,7 @@ MagicItemsList["repulsion shield"] = {
 MagicItemsList["returning weapon"] = {
 	name : "Returning Weapon",
 	nameTest : "Returning",
-	source : [["E:RLW", 63], ["TCoE", 23], ["UA:A3", 14], ["UA:A2", 10]],
+	source : [["E:RLW", 63], ["T", 23], ["UA:A3", 14], ["UA:A2", 10]],
 	type : "weapon (any thrown)",
 	description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
 	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
@@ -2755,7 +2669,7 @@ MagicItemsList["arcane propulsion arm"] = {
 	source : [["E:RLW", 276]],
 	type : "wondrous item",
 	rarity : "very rare",
-	description : "Once attached to my wrist, elbow, or shoulder, this prosthetic magically forms a copy of the appendage it's replacing. It can't be removed against my will, but I can as an action. I am can use it as a proficient melee weapon with the thrown property. After a throwing attack with it, it returns and reattaches immediately.",
+	description : "Once attached to my wrist, elbow, or shoulder, this prosthetic magically forms a copy of the appendage it's replacing. It can't be removed against my will, but I can as an action. I can use it as a proficient melee weapon with the thrown property. After a throwing attack with it, it returns and reattaches immediately.",
 	descriptionFull : "This prosthetic appendage was developed by artificers of House Cannith. To attune to this item, you must attach it to your arm at the wrist, elbow, or shoulder, at which point the prosthetic magically forms a copy of the appendage it's replacing.\n\nWhile attached, the prosthetic provides these benefits:\n \u2022 The prosthetic is a fully capable part of your body.\n \u2022 You can take an action to remove the prosthetic, and it removes itself if your attunement to it ends. It can't be removed against your will.\n \u2022 The prosthetic is a magic melee weapon with which you're proficient. It deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the prosthetic detaches and flies at the target of the attack, then immediately returns to you and reattaches.",
 	attunement : true,
 	prerequisite : "Requires attunement by a creature missing a hand or an arm",

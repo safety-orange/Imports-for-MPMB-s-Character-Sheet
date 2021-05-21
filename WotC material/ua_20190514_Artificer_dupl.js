@@ -1121,7 +1121,7 @@ SpellsList["arcane weapon-ua"] = {
 if (!MagicItemsList["boots of the winding path"]) {
 	MagicItemsList["boots of the winding path"] = {
 		name : "Boots of the Winding Path",
-		source : [["E:RLW", 62], ["TCoE", 21], ["UA:A2", 9], ["UA:A3", 12]],
+		source : [["E:RLW", 62], ["T", 21], ["UA:A2", 9], ["UA:A3", 12]],
 		type : "wondrous item",
 		description : "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
 		descriptionFull : "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
@@ -1190,7 +1190,7 @@ MagicItemsList["repulsion shield-ua"] = { // 2019v2
 if (!MagicItemsList["repeating shot"]) {
 	MagicItemsList["repeating shot"] = { // 2019v2
 		name : "Repeating Shot",
-		source : [["E:RLW", 62], ["TCoE", 22], ["UA:A3", 13]],
+		source : [["E:RLW", 62], ["T", 22], ["UA:A3", 13]],
 		type : "weapon (any with ammunition)",
 		description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
 		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
@@ -1227,7 +1227,7 @@ if (!MagicItemsList["returning weapon"]) {
 	MagicItemsList["returning weapon"] = {
 		name : "Returning Weapon",
 		nameTest : "Returning",
-		source : [["E:RLW", 63], ["TCoE", 23], ["UA:A3", 14], ["UA:A2", 10]],
+		source : [["E:RLW", 63], ["T", 23], ["UA:A3", 14], ["UA:A2", 10]],
 		type : "weapon (any thrown)",
 		description : "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
 		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",

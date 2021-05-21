@@ -68,7 +68,7 @@ AddSubClass("fighter", "rune knight-ua", {
 				name : "Ild",
 				source : ["UA:FRnR", 1],
 				description : desc([
-					"While I wear an object inscribed with this, I gain craftmanship reminiscent of fire giants",
+					"While I wear an object inscribed with this, I gain craftsmanship reminiscent of fire giants",
 					"I always double my proficiency bonus when making an ability check with a tool",
 					"When I hit a creature with a weapon attack, I can invoke it to summon fiery shackles",
 					"It must make a Str save or be restrained for 1 min; Repeat save at end of each of its turns",
@@ -140,7 +140,7 @@ AddSubClass("fighter", "rune knight-ua", {
 					"I always gain adv. on Int (Arcana) checks and I can't be surprised while not incapacitated",
 					"As a bonus action, I can invoke it to enter a prophetic state for 1 min or till incapacitated",
 					"While in this state, I can use a reaction to cause a roll to gain advantage or disadvantage",
-					"I can only do this for attacks, saves, and checks of other creatures I can see within 60 ft"
+					"I can do this for attacks, saves, and checks of myself or others I can see within 60 ft of me"
 				]),
 				action : [["bonus action", " (invoke)"]],
 				limfeaname : "Uvar Rune",

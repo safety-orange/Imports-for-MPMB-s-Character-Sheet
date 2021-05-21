@@ -1,5 +1,5 @@
 var iFileName = "pub_20190903_DnDEK.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.6");
 // This file adds the sidekick rules from the Dungeons & Dragons Essentials Kit adventures to MPMB's Character Record Sheet
 /* - NOTICE -
 	These sidekick classes are available as normal classes because the sheet doesn't support classes for the companion page
@@ -131,124 +131,31 @@ ClassList["sidekick-expert"] = {
 			description : "\n   I can use a bonus action to take the Dash, Disengage, or Hide action",
 			action : ["bonus action", ""]
 		},
-		"expertise" : {
-			name : "Expertise",
-			source : ["DnDEK", 0],
-			minlevel : 3,
-			description : "\n   " + "I gain expertise with two skills I am proficient with",
-			skillstxt : "Expertise with any two skill proficiencies",
-			extraname : "Expertise",
-			extrachoices : ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"],
-			extraTimes : levels.map(function (n) { return n < 3 ? 0 : n < 10 ? 2 : 4; }),
-			"acrobatics" : {
-				name : "Acrobatics Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Acrobatics") !== -1; },
-				skills : [["Acrobatics", "only"]]
-			},
-			"animal handling" : {
-				name : "Animal Handling Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Animal Handling") !== -1; },
-				skills : [["Animal Handling", "only"]]
-			},
-			"arcana" : {
-				name : "Arcana Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Arcana") !== -1; },
-				skills : [["Arcana", "only"]]
-			},
-			"athletics" : {
-				name : "Athletics Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Athletics") !== -1; },
-				skills : [["Athletics", "only"]]
-			},
-			"deception" : {
-				name : "Deception Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Deception") !== -1; },
-				skills : [["Deception", "only"]]
-			},
-			"history" : {
-				name : "History Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("History") !== -1; },
-				skills : [["History", "only"]]
-			},
-			"insight" : {
-				name : "Insight Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Insight") !== -1; },
-				skills : [["Insight", "only"]]
-			},
-			"intimidation" : {
-				name : "Intimidation Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Intimidation") !== -1; },
-				skills : [["Intimidation", "only"]]
-			},
-			"investigation" : {
-				name : "Investigation Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Investigation") !== -1; },
-				skills : [["Investigation", "only"]]
-			},
-			"medicine" : {
-				name : "Medicine Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Medicine") !== -1; },
-				skills : [["Medicine", "only"]]
-			},
-			"nature" : {
-				name : "Nature Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Nature") !== -1; },
-				skills : [["Nature", "only"]]
-			},
-			"perception" : {
-				name : "Perception Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Perception") !== -1; },
-				skills : [["Perception", "only"]]
-			},
-			"performance" : {
-				name : "Performance Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Performance") !== -1; },
-				skills : [["Performance", "only"]]
-			},
-			"persuasion" : {
-				name : "Persuasion Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Persuasion") !== -1; },
-				skills : [["Persuasion", "only"]]
-			},
-			"religion" : {
-				name : "Religion Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Religion") !== -1; },
-				skills : [["Religion", "only"]]
-			},
-			"sleight of hand" : {
-				name : "Sleight of Hand Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Sleight of Hand") !== -1; },
-				skills : [["Sleight of Hand", "only"]]
-			},
-			"stealth" : {
-				name : "Stealth Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Stealth") !== -1; },
-				skills : [["Stealth", "only"]]
-			},
-			"survival" : {
-				name : "Survival Expertise", description : "",
-				source : ["DnDEK", 0],
-				prereqeval : function(v) { return v.skillProfs.indexOf("Survival") !== -1; },
-				skills : [["Survival", "only"]]
+		"expertise" : function() {
+			var a = {
+				name : "Expertise",
+				source : [["DnDEK", 0]],
+				minlevel : 3,
+				description : "\n   " + "I gain expertise with two skills I am proficient with",
+				skillstxt : "Expertise with any two skill proficiencies",
+				extraname : "Expertise",
+				extrachoices : ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"],
+				extraTimes : levels.map(function (n) { return n < 3 ? 0 : n < 10 ? 2 : 4; })
 			}
-		},
+			for (var i = 0; i < a.extrachoices.length; i++) {
+				var attr = a.extrachoices[i].toLowerCase();
+				a[attr] = {
+					name : a.extrachoices[i] + " Expertise",
+					description : "",
+					source : a.source,
+					skills : [[a.extrachoices[i], "only"]],
+					prereqeval : function(v) {
+						return v.skillProfsLC.indexOf(v.choice) === -1 ? false : v.skillExpertiseLC.indexOf(v.choice) === -1 ? true : "markButDisable";
+					}
+				}
+			}
+			return a;
+		}(),
 		"inspiring help" : {
 			name : "Inspiring Help",
 			source : ["DnDEK", 0],
