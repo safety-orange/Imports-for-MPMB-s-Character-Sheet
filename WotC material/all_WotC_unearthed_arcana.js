@@ -1,6 +1,6 @@
 if (sheetVersion < 13) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.6-beta2");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -775,7 +775,7 @@ AddRacialVariant("minotaur-ua", "strength", {
 	regExpSearch : /(strength|strong|\bmight\b)/i,
 	name : "Minotaur [Strength]",
 	source : ["UA:WA", 2],
-	improvements : "Minotaur [strength]: +2 Strength;",
+	scorestxt : "",
 	scores : [1, 0, 0, 0, 0, 0],
 	trait : "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
 });
@@ -9869,7 +9869,7 @@ WeaponsList["energy beam-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 8, "My choice"],
 	range : "90 ft",
-	description : "Dex save, success - no damage; Acid, cold, fire, lightning, or thunder damage [my choice] (UA:TMC 27)",
+	description : "Dex save, success - no damage; Acid, cold, fire, lightning, or thunder damage [my choice]",
 	abilitytodamage : false,
 	dc : true
 };
@@ -9882,7 +9882,7 @@ WeaponsList["mind slam-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "force"],
 	range : "60 ft",
-	description : "Con save, success - no damage, fail - Large or smaller target also knocked prone (UA:TMC 28)",
+	description : "Con save, success - no damage, fail - Large or smaller target also knocked prone",
 	abilitytodamage : false,
 	dc : true
 };
@@ -9895,7 +9895,7 @@ WeaponsList["mind thrust-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 10, "psychic"],
 	range : "120 ft",
-	description : "Int save, success - no damage (UA:TMC 28)",
+	description : "Int save, success - no damage",
 	abilitytodamage : false,
 	dc : true
 };
@@ -9908,7 +9908,7 @@ WeaponsList["psychic hammer-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "force"],
 	range : "120 ft",
-	description : "Str save, success - no damage, fail - also move 10 ft in chosen direction (UA:TMC 28)",
+	description : "Str save, success - no damage, fail - also move 10 ft in chosen direction",
 	abilitytodamage : false,
 	dc : true
 };
@@ -10422,7 +10422,7 @@ WeaponsList["hand of radiance-uass"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "radiant"],
 	range : "5-ft radius",
-	description : "Con save, success - no damage; Only chosen creatures I can see are affected (UA:SS 3)",
+	description : "Con save, success - no damage; Only chosen creatures I can see are affected",
 	abilitytodamage : false,
 	dc : true
 };
@@ -10435,7 +10435,7 @@ WeaponsList["infestation-uass"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "piercing"],
 	range : "30 ft",
-	description : "Con save, success - no damage, fail - target also moved 5 ft in random direction (UA:SS 3)",
+	description : "Con save, success - no damage, fail - target also moved 5 ft in random direction",
 	abilitytodamage : false,
 	dc : true
 };
@@ -10448,7 +10448,7 @@ WeaponsList["primal savagery-uass"] = {
 	type : "Cantrip",
 	damage : ["C", 10, "piercing"],
 	range : "Melee (5 ft)",
-	description : "Does either Piercing or Slashing damage (my choice) (UA:SS 3)",
+	description : "Does either Piercing or Slashing damage (my choice)",
 	abilitytodamage : false
 };
 
@@ -11323,7 +11323,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 							if (theWea.ability === 1) {
 								fields.Mod = v.StrDex;
 							};
-							if (isRangedWeapon) {
+							if (v.isRangedWeapon) {
 								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
 							};
 							fields.Proficiency = true;
@@ -14931,7 +14931,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				source : ["UA:BnM", 3],
 				description : " [1 ki point]" + desc([
 					"As a bonus action (or when summoning my astral arms), I can summon my astral visage",
-					"It covers my face like a helmet or mask and choose its appearance; It lasts for 10 minutes",
+					"It covers my face like a helmet or mask and I choose its appearance; It lasts for 10 minutes",
 					"It grants adv. on Insight \u0026 Intimidation, and the ability to see 120 ft in (magical) darkness"
 				])
 			},
@@ -14946,7 +14946,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				name : "Deflect Energy",
 				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
-				description : " [if both astral arms & visage]" + desc([
+				description : " [if both astral arms \u0026 visage]" + desc([
 					"As a reaction when I take acid, cold, fire, force, or lightning damage, I can deflect it",
 					"By doing so, the damage is reduced by 1d10 + my Wisdom modifier + my Monk level"
 				])
@@ -14955,7 +14955,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				name : "Empowered Arms",
 				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
-				description : " [if both astral arms & visage]" + desc([
+				description : " [if both astral arms \u0026 visage]" + desc([
 					"Once per turn when I hit an astral arms attack, I can add a martial arts die to its damage"
 				])
 			},
@@ -14963,7 +14963,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 				name : "Word of the Spirit",
 				extraname : "Awakening of the Astral Self",
 				source : ["UA:BnM", 3],
-				description : " [if both astral arms & visage]" + desc([
+				description : " [if both astral arms \u0026 visage]" + desc([
 					"I can direct my words to a creature I can see within 30 ft so that only it can hear me",
 					"Alternatively, I can amplify my voice so that it is heard by all within 600 ft of me"
 				])
@@ -15391,6 +15391,7 @@ AddSubClass("paladin", "oath of heroism-ua", {
 		}
 	}
 });
+
 // ua_20191003_Cleric-Druid-and-Wizard.js
 // This file adds the content from the Unearthed Arcana: Cleric, Druid, and Wizard article to MPMB's Character Record Sheet
 
@@ -15521,7 +15522,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			source : ["UA:CDnW", 2],
 			minlevel : 2,
 			description : desc([
-				"My mystical bond with a wildfire spirit gives me with the ability to cast certain spells",
+				"My mystical bond with a wildfire spirit gives me the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare",
 				"In addition, I learn the Fire Bolt cantrip"
 			]),
@@ -15628,7 +15629,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			minlevel : 6,
 			description : desc([
 				"While my wildfire spirit is present, I can have my spells originate from it (no range 'self')",
-				"Also, I can add 1d8 to a single roll of my spells that restore HP or deal fire damage"
+				"Also, I can then add 1d8 to a single roll of my spells that restore HP or deal fire damage"
 			])
 		},
 		"subclassfeature10" : {
@@ -15640,6 +15641,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 				"The creature has to be Small or larger; The flames last for 1 minute or until touched",
 				"When I see someone touch the flames, it heals or takes fire damage for 2d10 + Wis mod"
 			]),
+			action : [["reaction", ""]],
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
@@ -15650,7 +15652,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			minlevel : 14,
 			description : desc([
 				"If I drop to 0 HP and don't die, I can stay at 1 HP instead with 5\xD7 druid level temp HP",
-				"Also, all chosen creatures that I can see within 30 ft take 2d10 + druid level fire "
+				"Also, all chosen creatures that I can see within 30 ft take 2d10 + druid level fire damage"
 			]),
 			usages : 1,
 			recovery : "long rest"
@@ -15860,7 +15862,7 @@ AddSubClass("fighter", "rune knight-ua", {
 				name : "Ild",
 				source : ["UA:FRnR", 1],
 				description : desc([
-					"While I wear an object inscribed with this, I gain craftmanship reminiscent of fire giants",
+					"While I wear an object inscribed with this, I gain craftsmanship reminiscent of fire giants",
 					"I always double my proficiency bonus when making an ability check with a tool",
 					"When I hit a creature with a weapon attack, I can invoke it to summon fiery shackles",
 					"It must make a Str save or be restrained for 1 min; Repeat save at end of each of its turns",
@@ -15932,7 +15934,7 @@ AddSubClass("fighter", "rune knight-ua", {
 					"I always gain adv. on Int (Arcana) checks and I can't be surprised while not incapacitated",
 					"As a bonus action, I can invoke it to enter a prophetic state for 1 min or till incapacitated",
 					"While in this state, I can use a reaction to cause a roll to gain advantage or disadvantage",
-					"I can only do this for attacks, saves, and checks of other creatures I can see within 60 ft"
+					"I can do this for attacks, saves, and checks of myself or others I can see within 60 ft of me"
 				]),
 				action : [["bonus action", " (invoke)"]],
 				limfeaname : "Uvar Rune",
@@ -16241,10 +16243,10 @@ CreateClassFeatureVariant("barbarian", "fast movement", "Instinctive Pounce (ua)
 });
 
 // Bard alternative class features enhancements
-AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Expanded Spell List", {
+AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Bard Spell List",
-	source : [["UA:CFV", 3]],
 	extraname : "Optional Bard 1",
+	source : [["UA:CFV", 3]],
 	description : "",
 	calcChanges : {
 		spellList : [
@@ -16253,33 +16255,37 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Expanded Spell Lis
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "color spray", "command", "aid", "enlarge/reduce", "mind spike", "mirror image", "phantasmal force", "mass healing word", "slow", "tiny servant", "phantasmal killer", "contact other plane", "rary's telepathic bond", "heroes' feast", "mental prison", "scatter", "tenser's transformation", "power word pain", "prismatic spray", "antipathy/sympathy", "maze", "prismatic wall"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the bard class."
+			"This alternative class feature enhancement expands the spell list of the bard class with the following spells (spell level in brackets): Cause Fear (1), Color Spray (1), Command (1), Aid (2), Enlarge/Reduce (2), Mind Spike (2), Mirror Image (2), Phantasmal Force (2), Mass Healing Word (3), Slow (3), Tiny Servant (3), Phantasmal Killer (4), Contact Other Plane (5), Rary's Telepathic Bond (5), Heroes' Feast (6), Mental Prison (6), Scatter (6), Tenser's Transformation (6), Power Word Pain (7), Prismatic Spray (7), Antipathy/Sympathy (8), Maze (8), and Prismatic Wall (9)."
 		]
 	}
-}, "Optional 1st-level features");
-AddFeatureChoice(ClassList.bard.features["bardic inspiration"], true, "Magical Inspiration", {
+}, "Optional 1st-level bard features");
+AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Magical Inspiration (ua)", {
 	name : "Magical Inspiration",
-	source : ["UA:CFV", 3],
+	extraname : "Optional Bard 1",
+	source : [["UA:CFV", 3]],
 	description : desc([
 		"A bardic inspiration die recipient can also use it when casting a damaging or healing spell",
 		"They can expend the die and add its result to one damage or healing roll of the spell"
 	])
-}, "Bardic Inspiration Enhancement");
-AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Spell Versatility", {
+}, "Optional 1st-level bard features");
+AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Spell Versatility (ua)", {
 	name : "Spell Versatility",
-	source : ["UA:CFV", 3],
+	extraname : "Optional Bard 1",
+	source : [["UA:CFV", 3]],
 	description : "\n   After a long rest, I can swap a bard cantrip or spell I know for another of the same level"
-}, "Bard Spellcasting Enhancement");
+}, "Optional 1st-level bard features");
 
 // Cleric alternative class features and enhancements
-AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Cantrip Versatility", {
+AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Cantrip Versatility (ua)", {
 	name : "Cantrip Versatility",
-	source : ["UA:CFV", 3],
+	extraname : "Optional Cleric 1",
+	source : [["UA:CFV", 3]],
 	description : "\n   Whenever I gain a cleric level, I can replace a cleric cantrip I know with another"
-}, "Cleric Spellcasting Enhancement");
-AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell List", {
+}, "Optional 1st-level cleric features");
+AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Cleric Spell List",
-	source : ["UA:CFV", 3],
+	extraname : "Optional Cleric 1",
+	source : [["UA:CFV", 3]],
 	description : "",
 	calcChanges : {
 		spellList : [
@@ -16288,32 +16294,33 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell L
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "wrathful smite", "branding smite", "aura of vitality", "aura of life", "aura of purity", "skill empowerment", "wall of light", "power word heal"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the cleric class."
+			"This alternative class feature enhancement expands the spell list of the cleric class with the following spells (spell level in brackets): Cause Fear (1), Wrathful Smite (1), Branding Smite (2), Aura of Vitality (3), Aura of Life (4), Aura of Purity (4), Skill Empowerment (5), Wall of Light (5), and Power Word Heal (9)."
 		]
 	}
-}, "Cleric Spellcasting Enhancement");
-AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness Divine Power", {
-	name : "Channel Divinity: Harness Divine Power",
-	source : ["UA:CFV", 4],
+}, "Optional 1st-level cleric features");
+AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness Divine Power (ua)", {
+	name : "Channel Divinity:\xA0Harness Divine Power",
+	source : [["UA:CFV", 4]],
 	description : "\n   As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot",
 	action : [["bonus action", ""]]
-}, "Channel Divinity Enhancement");
+}, "Optional 2nd-level cleric features");
 // Cleric subclass alternative feature, so only run this after we are sure all subclasses have been added
 RunFunctionAtEnd(function() {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
-		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
-		if (!aDomain || !aDomain.features.subclassfeature8 || !(/divine strike|potent spellcasting/i).test(aDomain.features.subclassfeature8.name)) continue;
-		CreateClassFeatureVariant(ClassList.cleric.subclasses[1][i], "subclassfeature8", "Blessed Strikes", {
+		var domain = ClassList.cleric.subclasses[1][i];
+		var objDomain = ClassSubList[domain];
+		if (!objDomain || !objDomain.features.subclassfeature8 || !(/divine strike|potent spellcasting/i).test(objDomain.features.subclassfeature8.name)) continue;
+		CreateClassFeatureVariant(domain, "subclassfeature8", "Blessed Strikes (ua)", {
 			name : "Blessed Strikes",
-			source : ["UA:CFV", 4],
+			source : [["UA:CFV", 4]],
 			description : desc([
-				"When a creature is damaged by my spell/weapon attack, I can do +1d8 radiant damage",
+				"When a creature is damaged by my weapon attack/spell, I can do +1d8 radiant damage",
 				"Once I deal this extra damage, I can't do so again until the start of my next turn"
 			]),
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isDC) {
+						if (classes.known.cleric && classes.known.cleric.level > 7) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per round +1d8 radiant damage';
 						}
 					},
@@ -16325,57 +16332,28 @@ RunFunctionAtEnd(function() {
 });
 
 // Druid alternative class features and enhancements
-AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Cantrip Versatility", {
+AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Cantrip Versatility (ua)", {
 	name : "Cantrip Versatility",
-	source : ["UA:CFV", 4],
+	extraname : "Optional Druid 1",
+	source : [["UA:CFV", 4]],
 	description : "\n   Whenever I gain a druid level, I can replace a druid cantrip I know with another"
-}, "Druid Spellcasting Enhancement");
-AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Expanded Spell List", {
+}, "Optional 1st-level druid features");
+AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Druid Spell List",
-	source : ["UA:CFV", 4],
+	extraname : "Optional Druid 1",
+	source : [["UA:CFV", 4]],
 	description : "",
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
-				spList.extraspells = spList.extraspells.concat(["ceremony", "protection from evil and good", "augury", "continual flame", "enlarge/reduce", "aura of vitality", "elemental weapon", "revivify", "thunder step", "wall of sand", "divination", "fire shield", "cone of cold", "dawn", "immolation", "flesh to stone", "symbol", "incendiary cloud", "mass polymorph"]);
+				spList.extraspells = spList.extraspells.concat(["ceremony", "protection from evil and good", "augury", "continual flame", "enlarge/reduce", "aura of vitality", "elemental weapon", "revivify", "thunder step", "wall of sand", "divination", "fire shield", "cone of cold", "dawn", "immolation", "flesh to stone", "symbol", "incendiary cloud", "mass polymorph", "power word heal"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the druid class."
+			"This alternative class feature enhancement expands the spell list of the druid class with the following spells (spell level in brackets): Ceremony (1), Protection from Evil and Good (1), Augury (2), Continual Flame (2), Enlarge/Reduce (2), Aura of Vitality (3), Elemental Weapon (3), Revivify (3), Thunder Step (3), Wall of Sand (3), Divination (4), Fire Shield (4), Cone of Cold (5), Dawn (5), Immolation (5), Flesh to Stone (6), Symbol (7), Incendiary Cloud (8), Mass Polymorph (9), and Power Word Heal (9)."
 		]
 	}
-}, "Druid Spellcasting Enhancement");
-var UACFV_Wild_Companion = {
-	name : "Wild Companion",
-	source : ["UA:CFV", 4],
-	description : desc([
-		"I can expend a use of wild shape to cast Find Familiar without material components",
-		"The familiar always has the Fey type and disappears after half my druid level in hours"
-	]),
-	additional : levels.map(function (n) {
-		return n < 2 ? "" : Math.floor(n/2) + " hours";
-	}),
-	spellcastingBonus : {
-		name : "Wild Companion",
-		spells : ["find familiar"],
-		selection : ["find familiar"],
-		firstCol : "Sp"
-	},
-	spellChanges : {
-		"find familiar" : {
-			components : "V,S",
-			compMaterial : "",
-			description : "Gain the services of a fey familiar; can see through its eyes; it can deliver touch spells; see B;",
-			duration : "\u00BD druid lvl h",
-			changes : "By using my Wild Companion class feature, I can expend a use of wild shape to cast Find Familiar without material components. The familiar created this way always has the Fey type and disappears after a number of hours equal to half my druid level."
-		}
-	}
-}
-AddFeatureChoice(ClassList.druid.features["subclassfeature2.wild shape"], true, "Wild Companion", UACFV_Wild_Companion, "Wild Shape Enhancement");
-if (ClassSubList["druid-circle of the moon"]) {
-	AddFeatureChoice(ClassSubList["druid-circle of the moon"].features["subclassfeature2.wild shape"], true, "Wild Companion", UACFV_Wild_Companion, "Wild Shape Enhancement");
-}
-
+}, "Optional 1st-level druid features");
 // The enhancement option for fighting styles has to be added to each class separately
 AddFeatureChoice(ClassList.fighter.features["fighting style"], true, "Martial Versatility (ua)", {
 	name : "Martial Versatility",
@@ -16392,13 +16370,13 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Blind Fighting (ua)", {
 		"However, this doesn't help me if the creature is hidden from me"
 	])
 });
-AddFightingStyle(["ranger"], "Interception (ua)", { // different for the Ranger, doesn't get this in TCoE
+AddFightingStyle(["ranger"], "Interception", { // different for the Ranger, doesn't get this in TCoE
 	name : "Interception Fighting Style",
 	source : [["UA:CFV", 12]],
 	description : desc([
 		"As a reaction when a creature I can see hits a target within 5 ft of me, I can intercept",
 		"I reduce the damage the target takes by 1d10 + my Proficiency Bonus (min 0 damage)",
-		"I can only do this while wielding a shield, or a simple or martial weapon"
+		"I can only do this while wielding a shield or a simple or martial weapon"
 	]),
 	action : [["reaction", ""]]
 });
@@ -16422,7 +16400,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting (ua)"
 });
 AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting (ua)", {
 	name : "Unarmed Fighting Style",
-	source : ["UA:CFV", 13],
+	source : [["UA:CFV", 13]],
 	description : desc([
 		"My unarmed strikes deal 1d6 damage, or 1d8 damage when I have both hands free",
 		"When I successfully start a grapple, I can deal 1d4 bludgeoning damage to the target",
@@ -16442,39 +16420,35 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting (ua)", {
 });
 if (ClassSubList["fighter-battle master"]) {
 	// Fighter alternative class features and enhancements (only if Battle Master subclass exists)
-		// New Maneuver options for the Battle Master
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Maneuver Versatility (ua)", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Maneuver Versatility (ua)", {
 		name : "Maneuver Versatility",
 		extraname : "Optional Battle Master 3",
 		source : [["UA:CFV", 5]],
 		description : "\n   Whenever I finish a long rest, I can replace a Maneuver I know with another"
 	}, "Optional 3rd-level battle master features");
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Ambush", {
-		name : "Ambush",
-		source : ["UA:CFV", 5],
-		description : "\n   When I make an initiative roll or a Dex (Stealth) check, I can add a superiority die to it"
-	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Bait and Switch", {
+		// New Maneuver options
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Bait and Switch (ua)", {
 		name : "Bait and Switch",
-		source : ["UA:CFV", 5],
+		source : [["UA:CFV", 5]],
 		description : desc([
 			"On my turn, I can expend a superiority die to swap places with an ally within 5 ft",
 			"Doing this costs me 5 ft of movement, but this doesn't provoke opportunity attacks",
 			"The ally then adds the superiority die to its AC until the start of my next turn"
 		])
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Brace", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Brace (ua)", {
 		name : "Brace",
-		source : ["UA:CFV", 5],
+		source : [["UA:CFV", 5]],
 		description : desc([
 			"As a reaction when a creature I can see moves within 5 of me, I can attack it",
 			"I expend a superiority die and make one weapon attack, adding the die to the damage"
 		]),
+		limfeaname : "Brace\xA0",
 		action : [["reaction", ""]]
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Restraining Strike", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Restraining Strike", {
 		name : "Restraining Strike",
-		source : ["UA:CFV", 5],
+		source : [["UA:CFV", 5]],
 		description : desc([
 			"Immediately after hitting with a melee weapon attack, I can use a bonus action to grapple",
 			"I add the superiority die to the Str (Athletics) check; I can only do this on my own turn",
@@ -16482,65 +16456,63 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action : [["bonus action", " (after melee weapon hit)"]]
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Silver Tongue", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Silver Tongue", {
 		name : "Silver Tongue",
-		source : ["UA:CFV", 5],
+		source : [["UA:CFV", 5]],
 		description : "\n   When I make a Cha (Deception) or Cha (Persuasion) check, I can add a superiority die to it"
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Snipe", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Snipe", {
 		name : "Snipe",
-		source : ["UA:CFV", 5],
+		source : [["UA:CFV", 5]],
 		description : desc([
 			"As a bonus action, I can expend a superiority die and make a ranged weapon attack",
 			"I can draw a thrown weapon as part of making this attack; I add the die to the damage"
 		]),
 		action : [["bonus action", ""]]
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.maneuvers"], true, "Studious Eye", {
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Studious Eye", {
 		name : "Studious Eye",
-		source : ["UA:CFV", 5],
+		source : [["UA:CFV", 5]],
 		description : "\n   When I make a Wis (Insight) or Int (Investigation) check, I can add a superiority die to it"
 	});
 }
 
 // Monk class features enhancements
-CreateClassFeatureVariant("monk", "martial arts", "Choose Monk Weapons", {
-	name : "Martial Arts Weapons",
-	extraname : "Monk Weapon",
-	extrachoices : [],
-	source : [["UA:CFV", 6]],
-	description : desc([
-		"Unarmed strike \u0026 5 + Wis mod simple/martial weapons (not two-handed/heavy/special)",
-		"With these monk weapons, I can use Dex instead of Str and the Martial Arts damage die",
-		"When taking an Attack action with these, I get one unarmed strike as a bonus action"
-	]),
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				var monkWeapons = ["unarmed strike"].concat(GetFeatureChoice("classes", "monk", "martial arts", true));
-				if (classes.known.monk && classes.known.monk.level && (monkWeapons.indexOf(v.baseWeaponName) != -1 || (/monk weapon/i).test(v.WeaponText))) {
-					var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
-					try {
-						var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
-					} catch (e) {
-						var curDie = 'x';
-					};
-					if (isNaN(curDie) || curDie < aMonkDie) {
-						fields.Damage_Die = '1d' + aMonkDie;
-					};
-					if (fields.Mod == 1 || fields.Mod == 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
-						fields.Mod = v.StrDex;
-					}
-				};
-			},
-			"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any 'Monk Weapons', which include unarmed strike and 5 + my Wisdom modifier of simple or martial weapons of my choice that I'm proficient with and that don't have the two-handed, heavy, or special property.\n   I can select these weapon using the \"Choose Feature\" button on the 2nd page, or have them count as such by including the words \"Monk Weapon\" in the name of the weapon."
-		]
-	}
-});
 // Add the monk weapon options as extrachoices
-var UACFV_Martial_Arts = ClassList.monk.features["martial arts"];
 RunFunctionAtEnd(function () {
-	var UACFV_Monk_Weapon = UACFV_Martial_Arts['choose monk weapons'];
+	var UACFV_Monk_Weapon = {
+		name : "Martial Arts Weapons",
+		extraname : "Monk Weapon",
+		extrachoices : [],
+		source : [["UA:CFV", 6]],
+		description : desc([
+			"Unarmed strike \u0026 5 + Wis mod simple/martial weapons (not two-handed/heavy/special)",
+			"With these monk weapons, I can use Dex instead of Str and the Martial Arts damage die",
+			"When taking an Attack action with these, I get one unarmed strike as a bonus action"
+		]),
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					var monkWeapons = ["unarmed strike"].concat(GetFeatureChoice("classes", "monk", "martial arts", true));
+					if (classes.known.monk && classes.known.monk.level && (monkWeapons.indexOf(v.baseWeaponName) != -1 || (/monk weapon/i).test(v.WeaponText))) {
+						var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+						try {
+							var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
+						} catch (e) {
+							var curDie = 'x';
+						};
+						if (isNaN(curDie) || curDie < aMonkDie) {
+							fields.Damage_Die = '1d' + aMonkDie;
+						};
+						if (fields.Mod == 1 || fields.Mod == 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
+							fields.Mod = v.StrDex;
+						}
+					};
+				},
+				"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any 'Monk Weapons', which include unarmed strike and 5 + my Wisdom modifier of simple or martial weapons of my choice that I'm proficient with and that don't have the two-handed, heavy, or special property.\n   I can select these weapon using the \"Choose Feature\" button on the 2nd page, or have them count as such by including the words \"Monk Weapon\" in the name of the weapon."
+			]
+		}
+	};
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy, two-handed, or special property, are magic weapons, or those that are spells or cantrips
@@ -16555,34 +16527,39 @@ RunFunctionAtEnd(function () {
 			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : isProficientWithWeapon("' + weapon + '", WeaponsList["' + weapon + '"]);'
 		}
 	}
+	CreateClassFeatureVariant("monk", "martial arts", "Choose Monk Weapons", UACFV_Monk_Weapon);
+	// Move some stuff around, because the original Martial Arts feature was moved into a choice, but we want to keep its original "additional", "action", "eval", "removeeval" attributes
+	var UACFV_Martial_Arts = ClassList.monk.features["martial arts"];
+	var UACFV_Martial_Arts_Original = UACFV_Martial_Arts["\x1B[original] martial arts"];
+	if (UACFV_Martial_Arts_Original) {
+		["additional", "action", "eval", "removeeval"].forEach(function (n) {
+			if (!UACFV_Martial_Arts_Original[n]) return;
+			UACFV_Martial_Arts[n] = UACFV_Martial_Arts_Original[n];
+			delete UACFV_Martial_Arts_Original[n];
+		});
+	}
 });
-// Because the original Martial Arts feature was moved into a choice, but we want to keep its original "additional", "action", "eval", "removeeval" attributes, move some stuff around
-var UACFV_Martial_Arts_Original = ClassList.monk.features["martial arts"]["\x1B[original] martial arts"];
-if (UACFV_Martial_Arts_Original) {
-	["additional", "action", "eval", "removeeval"].forEach(function (n) {
-		if (!UACFV_Martial_Arts_Original[n]) return;
-		UACFV_Martial_Arts[n] = UACFV_Martial_Arts_Original[n];
-		delete UACFV_Martial_Arts_Original[n];
-	});
-}
 // Ki enhancements
-AddFeatureChoice(ClassList.monk.features.ki, true, "Ki-Fueled Strike", {
+AddFeatureChoice(ClassList.monk.features.ki, true, "Ki-Fueled Strike (ua)", {
 	name : "Ki-Fueled Strike",
-	source : ["UA:CFV", 6],
-	description : "\n   If I spend a ki point during my action, I can make an unarmed strike as a bonus action",
+	extraname : "Optional Monk 2",
+	source : [["UA:CFV", 6]],
+	description : "\n   If I spend any ki points during my action, I can make an unarmed strike as a bonus action",
 	action : [["bonus action", ""]]
-}, "Ki Enhancement");
-AddFeatureChoice(ClassList.monk.features.ki, true, "Distant Eye (1 ki point)", {
+}, "Optional 2nd-level monk features");
+AddFeatureChoice(ClassList.monk.features.ki, true, "Distant Eye (1 ki point) (ua)", {
 	name : "Distant Eye",
-	source : ["UA:CFV", 6],
+	extraname : "Optional Monk 2",
+	source : [["UA:CFV", 6]],
 	description : " [1 ki point]\n   My ranged weapon attacks during this turn ignore the disadvantage from long range"
-}, "Ki Enhancement");
-AddFeatureChoice(ClassList.monk.features.ki, true, "Quickened Healing (2 ki points)", {
+}, "Optional 2nd-level monk features");
+AddFeatureChoice(ClassList.monk.features.ki, true, "Quickened Healing (2 ki points) (ua)", {
 	name : "Quickened Healing",
-	source : ["UA:CFV", 6],
+	extraname : "Optional Monk 2",
+	source : [["UA:CFV", 6]],
 	description : " [2 ki points]\n   As an action, I can regain a number of hit points equal to the roll of my martial arts die",
 	action : [["action", ""]]
-}, "Ki Enhancement");
+}, "Optional 2nd-level monk features");
 
 // Paladin alternative class features and enhancements
 // The enhancement option for fighting styles has to be added to each class separately
@@ -16604,12 +16581,12 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Expanded Spell 
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gentle repose", "prayer of healing", "warding bond", "life transference", "spirit guardians", "dawn", "flame strike"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the paladin class."
+			"This alternative class feature enhancement expands the spell list of the paladin class with the following spells (spell level in brackets): Gentle Repose (2), Prayer of Healing (2), Warding Bond (2), Life Transference (3), Spirit Guardians (3), Dawn (5), and Flame Strike (5)."
 		]
 	}
 }, "Optional 2nd-level paladin features");
 AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity"], true, "Harness Divine Power (ua)", {
-	name : "Channel Divinity: Harness Divine Power",
+	name : "Channel Divinity:\xA0Harness Divine Power",
 	extraname : "Optional Paladin 3",
 	source : [["UA:CFV", 6]],
 	description : "\n   As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot",
@@ -16715,7 +16692,7 @@ var UACFV_Ranger_Expanded_Spell_List = {
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["entangle", "searing smite", "aid", "enhance ability", "gust of wind", "magic weapon", "warding bond", "blinding smite", "meld into stone", "revivify", "tongues", "death ward", "dominate beast", "awaken", "greater restoration"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the ranger class."
+			"This alternative class feature enhancement expands the spell list of the ranger class with the following spells (spell level in brackets): Entangle (1), Searing Smite (1), Aid (2), Enhance Ability (2), Gust of Wind (2), Magic Weapon (2), Warding Bond (2), Blinding Smite (3), Meld into Stone (3), Revivify (3), Tongues (3), Death Ward (4), Dominate Beast (4), Awaken (5), and Greater Restoration (5)."
 		]
 	}
 };
@@ -16928,20 +16905,22 @@ if (ClassList["rangerua"]) {
 }
 
 // Rogue alternative class feature enhancement
-AddFeatureChoice(ClassList.rogue.features["cunning action"], true, "Aim", {
+AddFeatureChoice(ClassList.rogue.features["cunning action"], true, "Cunning Action: Aim (ua)", {
 	name : "Cunning Action: Aim",
-	source : ["UA:CFV", 9],
+	extraname : "Optional Rogue 2",
+	source : [["UA:CFV", 9]],
 	description : desc([
 		"I can also use my cunning action bonus action to carefully aim my next attack",
 		"If I don't move in my turn, I give myself adv. on my next attack in the current turn",
 		"After I use cunning action to aim, my speed is 0 until the end of the current turn"
 	])
-}, "Cunning Action Enhancement");
+}, "Optional 2nd-level rogue features");
 
 // Sorcerer alternative class features and enhancements
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Expanded Spell List", {
+AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Sorcerer Spell List",
-	source : ["UA:CFV", 9],
+	extraname : "Optional Sorcerer 1",
+	source : [["UA:CFV", 9]],
 	description : "",
 	calcChanges : {
 		spellList : [
@@ -16950,53 +16929,57 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Expanded Spell
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["primal savagery", "grease", "protection from evil and good", "flame blade", "flaming sphere", "vampiric touch", "fire shield", "flesh to stone", "demiplane", "foresight"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the sorcerer class."
+			"This alternative class feature enhancement expands the spell list of the sorcerer class with the following spells (spell level in brackets): Primal Savagery (cantrip), Grease (1), Protection from Evil and Good (1), Flame Blade (2), Flaming Sphere (2), Vampiric Touch (3), Fire Shield (4), Flesh to Stone (6), Demiplane (8), and Foresight (9)."
 		]
 	}
-}, "Sorcerer Spellcasting Enhancement");
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Spell Versatility", {
+}, "Optional sorcerer features");
+AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Spell Versatility (ua)", {
 	name : "Spell Versatility",
-	source : ["UA:CFV", 10],
+	extraname : "Optional Sorcerer 1",
+	source : [["UA:CFV", 10]],
 	description : "\n   After a long rest, I can swap a sorcerer cantrip/spell I know for another of the same level"
-}, "Sorcerer Spellcasting Enhancement");
+}, "Optional sorcerer features");
 // Font of Magic options
 AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Empowering Reserves", {
 	name : "Empowering Reserves",
-	source : ["UA:CFV", 10],
+	extraname : "Optional Sorcerer 2",
+	source : [["UA:CFV", 10]],
 	description : " [2 sorcery points]\n   When I make an ability check on my turn, I can gain advantage on the check"
-}, "Font of Magic Enhancement");
+}, "Optional 2nd-level sorcerer features");
 AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Imbuing Touch", {
 	name : "Imbuing Touch",
-	source : ["UA:CFV", 10],
+	extraname : "Optional Sorcerer 2",
+	source : [["UA:CFV", 10]],
 	description : " [2 sorcery points]\n   As an action, I can touch a nonmagical weapon and make it count as magical for 1 minute",
 	action : [["action", " (2 sorcery points)"]]
-}, "Font of Magic Enhancement");
-AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Sorcerous Fortitude", {
+}, "Optional 2nd-level sorcerer features");
+AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Sorcerous Fortitude (ua)", {
 	name : "Sorcerous Fortitude",
-	source : ["UA:CFV", 10],
+	extraname : "Optional Sorcerer 2",
+	source : [["UA:CFV", 10]],
 	description : " [1+ sorcery points]\n   As an action, I can gain 1d4 temporary hit points per sorcery point I spend",
 	action : [["action", " (1+ sorcery points)"]]
-}, "Font of Magic Enhancement");
+}, "Optional 2nd-level sorcerer features");
 // Metamagic options
-AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Elemental Spell", {
+AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Elemental Spell (ua)", {
 	name : "Elemental Spell",
-	source : ["UA:CFV", 10],
+	source : [["UA:CFV", 10]],
 	description : " [1 sorcery point]" + desc([
-		"I can change the damage type of a spell to acid, cold, fire, lightning, or thunder instead",
-		"I can only do this if the spell originally deals one of these damage types"
+		"If the spell deals one of the below damage types, I can change it to another on the list",
+		"These damage types are: acid, cold, fire, lightning, or thunder"
 	])
 });
-AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Seeking Spell", {
-	name : "Seeking Spell",
-	source : ["UA:CFV", 10],
+AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Seeking Spell (ua)", {
+	name : "Seeking\xA0Spell",
+	source : [["UA:CFV", 10]],
 	description : " [1 sorcery point]" + desc([
 		"I can ignore half- and three-quarters cover for the one spell I'm casting",
 		"This applies both to my spell attack rolls as to the Dexterity saving throws of the targets"
 	])
 });
-AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Unerring Spell", {
+AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Unerring Spell (ua)", {
 	name : "Unerring Spell",
-	source : ["UA:CFV", 10],
+	source : [["UA:CFV", 10]],
 	description : " [2 sorcery points]" + desc([
 		"If I make an attack roll for a spell and miss, I can use this to reroll the attack once",
 		"I can use unerring spell even if I already used another metamagic option for the spell"
@@ -17004,14 +16987,16 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Unerring Spell
 });
 
 // Warlock alternative class features and enhancements
-AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Spell Versatility", {
+AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Spell Versatility (ua)", {
 	name : "Spell Versatility",
-	source : ["UA:CFV", 10],
+	extraname : "Optional Warlock 1",
+	source : [["UA:CFV", 10]],
 	description : "\n   After a long rest, I can swap a warlock cantrip or spell I know for another of the same level"
-}, "Pact Magic Enhancement");
-AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell List", {
+}, "Optional 1st-level warlock features");
+AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell List (ua)", {
 	name : "Expanded Warlock Spell List",
-	source : ["UA:CFV", 10],
+	extraname : "Optional Warlock 1",
+	source : [["UA:CFV", 10]],
 	description : "",
 	calcChanges : {
 		spellList : [
@@ -17020,27 +17005,27 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["thunderwave", "knock", "animate dead", "life transference", "greater invisibility", "phantasmal killer", "mislead", "modify memory", "planar binding", "teleportation circle", "create homunculus", "magic jar", "project image", "abi-dalzim's horrid wilting", "gate", "shapechange", "weird"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the warlock class."
+			"This alternative class feature enhancement expands the spell list of the warlock class with the following spells (spell level in brackets): Thunderwave (1), Knock (2), Animate Dead (3), Life Transference (3), Greater Invisibility (4), Phantasmal Killer (4), Mislead (5), Modify Memory (5), Planar Binding (5), Teleportation Circle (5), Create Homunculus (6), Magic Jar (6), Project Image (7), Abi-Dalzim's Horrid Wilting (8), Gate (9), Shapechange (9), and Weird (9)."
 		]
 	}
-}, "Pact Magic Enhancement");
+}, "Optional 1st-level warlock features");
 // New Eldritch Invocations
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Bond of the Talisman (prereq: level 12 warlock, Pact of the Talisman)", {
-	name : "Bond of the Talisman",
-	source : ["UA:CFV", 11],
+AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of the Talisman) (ua)", {
+	name : "Bond of the\xA0Talisman",
+	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Talisman]",
 	description : desc([
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane"
 	]),
 	prereqeval : function(v) {
-		return classes.known.warlock.level >= 12 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the talisman';
+		return classes.known.warlock.level >= 12 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
 	action : [["action", ""]]
 });
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Chain Master's Fury (prereq: level 9 warlock, Pact of the Chain)", {
+AddWarlockInvocation("Chain Master's Fury (prereq: level 9 warlock, Pact of the Chain)", {
 	name : "Chain Master's Fury",
-	source : ["UA:CFV", 11],
+	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Chain]",
 	description : "\n   As a bonus action, I can command my familiar to make one attack",
 	prereqeval : function(v) {
@@ -17048,9 +17033,9 @@ AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Chai
 	},
 	action : [["bonus action", ""]]
 });
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Eldritch Armor (prereq: Pact of the Blade)", {
+AddWarlockInvocation("Eldritch Armor (prereq: Pact of the Blade)", {
 	name : "Eldritch Armor",
-	source : ["UA:CFV", 11],
+	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Blade]",
 	description : desc([
 		"As an action, I can touch an unattended suit of armor and instantly don it",
@@ -17061,19 +17046,9 @@ AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Eldr
 	},
 	action : [["action", ""]]
 });
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Eldritch Mind (prereq: Pact of the Tome)", {
-	name : "Eldritch Mind",
-	source : ["UA:CFV", 11],
-	submenu : "[improves Pact of the Tome]",
-	description : "\n   I have advantage on my Constitution saving throws to maintain concentration on a spell",
-	prereqeval : function(v) {
-		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
-	},
-	savetxt : { text : "Adv. on Con (Concentration) saves" }
-});
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
-	name : "Far Scribe",
-	source : ["UA:CFV", 11],
+AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua)", {
+	name : "Far\xA0Scribe",
+	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Tome]",
 	description : desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
@@ -17101,9 +17076,9 @@ AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Far 
 		}
 	}
 });
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Gift of the Protectors (prereq: level 9 warlock, Pact of the Tome)", {
-	name : "Gift of the Protectors",
-	source : ["UA:CFV", 11],
+AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of the Tome) (ua)", {
+	name : "Gift of the\xA0Protectors",
+	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Tome]",
 	description : desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
@@ -17118,65 +17093,74 @@ AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Gift
 	usages : 1,
 	recovery : "long rest"
 });
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Investment of the Chain Master (prereq: Pact of the Chain)", {
-	name : "Investment of the Chain Master",
-	source : ["UA:CFV", 11],
+AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain) (ua)", {
+	name : "Investment of the Chain\xA0Master",
+	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Chain]",
 	description : desc([
 		"When I cast Find Familiar, the summoned create has additional benefits:",
 		"\u2022 It gains a flying or swimming speed of 40 ft (my choice at casting)",
 		"\u2022 It no longer needs to breathe",
 		"\u2022 Its weapon attacks are considered magical for overcoming immunities and resistances",
-		"\u2022 If it forces a creature to make a saving throw, it uses my spell save DC",
-		"Note that the automation will only add this to current familiars and on a level change"
+		"\u2022 If it forces a creature to make a saving throw, it uses my spell save DC"
 	]),
 	prereqeval : function(v) {
 		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain';
 	},
-	changeeval : function(lvlA) {
-		var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
-		if (!AScompA) return;
-		var aStr = "My Investment of the Chain Master eldritch invocation grants my familiar the following:"+
-		"\n\u2022 The familiar gains a flying or swimming speed of 40 ft (my choice at casting)"+
-		"\n\u2022 The familiar no longer needs to breathe"+
-		"\n\u2022 Its weapon attacks are considered magical for overcoming immunities and resistances"+
-		"\n\u2022 If the familiar forces a creature to make a saving throw, it uses my spell save DC";
-		var aFnc = !lvlA[1] ? RemoveString : AddString;
-		for (var a = 1; a < AScompA.length; a++) {
-			if (What(AScompA[a] + 'Comp.Type') == "Familiar") {
-				aFnc(AScompA[a] + "Cnote.Left", aStr, true);
+	calcChanges : {
+		companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
+			if (sCompType !== "pact_of_the_chain") return;
+			var strFea = "\u25C6 Investment of the Chain Master (TCoE 71): The familiar gains 40 ft fly or swim speed (my choice), doesn't need to breathe, its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
+			var strSpd = "fly or swim 40 ft";
+			if (What("Unit System") === "metric") {
+				strFea = ConvertToMetric(strFea, 0.5);
+				strSpd = ConvertToMetric(strSpd, 0.5);
 			}
-		}
+			var aFnc = bAdd ? AddString : RemoveString;
+			aFnc(prefix + "Comp.Use.Features", strFea, true);
+			aFnc(prefix + "Comp.Use.Speed", strSpd, typePF ? ",\n" : ", ");
+			for (var i = 1; i <= 3; i++) {
+				var baseFld = prefix + "Comp.Use.Attack." + i;
+				var weaDescrFld = baseFld + ".Description";
+				var strWeaDescr = What(weaDescrFld);
+				if (bAdd && What(baseFld + ".Weapon Selection") && !(/(,|;)? ?counts as magical/i).test(strWeaDescr)) {
+					AddString(weaDescrFld, "Counts as magical", "; ");
+				} else if (!bAdd) {
+					Value(weaDescrFld, strWeaDescr.replace(/(,|;)? ?counts as magical/i, ''));
+				}
+			}
+		},
+		"My pact of the chain familiars gain an extra feature listing the extra bonuses they gain."]
 	}
 });
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Protection of the Talisman (prereq: level 9 warlock, Pact of the Talisman)", {
-	name : "Protection of the Talisman",
-	source : ["UA:CFV", 12],
+AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact of the Talisman) (ua)", {
+	name : "Protection of the\xA0Talisman",
+	source : [["UA:CFV", 12]],
 	submenu : "[improves Pact of the Talisman]",
 	description : "\n   The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency",
 	prereqeval : function(v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the talisman';
+		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
 	savetxt : { text : ["+1d4 to nonproficient saves"] }
 });
-AddFeatureChoice(ClassList.warlock.features["eldritch invocations"], true, "Rebuke of the Talisman (prereq: Pact of the Talisman)", {
-	name : "Rebuke of the Talisman",
-	source : ["UA:CFV", 12],
+AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman) (ua)", {
+	name : "Rebuke of the\xA0Talisman",
+	source : [["UA:CFV", 12]],
 	submenu : "[improves Pact of the Talisman]",
 	description : desc([
 		"As a reaction when the wearer of my talisman is hit, I deal damage and push the attacker",
 		"To be able to do this, I have to see the attacker and it has to be within 30 ft of me",
-		"I deal my Cha mod in psychic damage (min 1) and push it 10 ft away from the talisman"
+		"I deal it my Cha mod in psychic damage (min 1) and push it 10 ft away from the talisman"
 	]),
 	prereqeval : function(v) {
-		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the talisman';
+		return GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
 	action : [["reaction", ""]]
 });
 // Pact Boon option
-AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Talisman", {
-	name : "Pact of the Talisman",
-	source : ["UA:CFV", 12],
+AddWarlockPactBoon("Pact of the Talisman (ua)", {
+	name : "Pact of the\xA0Talisman",
+	source : [["UA:CFV", 12]],
 	description : desc([
 		"The wearer of this amulet adds 1d4 to checks with skills in which they lack proficiency",
 		"I can give the talisman to others to use; The talisman turns to ash when I die",
@@ -17186,14 +17170,16 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Ta
 });
 
 // Wizard alternative class features and enhancements
-AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Cantrip Versatility", {
+AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Cantrip Versatility (ua)", {
 	name : "Cantrip Versatility",
-	source : ["UA:CFV", 12],
+	extraname : "Optional Wizard 1",
+	source : [["UA:CFV", 12]],
 	description : "\n   Whenever I gain a wizard level, I can replace a wizard cantrip I know with another"
-}, "Wizard Spellcasting Enhancement");
-AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell List", {
+}, "Optional 1st-level wizard features");
+AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Wizard Spell List",
-	source : ["UA:CFV", 12],
+	extraname : "Optional Wizard 1",
+	source : [["UA:CFV", 12]],
 	description : "",
 	calcChanges : {
 		spellList : [
@@ -17202,10 +17188,10 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell L
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["augury", "enhance ability", "speak with dead", "divination"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the wizard class."
+			"This alternative class feature enhancement expands the spell list of the wizard class with the following spells (spell level in brackets): Augury (2), Enhance Ability (2), Speak with Dead (3), and Divination (4)."
 		]
 	}
-}, "Wizard Spellcasting Enhancement");
+}, "Optional 1st-level wizard features");
 
 // ua_20191125_Fighter-Rogue-and-Wizard.js
 // This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
@@ -17850,7 +17836,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				type : "Natural",
 				damage : [1, 6, "slashing"],
 				range : "Melee",
-				description : "Only in rage; Extra attack as part of Attack action",
+				description : "Only in rage; Extra attack if used as part of Attack action",
 				abilitytodamage : true,
 				bestialNaturalWeapon : true
 			}, {
@@ -17899,7 +17885,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				"In rage, when I hit a creature with my natural weapon, I can have it make a Wis save",
 				"If it fails (DC 8 + my Prof bonus + my Con mod) it suffers one effect of my choice:",
 				" \u2022 It uses its reaction to make a melee attack against one creature I can see of my choice",
-				" \u2022 It takes an additional 2d12 psychic damage"
+				" \u2022 It takes 2d12 psychic damage"
 			]),
 			usages : "Constitution modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Con Mod'));",
@@ -17951,17 +17937,14 @@ AddSubClass("monk", "way of mercy-ua", {
 				name : "Hands of Healing",
 				extraname : "Way of Mercy 3",
 				source : [["UA:SP1", 2]],
-				description : function () {
-					var a = [
-						"As an action, I can spend 1 ki point to touch a creature and restore a number of its HP",
-						"When I do Flurry of Blows, I can do this instead of one unarmed strike (no extra ki cost)"
-					];
-					var b = desc(a);
-					var c = desc([a[0], "It also recovers from one disease or the blinded, deafened, paralyzed, or poisoned condition", a[1]]);
-					return levels.map(function (n) {
-						return n < 11 ? b : c;
-					});
-				}(),
+				description : levels.map(function (n) {
+					var a = "As an action, I can spend 1 ki point to touch a creature and restore a number of its HP";
+					var b6 = "It also recovers from one disease or the blinded, deafened, paralyzed, or poisoned condition";
+					var c = "When I use Flurry of Blows, I can do this instead of one unarmed strike (no extra ki cost)";
+					return desc( n < 6 ? [a, c] :
+						[a, b6, n < 11 ? c : c.replace("one", "each")]
+					);
+				}),
 				action : [["action", ""]],
 				additional : levels.map(function (n) {
 					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " + Wisdom modifier";
@@ -18036,7 +18019,7 @@ AddSubClass("paladin", "oath of the watchers-ua", {
 			minlevel : 3,
 			description : "\n   As an action, Cha mod of creatures I see in 30 ft adv. on Int/Wis/Cha saves for 1 min",
 			action : [["action", ""]],
-			spellcastingExtra : ["alarm", "chromatic orb", "augury", "moonbeam", "counterspell", "nondetection", "aura of purity", "banishment"]
+			spellcastingExtra : ["alarm", "chromatic orb", "augury", "moonbeam", "counterspell", "nondetection", "aura of purity", "banishment", "hold monster", "hallow"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Abjure the Extraplanar",
@@ -18280,20 +18263,19 @@ AddSubClass("bard", "college of creation-ua", {
 			name : "Performance of Creation",
 			source : [["UA:SP2", 2]],
 			minlevel : 14,
-			description : desc([
-				"As an action, I create a Large or smaller nonmagical item in an empty space in 10 ft",
-				"Its value is limited; I can't have multiple, creating more makes the first one vanish",
-				"It vanishes when my next turn ends, unless I use my action to extend its life 1 extra turn",
-				"If I sustain it for 1 minute this way, it continues to exists for my bard level in hours",
-				"I can do this once per long rest, or by expending a 5th-level or higher spell slot (SS 5+)"
-			]),
+			description : levels.map(function (n) {
+				return desc([
+					"As an action, I create a Large or smaller nonmagical item in an empty space in 10 ft",
+					"Max " + (20 * n) + " gp value; I can't have multiple, creating more makes the first one vanish",
+					"It vanishes when my next turn ends, unless I use my action to extend its life 1 extra turn",
+					"If I sustain it for 1 minute this way, it continues to exists for my bard level in hours",
+					"I can do this once per long rest, or by expending a 5th-level or higher spell slot (SS 5+)"
+				]);
+			}),
 			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest",
-			altResource : "SS 5+",
-			additional : levels.map(function (n) {
-				return n < 14 ? "" : n * 20 + " gp";
-			})
+			altResource : "SS 5+"
 		}
 	}
 });
@@ -18309,12 +18291,11 @@ AddSubClass("cleric", "unity domain-ua", {
 			name : "Emboldening Bond",
 			source : [["UA:SP2", 3]],
 			minlevel : 1,
-			action : ["bonus action", ""],
 			description : function () {
 				var descr = desc([
 					"As an action, I can magically bond two willing targets I can see in 30 ft (can be me)",
 					"While within 30 ft of the other, a bonded target can add +d4 to a save, attack, or check",
-					"The +d4 can only be added once per turn; The bond lasts 1 hour or until I use this again",
+					"This can only be added once per turn; The bond lasts for 1 hour or until I use this again",
 					"I can do this once per long rest, after which I can do so by expending a spell slot (SS 1+)"
 				]);
 				var descr17 = descr.replace('While within 30 ft of the other', 'While on the same plane');
@@ -18337,7 +18318,7 @@ AddSubClass("cleric", "unity domain-ua", {
 				"I distribute the damage over these and the original target, each taking at least 1 damage",
 				"Damage resistances and vulnerabilities are only applied after the damage is distributed"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Protective Bond",
@@ -18518,15 +18499,14 @@ RunFunctionAtEnd(function () {
 				source : [["UA:SP3", 2]],
 				minlevel : 3,
 				description : desc([
-					"When I finish a rest, I can use smith's tools to change the model of my power armor",
-					'Use the "Choose Feature" button above to select the model currently in use',
-					'Each model has their own integrated weapon and extra features, see the "Notes" page'
+					"When I finish a rest, I can use smith's tools to change the model of my arcane armor",
+					'Select a model using the "Choose Feature" button; See "Notes" page for features of each'
 				]),
 				additional : "also see notes page",
 				toNotesPage : [{
 					name : "Power Armor Model Features",
 					note : desc([
-						"I can customize my power armor to the guardian or infiltrator model whenever I finish a short or long rest, provided I have smith’s tools in hand.",
+						"I can customize my power armor to the guardian or infiltrator model whenever I finish a short or long rest, provided I have smith's tools in hand.",
 						"Each model includes a special weapon. When I attack with that weapon, I can use my Intelligence modifier, instead of Strength or Dexterity, for the attack and damage rolls."
 					]) + "\n\n\u25C6 Guardian Power Armor (Armorer 3, UA:SP3 2)" + desc([
 						"\u2022 Thunder Gauntlets: The armored fists of the guardian power armor each count as a simple melee weapon, and each deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
@@ -18543,17 +18523,6 @@ RunFunctionAtEnd(function () {
 					choiceAttribute : true
 				}],
 				weaponOptions : [{
-					regExpSearch : /^(?=.*lightning)(?=.*launcher).*$/i,
-					name : "Lightning Launcher",
-					source : [["UA:SP3", 2]],
-					ability : 4,
-					type : "Simple",
-					damage : [1, 6, "lightning"],
-					range : "90/300 ft",
-					description : "Once per turn on hit, +1d6 lightning damage",
-					abilitytodamage : true,
-					isLightningLauncher : true
-				}, {
 					regExpSearch : /^(?=.*thunder)(?=.*gauntlet).*$/i,
 					name : "Thunder Gauntlets",
 					source : [["UA:SP3", 2]],
@@ -18564,6 +18533,16 @@ RunFunctionAtEnd(function () {
 					description : "Target hit disadv. on attacks vs. others than me until my next turn starts",
 					abilitytodamage : true,
 					monkweapon : true
+				}, {
+					regExpSearch : /^(?=.*lightning)(?=.*launcher).*$/i,
+					name : "Lightning Launcher",
+					source : [["UA:SP3", 2]],
+					ability : 4,
+					type : "Simple",
+					damage : [1, 6, "lightning"],
+					range : "90/300 ft",
+					description : "Once per turn on hit, +1d6 lightning damage",
+					abilitytodamage : true
 				}],
 				// Do this in the parent object, so that it is always visible and people printing the sheet can more easily switch between the two models
 				action : [["bonus action", "Defensive Field (Guardian Model)"]]
@@ -18582,7 +18561,7 @@ RunFunctionAtEnd(function () {
 				name : "Perfected Armor",
 				source : [["UA:SP3", 2]],
 				minlevel : 15,
-				description :  desc([
+				description : desc([
 					'My armor gets additional features, based on the model; Use "Choose Features" to select it',
 					"The guardian gets the ability to pull a creature closer as a reaction and make an attack",
 					"The infiltrator gets an upgrade to its lightning launcher weapon attack"
@@ -18596,7 +18575,7 @@ RunFunctionAtEnd(function () {
 						"I can use this reaction a number of times equal to my Intelligence modifier (min 1). I regain all expended uses of it when I finish a long rest."
 					]) + "\n\n\u25C6 Infiltrator Perfected Armor Features (Armorer 15, UA:SP3 2)" + desc([
 						"Any creature that takes lightning damage from my Lightning Launcher glimmers with light until the start of my next turn.",
-						"The glimmering creature sheds dim light in a 5 ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage."
+						"The glimmering creature sheds dim light in a 5-ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage."
 					]),
 					amendTo : "Power Armor Model Features"
 				}],
@@ -18624,17 +18603,7 @@ RunFunctionAtEnd(function () {
 					usages : "Intelligence modifier per ",
 					recovery : "long rest",
 					usagescalc : "event.value = Math.max(1, What('Int Mod'));"
-				}],
-				calcChanges : {
-					atkAdd : [
-						function (fields, v) {
-							if (v.theWea.isLightningLauncher) {
-								fields.Description = fields.Description.replace("lightning damage", "damage") + (fields.Description ? '; ' : '') + "+1d6 lightning damage and adv. on next attack vs. target not by me";
-							}
-						},
-						"A target hit by my Lightning Launcher attack will shed dim light in a 5-ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage."
-					]
-				}
+				}]
 			}
 		}
 	});
@@ -18650,19 +18619,23 @@ RunFunctionAtEnd(function () {
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
 		"The power armor is formfitting, has negligible weight, and doesn't give disadv. on Stealth"
 	])
+	var prereqFunc = function(v) {
+		var sParsed = ParseArmor(v.choice.replace(/(Guardian|Infiltrator) arcane /i, ''));
+		return sParsed && testSource(sParsed, ArmourList[sParsed], "armorExcl") ? "skip" : true;
+	};
 	for (var armor in ArmourList) {
 		var anArm = ArmourList[armor];
-		if (anArm.type != "heavy" || anArm.isMagicArmor || !anArm.weight) continue;
+		if (anArm.type != "heavy" || anArm.isMagicArmor || !anArm.weight || (CurrentVars.extraArmour && CurrentVars.extraArmour[armor])) continue;
 		// Add the Guardian variant of the armor
 		var gArmName = "Guardian Power " + anArm.name;
 		itsFea[gArmName.toLowerCase()] = {
 			name : (typePF || anArm.name.length < 16 ? "Armor " : "") + "Model: Guardian " + anArm.name,
+			submenu : "Guardian Power Armor",
 			description : guardianTxt,
-			source : [["UA:SP3", 2]],
 			additional : guardianAdditional,
 			armorAdd : gArmName,
 			weaponsAdd : ["Thunder Gauntlets"],
-			prereqeval : 'testSource("' + armor + '", ArmourList["' + armor + '"], "armorExcl") ? "skip" : true;',
+			prereqeval : prereqFunc,
 			dependentChoices : "guardian"
 		}
 		// And now add the Infiltrator variant of the armor
@@ -18675,12 +18648,12 @@ RunFunctionAtEnd(function () {
 		};
 		itsFea[iArm.name.toLowerCase()] = {
 			name : "Armor Model: Infiltrator " + anArm.name,
+			submenu : "Infiltrator Power Armor",
 			description : infiltratorTxt,
-			source : [["UA:SP3", 2]],
 			speed : { walk : {spd : "+5", enc : "+5" } },
 			armorAdd : iArm.name,
 			weaponsAdd : ["Lightning Launcher"],
-			prereqeval : 'testSource("' + armor + '", ArmourList["' + armor + '"], "armorExcl") ? "skip" : true;',
+			prereqeval : prereqFunc,
 			armorOptions : [iArm],
 			dependentChoices : "infiltrator"
 		}
@@ -18691,7 +18664,7 @@ RunFunctionAtEnd(function () {
 
 // Add the new Artificer infusions
 if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Magical Strength (prereq: level 10 artificer)", {
+		AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Magical Strength (ua) (prereq: level 10 artificer)", {
 		name : "Armor of Magical Strength",
 		source : [["UA:SP3", 3]],
 		description : desc([
@@ -18701,50 +18674,11 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		]),
 		additional : "suit of armor; requires attunement",
 		prereqeval : function(v) { return classes.known.artificer.level >= 10; },
-		magicitemsAdd : ["Armor of Magical Strength"]
+		magicitemsAdd : ["Armor of Magical Strength (UA)"]
 	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Tools", {
-		name : "Armor of Tools",
-		source : [["UA:SP3", 3]],
-		description : desc([
-			"The armor can have a set of artisan's or thieves' tools integrated into it as an action",
-			"The tools remain integrated for 8 hours, or until removed as an action",
-			"The wearer can add its Intelligence modifier to checks made with the integrated tools"
-		]),
-		additional : "suit of armor",
-		magicitemsAdd : ["Armor of Tools"]
-	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awareness (prereq: level 10 artificer)", {
-		name : "Helm of Awareness",
-		source : [["UA:SP3", 3]],
-		description : "\n   The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated",
-		additional : "helmet; requires attunement",
-		prereqeval : function(v) { return classes.known.artificer.level >= 10; },
-		magicitemsAdd : ["Helm of Awareness"]
-	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener", {
-		name : "Mind Sharpener",
-		source : [["UA:SP3", 3]],
-		description : "\n   The wearer can use its reaction to ignore a failed Con save to maintain concentration",
-		additional : "suit of armor or robes",
-		magicitemsAdd : ["Mind Sharpener"]
-	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refueling Ring (prereq: level 6 artificer)", {
-		name : "Spell-Refueling Ring",
-		source : [["UA:SP3", 3]],
-		description : desc([
-			"As an action once per dawn, the wearer of this ring can recover one expended spell slot",
-			"The maximum level of the spell slot is equal to the number of magic items it is attuned to"
-		]),
-		additional : "ring; requires attunement",
-		prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-		magicitemsAdd : ["Spell-Refueling Ring"]
-	});
-
-	// Add some special magic items for these Artificer infusions
 	MagicItemsList["armor of magical strength-ua"] = {
-		name : "Armor of Magical Strength",
-		nameTest : "of Magical Strength",
+		name : "Armor of Magical Strength (UA)",
+		nameTest : "of Magical Strength (UA)",
 		source : [["UA:SP3", 3]],
 		type : "armor (light, medium, or heavy)",
 		description : "This armor has 4 charges and regains 1d4 charges daily at dawn. As a reaction when I would be knocked prone, I can expend 1 charge to not be knocked prone. It allows me to use my Intelligence modifier instead of my Strength modifier when making Strength checks or Strength saves.",
@@ -18760,12 +18694,23 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		additional : "regains 1d4",
 		addMod : [{
 			type : "save", field : "Str", mod : "max(Int-Str|0)",
-			text : "While attuned to the Armor of Magical Strength, I can use my Intelligence modifier instead of my Strength modifier for Strength saving throws."
+			text : "While attuned to the Armor of Magical Strength (UA), I can use my Intelligence modifier instead of my Strength modifier for Strength saving throws."
 		}, {
 			type : "skill", field : "Athletics", mod : "max(Int-Str|0)",
-			text : "While attuned to the Armor of Magical Strength, I can use my Intelligence modifier instead of my Strength modifier for Strength checks."
+			text : "While attuned to the Armor of Magical Strength (UA), I can use my Intelligence modifier instead of my Strength modifier for Strength checks."
 		}]
 	};
+	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Tools", {
+		name : "Armor of Tools",
+		source : [["UA:SP3", 3]],
+		description : desc([
+			"The armor can have a set of artisan's or thieves' tools integrated into it as an action",
+			"The tools remain integrated for 8 hours, or until removed as an action",
+			"The wearer can add its Intelligence modifier to checks made with the integrated tools"
+		]),
+		additional : "suit of armor",
+		magicitemsAdd : ["Armor of Tools"]
+	});
 	MagicItemsList["armor of tools-ua"] = {
 		name : "Armor of Tools",
 		source : [["UA:SP3", 3]],
@@ -18774,25 +18719,22 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		descriptionFull : "As an action, a creature wearing this infused armor can integrate into it artisan's tools or thieves' tools. The tools remain integrated in the armor for 8 hours or until the wearer removes the tools as an action. The armor can have only one tool integrated at a time.\n   The wearer can add its Intelligence modifier to any ability checks it makes with the integrated tool. The wearer must have a hand free to use the tool.",
 		action : [["action", ""]]
 	};
-	MagicItemsList["helm of awareness-ua"] = {
-		name : "Helm of Awareness",
-		source : [["UA:SP3", 3]],
-		type : "wondrous item",
-		description : "While wearing this helmet, I have advantage on initiative rolls. In addition, I can't be surprised, provided I'm not incapacitated.",
-		descriptionFull : "While wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be surprised, provided it isn't incapacitated.",
-		attunement : true,
-		advantages : [["Initiative", true]],
-		savetxt : { immune : ["surprised"] }
-	};
-	MagicItemsList["mind sharpener-ua"] = {
+	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener (ua)", {
 		name : "Mind Sharpener",
+		source : [["UA:SP3", 3]],
+		description : "\n   The wearer can use its reaction to ignore a failed Con save to maintain concentration",
+		additional : "suit of armor or robes",
+		magicitemsAdd : ["Mind Sharpener (UA)"]
+	});
+	MagicItemsList["mind sharpener-ua"] = {
+		name : "Mind Sharpener (UA)",
 		source : [["UA:SP3", 3]],
 		description : "This magic armor or robes can send a jolt to refocus my mind. Whenever I fail a Constitution saving throw to maintain concentration on a spell, I can use my reaction to succeed instead.",
 		descriptionFull : "The infused item can send a jolt to the wearer to refocus their mind. While wearing this infused item, whenever the creature fails a Constitution saving throw to maintain concentration on a spell, it can use its reaction to succeed instead.",
 		action : [["reaction", ""]],
 		choices : ["Mind Sharpener Armor", "Mind Sharpener Robes"],
 		"mind sharpener armor" : {
-			name : "Mind \u200ASharpener",
+			name : "Mind\u200A Sharpener (UA)",
 			type : "armor (light, medium, or heavy)",
 			description : "This magic armor can send a jolt to refocus my mind. Whenever I fail a Constitution saving throw to maintain concentration on a spell, I can use my reaction to succeed instead.",
 			chooseGear : {
@@ -18803,13 +18745,24 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			}
 		},
 		"mind sharpener robes" : {
-			name : "Mind Sharpener (Robes)",
+			name : "Mind Sharpener (UA) (Robes)",
 			type : "wondrous item",
 			description : "These magic robes can send a jolt to refocus my mind. Whenever I fail a Constitution saving throw to maintain concentration on a spell, I can use my reaction to succeed instead."
 		}
 	};
-	MagicItemsList["spell-refueling ring-ua"] = {
+	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refueling Ring (ua) (prereq: level 6 artificer)", {
 		name : "Spell-Refueling Ring",
+		source : [["UA:SP3", 3]],
+		description : desc([
+			"As an action once per dawn, the wearer of this ring can recover one expended spell slot",
+			"The maximum level of the spell slot is equal to the number of magic items it is attuned to"
+		]),
+		additional : "ring; requires attunement",
+		prereqeval : function(v) { return classes.known.artificer.level >= 6; },
+		magicitemsAdd : ["Spell-Refueling Ring (UA)"]
+	});
+	MagicItemsList["spell-refueling ring-ua"] = {
+		name : "Spell-Refueling Ring (UA)",
 		source : [["UA:SP3", 3]],
 		type : "ring",
 		description : "As an action, I can activate this magic ring to recover one expended spell slot. The maximum level of the recovered slot is equal to the number of magic items I am attuned to when I activate this ring. Once used, the ring can't be used again until the next dawn.",
@@ -18922,7 +18875,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 				extrachoice : "star flare",
 				minlevel : 14
 			}]
-		},
+		}
 	}
 });
 
@@ -18969,7 +18922,7 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 				"The target takes +3d6 psychic damage and must make a Wis save or be frightened of me",
 				"This lasts until the end of my next turn; In addition, I add my Wis mod to Cha checks"
 			]),
-			addMod : ["Deception", "Intimidation", "Performance","Persuasion"].map(function(skill){return {type : "skill", field : skill, mod : "Wis", text : "I add my Wisdom modifier to my Charisma checks"};})
+			addMod : ["Deception", "Intimidation", "Performance", "Persuasion"].map(function(skill){return {type : "skill", field : skill, mod : "Wis", text : "I add my Wisdom modifier to my Charisma checks"};})
 		},
 		"subclassfeature11" : {
 			name : "Beguiling Twist",
@@ -19006,3 +18959,95 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 	}
 });
 if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassFeyWandererUA); };
+
+// ua_20200713_Feats-2020.js
+// Define the source
+SourceList["UA:F2"] = {
+	name: "Unearthed Arcana: Feats 2020",
+	abbreviation: "UA:F2",
+	group: "Unearthed Arcana",
+	url: "https://media.wizards.com/2020/dnd/downloads/UA2020_Feats.pdf",
+	date: "2020/07/13"
+};
+
+FeatsList["crusher-ua"] = {
+	name : "Crusher",
+	source : [["UA:F2", 1]],
+	descriptionFull : "You are practiced in the art of crushing your enemies, granting you the following benefits:\n \u2022 Increase your Strength or Dexterity by 1, to a maximum of 20.\n \u2022 Once per turn, when you hit a creature with an attack that deals bludgeoning damage, you can move it 5 feet to an unoccupied space, provided the target is no more than one size larger than you.\n \u2022 When you score a critical hit that deals bludgeoning damage to a creature, attack rolls against that creature are made with advantage until the end of your next turn.",
+	description : "Once per turn, when I hit a creature no more than one size larger than me with an attack that deals bludgeoning damage, I can move it 5 ft to an unoccupied space. If I score a critical hit that deals bludgeoning damage, attacks against the creature hit gain advantage until the start of my next turn. [+1 " + (typePF ? "Str or Dex" : "Strength or Dexterity") + "]",
+	scorestxt : "+1 Strength or Dexterity"
+};
+FeatsList["practiced expert-ua"] = {
+	name : "Practiced Expert",
+	source : [["UA:F2", 3]],
+	descriptionFull : "You have honed your proficiency with particular skills or tools, gaining the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain proficiency with one skill or tool of your choice.\n \u2022 Choose one of your skill or tool proficiencies. Your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
+	description : "I gain proficiency in one skill or tool, and expertise in that same skill or tool, or another skill or tool I'm proficient with. [+1 to one ability score of my choice]",
+	skillstxt : "Proficiency with one skill or tool, and\n   Expertise with one skill or tool I'm proficient with",
+	scorestxt : "+1 to one ability score of my choice"
+};
+FeatsList["shadow touched-ua"] = {
+	name: "Shadow Touched",
+	source: [["UA:F2", 3]],
+	descriptionFull : "You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 You learn the darkness spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
+	description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
+	spellcastingBonus : [{
+		name : "Darkness",
+		spells : ["darkness"],
+		selection : ["darkness"],
+		firstCol : "oncelr"
+	}, {
+		name : "1st-level Illus/Necro spell",
+		'class' : "any",
+		school : ["Illus", "Necro"],
+		level : [1, 1],
+		firstCol : "oncelr"
+	}],
+	spellcastingAbility : 4,
+	allowUpCasting : true,
+	choices: ["Intelligence", "Wisdom", "Charisma"],
+	"intelligence": {
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
+		spellcastingAbility : 4,
+		scores : [0, 0, 0, 1, 0, 0]
+	},
+	"wisdom": {
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
+		spellcastingAbility : 5,
+		scores : [0, 0, 0, 0, 1, 0]
+	},
+	"charisma": {
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
+		spellcastingAbility : 6,
+		scores : [0, 0, 0, 0, 0, 1]
+	}
+};
+FeatsList["shield training-ua"] = {
+	name : "Shield Training",
+	source : [["UA:F2", 3]],
+	descriptionFull : "You've trained in the effective use of shields. You gain the following benefits:\n \u2022 Increase your Strength, Dexterity, or Constitution score by 1, to a maximum of 20.\n \u2022 You gain proficiency with shields.\n \u2022 In combat, you can don or doff a shield as the free object interaction on your turn.\n \u2022 If you have the Spellcasting or Pact Magic feature, you can use a shield as a spellcasting focus.",
+	description : "I gain proficiency with shields. I can don or doff a shield as the free object interaction on my turn. If I have the Spellcasting or Pact Magic feature, I can use my shield as a spellcasting focus. [+1 Strength, Dexterity, or Constitution]",
+	scorestxt : "+1 Strength, Dexterity, or Constitution",
+	armorProfs : [false, false, false, true]
+};
+FeatsList["tandem tactician-ua"] = {
+	name : "Tandem Tactician",
+	source : [["UA:F2", 3]],
+	descriptionFull : "Your presence in a scrap tends to elevate your comrades. You gain the following benefits:\n \u2022 You can use the Help action as a bonus action.\n \u2022 When you use the Help action to aid an ally in attacking a creature, increase the range of the Help action by 10 feet. Additionally, you can help two allies targeting the same creature within range when you use the Help action this way.",
+	description : "I can use the Help action as a bonus action. When I use the Help action to aid an ally in attacking a creature, the range of the Help action increases with 10 ft. I can help two allies targeting the same creature within range when I use the Help action this way.",
+	action : [["bonus action", ""]]
+};
+FeatsList["tracker-ua"] = {
+	name : "Tracker",
+	source : [["UA:F2", 3]],
+	descriptionFull : "You have spent time hunting creatures and honed your skills, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You learn the hunter's mark spell. You can cast it once without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have. Wisdom is your spellcasting ability for this spell.\n \u2022 You have advantage on Wisdom (Survival) checks to track creatures.",
+	description : "I can cast Hunter's Mark once per lost rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
+	scores : [0, 0, 0, 0, 1, 0],
+	spellcastingBonus : {
+		name : "1\xD7/LR \u0026 spell slot",
+		spellcastingAbility : 5,
+		allowUpCasting : true,
+		spells : ["hunter's mark"],
+		selection : ["hunter's mark"],
+		firstCol : "oncelr"
+	}
+};

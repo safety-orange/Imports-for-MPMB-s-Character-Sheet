@@ -3885,7 +3885,7 @@ WeaponsList["energy beam-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 8, "My choice"],
 	range : "90 ft",
-	description : "Dex save, success - no damage; Acid, cold, fire, lightning, or thunder damage [my choice] (UA:TMC 27)",
+	description : "Dex save, success - no damage; Acid, cold, fire, lightning, or thunder damage [my choice]",
 	abilitytodamage : false,
 	dc : true
 };
@@ -3898,7 +3898,7 @@ WeaponsList["mind slam-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "force"],
 	range : "60 ft",
-	description : "Con save, success - no damage, fail - Large or smaller target also knocked prone (UA:TMC 28)",
+	description : "Con save, success - no damage, fail - Large or smaller target also knocked prone",
 	abilitytodamage : false,
 	dc : true
 };
@@ -3911,7 +3911,7 @@ WeaponsList["mind thrust-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 10, "psychic"],
 	range : "120 ft",
-	description : "Int save, success - no damage (UA:TMC 28)",
+	description : "Int save, success - no damage",
 	abilitytodamage : false,
 	dc : true
 };
@@ -3924,7 +3924,7 @@ WeaponsList["psychic hammer-ua-psy"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "force"],
 	range : "120 ft",
-	description : "Str save, success - no damage, fail - also move 10 ft in chosen direction (UA:TMC 28)",
+	description : "Str save, success - no damage, fail - also move 10 ft in chosen direction",
 	abilitytodamage : false,
 	dc : true
 };

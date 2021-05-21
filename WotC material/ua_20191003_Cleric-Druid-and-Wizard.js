@@ -129,7 +129,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			source : ["UA:CDnW", 2],
 			minlevel : 2,
 			description : desc([
-				"My mystical bond with a wildfire spirit gives me with the ability to cast certain spells",
+				"My mystical bond with a wildfire spirit gives me the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare",
 				"In addition, I learn the Fire Bolt cantrip"
 			]),
@@ -236,7 +236,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			minlevel : 6,
 			description : desc([
 				"While my wildfire spirit is present, I can have my spells originate from it (no range 'self')",
-				"Also, I can add 1d8 to a single roll of my spells that restore HP or deal fire damage"
+				"Also, I can then add 1d8 to a single roll of my spells that restore HP or deal fire damage"
 			])
 		},
 		"subclassfeature10" : {
@@ -248,6 +248,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 				"The creature has to be Small or larger; The flames last for 1 minute or until touched",
 				"When I see someone touch the flames, it heals or takes fire damage for 2d10 + Wis mod"
 			]),
+			action : [["reaction", ""]],
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
@@ -258,7 +259,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			minlevel : 14,
 			description : desc([
 				"If I drop to 0 HP and don't die, I can stay at 1 HP instead with 5\xD7 druid level temp HP",
-				"Also, all chosen creatures that I can see within 30 ft take 2d10 + druid level fire "
+				"Also, all chosen creatures that I can see within 30 ft take 2d10 + druid level fire damage"
 			]),
 			usages : 1,
 			recovery : "long rest"

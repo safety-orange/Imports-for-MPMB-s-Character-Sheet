@@ -46,15 +46,14 @@ RunFunctionAtEnd(function () {
 				source : [["UA:SP3", 2]],
 				minlevel : 3,
 				description : desc([
-					"When I finish a rest, I can use smith's tools to change the model of my power armor",
-					'Use the "Choose Feature" button above to select the model currently in use',
-					'Each model has their own integrated weapon and extra features, see the "Notes" page'
+					"When I finish a rest, I can use smith's tools to change the model of my arcane armor",
+					'Select a model using the "Choose Feature" button; See "Notes" page for features of each'
 				]),
 				additional : "also see notes page",
 				toNotesPage : [{
 					name : "Power Armor Model Features",
 					note : desc([
-						"I can customize my power armor to the guardian or infiltrator model whenever I finish a short or long rest, provided I have smith’s tools in hand.",
+						"I can customize my power armor to the guardian or infiltrator model whenever I finish a short or long rest, provided I have smith's tools in hand.",
 						"Each model includes a special weapon. When I attack with that weapon, I can use my Intelligence modifier, instead of Strength or Dexterity, for the attack and damage rolls."
 					]) + "\n\n\u25C6 Guardian Power Armor (Armorer 3, UA:SP3 2)" + desc([
 						"\u2022 Thunder Gauntlets: The armored fists of the guardian power armor each count as a simple melee weapon, and each deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
@@ -71,17 +70,6 @@ RunFunctionAtEnd(function () {
 					choiceAttribute : true
 				}],
 				weaponOptions : [{
-					regExpSearch : /^(?=.*lightning)(?=.*launcher).*$/i,
-					name : "Lightning Launcher",
-					source : [["UA:SP3", 2]],
-					ability : 4,
-					type : "Simple",
-					damage : [1, 6, "lightning"],
-					range : "90/300 ft",
-					description : "Once per turn on hit, +1d6 lightning damage",
-					abilitytodamage : true,
-					isLightningLauncher : true
-				}, {
 					regExpSearch : /^(?=.*thunder)(?=.*gauntlet).*$/i,
 					name : "Thunder Gauntlets",
 					source : [["UA:SP3", 2]],
@@ -92,6 +80,16 @@ RunFunctionAtEnd(function () {
 					description : "Target hit disadv. on attacks vs. others than me until my next turn starts",
 					abilitytodamage : true,
 					monkweapon : true
+				}, {
+					regExpSearch : /^(?=.*lightning)(?=.*launcher).*$/i,
+					name : "Lightning Launcher",
+					source : [["UA:SP3", 2]],
+					ability : 4,
+					type : "Simple",
+					damage : [1, 6, "lightning"],
+					range : "90/300 ft",
+					description : "Once per turn on hit, +1d6 lightning damage",
+					abilitytodamage : true
 				}],
 				// Do this in the parent object, so that it is always visible and people printing the sheet can more easily switch between the two models
 				action : [["bonus action", "Defensive Field (Guardian Model)"]]
@@ -110,7 +108,7 @@ RunFunctionAtEnd(function () {
 				name : "Perfected Armor",
 				source : [["UA:SP3", 2]],
 				minlevel : 15,
-				description :  desc([
+				description : desc([
 					'My armor gets additional features, based on the model; Use "Choose Features" to select it',
 					"The guardian gets the ability to pull a creature closer as a reaction and make an attack",
 					"The infiltrator gets an upgrade to its lightning launcher weapon attack"
@@ -124,7 +122,7 @@ RunFunctionAtEnd(function () {
 						"I can use this reaction a number of times equal to my Intelligence modifier (min 1). I regain all expended uses of it when I finish a long rest."
 					]) + "\n\n\u25C6 Infiltrator Perfected Armor Features (Armorer 15, UA:SP3 2)" + desc([
 						"Any creature that takes lightning damage from my Lightning Launcher glimmers with light until the start of my next turn.",
-						"The glimmering creature sheds dim light in a 5 ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage."
+						"The glimmering creature sheds dim light in a 5-ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage."
 					]),
 					amendTo : "Power Armor Model Features"
 				}],
@@ -152,17 +150,7 @@ RunFunctionAtEnd(function () {
 					usages : "Intelligence modifier per ",
 					recovery : "long rest",
 					usagescalc : "event.value = Math.max(1, What('Int Mod'));"
-				}],
-				calcChanges : {
-					atkAdd : [
-						function (fields, v) {
-							if (v.theWea.isLightningLauncher) {
-								fields.Description = fields.Description.replace("lightning damage", "damage") + (fields.Description ? '; ' : '') + "+1d6 lightning damage and adv. on next attack vs. target not by me";
-							}
-						},
-						"A target hit by my Lightning Launcher attack will shed dim light in a 5-ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage."
-					]
-				}
+				}]
 			}
 		}
 	});
@@ -178,19 +166,23 @@ RunFunctionAtEnd(function () {
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
 		"The power armor is formfitting, has negligible weight, and doesn't give disadv. on Stealth"
 	])
+	var prereqFunc = function(v) {
+		var sParsed = ParseArmor(v.choice.replace(/(Guardian|Infiltrator) arcane /i, ''));
+		return sParsed && testSource(sParsed, ArmourList[sParsed], "armorExcl") ? "skip" : true;
+	};
 	for (var armor in ArmourList) {
 		var anArm = ArmourList[armor];
-		if (anArm.type != "heavy" || anArm.isMagicArmor || !anArm.weight) continue;
+		if (anArm.type != "heavy" || anArm.isMagicArmor || !anArm.weight || (CurrentVars.extraArmour && CurrentVars.extraArmour[armor])) continue;
 		// Add the Guardian variant of the armor
 		var gArmName = "Guardian Power " + anArm.name;
 		itsFea[gArmName.toLowerCase()] = {
 			name : (typePF || anArm.name.length < 16 ? "Armor " : "") + "Model: Guardian " + anArm.name,
+			submenu : "Guardian Power Armor",
 			description : guardianTxt,
-			source : [["UA:SP3", 2]],
 			additional : guardianAdditional,
 			armorAdd : gArmName,
 			weaponsAdd : ["Thunder Gauntlets"],
-			prereqeval : 'testSource("' + armor + '", ArmourList["' + armor + '"], "armorExcl") ? "skip" : true;',
+			prereqeval : prereqFunc,
 			dependentChoices : "guardian"
 		}
 		// And now add the Infiltrator variant of the armor
@@ -203,12 +195,12 @@ RunFunctionAtEnd(function () {
 		};
 		itsFea[iArm.name.toLowerCase()] = {
 			name : "Armor Model: Infiltrator " + anArm.name,
+			submenu : "Infiltrator Power Armor",
 			description : infiltratorTxt,
-			source : [["UA:SP3", 2]],
 			speed : { walk : {spd : "+5", enc : "+5" } },
 			armorAdd : iArm.name,
 			weaponsAdd : ["Lightning Launcher"],
-			prereqeval : 'testSource("' + armor + '", ArmourList["' + armor + '"], "armorExcl") ? "skip" : true;',
+			prereqeval : prereqFunc,
 			armorOptions : [iArm],
 			dependentChoices : "infiltrator"
 		}
@@ -219,7 +211,28 @@ RunFunctionAtEnd(function () {
 
 // Add the new Artificer infusions
 if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Magical Strength (prereq: level 10 artificer)", {
+	// [dupl_start] the same as in Tasha's Cauldron of Everything
+	if (!SourceList.T) {
+		AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awareness (prereq: level 10 artificer)", {
+			name : "Helm of Awareness",
+			source : [["T", 21], ["UA:SP3", 3]],
+			description : "\n   The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated",
+			additional : "helmet; requires attunement",
+			prereqeval : function(v) { return classes.known.artificer.level >= 10; },
+			magicitemsAdd : ["Helm of Awareness"]
+		});
+		MagicItemsList["helm of awareness"] = {
+			name : "Helm of Awareness",
+			source : [["T", 21], ["UA:SP3", 3]],
+			type : "wondrous item",
+			description : "While wearing this helmet, I have advantage on initiative rolls. In addition, I can't be surprised, provided I'm not incapacitated.",
+			descriptionFull : "While wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be surprised, provided it isn't incapacitated.",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			savetxt : { immune : ["surprised"] }
+		};
+	} // dupl_end
+	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Magical Strength (ua) (prereq: level 10 artificer)", {
 		name : "Armor of Magical Strength",
 		source : [["UA:SP3", 3]],
 		description : desc([
@@ -229,50 +242,11 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		]),
 		additional : "suit of armor; requires attunement",
 		prereqeval : function(v) { return classes.known.artificer.level >= 10; },
-		magicitemsAdd : ["Armor of Magical Strength"]
+		magicitemsAdd : ["Armor of Magical Strength (UA)"]
 	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Tools", {
-		name : "Armor of Tools",
-		source : [["UA:SP3", 3]],
-		description : desc([
-			"The armor can have a set of artisan's or thieves' tools integrated into it as an action",
-			"The tools remain integrated for 8 hours, or until removed as an action",
-			"The wearer can add its Intelligence modifier to checks made with the integrated tools"
-		]),
-		additional : "suit of armor",
-		magicitemsAdd : ["Armor of Tools"]
-	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awareness (prereq: level 10 artificer)", {
-		name : "Helm of Awareness",
-		source : [["UA:SP3", 3]],
-		description : "\n   The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated",
-		additional : "helmet; requires attunement",
-		prereqeval : function(v) { return classes.known.artificer.level >= 10; },
-		magicitemsAdd : ["Helm of Awareness"]
-	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener", {
-		name : "Mind Sharpener",
-		source : [["UA:SP3", 3]],
-		description : "\n   The wearer can use its reaction to ignore a failed Con save to maintain concentration",
-		additional : "suit of armor or robes",
-		magicitemsAdd : ["Mind Sharpener"]
-	});
-	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refueling Ring (prereq: level 6 artificer)", {
-		name : "Spell-Refueling Ring",
-		source : [["UA:SP3", 3]],
-		description : desc([
-			"As an action once per dawn, the wearer of this ring can recover one expended spell slot",
-			"The maximum level of the spell slot is equal to the number of magic items it is attuned to"
-		]),
-		additional : "ring; requires attunement",
-		prereqeval : function(v) { return classes.known.artificer.level >= 6; },
-		magicitemsAdd : ["Spell-Refueling Ring"]
-	});
-
-	// Add some special magic items for these Artificer infusions
 	MagicItemsList["armor of magical strength-ua"] = {
-		name : "Armor of Magical Strength",
-		nameTest : "of Magical Strength",
+		name : "Armor of Magical Strength (UA)",
+		nameTest : "of Magical Strength (UA)",
 		source : [["UA:SP3", 3]],
 		type : "armor (light, medium, or heavy)",
 		description : "This armor has 4 charges and regains 1d4 charges daily at dawn. As a reaction when I would be knocked prone, I can expend 1 charge to not be knocked prone. It allows me to use my Intelligence modifier instead of my Strength modifier when making Strength checks or Strength saves.",
@@ -288,12 +262,23 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		additional : "regains 1d4",
 		addMod : [{
 			type : "save", field : "Str", mod : "max(Int-Str|0)",
-			text : "While attuned to the Armor of Magical Strength, I can use my Intelligence modifier instead of my Strength modifier for Strength saving throws."
+			text : "While attuned to the Armor of Magical Strength (UA), I can use my Intelligence modifier instead of my Strength modifier for Strength saving throws."
 		}, {
 			type : "skill", field : "Athletics", mod : "max(Int-Str|0)",
-			text : "While attuned to the Armor of Magical Strength, I can use my Intelligence modifier instead of my Strength modifier for Strength checks."
+			text : "While attuned to the Armor of Magical Strength (UA), I can use my Intelligence modifier instead of my Strength modifier for Strength checks."
 		}]
 	};
+	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Tools", {
+		name : "Armor of Tools",
+		source : [["UA:SP3", 3]],
+		description : desc([
+			"The armor can have a set of artisan's or thieves' tools integrated into it as an action",
+			"The tools remain integrated for 8 hours, or until removed as an action",
+			"The wearer can add its Intelligence modifier to checks made with the integrated tools"
+		]),
+		additional : "suit of armor",
+		magicitemsAdd : ["Armor of Tools"]
+	});
 	MagicItemsList["armor of tools-ua"] = {
 		name : "Armor of Tools",
 		source : [["UA:SP3", 3]],
@@ -302,25 +287,22 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		descriptionFull : "As an action, a creature wearing this infused armor can integrate into it artisan's tools or thieves' tools. The tools remain integrated in the armor for 8 hours or until the wearer removes the tools as an action. The armor can have only one tool integrated at a time.\n   The wearer can add its Intelligence modifier to any ability checks it makes with the integrated tool. The wearer must have a hand free to use the tool.",
 		action : [["action", ""]]
 	};
-	MagicItemsList["helm of awareness-ua"] = {
-		name : "Helm of Awareness",
-		source : [["UA:SP3", 3]],
-		type : "wondrous item",
-		description : "While wearing this helmet, I have advantage on initiative rolls. In addition, I can't be surprised, provided I'm not incapacitated.",
-		descriptionFull : "While wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be surprised, provided it isn't incapacitated.",
-		attunement : true,
-		advantages : [["Initiative", true]],
-		savetxt : { immune : ["surprised"] }
-	};
-	MagicItemsList["mind sharpener-ua"] = {
+	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener (ua)", {
 		name : "Mind Sharpener",
+		source : [["UA:SP3", 3]],
+		description : "\n   The wearer can use its reaction to ignore a failed Con save to maintain concentration",
+		additional : "suit of armor or robes",
+		magicitemsAdd : ["Mind Sharpener (UA)"]
+	});
+	MagicItemsList["mind sharpener-ua"] = {
+		name : "Mind Sharpener (UA)",
 		source : [["UA:SP3", 3]],
 		description : "This magic armor or robes can send a jolt to refocus my mind. Whenever I fail a Constitution saving throw to maintain concentration on a spell, I can use my reaction to succeed instead.",
 		descriptionFull : "The infused item can send a jolt to the wearer to refocus their mind. While wearing this infused item, whenever the creature fails a Constitution saving throw to maintain concentration on a spell, it can use its reaction to succeed instead.",
 		action : [["reaction", ""]],
 		choices : ["Mind Sharpener Armor", "Mind Sharpener Robes"],
 		"mind sharpener armor" : {
-			name : "Mind \u200ASharpener",
+			name : "Mind\u200A Sharpener (UA)",
 			type : "armor (light, medium, or heavy)",
 			description : "This magic armor can send a jolt to refocus my mind. Whenever I fail a Constitution saving throw to maintain concentration on a spell, I can use my reaction to succeed instead.",
 			chooseGear : {
@@ -331,13 +313,24 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			}
 		},
 		"mind sharpener robes" : {
-			name : "Mind Sharpener (Robes)",
+			name : "Mind Sharpener (UA) (Robes)",
 			type : "wondrous item",
 			description : "These magic robes can send a jolt to refocus my mind. Whenever I fail a Constitution saving throw to maintain concentration on a spell, I can use my reaction to succeed instead."
 		}
 	};
-	MagicItemsList["spell-refueling ring-ua"] = {
+	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refueling Ring (ua) (prereq: level 6 artificer)", {
 		name : "Spell-Refueling Ring",
+		source : [["UA:SP3", 3]],
+		description : desc([
+			"As an action once per dawn, the wearer of this ring can recover one expended spell slot",
+			"The maximum level of the spell slot is equal to the number of magic items it is attuned to"
+		]),
+		additional : "ring; requires attunement",
+		prereqeval : function(v) { return classes.known.artificer.level >= 6; },
+		magicitemsAdd : ["Spell-Refueling Ring (UA)"]
+	});
+	MagicItemsList["spell-refueling ring-ua"] = {
+		name : "Spell-Refueling Ring (UA)",
 		source : [["UA:SP3", 3]],
 		type : "ring",
 		description : "As an action, I can activate this magic ring to recover one expended spell slot. The maximum level of the recovered slot is equal to the number of magic items I am attuned to when I activate this ring. Once used, the ring can't be used again until the next dawn.",
@@ -450,7 +443,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 				extrachoice : "star flare",
 				minlevel : 14
 			}]
-		},
+		}
 	}
 });
 
@@ -497,7 +490,7 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 				"The target takes +3d6 psychic damage and must make a Wis save or be frightened of me",
 				"This lasts until the end of my next turn; In addition, I add my Wis mod to Cha checks"
 			]),
-			addMod : ["Deception", "Intimidation", "Performance","Persuasion"].map(function(skill){return {type : "skill", field : skill, mod : "Wis", text : "I add my Wisdom modifier to my Charisma checks"};})
+			addMod : ["Deception", "Intimidation", "Performance", "Persuasion"].map(function(skill){return {type : "skill", field : skill, mod : "Wis", text : "I add my Wisdom modifier to my Charisma checks"};})
 		},
 		"subclassfeature11" : {
 			name : "Beguiling Twist",

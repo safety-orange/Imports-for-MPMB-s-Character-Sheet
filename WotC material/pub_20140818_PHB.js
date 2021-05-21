@@ -840,7 +840,7 @@ AddSubClass("fighter", "battle master", {
 			usages : [0, 0, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6],
 			recovery : "short rest"
 		},
-		"subclassfeature3.maneuvers" : {
+		"subclassfeature3.1" : {
 			name : "Maneuvers",
 			source : ["P", 73],
 			minlevel : 3,
@@ -853,17 +853,6 @@ AddSubClass("fighter", "battle master", {
 			extraTimes : levels.map(function (n) {
 				return n < 3 ? 0 : n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9;
 			}),
-			eval : function () {
-				// If the martial adept feat was selected before adding the Combat Superiority class feature, increase it with one use per day
-				// This has to happen after the Combat Superiority feature has been added fully, hence this eval is not part of that feature
-				if (CurrentFeats.known.indexOf("martial adept") != -1) {
-					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Martial Adept feat or ', 'bonus');
-				}
-				// The same goes for the optional fighting style Superior Technique
-				if (GetFeatureChoice("classes", "fighter", "fighting style") == "superior technique") {
-					AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'Fighter: Superior Technique Fighting Style', 'bonus');
-				}
-			},
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : ["P", 74],
@@ -3514,7 +3503,7 @@ FeatsList["magic initiate"] = {
 	description : "Select a spellcasting class using the square button on this feat line. I learn two cantrips and one 1st-level spell of my choice from that class' spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.",
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
-		description : "I learn two cantrips and one 1st-level spell of my choice from the bard's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nCharisma is my spellcasting ability for these.",
+		description : "I learn two cantrips and one 1st-level spell of my choice from the bard's spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. If I'm a bard, I can also cast the 1st-level spell by expending a spell slot as normal. Charisma is my spellcasting ability for these spells.",
 		spellcastingBonus : [{
 			name : "Bard cantrip",
 			spellcastingAbility : 6,
@@ -3530,7 +3519,7 @@ FeatsList["magic initiate"] = {
 		}]
 	},
 	"cleric" : {
-		description : "I learn two cantrips and one 1st-level spell of my choice from the cleric's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nWisdom is my spellcasting ability for these.",
+		description : "I learn two cantrips and one 1st-level spell of my choice from the cleric's spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. If I'm a cleric, I can also cast the 1st-level spell by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells.",
 		spellcastingBonus : [{
 			name : "Cleric cantrip",
 			spellcastingAbility : 5,
@@ -3546,7 +3535,7 @@ FeatsList["magic initiate"] = {
 		}]
 	},
 	"druid" : {
-		description : "I learn two cantrips and one 1st-level spell of my choice from the druid's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nWisdom is my spellcasting ability for these.",
+		description : "I learn two cantrips and one 1st-level spell of my choice from the druid's spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. If I'm a druid, I can also cast the 1st-level spell by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells.",
 		spellcastingBonus : [{
 			name : "Druid cantrip",
 			spellcastingAbility : 5,
@@ -3562,7 +3551,7 @@ FeatsList["magic initiate"] = {
 		}]
 	},
 	"sorcerer" : {
-		description : "I learn two cantrips and one 1st-level spell of my choice from the sorcerer's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nCharisma is my spellcasting ability for these.",
+		description : "I learn two cantrips and one 1st-level spell of my choice from the sorcerer's spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. If I'm a sorcerer, I can also cast the 1st-level spell by expending a spell slot as normal. Charisma is my spellcasting ability for these spells.",
 		spellcastingBonus : [{
 			name : "Sorcerer cantrip",
 			spellcastingAbility : 6,
@@ -3578,7 +3567,7 @@ FeatsList["magic initiate"] = {
 		}]
 	},
 	"warlock" : {
-		description : "I learn two cantrips and one 1st-level spell of my choice from the warlock's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nCharisma is my spellcasting ability for these.",
+		description : "I learn two cantrips and one 1st-level spell of my choice from the warlock's spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. If I'm a warlock, I can also cast the 1st-level spell by expending a spell slot as normal. Charisma is my spellcasting ability for these spells.",
 		spellcastingBonus : [{
 			name : "Warlock cantrip",
 			spellcastingAbility : 6,
@@ -3594,7 +3583,7 @@ FeatsList["magic initiate"] = {
 		}]
 	},
 	"wizard" : {
-		description : "I learn two cantrips and one 1st-level spell of my choice from the wizard's spell list.\nI can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.\nIntelligence is my spellcasting ability for these.",
+		description : "I learn two cantrips and one 1st-level spell of my choice from the wizard's spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. If I'm a wizard, I can also cast the 1st-level spell by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus : [{
 			name : "Wizard cantrip",
 			spellcastingAbility : 4,
@@ -3615,14 +3604,19 @@ FeatsList["martial adept"] = {
 	source : ["P", 168],
 	descriptionFull : "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
 	calculate : "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(What('Proficiency Bonus')) + Math.max(What('Str Mod'), What('Dex Mod'))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
-	eval : function () {
-		AddFeature('Combat Superiority ', 1, '(d6)', 'short rest', 'the Martial Adept feat', 'bonus');
-		DontPrint("Class Features Menu");
-	},
-	removeeval : function () {
-		RemoveFeature('Combat Superiority ', 1);
-		if (!MakeClassMenu()) Hide("Class Features Menu");
-	}
+	bonusClassExtrachoices : [{
+		"class" : "fighter",
+		"subclass" : "fighter-battle master",
+		"feature" : "subclassfeature3.1",
+		"bonus" : 2
+	}],
+	extraLimitedFeatures : [{
+		name : "Combat Superiority",
+		usages : 1,
+		additional : 'd6',
+		recovery : "short rest",
+		addToExisting : true
+	}]
 };
 FeatsList["medium armor master"] = {
 	name : "Medium Armor Master",
@@ -4043,7 +4037,7 @@ WeaponsList["thorn whip"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "piercing"],
 	range : "Melee, 30 ft",
-	description : "Melee spell attack, pull target 10 ft closer to me (PHB 282)",
+	description : "Melee spell attack, pull target 10 ft closer to me",
 	abilitytodamage : false
 };
 
@@ -4339,7 +4333,7 @@ SpellsList["dissonant whispers"] = {
 };
 SpellsList["elemental weapon"] = {
 	name : "Elemental Weapon",
-	classes : ["paladin"],
+	classes : ["artificer", "paladin"],
 	source : ["P", 237],
 	level : 3,
 	school : "Trans",
@@ -4564,7 +4558,7 @@ SpellsList["telepathy"] = {
 };
 SpellsList["thorn whip"] = {
 	name : "Thorn Whip",
-	classes : ["druid"],
+	classes : ["artificer", "druid"],
 	source : ["P", 282],
 	level : 0,
 	school : "Trans",

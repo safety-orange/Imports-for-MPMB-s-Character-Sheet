@@ -495,7 +495,7 @@ RaceList["tabaxi"] = {
 RaceList["triton"] = {
 	regExpSearch : /triton/i,
 	name : "Triton",
-	source : ["V", 115],
+	source : [["V", 115], ["MOT", 26]],
 	plural : "Triton",
 	size : 3,
 	speed : {
@@ -511,7 +511,7 @@ RaceList["triton"] = {
 	heightMetric : " are around 1,6 metres tall (135 + 5d10 cm)",
 	weightMetric : " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 1],
-	trait : "Triton (+1 Strength, +1 Constitution +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
+	trait : "Triton (+1 Strength, +1 Constitution, and +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
 	spellcastingAbility : 6,
 	features : {
 		"fog cloud" : {
@@ -555,6 +555,24 @@ RaceList["triton"] = {
 		}
 	}
 };
+// [dupl_start] Add Wall of Water spell, if not already present
+if (!SpellsList["wall of water"]) {
+	SpellsList["wall of water"] = {
+		name : "Wall of Water",
+		classes : ["druid", "sorcerer", "wizard"],
+		source : [["X", 170], ["E", 23], ["V", 116], ["MOT", 27]],
+		level : 3,
+		school : "Evoc",
+		time : "1 a",
+		range : "60 ft",
+		components : "V,S,M",
+		compMaterial : "A drop of water",
+		duration : "Conc, 10 min",
+		description : "30\u00D71\u00D710ft (l\u00D7w\u00D7h) or 20-ft rad 20-ft high; dif. ter.; range wea dis.; Fire dmg half; Cold dmg freezes",
+		descriptionMetric : "9\u00D70,3\u00D73m (l\u00D7w\u00D7h) or 6-m rad 6-m high; dif. ter.; ranged wea dis.; Fire dmg half; Cold dmg freezes",
+		descriptionFull : "You conjure up a wall of water on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain." + "\n   " + "Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot square section is frozen). Each 5-foot-square frozen section has AC 5 and 15 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it."
+	};
+}; // dupl_end
 RaceList["yuan-ti pureblood"] = {
 	regExpSearch : /^(?!.*human)(?=.*yuan.ti)(?=.*pure.?blood).*$/i,
 	name : "Yuan-Ti Pureblood",
@@ -625,18 +643,16 @@ CreatureList["aurochs"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [2, 8, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, see Charge trait"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [2, 8, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, see Charge trait"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the aurochs moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 9 (2d8) piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked prone."
-		}
-	]
+		name : "Charge",
+		description : "If the aurochs moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 9 (2d8) piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked prone."
+	}]
 };
 CreatureList["cow"] = {
 	name : "Cow",
@@ -655,18 +671,16 @@ CreatureList["cow"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the cow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
-		}
-	]
+		name : "Charge",
+		description : "If the cow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
+	}]
 };
 CreatureList["ox"] = {
 	name : "Ox",
@@ -685,21 +699,19 @@ CreatureList["ox"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the ox moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
-		}, {
-			name : "Beast of Burden",
-			description : "The oxen is considered to be a Huge animal for the purpose of determining its carrying capacity."
-		}
-	]
+		name : "Charge",
+		description : "If the ox moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
+	}, {
+		name : "Beast of Burden",
+		description : "The oxen is considered to be a Huge animal for the purpose of determining its carrying capacity."
+	}]
 };
 CreatureList["deep rothe"] = {
 	name : "Deep Roth\xE9",
@@ -718,21 +730,19 @@ CreatureList["deep rothe"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the deep roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
-		}, {
-			name : "Innate Spellcasting",
-			description : "The deep roth\xE9's spellcasting ability is Charisma. It can innately cast Dancing Lights at will, requiring no components."
-		}
-	]
+		name : "Charge",
+		description : "If the deep roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
+	}, {
+		name : "Innate Spellcasting",
+		description : "The deep roth\xE9's spellcasting ability is Charisma. It can innately cast Dancing Lights at will, requiring no components."
+	}]
 };
 CreatureList["rothe"] = {
 	name : "Roth\xE9",
@@ -751,18 +761,16 @@ CreatureList["rothe"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the Roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
-		}
-	]
+		name : "Charge",
+		description : "If the Roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
+	}]
 };
 CreatureList["stench kow"] = {
 	name : "Stench Kow",
@@ -782,21 +790,19 @@ CreatureList["stench kow"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
-		}, {
-			name : "Stench",
-			description : "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour."
-		}
-	],
+		name : "Charge",
+		description : "If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
+	}, {
+		name : "Stench",
+		description : "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour."
+	}],
 	wildshapeString : "Darkvision 60 ft | Resistant to: cold, fire, poison | Charge: If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage | Stench: Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour"
 };
 CreatureList["dolphin"] = {
@@ -819,21 +825,19 @@ CreatureList["dolphin"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Slam",
-			ability : 1,
-			damage : [1, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 30 ft straight in the same round, deals extra 1d6 damage (Charge)"
-		}
-	],
+		name : "Slam",
+		ability : 1,
+		damage : [1, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 30 ft straight in the same round, deals extra 1d6 damage (Charge)"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the dolphin moves at least 30 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 3 (1d6) bludgeoning damage."
-		}, {
-			name : "Hold Breath",
-			description : "The dolphin can hold its breath for 20 minutes."
-		}
-	]
+		name : "Charge",
+		description : "If the dolphin moves at least 30 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 3 (1d6) bludgeoning damage."
+	}, {
+		name : "Hold Breath",
+		description : "The dolphin can hold its breath for 20 minutes."
+	}]
 };
 CreatureList["cranium rat"] = {
 	name : "Cranium Rat",
@@ -853,22 +857,20 @@ CreatureList["cranium rat"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, "", "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "",
-			abilitytodamage : false
-		}
-	],
+		name : "Bite",
+		ability : 2,
+		damage : [1, "", "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "",
+		abilitytodamage : false
+	}],
 	traits : [{
-			name : "Illumination",
-			description : "As a bonus action, the cranium rat can shed dim light from its brain in a 5-foot radius or extinguish the light."
-		}, {
-			name : "Telepathic Shroud",
-			description : "The cranium rat is immune to any effect that would sense its emotions or read its thoughts, as well as to all divination spells."
-		}
-	]
+		name : "Illumination",
+		description : "As a bonus action, the cranium rat can shed dim light from its brain in a 5-foot radius or extinguish the light."
+	}, {
+		name : "Telepathic Shroud",
+		description : "The cranium rat is immune to any effect that would sense its emotions or read its thoughts, as well as to all divination spells."
+	}]
 };
 CreatureList["brontosaurus"] = {
 	name : "Brontosaurus",
@@ -888,19 +890,18 @@ CreatureList["brontosaurus"] = {
 	proficiencyBonus : 3,
 	attacksAction : 1,
 	attacks : [{
-			name : "Stomp",
-			ability : 1,
-			damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
-		}, {
-			name : "Tail",
-			ability : 1,
-			damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (20 ft)",
-			description : ""
-		}
-	]
+		name : "Stomp",
+		ability : 1,
+		damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range : "Melee (20 ft)",
+		description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
+	}, {
+		name : "Tail",
+		ability : 1,
+		damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range : "Melee (20 ft)",
+		description : ""
+	}]
 };
 CreatureList["deinonychus"] = {
 	name : "Deinonychus",
@@ -922,27 +923,25 @@ CreatureList["deinonychus"] = {
 	proficiencyBonus : 2,
 	attacksAction : 3,
 	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
-		}
-	],
+		name : "Claw",
+		ability : 1,
+		damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
+	}, {
+		name : "Bite",
+		ability : 1,
+		damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
+	}],
 	traits : [{
-			name : "Multiattack",
-			description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-		}, {
-			name : "Pounce",
-			description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
-		}
-	]
+		name : "Multiattack",
+		description : "The deinonychus makes three attacks: two with its claws and one with its bite."
+	}, {
+		name : "Pounce",
+		description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
+	}]
 };
 CreatureList["dimetrodon"] = {
 	name : "Dimetrodon",
@@ -964,13 +963,12 @@ CreatureList["dimetrodon"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
+		name : "Bite",
+		ability : 1,
+		damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : ""
+	}]
 };
 CreatureList["hadrosaurus"] = {
 	name : "Hadrosaurus",
@@ -992,13 +990,12 @@ CreatureList["hadrosaurus"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Tail",
-			ability : 1,
-			damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	]
+		name : "Tail",
+		ability : 1,
+		damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : ""
+	}]
 };
 CreatureList["quetzalcoatlus"] = {
 	name : "Quetzalcoatlus",
@@ -1020,21 +1017,19 @@ CreatureList["quetzalcoatlus"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (10 ft)",
+		description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
+	}],
 	traits : [{
-			name : "Dive Attack",
-			description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
-		}, {
-			name : "Flyby",
-			description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
-		}
-	]
+		name : "Dive Attack",
+		description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
+	}, {
+		name : "Flyby",
+		description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+	}]
 };
 CreatureList["stegosaurus"] = {
 	name : "Stegosaurus",
@@ -1053,13 +1048,12 @@ CreatureList["stegosaurus"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : ""
-		}
-	]
+		name : "Bite",
+		ability : 1,
+		damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (10 ft)",
+		description : ""
+	}]
 };
 CreatureList["velociraptor"] = {
 	name : "Velociraptor",
@@ -1081,24 +1075,22 @@ CreatureList["velociraptor"] = {
 	proficiencyBonus : 2,
 	attacksAction : 2,
 	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}, {
-			name : "Claw",
-			ability : 2,
-			damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One bite and one claw attack as an Attack action"
-		}
-	],
+		name : "Bite",
+		ability : 2,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "One bite and one claw attack as an Attack action"
+	}, {
+		name : "Claw",
+		ability : 2,
+		damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "One bite and one claw attack as an Attack action"
+	}],
 	traits : [{
-			name : "Pack Tactics",
-			description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
-		}
-	]
+		name : "Pack Tactics",
+		description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
+	}]
 };
 CreatureList["gazer"] = {
 	name : "Gazer",
@@ -1123,34 +1115,31 @@ CreatureList["gazer"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, "", "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}, {
-			name : "Eye Rays",
-			ability : 3,
-			damage : ["Special", "", ""], //[#, die, type] "" for die is allowed
-			range : "60 ft",
-			description : "Shoot two randomly determined different rays as one action; Each ray has its own target; See traits",
-			dc : true,
-			abilitytodamage : false
-		}
-	],
+		name : "Bite",
+		ability : 2,
+		damage : [1, "", "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : ""
+	}, {
+		name : "Eye Rays",
+		ability : 3,
+		damage : ["Special", "", ""], //[#, die, type] "" for die is allowed
+		range : "60 ft",
+		description : "Shoot two randomly determined different rays as one action; Each ray has its own target; See traits",
+		dc : true,
+		abilitytodamage : false
+	}],
 	traits : [{
-			name : "Aggressive",
-			description : "As a bonus action, the gazer moves its speed toward an enemy that it can see."
-		}, {
-			name : "Mimicry",
-			description : "The gazer can mimic simple speech it has heard, in any language. Any who hear this can tell it is an imitation with a successful DC 10 Wis (Insight) check."
-		}
-	],
+		name : "Aggressive",
+		description : "As a bonus action, the gazer moves its speed toward an enemy that it can see."
+	}, {
+		name : "Mimicry",
+		description : "The gazer can mimic simple speech it has heard, in any language. Any who hear this can tell it is an imitation with a successful DC 10 Wis (Insight) check."
+	}],
 	actions : [{
-			name : "Eye Rays",
-			description : "1. Dazing Ray: Wisdom saving throw or charmed until the start of the gazer's next turn. While charmed, half speed and disadv. on attacks.\n2. Fear Ray: Wisdom saving throw or frightened until the start of the gazer's next turn.\n3. Frost Ray: Target must make a Dexterity saving throw or 10 (3d6) cold damage.\n4. Telekinetic Ray: Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the gazer. If it is an up to 10 lb unattended object, the gazer moves it up to 30 ft in any direction. It can exert fine control on objects this way."
-		}
-	],
+		name : "Eye Rays",
+		description : "1. Dazing Ray: Wisdom saving throw or charmed until the start of the gazer's next turn. While charmed, half speed and disadv. on attacks.\n2. Fear Ray: Wisdom saving throw or frightened until the start of the gazer's next turn.\n3. Frost Ray: Target must make a Dexterity saving throw or 10 (3d6) cold damage.\n4. Telekinetic Ray: Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the gazer. If it is an up to 10 lb unattended object, the gazer moves it up to 30 ft in any direction. It can exert fine control on objects this way."
+	}],
 	variant : [{
 		name : "Variant: Familiar",
 		description : "The gazer can serve another creature as a familiar, forming a telepathic bond with its willing master, provided that the master is at least a 3rd-level spellcaster. While the two are bonded, the master can sense what the gazer senses as long as they are within 1 mile of each other. If its master causes it physical harm, the gazer will end its service as a familiar, breaking the telepathic bond."

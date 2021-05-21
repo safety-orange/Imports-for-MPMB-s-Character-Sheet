@@ -298,7 +298,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 							if (theWea.ability === 1) {
 								fields.Mod = v.StrDex;
 							};
-							if (isRangedWeapon) {
+							if (v.isRangedWeapon) {
 								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
 							};
 							fields.Proficiency = true;

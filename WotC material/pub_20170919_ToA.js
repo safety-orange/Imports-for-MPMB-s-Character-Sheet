@@ -325,19 +325,18 @@ if (!SourceList.V) {
 		proficiencyBonus : 3,
 		attacksAction : 1,
 		attacks : [{
-				name : "Stomp",
-				ability : 1,
-				damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-				range : "Melee (20 ft)",
-				description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
-			}, {
-				name : "Tail",
-				ability : 1,
-				damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
-				range : "Melee (20 ft)",
-				description : ""
-			}
-		]
+			name : "Stomp",
+			ability : 1,
+			damage : [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+			range : "Melee (20 ft)",
+			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone"
+		}, {
+			name : "Tail",
+			ability : 1,
+			damage : [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+			range : "Melee (20 ft)",
+			description : ""
+		}]
 	};
 	CreatureList["deinonychus"] = {
 		name : "Deinonychus",
@@ -359,27 +358,25 @@ if (!SourceList.V) {
 		proficiencyBonus : 2,
 		attacksAction : 3,
 		attacks : [{
-				name : "Claw",
-				ability : 1,
-				damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-				range : "Melee (5 ft)",
-				description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
-			}, {
-				name : "Bite",
-				ability : 1,
-				damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
-				range : "Melee (5 ft)",
-				description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
-			}
-		],
+			name : "Claw",
+			ability : 1,
+			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait"
+		}, {
+			name : "Bite",
+			ability : 1,
+			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
+		}],
 		traits : [{
-				name : "Multiattack",
-				description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-			}, {
-				name : "Pounce",
-				description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
-			}
-		]
+			name : "Multiattack",
+			description : "The deinonychus makes three attacks: two with its claws and one with its bite."
+		}, {
+			name : "Pounce",
+			description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
+		}]
 	};
 	CreatureList["dimetrodon"] = {
 		name : "Dimetrodon",
@@ -401,13 +398,12 @@ if (!SourceList.V) {
 		proficiencyBonus : 2,
 		attacksAction : 1,
 		attacks : [{
-				name : "Bite",
-				ability : 1,
-				damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-				range : "Melee (5 ft)",
-				description : ""
-			}
-		]
+			name : "Bite",
+			ability : 1,
+			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : ""
+		}]
 	};
 	CreatureList["hadrosaurus"] = {
 		name : "Hadrosaurus",
@@ -429,13 +425,12 @@ if (!SourceList.V) {
 		proficiencyBonus : 2,
 		attacksAction : 1,
 		attacks : [{
-				name : "Tail",
-				ability : 1,
-				damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-				range : "Melee (5 ft)",
-				description : ""
-			}
-		]
+			name : "Tail",
+			ability : 1,
+			damage : [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : ""
+		}]
 	};
 	CreatureList["quetzalcoatlus"] = {
 		name : "Quetzalcoatlus",
@@ -457,21 +452,19 @@ if (!SourceList.V) {
 		proficiencyBonus : 2,
 		attacksAction : 1,
 		attacks : [{
-				name : "Bite",
-				ability : 1,
-				damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
-				range : "Melee (10 ft)",
-				description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
-			}
-		],
+			name : "Bite",
+			ability : 1,
+			damage : [3, 6, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (10 ft)",
+			description : "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)"
+		}],
 		traits : [{
-				name : "Dive Attack",
-				description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
-			}, {
-				name : "Flyby",
-				description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
-			}
-		]
+			name : "Dive Attack",
+			description : "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target."
+		}, {
+			name : "Flyby",
+			description : "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+		}]
 	};
 	CreatureList["stegosaurus"] = {
 		name : "Stegosaurus",
@@ -490,13 +483,12 @@ if (!SourceList.V) {
 		proficiencyBonus : 2,
 		attacksAction : 1,
 		attacks : [{
-				name : "Bite",
-				ability : 1,
-				damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
-				range : "Melee (10 ft)",
-				description : ""
-			}
-		]
+			name : "Bite",
+			ability : 1,
+			damage : [6, 6, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (10 ft)",
+			description : ""
+		}]
 	};
 	CreatureList["velociraptor"] = {
 		name : "Velociraptor",
@@ -518,24 +510,22 @@ if (!SourceList.V) {
 		proficiencyBonus : 2,
 		attacksAction : 2,
 		attacks : [{
-				name : "Bite",
-				ability : 2,
-				damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-				range : "Melee (5 ft)",
-				description : "One bite and one claw attack as an Attack action"
-			}, {
-				name : "Claw",
-				ability : 2,
-				damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
-				range : "Melee (5 ft)",
-				description : "One bite and one claw attack as an Attack action"
-			}
-		],
+			name : "Bite",
+			ability : 2,
+			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "One bite and one claw attack as an Attack action"
+		}, {
+			name : "Claw",
+			ability : 2,
+			damage : [1, 4, "slashing"], //[#, die, type] "" for die is allowed
+			range : "Melee (5 ft)",
+			description : "One bite and one claw attack as an Attack action"
+		}],
 		traits : [{
-				name : "Pack Tactics",
-				description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
-			}
-		]
+			name : "Pack Tactics",
+			description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."
+		}]
 	};
 } // dupl_end
 // The following creatures were transcribed with the help of SoilentBrand and @lowbrr
@@ -561,18 +551,16 @@ CreatureList["almiraj"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Horn",
-			ability : 2,
-			damage : [1, 4, "piercing"],
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	],
+		name : "Horn",
+		ability : 2,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+		description : ""
+	}],
 	traits : [{
-			name : "Keen Senses",
-			description : "The almiraj has advantage on Wisdom (Perception) checks that rely on hearing or sight."
-		}
-	],
+		name : "Keen Senses",
+		description : "The almiraj has advantage on Wisdom (Perception) checks that rely on hearing or sight."
+	}]
 };
 CreatureList["flying monkey"] = {
 	name : "Flying Monkey",
@@ -592,18 +580,16 @@ CreatureList["flying monkey"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [1, 4, "piercing"],
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+		description : ""
+	}],
 	traits : [{
-			name : "Pack Tactics",
-			description : "The flying monkey has advantage on an attack roll against a creature if at least one of the monkey's allies is within 5 ft of the creature and the ally isn't incapacitated."
-		}
-	],
+		name : "Pack Tactics",
+		description : "The flying monkey has advantage on an attack roll against a creature if at least one of the monkey's allies is within 5 ft of the creature and the ally isn't incapacitated."
+	}]
 };
 CreatureList["giant snapping turtle"] = {
 	name : "Giant Snapping Turtle",
@@ -622,21 +608,19 @@ CreatureList["giant snapping turtle"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [4, 6, "slashing"],
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [4, 6, "slashing"],
+		range : "Melee (5 ft)",
+		description : ""
+	}],
 	traits : [{
-			name : "Amphibious",
-			description : "The turtle can breathe air and water."
-		}, {
-			name : "Stable",
-			description : "Whenever an effect knocks the turtle prone, it can make a DC 10 Constitution saving throw to avoid being knocked prone. A prone turtle is upside down. To stand up, it must succeed on a DC 10 Dexterity check on its turn and then use all its movement for that turn. While prone, the turtle's AC becomes 12."
-		}
-	]
+		name : "Amphibious",
+		description : "The turtle can breathe air and water."
+	}, {
+		name : "Stable",
+		description : "Whenever an effect knocks the turtle prone, it can make a DC 10 Constitution saving throw to avoid being knocked prone. A prone turtle is upside down. To stand up, it must succeed on a DC 10 Dexterity check on its turn and then use all its movement for that turn. While prone, the turtle's AC becomes 12."
+	}]
 };
 CreatureList["jaculi"] = {
 	name : "Jaculi",
@@ -660,26 +644,23 @@ CreatureList["jaculi"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [2, 6, "piercing"],
-			range : "Melee (5 ft)",
-			description : "If used after at least 10 ft jump, adv. on to hit and extra 2d6 damage, see Spring trait"
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [2, 6, "piercing"],
+		range : "Melee (5 ft)",
+		description : "If used after at least 10 ft jump, adv. on to hit and extra 2d6 damage, see Spring trait"
+	}],
 	actions : [{
-			name : "Spring",
-			description : "The jaculi springs up to 30 feet in a straight line and makes a bite attack against a target within its reach. This attack has advantage if the jaculi springs at least 10 feet. If the attack hits, the bite deals an extra 7 (2d6) piercing damage."
-		}
-	],
+		name : "Spring",
+		description : "The jaculi springs up to 30 feet in a straight line and makes a bite attack against a target within its reach. This attack has advantage if the jaculi springs at least 10 feet. If the attack hits, the bite deals an extra 7 (2d6) piercing damage."
+	}],
 	traits : [{
-			name : "Camouflage",
-			description : "The jaculi has advantage on Dexterity (Stealth) checks made to hide."
-		}, {
-			name : "Keen Smell",
-			description : "The jaculi has advantage on Wisdom (Perception) checks that rely on smell."
-		}
-	],
+		name : "Camouflage",
+		description : "The jaculi has advantage on Dexterity (Stealth) checks made to hide."
+	}, {
+		name : "Keen Smell",
+		description : "The jaculi has advantage on Wisdom (Perception) checks that rely on smell."
+	}],
 	wildshapeString : "\u25C6 Senses: Blindsight 30 ft.\n\u25C6 Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n\u25C6 Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
 };
 

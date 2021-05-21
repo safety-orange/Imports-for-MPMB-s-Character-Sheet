@@ -250,7 +250,7 @@ WeaponsList["hand of radiance-uass"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "radiant"],
 	range : "5-ft radius",
-	description : "Con save, success - no damage; Only chosen creatures I can see are affected (UA:SS 3)",
+	description : "Con save, success - no damage; Only chosen creatures I can see are affected",
 	abilitytodamage : false,
 	dc : true
 };
@@ -263,7 +263,7 @@ WeaponsList["infestation-uass"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "piercing"],
 	range : "30 ft",
-	description : "Con save, success - no damage, fail - target also moved 5 ft in random direction (UA:SS 3)",
+	description : "Con save, success - no damage, fail - target also moved 5 ft in random direction",
 	abilitytodamage : false,
 	dc : true
 };
@@ -276,7 +276,7 @@ WeaponsList["primal savagery-uass"] = {
 	type : "Cantrip",
 	damage : ["C", 10, "piercing"],
 	range : "Melee (5 ft)",
-	description : "Does either Piercing or Slashing damage (my choice) (UA:SS 3)",
+	description : "Does either Piercing or Slashing damage (my choice)",
 	abilitytodamage : false
 };
 // dupl_start
@@ -305,7 +305,7 @@ if (!SourceList.X) {
 		type : "Cantrip",
 		damage : ["C", 12, "necrotic"],
 		range : "60 ft",
-		description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage (UA:SS 4)",
+		description : "Wis save, success - no damage; If target is at full HP, d8 instead of d12 damage",
 		abilitytodamage : false,
 		dc : true
 	};

@@ -105,20 +105,19 @@ AddSubClass("bard", "college of creation-ua", {
 			name : "Performance of Creation",
 			source : [["UA:SP2", 2]],
 			minlevel : 14,
-			description : desc([
-				"As an action, I create a Large or smaller nonmagical item in an empty space in 10 ft",
-				"Its value is limited; I can't have multiple, creating more makes the first one vanish",
-				"It vanishes when my next turn ends, unless I use my action to extend its life 1 extra turn",
-				"If I sustain it for 1 minute this way, it continues to exists for my bard level in hours",
-				"I can do this once per long rest, or by expending a 5th-level or higher spell slot (SS 5+)"
-			]),
+			description : levels.map(function (n) {
+				return desc([
+					"As an action, I create a Large or smaller nonmagical item in an empty space in 10 ft",
+					"Max " + (20 * n) + " gp value; I can't have multiple, creating more makes the first one vanish",
+					"It vanishes when my next turn ends, unless I use my action to extend its life 1 extra turn",
+					"If I sustain it for 1 minute this way, it continues to exists for my bard level in hours",
+					"I can do this once per long rest, or by expending a 5th-level or higher spell slot (SS 5+)"
+				]);
+			}),
 			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest",
-			altResource : "SS 5+",
-			additional : levels.map(function (n) {
-				return n < 14 ? "" : n * 20 + " gp";
-			})
+			altResource : "SS 5+"
 		}
 	}
 });
@@ -134,12 +133,11 @@ AddSubClass("cleric", "unity domain-ua", {
 			name : "Emboldening Bond",
 			source : [["UA:SP2", 3]],
 			minlevel : 1,
-			action : ["bonus action", ""],
 			description : function () {
 				var descr = desc([
 					"As an action, I can magically bond two willing targets I can see in 30 ft (can be me)",
 					"While within 30 ft of the other, a bonded target can add +d4 to a save, attack, or check",
-					"The +d4 can only be added once per turn; The bond lasts 1 hour or until I use this again",
+					"This can only be added once per turn; The bond lasts for 1 hour or until I use this again",
 					"I can do this once per long rest, after which I can do so by expending a spell slot (SS 1+)"
 				]);
 				var descr17 = descr.replace('While within 30 ft of the other', 'While on the same plane');
@@ -162,7 +160,7 @@ AddSubClass("cleric", "unity domain-ua", {
 				"I distribute the damage over these and the original target, each taking at least 1 damage",
 				"Damage resistances and vulnerabilities are only applied after the damage is distributed"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Protective Bond",
