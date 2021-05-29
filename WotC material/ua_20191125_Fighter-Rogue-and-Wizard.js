@@ -450,7 +450,7 @@ SpellsList["id insinuation-ua"] = {
 	description : "1 crea save or incapacitated and end of each turn 1d12 Psychic damage, after which it can save to end",
 	descriptionFull : "You unleash a torrent of conflicting desires in the mind of one creature you can see within range, impairing its ability to make decisions. The target must succeed on a Wisdom saving throw or be incapacitated. At the end of each of its turns, it takes 1d12 psychic damage, and it can then make another Wisdom saving throw. On a success, the spell ends on the target."
 };
-SpellsList["intellect fortress-ua"] = {
+SpellsList["intellect fortress-ua_frnw"] = { // completely different than later iterations in UA:POR and TCoE
 	name : "Intellect Fortress",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
 	source : [["UA:FRnW", 7]],
@@ -476,27 +476,29 @@ SpellsList["mental barrier-ua"] = {
 	description : "I have Psychic damage resistance and adv. on Int, Wis, and Cha saves until the start of my next turn",
 	descriptionFull : "You protect your mind with a wall of looping, repetitive thought. Until the start of your next turn, you have advantage on Intelligence, Wisdom, and Charisma saving throws, and you have resistance to psychic damage."
 };
-SpellsList["mind sliver-ua"] = { // almost duplicate from UA:SnW, but now also on the Bard's spell list
-	name : "Mind Sliver",
-	classes : ["bard", "sorcerer", "warlock", "wizard"],
-	source : [["UA:SnW", 4], ["UA:FRnW", 7]],
-	level : 0,
-	school : "Ench",
-	time : "1 a",
-	range : "60 ft",
-	components : "V",
-	duration : "1 rnd",
-	save : "Int",
-	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
-	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-};
-// dupl_start
-if (!WeaponsList["mind sliver-ua"]) {
-	WeaponsList["mind sliver-ua"] = {
+// [dupl_start] (mostly) the same as in Tasha's Cauldron of Everything
+if (!SourceList.T) {
+	// almost duplicate from UA:SnW, but now also on the Bard's spell list
+	// too much alike to the final TCoE version, so don't include it if TCoE is available
+	SpellsList["mind sliver"] = { 
+		name : "Mind Sliver",
+		classes : ["bard", "sorcerer", "warlock", "wizard"],
+		source : [["T", 108], ["UA:SnW", 4], ["UA:FRnW", 7], ["UA:POR", 7]],
+		level : 0,
+		school : "Ench",
+		time : "1 a",
+		range : "60 ft",
+		components : "V",
+		duration : "1 rnd",
+		save : "Int",
+		description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my next turn ends; +1d6 at CL 5, 11, and 17",
+		descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my next turn ends",
+		descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+	};
+	WeaponsList["mind sliver"] = {
 		regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
 		name : "Mind Sliver",
-		source : [["UA:SnW", 4], ["UA:FRnW", 7]],
+		source : [["T", 108], ["UA:SnW", 4], ["UA:FRnW", 7], ["UA:POR", 7]],
 		list : "spell",
 		ability : 6,
 		type : "Cantrip",
@@ -507,7 +509,7 @@ if (!WeaponsList["mind sliver-ua"]) {
 		dc : true
 	};
 } // dupl_end
-SpellsList["mind thrust-ua"] = {
+SpellsList["mind thrust-ua"] = { // rather different than later iterations in UA:POR and TCoE
 	name : "Mind Thrust",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
 	source : [["UA:FRnW", 7]],

@@ -263,13 +263,9 @@ RaceList["goblin"] = {
 			usages : 1,
 			recovery : "short rest",
 			additional : levels.map(function (n) { return "+" + n + " damage"; })
-		},
-		"nimble escape" : {
-			name : "Nimble Escape",
-			minlevel : 1,
-			action : [["bonus action", " (disengage/hide)"]]
 		}
 	},
+	action : [["bonus action", "Nimble Escape (disengage/hide)"]],
 	trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
 };
 // dupl_start
@@ -450,7 +446,7 @@ RaceList["orc"] = {
 	weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores : [2, 0, 1, 0, 0, 0],
 	trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
-	action : ["bonus action", "Aggressive (dash to enemy)"],
+	action : [["bonus action", "Aggressive (dash to enemy)"]],
 	carryingCapacity : 2
 };
 RaceList["tabaxi"] = {

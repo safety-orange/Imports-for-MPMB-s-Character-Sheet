@@ -1,7 +1,41 @@
 var iFileName = "pub_20201117_TCoE.js";
 RequiredSheetVersion("13.0.6");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
-// This file has contributions from many different people over on the MPMB Discord server
+
+/*	ACKNOWLEDGEMENTS
+	This file contains contributions from many different people over on the /r/mpmb subreddit and
+	the MPMB Discord server.
+
+	Many contributions have been reworked by Safety-Orange to fix bugs, make texts more uniform,
+	adhere to MPMB's standards, and/or adhere to the latest syntax version.
+	Combined with the fact that many contributions haven't been individually tracked (on GitHub),
+	it is no longer possible to assign specific additions to a single person.
+
+	Instead, here is a list of people (account names on GitHub) who made contributions,
+	helped collect materials, or were otherwise essential to this script coming to fruition,
+	in no particular order:
+		- Nod_Hero#2046 (discord)
+		- Smashman
+		- Metacomet10
+		- BraabHimself
+		- AelarTheElfRogue
+		- uhohspaghetti0
+		- Undrhil
+		- easyboy
+		- SoggieWafflz
+		- phelot
+		- Cosaur
+		- remcovandalen
+		- Seneschal55
+		- Gam90
+		- CountVladmir
+		- alastairmarchant
+		- edimshuffling
+		- githubtkompare
+		- Holynight6
+
+	Think you're missing from this list? Please let me know!
+*/
 
 // Define the source
 SourceList.T = {
@@ -2017,7 +2051,7 @@ AddSubClass("bard", "college of creation", {
 });
 // [dupl_start] reprints from Mythic Odysseys of Theros
 if (!SourceList.MOT) {
-	AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Holynight6
+	AddSubClass("bard", "college of eloquence", {
 		regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 		subname : "College of Eloquence",
 		source : [["T", 29], ["MOT", 28]],
@@ -3023,7 +3057,7 @@ AddSubClass("fighter", "psi warrior", {
     abilitySave : 4,
 	features : {
 		"subclassfeature3" : {
-			name : "Psionic Energy dice",
+			name : "Psionic Energy Dice",
 			source : [["T", 43]],
 			minlevel : 3,
 			description : desc([
@@ -4500,8 +4534,237 @@ AddFeatureChoice(ClassList.rogue.features["thieves cant"], true, "Steady Aim", {
 }, "Optional 3rd-level rogue features");
 
 // Rogue Subclasses
-//AddSubClass("rogue", "phantom", {});
-//AddSubClass("rogue", "soulknife", {}); // see UA
+AddSubClass("rogue", "phantom", {
+	regExpSearch : /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*phantom).*$/i,
+	subname : "Phantom",
+	source : [["T", 62]],
+	fullname : "Phantom",
+	features : {
+		"subclassfeature3" : {
+			name : "Whispers of the Dead",
+			source : [["UA:SR", 1]],
+			source : [["T", 62]],
+			minlevel : 3,
+			description : desc([
+				"When I finish a rest, I gain a skill or tool proficiency of my choice until I change it again"
+			]),
+			skillstxt : "Choose one skill or tool; I can change the choice whenever I finish a short or long rest"
+		},
+		"subclassfeature3.1" : {
+			name : "Wails from the Grave",
+			source : [["T", 62]],
+			minlevel : 3,
+			description : levels.map(function (n) {
+				var a = [
+					"Directly after I deal sneak attack damage to a creature on my turn, I " + (n < 17 ? "can" : "also") + " harm another",
+					n < 17 ? "I then deal half my sneak attack in necrotic damage to a creature I can see within 30 ft" : "I deal half my sneak attack in necrotic damage to both it and another I can see in 30 ft"
+				];
+				if (n >= 9) a.push("I can do this my Proficiency Bonus per long rest, or by destroying a soul trinket (ST)");
+				return desc(a);
+			}),
+			usages : "Proficiency bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return Math.ceil(n / 4) + "d6";
+			}),
+			altResource : levels.map(function (n) {
+				return n < 9 ? "" : "ST";
+			})
+		},
+		"subclassfeature9" : {
+			name : "Tokens of the Departed",
+			source : [["T", 63]],
+			minlevel : 9,
+			description : " [max Proficiency Bonus of soul trinkets]" + desc([
+				"As a reaction when I see a creature within 30 ft die, I can create a Tiny soul trinket",
+				"The token of its life essence appears in my free hand; The DM determines its appearance",
+				"While a soul trinket is on my person, I have advantage on death and Constitution saves",
+				"As an action, I can destroy one of my soul trinkets and ask its associated spirit a question",
+				"Its spirit appears and answers concisely in a language it knew; Trinket can be anywhere"
+			]),
+			action : [
+				["reaction", "Create Soul Trinket"],
+				["action", "Destroy Soul Trinket"]
+			],
+			extraLimitedFeatures : [{
+				name : "Soul Trinkets (max Prof. Bonus)",
+				usages : "",
+				recovery : "Special"
+			}],
+			savetxt : { text : ["While soul trinket is on me, Adv. on Con and death saves"] }
+		},
+		"subclassfeature13" : {
+			name : "Ghost Walk",
+			source : [["T", 63]],
+			minlevel : 13,
+			description : desc([
+				"As a bonus action, I can assume a spectral form with 10 ft flying speed and can hover",
+				"Attacks vs. me have disadv.; I can move through creatures and objects as difficult terrain",
+				"This lasts 10 min; I take 1d10 force damage if I end my turn inside a creature or object",
+				"I can assume this form once per long rest, or by destroying one of my soul trinkets (ST)"
+			]),
+			action : [["bonus action", " (start/end)"]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "ST"
+		},
+		"subclassfeature17" : {
+			name : "Death's Friend",
+			source : [["T", 63]],
+			minlevel : 17,
+			description : desc([
+				"Wails from the Grave now also deals damage to the target of the original sneak attack",
+				"If I don't have any soul trinkets at the end of a long rest, one appears in my hand"
+			])
+		}
+	}
+});
+AddSubClass("rogue", "soulknife", {
+	regExpSearch : /soulknife/i,
+	subname : "Soulknife",
+	source : [["T", 63]],
+	fullname : "Soulknife",
+	abilitySave : 2,
+	features : {
+		"subclassfeature3" : {
+			name : "Psionic Energy Dice",
+			source : [["T", 64]],
+			minlevel : 3,
+			description : desc([
+				"I gain twice my proficiency bonus of psionic energy dice (PsiD) that fuel my psionics",
+				"I regain all expended psionic energy dice after a long rest; See psionic powers on page 3",
+				"As a bonus action once per short rest, I can regain one expended psionic energy die"
+			]),
+			additional : levels.map(function(n) {
+				return n < 3 ? "" : n < 5 ? "d6" : n < 11 ? "d8" : n < 17 ? "d10" : "d12";
+			}),
+			action : [["bonus action", "Regain 1 Psionic Energy Die"]],
+			usages : "Proficiency Bonus \xD7 2 per ",
+			usagescalc : "event.value = Number(How('Proficiency Bonus'))*2",
+			recovery : "long rest",
+			extraLimitedFeatures : [{
+				name : "Regain 1 Psionic Energy die",
+				usages : 1,
+				recovery : "short rest"
+			}],
+			extraname : "Soulknife 3",
+			"psi-bolstered knack" : {
+				name : "Psionic Power: Psi-Bolstered Knack",
+				source : [["T", 64]],
+				description : " [1 PsiD if successful]" + desc([
+					"If I fail an check using a skill or tool I'm proficient with, I can add a psionic energy die to it",
+					"The psionic energy die is only expended if this addition turns the failure into a success"
+				])
+			},
+			"psychic whispers" : {
+				name : "Psionic Power: Psychic Whispers",
+				source : [["T", 64]],
+				description : desc([
+					"As an action, I can select my Prof. Bonus of creatures I can see and roll a psionic energy die",
+					"For the roll of hours, I can telepathically communicate with each and they with me",
+					"To send or receive messages (no action), we must be within 1 mile of each other",
+					"A creature must be able to speak a language to do this; It can end the link at any time",
+					"The first time I do this after a long rest, I don't expend the psionic energy die (PsiD)"
+				]),
+				limfeaname : "Psychic Whispers",
+				action : [["action", ""]],
+				usages : 1,
+				recovery : "long rest",
+				altResource : "PsiD"
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "psi-bolstered knack"
+			}, {
+				extrachoice : "psychic whispers"
+			}]
+		},
+		"subclassfeature3.1" : {
+			name : "Psychic Blades",
+			source : [["T", 64]],
+			minlevel : 3,
+			description : desc([
+				"As part of an Attack action, I can manifest a psychic blade from a free hand to attack",
+				"It vanishes immediately after making the attack and leaves no mark on its target",
+				"As a bonus action after this attack, I can manifest and attack with another psychic blade",
+				"To do this, my other hand needs to be free as well and this blade does only 1d4 damage"
+			]),
+			action : [["bonus action", "Psychic Blade (after Attack action)"]],
+			weaponsAdd : ["Psychic Blade"],
+			weaponOptions : [{
+				regExpSearch : /^(?=.*psychic)(?=.*blade).*$/i,
+				name : "Psychic Blade",
+				source : [["T", 64]],
+				ability : 1,
+				type : "Simple",
+				damage : [1, 6, "psychic"],
+				range : "Melee, 60 ft",
+				description : "Finesse, thrown; Bonus action: 1d4 instead of 1d6",
+				abilitytodamage : true
+			}]
+		},
+		"subclassfeature9" : {
+			name : "Soul Blades",
+			source : [["T", 65]],
+			minlevel : 9,
+			description : desc([
+				"My psi-suffused soul grants me more psionic powers, see the 3rd page's \"Notes\" section"
+			]),
+			extraname : "Soulknife 9",
+			"homing strikes" : {
+				name : "Homing Strikes",
+				source : [["T", 65]],
+				description : " [1 PsiD if successful]" + desc([
+					"If I miss an attack with my psychic blades, I can add a psionic energy die to the attack roll",
+					"The psionic energy die is only expended if this addition turns the miss into a hit"
+				])
+			},
+			"psychic teleportation" : {
+				name : "Psychic Teleportation",
+				source : [["T", 65]],
+				description : " [1 PsiD]" + desc([
+					"As a bonus action, I can teleport up to 10 ft away times the roll of my psionic energy die",
+					"I manifest a psychic blade and throw it to an empty space I can see before teleporting to it"
+				]),
+				action : [["bonus action", ""]]
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "homing strikes"
+			}, {
+				extrachoice : "psychic teleportation"
+			}]
+		},
+		"subclassfeature13" : {
+			name : "Psychic Veil",
+			source : [["T", 65]],
+			minlevel : 13,
+			description : desc([
+				"As an action, I can become invisible along with what I'm wearing or carrying for 1 hour",
+				"I can end it (no action); It also ends if I damage a creature or force one to make a save",
+				"I can do this once per long rest, or by expending a psionic energy die (PsiD)"
+			]),
+			action : [["action", ""]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "PsiD"
+		},
+		"subclassfeature17" : {
+			name : "Rend Mind",
+			source : [["T", 65]],
+			minlevel : 17,
+			description : desc([
+				"When I use my psychic blade to deal sneak attack damage to a target, I can have it save",
+				"It must make a Wisdom save (DC 8 + Prof. Bonus + Dex mod) or be stunned for 1 min",
+				"It can repeat the save at the end of each of its turns to end being stunned",
+				"I can do this once per long rest, or by expending three psionic energy dice (3 PsiD)"
+			]),
+			action : [["action", ""]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "3 PsiD"
+		}
+	}
+});
 
 
 // >>>>>>>>>>>>>>>>>>>>>>>> //
@@ -4562,8 +4825,257 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Magical Guidan
 }, "Optional sorcerer features");
 
 // Sorcerer Subclasses
-//AddSubClass("sorcerer", "aberrant mind", {}); // see UA
-//AddSubClass("sorcerer", "clockwork soul", {}); // see UA
+AddSubClass("sorcerer", "aberrant mind", {
+	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
+	subname : "Aberrant Mind",
+	source : [["T", 67]],
+	features : {
+		"subclassfeature1" : {
+			name : "Psionic Spells",
+			source : [["T", 67]],
+			minlevel : 1,
+			description : desc([
+				"I learn additional spells, which do not count towards the number of spell I can know",
+				"Whenever I gain a sorcerer level, I can replace one of these with another of the same level",
+				"It must be a divination or enchantment spell on the sorcerer, wizard, or warlock spell list"
+			]),
+			spellcastingBonus : [{
+				name : "Psionic Spells (cantrip)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Ench", "Div"],
+				level : [0, 0],
+				extraspells : ["mind sliver"],
+				selection : ["mind sliver"]
+			}, {
+				name : "Psionic Spells (1st-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Ench", "Div"],
+				level : [1, 1],
+				firstCol : "PS",
+				extraspells : ["arms of hadar", "dissonant whispers"],
+				selection : ["arms of hadar", "dissonant whispers"],
+				times : 2
+			}, {
+				name : "Psionic Spells (2nd-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Ench", "Div"],
+				level : [2, 2],
+				firstCol : "PS",
+				extraspells : ["calm emotions", "detect thoughts"],
+				selection : ["calm emotions", "detect thoughts"],
+				times : levels.map(function (n) { return n < 3 ? 0 : 2; })
+			}, {
+				name : "Psionic Spells (3rd-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Ench", "Div"],
+				level : [3, 3],
+				firstCol : "PS",
+				extraspells : ["hunger of hadar", "sending"],
+				selection : ["hunger of hadar", "sending"],
+				times : levels.map(function (n) { return n < 5 ? 0 : 2; })
+			}, {
+				name : "Psionic Spells (4th-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Ench", "Div"],
+				level : [4, 4],
+				firstCol : "PS",
+				extraspells : ["evard's black tentacles", "summon abberation"],
+				selection : ["evard's black tentacles", "summon abberation"],
+				times : levels.map(function (n) { return n < 7 ? 0 : 2; })
+			}, {
+				name : "Psionic Spells (5th-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Ench", "Div"],
+				level : [5, 5],
+				firstCol : "PS",
+				extraspells : ["rary's telepathic bond", "telekinesis"],
+				selection : ["rary's telepathic bond", "telekinesis"],
+				times : levels.map(function (n) { return n < 9 ? 0 : 2; })
+			}]
+		},
+		"subclassfeature1.1" : {
+			name : "Telepathic Speech",
+			source : [["T", 67]],
+			minlevel : 1,
+			description : desc([
+				"As a bonus action, I can telepathic link myself with a creature within 30 ft that I can see",
+				"If we share a language, we can talk telepathically while in my Cha mod of miles (min 1)",
+				"This last for my level in minutes, until I'm incapacitated, I die, or I use this feature again"
+			]),
+			action : [["bonus action", ""]],
+			additional : levels.map(function (n) {
+				return n + " minute" + (n > 1 ? "s" : "");
+			})
+		},
+		"subclassfeature6" : {
+			name : "Psionic Sorcery",
+			source : [["T", 68]],
+			minlevel : 6,
+			description : desc([
+				"I can expend sorcery points instead of a spell slot to cast a spell from my Psionic Spells",
+				"This costs the spell's level in sorcery points, but in doing so requires no other components",
+				"However, I do need to provide a material components if it is consumed by the spell"
+			])
+		},
+		"subclassfeature6.1" : {
+			name : "Psychic Defenses",
+			source : [["T", 68]],
+			minlevel : 6,
+			description : "\n   I gain resistance to psychic damage and adv. on saves vs. being charmed or frightened",
+			dmgres : ["Psychic"],
+			savetxt : { adv_vs : ["charmed", "frightened"] }
+		},
+		"subclassfeature14" : {
+			name : "Revelation in Flesh",
+			source : [["T", 68]],
+			minlevel : 14,
+			description : desc([
+				"As a bonus action, I can expend 1 or more sorcery points to transform for 10 minutes",
+				"For each sorcery point used, I gain one of the following benefits of my choice:",
+				" \u2022 I can see any invisible creatures within 60 ft of me not behind total cover",
+				" \u2022 I gain a flying speed equal to my walking speed and I can hover",
+				" \u2022 I gain a swimming speed equal to twice my walking speed \u0026 I can breathe underwater",
+				" \u2022 I can move, with equipment, through any space as narrow as 1 inch without squeezing",
+				"   Also, I can spend 5 ft of movement to escape form a grapple or nonmagical restraints"
+			]),
+			action : [["bonus action", ""]],
+			additional : "1+ sorcery points"
+		},
+		"subclassfeature18" : {
+			name : "Warping Implosion",
+			source : [["T", 68]],
+			minlevel : 18,
+			description : desc([
+				"As an action, I can teleport to an unoccupied space I can see within 120 ft",
+				"All within 30 ft of where I left take 3d10 force damage and must make a Strength save",
+				"If failed, each is pulled towards the space I left, ending up in the nearest empty space",
+				"If successful, a creature takes only half damage and isn't pulled",
+				"I can do this once per long rest, or by expending 5 sorcery points (5 SP)"
+			]),
+			action : [["action", ""]],
+			recovery : "long rest",
+			usages : 1,
+			altResource : "5 SP"
+		}
+	}
+});
+AddSubClass("sorcerer", "clockwork soul", {
+	regExpSearch : /^((?=.*(sorcerer|witch))(?=.*mechanus)|(?=.*clockwork)(?=.*soul)).*$/i,
+	subname : "Clockwork Soul",
+	source : [["T", 68]],
+	fullname : "Clockwork Soul",
+	features : {
+		"subclassfeature1" : {
+			name : "Clockwork Magic",
+			source : [["T", 68]],
+			minlevel : 1,
+			description : desc([
+				"I learn additional spells, which do not count towards the number of spell I can know",
+				"Whenever I gain a sorcerer level, I can replace one of these with another of the same level",
+				"It must be an abjuration or transmutation spell on the sorcerer, wizard, or warlock list"
+			]),
+			spellcastingBonus : [{
+				name : "Clockwork Magic (1st-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Abjur", "Trans"],
+				level : [1, 1],
+				extraspells : ["alarm", "protection from evil and good"],
+				selection : ["alarm", "protection from evil and good"],
+				times : 2
+			}, {
+				name : "Clockwork Magic (2nd-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Abjur", "Trans"],
+				level : [2, 2],
+				extraspells : ["aid", "lesser restoration"],
+				selection : ["aid", "lesser restoration"],
+				times : levels.map(function (n) { return n < 3 ? 0 : 2; })
+			}, {
+				name : "Clockwork Magic (3rd-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Abjur", "Trans"],
+				level : [3, 3],
+				extraspells : ["dispel magic", "protection from energy"],
+				selection : ["dispel magic", "protection from energy"],
+				times : levels.map(function (n) { return n < 5 ? 0 : 2; })
+			}, {
+				name : "Clockwork Magic (4th-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Abjur", "Trans"],
+				level : [4, 4],
+				extraspells : ["freedom of movement", "summon construct"],
+				selection : ["freedom of movement", "summon construct"],
+				times : levels.map(function (n) { return n < 7 ? 0 : 2; })
+			}, {
+				name : "Clockwork Magic (5th-level)",
+				"class" : ["sorcerer", "warlock", "wizard"],
+				school : ["Abjur", "Trans"],
+				level : [5, 5],
+				extraspells : ["greater restoration", "wall of force"],
+				selection : ["greater restoration", "wall of force"],
+				times : levels.map(function (n) { return n < 9 ? 0 : 2; })
+			}]
+		},
+		"subclassfeature1.1" : {
+			name : "Restore Balance",
+			source : [["T", 69]],
+			minlevel : 1,
+			description : desc([
+				"As a reaction when a creature I can see in 60 ft is about to roll a d20 with adv./disadv.,",
+				"I can prevent that roll from being affected by advantage and disadvantage"
+			]),
+			action : [["reaction", ""]],
+			usages : "Proficiency Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest"
+		},
+		"subclassfeature6" : {
+			name : "Bulwark of Law",
+			source : [["T", 69]],
+			minlevel : 6,
+			description : desc([
+				"As an action, I can imbue a creature I can see within 30 ft with a magical ward",
+				"The ward has a number of d8s equal to the number of sorcery points I expend to do this",
+				"As a reaction when the creature takes damage, it can expend any number of those dice",
+				"The dice roll reduces the damage; The ward lasts until I finish a long rest or do this again"
+			]),
+			additional : "1-5 sorcery points; 1d8 per point",
+			action : [["action", ""]]
+		},
+		"subclassfeature14" : {
+			name : "Trance of Order",
+			source : [["T", 69]],
+			minlevel : 14,
+			description : desc([
+				"As a bonus action, I can enter a state of clockwork consciousness for 1 minute",
+				"While in this state, attack rolls against me can't benefit from advantage",
+				"Also, I can then treat a d20 roll below 9 as a 10 for my attack rolls, checks, and saves",
+				"I can do this once per long rest, or by expending 5 sorcery points (5 SP)"
+			]),
+			action : [["bonus action", ""]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "5 SP"
+		},
+		"subclassfeature18" : {
+			name : "Clockwork Cavalcade",
+			source : [["T", 69]],
+			minlevel : 18,
+			description : desc([
+				"As an action, I can call spirits to bring balance in a 30-ft cube originating from me",
+				"Inside the cube, the intangible spirits do all the following before vanishing:",
+				" \u2022 Restore up to 100 HP, divided among the creatures in the cube as I choose",
+				" \u2022 Repair all damaged objects entirely in the cube instantly",
+				" \u2022 End every spell of 6th-level or lower on objects or creatures of my choice in the cube",
+				"I can do this once per long rest, or by expending 7 sorcery points (7 SP)"
+			]),
+			action : [["action", ""]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "7 SP"
+		}
+	}
+});
 
 
 // >>>>>>>>>>>>>>>>>>>>>>> //
@@ -4771,8 +5283,355 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 });
 
 // Warlock Subclasses
-//AddSubClass("warlock", "the fathomless", {}); // see UA
-//AddSubClass("warlock", "the genie", {}); // see UA
+AddSubClass("warlock", "the fathomless", {
+	regExpSearch : /^(?=.*warlock)(?=.*fathomless).*$/i,
+	subname : "the Fathomless",
+	source : [["T", 72]],
+	spellcastingExtra : ["create or destroy water", "thunderwave", "gust of wind", "silence", "lightning bolt", "sleet storm", "control water", "summon elemental", "bigby's hand", "cone of cold"],
+	features : {
+		"subclassfeature1" : {
+			name : "Tentacle of the Deeps",
+			source : [["T", 72]],
+			minlevel : 1,
+			description : desc([
+				"As a bonus action, I can summon or move a spectral tentacle and make an attack with it",
+				"I can summon it to a space within 60 ft that I can see or move an existing one 30 ft",
+				"I make melee spell attacks with 10 ft reach with it that deal cold or lightning damage",
+				"Creatures hit by the tentacle suffer 10 ft speed reduction until the start of my next turn",
+				"The 10-ft long tentacle lasts for 1 minute or until I summon another"
+			]),
+			action : [["bonus action", " (summon/move)"]],
+			usages : "Proficiency Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return (n < 10 ? 1 : 2) + "d8";
+			}),
+			weaponsAdd : ['Tentacle of the Deeps'],
+			weaponOptions : [{
+				regExpSearch : /^(?=.*tentacle)(?=.*\b(deeps?|spectral)\b).*$/i,
+				name : "Tentacle of the Deeps",
+				source : [["T", 72]],
+				ability : 6,
+				type : "Spell",
+				damage : [1, 8, "Cold"],
+				range : "Melee (10 ft)",
+				description : "On hit, -10 ft speed until my next turn starts",
+				abilitytodamage : false,
+				tentacleOfTheDeeps : true
+			}],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.tentacleOfTheDeeps && classes.known.warlock.level >= 10) {
+							fields.Damage_Die = '2d8';
+						};
+					}
+				]
+			}
+		},
+		"subclassfeature1.1" : {
+			name : "Gift of the Sea",
+			source : [["T", 72]],
+			minlevel : 1,
+			description : "\n   I have a swimming speed of 40 ft and I can breathe underwater",
+			speed : { swim : { spd : 40, enc : 30 } }
+		},
+		"subclassfeature6" : {
+			name : "Oceanic Soul",
+			source : [["T", 73]],
+			minlevel : 6,
+			description : desc([
+				"I gain resistance to cold damage now that I'm even more at home in the depths",
+				"While I'm fully submerged, others who are as well can understand my speech and I theirs"
+			]),
+			dmgres : ["Cold"]
+		},
+		"subclassfeature6.1" : {
+			name : "Guardian Coil",
+			source : [["T", 73]],
+			minlevel : 6,
+			description : desc([
+				"As a reaction when I or a creature I see in 10 ft of my tentacle is damaged, it can help",
+				"The tentacle interposes itself, reducing the damage of the attack for that creature"
+			]),
+			action : [["reaction", ""]],
+			additional : levels.map(function (n) {
+				return (n < 10 ? 1 : 2) + "d8 damage reduced";
+			})
+		},
+		"subclassfeature10" : {
+			name : "Grasping Tentacles",
+			source : [["T", 73]],
+			minlevel : 10,
+			description : desc([
+				"I learn Evard's Black Tentacles; Once per long rest, I can cast it without using a spell slot",
+				"It counts as a warlock spell for me, but not towards the number of spell I can know",
+				"Whenever I cast it, I gain temporary hit points equal to my warlock level",
+				"Moreover, damage can't break my concentration on this spell"
+			]),
+			action : [["action", ""]],
+			additional : levels.map(function (n) {
+				return n < 10 ? "" : n + " temp HP; 1\xD7 per long rest no SS";
+			}),
+			spellcastingBonus : {
+				name : "Grasping Tentacles",
+				spells : ["evard's black tentacles"],
+				selection : ["evard's black tentacles"],
+				firstCol : "oncelr"
+			},
+			extraLimitedFeatures : [{
+				name : "Evard's Black Tentacles (no spell slot)",
+				usages : 1,
+				recovery : "long rest"
+			}],
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						if (spellKey === "evard's black tentacles") {
+							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or restrained \u0026 3d6 Bludg. dmg/rnd; Str/Dex check escape";
+							spellObj.duration = "Conc*, 1 min";
+							return true;
+						}
+					},
+					"Whenever I cast Evard's Black Tentacles, I gain temporary hit points equal to my warlock level.\n \u2022 Damage can't break my concentration on this spell."
+				]
+			}
+		},
+		"subclassfeature14" : {
+			name : "Fathomless Plunge",
+			source : [["T", 73]],
+			minlevel : 14,
+			description : desc([
+				"As an action, I can teleport myself and up to 5 willing creatures I can see within 30 ft",
+				"We reappear up to 1 mile away, inside or within 30 ft of a body of water I've seen"
+			]),
+			action : [["action", ""]],
+			recovery : "short rest",
+			usages : 1
+		}
+	}
+});
+AddSubClass("warlock", "the genie", {
+	regExpSearch : /^(?=.*warlock)(?=.*(genie|dao|djinni|efreeti|marid)).*$/i,
+	subname : "the Genie",
+	source : [["T", 73], ["UA:SR", 2]],
+	features : {
+		"subclassfeature1" : {
+			name : "Choose Genie Kind",
+			source : [["T", 73], ["UA:SR", 3]],
+			minlevel : 1,
+			description : '\n   Use the "Choose Feature" button above to choose the kind of genie your patron is',
+			calcChanges : {
+				spellList : [
+					function(spList, spName, spType) {
+						if (spType.indexOf("bonus") !== -1 && spList.name && /mystic arcanum/i.test(spList.name) && spList.level[0] === 9) {
+							spList.extraspells.push("wish");
+						} else if (spType.indexOf("bonus") === -1 && spName === "warlock") {
+							if (!spList.notspells) spList.notspells = [];
+							spList.notspells.push("wish");
+						}
+					},
+					"The Genie patron adds Wish as a spell available for my 9th-level Mystic Arcanum selection."
+				]
+			},
+			choices : ["Dao (earth)", "Djinni (air)", "Efreeti (fire)", "Marid (water)"],
+			"dao (earth)" : {
+				name : "Dao Genie Patron",
+				description : "\n   My genie patron is a Dao, associated with earth",
+				spellcastingExtra : ["detect evil and good", "sanctuary", "phantasmal force", "spike growth", "create food and water", "meld into stone", "phantasmal killer", "stone shape", "creation", "wall of stone", "wish"]
+			},
+			"djinni (air)" : {
+				name : "Djinni Genie Patron",
+				description : "\n   My genie patron is a Djinni, associated with air",
+				spellcastingExtra : ["detect evil and good", "thunderwave", "gust of wind", "phantasmal force", "create food and water", "wind wall", "greater invisibility", "phantasmal killer", "creation", "seeming", "wish"]
+			},
+			"efreeti (fire)" : {
+				name : "Efreeti Genie Patron",
+				description : "\n   My genie patron is an Efreeti, associated with fire",
+				spellcastingExtra : ["burning hands", "detect evil and good", "phantasmal force", "scorching ray", "create food and water", "fireball", "fire shield", "phantasmal killer", "creation", "flame strike", "wish"]
+			},
+			"marid (water)" : {
+				name : "Marid Genie Patron",
+				description : "\n   My genie patron is a Marid, associated with water",
+				spellcastingExtra : ["detect evil and good", "fog cloud", "blur", "phantasmal force", "create food and water", "sleet storm", "control water", "phantasmal killer", "cone of cold", "creation", "wish"]
+			},
+			choiceDependencies : [{
+				feature : "subclassfeature1.3"
+			}, {
+				feature : "subclassfeature6"
+			}]
+		},
+		"subclassfeature1.1" : {
+			name : "Genie's Vessel",
+			source : [["T", 73], ["UA:SR", 3]],
+			minlevel : 1,
+			description : desc([
+				"My patron gifts me a magical vessel, a Tiny object, granting me a measure of its power",
+				"I choose the vessel's appearance; I can use it as my spellcasting focus for warlock spells",
+				"The vessel's AC is my spell save DC and it has my warlock level + Proficiency Bonus in HP",
+				"If it is destroyed or lost, I can get a replacement with a 1-hour ceremony during a rest"
+			])
+		},
+		"subclassfeature1.2" : {
+			name : "Genie's Vessel: Bottled Respite",
+			source : [["T", 74], ["UA:SR", 3]],
+			minlevel : 1,
+			description : desc([
+				"As an action, I can vanish and enter the extradimensional space inside my genie's vessel",
+				"The vessel stays in its location; The space inside is a 20-ft high, 20-ft radius cylinder",
+				"As a bonus action, I can exit my vessel; I exit it early if I die or the vessel is destroyed",
+				"I can remain inside for twice my Proficiency Bonus in hours; Objects can be left inside"
+			]),
+			limfeaname : "Bottled Respite",
+			action : [["action", " (enter)"], ["bonus action", " (eject)"]],
+			usages : 1,
+			recovery : "long rest"
+		},
+		"subclassfeature1.3" : {
+			name : "Genie's Wrath",
+			source : [["T", 73], ["UA:SR", 3]],
+			minlevel : 1,
+			description : desc([
+				"I can deal bonus damage on my attacks, its type depending on my patron's genie kind",
+				'Use the "Choose Feature" button above to choose the kind of genie your patron is'
+			]),
+			"dao (earth)" : {
+				name : "Dao's Wrath",
+				description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof. Bonus in extra bludgeoning damage",
+				calcChanges : {
+					atkAdd : [
+						function (fields, v) {
+							if (!v.isDC) {
+								fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' fbludgeoningire damage';
+							}
+						},
+						"Once on each of my turns, I can have one of my attacks that hit deal extra bludgeoning damage equal to my proficiency bonus."
+					]
+				}
+			},
+			"djinni (air)" : {
+				name : "Djinni's Wrath",
+				description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Proficiency Bonus in extra thunder damage",
+				calcChanges : {
+					atkAdd : [
+						function (fields, v) {
+							if (!v.isDC) {
+								fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' thunder damage';
+							}
+						},
+						"Once on each of my turns, I can have one of my attacks that hit deal extra thunder damage equal to my proficiency bonus."
+					]
+				}
+			},
+			"efreeti (fire)" : {
+				name : "Efreeti's Wrath",
+				description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Proficiency Bonus in extra fire damage",
+				calcChanges : {
+					atkAdd : [
+						function (fields, v) {
+							if (!v.isDC) {
+								fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' fire damage';
+							}
+						},
+						"Once on each of my turns, I can have one of my attacks that hit deal extra fire damage equal to my proficiency bonus."
+					]
+				}
+			},
+			"marid (water)" : {
+				name : "Marid's Wrath",
+				description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Proficiency Bonus in extra cold damage",
+				calcChanges : {
+					atkAdd : [
+						function (fields, v) {
+							if (!v.isDC) {
+								fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' cold damage';
+							}
+						},
+						"Once on each of my turns, I can have one of my attacks that hit deal extra cold damage equal to my proficiency bonus."
+					]
+				}
+			}
+		},
+		"subclassfeature6" : {
+			name : "Elemental Gift",
+			source : [["T", 75], ["UA:SR", 3]],
+			minlevel : 6,
+			description : desc([
+				"I gain resistance to a damage type depending on my patron's genie kind",
+				'Use the "Choose Feature" button above to choose the kind of genie your patron is',
+				"As a bonus action, I can gain a flying speed of 30 ft and I can hover, for 10 minutes"
+			]),
+			"dao (earth)" : {
+				name : "Dao's Elemental Gift",
+				description : desc([
+					"I gain resistance to bludgeoning damage",
+					"As a bonus action, I can gain a flying speed of 30 ft and I can hover, for 10 minutes"
+				]),
+				action : [["bonus action", " (start fly)"]],
+				dmgres : ["Bludgeoning"]
+			},
+			"djinni (air)" : {
+				name : "Djinni's Elemental Gift",
+				description : desc([
+					"I gain resistance to thunder damage",
+					"As a bonus action, I can gain a flying speed of 30 ft and I can hover, for 10 minutes"
+				]),
+				action : [["bonus action", " (start fly)"]],
+				dmgres : ["Thunder"]
+			},
+			"efreeti (fire)" : {
+				name : "Efreeti's Elemental Gift",
+				description : desc([
+					"I gain resistance to fire damage",
+					"As a bonus action, I can gain a flying speed of 30 ft and I can hover, for 10 minutes"
+				]),
+				action : [["bonus action", " (start fly)"]],
+				dmgres : ["Fire"]
+			},
+			"marid (water)" : {
+				name : "Marid's Elemental Gift",
+				description : desc([
+					"I gain resistance to cold damage",
+					"As a bonus action, I can gain a flying speed of 30 ft and I can hover, for 10 minutes"
+				]),
+				action : [["bonus action", " (start fly)"]],
+				dmgres : ["Cold"]
+			},
+			additional : "Fly 10 min",
+			usages : "Prof. Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest"
+		},
+		"subclassfeature10" : {
+			name : "Sanctuary Vessel",
+			source : [["T", 75], ["UA:SR", 3]],
+			minlevel : 10,
+			description : desc([
+				"When I enter my vessel I can have up to 5 willing creatures I can see in 30 ft join me",
+				"As a bonus action, I can eject any number of creatures from my genie's vessel",
+				"Everyone is ejected when I leave it, I die, or if the vessel is destroyed",
+				"Anyone who remains in the vessel for at least 10 min gains the benefits of a short rest",
+				"Also, HD spend as part of this short rest has my Proficiency Bonus added to the roll"
+			])
+		},
+		"subclassfeature14" : {
+			name : "Limited Wish",
+			source : [["T", 75], ["UA:SR", 3]],
+			minlevel : 14,
+			description : " [1\xD7 per 1d4 long rests]" + desc([
+				"As an action, I can cast a 6th-level or lower spell with a casting time time of one action",
+				"This can be any spell; It doesn't require any costly components, it simply takes effect"
+			]),
+			action : [["action", ""]],
+			extraLimitedFeatures : [{
+				name : "Limited Wish",
+				usages : 1,
+				recovery : "1d4 LR"
+			}]
+		}
+	}
+});
 
 
 // >>>>>>>>>>>>>>>>>>>>>> //
@@ -4882,7 +5741,153 @@ if (!SourceList.S) {
 		}
 	});
 } // dupl_end
-//AddSubClass("wizard", "order of scribes", {});
+AddSubClass("wizard","order of scribes", {
+	regExpSearch : /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
+	subname : "Order of Scribes",
+	source : [["T", 77]],
+	features : {
+		"subclassfeature2" : {
+			name : "Wizardly Quill",
+			source : [["T", 77]],
+			minlevel : 2,
+			description : desc([
+				"As a bonus action, I can magically create a Tiny quill with the following properties:",
+				" \u2022 It doesn't require ink and produces ink in the color of my choice when writing with it",
+				" \u2022 I require only 2 minutes per spell level to transcribe spells into my spellbook with it",
+				" \u2022 As a bonus action, I can use it to erase a text written with it if within 5 ft of the text",
+				"The quill disappear if I create another or if I die"
+			]),
+			action : [["bonus action", " (create/erase)"]]
+		},
+		"subclassfeature2.1" : {
+			name : "Awakened Spellbook",
+			source : [["T", 77]],
+			minlevel : 2,
+			description : desc([
+				"My spellbook gains sentience and grants me the following benefits while I am holding it:",
+				" \u2022 I can use the book as a spellcasting focus for my wizard spells",
+				" \u2022 When I cast a wizard spell using a spell slot, I can temporarily replace its damage type",
+				"   The new type must appear in my spellbook in a spell of the same level as the spell slot",
+				" \u2022 Once per long rest, I can ritual cast a wizard spell without 10 min extra casting time",
+				"I can replace it over a short rest, transferring its spells and sentience to a blank book"
+			]),
+			additional : "fast ritual cast",
+			usages : 1,
+			recovery : "long rest"
+		},
+		"subclassfeature6" : {
+			name : "Manifest Mind",
+			source : [["T", 78]],
+			minlevel : 6,
+			description : desc([
+				"As a bonus action, I can have the mind of my awakened spellbook manifest within 60 ft",
+				"The spellbook needs to be on my person to do this; The mind is a Tiny spectral object",
+				"The mind is intangible, doesn't occupy a space, hovers, and sheds dim light in 10 ft",
+				"It can hear, see, has 60 ft darkvision, and telepathically shares with me what it perceives",
+				"As a bonus action, I can dismiss it or move it up to 30 ft to an empty space I can see",
+				"It can pass through creatures; It stops manifesting if it's over 300 ft from me or I die",
+				"It also stop manifesting if Dispel Magic is cast on it or the awakened spellbook is no more",
+				"I can do this once per long rest, or by expending a spell slot (SS 1+) to manifest it again"
+			]),
+			action : [["bonus action", " (conjure/move/dismiss)"]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "SS 1+"
+		},
+		"subclassfeature6.1" : {
+			name : "Manifest Mind: Cast Spell",
+			source : [["T", 78]],
+			minlevel : 6,
+			description : desc([
+				"I can have wizard spells I cast on my turn originate from the mind while its manifested"
+			]),
+			usages : "Proficiency Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest"
+		},
+		"subclassfeature10" : {
+			name : "Master Scrivener",
+			source : [["T", 78]],
+			minlevel : 10,
+			description : desc([
+				"When I finish a long rest, I can write a spell in my awakened spellbook on a blank paper",
+				"It must be a level 1 or 2 spell with 1 action casting time; My spellbook must be in 5 ft",
+				"As an action, I can use this scroll to cast the spell on it at one higher level than normal",
+				"Only I can use the scroll; The scroll turns blank again when I use it or finish a long rest",
+				"Also, using my Wizardly Quill, the gold and time I need to craft spell scrolls is halved"
+			]),
+			action : [["action", " (cast scroll)"]],
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Master Scrivener scoll",
+				"class" : "wizard",
+				level : [1, 2],
+				firstCol : "MS"
+			},
+			calcChanges : {
+				spellAdd : [
+					function (spellKey, spellObj, spName, isDuplicate) {
+						if (!isDuplicate && spName === "wizard" && spellObj.firstCol === "MS" && (spellObj.level === 1 || spellObj.level === 2)) {
+							// Calculate upcasting to be exactly 1 level higher
+							var rxMatch = /(\d*d?\d+)\+(\d*d?\d+)\/(\d*SL)\b/i;
+							while (rxMatch.test(spellObj.description)) {
+								var aMatch = spellObj.description.match(rxMatch);
+								var strDie1 = !isNaN(aMatch[1]) ? true : /\d+d\d+/i.test(aMatch[1]) ? aMatch[1].replace(/\d+(d\d+)/i, "$1") : false;
+								var strDie2 = !isNaN(aMatch[2]) ? true : /\d+d\d+/i.test(aMatch[2]) ? aMatch[2].replace(/\d+(d\d+)/i, "$1") : undefined;
+								if (!/^SL$/i.test(aMatch[3])) {
+									// only increases if more than 1 level higher spell slot, so nothing we can do with it, just remove all upcasting
+									removeSpellUpcasting(spellObj);
+								} else if (/^\d/.test(aMatch[1]) && strDie1 === strDie2) {
+									// identical type steps (e.g. 1d6+1d6/SL or 3+1/SL), so add the second to the first
+									var strNew = (Number(aMatch[1].replace(/^(\d+).*/, "$1")) + Number(aMatch[2].replace(/^(\d+).*/, "$1"))) + aMatch[1].replace(/^\d+(.*)/, "$1");
+									spellObj.description = spellObj.description.replace(rxMatch, strNew);
+								} else {
+									// non-identical steps, so leave the first and second along, but remove the /SL
+									spellObj.description = spellObj.description.replace(rxMatch, "$1+$2");
+								}
+							}
+							// Remove costly material components
+							spellObj.description = spellObj.description.replace(/ \(\d+ ?gp( cons\.?)?\)/i, '');
+							// List only the scroll as a component from the spell
+							spellObj.components = "M\u2020";
+							spellObj.compMaterial = "Spells cast from spell scrolls don't require any components other than the spell scroll itself.";
+							return true;
+						}
+					},
+					"When I finish a long rest, I can create a scroll of a spell in my spellbook using my Master Scrivener class feature. I can then cast this spell from the scroll and the spell is cast as if using a spell slot one level higher than its spell level."
+				]
+			}
+		},
+		"subclassfeature14" : {
+			name : "One with the Word",
+			source : [["T", 78]],
+			minlevel : 14,
+			description : ' [see 3rd page "Notes" section]',
+			action : [["reaction", " (when damaged)"]],
+			advantages : [["Arcana", true]],
+			"one with the word" : {
+				name : "One with the Word",
+				extraname : "Order of Scribes 14",
+				source : [["T", 78]],
+				description : desc([
+					"While my awakened spellbook is on my person, I have advantage on Int (Arcana) checks",
+					"As a reaction when I take damage while my spellbook's mind is manifested, I can dismiss it",
+					"In dismissing the manifested mind like this, I prevent all of the damage taken by me",
+					"After doing so, I lose spells with a combined level of 3d6 from my awakened spellbook",
+					"If I do not have enough spells left to cover the number rolled, I drop to 0 HP instead",
+					"The spells vanish from my spellbook, reappearing only after I finish 1d6 long rests",
+					"I can't cast spells that I lost this way, even if found on a scroll or in another spellbook"
+				]),
+				usages : 1,
+				recovery : "long rest"
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "one with the word"
+			}]
+		}
+	}
+});
 
 
 // >>>>>>>>>>>>>>>>> //
@@ -5266,7 +6271,7 @@ FeatsList["telepathic"] = {
 // >>> New Spells >>> //
 // >>>>>>>>>>>>>>>>>> //
 // [dupl_start] reprint spells from Sword Coast Adventure Guide (after 2020 errata)
-if (!SourceList.S || !(/Sword.*Coast.*Adventure.*Guide/i).test(SourceList.S.name)) {
+if (!SourceList.S) {
 	SpellsList["booming blade"] = {
 		name : "Booming Blade",
 		classes : ["artificer", "sorcerer", "warlock", "wizard"],
@@ -5378,7 +6383,165 @@ if (!SourceList.S || !(/Sword.*Coast.*Adventure.*Guide/i).test(SourceList.S.name
 		dc : true
 	};
 } // dupl_end
-
+SpellsList["blade of disaster"] = {
+	name : "Blade of Disaster",
+	classes : ["sorcerer", "warlock", "wizard"],
+	source : [["T", 106]],
+	level : 9,
+	school : "Conj",
+	time : "1 bns",
+	range : "60 ft",
+	components : "V,S",
+	duration : "Conc, 1 min",
+	description : "Create weapon; 2 spell atks 4d12 Force dmg; crit on 18+, triple dmg; bns a to move 30 ft \u0026 do 2 atks",
+	descriptionFull : "You create a blade-shaped planar rift about 3 feet long in an unoccupied space you can see within range. The blade lasts for the duration. When you cast this spell, you can make up to two melee spell attacks with the blade, each one against a creature, loose object, or structure within 5 feet of the blade. On a hit, the target takes 4d12 force damage. This attack scores a critical hit if the number on the d20 is 18 or higher. On a critical hit, the blade deals an extra 8d12 force damage (for a total of 12d12 force damage)." +
+	"\n   As a bonus action on your turn, you can move the blade up to 30 feet to an unoccupied space you can see and then make up to two melee spell attacks with it again." +
+	"\n   The blade can harmlessly pass through any barrier, including a wall of force."
+};
+SpellsList["dream of the blue veil"] = {
+	name : "Dream of the Blue Veil",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["T", 106]],
+	level : 7,
+	school : "Conj",
+	time : "10 min",
+	range : "20 ft",
+	components : "V,S,M\u0192",
+	compMaterial : "A magic item or a willing creature from the destination world",
+	duration : "6 hours",
+	description : "9 willing crea unconscious for duration, after that travel to origin material plane of magic item or crea",
+	descriptionFull : "You and up to eight willing creatures within range fall unconscious for the spell's duration and experience visions of another world on the Material Plane, such as Oerth, Toril, Krynn, or Eberron. If the spell reaches its full duration, the visions conclude with each of you encountering and pulling back a mysterious blue curtain. The spell then ends with you mentally and physically transported to the world that was in the visions." +
+	"\n   To cast this spell, you must have a magic item that originated on the world you wish to reach, and you must be aware of the world's existence, even if you don't know the world's name. Your destination in the other world is a safe location within 1 mile of where the magic item was created. Alternatively, you can cast the spell if one of the affected creatures was born on the other world, which causes your destination to be a safe location within 1 mile of where that creature was born." +
+	"\n   The spell ends early on a creature if that creature takes any damage, and the creature isn't transported. If you take any damage, the spell ends for you and all the other creatures, with none of you being transported."
+};
+SpellsList["intellect fortress"] = {
+	name : "Intellect Fortress",
+	classes : ["artificer", "bard", "sorcerer", "warlock", "wizard"],
+	source : [["T", 107]],
+	level : 3,
+	school : "Abjur",
+	time : "1 a",
+	range : "30 ft",
+	components : "V",
+	duration : "Conc, 1 h",
+    description : "1+1/SL crea, each max 30 ft apart, has Psychic damage resistance and adv. on Int, Wis, and Cha saves",
+	descriptionFull : "For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as advantage on Intelligence, Wisdom, and Charisma saving throws." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd. The creatures must be within 30 feet of each other when you target them."
+};
+SpellsList["mind sliver"] = {
+	name : "Mind Sliver",
+	classes : ["sorcerer", "warlock", "wizard"],
+	source : [["T", 108], ["UA:SnW", 4], ["UA:FRnW", 7], ["UA:POR", 7]],
+	level : 0,
+	school : "Ench",
+	time : "1 a",
+	range : "60 ft",
+	components : "V",
+	duration : "1 rnd",
+	save : "Int",
+	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my next turn ends; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my next turn ends",
+	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn." +
+	"\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+};
+WeaponsList["mind sliver"] = {
+	regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
+	name : "Mind Sliver",
+	source : [["T", 108], ["UA:SnW", 4], ["UA:FRnW", 7], ["UA:POR", 7]],
+	list : "spell",
+	ability : 6,
+	type : "Cantrip",
+	damage : ["C", 6, "psychic"],
+	range : "60 ft",
+	description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
+	abilitytodamage : false,
+	dc : true
+};
+SpellsList["spirit shroud"] = {
+	name : "Spirit Shroud",
+	classes : ["cleric", "paladin", "warlock", "wizard"],
+	source : [["T", 108]],
+	level : 3,
+	school : "Necro",
+	time : "1 bns",
+	range : "Self",
+	components : "V,S",
+	duration : "Conc, 1 min",
+    description : "In 10 ft, crea -10 ft spd, my atks +1d8+1d8/2SL dmg (Radi/Necr/Cold), no heal until next turn starts",
+	descriptionFull : "You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable." +
+	"\n   Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn." +
+	"\n   In addition, any creature of your choice that you can see that starts its turn within 10 feet of you has its speed reduced by 10 feet until the start of your next turn." +
+	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd."
+};
+SpellsList["summon abberation"] = {
+	name : "Summon Abberation",
+	classes : ["warlock", "wizard"],
+	source : [["T", 109]],
+	level : 4,
+	school : "Conj",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "A pickled tentacle and an eyeball in a platinum-inlaid vial worth at least 400 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Abberant Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (300gp)",
+	descriptionFull : "You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Aberrant Spirit stat block. When you cast the spell, choose Beholderkin, Slaad, or Star Spawn. The creature resembles an aberration of that kind, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["summon beast"] = {
+	name : "Summon Beast",
+	classes : ["druid", "ranger"],
+	source : [["T", 109]],
+	level : 2,
+	school : "Conj",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "A feather, tuft of fur, and fish tail inside a gilded acorn worth at least 200 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Bestial Spirit; obeys commands; takes turn after mine; disappears at 0 hp (200gp)",
+	descriptionFull : "You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Bestial Spirit stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["summon celestial"] = {
+	name : "Summon Celestial",
+	classes : ["cleric", "paladin"],
+	source : [["T", 110]],
+	level : 5,
+	school : "Conj",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "A golden reliquary worth at least 500 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Celestial Spirit; obeys commands; takes turn after mine; disappears at 0 hp (500gp)",
+	descriptionFull : "You call forth a celestial spirit. It manifests in an angelic form in an unoccupied space that you can see within range. This corporeal form uses the Celestial Spirit stat block. When you cast the spell, choose Avenger or Defender. Your choice determines the creature's attack in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["summon construct"] = {
+	name : "Summon Construct",
+	classes : ["artificer", "wizard"],
+	source : [["T", 111]],
+	level : 4,
+	school : "Conj",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "An ornate stone and metal lockbox worth at least 400 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Construct Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
+	descriptionFull : "You call forth the spirit of a construct. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Construct Spirit stat block. When you cast the spell, choose a material: Clay, Metal, or Stone. The creature resembles a golem or a modron (your choice) made of the chosen material, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["summon elemental"] = {
+	name : "Summon Elemental",
+	classes : ["druid", "ranger", "wizard"],
+	source : [["T", 111]],
+	level : 4,
+	school : "Conj",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "Air, a pebble, ash, and water inside a gold-inlaid vial worth at least 400 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Elemental Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
+	descriptionFull : "You call forth an elemental spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Elemental Spirit stat block. When you cast the spell, choose an element: Air, Earth, Fire, or Water. The creature resembles a bipedal form wreathed in the chosen element, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
 SpellsList["summon fey"] = {
 	name : "Summon Fey",
 	classes : ["druid", "ranger", "warlock", "wizard"],
@@ -5390,6 +6553,103 @@ SpellsList["summon fey"] = {
     components : "V,S,M\u0192",
     compMaterial : "A gilded flower worth at least 300 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Fey Spirit; obeys commands after my turn; dissapears at 0 hp (300gp)",
+    description : "Summon choice of Fey Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
 	descriptionFull : "You call forth a fey spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Fey Spirit stat block. When you cast the spell, choose a mood: Fuming, Mirthful, or Tricksy. The creature resembles a fey creature of your choice marked by the chosen mood, which determines one of the traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["summon fiend"] = {
+	name : "Summon Fiend",
+	classes : ["warlock", "wizard"],
+	source : [["T", 112]],
+	level : 6,
+	school : "Conj",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "Humanoid blood inside a ruby vial worth at least 600 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Fiendish Spirit; obeys commands; takes turn after mine; disappears at 0 hp (500gp)",
+	descriptionFull : "You call forth a fiendish spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Fiendish Spirit stat block. When you cast the spell, choose Demon, Devil, or Yugoloth. The creature resembles a fiend of the chosen type, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["summon shadowspawn"] = {
+	name : "Summon Shadowspawn",
+	classes : ["warlock", "wizard"],
+	source : [["T", 113]],
+	level : 3,
+	school : "Conj",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "Tears inside a gem worth at least 300 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Shadow Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
+	descriptionFull : "You call forth a shadowy spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Shadow Spirit stat block. When you cast the spell, choose an emotion: Fury, Despair, or Fear. The creature resembles a misshapen biped marked by the chosen emotion, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["summon undead"] = {
+	name : "Summon Undead",
+	classes : ["warlock", "wizard"],
+	source : [["T", 114]],
+	level : 3,
+	school : "Necro",
+	time : "1 a",
+	range : "90 ft",
+    components : "V,S,M\u0192",
+    compMaterial : "A gilded skull worth at least 300 gp",
+	duration : "Conc, 1 h",
+    description : "Summon choice of Undead Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
+	descriptionFull : "You call forth an undead spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Undead Spirit stat block. When you cast the spell, choose the creature's form: Ghostly, Putrid, or Skeletal. The spirit resembles an undead creature with the chosen form, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
+};
+SpellsList["tasha's caustic brew"] = {
+    name : "Tasha's Caustic Brew",
+    nameAlt : "Caustic Brew",
+	classes : ["artificer", "sorcerer", "wizard"],
+	source : [["T", 115]],
+	level : 1,
+	school : "Evoc",
+	time : "1 a",
+	range : "S:30-ft line",
+    components : "V,S,M",
+    compMaterial : "A bit of rotten food",
+	duration : "Conc, 1 min",
+	save : "Dex",
+    description : "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at start of turn; action to clean self or adjacent",
+	descriptionFull : "A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns." +
+	AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 2d4 for each slot level above 1st."
+};
+SpellsList["tasha's mind whip"] = {
+    name : "Tasha's Mind Whip",
+    nameAlt : "Mind Whip",
+	regExpSearch : /^(?=.*mind)(?=.*(whip|thrust)).*$/i, // "Mind Thrust" in UA:POR
+	classes : ["sorcerer", "wizard"],
+	source : [["T", 115], ["UA:POR", 8]],
+	level : 2,
+	school : "Ench",
+	time : "1 a",
+	range : "90 ft",
+    components : "V",
+	duration : "1 rnd",
+	save : "Int",
+    description : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg, no rea, only move, act, or bns; save half, no act limit",
+	descriptionFull : "You psychically lash out at one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can't take a reaction until the end of its next turn. Moreover, on its next turn, it must choose whether it gets a move, an action, or a bonus action; it gets only one of the three. On a successful save, the target takes half as much damage and suffers none of the spell's other effects." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them."
+};
+SpellsList["tasha's otherworldly guise"] = {
+    name : "Tasha's Otherworldly Guise",
+    nameShort : "T's Otherworldly Guise",
+    nameAlt : "Otherworldly Guise",
+	classes : ["sorcerer", "warlock", "wizard"],
+	source : [["T", 116]],
+	level : 6,
+	school : "Trans",
+	time : "1 bns",
+	range : "Self",
+    components : "V,S,M\u0192",
+    compMaterial : "An object engraved with a symbol of the Outer Planes, worth at least 500 gp",
+	duration : "Conc, 1 min",
+    description : "Fire/Poison or Radiant/Necrotic/Charm immune; 40 ft fly; +2 AC; 2 atks; spellcast. abi atks (500gp)",
+    descriptionFull : "Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself. You gain the following benefits until the spell ends:" +
+	"\n \u2022 You are immune to fire and poison damage (Lower Planes) or radiant and necrotic damage (Upper Planes)." +
+	"\n \u2022 You are immune to the poisoned condition (Lower Planes) or the charmed condition (Upper Planes)." +
+	"\n \u2022 Spectral wings appear on your back, giving you a flying speed of 40 feet." +
+	"\n \u2022 You have a +2 bonus to AC." +
+	"\n \u2022 All your weapon attacks are magical, and when you make a weapon attack, you can use your spellcasting ability modifier, instead of Strength or Dexterity, for the attack and damage rolls." +
+	"\n \u2022 You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature, like Extra Attack, that lets you attack more than once when you take the Attack action on your turn."
 };

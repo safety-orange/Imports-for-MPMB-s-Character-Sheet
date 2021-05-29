@@ -16,7 +16,7 @@ RaceList["centaur"] = {
 	regExpSearch : /centaur/i,
 	name : "Centaur",
 	sortname : "Centaur",
-	source : ["G", 15],
+	source : [["G", 15], ["MOT", 19]],
 	plural : "Centaurs",
 	size : 3,
 	speed : {
@@ -27,7 +27,7 @@ RaceList["centaur"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
-		source : ["G", 15],
+		source : [["G", 15], ["MOT", 19]],
 		damage : [1, 4, "bludgeoning"],
 		description : "Use as bonus action after charge 30 ft"
 	},
@@ -45,13 +45,7 @@ RaceList["centaur"] = {
 		"Charge: If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
 		"Equine Build: I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft."
 	]),
-	features : {
-		"charge" : {
-			name : "Charge",
-			minlevel : 1,
-			action : ["bonus action", "Hooves (after charge)"]
-		}
-	},
+	action : [["bonus action", "Hooves (after charge)"]],
 	carryingCapacity : 2
 };
 // [dupl_start] Reprint from Volo's Guide to Monsters
@@ -80,13 +74,9 @@ if (!RaceList["goblin"]) {
 				usages : 1,
 				recovery : "short rest",
 				additional : levels.map(function (n) { return "+" + n + " damage"; })
-			},
-			"nimble escape" : {
-				name : "Nimble Escape",
-				minlevel : 1,
-				action : [["bonus action", " (disengage/hide)"]]
 			}
 		},
+		action : [["bonus action", "Nimble Escape (disengage/hide)"]],
 		trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
 	};
 } // dupl_end

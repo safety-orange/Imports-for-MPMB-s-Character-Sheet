@@ -15225,35 +15225,6 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 	}
 });
 
-// Add a new cantrip and its weaponlist entry
-SpellsList["mind sliver-ua"] = {
-	name : "Mind Sliver",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : [["UA:SnW", 4], ["UA:FRnW", 7]],
-	level : 0,
-	school : "Ench",
-	time : "1 a",
-	range : "60 ft",
-	components : "V",
-	duration : "1 rnd",
-	save : "Int",
-	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
-	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-};
-WeaponsList["mind sliver-ua"] = {
-	regExpSearch : /^(?=.*mind)(?=.*sliver).*$/i,
-	name : "Mind Sliver",
-	source : [["UA:SnW", 4], ["UA:FRnW", 7]],
-	list : "spell",
-	ability : 6,
-	type : "Cantrip",
-	damage : ["C", 6, "psychic"],
-	range : "60 ft",
-	description : "1 creature Int save, success - no damage, fail - also -1d4 on first save before my next turn ends",
-	abilitytodamage : false,
-	dc : true
-};
 
 // ua_20190918_Bard-and-Paladin.js
 // This file adds the content from the Unearthed Arcana: Bard and Paladin article to MPMB's Character Record Sheet
@@ -17644,7 +17615,7 @@ SpellsList["id insinuation-ua"] = {
 	description : "1 crea save or incapacitated and end of each turn 1d12 Psychic damage, after which it can save to end",
 	descriptionFull : "You unleash a torrent of conflicting desires in the mind of one creature you can see within range, impairing its ability to make decisions. The target must succeed on a Wisdom saving throw or be incapacitated. At the end of each of its turns, it takes 1d12 psychic damage, and it can then make another Wisdom saving throw. On a success, the spell ends on the target."
 };
-SpellsList["intellect fortress-ua"] = {
+SpellsList["intellect fortress-ua_frnw"] = { // completely different than later iterations in UA:POR and TCoE
 	name : "Intellect Fortress",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
 	source : [["UA:FRnW", 7]],
@@ -17670,22 +17641,7 @@ SpellsList["mental barrier-ua"] = {
 	description : "I have Psychic damage resistance and adv. on Int, Wis, and Cha saves until the start of my next turn",
 	descriptionFull : "You protect your mind with a wall of looping, repetitive thought. Until the start of your next turn, you have advantage on Intelligence, Wisdom, and Charisma saving throws, and you have resistance to psychic damage."
 };
-SpellsList["mind sliver-ua"] = { // almost duplicate from UA:SnW, but now also on the Bard's spell list
-	name : "Mind Sliver",
-	classes : ["bard", "sorcerer", "warlock", "wizard"],
-	source : [["UA:SnW", 4], ["UA:FRnW", 7]],
-	level : 0,
-	school : "Ench",
-	time : "1 a",
-	range : "60 ft",
-	components : "V",
-	duration : "1 rnd",
-	save : "Int",
-	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my turn ends; +1d6 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my turn ends",
-	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-};
-SpellsList["mind thrust-ua"] = {
+SpellsList["mind thrust-ua"] = { // rather different than later iterations in UA:POR and TCoE
 	name : "Mind Thrust",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
 	source : [["UA:FRnW", 7]],
@@ -18960,7 +18916,220 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 });
 if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassFeyWandererUA); };
 
+// ua_20200512_Subclasses-Revisited.js
+// This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
+// This file contains contributions by Undrhil and Metacomet10
+
+SourceList["UA:SR"] = {
+	name : "Unearthed Arcana: Subclasses Revisited",
+	abbreviation : "UA:SR",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2020/dnd/downloads/UA2020_SubclassesRevisited_0512.pdf",
+	date : "2020/05/12"
+};
+
+AddSubClass("rogue", "phantom-ua", {
+	regExpSearch : /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*phantom).*$/i,
+	subname : "Phantom",
+	source : [["UA:SR", 1]],
+	fullname : "Phantom",
+	features : {
+		"subclassfeature3" : {
+			name : "Whispers of the Dead",
+			source : [["UA:SR", 1]],
+			minlevel : 3,
+			description : desc([
+				"Whenever I finish a short or long rest, I can gain one skill or tool proficiency of my choice",
+				"This proficiency lasts until I use this feature again to gain a different proficiency"
+			]),
+			skillstxt : "Choose one skill or tool; I can change the choice whenever I finish a short or long rest"
+		},
+		"subclassfeature3.1" : {
+			name : "Wails from the Grave",
+			source : [["UA:SR", 1]],
+			minlevel : 3,
+			description : levels.map(function (n) {
+				var a = [
+					"Directly after I deal sneak attack damage to a creature on my turn, I " + (n < 17 ? "can" : "also") + " harm another",
+					n < 17 ? "I then deal half my sneak attack in psychic damage to a creature I can see within 30 ft" : "I deal half my sneak attack in psychic damage to both it and another I can see in 30 ft"
+				];
+				return desc(a);
+			}),
+			usages : "Proficiency bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest",
+			additional : levels.map(function (n) {
+				return Math.ceil(n / 4) + "d6";
+			}),
+		},
+		"subclassfeature9" : {
+			name : "Tokens of the Departed",
+			source : [["UA:SR", 2]],
+			minlevel : 9,
+			description : " [max Proficiency Bonus of soul trinkets]" + desc([
+				"As a reaction when I see a creature within 30 ft die, I can create a Tiny soul trinket",
+				"The token of its life essence appears in my free hand; The DM determines its appearance",
+				"While a soul trinket is on my person, I have advantage on death and Constitution saves",
+				"As an action, I can destroy one of my soul trinkets and ask its associated spirit a question",
+				"Its spirit appears and answers concisely in a language it knew; Trinket can be anywhere"
+			]),
+			action : [
+				["reaction", "Create Soul Trinket"],
+				["action", "Destroy Soul Trinket"]
+			],
+			extraLimitedFeatures : [{
+				name : "Soul Trinkets (max Prof. Bonus)",
+				usages : "",
+				recovery : "Special"
+			}],
+			savetxt : { text : ["While soul trinket is on me, Adv. on Con and death saves"] }
+		},
+		"subclassfeature13" : {
+			name : "Ghost Walk",
+			source : [["UA:SR", 2]],
+			minlevel : 13,
+			description : desc([
+				"As a bonus action, I can assume a spectral form with 10 ft flying speed and can hover",
+				"Attacks vs. me have disadv.; I can move through creatures and objects as difficult terrain",
+				"This lasts 10 min; I take 1d10 force damage if I end my turn inside a creature or object",
+				"I can assume this form once per long rest, or by destroying one of my soul trinkets (ST)"
+			]),
+			action : [["bonus action", " (start/end)"]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "ST"
+		},
+		"subclassfeature17" : {
+			name : "Death Knoll",
+			source : [["UA:SR", 2]],
+			minlevel : 17,
+			description : desc([
+				"Wails from the Grave now also deals damage to the target of the original sneak attack"
+			])
+		}
+	}
+});
+
+/* This UA version of Order of Scribes is not done yet
+AddSubClass("wizard","order of scribes-ua", {
+	regExpSearch : /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
+	subname : "Order of Scribes",
+	source : [["UA:SR", 4]],
+	features : {
+		"subclassfeature2" : {
+			name : "Wizardly Quill",
+			source : [["UA:SR", 4]],
+			minlevel : 2,
+			description : desc([
+				"As a bonus action, I can magically create a Tiny quill with the following properties:",
+				" \u2022 It doesn't require ink and produces ink in the color of my choice when writing with it",
+				" \u2022 The gold and time required to transcribe spells into my spellbook with it are halved",
+				" \u2022 As a bonus action, I can use it to erase a text written with it if within 5 ft of the text",
+				"The quill disappear if I create another or if I die"
+			]),
+			action : [["bonus action", " (create/erase)"]]
+		},
+		"subclassfeature2.1" : {
+			name : "Awakened Spellbook",
+			source : [["UA:SR", 4]],
+			minlevel : 2,
+			description : desc ([
+				"My spellbook gains sentience and grants me the following benefits while I am holding it:",
+				" \u2022 I can use the book as a spellcasting focus for my wizard spells",
+				" \u2022 When I cast a wizard spell using a spell slot, I can temporarily replace its damage type",
+				"   The new damage type must appear in another spell in my awakened spellbook",
+				" \u2022 Once per long rest, I can ritual cast a wizard spell without 10 min extra casting time",
+				"I can replace it over a short rest, transferring its spells and sentience to a blank book"
+			]),
+			additional : "fast ritual cast",
+			usages : 1,
+			recovery : "long rest"
+		},
+		"subclassfeature6" : {
+			name : "Master Scrivener",
+			source : [["UA:SR", 4]],
+			minlevel : 6,
+			description : desc([
+				"When I finish a long rest, I can write a spell in my awakened spellbook on a blank paper",
+				"It must be a level 1 or 2 spell with 1 action casting time; My spellbook must be in 5 ft",
+				"As an action, I can use this scroll to cast the spell on it at one higher level than normal",
+				"Only I can use the scroll; The scroll turns blank again when I use it or finish a long rest",
+				"Also, using my Wizardly Quill, the gold and time I need to craft spell scrolls is halved"
+			]),
+			action : [["action", " (cast scroll)"]],
+			usages : 1,
+			recovery : "long rest"
+		},
+		// Finished until here
+		"subclassfeature10" : {
+			name : "Manifest Mind",
+			source : [["UA:SR", 5]],
+			minlevel : 10,
+			description : desc(["As a bonus action, I can cause my Awakened Spellbook to manifest. See \"Notes\" page"]),
+			toNotesPage : [{
+				name : "Manifest Mind",
+				source : [["UA:SR", 5]],
+				popupName : "Manifest Mind",
+				page3notes : false,
+				note : desc (["As a bonus action with my Awakened Spellbook on my person, I can cause the mind to",
+				"manifest as a Tiny spectral construct, hovering in an unoccupied space of my choice within",
+				"60 ft. It is intangible and doesn't occupy its space, and it sheds dim light in a 10 ft radius.",
+				"It looks like a ghostly tome, a cascade of text, or a scholar from the past \(my choice.\).",
+				"\(See Companion Page for statistics for this construct.\)",
+				"While manifested, it can hear and see and has darkvision with a range of 60 ft.  As an",
+				"action, I can hear and see using its senses instead of my own, until my concentration",
+				"ends \(as if concentrating on a spell\).",
+				"Whenever I cast a wizard spell on my turn, I can cast it as if I were in the spectral mind's",
+				"space, using its senses.  I can do this a number of times per day equal to my proficiency",
+				"bonus, and I regain all uses when I finish a long rest.",
+				"As a bonus action, I can cause it to hover up to 30 ft to an unoccupied space that I or it",
+				"can see. It can pass through creatures but not objects.  It stops manifesting if it is ever",
+				"more than 300 ft away from me, if it drops to 0 hit points, if I die, or if I dismiss it as",
+				"a bonus action."
+				])
+			}],
+			eval : function() {
+				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.wizard.artificer.CompFunc;
+				companionFunctions.add("Manifest Mind");
+				ClassList.wizard.wizardCompFunc.update(10, What('Int mod'),What('AC'),What('Str mod'),What('Dex mod'),What('Con mod'),What('Wis mod'),What('Cha mod'));
+			},
+			removeeval : function() {
+				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.wizard.artificerCompFunc;
+				companionFunctions.remove("Manifest Mind");
+			},
+			action : [["bonus action",""],["bonus action","Hover spellbook 30ft"],["bonus action","dismiss Manifestation"]],
+			usages : "Prof. Bonus per ",
+			usagescalc : "event.value = What('Proficiency Bonus');",
+			recovery : "long rest"
+		},
+		"subclassfeature14" : {
+			name : "One with the Word",
+			source : [["UA:SR", 5]],
+			minlevel : 14,
+			description : desc([
+				"While I am holding my Awakened Spellbook and it is manifest, I can take an action to",
+				"swap places with the manifestation. I can do this a number of times equal to my",
+				"proficiency bonus and I regain all expended uses when I finish a long rest.",
+				"If I die but at least one spell remains in my Awakened Spellbook, I can return to",
+				"life after 1 minute within 5 ft of the book. I revive with 1 hit point. I then roll",
+				"3d6 and the spellbook loses spells of my choice that have a combined spell level",
+				"equal to that roll or higher. I am incapable of casting the lost spells, even if I",
+				"find them on a scroll or in another spellbook.  I can only restore my ability to cast",
+				"one of these spells with the wish spell, which will restore one spell per casting."
+			]),
+			action : ["action","Swap places with spellbook"],
+			usages : "Prof. Bonus per ",
+			usagescalc : "event.value = What('Proficiency Bonus');",
+			recovery : "long rest"
+		}
+	}
+});
+*/
+
 // ua_20200713_Feats-2020.js
+// This file adds the content from the Unearthed Arcana 2020: Feats article to MPMB's Character Record Sheet
+// All content in this file contains contributions by AelarTheElfRogue
+
 // Define the source
 SourceList["UA:F2"] = {
 	name: "Unearthed Arcana: Feats 2020",
