@@ -1,5 +1,7 @@
 var iFileName = "ua_20200713_Feats-2020.js";
 RequiredSheetVersion(13);
+// This file adds the content from the Unearthed Arcana 2020: Feats article to MPMB's Character Record Sheet
+// All content in this file contains contributions by AelarTheElfRogue
 
 // Define the source
 SourceList["UA:F2"] = {

@@ -12,7 +12,45 @@ SourceList.MOT = {
 };
 
 
-
+// [dupl_start] Add Centaur race, if not already present
+if (!RaceList["centaur"]) {
+	RaceList["centaur"] = {
+		regExpSearch : /centaur/i,
+		name : "Centaur",
+		sortname : "Centaur",
+		source : [["MOT", 19], ["G", 15]],
+		plural : "Centaurs",
+		size : 3,
+		speed : {
+			walk : { spd : 40, enc : 30 }
+		},
+		languageProfs : ["Common", "Sylvan"],
+		weaponOptions : {
+			baseWeapon : "unarmed strike",
+			regExpSearch : /\b(hoofs?|hooves)\b/i,
+			name : "Hooves",
+			source : [["MOT", 19], ["G", 15]],
+			damage : [1, 4, "bludgeoning"],
+			description : "Use as bonus action after charge 30 ft"
+		},
+		weaponsAdd : ["Hooves"],
+		skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
+		age : " mature and age at about the same rate as humans",
+		height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
+		weight : " weigh around 670 lb (600 + 1d10 \xD7 2d12 lb)",
+		heightMetric : " stand around 2 metres tall, with their equine bodies reaching about 1,5 metres at the withers (183 + 3d8 cm)",
+		weightMetric : " weigh around 300 kg (270 + 3d8 \xD7 4d12 / 10 kg)",
+		scores : [2, 0, 0, 0, 1, 0],
+		trait : "Centaur (+2 Strength +1 Wisdom)" + desc([
+			"Fey: My creature type is fey, rather than humanoid.",
+			"Hooves: I can use my hooves for unarmed strikes (1d4 bludgeoning damage).",
+			"Charge: If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
+			"Equine Build: I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft."
+		]),
+		action : [["bonus action", "Hooves (after charge)"]],
+		carryingCapacity : 2
+	};
+}; // dupl_end
 // [dupl_start] Add Triton race, if not already present
 if (!RaceList["triton"]) {
 	RaceList["triton"] = {
@@ -155,7 +193,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 		}
 	}
 });
-AddSubClass("paladin", "oath of glory", {
+AddSubClass("paladin", "oath of glory", { // includes contributions by BraabHimself
 	regExpSearch : /^(((?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Glory",
 	source : [["T", 53], ["MOT", 29]],
@@ -280,7 +318,7 @@ BackgroundList["athlete"] = { // includes contributions by Smashman
         "I must be the captain of any group I join.",
     ]
 };
-BackgroundFeatureList["echoes of victory"] = {
+BackgroundFeatureList["echoes of victory"] = { // includes contributions by Smashman
     description: "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
     source: [["MOT", 31]]
 };
