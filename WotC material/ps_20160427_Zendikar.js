@@ -1,5 +1,5 @@
 var iFileName = "ps_20160427_Zendikar.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all material from the Plane Shift: Zendikar article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-zendikar-2016-04-27) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 

@@ -20,9 +20,9 @@ SourceList["AL:CoS"]={
 
 // Backgrounds (with contributions by RCanine)
 BackgroundList["haunted one"] = {
-	regExpSearch : /haunted/i,
+	regExpSearch : /haunted.one/i,
 	name : "Haunted One",
-	source : [["CoS", 209], ["ALbackground", 0]],
+	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
 	skills : "",
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [2],
@@ -497,7 +497,7 @@ BackgroundFeatureList["guerilla"] = {
 };
 BackgroundFeatureList["heart of darkness"] = {
 	description : "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone.",
-	source : [["CoS", 209], ["ALbackground", 0]]
+	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]]
 };
 
 // Equipment pack

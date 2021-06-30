@@ -13,12 +13,12 @@ SourceList["UA:SnW"] = {
 
 // Add a subclasses for the Sorcerer and one for the Warlock
 // Both contain work by /u/KaydeArcane
-var UA_abberantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "compulsion", "evard's black tentacles", "modify memory", "rary's telepathic bond"];
+var UASnW_abberantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "compulsion", "evard's black tentacles", "modify memory", "rary's telepathic bond"];
 AddSubClass("sorcerer", "aberrant mind-ua", {
 	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
 	subname : "Aberrant Mind",
 	source : ["UA:SnW", 1],
-	spellcastingExtra : UA_abberantMindExtraSpell,
+	spellcastingExtra : UASnW_abberantMindExtraSpell,
 	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
@@ -62,7 +62,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 			spellFirstColTitle : "SP",
 			spellChanges : function () {
 				var fullReObj = {};
-				UA_abberantMindExtraSpell.map(function (s) {
+				UASnW_abberantMindExtraSpell.map(function (s) {
 					var spObj = SpellsList[s] ? SpellsList[s] : { level : 1 };
 					fullReObj[s] = {
 						firstCol : spObj.level,

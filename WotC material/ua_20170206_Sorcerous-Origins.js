@@ -1,5 +1,5 @@
 var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -137,7 +137,7 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", {
 			]),
 			additional : levels.map( function(n) {
 				if (n < 6) return "";
-				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\u00D7Cha";
+				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\xD7Cha";
 			}),
 			action : ["reaction", ""],
 			recovery : "long rest",

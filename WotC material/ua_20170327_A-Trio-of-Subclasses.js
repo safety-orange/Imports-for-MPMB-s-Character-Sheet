@@ -128,7 +128,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 	}
 });
 // Add the Monster Slayer subclass to both the normal and Revised Ranger (if it is defined)
-var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
+var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : ["UA:AToS", 3],
@@ -184,4 +184,4 @@ var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassMonsterSlayerUA); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(UAAToS_rangerSubclassMonsterSlayerUA); };

@@ -139,7 +139,7 @@ if (!SourceList["E:RLW"]) {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necrotic", 1, true, true);
+						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necro\\.?|necrotic", 1, true, true);
 					},
 					"When I use this as my spellcasting focus, spells I cast that deal necrotic damage get a +1 bonus added to one of their damage rolls."
 				]
@@ -319,7 +319,7 @@ MagicItemsList["band of loyalty-ua"] = {
 	descriptionFull : "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 	attunement : true
 }
-var docentFullDescription = [
+var UAMIoE_docentFullDescription = [
 	"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
 	">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
 	"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
@@ -345,7 +345,7 @@ MagicItemsList["docent-ua"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	description : "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-	descriptionFull : docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : UAMIoE_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
 	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
@@ -353,7 +353,7 @@ MagicItemsList["docent-ua"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Docent",
-		note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : desc(UAMIoE_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
 MagicItemsList["feather token-ua"] = {

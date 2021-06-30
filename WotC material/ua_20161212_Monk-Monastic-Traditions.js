@@ -1,5 +1,5 @@
 var iFileName = "ua_20161212_Monk-Monastic-Traditions.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: Monk Monastic Traditions article to MPMB's Character Record Sheet
 
 // Define the source

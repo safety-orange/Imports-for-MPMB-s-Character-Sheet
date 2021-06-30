@@ -1,5 +1,5 @@
 var iFileName = "ps_20170216_Kaladesh.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all material from the Plane Shift: Kaladesh article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-kaladesh-2017-02-16) to MPMB's Character Record Sheet
 // This code contains contributions by SoilentBrad and userZynx_name
 

@@ -1,5 +1,5 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -507,11 +507,7 @@ AddSubClass("cleric", "arcana domain", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						if (spellKey == "shillelagh") {
-							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-							return true;
-						}
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -639,7 +635,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"I gain a ranged spell attack that I can use as an attack in the Attack action",
 				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 			]),
-			action : ["bonus action", " (2\u00D7 with Attack action)"],
+			action : ["bonus action", " (2\xD7 with Attack action)"],
 			weaponOptions : {
 				regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
 				name : "Radiant Sun Bolt",
@@ -1068,22 +1064,22 @@ AddSubClass("wizard", "bladesinging", {
 
 // New Totem Warrior options
 if (ClassSubList["barbarian-totem warrior"]) {
-	var TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature3.1"];
-	if (TotemWarriorFeature) {
-		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
+	var SCAG_TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature3.1"];
+	if (SCAG_TotemWarriorFeature) {
+		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Elk", {
 			name : "Elk Spirit",
 			source : ["S", 122],
 			description : "\n   While raging without heavy armor, my base walking speed increases by 15 ft"
 		});
-		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
+		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Spirit",
 			source : ["S", 122],
 			description : "\n   While raging, I can add 10 ft to my long jump and 3 ft to my high jump distance"
 		});
 	}
-	TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature6"];
-	if (TotemWarriorFeature) {
-		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
+	SCAG_TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature6"];
+	if (SCAG_TotemWarriorFeature) {
+		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Elk", {
 			name : "Aspect of the Elk",
 			source : ["S", 122],
 			description : desc([
@@ -1091,16 +1087,16 @@ if (ClassSubList["barbarian-totem warrior"]) {
 				"I can extend this benefit to up to ten companions, while they are within 60 ft of me"
 			])
 		});
-		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
+		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Tiger", {
 			name : "Aspect of the Tiger",
 			source : ["S", 122],
 			description : "\n   I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
 			skillstxt : "Choose two from Athletics, Acrobatics, Stealth, and Survival"
 		});
 	}
-	TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature14"];
-	if (TotemWarriorFeature) {
-		AddFeatureChoice(TotemWarriorFeature, false, "Elk", {
+	SCAG_TotemWarriorFeature = ClassSubList["barbarian-totem warrior"].features["subclassfeature14"];
+	if (SCAG_TotemWarriorFeature) {
+		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Elk", {
 			name : "Elk Attunement",
 			source : ["S", 122],
 			description : desc([
@@ -1110,7 +1106,7 @@ if (ClassSubList["barbarian-totem warrior"]) {
 			]),
 			action : [["bonus action", " (in rage)"]]
 		});
-		AddFeatureChoice(TotemWarriorFeature, false, "Tiger", {
+		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Attunement",
 			source : ["S", 122],
 			description : desc([
@@ -1529,9 +1525,13 @@ SpellsList["booming blade"] = {
 	components : "S,M\u0192",
 	compMaterial : "A melee weapon worth at least 1 sp",
 	duration : "1 round",
-	description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next rnd +1d8; +1d8 at CL5, 11, \u0026 17",
-	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if it moves next round +`CD`d8 Thunder dmg",
-	descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8)."
+	description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next round +1d8; +1d8 at CL5, 11, \u0026 17",
+	descriptionShorter : "melee wea atk with cast; hit: 0d8 Thunder dmg, if move next rnd +1d8; +1d8 CL 5/11/17 ",
+	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if moves next round +`CD`d8 Thunder dmg",
+	descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
+	dynamicDamageBonus : {
+		extraDmgGroupsSameType : /(next r(?:ou)?nd )((?:\+?\d+d?\d*)+)/i
+	}
 };
 SpellsList["green-flame blade"] = {
 	name : "Green-Flame Blade",
@@ -1544,8 +1544,9 @@ SpellsList["green-flame blade"] = {
 	components : "S,M\u0192",
 	compMaterial : "A melee weapon worth at least 1 sp",
 	duration : "Instantaneous",
-	description : "Melee wea atk with cast; atk +0d8 Fire dmg, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL5/11/17",
-	descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
+	description : "Melee wea atk with cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
+	descriptionShorter : "Melee wea atk; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
+	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
 	descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level (2d8 and 2d8) and 17th level (3d8 and 3d8)."
 };
 SpellsList["lightning lure"] = {
@@ -1559,8 +1560,9 @@ SpellsList["lightning lure"] = {
 	components : "V",
 	duration : "Instantaneous",
 	save : "Str",
-	description : "1 crea in 15 ft I see save or pulled 10 ft to me; if it end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, `CD`d8 Lightning dmg",
+	description : "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, \u0026 17",
+	descriptionShorter : "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+	descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it ends in 5 ft, `CD`d8 Lightning dmg",
 	descriptionFull : "You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
 SpellsList["sword burst"] = {

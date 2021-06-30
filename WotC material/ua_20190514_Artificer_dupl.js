@@ -1262,7 +1262,7 @@ if (!MagicItemsList["returning weapon"]) {
 } // dupl_end
 
 // Set the Artificer class spell list
-var SetArtificerSpells = function(){
+var UAA3_SetArtificerSpells = function(){
 	var artSp = [
 		"acid splash",
 		"create bonfire", // 2019v2

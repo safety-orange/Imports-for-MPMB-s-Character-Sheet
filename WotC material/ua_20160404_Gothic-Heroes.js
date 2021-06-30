@@ -158,7 +158,7 @@ RaceList["dragonborn revenant-ua"] = {
 		ability : 3,
 		type : "Natural",
 		damage : [2, 6, "necrotic"],
-		range : '5-ft \u00D7 30-ft line',
+		range : '5-ft \xD7 30-ft line',
 		description : "Hits all in area; Con save, success - half damage; Usable only once per short rest",
 		abilitytodamage : false,
 		dc : true,

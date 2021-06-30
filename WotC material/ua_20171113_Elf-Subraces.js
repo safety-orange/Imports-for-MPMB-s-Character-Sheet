@@ -79,12 +79,12 @@ if (RaceList["wood elf"]) {
 	RaceList["wood elf"].regExpSearch = RaceList["wood elf"].regExpSearch.replace(/grugach\|?|wilds\?\|?/g, "");
 }
 // dupl_start
-if (!SourceList.MToF) {
+if (!RaceList["sea elf"]) {
 	RaceList["sea elf"] = {
 		regExpSearch : /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 		name : "Sea elf",
 		sortname : "Elf, Sea",
-		source : [["MToF", 62], ["UA:ES", 1]],
+		source : [["MToF", 62], ["W", 163], ["UA:ES", 1]],
 		plural : "Sea elves",
 		size : 3,
 		speed : {

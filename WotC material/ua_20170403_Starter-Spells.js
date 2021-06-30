@@ -98,6 +98,7 @@ SpellsList["healing elixir-uass"] = {
 	compMaterial : "Alchemist's supplies",
 	duration : "24 h",
 	description : "Make vial with alchemist's supplies; heals 2d4+2 HP as an action; if not used, disappears after 24 h",
+	descriptionShorter : "Make vial with alchemist's supplies; 1 a to heal 2d4+2 HP; if not used, disappears after 24 h",
 	descriptionFull : "You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes." + "\n   " + "As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points."
 };
 SpellsList["infestation-uass"] = {

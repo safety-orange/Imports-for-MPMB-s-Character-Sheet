@@ -1,5 +1,5 @@
 var iFileName = "pub_20190903_DnDEK.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the sidekick rules from the Dungeons & Dragons Essentials Kit adventures to MPMB's Character Record Sheet
 /* - NOTICE -
 	These sidekick classes are available as normal classes because the sheet doesn't support classes for the companion page
@@ -418,11 +418,7 @@ ClassList["sidekick-spellcaster"] = {
 						var spAbi = AbilityScores.abbreviations[ClassSubList[subclass].abilitySave - 1];
 						var spAbiMod = Number(What(spAbi + ' Mod'));
 						if (spAbiMod < 1) return;
-						if (spellKey == "shillelagh") {
-							spellObj.description = spellObj.description.replace("1d8", "1d8+" + spAbiMod);
-						} else {
-							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", spAbi, true);
-						}
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", spAbi);
 					},
 					"My cantrips get my spellcasting ability modifier added to their damage."
 				]
@@ -453,38 +449,9 @@ ClassList["sidekick-spellcaster"] = {
 						var spAbi = AbilityScores.abbreviations[ClassSubList[subclass].abilitySave - 1];
 						var spAbiMod = Number(What(spAbi + ' Mod'));
 						if (spAbiMod < 1) return;
-						var startDescr = spellObj.description;
-						switch (spellKey) {
-							case "death ward" :
-							case "harm" :
-							case "virtue-uass" :
-								break;
-							case "enervation" :
-								spellObj.description = spellObj.description.replace("action to repeat", "1 a to repeat").replace("see book", "see B");
-							case "life transference" :
-							case "vampiric touch" :
-								spellObj.description = spellObj.description.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1+" + spAbiMod);
-								break;
-							case "mass heal" :
-								spellObj.description = spellObj.description.replace("creatures in range;", "crea in range, each then +" + spAbiMod + " HP;").replace("cured of", "cures").replace("and all diseases", "diseases");
-								break;
-							case "regenerate" :
-								spellObj.description = spellObj.description.replace("1 HP/rnd", (1+spAbiMod) + " HP/rnd");
-							default :
-								if ((/\bHP o(f|r)\b/).test(spellObj.description)) break;
-								var testRegex = /(.*?)([1-9]\d*d?\d*)((\+\d+d?\d*\/\d?SL)?((\+spell(casting)? ability mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*))/i;
-								var theMatch = spellObj.description.match(testRegex);
-								if (!theMatch) break;
-								try {
-									var repl1 = isNaN(theMatch[2]) ? "$1$2+" + spAbiMod : "$1" + (Number(theMatch[2]) + spAbiMod);
-									spellObj.description = spellObj.description.replace(testRegex, repl1 + "$3");
-								} catch (err) {
-									spellObj.description = startDescr;
-								}
+						if (genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", spAbiMod, true, true) || genericSpellDmgEdit(spellKey, spellObj, "heal", spAbiMod, true, true)) {
+							return true;
 						}
-						var theReturn = startDescr !== spellObj.description;
-						if (genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", spAbi, true)) theReturn = true;
-						return theReturn;
 					},
 					"Spells from my selected school get my spellcasting ability modifier added to their damage and healing."
 				]

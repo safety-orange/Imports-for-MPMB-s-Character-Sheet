@@ -1,9 +1,9 @@
 var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.V={
+SourceList.V = {
 	name : "Volo's Guide to Monsters",
 	abbreviation : "VGtM",
 	group : "Primary Sources",
@@ -15,7 +15,7 @@ SourceList.V={
 RaceList["fallen aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*fallen).*$/i,
 	name : "Fallen Aasimar",
-	source : [["V", 104]],
+	source : [["V", 104], ["W", 168]],
 	plural : "Fallen Aasimar",
 	sortname : "Aasimar, Fallen",
 	size : 3,
@@ -62,7 +62,7 @@ RaceList["fallen aasimar"] = {
 RaceList["protector aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*protector).*$/i,
 	name : "Protector Aasimar",
-	source : [["V", 104]],
+	source : [["V", 104], ["W", 167]],
 	plural : "Protector Aasimar",
 	sortname : "Aasimar, Protector",
 	size : 3,
@@ -108,7 +108,7 @@ RaceList["protector aasimar"] = {
 RaceList["scourge aasimar"] = {
 	regExpSearch : /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*scourge).*$/i,
 	name : "Scourge Aasimar",
-	source : [["V", 104]],
+	source : [["V", 104], ["W", 167]],
 	plural : "Scourge Aasimar",
 	sortname : "Aasimar, Scourge",
 	size : 3,
@@ -148,7 +148,7 @@ RaceList["scourge aasimar"] = {
 			recovery : "long rest",
 			additional : levels.map(function (n) {
 				if (n < 3) return ""
-				return  Math.ceil(n/2) + "/" + n + " damage";
+				return Math.ceil(n/2) + "/" + n + " damage";
 			}),
 			action : [["action", " (start)"], ['bonus action', ' (end)']]
 		}
@@ -157,7 +157,7 @@ RaceList["scourge aasimar"] = {
 RaceList["bugbear"] = {
 	regExpSearch : /bugbear/i,
 	name : "Bugbear",
-	source : [["V", 119], ["E:RLW", 25]],
+	source : [["V", 119], ["E:RLW", 25], ["W", 174]],
 	plural : "Bugbears",
 	size : 3,
 	speed : {
@@ -187,7 +187,7 @@ RaceList["bugbear"] = {
 RaceList["firbolg"] = {
 	regExpSearch : /firbolg/i,
 	name : "Firbolg",
-	source : ["V", 106],
+	source : [["V", 106], ["W", 170]],
 	plural : "Firbolg",
 	size : 3,
 	speed : {
@@ -242,7 +242,7 @@ RaceList["firbolg"] = {
 RaceList["goblin"] = {
 	regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
 	name : "Goblin",
-	source : [["V", 119], ["G", 17], ["E:RLW", 26]],
+	source : [["V", 119], ["G", 17], ["E:RLW", 26], ["W", 174]],
 	plural : "Goblins",
 	size : 4,
 	speed : {
@@ -273,7 +273,7 @@ if (!RaceList["goliath"]) {
 	RaceList["goliath"] = {
 		regExpSearch : /goliath/i,
 		name : "Goliath",
-		source : [["E", 11], ["V", 108]],
+		source : [["E", 11], ["V", 108], ["W", 176]],
 		plural : "Goliaths",
 		size : 3,
 		speed : {
@@ -305,7 +305,7 @@ if (!RaceList["goliath"]) {
 RaceList["hobgoblin"] = {
 	regExpSearch : /hobgoblin/i,
 	name : "Hobgoblin",
-	source : [["V", 119], ["E:RLW", 26]],
+	source : [["V", 119], ["E:RLW", 26], ["W", 175]],
 	plural : "Hobgoblins",
 	size : 3,
 	speed : {
@@ -333,7 +333,7 @@ RaceList["hobgoblin"] = {
 RaceList["kenku"] = {
 	regExpSearch : /kenku/i,
 	name : "Kenku",
-	source : ["V", 109],
+	source : [["V", 109], ["W", 177]],
 	plural : "Kenku",
 	size : 3,
 	speed : {
@@ -430,7 +430,7 @@ RaceList["lizardfolk"] = {
 RaceList["orc"] = {
 	regExpSearch : /^(?!.*half)(?=.*\bor(c|k)).*$/i,
 	name : "Orc",
-	source : [["V", 120], ["E:RLW", 32]],
+	source : [["V", 120], ["E:RLW", 32], ["W", 178]],
 	plural : "Orcs",
 	size : 3,
 	speed : {
@@ -452,7 +452,7 @@ RaceList["orc"] = {
 RaceList["tabaxi"] = {
 	regExpSearch : /tabaxi/i,
 	name : "Tabaxi",
-	source : ["V", 113],
+	source : [["V", 113], ["W", 179]],
 	plural : "Tabaxi",
 	size : 3,
 	speed : {
@@ -564,8 +564,8 @@ if (!SpellsList["wall of water"]) {
 		components : "V,S,M",
 		compMaterial : "A drop of water",
 		duration : "Conc, 10 min",
-		description : "30\u00D71\u00D710ft (l\u00D7w\u00D7h) or 20-ft rad 20-ft high; dif. ter.; range wea dis.; Fire dmg half; Cold dmg freezes",
-		descriptionMetric : "9\u00D70,3\u00D73m (l\u00D7w\u00D7h) or 6-m rad 6-m high; dif. ter.; ranged wea dis.; Fire dmg half; Cold dmg freezes",
+		description : "30\xD71\xD710ft (l\xD7w\xD7h) or 20-ft rad 20-ft high; dif. ter.; range wea dis.; Fire dmg half; Cold dmg freezes",
+		descriptionMetric : "9\xD70,3\xD73m (l\xD7w\xD7h) or 6-m rad 6-m high; dif. ter.; ranged wea dis.; Fire dmg half; Cold dmg freezes",
 		descriptionFull : "You conjure up a wall of water on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain." + "\n   " + "Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot square section is frozen). Each 5-foot-square frozen section has AC 5 and 15 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it."
 	};
 }; // dupl_end
@@ -591,7 +591,10 @@ RaceList["yuan-ti pureblood"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	improvements : "Yuan-Ti Pureblood: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
-	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)\n\nInnate Spellcasting:\n   I know the Poison Spray cantrip.\n   I can cast Animal Friendship on snakes at will.\n   Once I reach 3rd level, I can cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)" + desc([
+		"Magic Resistance: I have advantage on saving throws against spells and other magical effects.",
+		"Innate Spellcasting: I know the Poison Spray cantrip and I can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells."
+	]),
 	spellcastingAbility : 6,
 	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",

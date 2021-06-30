@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -14,7 +14,7 @@ RequiredSheetVersion("13.0.6");
 	Instead, here is a list of people (account names on GitHub) who made contributions,
 	helped collect materials, or were otherwise essential to this script coming to fruition,
 	in no particular order:
-		- Nod_Hero#2046 (discord)
+		- Nod_Hero#2046 (Discord)
 		- Smashman
 		- Metacomet10
 		- BraabHimself
@@ -484,7 +484,7 @@ if (!SourceList["E:RLW"]) {
 					"A creature holding an infused item can use an action to cast the spell, using my abilities"
 				]),
 				additional : "cast stored spell",
-				usages : "2\u00D7 Int mod per ",
+				usages : "2\xD7 Int mod per ",
 				usagescalc : "event.value = Math.max(2, Number(What('Int Mod')) * 2);",
 				recovery : "long rest"
 			},
@@ -697,28 +697,11 @@ if (!SourceList["E:RLW"]) {
 					],
 					spellAdd : [
 						function (spellKey, spellObj, spName) {
-							if (spellObj.psionic || spName !== "artificer" || (/color spray|sleep/).test(spellKey)) return;
-							var startDescr = spellObj.description;
+							if (spellObj.psionic || spName !== "artificer") return;
 							var toAdd = Math.max(Number(What("Int Mod")), 1);
-							if ((/healing spirit|aura of vitality/i).test(spellKey)) {
-								spellObj.description += " (+" + toAdd + " once)";
+							if (genericSpellDmgEdit(spellKey, spellObj, "acid|fire|necro\\.?|necrotic|poison", toAdd, true, true) || genericSpellDmgEdit(spellKey, spellObj, "heal", toAdd, true, true)) {
 								return true;
-							} else if (genericSpellDmgEdit(spellKey, spellObj, "acid|fire|necro\\.?|necrotic|poison", toAdd, true, true)) {
-								return true;
-							} else {
-								// other healing spells
-								var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
-								var theMatch = spellObj.description.match(testRegex);
-								if (!theMatch) return false;
-								if (theMatch[2]) {
-									var theMid = Number(theMatch[2]) + toAdd;
-									if (theMid > -1) theMid = "+" + theMid;
-								} else {
-									var theMid = "+" + toAdd;
-								}
-								spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
 							}
-							return startDescr !== spellObj.description;
 						},
 						"Artificer spells I cast using alchemist's supplies as my spellcasting focus, have my Intelligence modifier (min 1) added to one die rolled for dealing acid, fire, necrotic, or poison damage, or when restoring hit points."
 					]
@@ -968,7 +951,7 @@ if (!SourceList["E:RLW"]) {
 					spellAdd : [
 						function (spellKey, spellObj, spName) {
 							if (spellObj.psionic || spName !== "artificer") return;
-							return genericSpellDmgEdit(spellKey, spellObj, "acid|bludg\\.?|bludgeoning|cold|fire|force|lightn\\.?|lightning|necro\\.?|necrotic|pierc\\.?|piercing|poison|psychic|radiant|slash\\.?|slashing|thunder", "1d8", true, true);
+							return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "1d8", true, true);
 						},
 						"If I use my arcane firearm as a spellcasting focus for an artificer spell, I can add +1d8 to one of the spell's damage rolls."
 					]
@@ -1199,7 +1182,7 @@ if (!SourceList["E:RLW"]) {
 		source : [["E:RLW", 62], ["T", 22]],
 		type : "weapon (any)",
 		description : "This item adds a +1 on its to hit and damage, has 4 charges, and regains 1d4 at dawn. As a bonus action, I can have it start/stop shedding light, bright in 30 ft, dim in another 30 ft. As a reaction if hit by an attack, I can use 1 charge to blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
-		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker suc­ceeds on a Constitution saving throw against your spell save DC. The weapon regains ld4 expended charges daily at dawn. ",
+		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. The weapon regains 1d4 expended charges daily at dawn.",
 		attunement : true,
 		usages : 4,
 		recovery : "dawn",
@@ -1235,7 +1218,7 @@ if (!SourceList["E:RLW"]) {
 		source : [["E:RLW", 62], ["T", 22], ["UA:A3", 13]],
 		type : "weapon (any with ammunition)",
 		description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
-		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic am­munition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
+		descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
 		attunement : true,
 		chooseGear : {
 			type : "weapon",
@@ -1269,7 +1252,7 @@ if (!SourceList["E:RLW"]) {
 		source : [["E:RLW", 63], ["T", 23]],
 		type : "shield",
 		description : "I gain an additional +1 bonus to Armor Class while wielding this shield. The shield has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction immediately after being hit by a melee attack, I can expend 1 charge to push the attacker up to 15 ft away.",
-		descriptionFull : "A creature gains a + 1 bonus to Armor Class while wield­ing this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a me­lee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains ld4 expended charges daily at dawn. ",
+		descriptionFull : "A creature gains a +1 bonus to Armor Class while wielding this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains 1d4 expended charges daily at dawn.",
 		weight : 6,
 		attunement : true,
 		usages : 4,
@@ -1455,7 +1438,7 @@ MagicItemsList["spell-refueling ring"] = {
 
 // Add the Armorer specialism (but after all other scripts, so that all armour options are present)
 RunFunctionAtEnd(function () {
-	var artificerSubclassArmorerUA = AddSubClass("artificer", "armorer", {
+	var TCoE_Artificer_Subclass_Armorer = AddSubClass("artificer", "armorer", {
 		regExpSearch : /^(?=.*armou?rer)(?!.*wizard).*$/i,
 		subname : "Armorer",
 		fullname : "Armorer",
@@ -1616,7 +1599,7 @@ RunFunctionAtEnd(function () {
 			}
 		}
 	});
-	var itsFea = ClassSubList[artificerSubclassArmorerUA].features["subclassfeature3.2"];
+	var itsFea = ClassSubList[TCoE_Artificer_Subclass_Armorer].features["subclassfeature3.2"];
 	var guardianTxt = desc([
 		"Both fists are Thunder Gauntlets, simple melee weapons that distract those hit by it",
 		"As a bonus action, I can activate a defensive shield to gain my artificer level in temp HP"
@@ -1929,7 +1912,7 @@ AddSubClass("bard", "college of creation", {
 	source : [["T", 28]],
 	features : {
 		"subclassfeature3" : {
-			name : "Note of Potential",
+			name : "Mote of Potential",
 			source : [["T", 28]],
 			minlevel : 3,
 			description : desc([
@@ -2338,11 +2321,7 @@ AddSubClass("cleric", "peace domain", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						if (spellKey == "shillelagh") {
-							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-							return true;
-						}
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -2572,7 +2551,7 @@ if (!SourceList.G) {
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
-							if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+							if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
 								fields.Description += (fields.Description ? '; ' : '') + '+1d6 necrotic damage';
 							};
 						},
@@ -5141,14 +5120,10 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 	usagescalc : "event.value = How('Proficiency Bonus')",
 	recovery: "long rest"
 });
-AddWarlockInvocation("Eldritch Mind (prereq: Pact of the Tome)", {
+AddWarlockInvocation("Eldritch Mind", {
 	name : "Eldritch Mind",
-	source : [["T", 71], ["UA:CFV", 11]],
-	submenu : "[improves Pact of the Tome]",
+	source : [["T", 71]],
 	description : "\n   I have advantage on my Constitution saving throws to maintain concentration on a spell",
-	prereqeval : function(v) {
-		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
-	},
 	savetxt : { text : "Adv. on Con (Concentration) saves" }
 });
 AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
@@ -5345,7 +5320,13 @@ AddSubClass("warlock", "the fathomless", {
 				"I gain resistance to cold damage now that I'm even more at home in the depths",
 				"While I'm fully submerged, others who are as well can understand my speech and I theirs"
 			]),
-			dmgres : ["Cold"]
+			dmgres : ["Cold"],
+			spellChanges : {
+				"summon elemental" : {
+					description : "Summon Water Elemental Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
+					changes : "My warlock spell Summon Elemental can only call forth an elemental spirit of water."
+				}
+			}
 		},
 		"subclassfeature6.1" : {
 			name : "Guardian Coil",
@@ -5503,7 +5484,7 @@ AddSubClass("warlock", "the genie", {
 					atkAdd : [
 						function (fields, v) {
 							if (!v.isDC) {
-								fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' fbludgeoningire damage';
+								fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' bludgeoning damage';
 							}
 						},
 						"Once on each of my turns, I can have one of my attacks that hit deal extra bludgeoning damage equal to my proficiency bonus."
@@ -6233,7 +6214,6 @@ FeatsList["telepathic"] = {
 	source: [["T", 81]],
 	descriptionFull : "You awaken the ability to mentally connect with others, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You can speak telepathically to any creature you can see within 60 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.\n \u2022 You can cast the detect thoughts spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat. If you have spell slots of 2nd level or higher, you can cast this spell with them.",
     description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per lost rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. My spellcasting ability is the ability I increase with this feat. [+1 Int, Wis, or Cha]",
-	action : [["bonus action", " Shove"]],
 	spellcastingBonus : [{
 		name : "Detect Thoughts",
 		spells : ["detect thoughts"],
@@ -6283,9 +6263,13 @@ if (!SourceList.S) {
 		components : "S,M\u0192",
 		compMaterial : "A melee weapon worth at least 1 sp",
 		duration : "1 round",
-		description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next rnd +1d8; +1d8 at CL5, 11, \u0026 17",
-		descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if it moves next round +`CD`d8 Thunder dmg",
-		descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8)."
+		description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next round +1d8; +1d8 at CL5, 11, \u0026 17",
+		descriptionShorter : "melee wea atk with cast; hit: 0d8 Thunder dmg, if move next rnd +1d8; +1d8 CL 5/11/17 ",
+		descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if moves next round +`CD`d8 Thunder dmg",
+		descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
+		dynamicDamageBonus : {
+			extraDmgGroupsSameType : /(next r(?:ou)?nd )((?:\+?\d+d?\d*)+)/i
+		}
 	};
 	SpellsList["green-flame blade"] = {
 		name : "Green-Flame Blade",
@@ -6298,8 +6282,9 @@ if (!SourceList.S) {
 		components : "S,M\u0192",
 		compMaterial : "A melee weapon worth at least 1 sp",
 		duration : "Instantaneous",
-		description : "Melee wea atk with cast; atk +0d8 Fire dmg, crea in 5 ft 0d8+spell mod Fire dmg; +1d8 at CL5/11/17",
-		descriptionCantripDie : "Melee wea atk with cast; if hit, atk does +`CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
+		description : "Melee wea atk with cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
+		descriptionShorter : "Melee wea atk; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
+		descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
 		descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level (2d8 and 2d8) and 17th level (3d8 and 3d8)."
 	};
 	SpellsList["lightning lure"] = {
@@ -6313,8 +6298,9 @@ if (!SourceList.S) {
 		components : "V",
 		duration : "Instantaneous",
 		save : "Str",
-		description : "1 crea in 15 ft I see save or pulled 10 ft to me; if it end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, and 17",
-		descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it end in 5 ft, `CD`d8 Lightning dmg",
+		description : "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, \u0026 17",
+		descriptionShorter : "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+		descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it ends in 5 ft, `CD`d8 Lightning dmg",
 		descriptionFull : "You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 	};
 	SpellsList["sword burst"] = {
@@ -6382,22 +6368,26 @@ if (!SourceList.S) {
 		abilitytodamage : false,
 		dc : true
 	};
+}
+// reprint spell from Icewind Dale: Rime of the Frostmaiden
+if (!SourceList.F) {
+	SpellsList["blade of disaster"] = {
+		name : "Blade of Disaster",
+		classes : ["sorcerer", "warlock", "wizard"],
+		source : [["T", 106], ["F", 318]],
+		level : 9,
+		school : "Conj",
+		time : "1 bns",
+		range : "60 ft",
+		components : "V,S",
+		duration : "Conc, 1 min",
+		description : "Create weapon; 2 spell atks 4d12 Force dmg; crit on 18+, triple dmg; bns a to move 30 ft \u0026 do 2 atks",
+		descriptionShorter : "Create wea; 2 spell atks 4d12 Force dmg; crit 18+, triple dmg; bns a to move 30 ft \u0026 2 atks",
+		descriptionFull : "You create a blade-shaped planar rift about 3 feet long in an unoccupied space you can see within range. The blade lasts for the duration. When you cast this spell, you can make up to two melee spell attacks with the blade, each one against a creature, loose object, or structure within 5 feet of the blade. On a hit, the target takes 4d12 force damage. This attack scores a critical hit if the number on the d20 is 18 or higher. On a critical hit, the blade deals an extra 8d12 force damage (for a total of 12d12 force damage)." +
+		"\n   As a bonus action on your turn, you can move the blade up to 30 feet to an unoccupied space you can see and then make up to two melee spell attacks with it again." +
+		"\n   The blade can harmlessly pass through any barrier, including a wall of force."
+	};
 } // dupl_end
-SpellsList["blade of disaster"] = {
-	name : "Blade of Disaster",
-	classes : ["sorcerer", "warlock", "wizard"],
-	source : [["T", 106]],
-	level : 9,
-	school : "Conj",
-	time : "1 bns",
-	range : "60 ft",
-	components : "V,S",
-	duration : "Conc, 1 min",
-	description : "Create weapon; 2 spell atks 4d12 Force dmg; crit on 18+, triple dmg; bns a to move 30 ft \u0026 do 2 atks",
-	descriptionFull : "You create a blade-shaped planar rift about 3 feet long in an unoccupied space you can see within range. The blade lasts for the duration. When you cast this spell, you can make up to two melee spell attacks with the blade, each one against a creature, loose object, or structure within 5 feet of the blade. On a hit, the target takes 4d12 force damage. This attack scores a critical hit if the number on the d20 is 18 or higher. On a critical hit, the blade deals an extra 8d12 force damage (for a total of 12d12 force damage)." +
-	"\n   As a bonus action on your turn, you can move the blade up to 30 feet to an unoccupied space you can see and then make up to two melee spell attacks with it again." +
-	"\n   The blade can harmlessly pass through any barrier, including a wall of force."
-};
 SpellsList["dream of the blue veil"] = {
 	name : "Dream of the Blue Veil",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
@@ -6439,6 +6429,7 @@ SpellsList["mind sliver"] = {
 	duration : "1 rnd",
 	save : "Int",
 	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my next turn ends; +1d6 at CL 5, 11, and 17",
+	description : "1 crea save or 1d6 Psychic dmg, -1d4 on 1st save before my next turn end; +1d6 at CL 5/11/17",
 	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my next turn ends",
 	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn." +
 	"\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
@@ -6463,14 +6454,21 @@ SpellsList["spirit shroud"] = {
 	level : 3,
 	school : "Necro",
 	time : "1 bns",
-	range : "Self",
+	range : "S:10-ft rad",
 	components : "V,S",
 	duration : "Conc, 1 min",
-    description : "In 10 ft, crea -10 ft spd, my atks +1d8+1d8/2SL dmg (Radi/Necr/Cold), no heal until next turn starts",
-	descriptionFull : "You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable." +
-	"\n   Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn." +
-	"\n   In addition, any creature of your choice that you can see that starts its turn within 10 feet of you has its speed reduced by 10 feet until the start of your next turn." +
-	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd."
+    description : "My atks +1d8+1d8/2SL Cold/Necro/Radiant dmg, no heal until next turn; any crea I see -10 ft spd",
+    descriptionShorter : "My atks +1d8+1d8/2SL Cold/Necro/Radiant dmg, no heal 1 rnd; any crea -10 ft spd",
+	descriptionFull : "You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable."+
+	"\n   Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn."+
+	"\n   In addition, any creature of your choice that you can see that starts its turn within 10 feet of you has its speed reduced by 10 feet until the start of your next turn."+
+	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.",
+	dynamicDamageBonus : {
+		multipleDmgTypes : {
+			dmgTypes : ["cold", "necrotic", "radiant"],
+			inDescriptionAs : "Cold/Necro/Radiant"
+		}
+	}
 };
 SpellsList["summon abberation"] = {
 	name : "Summon Abberation",
@@ -6612,6 +6610,7 @@ SpellsList["tasha's caustic brew"] = {
 	duration : "Conc, 1 min",
 	save : "Dex",
     description : "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at start of turn; action to clean self or adjacent",
+    descriptionShorter : "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at turn start; 1 a clean self/adjacent",
 	descriptionFull : "A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns." +
 	AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 2d4 for each slot level above 1st."
 };
@@ -6628,7 +6627,8 @@ SpellsList["tasha's mind whip"] = {
     components : "V",
 	duration : "1 rnd",
 	save : "Int",
-    description : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg, no rea, only move, act, or bns; save half, no act limit",
+    description : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; only move, act, or bns; save half, no act limit",
+    descriptionShorter : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; move, act, or bns; save half, no act limit",
 	descriptionFull : "You psychically lash out at one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can't take a reaction until the end of its next turn. Moreover, on its next turn, it must choose whether it gets a move, an action, or a bonus action; it gets only one of the three. On a successful save, the target takes half as much damage and suffers none of the spell's other effects." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["tasha's otherworldly guise"] = {

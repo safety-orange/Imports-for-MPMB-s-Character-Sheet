@@ -1,5 +1,5 @@
 var iFileName = "ua_20200206_Subclasses-Part-3.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 3 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -13,7 +13,8 @@ SourceList["UA:SP3"] = {
 
 // Add a subclass for the Artificer (but after all other scripts, so that all armour options are present)
 RunFunctionAtEnd(function () {
-	var artificerSubclassArmorerUA = AddSubClass("artificer", "armorer-ua", {
+	if (!ClassList.artificer) { return; };
+	var UASP3_artificerSubclassArmorerUA = AddSubClass("artificer", "armorer-ua", {
 		regExpSearch : /^(?=.*armou?rer)(?!.*wizard).*$/i,
 		subname : "Armorer",
 		fullname : "Armorer",
@@ -154,7 +155,8 @@ RunFunctionAtEnd(function () {
 			}
 		}
 	});
-	var itsFea = ClassSubList[artificerSubclassArmorerUA].features["subclassfeature3.2"];
+	if (!UASP3_artificerSubclassArmorerUA || !ClassSubList[UASP3_artificerSubclassArmorerUA]) return;
+	var itsFea = ClassSubList[UASP3_artificerSubclassArmorerUA].features["subclassfeature3.2"];
 	var guardianTxt = desc([
 		"Both fists are Thunder Gauntlets, simple melee weapons that distract those hit by it",
 		"As a bonus action, I can activate a defensive shield to gain my artificer level in temp HP"
@@ -447,7 +449,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 	}
 });
 
-var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
+var UASP3_rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 	regExpSearch : /^(?=.*fey)(?=.*wanderer).*$/i,
 	subname : "Fey Wanderer",
 	source : [["UA:SP3", 5]],
@@ -526,4 +528,4 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassFeyWandererUA); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(UASP3_rangerSubclassFeyWandererUA); };

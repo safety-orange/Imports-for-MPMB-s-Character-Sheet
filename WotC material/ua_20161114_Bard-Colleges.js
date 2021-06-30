@@ -1,5 +1,5 @@
 var iFileName = "ua_20161114_Bard-Colleges.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: Bard Colleges article to MPMB's Character Record Sheet
 
 // Define the source

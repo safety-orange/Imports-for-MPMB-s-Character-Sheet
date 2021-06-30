@@ -12,7 +12,7 @@ SourceList["UA:RnR"] = {
 };
 
 // Adds 3 subclasses: 2 for the Ranger (and the Revised Ranger), and 1 for the Rogue
-var theHorizonWalkerSubclass = {
+var UARnR_theHorizonWalkerSubclass = {
 	regExpSearch : /^(?=.*horizon)(?=.*walker).*$/i,
 	subname : "Horizon Walker",
 	source : ["UA:RnR", 1],
@@ -95,8 +95,8 @@ var theHorizonWalkerSubclass = {
 		}
 	}
 };
-AddSubClass("ranger", "horizon walker-ua", theHorizonWalkerSubclass);
-var thePrimevalGuardianSubclass = {
+AddSubClass("ranger", "horizon walker-ua", UARnR_theHorizonWalkerSubclass);
+var UARnR_thePrimevalGuardianSubclass = {
 	regExpSearch : /^(?=.*primeval)(?=.*guardian).*$/i,
 	subname : "Primeval Guardian",
 	source : ["UA:RnR", 2],
@@ -154,17 +154,17 @@ var thePrimevalGuardianSubclass = {
 		}
 	}
 };
-AddSubClass("ranger", "primeval guardian-ua", thePrimevalGuardianSubclass);
+AddSubClass("ranger", "primeval guardian-ua", UARnR_thePrimevalGuardianSubclass);
 if (ClassList["rangerua"]) { // add them to the Revised Ranger as well, if it is defined
-	var theHorizonConclaveSubclass = newObj(theHorizonWalkerSubclass);
-	theHorizonConclaveSubclass.subname = "Horizon Conclave";
-	theHorizonConclaveSubclass.regExpSearch = /^(?=.*horizon)(?=.*conclave).*$/i
-	delete theHorizonConclaveSubclass.fullname;
-	AddSubClass("rangerua", "horizon conclave-ua", theHorizonConclaveSubclass);
-	var thePrimevalGuardianConclaveSubclass = newObj(thePrimevalGuardianSubclass);
-	thePrimevalGuardianConclaveSubclass.subname = "Primeval Guardian Conclave";
-	delete thePrimevalGuardianConclaveSubclass.fullname;
-	AddSubClass("rangerua", "primeval guardian conclave-ua", thePrimevalGuardianConclaveSubclass);
+	var UARnR_theHorizonConclaveSubclass = newObj(UARnR_theHorizonWalkerSubclass);
+	UARnR_theHorizonConclaveSubclass.subname = "Horizon Conclave";
+	UARnR_theHorizonConclaveSubclass.regExpSearch = /^(?=.*horizon)(?=.*conclave).*$/i
+	delete UARnR_theHorizonConclaveSubclass.fullname;
+	AddSubClass("rangerua", "horizon conclave-ua", UARnR_theHorizonConclaveSubclass);
+	var UARnR_thePrimevalGuardianConclaveSubclass = newObj(UARnR_thePrimevalGuardianSubclass);
+	UARnR_thePrimevalGuardianConclaveSubclass.subname = "Primeval Guardian Conclave";
+	delete UARnR_thePrimevalGuardianConclaveSubclass.fullname;
+	AddSubClass("rangerua", "primeval guardian conclave-ua", UARnR_thePrimevalGuardianConclaveSubclass);
 };
 AddSubClass("rogue", "scout-ua", {
 	regExpSearch : /scout/i,

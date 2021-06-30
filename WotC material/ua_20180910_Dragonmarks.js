@@ -581,7 +581,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 		scorestxt : "+1 Charisma or Intelligence",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["see invisibility", "true seeing"],
 			selection : ["see invisibility", "true seeing"],
 			spellcastingAbility : 4,
@@ -609,7 +609,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 		scorestxt : "+1 Strength, Dexterity, or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["locate creature", "find the path"],
 			selection : ["locate creature", "find the path"],
 			spellcastingAbility : 5,
@@ -637,7 +637,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt : "+1 Dexterity or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["beast sense", "dominate beast"],
 			selection : ["beast sense", "dominate beast"],
 			spellcastingAbility : 5,
@@ -652,7 +652,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt : "+1 Dexterity or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["mass healing word", "greater restoration"],
 			selection : ["mass healing word", "greater restoration"],
 			spellcastingAbility : 5,
@@ -675,7 +675,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["sanctuary", "mordenkainen's magnificent mansion"],
 			selection : ["sanctuary", "mordenkainen's magnificent mansion"],
 			spellcastingAbility : 6,
@@ -703,7 +703,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 		scorestxt : "+1 Dexterity or Intelligence",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["fabricate", "creation"],
 			selection : ["fabricate", "creation"],
 			spellcastingAbility : 4,
@@ -725,7 +725,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 		scorestxt : "+1 Dexterity or Constitution",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["blink", "teleportation circle"],
 			selection : ["blink", "teleportation circle"],
 			spellcastingAbility : 3,
@@ -748,7 +748,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 		scorestxt : "+1 Intelligence or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per short",
+			name : "1\xD7 per short",
 			spells : ["sending", "tongues"],
 			selection : ["sending", "tongues"],
 			spellcastingAbility : 4,
@@ -775,7 +775,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 		scorestxt : "+1 Strength or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per short",
+			name : "1\xD7 per short",
 			spells : ["compelled duel", "warding bond"],
 			selection : ["compelled duel", "warding bond"],
 			spellcastingAbility : 5,
@@ -798,7 +798,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["nondetection", "mislead"],
 			selection : ["nondetection", "mislead"],
 			spellcastingAbility : 6,
@@ -821,7 +821,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["control water", "control winds"],
 			selection : ["control water", "control winds"],
 			spellcastingAbility : 6,
@@ -843,7 +843,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 		scorestxt : "+1 Dexterity or Intelligence",
 		spellcastingBonus : [{
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["knock", "glyph of warding"],
 			selection : ["knock", "glyph of warding"],
 			spellcastingAbility : 4,
@@ -878,7 +878,6 @@ FeatsList["aberrant dragonmark-ua"] = {
 	prerequisite : "Not having a dragonmark",
 	prereqeval : function(v) { return !(/dragonmark/i).test(CurrentRace.known); },
 	descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
-	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 	scores : [0, 0, 1, 0, 0, 0],
 	spellcastingAbility : 3,

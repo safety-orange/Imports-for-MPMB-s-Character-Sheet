@@ -281,7 +281,7 @@ ClassList["spell-less ranger"] = {
 			minlevel : 13,
 			description : desc([
 				"While in an area that is my Favored Terrain, I can call on beasts within 1 mile to help",
-				"The DM determines the beasts: 1\u00D7CR 2, 2\u00D7CR 1, 4\u00D7CR 1/2, or 8\u00D7CR 1/4",
+				"The DM determines the beasts: 1\xD7CR 2, 2\xD7CR 1, 4\xD7CR 1/2, or 8\xD7CR 1/4",
 				"They will fight alongside me, are friendly to me and my allies, and help up to 1 hour",
 				"After I use these feature, I can't use it in the same general area again for 24 hours"
 			])
@@ -298,22 +298,22 @@ ClassList["spell-less ranger"] = {
 	}
 };
 // Create the Hunter subclass for the spell-less ranger
-var SLR_Hunter = newObj(ClassSubList["ranger-hunter"]);
-SLR_Hunter.source = ["UA:MC", 6];
-delete SLR_Hunter.fullname;
-SLR_Hunter.regExpSearch = /^(?=.*spell.?less)(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i;
-AddSubClass("spell-less ranger", "hunter-ua", SLR_Hunter);
+var UAMC_SLR_Hunter = newObj(ClassSubList["ranger-hunter"]);
+UAMC_SLR_Hunter.source = ["UA:MC", 6];
+delete UAMC_SLR_Hunter.fullname;
+UAMC_SLR_Hunter.regExpSearch = /^(?=.*spell.?less)(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i;
+AddSubClass("spell-less ranger", "hunter-ua", UAMC_SLR_Hunter);
 // Create the Beast Master subclass for the spell-less ranger
 if (ClassSubList["ranger-beast master"]) {
-	var SLR_Beast_Master = newObj(ClassSubList["ranger-beast master"]);
-	SLR_Beast_Master.source = ["UA:MC", 6];
-	delete SLR_Beast_Master.fullname;
-	SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i;
-	SLR_Beast_Master.features["subclassfeature15"] = {
+	var UAMC_SLR_Beast_Master = newObj(ClassSubList["ranger-beast master"]);
+	UAMC_SLR_Beast_Master.source = ["UA:MC", 6];
+	delete UAMC_SLR_Beast_Master.fullname;
+	UAMC_SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i;
+	UAMC_SLR_Beast_Master.features["subclassfeature15"] = {
 		name : "Beastly Coordination",
 		source : ["UA:MC", 7],
 		minlevel : 15,
 		description : "\n   " + "My companion can, as a reaction, halve an attack's damage from an attacker that I see"
 	};
-	AddSubClass("spell-less ranger", "beast master-ua", SLR_Beast_Master);
+	AddSubClass("spell-less ranger", "beast master-ua", UAMC_SLR_Beast_Master);
 };

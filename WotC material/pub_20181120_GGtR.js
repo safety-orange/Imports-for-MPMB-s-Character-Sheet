@@ -1,5 +1,5 @@
 var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -41,7 +41,7 @@ RaceList["centaur"] = {
 	scores : [2, 0, 0, 0, 1, 0],
 	trait : "Centaur (+2 Strength +1 Wisdom)" + desc([
 		"Fey: My creature type is fey, rather than humanoid.",
-		"Hooves: I can use my hooves for unarmed strikes (1d4 bludgeoning damage).",
+		"Hooves: I can use my hooves for unarmed strikes that deal 1d4 bludgeoning damage.",
 		"Charge: If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
 		"Equine Build: I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft."
 	]),
@@ -53,7 +53,7 @@ if (!RaceList["goblin"]) {
 	RaceList["goblin"] = {
 		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
 		name : "Goblin",
-		source : [["V", 119], ["G", 17], ["E:RLW", 26]],
+		source : [["V", 119], ["G", 17], ["E:RLW", 26], ["W", 174]],
 		plural : "Goblins",
 		size : 4,
 		speed : {
@@ -121,7 +121,7 @@ RaceList["minotaur"] = {
 	regExpSearch : /minotaur/i,
 	name : "Minotaur",
 	sortname : "Minotaur",
-	source : ["G", 19],
+	source : [["G", 19], ["MOT", 22]],
 	plural : "Minotaurs",
 	size : 3,
 	speed : {
@@ -132,7 +132,7 @@ RaceList["minotaur"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
-		source : ["G", 19],
+		source : [["G", 19], ["MOT", 23]],
 		damage : [1, 6, "piercing"],
 		description : "Attack as a bonus action after moving 20 ft with the Dash action"
 	},
@@ -146,7 +146,7 @@ RaceList["minotaur"] = {
 	scores : [2, 0, 1, 0, 0, 0],
 	abilitySave : 1,
 	trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
-		"Horns: I can use my horns for unarmed strikes (1d6 piercing damage).",
+		"Horns: I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
 		"Goring Rush: When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
 		"Hammering Horns: As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof bonus) or be pushed up to 10 ft away from me."
 	]),
@@ -487,7 +487,7 @@ AddSubClass("druid", "circle of spores", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
 							fields.Description += (fields.Description ? '; ' : '') + '+1d6 necrotic damage';
 						};
 					},
@@ -1314,7 +1314,14 @@ if (!SourceList.X) {
 		components : "V,S",
 		duration : "Instantaneous",
 		description : "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
-		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st."
+		descriptionShorter : "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
+		descriptionFull : "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st.",
+		dynamicDamageBonus : {
+			multipleDmgTypes : {
+				dmgTypes : ["acid", "cold", "fire", "force", "lightning", "poison", "psychic", "thunder"],
+				inDescriptionAs : ""
+			}
+		}
 	};
 } // dupl_end
 

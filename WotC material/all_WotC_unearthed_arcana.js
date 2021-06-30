@@ -1,6 +1,6 @@
-if (sheetVersion < 13) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
+if (sheetVersion < 13000007) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.0.6-beta2");
+RequiredSheetVersion("13.0.7-beta1");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -645,7 +645,7 @@ ClassList["spell-less ranger"] = {
 			minlevel : 13,
 			description : desc([
 				"While in an area that is my Favored Terrain, I can call on beasts within 1 mile to help",
-				"The DM determines the beasts: 1\u00D7CR 2, 2\u00D7CR 1, 4\u00D7CR 1/2, or 8\u00D7CR 1/4",
+				"The DM determines the beasts: 1\xD7CR 2, 2\xD7CR 1, 4\xD7CR 1/2, or 8\xD7CR 1/4",
 				"They will fight alongside me, are friendly to me and my allies, and help up to 1 hour",
 				"After I use these feature, I can't use it in the same general area again for 24 hours"
 			])
@@ -662,24 +662,24 @@ ClassList["spell-less ranger"] = {
 	}
 };
 // Create the Hunter subclass for the spell-less ranger
-var SLR_Hunter = newObj(ClassSubList["ranger-hunter"]);
-SLR_Hunter.source = ["UA:MC", 6];
-delete SLR_Hunter.fullname;
-SLR_Hunter.regExpSearch = /^(?=.*spell.?less)(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i;
-AddSubClass("spell-less ranger", "hunter-ua", SLR_Hunter);
+var UAMC_SLR_Hunter = newObj(ClassSubList["ranger-hunter"]);
+UAMC_SLR_Hunter.source = ["UA:MC", 6];
+delete UAMC_SLR_Hunter.fullname;
+UAMC_SLR_Hunter.regExpSearch = /^(?=.*spell.?less)(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i;
+AddSubClass("spell-less ranger", "hunter-ua", UAMC_SLR_Hunter);
 // Create the Beast Master subclass for the spell-less ranger
 if (ClassSubList["ranger-beast master"]) {
-	var SLR_Beast_Master = newObj(ClassSubList["ranger-beast master"]);
-	SLR_Beast_Master.source = ["UA:MC", 6];
-	delete SLR_Beast_Master.fullname;
-	SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i;
-	SLR_Beast_Master.features["subclassfeature15"] = {
+	var UAMC_SLR_Beast_Master = newObj(ClassSubList["ranger-beast master"]);
+	UAMC_SLR_Beast_Master.source = ["UA:MC", 6];
+	delete UAMC_SLR_Beast_Master.fullname;
+	UAMC_SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i;
+	UAMC_SLR_Beast_Master.features["subclassfeature15"] = {
 		name : "Beastly Coordination",
 		source : ["UA:MC", 7],
 		minlevel : 15,
 		description : "\n   " + "My companion can, as a reaction, halve an attack's damage from an attacker that I see"
 	};
-	AddSubClass("spell-less ranger", "beast master-ua", SLR_Beast_Master);
+	AddSubClass("spell-less ranger", "beast master-ua", UAMC_SLR_Beast_Master);
 };
 
 // ua_20150504_Waterborne-Adventures.js
@@ -1884,7 +1884,7 @@ RaceList["abyssal tiefling-ua"] = {
 	variants : RaceList.tiefling && RaceList.tiefling.variants ? RaceList.tiefling.variants : []
 };
 //now do the variants
-var addAbyssalTiefling = function(){
+var UATOBM_addAbyssalTiefling = function(){
 	var replaceTraitTxt = ["+1 Intelligence, +2 Charisma", "+1 Constitution, +2 Charisma"];
 	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
 	RaceList["abyssal tiefling-ua"].variants.forEach( function(nVar) {
@@ -2359,7 +2359,7 @@ RaceList["dragonborn revenant-ua"] = {
 		ability : 3,
 		type : "Natural",
 		damage : [2, 6, "necrotic"],
-		range : '5-ft \u00D7 30-ft line',
+		range : '5-ft \xD7 30-ft line',
 		description : "Hits all in area; Con save, success - half damage; Usable only once per short rest",
 		abilitytodamage : false,
 		dc : true,
@@ -3373,7 +3373,7 @@ AddSubClass("rangerua", "deep stalker-ua", {
 
 // By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!
-var AddXGtErangerSubclassesToRevisedRanger = function() {
+var UARR_AddXGtErangerSubclassesToRevisedRanger = function() {
 	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
 	var theXGtErangerSubs = ["ranger-gloom stalker", "ranger-horizon walker", "ranger-monster slayer"];
 	for (var i = 0; i < theXGtErangerSubs.length; i++) {
@@ -4829,7 +4829,7 @@ SourceList["UA:RnR"] = {
 };
 
 // Adds 3 subclasses: 2 for the Ranger (and the Revised Ranger), and 1 for the Rogue
-var theHorizonWalkerSubclass = {
+var UARnR_theHorizonWalkerSubclass = {
 	regExpSearch : /^(?=.*horizon)(?=.*walker).*$/i,
 	subname : "Horizon Walker",
 	source : ["UA:RnR", 1],
@@ -4912,8 +4912,8 @@ var theHorizonWalkerSubclass = {
 		}
 	}
 };
-AddSubClass("ranger", "horizon walker-ua", theHorizonWalkerSubclass);
-var thePrimevalGuardianSubclass = {
+AddSubClass("ranger", "horizon walker-ua", UARnR_theHorizonWalkerSubclass);
+var UARnR_thePrimevalGuardianSubclass = {
 	regExpSearch : /^(?=.*primeval)(?=.*guardian).*$/i,
 	subname : "Primeval Guardian",
 	source : ["UA:RnR", 2],
@@ -4971,17 +4971,17 @@ var thePrimevalGuardianSubclass = {
 		}
 	}
 };
-AddSubClass("ranger", "primeval guardian-ua", thePrimevalGuardianSubclass);
+AddSubClass("ranger", "primeval guardian-ua", UARnR_thePrimevalGuardianSubclass);
 if (ClassList["rangerua"]) { // add them to the Revised Ranger as well, if it is defined
-	var theHorizonConclaveSubclass = newObj(theHorizonWalkerSubclass);
-	theHorizonConclaveSubclass.subname = "Horizon Conclave";
-	theHorizonConclaveSubclass.regExpSearch = /^(?=.*horizon)(?=.*conclave).*$/i
-	delete theHorizonConclaveSubclass.fullname;
-	AddSubClass("rangerua", "horizon conclave-ua", theHorizonConclaveSubclass);
-	var thePrimevalGuardianConclaveSubclass = newObj(thePrimevalGuardianSubclass);
-	thePrimevalGuardianConclaveSubclass.subname = "Primeval Guardian Conclave";
-	delete thePrimevalGuardianConclaveSubclass.fullname;
-	AddSubClass("rangerua", "primeval guardian conclave-ua", thePrimevalGuardianConclaveSubclass);
+	var UARnR_theHorizonConclaveSubclass = newObj(UARnR_theHorizonWalkerSubclass);
+	UARnR_theHorizonConclaveSubclass.subname = "Horizon Conclave";
+	UARnR_theHorizonConclaveSubclass.regExpSearch = /^(?=.*horizon)(?=.*conclave).*$/i
+	delete UARnR_theHorizonConclaveSubclass.fullname;
+	AddSubClass("rangerua", "horizon conclave-ua", UARnR_theHorizonConclaveSubclass);
+	var UARnR_thePrimevalGuardianConclaveSubclass = newObj(UARnR_thePrimevalGuardianSubclass);
+	UARnR_thePrimevalGuardianConclaveSubclass.subname = "Primeval Guardian Conclave";
+	delete UARnR_thePrimevalGuardianConclaveSubclass.fullname;
+	AddSubClass("rangerua", "primeval guardian conclave-ua", UARnR_thePrimevalGuardianConclaveSubclass);
 };
 AddSubClass("rogue", "scout-ua", {
 	regExpSearch : /scout/i,
@@ -5171,7 +5171,7 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", {
 			]),
 			additional : levels.map( function(n) {
 				if (n < 6) return "";
-				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\u00D7Cha";
+				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\xD7Cha";
 			}),
 			action : ["reaction", ""],
 			recovery : "long rest",
@@ -7390,8 +7390,8 @@ PsionicsList["cd2-wall of repulsion"] = {
 	range : "60 ft",
 	duration : "Conc, 10 min",
 	save : "Wis",
-	description : "Up to 30\u00D71\u00D710 ft (l\u00D7w\u00D7h) invisible wall of energy; save to move through it, even for unwilling move",
-	description : "Up to 9\u00D70,3\u00D73 m (l\u00D7w\u00D7h) invisible wall of energy; save to move through it, even for unwilling move",
+	description : "Up to 30\xD71\xD710 ft (l\xD7w\xD7h) invisible wall of energy; save to move through it, even for unwilling move",
+	description : "Up to 9\xD70,3\xD73 m (l\xD7w\xD7h) invisible wall of energy; save to move through it, even for unwilling move",
 	descriptionFull : "As an action, you create an invisible, insubstantial wall of energy within 60 feet of you that is up to 30 feet long, 10 feet high, and 1 foot thick. The wall lasts until your concentration ends. Any creature attempting to move through it must make a Wisdom saving throw. On a failed save, a creature can't move through the wall until the start of its next turn. On a successful save, the creature can pass through it. A creature must make this save whenever it attempts to pass through the wall, whether willingly or unwillingly.",
 	firstCol : 3
 };
@@ -8489,8 +8489,8 @@ PsionicsList["mi5-ice barrier"] = {
 	time : "1 a",
 	range : "60-ft",
 	duration : "Conc, 10 min",
-	description : "60\u00D71\u00D715ft (l\u00D7w\u00D7h) wall; a 10-ft section has AC 12 & 30 HP; melee atks do same as Cold dmg back",
-	descriptionMetric : "20\u00D70,3\u00D75m (l\u00D7w\u00D7h) wall; a 3-m section has AC 12 & 30 hp; melee atks do same as Cold dmg back",
+	description : "60\xD71\xD715ft (l\xD7w\xD7h) wall; a 10-ft section has AC 12 & 30 HP; melee atks do same as Cold dmg back",
+	descriptionMetric : "20\xD70,3\xD75m (l\xD7w\xD7h) wall; a 3-m section has AC 12 & 30 hp; melee atks do same as Cold dmg back",
 	descriptionFull : "As an action, you create a wall of ice, at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Each 10-foot section of the wall has AC 12 and 30 hit points. A creature that damages the wall with a melee attack takes cold damage equal to the damage the creature dealt to the wall.",
 	firstCol : 6
 };
@@ -8621,8 +8621,8 @@ PsionicsList["mwa3-water whip"] = {
 	range : "60-ft line",
 	duration : "Instantaneous",
 	save : "Str",
-	description : "60\u00D75-ft (l\u00D7w) all 3d6(+1d6/extra PP) Bludg. dmg \u0026 move to empty spot on line; save half \u0026 no move",
-	descriptionMetric : "20\u00D71,5m (l\u00D7w) all 3d6(+1d6/extra PP) Bludg. dmg, move to empty spot on line; save half \u0026 no move",
+	description : "60\xD75-ft (l\xD7w) all 3d6(+1d6/extra PP) Bludg. dmg \u0026 move to empty spot on line; save half \u0026 no move",
+	descriptionMetric : "20\xD71,5m (l\xD7w) all 3d6(+1d6/extra PP) Bludg. dmg, move to empty spot on line; save half \u0026 no move",
 	descriptionFull : "As an action, you unleash a jet of water in a line that is 60 feet long and 5 feet wide. Each creature in the line must make a Strength saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one. In addition, you can move each target that fails its saving throw to any unoccupied space touching the line. You can increase this ability's damage by 1d6 per additional psi point spent on it.",
 	firstCol : "3-7"
 };
@@ -8761,8 +8761,8 @@ PsionicsList["mw6-wall of thunder"] = {
 	range : "60 ft",
 	duration : "Conc, 10 min",
 	save : "Str",
-	description : "60\u00D71\u00D715 ft (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 30 ft, prone",
-	descriptionMetric : "20\u00D70,3\u00D75 m (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
+	description : "60\xD71\xD715 ft (l\xD7w\xD7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 30 ft, prone",
+	descriptionMetric : "20\xD70,3\xD75 m (l\xD7w\xD7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
 	descriptionFull : "As an action, you create a wall of thunder, at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Every foot moved through the wall costs 1 extra foot of movement. When a creature moves into the wall's space for the first time on a turn or starts its turn there, that creature must succeed on a Strength saving throw, or it takes 6d6 thunder damage, is pushed in a straight line up to 30 feet away from the wall, and is knocked prone.",
 	firstCol : 6
 };
@@ -10113,7 +10113,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 	}
 });
 // Add the Monster Slayer subclass to both the normal and Revised Ranger (if it is defined)
-var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
+var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : ["UA:AToS", 3],
@@ -10169,7 +10169,7 @@ var rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassMonsterSlayerUA); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(UAAToS_rangerSubclassMonsterSlayerUA); };
 
 // ua_20170403_Starter-Spells.js
 // This file adds the content from the Unearthed Arcana: Starter Spells article to MPMB's Character Record Sheet
@@ -10270,6 +10270,7 @@ SpellsList["healing elixir-uass"] = {
 	compMaterial : "Alchemist's supplies",
 	duration : "24 h",
 	description : "Make vial with alchemist's supplies; heals 2d4+2 HP as an action; if not used, disappears after 24 h",
+	descriptionShorter : "Make vial with alchemist's supplies; 1 a to heal 2d4+2 HP; if not used, disappears after 24 h",
 	descriptionFull : "You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes." + "\n   " + "As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points."
 };
 SpellsList["infestation-uass"] = {
@@ -12425,7 +12426,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
 							fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';
 						};
 					},
@@ -12463,7 +12464,7 @@ AddSubClass("druid", "circle of spores-ua", {
 		}
 	}
 });
-var fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
+var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 	regExpSearch : /brute/i,
 	subname : "Brute",
 	source : ["UA:TS", 2],
@@ -12523,7 +12524,7 @@ RunFunctionAtEnd(function () {
 	FSfea.minlevel = 10;
 	FSfea.extrachoices = "";
 	FSfea.description = '\n   Choose an Additional Fighting Style using the "Choose Feature" button above ';
-	ClassSubList[fighterBruteSubclassUA].features.subclassfeature10 = FSfea;
+	ClassSubList[UATS_fighterBruteSubclassUA].features.subclassfeature10 = FSfea;
 });
 AddSubClass("wizard", "school of invention-ua", {
 	regExpSearch : /^(?=.*wizard)(?=.*invent(ion|or)).*$/i,
@@ -13062,7 +13063,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			minlevel : 18,
 			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22",
 			scores : [0, 0, 2, 0, 0, 0],
-			scoresMaximum : [0,0,22,0,0,0]
+			scoresMaximum : [0, 0, 22, 0, 0, 0]
 		}
 	}
 });
@@ -13510,7 +13511,7 @@ MagicItemsList["band of loyalty-ua"] = {
 	descriptionFull : "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 	attunement : true
 }
-var docentFullDescription = [
+var UAMIoE_docentFullDescription = [
 	"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
 	">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
 	"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
@@ -13536,7 +13537,7 @@ MagicItemsList["docent-ua"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	description : "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-	descriptionFull : docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : UAMIoE_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
 	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
@@ -13544,7 +13545,7 @@ MagicItemsList["docent-ua"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Docent",
-		note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : desc(UAMIoE_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
 MagicItemsList["feather token-ua"] = {
@@ -14458,7 +14459,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 		scorestxt : "+1 Charisma or Intelligence",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["see invisibility", "true seeing"],
 			selection : ["see invisibility", "true seeing"],
 			spellcastingAbility : 4,
@@ -14486,7 +14487,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 		scorestxt : "+1 Strength, Dexterity, or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["locate creature", "find the path"],
 			selection : ["locate creature", "find the path"],
 			spellcastingAbility : 5,
@@ -14514,7 +14515,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt : "+1 Dexterity or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["beast sense", "dominate beast"],
 			selection : ["beast sense", "dominate beast"],
 			spellcastingAbility : 5,
@@ -14529,7 +14530,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt : "+1 Dexterity or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["mass healing word", "greater restoration"],
 			selection : ["mass healing word", "greater restoration"],
 			spellcastingAbility : 5,
@@ -14552,7 +14553,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["sanctuary", "mordenkainen's magnificent mansion"],
 			selection : ["sanctuary", "mordenkainen's magnificent mansion"],
 			spellcastingAbility : 6,
@@ -14580,7 +14581,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 		scorestxt : "+1 Dexterity or Intelligence",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["fabricate", "creation"],
 			selection : ["fabricate", "creation"],
 			spellcastingAbility : 4,
@@ -14602,7 +14603,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 		scorestxt : "+1 Dexterity or Constitution",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["blink", "teleportation circle"],
 			selection : ["blink", "teleportation circle"],
 			spellcastingAbility : 3,
@@ -14625,7 +14626,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 		scorestxt : "+1 Intelligence or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per short",
+			name : "1\xD7 per short",
 			spells : ["sending", "tongues"],
 			selection : ["sending", "tongues"],
 			spellcastingAbility : 4,
@@ -14652,7 +14653,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 		scorestxt : "+1 Strength or Wisdom",
 		spellcastingBonus : {
-			name : "1\u00D7 per short",
+			name : "1\xD7 per short",
 			spells : ["compelled duel", "warding bond"],
 			selection : ["compelled duel", "warding bond"],
 			spellcastingAbility : 5,
@@ -14675,7 +14676,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["nondetection", "mislead"],
 			selection : ["nondetection", "mislead"],
 			spellcastingAbility : 6,
@@ -14698,7 +14699,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt : "+1 Dexterity or Charisma",
 		spellcastingBonus : {
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["control water", "control winds"],
 			selection : ["control water", "control winds"],
 			spellcastingAbility : 6,
@@ -14720,7 +14721,7 @@ FeatsList["greater dragonmark-ua"] = {
 		description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 		scorestxt : "+1 Dexterity or Intelligence",
 		spellcastingBonus : [{
-			name : "1\u00D7 per long",
+			name : "1\xD7 per long",
 			spells : ["knock", "glyph of warding"],
 			selection : ["knock", "glyph of warding"],
 			spellcastingAbility : 4,
@@ -14755,7 +14756,6 @@ FeatsList["aberrant dragonmark-ua"] = {
 	prerequisite : "Not having a dragonmark",
 	prereqeval : function(v) { return !(/dragonmark/i).test(CurrentRace.known); },
 	descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
-	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 	description : "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 	scores : [0, 0, 1, 0, 0, 0],
 	spellcastingAbility : 3,
@@ -14848,7 +14848,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			description : desc([
 				"As an action, I can touch a creature and roll a die to channel magic into it",
 				"The target regains an expended spell slot of a level equal to or less then the die roll",
-				"If it has no expended spell slots of that level, it gains 5\u00D7 the die roll in temp HP instead",
+				"If it has no expended spell slots of that level, it gains 5\xD7 the die roll in temp HP instead",
 				"Regardless of what happens, I take force damage equal to five times the die roll"
 			]),
 			additional : levels.map(function (n) {
@@ -15013,12 +15013,12 @@ SourceList["UA:SnW"] = {
 
 // Add a subclasses for the Sorcerer and one for the Warlock
 // Both contain work by /u/KaydeArcane
-var UA_abberantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "compulsion", "evard's black tentacles", "modify memory", "rary's telepathic bond"];
+var UASnW_abberantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "compulsion", "evard's black tentacles", "modify memory", "rary's telepathic bond"];
 AddSubClass("sorcerer", "aberrant mind-ua", {
 	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
 	subname : "Aberrant Mind",
 	source : ["UA:SnW", 1],
-	spellcastingExtra : UA_abberantMindExtraSpell,
+	spellcastingExtra : UASnW_abberantMindExtraSpell,
 	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
@@ -15062,7 +15062,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 			spellFirstColTitle : "SP",
 			spellChanges : function () {
 				var fullReObj = {};
-				UA_abberantMindExtraSpell.map(function (s) {
+				UASnW_abberantMindExtraSpell.map(function (s) {
 					var spObj = SpellsList[s] ? SpellsList[s] : { level : 1 };
 					fullReObj[s] = {
 						firstCol : spObj.level,
@@ -15968,7 +15968,7 @@ AddSubClass("fighter", "rune knight-ua", {
 });
 
 // Add a subclass for the Ranger (and also to the Revised Ranger)
-var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
+var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
 	source : ["UA:FRnR", 3],
@@ -16066,7 +16066,7 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassSwarmkeeperUA); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(UAFRnR_rangerSubclassSwarmkeeperUA); };
 
 // Add a subclass for the Rogue
 AddSubClass("rogue", "the revived-ua", {
@@ -17017,6 +17017,16 @@ AddWarlockInvocation("Eldritch Armor (prereq: Pact of the Blade)", {
 	},
 	action : [["action", ""]]
 });
+AddWarlockInvocation("Eldritch Mind (prereq: Pact of the Tome)", {
+	name : "Eldritch Mind",
+	source : [["UA:CFV", 11]],
+	submenu : "[improves Pact of the Tome]",
+	description : "\n   I have advantage on my Constitution saving throws to maintain concentration on a spell",
+	prereqeval : function(v) {
+		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
+	},
+	savetxt : { text : "Adv. on Con (Concentration) saves" }
+});
 AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua)", {
 	name : "Far\xA0Scribe",
 	source : [["UA:CFV", 11]],
@@ -17613,6 +17623,7 @@ SpellsList["id insinuation-ua"] = {
 	duration : "Conc, 1 min",
 	save : "Wis",
 	description : "1 crea save or incapacitated and end of each turn 1d12 Psychic damage, after which it can save to end",
+	descriptionShorter : "1 crea save or incapacitated \u0026 end of each turn 1d12 Psychic damage, can save to end after",
 	descriptionFull : "You unleash a torrent of conflicting desires in the mind of one creature you can see within range, impairing its ability to make decisions. The target must succeed on a Wisdom saving throw or be incapacitated. At the end of each of its turns, it takes 1d12 psychic damage, and it can then make another Wisdom saving throw. On a success, the spell ends on the target."
 };
 SpellsList["intellect fortress-ua_frnw"] = { // completely different than later iterations in UA:POR and TCoE
@@ -17667,6 +17678,7 @@ SpellsList["psionic blast-ua"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "All crea 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
+	descriptionShorter : "All 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
 	descriptionFull : "You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd."
 };
 SpellsList["psychic crush-ua"] = {
@@ -17681,7 +17693,8 @@ SpellsList["psychic crush-ua"] = {
 	duration : "1 min",
 	save : "Int",
 	description : "1 crea 12d6 Psychic damage and stunned for 1 min; save half, not stunned; save at turn end to stop",
-	descriptionFull : "You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.\n   The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target."
+	descriptionFull : "You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.\n   The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target.",
+	dynamicDamageBonus : { multipleDmgMoments : false }
 };
 SpellsList["thought shield-ua"] = {
 	name : "Thought Shield",
@@ -18306,11 +18319,7 @@ AddSubClass("cleric", "unity domain-ua", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						if (spellKey == "shillelagh") {
-							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-							return true;
-						}
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -18422,7 +18431,8 @@ SourceList["UA:SP3"] = {
 
 // Add a subclass for the Artificer (but after all other scripts, so that all armour options are present)
 RunFunctionAtEnd(function () {
-	var artificerSubclassArmorerUA = AddSubClass("artificer", "armorer-ua", {
+	if (!ClassList.artificer) { return; };
+	var UASP3_artificerSubclassArmorerUA = AddSubClass("artificer", "armorer-ua", {
 		regExpSearch : /^(?=.*armou?rer)(?!.*wizard).*$/i,
 		subname : "Armorer",
 		fullname : "Armorer",
@@ -18563,7 +18573,8 @@ RunFunctionAtEnd(function () {
 			}
 		}
 	});
-	var itsFea = ClassSubList[artificerSubclassArmorerUA].features["subclassfeature3.2"];
+	if (!UASP3_artificerSubclassArmorerUA || !ClassSubList[UASP3_artificerSubclassArmorerUA]) return;
+	var itsFea = ClassSubList[UASP3_artificerSubclassArmorerUA].features["subclassfeature3.2"];
 	var guardianTxt = desc([
 		"Both fists are Thunder Gauntlets, simple melee weapons that distract those hit by it",
 		"As a bonus action, I can activate a defensive shield to gain my artificer level in temp HP"
@@ -18835,7 +18846,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 	}
 });
 
-var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
+var UASP3_rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 	regExpSearch : /^(?=.*fey)(?=.*wanderer).*$/i,
 	subname : "Fey Wanderer",
 	source : [["UA:SP3", 5]],
@@ -18914,7 +18925,7 @@ var rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassFeyWandererUA); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(UASP3_rangerSubclassFeyWandererUA); };
 
 // ua_20200512_Subclasses-Revisited.js
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
@@ -19220,3 +19231,433 @@ FeatsList["tracker-ua"] = {
 		firstCol : "oncelr"
 	}
 };
+// ua_20200805_Subclasses-Part-4.js
+// This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 4 article to MPMB's Character Record Sheet
+// This file contains contributions by AelarTheElfRogue
+
+// Define the source
+SourceList["UA:SP4"] = {
+	name : "Unearthed Arcana: Subclasses, Part 4",
+	abbreviation : "UA:SP4",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2020/dnd/downloads/UA2020_Subclasses04.pdf",
+	date : "2020/08/05"
+};
+
+AddSubClass("bard", "college of spirits-ua",{
+	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*spirits?).*$/i,
+	subname : "College of Spirits",
+	source : [["UA:SP4", 1]],
+	features : {
+		"subclassfeature3" : {
+			name : "Guiding Whispers",
+			source : [["UA:SP4", 1]],
+			minlevel : 3,
+			description : desc([
+                "I learn the Guidance cantrip and can cast it with a range of 60 ft"
+			]),
+			spellcastingBonus : {
+				name : "Guiding Whispers",
+				spells : ["guidance"],
+				selection : ["guidance"],
+				firstCol : "atwill"
+			},
+			spellChanges : {
+				"guidance" : {
+					range : "60 ft",
+					changes : "I can cast Guidance with a range of 60 ft."
+				}
+			}
+		},
+		"subclassfeature3.1" : {
+			name : "Spiritual Focus",
+			source : [["UA:SP4", 1]],
+			minlevel : 3,
+			description : " [only for bard spells]" + desc([
+                "I can use a candle, crystal ball, skull, spirit board, or tarokka deck as a spellcasting focus"
+			])
+		},
+		"subclassfeature3.2" : {
+			name : "Tales from Beyond",
+			source : [["UA:SP4", 1]],
+			minlevel : 3,
+			description : desc([
+				"As a bonus action, I can expend a bardic inspiration die to roll on the Spirits' Tales table",
+                "I retain the rolled tale in my mind until I bestow its effects or finish a short or long rest",
+                "I can only retain one tale at a time; I need to hold a spiritual focus to roll on the table",
+                "As an action, I can choose a creature I see in 30 ft or myself to bestow the tale's effect",
+                "The tales use my spell save DC; See the Notes page for the Spirits' Tales table"
+			]),
+            action : [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
+            toNotesPage : [{
+                name : "Spirits' Tales Table",
+                popupName: "College of Spirits - Spirits' Tales table",
+                note : desc([
+					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
+					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",
+					"As an action, I can choose myself or one creature I can see within 30 ft to be the target of the tale's effect. If the tale requires a saving throw, the DC equals my spell save DC.",
+					"\nRoll " + (typePF ? "" : " ") + "Tale"
+				])+
+				desc([
+                    "  1    Beast: I recite the tale of a clever animal. For 1 minute, the target has advantage on Wisdom (Perception) checks and advantage on attack rolls against a creature if another enemy is within 5 ft of it, and that enemy isn't incapacitated.",
+                    "  2    Warrior: I recount the story of a renowned duelist. Make a melee spell attack against the target as an attacking spectral warrior briefly appears in a unoccupied space within 5 ft of the target before vanishing. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
+                    "  3    Friends: I recite the tale of friends who found each other in the afterlife. The target and another creature of its choice it can see within 5 ft of it regains hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
+                    "  4    Runaway: I tell the tale of an adventurer that could escape any confinement. The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 1) to immediately use the same reaction.",
+                    "  5    Avenger: I recount the tale of an avenging knight. For 1 minute, whenever a creature the target can see within 30 ft of it is damaged by a creature, the target can use its reaction to deal force damage equal to a roll of my Bardic Inspiration die to the attacker.",
+                    "  6    Hero: I speak the tale of an epic hero. The target gains temporary hit points equal to a roll of my Bardic Inspiration die + my bard level. While it has these temporary hit points, the target's walking speed increases by 10 ft.",
+                    "  7    Fey: I recount the tale of a mischievous fey. The target must succeed on a Wisdom saving throw or become charmed by me until the end of its next turn. The charmed target must use its action to make a melee attack against a creature other than itself that I mentally choose. The target can act normally on its turn if I choose no other creature.",
+                    "  8    Dark Spirit: I speak a dreadful tale of a slayer in the dark. The target becomes invisible until the end of its next turn or until it hits a creature with an attack. If it hits a creature with an attack during this invisibility, that creature takes necrotic damage equal to a roll of my Bardic Inspiration die and is frightened of the target until the end of its next turn.",
+                    "  9    Giant: I speak of the deeds of a mighty giant. Each creature of the target's choice it can see within 30 ft of it must make a Strength saving throw, taking force damage equal to two rolls of my Bardic Inspiration die on a failed save and is knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.",
+                    " 10    Dragon: I breathe a poem of a wrathful dragon. The target magically spews fire from their mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to three rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
+                    " 11    Celestial: I speak of the exalted deeds of a celestial. The target regains hit points equal to two rolls of my Bardic Inspiration die + my bard level, and I end one disease or a condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
+                    " 12    Unknown: I utter an incomprehensible fable from a being beyond the stars. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die, and the target is unable to speak any language for 1 minute."
+                ], "\n")
+            }]
+        },
+        "subclassfeature6" : {
+			name : "Spiritual Focus: Improve spells",
+			source : [["UA:SP4", 2]],
+			minlevel : 6,
+			description : desc([
+				"While holding a spiritual focus, I can add 1d6 to one damage or healing roll of bard spells"
+			]),
+			calcChanges : {
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]] && v.thisWeapon[4].indexOf("bard") !== -1) {
+							// If RAW is selected, first test if this spell is eligible to use with a spellcasting focus
+							var isRAW = GetFeatureChoice("classes", "bard", "subclassfeature6") === "raw: only +1d6 for spells with non-costly material components";
+							var spellObj = SpellsList[v.thisWeapon[3]];
+							if (isRAW && (!spellObj.components || !/\bM\b/.test(spellObj.components) || /M\u0192|M\u2020/.test(spellObj.components))) return;
+							fields.Damage_Die = fields.Damage_Die.replace(/D/g, 'd');
+							var d6Regex = /(\d+)d6/;
+							if (fields.Damage_Die.indexOf('Bd6') != -1) {
+								fields.Damage_Die = fields.Damage_Die.replace('Bd6', 'Cd6');
+							} else if (fields.Damage_Die.indexOf('Cd6') != -1) {
+								fields.Damage_Die = fields.Damage_Die.replace('Cd6', 'Qd6');
+							} else if (d6Regex.test(fields.Damage_Die)) {
+								fields.Damage_Die = fields.Damage_Die.replace(d6Regex, Number(fields.Damage_Die.replace(d6Regex, '$1')) + 1 + 'd6');
+							} else if (v.thisWeapon[3] == "eldritch blast") {
+								fields.Description += (fields.Description ? '; ' : '') + "One ray +1d6 dmg";
+							} else {
+								fields.Damage_Die += '+1d6';
+							}
+						}
+					},
+					'When I cast a bard spell, I can use my spiritual focus to add 1d6 to one damage roll or roll to restore hit points.\n   Going by rules as written (RAW), the spiritual focus has to be used as a spellcasting focus for this bonus to be added. This means that it can only be used on spells with a non-costly material component. Most DMs will forgo this technicality and that is why this sheet will add the 1d6 to any damage/healing spell by default. You can enable to use the stricter rules as written with the "Choose Feature" button on the second page.'
+				],
+				spellAdd : [
+					function (spellKey, spellObj, spName) {
+						// Do not process if a psionic, not a bard spell, or, if RAW is selected, not eligible to use with a spellcasting focus
+						var isRAW = GetFeatureChoice("classes", "bard", "subclassfeature6") === "raw: only +1d6 for spells with non-costly material components";
+						if (spellObj.psionic || spName !== "bard" || (isRAW && (!spellObj.components || !/\bM\b/.test(spellObj.components) || /M\u0192|M\u2020/.test(spellObj.components)))) return;
+						if (genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "1d6", true, true) || genericSpellDmgEdit(spellKey, spellObj, "heal", "1d6", true, true)) {
+							return true;
+						}
+					},
+					'When I cast a bard spell, I can use my spiritual focus to add 1d6 to one damage roll or roll to restore hit points.\n   Going by rules as written (RAW), the spiritual focus has to be used as a spellcasting focus for this bonus to be added. This means that it can only be used on spells with a non-costly material component. Most DMs will forgo this technicality and that is why this sheet will add the 1d6 to any damage/healing spell by default. You can enable to use the stricter rules as written with the "Choose Feature" button on the second page.'
+				]
+			},
+			choices : ["RAW: only +1d6 for spells with non-costly material components", "Allow +1d6 for any bard spell"],
+			"raw: only +1d6 for spells with non-costly material components" : {
+				name : "Spiritual Focus: Improve spells",
+				description : desc([
+					"If I use a spiritual focus to cast a bard spell, I can add 1d6 to one damage or healing roll"
+				])
+			},
+			"allow +1d6 for any bard spell" : {
+				name : "Spiritual Focus: Improve spells",
+				description : desc([
+					"While holding a spiritual focus, I can add 1d6 to one damage or healing roll of bard spells"
+				])
+			},
+			defaultChoice : "allow +1d6 for any bard spell"
+        },
+		"subclassfeature6.1" : {
+			name : "Spirit Session",
+			source : [["UA:SP4", 2]],
+			minlevel : 6,
+			description : desc([
+				"Using my spiritual focus, I can conduct a hour-long ritual to channel spirit during a rest",
+                "The number of willing participants, me included, can be up to my Proficiency Bonus",
+                "At the end, I learn a divination or necromancy spell of my choice until I start a long rest",
+                "The spell can't be higher level than the number of participants and of a level I can cast"
+            ]),
+            usages : 1,
+            recovery : "long rest",
+			spellcastingBonus : {
+				name : "Spirit Session",
+				school : ["Div", "Necro"],
+				firstCol : "SS"
+			}
+        },
+		"subclassfeature14" : {
+			name : "Mystical Connection",
+			source : [["UA:SP4", 3]],
+			minlevel : 14,
+			description : desc([
+				"I can roll a d6 instead of expending a bardic inspiration die when I do Tales from Beyond",
+				"Even if I roll a d6, I still roll my bardic inspiration die for the effect, but not expend it"
+			])
+		}
+	}
+});
+AddSubClass("warlock", "the undead-ua",{
+	regExpSearch : /^(?=.*undead)(?=.*warlock).*$/i,
+	subname : "the Undead",
+	source : [["UA:SP4", 1]],
+	spellcastingExtra : ["bane", "false life", "blindness/deafness", "phantasmal force", "phantom steed", "speak with dead", "death ward", "greater invisibility", "antilife shell", "cloudkill"],
+	features : {
+		"subclassfeature1" : {
+			name : "Form of Dread",
+			source : [["UA:SP4", 3]],
+			minlevel : 1,
+			description : desc([
+				"As a bonus action, I can transform for 1 minute and gain the following benefits:",
+                " \u2022 I gain temporary hit points equal to 1d10 + my warlock level",
+                " \u2022 I am immune to the frightened condition",
+                " \u2022 Once per turns when I hit an attack, I can force the target to make a Wis save",
+                "   If the target fails this save, it is frightened of me until the end of my next turn"
+            ]),
+            additional : levels.map(function (n) {
+				return "1d10+" + n + " temp HP";
+            }),
+            usages : "Prof Bonus per ",
+            usagescalc : "event.value = How('Proficiency Bonus');",
+            recovery : "long rest",
+            action : [["bonus action", ""]],
+            savetxt : { immune : ["frightened (Form of Dread)"] }
+		},
+		"subclassfeature6" : {
+			name : "Grave Touched",
+			source : [["UA:SP4", 3]],
+			minlevel : 3,
+			description : desc([
+				"I no longer need to eat, drink, or breathe",
+                "When I damage a creature with an attack, I can change the damage type to necrotic",
+                "While I'm in my Form of Dread, I can roll one extra damage die for this necrotic damage"
+			])
+		},
+		"subclassfeature10" : {
+			name : "Mortal Husk",
+			source : [["UA:SP4", 4]],
+			minlevel : 10,
+			description : desc([
+				"I have resistance to necrotic damage, or immunity while I'm in my Form of Dread",
+                "When I'm reduced to 0 hp, I can cause my body to explode and I revive with 1 hp after",
+                "Each creature of my choice within 30 ft takes 2d10 + my warlock level necrotic damage",
+                "After this, I gain 1 level of exhaustion and must complete 1d4 long rests to do so again"
+			]),
+			additional : levels.map(function (n) {
+				return n < 10 ? "" : "2d10+" + n + " damage, 1\xD7 per 1d4 long rests"
+			}),
+            dmgres : [["Necrotic"]],
+            savetxt : { immune : ["necrotic (Form of Dread)"] },
+			extraLimitedFeatures : [{
+				name : "Mortal Husk (revive)",
+				usages : 1,
+				recovery : "1d4 LR"
+			}]
+		},
+		"subclassfeature14" : {
+			name : "Spirit Projection",
+			source : [["UA:SP4", 4]],
+			minlevel : 14,
+			description : desc([
+				"As an action, I can project my spirit from my body, leaving it suspended and unconscious",
+                "This lasts 1 hour or until my concentration is broken; Damage and effects affect both",
+                "When it ends, I can have my spirit return to my body or my body teleport to my spirit",
+                "My spirit has my abilities, but no gear; While projecting I gain the following benefits:",
+                " \u2022 My spirit and body gain resistance to bludgeoning, piercing, and slashing damage",
+                " \u2022 My conjuration/necromancy spells need no verbal, somatic, non-costly material comp.",
+                " \u2022 I gain a flying speed equal to my walking speed and can hover",
+                " \u2022 Move through creatures/objects as difficult terrain; 1d10 force damage if end turn in",
+                " \u2022 While in my Form of Dread, once per turns when I deal necrotic damage, I can heal",
+                "   I regain hit points equal to half the amount of necrotic damage dealt"
+			]),
+			usages : 1,
+            recovery : "long rest",
+            action : [["action", ""]]
+		}
+	}
+});
+
+// ua_20210126_Gothic-Lineages.js
+// This file adds the content from the Unearthed Arcana 2020: Feats article to MPMB's Character Record Sheet
+
+SourceList["UA:GL"] = {
+	name : "Unearthed Arcana: Gothic Lineages",
+	abbreviation : "UA:GL",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2021/dnd/downloads/UA2021_GothicLineages.pdf",
+	date : "2021/01/26"
+};
+
+RaceList["dhampir-ua"] = {
+	regExpSearch : /dhampir/i,
+	name : "Dhampir",
+	source : [["UA:GL", 2]],
+	plural : "Dhampirs",
+	size : [3, 4],
+	speed : {
+		walk : { spd : 35, enc : 25 },
+		climb : { spd : "walk", enc : "walk" }
+	},
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 60]],
+	weaponsAdd : ["Vampiric Bite"],
+	weaponOptions : [{
+		regExpSearch : /^(?=.*vampiric)(?=.*bite).*$/i,
+		name : "Vampiric Bite",
+		source : [["VRGtR", 17]],
+		ability : 3,
+		type : "Simple",
+		damage : [1, 4, "piercing"],
+		range : "Melee",
+		description : "Adv. while at or below half HP; Can empower myself on hit",
+		isAlwaysProf : true,
+		abilitytodamage : true,
+		monkweapon : true
+	}],
+	extraLimitedFeatures : [{
+		name : "Vampiric Bite",
+		additional : "empower myself",
+		usages: "Proficiency bonus per ",
+		usagescalc : "event.value = How('Proficiency Bonus')",
+		recovery: "long rest"
+	}],
+	scorestxt : "+2 to one ability score, and +1 to a different score of my choice",
+	trait : "Dhampir" + (typePF ? "\n " : "\t") +
+	"\u2022 Type: My creature type is both Humanoid and Undead." +
+	"\n \u2022 Spider Climb: Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free." +
+	"\n \u2022 Vampiric Bite: Uses Constitution and has adv. on the attack roll if I'm at or below half HP. My Proficiency Bonus per long rest, when I hit a creature other than a construct or undead, I can empower myself. I either regain HP or gain a bonus on my next ability check or attack roll. The bonus is equal to the piercing damage dealt."
+};
+RaceList["hexblood-ua"] = {
+	regExpSearch : /hexblood/i,
+	name : "Hexblood",
+	source : [["UA:GL", 4]],
+	plural : "Hexbloods",
+	size : [3, 4],
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	scorestxt : "+2 to one ability score, and +1 to a different score of my choice",
+	trait : "Hexblood" + (typePF ? "\n " : "\t") +
+	"\u2022 Fey Resilience: I'm both Humanoid and Fey. I have adv. on saves vs. charms." +
+	"\n \u2022 Magic Token: As an action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information." +
+	"\n \u2022 Hex Magic: I known Disguise Self and Hex. I can cast each spell once per long rest without using a spell slot, or by using a spell slot.",
+	toNotesPage : [{
+		name : "Hexblood's Magic Token",
+		note : ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
+		"While the token is imbued in this way, I can use an action to send a telepathic message to the creature holding or carrying the token, as long as I'm on the same plane of existence and are within 10 miles of it. The message can contain up to twenty-five words.",
+		"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
+		"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."]
+	}],
+	savetxt : {
+		adv_vs : ["charmed"]
+	},
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 60]],
+	action : [["action", "Magic Token"]],
+	extraLimitedFeatures : [{
+		name : "Magic Token",
+		usages : 1,
+		recovery: "long rest"
+	}],
+	spellcastingAbility : 6,
+	features : {
+		"hex magic" : {
+			name : "Hex Magic",
+			minlevel : 1,
+			spellcastingBonus : {
+				name : "Hex Magic",
+				spells : ["disguise self", "hex"],
+				selection : ["disguise self", "hex"],
+				firstCol : 'oncelr',
+				times : 2,
+				allowUpCasting : true
+			},
+			extraLimitedFeatures : [{
+				name : "Disguise Self",
+				usages : 1,
+				recovery: "long rest",
+				altResource : "SS 1+"
+			}, {
+				name : "Hex",
+				usages : 1,
+				recovery: "long rest",
+				altResource : "SS 1+"
+			}]
+		}
+	}
+};
+AddRacialVariant("hexblood-ua", "intelligence caster", {
+	regExpSearch : /intelligence caster/i,
+	source : [["UA:GL", 4]],
+	spellcastingAbility : 4
+});
+AddRacialVariant("hexblood-ua", "wisdom caster", {
+	regExpSearch : /wisdom caster/i,
+	source : [["UA:GL", 4]],
+	spellcastingAbility : 5
+});
+AddRacialVariant("hexblood-ua", "charisma caster", { // same as default, added for clarity
+	regExpSearch : /charisma caster/i,
+	source : [["UA:GL", 4]],
+	spellcastingAbility : 6
+});
+var UAGL_Reborn_Trait = "Reborn" + (typePF ? "\n " : "  ") +
+"\u2022 Type: My creature type is Humanoid, as well as Construct or Undead (my choice)." +
+"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless." +
+"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.";
+RaceList["reborn-ua"] = {
+	regExpSearch : /reborn/i,
+	name : "Reborn",
+	source : [["UA:GL", 5]],
+	plural : "Reborns",
+	size : [3, 4],
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	scorestxt : "+2 to one ability score, and +1 to a different score of my choice",
+	trait : UAGL_Reborn_Trait,
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 60]],
+	dmgres : ["Poison"],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["disease", "poison", "death saves"],
+	},
+	extraLimitedFeatures : [{
+		name : "Knowledge from a Past Life",
+		usages: "Proficiency bonus per ",
+		usagescalc : "event.value = How('Proficiency Bonus')",
+		recovery: "long rest"
+	}],
+	useFromPreviousRace : {
+		message : "If you replace a race with the Reborn lineage, you can keep the following elements of that race:"+
+		desc(["its size,",
+		"any skill proficiencies you gained from it,",
+		"any climbing, flying, or swimming speed you gained from it, and",
+		"any languages it knows and gain no new languages."], "\n   \u2022 ")+
+		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:"+
+		desc(["are size Medium or Small (your choice),",
+		"gain proficiency in two skills of your choice, and",
+		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+		defaultTraits : {
+			skillstxt : "Choose any two skills"
+		},
+		gainTraits : ["size", "plural", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
+		replaceNameInTrait : ["Reborn", "suffix"]
+	}
+};
+AddRacialVariant("reborn-ua", "undead", {
+	regExpSearch : /undead/i,
+	source : [["UA:GL", 5]],
+	trait : UAGL_Reborn_Trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Undead").replace("  ", "\t")
+});
+AddRacialVariant("reborn-ua", "construct", {
+	regExpSearch : /construct/i,
+	source : [["UA:GL", 5]],
+	trait : UAGL_Reborn_Trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Construct").replace("  ", "\t")
+});

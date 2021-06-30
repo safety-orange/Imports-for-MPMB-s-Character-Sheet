@@ -216,7 +216,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			minlevel : 18,
 			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22",
 			scores : [0, 0, 2, 0, 0, 0],
-			scoresMaximum : [0,0,22,0,0,0]
+			scoresMaximum : [0, 0, 22, 0, 0, 0]
 		}
 	}
 });
