@@ -1,5 +1,5 @@
 var iFileName = "ua_20170501_Revised-Subclasses.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
 
 // Define the source

@@ -543,7 +543,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 });
 
 // Set the Artificer class spell list and Create the choices for the wondrous items class feature of the artificer
-var SetArtificerAttr = function(){
+var UAA_SetArtificerAttr = function(){
 	var artSp = [
 		// level 1
 		"alarm",

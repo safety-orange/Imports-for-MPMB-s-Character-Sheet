@@ -59,7 +59,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && !v.isNaturalWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
 							fields.Description += (fields.Description ? '; ' : '') + '+1d6 poison damage';
 						};
 					},
@@ -97,7 +97,7 @@ AddSubClass("druid", "circle of spores-ua", {
 		}
 	}
 });
-var fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
+var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 	regExpSearch : /brute/i,
 	subname : "Brute",
 	source : ["UA:TS", 2],
@@ -157,7 +157,7 @@ RunFunctionAtEnd(function () {
 	FSfea.minlevel = 10;
 	FSfea.extrachoices = "";
 	FSfea.description = '\n   Choose an Additional Fighting Style using the "Choose Feature" button above ';
-	ClassSubList[fighterBruteSubclassUA].features.subclassfeature10 = FSfea;
+	ClassSubList[UATS_fighterBruteSubclassUA].features.subclassfeature10 = FSfea;
 });
 AddSubClass("wizard", "school of invention-ua", {
 	regExpSearch : /^(?=.*wizard)(?=.*invent(ion|or)).*$/i,

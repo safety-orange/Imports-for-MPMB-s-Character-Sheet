@@ -1,5 +1,5 @@
 var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -392,7 +392,7 @@ MagicItemsList["obsidian flint dragon plate"] = {
 	dmgres : ["Poison"],
 	savetxt : { adv_vs : ["grappled"] }
 }
-var shieldOfTheHiddenLordFullDescription = [
+var DiA_shieldOfTheHiddenLordFullDescription = [
 	"The Shield of the Hidden Lord is of celestial origin and serves as a prison for the pit fiend Gargauth, whose mortal followers revere it as a god. Over time, Gargauth's evil has warped the shield's appearance, so that its celestial motif and designs have become twisted into a fiendish face that subtly moves in disturbing ways.",
 	"While holding this shield, you gain a +2 bonus to AC and resistance to fire damage.",
 	">>Sentience<<. The Shield of the Hidden Lord is sentient as long as it imprisons Gargauth. While sentient, the shield has the following properties:",
@@ -412,12 +412,12 @@ MagicItemsList["shield of the hidden lord"] = {
 	rarity : "legendary",
 	storyItemAL : true,
 	description : "This shield grants me +2 bonus to AC and resistance to fire damage. It has 3 charges, regaining all at dawn. I can expend 1 charge to cast Fireball or 2 charges to cast Wall of Fire from it at DC 21. The shield is sentient and can communicate telepathically with any creature within 120 ft of it. See \"Notes\" page for more.",
-	descriptionFull : shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : DiA_shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of the Shield of the Hidden Lord",
-		note : desc(shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}],
 	weight : 6,
 	shieldAdd : ["Shield of the Hidden Lord", 4, 6],
@@ -443,7 +443,7 @@ MagicItemsList["shield of the hidden lord"] = {
 		}
 	}
 }
-var soulCoinFullDescription = [
+var DiA_soulCoinFullDescription = [
 	"Soul coins are about 5 inches across and about 1 inch thick, minted from infernal iron. Each coin weighs one-third of a pound, and is inscribed with Infernal writing and a spell that magically binds a single soul to the coin. Because each soul coin has a unique soul trapped within it, each has a story. A creature might have been imprisoned as a result of defaulting on a deal, while another might be the victim of a night hag's curse.",
 	">>Carrying Soul Coins<<. To hold a soul coin is to feel the soul bound within it\u2014overcome with rage or fraught with despair.",
 	"An evil creature can carry as many soul coins as it wishes (up to its maximum weight allowance). A non-evil creature can carry a number of soul coins equal to or less than its Constitution modifier without penalty. A non-evil creature carrying a number of soul coins greater than its Constitution modifier has disadvantage on its attack rolls, ability checks, and saving throws.",
@@ -462,11 +462,11 @@ MagicItemsList["soul coin"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
-	descriptionFull : soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Soul Coins",
-		note : desc(soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I ")
+		note : desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I ")
 	}],
 	weight : 0.3,
 	usages : 3,

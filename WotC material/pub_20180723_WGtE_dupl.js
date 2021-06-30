@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version, 
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
@@ -1280,7 +1280,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 			scorestxt : "+1 Charisma or Intelligence",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["see invisibility", "true seeing"],
 				selection : ["see invisibility", "true seeing"],
 				spellcastingAbility : 4,
@@ -1308,7 +1308,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 			scorestxt : "+1 Strength, Dexterity, or Wisdom",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["locate creature", "find the path"],
 				selection : ["locate creature", "find the path"],
 				spellcastingAbility : 5,
@@ -1336,7 +1336,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["beast sense", "dominate beast"],
 				selection : ["beast sense", "dominate beast"],
 				spellcastingAbility : 5,
@@ -1351,7 +1351,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["mass healing word", "greater restoration"],
 				selection : ["mass healing word", "greater restoration"],
 				spellcastingAbility : 5,
@@ -1374,7 +1374,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["sanctuary", "mordenkainen's magnificent mansion"],
 				selection : ["sanctuary", "mordenkainen's magnificent mansion"],
 				spellcastingAbility : 6,
@@ -1402,7 +1402,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 			scorestxt : "+1 Dexterity or Intelligence",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["fabricate", "creation"],
 				selection : ["fabricate", "creation"],
 				spellcastingAbility : 4,
@@ -1424,7 +1424,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 			scorestxt : "+1 Dexterity or Constitution",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["blink", "teleportation circle"],
 				selection : ["blink", "teleportation circle"],
 				spellcastingAbility : 3,
@@ -1447,7 +1447,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 			scorestxt : "+1 Intelligence or Charisma",
 			spellcastingBonus : {
-				name : "1\u00D7 per short",
+				name : "1\xD7 per short",
 				spells : ["sending", "tongues"],
 				selection : ["sending", "tongues"],
 				spellcastingAbility : 4,
@@ -1474,7 +1474,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 			scorestxt : "+1 Strength or Wisdom",
 			spellcastingBonus : {
-				name : "1\u00D7 per short",
+				name : "1\xD7 per short",
 				spells : ["compelled duel", "warding bond"],
 				selection : ["compelled duel", "warding bond"],
 				spellcastingAbility : 5,
@@ -1497,7 +1497,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["nondetection", "mislead"],
 				selection : ["nondetection", "mislead"],
 				spellcastingAbility : 6,
@@ -1520,7 +1520,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
 			spellcastingBonus : {
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["control water", "control winds"],
 				selection : ["control water", "control winds"],
 				spellcastingAbility : 6,
@@ -1542,7 +1542,7 @@ if (!SourceList["UA:D"]) {
 			description : "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 			scorestxt : "+1 Dexterity or Intelligence",
 			spellcastingBonus : [{
-				name : "1\u00D7 per long",
+				name : "1\xD7 per long",
 				spells : ["knock", "glyph of warding"],
 				selection : ["knock", "glyph of warding"],
 				spellcastingAbility : 4,
@@ -1741,7 +1741,7 @@ if (!SourceList["UA:MIoE"]) {
 					],
 					spellAdd : [
 						function (spellKey, spellObj, spName) {
-							if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necrotic", 1, true, true);
+							if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necro\\.?|necrotic", 1, true, true);
 						},
 						"When I use this as my spellcasting focus, spells I cast that deal necrotic damage get a +1 bonus added to one of their damage rolls."
 					]
@@ -1921,7 +1921,7 @@ if (!SourceList["UA:MIoE"]) {
 		descriptionFull : "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 		attunement : true
 	}
-	var docentFullDescription = [
+	var ERftLW_docentFullDescription = [
 		"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
 		">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
 		"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
@@ -1947,7 +1947,7 @@ if (!SourceList["UA:MIoE"]) {
 		type : "wondrous item",
 		rarity : "rare",
 		description : "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-		descriptionFull : docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull : ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 		attunement : true,
 		prerequisite : "Requires attunement by a warforged",
 		prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
@@ -1955,7 +1955,7 @@ if (!SourceList["UA:MIoE"]) {
 		toNotesPage : [{
 			name : "Features",
 			popupName : "Features of Docent",
-			note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+			note : desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 		}]
 	}
 	MagicItemsList["feather token-ua"] = {

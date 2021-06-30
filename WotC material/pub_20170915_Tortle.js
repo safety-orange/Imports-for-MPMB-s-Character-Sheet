@@ -15,7 +15,7 @@ SourceList.TP={
 RaceList.tortle = {
 	regExpSearch : /tortle/i,
 	name : "Tortle",
-	source : ["TP", 4],
+	source : [["TP", 4], ["W", 181]],
 	plural : "Tortles",
 	size : 3,
 	speed : {
@@ -26,7 +26,7 @@ RaceList.tortle = {
 	armorOptions : {
 		regExpSearch : /^(?=.*tortle)(?=.*shell).*$/i,
 		name : "Tortle's Shell",
-		source : ["TP", 4],
+		source : [["TP", 4], ["W", 181]],
 		ac : 17,
 		dex : -10
 	},
@@ -35,15 +35,15 @@ RaceList.tortle = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 		name : "Tortle's Claws",
-		source : ["TP", 4],
+		source : [["TP", 4], ["W", 181]],
 		damage : [1, 4, "slashing"]
 	},
 	weaponsAdd : ["Tortle's Claws"],
 	age : " reach adulthood by the age of 15 and live an average of 50 years",
-	height : " stand between 5 and 6 feet tall",
-	weight : " weigh around 450 lb",
-	heightMetric : " stand between 1,5 and 1,8 metres tall",
-	weightMetric : " weigh around 200 kg",
+	height : " stand between 5 and 6 feet tall (4'10\" + 2d8\")",
+	weight : " weigh around 450 lb (400 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " stand between 1,5 and 1,8 metres tall (150 + 5d8 cm)",
+	weightMetric : " weigh around 190 kg (180 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [2, 0, 0, 0, 1, 0],
 	features : {
 		"shell defense" : {

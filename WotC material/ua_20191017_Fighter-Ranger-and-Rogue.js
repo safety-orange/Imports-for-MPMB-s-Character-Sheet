@@ -1,5 +1,5 @@
 var iFileName = "ua_20191017_Fighter-Ranger-and-Rogue.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -203,7 +203,7 @@ AddSubClass("fighter", "rune knight-ua", {
 });
 
 // Add a subclass for the Ranger (and also to the Revised Ranger)
-var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
+var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
 	source : ["UA:FRnR", 3],
@@ -301,7 +301,7 @@ var rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
 		}
 	}
 });
-if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(rangerSubclassSwarmkeeperUA); };
+if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(UAFRnR_rangerSubclassSwarmkeeperUA); };
 
 // Add a subclass for the Rogue
 AddSubClass("rogue", "the revived-ua", {

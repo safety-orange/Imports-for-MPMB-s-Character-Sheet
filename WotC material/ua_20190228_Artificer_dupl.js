@@ -855,7 +855,7 @@ if (!MagicItemsList["returning weapon"]) {
 }
 
 // Set the Artificer class spell list
-var SetArtificerSpells = function(){
+var UAA2_SetArtificerSpells = function(){
 	var artSp = [
 		"acid splash",
 		"dancing lights",

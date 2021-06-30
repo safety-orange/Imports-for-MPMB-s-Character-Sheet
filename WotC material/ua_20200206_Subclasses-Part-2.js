@@ -1,5 +1,5 @@
 var iFileName = "ua_20200206_Subclasses-Part-2.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 2 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -192,11 +192,7 @@ AddSubClass("cleric", "unity domain-ua", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						if (spellKey == "shillelagh") {
-							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-							return true;
-						}
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]

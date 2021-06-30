@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,7 +12,7 @@ SourceList["E:RLW"] = {
 };
 
 // The changeling
-RaceList["changeling-erlw"] = {
+RaceList["changeling"] = {
 	regExpSearch : /changeling/i,
 	name : "Changeling",
 	source : [["E:RLW", 18]],
@@ -51,7 +51,7 @@ WeaponsList["double-bladed scimitar"] = {
 };
 
 // Revenant blade feat
-FeatsList["revenant blade-erlw"] = {
+FeatsList["revenant blade"] = {
 	name : "Revenant Blade",
 	source : [["E:RLW", 22]],
 	prerequisite : "Being an Elf",
@@ -81,7 +81,7 @@ if (!SourceList.V) {
 	RaceList["bugbear"] = {
 		regExpSearch : /bugbear/i,
 		name : "Bugbear",
-		source : [["V", 119], ["E:RLW", 25]],
+		source : [["V", 119], ["E:RLW", 25], ["W", 174]],
 		plural : "Bugbears",
 		size : 3,
 		speed : {
@@ -111,7 +111,7 @@ if (!SourceList.V) {
 	RaceList["goblin"] = {
 		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
 		name : "Goblin",
-		source : [["V", 119], ["G", 17], ["E:RLW", 26]],
+		source : [["V", 119], ["G", 17], ["E:RLW", 26], ["W", 174]],
 		plural : "Goblins",
 		size : 4,
 		speed : {
@@ -144,7 +144,7 @@ if (!SourceList.V) {
 	RaceList["hobgoblin"] = {
 		regExpSearch : /hobgoblin/i,
 		name : "Hobgoblin",
-		source : [["V", 119], ["E:RLW", 26]],
+		source : [["V", 119], ["E:RLW", 26], ["W", 175]],
 		plural : "Hobgoblins",
 		size : 3,
 		speed : {
@@ -173,7 +173,7 @@ if (!SourceList.V) {
 	RaceList["orc"] = {
 		regExpSearch : /^(?!.*half)(?=.*\bor(c|k)).*$/i,
 		name : "Orc",
-		source : [["V", 120], ["E:RLW", 32]],
+		source : [["V", 120], ["E:RLW", 32], ["W", 178]],
 		plural : "Orcs",
 		size : 3,
 		speed : {
@@ -195,7 +195,7 @@ if (!SourceList.V) {
 } // dupl_end
 
 // The kalashtar
-RaceList["kalashtar-erlw"] = {
+RaceList["kalashtar"] = {
 	regExpSearch : /kalashtar/i,
 	name : "Kalashtar",
 	source : [["E:RLW", 30]],
@@ -219,7 +219,7 @@ RaceList["kalashtar-erlw"] = {
 };
 
 // The four subraces of the shifter
-RaceList["beasthide shifter-erlw"] = {
+RaceList["beasthide shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
 	name : "Beasthide shifter",
 	sortname : "Shifter, Beasthide",
@@ -250,7 +250,7 @@ RaceList["beasthide shifter-erlw"] = {
 		}
 	}
 };
-RaceList["longtooth shifter-erlw"] = {
+RaceList["longtooth shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 	name : "Longtooth shifter",
 	sortname : "Shifter, Longtooth",
@@ -291,7 +291,7 @@ RaceList["longtooth shifter-erlw"] = {
 		}
 	}
 };
-RaceList["swiftstride shifter-erlw"] = {
+RaceList["swiftstride shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
 	name : "Swiftstride shifter",
 	sortname : "Shifter, Swiftstride",
@@ -323,7 +323,7 @@ RaceList["swiftstride shifter-erlw"] = {
 		}
 	}
 };
-RaceList["wildhunt shifter-erlw"] = {
+RaceList["wildhunt shifter"] = {
 	regExpSearch : /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
 	name : "Wildhunt shifter",
 	sortname : "Shifter, Wildhunt",
@@ -356,7 +356,7 @@ RaceList["wildhunt shifter-erlw"] = {
 };
 
 // The warforged
-RaceList["warforged-erlw"] = {
+RaceList["warforged"] = {
 	regExpSearch : /warforged/i,
 	name : "Warforged",
 	source : [["E:RLW", 36]],
@@ -390,7 +390,7 @@ RaceList["warforged-erlw"] = {
 };
 
 // Dragonmarks subraces
-RaceList["dragonmark detection half-elf-erlw"] = {
+RaceList["dragonmark detection half-elf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
 	name : "Half-elf (dragonmark)",
 	sortname : "Dragonmark, Detection (Half-Elf)",
@@ -476,7 +476,7 @@ RaceList["dragonmark detection half-elf-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark finding half-orc-erlw"] = {
+RaceList["dragonmark finding half-orc"] = {
 	regExpSearch : /^((?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
 	name : "Half-orc (dragonmark)",
 	sortname : "Dragonmark, Finding (Half-Orc)",
@@ -537,7 +537,7 @@ RaceList["dragonmark finding half-orc-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark finding human-erlw"] = {
+RaceList["dragonmark finding human"] = {
 	regExpSearch : /^((?=.*human)((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Finding (Human)",
@@ -598,7 +598,7 @@ RaceList["dragonmark finding human-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark handling human-erlw"] = {
+RaceList["dragonmark handling human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Handling (Human)",
@@ -665,7 +665,7 @@ RaceList["dragonmark handling human-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark healing halfling-erlw"] = {
+RaceList["dragonmark healing halfling"] = {
 	regExpSearch : /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
 	name : "Halfling (dragonmark)",
 	sortname : "Dragonmark, Healing (Halfling)",
@@ -726,7 +726,7 @@ RaceList["dragonmark healing halfling-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark hospitality halfling-erlw"] = {
+RaceList["dragonmark hospitality halfling"] = {
 	regExpSearch : /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
 	name : "Halfling (dragonmark)",
 	sortname : "Dragonmark, Hospitality (Halfling)",
@@ -785,7 +785,7 @@ RaceList["dragonmark hospitality halfling-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark making human-erlw"] = {
+RaceList["dragonmark making human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Making (Human)",
@@ -846,7 +846,7 @@ RaceList["dragonmark making human-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark passage human-erlw"] = {
+RaceList["dragonmark passage human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Passage (Human)",
@@ -894,7 +894,7 @@ RaceList["dragonmark passage human-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark scribing gnome-erlw"] = {
+RaceList["dragonmark scribing gnome"] = {
 	regExpSearch : /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
 	name : "Gnome (dragonmark)",
 	sortname : "Dragonmark, Scribing (Gnome)",
@@ -982,7 +982,7 @@ RaceList["dragonmark scribing gnome-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark sentinel human-erlw"] = {
+RaceList["dragonmark sentinel human"] = {
 	regExpSearch : /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Sentinel (Human)",
@@ -1036,7 +1036,7 @@ RaceList["dragonmark sentinel human-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark shadow elf-erlw"] = {
+RaceList["dragonmark shadow elf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
 	name : "Elf (dragonmark)",
 	sortname : "Dragonmark, Shadow (Elf)",
@@ -1095,7 +1095,7 @@ RaceList["dragonmark shadow elf-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark storm half-elf-erlw"] = {
+RaceList["dragonmark storm half-elf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
 	name : "Half-elf (dragonmark)",
 	sortname : "Dragonmark, Storm (Half-Elf)",
@@ -1154,7 +1154,7 @@ RaceList["dragonmark storm half-elf-erlw"] = {
 		]
 	}
 };
-RaceList["dragonmark warding dwarf-erlw"] = {
+RaceList["dragonmark warding dwarf"] = {
 	regExpSearch : /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
 	name : "Dwarf (dragonmark)",
 	sortname : "Dragonmark, Warding (Dwarf)",
@@ -1257,7 +1257,7 @@ if (!SpellsList["gust"]) {
 } // dupl_end
 
 // Aberrant Dragonmark feat
-FeatsList["aberrant dragonmark-erlw"] = {
+FeatsList["aberrant dragonmark"] = {
 	name : "Aberrant Dragonmark",
 	source : [["E:RLW", 52]],
 	prerequisite : "No other dragonmark",
@@ -1833,7 +1833,7 @@ ClassList.artificer = {
 				"A creature holding an infused item can use an action to cast the spell, using my abilities"
 			]),
 			additional : "cast stored spell",
-			usages : "2\u00D7 Int mod per ",
+			usages : "2\xD7 Int mod per ",
 			usagescalc : "event.value = Math.max(2, Number(What('Int Mod')) * 2);",
 			recovery : "long rest"
 		},
@@ -2046,28 +2046,11 @@ AddSubClass("artificer", "alchemist", {
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.psionic || spName !== "artificer" || (/color spray|sleep/).test(spellKey)) return;
-						var startDescr = spellObj.description;
+						if (spellObj.psionic || spName !== "artificer") return;
 						var toAdd = Math.max(Number(What("Int Mod")), 1);
-						if ((/healing spirit|aura of vitality/i).test(spellKey)) {
-							spellObj.description += " (+" + toAdd + " once)";
+						if (genericSpellDmgEdit(spellKey, spellObj, "acid|fire|necro\\.?|necrotic|poison", toAdd, true, true) || genericSpellDmgEdit(spellKey, spellObj, "heal", toAdd, true, true)) {
 							return true;
-						} else if (genericSpellDmgEdit(spellKey, spellObj, "acid|fire|necro\\.?|necrotic|poison", toAdd, true, true)) {
-							return true;
-						} else {
-							// other healing spells
-							var testRegex = /(.*?\d+d\d+)(\+\d+)?((\+\d+d?\d*\/\d?SL)?(\+spell(casting)? (ability )?mod(ifier)?|(\+|-)\d+ \(.{3}\))? hp.*)/i;
-							var theMatch = spellObj.description.match(testRegex);
-							if (!theMatch) return false;
-							if (theMatch[2]) {
-								var theMid = Number(theMatch[2]) + toAdd;
-								if (theMid > -1) theMid = "+" + theMid;
-							} else {
-								var theMid = "+" + toAdd;
-							}
-							spellObj.description = spellObj.description.replace(testRegex, "$1" + theMid + "$3");
 						}
-						return startDescr !== spellObj.description;
 					},
 					"Artificer spells I cast using alchemist's supplies as my spellcasting focus, have my Intelligence modifier (min 1) added to one die rolled for dealing acid, fire, necrotic, or poison damage, or when restoring hit points."
 				]
@@ -2317,7 +2300,7 @@ AddSubClass("artificer", "artillerist", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spellObj.psionic || spName !== "artificer") return;
-						return genericSpellDmgEdit(spellKey, spellObj, "acid|bludg\\.?|bludgeoning|cold|fire|force|lightn\\.?|lightning|necro\\.?|necrotic|pierc\\.?|piercing|poison|psychic|radiant|slash\\.?|slashing|thunder", "1d8", true, true);
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "1d8", true, true);
 					},
 					"If I use my arcane firearm as a spellcasting focus for an artificer spell, I can add +1d8 to one of the spell's damage rolls."
 				]
@@ -2548,7 +2531,7 @@ MagicItemsList["radiant weapon"] = {
 	source : [["E:RLW", 62], ["T", 22]],
 	type : "weapon (any)",
 	description : "This item adds a +1 on its to hit and damage, has 4 charges, and regains 1d4 at dawn. As a bonus action, I can have it start/stop shedding light, bright in 30 ft, dim in another 30 ft. As a reaction if hit by an attack, I can use 1 charge to blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
-	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker suc­ceeds on a Constitution saving throw against your spell save DC. The weapon regains ld4 expended charges daily at dawn. ",
+	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. The weapon regains 1d4 expended charges daily at dawn.",
 	attunement : true,
 	usages : 4,
 	recovery : "dawn",
@@ -2584,7 +2567,7 @@ MagicItemsList["repeating shot"] = {
 	source : [["E:RLW", 62], ["T", 22], ["UA:A3", 13]],
 	type : "weapon (any with ammunition)",
 	description : "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
-	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic am­munition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
+	descriptionFull : "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
 	attunement : true,
 	chooseGear : {
 		type : "weapon",
@@ -2618,7 +2601,7 @@ MagicItemsList["repulsion shield"] = {
 	source : [["E:RLW", 63], ["T", 23]],
 	type : "shield",
 	description : "I gain an additional +1 bonus to Armor Class while wielding this shield. The shield has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction immediately after being hit by a melee attack, I can expend 1 charge to push the attacker up to 15 ft away.",
-	descriptionFull : "A creature gains a + 1 bonus to Armor Class while wield­ing this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a me­lee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains ld4 expended charges daily at dawn. ",
+	descriptionFull : "A creature gains a +1 bonus to Armor Class while wielding this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains 1d4 expended charges daily at dawn.",
 	weight : 6,
 	attunement : true,
 	usages : 4,
@@ -2768,7 +2751,7 @@ MagicItemsList["cleansing stone"] = {
 	action : [["action", ""]],
 	weight : 88 // using average marble/limestone density of 2.711 g/cm3
 }
-var docentFullDescription = [
+var ERftLW_docentFullDescription = [
 	"A docent is a small metal sphere, about 2 inches across, studded with dragonshards. To attune to a docent, you must embed the item somewhere on your body, such as your chest or your eye socket.",
 	'>>Sentience<<. A docent is a sentient item of any alignment with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It perceives the world through your senses. It communicates telepathically with you and can speak, read, and understand any language it knows (see "Random Properties" below).',
 	">>Life Support<<. Whenever you end your turn with 0 hit points, the docent can make a Wisdom (Medicine) check with a +6 bonus. If this check succeeds, the docent stabilizes you.",
@@ -2784,14 +2767,14 @@ MagicItemsList["docent"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	description : "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
-	descriptionFull : docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	prerequisite : "Requires attunement by a warforged",
 	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Docent",
-		note : desc(docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
 MagicItemsList["dyrrn's tentacle whip"] = {
@@ -3011,7 +2994,7 @@ MagicItemsList["imbued wood focus"] = {
 			],
 			spellAdd : [
 				function (spellKey, spellObj, spName) {
-					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necrotic", 1, true, true);
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "necro\\.?|necrotic", 1, true, true);
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal necrotic damage get a +1 bonus added to one of their damage rolls."
 			]
@@ -3124,7 +3107,7 @@ MagicItemsList["kyrzin's ooze"] = {
 		ability : 0,
 		type : "Magic Item",
 		damage : [8, 8, "acid"],
-		range : '5-ft \u00D7 30-ft line',
+		range : '5-ft \xD7 30-ft line',
 		description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 		abilitytodamage : false,
 		dc : true,
@@ -3193,7 +3176,7 @@ MagicItemsList["orb of shielding"] = {
 	type : "wondrous item",
 	rarity : "common",
 	description : "An orb of shielding is made from crystal or stone aligned to one of the planes. I can use it as my spellcasting focus. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4 (to a minimum of 0).",
-	descriptionFull : "An orb of shielding is a polished, spherical chunk of crystal or stone aligned to one of the planes of existence. If you're a spellcaster, you can use this orb as a spell­casting focus.\n   If you're holding the orb when you take damage of the type associated with the orb's material, you can use your reaction to reduce the damage by ld4 (to a minimum of 0). The materials and their associated damage types are listed in the Orb of Shielding table.\n\n" + toUni("Planar Material\t\tDamage Type") + "\nFernian Basalt\t\tFire\nIrian Quartz\t\tRadiant\nKythrian Skarn\t\tAcid or Poison\nLamannian Flint\t\tLightning or Thunder\nMabaran Obsidian      \tNecrotic\nRisian Shale\t\tCold\nShavarran Chert\t\tForce\nXorian Marble\t\tPsychic",
+	descriptionFull : "An orb of shielding is a polished, spherical chunk of crystal or stone aligned to one of the planes of existence. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   If you're holding the orb when you take damage of the type associated with the orb's material, you can use your reaction to reduce the damage by 1d4 (to a minimum of 0). The materials and their associated damage types are listed in the Orb of Shielding table.\n\n" + toUni("Planar Material\t\tDamage Type") + "\nFernian Basalt\t\tFire\nIrian Quartz\t\tRadiant\nKythrian Skarn\t\tAcid or Poison\nLamannian Flint\t\tLightning or Thunder\nMabaran Obsidian      \tNecrotic\nRisian Shale\t\tCold\nShavarran Chert\t\tForce\nXorian Marble\t\tPsychic",
 	attunement : true,
 	allowDuplicates : true,
 	weight : 3,

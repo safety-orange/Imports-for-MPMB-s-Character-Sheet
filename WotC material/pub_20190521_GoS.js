@@ -1,5 +1,5 @@
 var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source

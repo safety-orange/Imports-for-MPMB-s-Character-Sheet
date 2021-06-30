@@ -448,6 +448,7 @@ SpellsList["id insinuation-ua"] = {
 	duration : "Conc, 1 min",
 	save : "Wis",
 	description : "1 crea save or incapacitated and end of each turn 1d12 Psychic damage, after which it can save to end",
+	descriptionShorter : "1 crea save or incapacitated \u0026 end of each turn 1d12 Psychic damage, can save to end after",
 	descriptionFull : "You unleash a torrent of conflicting desires in the mind of one creature you can see within range, impairing its ability to make decisions. The target must succeed on a Wisdom saving throw or be incapacitated. At the end of each of its turns, it takes 1d12 psychic damage, and it can then make another Wisdom saving throw. On a success, the spell ends on the target."
 };
 SpellsList["intellect fortress-ua_frnw"] = { // completely different than later iterations in UA:POR and TCoE
@@ -535,6 +536,7 @@ SpellsList["psionic blast-ua"] = {
 	duration : "Instantaneous",
 	save : "Dex",
 	description : "All crea 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
+	descriptionShorter : "All 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
 	descriptionFull : "You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd."
 };
 SpellsList["psychic crush-ua"] = {
@@ -549,7 +551,8 @@ SpellsList["psychic crush-ua"] = {
 	duration : "1 min",
 	save : "Int",
 	description : "1 crea 12d6 Psychic damage and stunned for 1 min; save half, not stunned; save at turn end to stop",
-	descriptionFull : "You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.\n   The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target."
+	descriptionFull : "You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.\n   The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target.",
+	dynamicDamageBonus : { multipleDmgMoments : false }
 };
 SpellsList["thought shield-ua"] = {
 	name : "Thought Shield",

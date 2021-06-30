@@ -1225,7 +1225,7 @@ MagicItemsList["weapon of warning"] = {
 }
 
 // Sentient Items
-var blackrazorFullDescription = [
+var DMG_blackrazorFullDescription = [
 	"Hidden in the dungeon of White Plume Mountain, Blackrazor shines like a piece of night sky filled with stars. Its black scabbard is decorated with pieces of cut obsidian.",
 	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the following additional properties.",
 	">>Devour Soul<<. Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by Blackrazor can be restored to life only by a Wish spell.",
@@ -1247,7 +1247,7 @@ MagicItemsList["blackrazor"] = {
 	rarity : "legendary",
 	notLegalAL : true,
 	description : "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast Haste on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
-	descriptionFull : blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : DMG_blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	prerequisite : "Requires attunement by a creature of non-lawful alignment",
 	prereqeval : function(v) { return !(/lawful/i).test(What("Alignment")); },
@@ -1265,7 +1265,7 @@ MagicItemsList["blackrazor"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Blackrazor",
-		note : desc(blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}],
 	savetxt : { immune : ["charmed", "frightened"] },
 	usages : 1,
@@ -1286,7 +1286,7 @@ MagicItemsList["blackrazor"] = {
 		}
 	}
 }
-var waveFullDescription = [
+var DMG_waveFullDescription = [
 	"Held in the dungeon of White Plume Mountain, this trident is an exquisite weapon engraved with images of waves, shells, and sea creatures. Although you must worship a god of the sea to attune to this weapon, Wave happily accepts new converts.",
 	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. If you score a critical hit with it, the target takes extra necrotic damage equal to half its hit point maximum.",
 	"The weapon also functions as a trident of fish command and a weapon of warning. It can confer the benefit of a cap of water breathing while you hold it, and you can use it as a cube of force by choosing the effect, instead of pressing cube sides to select it.",
@@ -1304,7 +1304,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		rarity : "legendary",
 		notLegalAL : true,
 		description : "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
-		descriptionFull : waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull : DMG_waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 		attunement : true,
 		prerequisite : "Requires attunement by a creature that worships a god of the sea",
 		prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
@@ -1321,7 +1321,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		toNotesPage : [{
 			name : "Features",
 			popupName : "Features of Wave",
-			note : desc(waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
+			note : desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
 		}, {
 			name : "Contained Items",
 			popupName : "Descriptions of magic items contained in Wave",
@@ -1362,7 +1362,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		advantages : [["Initiative", true]]
 	}
 }
-var whelmFullDescription = [
+var DMG_whelmFullDescription = [
 	"Whelm is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.",
 	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with Whelm, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.",
 	">>Thrown Weapon<<. Whelm has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.",
@@ -1379,7 +1379,7 @@ MagicItemsList["whelm"] = {
 	rarity : "legendary",
 	notLegalAL : true,
 	description : "This sentient warhammer adds +3 to hit and damage, has the thrown property, deals extra damage when thrown, and returns to my hand when thrown. I can use it to create a shock wave. It makes me afraid of the outdoors, so while I can see the daytime sky, I have disadv. on attacks, saves, and checks. See Notes page.",
-	descriptionFull : whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : DMG_whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	prerequisite : "Requires attunement by a dwarf",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
@@ -1397,7 +1397,7 @@ MagicItemsList["whelm"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Whelm",
-		note : desc(whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}],
 	action : [["action", " (Shock Wave)"]],
 	extraLimitedFeatures : [{

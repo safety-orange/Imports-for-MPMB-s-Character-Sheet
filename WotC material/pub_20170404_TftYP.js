@@ -1,5 +1,5 @@
 var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source

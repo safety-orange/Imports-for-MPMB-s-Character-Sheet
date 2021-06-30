@@ -1,5 +1,5 @@
 var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -1406,8 +1406,8 @@ PsionicsList["cd2-wall of repulsion"] = {
 	range : "60 ft",
 	duration : "Conc, 10 min",
 	save : "Wis",
-	description : "Up to 30\u00D71\u00D710 ft (l\u00D7w\u00D7h) invisible wall of energy; save to move through it, even for unwilling move",
-	description : "Up to 9\u00D70,3\u00D73 m (l\u00D7w\u00D7h) invisible wall of energy; save to move through it, even for unwilling move",
+	description : "Up to 30\xD71\xD710 ft (l\xD7w\xD7h) invisible wall of energy; save to move through it, even for unwilling move",
+	description : "Up to 9\xD70,3\xD73 m (l\xD7w\xD7h) invisible wall of energy; save to move through it, even for unwilling move",
 	descriptionFull : "As an action, you create an invisible, insubstantial wall of energy within 60 feet of you that is up to 30 feet long, 10 feet high, and 1 foot thick. The wall lasts until your concentration ends. Any creature attempting to move through it must make a Wisdom saving throw. On a failed save, a creature can't move through the wall until the start of its next turn. On a successful save, the creature can pass through it. A creature must make this save whenever it attempts to pass through the wall, whether willingly or unwillingly.",
 	firstCol : 3
 };
@@ -2505,8 +2505,8 @@ PsionicsList["mi5-ice barrier"] = {
 	time : "1 a",
 	range : "60-ft",
 	duration : "Conc, 10 min",
-	description : "60\u00D71\u00D715ft (l\u00D7w\u00D7h) wall; a 10-ft section has AC 12 & 30 HP; melee atks do same as Cold dmg back",
-	descriptionMetric : "20\u00D70,3\u00D75m (l\u00D7w\u00D7h) wall; a 3-m section has AC 12 & 30 hp; melee atks do same as Cold dmg back",
+	description : "60\xD71\xD715ft (l\xD7w\xD7h) wall; a 10-ft section has AC 12 & 30 HP; melee atks do same as Cold dmg back",
+	descriptionMetric : "20\xD70,3\xD75m (l\xD7w\xD7h) wall; a 3-m section has AC 12 & 30 hp; melee atks do same as Cold dmg back",
 	descriptionFull : "As an action, you create a wall of ice, at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Each 10-foot section of the wall has AC 12 and 30 hit points. A creature that damages the wall with a melee attack takes cold damage equal to the damage the creature dealt to the wall.",
 	firstCol : 6
 };
@@ -2637,8 +2637,8 @@ PsionicsList["mwa3-water whip"] = {
 	range : "60-ft line",
 	duration : "Instantaneous",
 	save : "Str",
-	description : "60\u00D75-ft (l\u00D7w) all 3d6(+1d6/extra PP) Bludg. dmg \u0026 move to empty spot on line; save half \u0026 no move",
-	descriptionMetric : "20\u00D71,5m (l\u00D7w) all 3d6(+1d6/extra PP) Bludg. dmg, move to empty spot on line; save half \u0026 no move",
+	description : "60\xD75-ft (l\xD7w) all 3d6(+1d6/extra PP) Bludg. dmg \u0026 move to empty spot on line; save half \u0026 no move",
+	descriptionMetric : "20\xD71,5m (l\xD7w) all 3d6(+1d6/extra PP) Bludg. dmg, move to empty spot on line; save half \u0026 no move",
 	descriptionFull : "As an action, you unleash a jet of water in a line that is 60 feet long and 5 feet wide. Each creature in the line must make a Strength saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one. In addition, you can move each target that fails its saving throw to any unoccupied space touching the line. You can increase this ability's damage by 1d6 per additional psi point spent on it.",
 	firstCol : "3-7"
 };
@@ -2777,8 +2777,8 @@ PsionicsList["mw6-wall of thunder"] = {
 	range : "60 ft",
 	duration : "Conc, 10 min",
 	save : "Str",
-	description : "60\u00D71\u00D715 ft (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 30 ft, prone",
-	descriptionMetric : "20\u00D70,3\u00D75 m (l\u00D7w\u00D7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
+	description : "60\xD71\xD715 ft (l\xD7w\xD7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 30 ft, prone",
+	descriptionMetric : "20\xD70,3\xD75 m (l\xD7w\xD7h) wall; diff. terr.; crea start/move in save or 6d6 Thunder dmg, push 10m, prone",
 	descriptionFull : "As an action, you create a wall of thunder, at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Every foot moved through the wall costs 1 extra foot of movement. When a creature moves into the wall's space for the first time on a turn or starts its turn there, that creature must succeed on a Strength saving throw, or it takes 6d6 thunder damage, is pushed in a straight line up to 30 feet away from the wall, and is knocked prone.",
 	firstCol : 6
 };

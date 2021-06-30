@@ -967,19 +967,16 @@ AddWarlockInvocation("Eldritch Armor (prereq: Pact of the Blade)", {
 	},
 	action : [["action", ""]]
 });
-// [dupl_start] the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
-	AddWarlockInvocation("Eldritch Mind (prereq: Pact of the Tome)", {
-		name : "Eldritch Mind",
-		source : [["T", 71], ["UA:CFV", 11]],
-		submenu : "[improves Pact of the Tome]",
-		description : "\n   I have advantage on my Constitution saving throws to maintain concentration on a spell",
-		prereqeval : function(v) {
-			return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
-		},
-		savetxt : { text : "Adv. on Con (Concentration) saves" }
-	});
-} // dupl_end
+AddWarlockInvocation("Eldritch Mind (prereq: Pact of the Tome)", {
+	name : "Eldritch Mind",
+	source : [["UA:CFV", 11]],
+	submenu : "[improves Pact of the Tome]",
+	description : "\n   I have advantage on my Constitution saving throws to maintain concentration on a spell",
+	prereqeval : function(v) {
+		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
+	},
+	savetxt : { text : "Adv. on Con (Concentration) saves" }
+});
 AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua)", {
 	name : "Far\xA0Scribe",
 	source : [["UA:CFV", 11]],

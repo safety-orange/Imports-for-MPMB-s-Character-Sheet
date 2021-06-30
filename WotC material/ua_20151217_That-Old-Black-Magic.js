@@ -71,7 +71,7 @@ RaceList["abyssal tiefling-ua"] = {
 	variants : RaceList.tiefling && RaceList.tiefling.variants ? RaceList.tiefling.variants : []
 };
 //now do the variants
-var addAbyssalTiefling = function(){
+var UATOBM_addAbyssalTiefling = function(){
 	var replaceTraitTxt = ["+1 Intelligence, +2 Charisma", "+1 Constitution, +2 Charisma"];
 	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
 	RaceList["abyssal tiefling-ua"].variants.forEach( function(nVar) {

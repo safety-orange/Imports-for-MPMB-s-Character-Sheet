@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -377,11 +377,7 @@ AddSubClass("cleric", "knowledge domain", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						if (spellKey == "shillelagh") {
-							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-							return true;
-						}
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -467,11 +463,7 @@ AddSubClass("cleric", "light domain", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						if (spellKey == "shillelagh") {
-							spellObj.description = spellObj.description.replace("1d8", "1d8+" + What("Wis Mod"));
-							return true;
-						}
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis", true);
+						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
 					},
 					"My cleric cantrips get my Wisdom modifier added to their damage."
 				]
@@ -773,7 +765,7 @@ AddSubClass("druid", "circle of the moon", {
 				" \u2022 I can choose whether equipment falls to the ground, merges, or stays worn",
 				" \u2022 I revert if out of time or unconscious; if KOd by damage, excess damage carries over"
 			]),
-			usages : [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "\u221E\u00D7 per "],
+			usages : [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "\u221E\xD7 per "],
 			recovery : "short rest",
 			additional : levels.map(function (n) {
 				if (n < 2) return "";
@@ -1273,8 +1265,8 @@ AddSubClass("monk", "way of the four elements", {
 					"wall of fire" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "60\u00D71\u00D720ft (l\u00D7w\u00D7h) or 10-ft rad all in and 10 ft on 1 side 5d8 Fire dmg; save halves; see b",
-						descriptionMetric : "18\u00D70,3\u00D76m (l\u00D7w\u00D7h) or 3-m rad all in and 3 m on 1 side 5d8 Fire dmg; save halves; see B",
+						description : "60\xD71\xD720ft (l\xD7w\xD7h) or 10-ft rad all in and 10 ft on 1 side 5d8 Fire dmg; save halves; see b",
+						descriptionMetric : "18\xD70,3\xD76m (l\xD7w\xD7h) or 3-m rad all in and 3 m on 1 side 5d8 Fire dmg; save halves; see B",
 						changes : "With the River of Hungry Flame discipline, I can cast Wall of Fire without a material component."
 					}
 				}
@@ -1926,19 +1918,23 @@ AddSubClass("wizard", "abjuration", {
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
-						if (spellKey == "dispel magic" || spellKey == "counterspell") {
+						if (spellKey === "dispel magic" || spellKey === "counterspell") {
 							var profB = Number(How("Proficiency Bonus"));
-							var checkRx = RegExp("(" + AbilityScores.names.join("|") + ") check \\(([+-]?\\d+)\\)", "i");
-							if (CurrentCasters.amendSpDescr && checkRx.test(spellObj.description)) {
+							var checkStr = "(" + AbilityScores.names.join("|") + "|spell(casting)?( ability )?) check";
+							var checkRx = RegExp(checkStr + " \\(([+-]?\\d+)\\)", "i");
+							var theBonus = profB;
+							if (checkRx.test(spellObj.description)) {
 								var theMatch = spellObj.description.match(checkRx);
-								var jackOf = tDoc.getField("Jack of All Trades").isBoxChecked(0) === 1;
-								var remAth = tDoc.getField("Remarkable Athlete").isBoxChecked(0) === 1 && theMatch[1].test(/Str|Dex|Con/);
-								var theBonus = Number(theMatch[2]) + (remAth ? Math.floor(profB/2) : jackOf ? Math.ceil(profB/2) : profB);
-								spellObj.description = spellObj.description.replace(checkRx, theMatch[1] + " check (" + (theBonus >= 0 ? "+" + theBonus : theBonus) + ")");
+								theBonus += Number(theMatch[2]);
+								if (tDoc.getField("Remarkable Athlete").isBoxChecked(0) === 1 && theMatch[1].test(/Str|Dex|Con/i)) {
+									theBonus -= Math.ceil(profB/2);
+								} else if (tDoc.getField("Jack of All Trades").isBoxChecked(0) === 1) {
+									theBonus -= Math.floor(profB/2);
+								}
 							} else {
-								var theDC = Number(spellObj.description.replace(/.*DC (\d+).*/i, "$1"));
-								spellObj.description = spellObj.description.replace("DC " + theDC, "DC " + (theDC - profB) );
+								var theMatch = spellObj.description.match(RegExp(checkStr, "i"));
 							}
+							spellObj.description = spellObj.description.replace(theMatch[0], theMatch[1] + " check (" + (theBonus >= 0 ? "+" : "") + theBonus + ")");
 							return true;
 						};
 					},
@@ -2192,7 +2188,7 @@ AddSubClass("wizard", "necromancy", {
 			name : "Grim Harvest",
 			source : ["P", 118],
 			minlevel : 2,
-			description : "\n   " + "Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points" + "\n   " + "The number of hit points regained is 2\u00D7 the spell's level (or 3\u00D7 with necromancy spells)" + "\n   " + "This doesn't occur for constructs/undead"
+			description : "\n   " + "Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points" + "\n   " + "The number of hit points regained is 2\xD7 the spell's level (or 3\xD7 with necromancy spells)" + "\n   " + "This doesn't occur for constructs/undead"
 		},
 		"subclassfeature6" : {
 			name : "Undead Thralls",
@@ -4119,7 +4115,7 @@ SpellsList["aura of vitality"] = {
 	range : "S:30-ft rad",
 	components : "V",
 	duration : "Conc, 1 min",
-	description : "I can heal 1 creature in range for 2d6 HP as a bonus action for the duration",
+	description : "As a bonus action for the duration, I can heal 2d6 HP to 1 creature in range (can be me)",
 	descriptionFull : "Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain 2d6 hit points."
 };
 SpellsList["banishing smite"] = {
@@ -4188,7 +4184,13 @@ SpellsList["chromatic orb"] = {
 	compMaterial : "A diamond worth at least 50 gp",
 	duration : "Instantaneous",
 	description : "Spell attack for 3d8+1d8/SL Acid, Cold, Fire, Lightning, Poison or Thunder dmg (50gp)",
-	descriptionFull : "You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st."
+	descriptionFull : "You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+	dynamicDamageBonus : {
+		multipleDmgTypes : {
+			dmgTypes : ["acid", "cold", "fire", "lightning", "poison", "thunder"],
+			inDescriptionAs :"Acid, Cold, Fire, Lightning, Poison or Thunder"
+		}
+	}
 };
 SpellsList["circle of power"] = {
 	name : "Circle of Power",
@@ -4314,8 +4316,16 @@ SpellsList["destructive wave"] = {
 	components : "V",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "Any crea 5d6 Thunder + 5d6 Radiant/Necrotic dmg and knocked prone; save halves not prone",
-	descriptionFull : "You strike the ground, creating a burst of divine energy that ripples outward from you. Each creature you choose within 30 feet of you must succeed on a Constitution saving throw or take 5d6 thunder damage, as well as 5d6 radiant or necrotic damage (your choice), and be knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone."
+	description : "Any crea 5d6 Thunder dmg \u0026 5d6 Radiant or Necrotic dmg \u0026 knocked prone; save halves, not prone",
+	descriptionShorter : "Any crea 5d6 Thunder dmg \u0026 5d6 Radiant or Necrotic dmg \u0026 prone; save half, not prone",
+	descriptionFull : "You strike the ground, creating a burst of divine energy that ripples outward from you. Each creature you choose within 30 feet of you must succeed on a Constitution saving throw or take 5d6 thunder damage, as well as 5d6 radiant or necrotic damage (your choice), and be knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.",
+	dynamicDamageBonus : {
+		allDmgTypesSingleMoment : true,
+		multipleDmgTypes : {
+			dmgTypes : ["radiant", "necrotic"],
+			inDescriptionAs : "Radiant or Necrotic"
+		}
+	}
 };
 SpellsList["dissonant whispers"] = {
 	name : "Dissonant Whispers",
@@ -4342,7 +4352,14 @@ SpellsList["elemental weapon"] = {
 	components : "V,S",
 	duration : "Conc, 1 h",
 	description : "+1 magical weapon; +1d4 Acid, Cold, Fire, Lightning, or Thunder dmg; SL5: +2/+2d4, SL7: +3/+3d4",
-	descriptionFull : "A nonmagical weapon you touch becomes a magic weapon. Choose one of the following damage types - acid, cold, fire, lightning, or thunder. For the duration, the weapon has a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type when it hits." + AtHigherLevels + "When you cast this spell using a spell slot of 5th or 6th level, the bonus to attack rolls increases to +2 and the extra damage increases to 2d4. When you use a spell slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to 3d4."
+	descriptionShorter : "+1 wea; +1d4 Acid/Cold/Fire/Lightning/Thunder dmg; SL5: +2/+2d4, SL7: +3/+3d4",
+	descriptionFull : "A nonmagical weapon you touch becomes a magic weapon. Choose one of the following damage types - acid, cold, fire, lightning, or thunder. For the duration, the weapon has a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type when it hits." + AtHigherLevels + "When you cast this spell using a spell slot of 5th or 6th level, the bonus to attack rolls increases to +2 and the extra damage increases to 2d4. When you use a spell slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to 3d4.",
+	dynamicDamageBonus : {
+		multipleDmgTypes : {
+			dmgTypes : ["acid", "cold", "fire", "lightning", "thunder"],
+			inDescriptionAs : "Acid, Cold, Fire, Lightning, or Thunder|Acid/Cold/Fire/Lightning/Thunder"
+		}
+	}
 };
 SpellsList["ensnaring strike"] = {
 	name : "Ensnaring Strike",
@@ -4356,6 +4373,7 @@ SpellsList["ensnaring strike"] = {
 	duration : "Conc, 1 min",
 	save : "Str",
 	description : "Next crea hit save (Large adv.) or restrained, 1d6+1d6/SL Piercing dmg/rnd; Str check to escape",
+	descriptionShorter : "Next crea hit save (Large adv.) or restrained, 1d6+1d6/SL Piercing dmg/rnd; Str chk escape",
 	descriptionFull : "The next time you hit a creature with a weapon attack before this spell ends, a writhing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or larger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away." + "\n   " + "While restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed." + AtHigherLevels + "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
 };
 SpellsList["feign death"] = {
@@ -4413,7 +4431,8 @@ SpellsList["hail of thorns"] = {
 	duration : "Conc, 1 min",
 	save : "Dex",
 	description : "Next ranged weapon hit, all within 5 ft of target 1d10+1d10/SL Piercing dmg; save halves",
-	descriptionFull : "The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st (to a maximum of 6d10)."
+	descriptionFull : "The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st (to a maximum of 6d10).",
+	dynamicDamageBonus : { multipleDmgMoments : false }
 };
 SpellsList["hex"] = {
 	name : "Hex",
@@ -4427,6 +4446,7 @@ SpellsList["hex"] = {
 	compMaterial : "The petrified eye of a newt",
 	duration : "Conc, 1 h",
 	description : "1 crea +1d6 Necrotic dmg from my atks; dis. on chosen ability checks; SL3: conc, 8h; SL5: conc, 24h",
+	descriptionShorter : "1 crea +1d6 Necrotic dmg from my atks; dis. chosen abi chks; SL3: conc, 8h; SL5: conc, 24h",
 	descriptionFull : "You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability." + "\n   " + "If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature." + "\n   " + "A remove curse cast on the target ends this spell early." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours."
 };
 SpellsList["hunger of hadar"] = {
@@ -4441,7 +4461,7 @@ SpellsList["hunger of hadar"] = {
 	compMaterial : "A pickled octopus tentacle",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "20-ft rad blinds all while in; all start turn in 2d6 Cold dmg; all end turn in save or 2d6 Acid dmg",
+	description : "20-ft rad all: blind while in, start turn in 2d6 Cold dmg, end turn in save or 2d6 Acid dmg",
 	descriptionFull : "You open a gateway to the dark between the stars, a region infested with unknown horrors. A 20-foot-radius sphere of blackness and bitter cold appears, centered on a point with range and lasting for the duration. This void is filled with a cacophony of soft whispers and slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within the area are blinded." + "\n   " + "The void creates a warp in the fabric of space, and the area is difficult terrain. Any creature that starts its turn in the area takes 2d6 cold damage. Any creature that ends its turn in the area must succeed on a Dexterity saving throw or take 2d6 acid damage as milky, otherworldly tentacles rub against it."
 };
 SpellsList["lightning arrow"] = {
@@ -4456,7 +4476,12 @@ SpellsList["lightning arrow"] = {
 	duration : "Conc, 1 min",
 	save : "Dex",
 	description : "Next rngd wea atk +4d8+1d8/SL Lightn. dmg, miss half; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
-	descriptionFull : "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage." + "\n   " + "Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one." + "\n   " + "The piece of ammunition or weapon then returns to its normal form." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd."
+	descriptionShorter : "Next atk +4d8+1d8/SL Lightn. dmg, miss h" + (typePF ? "a" : "") + "lf; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
+	descriptionFull : "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage." + "\n   " + "Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one." + "\n   " + "The piece of ammunition or weapon then returns to its normal form." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd.",
+	dynamicDamageBonus : {
+		multipleDmgMoments : false,
+		skipDmgGroupIfNotMultiple : /(atk .*?lightn\. dmg.*?)/i
+	}
 };
 SpellsList["phantasmal force"] = {
 	name : "Phantasmal Force",
@@ -4470,7 +4495,8 @@ SpellsList["phantasmal force"] = {
 	compMaterial : "A bit of fleece",
 	duration : "Conc, 1 min",
 	save : "Int",
-	description : "1 crea save or sees 10 ft cube illusion that does 1d6 Psychic dmg/rnd; Int(Investigation) vs. Spell DC",
+	description : "1 crea save or sees 10 ft cube illusion that does 1d6 Psychic dmg/rnd; Int(Investigation) vs. spell DC",
+	descriptionShorter : "1 crea save or sees 10 ft cube illusion that does 1d6 Psychic dmg/rnd; Investigation vs. DC",
 	descriptionFull : "You craft an illusion that takes root in the mind of a creature that you can see within range. The target must make an Intelligence saving throw. On a failed save, you create a phantasmal object, creature, or other visible phenomenon of your choice that is no larger than a 10-foot cube and that is perceivable only to the target for the duration. This spell has no effect on undead or constructs." + "\n   " + "The phantasm includes sound, temperature, and other stimuli, also evident only to the creature." + "\n   " + "The target can use its action to examine the phantasm with an Intelligence (Investigation) check against your spell save DC. If the check succeeds, the target realizes that the phantasm is an illusion, and the spell ends." + "\n   " + "While a target is affected by the spell, the target treats the phantasm as if it were real. The target rationalizes any illogical outcomes from interacting with the phantasm. For example, a target attempting to walk across a phantasmal bridge that spans a chasm falls once it steps onto the bridge. If the target survives the fall, it still believes that the bridge exists and comes up with some other explanation for its fall - it was pushed, it slipped, or a strong wind might have knocked it off." + "\n   " + "An affected target is so convinced of the phantasm's reality that it can even take damage from the illusion. A phantasm created to appear as a creature can attack the target. Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on your turn, the phantasm can deal 1d6 psychic damage to the target if it is in the phantasm's area or within 5 feet of the phantasm, provided that the illusion is of a creature or hazard that could logically deal damage, such as by attacking. The target perceives the damage as a type appropriate to the illusion."
 };
 SpellsList["power word heal"] = {
@@ -4484,6 +4510,7 @@ SpellsList["power word heal"] = {
 	components : "V,S",
 	duration : "Instantaneous",
 	description : "1 crea heals all HP and stops being charmed, frightened, paralyzed, stunned; it can use rea to stand up",
+	descriptionShorter : "1 crea heals all HP, not charmed, frightened, paralyzed, stunned; rea to stand up",
 	descriptionFull : "A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs."
 };
 SpellsList["ray of sickness"] = {
@@ -4511,8 +4538,12 @@ SpellsList["searing smite"] = {
 	components : "V",
 	duration : "Conc, 1 min",
 	save : "Con",
-	description : "Next melee weapon hit +1d6+1d6/SL Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
-	descriptionFull : "The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spell ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial extra damage dealt by the attack increases by 1d6 for each slot above the 1st."
+	description : "Next melee weapon hit +1d6+1d6/SL Fire dmg and target ignites: start of turn save to end or 1d6 dmg",
+	descriptionShorter : "Next melee wea hit +1d6+1d6/SL Fire dmg \u0026 ignites: start of turn save to end or 1d6 dmg",
+	descriptionFull : "The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spell ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial extra damage dealt by the attack increases by 1d6 for each slot above the 1st.",
+	dynamicDamageBonus : {
+		extraDmgGroupsSameType : /(end or )((?:\+?\d+d?\d*)+)/i
+	}
 };
 SpellsList["staggering smite"] = {
 	name : "Staggering Smite",
@@ -4596,8 +4627,10 @@ SpellsList["tsunami"] = {
 	components : "V,S",
 	duration : "Conc, 6 rnd",
 	save : "Str",
-	description : "300\u00D750\u00D7300ft (l\u00D7w\u00D7h) wall of water moves away at 50 ft/rnd; 6d10 Bludg. dmg; save halves; see B",
-	descriptionMetric : "90\u00D715\u00D790m (l\u00D7w\u00D7h) wall of water moves away at 15 m/rnd; 6d10 Bludg. dmg; save halves; see B",
+	description : "300\xD750\xD7300ft (l\xD7w\xD7h) wall of water moves away at 50 ft/rnd; 6d10 Bludg. dmg; save halves; see B",
+	descriptionShorter : "300\xD750\xD7300ft (l\xD7w\xD7h) wave moves away at 50 ft/rnd; 6d10 Bludg. dmg; save half; see B",
+	descriptionMetric : "90\xD715\xD790m (l\xD7w\xD7h) wall of water moves away at 15 m/rnd; 6d10 Bludg. dmg; save halves; see B",
+	descriptionShorterMetric : "90\xD715\xD790m (l\xD7w\xD7h) wave moves away at 15 m/rnd; 6d10 Bludg. dmg; save half; see B",
 	descriptionFull : "A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration." + "\n   " + "When the wall appears, each creature within its area must make a Strength saving throw. On a failed save, a creature takes 6d10 bludgeoning damage, or half as much damage on a successful save." + "\n   " + "At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves must succeed on a Strength saving throw or take 5d10 bludgeoning damage. A creature can take this damage only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the damage creatures take from the spell on subsequent rounds is reduced by 1d10. When the wall reaches 0 feet in height, the spell ends." + "\n   " + "A creature caught in the wall can move by swimming. Because of the force of the wave, though, the creature must make a successful Strength (Athletics) check against your spell save DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground."
 };
 SpellsList["witch bolt"] = {
@@ -4611,7 +4644,8 @@ SpellsList["witch bolt"] = {
 	components : "V,S,M",
 	compMaterial : "A twig from a tree that has been struck by lightning",
 	duration : "Conc, 1 min",
-	description : "Spell attack 1d12+1d12/SL Lightning dmg; 1 a repeat dmg, if consecutive; ends if out of range",
+	description : "Ranged spell attack 1d12+1d12/SL Lightning dmg; 1 a repeat dmg, if consecutive; ends if out of range",
+	descriptionShorter : "Rngd atk 1d12+1d12/SL Lightning dmg; 1 a repeat dmg, if consecutive; end if out of range",
 	descriptionFull : "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st."
 };
 SpellsList["wrathful smite"] = {

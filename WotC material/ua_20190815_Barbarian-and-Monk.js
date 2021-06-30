@@ -1,5 +1,5 @@
 var iFileName = "ua_20190815_Barbarian-and-Monk.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: Barbarian and Monk article to MPMB's Character Record Sheet
 
 // Define the source
@@ -74,7 +74,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			description : desc([
 				"As an action, I can touch a creature and roll a die to channel magic into it",
 				"The target regains an expended spell slot of a level equal to or less then the die roll",
-				"If it has no expended spell slots of that level, it gains 5\u00D7 the die roll in temp HP instead",
+				"If it has no expended spell slots of that level, it gains 5\xD7 the die roll in temp HP instead",
 				"Regardless of what happens, I take force damage equal to five times the die roll"
 			]),
 			additional : levels.map(function (n) {

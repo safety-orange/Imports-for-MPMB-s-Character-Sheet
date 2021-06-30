@@ -197,7 +197,7 @@ if (MagicItemsList["ioun stone"]) {
 		addMod : [{ type : "save", field : "Int", mod : 1, text : "While the Ioun stone of Self-Preservation orbits my head, I gain a +1 bonus to Intelligence saving throws." }]
 	}
 }
-var leatherGolemArmorFullDescription = [
+var LLoK_leatherGolemArmorFullDescription = [
 	"Strange rituals have repurposed the body of a flesh golem into this partially sentient suit of leather armor. While wearing this armor, you gain the following benefits:",
 	"\u2022 You gain a +1 bonus to AC and to saving throws against spells and other magical effects.",
 	"\u2022 >>Immutable Form<<. You are immune to any spell or effect that would alter your form.",
@@ -213,7 +213,7 @@ MagicItemsList["leather golem armor"] = {
 	rarity : "rare",
 	magicItemTable : "G",
 	description : "I am unwilling to part with this leather armor until its curse is lifted from me, see Notes page. The curse makes me go berserk and have an aversion to fire. It gives me a +1 bonus to AC and saves vs. spells and magical effects. I have resistance to lightning damage and when I suffer such damage, I gain 5 temporary HP.",
-	descriptionFull : leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : LLoK_leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	weight : 10,
 	dmgres : ["Lightning"],
@@ -231,10 +231,10 @@ MagicItemsList["leather golem armor"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Leather Golem Armor",
-		note : desc(leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
+		note : desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
 	}]
 }
-var polymorphBladeFullDescription = [
+var LLoK_polymorphBladeFullDescription = [
 	"When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Wisdom saving throw in addition to suffering the attack's normal effects. On a failed save, the creature also suffers the effects of a polymorph spell. Roll a d20 and consult the following table to determine the form the target creature is transformed into.",
 	">>d20\tNew Form   \td20\tNew Form<<",
 	"  1\tTyrannosaurus\t 11\tWolf",
@@ -258,7 +258,7 @@ MagicItemsList["polymorph blade"] = {
 	rarity : "very rare",
 	magicItemTable : "H",
 	description : "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, the creature must make a DC 15 Wisdom save or be polymorphed for 1 hour into a random beast (see Notes page). However, on a roll of 1 to hit, I am the one being polymorphed for 1 hour without a save.",
-	descriptionFull : polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : LLoK_polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	chooseGear : {
 		type : "weapon",
@@ -284,10 +284,10 @@ MagicItemsList["polymorph blade"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of a Polymorph Blade",
-		note : desc(polymorphBladeFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
+		note : desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
 	}]
 }
-var poweredArmorFullDescription = [
+var LLoK_poweredArmorFullDescription = [
 	"Powered armor resembles a suit of unusual plate armor, with finely articulated joints connected by an oily, black, leather-like material. The armor has been worked to create the appearance of a heavily muscled warrior, and its great helm is unusual in that it has no openings\u2014only a broad glass plate in the front with a second piece of glass above it. Strange plates, tubing, and large metal bosses adorn the armor in seemingly random fashion. On the back of the armor's left gauntlet is a rectangular metal box, from which projects a short rod tipped with a cone-shaped red crystal.",
 	"While wearing this armor, you gain the following benefits:",
 	"\u2022 You have a +1 bonus to AC.",
@@ -309,7 +309,7 @@ MagicItemsList["powered armor"] = {
 	rarity : "legendary",
 	notLegalAL : true,
 	description : "This unusual plate armor looks like a heavily muscled warrior with a helm without openings. It gives me a +1 bonus to AC, increases my Strength to 18, and adv. on death saves. As a bonus action, I can use charges from its energy cell or expend my own HP to have it do various things, see Notes page.",
-	descriptionFull : poweredArmorFullDescription.join("\n   "),
+	descriptionFull : LLoK_poweredArmorFullDescription.join("\n   "),
 	attunement : true,
 	weight : 65,
 	scoresOverride : [18, 0, 0, 0, 0, 0],
@@ -332,7 +332,7 @@ MagicItemsList["powered armor"] = {
 	toNotesPage : [{
 		name : "Features",
 		popupName : "Features of Powered Armor",
-		note : desc(poweredArmorFullDescription).replace(/your/g, "my").replace(/you /ig, "I ")
+		note : desc(LLoK_poweredArmorFullDescription).replace(/your/g, "my").replace(/you /ig, "I ")
 	}],
 	weaponsAdd : ["Arm-Mounted Laser"],
 	weaponOptions : {

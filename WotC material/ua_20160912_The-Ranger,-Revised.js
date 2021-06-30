@@ -1,5 +1,5 @@
 var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source
@@ -386,7 +386,7 @@ AddSubClass("rangerua", "deep stalker-ua", {
 
 // By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!
-var AddXGtErangerSubclassesToRevisedRanger = function() {
+var UARR_AddXGtErangerSubclassesToRevisedRanger = function() {
 	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
 	var theXGtErangerSubs = ["ranger-gloom stalker", "ranger-horizon walker", "ranger-monster slayer"];
 	for (var i = 0; i < theXGtErangerSubs.length; i++) {

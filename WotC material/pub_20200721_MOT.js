@@ -1,5 +1,5 @@
 var iFileName = "pub_20200721_MOT.js";
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.0.7");
 // This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
 
 // Define the source
@@ -11,9 +11,85 @@ SourceList.MOT = {
 	date : "2020/07/21"
 };
 
-
-// [dupl_start] Add Centaur race, if not already present
-if (!RaceList["centaur"]) {
+RaceList["leonin"] = { // includes contributions by BraabHimself
+    regExpSearch : /leonin/i,
+    name : "Leonin",
+    source : [["MOT", 20]],
+    plural : "Leonin",
+    size : 3,
+    speed : {
+        walk : { spd : 35, enc : 25 }
+    },
+    skillstxt : "Choose one from Athletics, Intimidation, Perception, or Survival",
+    languageProfs : ["Common", "Leonin"],
+    vision : [["Darkvision", 60]],
+    weaponOptions : [{
+        baseWeapon : "unarmed strike",
+        regExpSearch : /^(?=.*(leonin|\bcats?\b))(?=.*claw).*$/i,
+        name : "Leonin Claws",
+        source : [["MoT", 21]],
+        damage : [1, 4, "slashing"]
+    }],
+    weaponsAdd : ["Leonin Claws"],
+	abilitySave : 3,
+    age : " mature and age at about the same rate as humans",
+    height : " are typically over 6 feet tall, with some standing over 7 feet (5'6\" + 2d10\")",
+	weight : " weigh around 250 lb (180 + 2d10 \xD7 2d6 lb)",
+    heightMetric : " are typically over 1,8 metres tall, with some standing over 2,1 metres (167 + 5d10 cm)",
+	weightMetric : " weigh around 120 kg (80 + 5d10 \xD7 4d6 / 10 kg)",
+    scores : [1, 0, 2, 0, 0, 0],
+    features : {
+        "daunting roar" : {
+            name : "Daunting Roar",
+            minlevel : 1,
+            usages : 1,
+            recovery : "short rest",
+            action : [["bonus action", ""]]
+        }
+    },
+	trait : "Leonin (+2 Constitution +1 Strength)" + desc([
+		"Claws: I can use my claws to make unarmed strikes that deal 1d4 slashing damage.",
+		"Daunting Roar: As a bonus action once per short rest, I can let out a menacing roar. Creatures of my choice within 10 ft of me that can hear me must make a Wisdom saving throw (DC 8 + Constitution modifier + Proficiency Bonus) or become frightened of me until the end of my next turn.",
+		"Hunter's Instincts: I'm proficient in either Athletics, Intimidation, Perception, or Survival."
+	])
+};
+RaceList["satyr"] = { // includes contributions by BraabHimself
+	regExpSearch : /satyr|goat\s*(wo)?man/i,
+	name : "Satyr",
+	source : [["MOT", 24]],
+	plural : "Satyr",
+	size : 3,
+	speed : {
+		walk : { spd : 35, enc : 25 }
+	},
+	savetxt : { adv_vs : ["magic"] },
+	languageProfs : ["Common", "Sylvan"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+        regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
+		name : "Satyr Headbutt",
+		source : [["MOT", 25]],
+		damage : [1, 4, "bludgeoning"]
+	},
+	weaponsAdd : ["Satyr Headbutt"],
+	toolProfs : [["Musical instrument", 1]],
+	age : " mature and age at about the same rate as humans",
+	height : " range from just under 5 feet to about 6 feet in height, with generally slender builds (4'8\" + 2d8\")",
+	weight : " weigh around 145 lbs (100 + 2d8 \xD7 2d4 lb)",
+	heightMetric : " range from just under 1,5 metres to about 1,8 metres in height, with generally slender builds (145 + 5d8 cm)",
+	weightMetric : " weigh around 66 kg (45 + 5d8 \xD7 4d4 / 10 kg)",
+	scores : [0, 1, 0, 0, 0, 2],
+	skills : ["Performance", "Persuasion"],
+	toolProfs : [["Musical instrument", 1]],
+	trait : "Satyr (+1 Dexterity, +2 Charisma)" + desc([
+		"Fey: My creature type is fey, rather than humanoid.",
+		"Ram: I can use my head for unarmed strikes that deal 1d4 bludgeoning damage.",
+		"Magic Resistance: I have advantage on saves against spells and other magical effects.",
+		"Mirthful Leaps: Whenever I make a long or high jump, I can roll a d8 and add the number rolled to the number of feet I cover, even when making a standing jump. This extra distance costs movement as normal."
+	])
+};
+// [dupl_start] Add centaur and minotaur race from Guildmasters' Guide to Ravnica, if not already present
+if (!SourceList.G) {
 	RaceList["centaur"] = {
 		regExpSearch : /centaur/i,
 		name : "Centaur",
@@ -43,15 +119,61 @@ if (!RaceList["centaur"]) {
 		scores : [2, 0, 0, 0, 1, 0],
 		trait : "Centaur (+2 Strength +1 Wisdom)" + desc([
 			"Fey: My creature type is fey, rather than humanoid.",
-			"Hooves: I can use my hooves for unarmed strikes (1d4 bludgeoning damage).",
+			"Hooves: I can use my hooves for unarmed strikes that deal 1d4 bludgeoning damage.",
 			"Charge: If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
 			"Equine Build: I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft."
 		]),
 		action : [["bonus action", "Hooves (after charge)"]],
 		carryingCapacity : 2
 	};
+	RaceList["minotaur"] = {
+		regExpSearch : /minotaur/i,
+		name : "Minotaur",
+		sortname : "Minotaur",
+		source : [["MOT", 22], ["G", 19]],
+		plural : "Minotaurs",
+		size : 3,
+		speed : {
+			walk : { spd : 30, enc : 20 }
+		},
+		languageProfs : ["Common", "Minotaur"],
+		weaponOptions : {
+			baseWeapon : "unarmed strike",
+			regExpSearch : /\bhorns?\b/i,
+			name : "Horns",
+			source : [["MOT", 23], ["G", 19]],
+			damage : [1, 6, "piercing"],
+			description : "Attack as a bonus action after moving 20 ft with the Dash action"
+		},
+		weaponsAdd : ["Horns"],
+		skillstxt : "Choose one from Intimidation or Persuasion",
+		age : " reach adulthood around age 17 and live up to 150 years",
+		height : " stand around 6 feet tall (5'4\" + 2d8\")",
+		weight : " weigh around 300 pounds (175 + 2d8 \xD7 2d6 lb)",
+		heightMetric : " stand around 175 cm tall (163 + 5d8 cm)",
+		weightMetric : " weigh around 135 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
+		scores : [2, 0, 1, 0, 0, 0],
+		abilitySave : 1,
+		trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
+			"Horns: I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
+			"Goring Rush: When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
+			"Hammering Horns: As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof bonus) or be pushed up to 10 ft away from me."
+		]),
+		features : {
+			"goring rush" : {
+				name : "Goring Rush",
+				minlevel : 1,
+				action : ["bonus action", " (with Dash)"]
+			},
+			"hammering horns" : {
+				name : "Hammering Horns",
+				minlevel : 1,
+				action : ["bonus action", " (after hit)"]
+			}
+		}
+	};
 }; // dupl_end
-// [dupl_start] Add Triton race, if not already present
+// [dupl_start] Add Triton race from Volo's Guide to Monsters, if not already present
 if (!RaceList["triton"]) {
 	RaceList["triton"] = {
 		regExpSearch : /triton/i,
@@ -130,8 +252,8 @@ if (!SpellsList["wall of water"]) {
 		components : "V,S,M",
 		compMaterial : "A drop of water",
 		duration : "Conc, 10 min",
-		description : "30\u00D71\u00D710ft (l\u00D7w\u00D7h) or 20-ft rad 20-ft high; dif. ter.; range wea dis.; Fire dmg half; Cold dmg freezes",
-		descriptionMetric : "9\u00D70,3\u00D73m (l\u00D7w\u00D7h) or 6-m rad 6-m high; dif. ter.; ranged wea dis.; Fire dmg half; Cold dmg freezes",
+		description : "30\xD71\xD710ft (l\xD7w\xD7h) or 20-ft rad 20-ft high; dif. ter.; range wea dis.; Fire dmg half; Cold dmg freezes",
+		descriptionMetric : "9\xD70,3\xD73m (l\xD7w\xD7h) or 6-m rad 6-m high; dif. ter.; ranged wea dis.; Fire dmg half; Cold dmg freezes",
 		descriptionFull : "You conjure up a wall of water on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain." + "\n   " + "Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot square section is frozen). Each 5-foot-square frozen section has AC 5 and 15 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it."
 	};
 }; // dupl_end
@@ -328,7 +450,7 @@ CreatureList["anvilwrought raptor"] = {
 	name : "Anvilwrought Raptor",
 	source : [["MOT", 209]],
 	size : 5,
-	type : "construct",
+	type : "Construct",
 	companion : "familiar_not_al",
 	alignment : "Unaligned",
 	ac : 14,
