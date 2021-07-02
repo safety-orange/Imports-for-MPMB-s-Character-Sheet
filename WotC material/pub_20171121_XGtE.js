@@ -4999,7 +4999,7 @@ MagicItemsList["enduring spellbook"] = {
 }
 MagicItemsList["ersatz eye"] = {
 	name : "Ersatz Eye",
-	source : ["X", 137],
+	source : [["X", 137], ["W", 267]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in my eye socket, it can't be removed by anyone other than me, and I can see through the tiny orb as though it were a normal eye.",

@@ -770,7 +770,7 @@ if (!SourceList["E:RLW"]) {
 					"heal" : {
 						components : "V,S,M\u0192",
 						compMaterial : "Alchemist's supplies",
-						description : "1 living creature heals 70 HP and is cured of blindness, deafness, and all diseases",
+						allowUpCasting : false,
 						changes : "When using my Chemical Mastery class feature and alchemist's supplies as my spellcasting focus, I can cast Heal once per long rest without using a spell slot."
 					}
 				}
@@ -6653,3 +6653,18 @@ SpellsList["tasha's otherworldly guise"] = {
 	"\n \u2022 All your weapon attacks are magical, and when you make a weapon attack, you can use your spellcasting ability modifier, instead of Strength or Dexterity, for the attack and damage rolls." +
 	"\n \u2022 You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature, like Extra Attack, that lets you attack more than once when you take the Attack action on your turn."
 };
+
+// Magic Items
+
+// [dupl_start] reprint from Eberron: Rising from the Last War
+if (!MagicItemsList["prosthetic limb"]) {
+	MagicItemsList["prosthetic limb"] = {
+		name : "Prosthetic Limb",
+		source : [["E:RLW", 278], ["W", 268], ["T", 134]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
+		descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
+		action : [["action", " (attach/detach)"]]
+	}
+} // dupl_end

@@ -10,6 +10,30 @@ SourceList.F={
 	date : "2020/09/15"
 };
 
+// Winter Survival Gear (contains contributions by Nod_Hero on Discord)
+GearList["cold weather"] = {
+    infoname : "Cold Weather [10 gp]",
+    name : "Cold weather clothes",
+    source : [["F", 20]],
+    amount : "",
+    weight : 5,
+    type : "clothes"
+};
+GearList["crampons (2)"] = {
+    infoname : "Crampons (2) [2 gp]",
+    name : "Crampons",
+    source : [["F", 20]],
+    amount : 2,
+    weight : 0.125
+};    
+GearList["snowshoes"] = {
+    infoname : "Snowshoes [2 gp]",
+    name : "Snowshoes",
+    source : [["F", 20]],
+    amount : "",
+    weight : 4
+};
+
 // Creatures - new beasts
 CreatureList["awakened white moose"] = {
 	name : "Awakened White Moose",

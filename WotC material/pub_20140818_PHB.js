@@ -1074,7 +1074,7 @@ AddSubClass("monk", "way of the four elements", {
 					"cone of cold" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "8d8 Cold dmg; save halves; crea killed become frozen statues until thawed",
+						allowUpCasting : false,
 						changes : "With the Breath of Winter discipline, I can cast Cone of Cold without a material component."
 					}
 				}
@@ -1095,7 +1095,7 @@ AddSubClass("monk", "way of the four elements", {
 					"hold person" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "1 humanoid save or paralyzed; extra save at end of each turn",
+						allowUpCasting : false,
 						changes : "With the Clench of the North Wind discipline, I can cast Hold Person without a material component."
 					}
 				}
@@ -1152,7 +1152,7 @@ AddSubClass("monk", "way of the four elements", {
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"thunderwave" : {
-						description : "All crea/obj in area 2d8 Thunder dmg, pushed 10 ft away; save halves and not pushed",
+						allowUpCasting : false,
 						changes : "With the Fist of Four Thunders discipline, I can cast Thunderwave."
 					}
 				}
@@ -1179,7 +1179,7 @@ AddSubClass("monk", "way of the four elements", {
 					"fireball" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "20-ft rad all crea 8d6 Fire dmg; save halves; unattended flammable objects ignite",
+						allowUpCasting : false,
 						changes : "With the Flames of the Phoenix discipline, I can cast Fireball without a material component."
 					}
 				}
@@ -1200,7 +1200,7 @@ AddSubClass("monk", "way of the four elements", {
 					"shatter" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "10-ft rad all 3d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
+						allowUpCasting : false,
 						changes : "With the Gong of the Summit discipline, I can cast Shatter without a material component."
 					}
 				}
@@ -1265,8 +1265,7 @@ AddSubClass("monk", "way of the four elements", {
 					"wall of fire" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "60\xD71\xD720ft (l\xD7w\xD7h) or 10-ft rad all in and 10 ft on 1 side 5d8 Fire dmg; save halves; see b",
-						descriptionMetric : "18\xD70,3\xD76m (l\xD7w\xD7h) or 3-m rad all in and 3 m on 1 side 5d8 Fire dmg; save halves; see B",
+						allowUpCasting : false,
 						changes : "With the River of Hungry Flame discipline, I can cast Wall of Fire without a material component."
 					}
 				}
@@ -1311,7 +1310,7 @@ AddSubClass("monk", "way of the four elements", {
 					"burning hands" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "3d6 Fire dmg; save halves; unattended flammable objects ignite",
+						allowUpCasting : false,
 						changes : "With the Sweeping Cinder Strike discipline, I can cast Burning Hands."
 					}
 				}
