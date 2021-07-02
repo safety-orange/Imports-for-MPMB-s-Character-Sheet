@@ -14740,7 +14740,7 @@ FeatsList["greater dragonmark-ua"] = {
 				description : "Create a glyph that triggers on set condition; Int(Investigation) vs. Spell DC; see book",
 				changes : "Spells cast through my Greater Dragonmark don't require material components."
 			},
-			"glyph of warding" : {
+			"leomund's secret chest" : {
 				compMaterial : "A Siberys dragonshard with a value of at least 100 gp",
 				description : "Hide chest with content in Ethereal Plane for 60 days, after that chance of loss; 1 a reappear (100gp)",
 				changes : "Leomund's Secret Chest cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica."

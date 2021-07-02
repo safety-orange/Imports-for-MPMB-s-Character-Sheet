@@ -1,5 +1,5 @@
 var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.7");
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
@@ -680,6 +680,7 @@ MagicItemsList["icon of ravenloft"] = {
 		"cure wounds" : {
 			range : "30 ft",
 			description : "1 living creature heals 3d8+3 HP if it not an undead, construct, or fiend",
+			dynamicDamageBonus : { doNotProcess : true },
 			changes : "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect undead, a construct, or a fiend."
 		}
 	}

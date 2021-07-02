@@ -556,7 +556,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	}],
 	spellChanges : {
 		"burning hands" : {
-			description : "3d6 Fire dmg +1d6 per charge spend after the 1st; save halves; unattended flammable objects ignite",
+			description : "All in area 3d6+1d6/extra charge Fire dmg; save halves; unattended flammable objects ignite",
 			changes : "The spell level this is cast at depends on the amount of charges spend, 1 charge per spell slot level."
 		}
 	},

@@ -1216,7 +1216,7 @@ AddSubClass("monk", "way of the four elements", {
 					"cone of cold" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "8d8 Cold dmg; save halves; crea killed become frozen statues until thawed",
+						allowUpCasting : false,
 						changes : "With the Breath of Winter discipline, I can cast Cone of Cold without a material component."
 					}
 				}
@@ -1237,7 +1237,7 @@ AddSubClass("monk", "way of the four elements", {
 					"hold person" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "1 humanoid save or paralyzed; extra save at end of each turn",
+						allowUpCasting : false,
 						changes : "With the Clench of the North Wind discipline, I can cast Hold Person without a material component."
 					}
 				}
@@ -1294,7 +1294,7 @@ AddSubClass("monk", "way of the four elements", {
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"thunderwave" : {
-						description : "All crea/obj in area 2d8 Thunder dmg, pushed 10 ft away; save halves and not pushed",
+						allowUpCasting : false,
 						changes : "With the Fist of Four Thunders discipline, I can cast Thunderwave."
 					}
 				}
@@ -1321,7 +1321,7 @@ AddSubClass("monk", "way of the four elements", {
 					"fireball" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "20-ft rad all crea 8d6 Fire dmg; save halves; unattended flammable objects ignite",
+						allowUpCasting : false,
 						changes : "With the Flames of the Phoenix discipline, I can cast Fireball without a material component."
 					}
 				}
@@ -1342,7 +1342,7 @@ AddSubClass("monk", "way of the four elements", {
 					"shatter" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "10-ft rad all 3d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
+						allowUpCasting : false,
 						changes : "With the Gong of the Summit discipline, I can cast Shatter without a material component."
 					}
 				}
@@ -1407,8 +1407,7 @@ AddSubClass("monk", "way of the four elements", {
 					"wall of fire" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "60\xD71\xD720ft (l\xD7w\xD7h) or 10-ft rad all in and 10 ft on 1 side 5d8 Fire dmg; save halves; see b",
-						descriptionMetric : "18\xD70,3\xD76m (l\xD7w\xD7h) or 3-m rad all in and 3 m on 1 side 5d8 Fire dmg; save halves; see B",
+						allowUpCasting : false,
 						changes : "With the River of Hungry Flame discipline, I can cast Wall of Fire without a material component."
 					}
 				}
@@ -1453,7 +1452,7 @@ AddSubClass("monk", "way of the four elements", {
 					"burning hands" : {
 						components : "V,S",
 						compMaterial : "",
-						description : "3d6 Fire dmg; save halves; unattended flammable objects ignite",
+						allowUpCasting : false,
 						changes : "With the Sweeping Cinder Strike discipline, I can cast Burning Hands."
 					}
 				}
@@ -6240,11 +6239,9 @@ MagicItemsList["instrument of the bards"] = {
 				description : "1 living creature heals 5d8+spellcasting ability modifier HP",
 				changes : "When using the Anstruth Harp to cast Cure Wounds, it is cast at 5th-level."
 			},
-			spellChanges : {
-				"control weather" : {
-					time : "1 a",
-					changes : "Casting time is only an action."
-				}
+			"control weather" : {
+				time : "1 a",
+				changes : "Casting time is only an action."
 			}
 		}
 	},
@@ -6878,7 +6875,7 @@ MagicItemsList["blackrazor"] = {
 		firstCol : "oncelr"
 	}],
 	spellChanges : {
-		"command" : {
+		"haste" : {
 			range : "Self",
 			duration : "1 min",
 			description : "I get +2 AC, speed doubled, adv. on Dex saves, extra action (1 attack, dash, disengage, hide)",
@@ -12088,6 +12085,7 @@ MagicItemsList["icon of ravenloft"] = {
 		"cure wounds" : {
 			range : "30 ft",
 			description : "1 living creature heals 3d8+3 HP if it not an undead, construct, or fiend",
+			dynamicDamageBonus : { doNotProcess : true },
 			changes : "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect undead, a construct, or a fiend."
 		}
 	}
@@ -12476,7 +12474,8 @@ MagicItemsList["gurt's greataxe"] = {
 	},
 	spellChanges : {
 		"heat metal" : {
-			description : "1 metal obj 2d8 cold dmg to touch; save or drop obj; if held: dis. attacks/checks; bns a cool obj again",
+			description : "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; bns a cool obj again",
+			descriptionShorter : "1 metal obj, touch it 2d8 Cold dmg; save or drop it; if held: dis. atk/chk; bns a redo",
 			changes : "Using Gurt's Greataxe, the spell deals cold damage instead of fire."
 		}
 	}
@@ -12589,7 +12588,7 @@ MagicItemsList["opal of the ild rune"] = {
 		name : "Opal of the Ild Rune ",
 		type : "wondrous item",
 		rarity : "rare",
-		description : "This triangular fire opal gives me resistance to cold damage. As an action, I can use it to extinguish any open flame within 10 ft. I choose how much fire to extinguish in that radius. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
+		description : "This triangular fire opal gives me resistance to cold damage. As an action, I can use it to extinguish any open flames of my choice within 10 ft, or I can ignite a flammable object within 10 ft with a fire up to 1 ft in diameter. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
 		attunement : true,
 		dmgres : ["Cold"],
 		action : [["action", ""]]
@@ -12879,6 +12878,7 @@ MagicItemsList["ring of hardened magma"] = {
 		},
 		"fire shield" : {
 			description : "Fiery shield gives resistance to Cold damage and deals 2d8 Fire damage to melee attackers",
+			dynamicDamageBonus : false,
 			changes : "Using the Ring of Hardened Magma, the spell can only produce the warm shield."
 		}
 	}
@@ -14693,7 +14693,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	}],
 	spellChanges : {
 		"burning hands" : {
-			description : "3d6 Fire dmg +1d6 per charge spend after the 1st; save halves; unattended flammable objects ignite",
+			description : "All in area 3d6+1d6/extra charge Fire dmg; save halves; unattended flammable objects ignite",
 			changes : "The spell level this is cast at depends on the amount of charges spend, 1 charge per spell slot level."
 		}
 	},
@@ -19412,7 +19412,7 @@ MagicItemsList["enduring spellbook"] = {
 }
 MagicItemsList["ersatz eye"] = {
 	name : "Ersatz Eye",
-	source : ["X", 137],
+	source : [["X", 137], ["W", 267]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in my eye socket, it can't be removed by anyone other than me, and I can see through the tiny orb as though it were a normal eye.",
@@ -27561,7 +27561,7 @@ AddSubClass("artificer", "alchemist", {
 				"heal" : {
 					components : "V,S,M\u0192",
 					compMaterial : "Alchemist's supplies",
-					description : "1 living creature heals 70 HP and is cured of blindness, deafness, and all diseases",
+					allowUpCasting : false,
 					changes : "When using my Chemical Mastery class feature and alchemist's supplies as my spellcasting focus, I can cast Heal once per long rest without using a spell slot."
 				}
 			}
@@ -28659,11 +28659,12 @@ MagicItemsList["orb of shielding"] = {
 }
 MagicItemsList["prosthetic limb"] = { // no attument as per errata
 	name : "Prosthetic Limb",
-	source : [["E:RLW", 278]],
+	source : [["E:RLW", 278], ["W", 268], ["T", 134]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
-	descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die."
+	descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
+	action : [["action", " (attach/detach)"]]
 }
 MagicItemsList["scribe's pen"] = {
 	name : "Scribe's Pen",
@@ -30219,6 +30220,84 @@ CreatureList["bristled moorbounder"] = {
 		description : "The moorbounder's long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start."
 	}]
 };
+
+// Magic Items (contains contributions by kat9137 [Discord] aka sophiechiabatta [GitHub])
+MagicItemsList["amulet of the drunkard"] = {
+	name : "Amulet of the Drunkard",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This amulet smells of old, ale-stained wood. While wearing it, I can regain 4d4 + 4 hit points when I drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
+	descriptionFull : "This amulet smells of old, ale-stained wood. While wearing it, you can regain 4d4 + 4 hit points when you drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
+	usages : 1,
+	recovery: "dawn"
+};
+MagicItemsList["breathing bubble"] = {
+	name : "Breathing Bubble",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This translucent, bubble-like sphere has a slightly tacky outer surface. I gain its benefits only while wearing it over my head like a helmet. The bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn.",
+	descriptionFull : "This translucent, bubble-like sphere has a slightly tacky outer surface, and you gain the item's benefits only while wearing it over your head like a helmet. The bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn.",
+	usages : 1,
+	recovery : "dawn"
+};
+MagicItemsList["brooch of living essence"] = {
+	name : "Brooch of Living Essence",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	description : "While wearing this nondescript brooch, spells and anything else that would detect or reveal my creature type treat me as humanoid, and those that would reveal my alignment treat it as neutral.",
+	descriptionFull : "While wearing this nondescript brooch, spells and anything else that would detect or reveal your creature type treat you as humanoid, and those that would reveal your alignment treat it as neutral."
+};
+MagicItemsList["coin of delving"] = {
+	name : "Coin of Delving",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This scintillating copper coin sheds dim light in a 5-ft radius. If dropped a distance greater than 5 ft, the coin issues a melodious ringing sound when it hits a surface. Any creature that can hear the chime can determine the distance the coin dropped based on the tone.",
+	descriptionFull : "This scintillating copper coin sheds dim light in a 5-foot radius. If dropped a distance greater than 5 feet, the coin issues a melodious ringing sound when it hits a surface. Any creature that can hear the chime can determine the distance the coin dropped based on the tone."
+};
+MagicItemsList["dispelling stone"] = {
+	name : "Dispelling Stone",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 ft and explodes in a 10-ft-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
+	descriptionFull : "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 feet and explodes in a 10-foot-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
+	usages : 1,
+	recovery : "Never"
+};
+MagicItemsList["dust of deliciousness"] = {
+	name : "Dust of Deliciousness",
+	source : [["W", 267]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
+	descriptionFull : "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
+	usages : 6,
+	recovery : "Never"
+};
+MagicItemsList["goggles of object reading"] = {
+	name : "Goggles of Object Reading",
+	source : [["W", 267]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	description : "While wearing these leather-framed goggles feature purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast the identify spell using the goggles.",
+	descriptionFull : "These leather-framed goggles feature purple crystal lenses. While wearing the goggles, you have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object you can see. In addition, you can cast the identify spell using the goggles. Once you do so, you can't do so again until the next dawn.", // Changed googles to goggles, as this is clearly a typo in the book
+	additional : "Identify",
+	usages : 1,
+	recovery : "dawn",
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["identify"],
+		selection : ["identify"],
+		firstCol : 'oncelr'
+	}
+};
+
 // pub_20200721_MOT.js
 // This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
 
@@ -30551,6 +30630,30 @@ SourceList.F={
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
 	date : "2020/09/15"
+};
+
+// Winter Survival Gear (contains contributions by Nod_Hero on Discord)
+GearList["cold weather"] = {
+    infoname : "Cold Weather [10 gp]",
+    name : "Cold weather clothes",
+    source : [["F", 20]],
+    amount : "",
+    weight : 5,
+    type : "clothes"
+};
+GearList["crampons (2)"] = {
+    infoname : "Crampons (2) [2 gp]",
+    name : "Crampons",
+    source : [["F", 20]],
+    amount : 2,
+    weight : 0.125
+};    
+GearList["snowshoes"] = {
+    infoname : "Snowshoes [2 gp]",
+    name : "Snowshoes",
+    source : [["F", 20]],
+    amount : "",
+    weight : 4
 };
 
 // Creatures - new beasts
@@ -35998,6 +36101,9 @@ SpellsList["tasha's otherworldly guise"] = {
 	"\n \u2022 All your weapon attacks are magical, and when you make a weapon attack, you can use your spellcasting ability modifier, instead of Strength or Dexterity, for the attack and damage rolls." +
 	"\n \u2022 You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature, like Extra Attack, that lets you attack more than once when you take the Attack action on your turn."
 };
+
+// Magic Items
+
 
 // pub_20210518_VRGtR.js
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
@@ -51471,7 +51577,7 @@ FeatsList["greater dragonmark-ua"] = {
 				description : "Create a glyph that triggers on set condition; Int(Investigation) vs. Spell DC; see book",
 				changes : "Spells cast through my Greater Dragonmark don't require material components."
 			},
-			"glyph of warding" : {
+			"leomund's secret chest" : {
 				compMaterial : "A Siberys dragonshard with a value of at least 100 gp",
 				description : "Hide chest with content in Ethereal Plane for 60 days, after that chance of loss; 1 a reappear (100gp)",
 				changes : "Leomund's Secret Chest cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica."

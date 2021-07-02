@@ -257,7 +257,8 @@ MagicItemsList["gurt's greataxe"] = {
 	},
 	spellChanges : {
 		"heat metal" : {
-			description : "1 metal obj 2d8 cold dmg to touch; save or drop obj; if held: dis. attacks/checks; bns a cool obj again",
+			description : "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; bns a cool obj again",
+			descriptionShorter : "1 metal obj, touch it 2d8 Cold dmg; save or drop it; if held: dis. atk/chk; bns a redo",
 			changes : "Using Gurt's Greataxe, the spell deals cold damage instead of fire."
 		}
 	}
@@ -370,7 +371,7 @@ MagicItemsList["opal of the ild rune"] = {
 		name : "Opal of the Ild Rune ",
 		type : "wondrous item",
 		rarity : "rare",
-		description : "This triangular fire opal gives me resistance to cold damage. As an action, I can use it to extinguish any open flame within 10 ft. I choose how much fire to extinguish in that radius. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
+		description : "This triangular fire opal gives me resistance to cold damage. As an action, I can use it to extinguish any open flames of my choice within 10 ft, or I can ignite a flammable object within 10 ft with a fire up to 1 ft in diameter. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
 		attunement : true,
 		dmgres : ["Cold"],
 		action : [["action", ""]]
@@ -660,6 +661,7 @@ MagicItemsList["ring of hardened magma"] = {
 		},
 		"fire shield" : {
 			description : "Fiery shield gives resistance to Cold damage and deals 2d8 Fire damage to melee attackers",
+			dynamicDamageBonus : false,
 			changes : "Using the Ring of Hardened Magma, the spell can only produce the warm shield."
 		}
 	}

@@ -2119,7 +2119,7 @@ AddSubClass("artificer", "alchemist", {
 				"heal" : {
 					components : "V,S,M\u0192",
 					compMaterial : "Alchemist's supplies",
-					description : "1 living creature heals 70 HP and is cured of blindness, deafness, and all diseases",
+					allowUpCasting : false,
 					changes : "When using my Chemical Mastery class feature and alchemist's supplies as my spellcasting focus, I can cast Heal once per long rest without using a spell slot."
 				}
 			}
@@ -3217,11 +3217,12 @@ MagicItemsList["orb of shielding"] = {
 }
 MagicItemsList["prosthetic limb"] = { // no attument as per errata
 	name : "Prosthetic Limb",
-	source : [["E:RLW", 278]],
+	source : [["E:RLW", 278], ["W", 268], ["T", 134]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
-	descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die."
+	descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
+	action : [["action", " (attach/detach)"]]
 }
 MagicItemsList["scribe's pen"] = {
 	name : "Scribe's Pen",

@@ -2023,3 +2023,104 @@ CreatureList["bristled moorbounder"] = {
 		description : "The moorbounder's long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start."
 	}]
 };
+
+// Magic Items (contains contributions by kat9137 [Discord] aka sophiechiabatta [GitHub])
+MagicItemsList["amulet of the drunkard"] = {
+	name : "Amulet of the Drunkard",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This amulet smells of old, ale-stained wood. While wearing it, I can regain 4d4 + 4 hit points when I drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
+	descriptionFull : "This amulet smells of old, ale-stained wood. While wearing it, you can regain 4d4 + 4 hit points when you drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
+	usages : 1,
+	recovery: "dawn"
+};
+MagicItemsList["breathing bubble"] = {
+	name : "Breathing Bubble",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This translucent, bubble-like sphere has a slightly tacky outer surface. I gain its benefits only while wearing it over my head like a helmet. The bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn.",
+	descriptionFull : "This translucent, bubble-like sphere has a slightly tacky outer surface, and you gain the item's benefits only while wearing it over your head like a helmet. The bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn.",
+	usages : 1,
+	recovery : "dawn"
+};
+MagicItemsList["brooch of living essence"] = {
+	name : "Brooch of Living Essence",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	description : "While wearing this nondescript brooch, spells and anything else that would detect or reveal my creature type treat me as humanoid, and those that would reveal my alignment treat it as neutral.",
+	descriptionFull : "While wearing this nondescript brooch, spells and anything else that would detect or reveal your creature type treat you as humanoid, and those that would reveal your alignment treat it as neutral."
+};
+MagicItemsList["coin of delving"] = {
+	name : "Coin of Delving",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This scintillating copper coin sheds dim light in a 5-ft radius. If dropped a distance greater than 5 ft, the coin issues a melodious ringing sound when it hits a surface. Any creature that can hear the chime can determine the distance the coin dropped based on the tone.",
+	descriptionFull : "This scintillating copper coin sheds dim light in a 5-foot radius. If dropped a distance greater than 5 feet, the coin issues a melodious ringing sound when it hits a surface. Any creature that can hear the chime can determine the distance the coin dropped based on the tone."
+};
+MagicItemsList["dispelling stone"] = {
+	name : "Dispelling Stone",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 ft and explodes in a 10-ft-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
+	descriptionFull : "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 feet and explodes in a 10-foot-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
+	usages : 1,
+	recovery : "Never"
+};
+MagicItemsList["dust of deliciousness"] = {
+	name : "Dust of Deliciousness",
+	source : [["W", 267]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
+	descriptionFull : "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
+	usages : 6,
+	recovery : "Never"
+};
+// [dupl_start] reprint from Xanathar's Guide to Everything
+if (!MagicItemsList["ersatz eye"]) {
+	MagicItemsList["ersatz eye"] = {
+		name : "Ersatz Eye",
+		source : [["X", 137], ["W", 267]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in my eye socket, it can't be removed by anyone other than me, and I can see through the tiny orb as though it were a normal eye.",
+		descriptionFull : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in your eye socket, it can't be removed by anyone other than you, and you can see through the tiny orb as though it were a normal eye.",
+		attunement : true
+	}
+} // dupl_end
+MagicItemsList["goggles of object reading"] = {
+	name : "Goggles of Object Reading",
+	source : [["W", 267]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	description : "While wearing these leather-framed goggles feature purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast the identify spell using the goggles.",
+	descriptionFull : "These leather-framed goggles feature purple crystal lenses. While wearing the goggles, you have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object you can see. In addition, you can cast the identify spell using the goggles. Once you do so, you can't do so again until the next dawn.", // Changed googles to goggles, as this is clearly a typo in the book
+	additional : "Identify",
+	usages : 1,
+	recovery : "dawn",
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["identify"],
+		selection : ["identify"],
+		firstCol : 'oncelr'
+	}
+};
+// [dupl_start] reprint from Eberron: Rising from the Last War
+if (!MagicItemsList["prosthetic limb"]) {
+	MagicItemsList["prosthetic limb"] = {
+		name : "Prosthetic Limb",
+		source : [["E:RLW", 278], ["W", 268], ["T", 134]],
+		type : "wondrous item",
+		rarity : "common",
+		description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
+		descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
+		action : [["action", " (attach/detach)"]]
+	}
+} // dupl_end

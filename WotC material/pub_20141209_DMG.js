@@ -640,11 +640,9 @@ MagicItemsList["instrument of the bards"] = {
 				description : "1 living creature heals 5d8+spellcasting ability modifier HP",
 				changes : "When using the Anstruth Harp to cast Cure Wounds, it is cast at 5th-level."
 			},
-			spellChanges : {
-				"control weather" : {
-					time : "1 a",
-					changes : "Casting time is only an action."
-				}
+			"control weather" : {
+				time : "1 a",
+				changes : "Casting time is only an action."
 			}
 		}
 	},
@@ -1278,7 +1276,7 @@ MagicItemsList["blackrazor"] = {
 		firstCol : "oncelr"
 	}],
 	spellChanges : {
-		"command" : {
+		"haste" : {
 			range : "Self",
 			duration : "1 min",
 			description : "I get +2 AC, speed doubled, adv. on Dex saves, extra action (1 attack, dash, disengage, hide)",
