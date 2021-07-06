@@ -104,7 +104,7 @@ RaceList["hexblood"] = {
 		usages : 1,
 		recovery: "long rest"
 	}],
-	spellcastingAbility : 6,
+	spellcastingAbility : [4, 5, 6],
 	features : {
 		"hex magic" : {
 			name : "Hex Magic",
@@ -147,21 +147,6 @@ RaceList["hexblood"] = {
 		replaceNameInTrait : ["Hexblood", "prefix"]
 	}
 };
-AddRacialVariant("hexblood", "intelligence caster", {
-	regExpSearch : /intelligence caster/i,
-	source : [["VRGtR", 18]],
-	spellcastingAbility : 4
-});
-AddRacialVariant("hexblood", "wisdom caster", {
-	regExpSearch : /wisdom caster/i,
-	source : [["VRGtR", 18]],
-	spellcastingAbility : 5
-});
-AddRacialVariant("hexblood", "charisma caster", { // same as default, added for clarity
-	regExpSearch : /charisma caster/i,
-	source : [["VRGtR", 18]],
-	spellcastingAbility : 6
-});
 RaceList["reborn"] = {
 	regExpSearch : /reborn/i,
 	name : "Reborn",

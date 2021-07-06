@@ -902,7 +902,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			description : desc([
 				"I have resistance to lightning and thunder damage",
 				"When I start casting a 1st-level or higher spell that deals lightning or thunder damage,",
-				"I deal lightning or thunder damage to a creature within 10 ft of me that I can see"
+				"I deal lightning or thunder damage to creatures of my choice that I can see within 10 ft"
 			]),
 			additional : levels.map(function (n) { return n < 6 ? "" : Math.floor(n/2) + " damage"; }),
 			dmgres : ["Lightning", "Thunder"]
@@ -1051,7 +1051,7 @@ AddSubClass("wizard", "bladesinging", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponTextName)) {
 							output.extraDmg += Math.max(1, Number(What('Int Mod')));
 						};
 					},

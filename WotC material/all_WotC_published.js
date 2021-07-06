@@ -1271,7 +1271,7 @@ AddSubClass("monk", "way of the four elements", {
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
-							if (v.baseWeaponName == "unarmed strike" && (/^(?=.*fire)(?=.*snake).*$/i).test(v.WeaponText)) {
+							if (v.baseWeaponName == "unarmed strike" && (/^(?=.*fire)(?=.*snake).*$/i).test(v.WeaponTextName)) {
 								fields.Description += (fields.Description ? '; ' : '') + 'After hit, spend 1 ki point for +1d10 fire damage';
 								fields.Range = 'Melee (15 ft reach)';
 								fields.Damage_Type = 'fire';
@@ -4785,9 +4785,13 @@ SpellsList["witch bolt"] = {
 	components : "V,S,M",
 	compMaterial : "A twig from a tree that has been struck by lightning",
 	duration : "Conc, 1 min",
-	description : "Ranged spell attack 1d12+1d12/SL Lightning dmg; 1 a repeat dmg, if consecutive; ends if out of range",
-	descriptionShorter : "Rngd atk 1d12+1d12/SL Lightning dmg; 1 a repeat dmg, if consecutive; end if out of range",
-	descriptionFull : "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st."
+	description : "Rngd spell atk 1d12+1d12/SL Lightn. dmg; 1 a 1d12 Lightn. dmg; ends if out of range or I do other a",
+	descriptionShorter : "Rngd atk 1d12+1d12/SL Lightn. dmg; 1 a 1d12 Lightn. dmg; end: out of range/do other a",
+	descriptionFull : "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st.",
+	dynamicDamageBonus : {
+		multipleDmgMoments : false,
+		extraDmgGroupsSameType : /(1 a )(.*?)( Lightn. dmg)/i
+	}
 };
 SpellsList["wrathful smite"] = {
 	name : "Wrathful Smite",
@@ -6731,7 +6735,7 @@ MagicItemsList["sword of vengeance"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
@@ -6741,7 +6745,7 @@ MagicItemsList["sword of vengeance"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
+				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			}, ''
@@ -6810,7 +6814,7 @@ MagicItemsList["weapon of warning"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && !v.isSpell && (/warning/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/warning/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 				}
@@ -10708,7 +10712,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			description : desc([
 				"I have resistance to lightning and thunder damage",
 				"When I start casting a 1st-level or higher spell that deals lightning or thunder damage,",
-				"I deal lightning or thunder damage to a creature within 10 ft of me that I can see"
+				"I deal lightning or thunder damage to creatures of my choice that I can see within 10 ft"
 			]),
 			additional : levels.map(function (n) { return n < 6 ? "" : Math.floor(n/2) + " damage"; }),
 			dmgres : ["Lightning", "Thunder"]
@@ -10857,7 +10861,7 @@ AddSubClass("wizard", "bladesinging", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponTextName)) {
 							output.extraDmg += Math.max(1, Number(What('Int Mod')));
 						};
 					},
@@ -12523,7 +12527,7 @@ MagicItemsList["ingot of the skold rune"] = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bskold\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bskold\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					}
@@ -12621,7 +12625,7 @@ MagicItemsList["opal of the ild rune"] = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + '+1d6 fire damage';
@@ -13230,7 +13234,7 @@ RaceList["hobgoblin"] = {
 			recovery : "short rest"
 		}
 	},
-	trait : "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 feet of me (max +5)."
+	trait : "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5)."
 };
 RaceList["kenku"] = {
 	regExpSearch : /kenku/i,
@@ -14052,7 +14056,7 @@ MagicItemsList["mind blade"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*mind)(?=.*blade).*$/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*mind)(?=.*blade).*$/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + '+2d6 psychic damage';
@@ -15633,7 +15637,7 @@ AddSubClass("barbarian", "zealot", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isSpell && classes.known.barbarian && classes.known.barbarian.level > 2 && (/\brage\b/i).test(v.WeaponText)) {
+						if (!v.isSpell && classes.known.barbarian && classes.known.barbarian.level > 2 && (/\brage\b/i).test(v.WeaponTextName)) {
 							var theDMG = GetFeatureChoice('class', 'barbarian', 'subclassfeature3');
 							if (!theDMG) return;
 							fields.Description += (fields.Description ? '; ' : '') + '+1d6+' + Math.floor(classes.known.barbarian.level / 2) + ' ' + GetFeatureChoice('class', 'barbarian', 'subclassfeature3') + ' on first hit each turn';
@@ -16441,11 +16445,11 @@ AddSubClass("fighter", "cavalier", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(unwavering.?mark|marked)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(unwavering.?mark|marked)\b/i).test(v.WeaponTextName)) {
 							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
 						};
 					},
-					"If I include the words 'Unwavering Mark' or 'Marked' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."
+					"If I include the words 'Unwavering Mark' or 'Marked' in the name of a melee weapon, it gets half my fighter level added to its Damage."
 				]
 			}
 		},
@@ -16649,7 +16653,7 @@ RunFunctionAtEnd(function () {
 						function (fields, v) {
 							if (!classes.known.monk || classes.known.monk.level < 2 || v.isSpell) return;
 							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
-							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
+							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponTextName) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
 								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 								try {
 									var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
@@ -16682,7 +16686,7 @@ RunFunctionAtEnd(function () {
 						function (fields, v) {
 							if (v.isSpell || v.thisWeapon[1] || v.theWea.isMagicWeapon || (/counts as( a)? magical/i).test(fields.Description)) return;
 							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
-							if (v.baseWeaponName == "unarmed strike" || theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName == 'longbow'))) {
+							if (v.baseWeaponName == "unarmed strike" || theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponTextName) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName == 'longbow'))) {
 								fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 							};
 						},
@@ -17609,7 +17613,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isDC && (/curse/i).test(v.WeaponText) && !v.CritChance) {
+						if (!v.isDC && (/curse/i).test(v.WeaponTextName) && !v.CritChance) {
 							v.CritChance = 19;
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						}
@@ -17618,7 +17622,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if ((/curse/i).test(v.WeaponText)) output.extraDmg += output.prof;
+						if ((/curse/i).test(v.WeaponTextName)) output.extraDmg += output.prof;
 					}, ""]
 			}
 		},
@@ -17639,7 +17643,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				atkAdd : [
 					function (fields, v) {
 						var hasPactWeapon = GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade';
-						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
+						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponTextName)) || (/^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
 							fields.Mod = 6;
 						};
 					},
@@ -17842,7 +17846,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
+				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 				}
 				if (!v.theWea.isMagicWeapon && !v.thisWeapon[1] && v.pactWeapon) {
@@ -17854,7 +17858,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		],
 		atkAdd : [
 			function (fields, v) {
-				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
+				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 					fields.Proficiency = true;
 					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
@@ -19200,7 +19204,7 @@ MagicItemsList["adamantine weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.theWea.list == "melee" && (/adamantine/i).test(v.WeaponText)) {
+				if (v.theWea.list == "melee" && (/adamantine/i).test(v.WeaponTextName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
 				}
 			},
@@ -19557,7 +19561,7 @@ MagicItemsList["moon-touched sword"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 				}
@@ -20991,7 +20995,7 @@ MagicItemsList["blade of the medusa"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of the medusa/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of the medusa/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'On 20 to hit: DC 15 Con save or restrained, see item; On 1 to hit: I same save';
@@ -21046,7 +21050,7 @@ MagicItemsList["gambler's blade"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/gambler's/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/gambler's/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Choose its magic bonus (1-3), but equal penalty on death saves';
@@ -21228,7 +21232,7 @@ MagicItemsList["polymorph blade"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/polymorph/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/polymorph/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'On 20 to hit: DC 15 Wis save or polymorphed, see item; On 1 to hit: I polymorph';
@@ -21813,7 +21817,7 @@ AddSubClass("druid", "circle of spores", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponTextName)) {
 							fields.Description += (fields.Description ? '; ' : '') + '+1d6 necrotic damage';
 						};
 					},
@@ -23412,7 +23416,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && (/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + '+2 to hit/damage vs. chosen creature type';
@@ -23422,7 +23426,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 			],
 			atkCalc : [
 				function (fields, v, output) {
-					if ((/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if ((/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						output.magic = v.thisWeapon[1] + 1;
 					}
 				}, ''
@@ -25365,7 +25369,7 @@ MagicItemsList["hellfire weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && (/hellfire/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && (/hellfire/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Humanoids killed lose their soul';
@@ -27987,7 +27991,7 @@ MagicItemsList["radiant weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && !v.isSpell && (/radiant/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/radiant/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Reaction to blind attacker';
@@ -30285,7 +30289,7 @@ MagicItemsList["goggles of object reading"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	attunement : true,
-	description : "While wearing these leather-framed goggles feature purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast the identify spell using the goggles.",
+	description : "While wearing these leather-framed goggles feature purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast Identify using the goggles.",
 	descriptionFull : "These leather-framed goggles feature purple crystal lenses. While wearing the goggles, you have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object you can see. In addition, you can cast the identify spell using the goggles. Once you do so, you can't do so again until the next dawn.", // Changed googles to goggles, as this is clearly a typo in the book
 	additional : "Identify",
 	usages : 1,
@@ -33599,7 +33603,7 @@ var TCoE_Favored_Foe = {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && (/favou?red.{1,2}enemy/i).test(v.WeaponText)) {
+				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && (/favou?red.{1,2}enemy/i).test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +1d' + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + ' damage';
 				};
@@ -36210,7 +36214,7 @@ RaceList["hexblood"] = {
 		usages : 1,
 		recovery: "long rest"
 	}],
-	spellcastingAbility : 6,
+	spellcastingAbility : [4, 5, 6],
 	features : {
 		"hex magic" : {
 			name : "Hex Magic",
@@ -36253,21 +36257,6 @@ RaceList["hexblood"] = {
 		replaceNameInTrait : ["Hexblood", "prefix"]
 	}
 };
-AddRacialVariant("hexblood", "intelligence caster", {
-	regExpSearch : /intelligence caster/i,
-	source : [["VRGtR", 18]],
-	spellcastingAbility : 4
-});
-AddRacialVariant("hexblood", "wisdom caster", {
-	regExpSearch : /wisdom caster/i,
-	source : [["VRGtR", 18]],
-	spellcastingAbility : 5
-});
-AddRacialVariant("hexblood", "charisma caster", { // same as default, added for clarity
-	regExpSearch : /charisma caster/i,
-	source : [["VRGtR", 18]],
-	spellcastingAbility : 6
-});
 RaceList["reborn"] = {
 	regExpSearch : /reborn/i,
 	name : "Reborn",

@@ -78,7 +78,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (!v.isSpell && !v.isDC && (/precise.{0,3}strike/i).test(v.WeaponText)) {
+						if (!v.isSpell && !v.isDC && (/precise.{0,3}strike/i).test(v.WeaponTextName)) {
 							output.prof *= 2;
 						};
 					},

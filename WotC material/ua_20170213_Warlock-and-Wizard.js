@@ -56,7 +56,7 @@ AddSubClass("warlock", "the hexblade-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isDC && (/hexblade/i).test(v.WeaponText) && !v.CritChance) {
+						if (!v.isDC && (/hexblade/i).test(v.WeaponTextName) && !v.CritChance) {
 							v.CritChance = 19;
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						};
@@ -65,7 +65,7 @@ AddSubClass("warlock", "the hexblade-ua", {
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if ((/hexblade/i).test(v.WeaponText)) output.extraDmg += output.prof;
+						if ((/hexblade/i).test(v.WeaponTextName)) output.extraDmg += output.prof;
 					}, ""]
 			}
 		},
@@ -451,7 +451,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
 					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
 					output.magic += v.pactMag;
 				};
@@ -578,7 +578,7 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
 					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
 					output.magic += v.pactMag;
 				};
@@ -611,7 +611,7 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponText))) {
+				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
 					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
 					output.magic += v.pactMag;
 				};
