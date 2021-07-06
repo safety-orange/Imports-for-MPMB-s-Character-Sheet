@@ -80,7 +80,7 @@ AddSubClass("paladin", "oath of treachery-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(v.WeaponText) && classes.known.paladin && classes.known.paladin.level) {
+						if (!v.isSpell && (/^(?=.*poison)(?=.*strike).*$/i).test(v.WeaponTextName) && classes.known.paladin && classes.known.paladin.level) {
 							fields.Description += (fields.Description ? '; ' : '') + '+2d10+' + classes.known.paladin.level + ' poison damage (or ' + (classes.known.paladin.level + 20) + ' if adv.)';
 						};
 					},

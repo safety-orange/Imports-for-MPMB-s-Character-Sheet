@@ -285,7 +285,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponText) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
+						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponTextName) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
 							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 							try {
 								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
@@ -316,7 +316,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
+						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponTextName) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},

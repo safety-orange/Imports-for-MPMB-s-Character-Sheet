@@ -1,6 +1,7 @@
 var iFileName = "ua_20210126_Gothic-Lineages.js";
 RequiredSheetVersion("13.0.7");
-// This file adds the content from the Unearthed Arcana 2020: Feats article to MPMB's Character Record Sheet
+// This file adds the content from the Unearthed Arcana 2021: Gothic Lineages article to MPMB's Character Record Sheet
+// This file contains contributions by Metacomet10, MarvinTheParanoidAndroid, and CountVladmir
 
 SourceList["UA:GL"] = {
 	name : "Unearthed Arcana: Gothic Lineages",
@@ -81,7 +82,7 @@ RaceList["hexblood-ua"] = {
 		usages : 1,
 		recovery: "long rest"
 	}],
-	spellcastingAbility : 6,
+	spellcastingAbility : [4, 5, 6],
 	features : {
 		"hex magic" : {
 			name : "Hex Magic",
@@ -108,25 +109,6 @@ RaceList["hexblood-ua"] = {
 		}
 	}
 };
-AddRacialVariant("hexblood-ua", "intelligence caster", {
-	regExpSearch : /intelligence caster/i,
-	source : [["UA:GL", 4]],
-	spellcastingAbility : 4
-});
-AddRacialVariant("hexblood-ua", "wisdom caster", {
-	regExpSearch : /wisdom caster/i,
-	source : [["UA:GL", 4]],
-	spellcastingAbility : 5
-});
-AddRacialVariant("hexblood-ua", "charisma caster", { // same as default, added for clarity
-	regExpSearch : /charisma caster/i,
-	source : [["UA:GL", 4]],
-	spellcastingAbility : 6
-});
-var UAGL_Reborn_Trait = "Reborn" + (typePF ? "\n " : "  ") +
-"\u2022 Type: My creature type is Humanoid, as well as Construct or Undead (my choice)." +
-"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless." +
-"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.";
 RaceList["reborn-ua"] = {
 	regExpSearch : /reborn/i,
 	name : "Reborn",
@@ -137,7 +119,10 @@ RaceList["reborn-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	scorestxt : "+2 to one ability score, and +1 to a different score of my choice",
-	trait : UAGL_Reborn_Trait,
+	trait : "Reborn" + (typePF ? "\n " : "  ") +
+	"\u2022 Type: My creature type is Humanoid, as well as Construct or Undead (my choice)." +
+	"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless." +
+	"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Poison"],
@@ -171,10 +156,10 @@ RaceList["reborn-ua"] = {
 AddRacialVariant("reborn-ua", "undead", {
 	regExpSearch : /undead/i,
 	source : [["UA:GL", 5]],
-	trait : UAGL_Reborn_Trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Undead").replace("  ", "\t")
+	trait : RaceList["reborn-ua"].trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Undead").replace("  ", "\t")
 });
 AddRacialVariant("reborn-ua", "construct", {
 	regExpSearch : /construct/i,
 	source : [["UA:GL", 5]],
-	trait : UAGL_Reborn_Trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Construct").replace("  ", "\t")
+	trait : RaceList["reborn-ua"].trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Construct").replace("  ", "\t")
 });

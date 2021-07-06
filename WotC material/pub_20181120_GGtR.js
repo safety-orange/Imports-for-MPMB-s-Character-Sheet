@@ -487,7 +487,7 @@ AddSubClass("druid", "circle of spores", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponTextName)) {
 							fields.Description += (fields.Description ? '; ' : '') + '+1d6 necrotic damage';
 						};
 					},

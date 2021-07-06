@@ -178,7 +178,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && (/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + '+2 to hit/damage vs. chosen creature type';
@@ -188,7 +188,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 			],
 			atkCalc : [
 				function (fields, v, output) {
-					if ((/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if ((/^(?=.*\buven\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						output.magic = v.thisWeapon[1] + 1;
 					}
 				}, ''

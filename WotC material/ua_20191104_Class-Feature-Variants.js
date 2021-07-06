@@ -367,7 +367,7 @@ RunFunctionAtEnd(function () {
 			atkAdd : [
 				function (fields, v) {
 					var monkWeapons = ["unarmed strike"].concat(GetFeatureChoice("classes", "monk", "martial arts", true));
-					if (classes.known.monk && classes.known.monk.level && (monkWeapons.indexOf(v.baseWeaponName) != -1 || (/monk weapon/i).test(v.WeaponText))) {
+					if (classes.known.monk && classes.known.monk.level && (monkWeapons.indexOf(v.baseWeaponName) != -1 || (/monk weapon/i).test(v.WeaponTextName))) {
 						var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 						try {
 							var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));

@@ -799,7 +799,7 @@ MagicItemsList["radiant weapon-ua"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && !v.isSpell && (/radiant/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/radiant/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Reaction to blind attacker';

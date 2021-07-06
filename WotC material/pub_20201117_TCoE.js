@@ -1196,7 +1196,7 @@ if (!SourceList["E:RLW"]) {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && !v.isSpell && (/radiant/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/radiant/i).test(v.WeaponTextName)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + 'Reaction to blind attacker';
@@ -2551,7 +2551,7 @@ if (!SourceList.G) {
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
-							if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponText)) {
+							if (v.isMeleeWeapon && (/\b(spore|symbiotic)\b/i).test(v.WeaponTextName)) {
 								fields.Description += (fields.Description ? '; ' : '') + '+1d6 necrotic damage';
 							};
 						},
@@ -3939,7 +3939,7 @@ var TCoE_Favored_Foe = {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && (/favou?red.{1,2}enemy/i).test(v.WeaponText)) {
+				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && (/favou?red.{1,2}enemy/i).test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +1d' + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + ' damage';
 				};
@@ -5711,7 +5711,7 @@ if (!SourceList.S) {
 				calcChanges : {
 					atkCalc : [
 						function (fields, v, output) {
-							if (v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponText)) {
+							if (v.isMeleeWeapon && (/blade.?song/i).test(v.WeaponTextName)) {
 								output.extraDmg += Math.max(1, Number(What('Int Mod')));
 							};
 						},

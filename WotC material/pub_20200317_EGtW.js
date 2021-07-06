@@ -804,7 +804,7 @@ if (!SourceList.V) {
 					recovery : "short rest"
 				}
 			},
-			trait : "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 feet of me (max +5)."
+			trait : "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5)."
 		};
 	}
 	RaceList["kenku"] = {
@@ -2100,7 +2100,7 @@ MagicItemsList["goggles of object reading"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	attunement : true,
-	description : "While wearing these leather-framed goggles feature purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast the identify spell using the goggles.",
+	description : "While wearing these leather-framed goggles feature purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast Identify using the goggles.",
 	descriptionFull : "These leather-framed goggles feature purple crystal lenses. While wearing the goggles, you have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object you can see. In addition, you can cast the identify spell using the goggles. Once you do so, you can't do so again until the next dawn.", // Changed googles to goggles, as this is clearly a typo in the book
 	additional : "Identify",
 	usages : 1,

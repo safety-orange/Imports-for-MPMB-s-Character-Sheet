@@ -78,7 +78,7 @@ ClassList["rangerua"] = {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (!v.isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(v.WeaponText)) {
+						if (!v.isSpell && classes.known.rangerua && classes.known.rangerua.level && (/favou?red.{1,2}enemy/i).test(v.WeaponTextName)) {
 							output.extraDmg += classes.known.rangerua.level < 6 ? 2 : 4;
 						};
 					},

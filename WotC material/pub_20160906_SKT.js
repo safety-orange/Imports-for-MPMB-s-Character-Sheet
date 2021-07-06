@@ -306,7 +306,7 @@ MagicItemsList["ingot of the skold rune"] = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bskold\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bskold\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					}
@@ -404,7 +404,7 @@ MagicItemsList["opal of the ild rune"] = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && !v.isSpell && (/^(?=.*\bild\b)(?=.*(rune|runic)).*$/i).test(v.WeaponTextName)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + '+1d6 fire damage';

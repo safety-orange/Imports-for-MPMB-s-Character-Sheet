@@ -32,7 +32,7 @@ AddSubClass("fighter", "arcane archer-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((/longbow|shortbow/i).test(v.baseWeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponText) && classes.known.fighter && classes.known.fighter.level) {
+						if ((/longbow|shortbow/i).test(v.baseWeaponName) && (/^(?=.*arcane)(?=.*arrow).*$/i).test(v.WeaponTextName) && classes.known.fighter && classes.known.fighter.level) {
 							fields.Description += (fields.Description ? '; +' : '+') + (classes.known.fighter.level < 18 ? 2 : 4) + 'd6 force damage';
 							if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) fields.Description += '; Counts as magical';
 						};
@@ -143,11 +143,11 @@ AddSubClass("fighter", "knight-ua", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(implacable.?mark|marked)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(implacable.?mark|marked)\b/i).test(v.WeaponTextName)) {
 							output.extraDmg += classes.known.fighter.level;
 						};
 					},
-					"If I include the words 'Implacable Mark' or 'Marked' in the name or description of a melee weapon, it gets my fighter level added to its Damage."
+					"If I include the words 'Implacable Mark' or 'Marked' in the name of a melee weapon, it gets my fighter level added to its Damage."
 				]
 			}
 		},
@@ -180,11 +180,11 @@ AddSubClass("fighter", "knight-ua", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 9 && (/holds?.the.line/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 9 && (/holds?.the.line/i).test(v.WeaponTextName)) {
 							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
 						};
 					},
-					"If I include the words 'Hold the Line' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."
+					"If I include the words 'Hold the Line' in the name of a melee weapon, it gets half my fighter level added to its Damage."
 				]
 			}
 		},
@@ -284,7 +284,7 @@ AddSubClass("fighter", "sharpshooter-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(v.WeaponText)) {
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(v.WeaponTextName)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Ignores 1/2 and 3/4 cover';
 						};
 					},
@@ -292,7 +292,7 @@ AddSubClass("fighter", "sharpshooter-ua", {
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(v.WeaponText)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
+						if (v.isRangedWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/steady.{0,3}aim/i).test(v.WeaponTextName)) { output.extraDmg += 2 + Math.floor(classes.known.fighter.level / 2); };
 					}, ""]
 			}
 		},

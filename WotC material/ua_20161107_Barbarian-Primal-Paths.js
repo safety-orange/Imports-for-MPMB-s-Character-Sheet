@@ -133,7 +133,7 @@ AddSubClass("barbarian", "storm herald-ua", {
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
-							if (v.isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\brage\b/i).test(v.WeaponText)) {
+							if (v.isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level > 13 && (/\brage\b/i).test(v.WeaponTextName)) {
 								fields.Description += (fields.Description ? '; ' : '') + 'Str save or knocked prone';
 							};
 						},

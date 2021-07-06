@@ -267,7 +267,7 @@ AddSubClass("barbarian", "zealot", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isSpell && classes.known.barbarian && classes.known.barbarian.level > 2 && (/\brage\b/i).test(v.WeaponText)) {
+						if (!v.isSpell && classes.known.barbarian && classes.known.barbarian.level > 2 && (/\brage\b/i).test(v.WeaponTextName)) {
 							var theDMG = GetFeatureChoice('class', 'barbarian', 'subclassfeature3');
 							if (!theDMG) return;
 							fields.Description += (fields.Description ? '; ' : '') + '+1d6+' + Math.floor(classes.known.barbarian.level / 2) + ' ' + GetFeatureChoice('class', 'barbarian', 'subclassfeature3') + ' on first hit each turn';
@@ -1075,11 +1075,11 @@ AddSubClass("fighter", "cavalier", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(unwavering.?mark|marked)\b/i).test(v.WeaponText)) {
+						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && (/\b(unwavering.?mark|marked)\b/i).test(v.WeaponTextName)) {
 							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
 						};
 					},
-					"If I include the words 'Unwavering Mark' or 'Marked' in the name or description of a melee weapon, it gets half my fighter level added to its Damage."
+					"If I include the words 'Unwavering Mark' or 'Marked' in the name of a melee weapon, it gets half my fighter level added to its Damage."
 				]
 			}
 		},
@@ -1283,7 +1283,7 @@ RunFunctionAtEnd(function () {
 						function (fields, v) {
 							if (!classes.known.monk || classes.known.monk.level < 2 || v.isSpell) return;
 							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
-							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
+							if (theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponTextName) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) {
 								var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
 								try {
 									var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
@@ -1316,7 +1316,7 @@ RunFunctionAtEnd(function () {
 						function (fields, v) {
 							if (v.isSpell || v.thisWeapon[1] || v.theWea.isMagicWeapon || (/counts as( a)? magical/i).test(fields.Description)) return;
 							var theKenseiWeapons = GetFeatureChoice("class", "monk", "subclassfeature3", true);
-							if (v.baseWeaponName == "unarmed strike" || theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponText) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName == 'longbow'))) {
+							if (v.baseWeaponName == "unarmed strike" || theKenseiWeapons.indexOf(v.baseWeaponName) != -1 || ((/kensei/i).test(v.WeaponTextName) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName == 'longbow'))) {
 								fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 							};
 						},
@@ -2382,7 +2382,7 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 				description : desc([
 					"I have resistance to lightning and thunder damage",
 					"When I start casting a 1st-level or higher spell that deals lightning or thunder damage,",
-					"I deal lightning or thunder damage to a creature within 10 ft of me that I can see"
+					"I deal lightning or thunder damage to creatures of my choice that I can see within 10 ft"
 				]),
 				additional : levels.map(function (n) { return n < 6 ? "" : Math.floor(n/2) + " damage"; }),
 				dmgres : ["Lightning", "Thunder"]
@@ -2538,7 +2538,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isDC && (/curse/i).test(v.WeaponText) && !v.CritChance) {
+						if (!v.isDC && (/curse/i).test(v.WeaponTextName) && !v.CritChance) {
 							v.CritChance = 19;
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						}
@@ -2547,7 +2547,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if ((/curse/i).test(v.WeaponText)) output.extraDmg += output.prof;
+						if ((/curse/i).test(v.WeaponTextName)) output.extraDmg += output.prof;
 					}, ""]
 			}
 		},
@@ -2568,7 +2568,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				atkAdd : [
 					function (fields, v) {
 						var hasPactWeapon = GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade';
-						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponText)) || (/^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
+						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponTextName)) || (/^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
 							fields.Mod = 6;
 						};
 					},
@@ -2771,7 +2771,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
+				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 				}
 				if (!v.theWea.isMagicWeapon && !v.thisWeapon[1] && v.pactWeapon) {
@@ -2783,7 +2783,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		],
 		atkAdd : [
 			function (fields, v) {
-				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponText)) {
+				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 					fields.Proficiency = true;
 					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
@@ -4787,7 +4787,7 @@ MagicItemsList["adamantine weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.theWea.list == "melee" && (/adamantine/i).test(v.WeaponText)) {
+				if (v.theWea.list == "melee" && (/adamantine/i).test(v.WeaponTextName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
 				}
 			},
@@ -5144,7 +5144,7 @@ MagicItemsList["moon-touched sword"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 				}
