@@ -1,7 +1,7 @@
 var iFileName = "ua_20210311_Folk-of-the-Feywild.js";
 RequiredSheetVersion(13);
 // This file adds the content from the Unearthed Arcana 2021: Folk of the Feywild article to MPMB's Character Record Sheet
-// This file contains contributions by CountVladmir
+// This file contains contributions by CountVladmir and othercrow
 
 SourceList["UA:FotF"] = {
 	name : "Unearthed Arcana: Folk of the Feywild",
@@ -22,7 +22,7 @@ RaceList["fairy-ua"] = {
 		fly : { spd : "walk", enc : "walk" }
 	},
 	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to two other scores of my choice, -or- +1 to three different scores of my choice",
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	spellcastingAbility : [4, 5, 6],
 	spellcastingBonus : {
 		name : "Fairy Magic",
@@ -67,7 +67,7 @@ RaceList["feywild hobgoblin-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to two other scores of my choice, -or- +1 to three different scores of my choice",
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	vision : [["Darkvision", 60]],
 	savetxt : {
 		adv_vs : ["charmed"]
@@ -124,13 +124,14 @@ RaceList["owlfolk-ua"] = {
 	skills : ["Stealth"],
 	vision : [["Darkvision", 90]],
 	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to two other scores of my choice, -or- +1 to three different scores of my choice",
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	spellcastingAbility : [4, 5, 6],
 	spellcastingBonus : {
 		name : "Magic Sight",
 		spells : ["detect magic"],
 		selection : ["detect magic"]
 	},
+	action : [["reaction", "Nimble Flight"]],
 	trait : "Owlfolk"+
 	"\n \u2022 Magic Sight: I know the spell Detect Magic and can cast as a ritual or by using spell slots as normal."+
 	"\n \u2022 Nimble Flight: My wings give me a flying speed equal to my walking speed. As a reaction when I fall, I can make a Dexterity saving throw (DC 10) to stop falling and fly in place until the start of my next turn."+
@@ -149,7 +150,7 @@ RaceList["rabbitfolk-ua"] = {
 	skills : ["Perception"],
 	addMod : [{ type : "skill", field : "Init", mod : "Prof", text : "I can add my proficiency bonus to initiative rolls." }],
 	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to two other scores of my choice, -or- +1 to three different scores of my choice",
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	action : [["reaction", "Lucky Footwork"]],
 	trait : "Rabbitfolk"+
 	"\n \u2022 Hare-Trigger: I add my proficiency bonus to initiative rolls."+
