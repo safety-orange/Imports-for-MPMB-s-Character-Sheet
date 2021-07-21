@@ -274,7 +274,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,0],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"lapis lazuli (1st-level, uncommon)" : {
@@ -287,7 +287,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,1],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"quartz (2nd-level, rare)" : {
@@ -300,7 +300,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,2],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"bloodstone (3rd-level, rare)" : {
@@ -313,7 +313,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,3],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"amber (4th-level, very rare)" : {
@@ -327,7 +327,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,4],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"jade (5th-level, very rare)" : {
@@ -340,7 +340,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,5],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"topaz (6th-level, very rare)" : {
@@ -354,7 +354,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,6],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"star ruby (7th-level, legendary)" : {
@@ -367,7 +367,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,7],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"ruby (8th-level, legendary)" : {
@@ -380,7 +380,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,8],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	},
 	"diamond (9th-level, legendary)" : {
@@ -393,7 +393,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			level : [0,9],
 			psionic : false,
 			firstCol : "checkbox",
-			times : 16
+			times : 20
 		}
 	}
 }

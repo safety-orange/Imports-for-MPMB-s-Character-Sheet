@@ -52,7 +52,7 @@ RaceList["dhampir"] = {
 	extraLimitedFeatures : [{
 		name : "Vampiric Bite",
 		additional : "empower myself",
-		usages: "Proficiency bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
 		recovery: "long rest"
 	}],
@@ -168,7 +168,7 @@ RaceList["reborn"] = {
 	},
 	extraLimitedFeatures : [{
 		name : "Knowledge from a Past Life",
-		usages: "Proficiency bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
 		recovery: "long rest"
 	}],
