@@ -60,7 +60,7 @@ if (!SourceList.T) {
 		name : "Fey Touched",
 		source : [["T", 79], ["UA:F2", 2]],
 		descriptionFull : "Your exposure to the Feywild's magic has changed you, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 You learn the misty step spell and one 1st-level spell of your choice. The 1st-level spell must be from the divination or enchantment school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
-		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
+		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 		spellcastingBonus : [{
 			name : "Misty Step",
 			spells : ["misty step"],
@@ -76,17 +76,17 @@ if (!SourceList.T) {
 		spellcastingAbility : 4,
 		choices : ["Intelligence", "Wisdom", "Charisma"],
 		"intelligence": {
-			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
+			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them " + (typePF ? "by expending" : "with") + " a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 			spellcastingAbility : 4,
 			scores : [0, 0, 0, 1, 0, 0]
 		},
 		"wisdom": {
-			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
+			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 			spellcastingAbility : 5,
 			scores : [0, 0, 0, 0, 1, 0]
 		},
 		"charisma": {
-			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
+			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 			spellcastingAbility : 6,
 			scores : [0, 0, 0, 0, 0, 1]
 		}
@@ -269,7 +269,7 @@ FeatsList["shadow touched-ua"] = {
 	name: "Shadow Touched",
 	source: [["UA:F2", 3]],
 	descriptionFull : "You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 You learn the darkness spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
-	description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
+	description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 	spellcastingBonus : [{
 		name : "Darkness",
 		spells : ["darkness"],
@@ -286,17 +286,17 @@ FeatsList["shadow touched-ua"] = {
 	allowUpCasting : true,
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence": {
-		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
 		scores : [0, 0, 0, 1, 0, 0]
 	},
 	"wisdom": {
-		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility : 5,
 		scores : [0, 0, 0, 0, 1, 0]
 	},
 	"charisma": {
-		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility : 6,
 		scores : [0, 0, 0, 0, 0, 1]
 	}
@@ -320,7 +320,7 @@ FeatsList["tracker-ua"] = {
 	name : "Tracker",
 	source : [["UA:F2", 3]],
 	descriptionFull : "You have spent time hunting creatures and honed your skills, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You learn the hunter's mark spell. You can cast it once without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have. Wisdom is your spellcasting ability for this spell.\n \u2022 You have advantage on Wisdom (Survival) checks to track creatures.",
-	description : "I can cast Hunter's Mark once per lost rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
+	description : "I can cast Hunter's Mark once per long rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	spellcastingBonus : {
 		name : "1\xD7/LR \u0026 spell slot",
