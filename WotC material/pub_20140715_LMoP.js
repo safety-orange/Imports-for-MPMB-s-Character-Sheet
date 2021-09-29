@@ -7,7 +7,7 @@ SourceList["LMoP"] = {
 	name : "Lost Mines of Phandelver [items]",
 	abbreviation : "LMoP",
 	group : "Adventure Books",
-	url : "https:/http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_starterset",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_starterset",
 	date : "2014/07/15"
 };
 
