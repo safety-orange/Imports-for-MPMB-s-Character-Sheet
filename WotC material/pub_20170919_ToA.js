@@ -1,5 +1,5 @@
 var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -681,7 +681,6 @@ MagicItemsList["amulet of the black skull"] = {
 	additional : "regains 1d6",
 	toNotesPage : [{
 		name : "Transformation Table",
-		popupName : "Amulet of the Black Skull Transformation Table",
 		note : [
 			"This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.",
 			"If I'm not undead, I must make a DC 16 Constitution save each time I use the amulet to teleport. On a failure, the black skull cackles as I'm transformed in transit. The transformation is random (see table below) and takes effect as soon as I arrive at the destination.",

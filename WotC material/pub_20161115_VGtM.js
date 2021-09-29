@@ -1,5 +1,5 @@
 var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -240,7 +240,7 @@ RaceList["firbolg"] = {
 	carryingCapacity : 2
 };
 RaceList["goblin"] = {
-	regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
+	regExpSearch : /^(?=.*\bgoblins?\b)(?!.*(hobgoblin|bugbear)).*$/i,
 	name : "Goblin",
 	source : [["V", 119], ["G", 17], ["E:RLW", 26], ["W", 174]],
 	plural : "Goblins",

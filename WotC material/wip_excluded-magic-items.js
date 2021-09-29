@@ -263,3 +263,688 @@
 		prerequisite : "Requires attunement by a creature the sword deems worthy"
 	}
 }
+{ // pub_20200915_IDRotF.js
+	MagicItemsList["chwinga charms"] = { // contains contributions by Nod_Hero on Discord
+		name : "Chwinga Charms",
+		source : ["F"],
+		type : "wondrous item",
+		rarity : "rare",
+		descriptionFull : "This tiny object looks like a snowflake. Different types of chwinga charms exist, each with a different effect.",
+		allowDuplicates : true,
+		choices : ["Animal Conjuring", "Biting Cold", "Bounty", "Cold Resistance", "Heroism", "Snowball Strike", "The Ice Troll", "The Snow Walker", "The Traveler's Haven", "Vitality"],
+		"animal conjuring" : {
+			description : "This tiny object looks like a snowflake. As an action, I can cast the Conjure Animals spell (3rd-level version). The charm disappears after 3 uses.",
+			usages : 3,
+			recovery : "never",
+			spellFirstColTitle : "Ch",
+			spellcastingBonus : [{
+				name : "1 charge",
+				spells : ["conjure animals"],
+				selection : ["conjure animals"],
+				firstCol : 1
+			}]
+		},
+		"biting cold" : {
+			description : "This tiny object looks like a snowflake. As a bonus action, I can can expend 1 of the charm's charges to wreathe my weapon attacks with biting cold for 1 minute. Until this effect ends, I deal an extra 1d6 cold damage when I hit with a melee or ranged weapon attack. The charm disappears after 3 uses.",
+			usages : 3,
+			recovery : "never",
+			action : [["bonus action", ""]]
+		},
+		"bounty" : {
+			description : "This tiny object looks like a snowflake. As an action, I can can expend 1 of the charm's charges to cast the Create Food And Water spell, requiring no components. The charm disappears after 3 uses.",
+			usages : 3,
+			recovery : "never",
+			spellFirstColTitle : "Ch",
+			spellcastingBonus : [{
+				name : "1 charge",
+				spells : ["create food and water"],
+				selection : ["create food and water"],
+				firstCol : 1
+			}]
+		},
+		"cold resistance" : {
+			description : "This tiny object looks like a snowflake. As an action, I can expend the charm to give myself resistance to cold damage for 24 hours.",
+			usages : 1,
+			recovery : "never",
+			action : [["action", ""]]
+		},
+		"heroism" : {
+			description : "This tiny object looks like a snowflake. As an action, I can can expend the charm to give myself the benefit of a Potion of Heroism. I gain 10 temporary hit points that last for 1 hour and am under the effect of the Bless spell (no concentration required).",
+			usages : 1,
+			recovery : "never",
+			action : [["action", ""]]
+		},
+		"snowball strike" : {
+			description : "As a bonus action, I can can expend 1 of the charm's charges to create a magical snowball in my hand and throw it. The snowball is a magic ranged weapon , has a 20/60 range, deals 1d4 cold damage, and scores a critical hit on a roll of 19 or 20. On a critical hit, the target is blinded until the end of its next turn",
+			usages : 5,
+			recovery : "never",
+			action : [["bonus action", ""]]
+		},
+		"the ice troll" : {
+			description : "This tiny object looks like a snowflake. As a reaction when I take cold damage, I can expend the charm to reduce the damage to 0. I regain a number of hit points equal to half the cold damage I would have taken.",
+			usages : 1,
+			recovery : "never",
+			action : [["reaction", ""]]
+		},
+		"the snow walker" : {
+			description : "As an action, I can expend 1 of the charm's charges to gain these 24 hour benefits: I can see 60 ft through areas heavily obscured by snow, I am immune to the effects of extreme cold (described in DMG), and I and my allies within 15 feet of me ignore snow/ice difficult terrain. The charm disappears after 3 uses.",
+			usages : 3,
+			recovery : "never",
+			action : [["action", ""]]
+		},
+		"the traveler's haven" : {
+			description : "This tiny object looks like a snowflake. As an action, I can expend 1 of the charm's charges to cast the Leomund's Tiny Hut spell, no components required. The charm disappears after 3 uses.",
+			usages : 3,
+			recovery : "never",
+			spellFirstColTitle : "Ch",
+			spellcastingBonus : [{
+				name : "1 charge",
+				spells : ["leomund's tiny hut"],
+				selection : ["leomund's tiny hut"],
+				firstCol : 1
+			}]
+		},
+		"vitality" : {
+			description : "As an action, I can can expend the charm to give myself the benefit of a Potion of Vitality. I remove any exhaustion I am suffering and am cured of any disease or poison affecting me. For the next 24 hours, I regain the maximum number of hit points for any Hit Die I spend.",
+			usages : 1,
+			recovery : "never",
+			action : [["action", ""]]
+		}
+	};
+}
+{ // pub_20201117_TCoE.js
+	MagicItemsList["baba yaga's mortar and pestle"] = { // contains contributions by lizrdgizrd
+		name : "Baba Yaga's Mortar and Pestle",
+		source : [["T", 121]],
+		type : "wondrous item",
+		rarity : "artifact",
+		description : "I can expand the mortar to fit up to a Large creature. I can make the pestle a quarterstaff and back at will. When hitting with a melee attack I can add 1d8 force for each charge expended up to 3. Holding both, I can fill the mortar with any nonmagical plant, fluid or mineral worth 10 gp by speaking its name.",
+		descriptionFull : "The creations of the immortal Bab Yaga defy the laws of mortal magic. Among the notorious implements that cement her legend on countless worlds are the artifacts that propel her through the planes: Baba Yaga's Mortar and Pestle. These signature tools of Baba Yaga are a single artifact for purposes of attunement. Should the two objects become separated, the pestle appears next to the mortar at the next dawn.\n  Random Properties. This artifact has the following random properties, which you can determine by rolling on the teables in the \"Artifacts\" section of the Dungeon Master's Guide:\n  2 minor beneficial properties\n  1 major beneficial property\n  1 minor detrimental property\n  Properties of the Mortar. The mortar is a Tiny wooden bowl. However, the mortar increases in size to accommodate anything you place inside, expanding--if there's enough space--up to Large size, meaning it can hold even a Large creature.\n  Properties of the Pestle. The pestle is a 6-inch-long, worn wooden tool. Once during your turn while you are holding the pestle, you can extend it into a quarterstaff or shrink it back into a pestle (no action required). As a quarterstaff, the pestle is a magic weapon that grants a +3 bonus to attack and damage rolls made with it.\n  The pestle has 12 charges. When you hit with a melee attack using the pestle, you can expend up to 3 of its charges to deal an extra 1d8 force damage for each charge expended. The pestle regains all expended charges daily at dawn.\n  Perfect Tools. While holding the mortar and pestle, you can use your action to say the name of any nonmagical plant, mineral, or fluid worth 10 gp or less. The mortar instantly fills with the desired amount of that material. Once you use this action you can't do so again until you finish a short or long rest.\n  You can also use the artifact as alchemist's supplies, brewer's supplies, cook's utensils, an herbalism kit, and a poisoner's kit. You have advantage on any check you make using the artifact as one of these tools.\n  Primal Parts. As an action while the pestle and the mortar is within 5 geet of you, you can command the pestle to grind. For the next minute, or until you use your action to verbally command it to stop, the pestle moves on its own, grinding the contents of the mortar into a mush or fine powder that's equally useful for cooking or alchemy. At the start of each of your turns, whatever is in the mortar takes 4d10 force damage. If this reduces the target's hit points to 0, the target is reduce to powder, pulp, or paste, as appropriate. Only magic items are unaffected. If you wish, when the pestle stops, you can have the mortar separate its contents--like powdered bone, crushed herbs, pulped organs--into separate piles.\n  Traverse the Night. If you are holding the pestle while you are inside the mortar, you can use your action to verbally command the mortar to travel to a specific place or creature. You don't need to know where your destination is, but it must be a specific destination--not just the nearest river or a red dragon's lair. If the stated destination is within 1,000 miles of you, the mortar lifts into the air and vanishes. You and any creatures in the mortar travel through a dreamlike sky, with hazy reflections of the world passing by below. Creatures might see images of you streaking through the sky between your point of origin and the destination. You arrive at the location 1 hour later or, if it is night, 1 minute later.\n  Bones Know Their Home. When you command the mortar to travel, you can instead throw out the dust or paste of something ground by the mortar and name a location on a different plane of existence or a different world on the Material Plane. If that material came from a creature native to the named plane or world, the mortar travels through an empty night sky to an unoccupied space at that destination, arriving in 1 minute.\n  Destroying the Mortar and Pestle. The mortar and pestle are destroyed if they are crushed underfoot by the Dancing Hut of Baba Yaga or by Baba Yaga herself.",
+		attunement : true,
+		usages : 12,
+		recovery : "dawn",
+		action : [
+			["action", "Traverse the Night"],
+			["action", "Primal Parts"],
+			["action", "Perfect Tools"]
+		],
+		weaponOptions : [{
+			name : "Baba Yaga's Pestle",
+			source : [["T", 121]],
+			regExpSearch : /^(?=.*pestle)(?=.*yaga's)(?=.*baba).*$/i,
+			description : "Versatile (1d8); 1-3 charges per attack add 1d8 force damage per charge",
+			modifiers : [3,3],
+			type: "simple",
+			ability : 1,
+			abilitytodamage : true,
+			damage : [1, 6, "bludgeoning"],
+			range : "Melee",
+			tooltip : "I have to expand Baba Yaga's Pestle into a quarterstaff before I may use it as a weapon.",
+			defaultExcluded : true
+		}]
+	}
+	MagicItemsList["crook of rao"] = { // contains contributions by lizrdgizrd
+		name : "Crook of Rao",
+		source : [["T", 123]],
+		type : "wondrous item",
+		rarity : "artifact",
+		description : "While holding the crook, I can expend 1 or more charges to cast one of its spells. I can spend 10 minutes to banish all fiends below CR 19 within 1 mile to their home plane for 100 years.",
+		descriptionFull : "Ages ago, the serene god Rao created a tool to shield his fledgling faithful against the evils of the Lower Planes. Yet, as eons passed, mortals developed their own methods of dealing with existential threats, and the crook was largely forgotten. In recent ages, though, the Crook of Rao was rediscovered and leveraged against the rising power of the Witch Queen Iggwilv (one of the names of the wizard Tasha). Although she was defeated, Iggwilv managed to damage the crook during the battle, infecting it with an insidious curse--and the potential for future victory. In the aftermath, the crook was again lost. Occasionally it reappears, but the famed artifact is not what it was. Whether or not the artifact's bearers realize its full threat, few risk using the Crook of Rao--potentially for the final time.\n  Random Properties. The artifact has the following random properties, which you can determine by reolling on the tables in the \"Arifacts\" section of the Dungeon Master's Guide:\n  2 minor beneficial properties\n  1 major beneficial property\n  1 minor detrimental property\n  Spells. The crook has 6 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells (save DC 18) from it: aura of life (2 charges), aura of purity (2 charges), banishment (1 charge), beacon of hope (1 charge), mass cure wounds (3 charges). The crook regains 1d6 expended charges daily at dawn.\n  Absolute Banishment. While you are attuned to the crook and holding it, you can spend 10 minutes to banish all but the mightiest fiends within 1 mile of you. Any fiend with a challenge rating of 19 or higher is unaffected. Each banished fiend is sent back to its home plane and can't return to the plane the Crook of Rao banished it from for 100 years.\n\nSee the Notes section for further information.",
+		toNotesPage : [{
+			name : "Crook of Rao",
+			note : [
+				"\nFailing Matrix",
+				"Whenvever the Crook of Rao's Absolute Banishment property is used, or when its last charge is expended, roll on the Extraplanar Reversal table. Any creature conjured as a result of this effect appear in random unoccupied spaces within 60 feet of you and are not under your control.",
+				"\nExtraplanar Reversal",
+				" d100   Effect",
+				"01-25   A portal to a random plane opens. The portal closes after 5 mintues.",
+				"26-45   2d4 imps and 2d4 quasits appear.",
+				"46-60   1d8 succubi/incubi appear.",
+				"61-70   1d10 barbed devils and 1d10 vrocks appear.",
+				"71-80   1 arcanoloth, 1 night hag, and 1 rakshasa appear.",
+				"81-85   1 ice devil and 1 marilith appear.",
+				"86-90   1 balor and 1 pit fiend appear. At the DM's discretion, a portal opens\n       into the presence of a archdevil or demon lord instead, then closes\n       after 5 minutes.",
+				"91-00   Iggwilv's Curse (see the Iggwilv's Curse property).",
+				"\nIggwilv's Curse",
+				"When the Crook was last used against Iggwilv, the Witch Queen lashed out at the artifact, infecting its magical matrix. Over the years, this curse has spread within the crook, threatening to violently pervert its ancient magic. If this occurs, the Crook of Rao, as it is currently known, is destroyed, its magical matrix inverting and exploding into a 50-foot diameter portal. This portal functions as a permanent gate spell cast by Iggwilv. The gate then, once per round on an initiateve count 20, audibly speaks a fiend's name in Iggwilv's voice, doing so until the gate calls on every fiend ever banished by the Crook of Rao. If the fiend still exists, it is drawn through the gate. This process takes eighteen years to complete, at the end of which the gate becomes a permanent portal to Pazunia, the first layer of the Abyss.",
+				"\nDestroying or Repairing the Crook",
+				"The Crook of Rao can either be destroyed or repaired by journeying to Mount Celestiaand obtaining a tear from the eternally serene god Rao. One way to make the emontionless god cry would be to reunite Rao with the spirit of his first worshipper who sought revelations byond the multiverse long ago. The Crook dissolves if immersed in teh god's tear for a year and a day. If washed in the tear daily for 30 days the Crook loses its Failing Matrix Property.",
+			]
+		}],
+		attunement : true,
+		usages : 6,
+		recovery : "dawn",
+		action : ["action", "Absolute Banishment"],
+		spellcastingBonus : [{
+			name : "Aura of Life",
+			spells : ["aura of life"],
+			selection : ["aura of life"],
+			firstCol : "2c",
+			allowUpCasting : true,
+			fixedDC : 18,
+		},{
+			name : "Aura of Purity",
+			spells : ["aura of purity"],
+			selection : ["aura of purity"],
+			firstCol : "2c",
+			allowUpCasting : true,
+			fixedDC : 18,
+		},{
+			name : "Banishment",
+			spells : ["banishment"],
+			selection : ["banishment"],
+			firstCol : "1c",
+			allowUpCasting : true,
+			fixedDC : 18,
+		},{
+			name : "Beacon of Hope",
+			spells : ["beacon of hope"],
+			selection : ["beacon of hope"],
+			firstCol : "1c",
+			allowUpCasting : true,
+			fixedDC : 18,
+		},{
+			name : "Mass Cure Wounds",
+			spells : ["mass cure wounds"],
+			selection : ["mass cure wounds"],
+			firstCol : "3c",
+			allowUpCasting : true,
+			fixedDC : 18,
+		}]
+	}
+	MagicItemsList["demonomicon of iggwilv"] = { // contains contributions by lizrdgizrd
+		name : "Demonomicon of Iggwilv",
+		source : [["T", 125]],
+		type : "wondrous item",
+		rarity : "artifact",
+		description : "While holding the Demonomicon, when I make an Intelligence check regarding demons or a Wisdom check related to the Abyss I can add double my proficiency bonus to the check. When I make a spell damage roll against a fiend I apply the maximum damage.",
+		descriptionFull : "An expansive treatise documenting the Abyss's infinite layers and inhabitants, the Demonomicon of Iggwilv is the most thorough and blasphemous tome of demonology in the multiverse. The tome recounts both the oldest and most current profanities of the Abyss and demons. Demons have attempted to censor the text, and while sections have been ripped from the book's spine, the general chapters remain, ever revealing demonic secrets. And the book holds more than blasphemies. Caged behind lines of script roils a secret piece of the Abyss itself, which keeps the book up-to-date, no matter how many pages are removed, and it longs to be more than mere reference material.\n  Random Properties. The artifact has the following random properties, which you can determine by rolling on the tables in the \"Artifacts\" section of the Dungeon Master's Guide:\n  2 minor beneficial properties\n  1 minor detrimental property\n  1 major detrimental property\n  Spells. The book has 8 charges. It regains 1d8 expended charges daily at dawn. While holding it, you can use an action to cast Tasha's hideous laughter from it or to expend 1 or more of its charges to cast one of the following spells (save DC 20) from it: magic circle (1 charge), magic jar (2 charges), planar ally (3 charges), planar binding (2 charges), plane shift (to layers of the Abyss only; 3 charges), summon fiend (3 charges).\n  Abyssal Reference. You can reference the Demonomicon whenever you make an Intelligence check to discern information about demons or a Wisdom (Survival) check related to the Abyss. When you do so, you can add double your proficiency bonus to the check.\n\nSee the Notes section for further information.",
+		attunement : true,
+		toNotesPage : [{
+			name : "Demonomicon of Iggwilv",
+			note : [
+				"\nFiendish Scourging",
+				"Your magic causes pain to fiends. While carrying the book, when you make a damage roll for a spell you cast against a fiend, you use the maximum possible result instead of rolling.",
+				"\nEnsnarement",
+				"While carrying the book, whenever you cast the magic circle spell naming only fiends, or the planar binding spell targeting a fiend, the spell is cast at 9th level, regardless of what level spell slot you used, if any. Additionally, the fiend has disadvantage on its saving throw against the spell.",
+				"\nContainment",
+				"The first 10 pages of the Demonomicon are blank. As an action while holding the book, you can target a fiend that you can see that is trapped within a magic circle. The fiend must succeed on a DC 20 Charisma saving throw with disadvantage or become trapped within one of the Demonomicon's empty blank pages, which fills with writing detailing the trapped creature's widely known name and depravities. Once Used, this action can't be used again until the next dawn.\n  When you finish a long rest, if you and the Demonomicon are on the same plan of existence, the trapped creature of the highest challenge rating within the book can attempt to possess you. You must make a DC 20 Charisma saving throw. On a failure, you are possessed by the creature, which controls you like a puppet. The possessing creature can release you as an action, appearing in the closest unoccupied space. On a successful save, the fiend can't try to possess you again for 7 days.\n  When the tome is discovered it has 1d4 fiends occupying its pages, typically an assortment of demons.",
+				"\nDestroying the Demonomicon",
+				"To destroy the book, six different demon lords must each tear out a sixth of the book's pages. If this occurs, the pages reappear after 24 hours. Before all those hours pass, anyone who opens the book's remaining binding is transported to a nascent layer of the Abyss that lies hidden within the book. At the heart of this dadly, semi-sentient domain lies a long-lost artifact, Fraz-Urb'luu's Staff. If the staff is dragged from the pocket plane, the tome is reduced to a mundane and quite out-of-date copy of the Tome of Zyx, the work that served as the foundation for the Demonomicon. Once the staff emerges, the demon lord Fraz-Urb'luu instantly knows.",
+			]
+		}],
+		usages : 8,
+		recovery : "dawn",
+		action : ["action", "Containment"],
+		spellcastingBonus : [{
+			name : "Magic Circle",
+			spells : ["magic circle"],
+			selection : ["magic circle"],
+			firstCol : "1c",
+			allowUpCasting : true,
+			fixedDC : 20,
+		},{
+			name : "Magic Jar",
+			spells : ["magic jar"],
+			selection : ["magic jar"],
+			firstCol : "3c",
+			allowUpCasting : true,
+			fixedDC : 20,
+		},{
+			name : "Planar Ally",
+			spells : ["planar ally"],
+			selection : ["planar ally"],
+			firstCol : "3c",
+			allowUpCasting : true,
+			fixedDC : 20,
+		},{
+			name : "Planar Binding",
+			spells : ["planar binding"],
+			selection : ["planar binding"],
+			firstCol : "2c",
+			allowUpCasting : true,
+			fixedDC : 20,
+		},{
+			name : "Plane Shift (Abyss)",
+			spells : ["plane shift"],
+			selection : ["plane shift"],
+			firstCol : "3c",
+			allowUpCasting : true,
+			fixedDC : 20,
+		},{
+			name : "Summon Fiend",
+			spells : ["summon fiend"],
+			selection : ["summon fiend"],
+			firstCol : "3c",
+			allowUpCasting : true,
+			fixedDC : 20,
+		}]
+	}
+	MagicItemsList["mighty servant of leuk-o"] = { // contains contributions by lizrdgizrd
+		name : "Mighty Servant of Leuk-o",
+		source : [["T", 131]],
+		type : "wondrous item",
+		rarity : "artifact",
+		description : "While attuned to this construct, I can enter it and control it along with one other creature. See the Notes section for full information and stat block.",
+		descriptionFull : "  Named for the warlord who infamously employed it, the Mighty Servant of Leuk-o is a fantastically powerful, 10-foot-tall machine that turns into an animate construct when piloted. Crafted of a gleaming black alloy of unknown origin, the servant is often described as a combination of a disproportioned dwarf and an oversized beetle. The servant contains enough space for 1 ton of cargo and a crew compartment within, from which up to two Medium creatures can control it--and potentially execute a spree of unstoppable destruction.\n  Tales of the servant's origins involve more conjecture than fact, often referring to otherworldly beings, the mysterious Barrier Peaks in Oerth, and the supposedly related device known as the Machine of Lum the Mad. The best details on the device's origins and operation can be found in the Mind of Metal, a tome of artificer's secrets that connects the device to the traditions of the lost Olman people, and which was written by Lum the Mad's several tiems over granddaughter, Lum the Maestro, while she reconstructed the long disassembled Mighty Servant of Leuk-o.\n  Dangerous Attunement. Two creatures can be attuned to the servant at a time. If a third creature tries to attune to it, nothing happens.\n  The servant's controls are accessed by a hatch in its upper back, which is easily opened while there are no creatures attuned to the artifact.\n  Attuning to the artifact requires two hours, which can be undertaken as part of a long rest, during which time you must be inside the servant, interating with its controls. While crew memebers are attuning themselves, any creature or structure outside and within 50 feet of the servant has a 25 percent chance of being accidentally targeted by one of its Destructive Fist attacks once during the attunement. This process must be undergone every time a creature attunes itself to the artifact.\n\n  See the Notes section for further information.",
+			toNotesPage : [{
+			name : "Mighty Servant of Leuk-o",
+			note : [
+				"\nControlling the Servant.",
+				"  While any creatures are attuned to the artifact, attuned creatures can open the hatch as easily as any other door. Other creatures can open the hatch as an action with a successful DC 25 Dexterity check using thieve's tools. A knock spell cast on the hatch also opens it until the start of the caster's next turn.\n  A creature can enter or exit through the hatch by spending 10 feet of momvement. Those inside the servant have total cover from effects originating outside it. The controls within it allow creatures to see outside without obstruction.\n  While you are inside the servant, you can command it by using the controls. During your turn (for either attuned creature), you can command it in the following ways:\n \u2022 Open or close the hatch (no action required, once per turn)\n \u2022 Move the servant up to its speed (no action requred)\n \u2022 As an action, you can command the servant to take one of the actions in its stat block or some other action.\n \u2022 When a creature provokes an opportunity attack from the servant, you can use your reaction to command the servant to make one Destructive Fist attack against that creature.\n  While there are no attuned creatures inside the servant, it is an inert object.\n ",
+				"\nGhost in the Machine.",
+				"  Upon his death, the soul of the mighty warlord Leuk-o was drawn into the artifact and has become its animating force. The servant has been known to attack or move of its own accord, particularly if doing so will cause destruction. Once every 24 hours, the servant, at the DM's discretion, takes one action while uncrewed.\n  If the servant loses half of its hit points or more, each creature attuned to it must succeed on a DC 20  Wisdom saving throw or be charmed for 24 hours. While charmed in this way, the creature goes on a destructive spree, seeking to destroy structures and attack any unattuned creatures within sight of the servant, starting with those threatening the artifact--preferably using the servant, if possible.",
+				"\nSelf-Destruct",
+				"  By inputting a specific series of lever pulls and button presses, the servant's two crew members can cause it to explode. The self-destruct code is not revealed to crew members when they attune to the artifact. If the code is discovered (the DM determines how), it requires two attuned crew members to be inside the servant and spend their actions on 3 consecutive rounds performing the command. Should the crew members begin the process of entering the code, though, the servant uses its Ghost in the Machine property and turns the crew memebers against each other.\n  If the crew members successfully implement the code, at the end of the third round, the servant explodes. Every creature in a 100-foot-radius sphere centered on the servant must make a DC 25 Dexterity saving throw. On a failed save, a creature takes 87 (25d6) force damage, 87 (25d6) lightning damage, and 87 (25d6) thunder damage. On a successful save, a creature takes half as much damage. Objects and structures in the area take triple damage. Creatures inside the servant are slain instantly and leave behind no remains.\n  This does not destroy the servant permanently. Rather, 2d6 days later, its parts--left arm, left leg, right arm, right leg, lower torso, and upper torso--drop from the sky in random places within 1,000 miles of the explosion. If brought within 5 feet of one another, the pieces reconnect and reform the servant.",
+				"\nDestroying the Servant",
+				"  The servant can be destroyed in two ways. After it has self-destructed, its disconnected pieces can be melted down in on of the forge-temples of its ancient Olman creators. Alternatively, if the servant strikes the Machine of Lum the Mad, both artifacts explode in an erubtion that is three times the size and three times the damage as the servant's self-destruct property."
+			]},{
+			name : "Mighty Servant of Leuko-o Stat Block",
+			note : [
+				"\nMighty Servant of Leuk-o",
+				"Huge construct",
+				"\nArmor Class: 22 (natural armor)\nHit Points: 310 (27d12 + 135)\nSpeed: 60 ft.",
+				" STR       DEX      CON      INT      WIS       CHA\n30 (+10)  14 (+2)  20 (+5)  1 (-5)  14 (+2)  10 (+0)",
+				"\nSaving Throws: Wis +9, Cha +7\nSkills: Perception +9\nDamage Resistances: piercing, slashing\nDamage Immunities: acid, bludgeoning, cold, fire, lightning, necrotic, poison, psychic, radiant\nCondition Immunities: all conditions but invisible and prone\nSenses: blindsight 120 ft., passive Perception: 19\nLanguages: understands the languages of creatures attuned to it but can't speak\nChallenge: --\tProficiency Bonus: +7",
+				"\nImmutable Existence. The servant is immune to any spell or effect that would alter its form or send it to another plane of existence.\nMagic Resistant Construction. The servant has advantage on saving throws against spells and other magical effects, and spell attacks made against it have disadvantage.\nRegeneration. The servant regains 10 hit points at the start of its turn. If it is reduced to 0 hit points, this trait doesn't function until an attuned creature spends 24 hours repairing the artifact or until the artifact is subjected to lightning damage.\nStanding Leap. The servant's long jump is up to 50 feet and its high jump is up to 25 feet, with or without a running start.\nUnusual Nature. The servant doesn't require air, food, drink, or sleep.",
+				"\nActions\nDestructive Fist. Melee or Ranged Weapon Attack: +17 to hit, reach 10 ft. or range 120 ft., one target. Hit: 36 (4d12 + 10) force damage. If the target is an object, it takes triple damage.\nCrushing Leap. If the servant jumps at least 25 feet as a part of its movement, it can then use this action to land on its feet in a space that contains one or more other creatures. Each of those creatures is pushed to an unoccupied space within 5 feet of the servant and must make a DC 25 Dexterity saving throw. On a failed save, a creature takes 26 (4d12) bludgeoning damage and is knocked prone. On a successful save, a creature takes half as much damage and isn't knocked prone."
+			]
+		}],
+		attunement : true,
+		action : ["reaction", "Destructive Fist Attack"],
+	}
+	MagicItemsList["luba's tarokka of souls"] = { // contains contributions by lizrdgizrd
+		name : "Luba's Tarokka of Souls",
+		source : [["T", 129]],
+		type : "wondrous item",
+		rarity : "artifact",
+		description : "When holding this deck, I can use an action to cast one of the spells from it. I automatically succeed on Constitution saving throws for divination spells. I can draw a card from the deck to add advantage or disadvantage for a creature I can see within 15 feet.",
+		descriptionFull : "  Not all lingering spirits are tragic souls, lost on their way to the hereafter. Some languish as prisoners, souls so wicked mortals dare not free them upon an unsuspecting afterlife.\n  Created by a figure of Vistani legend, Luba's Tarokka of Souls shaped the destiny of countless heroes. The prophecies of this deck of cards also revealed great evils and guided its creator into the path of nefarious forces. Untold times the deck's creator, Mother Luba, narrowly escaped doom, spared only by her keen insigths. But even for her, not all wickedness could be escaped. In the most dire cases, Mother Luba managed to ensnare beings of pure evil amid the strands of fate, imprisoning them within her tarroka deck. There these foul spirits dwell still, trapped within a nether realm hidden amid shuffling cards, waiting for fate to turn foul--as it inevitably will.\n  Like all tarokka decks, the Tarokka of Souls is a lavishly illustrated collection of fifty-four cards, comprising the fourteen cards of the high deck and forty other cards divided into four suits: coins, glyphs, stars, and swords.\n  Random Properties. The artifact has the following random properties, which you can determine by rolling on the tables in the \"Artifacts\" section of the Dungeon Master's Guide:\n  2 minor detrimental properties\n  2 minor beneficial properties\n  Spells. While holding the deck, you can use an action to cast one of the following spells (save DC 18) from it: comprehend languages, detect evil and good, detect magic, detect poison and disease, locate object, or scrying. Once you use the deck to cast a spell, you can't cast that spell again from it until the next dawn.\n Enduring Vision. While holding the deck, you automatically succeed on Constitution saving throws made to maintain your concentration on divination spells.\n\nSee the Notes section for further information.",
+		toNotesPage : [{
+			name : "Luba's Tarokka of Souls",
+			note : [
+				"\nTwist of Fate",
+				"As an action, you can draw a card from the deck and twist the fortune of another creature you can see within 15 feet of you. Choose one of the following effects:\n",
+				"Weal. The creature has advantage on attack rolls, ability checks, and saving throws for the next hour.",
+				"Woe. The creature has disadvantage on attack rolls, ability checks, and saving throws for the next hour.",
+				"\n  The deck can be used in this way twice, and you regain all expended uses at the next dawn.",
+				"\nPrisoners of Fate",
+				"Whenever you use the Twist of Fate property, there is a chance that one of the souls trapped in the deck escapes. Roll d100 and consult the Souls of the Tarokka table. If you roll one of the high cards, the soul associated with it escapes. You can find its statistics in the Monster Manual. If you roll a soul that has already escaped, roll again.",
+				"\nSouls of the Tarokka",
+				"d100\tCard\t\tSoul",
+				"  1\tArtifact\t\tFlameskull",
+				"  2\tBeast\t\tWraith",
+				"  3\tBroken One\tBanshee",
+				"  4\tDarklord\t\tVampire",
+				"  5\tDonjon\t\tMummy",
+				"  6\tExecutioner\t\tDeath knight",
+				"  7\tGhost\t\tGhost",
+				"  8\tHorseman\t\tMummy lord",
+				"  9\tInnocent\t\tGhost",
+				" 10\tMarionette\t\tMummy",
+				" 11\tMists\t\tWraith",
+				" 12\tRaven\t\tVampire spawn",
+				" 13\tSeer\t\tVampire",
+				" 14\tTempter\t\tVampire spawn",
+				"15-00\t--\t\t--",
+				"\n  The released soul appears at a random location within 10d10 miles of you and terrorizes the living. Until the released soul is destroyed, it gains the benefit of a weal from the deck's Twist of Fate property, and both you and the original target of Twist of Fate suffer the effect of Woe.",
+				"\nShuffling Fate",
+				"If you go 7 days without using the Twist of Fate property, your attunement to Luba's Tarroka of Souls ends, and you can't attune to it again until after another creature uses Twist of Fate on you.",
+				"\nDestroying the Deck",
+				"Luba's Tarokka of Souls can be destroyed only if all fourteen souls within are released and destroyed. This reveals a fifteenth soul, a lich, that inhabits the Nether card, which appears only when the fourteen souls are defeated. If this ancient entity is destroyed, the Nether card vanishes and the deck becomes a normal tarokka deck, with no special properties, but it inlcudes a new card of the DM's design."
+			]
+		}],
+		attunement : true,
+		usages : 1,
+		recovery : "dawn",
+		action : ["action", "Cast Spell from Tarokka"],
+		extraLimitedFeatures : [{
+			name : "Twist of Fate",
+			usages : "2",
+			recovery : "dawn"
+		}],
+		spellcastingBonus : [{
+			name : "Comprehend Languages",
+			spells : ["comprehend languages"],
+			selection : ["comprehend languages"],
+			fixedDC : 18,
+		},{
+			name : "Detect Evil and Good",
+			spells : ["detect evil and good"],
+			selection : ["detect evil and good"],
+			fixedDC : 18,
+		},{
+			name : "Detect Magic",
+			spells : ["detect magic"],
+			selection : ["detect magic"],
+			fixedDC : 18,
+		},{
+			name : "Detect Poison and Disease",
+			spells : ["detect poison and disease"],
+			selection : ["detect poison and disease"],
+			fixedDC : 18,
+		},{
+			name : "Locate Object",
+			spells : ["locate object"],
+			selection : ["locate object"],
+			fixedDC : 18,
+		},{
+			name : "Scrying",
+			spells : ["scrying"],
+			selection : ["scrying"],
+			fixedDC : 18,
+		}]
+	}
+	MagicItemsList["teeth of dahlver-nar"] = { // contains contributions by lizrdgizrd
+		name : "Teeth of Dahlver-nar",
+		source : [["T", 135]],
+		type : "wondrous item",
+		rarity : "artifact",
+		allowduplicates : true,
+		description : "I can sow these teeth to summon creatures specific to each tooth that remain for 10 mintues. I can implant these teeth into my own mouth and gain effects specific to each tooth. I can only have 1 + my Charisma modifier teeth implanted at a time.",
+		descriptionFull : "  The Teeth of Dahlver-Nar are stories given form. They are a collection of teeth, each suggestive of wildly different origins and made from various materials. The collection rests within a leather pouch, stitched with images of heroes and whimsical creatures. Where the teeth fall, they bring legends to life.\n  Using the Teeth. While you are holding the pouch, you can use an action to draw one tooth, Roll on the Teeth of Dahlver-Nar table to determine which tooth you draw, and you can either sow the tooth or implant it (both of which are described later).\n  If you don't sow or implant the tooth, roll a die at the end of your turn. On an even number, the tooth vanishes, and creatures appear as if you sowed the tooth, but they are hostile to you and your allies. On an odd number, the tooth replaces one of your teeth as if you implanted it (potentially replacing another implanted tooth, see below).\n  Each tooth can only be used once. Track which teeth have been used. If a tooth's result is rolled after it's been used, you draw the next lowest unused tooth on the table.\n  Sowing Teeth. To sow the tooth, you place it on the ground in an unoccupied space within your reach, or you throw it into an unoccupied space within 10 feet of you in a body of water that is at least 50 feet wide and 50 feet long. Upon doing so, the tooth burrows into the ground and vanishes, leaving no hole behind, or it vanishes into the water. The creatures noted in the Creatures Summoned column appear in an unoccupied space as close to where the tooth was sown as possible. The creatures are allies to you, speak all languages you speak, and linger for 10 minutes before disappearing, unless otherwise noted.\n\nSee Page 3 Notes section for more information.",
+		choices : ["pouch of teeth (add first)", "d20 1", "d20 2", "d20 3", "d20 4", "d20 5", "d20 6", "d20 7", "d20 8", "d20 9", "d20 10", "d20 11", "d20 12", "d20 13", "d20 14", "d20 15", "d20 16", "d20 17", "d20 18", "d20 19", "d20 20"],
+		"pouch of teeth (add first)" : {
+			name : "Pouch for Teeth of Dahlver-Nar",
+			description : "I can sow these teeth to summon creatures specific to each tooth that remain for 10 mintues. I can implant these teeth into my own mouth and gain effects specific to each tooth. I can only have 1 + my Charisma modifier teeth implanted at a time.",
+			attunement : true,
+			toNotesPage : [{
+				name : "Teeth of Dahlver-Nar",
+				page3notes : true,
+				note : [
+					"\nImplanting Teeth.",
+					"  To implant the tooth, you place it in your mouth, whereupon one of your own teeth falls out, and the drawn tooth takes its place, resizing to fit in your mouth. Once the tooth is implanted, you gain the effect noted in the Implanted Effect column. The tooth can't be removed while you are attuned to the teeth, and you can't voluntarily end your attunement to them. If removed after your death, the tooth vanishes. You can have a maximum number of the teeth are implanted at one time equal to 1 + your Constitution modifier (mimimum of 2 teeth total). If you try to implant more teeth, the newly implanted tooth replaces one of the previous teeth, determined randomly. The replaced tooth vanishes, and you lose the implanted effect.",
+					"\nRecovering Teeth.",
+					"  Once all the teeth have vanished, their pouch also vanishes. The pouch with all the teeth then appears in a random destination, which could be on a different world of the Material Plane.",
+					"\nDestroying the Teeth.",
+					"  Each tooth must be destroyed individually by sowing it in the area where the tooth's story originated, with the intention to destroy it. When planted in this way, creatures summoned are not friendly to you and do not vanish. Some of the creatures summoned merely head off in search of home, while others act as their tales dictate. In either case, the tooth is gone forever.",
+					"\nSee extra Notes page for Teeth of Dahlver-Nar table",
+					"\nTo implant a tooth, add another instance of the Teeth of Dahlver-Nar and select the tooth rolled. If you are running out of space for magic items, move one (or more) to the overflow page and then use the Set Pages Layout function to show the overflow page."
+				]},{
+				name : "Teeth of Dahlver-Nar table",
+				note : [
+					"1d20\tTale and Tooth\t\tCreatures Summoned\n Implanted Effect",
+					" 1\tThe Staring Cats of Uldun-dar\t  9 cats\n\t(ivory cat molar)\nThe tooth has 8 charges. As an action, you can expend 1 charge to cast the revivify spell from the tooth. If you are dead at the start of your turn, the tooth expends 1 charge and casts revivify ton you.",
+					" 2\tDuggle's Surprising Day\t  1 commoner\n\t(human molar)\nWhen you finish a long rest, the tooth casts sanctuary (DC 18) on you, and the spell lasts for 24 hours or until you break it.",
+					" 3\tThe Golden Age of Dhakaan\t 10 goblins\n\t(golden goblin bicuspid)\t  1 goblin boss\n When you are hit by an attack and an ally is within 5 feet of you, you can use your reaction to cause them to be hit instead. You can't use this reaction again until you finish a short or long rest.",
+					" 4\tThe Mill Road Murders\t\t 3 green hags\n\t(halfling canine)\t\t in a coven\n When you damage a target that hasn't taken a turn in this combat, the target takes an extra 3d10 slashing damage from ghostly blades.",
+					" 5\tDooms of the Malpheggi\t 1 lizardfolk queen\n\t(emerald lizardfolk fang)\t 4 lizardfolk\n You gain reptilian scales, granting you a +2 bonus to your AC. Additionally, when you finish a long rest, you must succeed on a DC 15 Constitution saving throw or gain 1 level of exhaustion.",
+					" 6\tThe Stable Hand's Secret\t 2 incubi\n\t(sweet-tasting human canine)\n When you make a Charisma check against a humanoid, you can roll a d10 and add the number rolled as a bonus to the result. The creature then becomes hostile to you at the next dawn.",
+					" 7\tThe Donkey's Dream\t\t 1 unicorn\n\t(rainbow-colored donkey molar)\n The tooth has 3 charges. As an action, you can expend 1 charge to touch a creature. The target regains 2d8 + 2 hit points, and all diseases and poisons affecting it are removed. When you use this actio, a shimmering image of a unicorn's horn appears until the end of your turn, sprouting from your forehead. The tooth regains all expended charges daily at dawn. You gain the following flaw: \"When I see your wickedness in action, I must oppose it.\"",
+					" 8\tBeyond the Rock of Bral\t 2 mind flayers\n\t(Silver mind flayer tooth)\n You gain telepathy out to 120 feet as described in the Monster Manual, and you can cast the detect thoughts spell at will, requiring no components. You also have disadvantage on Wisdom (Insight) and Wisdom (Perception) checks from constant whispers of memories and nearby minds.",
+					" 9\tThe Disappearances of Half\t 4 giant toads\n\tHollow (vomerine tooth of a\n\tLarge toad)\n Your long jump is up to 30 feet and your high jump is up to 15 feet, with or without a running start.",
+					"10\tLegendry of Phantoms and\t 1 giant octopus,\n\tGhosts (obsidian human molar)\t 1 mage, 1 specter\n As an action, you can use the tooth to cast the Evard's black tentacles spell (DC 18). Once this property is used, it can't be used again until the next dawn.",
+					"11\tThe Thousand Deaths of Jander\t 1 vampire\n\tSunstar (yellowed vampire fang)\n You can make a bite attack as an unarmed strike. On a hit, it deals 1d6 piercing damage plus 3d6 necrotic damage. You regain a number of hit points equal to the necrotic damage dealt. While you are in sunlight, you can't regain hit points.",
+					"12\tNightmares of Kaggash\t 1 beholder\n\t(twisted beholder tooth)\n As an action, you can cast the eyebite spell from the tooth. Once you use this action, it can't be used again until the next dawn. Whenever you finish a long rest, roll a d20. On a 20, an aberation chosen by the DM appears within 90 feet of you and attacks.",
+				]},{
+				name : "Teeth of Dahlver-Nar table (cont)",
+				note : [
+					"13\tThree Bridges to the Sky\t 3 oni\n\t(lapis lazuli oni tooth)\n You gain a flying speed of 30 feet, and you can use the tooth to cast the detect magic spell at will. While you are attuned to fewer than 3 magic items, you gain 1 level of exhaustion that can't removed until you are attuned to 3 or more magic items.",
+					"14\tThe Claws of Dragotha\t\t 1 adult red dracolich\n\t(broken translucent fang)\n You can use the tooth to cast the create undead spell. Once this property is used, it can't be used again until the next dawn. Each time you create an undead creature using the tooth, a skeleton, zombie, or ghoul also appears at a random location within 5 miles of you, searching for the living to kill. A humanoid killed by these undead rises as the same type of undead at the next midnight.",
+					"15\tAshes of the Ages and Eternal\t 1 dao, 1 djinni\n\tFire (jade humanoid bicuspid)\t 1 efreeti, 1 marid\n You can use the tooth to cast counterspell at 9th level. Once you use this property, it can't be used again until the next dawn. Whenever you finish a long rest, your hit point maximum is reduced by d10. If this reduces your hit point maximum to 0, you die.",
+					"16\tDaughters of Bel (green\t\t 1 pit fiend\n\tsteel pit fiend fang)\n You can use the tooth to cast dominate monster (DC 18). Once you use this property, it can't be used again until the next dawn. You smell strongly of burning sulfur.",
+					"17\tWhy the Sky Screams\t\t 1 ancient blue dragon\n\t(blue dragon fang)\n You gain immunity to lightning damage and vulnerability to thunder damage.",
+					"18\tThe Last Tarrasque (jagged\t 1 tarrasque (ignores you and\n\tsiiver of tarrasque tooth)\t your commands; appears for\n\t\t\t\t 1d4 rounds then vanishes)\n You deal double damage to objects and structures. If you take 20 or more damage in one turn, you must succeed on a DC18 Wisdom saving throw or spend your next turn in a murderous fury. During this rage, you must use your action to make an unarmed strike against a creature that damaged you, or a random creature you can see if you weren't damaged by a creature, moving as close as you can to the target if necessary.",
+					"19\tIncendax's Tooth (ruby-veined\t 1 ancient red dragon\n\tred dragon fang)\n You gain immunity to fire damage, and as an action, you can exhale fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 26d6 fire damage on a failed save, or half as much damage on a successful one. After using the breath weapon, you gain 2 levels of exhaustion.",
+					"20\tDalver-Nar's Tooth\t\t 1 priest\n\t(dusty human molar)\n As an action you can call on a divine force to come to your aid. Describe the assistance you seek, and the DM decides the nature of the intervention; the effect of any cleric spell would be appropriate. Once this property is used, it can't be used again for 7 days."
+				]
+			}],
+		},
+		"d20 1" : {
+			name : "Implanted ivory cat molar",
+			description : "I have implanted the ivory cat molar from the Teeth of Dahlver-Nar. The tooth has 8 charges that I can use to cast revivify. If I am dead at the start of my turn the tooth expends 1 charge and casts revivify on me.",
+			descriptionFull : "The tooth has 8 charges. As an action, you can expend 1 charge to cast the revivify spell from the tooth. If you are dead at the start of your turn, the tooth expends 1 charge and casts revivify ton you.",
+			usages : 8,
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 1",
+				spells : ["revivify"],
+				selection : ["revivify"]
+			}],
+			attunement : false
+		},
+		"d20 2" : {
+			name : "Implanted human molar",
+			description : "I have implanted the human molar from the Teeth of Dahlver-Nar. When I finish a long rest, the tooth casts sanctuary (DC18) on me, and it last for 24 hours or until I break it.",
+			descriptionFull : "When you finish a long rest, the tooth casts sanctuary (DC 18) on you, and the spell lasts for 24 hours or until you break it.",
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 2",
+				spells : ["sanctuary"],
+				selection : ["sanctuary"],
+				fixedDC : 18
+			}],
+			attunement : false,
+			source : [["T", 136]]
+		},
+		"d20 3" : {
+			name : "Implanted golden goblin bicuspid",
+			description : "I have implanted the golden goblin bicuspid from the Teeth of Dahlver-Nar. When I am hit by an attack I can use my reaction to cause an ally within 5 feet of me to be hit instead. I can use this again after a short or long rest.",
+			descriptionFull : "When you are hit by an attack and an ally is within 5 feet of you, you can use your reaction to cause them to be hit instead. You can't use this reaction again until you finish a short or long rest.",
+			usages : 1,
+			recovery : "short/long rest",
+			action : ["reaction", "Redirect Attack to Ally"],
+			attunement : false,
+			source : [["T", 136]]
+		},
+		"d20 4" : {
+			name : "Implanted halfling canine",
+			description : "I have implanted the halfling canine from the Teeth of Dahlver-Nar. When I damage a target that hasn't taken a turn in this combat, the target takes an extra 3d10 slashing damage.",
+			descriptionFull : "When you damage a target that hasn't taken a turn in this combat, the target takes an extra 3d10 slashing damage from ghostly blades.",
+			attunement : false,
+			source : [["T", 136]]
+		},
+		"d20 5" : {
+			name : "Implanted emerald lizardfolk fang",
+			description : "I have implanted the emerald lizardfolk fang from the Teeth of Dahlver-Nar. I gain reptilian scales that give me a +2 to my AC. When I finish a long rest I must succeed on a DC 15 Constitution save or gain 1 level of exhaustion.",
+			descriptionFull : "You gain reptilian scales, granting you a +2 bonus to your AC. Additionally, when you finish a long rest, you must succeed on a DC 15 Constitution saving throw or gain 1 level of exhaustion.",
+			attunement : false,
+			source : [["T", 136]],
+			extraAC : [{
+				mod : 2,
+				name : "Teeth of Dahlver-Nar",
+				text : "I gain reptilian scales and +2 to my AC."
+			}]
+		},
+		"d20 6" : {
+			name : "Implanted sweet-tasting human canine",
+			description : "I have implanted the sweet-tasting human canine from the Teeth of Dahlver-Nar. When I make a Charisma check against a humanoid, I can roll a d10 and add the result as a bonus. The creature becomes hostile to me at dawn.",
+			descriptionFull : "When you make a Charisma check against a humanoid, you can roll a d10 and add the number rolled as a bonus to the result. The creature then becomes hostile to you at the next dawn.",
+			attunement : false,
+			source : [["T", 136]]
+		},
+		"d20 7" : {
+			name : "Implanted rainbow-colored donkey molar",
+			description : "I have implanted the rainbow-colored donkey molar from the Teeth of Dahlver-Nar. As an action, I can expend 1 charge to touch a creature and give them 2d8 + 2 hit points and remove all diseases and poisons affecting it. I then have a shimmering unicorn horn until the end of my turn.",
+			descriptionFull : "The tooth has 3 charges. As an action, you can expend 1 charge to touch a creature. The target regains 2d8 + 2 hit points, and all diseases and poisons affecting it are removed. When you use this action, a shimmering image of a unicorn's horn appears until the end of your turn, sprouting from your forehead. The tooth regains all expended charges daily at dawn. You gain the following flaw: \"When I see wickedness in action, I must oppose it.\"",
+			attunement : false,
+			source : [["T", 136]],
+			action : ["action", "Add Temp HP & Cure"],
+			usages : 3,
+			recovery : "dawn"
+		},
+		"d20 8" : {
+			name : "Implanted silver mind flayer tooth",
+			description : "I have implanted the silver mind flayer tooth from the Teeth of Dahlver-Nar. I gain telepathy out to 120 ft and can cast the detect thoughts spell at will. I have disadvantage on Wisdom (Insight) and Wisdom (Perception) checks from constant whispers of memories and nearby minds.",
+			descriptionFull : "You gain telepathy out to 120 ft as described in the Monster Manual, and you can cast the detect thoughts spell at will, requiring no components. You also have disadvantage on Wisdom (Insight) and Wisdom (Perception) checks from constant whispers of memories and nearby minds.",
+			attunement : false,
+			source : [["T", 136]],
+			vision : ["telepathy", 120],
+			spellcastingBonus : [{
+				name : "Detect Thoughts",
+				spells : ["detect thoughts"],
+				selection : ["detect thoughts"],
+				firstCol : "atwill"
+			}]
+		},
+		"d20 9" : {
+			name : "Implanted vomerine tooth of a Large toad",
+			description : "I have implanted the vomerine tooth of a Large toad from the Teeth of Dahlver-Nar. My long jump is up to 30 feet and my high jump is up to 15 feet with or without a running start.",
+			descriptionFull : "Your long jump is up to 30 feet and your high jump is up to 15 feet with or without a running start.",
+			attunement : false,
+			source : [["T", 137]]
+		},
+		"d20 10" : {
+			name : "Implanted obsidian human molar",
+			description : "I have implanted the obsidian human molar from the Teeth of Dahlver-Nar. As an action, I can use the tooth to cast Evard's black tentacles spell (DC 18). I can't use it again until the next dawn.",
+			descriptionFull : "As an action, you can use the tooth to cast Evard's black tentacles spell (DC 18). Once this property is uesd, it can't be used again until the next dawn.",
+			attunement : false,
+			source : [["T", 137]],
+			usages : 1,
+			recovery : "dawn",
+			action : ["action", "Cast Evard's black tentacles"],
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 10",
+				spells : ["evard's black tentacles"],
+				selection : ["evard's black tentacles"],
+				fixedDC : 18,
+			}]
+		},
+		"d20 11" : {
+			name : "Implanted yellowed vampire fang",
+			description : "I have implanted the yellowed vampire fang from the Teeth of Dahlver-Nar. I can make a bite attack as an unarmed strike. On a hit I deal 1d6 piercing damage plus 3d6 necrotic damage. I regain hit points equal to the necrotic damage dealt. While in sunlight, I can't regain hit points.",
+			descriptionFull : "You can make a bite attack as an unarmed strike. On a hit, it deals 1d6 piercing damage plus 3d6 necrotic damage. You regain a number of hit points equal to the necrotic damage dealt. While you are in sunlight, you can't regain hit points.",
+			attunement : false,
+			source : [["T", 137]],
+			weaponsAdd : ["Bite"],
+			weaponOptions : [{
+				name : "Bite",
+				source : [["T", 137]],
+				regExpSearch : /^(?=.*bite).*$/i,
+				description : "additional 3d6 necrotic damage, necrotic damage regained in hit points",
+				baseWeapon : "unarmed strike"
+			}]
+		},
+		"d20 12" : {
+			name : "Implanted twisted beholder tooth",
+			description : "I have implanted the twisted beholder tooth from the Teeth of Dahlver-Nar. As an action, once per day, I can cast the eyebite spell. When I finish a long rest, roll a d20 and on a 20, an aberration the DM chooses appears within 30 feet of me and attacks.",
+			descriptionFull : "As an action, you can cast the eyebite spell from the tooth. Once you use this action, you can't use it again until the next dawn. Whenever you finish a long rest, roll a d20. On a 20, an aberration chosen by the DM appears within 30 feet of you and attacks.",
+			attunement : false,
+			source : [["T", 137]],
+			usages : 1,
+			recovery : "dawn",
+			action : ["action", "Cast eyebite"],
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 12",
+				spells : ["eyebite"],
+				selection : ["eyebite"]
+			}]
+		},
+		"d20 13" : {
+			name : "Implanted lapis lazuli oni fang",
+			description : "I have implanted the lapis lazuli oni fang from the Teeth of Dahlver-Nar. I gain a flying speed of 30 feet, and I can cast detect magic at will. While I am attuned to fewer than 3 magic items, I gain 1 level of exhaustion that can't be removed until I have attuned 3 items.",
+			descriptionFull : "You gain a flying speed of 30 feet, and you can use the tooth to cast the detect magic spell at will. While you are attuned to fewer than 3 magic items, you gain 1 level of exhaustion that can't be removed until you are attuned to 3 or more magic items.",
+			attunement : false,
+			source : [["T", 137]],
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 13",
+				spells : ["detect magic"],
+				selection : ["detect magic"],
+				firstCol : "atwill"
+			}],
+			speed : {
+				fly : {spd : 30, enc : 0}
+			}
+		},
+		"d20 14" : {
+			name : "Implanted broken translucent fang",
+			description : "I have implanted the broken translucent fang from the Teeth of Dahlver-Nar. Once per day, I can use the tooth to cast create undead. When I create an undead creature, a skeleton, zombie or ghoul also appears within 5 miles of me, searching for the living to kill.",
+			descriptionFull : "You can use the tooth to cast the create undead spell. Once this property is used, it can't be used again until the next dawn. Each time you create an undead creature using the tooth, a skeleton, zombie or ghoul also appears at a random location within 5 miles of you, searching for the living to kill. A humanoid killed by these undead rises as the same type of undead at the next midnight.",
+			attunement : false,
+			source : [["T", 137]],
+			usages : 1,
+			recovery : "dawn",
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 14",
+				spells : ["create undead"],
+				selection : ["create undead"]
+			}]
+		},
+		"d20 15" : {
+			name : "Implanted jade humanoid bicuspid",
+			description : "I have implanted the jade humanoid bicuspid from the Teeth of Dahlver-Nar. Once per day, I can use the tooth to cast counterspell at 9th level. Whenever I finish a long rest, if I haven't used the tooth to cast counterspell, my hit point maximum is reduced by 2d10.",
+			descriptionFull : "You can use the tooth to cast counterspell at 9th level. Once you use this property, it can't be used again until the next dawn. Whenever you finish a long rest, if you haven't used the tooth to counter a spell since your last long rest, your hit point maximum is reduced by 2d10. If this reduces your hit point maximum to 0, you die.",
+			attunement : false,
+			source : [["T", 137]],
+			usages : 1,
+			recovery : "dawn",
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 15",
+				spells : ["counterspell"],
+				selection : ["counterspell"]
+			}]
+		},
+		"d20 16" : {
+			name : "Implanted green steel pit fiend fang",
+			description : "I have implanted the green steel pit fiend fang from the Teeth of Dahlver-Nar. Once per day, I can use the tooth to cast dominate monster (DC 18). I smell strongly of burning sulfur.",
+			descriptionFull : "You can use the tooth to cast dominate monster (DC 18). Once you use this property, it can't be used again until the next dawn. You smell strongly of burning sulfur.",
+			attunement : false,
+			source : [["T", 137]],
+			usages : 1,
+			recovery : "dawn",
+			spellcastingBonus : [{
+				name : "Implanted Tooth d20 = 16",
+				spells : ["dominate monster"],
+				selection : ["dominate monster"],
+				fixedDC : 18
+			}]
+		},
+		"d20 17" : {
+			name : "Implanted blue dragon fang",
+			description : "I have implanted the blue dragon fang from the Teeth of Dahlver-Nar. I gain immunity to lightning damage and vulnerability to thunder damage.",
+			descriptionFull : "You gain immunity to lightning damage and vulnerability to thunder damage.",
+			attunement : false,
+			source : [["T", 137]],
+			savetxt : {
+				immune : ["lightning"],
+				text : ["Vulnerable to Thunder damage"]
+			}
+		},
+		"d20 18" : {
+			name : "Implanted jagged sliver of tarrasque tooth",
+			description : "I have implanted the jagged sliver of tarrasque tooth from the Teeth of Dahlver-Nar. I deal double damage to objects and structures. If I take 20 or more damage in one turn, I must succeed on a DC 18 Wisdom save or spend the next turn in a murderous rage.",
+			descriptionFull : "You deal double damage to objects and structures. If you take 20 or more damage in one turn, you must succeed on a DC 18 Wisdom saving throw or spend your next turn in a murderous fury. During this rage, you must use your action to make an unarmed strike against a creature that damaged you, or a random creature you can see if you weren't damaged by a creature, moving as close as you can to the target if necessary.",
+			attunement : false,
+		},
+		"d20 19" : {
+			name : "Implanted ruby-veined red dragon fang",
+			description : "I have implanted the ruby-veined red dragon fang from the Teeth of Dahlver-Nar. I gain immunity to fire damage and I can exhale fire in a 90-foot cone. Creatures in my cone must make a DC 24 Dexterity save or take 26d6 fire damage or half on success.",
+			descriptionFull : "You gain immunity to fire damage, and as an action, you can exhale fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 26d6 fire damage on a failed save, or half as much damage on a successful one. After using the breath weapon, you gain 2 levels of exhaustion.",
+			attunement : false,
+			action : ["action", "Red Dragon fang (ToD-N)"],
+			savetxt : {
+				immune : ["fire"]
+			},
+			weaponsAdd : ["Red Dragon fang (ToD-N)"],
+			weaponOptions : [{
+				name : "Red Dragon fang (ToD-N)",
+				source : [["T", 137]],
+				type : "Natural",
+				ability : 2,
+				regExpSearch : /^(?=.*red)(?=.*dragon)(?=.*tod-n).*$/i,
+				abilitytodamage : false,
+				damage : [26, 6, "fire"],
+				range : "90 foot cone",
+				dc : true,
+				description : "90 foot cone; Dexterity save DC 24, half damage on success",
+			}],
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.WeaponTextName == "Red Dragon fang (ToD-N)") {
+							fields.To_Hit_Bonus = 'DC ' + (16 - What('Dex Mod'));
+						}
+					}
+				]
+			}
+		},
+		"d20 20" : {
+			name : "Implanted dusty human molar",
+			description : "I have implanted the dusty human molar from the Teeth of Dahlver-Nar. As an action, I can call on a divine force for aid. Once I use this property, I can't use it again for 7 days.",
+			descriptionFull : "As an action you can call on a divine force to come to your aid. Describe the assistance you seek, and the DM decides the nature of the intervention; the effect of any cleric spell would be appropriate. Once this property is used, it can't be used again for 7 days.",
+			attunement : false,
+			usages : 1,
+			recovery : "7 days"
+		}
+	}
+}

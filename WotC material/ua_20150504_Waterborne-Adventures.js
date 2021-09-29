@@ -1,5 +1,5 @@
 var iFileName = "ua_20150504_Waterborne-Adventures.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Waterborne Adventures article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,9 +12,9 @@ SourceList["UA:WA"] = {
 };
 
 // New Fighting Style
-AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
+AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", { // Still valid 2021-09-21
 	name : "Mariner Fighting Style",
-	source : ["UA:WA", 3],
+	source : [["UA:WA", 3]],
 	description : "\n   " + "While not wearing heavy armor or using a shield, I gain +1 AC and swim/climb speed" + "\n   " + "The swimming and climbing speeds are equal to my current walking speed",
 	speed : {
 		climb : { spd : "walk", enc : "walk" },

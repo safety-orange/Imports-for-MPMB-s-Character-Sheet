@@ -1,5 +1,5 @@
 var iFileName = "ua_20171113_Elf-Subraces.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Elf Subraces article to MPMB's Character Record Sheet
 
 // Define the source

@@ -1,5 +1,5 @@
 var iFileName = "ua_20160801_The-Faithful.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: The Faithful article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,10 +12,10 @@ SourceList["UA:TF"] = {
 };
 
 // Adds 2 subclasses, 1 for the Warlock and 1 for the Wizard
-AddSubClass("warlock", "the seeker-ua", {
+AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*warlock)(?=.*seeker).*$/i,
 	subname : "the Seeker",
-	source : ["UA:TF", 1],
+	source : [["UA:TF", 1]],
 	spellcastingExtra : ["feather fall", "jump", "levitate", "locate object", "clairvoyance", "sending", "arcane eye", "locate creature", "legend lore", "passwall"],
 	features : {
 		"subclassfeature1" : {
@@ -81,7 +81,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	}
 });
 RunFunctionAtEnd(function() {
-	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", {
+	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", { // Still valid 2021-09-21
 		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
 		subname : "Theurgy",
 		source : [["UA:TF", 1], ["UA:WR", 1]],
@@ -98,7 +98,7 @@ RunFunctionAtEnd(function() {
 							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
 							var domainSpells = CurrentSpells.wizard.extra;
 							// now stop this function if even one of the domain spells is not already in the spellbook
-							var knownSpells = CurrentSpells.wizard.selectSp;
+							var knownSpells = [].concat(CurrentSpells.wizard.selectSp ? CurrentSpells.wizard.selectSp : []).concat(CurrentSpells.wizard.selectSpSB ? CurrentSpells.wizard.selectSpSB : []);
 							for (var i = 0; i < domainSpells.length; i++) {
 								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
 							}

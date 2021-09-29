@@ -1,5 +1,5 @@
 var iFileName = "pub_20200721_MOT.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
 
 // Define the source
@@ -491,4 +491,382 @@ CreatureList["anvilwrought raptor"] = {
 		name : "Variant: Familiar",
 		description : "The anvilwrought can serve another creature as a familiar, forming a magical, telepathic bond with its willing master. While the two are bonded, the master can sense what the anvilwrought senses, as long as they are within 1 mile of each other."
 	}]
+};
+
+// Magic Items (each contain contributions by BraabHimself)
+MagicItemsList["flying chariot"] = {
+	name : "Flying Chariot",
+	source : [["MOT", 196]],
+	type : "wondrous item",
+	rarity : "rare",
+	notLegalAL : true,
+	description : "I gain +1 AC while riding this chariot, as do any passengers and the creatures pulling it. If this chariot is pulled by one or more flying creatures, they too can fly.\n(The AC bonus is not added to the automation, as it is so situational.)",
+	descriptionFull : "The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC. " + "\n   " + "If this magic chariot is pulled by one or more flying creatures, it too can fly. ",
+	weight : 100
+};
+MagicItemsList["helm of the gods"] = {
+	name : "Helm of the Gods",
+	source : [["MOT", 196]],
+	type : "wondrous item",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "While wearing this helm, I know the location of all celestials and fiends within 30 ft, provided they aren't behind total cover. The helm has 3 charges, regaining 1d3 charges at dawn. I can use 1 charge to cast the spell stored in the helm (DC 13). After I finish a long rest, I can pray to a god to change the stored spell.",
+	descriptionLong : "While wearing this helm, I know the location of all celestials/fiends within 30 ft not behind total cover. The helm has 3 charges, regaining 1d3 at dawn. I can use 1 charge to cast the spell stored in it (DC 13). After a long rest, I can pray to a god to change the stored spell: Athreos: Protection from Evil/Good, Ephara: Sanctuary, Erebos: Inflict Wounds, Heliod: Guiding Bolt, Iroas: Heroism, Karametra: Goodberry, Keranos: Thunderous Smite, Klothys: Entangle, Kruphix: Dissonant Whispers, Mogis: Hellish Rebuke, Nylea: Faerie Fire, Pharika: Lesser Restoration, Phenax: Charm Person, Purphoros: Searing Smite, Thassa: Identify",
+	descriptionFull : "While wearing this helm, you know whether there is a celestial or fiend within 30 feet of you, as well as where the creature is located, provided the creature isn't behind total cover."+
+	"\n   Whenever you finish a long rest while wearing the helm, you can pray to one of the gods listed on the Helm of the Gods table and store the listed spell in the helm, replacing any spell that is already stored there. The save DC for the spell is 13."+
+	"\n   The helm has 3 charges. To cast a spell from the helm, you must expend 1 charge, and the helm regains 1d3 charges daily at dawn."+
+	toUni("\n God\t\tSpell")+
+	"\n Athreos\t\tprotection from evil and good"+
+	"\n Ephara\t\tsanctuary"+
+	"\n Erebos\t\tinflict wounds"+
+	"\n Heliod\t\tguiding bolt"+
+	"\n Iroas\t\theroism"+
+	"\n Karametra\tgoodberry"+
+	"\n Keranos\t\tthunderous smite"+
+	"\n Klothys\t\tentagle"+
+	"\n Kruphix\t\tdissonant whispers"+
+	"\n Mogis\t\thellish rebuke"+
+	"\n Nylea\t\tfaerie fire"+
+	"\n Pharika\t\tlesser restoration"+
+	"\n Phenax\t\tcharm person"+
+	"\n Purphoros\tsearing smite"+
+	"\n Thassa\t\tidentify",
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	fixedDC : 13,
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "Athreos",
+		spells : ["protection from evil and good"],
+		selection : ["protection from evil and good"],
+		firstCol : 1
+	}, {
+		name : "Ephara",
+		spells : ["sanctuary"],
+		selection : ["sanctuary"],
+		firstCol : 1
+	}, {
+		name : "Erebos",
+		spells : ["inflict wounds"],
+		selection : ["inflict wounds"],
+		firstCol : 1
+	}, {
+		name : "Heliod",
+		spells : ["guiding bolt"],
+		selection : ["guiding bolt"],
+		firstCol : 1
+	}, {
+		name : "Iroas",
+		spells : ["heroism"],
+		selection : ["heroism"],
+		firstCol : 1
+	}, {
+		name : "Karametra",
+		spells : ["goodberry"],
+		selection : ["goodberry"],
+		firstCol : 1
+	}, {
+		name : "Keranos",
+		spells : ["thunderous smite"],
+		selection : ["thunderous smite"],
+		firstCol : 1
+	}, {
+		name : "Klothys",
+		spells : ["entangle"],
+		selection : ["entangle"],
+		firstCol : 1
+	}, {
+		name : "Kruphix",
+		spells : ["dissonant whispers"],
+		selection : ["dissonant whispers"],
+		firstCol : 1
+	}, {
+		name : "Mogis",
+		spells : ["hellish rebuke"],
+		selection : ["hellish rebuke"],
+		firstCol : 1
+	}, {
+		name : "Nylea",
+		spells : ["faerie fire"],
+		selection : ["faerie fire"],
+		firstCol : 1
+	}, {
+		name : "Pharika",
+		spells : ["lesser restoration"],
+		selection : ["lesser restoration"],
+		firstCol : 1
+	}, {
+		name : "Phenax",
+		spells : ["charm person"],
+		selection : ["charm person"],
+		firstCol : 1
+	}, {
+		name : "Purphoros",
+		spells : ["searing smite"],
+		selection : ["searing smite"],
+		firstCol : 1
+	}, {
+		name : "Thassa",
+		spells : ["identify"],
+		selection : ["identify"],
+		firstCol : 1
+	}],
+	spellChanges : {
+		"protection from evil and good" : {
+			changes : "I can cast this spell if I prayed to Athreos after a long rest and expend 1 charge."
+		},
+		"sanctuary" : {
+			changes : "I can cast this spell if I prayed to Ephara after a long rest and expend 1 charge."
+		},
+		"inflict wounds" : {
+			changes : "I can cast this spell if I prayed to Erebos after a long rest and expend 1 charge."
+		},
+		"guiding bolt" : {
+			changes : "I can cast this spell if I prayed to Heliod after a long rest and expend 1 charge."
+		},
+		"heroism" : {
+			changes : "I can cast this spell if I prayed to Iroas after a long rest and expend 1 charge."
+		},
+		"goodberry" : {
+			changes : "I can cast this spell if I prayed to Karametra after a long rest and expend 1 charge."
+		},
+		"thunderous smite" : {
+			changes : "I can cast this spell if I prayed to Keranos after a long rest and expend 1 charge."
+		},
+		"entangle" : {
+			changes : "I can cast this spell if I prayed to Klothys after a long rest and expend 1 charge."
+		},
+		"dissonant whispers" : {
+			changes : "I can cast this spell if I prayed to Kruphix after a long rest and expend 1 charge."
+		},
+		"hellish rebuke" : {
+			changes : "I can cast this spell if I prayed to Mogis after a long rest and expend 1 charge."
+		},
+		"faerie fire" : {
+			changes : "I can cast this spell if I prayed to Nylea after a long rest and expend 1 charge."
+		},
+		"lesser restoration" : {
+			changes : "I can cast this spell if I prayed to Pharika after a long rest and expend 1 charge."
+		},
+		"charm person" : {
+			changes : "I can cast this spell if I prayed to Phenax after a long rest and expend 1 charge."
+		},
+		"searing smite" : {
+			changes : "I can cast this spell if I prayed to Purphoros after a long rest and expend 1 charge."
+		},
+		"identify" : {
+			ritual : false,
+			changes : "I can cast this spell if I prayed to Thassa after a long rest and expend 1 charge."
+		}
+	}
+};
+MagicItemsList["molten bronze skin"] = {
+	name : "Molten Bronze Skin",
+	source : [["MOT", 197]],
+	type : "armor (breastplate, half plate, or plate)",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. This armor can't be removed unless I choose to do so. It grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
+	descriptionFull : "This magical armor appears as a jug of molten bronze. When you attune to it, the bronze adheres and contours to your skin. The armor can be worn under normal clothes, but it doesn't impede bodily functions. Once you put it on, it can't be removed unless you choose to do so."+
+	"\n   While wearing the armor, you have resistance to fire damage. The armor also doesn't impose disadvantage on Dexterity (Stealth) checks.",
+	dmgres : ["Fire"],
+	choices : ["Breastplate", "Half Plate", "Plate"],
+	"breastplate" : {
+		description : "This breastplate appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
+		armorAdd : "Molten Bronze Skin",
+		armorOptions : [{
+			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
+			name : "Molten Bronze Skin",
+			source : [["MOT", 197]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"half plate" : {
+		description : "This half plate armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
+		armorAdd : "Molten Bronze Skin",
+		armorOptions : [{
+			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
+			name : "Molten Bronze Skin",
+			source : [["MOT", 197]],
+			type : "medium",
+			ac : 15,
+			weight : 40
+		}]
+	},
+	"plate" : {
+		description : "This plate armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
+		armorAdd : "Molten Bronze Skin",
+		armorOptions : [{
+			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
+			name : "Molten Bronze Skin",
+			source : [["MOT", 197]],
+			type : "heavy",
+			ac : 18,
+			weight : 65,
+			strReq : 15
+		}]
+	}
+};
+MagicItemsList["potion of aqueous form"] = {
+	name : "Potion of Aqueous Form",
+	source : [["MOT", 197]],
+	type : "potion",
+	rarity : "rare",
+	notLegalAL : true,
+	description : "Once as an action, I can drink this potion or administer it to another. The consumer of the potion turns into a pool of water and gains several benefits and limitations while in this form. They revert back to their true form after 10 minutes, if they become incapacitated, or if they die. See Notes page.",
+	descriptionFull : "When you drink this potion, you transform into a pool of water. You return to your true form after 10 minutes or if you are incapacitated or die."+
+	"\n   You're under the following effects while in this form:"+
+	"\n\n" + toUni("Liquid Movement") + ". You have a swimming speed of 30 feet. You can move over or through other liquids. You can enter and occupy the space of another creature. You can rise up to your normal height, and you can pass through even Tiny openings. You extinguish nonmagical flames in any space you enter."+
+	"\n\n" + toUni("Watery Resilience") + ". You have resistance to nonmagical damage. You also have advantage on Strength, Dexterity, and Constitution saving throws."+
+	"\n\n" + toUni("Limitations") + ". You can't talk, attack, cast spells, or activate magic items. Any objects you were carrying or wearing meld into your new form and are inaccessible, though you continue to be affected by anything you're wearing, such as armor.",
+	toNotesPage : [{
+		name : "Effects",
+		popupName : "Potion of Aqueous Form Effects",
+		note : [
+			"The consumer of the potion is under the following effects:",
+			"\u2022 They have a swimming speed of 30 ft",
+			"\u2022 They can move over or through other liquids",
+			"\u2022 They can enter and occupy the space of another creature",
+			"\u2022 They can rise up to their normal height and pass through tiny openings",
+			"\u2022 They extinguish nonmagical flames in any space they enter",
+			"\u2022 They have resistance to nonmagical damage",
+			"\u2022 They have advantage on Strength, Dexterity, and Constitution saving throws",
+			"\u2022 They can't talk, attack, cast spells, or activate magic items",
+			"\u2022 Their equipment merges into their new form, but still gain their benefits"
+		]
+	}],
+	weight : 0.5
+};
+var MOT_PyxisOfPandemoniumFullDescription = [
+	"A creature that touches this ornate wooden vessel for 1 minute gains the benefits of a short rest. That creature also gains the effects of the bless spell until the creature finishes a short or long rest. The creature can't gain these benefits again until it finishes a long rest.",
+	"If the vessel is opened, roll on the Pyxis of Pandemonium table to determine what happens. Any spells cast by the vessel have a spell save DC of 17. One minute after the vessel is opened, it disappears. It reappears, sealed, in a random location on the same plane of existence 24 hours later.",
+	">>Curse<<. Any creature that gains the benefit of a short rest from the vessel hears cloying telepathic whispers emanating it. That creature must make a DC 17 Wisdom saving throw. On a failed save, the creature is charmed by the vessel for 1 hour. The charmed creature does everything it can to open the vessel as soon as possible. On a successful save, the creature is immune to the vessel's whispers for 24 hours.\n",
+	toUni("d8\tCalamity"),
+	" 1\t>>Androphagia<<. Each creature within 60 feet of the vessel must succeed on a DC 17 Wisdom saving throw or go berserk for l minute. The berserk creature must begin its turn using the Attack action to make one melee or ranged attack (its choice) against the creature nearest to it. The berserk creature can repeat the save at the end of its turn, ending the effect on itself on a success.",
+	" 2\t>>Bile Blight<<. The vessel casts the harm spell on each creature within 30 feet of it.",
+	" 3\t>>Flood<<. The vessel casts the tsunami spell at a point of the DM's choice within 120 feet of it.",
+	" 4\t>>Medusa's Gaze<<. The vessel casts the flesh to stone spell on each creature within 30 feet of it.",
+	" 5\t>>Labyrinth<<. The vessel casts the maze spell on each creature within 30 feet of it.",
+	" 6\t>>Nightmare<<. Tendrils of shadow seep from the vessel and form into 1d4 shadow demons (see the Monster Manual for their stat block), which appear in unoccupied spaces within 30 feet of it and are hostile.",
+	" 7\t>>Swarming Insects<<. The vessel casts the insect plague spell, centered on itself and with a radius of 30 feet.",
+	" 8\t>>Unbridled Revel<<. The vessel casts the Otto's irresistible dance spell on each creature within 30 feet of it."
+];
+MagicItemsList["pyxis of pandemonium"] = {
+	name : "Pyxis of Pandemonium",
+	source : [["MOT", 197]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	description : "Once per long rest, I gain the benefits of a short rest by touching this ornate vessel for 1 minute. I also gain the benefit of Bless until I finish my next rest. After benefiting from this vessel, I have to make a DC 17 Wis save or become charmed by the vessel for 1 hour. If charmed, I must do everything to open it. See Notes.",
+	descriptionLong : "Once per long rest, I can touch this ornate wooden vessel for 1 minute to gain the benefits of a short rest. I then also gain the benefit of the Bless spell until I finish my next rest. After I gain the benefits of a short rest from this vessel, I must make a DC 17 Wisdom save or become charmed by it for 1 hour. On a success, I am immune to its charm for 24 hours. If charmed, I will do everything I can to open the vessel as soon as possible. Once opened, the vessel causes a random effect to occur, then it disappears after 1 minute and reappears, sealed, in random location on the same plane. See Notes.",
+	descriptionFull : MOT_PyxisOfPandemoniumFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Effects",
+		source : [["MOT", 197]],
+		note : desc(MOT_PyxisOfPandemoniumFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft")
+	}],
+	usages : 1,
+	recovery : "long rest"
+};
+MagicItemsList["siren song lyre"] = {
+	name : "Siren Song Lyre",
+	source : [["MOT", 198]],
+	type : "wondrous item (instrument)",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "As an action, I can play this lyre and cast one of the following spells from it: Animal Friendship, Charm Person, Enthrall, or Suggestion. The DC for these spells is 13. Once I cast a spell, I can't use the lyre to cast that spell again until the next dawn.",
+	descriptionFull : "You can use an action to play this lyre and cast one of the following spells from it: animal friendship, charm person, enthrall, suggestion. If the spell requires a saving throw, the spell save DC is 13.\n   Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn.",
+	weight : 2,
+	fixedDC : 13,
+	extraLimitedFeatures : [{
+		name : "Siren's Song Lyre [Animal Friendship]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Siren's Song Lyre [Charm Person]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Siren's Song Lyre [Enthrall]",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Siren's Song Lyre [Suggestion]",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["animal friendship", "charm person", "enthrall", "suggestion"],
+		selection : ["animal friendship", "charm person", "enthrall", "suggestion"],
+		firstCol : "oncelr",
+		times : 4
+	}
+};
+var MOT_SlingBulletsOfAlthemoneFullDescription = [
+	"The sling bullets come in a pouch, which contains 1d4 + 4 bullets. Roll on the Magic Sling Bullets table for each bullet to determine its magical property.",
+	"You have a +2 bonus to attack and damage rolls made with each of these bullets. If a bullet misses its target, the bullet teleports back into the pouch. Once a bullet hits a target, the bullet loses its magic.\n",
+	">>d4  Bullet<<",
+	"1   >>Banishment<<. A creature that takes damage from this bullet must succeed on a DC 15 Charisma saving throw or be banished as though affected by the banishment spell.",
+	"2   >>Fulguration<<. On a hit, this bullet deals an extra 2d8 lightning damage to its target. All other creatures within 10 feet of the target must each succeed on a DC 15 Constitution saving throw or take 1d8 thunder damage.",
+	"3   >>Stunning<<. On a hit, this bullet deals an extra ldlO force damage, and the target is stunned until the end of your next turn.",
+	"4   >>Tracking<<. A creature that takes damage from this bullet is marked with a glowing rune where the bullet hit. The mark lasts 24 hours. While the creature is marked, you always know the direction to it.",
+];
+MagicItemsList["sling bullets of althemone"] = {
+	name : "Sling Bullets of Althemone",
+	source : [["MOT", 198]],
+	type : "weapon (sling bullet)",
+	rarity : "very rare",
+	notLegalAL : true,
+	description : "These bullets come in a pouch containing 1d4 + 4 bullets. Attacks made with these sling bullets add +2 to hit and damage. If a bullet misses, it teleports back to its pouch. On a hit, the bullet's effect happens and the bullet loses its magic. I roll on the table to determine each bullet's magical effect, see Notes.",
+	descriptionFull : MOT_SlingBulletsOfAlthemoneFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.baseWeaponName == "sling" && (/althemone/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description += (fields.Description ? '; ' : '') + 'Bullets return on a miss, special effect on hit';
+				}
+			},
+			'If I include the word "Althemone" in the name of a sling, it will be treated as using the Sling Bullets of Althemone. It has +2 to hit and damage, bullets return on a miss, and cause a magical effect on a hit.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.baseWeaponName == "sling" && (/althemone/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 2;
+				}
+			}
+		]
+	},
+	toNotesPage : [{
+		name : "Magic Sling Bullets Table",
+		source : [["MOT", 198]],
+		note : desc(MOT_SlingBulletsOfAlthemoneFullDescription.slice(2)).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/\byou\b/ig, "I").replace(/your/g, "my")
+	}],
+	weight : 1.5 // assuming an averyage of 6,5 bullets (0.4875) and a pouch (1)
+};
+MagicItemsList["two-birds sling"] = {
+	name : "Two-Birds Sling",
+	source : [["MOT", 198]],
+	type : "weapon (sling)",
+	rarity : "rare",
+	notLegalAL : true,
+	description : "This sling adds +1 to hit and damage rolls made with it. On a hit, I can cause the ammunition to ricochet towards a second target within 10 ft of the first, rolling a ranged attack against the second target as well.",
+	descriptionFull : "You have a +l bonus to attack and damage rolls made with this weapon."+
+	"\n   When you make a ranged attack with this sling and hit a target, you can cause the ammunition to ricochet toward a second target within 10 feet of the first, and then make a ranged attack against the second target.",
+	weaponsAdd : ["Two-Birds Sling"],
+	weaponOptions : {
+		baseWeapon : "sling",
+		regExpSearch : /^(?=.*two-birds)(?=.*sling).*$/i,
+		name : "Two-Birds Sling",
+		source : [["MOT", 198]],
+		description : "Ammunition; On hit ricochet to another in 10 ft",
+		modifiers : [1, 1]
+	}
 };

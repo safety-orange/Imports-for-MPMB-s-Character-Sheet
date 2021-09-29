@@ -1,5 +1,5 @@
 var iFileName = "ua_20170320_Wizard-Revisited.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Wizard Revisited article to MPMB's Character Record Sheet
 
 // Define the source
@@ -72,7 +72,7 @@ AddSubClass("wizard", "war magic-ua", {
 // [dupl_start] Don't add the Theurgy subclass if the source UA:TF is present, as that class is identical to the one found in Unearthed Arcana: The Faithful (2016/08/01)
 if (!SourceList["UA:TF"]) {
 RunFunctionAtEnd(function() {
-	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", {
+	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", { // Still valid 2021-09-21
 		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
 		subname : "Theurgy",
 		source : [["UA:TF", 1], ["UA:WR", 1]],
@@ -89,7 +89,7 @@ RunFunctionAtEnd(function() {
 							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
 							var domainSpells = CurrentSpells.wizard.extra;
 							// now stop this function if even one of the domain spells is not already in the spellbook
-							var knownSpells = CurrentSpells.wizard.selectSp;
+							var knownSpells = [].concat(CurrentSpells.wizard.selectSp ? CurrentSpells.wizard.selectSp : []).concat(CurrentSpells.wizard.selectSpSB ? CurrentSpells.wizard.selectSpSB : []);
 							for (var i = 0; i < domainSpells.length; i++) {
 								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
 							}

@@ -1,5 +1,5 @@
 var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -343,6 +343,7 @@ AddSubClass("warlock", "the celestial-ua", {
 });
 
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
+// Most probably still valid 2021-09-21, have to check
 // dupl_start
 if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 	AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
@@ -474,13 +475,13 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
-AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
+AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name : "Frost Lance",
 	description : desc([
 		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {

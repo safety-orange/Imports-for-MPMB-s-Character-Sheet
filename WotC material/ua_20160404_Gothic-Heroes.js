@@ -1,5 +1,5 @@
 var iFileName = "ua_20160404_Gothic-Heroes.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Gothic Heroes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,11 +12,12 @@ SourceList["UA:GH"] = {
 };
 
 // Adds 8 new races, the Revenant versions of the Aasimar, Dragonborn, Dwarf, Elf, Gnome, Halfling, Human, and Tiefling
+// All revenants are still valid 2021-09-21
 RaceList["aasimar revenant-ua"] = { // Based on the VGtM Aasimar, made with /u/RebelMage's help
 	regExpSearch : /^(?=.*revenant)((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel)))).*$/i,
 	name : "Aasimar Revenant",
 	sortname : "Revenant, Aasimar",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Aasimar",
 	size : 3,
 	speed : {
@@ -54,7 +55,7 @@ RaceList["dwarf revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b).*$/i,
 	name : "Dwarf Revenant",
 	sortname : "Revenant, Dwarf",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Dwarves",
 	size : 3,
 	speed : {
@@ -78,7 +79,7 @@ RaceList["elf revenant-ua"] = {
 	regExpSearch : /^(?!.*half)(?=.*revenant)(?=.*\b(elfs?|elves|elvish|elven)\b).*$/i,
 	name : "Elf Revenant",
 	sortname : "Revenant, Elf",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Elves",
 	size : 3,
 	speed : {
@@ -103,7 +104,7 @@ RaceList["halfling revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\b(halflings?|hobbits?)\b).*$/i,
 	name : "Halfling Revenant",
 	sortname : "Revenant, Halfling",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Halflings",
 	size : 4,
 	speed : {
@@ -123,7 +124,7 @@ RaceList["gnome revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\bgnomes?\b).*$/i,
 	name : "Gnome Revenant",
 	sortname : "Revenant, Gnome",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Gnomes",
 	size : 4,
 	speed : {
@@ -144,7 +145,7 @@ RaceList["dragonborn revenant-ua"] = {
 	regExpSearch : /^(?=.*dragonborn)(?=.*revenant).*$/i,
 	name : "Dragonborn Revenant",
 	sortname : "Revenant, Dragonborn",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Dragonborn",
 	size : 3,
 	speed : {
@@ -201,7 +202,7 @@ RaceList["human revenant-ua"] = {
 	regExpSearch : /^(?=.*human)(?=.*revenant).*$/i,
 	name : "Human Revenant",
 	sortname : "Revenant, Human",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Humans",
 	size : 3,
 	speed : {
@@ -221,7 +222,7 @@ RaceList["tiefling revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
 	name : "Tiefling Revenant",
 	sortname : "Revenant, Tiefling",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Tieflings",
 	size : 3,
 	speed : {
@@ -239,10 +240,10 @@ RaceList["tiefling revenant-ua"] = {
 };
 
 // Adds 2 subclasses, 1 for the Fighter and 1 for the rogue
-AddSubClass("fighter", "monster hunter-ua", {
+AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*monster)(?=.*hunter).*$/i,
 	subname : "Monster Hunter",
-	source : ["UA:GH", 2],
+	source : [["UA:GH", 2]],
 	fullname : "Monster Hunter",
 	features : {
 		"subclassfeature3" : {

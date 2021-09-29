@@ -1,5 +1,5 @@
 var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -502,9 +502,17 @@ MagicItemsList["alchemy jug"] = {
 	rarity : "uncommon",
 	magicItemTable : "B",
 	description : "As an action, command the jug to produce liquid; or an action to uncorked it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
-	weight : 12,
 	descriptionLong : "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
-	descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max        \tLiquid\t\tMax        \tLiquid") + "\n8 ounces  \tAcid\t\t1 quart   \tOil\n1/2 ounce\tBasic poison\t2 gallons  \tVinegar\n4 gallons  \tBeer\t\t8 gallons  \tWater, fresh\n1 gallon    \tHoney\t\t12 gallons\tWater, salt\n2 gallons \tMayonnaise\t1 gallon    \tWine"
+	descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty."+
+	"\n   You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named."+
+	"\n   Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n"+
+	toUni("Max        \tLiquid\t\tMax        \tLiquid")+
+	"\n8 ounces  \tAcid\t\t1 quart   \tOil"+
+	"\n1/2 ounce\tBasic poison\t2 gallons  \tVinegar"+
+	"\n4 gallons  \tBeer\t\t8 gallons  \tWater, fresh"+
+	"\n1 gallon    \tHoney\t\t12 gallons\tWater, salt"+
+	"\n2 gallons \tMayonnaise\t1 gallon    \tWine",
+	weight : 12
 }
 MagicItemsList["cap of water breathing"] = {
 	name : "Cap of Water Breathing",
@@ -614,7 +622,7 @@ MagicItemsList["gloves of thievery"] = {
 MagicItemsList["instrument of the bards"] = {
 	name : "Instrument of the Bards",
 	source : ["D", 176],
-	type : "wondrous item",
+	type : "wondrous item (instrument)",
 	description : "If I play this exquisite, magical instruments while casting a spell that has a somatic or material component and charms on a failed save, it imposes disadvantage on that save. I can also use it to cast a set of spells, each once per dawn, using my spellcasting ability and spell save DC.",
 	descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.",
 	attunement : true,
@@ -624,6 +632,7 @@ MagicItemsList["instrument of the bards"] = {
 	choices : ["Anstruth Harp (very rare)", "Canaith Mandolin (rare)", "Cli Lyre (rare)", "Doss Lute (uncommon)", "Fochlucan Bandore (uncommon)", "Mac-Fuirmidh Cittern (uncommon)", "Ollamh Harp (legendary)"],
 	"anstruth harp (very rare)" : {
 		name : "Anstruth Harp [Instrument of the Bards]",
+		sortname : "Instrument of the Bards, Anstruth Harp",
 		rarity : "very rare",
 		magicItemTable : "H",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
@@ -648,6 +657,7 @@ MagicItemsList["instrument of the bards"] = {
 	},
 	"canaith mandolin (rare)" : {
 		name : "Canaith Mandolin [Instrument of the Bards]",
+		sortname : "Instrument of the Bards, Canaith Mandolin",
 		rarity : "rare",
 		magicItemTable : "G",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Canaith mandolin can be used to cast Cure Wounds (3rd level), Dispel Magic, and Protection from Energy (lightning only).",
@@ -672,6 +682,7 @@ MagicItemsList["instrument of the bards"] = {
 	},
 	"cli lyre (rare)" : {
 		name : "Cli Lyre [Instrument of the Bards]",
+		sortname : "Instrument of the Bards, Cli Lyre",
 		rarity : "rare",
 		magicItemTable : "G",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Cli lyre can be used to cast Stone Shape, Wall of Fire, and Wind Wall.",
@@ -686,6 +697,7 @@ MagicItemsList["instrument of the bards"] = {
 	},
 	"doss lute (uncommon)" : {
 		name : "Doss Lute [Instrument of the Bards]",
+		sortname : "Instrument of the Bards, Doss Lute",
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Doss lute can be used to cast Animal Friendship, Protection from Energy (fire only), and Protection from Poison.",
@@ -706,6 +718,7 @@ MagicItemsList["instrument of the bards"] = {
 	},
 	"fochlucan bandore (uncommon)" : {
 		name : "Fochlucan Bandore [Instrument of the Bards]",
+		sortname : "Instrument of the Bards, Fochlucan Bandore",
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Fochlucan bandore can be used to cast Entangle, Faerie Fire, Shillelagh, and Speak with Animals.",
@@ -720,6 +733,7 @@ MagicItemsList["instrument of the bards"] = {
 	},
 	"mac-fuirmidh cittern (uncommon)" : {
 		name : "Mac-Fuirmidh Cittern [Instrument of the Bards]",
+		sortname : "Instrument of the Bards, Mac-Fuirmidh Cittern",
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
@@ -734,6 +748,7 @@ MagicItemsList["instrument of the bards"] = {
 	},
 	"ollamh harp (legendary)" : {
 		name : "Ollamh Harp [Instrument of the Bards]",
+		sortname : "Instrument of the Bards, Ollamh Harp",
 		rarity : "legendary",
 		magicItemTable : "I",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
@@ -868,9 +883,9 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type != "prepare" && (/warlock/).test(spellcasters)) return 1;
+					if (type !== "prepare" && spellcasters.indexOf('warlock') !== -1) return 1;
 				},
-				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
+				"While holding the Rod of the Pact Keeper, I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
 			]
 		}
 	},
@@ -882,9 +897,9 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type != "prepare" && (/warlock/).test(spellcasters)) return 2;
+					if (type !== "prepare" && spellcasters.indexOf('warlock') !== -1) return 2;
 				},
-				"I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
+				"While holding the Rod of the Pact Keeper, I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
 			]
 		}
 	},
@@ -896,9 +911,9 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type != "prepare" && (/warlock/).test(spellcasters)) return 3;
+					if (type !== "prepare" && spellcasters.indexOf('warlock') !== -1) return 3;
 				},
-				"I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
+				"While holding the Rod of the Pact Keeper, I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my warlock spells."
 			]
 		}
 	}
@@ -910,7 +925,8 @@ MagicItemsList["saddle of the cavalier"] = {
 	rarity : "uncommon",
 	magicItemTable : "B",
 	description : "While in this saddle on a mount, I can't be dismounted against my will if I am conscious, and attack rolls against the mount have disadvantage.",
-	descriptionFull : "While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
+	descriptionFull : "While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage.",
+	weight : 25
 }
 MagicItemsList["scroll of protection"] = {
 	name : "Scroll of Protection",
@@ -1262,7 +1278,6 @@ MagicItemsList["blackrazor"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Blackrazor",
 		note : desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}],
 	savetxt : { immune : ["charmed", "frightened"] },
@@ -1318,11 +1333,9 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		},
 		toNotesPage : [{
 			name : "Features",
-			popupName : "Features of Wave",
 			note : desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
 		}, {
 			name : "Contained Items",
-			popupName : "Descriptions of magic items contained in Wave",
 			note : [
 				"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
 				"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
@@ -1394,7 +1407,6 @@ MagicItemsList["whelm"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Whelm",
 		note : desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}],
 	action : [["action", " (Shock Wave)"]],

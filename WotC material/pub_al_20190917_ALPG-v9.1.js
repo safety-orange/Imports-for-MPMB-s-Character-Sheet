@@ -1,5 +1,5 @@
 var iFileName = "pub_al_20190917_ALPG-v9.1.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet
 
 // Define the source

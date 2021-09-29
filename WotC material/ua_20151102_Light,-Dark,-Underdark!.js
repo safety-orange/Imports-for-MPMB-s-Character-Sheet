@@ -1,5 +1,5 @@
 var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,9 +12,9 @@ SourceList["UA:LDU"] = {
 };
 
 // New Fighting Styles
-AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", {
+AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", { // Still valid 2021-09-21
 	name : "Close Quarters Shooting Fighting Style",
-	source : ["UA:LDU", 1],
+	source : [["UA:LDU", 1]],
 	description : "\n   " + "+1 bonus to attack rolls I make with ranged attacks" + "\n   " + "I don't have disadvantage when making a ranged attack while within 5 ft of a hostile" + "\n   " + "My ranged attacks ignore half and three-quarters cover against targets within 30 ft",
 	calcChanges : {
 		atkCalc : [
@@ -25,9 +25,9 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", {
 		]
 	}
 });
-AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", {
+AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", { // Still valid 2021-09-21
 	name : "Tunnel Fighting Style",
-	source : ["UA:LDU", 1],
+	source : [["UA:LDU", 1]],
 	description : "\n   " + "As a bonus action, I enter a defensive stance that lasts until the start of my next turn" + "\n   " + "While I'm in this defensive stance I gain the following two benefits:" + "\n    - " + "I can make opportunity attacks without using my reaction" + "\n    - " + "I can make a melee attack as a reaction if a hostile moves >5 ft while in my reach",
 	action : ["bonus action", ""]
 });

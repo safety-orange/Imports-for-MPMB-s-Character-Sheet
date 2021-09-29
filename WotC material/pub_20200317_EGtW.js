@@ -1,5 +1,5 @@
 var iFileName = "pub_20200317_EGtW.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
 
 // Define the source
@@ -198,7 +198,9 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 							fields.Range = (/black|blue|brass|bronze|copper/i).test(CurrentRace.variant) ? '5-ft \xD7 30-ft line' : '15-ft cone';
 						}
 					}
-				}
+				},
+				'',
+				1
 			]
 		}
 	};
@@ -249,7 +251,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 			"Draconic Ancestry: Choose one type of dragon using the \"Racial Options\" button. I gain a breath weapon as determined by the dragon type chosen.",
 			EGtW_forcefulPresenceStr
 		]),
-		features: {
+		features : {
 			"draconic ancestry" : EGtW_draconicAncestryFeature,
 			"forceful presence" : {
 				name: "Forceful Presence",
@@ -377,7 +379,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 			"Draconic Ancestry: Choose one type of dragon using the \"Racial Options\" button. I gain a breath weapon as determined by the dragon type chosen.",
 			EGtW_vengefulAssaultStr
 		]),
-		features: {
+		features : {
 			"draconic ancestry" : EGtW_draconicAncestryFeature,
 			"vengeful assault" : {
 				name: "Vengeful Assault",
@@ -715,7 +717,7 @@ if (!SourceList.V) {
 	};
 	if (!RaceList["goblin"]) {
 		RaceList["goblin"] = {
-			regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
+			regExpSearch : /^(?=.*\bgoblins?\b)(?!.*(hobgoblin|bugbear)).*$/i,
 			name : "Goblin",
 			source : [["V", 119], ["G", 17], ["E:RLW", 26], ["W", 174]],
 			plural : "Goblins",
@@ -1503,7 +1505,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Access to Duna
 			"This optional class feature expands the spell list of the sorcerer class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9)."
 		]
 	}
-}, "Optional 1st-level sorcerer features");
+}, "Optional sorcerer features");
 AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Access to Dunamancy Spells", {
 	name : "Dunamancy Spells",
 	extraname : "Optional Warlock 1",
@@ -1737,8 +1739,21 @@ SpellsList["sapping sting"] = {
 	duration : "Instantaneous",
 	save : "Con",
 	description : "1 creature that I can see save or 1d4 Necrotic dmg and fall prone; +1d4 at CL 5, 11, and 17",
-	descriptionCantripDie : "1 creature that I can see save or 1d4 Necrotic dmg and fall prone",
+	descriptionCantripDie : "1 creature that I can see save or `CD`d4 Necrotic dmg and fall prone",
 	descriptionFull : "You sap the vitality of one creature you can see in range. The target must succeed on a Constitution saving throw or take 1d4 necrotic damage and fall prone.\n   This spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4)."
+};
+WeaponsList["sapping sting"] = {
+	regExpSearch : /^(?=.*sapping)(?=.*sting).*$/i,
+	name : "Sapping Sting",
+	source : [["W", 189]],
+	list : "spell",
+	ability : 6,
+	type : "Cantrip",
+	damage : ["C", 4, "necrotic"],
+	range : "30 ft",
+	description : "Con save, success - no damage, fail - also fall prone",
+	abilitytodamage : false,
+	dc : true
 };
 SpellsList["gift of alacrity"] = {
 	name : "Gift of Alacrity",
@@ -2024,22 +2039,135 @@ CreatureList["bristled moorbounder"] = {
 	}]
 };
 
-// Magic Items (contains contributions by kat9137 [Discord] aka sophiechiabatta [GitHub])
+// Magic Items (each contain contributions by kat9137 [Discord] aka sophiechiabatta [GitHub])
+MagicItemsList["acheron blade"] = {
+	name : "Acheron Blade",
+	nameTest : "Acheron",
+	source : [["W", 265]],
+	type : "weapon (any sword)",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This sword gives a +1 to hit and damage rolls. While I'm holding it, I'm immune to effects that turn undead. As an action, once per dusk, I can use it to gain 1d4+4 temporary HP. Once per dusk, I can give a creature hit with it disadvantage on their next save until the end of my next turn (frighten effect).",
+	descriptionFull : "The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1 bonus to attack and damage rolls made with this magic weapon. While the sword is on your person, you are immune to effects that turn undead."+
+	"\n   " + toUni("Dark Blessing") + ". While holding the sword, you can use an action to give yourself 1d4 + 4 temporary hit points. This property can't be used again until the next dusk."+
+	"\n   " + toUni("Disheartening Strike") + ". When you hit a creature with an attack using this weapon, you can fill the target with unsettling dread: the target has disadvantage on the next saving throw it makes before the end of your next turn. The creature ignores this effect if it's immune to the frightened condition. Once you use this property, you can't do so again until the next dusk",
+	action : [["action", " (Dark Blessing)"]],
+	savetxt : { immune : ["Effects that turn undead"] },
+	extraLimitedFeatures : [{
+		name : "Acheron Blade (Dark Blessing)",
+		usages : 1,
+		recovery : "Dusk"
+	}, {
+		name : "Acheron Blade (Disheartening Strike)",
+		usages : 1,
+		recovery : "Dusk"
+	}],
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "sword"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /sword|scimitar|rapier/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/acheron/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Once per dusk, target disadv. on next save until my next turn ends';
+				}
+			},
+			'If I include the words "Acheron" in a the name of a sword, it will be treated as the magic weapon Acheron Blade.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/acheron/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			},
+			''
+		]
+	}
+};
+
 MagicItemsList["amulet of the drunkard"] = {
 	name : "Amulet of the Drunkard",
 	source : [["W", 266]],
 	type : "wondrous item",
 	rarity : "uncommon",
+	notLegalAL : true,
 	description : "This amulet smells of old, ale-stained wood. While wearing it, I can regain 4d4 + 4 hit points when I drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
 	descriptionFull : "This amulet smells of old, ale-stained wood. While wearing it, you can regain 4d4 + 4 hit points when you drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
 	usages : 1,
 	recovery: "dawn"
+};
+var EGtW_ArcaneCannonFullDescription = [
+	"This Large cannon is imbued with magic. It requires no ammunition and doesn't need to be loaded. It takes one action to aim the cannon and one action to fire it. After the cannon has fired, it must recharge for 5 minutes before it can be fired again. The creature firing the cannon chooses the effect from the following options:",
+	">>Acid Jet<<. The cannon discharges acid in a line 300 feet long and 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 4d10 acid damage on a failed save, or half as much damage on a successful one. In addition, a creature that fails its saving throw takes 2d10 acid damage at the start of each of its turns; a creature can end this damage by using its action to wash off the acid with a pint or more of water.",
+	">>Fire Jet<<. The cannon discharges fire in a line 300 feet long and 5 feet wide. Each creature in the area must make a DC 15 Dexterity saving throw, taking 6d10 fire damage on a failed save, or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.",
+	">>Frost Shot<<. The cannon shoots a ball of frost to a point you can see within 1200 feet of the cannon. The ball then expands to form a 30-foot-radius sphere centered on that point. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, a creature takes 4d10 cold damage, and its speed is reduced by 10 feet for 1 minute. On a successful save, the creature takes half as much damage, and its speed isn't reduced. A creature whose speed is reduced by this effect can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
+	">>Lightning Shot<<. The cannon shoots a ball of lightning to a point you can see within 1200 feet of the cannon. The lightning then expands to form a 20-foot-radius sphere centered on that point. Each creature in that area must make a DC 15 Dexterity saving throw, taking 6d10 lightning damage on a failed save, or half as much damage on a successful one. Creatures wearing metal armor have disadvantage on the save.",
+	">>Poison Spray<<. The cannon expels poison gas in a 60-foot cone. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, the creature takes 4d10 poison damage and is poisoned for 1 minute. On a successful save, the creature takes half as much damage and isn't poisoned. A creature poisoned in this way can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+];
+MagicItemsList["arcane cannon"] = {
+	name : "Arcane Cannon",
+	source : [["W", 265]],
+	type : "wondrous item",
+	rarity : "very rare",
+	notLegalAL : true,
+	description : "This Large magical cannon requires no ammunition and doesn't need to be loaded, but takes 5 minutes to recharge once fired. It takes one action to aim it and another action to fire it. When I fire it, I can choose the effect, an acid jet, fire jet, frost shot, lightning shot, or poison spray. See Notes page.",
+	descriptionFull : EGtW_ArcaneCannonFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	action : [["action", " (Aim or Fire)"]],
+	toNotesPage : [{
+		name : "Effects",
+		note : "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, function(a, match) { return match.toUpperCase() + ":"; }).replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft")
+	}]
+};
+MagicItemsList["battering shield"] = {
+	name : "Battering Shield",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	notLegalAL : true,
+	attunement : true,
+	description : "This iron tower shield gives me a +1 bonus to AC, in addition to the shield's normal bonus to AC. It has 3 charges, regaining 1d3 expended charges daily at dawn. When I am holding the shield and push a creature 5 ft away, I can expend 1 charge to push that creature an additional 10 ft, knock it prone, or both.",
+	descriptionFull : "While holding this iron tower shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   Additionally, the shield has 3 charges, and it regains 1d3 expended charges daily at dawn. If you are holding the shield and push a creature within your reach at least 5 feet away, you can expend 1 charge to push that creature an additional 10 feet, knock it prone, or both.",
+	usages : 3,
+	recovery: "dawn",
+	additional : "regains 1d3",
+	shieldAdd : ["Battering Shield", 3],
+	weight : 6
+};
+MagicItemsList["bloodaxe"] = {
+	name : "Bloodaxe",
+	source : [["W", 266]],
+	type : "weapon (greataxe)",
+	rarity : "very rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This rust-colored magical greataxe grants a +2 bonus to attack and damage rolls made with it. The axe deals an additional 1d6 necrotic damage to creature's that aren't constructs or undead. If I reduce a creature to 0 hit points with this axe, I gain 10 temporary hit points.",
+	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic axe. The axe deals an extra 1d6 necrotic damage to creatures that aren't constructs or undead. If you reduce such a creature to 0 hit points with an attack using this axe, you gain 10 temporary hit points.\n   This axe is forged from a dark, rust-colored metal and once belonged to the goliath barbarian Grog Strongjaw of Vox Machina.",
+	weaponsAdd : ["Bloodaxe"],
+	weaponOptions : {
+		baseWeapon : "greataxe",
+		regExpSearch : /bloodaxe/i,
+		name : "Bloodaxe",
+		source : [["W", 266]],
+		description : "Heavy, two-handed; +1d6 necrotic damage to living targets",
+		modifiers : [2, 2]
+	},
+	weight : 7
 };
 MagicItemsList["breathing bubble"] = {
 	name : "Breathing Bubble",
 	source : [["W", 266]],
 	type : "wondrous item",
 	rarity : "common",
+	notLegalAL : true,
 	description : "This translucent, bubble-like sphere has a slightly tacky outer surface. I gain its benefits only while wearing it over my head like a helmet. The bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn.",
 	descriptionFull : "This translucent, bubble-like sphere has a slightly tacky outer surface, and you gain the item's benefits only while wearing it over your head like a helmet. The bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn.",
 	usages : 1,
@@ -2050,33 +2178,137 @@ MagicItemsList["brooch of living essence"] = {
 	source : [["W", 266]],
 	type : "wondrous item",
 	rarity : "uncommon",
+	notLegalAL : true,
 	attunement : true,
 	description : "While wearing this nondescript brooch, spells and anything else that would detect or reveal my creature type treat me as humanoid, and those that would reveal my alignment treat it as neutral.",
 	descriptionFull : "While wearing this nondescript brooch, spells and anything else that would detect or reveal your creature type treat you as humanoid, and those that would reveal your alignment treat it as neutral."
+};
+MagicItemsList["butcher's bib"] = {
+	name : "Butcher's Bib",
+	source : [["W", 266]],
+	type : "wondrous item",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This black leather apron is perpetually covered by blood. Once per turn when I roll damage for a melee attack with a weapon, I can use it to reroll the weapon's damage dice, but must use the new roll. While wearing the bib, my weapon attacks that deal slashing damage score a critical hit on a roll of 19 or 20.",
+	descriptionFull : "This black leather apron is perpetually covered by blood, even after being washed off. You gain the following benefits while wearing the apron:"+
+	"\n \u2022 Once per turn when you roll damage for a melee attack with a weapon, you can reroll the weapon's damage dice. If you do so, you must use the second total."+
+	"\n \u2022 Your weapon attacks that deal slashing damage score a critical hit on a roll of 19 or 20 on the d20.",
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.isSpell && !v.CritChance && /slash/i.test(v.theWea.damage[2])) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
+					v.CritChance = 19;
+				}
+				if (!v.isSpell && v.isMeleeWeapon) {
+					fields.Description += (fields.Description ? '; ' : '') + 'Reroll damage once per turn';
+				}
+			},
+			"My weapon attacks that deal slashing damage score a critical on a to hit roll of both 19 and 20. Once per turn, I can reroll the damage of a melee weapon attack and must use the second result.",
+			19
+		]
+	}
 };
 MagicItemsList["coin of delving"] = {
 	name : "Coin of Delving",
 	source : [["W", 266]],
 	type : "wondrous item",
 	rarity : "common",
+	notLegalAL : true,
 	description : "This scintillating copper coin sheds dim light in a 5-ft radius. If dropped a distance greater than 5 ft, the coin issues a melodious ringing sound when it hits a surface. Any creature that can hear the chime can determine the distance the coin dropped based on the tone.",
 	descriptionFull : "This scintillating copper coin sheds dim light in a 5-foot radius. If dropped a distance greater than 5 feet, the coin issues a melodious ringing sound when it hits a surface. Any creature that can hear the chime can determine the distance the coin dropped based on the tone."
+};
+MagicItemsList["corpse slayer"] = {
+	name : "Corpse Slayer",
+	nameTest : "Corpse Slaying",
+	source : [["W", 266]],
+	type : "weapon (any)",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "I gain a +1 bonus to attack and damage rolls made with this magic weapon. Undead hit by it take an additional 1d8 damage and gain disadvantage on saving throws against effects that turn undead until the start of my next turn.",
+	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   When you hit an undead creature with an attack using this weapon, the attack deals an extra 1d8 damage of the weapon's type, and the creature has disadvantage on saving throws against effects that turn undead until the start of your next turn.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["suffix", "Corpse Slaying"],
+		descriptionChange : ["replace", "weapon"]
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.isSpell && !v.theWea.isMagicWeapon && (/corpse slay(er|ing)/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+1d8 damage vs. undead; Target disadv. vs. turn undead';
+				}
+			},
+			'If I include the words "Corpse Slayer" or "Corpse Slaying" in a the name of a weapon, it will be treated as the magic weapon Corpse Slayer, which has a +1 to hit and damage and deals +1d8 damage vs. undead.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.isSpell && (/corpse slay(er|ing)/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+		]
+	}
 };
 MagicItemsList["dispelling stone"] = {
 	name : "Dispelling Stone",
 	source : [["W", 266]],
 	type : "wondrous item",
 	rarity : "very rare",
+	notLegalAL : true,
 	description : "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 ft and explodes in a 10-ft-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
 	descriptionFull : "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 feet and explodes in a 10-foot-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
 	usages : 1,
 	recovery : "Never"
+};
+MagicItemsList["duskcrusher"] = {
+	name : "Duskcrusher",
+	source : [["W", 266]],
+	type : "weapon (warhammer)",
+	rarity : "very rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This rod caries the symbol of Pelor. As a bonus action, I can activate its crackling head of sunlight, that shines bright light in 15 ft and dim for another 15 ft. While active, I can use it as a +2 warhammer that deals radiant damage and +1d8 damage to undead. Once per dawn, I can cast Sunbeam with it (DC 15).",
+	descriptionLong : "This leather-wrapped metal rod caries the symbol of Pelor on top. As a bonus action, I can cause a warhammer head of crackling radiance to spring into existence. It emits emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the radiant head is active, the rod functions as a +2 warhammer that deals radiant damage and +1d8 damage to undead. Once per dawn while its radiant head is active, I can use it to cast Sunbeam (DC 15). I can deactivate the head as an action.",
+	descriptionFull : "This item takes the form of a leather-wrapped metal rod emblazoned with the symbol of Pelor, the Dawn Father. While grasping the rod, you can use a bonus action to cause a warhammer head of crackling radiance to spring into existence. The warhammer's radiant head emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. You can use an action to make the radiant head disappear."+
+	"\n   While the radiant head is active, you gain a +2 bonus to attack and damage rolls made with this magic weapon, and attacks with the weapon deal radiant damage instead of bludgeoning damage. An undead creature hit by the weapon takes an extra 1d8 radiant damage."+
+	"\n   While you are holding Duskcrusher and its radiant head is active, you can use an action to cast the sunbeam spell (save DC 15) from the weapon, and this action can't be used again until the next dawn.",
+	action : [ ["bonus action", " (activate)"], ["action", " (deactivate)"] ],
+	extraLimitedFeatures : [{
+		name : "Duskcrusher (Sunbeam)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	weaponsAdd : ["Duskcrusher"],
+	weaponOptions : {
+		baseWeapon : "warhammer",
+		regExpSearch : /duskcrusher/i,
+		name : "Duskcrusher",
+		source : [["W", 266]],
+		damage : [1, 8, "radiant"],
+		description : "Versatile (1d10); +1d8 damage vs. undead",
+		modifiers : [2, 2]
+	},
+	weight : 2,
+	fixedDC : 15,
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["sunbeam"],
+		selection : ["sunbeam"],
+		firstCol : 'oncelr'
+	}
 };
 MagicItemsList["dust of deliciousness"] = {
 	name : "Dust of Deliciousness",
 	source : [["W", 267]],
 	type : "wondrous item",
 	rarity : "uncommon",
+	notLegalAL : true,
 	description : "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
 	descriptionFull : "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
 	usages : 6,
@@ -2089,6 +2321,7 @@ if (!MagicItemsList["ersatz eye"]) {
 		source : [["X", 137], ["W", 267]],
 		type : "wondrous item",
 		rarity : "common",
+		notLegalAL : true,
 		description : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in my eye socket, it can't be removed by anyone other than me, and I can see through the tiny orb as though it were a normal eye.",
 		descriptionFull : "This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in your eye socket, it can't be removed by anyone other than you, and you can see through the tiny orb as though it were a normal eye.",
 		attunement : true
@@ -2099,6 +2332,7 @@ MagicItemsList["goggles of object reading"] = {
 	source : [["W", 267]],
 	type : "wondrous item",
 	rarity : "uncommon",
+	notLegalAL : true,
 	attunement : true,
 	description : "While wearing these leather-framed goggles feature purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast Identify using the goggles.",
 	descriptionFull : "These leather-framed goggles feature purple crystal lenses. While wearing the goggles, you have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object you can see. In addition, you can cast the identify spell using the goggles. Once you do so, you can't do so again until the next dawn.", // Changed googles to goggles, as this is clearly a typo in the book
@@ -2112,6 +2346,157 @@ MagicItemsList["goggles of object reading"] = {
 		firstCol : 'oncelr'
 	}
 };
+MagicItemsList["hunter's coat"] = {
+	name : "Hunter's Coat",
+	source : [["W", 267]],
+	type : "armor (leather)",
+	rarity : "very rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "I have a +1 bonus to AC while wearing this leather armor. The coat has 3 charges. When I hit a creature with an attack and that creature doesn't have all its hit points, I can expend 1 charge to deal an extra 1d10 necrotic damage to the target. The coat regains 1d3 expended charges at dawn.",
+	descriptionFull : "You have a +1 bonus to AC while wearing this armor. The coat has 3 charges. When you hit a creature with an attack and that creature doesn't have all its hit points, you can expend 1 charge to deal an extra 1d10 necrotic damage to the target. The coat regains 1d3 expended charges daily at dawn.",
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	armorAdd : "Hunter's Coat",
+	armorOptions : {
+		regExpSearch : /^(?=.*hunter)(?=.*coat).*$/i,
+		name : "Hunter's Coat",
+		source : [["W", 267]],
+		type : "light",
+		ac : 12,
+		weight : 10
+	},
+	weight : 10
+};
+MagicItemsList["last stand armor"] = {
+	name : "Last Stand Armor",
+	source : [["W", 267]],
+	type : "armor (any)",
+	rarity : "very rare",
+	notLegalAL : true,
+	description : "I have a +1 bonus to AC while wearing this magic armor. If I die while wearing this armor, it is destroyed, and each celestial, fey, and fiend with 30 ft of me must succeed on a DC 15 Charisma saving throw or be banished to their home plane of existence, unless they are already there.",
+	descriptionFull : "You have a +1 bonus to AC while wearing this armor, which shimmers softly. If you die while wearing the armor, it is destroyed, and each celestial, fey, and fiend with 30 feet of you must succeed on a DC 15 Charisma saving throw or be banished to its home plane of existence, unless it is already there.",
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "brackets",
+		descriptionChange : ["prefix", "armor"],
+		itemName1stPage : ["suffix", "+1 Last Stand"]
+	},
+	extraLimitedFeatures : [{
+		name : "Last Stand Armor",
+		usages : 1,
+		recovery : "Never"
+	}]
+};
+
+var EGtW_LuxonBeaconFullDescription = [
+	"This dodecahedron of faintly glowing crystal is heavier than it appears. A set of handles are affixed to its sides, and it pulsates and thrums when touched.",
+	">>Fragment of Possibility<<. A creature that touches the beacon and concentrates for 1 minute receives a Fragment of Possibility, which looks like a Tiny, grayish bead of energy that follows the creature around, staying within 1 foot of it at all times. The fragment lasts for 8 hours or until used. Once the beacon grants a Fragment of Possibility, it can't grant another until the next dawn. A creature with a Fragment of Possibility from a Luxon Beacon can't gain another Fragment of Possibility from any source.",
+	"When a creature with a Fragment of Possibility makes an attack roll, an ability check, or a saving throw, it can expend its fragment to roll an additional d20 and choose which of the d20s to use. Alternatively, when an attack roll is made against the creature, it can expend its fragment to roll a d20 and choose which of the d20s to use, the one it rolled or the one the attacker rolled.",
+	"If the original d20 roll has advantage or disadvantage, the creature rolls its d20 after advantage or disadvantage has been applied to the original roll.",
+	">>Soul Snare<<. If a follower of the Luxon who has undergone a ritual of consecution dies within 100 miles of a Luxon Beacon, their soul is ensnared by it. This soul will be reincarnated within the body of a random humanoid baby developing within 100 miles of the beacon."
+];
+MagicItemsList["luxon beacon"] = {
+	name : "Luxon Beacon",
+	source : [["W", 268]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	description : "Once per dawn, a creature can touch this crystal for 1 minute to gain a Fragment of Possibility. Once for the next 8 hours, it can roll an extra d20 for an attack, check, save, or being attacked, before the outcome is determined. Creatures consecuted to the Luxon that die within 100 miles of it are reincarnated. See notes.",
+	descriptionFull : EGtW_LuxonBeaconFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	extraLimitedFeatures : [{
+		name : "Luxon Beacon (Fragment of Possibility)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	toNotesPage : [{
+		name : "Features",
+		note : desc(EGtW_LuxonBeaconFullDescription).replace(/   >>(.*?)<<\. /g, function(a, match) { return match.toUpperCase() + "\n   "; })
+	}]
+};
+MagicItemsList["needle of mending"] = {
+	name : "Needle of Mending",
+	source : [["W", 268]],
+	type : "weapon (dagger)",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This weapon is a magic dagger disguised as a sewing needle. As a bonus action, I can speak its command word to transform it into a dagger or back into a needle. I gain a +1 bonus to attack and damage rolls made with the dagger. As an action while holding it, I can cast the mending cantrip from it.",
+	descriptionFull : "This weapon is a magic dagger disguised as a sewing needle. When you hold it and use a bonus action to speak its command word, it transforms into a dagger or back into a needle.\n   You gain a +1 bonus to attack and damage rolls made with the dagger. While holding it, you can use an action to cast the mending cantrip from it.",
+	action : [["bonus action", " (transform)"]],
+	weaponsAdd : ["Needle of Mending"],
+	weaponOptions : {
+		baseWeapon : "dagger",
+		regExpSearch : /^(?=.*needle)(?=.*mending).*$/i,
+		name : "Needle of Mending",
+		source : [["W", 268]],
+		modifiers : [1, 1]
+	},
+	spellcastingBonus : {
+		name : "At will",
+		spells : ["mending"],
+		selection : ["mending"],
+		firstCol : 'atwill'
+	},
+	spellChanges : {
+		"mending" : {
+			time : "1 a",
+			changes : "Using the Needle of Mending, I can cast Mending as an action."
+		}
+	},
+	weight : 1
+};
+MagicItemsList["nightfall pearl"] = {
+	name : "Nightfall Pearl",
+	source : [["W", 268]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "I can spend 10 minutes to activate this his 6-inch-diameter, jet-black orb, causing the area within 10 miles of it to become night even if it is daytime. This night lasts for 24 hours, until I cancel it as an action, or until my attunement to the pearl ends. Once used, the pearl can't be used again for 24 hours.",
+	descriptionFull : "Used to summon night, this 6-inch-diameter, jet-black orb is cold to the touch. You can spend 10 minutes to activate it, causing the area within 10 miles of it at the moment of activation to become night even if it is daytime. This night lasts for 24 hours, until you cancel it as an action, or until your attunement to the pearl ends. Once used, the pearl can't be used again for 24 hours.",
+	action : [["action", " (end)"]],
+	usages : 1,
+	recovery : "24 hrs"
+};
+MagicItemsList["orb of the veil"] = { // no automation for halving the fire damage, because it is very complex, error prone, and the curse could (and will) be removed
+	name : "Orb of the Veil",
+	source : [["W", 268]],
+	type : "wondrous item",
+	rarity : "very rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This orb increases my Wisdom and maximum by 2, grants me +60 ft darkvision, and adv. on Wisdom checks to find hidden doors and paths. It is cursed and once attuned to it, I become unwilling to part with it, nonmagical flames within 30 ft of me extinguish, and fire damage I deal is halved (not automated).",
+	descriptionFull: "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   " + toUni("Curse") + ". The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
+	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
+	scores : [0, 0, 0, 0, 2, 0],
+	scoresMaximum : [0, 0, 0, 0, "+2", 0],
+	weight : 3
+};
+MagicItemsList["potion of maximum power"] = {
+	name : "Potion of Maximum Power",
+	source : [["W", 268]],
+	type : "potion",
+	rarity : "rare",
+	notLegalAL : true,
+	description : "Once as an action, I can drink this potion of glowing purple liquid that smells of sugar and plum or administer it to another. The next time the recipient casts a damage-dealing spell of 4th-level or lower within 1 minute, instead of rolling the damage die, the highest number possible for each die is used.",
+	descriptionFull : "The first time you cast a damage-dealing spell of 4th level or lower within 1 minute after drinking the potion, instead of rolling dice to determine the damage dealt, you can instead use the highest number possible for each die.\n This glowing purple liquid smells of sugar and plum, but it has a muddy taste.",
+	weight : 0.5
+};
+MagicItemsList["potion of possibility"] = {
+	name : "Potion of Possibility",
+	source : [["W", 268]],
+	type : "potion",
+	rarity : "very rare",
+	notLegalAL : true,
+	description : "Once as an action, I can drink this potion of glowing purple liquid that smells of sugar and plum or administer it to another. Twice for the next 8 hours, the consumer can roll an extra d20 for an attack, check, save, or being attacked, before the outcome is determined.",
+	descriptionFull : "When you drink this clear potion, you gain two Fragments of Possibility, each of which looks like a Tiny, grayish bead of energy that follows you around, staying within 1 foot of you at all times. Each fragment lasts for 8 hours or until used."+
+	"\n   When you make an attack roll, an ability check, or a saving throw, you can expend your fragment to roll an additional d20 and choose which of the d20s to use. Alternatively, when an attack roll is made against you, you can expend your fragment to roll a d20 and choose which of the d20s to use, the one you rolled or the one the attacker rolled."+
+	"\n   If the original d20 roll has advantage or disadvantage, you roll your d20 after advantage or disadvantage has been applied to the original roll."+
+	"\n   While you have one or more Fragments of Possibility from this potion, you can't gain another Fragment of Possibility from any source.",
+	weight : 0.5
+};
 // [dupl_start] reprint from Eberron: Rising from the Last War
 if (!MagicItemsList["prosthetic limb"]) {
 	MagicItemsList["prosthetic limb"] = {
@@ -2119,8 +2504,947 @@ if (!MagicItemsList["prosthetic limb"]) {
 		source : [["E:RLW", 278], ["W", 268], ["T", 134]],
 		type : "wondrous item",
 		rarity : "common",
+		notLegalAL : true,
 		description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
-		descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
+		descriptionFull : "This item replaces a lost limb\u2014a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
 		action : [["action", " (attach/detach)"]]
 	}
 } // dupl_end
+MagicItemsList["reincarnation dust"] = {
+	name : "Reincarnation Dust",
+	source : [["W", 268]],
+	type : "wondrous item",
+	rarity : "very rare",
+	notLegalAL : true,
+	usages : 1,
+	recovery : "Never",
+	description : "Once I can sprinkle the purple dust in this small pouch on a dead humanoid or a piece of a dead humanoid. The dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
+	descriptionFull : "When this small pouch of purple dust is sprinkled on a dead humanoid or a piece of a dead humanoid, the dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
+	spellcastingBonus : {
+		name : "Use once",
+		spells : ["reincarnate"],
+		selection : ["reincarnate"]
+	}
+};
+MagicItemsList["ring of obscuring"] = {
+	name : "Ring of Obscuring",
+	source : [["W", 269]],
+	type : "ring",
+	rarity : "uncommon",
+	notLegalAL : true,
+	attunement : true,
+	description : "This band of iron resembling a skull has 3 charges, regaining 1d3 expended charges at dawn. As an action, I can expend 1 charge to cast Fog Cloud from it, with the following changes: the cloud is centered on me when it first appears, the spell lasts for 1 minute, and the spell requires no concentration.",
+	descriptionFull : "This band of iron resembles a skull and is cold to the touch. It has 3 charges and regains 1d3 expended charges daily at dawn. As an action while wearing the ring, you can expend 1 of its charges to cast the fog cloud spell from it, with the following changes: the cloud is centered on you when it first appears, and the spell lasts for 1 minute (no concentration required).",
+	extraLimitedFeatures : [{
+		name : "Ring of Obscuring",
+		usages : 3,
+		recovery : "Dawn"
+	}],
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : {
+		name : "1 charge",
+		spells : ["fog cloud"],
+		selection : ["fog cloud"],
+		firstCol : '1'
+	},
+	spellChanges : {
+		"fog cloud" : {
+			range : "Self",
+			duration : "1 min",
+			changes : "When I cast fog cloud with the Ring of Obscuring, the spell is centered on me, lasts for 1 minute, and the requires no concentration.",
+		}
+	}
+};
+MagicItemsList["ring of temporal salvation"] = {
+	name : "Ring of Temporal Salvation",
+	source : [["W", 269]],
+	type : "ring",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "If I die while wearing this gray crystal ring, I vanish and reappear in an empty space within 5 ft, with 3d6 + my Con mod in HP, and 1 less level of exhaustion (if any). If my maximum HP is less than the amount rolled, my max rises to a similar amount. Once this ring is used, it turns to dust and is destroyed.",
+	descriptionFull : "If you die while wearing this gray crystal ring, you vanish and reappear in an unoccupied space within 5 feet of the space you left (or the nearest unoccupied space). You have a number of hit points equal to 3d6 + your Constitution modifier. If your hit point maximum is lower than the number of hit points you regain, your hit point maximum rises to a similar amount. If you have any levels of exhaustion, reduce your level of exhaustion by 1. Once the ring is used, it turns to dust and is destroyed."
+};
+MagicItemsList["rod of retribution"] = {
+	name : "Rod of Retribution",
+	source : [["W", 269]],
+	type : "rod",
+	rarity : "uncommon",
+	notLegalAL : true,
+	attunement : true,
+	description : "This adamantine rod with a glowing crystalline tip has 3 charges, regaining all daily at dawn. As a reaction when a creature I can see within 60 ft damages me, I can expend a charge to force it to make a DC 13 Dexterity save. It takes a 2d10 lightning damage on a failed save, or half as much on a successful one.",
+	descriptionFull : "This adamantine rod is tipped with a glowing crystalline eye. The rod has 3 charges and regains all its expended charges daily at dawn.\n   When a creature you can see within 60 feet of you damages you while you are holding this rod, you can use your reaction to expend 1 of the rod's charges to force the creature to make a DC 13 Dexterity saving throw. The creature takes 2d10 lightning damage on a failed save, or half as much damage on a successful one.",
+	usages : 3,
+	recovery : "dawn",
+	action : [["reaction", " (if damaged)"]],
+	weight : 2
+};
+MagicItemsList["spell bottle"] = {
+	name : "Spell Bottle",
+	source : [["W", 269]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "While holding this bottle, I can cast a 5th-level or lower spell into it if empty, or cast the stored spell from it (slot level, DC, and spell attack as original casting). As a reaction when I see a spell being cast in 60 ft, I can try to store it in the empty bottle. Works if 3rd-level or lower, otherwise Int check DC 10 + spell level.",
+	descriptionFull : "This glass bottle can store one spell of up to 5th level at a time. When found, roll a d6 and subtract 1; the total determines the level of spell in the bottle (the DM chooses the spell, and 0 means the bottle is empty). A swirling blue vapor fills the bottle while it contains a spell."+
+	"\n   When the bottle is empty, any creature can cast a spell of 1st through 5th level into it by touching it while casting. The spell has no effect other than to be stored in the bottle."+
+	"\n   While holding the bottle, you can cast the spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The bottle becomes empty once the spell is cast."+
+	"\n   If you're holding the empty bottle when you see a creature casting a spell within 60 feet of you, you can open the bottle as a reaction in an attempt to interrupt the spell. If the creature is casting a spell of 3rd level or lower, the spell has no effect, and it is stored in the bottle. If it is casting a spell of 4th level or higher, make an Intelligence check. The DC equals 10 + the spell's level. On a success, the spell has no effect, and it is stored in the bottle."
+};
+MagicItemsList["staff of dunamancy"] = {
+	name : "Staff of Dunamancy",
+	source : [["W", 270]],
+	type : "staff",
+	rarity : "very rare",
+	notLegalAL : true,
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function (v) { return classes.known.wizard ? true : false; },
+	description : "This staff has 10 charges, regains 1d6+4 at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. As an action, I can use its charges to cast Fortune's Favor (2), Pulse Wave (3), or Gravity Sinkhole (4), using my spellcasting ability. Once per dawn, I can turn a failed save vs. a spell that targets only me into a success.",
+	descriptionFull : "This staff of polished gray wood bears numerous runes carved along its length. The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff turns into dust and is destroyed."+
+	"\n   While holding the staff, you can use an action to expend 2 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: fortune's favor (2 charges), pulse wave (3 charges), or gravity sinkhole (4 charges)."+
+	"\n   " + toUni("New Possibility") + ". If you are holding the staff and fail a saving throw against a spell that targets only you, you can turn your failed save into a successful one. This property can't be used again until the next dawn.",
+	extraLimitedFeatures : [{
+		name : "Staff of Dunamancy (regains 1d6+4)",
+		usages : 10,
+		recovery : "dawn"
+	}, {
+		name : "Staff of Dunamancy (New Possibility)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	spellcastingAbility : "class",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "2 charges",
+		spells : ["fortune's favor"],
+		selection : ["fortune's favor"],
+		firstCol : 2
+	}, {
+		name : "3 charges",
+		spells : ["pulse wave"],
+		selection : ["pulse wave"],
+		firstCol : 3
+	}, {
+		name : "4 charges",
+		spells : ["gravity sinkhole"],
+		selection : ["gravity sinkhole"],
+		firstCol : 4
+	}],
+	spellChanges : {
+		"fortune's favor" : {
+			time : "1 a",
+			changes : "Using the Staff of Dunamancy, I can cast Fortune's Favor as an action."
+		}
+	},
+	weight : 4
+};
+MagicItemsList["staff of the ivory claw"] = {
+	name : "Staff of the Ivory Claw",
+	source : [["W", 270]],
+	type : "staff",
+	rarity : "rare",
+	notLegalAL : true,
+	attunement : true,
+	description : "This gray-and-cerulean staff is topped with a small dragon claw carved from ivory. While holding the staff, I gain a +1 bonus to spell attack rolls. Whenever you score a critical hit with a spell attack, the target takes an extra 3d6 radiant damage.",
+	descriptionFull : "This gray-and-cerulean staff is topped with a small dragon claw carved from ivory. While holding the staff, you gain a +1 bonus to spell attack rolls. Whenever you score a critical hit with a spell attack, the target takes an extra 3d6 radiant damage.",
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type == "attack") return 1;
+			},
+			"While holding the Staff of the Ivory Claw, I have a +1 bonus to spell attack rolls."
+		],
+		atkAdd : [
+			function (fields, v) {
+				if (v.isSpell && !v.theWea.dc) {
+					fields.Description += (fields.Description ? '; ' : '') + 'On crit, +3d6 radiant damage';
+				}
+			},
+			"While holding the Staff of the Ivory Claw whenever I score a critical hit with a spell attack, the target takes an extra 3d6 radiant damage."
+		]
+	},
+	weight : 4
+};
+MagicItemsList["vox seeker"] = {
+	name : "Vox Seeker",
+	source : [["W", 270]],
+	type : "wondrous item",
+	rarity : "common",
+	notLegalAL : true,
+	description : "This clockwork device resembles a metal crab the size of a dinner plate. Every action used to wind up this clockwork device allows it to operate for 1 minute, to a maximum of 10 minutes. See the vox seeker on a companion page. This creature is under the DM's control. If reduced to 0 HP, it is destroyed.",
+	descriptionFull : "This clockwork device resembles a metal crab the size of a dinner plate. Every action used to wind up the device allows it to operate for 1 minute, to a maximum of 10 minutes. While operational, the item uses the accompanying Vox Seeker stat block. This automaton is under the DM's control. A vox seeker reduced to 0 hit points is destroyed.",
+	action : [["action", " (wind up)"]],
+	creaturesAdd : [["Vox Seeker"]],
+	creatureOptions : [{
+		name : "Vox Seeker",
+		source : [["W", 270]],
+		size : 5,
+		type : "Construct",
+		alignment : "",
+		ac : 14,
+		hp : 7,
+		hd : [2, 4],
+		speed : "20 ft, climb 20 ft",
+		scores : [2, 10, 12, 1, 10, 1],
+		damage_immunities : "poison, psychic",
+		condition_immunities : "blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
+		senses : "Blindsight 60 ft (blind beyond this radius",
+		passivePerception : 10,
+		languages : "",
+		challengeRating : "0",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+			name : "Pincer",
+			ability : 2,
+			damage : [1, 4, "piercing"],
+			range : "Melee (5 ft)",
+			description : "+3 lightning damage",
+			abilitytodamage : false
+		}],
+		features : [{
+			name : "Creator",
+			description : "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its creator takes a bonus action to command it to take another action. If its creator is incapacitated, it can take any action, not just Dodge."
+		}],
+		traits : [{
+			name : "Spider Climb",
+			description : "The vox seeker can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+		}, {
+			name : "Voice Lock",
+			description : "The vox seeker must move toward and attack the source of the nearest voice within 60 ft of it, to the exclusion of all other targets, for as long as it remains operational."
+		}]
+	}]
+};
+MagicItemsList["weapon of certain death"] = {
+	name : "Weapon of Certain Death",
+	nameTest : "of Certain Death",
+	source : [["W", 270]],
+	type : "weapon (any)",
+	rarity : "rare",
+	notLegalAL : true,
+	description : "When I damage a creature with an attack using this magic weapon, the target can't regain hit points until the start of my next turn.",
+	descriptionFull : "When you damage a creature with an attack using this magic weapon, the target can't regain hit points until the start of your next turn.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "prefix",
+		descriptionChange : ["replace", "weapon"]
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && (/of certain death/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + "On hit, target can't heal until my next turn starts";
+				}
+			},
+			'If I include the words "of Certain Death" in a the name of a weapon, it will be treated as the magic weapon "Weapon of Certain Death". On a hit, the target can\'t regain hit points until the start of my next turn.'
+		]
+	}
+};
+
+// Vestiges of Divergence (contains contributions by kat9137 [Discord] aka sophiechiabatta [GitHub])
+var EGtW_Vestiges_Replace = function (sDescr) {
+	return desc(sDescr).replace(/\bf(oo|ee)t\b/ig, "ft")
+		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
+		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
+		.replace(/your/g, "my").replace(/Your/g, "My")
+		.replace(/   >>(.*?)<<\. /g, function(a, match) { return "\n" + match.toUpperCase() + "\n   "; });
+}
+var EGtW_DanothsVisorFullDescription = [
+	"These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar.",
+	">>Dormant<<. While wearing the goggles in their dormant state, you can see normally in darkness, both magical and nonmagical, to a distance of 60 feet. Additionally, you have advantage on Intelligence (Investigation) and Wisdom (Perception) checks that rely on sight.",
+	">>Awakened<<. When Danoth's Visor reaches an awakened state, it gains the following properties:",
+	"\u2022 You see invisible creatures and objects within 60 feet of you as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.",
+	"\u2022 As a bonus action, you can speak a command word and use the goggles to see into and through solid matter. This vision has a radius of 60 feet and lasts for 1 minute. To you, solid objects within that radius appear transparent. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances block the vision, as does a thin sheet of lead. This property can't be used again until the next dawn.",
+	"\u2022 As a bonus action, you can speak a command word to switch the goggles into spyglass mode. While in this mode, creatures and objects viewed through the goggles are magnified to twice their size. Speaking the command word again reverts the goggles to their normal operation.",
+	">>Exalted<<.",
+	"When Danoth's Visor reaches an exalted state, it gains the following properties:",
+	"\u2022 You automatically detect illusions you can see and automatically succeed on saving throws against them. In addition, you see a bright aura around any creature that isn't in its true form.",
+	"\u2022 As an action, you can cast the antimagic field spell from the visor. This property can't be used again until the next dawn."
+];
+MagicItemsList["danoth's visor"] = {
+	name : "Danoth's Visor",
+	source : [["W", 270]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar. See notes page for more information.",
+	descriptionFull : EGtW_DanothsVisorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		note : EGtW_Vestiges_Replace(EGtW_DanothsVisorFullDescription)
+	}],
+	vision : [["Devil's Sight", "fixed 60"], ["Adv. on Investigation and Perception check that rely on sight", 0]],
+	choices : ["\x1BDormant", "Awakened", "Exalted"], // \x1B to fool the sorting
+	"\x1Bdormant" : {
+		name : "Danoth's Visor [dormant]",
+		description : "These mithral-frame goggles with clear diamond lenses grant me the ability to see in normally in nonmagical and magical darkness out to 60 ft. Also, they grant me advantage on Intelligence (Investigation) and Wisdom (Perception) checks that rely on sight."
+	},
+	"awakened" : {
+		name : "Danoth's Visor [awakened]",
+		description : "These mithral-frame goggles with clear diamond lenses grant me the ability to see, out to 60 ft, in nonmagical and magical darkness, invisible creatures and objects, and into the Ethereal plane. They give me adv. on Investigation and Perception checks that rely on sight. I can active them to see more, see Notes page.",
+		action : [
+			["bonus action", "Danoth's Visor (see through matter)"]
+			["bonus action", "Danoth's Visor (spyglass mode)"],
+		],
+		extraLimitedFeatures : [{
+			name : "Danoth's Visor (see through matter)",
+			usages : 1,
+			recovery : "dawn"
+		}]
+	},
+	"exalted" : {
+		name : "Danoth's Visor [exalted]",
+		description : "These goggles grant me the ability to see, out to 60 ft, in normal and magical darkness, invisible creatures and objects, and into the Ethereal plane. They allow me to automatically detect illusions for what they are, succeed on saves against them, and see if creatures aren't in their true form. See Notes for more.",
+		action : [
+			["bonus action", "Danoth's Visor (see through matter)"]
+			["bonus action", "Danoth's Visor (spyglass mode)"],
+		],
+		extraLimitedFeatures : [{
+			name : "Danoth's Visor (see through matter)",
+			usages : 1,
+			recovery : "dawn"
+		}, {
+			name : "Danoth's Visor (Antimagic Field)",
+			usages : 1,
+			recovery : "dawn"
+		}],
+		spellcastingAbility : "class",
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["antimagic field"],
+			selection : ["antimagic field"],
+			firstCol : 'oncelr'
+		},
+		savetxt : { immune : ["illusions"] },
+	}
+};
+var EGtW_GrimoireInfinitusFullDescription = [
+	"Several of these spellbooks with gilded pages and silver-plated covers were created during the Age of Arcanum, but only one has been found since the Calamity ended. The book has an infinite number of pages, is three inches thick, eight inches wide, twelve inches long, and weighs three pounds.",
+	">>Dormant<<. Most of the book is blank, but the following spells are recorded in the first pages of the tome: alarm, antimagic field, Bigby's hand, blight, charm person, confusion, control weather, create undead, detect thoughts, enlarge/reduce, fear, foresight, gaseous form, glyph of warding, legend lore, Leomund's tiny hut, mass suggestion, mislead, misty step, Mordenkainen's faithful hound, prismatic spray, ray of enfeeblement, silent image, teleport, and thunderwave.",
+	"You can use the grimoire as your spellbook, and you can scribe new spells into it as normal. When you prepare wizard spells using the grimoire, the number of wizard spells you can prepare increases by 1.",
+	">>Awakened<<. When the Grimoire Infinitus reaches an awakened state, it gains the following properties:",
+	"\u2022 While you carry the spellbook, you have advantage on saving throws against spells and magical effects.",
+	"\u2022 When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again.",
+	">>Exalted<<. When the Grimoire Infinitus reaches an exalted state, it gains the following properties:",
+	"\u2022 You can now use your Arcane Recovery feature twice between long rests, rather than once.",
+	"\u2022 When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again."
+];
+MagicItemsList["grimoire infinitus"] = {
+	name : "Grimoire Infinitus",
+	source : [["W", 271]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizards spells, I can prepare 1 additional spell.",
+	descriptionFull : EGtW_GrimoireInfinitusFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	weight : 3,
+	toNotesPage : [{
+		name : "Features",
+		note : EGtW_Vestiges_Replace(EGtW_GrimoireInfinitusFullDescription)
+	}],
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function (v) { return classes.known.wizard ? true : false; },
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		addToKnown : ["alarm", "antimagic field", "bigby's hand", "blight", "charm person", "confusion", "control weather", "create undead", "detect thoughts", "enlarge/reduce", "fear", "foresight", "gaseous form", "glyph of warding", "legend lore", "leomund's tiny hut", "mass suggestion", "mislead", "misty step", "mordenkainen's faithful hound", "prismatic spray", "ray of enfeeblement", "silent image", "teleport", "thunderwave"]
+	},
+	choices : ["\x1BDormant", "Awakened", "Exalted"],
+	"\x1Bdormant" : {
+		name : "Grimoire Infinitus [dormant]",
+		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizard spells, I can prepare 1 additional spell. See Notes page for more information.",
+		calcChanges: {
+			spellCalc: [
+                function (type, spellcasters, ability) {
+                    if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 1;
+                },
+				"When I prepare wizard spells using the grimoire, the number of wizard spells I can prepare increases by 1."
+			]
+		}
+	},
+	"awakened" : {
+		name : "Grimoire Infinitus [awakened]",
+		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use it to prepare wizard spells, I can prepare 2 extra spells. It also grants me advantage on saves against spells and magical effects. See Notes page.",
+		calcChanges: {
+			spellCalc: [
+                function (type, spellcasters, ability) {
+                    if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 2;
+                },
+				"When I prepare wizard spells using the grimoire, the number of wizard spells I can prepare increases by 2."
+			]
+		},
+		savetxt : { adv_vs : ["magic"] }
+	},
+	"exalted" : {
+		name : "Grimoire Infinitus [exalted]",
+		description : "This spellbook with unlimited pages can be used by a wizard to prepare and store spells. When I use it to prepare wizard spells, I can prepare 3 more. It also grants me adv. on saves vs. spells and magical effects and allows me to use Arcane Recovery an extra time per long rest. See Notes page for more information.",
+		calcChanges: {
+			spellCalc: [
+                function (type, spellcasters, ability) {
+                    if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 3;
+                },
+				"When I prepare wizard spells using the grimoire, the number of wizard spells I can prepare increases by 3."
+			]
+		},
+		savetxt : { adv_vs : ["magic"] },
+		extraLimitedFeatures : [{
+			name : "Arcane Recovery",
+			usages : 1,
+			recovery : "long rest",
+			addToExisting : true
+		}]
+	}
+};
+var EGtW_HideFeralGuardianFullDescription = [
+	"It is believed that this polished and beautifully detailed leather armor was a gift from Melora, bestowed on a long-forgotten archdruid and champion of the natural world before the terrors of the Calamity.",
+	">>Dormant<<. While wearing the armor in its dormant state, you gain the following benefits:",
+	"\u2022 The armor grants you a +1 bonus to AC.",
+	"\u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, you have a +1 bonus to melee attack and damage rolls, and you retain the benefits of this armor.",
+	"\u2022 As an action, you can use the armor to cast polymorph on yourself, transforming into a giant owl while retaining your Intelligence, Wisdom, and Charisma scores. This property can't be used again until the next dawn.",
+	">>Awakened<<. When the armor reaches an awakened state, it gains the following properties:",
+	"\u2022 The AC bonus of the armor increases to +2.",
+	"\u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +2).",
+	"\u2022 When you cast the polymorph spell using this armor, you can transform into a cave bear.",
+	">>Exalted<<. When the armor reaches an exalted state, it gains the following properties:",
+	"\u2022 The AC bonus of the armor increases to +3.",
+	"\u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +3).",
+	"\u2022 When you cast the polymorph spell using this armor, you can transform into a guardian wolf."
+];
+MagicItemsList["hide of the feral guardian"] = {
+	name : "Hide of the Feral Guardian",
+	source : [["W", 271]],
+	type : "armor (studded leather)",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "This magic studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a bonus to melee attack and damage rolls. Once per dawn, I can use it to cast Polymorph on myself.",
+	descriptionFull : EGtW_HideFeralGuardianFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	weight : 13,
+	toNotesPage : [{
+		name : "Features",
+		note : EGtW_Vestiges_Replace(EGtW_HideFeralGuardianFullDescription) + "\n\nNOTE\n   Be aware that the bonus to melee attacks and damage in wild shape are not automated."
+	}],
+	extraLimitedFeatures : [{
+		name : "Hide of the Feral Guardian (Polymorph)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	spellcastingAbility : "class",
+	spellcastingBonus : {
+		name : "Once per dawn",
+		spells : ["polymorph"],
+		selection : ["polymorph"],
+		firstCol : "oncelr"
+	},
+	choices : ["\x1BDormant", "Awakened", "Exalted"],
+	"\x1Bdormant" : {
+		name : "Hide of the Feral Guardian [dormant]",
+		description : "This +1 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +1 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to transform into a giant owl.",
+		armorAdd : "Hide of the Feral Guardian",
+		armorOptions : {
+			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
+			name : "Hide of the Feral Guardian",
+			source : [["W", 271]],
+			type : "light",
+			ac : 13,
+			weight : 13
+		},
+		spellChanges : {
+			"polymorph" : {
+				name : "Polymorph (special)",
+				range : "Self",
+				description : "I transform into a giant owl; I retain my Int, Wis, Cha",
+				changes : "Using the Hide of the Feral Guardian, I can cast Polymorph on myself once per dawn to transform myself into a giant owl, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor."
+			}
+		}
+	},
+	"awakened" : {
+		name : "Hide of the Feral Guardian [awakened]",
+		armorAdd : "Hide of the Feral Guardian [awakened]",
+		description : "This +2 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +2 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl or cave bear.",
+		armorAdd : "Hide of the Feral Guardian",
+		armorOptions : {
+			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
+			name : "Hide of the Feral Guardian",
+			source : [["W", 271]],
+			type : "light",
+			ac : 14,
+			weight : 13
+		},
+		spellChanges : {
+			"polymorph" : {
+				name : "Polymorph (special)",
+				range : "Self",
+				description : "I transform into a giant owl or cave bear; I retain my Int, Wis, Cha",
+				changes : "Using the Hide of the Feral Guardian, I can cast Polymorph on myself once per dawn to transform myself into a giant owl or a cave bear, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor."
+			}
+		}
+	},
+	"exalted" : {
+		name : "Hide of the Feral Guardian [exalted]",
+		description : "This +3 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then grants a +2 to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl, cave bear or guardian wolf.",
+		armorAdd : "Hide of the Feral Guardian",
+		armorOptions : {
+			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
+			name : "Hide of the Feral Guardian",
+			source : [["W", 271]],
+			type : "light",
+			ac : 15,
+			weight : 13
+		},
+		spellChanges : {
+			"polymorph" : {
+				name : "Polymorph (special)",
+				range : "Self",
+				description : "I transform into a giant owl, cave bear, or guardian wolf; I retain my Int, Wis, Cha",
+				changes : "Using the Hide of the Feral Guardian, I can cast Polymorph on myself once per dawn to transform myself into a giant owl, cave bear, or guardian wolf, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor."
+			}
+		},
+		creatureOptions : [{
+			name : "Guardian Wolf",
+			source : [["W", 272]],
+			size : 1,
+			type : "Monstrosity",
+			alignment : "",
+			ac : 14,
+			hp : 66,
+			hd : [7, 12],
+			speed : "60 ft",
+			scores : [22, 14, 16, 5, 12, 8],
+			skills : {
+				"perception" : 3
+			},
+			senses : "Adv. on Wis (Perception) checks using hearing/smell",
+			passivePerception : 15,
+			languages : "Common, Elvish",
+			challengeRating : "4",
+			proficiencyBonus : 2,
+			attacksAction : 2,
+			attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [1, 10, "piercing"],
+				range : "Melee (5 ft)",
+				description : "Target DC 16 Str save or knocked prone; One bite and one claw attack as an Attack action"
+			}, {
+				name : "Claws",
+				ability : 1,
+				damage : [2, 8, "slashing"],
+				range : "Melee (5 ft)",
+				description : "One bite and one claw attack as an Attack action"
+			}],
+			traits : [{
+				name : "Multiattack",
+				description : "The wolf makes two attacks: one with its bite and one with its claws."
+			}, {
+				name : "Keen Hearing and Smell",
+				description : "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+			}, {
+				name : "Pack Tactics",
+				description : "The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 ft of the creature and the ally isn't incapacitated."
+			}]
+		}]
+	}
+};
+var EGtW_InfiltratorsKeyFullDescription = [
+	"This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum.",
+	">>Dormant<<. The Infiltrator's Key grants the following benefits in its dormant state:",
+	"\u2022 The key can be used as thieves' tools for the purpose of opening locks. When using the key, you are considered proficient in thieves' tools and you have advantage on ability checks made to open locks.",
+	"\u2022 While holding the key, your steps are muffled, giving you advantage on Dexterity (Stealth) checks made to move silently.",
+	">>Awakened<<. When the Infiltrator's Key reaches an awakened state, it gains the following properties:",
+	"\u2022 While holding the key, you can use a bonus action to transform the key into a magic dagger or back into a key. While the key is in the form of a dagger, you gain a +1 bonus to attack and damage rolls made with it, and it returns to your hand immediately after it is used to make a ranged attack.",
+	"\u2022 While holding the key, you can use an action to cast one of the following spells from it: alter self, invisibility, knock, or pass without trace. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn.",
+	">>Exalted<<. When the Infiltrator's Key reaches an exalted state, it gains the following properties:",
+	"\u2022 As a bonus action, you can touch the key to a floor, wall, or ceiling that is no more than 5 feet thick and cause a magical opening to appear in the surface. When you create the opening, you choose its length and width, up to 10 feet for each dimension. The opening lasts until the key passes through it to the other side, at which point it disappears (if a creature is in the opening when the doorway closes, the creature is safely shunted to the nearest unoccupied space). The key can't be used to create another opening until the next dawn.",
+	"\u2022 While holding the key, you can use an action to cast one of the following spells from it: dimension door, gaseous form, or mislead. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn."
+];
+MagicItemsList["infiltrator's key"] = {
+	name : "Infiltrator's Key",
+	source : [["W", 273]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum. See notes page for more information.",
+	descriptionFull : EGtW_InfiltratorsKeyFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		note : EGtW_Vestiges_Replace(EGtW_InfiltratorsKeyFullDescription)
+	}],
+	toolProfs : [["Thieves' tools", "Dex"]],
+	choices : ["\x1BDormant", "Awakened", "Exalted"],
+	"\x1Bdormant" : {
+		name : "Infiltrator's Key [dormant]",
+		description : "This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items. It can be used as thieves' tools for the purpose of opening locks. I'm considered proficient when I do so with this key and gain adv. While holding it, I have adv. on Stealth checks to move silently."
+	},
+	"awakened" : {
+		name : "Infiltrator's Key [awakened]",
+		description : "I can use this mithral skeleton key as thieves' tools to open locks. I'm proficient with it and gain adv. on the roll. While holding it, I have adv. on Stealth checks to move silently. As a bonus action, I can transform it into a +1 dagger that returns immediately when thrown. I can use it to cast several spells, each once per dawn.",
+		action : [["bonus action", "Infiltrator's Key (transform dagger)"]],
+		weaponsAdd : ["Infiltrator's Key"],
+		weaponOptions : {
+			baseWeapon : "dagger",
+			regExpSearch : /infiltrator's key|key of the infiltrator/i,
+			name : "Infiltrator's Key",
+			source : [["W", 273]],
+			description : "Finesse, light, thrown; Returns when thrown",
+			modifiers : [1, 1]
+		},
+		spellcastingAbility : "class",
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["alter self", "invisibility", "knock", "pass without trace"],
+			selection : ["alter self", "invisibility", "knock", "pass without trace"],
+			firstCol : 'oncelr',
+			times : 4
+		}
+	},
+	"exalted" : {
+		name : "Infiltrator's Key [exalted]",
+		description : "I can use this mithral skeleton key as thieves' tools to open locks. I'm proficient with it and gain adv. on the roll. While holding it, I have adv. on Stealth checks to move silently. As a bonus action, I can transform it into a +1 dagger that returns when thrown. I can use it to cast several spells, each once per dawn. See Notes.",
+		action : [
+			["bonus action", "Infiltrator's Key (transform dagger)"],
+			["bonus action", "Infiltrator's Key (create opening)"]
+		],
+		weaponsAdd : ["Infiltrator's Key"],
+		weaponOptions : {
+			baseWeapon : "dagger",
+			regExpSearch : /infiltrator's key|key of the infiltrator/i,
+			name : "Infiltrator's Key",
+			source : [["W", 273]],
+			description : "Finesse, light, thrown; Returns when thrown",
+			modifiers : [1, 1]
+		},
+		spellcastingAbility : "class",
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
+			selection : ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
+			firstCol : 'oncelr',
+			times : 7
+		},
+		extraLimitedFeatures : [{
+			name : "Infiltrator's Key (create opening)",
+			usages : 1,
+			recovery : "dawn"
+		}]
+	}
+};
+var EGtW_StormgirdleFullDescription = [
+	"A Stormgirdle is a wide belt made of thick leather branded with the symbol of Kord. The girdle's clasps are made from dragon ivory.",
+	">>Dormant<<. While wearing the Stormgirdle in its dormant state, you have resistance to lightning damage and thunder damage, and your Strength score becomes 21 if it isn't already 21 or higher. In addition, you can use an action to become a Storm Avatar for 1 minute, gaining the following benefits for the duration:",
+	"\u2022 You have immunity to lightning damage and thunder damage.",
+	"\u2022 When you hit with a weapon attack that normally deals bludgeoning damage, it deals thunder damage instead. When you hit with a weapon attack that normally deals piercing or slashing damage, it deals lightning damage instead.",
+	"\u2022 As a bonus action, you can choose one creature you can see within 30 feet of you to be struck by lightning. The target must make a DC 15 Dexterity saving throw, taking 3d6 lightning damage on a failed save, or half as much damage on a successful one.",
+	"Once you use the girdle's Storm Avatar property, that property can't be used again until the next dawn.",
+	">>Awakened<<. While wearing the Stormgirdle in its awakened state, you gain the following benefits:",
+	"\u2022 Your Strength score becomes 23 if it isn't already 23 or higher.",
+	"\u2022 Your Storm Avatar's lightning strike deals 4d6 lightning damage (instead of 3d6).",
+	"\u2022 While transformed into a Storm Avatar, you gain a flying speed of 30 feet and can hover.",
+	">>Exalted<<. While wearing the Stormgirdle in its exalted state, you gain the following benefits:",
+	"\u2022 Your Strength score becomes 25 if it isn't already 25 or higher.",
+	"\u2022 Your Storm Avatar's lightning strike deals 5d6 lightning damage (instead of 3d6).",
+	"\u2022 You can cast the control weather spell from the girdle. This property can't be used again until the next dawn."
+];
+MagicItemsList["stormgirdle"] = {
+	name : "Stormgirdle",
+	source : [["W", 273]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "A wide belt of leather branded with the symbol of Kord. While attuned to and wearing this belt, I am resistant to lightning and thunder damage. My Strength score becomes 21, provided my Strength is not already 21 or higher. As an action, I can become a Storm Avatar for 1 minute. See notes page for more info.",
+	descriptionFull : EGtW_StormgirdleFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		note : EGtW_Vestiges_Replace(EGtW_StormgirdleFullDescription)
+	}],
+	dmgres : ["Lightning", "Thunder"],
+	action : [["action", " (Storm Avatar)"]],
+	extraLimitedFeatures : [{
+		name : "Storm Girdle (Storm Avatar)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	weaponOptions : {
+		regExpSearch : /^(?=.*storm avatar)(?=.*lightning strike).*$/i,
+		name : "Storm Avatar's Lightning Strike",
+		source : [["W", 273]],
+		ability : 0,
+		type : "Magic Item",
+		damage : [3, 6, "lightning"],
+		range : '30 ft',
+		description : "Bonus action; Dex save, success - half damage",
+		modifiers : ["dc+7", ""],
+		stormAvatarLightningStrike : true
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (v.theWea.stormAvatarLightningStrike && CurrentMagicItems.known.indexOf('stormgirdle') !== -1) {
+					var stormgirdleType = CurrentMagicItems.choices[CurrentMagicItems.known.indexOf('stormgirdle')];
+					fields.Damage_Die = (stormgirdleType === "exalted" ? 5 : stormgirdleType === "awakened" ? 4 : 3) + 'd6';
+				};
+			},
+			"",
+			1
+		]
+	},
+	choices : ["\x1BDormant", "Awakened", "Exalted"],
+	"\x1Bdormant" : {
+		name : "Stormgirdle [dormant]",
+		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 21. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. See Notes page for more information.",
+		scoresOverride : [21, 0, 0, 0, 0, 0],
+		weaponsAdd : ["Storm Avatar's Lightning Strike"]
+	},
+	"awakened" : {
+		name : "Stormgirdle [awakened]",
+		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 23. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. See Notes page for more information.",
+		scoresOverride : [23, 0, 0, 0, 0, 0],
+		weaponsAdd : ["Storm Avatar's Lightning Strike"]
+	},
+	"exalted" : {
+		name : "Stormgirdle [exalted]",
+		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 25. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. Once per dawn, I can cast Control Weather. See Notes page for more information.",
+		scoresOverride : [25, 0, 0, 0, 0, 0],
+		spellcastingAbility : "class",
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["control weather"],
+			selection : ["control weather"],
+			firstCol : 'oncelr'
+		}
+	}
+};
+var EGtW_VerminshroudFullDescription = [
+	"This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams.",
+	">>Dormant<<. While wearing the Verminshroud in its dormant state, you gain the following benefits:",
+	"\u2022 You have advantage on Wisdom (Perception) checks that rely on smell, you are immune to disease, and you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the cloak increases the range of your darkvision by 60 feet.",
+	"\u2022 As an action, you can use the Verminshroud to cast polymorph on yourself, transforming into a giant rat or rat while retaining your Intelligence, Wisdom, and Charisma scores, as well as the properties of the cloak. This property can't be used again until the next dawn.",
+	">>Awakened<<. While wearing the Verminshroud in its awakened state, you gain the following benefits:",
+	"\u2022 You have resistance to poison damage.",
+	"\u2022 You can use an action to cast the insect plague spell (save DC 15) from the Verminshroud, requiring no material components. This property can't be used again until the next dawn.",
+	"\u2022 When you cast the polymorph spell using the Verminshroud, you can transform into a giant wasp.",
+	">>Exalted<<. While wearing the Verminshroud in its exalted state, you gain the following benefits:",
+	"\u2022 You gain a climbing speed equal to your walking speed.",
+	"\u2022 Your teeth become razor-sharp natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. You can make this attack as a bonus action. When you bite a creature and deal damage to it, the creature must succeed on a DC 17 Constitution saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the condition on itself on a success.",
+	"\u2022 When you cast the polymorph spell using the Verminshroud, you can transform into a giant scorpion."
+];
+MagicItemsList["verminshroud"] = {
+	name : "Verminshroud",
+	source : [["W", 273]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams. See notes page for more info.",
+	descriptionFull : EGtW_VerminshroudFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		note : EGtW_Vestiges_Replace(EGtW_VerminshroudFullDescription)
+	}],
+	savetxt : { immune : ["disease"] },
+	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"], ["Adv. on Perception check that rely on smell", 0]],
+	extraLimitedFeatures : [{
+		name : "Verminshroud (Polymorph)",
+		usages : 1,
+		recovery : "dawn"
+	}],
+	choices : ["\x1BDormant", "Awakened", "Exalted"],
+	"\x1Bdormant" : {
+		name : "Verminshroud [dormant]",
+		description : "This patchy cloak of rat pelts grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, and advantage on Perception checks that rely on smell. Once per dawn, I can use it to cast Polymorph on myself to become a rat or a giant rat, but I retain my Int, Wis, and Cha, as well as the benefits of this cloak.",
+		spellcastingAbility : "class",
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["polymorph"],
+			selection : ["polymorph"],
+			firstCol : "oncelr"
+		},
+		spellChanges : {
+			"polymorph" : {
+				name : "Polymorph (special)",
+				range : "Self",
+				description : "I transform into a rat or giant rat; I retain my Int, Wis, Cha",
+				changes : "Using Verminshroud, I can cast Polymorph on myself once per dawn to transform myself into a rat or giant rat, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak."
+			}
+		}
+	},
+	"awakened" : {
+		name : "Verminshroud [awakened]",
+		description : "This patchy cloak of rat pelts grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, adv. on Perception checks that rely on smell, and resistance to poison. Once per dawn, I can use it to cast Polymorph on myself to become a rat, giant rat, or giant wasp. I can cast Insect Plague. See Notes page",
+		dmgres : ["Poison"],
+		extraLimitedFeatures : [{
+			name : "Verminshroud (Insect Plague)",
+			usages : 1,
+			recovery : "dawn"
+		}],
+		fixedDC : 15,
+		spellcastingBonus :[{
+			name : "Once per dawn",
+			spells : ["polymorph", "insect plague"],
+			selection : ["polymorph", "insect plague"],
+			firstCol : "oncelr",
+			times : 2
+		}],
+		spellChanges : {
+			"polymorph" : {
+				name : "Polymorph (special)",
+				range : "Self",
+				description : "I transform into a rat, giant rat, or giant wasp; I retain my Int, Wis, Cha",
+				changes : "Using Verminshroud, I can cast Polymorph on myself once per dawn to transform myself into a rat, giant rat, or giant wasp, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak."
+			}
+		}
+	},
+	"exalted" : {
+		name : "Verminshroud [exalted]",
+		description : "This patchy cloak grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, adv. on Perception checks that rely on smell, resistance to poison, and a climbing speed. Once per dawn, I can use it to cast Polymorph on myself to become a rat, giant rat, giant wasp, or giant scorpion. See Notes page.",
+		dmgres : ["Poison"],
+		extraLimitedFeatures : [{
+			name : "Verminshroud (Insect Plague)",
+			usages : 1,
+			recovery : "dawn"
+		}],
+		fixedDC : 15,
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["polymorph", "insect plague"],
+			selection : ["polymorph", "insect plague"],
+			firstCol : "oncelr",
+			times : 2
+		},
+		spellChanges : {
+			"polymorph" : {
+				name : "Polymorph (special)",
+				range : "Self",
+				description : "I transform into a rat, giant rat, giant wasp, or giant scorpion; I retain my Int, Wis, Cha",
+				changes : "Using Verminshroud, I can cast Polymorph on myself once per dawn to transform myself into a rat, giant rat, giant wasp, or giant scorpion, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak."
+			}
+		},
+		speed : { climb : { spd : "walk", enc : "walk" } },
+		action : [["bonus action", "Verminshroud: Bite"]],
+		weaponsAdd : ["Verminshroud: Bite"],
+		weaponOptions : {
+			baseWeapon : "unarmed strike",
+			regExpSearch : /^(?=.*verminshroud)(?=.*bite).*$/i,
+			name : "Verminshroud: Bite",
+			source : [["W", 273]],
+			damage : [1, 6, "piercing"],
+			description : "Bonus action; DC17 Con save or poisoned 1 min, repeat save end of their turns",
+			abilitytodamage : true
+		}
+	}
+};
+var EGtW_WreathPrismFullDescription = [
+	"This loop of golden thorns is inset with dozens of gems representing the five colors of Tiamat.",
+	">>Dormant<<. While wearing the wreath in its dormant state, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the wreath increases the range of your darkvision by 60 feet.",
+	"When you hit a beast, dragon, or monstrosity of challenge rating 5 or lower with an attack, or when you grapple it, you can use the wreath to cast dominate monster on the creature (save DC 13). On a successful save, the target is immune to the power of the wreath for 24 hours. On a failure, a shimmering, golden image of the wreath appears as a collar around the target's neck or as a crown on its head (your choice) until it is no longer charmed by the spell. If you use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by you.",
+	">>Awakened<<. Once the Wreath of the Prism reaches an awakened state, it gains the following benefits:",
+	"\u2022 You can affect creatures of challenge rating 10 or lower with the wreath.",
+	"\u2022 The save DC of the wreath's spell increases to 15.",
+	">>Exalted<<. Once the Wreath of the Prism reaches an exalted state, it gains the following benefits:",
+	"\u2022 You can affect creatures of challenge rating 15 or lower with the wreath.",
+	"\u2022 The save DC of the wreath's spell increases to 17."
+];
+MagicItemsList["wreath of the prism"] = {
+	name : "Wreath of the Prism",
+	source : [["W", 274]],
+	type : "wondrous item",
+	rarity : "legendary",
+	notLegalAL : true,
+	attunement : true,
+	description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision to 60 ft, or extend my darkvision by 60 ft. When I hit a beast, dragon, or monstrosity with an attack, I can cast dominate monster on that creature, depending on its CR. See notes page for info.",
+	descriptionFull : EGtW_WreathPrismFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		note : EGtW_Vestiges_Replace(EGtW_WreathPrismFullDescription)
+	}],
+	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
+	choices : ["\x1BDormant", "Awakened", "Exalted"],
+	"\x1Bdormant" : {
+		name : "Wreath of the Prism [dormant]",
+		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 5 or lower with an attack, I can cast dominate monster on that creature (save DC 13). See notes page for more information.",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "CR 5 or lower, DC 13",
+			spells : ["dominate monster"],
+			selection : ["dominate monster"]
+		},
+		spellChanges : {
+			"dominate monster" : {
+				name : "Dominate Monster (special)",
+				description : "Cast on attack hit on CR 5 or lower beast, dragon, or monstrosity; spell ends if I do this again",
+				changes : "I can cast dominate monster on a beast, dragon, or monstrosity of CR 5 when I hit it with an attack (save DC 13). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by me."
+			}
+		}
+	},
+	"awakened" : {
+		name : "Wreath of the Prism [awakened]",
+		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 10 or lower with an attack, I can cast dominate monster on that creature (save DC 15). See notes page for more information.",
+		fixedDC : 15,
+		spellcastingBonus : {
+			name : "CR 10 or lower, DC 15",
+			spells : ["dominate monster"],
+			selection : ["dominate monster"]
+		},
+		spellChanges : {
+			"dominate monster" : {
+				name : "Dominate Monster (special)",
+				description : "Cast on attack hit on CR 10 or lower beast, dragon, or monstrosity; spell ends if I do this again",
+				changes : "I can cast dominate monster on a beast, dragon, or monstrosity of CR 10 when I hit it with an attack (save DC 15). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by me."
+			}
+		}
+	},
+	"exalted" : {
+		name : "Wreath of the Prism [exalted]",
+		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 15 or lower with an attack, I can cast dominate monster on that creature (save DC 17). See notes page for more information.",
+		fixedDC : 17,
+		spellcastingBonus : {
+			name : "CR 15 or lower, DC 17",
+			spells : ["dominate monster"],
+			selection : ["dominate monster"]
+		},
+		spellChanges : {
+			"dominate monster" : {
+				name : "Dominate Monster (special)",
+				description : "Cast on attack hit on CR 15 or lower beast, dragon, or monstrosity; spell ends if I do this again",
+				changes : "I can cast dominate monster on a beast, dragon, or monstrosity of CR 15 when I hit it with an attack (save DC 17). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by me."
+			}
+		}
+	}
+};
+
+/* Supernatural gift
+
+MagicItemsList["hollow one"] = {
+	name : "Hollow One",
+	source : [["W", 182]],
+	type : "supernatural gift",
+	rarity : "",
+	notLegalAL : true,
+	description : "I don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadv. on the next save it makes in the next minute (frightening effect).",
+	descriptionLong : "The void left behind by my departed soul is filled with the strange magic of Blightshore.\nI don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. Although my creature type is unchanged, I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadvantage on the next save it makes in the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature.",
+	descriptionFull : "As a Hollow One, the void left behind by your departed soul is filled with the strange magic of Blightshore. Becoming a Hollow One is a supernatural gift that bestows upon you the following traits.\n"+
+	toUni("Ageless") + ". You don't age, and effects that would cause you to age don't work on you.\n"+
+	toUni("Cling to Life") + ". When you make a death saving throw and roll 16 or higher, you regain 1 hit point.\n"+
+	toUni("Revenance") + ". You retain your creature type, yet you register as undead to spells and other effects that detect the presence of the undead creature type.\n"+
+	toUni("Unsettling Presence") + ". As an action, you can unsettle a creature you can see within 15 feet of you. The target has disadvantage on the next saving throw it makes within the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature. Once you use this feature, you can't use it again until you finish a long rest.",
+	savetxt : { text : ["Can't be aged", "Regain 1 HP on 16+ death save"] },
+	action : [["action", "Unsettling Presence"]],
+	extraLimitedFeatures : [{
+		name : "Unsettling Presence",
+		usages : 1,
+		recovery : "long rest"
+	}]
+};
+FeatsList["hollow one"] = MagicItemsList["hollow one"];
+
+*/

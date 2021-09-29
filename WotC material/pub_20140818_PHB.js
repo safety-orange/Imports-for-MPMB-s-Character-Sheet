@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -1697,8 +1697,9 @@ AddSubClass("sorcerer", "wild magic", {
 			source : ["P", 103],
 			minlevel : 1,
 			description : desc([
-				"Wild Magic Surges happen 5% of the time that I cast a sorcerer spell",
+				"Wild Magic Surges can happen 5% of the time that I cast a sorcerer spell",
 				"This doesn't happen with cantrips and I only take this chance if the DM tells me to",
+				"Metamagic can't affect spells cast because of the surge, but they require no concentration",
 				"See the \"Notes\" page for the table"
 			]),
 			toNotesPage : [{
@@ -1707,6 +1708,8 @@ AddSubClass("sorcerer", "wild magic", {
 				popupName : "Wild Mage's Wild Magic Surge Table, part 1",
 				additional : "results 01-50",
 				note : [
+					"My spellcasting can unleash surges of untamed magic. Immediately after I cast a sorcerer spell of 1st level or higher, the DM can have me roll a d20. If I roll a 1, a Wild Magic Surge happens. Roll on the table below to create a random magical effect. A surge can happen only once per turn.",
+					"If a Wild Magic effect is a spell, it's too wild to be affected by Metamagic. If it normally requires concentration, it doesn't require concentration in this case; the spell lasts for its full duration.",
 					"d100  Effect",
 					"01-02 Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.",
 					"03-04 For the next minute, you can see any invisible creature if you have line of sight to it.",
@@ -3241,7 +3244,7 @@ BackgroundFeatureList["bad reputation"] = {
 };
 BackgroundFeatureList["by popular demand"] = {
 	description : "I can always find a place to perform (inn/tavern/circus/etc.), where I receive free lodging and food of a modest or comfortable standard, as long as I perform each night. In addition, my performance makes me something of a local figure. When strangers recognize me in a town where I have performed, they typically take a liking to me.",
-	source : [["P", 130], ["ALbackground", 0]],
+	source : [["P", 130], ["ALbackground", 0]]
 };
 BackgroundFeatureList["city secrets"] = {
 	description : "I know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When I am not in combat, I (and companions I lead) can travel between any two locations in the city twice as fast as my speed would normally allow.",
@@ -3876,7 +3879,8 @@ FeatsList["spell sniper"] = {
 					}
 				};
 			},
-			"My spells and cantrips that require an attack roll have their range doubled."
+			"My spells and cantrips that require an attack roll have their range doubled.",
+			700
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName) {
@@ -3899,7 +3903,8 @@ FeatsList["spell sniper"] = {
 					return true;
 				};
 			},
-			"My spells and cantrips that require an attack roll have their range doubled."
+			"My spells and cantrips that require an attack roll have their range doubled.",
+			700
 		]
 	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
@@ -3989,7 +3994,7 @@ FeatsList["tavern brawler"] = {
 					fields.Damage_Die = '1d4';
 				};
 			},
-			"My unarmed strikes deal 1d4 damage instead of 1;\n \u2022 After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
+			"My unarmed strikes deal 1d4 damage instead of 1.\n \u2022 After hitting a creature with an unarmed strike or improvised weapon in melee, I can attempt to start a grapple as a bonus action."
 		]
 	}
 };
@@ -4009,7 +4014,7 @@ FeatsList["war caster"] = {
 	source : ["P", 170],
 	prerequisite : "The ability to cast at least one spell",
 	prereqeval : function(v) { return v.isSpellcaster; },
-	descriptionFull :  "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
+	descriptionFull : "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
 	description : "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
 	action : ["reaction", " - Opportunity Spell"],
 	savetxt : { text : "Adv. on Con (Concentration) saves when damaged" }

@@ -1,5 +1,5 @@
 var iFileName = "ua_20170417_Feats-for-Skills.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Feats for Skills article to MPMB's Character Record Sheet
 
 // Define the source

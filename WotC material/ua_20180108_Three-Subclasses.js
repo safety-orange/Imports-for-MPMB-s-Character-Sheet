@@ -1,5 +1,5 @@
 var iFileName = "ua_20180108_Three-Subclasses.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Three Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -208,7 +208,6 @@ AddSubClass("wizard", "school of invention-ua", {
 			]),
 			toNotesPage : [{
 				name : "Reckless Casting Tables",
-				popupName : "School of Invention's Reckless Casting Tables",
 				note : "\nd10\tCantrip\t\td10\tCantrip" + desc([
 					" 1\tAcid Splash\t\t    6\tRay of Frost",
 					" 2\tChill Touch\t\t    7\tShocking Grasp",

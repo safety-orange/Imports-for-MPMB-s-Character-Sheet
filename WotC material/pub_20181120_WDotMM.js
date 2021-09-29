@@ -1,5 +1,5 @@
 var iFileName = "pub_20181120_WDotMM.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the magic items from the Waterdeep: Dungeon of the Mad Mage adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -27,7 +27,7 @@ MagicItemsList["dagger of blindsight"] = {
 }
 MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
 	name : "Professor Orb",
-	source : ["WDotMM", 131],
+	source : [["WDotMM", 131], ["RotF", 315]],
 	type : "wondrous item",
 	rarity : "rare",
 	storyItemAL : true,
@@ -54,7 +54,6 @@ MagicItemsList["dodecahedron of doom"] = {
 	weight : 2,
 	toNotesPage : [{
 		name : "Effect Table",
-		popupName : "Dodecahedron of Doom effect table",
 		note : [
 			"This twelve-sided metal die is 12 inches across and bears the numbers 1 through 12 engraved on its pentagonal sides. The dodecahedron contains arcane clockwork mechanisms that whir and click whenever the die is cast.",
 			"If an effect requires a target and no eligible target is within range, nothing happens.",
@@ -115,7 +114,6 @@ MagicItemsList["helm of the scavenger"] = {
 	attunement : true,
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Helm of the Scavenger features",
 		note : [
 			"When placed aboard a vessel weighing between 1 and 100 tons, this ornate chair can propel and maneuver a ship through space.",
 			"The following properties of the helm come into play even when no creature is attuned to it:",
@@ -196,7 +194,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		}
 	}
 }
-MagicItemsList["blast scepter"] = {  // contains contributions by Pengsloth
+MagicItemsList["blast scepter"] = { // contains contributions by Pengsloth
 	name : "Blast Scepter",
 	source : ["WDotMM", 310],
 	type : "rod",
@@ -301,7 +299,6 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	}],
 	toNotesPage : [{
 		name : "Traits and Personality",
-		popupName : "Tearulai Traits and Personality",
 		note : desc([
 			"Tearulai has an emerald-colored blade and precious gemstones embedded in its hilt and pommel. Evil creatures can't attune to it and take 20 psychic damage if they try to do so. Its emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
 			"Objects hit by the sword take maximum damage from it. When I roll a 20 on the attack roll against a creature, that target takes an extra 14 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.",

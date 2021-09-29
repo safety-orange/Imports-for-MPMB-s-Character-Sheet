@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version, 
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
@@ -1647,14 +1647,15 @@ if (!SourceList["UA:MIoE"]) {
 			type : "wondrous item",
 			rarity : "common",
 			description : "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-			descriptionFull : "Powerful manifest zones can infuse local trees with planar energies. A gifted artificer can tap into this to create a wand, staff, or rod that is especially effective at channeling a particular type of energy.\n   When you cast a spell that deals damage of the type associated with the material your arcane focus is made from, the spell gains a +1 bonus to one damage roll of that spell. The materials and their associated damage types are listed here.\n \u2022 Fernian ash: Fire damage.\n \u2022 Irian rosewood: Radiant damage.\n \u2022 Kythrian manchineel: Acid or poison damage.\n \u2022 Lamannian oak: Lightning or thunder damage.\n \u2022 Mabaran ebony: Necrotic damage.\n \u2022 Quori beech, Xorian wenge: Psychic damage.\n \u2022 Risian pine: Cold damage.\n \u2022 Shavarran birch: Force damage.",
+			descriptionFull : "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spell­caster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n" + toUni("Wood\t\t\tDamage Type") + "\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
 			attunement : true,
 			allowDuplicates : true,
 			weight : 2,
-			choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Quori Beech (psychic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
+			choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
 			"fernian ash (fire)" : {
 				name : "Fernian Ash Rod, Wand, or Staff",
-				nameTest :  /^(?=.*fernian)(?=.*ash)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Fernian Ash (fire)",
+				nameTest : /^(?=.*fernian)(?=.*ash)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Fernian ash, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal fire damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkCalc : [
@@ -1673,7 +1674,8 @@ if (!SourceList["UA:MIoE"]) {
 			},
 			"irian rosewood (radiant)" : {
 				name : "Irian Rosewood Rod, Wand, or Staff",
-				nameTest :  /^(?=.*irian)(?=.*rosewood)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Irian Rosewood (radiant)",
+				nameTest : /^(?=.*irian)(?=.*rosewood)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Irian rosewood, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal radiant damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkCalc : [
@@ -1692,7 +1694,8 @@ if (!SourceList["UA:MIoE"]) {
 			},
 			"kythrian manchineel (acid and poison)" : {
 				name : "Kythrian Manchineel Rod, Wand, or Staff",
-				nameTest :  /^(?=.*kythrian)(?=.*manchineel)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Kythrian Manchineel (acid and poison)",
+				nameTest : /^(?=.*kythrian)(?=.*manchineel)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Kythrian manchineel, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal acid or poison damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkCalc : [
@@ -1711,7 +1714,8 @@ if (!SourceList["UA:MIoE"]) {
 			},
 			"lamannian oak (lightning and thunder)" : {
 				name : "Lamannian Oak Rod, Wand, or Staff",
-				nameTest :  /^(?=.*lamannian)(?=.*oak)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Lamannian Oak (lightning and thunder)",
+				nameTest : /^(?=.*lamannian)(?=.*oak)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Lamannian oak, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal lightning or thunder damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkCalc : [
@@ -1730,7 +1734,8 @@ if (!SourceList["UA:MIoE"]) {
 			},
 			"mabaran ebony (necrotic)" : {
 				name : "Mabaran Ebony Rod, Wand, or Staff",
-				nameTest :  /^(?=.*mabaran)(?=.*ebony)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Mabaran Ebony (necrotic)",
+				nameTest : /^(?=.*mabaran)(?=.*ebony)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Mabaran ebony, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal necrotic damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkCalc : [
@@ -1747,28 +1752,10 @@ if (!SourceList["UA:MIoE"]) {
 					]
 				}
 			},
-			"quori beech (psychic)" : {
-				name : "Quori Beech Rod, Wand, or Staff",
-				nameTest :  /^(?=.*quori)(?=.*beech)(?=.*(rod|wand|staff)).*$/i,
-				description : "This rod, wand, or staff made of Quori beech, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
-				calcChanges : {
-					atkCalc : [
-						function (fields, v, output) {
-							if (v.thisWeapon[3] && (/psychic/i).test(fields.Damage_Type)) output.extraDmg += 1;
-						},
-						"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
-					],
-					spellAdd : [
-						function (spellKey, spellObj, spName) {
-							if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "psychic", 1, true, true);
-						},
-						"When I use this as my spellcasting focus, spells I cast that deal psychic damage get a +1 bonus added to one of their damage rolls."
-					]
-				}
-			},
 			"risian pine (cold)" : {
 				name : "Risian Pine Rod, Wand, or Staff",
-				nameTest :  /^(?=.*risian)(?=.*pine)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Risian Pine (cold)",
+				nameTest : /^(?=.*risian)(?=.*pine)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Risian pine, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal cold damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkCalc : [
@@ -1787,7 +1774,8 @@ if (!SourceList["UA:MIoE"]) {
 			},
 			"shavarran birch (force)" : {
 				name : "Shavarran Birch Rod, Wand, or Staff",
-				nameTest :  /^(?=.*shavarran)(?=.*birch)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Shavarran Birch (force)",
+				nameTest : /^(?=.*shavarran)(?=.*birch)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Shavarran birch, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal force damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkAdd : [
@@ -1813,7 +1801,8 @@ if (!SourceList["UA:MIoE"]) {
 			},
 			"xorian wenge (psychic)" : {
 				name : "Xorian Wenge Rod, Wand, or Staff",
-				nameTest :  /^(?=.*xorian)(?=.*wenge)(?=.*(rod|wand|staff)).*$/i,
+				sortname : "Imbued Wood Focus, Xorian Wenge (psychic)",
+				nameTest : /^(?=.*xorian)(?=.*wenge)(?=.*(rod|wand|staff)).*$/i,
 				description : "This rod, wand, or staff made of Xorian wenge, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
 				calcChanges : {
 					atkCalc : [
@@ -1954,7 +1943,6 @@ if (!SourceList["UA:MIoE"]) {
 		action : [["bonus action", ""]],
 		toNotesPage : [{
 			name : "Features",
-			popupName : "Features of Docent",
 			note : desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 		}]
 	}

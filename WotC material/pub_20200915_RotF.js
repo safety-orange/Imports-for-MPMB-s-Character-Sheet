@@ -1,8 +1,9 @@
 var iFileName = "pub_20200915_RotF.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
+// This file adds the content from the Icewind Dale: Rime of the Frostmaiden adventure to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.F={
+SourceList["RotF"] = {
 	name : "Icewind Dale: Rime of the Frostmaiden [creatures, items, spells]",
 	abbreviation : "RotF",
 	group : "Adventure Books",
@@ -14,7 +15,7 @@ SourceList.F={
 GearList["cold weather"] = {
     infoname : "Cold Weather [10 gp]",
     name : "Cold weather clothes",
-    source : [["F", 20]],
+    source : [["RotF", 20]],
     amount : "",
     weight : 5,
     type : "clothes"
@@ -22,22 +23,22 @@ GearList["cold weather"] = {
 GearList["crampons (2)"] = {
     infoname : "Crampons (2) [2 gp]",
     name : "Crampons",
-    source : [["F", 20]],
+    source : [["RotF", 20]],
     amount : 2,
     weight : 0.125
 };    
 GearList["snowshoes"] = {
     infoname : "Snowshoes [2 gp]",
     name : "Snowshoes",
-    source : [["F", 20]],
+    source : [["RotF", 20]],
     amount : "",
     weight : 4
 };
 
-// Creatures - new beasts
+// Creatures - new beasts (each contain contributions by BraabHimself)
 CreatureList["awakened white moose"] = {
 	name : "Awakened White Moose",
-	source : [["F", 82]],
+	source : [["RotF", 82]],
 	size : 2,
 	type : "Beast",
 	alignment : "Neutral Evil",
@@ -83,7 +84,7 @@ CreatureList["awakened white moose"] = {
 CreatureList["fox"] = {
 	name : "Fox",
 	companion : "familiar_not_al",
-	source : [["F", 288]],
+	source : [["RotF", 288]],
 	size : 5,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -116,7 +117,7 @@ CreatureList["fox"] = {
 };
 CreatureList["hare"] = {
 	name : "Hare",
-	source : [["F", 294]],
+	source : [["RotF", 294]],
 	companion : "familiar_not_al",
 	size : 5,
 	type : "Beast",
@@ -143,7 +144,7 @@ CreatureList["hare"] = {
 };
 CreatureList["knucklehead trout"] = {
 	name : "Knucklehead Trout",
-	source : [["F", 295]],
+	source : [["RotF", 295]],
 	size : 4,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -177,7 +178,7 @@ CreatureList["knucklehead trout"] = {
 };
 CreatureList["mountain goat"] = {
 	name : "Mountain Goat",
-	source : [["F", 304]],
+	source : [["RotF", 304]],
 	size : 3,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -210,7 +211,7 @@ CreatureList["mountain goat"] = {
 };
 CreatureList["seal"] = {
 	name : "Seal",
-	source : [["F", 308]],
+	source : [["RotF", 308]],
 	size : 3,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -242,7 +243,7 @@ CreatureList["seal"] = {
 };
 CreatureList["sperm whale"] = {
 	name : "Sperm Whale",
-	source : [["F", 309]],
+	source : [["RotF", 309]],
 	size : 0,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -295,7 +296,7 @@ CreatureList["sperm whale"] = {
 };
 CreatureList["walrus"] = {
 	name : "Walrus",
-	source : [["F", 312]],
+	source : [["RotF", 312]],
 	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -323,7 +324,7 @@ CreatureList["walrus"] = {
 };
 CreatureList["giant walrus"] = {
 	name : "Giant Walrus",
-	source : [["F", 312]],
+	source : [["RotF", 312]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -360,11 +361,11 @@ CreatureList["giant walrus"] = {
 	}]
 };
 
-// Creatures - for the Create Magos spell
+// Creatures - for the Create Magos spell (each contain contributions by BraabHimself)
 CreatureList["demos magen"] = {
 	name : "Magen, Demos",
 	nameAlt : ["Demos Magen"],
-	source : [["F", 300]],
+	source : [["RotF", 300]],
 	size : 3,
 	type : "Construct",
 	alignment : "Unaligned",
@@ -412,7 +413,7 @@ CreatureList["demos magen"] = {
 CreatureList["galvan magen"] = {
 	name : "Magen, Galvan",
 	nameAlt : ["Galvan Magen"],
-	source : [["F", 301]],
+	source : [["RotF", 301]],
 	size : 3,
 	type : "Construct",
 	alignment : "Unaligned",
@@ -467,7 +468,7 @@ CreatureList["galvan magen"] = {
 CreatureList["hypnos magen"] = {
 	name : "Magen, Hypnos",
 	nameAlt : ["Hypnos Magen"],
-	source : [["F", 301]],
+	source : [["RotF", 301]],
 	size : 3,
 	type : "Construct",
 	alignment : "Unaligned",
@@ -513,14 +514,278 @@ CreatureList["hypnos magen"] = {
 	}]
 };
 
-//Magic Items
-
+// Magic Items
+MagicItemsList["abracadabrus"] = { // contains contributions by BraabHimself
+	name : "Abracadabrus",
+	source : [["RotF", 314]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "This gemstone-studded wooden chest with a volume of 1.5 cu ft has 20 charges, regaining 1d20 charges at dawn. I roll a d20 if I use its last charge. On a 1, it loses its magic and gems. As an action, I can touch it and expend 1 charge to have up to 1 gp of nonmagical objects form inside, provided they fit and it's empty.",
+	descriptionLong : "This ornate, gemstone-studded wooden chest has a volume of 1.5 cu ft and weighs 25 lb. It has 20 charges and regains 1d20 expended charges daily at dawn. I roll a d20 if I use its last charge. On a 1, it loses its magic and gems. As an action, I can touch it and expend 1 charge to have up to 1 gp of nonmagical objects form inside (including raw materials, foodstuffs, and liquids), provided they fit inside and the chest is empty. Food and drink produced by the chest is delicious and spoils if not consumed after 24 hours. Gems and precious metals produced by the chest disappear after 1 minute.",
+	descriptionFull : "An abracadabrus is an ornate, gemstone-studded wooden chest that weighs 25 pounds while empty. Its interior compartment is a cube measuring 1\u00BD feet on a side."+
+	"\n   The chest has 20 charges. A creature can use an action to touch the closed lid of the chest and expend 1 of the chest's charges while naming one or more nonmagical objects (including raw materials, foodstuffs, and liquids) worth a total of 1 gp or less. The named objects magically appear in the chest, provided they can all fit inside it and the chest doesn't contain anything else. For example, the chest can conjure a plate of strawberries, a bowl of hot soup, a flagon of water, a stuffed animal, or a bag of twenty caltrops. Food and drink conjured by the chest are delicious, and they spoil if not consumed after 24 hours. Gems and precious metals created by the chest disappear after 1 minute."+
+	"\n   The chest regains 1d20 expended charges daily at dawn. If the item's last charge is expended, roll a d20. On a 1, the chest loses its magic (becoming an ordinary chest), and its gemstones turn to dust.",
+	weight : 25,
+	usages : 20,
+	recovery : "dawn",
+	additional : "regains 1d20",
+	action : [["action", ""]]
+};
+MagicItemsList["cauldron of plenty"] = { // contains contributions by BraabHimself
+	name : "Cauldron of Plenty",
+	source : [["RotF", 314]],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "This copper cauldron is 4 ft wide, 3.5 ft in diameter, and holds 30 gal. It has a lid, handles, and 5 clawed feet. Water stirred in it for 1 min becomes hot stew for 4 people per 1 gal. Stew stays hot in the cauldron, cools if removed, but cauldron's surface remains cool. Can be used 3 times per day, regaining all uses at dawn.",
+	descriptionLong : "This thick copper cauldron has turned green with age. It is 4ft wide, has a 3.5 ft diameter mouth, and holds 30 gallons. It has a lid, handles, and 5 clawed feet. If water is poured into the cauldron and stirred for 1 minute, it transforms into a hearty, hot stew, which can provide one nourishing meal for up to four people per 1 gallon. The stew remains hot while in the cauldron, then cools naturally after it is removed. The outside of the cauldron remains safe to touch despite the heat of the stew. The cauldron can create stew three times. It then ceases to function until the next dawn, when it regains all its uses.",
+	descriptionFull : "This cauldron is made of thick copper that has turned green with age. It is 4 feet wide, has a mouth 3\u00BD feet in diameter, weighs 50 pounds, and can hold up to 30 gallons of liquid. Embossed on its bulging sides are images of satyrs and nymphs in repose, holding ladles. The cauldron comes with a lid and has side handles. It sits on five little clawed feet that keep it from tipping."+
+	"\n   If water is poured into the cauldron and stirred for 1 minute, it transforms into a hearty, hot stew, which can provide one nourishing meal for up to four people per gallon. The stew remains hot while in the cauldron, then cools naturally after it is removed. The outside of the cauldron remains safe to touch despite the heat of the stew."+
+	"\n   The cauldron can create stew three times. It then ceases to function until the next dawn, when it regains all its uses.",
+	weight : 50,
+	usages : 3,
+	recovery : "dawn"
+};
+var IDRotF_HookOfFishersDelightFullDescription = [
+	"This tiny silver fishhook has a little gold feather attached to it. For it to function, the feathered hook must be tied to the end of a fishing line and immersed in enough water to fill at least a 10-foot cube. At the end of each uninterrupted hour of immersion, roll a d6. On a 6, a floppy, 6-inch-long magical fish appears on the end of the hook. The color and properties of the conjured fish are determined by rolling on the table below. Once the hook conjures a fish, it can't do so again until the next dawn.\n",
+	">>d20\tFish color and result<<",
+	"1-10\t>>Green with copper bands<<. This tasty fish provides a day's worth of nourishment to one creature that eats it. The fish loses this property and rots if it's not eaten within 24 hours of being caught.",
+	"11-14\t>>Yellow with black stripes<<. Once removed from the hook, this awful-tasting fish can be thrown up to 120 feet, targeting a creature the thrower can see. The target must succeed on a DC 15 Strength saving throw or be knocked prone. The fish then disappears.",
+	"15-18\t>>Blue with white bands<<. When released from the hook, this fish squirms free, sprouts wings, follows you around, and sings a beautiful tune in Aquan. It disappears after 2d4 hours or when reduced to 0 hit points. The fish uses the quipper stat block, except that it can breathe air and has a flying speed of 30 feet.",
+	"19-20\t>>Gold with silver stripes<<. This tasty fish provides a day's worth of nourishment to one creature that eats it and grants 2d10 temporary hit points to that creature. The fish loses these properties and rots if it's not eaten within 24 hours of being caught."
+];
+MagicItemsList["hook of fisher's delight"] = { // contains contributions by BraabHimself
+	name : "Hook of Fisher's Delight",
+	source : [["RotF", 314]],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "For this tiny silver fishhook to work, I must attach it to the end of a fishing line and immerse it in at least 10 cu ft of water. Then, at the end of each uninterrupted hour of immersion, I roll a d6. On a 6, a magical fish appears on the hook; roll a d20 to determine the fish's properties on the table on the Notes page.",
+	descriptionFull : IDRotF_HookOfFishersDelightFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Fish Properties Table",
+		note : desc(IDRotF_HookOfFishersDelightFullDescription).replace(/>>|<</g, "").replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft")
+	}],
+	usages : 1,
+	recovery : "dawn"
+};
+MagicItemsList["lantern of tracking"] = function () { // contains contributions by BraabHimself
+	var oObj = {
+		name : "Lantern of Tracking",
+		source : [["RotF", 314]],
+		type : "wondrous item",
+		rarity : "common",
+		descriptionFull : [
+			"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet."+
+			"\n   Each lantern of tracking is designed to track down a certain type of creature, which is determined by rolling on the Lantern of Tracking table. Once determined, this creature type can't be changed. While the lantern is within 300 feet of any creature of that type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however.\n",
+			toUni("d10\tCreature Type"),
+			"  1\tAberrations",
+			"  2\tCelestials",
+			"  3\tConstructs",
+			"  4\tDragons",
+			"  5\tElementals",
+			"  6\tFey",
+			"  7\tFiends",
+			"  8\tGiants",
+			"  9\tMonstrosities",
+			"10\tUndead"
+		].join("\n   "),
+		allowDuplicates : true,
+		weight : 2,
+		choices : ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fey", "Fiends", "Giants", "Monstrosities", "Undead"]
+	};
+	var sDescr = "This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-ft radius and dim light for an additional 30 ft. While this lantern is within 300 ft of any CREATURE TYPE, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however.";
+	oObj.description = sDescr.replace("any CREATURE TYPE", "a specified creature type");
+	for (var i = 0; i < oObj.choices.length; i++) {
+		var sChoice = oObj.choices[i].toLowerCase();
+		oObj[sChoice] = {
+			name : "Lantern of " + oObj.choices[i] + " Tracking",
+			sortname : "Lantern of Tracking, " + oObj.choices[i],
+			description : sDescr.replace("CREATURE TYPE", sChoice),
+			usages : 1,
+			recovery : "dawn"
+		}
+	}
+	return oObj;
+}();
+// [dupl_start] reprint from Waterdeep: Dungeon of the Mad Mage
+if (!MagicItemsList["professor orb"]) {
+	
+	MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
+		name : "Professor Orb",
+		source : [["WDotMM", 131], ["RotF", 315]],
+		type : "wondrous item",
+		rarity : "rare",
+		storyItemAL : true,
+		description : "This orb is sentient with the personality of a scholar, but no will of its own. It has Int 18, Wis and Cha of 3d6 each. It knows and reads 4 languages, can see/hear as a human out to 60 ft, and has extensive knowledge of 4 narrow academic subjects (+9 on checks). It knows Mage Hand, which it uses to move around.",
+		descriptionFull : "Each professor orb takes the form of a smooth, solid, 5-pound sphere of smoky gray quartz about the size of a grapefruit. Close examination reveals two or more pinpricks of silver light deep inside the sphere.\n   A Professor Orb is sentient and has the personality of a scholar. Its alignment is determined by rolling on the alignment table in the \"Sentient Magic Items\" section in chapter 7 of the Dungeon Master's Guide. Regardless of its disposition, the orb has an Intelligence of 18, and Wisdom and Charisma scores determined by rolling 3d6 for each ability. The orb speaks, reads, and understands four languages, and can see and hear normally out to a range of 60 feet. Unlike most sentient items, the orb has no will of its own and can't initiate a conflict with the creature in possession of it.\n   A Professor Orb has extensive knowledge of four narrow academic subjects. When making an Intelligence check to recall lore from any of its areas of expertise, the orb has a +9 bonus to its roll (including its Intelligence modifier).\n   In addition to the knowledge it possesses, a professor orb can cast the Mage Hand cantrip at will. It uses the spell only to transport itself. Its spellcasting ability is Intelligence."
+	}
+} // dupl_end
+MagicItemsList["professor skant"] = { // contains contributions by Pengsloth
+	name : "Professor Skant",
+	source : [["RotF", 315]],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "This sentient orb with the personality of a scholar has Int 18, Wis 11, Cha 9, and no will of its own. It can hear and see out to 60 ft. It knows and reads Common, Draconic, Elvish, and Loross. It has+9 on checks regarding history of Netheril, vampirism, tarrasque, and Elverquisst. It moves itself around using Mage Hand.",
+	descriptionLong: "This sentient orb, which calls itself Professor Skant, has the personality of a scholar, but no will of its own to cause conflicts. It's a smooth, solid, 5 lb sphere of smoky gray quartz about the size of a grapefruit with two or more pinpricks of silver light deep inside. It's alignment is lawful good and it has Intelligence 18, Wisdom 11, and Charisma 9. It knows and reads Common, Draconic, Elvish, and Loross. It has expertise in the following academic topics (+9 on checks): history of Netheril, vampirism and the traits of vampires, rituals surrounding the making, bottling, and drinking of Elverquisst, and the tarrasque.",
+	descriptionFull : "The professor orb owned by Vellynne Harpell and stolen by Nass Lantomir calls itself Professor Skant. It is lawful good, and it has a Wisdom of 11 and a Charisma of 9 (as a professor orb, it has an Intelligence of 18). It speaks and reads Common, Draconic, Elvish, and Loross (the dead language of the Empire of Netheril). Professor Skant is a chatterbox and assumes all humanoids are dunderheads. When elaborating on its areas of expertise, it adopts an unintentionally patronizing tone. It has the following four areas of expertise:"+
+	"\n \u2022 The history of Netheril (see the \"Fate of Netheril\" sidebar)"+
+	"\n \u2022 Vampirism and the traits of vampires"+
+	"\n \u2022 Rituals surrounding the making, bottling, and drinking of Elverquisst (a rare, ruby-colored elven liquor distilled from sunshine and rare summer fruits)"+
+	"\n \u2022 The tarrasque (see the Monster Manual)"+
+	"When making an Intelligence check to recall lore from any of its areas of expertise, the orb has a +9 bonus to its roll (including its Intelligence modifier)."+
+	"\n   Professor Skant takes the form of a smooth, solid, 5-pound sphere of smoky gray quartz about the size of a grapefruit. Close examination reveals two or more pinpricks of silver light deep inside the sphere."+
+	"\n   Professor Skant can see and hear normally out to a range of 60 feet. Unlike most sentient items, the orb has no will of its own and can't initiate a conflict with the creature in possession of it."+
+	"\n   In addition to the knowledge it possesses, Professor Skant can cast the mage hand cantrip at will. It uses the spell only to transport itself. Its spellcasting ability is Intelligence."
+};
+MagicItemsList["psi crystal"] = { // contains contributions by BraabHimself
+	name : "Psi Crystal",
+	source : [["RotF", 315]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	prerequisite : "Requires attunement by a creature with an intelligence score of 3 or higher",
+	prereqeval : function(v) { return Number(What("Int")) >= 3; },
+	description : "While attuned to this orb, it glows with an inner purplish light and gives me telepathy. The range of telepathy and intensity of light are determined by my Intelligence score.",
+	descriptionFull : "This crystal grants you telepathy for as long as you remain attuned to it. See the introduction of the Monster Manual for rules on how this telepathy works."+
+	"\n   The crystal also glows with a purplish inner light while you are attuned to it."+
+	"\n   The higher your intelligence, the greater the light's intensity and the greater the range of the telepathy (see the table below)."+
+	toUni("\n\nIntelligence\tRange of   \tLight"+
+	"\n    Score\t\tTelepathy  \tIntensity")+
+	"\n      3-7\t\t  15 feet\t\tDim light out to a range of 5 ft"+
+	"\n      8-11\t\t  30 feet\t\tBright light in a 5-ft radius and dim light for an additional 5 ft"+
+	"\n    12-15\t\t  60 feet\t\tBright light in a 10-ft radius and dim light for an additional 10 ft"+
+	"\n    16 or higher\t 120 feet\t\tBright light in a 15-ft radius and dim light for an additional 15 ft",
+	weight : 3,
+	choices : ["Intelligence   3-7", "Intelligence   8-11", "Intelligence 12-15", "Intelligence 16 or higher"],
+	selfChoosing : function () {
+		var iInt = Number(What("Int"));
+		return iInt >= 16 ? "intelligence 16 or higher" : iInt >= 12 ? "intelligence 12-15" : iInt >= 8 ? "intelligence   8-11" : "intelligence   3-7";
+	},
+	"intelligence   3-7" : {
+		name : "Psi Crystal (Int 3-7)",
+		description : "While attuned to this orb, it glows with an inner purplish light, dim light out to a range of 5 ft. It also grants me telepathy out to a range of 15 ft. The range of telepathy and intensity of light are determined by my Intelligence score."
+	},
+	"intelligence   8-11" : {
+		name : "Psi Crystal (Int 8-11)",
+		description : "While attuned to this orb, it glows with an inner purplish light, bright light in a 5-ft radius and dim light for an additional 5 ft. It also grants me telepathy out to a range of 30 ft. The range of telepathy and intensity of light are determined by my Intelligence score."
+	},
+	"intelligence 12-15" : {
+		name : "Psi Crystal (Int 12-15)",
+		description : "While attuned to this orb, it glows with an inner purplish light, bright light in a 10-ft radius and dim light for an additional 10 ft. It also grants me telepathy out to a range of 60 ft. The range of telepathy and intensity of light are determined by my Intelligence score."
+	},
+	"intelligence 16 or higher" : {
+		name : "Psi Crystal (Int 16+)",
+		description : "While attuned to this orb, it glows with an inner purplish light, bright light in a 15-ft radius and dim light for an additional 15 ft. It also grants me telepathy out to a range of 120 ft. The range of telepathy and intensity of light are determined by my Intelligence score."
+	}
+};
+MagicItemsList["scroll of tarrasque summoning"] = { // contains contributions by BraabHimself
+	name : "Scroll of Tarrasque Summoning",
+	source : [["RotF", 315]],
+	type : "scroll",
+	rarity : "legendary",
+	description : "Once as an action, I can use this to cause the tarrasque to appear in an unoccupied space I can see within 1 mile. The tarrasque disappears when it drops to 0 hit points and is hostile toward all creatures other than itself.",
+	descriptionFull : "Using an action to read the scroll causes the tarrasque (see the creature's entry in the Monster Manual) to appear in an unoccupied space you can see within 1 mile of you. The tarrasque disappears when it drops to 0 hit points and is hostile toward all creatures other than itself."
+};
+MagicItemsList["scroll of the comet"] = { // contains contributions by BraabHimself
+	name : "Scroll of the Comet",
+	source : [["RotF", 315]],
+	type : "scroll",
+	rarity : "legendary",
+	description : "Once as an action outdoors, I can use this to cause a comet to fall on a point I can see within 1 mile, creating a 50-ft deep, 500-ft radius crater. All creatures in the radius take 30d10 force damage and can make a DC 20 Dex save to halve this damage. It destroys all nonmagical objects and structures within the area.",
+	descriptionFull : "By using an action to read the scroll, you cause a comet to fall from the sky and crash to the ground at a point you can see up to 1 mile away from you. You must be outdoors when you use the scroll, or nothing happens and the scroll is wasted."+
+	"\n   The comet creates a 50-foot-deep, 500-foot-radius crater on impact. Any creature in that radius must make a DC 20 Dexterity saving throw, taking 30d10 force damage on a failed saving throw, or half as much damage on a successful one. All structures in the crater are destroyed, as are all nonmagical objects that aren't being worn or held."
+};
+MagicItemsList["thermal cube"] = { // contains contributions by BraabHimself
+	name : "Thermal Cube",
+	source : [["RotF", 316]],
+	type : "wondrous item",
+	rarity : "common",
+	description : "This 3-inch cube of solid brimstone generates enough dry heat to keep the temperature within 15 ft of it at 95 degrees Fahrenheit.",
+	descriptionFull : "This 3-inch cube of solid brimstone generates enough dry heat to keep the temperature within 15 feet of it at 95 degrees Fahrenheit (35 degrees Celsius)."
+};
+MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
+	name : "Ythryn Mythallar",
+	source : [["RotF", 316]],
+	type : "wondrous item",
+	rarity : "legendary",
+	attunement : true,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	description : "This 50 ft diameter crystal ball sheds light in a 300 ft radius and dim light for an additional 300 ft. Up to 8 creatures can attune to it at one time, a 9th creature's attunement fails. All those attuned to it can sense when it is used and they all must agree to any properties being used. See Notes page.",
+	descriptionFull : "A mythallar looks like an enormous crystal ball held in an ornate cradle. The globe sheds bright light in a 300-foot radius and dim light for an additional 300 feet. The globe draws magic from the Weave that can be harnessed for various purposes. For example, Netherese mages used mythallars to keep their cities aloft and empower their magic items. The bigger the mythallar, the more magic it can hold. The largest mythallars are 150 feet in diameter."+
+	"\n   The Ythryn mythallar is a relatively small device\u2014a mere 50 feet in diameter. To attune to this mythallar, a creature must finish a short rest within 30 feet of it, meditating on the mythallar. Up to eight creatures can be attuned to it at one time; otherwise, the Ythryn mythallar follows the attunement rules in the Dungeon Master's Guide. If a ninth creature tries to attune to the mythallar, nothing happens."+
+	"\n   All creatures attuned to the Ythryn mythallar can sense when the device is being used. A creature attuned to the device can use any of its properties, but only if all other creatures attuned to the device agree to allow it. The Ythryn mythallar's properties are as follows:"+
+	"\n    \u2022 While you're on the same plane of existence as the Ythryn mythallar, you can use an action to cause it to fly in any direction you choose at a speed of 30 feet. All matter within 500 feet of the device moves with it. The Ythryn mythallar and all structures held aloft by it hover in place when not in motion."+
+	"\n   \u2022 As an action, you can cause one magic item you are holding within 30 feet of the Ythryn mythallar to immediately regain all its expended charges or uses. A magic item recharged in this manner can't be recharged by the Ythryn mythallar again until after the item regains expended charges or uses on its own."+
+	"\n   \u2022 You can use the Ythryn mythallar to cast the control weather spell without requiring any components and without the need for you to be outdoors. This casting of the spell has a 50-mile radius. For the duration of the spell's casting time, you must be within 30 feet of the Ythryn mythallar or the spell fails."+
+	"\n" + toUni("Touching the Mythallar") + ". Any creature that touches the globe of the mythallar must make a DC 22 Constitution saving throw, taking 180 (20d10 + 70) radiant damage on a failed save, or half as much damage on a successful one. Undead have disadvantage on this saving throw. Any object that touches the globe, other than an artifact or the mythallar's cradle, is disintegrated instantly (no save).",
+	toNotesPage : [{
+		name : "Properties",
+		note : [
+			"The Ythryn Mythallar is a 50 ft diameter crystal ball that sits on a cradle",
+			"It has the following properties:",
+			"\u2022 Sheds light in a 300 ft radius and dim light for an additional 300 ft",
+			"\u2022 Up to 8 creatures can attune to it, a 9th attunement fails",
+			"\u2022 To attune, a creature must short rest within 30 ft of it",
+			"\u2022 All those attuned to it can sense when sense when it is being used",
+			"\u2022 All those attuned must agree to allow any properties to be used",
+			"\u2022 You can use an action to use the Ythryn Mythallar in the following ways:",
+			"  \u25E6 While on the same plane, give it a flying speed of 30 ft",
+			"    All matter within 500 ft of it moves with it",
+			"    The ball and all structures held aloft by it hover in place when not in motion",
+			"  \u25E6 Cause one magic item to regain all charges/uses",
+			"    I must be within 30 ft of the ball and holding the item",
+			"    It cannot be recharged again until all charges/uses are expended",
+			"  \u25E6 Cast the control weather spell without components or spell slots",
+			"    It has a radius of 50 miles and can be cast inside",
+			"    I must be within 30 ft of the ball for the casting time, or it will fail",
+			"\nTOUCHING THE MYTHALLAR",
+			"Any creature that touches the ball must make a DC 22 Constitution save",
+			"On a failure, they take 20d10 + 70 radiant damage, or half that on a success",
+			"Undead have disadvantage on this saving throw",
+			"Objects touching the ball, except artifacts or the cradle, disintegrate instantly"
+		]
+	}]
+};
+MagicItemsList["the codicil of white"] = {
+	name : "The Codicil of White",
+	source : [["RotF", 317]],
+	type : "wondrous item",
+	rarity : "",
+	notLegalAL : true,
+	description : 'This volume bound in white fur, sealed with a silver lock, containing velum pages with silver edges is cold to the touch. While I have this tome in my possession, I gain resistance to cold damage. It contains the Frost Fingers spell which a wizard can learn and a poem incantation "Rime of the Frostmaiden".',
+	descriptionFull : "The Codicil of White is a tall, thin volume bound in white ermine fur over seasoned boards of white pine and sealed with a clasp and lock of tarnished silver. The book is cold to the touch, and the fur is worn about the edges from use. The twenty-seven pages within are of vellum painted with silver gilt on the outer edges. The whole is sewn to a leather binding with strips of sinews, making it quite durable."+
+	"\n   A creature with the codicil in its possession has resistance to cold damage."+
+	"\n   The codicil was written by followers of Auril as a primer on her worship. The first page is a title page with the snowflake symbol of Auril on it. The remaining pages describe various priestly rituals and ceremonies in chilling detail. Nestled among these descriptions is a spell that wizards can learn (frost fingers, and a poem called \"Rime of the Frostmaiden\", see appendix E of Icewind Dale: Rime of the Frostmaiden). The poem is an incantation, the power of which can be used to split a glacier (see chapter 6 of Icewind Dale: Rime of the Frostmaiden). The poem might have other capabilities, at the DM's discretion",
+	dmgres : ["Cold"],
+	weight : 3
+};
+// [dupl_start] reprint (mostly) from Monster Manual
+if (!MagicItemsList["shield guardian amulet"]) {
+	MagicItemsList["shield guardian amulet"] = {
+		name : "Shield Guardian Amulet",
+		source : [["M", 271], ["RotF", 149]],
+		type : "wondrous item",
+		rarity : "rare",
+		attunement : true,
+		notLegalAL : true,
+		prerequisite : "Requires attunement by a humanoid",
+		prereqeval : function(v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
+		description : "A shield guardian is magically linked to this amulet. It has AC 10, 10 HP, and immunity to poison and psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
+		descriptionFull : "The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A detect magic spell reveals a magical aura of enchantment around the amulet."+
+		"\n   Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created."+
+		"\n   A shield guardian's amulet is subject to direct attack if it isn't being worn or carried. It has AC 10, 10 hit points, and immunity to poison and psychic damage. Crafting an amulet requires 1 week and costs 1,000 gp in components."+
+		"\n   A shield guardian's solitary focus is to protect the amulet's wearer. The amulet's wearer can command the guardian to attack its enemies or to guard the wielder against attack. If an attack threatens to injure the wearer, the construct can magically absorb the blow into its own body, even at a distance."+
+		"\n   A humanoid that attunes to this amulet knows the distance and direction of the shield guardian, provided the amulet and the guardian are on the same plane of existence. As an action, the amulet's attuned wearer can try to reactivate the shield guardian, doing so with a successful DC 20 Intelligence (Arcana) check. Reactivation can only be attempted while the amulet and guardian are within 10 feet of each other.",
+		creaturesAdd : [["Shield Guardian"]],
+		weight : 1
+	}
+} // dupl_end
 
 // Spells
 SpellsList["blade of disaster"] = {
 	name : "Blade of Disaster",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : [["T", 106], ["F", 318]],
+	source : [["T", 106], ["RotF", 318]],
 	level : 9,
 	school : "Conj",
 	time : "1 bns",
@@ -533,9 +798,9 @@ SpellsList["blade of disaster"] = {
 	"\n   As a bonus action on your turn, you can move the blade up to 30 feet to an unoccupied space you can see and then make up to two melee spell attacks with it again."+
 	"\n   The blade can harmlessly pass through any barrier, including a wall of force."
 };
-SpellsList["create magen"] = {
+SpellsList["create magen"] = { // contains contributions by BraabHimself
 	name : "Create Magen",
-	source : [["F", 318]],
+	source : [["RotF", 318]],
 	classes : ["wizard"],
 	level : 7,
 	school : "Trans",
@@ -549,9 +814,9 @@ SpellsList["create magen"] = {
 	"\n   When the magen appears, your hit point maximum decreases by an amount equal to the magen's challenge rating (minimum reduction of 1). Only a wish spell can undo this reduction to your hit point maximum."+
 	"\n   Any magen you create with this spell obeys your commands without question."
 };
-SpellsList["frost fingers"] = {
+SpellsList["frost fingers"] = { // contains contributions by BraabHimself
 	name : "Frost Fingers",
-	source : [["F", 318]],
+	source : [["RotF", 318]],
 	classes : ["wizard"],
 	level : 1,
 	school : "Evoc",

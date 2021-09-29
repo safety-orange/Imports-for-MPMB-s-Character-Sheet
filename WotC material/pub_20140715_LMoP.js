@@ -1,5 +1,5 @@
 var iFileName = "pub_20140715_LMoP.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
 // Define the source

@@ -1,5 +1,5 @@
 var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -253,7 +253,7 @@ AddSubClass("mystic", "avatar-ua", {
 								spellObj.description = spellObj.description.replace("healed for ", "healed for " + What("Int Mod") + "+");
 								return true;
 							case "pr2-restore health" :
-								spellObj.description = spellObj.description.replace("1 HP", (1 +  What("Int Mod")) + " HP");
+								spellObj.description = spellObj.description.replace("1 HP", (1 + What("Int Mod")) + " HP");
 								return true;
 						}
 					},

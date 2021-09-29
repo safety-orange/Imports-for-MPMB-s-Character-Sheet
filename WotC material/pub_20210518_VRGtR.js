@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -238,7 +238,6 @@ AddSubClass("bard", "college of spirits",{
             action : [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
             toNotesPage : [{
                 name : "Spirit Tales Table",
-                popupName: "College of Spirits - Spirit Tales table",
                 note : desc([
 					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
 					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",
@@ -291,7 +290,8 @@ AddSubClass("bard", "college of spirits",{
 							}
 						}
 					},
-					'When I cast a bard spell, I can use my spiritual focus to add 1d6 to one damage roll or roll to restore hit points.\n   Going by rules as written (RAW), the spiritual focus has to be used as a spellcasting focus for this bonus to be added. This means that it can only be used on spells with a non-costly material component. Most DMs will forgo this technicality and that is why this sheet will add the 1d6 to any damage/healing spell by default. You can enable to use the stricter rules as written with the "Choose Feature" button on the second page.'
+					'When I cast a bard spell, I can use my spiritual focus to add 1d6 to one damage roll or roll to restore hit points.\n   Going by rules as written (RAW), the spiritual focus has to be used as a spellcasting focus for this bonus to be added. This means that it can only be used on spells with a non-costly material component. Most DMs will forgo this technicality and that is why this sheet will add the 1d6 to any damage/healing spell by default. You can enable to use the stricter rules as written with the "Choose Feature" button on the second page.',
+					1
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
@@ -455,7 +455,6 @@ BackgroundList["haunted one"] = { // Reprint from Curse of Strahd, but re-define
 	regExpSearch : /haunted.one/i,
 	name : "Haunted One",
 	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
-	skills : "",
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [2],
 	gold : 0.01,
@@ -529,7 +528,7 @@ BackgroundList["haunted one"] = { // Reprint from Curse of Strahd, but re-define
 		"I desperately need to get back to someone or someplace, but I lost them in the Mists.",
 		"Everything I do is in the service of a powerful master, one I must keep a secret from everyone.",
 		"I owe much to my vanished mentor. I seek to continue their work even as I search to find them.",
-		"I've seen great darkness, and I'm committed to being a light against it—the light of all lights.",
+		"I've seen great darkness, and I'm committed to being a light against it\u2014the light of all lights.",
 		"Someone I love has become a monster, murderer, or other threat. It's up to me to redeem them.",
 		"The world has been convinced of a terrible lie. It's up to me to reveal the truth.",
 		"I deeply miss someone and am quick to adopt people who remind me of them.",
@@ -554,7 +553,7 @@ BackgroundList["haunted one"] = { // Reprint from Curse of Strahd, but re-define
 		"I'm a skeptic and don't believe in the power of rituals, religion, superstition, or spirits.",
 		"I know my future is written and that anything I do will lead to a prophesied end.",
 		"I need to find the best in everyone and everything, even when that means denying obvious malice.",
-		"I've seen the evil of a type of place—like forests, cities, or graveyards—and resist going there.",
+		"I've seen the evil of a type of place\u2014like forests, cities, or graveyards\u2014and resist going there.",
 		"I'm exceptionally cautious, planning laboriously and devising countless contingencies.",
 		"I have a reputation for defeating a great evil, but that's a lie and the wicked force knows.",
 		"I know the ends always justify the means and am quick to make sacrifices to attain my goals."
@@ -584,7 +583,6 @@ BackgroundList["investigator"] = {
 	regExpSearch : /investigator/i,
 	name : "Investigator",
 	source : [["VRGtR", 35], ["ALbackground", 0]],
-	skills : "",
 	skillstxt : "Choose two from Insight, Investigation, and Perception",
 	toolProfs : [["Disguise kit", 1], ["Thieves' tools", "Dex"]],
 	gold : 10,
@@ -629,7 +627,7 @@ BackgroundList["investigator"] = {
 		"I desperately need to get back to someone or someplace, but I lost them in the Mists.",
 		"Everything I do is in the service of a powerful master, one I must keep a secret from everyone.",
 		"I owe much to my vanished mentor. I seek to continue their work even as I search to find them.",
-		"I've seen great darkness, and I'm committed to being a light against it—the light of all lights.",
+		"I've seen great darkness, and I'm committed to being a light against it\u2014the light of all lights.",
 		"Someone I love has become a monster, murderer, or other threat. It's up to me to redeem them.",
 		"The world has been convinced of a terrible lie. It's up to me to reveal the truth.",
 		"I deeply miss someone and am quick to adopt people who remind me of them.",
@@ -648,7 +646,7 @@ BackgroundList["investigator"] = {
 		"I'm a skeptic and don't believe in the power of rituals, religion, superstition, or spirits.",
 		"I know my future is written and that anything I do will lead to a prophesied end.",
 		"I need to find the best in everyone and everything, even when that means denying obvious malice.",
-		"I've seen the evil of a type of place—like forests, cities, or graveyards—and resist going there.",
+		"I've seen the evil of a type of place\u2014like forests, cities, or graveyards\u2014and resist going there.",
 		"I'm exceptionally cautious, planning laboriously and devising countless contingencies.",
 		"I have a reputation for defeating a great evil, but that's a lie and the wicked force knows.",
 		"I know the ends always justify the means and am quick to make sacrifices to attain my goals."
@@ -669,3 +667,45 @@ BackgroundFeatureList["official inquiry"] = {
 	description : "Through a combination of fast-talking, determination, and official-looking documentation, I can gain access to a place or an individual related to a crime I'm investigating. Those who aren't involved in my investigation avoid impeding me or pass along my requests. Local law enforcement has firm opinions, viewing me as either a nuisance or one of their own.",
 	source : [["VRGtR", 35], ["ALbackground", 0]]
 };
+
+/* Dark gift
+
+MagicItemsList["living shadow"] = {
+	name : "Living Shadow",
+	source : [["VRGtR", 24]],
+	type : "dark gift",
+	rarity : "",
+	description : "I learn the Mage Hand cantrip and require no components to cast it. My Prof. Bonus per long rest, I can gain +10 ft reach for one melee attack. The first time I roll a 1 on a d20 after a short rest, my shadow will act up. The next time I or another I can see in 30 ft rolls a d20, I roll a d4. If even: add to roll, odd: subtract.",
+	descriptionLong : "I learn the Mage Hand cantrip and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. My proficiency bonus per long rest, when I make a melee attack, I can gain +10 ft reach for that attack as my shadow stretches and delivers the attack. The first time after a short rest when I roll a 1 on an attack, check, or save, my shadow will act up. The next time I or a creature I can see within 30 ft rolls for an attack, check, or save, roll a d4. If the number is odd, reduce the total by that number. If it is even, increase the total by that number instead.",
+	descriptionFull : "The shadow you cast is animate and ever-present, even when lighting conditions would otherwise prevent it. Your shadow occasionally moves out of sync with you. Sometimes it appears to be undertaking random but mundane tasks, while at other times it acts out your darker impulses, threatening or even attacking other shadows. With effort, you can bend this shadow puppetry to your will.\n"+
+	toUni("Grasping Shadow") + ". You learn the mage hand cantrip if you don't already know it, and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. Your spellcasting ability for this spell is Intelligence, Wisdom, or Charisma (your choice when you gain this Dark Gift).\n"+
+	toUni("Shadow Strike") + ". When you make a melee attack roll, you can increase your reach for that attack by 10 feet. Your shadow stretches and delivers the attack as if it were you. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.\n"+
+	toUni("Ominous Will") + ". Immediately after you make an attack roll, an ability check, or a saving throw and roll a 1 on the d20, your shadow exerts a will of its own and might assist or hinder you or those around you. The next time you or a creature within 30 feet of you that you can see makes an attack roll, an ability check, or a saving throw, roll a d4. If the number is odd, reduce the total by the number rolled. If the number is even, increase the total by the number rolled. Once this effect occurs, it can't happen again until you finish a short or long rest.",
+	action : [["action", "Unsettling Presence"]],
+	extraLimitedFeatures : [{
+		name : "Shadow Strike",
+		usages : "Proficiency bonus per ",
+		usagescalc : "event.value = How('Proficiency Bonus')",
+		recovery : "long rest"
+	}, {
+		name : "Ominous Will",
+		usages : 1,
+		recovery : "short rest"
+	}],
+	spellcastingAbility : [4, 5, 6],
+	spellcastingBonus : {
+		name : "Grasping Shadow",
+		spells : ["mage hand"],
+		selection : ["mage hand"],
+		firstCol : "atwill"
+	},
+	spellChanges : {
+		"mage hand" : {
+			components : "",
+			changes : "Using Grasping Shadow from my Living Shadow dark gift, I can cast Mage Hand without any components. The hand created by the spell is shadowy but is not bound to my actual shadow."
+		}
+	}
+};
+FeatsList["living shadow"] = MagicItemsList["living shadow"];
+
+*/

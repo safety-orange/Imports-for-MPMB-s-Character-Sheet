@@ -1,5 +1,5 @@
 var iFileName = "ua_20191003_Cleric-Druid-and-Wizard.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Cleric, Druid, and Wizard article to MPMB's Character Record Sheet
 
 // Define the source

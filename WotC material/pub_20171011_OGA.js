@@ -1,34 +1,22 @@
-/*	-WHAT IS THIS?-
-	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
-	Import this file using the "Add Extra Materials" bookmark.
+var iFileName = "pub_20171011_One-Grung-Above.js";
+RequiredSheetVersion("13.0.8");
+// This file adds the Grung Race from the One Grung Above from Extra Life to MPMB's Character Record Sheet
+// This file contains contributions by /u/GoldenSnurp
+// Be aware that this race is not legal in adventurers league!
 
-	-KEEP IN MIND-
-	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
-*/
-
-/*	-INFORMATION-
-	Subject:	Race: Grung
-	Effect:		This script adds the Grung race from "One Grung Above" by Christopher Lindsay on DMs Guild (https://www.dmsguild.com/product/223738)
-				Please support this creator on DMs Guild: https://www.dmsguild.com/browse.php?x=0&y=0&author=Christopher%20Lindsay
-	Code by:	/u/GoldenSnurp (edits by /u/safety-orange)
-	Date:		2020-10-29 (sheet v13)
-*/
-
-var iFileName = "Grung [Christopher Lindsay's work, transcribed by /u/GoldenSnurp].js";
-RequiredSheetVersion(13);
-
-SourceList["CL:OGA"] = {
-	name : "Christopher Lindsay's One Grung Above",
-	abbreviation : "CL:OGA",
-	group : "Dungeon Masters Guild",
+SourceList["OGA"] = {
+	name : "One Grung Above",
+	abbreviation : "OGA",
+	group : "Extra Life",
 	url : "https://www.dmsguild.com/product/223738",
-	date : "2017/10/11"
+	date : "2017/10/11",
+	defaultExcluded : true
 };
 
 RaceList["grung"] = {
 	regExpSearch : /grung/i,
 	name : "Grung",
-	source : [["CL:OGA", 4]],
+	source : [["OGA", 4]],
 	plural : "Grung",
 	size : 4,
 	speed : {

@@ -1,5 +1,5 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -1155,7 +1155,7 @@ BackgroundList["far traveler"] = {
 			"Adventure: I'm far from home, and everything is strange and wonderful! (Chaotic)"
 		],
 		["Cunning",
-			"Cunning: Though I may not know their ways, neither do they know mine, which can be to my  advantage. (Evil)"
+			"Cunning: Though I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)"
 		],
 		["Inquisitive",
 			"Inquisitive: Everything is new, but I have a thirst to learn. (Neutral)"

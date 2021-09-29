@@ -1,5 +1,5 @@
 var iFileName = "ua_20200206_Subclasses-Part-3.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 3 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -115,8 +115,8 @@ RunFunctionAtEnd(function () {
 					"The infiltrator gets an upgrade to its lightning launcher weapon attack"
 				]),
 				toNotesPage : [{
-					popupName : "Perfected Armor: Model Features",
 					name : "Guardian Perfected Armor Features",
+					popupName : "Perfected Armor: Model Features",
 					note : desc([
 						"Tinkering with my armor's energy system leads me to discover a powerful pulling force.",
 						"As a reaction when a creature I can see ends its turn within 30 ft of me, I can force the creature to succeed on a Strength saving throw against my spell save DC or be pulled up to 30 ft toward me to an unoccupied space. If I pull the target to space within 5 ft of me, I can make a melee weapon attack against it as part of this reaction.",
@@ -137,7 +137,7 @@ RunFunctionAtEnd(function () {
 				},
 				"infiltrator" : {
 					name : "Perfected Armor: Infiltrator",
-					description :  desc([
+					description : desc([
 						"Those hit by my lightning launcher shed 5-ft radius dim light until my next turn starts",
 						"Also, the next attack roll made by another than me vs. the target has advantage",
 						"If that attack hits, it deals an extra 1d6 lightning damage"

@@ -1,14 +1,15 @@
 var iFileName = "pub_20181107_LLoK.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["LLoK"] = {
 	name : "Lost Laboratory of Kwalish [items, spells]",
 	abbreviation : "LLoK",
-	group : "Adventure Books",
+	group : "Extra Life",
 	url : "https://www.dmsguild.com/product/258047",
-	date : "2018/11/07"
+	date : "2018/11/07",
+	defaultExcluded : true
 };
 
 // Magic Items
@@ -230,7 +231,6 @@ MagicItemsList["leather golem armor"] = {
 	savetxt : { text : ["+1 vs. spells and magical effects"] },
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Leather Golem Armor",
 		note : desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
 	}]
 }
@@ -283,7 +283,6 @@ MagicItemsList["polymorph blade"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of a Polymorph Blade",
 		note : desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I ")
 	}]
 }
@@ -331,7 +330,6 @@ MagicItemsList["powered armor"] = {
 	additional : "energy cell",
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Powered Armor",
 		note : desc(LLoK_poweredArmorFullDescription).replace(/your/g, "my").replace(/you /ig, "I ")
 	}],
 	weaponsAdd : ["Arm-Mounted Laser"],

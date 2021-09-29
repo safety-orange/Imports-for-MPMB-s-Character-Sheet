@@ -1,5 +1,5 @@
 var iFileName = "ua_20170911_Eladrin-and-Gith.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Eladrin and Gith article to MPMB's Character Record Sheet
 
 // Define the source
