@@ -1,5 +1,5 @@
 var iFileName = "ua_20161212_Monk-Monastic-Traditions.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Monk Monastic Traditions article to MPMB's Character Record Sheet
 
 // Define the source
@@ -105,10 +105,10 @@ AddSubClass("monk", "way of the kensei-ua", {
 		}
 	}
 });
-AddSubClass("monk", "way of tranquility-ua", {
+AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*tranquility|tranquil|calm|diplomatic|diplomat)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Tranquility",
-	source : ["UA:MMT", 2],
+	source : [["UA:MMT", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Path of Tranquility",

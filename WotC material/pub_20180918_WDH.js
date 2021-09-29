@@ -1,5 +1,5 @@
 var iFileName = "pub_20180918_WDH.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -70,7 +70,6 @@ MagicItemsList["azuredge"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Azuredge",
 		note : "\n   " + WDH_azuredgeFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
@@ -156,7 +155,6 @@ if (MagicItemsList["staff of power"]) {
 		},
 		toNotesPage : [{
 			name : "Features",
-			popupName : "Features of Blackstaff",
 			note : "\n   " + WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ")
 		}, {
 			name : "Sentient Item Features",

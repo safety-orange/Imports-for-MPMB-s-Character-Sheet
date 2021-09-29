@@ -1,5 +1,5 @@
 var iFileName = "ua_20210126_Gothic-Lineages.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana 2021: Gothic Lineages article to MPMB's Character Record Sheet
 // This file contains contributions by Metacomet10, MarvinTheParanoidAndroid, and CountVladmir
 

@@ -1,5 +1,5 @@
 var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source
@@ -384,16 +384,18 @@ AddSubClass("rangerua", "deep stalker-ua", {
 	}
 });
 
-// By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
+// By popular demand, the XGtE, TCoE, FToD ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!
-var UARR_AddXGtErangerSubclassesToRevisedRanger = function() {
-	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
-	var theXGtErangerSubs = ["ranger-gloom stalker", "ranger-horizon walker", "ranger-monster slayer"];
-	for (var i = 0; i < theXGtErangerSubs.length; i++) {
-		var aSub = theXGtErangerSubs[i];
-		if (ClassSubList[aSub]) {
-			ClassSubList[aSub].attacks = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
-			ClassList.rangerua.subclasses[1].push(aSub);
-		};
-	};
+var UARR_AddRangerSubclassesToRevisedRanger = function() {
+	var aSources = ["X", "T", "FToD"];
+	var aRngrSubs = ClassList.ranger.subclasses[1];
+	for (var i = 0; i < aRngrSubs.length; i++) {
+		var sSub = aRngrSubs[i];
+		var oSub = ClassSubList[sSub];
+		if (!oSub || !oSub.source || ClassList.rangerua.subclasses[1].indexOf(sSub) !== -1) continue;
+		var sSubSrc = isArray(oSub.source[0]) ? oSub.source[0][0] : oSub.source[0];
+		if (aSources.indexOf(sSubSrc) === -1) continue;
+		if (!oSub.attacks) oSub.attacks = ClassList["rangerua"].attacks;
+		ClassList.rangerua.subclasses[1].push(sSub);
+	}
 }();

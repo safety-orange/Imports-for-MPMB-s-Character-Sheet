@@ -1,5 +1,5 @@
 var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -51,7 +51,7 @@ RaceList["centaur"] = {
 // [dupl_start] Reprint from Volo's Guide to Monsters
 if (!RaceList["goblin"]) {
 	RaceList["goblin"] = {
-		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
+		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*(hobgoblin|bugbear)).*$/i,
 		name : "Goblin",
 		source : [["V", 119], ["G", 17], ["E:RLW", 26], ["W", 174]],
 		plural : "Goblins",
@@ -1651,7 +1651,6 @@ MagicItemsList["mizzium apparatus"] = {
 	prereqeval : function(v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	toNotesPage : [{
 		name : "Random Spells",
-		popupName : "Mizzium Apparatus's Random Spells",
 		note : [
 			"This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness.",
 			"While I am wearing the mizzium apparatus, I can use it as an arcane focus. In addition, I can attempt to cast a spell that I do not know or have prepared. The spell I choose must be on my class's spell list and of a level for which I have a spell slot, and I must provide the spell's components.",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20150415_AL-EE.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the optional backgrounds from the Adventurers League season 2 (Elemental Evil) to MPMB's Character Record Sheet
 
 // Define the source
@@ -13,7 +13,7 @@ SourceList["AL:EE"]={
 
 // Backgrounds
 BackgroundList["caravan specialist"] = {
-	regExpSearch :  /^(?=.*caravan)(?=.*specialist).*$/i,
+	regExpSearch : /^(?=.*caravan)(?=.*specialist).*$/i,
 	name : "Caravan Specialist",
 	source : [["AL:EE", 2], ["ALbackground", 0]],
 	skills : ["Animal Handling", "Survival"],
@@ -78,7 +78,7 @@ BackgroundList["caravan specialist"] = {
 	lifestyle : "poor"
 };
 BackgroundList["earthspur miner"] = {
-	regExpSearch :  /^(?=.*earthspur)(?=.*miner).*$/i,
+	regExpSearch : /^(?=.*earthspur)(?=.*miner).*$/i,
 	name : "Earthspur Miner",
 	source : [["AL:EE", 3], ["ALbackground", 0]],
 	skills : ["Athletics", "Survival"],
@@ -143,7 +143,7 @@ BackgroundList["earthspur miner"] = {
 	lifestyle : "poor"
 };
 BackgroundList["harborfolk"] = {
-	regExpSearch :  /harborfolk/i,
+	regExpSearch : /harborfolk/i,
 	name : "Harborfolk",
 	source : [["AL:EE", 4], ["ALbackground", 0]],
 	skills : ["Athletics", "Sleight of Hand"],
@@ -208,7 +208,7 @@ BackgroundList["harborfolk"] = {
 	lifestyle : "poor"
 };
 BackgroundList["mulmaster aristocrat"] = {
-	regExpSearch :  /^(?=.*mulmaster)(?=.*aristocrat).*$/i,
+	regExpSearch : /^(?=.*mulmaster)(?=.*aristocrat).*$/i,
 	name : "Mulmaster Aristocrat",
 	source : [["AL:EE", 5], ["ALbackground", 0]],
 	skills : ["Deception", "Performance"],
@@ -271,7 +271,7 @@ BackgroundList["mulmaster aristocrat"] = {
 	lifestyle : "wealthy"
 };
 BackgroundList["phlan refugee"] = {
-	regExpSearch :  /^(?=.*phlan)(?=.*refugee).*$/i,
+	regExpSearch : /^(?=.*phlan)(?=.*refugee).*$/i,
 	name : "Phlan Refugee",
 	source : [["AL:EE", 6], ["ALbackground", 0]],
 	skills : ["Insight", "Athletics"],

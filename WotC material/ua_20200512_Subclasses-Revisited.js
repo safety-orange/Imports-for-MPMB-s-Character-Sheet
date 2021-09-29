@@ -1,5 +1,5 @@
 var iFileName = "ua_20200512_Subclasses-Revisited.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 // This file contains contributions by Undrhil and Metacomet10
 
@@ -186,7 +186,7 @@ if (!SourceList.T) {
 						atkAdd : [
 							function (fields, v) {
 								if (!v.isDC) {
-									fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' fbludgeoningire damage';
+									fields.Description += (fields.Description ? '; ' : '') + 'Once per my turn +' + How('Proficiency Bonus') + ' bludgeoning damage';
 								}
 							},
 							"Once on each of my turns, I can have one of my attacks that hit deal extra bludgeoning damage equal to my proficiency bonus."
@@ -376,21 +376,20 @@ AddSubClass("wizard","order of scribes-ua", {
 			toNotesPage : [{
 				name : "Manifest Mind",
 				source : [["UA:SR", 5]],
-				popupName : "Manifest Mind",
 				page3notes : false,
 				note : desc (["As a bonus action with my Awakened Spellbook on my person, I can cause the mind to",
 				"manifest as a Tiny spectral construct, hovering in an unoccupied space of my choice within",
 				"60 ft. It is intangible and doesn't occupy its space, and it sheds dim light in a 10 ft radius.",
 				"It looks like a ghostly tome, a cascade of text, or a scholar from the past \(my choice.\).",
 				"\(See Companion Page for statistics for this construct.\)",
-				"While manifested, it can hear and see and has darkvision with a range of 60 ft.  As an",
+				"While manifested, it can hear and see and has darkvision with a range of 60 ft. As an",
 				"action, I can hear and see using its senses instead of my own, until my concentration",
 				"ends \(as if concentrating on a spell\).",
 				"Whenever I cast a wizard spell on my turn, I can cast it as if I were in the spectral mind's",
-				"space, using its senses.  I can do this a number of times per day equal to my proficiency",
+				"space, using its senses. I can do this a number of times per day equal to my proficiency",
 				"bonus, and I regain all uses when I finish a long rest.",
 				"As a bonus action, I can cause it to hover up to 30 ft to an unoccupied space that I or it",
-				"can see. It can pass through creatures but not objects.  It stops manifesting if it is ever",
+				"can see. It can pass through creatures but not objects. It stops manifesting if it is ever",
 				"more than 300 ft away from me, if it drops to 0 hit points, if I die, or if I dismiss it as",
 				"a bonus action."
 				])
@@ -421,7 +420,7 @@ AddSubClass("wizard","order of scribes-ua", {
 				"life after 1 minute within 5 ft of the book. I revive with 1 hit point. I then roll",
 				"3d6 and the spellbook loses spells of my choice that have a combined spell level",
 				"equal to that roll or higher. I am incapable of casting the lost spells, even if I",
-				"find them on a scroll or in another spellbook.  I can only restore my ability to cast",
+				"find them on a scroll or in another spellbook. I can only restore my ability to cast",
 				"one of these spells with the wish spell, which will restore one spell per casting."
 			]),
 			action : ["action","Swap places with spellbook"],

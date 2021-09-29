@@ -1,5 +1,5 @@
 var iFileName = "ps_20180731_Dominaria.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all material from the Plane Shift: Dominaria article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-dominaria-2018-07-31) to MPMB's Character Record Sheet
 
 // Define the source

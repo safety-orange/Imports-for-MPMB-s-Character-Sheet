@@ -1,5 +1,5 @@
 var iFileName = "ps_20170705_Amonkhet.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all material from the Plane Shift: Amonkhet article (https://dnd.wizards.com/articles/features/plane-shift-amonkhet) to MPMB's Character Record Sheet
 // This code contains contributions by /u/MILKB0T and /u/juju2569
 
@@ -227,7 +227,14 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
 	languageProfs : ["Common", "Minotaur"],
-	weaponsAdd : ["Horns (unarmed strike)"],
+	weaponsAdd : ["Horns"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+		regExpSearch : /\bhorns?\b/i,
+		name : "Horns",
+		source : [["PS:A", 20]],
+		damage : [1, 6, "bludgeoning"]
+	},
 	skills : ["Intimidation"],
 	age : " reach full maturity around the age of 20, but rarely live beyond 40",
 	height : " are well over 6 feet tall",
@@ -235,20 +242,6 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	heightMetric : " are well over 1,8 metres tall",
 	scores : [2, 0, 1, 0, 0, 0],
 	features : {
-		"horns" : {
-			name : "Horns",
-			minlevel : 1,
-			calcChanges : {
-				atkAdd : [
-					function (fields, v) {
-						if (v.baseWeaponName == "unarmed strike" && (fields.Damage_Die == 1 || fields.Damage_Die == '1d4')) {
-							fields.Damage_Die = '1d6';
-						};
-					},
-					"I can use my horns as a natural weapon to make unarmed strikes, doing 1d6 damage instead of 1."
-				]
-			}
-		},
 		"relentless endurance" : {
 			name : "Relentless Endurance",
 			minlevel : 1,
@@ -272,7 +265,8 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 							}
 						}
 					},
-					"My melee weapon attacks roll 1 additional dice on a critical hit."
+					"My melee weapon attacks roll 1 additional dice on a critical hit.",
+					900
 				]
 			}
 		}

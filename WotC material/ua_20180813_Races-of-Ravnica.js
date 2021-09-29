@@ -1,5 +1,5 @@
 var iFileName = "ua_20180813_Races-of-Ravnica.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Races of Ravnica article to MPMB's Character Record Sheet
 
 // Define the source

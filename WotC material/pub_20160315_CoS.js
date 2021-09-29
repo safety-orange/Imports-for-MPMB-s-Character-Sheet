@@ -1,5 +1,5 @@
 var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
@@ -23,9 +23,8 @@ BackgroundList["haunted one"] = {
 	regExpSearch : /haunted.one/i,
 	name : "Haunted One",
 	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
-	skills : "",
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
-	languageProfs : [2],
+	languageProfs : [2], // was 1 in book, fixed in errata
 	gold : 0.01,
 	equipleft : [
 		["Chest, with:", "", 25],
@@ -623,7 +622,6 @@ MagicItemsList["holy symbol of ravenkind"] = {
 	action : [["action"]],
 	toNotesPage : [{
 		name : "Hold Vampires",
-		popupName : "Hold Vampires feature of Holy Symbol of Ravenkind",
 		page3notes : true,
 		note : [
 			"As an action, I can use 1 charge to have all vampires within 30 ft make a DC 15 Wis save",
@@ -716,7 +714,6 @@ MagicItemsList["lost sword"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of the Lost Sword",
 		note : desc([
 			"The Lost Sword is a sentient lawful good +1 shortsword.",
 			"A lawful good creature can attune itself to the sword in 1 minute.",
@@ -798,7 +795,6 @@ MagicItemsList["sunsword"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Sunsword",
 		note : desc([
 			"The Sunsword is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.",
 			"Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.",

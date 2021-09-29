@@ -1,5 +1,5 @@
 var iFileName = "ua_20151217_That-Old-Black-Magic.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: That Old Black Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -89,10 +89,10 @@ var UATOBM_addAbyssalTiefling = function(){
 	
 	This code was contributed by David
 */
-SpellsList["conjure lesser demon-ua"] = {
+SpellsList["conjure lesser demon-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Lesser Demon",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 2],
+	source : [["UA:TOBM", 2]],
 	level : 3,
 	school : "Conj",
 	time : "1 a",
@@ -103,10 +103,10 @@ SpellsList["conjure lesser demon-ua"] = {
 	description : "Summon 8 (16 at SL6, 32 at SL8) manes/dretches that are hostile to all non-demons, attacking nearest",
 	descriptionFull : "You summon up to a total of eight manes or dretches that appear in unoccupied spaces you can see within range. A manes or dretch disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The demons are hostile to all creatures. Roll initiative for the summoned demons as a group, which has its own turns. The demons attack the nearest non-demons to the best of their ability." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground with the blood used as a material component. The circle is large enough to encompass your space. The summoned demons cannot cross the circle or target anyone in it while the spell lasts. Using the material component in this manner consumes it." + AtHigherLevels + "When you cast this spell using a spell slot of 6th or 7th level, you summon sixteen demons. If you cast it using a spell slot of 8th or 9th level, you summon thirty-two demons."
 };
-SpellsList["conjure barlgura-ua"] = {
+SpellsList["conjure barlgura-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Barlgura",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 2],
+	source : [["UA:TOBM", 2]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -116,10 +116,10 @@ SpellsList["conjure barlgura-ua"] = {
 	description : "Summon a barlgura that is hostile to all non-demons, attacking the nearest",
 	descriptionFull : "You summon a barlgura that appears in an unoccupied space you can see within range. The barlgura disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The barlgura is hostile to all non-demons. Roll initiative for the barlgura, which has its own turns. At the start of its turn, it moves toward and attacks the nearest non-demon it can perceive. If two or more creatures are equally near, it picks one at random. If it cannot see any potential enemies, the barlgura moves in a random direction in search of foes." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned barlgura cannot cross the circle or target anyone in it while the spell lasts."
 };
-SpellsList["conjure hezrou-ua"] = {
+SpellsList["conjure hezrou-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Hezrou",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 2],
+	source : [["UA:TOBM", 2]],
 	level : 7,
 	school : "Conj",
 	time : "1 a",
@@ -130,10 +130,10 @@ SpellsList["conjure hezrou-ua"] = {
 	description : "Summon a hezrou that I might control as long as there is food; At half HP it leaves, see B (100gp cons.)",
 	descriptionFull : "You summon a hezrou that appears in an unoccupied space you can see within range. The hezrou disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The hezrou's attitude depends on the value of the food used as a material component for this spell. Roll initiative for the hezrou, which has its own turns. At the start of the hezrou's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the food's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the hezrou and have it obey you as long as you succeed on the Charisma check." + "\n   " + "If the check fails, the spell no longer requires concentration and the demon is no longer under your control. The hezrou then focuses on devouring any corpses it can see. If there are no such meals at hand, it attacks the nearest creatures and eats anything it kills. If its hit points are reduced to below half its hit point maximum, it returns to the Abyss." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned hezrou cannot cross the circle or target anyone in it while the spell lasts."
 };
-SpellsList["conjure shadow demon-ua"] = {
+SpellsList["conjure shadow demon-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Shadow Demon",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 3],
+	source : [["UA:TOBM", 3]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -144,10 +144,10 @@ SpellsList["conjure shadow demon-ua"] = {
 	description : "Summon a shadow demon that I control while not in bright light, can attack, and within 100 ft, see B",
 	descriptionFull : "You summon a shadow demon that appears in an unoccupied space you can see within range. The shadow demon disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "Roll initiative for the shadow demon, which has its own turns. You can issue orders to the shadow demon, and it obeys you as long as it can attack a creature on each of its turns and does not start its turn in an area of bright light. If either of these conditions is not met, the shadow demon immediately makes a Charisma check contested by your Charisma check. If you fail the check, the spell no longer requires concentration and the demon is no longer under your control. The demon automatically succeeds on the check if it is more than 100 feet away from you." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned shadow demon cannot cross the circle or target anyone in it while the spell lasts."
 };
-SpellsList["conjure vrock-ua"] = {
+SpellsList["conjure vrock-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Vrock",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 3],
+	source : [["UA:TOBM", 3]],
 	level : 5,
 	school : "Conj",
 	time : "1 a",

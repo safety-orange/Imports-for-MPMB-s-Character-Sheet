@@ -1,6 +1,6 @@
-if (sheetVersion < 13000007) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
+if (sheetVersion < 13000008) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.0.7-beta1");
+RequiredSheetVersion("13.0.8");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -695,9 +695,9 @@ SourceList["UA:WA"] = {
 };
 
 // New Fighting Style
-AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", {
+AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", { // Still valid 2021-09-21
 	name : "Mariner Fighting Style",
-	source : ["UA:WA", 3],
+	source : [["UA:WA", 3]],
 	description : "\n   " + "While not wearing heavy armor or using a shield, I gain +1 AC and swim/climb speed" + "\n   " + "The swimming and climbing speeds are equal to my current walking speed",
 	speed : {
 		climb : { spd : "walk", enc : "walk" },
@@ -793,15 +793,15 @@ SourceList["UA:MM"] = {
 };
 
 // A subclass for the Cleric, called "City Domain"
-AddSubClass("cleric", "city domain-ua", {
+AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(urban|city)).*$/i,
 	subname : "City Domain",
-	source: ["UA:MM", 1],
+	source : [["UA:MM", 1]],
 	spellcastingExtra : ["comprehend languages", "remote access-ua", "find vehicle-ua", "heat metal", "lightning bolt", "protection from ballistics-ua", "locate creature", "synchronicity-ua", "commune with city-ua", "shutdown-ua"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Cantrip",
-			source: ["UA:MM", 1],
+			source : ["UA:MM", 1],
 			minlevel : 1,
 			description : "\n   " + "I learn the On/Off cantrip if I didn't already know it",
 			spellcastingBonus : {
@@ -812,7 +812,7 @@ AddSubClass("cleric", "city domain-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Bonus Proficiency",
-			source: ["UA:MM", 1],
+			source : ["UA:MM", 1],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with sidearms and land vehicles",
 			weaponProfs : [false, false, ["Sidearms"]],
@@ -820,19 +820,19 @@ AddSubClass("cleric", "city domain-ua", {
 		},
 		"subclassfeature1.2" : {
 			name : "Heart of the City",
-			source: ["UA:MM", 1],
+			source : ["UA:MM", 1],
 			minlevel : 1,
 			description : desc([
 				"While I'm in a city, I can gain adv. on a Cha (Deception, Intimidation, Persuasion) check",
 				"I'm considered proficient with the appropriate skill for that one check"
 			]),
-			usages: "Wisdom modifier per ",
-			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			recovery: "long rest"
+			usages : "Wisdom modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
+			recovery : "long rest"
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Spirits of the City",
-			source: ["UA:MM", 1],
+			source : ["UA:MM", 1],
 			minlevel : 2,
 			description : desc([
 				"As an action, I make all city utilities in 30 ft either stop or work perfectly for 1 min",
@@ -844,13 +844,13 @@ AddSubClass("cleric", "city domain-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Block Watch",
-			source: ["UA:MM", 2],
+			source : ["UA:MM", 2],
 			minlevel : 6,
 			description : "\n   " + "While in an urban environment, I'm proficient and expertise in Insight and Perception"
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source: ["UA:MM", 2],
+			source : ["UA:MM", 2],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -870,7 +870,7 @@ AddSubClass("cleric", "city domain-ua", {
 		},
 		"subclassfeature17" : {
 			name : "Express Transit",
-			source: ["UA:MM", 2],
+			source : ["UA:MM", 2],
 			minlevel : 17,
 			description : desc([
 				"As an action, I can teleport from one mass transit site to another in the same city",
@@ -884,10 +884,10 @@ AddSubClass("cleric", "city domain-ua", {
 });
 
 // A subclass for the Warlock, called "Ghost in the Machine"
-AddSubClass("warlock", "ghost in the machine-ua", {
+AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*warlock)(?=.*ghost)(?=.*(machine|computer)).*$/i,
 	subname : "the Ghost in the Machine",
-	source : ["UA:MM", 2],
+	source : [["UA:MM", 2]],
 	spellcastingExtra : ["infallible relay-ua", "remote access-ua", "arcane hacking-ua", "digital phantom-ua", "haywire-ua", "invisibility to cameras-ua", "conjure knowbot-ua", "system backdoor-ua", "shutdown-ua", "synchronicity-ua"],
 	features : {
 		"subclassfeature1" : {
@@ -956,73 +956,73 @@ AddSubClass("warlock", "ghost in the machine-ua", {
 });
 
 // A subclass for the Wizard, called "Technomancy" (contributed by AKA_Sketch)
-AddSubClass("wizard", "technomancy-ua", {
-	regExpSearch: /technomancy|technomancer/i,
-	subname: "Technomancy",
-	source: ["UA:MM", 3],
-	fullname: "Technomancer",
-	features: {
+AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
+	regExpSearch : /technomancy|technomancer/i,
+	subname : "Technomancy",
+	source : [["UA:MM", 3]],
+	fullname : "Technomancer",
+	features : {
 		"subclassfeature2": {
-			name: "Bonus Proficiencies",
-			source: ["UA:MM", 3],
-			minlevel: 2,
-			description: "\n   " + "I gain proficiency with sidearms and hacking tools",
+			name : "Bonus Proficiencies",
+			source : ["UA:MM", 3],
+			minlevel : 2,
+			description : "\n   " + "I gain proficiency with sidearms and hacking tools",
 			weaponProfs : [false, false, ["Sidearms"]],
 			toolProfs : ["Hacking tools"]
 		},
 		"subclassfeature2.1": {
-			name: "Technological Savant",
-			source: ["UA:MM", 3],
-			minlevel: 2,
-			description: desc([
+			name : "Technological Savant",
+			source : ["UA:MM", 3],
+			minlevel : 2,
+			description : desc([
 				"I can use a single tablet computer (or similar) instead of a spellbook",
 				"Spells copied into this device cost half the normal amount of gp"
 			])
 		},
 		"subclassfeature6": {
-			name: "Program Spell",
-			source: ["UA:MM", 4],
-			minlevel: 6,
-			description: desc([
+			name : "Program Spell",
+			source : ["UA:MM", 4],
+			minlevel : 6,
+			description : desc([
 				"I can cast a spell into a device of at least smartphone-level of computing power",
 				"Variables of the spell are chosen at time of casting; I can have only one active at a time",
 				"As an action within the next 48 hours, the spell can be cast from the device",
 				"I can't activate a concentration spell in this way if I am concentrating on another spell"
 			]),
-			recovery: "long rest",
-			usages: 1
+			recovery : "long rest",
+			usages : 1
 		},
 		"subclassfeature10": {
-			name: "Online Casting",
-			source: ["UA:MM", 4],
-			minlevel: 10,
-			description: desc([
+			name : "Online Casting",
+			source : ["UA:MM", 4],
+			minlevel : 10,
+			description : desc([
 				"I can cast a spell, that is not area-of-effect, through networked electronic devices",
 				"If the spell requires sight/hearing, the audio/visual must be transmitted electronically",
 				"The spell's range is determined from me to my device plus from the target to its device"
 			]),
-			usages: "Intelligence modifier per ",
-			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
-			recovery: "long rest"
+			usages : "Intelligence modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
+			recovery : "long rest"
 		},
 		"subclassfeature14": {
-			name: "Chained Device",
-			source: ["UA:MM", 4],
-			minlevel: 14,
-			description: "\n   " + "I can use a held/worn tablet computer to concentrate on a spell I cast instead of me" + "\n   " + "If the device is separated from me, turned off, or broken, the effect is lost",
-			recovery: "long rest",
-			usages: 1
+			name : "Chained Device",
+			source : ["UA:MM", 4],
+			minlevel : 14,
+			description : "\n   " + "I can use a held/worn tablet computer to concentrate on a spell I cast instead of me" + "\n   " + "If the device is separated from me, turned off, or broken, the effect is lost",
+			recovery : "long rest",
+			usages : 1
 		}
 	}
 });
 
 // Add a new Warlock invocation
-AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
+AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", { // Still valid 2021-09-21
 	name : "Arcane Gunslinger",
 	description : desc([
 		"My pact weapon can take firearm forms, and I can transform magical firearms into one"
 	]),
-	source : ["UA:MM", 3],
+	source : [["UA:MM", 3]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
@@ -1043,10 +1043,10 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", {
 	
 	Strangely enough, adding all these spells to the Warlock spell list makes the Ghost in the Machine's Expanded Spell List class feature completely useless
 */
-SpellsList["arcane hacking-ua"] = {
+SpellsList["arcane hacking-ua"] = { // Still valid 2021-09-21
 	name : "Arcane Hacking",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 5],
+	source : [["UA:MM", 5]],
 	level : 2,
 	school : "Trans",
 	time : "1 a",
@@ -1057,10 +1057,10 @@ SpellsList["arcane hacking-ua"] = {
 	description : "Adv on Int (hacking tools) vs. encryption; Use Int (hacking tools) to remove protective spells; See book",
 	descriptionFull : "[Technomagic]\n   You gain advantage on all Intelligence checks using hacking tools to break software encryption or online security when using a foreign system. This spell also allows you to break 2nd-level and lower protective spells such as arcane lock or glyph of warding by making an Intelligence check using hacking tools against the spell save DC of the spell's caster." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can attempt to counteract a spell set to secure the foreign system if the spell's level is equal to or less than the level of the spell slot you used."
 };
-SpellsList["commune with city-ua"] = {
+SpellsList["commune with city-ua"] = { // Still valid 2021-09-21
 	name : "Commune with City",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 5],
+	source : [["UA:MM", 5]],
 	ritual : true,
 	level : 5,
 	school : "Div",
@@ -1071,10 +1071,10 @@ SpellsList["commune with city-ua"] = {
 	description : "Learn up to three facts about surrounding city, out to 1 mile above- or 600 ft underground; see B",
 	descriptionFull : "You briefly become one with the city and gain knowledge of the surrounding area. Aboveground, this spell gives you knowledge of the area within 1 mile of you. In sewers and other underground settings, you gain knowledge of the area within 600 feet of you." + "\n   " + "You instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area:" + "\n  \u2022 " + "Terrain and bodies of water" + "\n  \u2022 " + "Prevalent buildings, plants, animals, or intelligent creatures" + "\n  \u2022 " + "Powerful (CR 1 or higher) celestials, fey, fiends, elementals, or undead" + "\n  \u2022 " + "Influences from other planes of existence" + "\n  \u2022 " + "Electrical currents, wireless signals, and active transit lines and tracks" + "\n\n   " + "For example, you could determine the location of powerful undead in the area, the location of major sources of electrical power or interference, and the location of any nearby parks."
 };
-SpellsList["conjure knowbot-ua"] = {
+SpellsList["conjure knowbot-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Knowbot",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 5],
+	source : [["UA:MM", 5]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -1084,10 +1084,10 @@ SpellsList["conjure knowbot-ua"] = {
 	description : "Create bot in touched device; computer checks 1 bns instead of 1 a for me; SL5: 1 h, 1000 ft, see book",
 	descriptionFull : "[Technomagic]\n   You touch a single computerized device or computer system to conjure a knowbot\u2014a partially sentient piece of software imprinted with vestiges of your own skills and computer abilities. For the duration of the spell, you can use a bonus action to have the knowbot execute a computer-related task that would normally require an action. The knowbot makes Intelligence ability checks using your ability score and proficiency bonuses (including your proficiency with hacking tools, if applicable)." + "\n   " + "You have a limited telepathic bond with the knowbot, out to a range of 500 feet from the device or system where the knowbot was conjured. If you move beyond this range, the knowbot disappears in 2d4 rounds, as if the duration of the spell had expired. Moving within range again immediately reestablishes the bond. The knowbot is bound to the system in which it was created, and it stays there until it is dismissed or the spell's duration expires." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the spell's duration increases to 1 hour. Additionally, your telepathic bond with the knowbot is effective out to a range of 1,000 feet, and if you leave the range of the bond, the knowbot continues performing its last directed task until the spell expires."
 };
-SpellsList["digital phantom-ua"] = {
+SpellsList["digital phantom-ua"] = { // Still valid 2021-09-21
 	name : "Digital Phantom",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 6],
+	source : [["UA:MM", 6]],
 	level : 2,
 	school : "Abjur",
 	time : "1 a",
@@ -1098,10 +1098,10 @@ SpellsList["digital phantom-ua"] = {
 	description : "Me and any others in same computer system +10 on Int to avoid detection; leave no trace on exit",
 	descriptionFull : "[Technomagic]\n   This spell works to actively hide your presence within a computer system. For the spell's duration, you and any other users you choose on your local network gain a +10 bonus to Intelligence checks to avoid detection by administrators, knowbots, tracking software, and the like. Whenever you and your chosen users leave any computer system you are working in while this spell is in effect, all trace of your previous presence in that system is erased."
 };
-SpellsList["find vehicle-ua"] = {
+SpellsList["find vehicle-ua"] = { // Still valid 2021-09-21
 	name : "Find Vehicle",
 	classes : ["paladin", "sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 6],
+	source : [["UA:MM", 6]],
 	level : 2,
 	school : "Conj",
 	time : "10 min",
@@ -1111,10 +1111,10 @@ SpellsList["find vehicle-ua"] = {
 	description : "Gain services of land spirit-vehicle; expertise, share spells with it; SL3: water, SL5: air, SL7: any; see B",
 	descriptionFull : "You summon a spirit that assumes the form of a nonmilitary land vehicle of your choice, appearing in an unoccupied space within range. The vehicle has the statistics of a normal vehicle of its sort, though it is celestial, fey, or fiendish (your choice) in origin. The physical characteristics of the vehicle reflect its origin to some degree. For example, a fiendish SUV might be jet black in color, with tinted windows and a sinister-looking front grille." + "\n   " + "You have a supernatural bond with the conjured vehicle that allows you to drive beyond your normal ability. While driving the conjured vehicle, you are considered proficient with vehicles of its type, and you add double your proficiency bonus to ability checks related to driving the vehicle. While driving the vehicle, you can make any spell you cast that targets only you also target the vehicle." + "\n   " + "If the vehicle drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss the vehicle at any time as an action, causing it to disappear." + "\n   " + "You can't have more than one vehicle bonded by this spell at a time. As an action, you can release the vehicle from its bond at any time, causing it to disappear." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can conjure a nonmilitary water vehicle large enough to carry six Medium creatures. When you cast this spell using a spell slot of 5th level or higher, you can conjure a nonmilitary air vehicle large enough to carry ten Medium creatures. When you cast this spell using a spell slot of 7th level or higher, you can conjure any type of vehicle, subject to the DM's approval."
 };
-SpellsList["haywire-ua"] = {
+SpellsList["haywire-ua"] = { // Still valid 2021-09-21
 	name : "Haywire",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 7],
+	source : [["UA:MM", 7]],
 	level : 3,
 	school : "Ench",
 	time : "1 a",
@@ -1125,10 +1125,10 @@ SpellsList["haywire-ua"] = {
 	description : "10 ft(+5 ft/SL) rad all electronic devices go haywire, see B; for hold devices, crea gets to save",
 	descriptionFull : "[Technomagic]\n   This spell plays havoc with electronic devices, making the use of such devices all but impossible. Each electronic device in a 10-foot-radius sphere centered on a point you choose within range is subject to random behavior while it remains within the area. A device not held by a creature is automatically affected. If an electronic device is held by a creature, that creature must succeed on a Wisdom saving throw or have the device affected by the spell." + "\n   " + "At the start of each of your turns, roll a d6 for each affected device to determine its behavior. Except where otherwise indicated, that behavior lasts until the start of your next turn while this spell is in effect." + "\n\n" + toUni("d10") + "\t" + toUni("Behavior") + "\n  " + "1\tThe device shuts down and must be restarted. Do not roll again for this device until it is restarted.\n2–4\tThe device does not function." + "\n  " + "5\tThe device experiences a power surge, causing an electric shock to the wielder (if any) and one random creature within 5 feet of the device. Each affected creature must make a Dexterity saving throw against your spell save DC, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one." + "\n  " + "6\tThe device is usable as normal.\n" + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the radius of the sphere affected by the spell increases by 5 feet for each slot level above 3rd."
 };
-SpellsList["infallible relay-ua"] = {
+SpellsList["infallible relay-ua"] = { // Still valid 2021-09-21
 	name : "Infallible Relay",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 7],
+	source : [["UA:MM", 7]],
 	level : 1,
 	school : "Div",
 	time : "1 min",
@@ -1140,10 +1140,10 @@ SpellsList["infallible relay-ua"] = {
 	description : "1 known crea save or has to answer my call from phone within 100 ft of it; it has to save to end call",
 	descriptionFull : "[Technomagic]\n   With this spell, you can target any creature with whom you have spoken previously, as long as the two of you are on the same plane of existence. When you cast the spell, the nearest functioning telephone or similar communications device within 100 feet of the target begins to ring. If there is no suitable device close enough to the target, the spell fails." + "\n   " + "The target must make a successful Charisma saving throw or be compelled to answer your call. Once the connection is established, the call is crystal clear and cannot be dropped until the conversation has ended or the spell's duration ends. You can end the conversation at any time, but a target must succeed on a Charisma saving throw to end the conversation."
 };
-SpellsList["invisibility to cameras-ua"] = {
+SpellsList["invisibility to cameras-ua"] = { // Still valid 2021-09-21
 	name : "Invisibility to Cameras",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 7],
+	source : [["UA:MM", 7]],
 	level : 3,
 	school : "Illus",
 	time : "1 a",
@@ -1154,10 +1154,10 @@ SpellsList["invisibility to cameras-ua"] = {
 	description : "Up to 4 crea and anything they are wearing or carrying become undetectable for electornic sensors",
 	descriptionFull : "[Technomagic]\n   Four creatures of your choice within range become undetectable to electronic sensors and cameras for the duration of the spell. Anything a target is wearing or carrying is likewise undetectable as long as it is on the target's person. The targets remain visible to vision."
 };
-SpellsList["on/off-ua"] = {
+SpellsList["on/off-ua"] = { // Still valid 2021-09-21
 	name : "On/Off",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 7],
+	source : [["UA:MM", 7]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -1167,10 +1167,10 @@ SpellsList["on/off-ua"] = {
 	description : "Activate or deactivate 1 electornic device that has a way of doing so accessible from the outside of it",
 	descriptionFull : "[Technomagic]\n   This cantrip allows you to activate or deactivate any electronic device within range, as long as the device has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software- based shutdown sequence to activate or deactivate cannot be affected by on/off."
 };
-SpellsList["protection from ballistics-ua"] = {
+SpellsList["protection from ballistics-ua"] = { // Still valid 2021-09-21
 	name : "Protection from Ballistics",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 8],
+	source : [["UA:MM", 8]],
 	level : 3,
 	school : "Abjur",
 	time : "1 a",
@@ -1181,10 +1181,10 @@ SpellsList["protection from ballistics-ua"] = {
 	description : "1 crea gains resistance to nonmagical ballistic damage",
 	descriptionFull : "This spell enchants the flesh of the target against the impact of bullets. Until the spell ends, the target has resistance to nonmagical ballistic damage."
 };
-SpellsList["remote access-ua"] = {
+SpellsList["remote access-ua"] = { // Still valid 2021-09-21
 	name : "Remote Access",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 8],
+	source : [["UA:MM", 8]],
 	level : 1,
 	school : "Trans",
 	time : "1 a",
@@ -1194,10 +1194,10 @@ SpellsList["remote access-ua"] = {
 	description : "I can use any electronic device within range as if it were in my hands",
 	descriptionFull : "[Technomagic]\n   You can use any electronic device within range as if it were in your hands. This is not a telekinesis effect. Rather, this spell allows you to simulate a device's mechanical functions electronically. You are able to access only functions that a person using the device manually would be able to access. You can use remote access with only one device at a time."
 };
-SpellsList["shutdown-ua"] = {
+SpellsList["shutdown-ua"] = { // Still valid 2021-09-21
 	name : "Shutdown",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 8],
+	source : [["UA:MM", 8]],
 	level : 5,
 	school : "Trans",
 	time : "1 a",
@@ -1208,10 +1208,10 @@ SpellsList["shutdown-ua"] = {
 	description : "Shut down all electronic devices within range; if controlled/held by crea, it can save to keep active",
 	descriptionFull : "[Technomagic]\n   This spell shuts down all electronic devices within range that are not wielded by or under the direct control of a creature. If an electronic device within range is used by a creature, that creature must succeed on a Constitution saving throw to prevent the device from being shut down. While the spell remains active, no electronic device within range can be started or restarted."
 };
-SpellsList["synchronicity-ua"] = {
+SpellsList["synchronicity-ua"] = { // Still valid 2021-09-21
 	name : "Synchronicity",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 8],
+	source : [["UA:MM", 8]],
 	level : 4,
 	school : "Ench",
 	time : "1 a",
@@ -1221,10 +1221,10 @@ SpellsList["synchronicity-ua"] = {
 	description : "1 crea not slowed by mundane delays, disadv on opportunity attacks to it, adv to Stealth and driving",
 	descriptionFull : "The creature you touch feels reality subtly shifted to its favor while this spell is in effect." + "\n   " + "The target isn't inconvenienced by mundane delays of any sort. Traffic lights are always green, there's always a waiting elevator, and a taxi is always around the corner. The target can run at full speed through dense crowds, and attacks of opportunity provoked by the target's movement are made with disadvantage." + "\n   " + "Synchronicity grants advantage to Dexterity (Stealth) checks, since the target always finds a handy piece of cover available. Additionally, the target has advantage on all ability checks made to drive a vehicle." + "\n   " + "In the event that two or more creatures under the effect of synchronicity are attempting to avoid being inconvenienced by each other, the creatures engage in a contest of Charisma each time the effects of the spells would oppose each other."
 };
-SpellsList["system backdoor-ua"] = {
+SpellsList["system backdoor-ua"] = { // Still valid 2021-09-21
 	name : "System Backdoor",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["UA:MM", 8],
+	source : [["UA:MM", 8]],
 	level : 4,
 	school : "Trans",
 	time : "1 min",
@@ -1420,10 +1420,10 @@ SourceList["UA:PCRM"] = {
 };
 
 // Adds a prestige class, called "Rune Scribe" (includes contributions by K.12)
-ClassList["rune scribe"] = {
+ClassList["rune scribe"] = { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*rune)(?=.*scribe).*$/i,
 	name : "Rune Scribe",
-	source : ["UA:PCRM", 2],
+	source : [["UA:PCRM", 2]],
 	primaryAbility : "Dexterity and Intelligence",
 	prereqs : "\n   - Dexterity 13 and Intelligence 13;\n   - Proficiency in the Arcana skill\n   - Complete a special task: You must find a rune and present it to an NPC rune scribe who accepts it in return for tutoring you in the ways of rune magic",
 	die : 8,
@@ -1552,7 +1552,7 @@ ClassList["rune scribe"] = {
 					"- Freezing Bolt (complex): As an action, I expend spell slot and touch a creature",
 					"   It takes 2d8+1d8/SL cold damage and its speed is 0 until the end of my next turn",
 					"   If it succeeds on a DC 12+SL Con save, it takes only half damage and has normal speed",
-					"- Ice Brand (complex):  During a short rest, I can augment a weapon, or 20 ammo pieces",
+					"- Ice Brand (complex): During a short rest, I can augment a weapon, or 20 ammo pieces",
 					"   The weapon or ammo deals cold damage; It lasts for 24 hours or until I use this again",
 					"   I can expend a spell slot to also give the weapon a magic bonus of slot level dived by 3",
 					"- Winter's Howl (complex): I can cast Sleet Storm as an action once per short rest"
@@ -1622,9 +1622,9 @@ SourceList["UA:LDU"] = {
 };
 
 // New Fighting Styles
-AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", {
+AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", { // Still valid 2021-09-21
 	name : "Close Quarters Shooting Fighting Style",
-	source : ["UA:LDU", 1],
+	source : [["UA:LDU", 1]],
 	description : "\n   " + "+1 bonus to attack rolls I make with ranged attacks" + "\n   " + "I don't have disadvantage when making a ranged attack while within 5 ft of a hostile" + "\n   " + "My ranged attacks ignore half and three-quarters cover against targets within 30 ft",
 	calcChanges : {
 		atkCalc : [
@@ -1635,9 +1635,9 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", {
 		]
 	}
 });
-AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", {
+AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", { // Still valid 2021-09-21
 	name : "Tunnel Fighting Style",
-	source : ["UA:LDU", 1],
+	source : [["UA:LDU", 1]],
 	description : "\n   " + "As a bonus action, I enter a defensive stance that lasts until the start of my next turn" + "\n   " + "While I'm in this defensive stance I gain the following two benefits:" + "\n    - " + "I can make opportunity attacks without using my reaction" + "\n    - " + "I can make a melee attack as a reaction if a hostile moves >5 ft while in my reach",
 	action : ["bonus action", ""]
 });
@@ -1902,10 +1902,10 @@ var UATOBM_addAbyssalTiefling = function(){
 	
 	This code was contributed by David
 */
-SpellsList["conjure lesser demon-ua"] = {
+SpellsList["conjure lesser demon-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Lesser Demon",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 2],
+	source : [["UA:TOBM", 2]],
 	level : 3,
 	school : "Conj",
 	time : "1 a",
@@ -1916,10 +1916,10 @@ SpellsList["conjure lesser demon-ua"] = {
 	description : "Summon 8 (16 at SL6, 32 at SL8) manes/dretches that are hostile to all non-demons, attacking nearest",
 	descriptionFull : "You summon up to a total of eight manes or dretches that appear in unoccupied spaces you can see within range. A manes or dretch disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The demons are hostile to all creatures. Roll initiative for the summoned demons as a group, which has its own turns. The demons attack the nearest non-demons to the best of their ability." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground with the blood used as a material component. The circle is large enough to encompass your space. The summoned demons cannot cross the circle or target anyone in it while the spell lasts. Using the material component in this manner consumes it." + AtHigherLevels + "When you cast this spell using a spell slot of 6th or 7th level, you summon sixteen demons. If you cast it using a spell slot of 8th or 9th level, you summon thirty-two demons."
 };
-SpellsList["conjure barlgura-ua"] = {
+SpellsList["conjure barlgura-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Barlgura",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 2],
+	source : [["UA:TOBM", 2]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -1929,10 +1929,10 @@ SpellsList["conjure barlgura-ua"] = {
 	description : "Summon a barlgura that is hostile to all non-demons, attacking the nearest",
 	descriptionFull : "You summon a barlgura that appears in an unoccupied space you can see within range. The barlgura disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The barlgura is hostile to all non-demons. Roll initiative for the barlgura, which has its own turns. At the start of its turn, it moves toward and attacks the nearest non-demon it can perceive. If two or more creatures are equally near, it picks one at random. If it cannot see any potential enemies, the barlgura moves in a random direction in search of foes." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned barlgura cannot cross the circle or target anyone in it while the spell lasts."
 };
-SpellsList["conjure hezrou-ua"] = {
+SpellsList["conjure hezrou-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Hezrou",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 2],
+	source : [["UA:TOBM", 2]],
 	level : 7,
 	school : "Conj",
 	time : "1 a",
@@ -1943,10 +1943,10 @@ SpellsList["conjure hezrou-ua"] = {
 	description : "Summon a hezrou that I might control as long as there is food; At half HP it leaves, see B (100gp cons.)",
 	descriptionFull : "You summon a hezrou that appears in an unoccupied space you can see within range. The hezrou disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The hezrou's attitude depends on the value of the food used as a material component for this spell. Roll initiative for the hezrou, which has its own turns. At the start of the hezrou's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the food's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the hezrou and have it obey you as long as you succeed on the Charisma check." + "\n   " + "If the check fails, the spell no longer requires concentration and the demon is no longer under your control. The hezrou then focuses on devouring any corpses it can see. If there are no such meals at hand, it attacks the nearest creatures and eats anything it kills. If its hit points are reduced to below half its hit point maximum, it returns to the Abyss." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned hezrou cannot cross the circle or target anyone in it while the spell lasts."
 };
-SpellsList["conjure shadow demon-ua"] = {
+SpellsList["conjure shadow demon-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Shadow Demon",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 3],
+	source : [["UA:TOBM", 3]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -1957,10 +1957,10 @@ SpellsList["conjure shadow demon-ua"] = {
 	description : "Summon a shadow demon that I control while not in bright light, can attack, and within 100 ft, see B",
 	descriptionFull : "You summon a shadow demon that appears in an unoccupied space you can see within range. The shadow demon disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "Roll initiative for the shadow demon, which has its own turns. You can issue orders to the shadow demon, and it obeys you as long as it can attack a creature on each of its turns and does not start its turn in an area of bright light. If either of these conditions is not met, the shadow demon immediately makes a Charisma check contested by your Charisma check. If you fail the check, the spell no longer requires concentration and the demon is no longer under your control. The demon automatically succeeds on the check if it is more than 100 feet away from you." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned shadow demon cannot cross the circle or target anyone in it while the spell lasts."
 };
-SpellsList["conjure vrock-ua"] = {
+SpellsList["conjure vrock-ua"] = { // Still valid 2021-09-21
 	name : "Conjure Vrock",
 	classes : ["sorcerer", "wizard"],
-	source : ["UA:TOBM", 3],
+	source : [["UA:TOBM", 3]],
 	level : 5,
 	school : "Conj",
 	time : "1 a",
@@ -2021,10 +2021,10 @@ AddSubClass("bard", "college of swords-ua", {
 		}
 	}
 });
-AddSubClass("bard", "college of satire-ua", {
+AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*satire).*$/i,
 	subname : "College of Satire",
-	source : ["UA:KoO", 2],
+	source : [["UA:KoO", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
@@ -2139,10 +2139,10 @@ AddSubClass("fighter", "cavalier-ua", {
 		}
 	}
 });
-AddSubClass("fighter", "scout-ua", {
+AddSubClass("fighter", "scout-ua", { // Still valid 2021-09-21
 	regExpSearch : /scout/i,
 	subname : "Scout",
-	source : ["UA:KoO", 4],
+	source : [["UA:KoO", 4]],
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
@@ -2213,11 +2213,12 @@ SourceList["UA:GH"] = {
 };
 
 // Adds 8 new races, the Revenant versions of the Aasimar, Dragonborn, Dwarf, Elf, Gnome, Halfling, Human, and Tiefling
+// All revenants are still valid 2021-09-21
 RaceList["aasimar revenant-ua"] = { // Based on the VGtM Aasimar, made with /u/RebelMage's help
 	regExpSearch : /^(?=.*revenant)((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel)))).*$/i,
 	name : "Aasimar Revenant",
 	sortname : "Revenant, Aasimar",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Aasimar",
 	size : 3,
 	speed : {
@@ -2255,7 +2256,7 @@ RaceList["dwarf revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b).*$/i,
 	name : "Dwarf Revenant",
 	sortname : "Revenant, Dwarf",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Dwarves",
 	size : 3,
 	speed : {
@@ -2279,7 +2280,7 @@ RaceList["elf revenant-ua"] = {
 	regExpSearch : /^(?!.*half)(?=.*revenant)(?=.*\b(elfs?|elves|elvish|elven)\b).*$/i,
 	name : "Elf Revenant",
 	sortname : "Revenant, Elf",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Elves",
 	size : 3,
 	speed : {
@@ -2304,7 +2305,7 @@ RaceList["halfling revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\b(halflings?|hobbits?)\b).*$/i,
 	name : "Halfling Revenant",
 	sortname : "Revenant, Halfling",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Halflings",
 	size : 4,
 	speed : {
@@ -2324,7 +2325,7 @@ RaceList["gnome revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)(?=.*\bgnomes?\b).*$/i,
 	name : "Gnome Revenant",
 	sortname : "Revenant, Gnome",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Gnomes",
 	size : 4,
 	speed : {
@@ -2345,7 +2346,7 @@ RaceList["dragonborn revenant-ua"] = {
 	regExpSearch : /^(?=.*dragonborn)(?=.*revenant).*$/i,
 	name : "Dragonborn Revenant",
 	sortname : "Revenant, Dragonborn",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Dragonborn",
 	size : 3,
 	speed : {
@@ -2402,7 +2403,7 @@ RaceList["human revenant-ua"] = {
 	regExpSearch : /^(?=.*human)(?=.*revenant).*$/i,
 	name : "Human Revenant",
 	sortname : "Revenant, Human",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Humans",
 	size : 3,
 	speed : {
@@ -2422,7 +2423,7 @@ RaceList["tiefling revenant-ua"] = {
 	regExpSearch : /^(?=.*revenant)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
 	name : "Tiefling Revenant",
 	sortname : "Revenant, Tiefling",
-	source : ["UA:GH", 1],
+	source : [["UA:GH", 1]],
 	plural : "Tieflings",
 	size : 3,
 	speed : {
@@ -2440,10 +2441,10 @@ RaceList["tiefling revenant-ua"] = {
 };
 
 // Adds 2 subclasses, 1 for the Fighter and 1 for the rogue
-AddSubClass("fighter", "monster hunter-ua", {
+AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*monster)(?=.*hunter).*$/i,
 	subname : "Monster Hunter",
-	source : ["UA:GH", 2],
+	source : [["UA:GH", 2]],
 	fullname : "Monster Hunter",
 	features : {
 		"subclassfeature3" : {
@@ -2588,7 +2589,7 @@ SourceList["UA:F"] = {
 // This doesn't add the "Warhammer Master" feat, as that is only in the article to illustrate how not to design a feat
 FeatsList["fell handed-ua"] = {
 	name : "Fell Handed",
-	source : ["UA:F", 2],
+	source : [["UA:F", 2], ["UA", 0]],
 	descriptionFull : "You master the handaxe, battleaxe, greataxe, warhammer, and maul. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 Whenever you have advantage on a melee attack roll you make with the weapon and hit, you can knock the target prone if the lower of the two d20 rolls would also hit the target.\n \u2022 Whenever you have disadvantage on a melee attack roll you make with the weapon, the target takes bludgeoning damage equal to your Strength modifier (minimum of 0) if the attack misses but the higher of the two d20 rolls would have hit.\n \u2022 If you use the Help action to aid an ally's melee attack while you're wielding the weapon, you knock the target's shield aside momentarily. In addition to the ally gaining advantage on the attack roll, the ally gains a +2 bonus to the roll if the target is using a shield.",
 	description : "With a handaxe, battleaxe, greataxe, warhammer, or maul, I get +1 to hit, knock prone if I have adv. and hit with both rolls, with disadv. still do Str mod in bludg. damage if I miss but the other die would've hit, can use Help to give ally +2 to hit vs. enemy with a shield.",
 	calcChanges : {
@@ -2608,7 +2609,7 @@ FeatsList["fell handed-ua"] = {
 };
 FeatsList["blade mastery-ua"] = {
 	name : "Blade Mastery",
-	source : ["UA:F", 2],
+	source : [["UA:F", 2], ["UA", 0]],
 	descriptionFull : "You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn or until you're not holding the weapon.\n \u2022 When you make an opportunity attack with the weapon, you have advantage on the attack roll.",
 	description : "With a shortsword, longsword, greatsword, scimitar, or rapier, I get +1 to hit, advantage on opportunity attacks, and with the weapon in hand I can use my reaction to assume a parrying stance that gives me +1 AC until the start of my next turn.",
 	calcChanges : {
@@ -2629,7 +2630,7 @@ FeatsList["blade mastery-ua"] = {
 };
 FeatsList["flail mastery-ua"] = {
 	name : "Flail Mastery",
-	source : ["UA:F", 3],
+	source : [["UA:F", 3], ["UA", 0]],
 	descriptionFull : "The flail is a tricky weapon to use, but you have spent countless hours mastering it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a flail.\n \u2022 As a bonus action on your turn, you can prepare yourself to extend your flail to sweep over targets' shields. Until the end of this turn, your attack rolls with a flail gain a +2 bonus against any target using a shield.\n \u2022 When you hit with an opportunity attack using a flail, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked prone.",
 	calculate : "event.value = 'With a flail, I get +1 to hit, and enemies hit by an opportunity attack with it have to make a Str save DC ' + (8 + Number(What('Proficiency Bonus')) + What('Str Mod')) + ' (8 + Prof. bonus + Str mod) or be knocked prone. As a bonus action, I can get +2 to hit with my flail vs. targets with shields until the end of my turn.';",
 	calcChanges : {
@@ -2650,7 +2651,7 @@ FeatsList["flail mastery-ua"] = {
 };
 FeatsList["spear mastery-ua"] = {
 	name : "Spear Mastery",
-	source : ["UA:F", 3],
+	source : [["UA:F", 3], ["UA", 0]],
 	descriptionFull : "Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a spear.\n \u2022 When you use a spear, its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands. (This benefit has no effect if another feature has already improved the weapon's die.)\n \u2022 You can set your spear to receive a charge. As a bonus action, choose a creature you can see that is at least 20 feet away from you. If that creature moves within your spear's reach on its next turn, you can make a melee attack against it with your spear as a reaction. If the attack hits, the target takes an extra 1d8 piercing damage, or an extra 1d10 piercing damage if you wield the spear with two hands. You can't use this ability if the creature used the Disengage action before moving.\n \u2022 As a bonus action on your turn, you can increase your reach with a spear by 5 feet for the rest of your turn.",
 	description : "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the spear's reach by 5 ft.",
 	calcChanges : {
@@ -2661,7 +2662,8 @@ FeatsList["spear mastery-ua"] = {
 					fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10)');
 				};
 			},
-			"With a spear, I get the following benefits:\n \u2022 +1 to hit;\n \u2022 The spear damage die increases to d8 (versatile d10)."
+			"With a spear, I get the following benefits:\n \u2022 +1 to hit;\n \u2022 The spear damage die increases to d8 (versatile d10).",
+			1
 		],
 		atkCalc : [
 			function (fields, v, output) {
@@ -2672,7 +2674,7 @@ FeatsList["spear mastery-ua"] = {
 };
 FeatsList["alchemist-ua"] = {
 	name : "Alchemist",
-	source : ["UA:F", 4],
+	source : [["UA:F", 4], ["UA", 0]],
 	descriptionFull : "You have studied the secrets of alchemy and are an expert in its practice, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency with alchemist's supplies. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can identify one potion within 5 feet of you, as if you had tasted it. You must see the liquid for this benefit to work.\n \u2022 Over the course of any short rest, you can temporarily improve the potency of one potion of healing of any rarity. To use this benefit, you must have alchemist's supplies with you, and the potion must be within reach. If the potion is drunk no more than 1 hour after the short rest ends, the creature drinking the potion can forgo the potion's die roll and regains the maximum number of hit points that the potion can restore.",
 	description : "I gain proficiency with alchemist's supplies, or expertise if already proficient. As an action, I can identify a potion within 5 ft. During a rest with alchemist's supplies, I can enhance a potion of healing, to heal its max. Consuming it within 1 hour maximizes its effects [+1 Int]",
 	scores : [0, 0, 0, 1, 0, 0],
@@ -2691,7 +2693,7 @@ FeatsList["alchemist-ua"] = {
 };
 FeatsList["burglar-ua"] = {
 	name : "Burglar",
-	source : ["UA:F", 4],
+	source : [["UA:F", 4], ["UA", 0]],
 	descriptionFull : "You pride yourself on your quickness and your close study of certain clandestine activities. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with thieves' tools. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
 	description : "I gain proficiency with thieves' tools, or expertise with them if I'm already proficient. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
@@ -2728,7 +2730,7 @@ FeatsList["gourmand-ua"] = {
 };
 FeatsList["master of disguise-ua"] = {
 	name : "Master of Disguise",
-	source : ["UA:F", 4],
+	source : [["UA:F", 4], ["UA", 0]],
 	descriptionFull : "You have honed your ability to shape your personality and to read the personalities of others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency with the disguise kit. If you are already proficient with it, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 hour observing a creature, you can then spend 8 hours crafting a disguise you can quickly don to mimic that creature. Making the disguise requires a disguise kit. You must make checks as normal to disguise yourself, but you can assume the disguise as an action.",
 	description : "I gain proficiency with the disguise kit, or expertise with it if I'm already proficient. After observing a creature for 1 hour, I can craft a disguise to mimic it in 8 hours with a disguise kit. Once finished, I can don this disguise as an action. [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1],
@@ -2759,10 +2761,10 @@ SourceList["UA:TF"] = {
 };
 
 // Adds 2 subclasses, 1 for the Warlock and 1 for the Wizard
-AddSubClass("warlock", "the seeker-ua", {
+AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*warlock)(?=.*seeker).*$/i,
 	subname : "the Seeker",
-	source : ["UA:TF", 1],
+	source : [["UA:TF", 1]],
 	spellcastingExtra : ["feather fall", "jump", "levitate", "locate object", "clairvoyance", "sending", "arcane eye", "locate creature", "legend lore", "passwall"],
 	features : {
 		"subclassfeature1" : {
@@ -2828,7 +2830,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	}
 });
 RunFunctionAtEnd(function() {
-	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", {
+	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", { // Still valid 2021-09-21
 		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
 		subname : "Theurgy",
 		source : [["UA:TF", 1], ["UA:WR", 1]],
@@ -2845,7 +2847,7 @@ RunFunctionAtEnd(function() {
 							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
 							var domainSpells = CurrentSpells.wizard.extra;
 							// now stop this function if even one of the domain spells is not already in the spellbook
-							var knownSpells = CurrentSpells.wizard.selectSp;
+							var knownSpells = [].concat(CurrentSpells.wizard.selectSp ? CurrentSpells.wizard.selectSp : []).concat(CurrentSpells.wizard.selectSpSB ? CurrentSpells.wizard.selectSpSB : []);
 							for (var i = 0; i < domainSpells.length; i++) {
 								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
 							}
@@ -3371,18 +3373,20 @@ AddSubClass("rangerua", "deep stalker-ua", {
 	}
 });
 
-// By popular demand, the XGtE ranger subclasses, if they exist, are added as an option to the Revised Ranger
+// By popular demand, the XGtE, TCoE, FToD ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!
-var UARR_AddXGtErangerSubclassesToRevisedRanger = function() {
-	if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") return;
-	var theXGtErangerSubs = ["ranger-gloom stalker", "ranger-horizon walker", "ranger-monster slayer"];
-	for (var i = 0; i < theXGtErangerSubs.length; i++) {
-		var aSub = theXGtErangerSubs[i];
-		if (ClassSubList[aSub]) {
-			ClassSubList[aSub].attacks = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
-			ClassList.rangerua.subclasses[1].push(aSub);
-		};
-	};
+var UARR_AddRangerSubclassesToRevisedRanger = function() {
+	var aSources = ["X", "T", "FToD"];
+	var aRngrSubs = ClassList.ranger.subclasses[1];
+	for (var i = 0; i < aRngrSubs.length; i++) {
+		var sSub = aRngrSubs[i];
+		var oSub = ClassSubList[sSub];
+		if (!oSub || !oSub.source || ClassList.rangerua.subclasses[1].indexOf(sSub) !== -1) continue;
+		var sSubSrc = isArray(oSub.source[0]) ? oSub.source[0][0] : oSub.source[0];
+		if (aSources.indexOf(sSubSrc) === -1) continue;
+		if (!oSub.attacks) oSub.attacks = ClassList["rangerua"].attacks;
+		ClassList.rangerua.subclasses[1].push(sSub);
+	}
 }();
 
 // ua_20161107_Barbarian-Primal-Paths.js
@@ -3881,10 +3885,10 @@ AddSubClass("cleric", "grave domain-ua", {
 		}
 	}
 });
-AddSubClass("cleric", "protection domain-ua", {
+AddSubClass("cleric", "protection domain-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(protection|protect|defend|defense)).*$/i,
 	subname : "Protection Domain",
-	source : ["UA:CDD", 3],
+	source : [["UA:CDD", 3]],
 	spellcastingExtra : ["compelled duel", "protection from evil and good", "aid", "protection from poison", "protection from energy", "slow", "guardian of faith", "otiluke's resilient sphere", "antilife shell", "wall of force"],
 	features : {
 		"subclassfeature1" : {
@@ -4123,16 +4127,16 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 		}
 	}
 });
-AddSubClass("druid", "circle of twilight-ua", {
+AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*twilight).*$/i,
 	subname : "Circle of Twilight",
-	source : ["UA:DC", 2],
+	source : [["UA:DC", 2]],
 	features : {
 		"subclassfeature2" : {
 			name : "Harvest's Scythe",
 			source : ["UA:DC", 3],
 			minlevel : 2,
-			description : "\n   " + "I have a pool of energy represented by a number of d10s equal to my druid level" + "\n   " + "When I roll damage for a spell, I can do extra necrotic damage with dice from the pool" + "\n   " + "I can spend up to half my druid level worth of dice from the pool at once" + "\n   " + "If I any hostiles die from an augmented spell, I can heal one ally I can see within 30 ft" + "\n   " + "The ally regains 2 HP per die spent; or 5 HP per die if one of the slain was undead  ",
+			description : "\n   " + "I have a pool of energy represented by a number of d10s equal to my druid level" + "\n   " + "When I roll damage for a spell, I can do extra necrotic damage with dice from the pool" + "\n   " + "I can spend up to half my druid level worth of dice from the pool at once" + "\n   " + "If I any hostiles die from an augmented spell, I can heal one ally I can see within 30 ft" + "\n   " + "The ally regains 2 HP per die spent; or 5 HP per die if one of the slain was undead",
 			usages : ["", "2d10 per ", "3d10 per ", "4d10 per ", "5d10 per ", "6d10 per ", "7d10 per ", "8d10 per ", "9d10 per ", "10d10 per ", "11d10 per ", "12d10 per ", "13d10 per ", "14d10 per ", "15d10 per ", "16d10 per ", "17d10 per ", "18d10 per ", "19d10 per ", "20d10 per "],
 			recovery : "long rest"
 		},
@@ -4304,10 +4308,10 @@ AddSubClass("fighter", "arcane archer-ua", {
 		}
 	}
 });
-AddSubClass("fighter", "knight-ua", {
+AddSubClass("fighter", "knight-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?!.*(exalted|sacred|holy|divine|nature|natural|purple.*dragon|green|fey|horned))(?=.*knight).*$/i,
 	subname : "Knight",
-	source : ["UA:FMA", 2],
+	source : [["UA:FMA", 2]],
 	fullname : "Knight",
 	features : {
 		"subclassfeature3" : {
@@ -4452,10 +4456,10 @@ AddSubClass("fighter", "samurai-ua", {
 		}
 	}
 });
-AddSubClass("fighter", "sharpshooter-ua", {
+AddSubClass("fighter", "sharpshooter-ua", { // Still valid 2021-09-21
 	regExpSearch : /sharpshooter/i,
 	subname : "Sharpshooter",
-	source : ["UA:FMA", 3],
+	source : [["UA:FMA", 3]],
 	fullname : "Sharpshooter",
 	features : {
 		"subclassfeature3" : {
@@ -4620,10 +4624,10 @@ AddSubClass("monk", "way of the kensei-ua", {
 		}
 	}
 });
-AddSubClass("monk", "way of tranquility-ua", {
+AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*tranquility|tranquil|calm|diplomatic|diplomat)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Tranquility",
-	source : ["UA:MMT", 2],
+	source : [["UA:MMT", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Path of Tranquility",
@@ -4743,10 +4747,10 @@ AddSubClass("paladin", "oath of conquest-ua", {
 		}
 	}
 });
-AddSubClass("paladin", "oath of treachery-ua", {
+AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Treachery",
-	source : ["UA:PSO", 2],
+	source : [["UA:PSO", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conjure Duplicate",
@@ -4913,10 +4917,10 @@ var UARnR_theHorizonWalkerSubclass = {
 	}
 };
 AddSubClass("ranger", "horizon walker-ua", UARnR_theHorizonWalkerSubclass);
-var UARnR_thePrimevalGuardianSubclass = {
+var UARnR_thePrimevalGuardianSubclass = { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*primeval)(?=.*guardian).*$/i,
 	subname : "Primeval Guardian",
-	source : ["UA:RnR", 2],
+	source : [["UA:RnR", 2]],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
@@ -5131,10 +5135,10 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad, as well as Toby L.
-AddSubClass("sorcerer", "phoenix sorcery-ua", {
+AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*phoenix)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Phoenix Sorcery",
-	source : ["UA:SO", 1],
+	source : [["UA:SO", 1]],
 	fullname : "Phoenix Sorcerer",
 	features : {
 		"subclassfeature1" : {
@@ -5201,10 +5205,10 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad
-AddSubClass("sorcerer", "sea sorcery-ua", {
+AddSubClass("sorcerer", "sea sorcery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*sea)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Sea Sorcery",
-	source : ["UA:SO", 2],
+	source : [["UA:SO", 2]],
 	fullname : "Sea Sorcerer",
 	features : {
 		"subclassfeature1" : {
@@ -5273,10 +5277,10 @@ AddSubClass("sorcerer", "sea sorcery-ua", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad
-AddSubClass("sorcerer", "stone sorcery-ua", {
+AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*stone)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Stone Sorcery",
-	source : ["UA:SO", 3],
+	source : [["UA:SO", 3]],
 	fullname : "Stone Sorcerer",
 	spellcastingExtra : ["compelled duel", "searing smite", "thunderous smite", "wrathful smite", "branding smite", "magic weapon", "blinding smite", "elemental weapon", "staggering smite"],
 	features : {
@@ -5423,7 +5427,8 @@ AddSubClass("warlock", "the hexblade-ua", {
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						};
 					},
-					"If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."
+					"If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description.",
+					19
 				],
 				atkCalc : [
 					function (fields, v, output) {
@@ -5461,10 +5466,10 @@ AddSubClass("warlock", "the hexblade-ua", {
 	}
 });
 //this code includes contributions by Ben Y. and Wizzard
-AddSubClass("warlock", "the raven queen-ua", {
+AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*\braven)(?=.*queen\b).*$/i,
 	subname : "the Raven Queen",
-	source : ["UA:WnW", 2],
+	source : [["UA:WnW", 2]],
 	spellcastingExtra : ["false life", "sanctuary", "silence", "spiritual weapon", "feign death", "speak with dead", "ice storm", "locate creature", "commune", "cone of cold"],
 	features : {
 		"subclassfeature1" : {
@@ -5565,10 +5570,10 @@ AddSubClass("warlock", "the raven queen-ua", {
 	}
 });
 //this code includes contributions by /u/magicmanfk
-AddSubClass("wizard", "lore mastery-ua", {
+AddSubClass("wizard", "lore mastery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*\blore)(?=.*mastery?\b).*$/i,
 	subname : "Lore Mastery",
-	source : ["UA:WnW", 5],
+	source : [["UA:WnW", 5]],
 	fullname : "Lore Master",
 	features : {
 		"subclassfeature2" : {
@@ -5637,6 +5642,7 @@ AddSubClass("wizard", "lore mastery-ua", {
 });
 
 // Add many new Warlock invocations
+// Most probably still valid 2021-09-21, have to check
 AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",
@@ -6237,7 +6243,7 @@ AddSubClass("mystic", "avatar-ua", {
 								spellObj.description = spellObj.description.replace("healed for ", "healed for " + What("Int Mod") + "+");
 								return true;
 							case "pr2-restore health" :
-								spellObj.description = spellObj.description.replace("1 HP", (1 +  What("Int Mod")) + " HP");
+								spellObj.description = spellObj.description.replace("1 HP", (1 + What("Int Mod")) + " HP");
 								return true;
 						}
 					},
@@ -11312,18 +11318,8 @@ AddSubClass("monk", "way of the kensei2-ua", {
 				atkAdd : [
 					function (fields, v) {
 						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponTextName) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
-							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
-							try {
-								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
-							} catch (e) {
-								var curDie = 'x';
-							};
-							if (isNaN(curDie) || curDie < aMonkDie) {
-								fields.Damage_Die = '1d' + aMonkDie;
-							};
-							if (theWea.ability === 1) {
-								fields.Mod = v.StrDex;
-							};
+							v.theWea.monkweapon = true;
+							v.theWea.kenseiweapon = true;
 							if (v.isRangedWeapon) {
 								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
 							};
@@ -11342,7 +11338,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponTextName) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
+						if (!v.isSpell && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description) && (v.baseWeaponName === "unarmed strike" || v.theWea.kenseiweapon)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},
@@ -11827,6 +11823,7 @@ AddSubClass("warlock", "the celestial-ua", {
 });
 
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
+// Most probably still valid 2021-09-21, have to check
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Eldritch Smite",
 	description : desc([
@@ -11839,13 +11836,13 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
-AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", {
+AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name : "Frost Lance",
 	description : desc([
 		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
@@ -12575,7 +12572,6 @@ AddSubClass("wizard", "school of invention-ua", {
 			]),
 			toNotesPage : [{
 				name : "Reckless Casting Tables",
-				popupName : "School of Invention's Reckless Casting Tables",
 				note : "\nd10\tCantrip\t\td10\tCantrip" + desc([
 					" 1\tAcid Splash\t\t    6\tRay of Frost",
 					" 2\tChill Touch\t\t    7\tShocking Grasp",
@@ -13544,7 +13540,6 @@ MagicItemsList["docent-ua"] = {
 	action : [["bonus action", ""]],
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Docent",
 		note : desc(UAMIoE_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
@@ -14825,7 +14820,6 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			toNotesPage : [{
 				name : "Wild Surge Table",
 				source : ["UA:BnM", 1],
-				popupName : "Wild Soul's Wild Surge Table",
 				note : [
 					"Magic erupts from me while I rage. Whenever I enter my rage, I have to roll on the table below to see what happens.",
 					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",
@@ -16385,7 +16379,8 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting (ua)", {
 					fields.Description += (fields.Description ? '; ' : '') + 'Versatile (d8)';
 				};
 			},
-			"My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I have both hands free to make an unarmed strike with."
+			"My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I have both hands free to make an unarmed strike with.",
+			2
 		]
 	}
 });
@@ -16480,7 +16475,8 @@ RunFunctionAtEnd(function () {
 						}
 					};
 				},
-				"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any 'Monk Weapons', which include unarmed strike and 5 + my Wisdom modifier of simple or martial weapons of my choice that I'm proficient with and that don't have the two-handed, heavy, or special property.\n   I can select these weapon using the \"Choose Feature\" button on the 2nd page, or have them count as such by including the words \"Monk Weapon\" in the name of the weapon."
+				"I can use either Strength or Dexterity and my Martial Arts damage die in place of the normal damage die for any 'Monk Weapons', which include unarmed strike and 5 + my Wisdom modifier of simple or martial weapons of my choice that I'm proficient with and that don't have the two-handed, heavy, or special property.\n   I can select these weapon using the \"Choose Feature\" button on the 2nd page, or have them count as such by including the words \"Monk Weapon\" in the name of the weapon.",
+				1
 			]
 		}
 	};
@@ -18533,8 +18529,8 @@ RunFunctionAtEnd(function () {
 					"The infiltrator gets an upgrade to its lightning launcher weapon attack"
 				]),
 				toNotesPage : [{
-					popupName : "Perfected Armor: Model Features",
 					name : "Guardian Perfected Armor Features",
+					popupName : "Perfected Armor: Model Features",
 					note : desc([
 						"Tinkering with my armor's energy system leads me to discover a powerful pulling force.",
 						"As a reaction when a creature I can see ends its turn within 30 ft of me, I can force the creature to succeed on a Strength saving throw against my spell save DC or be pulled up to 30 ft toward me to an unoccupied space. If I pull the target to space within 5 ft of me, I can make a melee weapon attack against it as part of this reaction.",
@@ -18555,7 +18551,7 @@ RunFunctionAtEnd(function () {
 				},
 				"infiltrator" : {
 					name : "Perfected Armor: Infiltrator",
-					description :  desc([
+					description : desc([
 						"Those hit by my lightning launcher shed 5-ft radius dim light until my next turn starts",
 						"Also, the next attack roll made by another than me vs. the target has advantage",
 						"If that attack hits, it deals an extra 1d6 lightning damage"
@@ -19080,21 +19076,20 @@ AddSubClass("wizard","order of scribes-ua", {
 			toNotesPage : [{
 				name : "Manifest Mind",
 				source : [["UA:SR", 5]],
-				popupName : "Manifest Mind",
 				page3notes : false,
 				note : desc (["As a bonus action with my Awakened Spellbook on my person, I can cause the mind to",
 				"manifest as a Tiny spectral construct, hovering in an unoccupied space of my choice within",
 				"60 ft. It is intangible and doesn't occupy its space, and it sheds dim light in a 10 ft radius.",
 				"It looks like a ghostly tome, a cascade of text, or a scholar from the past \(my choice.\).",
 				"\(See Companion Page for statistics for this construct.\)",
-				"While manifested, it can hear and see and has darkvision with a range of 60 ft.  As an",
+				"While manifested, it can hear and see and has darkvision with a range of 60 ft. As an",
 				"action, I can hear and see using its senses instead of my own, until my concentration",
 				"ends \(as if concentrating on a spell\).",
 				"Whenever I cast a wizard spell on my turn, I can cast it as if I were in the spectral mind's",
-				"space, using its senses.  I can do this a number of times per day equal to my proficiency",
+				"space, using its senses. I can do this a number of times per day equal to my proficiency",
 				"bonus, and I regain all uses when I finish a long rest.",
 				"As a bonus action, I can cause it to hover up to 30 ft to an unoccupied space that I or it",
-				"can see. It can pass through creatures but not objects.  It stops manifesting if it is ever",
+				"can see. It can pass through creatures but not objects. It stops manifesting if it is ever",
 				"more than 300 ft away from me, if it drops to 0 hit points, if I die, or if I dismiss it as",
 				"a bonus action."
 				])
@@ -19125,7 +19120,7 @@ AddSubClass("wizard","order of scribes-ua", {
 				"life after 1 minute within 5 ft of the book. I revive with 1 hit point. I then roll",
 				"3d6 and the spellbook loses spells of my choice that have a combined spell level",
 				"equal to that roll or higher. I am incapable of casting the lost spells, even if I",
-				"find them on a scroll or in another spellbook.  I can only restore my ability to cast",
+				"find them on a scroll or in another spellbook. I can only restore my ability to cast",
 				"one of these spells with the wish spell, which will restore one spell per casting."
 			]),
 			action : ["action","Swap places with spellbook"],
@@ -19169,7 +19164,7 @@ FeatsList["shadow touched-ua"] = {
 	name: "Shadow Touched",
 	source: [["UA:F2", 3]],
 	descriptionFull : "You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 You learn the darkness spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
-	description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
+	description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 	spellcastingBonus : [{
 		name : "Darkness",
 		spells : ["darkness"],
@@ -19185,18 +19180,18 @@ FeatsList["shadow touched-ua"] = {
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	choices: ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence": {
-		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
+	"intelligence" : {
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
 		scores : [0, 0, 0, 1, 0, 0]
 	},
-	"wisdom": {
-		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
+	"wisdom" : {
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility : 5,
 		scores : [0, 0, 0, 0, 1, 0]
 	},
-	"charisma": {
-		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per lost rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
+	"charisma" : {
+		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility : 6,
 		scores : [0, 0, 0, 0, 0, 1]
 	}
@@ -19220,7 +19215,7 @@ FeatsList["tracker-ua"] = {
 	name : "Tracker",
 	source : [["UA:F2", 3]],
 	descriptionFull : "You have spent time hunting creatures and honed your skills, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You learn the hunter's mark spell. You can cast it once without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have. Wisdom is your spellcasting ability for this spell.\n \u2022 You have advantage on Wisdom (Survival) checks to track creatures.",
-	description : "I can cast Hunter's Mark once per lost rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
+	description : "I can cast Hunter's Mark once per long rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	spellcastingBonus : {
 		name : "1\xD7/LR \u0026 spell slot",
@@ -19291,7 +19286,6 @@ AddSubClass("bard", "college of spirits-ua",{
             action : [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
             toNotesPage : [{
                 name : "Spirits' Tales Table",
-                popupName: "College of Spirits - Spirits' Tales table",
                 note : desc([
 					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
 					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",
@@ -19482,6 +19476,357 @@ AddSubClass("warlock", "the undead-ua",{
 	}
 });
 
+// ua_20201026_Subclasses-Part-5.js
+// This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 5 article to MPMB's Character Record Sheet
+// This file contains contributions by WondrousLittleWizard
+
+// Define the source
+SourceList["UA:SP5"] = {
+	name : "Unearthed Arcana: Subclasses, Part 5",
+	abbreviation : "UA:SP5",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2020/dnd/downloads/UA2020_102620_Subclasses05.pdf",
+	date : "2020/10/26"
+};
+
+AddSubClass("monk", "ascendant dragon", {
+	regExpSearch : /^(?=.*ascendant)(?=.*(dragon|draconic))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
+	subname : "Way of the Ascendant Dragon",
+	source : [["UA:SP5", 1]],
+	features : {
+		"subclassfeature3" : {
+			name : "Draconic Disciple",
+			source : [["UA:SP5", 1]],
+			minlevel : 3,
+			description : desc([
+				"I learn to speak, read, and write Draconic",
+				"I can change the damage type of my unarmed strikes to acid, cold, fire, lightning, poison",
+				"If I fail a Persuasion or Intimidation check, I can reroll it as a reaction once per long rest"
+			]),
+			languageProfs : ["Draconic"],
+			action : [["reaction", " (reroll check)"]],
+			usages : 1,
+			recovery : "long rest",
+			additional : "reroll",
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.baseWeaponName === "unarmed strike") {
+							fields.Description += (fields.Description ? '; ' : '') + "Change type to acid/cold/fire/lightning/poison";
+						};
+					},
+					"When I damage a target with an unarmed strike, I can change the damage type to acid, cold, fire, lightning or poison."
+				]
+			},
+			"breath of the dragon" : {
+				name : "Breath of the Dragon",
+				extraname : "Ascendant Dragon 3",
+				source : [["UA:SP5", 1]],
+				description : levels.map(function (n) {
+					var iMonkDie = n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;;
+					var aDesc = [
+						"When I take the Attack action on my turn, I can replace one attack with a breath weapon",
+						"This deals " + (n < 11 ? 2 : 3) + "d" + iMonkDie + " acid, cold, fire, lightning, or poison (my choice) damage to all in the area",
+						"The area can be a 20-ft cone or a 5-ft wide, 30-ft line; Dex save to halve the damage",
+						"I can do this my Proficiency Bonus times per long rest, or by expending 1 ki point"
+					];
+					if (n < 17) return desc(aDesc);
+					var aDesc17 = [
+						"From 17th-level, the energy clings to those damaged by this, hurting them every turn",
+						"At the start of each of their turns, they take 1d" + iMonkDie + " damage of the chosen type",
+						"At the end of each of their turns, they can repeat the save to end this effect on themselves"
+					];
+					return desc(aDesc.concat(aDesc17));
+				}),
+				usages : "Prof B per ",
+				usagescalc : "event.value = How('Proficiency Bonus');",
+				recovery : "long rest",
+				altResource : "1 ki",
+				additional : levels.map(function (n) {
+					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
+				}),
+				weaponsAdd : ["Breath of the Dragon"],
+				weaponOptions : {
+					regExpSearch : /^(?=.*breath)(?=.*dragon).*$/i,
+					name : "Breath of the Dragon",
+					source : [["UA:SP5", 1]],
+					ability : 5,
+					type : "Natural",
+					damage : [2, 4, "My choice"],
+					range : "5-ft \xD7 30-ft line",
+					description : "All in area; Dex save for half damage; Alt: 20-ft cone; Type: acid/cold/fire/lightning/poison",
+					dc : true,
+					monkweapon : false,
+					abilitytodamage : false,
+					UA_WotAD_BreathWeapon : true
+				},
+				calcChanges : {
+					atkAdd : [
+						function (fields, v) {
+							if (classes.known.monk && classes.known.monk.level && v.theWea.UA_WotAD_BreathWeapon) {
+								var n = classes.known.monk.level;
+								var aMonkDie = n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;;
+								fields.Damage_Die = (n < 11 ? 2 : 3) + "d" + aMonkDie;
+								if (n >= 17) fields.Description += (fields.Description ? '; ' : '') + 'Clings to targets';
+							};
+						},
+						"My Breath of the Dragon deals damage equal to two rolls of my Martials Arts die. At 11th level, this increases to three rolls of my Martial Arts die. At 17th level, the energy clings to the target. At the start of each of a target's turns, it takes damage of the type the breath dealt equal to one roll of my Martial Arts die. At the end of its turn, the creature can repeat the save, ending the effect on itself on a success."
+					]
+				}
+			},
+			autoSelectExtrachoices : [{ extrachoice : "breath of the dragon" }]
+		},
+		"subclassfeature6" : {
+			name : "Wings Unfurled",
+			source : [["UA:SP5", 2]],
+			minlevel : 6,
+			description : " [Prof B / long rest or 1 ki]" + desc([
+				"When I use Step of the Wind, I gain a fly speed equal to my walking speed",
+				"I can do this Prof. Bonus per long rest, or by using 2 ki points to use Step of the Wind"
+			]),
+			extraLimitedFeatures : [{
+				name : "Wings Unfurled",
+				usages : "Proficiency Bonus per ",
+				recovery : "long rest",
+				usagescalc : "event.value = How('Proficiency Bonus');",
+				altResource : "1 ki"
+			}],
+			"aspect of the wyrm" : {
+				name : "Aspect of the Wyrm",
+				extraname : "Ascendant Dragon 11",
+				source : [["UA:SP5", 2]],
+				description : levels.map(function (n) {
+					var aDesc = [
+						"As a bonus action, I can activate a 30 ft aura of draconic power that lasts for 1 minute",
+						"I choose acid, cold, fire, lightning, or poison damage when I activate this aura",
+						"From 17th-level, all creatures of my choosing in the aura take 4d10 damage of this type",
+						"My allies in the aura and myself gain resistance to the chosen damage type",
+						"When an attack hits one of us, the one hit can use their reaction to damage the attacker",
+						"This damage is of the chosen damage type, equal to one roll of my martial arts",
+						"I can activate this aura once per long rest, or by expending 4 ki points"
+					];
+					if (n < 17) aDesc.splice(2,1);
+					return desc(aDesc);
+				}),
+				usages : 1,
+				recovery : "long rest",
+				altResource : "4 ki",
+				additional : levels.map(function (n) {
+					return n < 11 ? "" : "1d" + (n < 17 ? 8 : 10);
+				}),
+				action : [["bonus action", " (activate)"], ["reaction", " (if active)"]]
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "aspect of the wyrm",
+				minlevel : 11
+			}]
+		},
+		"subclassfeature17" : {
+			name : "Ascendant Aspect",
+			source : [["UA:SP5", 2]],
+			minlevel : 17,
+			description : "\n   I gain 30 ft blindsight and both Breath of the Dragon and Aspect of the Wyrm improve",
+			vision : [["blindsight", 30]]
+		}
+	}
+});
+
+var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
+	regExpSearch : /^(?=.*(drake|dragon|draconic))(?=.*(warden|ranger|trainer)).*$/i,
+	subname : "Drakewarden",
+	source : [["UA:SP5", 2]],
+	fullname : "Drakewarden",
+	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+	features : {
+		"subclassfeature3" : {
+			name : "Draconic Gift",
+			source : [["UA:SP5", 3]],
+			minlevel : 3,
+			description : desc([
+				"I learn the Draconic language and the Thaumaturgy cantrip"
+			]),
+			languageProfs : ["Draconic"],
+			spellcastingBonus : [{
+				name : "Draconic Gift",
+				spells : ["thaumaturgy"],
+				selection : ["thaumaturgy"],
+				firstCol : "atwill"
+			}]
+		},
+		"subclassfeature3.1" : {
+			name : "Drake Companion",
+			source : [["UA:SP5", 3]],
+			minlevel : 3,
+			description : desc([
+				"As an action, I can summon my drake to an empty space within 30 ft that I can see",
+				'Select a "Drake Companion" on the companion page for its stats and rules',
+				"I can do this once per long rest, or by expending a 1st-level or higher spell slot (SS 1+)"
+			]),
+			usages : 1,
+			recovery : "long rest",
+			altResource : "SS 1+",
+			action : [["action", " (summon)"], ["bonus action", " (command)"]],
+			creaturesAdd : [["Drake Companion", true]],
+			creatureOptions : [{
+				name : "Drake Companion",
+				source : [["UA:SP5", 3]],
+				size : 4,
+				type : "Dragon",
+				alignment : "Unaligned",
+				ac : "14+Prof",
+				hp : 20,
+				hd : [3, 10],
+				hdLinked : ["ranger", "rangerua"],
+				minlevelLinked : ["ranger", "rangerua"],
+				speed : "40 ft",
+				scores : [16, 12, 15, 8, 14, 8],
+				saves : ["", 3, "", "", 4, ""],
+				damage_immunities : "the chosen Draconic Essence damage type",
+				senses : "Darkvision 60 ft",
+				passivePerception : 12,
+				languages : "Draconic",
+				challengeRating : "0",
+				proficiencyBonus : 2,
+				proficiencyBonusLinked : true,
+				attacksAction : 1,
+				attacks : [{
+					name : "Bite",
+					ability : 1,
+					damage : [1, 6, "piercing"],
+					modifiers : ["", "Prof"],
+					range : "Melee (5 ft)",
+					description : "Only 1d6 is piercing damage, the rest is of the chosen Draconic Essence damage type",
+					abilitytodamage : false
+				}],
+				features : [{
+					name : "Warden",
+					description : "The drake obeys the commands of its warden and shares its proficiency bonus. It takes its turn immediately after that of its warden, on the same initiative. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its warden takes a bonus action to command it to take another action. If its warden is incapacitated, the beast can take any action, not just Dodge. The drake vanishes after a number of hours equal to its proficiency bonus, when it is reduced to 0 hit points, when its warden summons another drake, or when its warden dies."
+				}],
+				traits : [{
+					name : "Draconic Essence",
+					description : "When the drake is summoned, choose a damage type: acid, cold, fire, lightning, or poison."
+				}, {
+					name : "Infused Strikes",
+					description : "As a reaction when another creature within 30 ft of the drake that it can see hits with a weapon attack, the drake can infuse the strike with its essence, causing the attack to deal an extra 1d6 damage of its chosen Draconic Essence damage type"
+				}, {
+					name : "Bond of Fang and Scale (Drakewarden 7)",
+					minlevel : 7,
+					description : "When the drake is summoned, it gains either a 40 ft swimming speed and can breathe underwater, or a 40 ft flying speed and has wings. The drake's bite deals an extra 1d6 damage of its chosen Draconic Essence type.",
+					addMod : [{ type : "", field : "BlueText.Comp.Use.Attack.1.Damage Die", mod : "1d6", text : "The drake's bite attack deals an extra 1d6 damage of the type chosen for its Draconic Essence." }],
+					eval : function(prefix, lvl) {
+						var sMoveStr = (typePF ? ",\n" : ", ") + "fly/swim 40 ft";
+						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
+						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
+					},
+					removeeval : function(prefix, lvl) {
+						var sMoveStr = (typePF ? ",\n" : ", ") + "fly/swim 40 ft";
+						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
+						Value(prefix + "Comp.Use.Speed", What(prefix + "Comp.Use.Speed").replace(sMoveStr, ""));
+					}
+				}, {
+					name : "Perfected Bond (Drakewarden 15)",
+					minlevel : 15,
+					description : "The drake's size is now Large and its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
+					addMod : [{ type : "", field : "BlueText.Comp.Use.Attack.1.Damage Die", mod : "1d6", text : "The drake's bite attack deals another extra 1d6 damage (for a total of +2d6) of the type chosen for its Draconic Essence." }],
+					eval : function(prefix, lvl) {
+						PickDropdown(prefix + "Comp.Desc.Size", 2); // Large
+					},
+					removeeval : function(prefix, lvl) {
+						PickDropdown(prefix + "Comp.Desc.Size", 4); // Small
+					}
+				}],
+				calcChanges : {
+					hp : function (totalHD, HDobj, prefix) {
+						if (!classes.known.ranger && !classes.known.rangerua) return;
+						var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
+						var rngrLvlM = 5 * rngrLvl;
+						HDobj.alt.push(5 + rngrLvlM);
+						HDobj.altStr.push(" = 5 as a base\n + 5 \xD7 " + rngrLvl + " from five times its warden's ranger level (" + rngrLvlM + ")");
+					},
+					setAltHp : true
+				}
+			}]
+		},
+		"subclassfeature7" : {
+			name : "Bond of Fang and Scale",
+			source : [["UA:SP5", 4]],
+			minlevel : 7,
+			description : desc([
+				"When I summon my drake I can choose for it to have 40 ft flying or swimming speed",
+				"If I choose swimming, it also gains the ability to breathe underwater",
+				"The drake's bite attack deals an extra 1d6 damage chosen by its Draconic Essense",
+				"While it is summoned, I gain resistance to the damage type of its Draconic Essense"
+			]),
+			dmgres : ["(See Drake)"]
+		},
+		"subclassfeature11" : {
+			name : "Drake's Breath",
+			source : [["UA:SP5", 4]],
+			minlevel : 11,
+			description : desc([
+				"As an action, I can cause my drake or myself to exhale a 30-ft cone breath weapon",
+				"Its damage type is acid, cold, fire, lightning, or poison; Dex save to halve the damage",
+				"I can do this once per long rest, or by expending a 3rd-level or higher spell slot (SS 3+)"
+			]),
+			additional : levels.map(function (n) {
+				return n < 11 ? "" : (n < 15 ? 6 : 8) + "d6 damage";
+			}),
+			action : [["action", ""]],
+			usages : 1,
+			recovery : "long rest",
+			altResource : "SS 3+",
+			weaponsAdd : ["Drake's Breath"],
+			weaponOptions : {
+				regExpSearch : /^(?=.*drake)(?=.*breath).*$/i,
+				name : "Drake's Breath",
+				source : [["UA:SP5", 4]],
+				ability : 5,
+				type : "Natural",
+				damage : [6, 6, "My choice"],
+				range : "30-ft cone",
+				description : "Hits all in area; Dex save for half damage; Damage type: acid, cold, fire, lightning, or poison",
+				abilitytodamage : false,
+				dc : true,
+				useSpellMod : "ranger",
+				DrakewardenDrakeBreath : true
+			},
+			calcChanges : {
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.DrakewardenDrakeBreath && (classes.known.rangerua || classes.known.ranger)) {
+							var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
+							fields.Damage_Die = (rngrLvl < 15 ? 6 : 8) + 'd6';
+						};
+					},
+					"",
+					1
+				],
+				atkCalc : [
+					function (fields, v, output) {
+						if (v.theWea.DrakewardenDrakeBreath && classes.known.rangerua) {
+							v.theWea.useSpellMod = "rangerua";
+						}
+					}
+				]
+			}
+		},
+		"subclassfeature15" : {
+			name : "Perfected Bond",
+			source : [["UA:SP5", 4]],
+			minlevel : 15,
+			description : desc([
+				"My drake is now Large and its bite deals +1d6 damage chosen by its Draconic Essence",
+				"As a reaction when the drake or I take damage while within 30 ft of each other,",
+				"I can give myself or the drake resistance to that instance of damage",
+			]),
+			action : [["reaction", ""]]
+		}
+	}
+});
+if (ClassList.rangerua) {
+	ClassList.rangerua.subclasses[1].push(UASP5_Ranger_Subclass_Drakewarden);
+};
+
 // ua_20210126_Gothic-Lineages.js
 // This file adds the content from the Unearthed Arcana 2021: Gothic Lineages article to MPMB's Character Record Sheet
 // This file contains contributions by Metacomet10, MarvinTheParanoidAndroid, and CountVladmir
@@ -19649,7 +19994,7 @@ AddRacialVariant("reborn-ua", "construct", {
 
 // ua_20210311_Folk-of-the-Feywild.js
 // This file adds the content from the Unearthed Arcana 2021: Folk of the Feywild article to MPMB's Character Record Sheet
-// This file contains contributions by CountVladmir
+// This file contains contributions by CountVladmir and othercrow
 
 SourceList["UA:FotF"] = {
 	name : "Unearthed Arcana: Folk of the Feywild",
@@ -19663,7 +20008,7 @@ RaceList["fairy-ua"] = {
 	regExpSearch : /fairy/i,
 	name : "Fairy",
 	source : [["UA:FotF", 2]],
-	plural : "Faries",
+	plural : "Fairies",
 	size : 4,
 	speed : {
 		walk : { spd : 30, enc : 20 },
@@ -19738,7 +20083,6 @@ RaceList["feywild hobgoblin-ua"] = {
 		},
 		"fey gift - additional effect" : {
 			name : "Fey Gifts - Additional Effects",
-			popupName : "Feywild hobgoblin's additional effects for Fey Gifts",
 			minlevel : 3,
 			toNotesPage : [{
 				name : "Fey Gifts - Additional Effects",
@@ -19805,4 +20149,453 @@ RaceList["rabbitfolk-ua"] = {
 	"\n \u2022 Leporine Senses: I have proficiency in the Perception skill."+
 	"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success."+
 	"\n \u2022 Rabbit Hop: Once during each of my turns when I walk at least 5 ft, I can hop an extra 1d12 ft without it costing any extra movement. I can only do this if my speed isn't 0."
+};
+
+// ua_20210414_Draconic-Options.js
+// This file adds the content from the Unearthed Arcana 2021: Draconic Options article to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["UA:DO"] = {
+	name : "Unearthed Arcana: Draconic Options",
+	abbreviation : "UA:DO",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2021/downloads/Unearthed-Arcana-2021-Draconic-Options.pdf",
+	date : "2021/04/14"
+};
+
+// Draconic Races
+var UADO_dragonborns_add = function () { // New dragonborn variants
+	var objDragonborns = {
+		Chromatic : {
+			regExpSearch : /^(?=.*chromatic)(?=.*dragonborn).*$/i,
+			source : [["UA:DO", 2]],
+			variants : [["Black", "Acid"], ["Blue", "Lightning"], ["Green", "Poison"], ["Red", "Fire"], ["White", "Cold"]],
+			breathWeaponShape : "5-ft by 30-ft line",
+			trait : desc([
+				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 5-ft by 30-ft line, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest. The damage increases to 3d8 at 5th level, 4d8 at 11th level, and 5d8 at 17th level.",
+				"Chromatic Warding: From 3rd level, I can protect myself using my draconic energies. As an action once per long rest, I can become immune to >>type<< damage for 10 minutes."
+			], "\n \u2022 "),
+			features : {
+				"chromatic warding" : {
+					name: "Chromatic Warding",
+					source : [["UA:DO", 2]],
+					minlevel: 3,
+					usages: 1,
+					recovery: "long rest",
+					action : [["action", ""]]
+				}
+			}
+		},
+		Metallic : {
+			regExpSearch : /^(?=.*metallic)(?=.*dragonborn).*$/i,
+			source : [["UA:DO", 2]],
+			variants : [["Brass", "Fire"], ["Bronze", "Lightning"], ["Copper", "Acid"], ["Gold", "Fire"], ["Silver", "Cold"]],
+			breathWeaponShape : "15-ft cone",
+			trait : desc([
+				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
+				"Metallic Breath Weapon: At 3rd level I gain a second breath weapon once per long rest, that works just like the first. It doesn't deal damage, but I can choose one effect: Str save or pushed 20 ft and prone, or Con save or incapacitated until my next turn starts."
+			], "\n \u2022 "),
+			features : {
+				"metallic breath weapon" : {
+					name: "Metallic Breath Weapon",
+					source : [["UA:DO", 3]],
+					minlevel: 3,
+					usages: 1,
+					recovery: "long rest",
+					weaponsAdd : ["Metallic Breath Weapon"],
+					weaponOptions: [{
+						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
+						name : "Metallic breath weapon",
+						source : [["UA:DO", 3]],
+						ability : 3,
+						type : 'Natural',
+						damage : ['Str save or', '', 'Con save'],
+						range : "15-ft cone",
+						description : "Str save or pushed 20 ft and knocked prone -or- Con save or incapacitated until my next turn starts",
+						abilitytodamage : false,
+						dc : true
+					}]
+				}
+			}
+		},
+		Gem : {
+			regExpSearch : /^(?=.*gem)(?=.*dragonborn).*$/i,
+			source : [["UA:DO", 3]],
+			variants : [["Amethyst", "Force"], ["Crystal", "Radiant"], ["Emerald", "Psychic"], ["Sapphire", "Thunder"], ["Topaz", "Necrotic"]],
+			breathWeaponShape : "15-ft cone",
+			trait : desc([
+				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
+				"Psionic Mind: I can speak telepathically to " + (typePF ? "any creature I can see within 30 ft that understands a language  but it can't respond." : "a creature with a language I can see in 30 ft."),
+				"Gem Flight: From 3rd level, I can temporarily fly. As a bonus action once per long rest, I can gain a flying speed equal to my walking speed and can hover. This lasts for 1 minute."
+			], "\n \u2022 "),
+			features : {
+				"gem flight" : {
+					name: "Gem Flight",
+					source : [["UA:DO", 3]],
+					minlevel: 3,
+					usages: 1,
+					recovery: "long rest"
+				}
+			}
+		}
+	}
+	for (var sDrBrn in objDragonborns) {
+		var sDrBrnLC = sDrBrn.toLowerCase();
+		var oDrBrn = objDragonborns[sDrBrn];
+		RaceList[sDrBrnLC + " dragonborn-ua"] = {
+			regExpSearch : oDrBrn.regExpSearch,
+			name : sDrBrn + " Dragonborn",
+			sortname : "Dragonborn, " + sDrBrn,
+			source : oDrBrn.source,
+			plural : sDrBrn + " Dragonborn",
+			size : 3,
+			speed : {
+				walk : { spd : 30, enc : 20 }
+			},
+			languageProfs : ["Common", 1],
+			weaponsAdd : ["Breath Weapon"],
+			weaponOptions: [{
+				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
+				name : "Breath weapon",
+				source : oDrBrn.source,
+				ability : 3,
+				type : 'Natural',
+				damage : ['Q', 8, 'fire'],
+				range : oDrBrn.breathWeaponShape.replace('by', '\xD7'),
+				description : "Hits all in area; Dex save, success - half damage",
+				abilitytodamage : false,
+				dc : true,
+				dbBreathWeapon : true
+			}],
+			age : " reach adulthood by 15 and live around 80 years",
+			height : " stand well over 6 feet tall (5'6\" + 2d8\")",
+			weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
+			heightMetric : " stand well over 1,8 metres tall (170 + 5d8 cm)",
+			weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
+			scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+			trait : sDrBrn + " Dragonborn"+
+				"\n \u2022 " + sDrBrn + ' Ancestry: Choose a type of dragon using the "Racial Options" button. The damage type of my resistance and my breath weapon are determined by the dragon type chosen.'+
+				+ oDrBrn.trait.replace(/>>type<< /ig, ""),
+			features : {
+				"breath weapon" : {
+					name : "Breath Weapon",
+					minlevel : 1,
+					usages : "Proficiency Bonus per ",
+					usagescalc : "event.value = How('Proficiency Bonus');",
+					recovery : "long rest",
+					additional : levels.map(function (n) {
+						return (n < 5 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + 'd8';
+					}),
+					calcChanges : {
+						atkAdd : [
+							function (fields, v) {
+								if (v.theWea.dbBreathWeapon && (/dragonborn/i).test(CurrentRace.known) && CurrentRace.variant) {
+									fields.Damage_Type = CurrentRace.dmgres[0];
+								}
+							},
+							'',
+							1
+						]
+					}
+				}
+			},
+			variants : []
+		};
+		if (oDrBrn.features) {
+			for (var sFea in oDrBrn.features) {
+				RaceList[sDrBrnLC + " dragonborn-ua"].features[sFea] = oDrBrn.features[sFea];
+			}
+		}
+		for (var i = 0; i < oDrBrn.variants.length; i++) {
+			var sDrBrnVar = oDrBrn.variants[i][0];
+			var sDrBrnDmg = oDrBrn.variants[i][1];
+			AddRacialVariant(sDrBrnLC + " dragonborn-ua", sDrBrnVar.toLowerCase(), {
+				regExpSearch : RegExp(sDrBrnVar, "i"),
+				name : sDrBrnVar + " " + sDrBrnLC + " dragonborn",
+				trait : sDrBrnVar + " " + sDrBrnLC + " dragonborn"+
+					oDrBrn.trait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()),
+				dmgres : [sDrBrnDmg]
+			});
+		}
+	}
+}();
+RaceList["draconic kobold-ua"] = {
+	regExpSearch : /^(?=.*draconic)(?=.*kobold).*$/i,
+	name : "Draconic kobold",
+	sortname : "Kobold, Draconic",
+	source : [["UA:DO", 4]],
+	plural : "Draconic kobolds",
+	size : 4,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 60], ["Sunlight Sensitivity", 0]],
+	age : " reach adulthood at age 6 and can live up to 120 years, but rarely do so",
+	height : " are between 2 and 3 feet tall (2'1\" + 2d4\")",
+	weight : " weigh between 25 and 35 lb (25 + 2d4 \xD7 1 lb)",
+	heightMetric : " are between 65 and 90 cm tall (63 + 5d4 cm)",
+	weightMetric : " weigh between 10 and 15 kg (11 + 5d4 \xD7 2 / 10 kg)",
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	features : {
+		"draconic roar" : {
+			name : "Draconic Roar",
+			minlevel : 1,
+			usages : "Proficiency bonus per ",
+			action : [["bonus action", ""]],
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery: "long rest"
+		}
+	},
+	trait : "Draconic Kobold"+
+	'\n \u2022 Draconic Legacy: Choose one of the following with the "Racial Options" button: (1) Brave: advantage on saves vs. being frightened, (2) Cantrip: I know one sorcerer cantrip of my choice, or (3) Tail: I can use my tail that deals 1d6 damage to make unarmed strikes.'+
+	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."
+};
+AddRacialVariant("draconic kobold-ua", "brave", {
+	regExpSearch : /brave/i,
+	name : "Draconic Kobold-Brave",
+	source : [["UA:DO", 4]],
+	plural : "Draconic Kobolds",
+	savetxt : { adv_vs : ["frightened"] },
+	trait : "Draconic Kobold"+
+	'\n \u2022 Draconic Legacy (Brave): I have advantage on saving throws to avoid or end the frightened condition on myself.'+
+	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."
+});
+AddRacialVariant("draconic kobold-ua", "cantrip", {
+	regExpSearch : /cantrip/i,
+	source : [["UA:DO", 4]],
+	spellcastingAbility : [4, 5, 6],
+	allowUpCasting : true,
+	spellcastingBonus : {
+		name : "Draconic Legacy",
+		"class" : "sorcerer",
+		level : [0, 0],
+		firstCol : 'atwill'
+	},
+	trait : "Draconic Kobold"+
+	'\n \u2022 Draconic Legacy (Cantrip). I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race).'+
+	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."
+});
+AddRacialVariant("draconic kobold-ua", "tail", {
+	regExpSearch : /tail/i,
+	source : [["UA:DO", 4]],
+	weaponsAdd : ["Draconic Tail"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*draconic)(?=.*tail).*$/i,
+		name : "Draconic Tail",
+		source : [["UA:DO", 4]],
+		damage : [1, 6, "bludgeoning"]
+	},
+	trait : "Draconic Kobold"+
+	'\n \u2022 Draconic Legacy (Tail): I can make unarmed strikes with my tail. The tail deals 1d6 + my Strength modifier bludgeoning damage.'+
+	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."
+});
+
+// Draconic Feats
+FeatsList["gift of the chromatic dragon-ua"] = {
+	name : "Gift of the Chromatic Dragon",
+	source : [["UA:DO", 4]],
+	descriptionFull : "You've manifested some of the power of chromatic dragons, granting you the following benefits:"+
+	"\n \u2022 As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this ability, you can't do so again until you finish a long rest."+
+	"\n \u2022 When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof. Bonus per long rest.",
+	action : [
+		["bonus action", "Chromatic Gift (Infuse Weapon)"],
+		["reaction", "Chromatic Gift (Resistance)"]
+	],
+	extraLimitedFeatures : [{
+		name : "Chromatic Gift (Infuse Weapon)",
+		usages : 1,
+		recovery : "long rest"
+	}, {
+		name : "Chromatic Gift (Resistance)",
+		usages : "Proficiency Bonus per ",
+		usagescalc : "event.value = How('Proficiency Bonus');",
+		recovery : "long rest"
+	}]
+};
+FeatsList["gift of the metallic dragon-ua"] = {
+	name : "Gift of the Metallic Dragon",
+	source : [["UA:DO", 4]],
+	descriptionFull : "You've manifested some of the power of metallic dragons, granting you the following benefits:"+
+	"\n \u2022 You learn the cure wounds spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)."+
+	"\n \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest",
+	description : "I know Cure Wounds. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add a d4 to AC, potentially causing the attack to miss. I can do this my Prof. Bonus per long rest.",
+	spellcastingAbility : [4, 5, 6],
+	allowUpCasting : true,
+	spellcastingBonus : [{
+		name : "Cure Wounds",
+		spells : ["cure wounds"],
+		selection : ["cure wounds"],
+		firstCol : "oncelr"
+	}],
+	action : [["reaction", "Metallic Gift (Spectral Wings)"]],
+	extraLimitedFeatures : [{
+		name : "Metallic Gift (Cure Wounds)",
+		usages : 1,
+		recovery : "long rest"
+	}, {
+		name : "Metallic Gift (Spectral Wings)",
+		usages : "Proficiency Bonus per ",
+		usagescalc : "event.value = How('Proficiency Bonus');",
+		recovery : "long rest"
+	}]
+};
+FeatsList["gift of the gem dragon-ua"] = {
+	name : "Gift of the Gem Dragon",
+	source : [["UA:DO", 5]],
+	descriptionFull : "You've manifested some of the power of gem dragons, granting you the following benefits:"+
+	"\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."+
+	"\n \u2022 When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or take 2d8 force damage and be pushed 10 feet away from you. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it make a Str save (DC 8 + Prof. Bonus + chosen ability score modifier) or take 2d8 force damage and be pushed 10 ft away. I can do this my Prof. Bonus per long rest. [+1 Int, Wis or Cha]",
+	action : [["reaction", ""]],
+	usages : "Proficiency Bonus per ",
+	usagescalc : "event.value = How('Proficiency Bonus');",
+	recovery : "long rest",
+	choices : ["Intelligence", "Wisdom", "Charisma"],
+	"intelligence" : {
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof. Bonus + Int mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Intelligence]';",
+		scores : [0, 0, 0, 1, 0, 0]
+	},
+	"wisdom" : {
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof. Bonus + Wis mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Wisdom]';",
+		scores : [0, 0, 0, 0, 1, 0]
+	},
+	"charisma" : {
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof. Bonus + Cha mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Charisma]';",
+		scores : [0, 0, 0, 0, 0, 1]
+	}
+};
+
+// Draconic Spells
+SpellsList["draconic transformation-ua"] = {
+	name : "Draconic Transformation",
+	classes : ["druid", "sorcerer", "wizard"],
+	source : [["UA:DO", 5]],
+	level : 7,
+	school : "Trans",
+	time : "1 bns",
+	range : "Self",
+	components : "V,S,M\u0192",
+	compMaterial : "A statuette of a dragon, worth at least 500 gp",
+	duration : "Conc, 1 min",
+	save : "Dex",
+	description : "Blindsight 30 ft; 40 ft fly speed; at cast and 1 bns: 30-ft cone all 3d8 Force damage, save half (500gp)",
+	descriptionShorter : "Blindsight 30 ft; 40 ft fly; at cast and 1 bns: 30-ft cone all 3d8 Force dmg, save half (500gp)",
+	descriptionFull : "With a roar, you draw on the magic of dragons to transform yourself, taking on various draconic features. You gain the following benefits until the spell ends:"+
+	"\n \u2022 You have blindsight with a range of 30 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature, unless the creature successfully hides from you."+
+	"\n \u2022 Incorporeal wings sprout from your back, giving you a flying speed of 40 feet."+
+	"\n \u2022 When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale a breath of shimmering energy in a 30-foot cone. Each creature in the area must make a Dexterity saving throw, taking 3d8 force damage on a failed save or half as much damage on a successful one."
+};
+SpellsList["fizban's platinum shield-ua"] = {
+	name : "Fizban's Platinum Shield",
+	nameAlt : "Platinum Shield",
+	classes : ["sorcerer", "wizard"],
+	source : [["UA:DO", 5]],
+	level : 6,
+	school : "Abjur",
+	time : "1 a",
+	range : "60 ft",
+	components : "V,S,M\u0192",
+	compMaterial : "A platinum-plated dragon scale, worth at least 500 gp",
+	duration : "Conc, 1 min",
+	description : "1 crea Acid, Cold, Fire, Lightn. \u0026 Poison resist., half cover, better Dex saves; 1 bns change crea (500gp)",
+	descriptionFull : "You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet."+
+	"\n   As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field."+
+	"\n   The creature protected by the field gains the following benefits:"+
+	"\n \u2022 The creature has half cover."+
+	"\n \u2022 The creature has resistance to acid, cold, fire, lightning, and poison damage."+
+	"\n \u2022 If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails."
+};
+SpellsList["flame stride-ua"] = { // contains contributions by NodHero
+	name : "Flame Stride",
+	classes : ["artificer", "ranger", "sorcerer", "wizard"],
+	source : [["UA:DO", 6]],
+	level : 3,
+	school : "Trans",
+	time : "1 bns",
+	range : "Self",
+	components : "V,S",
+	duration : "Conc, 1 min",
+    description : "+20+5/SL ft speed; provoke no opp atks for moving; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
+    descriptionShorter : "+20+5/SL ft spd; no opp atks with move; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
+    descriptionMetric : "+6+1,5/SL m spd; provoke no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
+    descriptionShorterMetric : "+6+1,5/SL m spd; no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
+	descriptionFull : "The billowing flames of a dragon cover your feet, granting you explosive speed. For the duration, your speed increases by 20 feet and moving doesn't provoke opportunity attacks."+
+	"\n   When you move within 5 feet of a creature or object that isn't being worn or carried, it takes 1d6 fire damage from your trail of heat. A creature or object can take this damage only once during a turn."+
+	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. Additionally, the spell deals an additional 1d6 fire damage for each slot level above 3rd."
+};
+SpellsList["icingdeath's frost-ua"] = {
+	name : "Icingdeath's Frost",
+	classes : ["sorcerer", "wizard"],
+	source : [["UA:DO", 6]],
+	level : 2,
+	school : "Evoc",
+	time : "1 a",
+	range : "S:15" + (typePF ? "-" : "") + "ft cone",
+	components : "S,M",
+	compMaterial : "A vial of meltwater",
+	duration : "Instantaneous",
+	save : "Con",
+	description : "All in area 3d8+1d8/SL Cold dmg and speed 0 for 1 min until 1 a to undo; save halves, normal speed",
+	descriptionShorter : "All in area 3d8+1d8/SL Cold dmg \u0026 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
+	descriptionFull : "A burst of icy cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is covered in ice for 1 minute or until a creature uses its action to break the ice off itself or another creature. A creature covered in ice has its speed reduced to 0. On a successful save, a creature takes half as much damage with no additional effects."+
+	AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by 1d8 for each slot level above 2nd."
+};
+SpellsList["nathair's mischief-ua"] = {
+	name : "Nathair's Mischief",
+	nameAlt : "Mischief",
+	classes : ["bard", "sorcerer", "wizard"],
+	source : [["UA:DO", 6]],
+	level : 2,
+	school : "Illus",
+	time : "1 a",
+	range : "60 ft",
+	components : "S,M",
+	compMaterial : "A piece of crust from an apple pie",
+	duration : "Conc, 1 min",
+	save : "Var",
+	description : "20-ft cube of magic, roll d4 for effect; At start of my turn, move cube 10 ft and reroll effect; see book",
+	descriptionFull : "You fill a 20-foot cube centered on a point you choose within range with fey and draconic magic. Roll on the Mischievous Surge table to determine the magical effect produced. At the start of each of your turns, you can move the cube up to 10 feet and reroll on the table."+
+	"\n\nMischievous Surge"+
+	toUni("\nd4\tEffect")+
+	"\n  1\tThe smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."+
+	"\n  2\tBouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."+
+	"\n  3\tEach creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."+
+	"\n  4\tDrops of molasses appear and hover in the cube, turning it into difficult terrain until the start of your next turn."
+};
+SpellsList["raulothim's psychic lance-ua"] = {
+	name : "Raulothim's Psychic Lance",
+	nameAlt : "Psychic Lance",
+	classes : ["bard", "sorcerer", "warlock", "wizard"],
+	source : [["UA:DO", 6]],
+	level : 4,
+	school : "Ench",
+	time : "1 a",
+	range : "120 ft",
+	components : "V",
+	duration : "Instantaneous",
+	save : "Int",
+	description : "1 crea I see or name I know save or 10d6+1d6/SL Psychic dmg \u0026 incapacitated till my next turn starts",
+	descriptionShorter : "1 crea I see or name I know save or 10d6+1d6/SL Psychic dmg \u0026 incapacitated for 1 rnd",
+	descriptionFull : "You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. Alternatively, you can utter the creature's name. If the named target is within range, it gains no benefit from cover or invisibility as the lance homes in on it. If the named target isn't within range, the lance dissipates, and the spell slot is not expended."+
+	"\n   The target must succeed on an Intelligence saving throw or take 10d6 psychic damage and be incapacitated until the start of your next turn."+
+	AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d6 for each slot level above 4th."
+};
+SpellsList["summon draconic spirit-ua"] = {
+	name : "Summon Draconic Spirit",
+	classes : ["druid", "sorcerer", "wizard"],
+	source : [["UA:DO", 7]],
+	level : 5,
+	school : "Conj",
+	time : "1 a",
+	range : "60 ft",
+	components : "V,S,M\u0192",
+	compMaterial : "An art object from a dragon's hoard, worth at least 500 gp",
+	duration : "Conc, 1 min",
+	description : "Summon choice of Draconic Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (500gp)",
+	descriptionFull : "You call forth a draconic spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Draconic Spirit stat block. When you cast this spell, choose a family of dragon: Chromatic, Gem, or Metallic. The creature resembles a dragon of the chosen family, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends."+
+	"\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger."+
+	AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };

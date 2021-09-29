@@ -1,5 +1,5 @@
 var iFileName = "pub_20150714_AL-RoD.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the optional backgrounds from the Adventurers League season 3 (Rage of Demons) to MPMB's Character Record Sheet
 
 // Define the source
@@ -13,7 +13,7 @@ SourceList["AL:RoD"]={
 
 // Backgrounds (with contributions by AggieBear)
 BackgroundList["cormanthor refugee"] = {
-	regExpSearch :  /^(?=.*cormanthor)(?=.*refugee).*$/i,
+	regExpSearch : /^(?=.*cormanthor)(?=.*refugee).*$/i,
 	name : "Cormanthor Refugee",
 	source : [["AL:RoD", 5], ["ALbackground", 0]],
 	skills : ["Nature", "Survival"],
@@ -79,7 +79,7 @@ BackgroundList["cormanthor refugee"] = {
 	lifestyle : "poor"
 };
 BackgroundList["gate urchin"] = {
-	regExpSearch :  /^(?=.*gate)(?=.*urchin).*$/i,
+	regExpSearch : /^(?=.*gate)(?=.*urchin).*$/i,
 	name : "Gate Urchin",
 	source : [["AL:RoD", 6], ["ALbackground", 0]],
 	skills : ["Deception", "Sleight of Hand"],
@@ -144,7 +144,7 @@ BackgroundList["gate urchin"] = {
 	lifestyle : "poor"
 };
 BackgroundList["hillsfar merchant"] = {
-	regExpSearch :  /^(?=.*hillsfar)(?=.*merchant).*$/i,
+	regExpSearch : /^(?=.*hillsfar)(?=.*merchant).*$/i,
 	name : "Hillsfar Merchant",
 	source : [["AL:RoD", 7], ["ALbackground", 0]],
 	skills : ["Insight", "Persuasion"],
@@ -207,7 +207,7 @@ BackgroundList["hillsfar merchant"] = {
 	lifestyle : "wealthy"
 };
 BackgroundList["hillsfar smuggler"] = {
-	regExpSearch :  /^(?=.*hillsfar)(?=.*smuggler).*$/i,
+	regExpSearch : /^(?=.*hillsfar)(?=.*smuggler).*$/i,
 	name : "Hillsfar Smuggler",
 	source : [["AL:RoD", 8], ["ALbackground", 0]],
 	skills : ["Perception", "Stealth"],
@@ -401,7 +401,7 @@ BackgroundList["shade fanatic"] = {
 	lifestyle : "moderate"
 };
 BackgroundList["trade sheriff"] = {
-	regExpSearch :  /^(?=.*trade)(?=.*sheriff).*$/i,
+	regExpSearch : /^(?=.*trade)(?=.*sheriff).*$/i,
 	name : "Trade Sheriff",
 	source : [["AL:RoD", 11], ["ALbackground", 0]],
 	skills : ["Investigation", "Persuasion"],

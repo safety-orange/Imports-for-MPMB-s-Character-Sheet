@@ -1,5 +1,5 @@
 var iFileName = "ua_20200713_Feats-2020.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana 2020: Feats article to MPMB's Character Record Sheet
 // All content in this file contains contributions by AelarTheElfRogue
 
@@ -75,17 +75,17 @@ if (!SourceList.T) {
 		}],
 		spellcastingAbility : 4,
 		choices : ["Intelligence", "Wisdom", "Charisma"],
-		"intelligence": {
+		"intelligence" : {
 			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them " + (typePF ? "by expending" : "with") + " a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 			spellcastingAbility : 4,
 			scores : [0, 0, 0, 1, 0, 0]
 		},
-		"wisdom": {
+		"wisdom" : {
 			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 			spellcastingAbility : 5,
 			scores : [0, 0, 0, 0, 1, 0]
 		},
-		"charisma": {
+		"charisma" : {
 			description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 			spellcastingAbility : 6,
 			scores : [0, 0, 0, 0, 0, 1]
@@ -218,7 +218,7 @@ if (!SourceList.T) {
 			atkAdd : [
 				function (fields, v) {
 					if ((/pierc(\.|ing)/i).test(fields.Damage_Type)) {
-						var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
+						var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)?( in melee)?)/i;
 						v.extraCritM = (v.extraCritM ? v.extraCritM : 0) + 1;
 						if (extraCritRegex.test(fields.Description)) {
 							fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + '$1');
@@ -230,7 +230,8 @@ if (!SourceList.T) {
 						}
 					}
 				},
-				"While wielding a two-handed or versatile melee weapon in two hands, I can re-roll a 1 or 2 on any damage die once."
+				"Once per turn when I deal piercing damage to a target, I can reroll one of the damage die and use the new roll. If I deal piercing damage on a critical hit to a target, I can roll one additional damage die.",
+				900
 			]
 		}
 	};
@@ -285,17 +286,17 @@ FeatsList["shadow touched-ua"] = {
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	choices: ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence": {
+	"intelligence" : {
 		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
 		scores : [0, 0, 0, 1, 0, 0]
 	},
-	"wisdom": {
+	"wisdom" : {
 		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility : 5,
 		scores : [0, 0, 0, 0, 1, 0]
 	},
-	"charisma": {
+	"charisma" : {
 		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility : 6,
 		scores : [0, 0, 0, 0, 0, 1]

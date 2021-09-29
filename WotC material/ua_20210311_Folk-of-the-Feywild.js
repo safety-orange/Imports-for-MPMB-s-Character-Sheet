@@ -1,5 +1,5 @@
 var iFileName = "ua_20210311_Folk-of-the-Feywild.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana 2021: Folk of the Feywild article to MPMB's Character Record Sheet
 // This file contains contributions by CountVladmir and othercrow
 
@@ -15,7 +15,7 @@ RaceList["fairy-ua"] = {
 	regExpSearch : /fairy/i,
 	name : "Fairy",
 	source : [["UA:FotF", 2]],
-	plural : "Faries",
+	plural : "Fairies",
 	size : 4,
 	speed : {
 		walk : { spd : 30, enc : 20 },
@@ -90,7 +90,6 @@ RaceList["feywild hobgoblin-ua"] = {
 		},
 		"fey gift - additional effect" : {
 			name : "Fey Gifts - Additional Effects",
-			popupName : "Feywild hobgoblin's additional effects for Fey Gifts",
 			minlevel : 3,
 			toNotesPage : [{
 				name : "Fey Gifts - Additional Effects",

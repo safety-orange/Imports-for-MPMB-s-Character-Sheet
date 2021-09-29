@@ -1,5 +1,5 @@
 var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -301,7 +301,7 @@ MagicItemsList["mirror of the past"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "D",
-	description : "As an action once per dawn, I can gaze int this mirror while thinking of a specific object or creature. The mirror then shows me scenes from the target's past for 1 minute or less, instead of my reflection. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order.",
+	description : "As an action once per dawn, I can gaze into this mirror while thinking of a specific object or creature. The mirror then shows me scenes from the target's past for 1 minute or less, instead of my reflection. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order.",
 	descriptionFull : "The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the next dawn.",
 	weight : 1,
 	usages : 1,
@@ -422,8 +422,8 @@ MagicItemsList["stone of ill luck"] = {
 	cursed : true,
 	addMod : [
 		{ type : "save", field : "all", mod : -1, text : "I gain a +1 bonus and -2 penalty on all my saving throws." },
-		{ type : "skill", field : "all", mod : -1, text : "I gain a +1 bonus and -2 penalty  on all my ability checks." },
-		{ type : "skill", field : "Init", mod : -1, text : "I gain a +1 bonus and -2 penalty  on all my ability checks." }
+		{ type : "skill", field : "all", mod : -1, text : "I gain a +1 bonus and -2 penalty on all my ability checks." },
+		{ type : "skill", field : "Init", mod : -1, text : "I gain a +1 bonus and -2 penalty on all my ability checks." }
 	]
 }
 MagicItemsList["wand of entangle"] = {
@@ -476,7 +476,6 @@ MagicItemsList["waythe"] = {
 	action : [["action", ""]],
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of the Waythe",
 		note : desc([
 			"It takes only 1 minute for a good-aligned character to gain attunement with this sword.",
 			"I gain a +1 bonus to attack and damage rolls made with this magic greatsword. When I hit a creature of the giant type with it, it deals an extra 2d6 slashing damage, and the giant must succeed on a DC 15 Strength saving throw or fall prone.",

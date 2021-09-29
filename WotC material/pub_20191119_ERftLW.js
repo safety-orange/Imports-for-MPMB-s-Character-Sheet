@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -63,11 +63,12 @@ FeatsList["revenant blade"] = {
 		atkAdd : [
 			function (fields, v) {
 				if (v.baseWeaponName == 'double-bladed scimitar' && fields.Proficiency) {
-					fields.Description = fields.Description.replace(/two-handed/i, 'Finesse, two-handed');
+					if (!/finesse/i.test(fields.Description)) fields.Description = 'Finesse, ' + fields.Description.substr(0,1).toLowerCase() + fields.Description.substr(1);
 					fields.Mod = v.StrDex;
 				};
 			},
-			"Double-bladed scimitars count as having finesse for me."
+			"Double-bladed scimitars count as having finesse for me.",
+			1
 		]
 	},
 	extraAC : {
@@ -109,7 +110,7 @@ if (!SourceList.V) {
 		carryingCapacity : 2
 	};
 	RaceList["goblin"] = {
-		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*hobgoblin|bugbear).*$/i,
+		regExpSearch : /^(?=.*\bgoblins?\b)(?!.*(hobgoblin|bugbear)).*$/i,
 		name : "Goblin",
 		source : [["V", 119], ["G", 17], ["E:RLW", 26], ["W", 174]],
 		plural : "Goblins",
@@ -2295,7 +2296,8 @@ AddSubClass("artificer", "artillerist", {
 							}
 						}
 					},
-					"If I use my arcane firearm as a spellcasting focus for an artificer spell, I can add +1d8 to one of the spell's damage rolls."
+					"If I use my arcane firearm as a spellcasting focus for an artificer spell, I can add +1d8 to one of the spell's damage rolls.",
+					10
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
@@ -2773,7 +2775,6 @@ MagicItemsList["docent"] = {
 	prereqeval : function (v) { return (/warforged/i).test(CurrentRace.known); },
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Docent",
 		note : desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
@@ -2907,6 +2908,7 @@ MagicItemsList["imbued wood focus"] = {
 	choices : ["Fernian Ash (fire)", "Irian Rosewood (radiant)", "Kythrian Manchineel (acid and poison)", "Lamannian Oak (lightning and thunder)", "Mabaran Ebony (necrotic)", "Risian Pine (cold)", "Shavarran Birch (force)", "Xorian Wenge (psychic)"],
 	"fernian ash (fire)" : {
 		name : "Fernian Ash Rod, Wand, or Staff",
+		sortname : "Imbued Wood Focus, Fernian Ash (fire)",
 		nameTest : /^(?=.*fernian)(?=.*ash)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Fernian ash, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal fire damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
@@ -2926,7 +2928,8 @@ MagicItemsList["imbued wood focus"] = {
 	},
 	"irian rosewood (radiant)" : {
 		name : "Irian Rosewood Rod, Wand, or Staff",
-		nameTest :  /^(?=.*irian)(?=.*rosewood)(?=.*(rod|wand|staff)).*$/i,
+		sortname : "Imbued Wood Focus, Irian Rosewood (radiant)",
+		nameTest : /^(?=.*irian)(?=.*rosewood)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Irian rosewood, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal radiant damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkCalc : [
@@ -2945,7 +2948,8 @@ MagicItemsList["imbued wood focus"] = {
 	},
 	"kythrian manchineel (acid and poison)" : {
 		name : "Kythrian Manchineel Rod, Wand, or Staff",
-		nameTest :  /^(?=.*kythrian)(?=.*manchineel)(?=.*(rod|wand|staff)).*$/i,
+		sortname : "Imbued Wood Focus, Kythrian Manchineel (acid and poison)",
+		nameTest : /^(?=.*kythrian)(?=.*manchineel)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Kythrian manchineel, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal acid or poison damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkCalc : [
@@ -2964,7 +2968,8 @@ MagicItemsList["imbued wood focus"] = {
 	},
 	"lamannian oak (lightning and thunder)" : {
 		name : "Lamannian Oak Rod, Wand, or Staff",
-		nameTest :  /^(?=.*lamannian)(?=.*oak)(?=.*(rod|wand|staff)).*$/i,
+		sortname : "Imbued Wood Focus, Lamannian Oak (lightning and thunder)",
+		nameTest : /^(?=.*lamannian)(?=.*oak)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Lamannian oak, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal lightning or thunder damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkCalc : [
@@ -2983,7 +2988,8 @@ MagicItemsList["imbued wood focus"] = {
 	},
 	"mabaran ebony (necrotic)" : {
 		name : "Mabaran Ebony Rod, Wand, or Staff",
-		nameTest :  /^(?=.*mabaran)(?=.*ebony)(?=.*(rod|wand|staff)).*$/i,
+		sortname : "Imbued Wood Focus, Mabaran Ebony (necrotic)",
+		nameTest : /^(?=.*mabaran)(?=.*ebony)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Mabaran ebony, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal necrotic damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkCalc : [
@@ -3002,7 +3008,8 @@ MagicItemsList["imbued wood focus"] = {
 	},
 	"risian pine (cold)" : {
 		name : "Risian Pine Rod, Wand, or Staff",
-		nameTest :  /^(?=.*risian)(?=.*pine)(?=.*(rod|wand|staff)).*$/i,
+		sortname : "Imbued Wood Focus, Risian Pine (cold)",
+		nameTest : /^(?=.*risian)(?=.*pine)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Risian pine, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal cold damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkCalc : [
@@ -3021,7 +3028,8 @@ MagicItemsList["imbued wood focus"] = {
 	},
 	"shavarran birch (force)" : {
 		name : "Shavarran Birch Rod, Wand, or Staff",
-		nameTest :  /^(?=.*shavarran)(?=.*birch)(?=.*(rod|wand|staff)).*$/i,
+		sortname : "Imbued Wood Focus, Shavarran Birch (force)",
+		nameTest : /^(?=.*shavarran)(?=.*birch)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Shavarran birch, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal force damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkAdd : [
@@ -3047,7 +3055,8 @@ MagicItemsList["imbued wood focus"] = {
 	},
 	"xorian wenge (psychic)" : {
 		name : "Xorian Wenge Rod, Wand, or Staff",
-		nameTest :  /^(?=.*xorian)(?=.*wenge)(?=.*(rod|wand|staff)).*$/i,
+		sortname : "Imbued Wood Focus, Xorian Wenge (psychic)",
+		nameTest : /^(?=.*xorian)(?=.*wenge)(?=.*(rod|wand|staff)).*$/i,
 		description : "This rod, wand, or staff made of Xorian wenge, wood infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal psychic damage add a +1 bonus to one of their damage rolls.",
 		calcChanges : {
 			atkCalc : [
@@ -3136,7 +3145,7 @@ MagicItemsList["living gloves"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "These gloves made of thin chitin and sinew bond with my skin once I attune to them and removing them requires ending a curse. Once I attune to them, I can choose to become proficient and gain expertise with either sleight of hand, thieves' tools, or an artisan's tools or musical instrument of my choice.",
-	descriptionFull : "These symbiotic gloves—made of thin chitin and sinew—pulse with a life of their own. To attune to them, you must wear them for the entire attunement period, during which the gloves bond with your skin.\n   While attuned to these gloves, you gain one of the following proficiencies (your choice when you attune to the gloves):\n \u2022 Sleight of Hand\n \u2022 Thieves' tools\n \u2022 One kind of artisan's tools of your choice\n \u2022 One kind of musical instrument of your choice\n\nWhen you make an ability check using the chosen proficiency, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.\n   " + toUni("Symbiotic Nature") + ". The gloves can't be removed from you while you're attuned to them, and you can't voluntarily end your attunement to them. If you're targeted by a spell that ends a curse, your attunement to the gloves ends, and they can be removed.",
+	descriptionFull : "These symbiotic gloves\u2014made of thin chitin and sinew\u2014pulse with a life of their own. To attune to them, you must wear them for the entire attunement period, during which the gloves bond with your skin.\n   While attuned to these gloves, you gain one of the following proficiencies (your choice when you attune to the gloves):\n \u2022 Sleight of Hand\n \u2022 Thieves' tools\n \u2022 One kind of artisan's tools of your choice\n \u2022 One kind of musical instrument of your choice\n\nWhen you make an ability check using the chosen proficiency, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.\n   " + toUni("Symbiotic Nature") + ". The gloves can't be removed from you while you're attuned to them, and you can't voluntarily end your attunement to them. If you're targeted by a spell that ends a curse, your attunement to the gloves ends, and they can be removed.",
 	attunement : true,
 	choices : ["Proficiency and expertise with Sleight of Hand", "Proficiency and expertise with Thieves' Tools", "Proficiency and expertise with chosen artisan's tools", "Proficiency and expertise with chosen musical instrument"],
 	"proficiency and expertise with sleight of hand" : {
@@ -3221,7 +3230,7 @@ MagicItemsList["prosthetic limb"] = { // no attument as per errata
 	type : "wondrous item",
 	rarity : "common",
 	description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
-	descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
+	descriptionFull : "This item replaces a lost limb\u2014a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
 	action : [["action", " (attach/detach)"]]
 }
 MagicItemsList["scribe's pen"] = {

@@ -1,5 +1,5 @@
 var iFileName = "ua_20170213_Warlock-and-Wizard.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -61,7 +61,8 @@ AddSubClass("warlock", "the hexblade-ua", {
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						};
 					},
-					"If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description."
+					"If I include the word 'Hexblade' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my proficiency bonus to the damage and adding the increased chance of a critical hit to the description.",
+					19
 				],
 				atkCalc : [
 					function (fields, v, output) {
@@ -99,10 +100,10 @@ AddSubClass("warlock", "the hexblade-ua", {
 	}
 });
 //this code includes contributions by Ben Y. and Wizzard
-AddSubClass("warlock", "the raven queen-ua", {
+AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*\braven)(?=.*queen\b).*$/i,
 	subname : "the Raven Queen",
-	source : ["UA:WnW", 2],
+	source : [["UA:WnW", 2]],
 	spellcastingExtra : ["false life", "sanctuary", "silence", "spiritual weapon", "feign death", "speak with dead", "ice storm", "locate creature", "commune", "cone of cold"],
 	features : {
 		"subclassfeature1" : {
@@ -203,10 +204,10 @@ AddSubClass("warlock", "the raven queen-ua", {
 	}
 });
 //this code includes contributions by /u/magicmanfk
-AddSubClass("wizard", "lore mastery-ua", {
+AddSubClass("wizard", "lore mastery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*\blore)(?=.*mastery?\b).*$/i,
 	subname : "Lore Mastery",
-	source : ["UA:WnW", 5],
+	source : [["UA:WnW", 5]],
 	fullname : "Lore Master",
 	features : {
 		"subclassfeature2" : {
@@ -275,6 +276,7 @@ AddSubClass("wizard", "lore mastery-ua", {
 });
 
 // Add many new Warlock invocations
+// Most probably still valid 2021-09-21, have to check
 AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",

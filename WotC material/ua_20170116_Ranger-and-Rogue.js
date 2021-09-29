@@ -1,5 +1,5 @@
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -96,10 +96,10 @@ var UARnR_theHorizonWalkerSubclass = {
 	}
 };
 AddSubClass("ranger", "horizon walker-ua", UARnR_theHorizonWalkerSubclass);
-var UARnR_thePrimevalGuardianSubclass = {
+var UARnR_thePrimevalGuardianSubclass = { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*primeval)(?=.*guardian).*$/i,
 	subname : "Primeval Guardian",
-	source : ["UA:RnR", 2],
+	source : [["UA:RnR", 2]],
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {

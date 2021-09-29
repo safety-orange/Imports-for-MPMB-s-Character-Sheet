@@ -1,5 +1,5 @@
 var iFileName = "pub_20150407_PotA.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the magic items from the Princes of the Apocalypse adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -107,7 +107,6 @@ MagicItemsList["devastation orb"] = {
 		descriptionFull : PotA_tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Air Orb") + ". When this orb detonates, it creates a powerful windstorm that lasts for 1 hour. Whenever a creature ends its turn exposed to the wind, the creature must succeed on a DC 18 Constitution saving throw or take 1d4 bludgeoning damage, as the wind and debris batter it. The wind is strong enough to uproot weak trees and destroy light structures after at least 10 minutes of exposure. Otherwise, the rules for strong wind apply, as detailed in chapter 5 of the Dungeon Master's Guide.",
 		toNotesPage : [{
 			name : "Features",
-			popupName : "Features of the Devastation Orb of Air",
 			note : PotA_tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "air").replace(/oElement/g, "earth") + "\n  When this orb detonates, it creates a powerful windstorm within a sphere with a 1 mile radius that lasts for 1 hour. Whenever a creature ends its turn exposed to the wind, the creature must succeed on a DC 18 Constitution saving throw or take 1d4 bludgeoning damage, as the wind and debris batter it. The wind is strong enough to uproot weak trees and destroy light structures after at least 10 minutes of exposure. Otherwise, the rules for strong wind apply. A strong wind imposes disadvantage on ranged weapon attack rolls and Wisdom (Perception) checks that rely on hearing. A strong wind also extinguishes open flames, disperses fog, and makes flying by nonmagical means nearly impossible. A flying creature in a strong wind must land at the end of its turn or fall. A strong wind in a desert can create a sandstorm that imposes disadvantage on Wisdom (Perception) checks that rely on sight."
 		}]
 	},
@@ -117,7 +116,6 @@ MagicItemsList["devastation orb"] = {
 		descriptionFull : PotA_tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Earth Orb") + ". When this orb detonates, it subjects the area to the effects of the Earthquake spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes.",
 		toNotesPage : [{
 			name : "Features",
-			popupName : "Features of the Devastation Orb of Earth",
 			note : PotA_tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "earth").replace(/oElement/g, "air") + desc([
 				"When this orb detonates, it subjects the area to the effects of the Earthquake spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes.",
 				"The Earthquake spell creates a seismic disturbance that shakes creatures and structures in contact with the ground in that area. The ground in the area becomes difficult terrain. Each creature on the ground that is concentrating must make a Constitution saving throw. On a failed save, the creature's concentration is broken.",
@@ -134,7 +132,6 @@ MagicItemsList["devastation orb"] = {
 		descriptionFull : PotA_tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Fire Orb") + ". When this orb detonates, it creates a dry heat wave that lasts for 24 hours. Within the area of effect, the rules for extreme heat apply, as detailed in chapter 5 of the Dungeon Master's Guide. At the end of each hour, there is a ten percent chance that the heat wave starts a wildfire in a random location within the area of effect. The wildfire covers a 10-foot-square area initially but expands to fill another 10-foot square each round until the fire is extinguished or burns itself out. A creature that comes within 10 feet of a wildfire for the first time on a turn or starts its turn there takes 3d6 fire damage.",
 		toNotesPage : [{
 			name : "Features",
-			popupName : "Features of the Devastation Orb of Fire",
 			note : PotA_tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "fire").replace(/oElement/g, "water") + "\n  When this orb detonates, it creates a dry heat wave within a 1-mile radius sphere that lasts for 24 hours. At the end of each hour, there is a ten percent chance that the heat wave starts a wildfire in a random location within the area of effect. The wildfire covers a 10-foot-square area initially but expands to fill another 10-foot square each round until the fire is extinguished or burns itself out. A creature that comes within 10 feet of a wildfire for the first time on a turn or starts its turn there takes 3d6 fire damage.\n   Within the area of effect, the rules for extreme heat apply, as the temperature is above 100 \u00B0F. Any creature exposed to the heat and without access to drinkable water must succeed on a Constitution saving throw at the end of each hour or gain one level of exhaustion. The DC is 5 for the first hour and increases by 1 for each additional hour. Creatures wearing medium or heavy armor, or who are clad in heavy clothing, have disadvantage on the saving throw. Creatures with resistance or immunity to fire damage automatically succeed on the saving throw, as do creatures naturally adapted to hot climates."
 		}]
 	},
@@ -144,7 +141,6 @@ MagicItemsList["devastation orb"] = {
 		descriptionFull : PotA_tempDevastationOrbNoteTxt[0] + "\n   " + toUni("Water Orb") + ". When this orb detonates, it creates a torrential rainstorm that lasts for 24 hours. Within the area of effect, the rules for heavy precipitation apply, as detailed in chapter 5 of the Dungeon Master's Guide. If there is a substantial body of water in the area, it floods after 2d10 hours of heavy rain, rising 10 feet above its banks and inundating the surrounding area. The flood advances at a rate of 100 feet per round, moving away from the body of water where it began until it reaches the edge of the area of effect: at that point, the water flows downhill (and possibly recedes back to its origin). Light structures collapse and wash away. Any Large or smaller creature caught in the flood's path is swept away. The flooding destroys crops and might trigger mudslides, depending on the terrain.",
 		toNotesPage : [{
 			name : "Features",
-			popupName : "Features of the Devastation Orb of Water",
 			note : PotA_tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "water").replace(/oElement/g, "fire") + "\n  When this orb detonates, it creates a torrential rainstorm in a 1-mile radius sphere that lasts for 24 hours. If there is a substantial body of water in the area, it floods after 2d10 hours of heavy rain, rising 10 feet above its banks and inundating the surrounding area. The flood advances at a rate of 100 feet per round, moving away from the body of water where it began until it reaches the edge of the area of effect: at that point, the water flows downhill (and possibly recedes back to its origin). Light structures collapse and wash away. Any Large or smaller creature caught in the flood's path is swept away. The flooding destroys crops and might trigger mudslides, depending on the terrain.\n   Within the area of effect, the rules for heavy precipitation apply. Everything is lightly obscured, and creatures in the area have disadvantage on Wisdom (Perception) checks that rely on sight. Heavy rain also extinguishes open flames and imposes disadvantage on Wisdom (Perception) checks that rely on hearing."
 		}]
 	}
@@ -187,7 +183,6 @@ MagicItemsList["drown"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Drown",
 		note : [
 			"A steel trident decorated with bronze barnacles along the upper part of its haft, Drown has a sea-green jewel just below the tines and a silver shell at the end of its haft. It floats on the surface if dropped onto water, and it floats in place if it is released underwater. The trident is always cool to the touch, and it is immune to any damage due to exposure to water. Drown contains a spark of Olhydra, the Princess of Evil Water.",
 			"I gain a +1 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the targets take an extra 1d8 cold damage.",
@@ -256,7 +251,6 @@ MagicItemsList["ironfang"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Ironfang",
 		note : [
 			"A war pick forged from a single piece of iron, Ironfang has a fang-like head inscribed with ancient runes. The pick is heavy in the hand, but when the wielder swings the pick in anger, the weapon seems almost weightless. This weapon is immune to any form of rust, acid, or corrosion\u2014nothing seems to mark it. Ironfang contains a spark of Ogr\xE9moch, the Prince of Evil Earth.",
 			"I gain a +2 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the target takes an extra 1d8 thunder damage.",
@@ -306,7 +300,6 @@ MagicItemsList["orcsplitter"] = {
 	savetxt : { immune : ["frightened"] },
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Orcsplitter",
 		note : desc([
 			'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
 			"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
@@ -406,7 +399,6 @@ MagicItemsList["tinderstrike"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Tinderstrike",
 		note : [
 			"A flint dagger, Tinderstrike is uncommonly sharp, and sparks cascade off its edge whenever it strikes something solid. Its handle is always warm to the touch, and the blade smolders for 1d4 minutes after it is used to deal damage. It contains a spark of Imix, Prince of Evil Fire.",
 			"I gain a +2 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the target takes an extra 2d6 fire damage.",
@@ -467,7 +459,6 @@ MagicItemsList["windvane"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Windvane",
 		note : [
 			"A silver spear, Windvane has dark sapphires on the filigreed surface of its polished head. Held by its shining haft, the weapon feels insubstantial, as if clutching a cool, gently flowing breeze. The spear contains a spark of Yan-C-Bin, the Prince of Evil Air.",
 			"I have a +2 bonus to attack and damage rolls made with this magic weapon, which has the finesse weapon property. When I hit with it, the target takes an extra 1d6 lightning damage.",

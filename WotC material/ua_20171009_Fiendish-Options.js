@@ -1,5 +1,5 @@
 var iFileName = "ua_20171009_Fiendish-Options.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Fiendish Options article to MPMB's Character Record Sheet
 
 // Define the source

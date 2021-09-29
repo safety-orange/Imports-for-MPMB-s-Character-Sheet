@@ -1,5 +1,5 @@
 var iFileName = "ua_20190905_Sorcerer-and-Warlock.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Sorcerer and Warlock article to MPMB's Character Record Sheet
 
 // Define the source

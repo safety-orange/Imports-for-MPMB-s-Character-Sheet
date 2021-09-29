@@ -1,5 +1,5 @@
 var iFileName = "pub_20150915_OotA.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -157,14 +157,13 @@ MagicItemsList["dawnbringer"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Dawnbringer",
 		note : desc([
 			"Lost for ages in the Underdark, Dawnbringer appears to be a gilded longsword hilt. While grasping the hilt, I can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
 			"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
 			"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
 			"As an action while holding the weapon, I can touch a creature with the blade and cast Lesser Restoration on that creature. Once used, this ability can't be used again until the next dawn.",
 			"Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet. The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language you know while attuned to it.",
-			"Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies.  Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time."
+			"Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies. Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time."
 		]) + "\n\n" + sentientItemConflictTxt
 	}]
 }
@@ -209,7 +208,7 @@ MagicItemsList["piwafwi of fire resistance (cloak of elvenkind)"] = {
 }
 MagicItemsList["spell gem"] = { // not legal in AL
 	name : "Spell Gem",
-	source : ["OotA", 223],
+	source : [["OotA", 223]],
 	type : "wondrous item",
 	notLegalAL : true,
 	description : "This gem can store 1 spell in it. If it is empty, I can cast a spell as normal, but have it stored in the gem. As an action, I can cast a stored spell from it, if that spell is on my class' spell list.",
@@ -254,7 +253,6 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	toNotesPage : [{
 		name : "Storing Spells",
-		popupName : "Casting spells into a Spell Gems",
 		page3notes : true,
 		note : [
 			"Casting a spell stored from a spell gem doesn't require attunement",
@@ -266,6 +264,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	choices : ["Obsidian (cantrip, uncommon)", "Lapis Lazuli (1st-level, uncommon)", "Quartz (2nd-level, rare)", "Bloodstone (3rd-level, rare)", "Amber (4th-level, very rare)", "Jade (5th-level, very rare)", "Topaz (6th-level, very rare)", "Star Ruby (7th-level, legendary)", "Ruby (8th-level, legendary)", "Diamond (9th-level, legendary)"],
 	"obsidian (cantrip, uncommon)" : {
 		name : "Spell Gem [Obsidian]",
+		sortname : "Spell Gem (cantrip) [Obsidian]",
 		rarity : "uncommon",
 		description : "This gem can store one cantrip. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack.",
 		fixedDC : 13,
@@ -279,6 +278,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"lapis lazuli (1st-level, uncommon)" : {
 		name : "Spell Gem [Lapis Lazuli]",
+		sortname : "Spell Gem (1st-level) [Lapis Lazuli]",
 		rarity : "uncommon",
 		description : "This gem can store one spell up to 1st-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 11 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 13,
@@ -292,6 +292,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"quartz (2nd-level, rare)" : {
 		name : "Spell Gem [Quartz]",
+		sortname : "Spell Gem (2nd-level) [Quartz]",
 		rarity : "rare",
 		description : "This gem can store one spell up to 2nd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 12 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 13,
@@ -305,6 +306,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"bloodstone (3rd-level, rare)" : {
 		name : "Spell Gem [Bloodstone]",
+		sortname : "Spell Gem (3rd-level) [Bloodstone]",
 		rarity : "rare",
 		description : "This gem can store one spell up to 3rd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +7 spell attack. If the spell's level is higher than I can cast, I need to make a DC 13 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 15,
@@ -318,6 +320,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"amber (4th-level, very rare)" : {
 		name : "Spell Gem [Amber]",
+		sortname : "Spell Gem (4th-level) [Amber]",
 		rarity : "very rare",
 		description : "This gem can store one spell up to 4th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 14 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 15,
@@ -332,6 +335,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"jade (5th-level, very rare)" : {
 		name : "Spell Gem [Jade]",
+		sortname : "Spell Gem (5th-level) [Jade]",
 		rarity : "very rare",
 		description : "This gem can store one spell up to 5th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 15 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 17,
@@ -345,6 +349,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"topaz (6th-level, very rare)" : {
 		name : "Spell Gem [Topaz]",
+		sortname : "Spell Gem (6th-level) [Topaz]",
 		rarity : "very rare",
 		description : "This gem can store one spell up to 6th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 16 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 17,
@@ -359,6 +364,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"star ruby (7th-level, legendary)" : {
 		name : "Spell Gem [Star Ruby]",
+		sortname : "Spell Gem (7th-level) [Star Ruby]",
 		rarity : "legendary",
 		description : "This gem can store one spell up to 7th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 17 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 18,
@@ -372,6 +378,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"ruby (8th-level, legendary)" : {
 		name : "Spell Gem [Ruby]",
+		sortname : "Spell Gem (8th-level) [Ruby]",
 		rarity : "legendary",
 		description : "This gem can store one spell up to 8th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 18 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 18,
@@ -385,6 +392,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	},
 	"diamond (9th-level, legendary)" : {
 		name : "Spell Gem [Diamond]",
+		sortname : "Spell Gem (9th-level) [Diamond]",
 		rarity : "legendary",
 		description : "This gem can store one spell up to 9th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 19, +11 spell attack. If the spell's level is higher than I can cast, I need to make a DC 19 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 19,
@@ -434,10 +442,10 @@ MagicItemsList["wand of viscid globs"] = {
 	source : ["OotA", 223],
 	type : "wand",
 	rarity : "rare",
+	attunement : true,
 	magicItemTable : "G",
 	description : "This black wand has 7 charges, regaining 1d6+1 at midnight. If its last charge is used, roll a d20. On a 1, it melts. As an action, I can expend 1 charge to make a ranged attack roll on a target in 60 ft (with my spellcasting ability). On a hit, it is restrained for 1 hour. The wand is destroyed if exposed to sunlight for 1 hour.",
 	descriptionFull : "Crafted by the drow, this slim black wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a small glob of viscous material to launch from the tip at one creature within 60 feet of you. Make a ranged attack roll against the target, with a bonus equal to your spellcasting modifier (or your Intelligence modifier, if you don't have a spellcasting modifier) plus your proficiency bonus. On a hit, the glob expands and dries on the target, which is restrained for 1 hour. After that time, the viscous material cracks and falls away.\n   Applying a pint or more of alcohol to the restrained creature dissolves the glob instantly, as does the application of oil of etherealness or universal solvent. The glob also dissolves instantly if exposed to sunlight. No other nonmagical process can remove the viscous material until it deteriorates on its own.\n   The wand regains 1d6+1 expended charges daily at midnight. If you expend the wands last charge, roll a d20. On a 1, the wand melts into harmless slime and is destroyed.\n   A wand of viscous globs is destroyed if exposed to sunlight for 1 hour without interruption.",
-	attunement : true,
 	weight : 1,
 	usages : 7,
 	recovery : "Midnight",

@@ -1,5 +1,5 @@
 var iFileName = "ua_20161128_Druid-Circles.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Druid Circles article to MPMB's Character Record Sheet
 
 // Define the source
@@ -144,16 +144,16 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 		}
 	}
 });
-AddSubClass("druid", "circle of twilight-ua", {
+AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*twilight).*$/i,
 	subname : "Circle of Twilight",
-	source : ["UA:DC", 2],
+	source : [["UA:DC", 2]],
 	features : {
 		"subclassfeature2" : {
 			name : "Harvest's Scythe",
 			source : ["UA:DC", 3],
 			minlevel : 2,
-			description : "\n   " + "I have a pool of energy represented by a number of d10s equal to my druid level" + "\n   " + "When I roll damage for a spell, I can do extra necrotic damage with dice from the pool" + "\n   " + "I can spend up to half my druid level worth of dice from the pool at once" + "\n   " + "If I any hostiles die from an augmented spell, I can heal one ally I can see within 30 ft" + "\n   " + "The ally regains 2 HP per die spent; or 5 HP per die if one of the slain was undead  ",
+			description : "\n   " + "I have a pool of energy represented by a number of d10s equal to my druid level" + "\n   " + "When I roll damage for a spell, I can do extra necrotic damage with dice from the pool" + "\n   " + "I can spend up to half my druid level worth of dice from the pool at once" + "\n   " + "If I any hostiles die from an augmented spell, I can heal one ally I can see within 30 ft" + "\n   " + "The ally regains 2 HP per die spent; or 5 HP per die if one of the slain was undead",
 			usages : ["", "2d10 per ", "3d10 per ", "4d10 per ", "5d10 per ", "6d10 per ", "7d10 per ", "8d10 per ", "9d10 per ", "10d10 per ", "11d10 per ", "12d10 per ", "13d10 per ", "14d10 per ", "15d10 per ", "16d10 per ", "17d10 per ", "18d10 per ", "19d10 per ", "20d10 per "],
 			recovery : "long rest"
 		},

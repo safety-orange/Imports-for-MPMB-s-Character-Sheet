@@ -1,5 +1,5 @@
 var iFileName = "ps_20180109_Ixalan.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all material from the Plane Shift: Ixalan article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-ixalan-2018-01-09) to MPMB's Character Record Sheet
 
 // Define the source
@@ -138,7 +138,8 @@ RaceList["ixalan orc"] = {
 							}
 						}
 					},
-					"My melee weapon attacks roll 1 additional dice on a critical hit."
+					"My melee weapon attacks roll 1 additional dice on a critical hit.",
+					900
 				]
 			}
 		}

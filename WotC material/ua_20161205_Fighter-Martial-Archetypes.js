@@ -1,5 +1,5 @@
 var iFileName = "ua_20161205_Fighter-Martial-Archetypes.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -116,10 +116,10 @@ AddSubClass("fighter", "arcane archer-ua", {
 		}
 	}
 });
-AddSubClass("fighter", "knight-ua", {
+AddSubClass("fighter", "knight-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?!.*(exalted|sacred|holy|divine|nature|natural|purple.*dragon|green|fey|horned))(?=.*knight).*$/i,
 	subname : "Knight",
-	source : ["UA:FMA", 2],
+	source : [["UA:FMA", 2]],
 	fullname : "Knight",
 	features : {
 		"subclassfeature3" : {
@@ -264,10 +264,10 @@ AddSubClass("fighter", "samurai-ua", {
 		}
 	}
 });
-AddSubClass("fighter", "sharpshooter-ua", {
+AddSubClass("fighter", "sharpshooter-ua", { // Still valid 2021-09-21
 	regExpSearch : /sharpshooter/i,
 	subname : "Sharpshooter",
-	source : ["UA:FMA", 3],
+	source : [["UA:FMA", 3]],
 	fullname : "Sharpshooter",
 	features : {
 		"subclassfeature3" : {

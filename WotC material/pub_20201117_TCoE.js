@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -33,6 +33,7 @@ RequiredSheetVersion("13.0.7");
 		- edimshuffling
 		- githubtkompare
 		- Holynight6
+		- lizrdgizrd
 
 	Think you're missing from this list? Please let me know!
 */
@@ -946,7 +947,8 @@ if (!SourceList["E:RLW"]) {
 								}
 							}
 						},
-						"If I use my arcane firearm as a spellcasting focus for an artificer spell, I can add +1d8 to one of the spell's damage rolls."
+						"If I use my arcane firearm as a spellcasting focus for an artificer spell, I can add +1d8 to one of the spell's damage rolls.",
+						10
 					],
 					spellAdd : [
 						function (spellKey, spellObj, spName) {
@@ -1314,7 +1316,7 @@ MagicItemsList["arcane propulsion armor"] = {
 	name : "Arcane Propulsion Armor",
 	source : [["T", 20]],
 	type : "armor (light, medium, or heavy)",
-	descriptionFull : "The wearer of this armor gains these benefits:\n \u2022 The wearer's walking speed increases by 5 feet.\n \u2022 The armor includes gauntlets, each of which is a magic melee weapon that can be wielded only when the hand is holding nothing. The wearer is proficient with the gauntlets, and each one deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the gauntlet detaches and flies at the attack's target, then immediately returns to the wearer and reattaches.\n \u2022 The armor can't be removed against the wearer's will.\n \u2022 If the wearer is missing any limbs, the armor replaces those limbs—hands, arms, feet, legs, or similar appendages. The replacements function identically to the body parts they replace.",
+	descriptionFull : "The wearer of this armor gains these benefits:\n \u2022 The wearer's walking speed increases by 5 feet.\n \u2022 The armor includes gauntlets, each of which is a magic melee weapon that can be wielded only when the hand is holding nothing. The wearer is proficient with the gauntlets, and each one deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the gauntlet detaches and flies at the attack's target, then immediately returns to the wearer and reattaches.\n \u2022 The armor can't be removed against the wearer's will.\n \u2022 If the wearer is missing any limbs, the armor replaces those limbs\u2014hands, arms, feet, legs, or similar appendages. The replacements function identically to the body parts they replace.",
 	description : "This armor replaces any missing limbs, increases my walking speed by 5 ft, and can't be removed against my will. I can use either empty-handed gauntlet as a proficient melee weapon with the thrown property. After a throwing attack with a gauntlet, it returns and reattaches immediately.",
 	attunement : true,
 	chooseGear : {
@@ -1581,7 +1583,7 @@ RunFunctionAtEnd(function () {
 				},
 				"infiltrator" : {
 					name : "Perfected Armor: Infiltrator",
-					description :  desc([
+					description : desc([
 						"Those hit by my lightning launcher shed 5-ft radius dim light until my next turn starts",
 						"The light gives the target disadvantage on attacks rolls made against me",
 						"Also, the next attack against it has advantage and deals an extra 1d6 lightning damage"
@@ -1812,7 +1814,7 @@ AddSubClass("barbarian", "path of wild magic", {
 				name : "Wild Magic Table",
 				source : [["T", 26]],
 				note : [
-					"The magical energy roiling inside me sometimes erupts from me.  Whenever I enter my rage, I have to roll on the table below to see what happens.",
+					"The magical energy roiling inside me sometimes erupts from me. Whenever I enter my rage, I have to roll on the table below to see what happens.",
 					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",
 					"d8\tEFFECT",
 					" 1\tShadowy tendrils lash around me. Each creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d12 necrotic damage. I also gain 1d12 temporary hit points.",
@@ -2715,11 +2717,15 @@ AddSubClass("druid", "circle of the stars", {
 				"The benefit of my constellations improve, see the 3rd page's \"Notes\" section"
 			]),
 			calcChanges : {
-				atkAdd : [function (fields, v) {
-					if (v.theWea.luminousarrow && fields.Damage_Die.indexOf('1d8') !== -1) {
-						fields.Damage_Die = fields.Damage_Die.replace('1d8', '2d8');
-					};
-				}]
+				atkAdd : [
+					function (fields, v) {
+						if (v.theWea.luminousarrow && fields.Damage_Die.indexOf('1d8') !== -1) {
+							fields.Damage_Die = fields.Damage_Die.replace('1d8', '2d8');
+						};
+					},
+					'',
+					1
+				]
 			}
 		},
 		"subclassfeature14" : {
@@ -2934,7 +2940,8 @@ AddFightingStyle(["fighter"], "Unarmed Fighting", {
 					fields.Description += (fields.Description ? '; ' : '') + 'Versatile (d8)';
 				};
 			},
-			"My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I have both hands free to make an unarmed strike with."
+			"My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I have both hands free to make an unarmed strike with.",
+			1
 		]
 	}
 });
@@ -3033,7 +3040,7 @@ AddSubClass("fighter", "psi warrior", {
 	subname : "Psi Warrior",
 	source : [["T", 42]],
 	fullname : "Psi Warrior",
-    abilitySave : 4,
+	abilitySave : 4,
 	features : {
 		"subclassfeature3" : {
 			name : "Psionic Energy Dice",
@@ -3339,7 +3346,8 @@ AddSubClass("fighter", "rune knight", {
 							if (classes.known.fighter.level >= 18 && v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + '+5 ft reach';
 						};
 					},
-					"If I include the words \"Giant Might\" in the name of a weapon or unarmed strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons)."
+					"If I include the words \"Giant Might\" in the name of a weapon or unarmed strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons).",
+					8
 				]
 			}
 		},
@@ -3400,21 +3408,10 @@ AddFeatureChoice(ClassList.monk.features.ki, true, "Dedicated Weapon", {
 			function (fields, v) {
 				if (!v.theWea.monkweapon && !v.theWea.special && classes.known.monk && classes.known.monk.level && (/dedicated/i).test(v.WeaponTextName) && fields.Proficiency && (/simple|martial/i).test(v.theWea.type) && !(/\b(heavy|special)\b/i).test(fields.Description)) {
 					v.theWea.monkweapon = true;
-					var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
-					try {
-						var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
-					} catch (e) {
-						var curDie = 'x';
-					};
-					if (isNaN(curDie) || curDie < aMonkDie) {
-						fields.Damage_Die = '1d' + aMonkDie;
-					};
-					if (fields.Mod == 1 || fields.Mod == 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
-						fields.Mod = v.StrDex;
-					}
 				};
 			},
-			'If I include the word "Dedicated" in the name of a simple or martial weapon that I\'m proficient with and that doesn\'t have the heavy or special property, it will be treated as a monk weapon.'
+			'If I include the word "Dedicated" in the name of a simple or martial weapon that I\'m proficient with and that doesn\'t have the heavy or special property, it will be treated as a monk weapon.',
+			1
 		]
 	}
 }, "Optional 2nd-level monk features");
@@ -3503,7 +3500,7 @@ AddSubClass("monk", "way of mercy", {
 			name : "Physician's touch",
 			source : [["T", 50]],
 			minlevel : 6,
-			description :  desc([
+			description : desc([
 				"Hand of Healing also ends 1 disease, blinded, deafened, paralyzed, poisoned or stunned",
 				"Hand of Harm also causes target to be poisoned until the end of my next turn"
 			])
@@ -4785,20 +4782,20 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Transmuted Spe
 	])
 });
 // Other optional features
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Sorcerer Versatility", {
-	name : "Sorcerer Versatility",
+AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Sorcerous Versatility (prereq: level 4 sorcerer)", {
+	name : "Sorcerous Versatility",
 	extraname : "Optional Sorcerer 4",
-	source : [["T", 65]],
+	source : [["T", 66]],
 	description : " [ASI = Ability Score Improvement]" + desc([
 		"Whenever I gain an ASI from the sorcerer class, I can change a cantrip or Metamagic choice",
 		"I can select either another cantrip from the sorcerer spell list or another Metamagic option"
 	]),
 	prereqeval : function (v) { return classes.known.sorcerer.level >= 4 ? true : "skip"; }
 }, "Optional sorcerer features");
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Magical Guidance", {
+AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Magical Guidance (prereq: level 5 sorcerer)", {
 	name : "Magical Guidance",
 	extraname : "Optional Sorcerer 5",
-	source : [["T", 65]],
+	source : [["T", 66]],
 	description : " [1 sorcery point]\n   When I make an ability check that fails, I can reroll the d20 and must use the new roll",
 	prereqeval : function (v) { return classes.known.sorcerer.level >= 5 ? true : "skip"; }
 }, "Optional sorcerer features");
@@ -5301,7 +5298,9 @@ AddSubClass("warlock", "the fathomless", {
 						if (v.theWea.tentacleOfTheDeeps && classes.known.warlock.level >= 10) {
 							fields.Damage_Die = '2d8';
 						};
-					}
+					},
+					'',
+					1
 				]
 			}
 		},
@@ -5943,17 +5942,17 @@ FeatsList["fey touched"] = {
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	choices : ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence": {
+	"intelligence" : {
 		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them " + (typePF ? "by expending" : "with") + " a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
 		scores : [0, 0, 0, 1, 0, 0]
 	},
-	"wisdom": {
+	"wisdom" : {
 		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility : 5,
 		scores : [0, 0, 0, 0, 1, 0]
 	},
-	"charisma": {
+	"charisma" : {
 		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility : 6,
 		scores : [0, 0, 0, 0, 0, 1]
@@ -6087,19 +6086,20 @@ FeatsList["piercer"] = {
 		atkAdd : [
 			function (fields, v) {
 				if ((/pierc(\.|ing)/i).test(fields.Damage_Type)) {
-					var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
+					var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)?( in melee)?)/i;
 					v.extraCritM = (v.extraCritM ? v.extraCritM : 0) + 1;
 					if (extraCritRegex.test(fields.Description)) {
 						fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + '$1');
 					} else if ((/d\d/).test(fields.Damage_Die)) {
-						fields.Description += (fields.Description ? '; ' : '') + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, '$1') + ' extra on a crit in melee';
+						fields.Description += (fields.Description ? '; ' : '') + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, '$1') + ' extra on a crit';
 					}
 					if (!(/re-?roll (one|1)? ?damage/i).test(fields.Description)) {
 						fields.Description += '; Once per turn, re-roll one damage die';
 					}
 				}
 			},
-			"While wielding a two-handed or versatile melee weapon in two hands, I can re-roll a 1 or 2 on any damage die once."
+			"Once per turn when I deal piercing damage to a target, I can reroll one of the damage die and use the new roll. If I deal piercing damage on a critical hit to a target, I can roll one additional damage die.",
+			900
 		]
 	}
 };
@@ -6131,17 +6131,17 @@ FeatsList["shadow touched"] = {
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	choices: ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence": {
+	"intelligence" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
 		scores : [0, 0, 0, 1, 0, 0]
 	},
-	"wisdom": {
+	"wisdom" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility : 5,
 		scores : [0, 0, 0, 0, 1, 0]
 	},
-	"charisma": {
+	"charisma" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility : 6,
 		scores : [0, 0, 0, 0, 0, 1]
@@ -6166,14 +6166,14 @@ FeatsList["telekinetic"] = {
 	name: "Telekinetic",
 	source: [["T", 81]],
 	descriptionFull : "You learn to move things with your mind, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.\n \u2022 As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved 5 feet toward you or away from you. A creature can willingly fail this save.",
-    description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str save vs. this feat's spell save DC or be moved 5 ft from or towards me. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Int, Wis, or Cha]",
+	description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str save vs. this feat's spell save DC or be moved 5 ft from or towards me. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Int, Wis, or Cha]",
 	action : [["bonus action", " Shove"]],
-	spellcastingBonus : [{
+	spellcastingBonus : {
 		name : "Mage Hand",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
-		firstCol : "oncelr"
-	}],
+		firstCol : "atwill"
+	},
 	spellcastingAbility : 4,
 	calcChanges : {
 		spellAdd : [
@@ -6193,18 +6193,18 @@ FeatsList["telekinetic"] = {
 		]
 	},
 	choices: ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence": {
-		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? " away" : "") + " from or towards me. Intelligence is my spellcasting ability for these. [+1 Intelligence]",
+	"intelligence" : {
+		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Intelligence is my spellcasting ability for these. [+1 Intelligence]",
 		spellcastingAbility : 4,
 		scores : [0, 0, 0, 1, 0, 0]
 	},
-	"wisdom": {
-		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? " away" : "") + " from or towards me. Wisdom is my spellcasting ability for these. [+1 Wisdom]",
+	"wisdom" : {
+		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Wisdom is my spellcasting ability for these. [+1 Wisdom]",
 		spellcastingAbility : 5,
 		scores : [0, 0, 0, 0, 1, 0]
 	},
-	"charisma": {
-		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? " away" : "") + " from or towards me. Charisma is my spellcasting ability for these. [+1 Charisma]",
+	"charisma" : {
+		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Charisma is my spellcasting ability for these. [+1 Charisma]",
 		spellcastingAbility : 6,
 		scores : [0, 0, 0, 0, 0, 1]
 	}
@@ -6213,13 +6213,13 @@ FeatsList["telepathic"] = {
 	name: "Telepathic",
 	source: [["T", 81]],
 	descriptionFull : "You awaken the ability to mentally connect with others, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You can speak telepathically to any creature you can see within 60 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.\n \u2022 You can cast the detect thoughts spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat. If you have spell slots of 2nd level or higher, you can cast this spell with them.",
-    description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. My spellcasting ability is the ability I increase with this feat. [+1 Int, Wis, or Cha]",
-	spellcastingBonus : [{
+	description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. My spellcasting ability is the ability I increase with this feat. [+1 Int, Wis, or Cha]",
+	spellcastingBonus : {
 		name : "Detect Thoughts",
 		spells : ["detect thoughts"],
 		selection : ["detect thoughts"],
 		firstCol : "oncelr"
-	}],
+	},
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	spellChanges : {
@@ -6229,17 +6229,17 @@ FeatsList["telepathic"] = {
 		}
 	},
 	choices: ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence": {
+	"intelligence" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Intelligence is my spellcasting ability for this. [+1 Int" + (typePF ? "" : "elligence") + "]",
 		spellcastingAbility : 4,
 		scores : [0, 0, 0, 1, 0, 0]
 	},
-	"wisdom": {
+	"wisdom" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Wisdom is my spellcasting ability for this. [+1 Wis" + (typePF ? "" : "dom") + "]",
 		spellcastingAbility : 5,
 		scores : [0, 0, 0, 0, 1, 0]
 	},
-	"charisma": {
+	"charisma" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Charisma is my spellcasting ability for this. [+1 Cha" + (typePF ? "" : "risma") + "]",
 		spellcastingAbility : 6,
 		scores : [0, 0, 0, 0, 0, 1]
@@ -6374,7 +6374,7 @@ if (!SourceList.F) {
 	SpellsList["blade of disaster"] = {
 		name : "Blade of Disaster",
 		classes : ["sorcerer", "warlock", "wizard"],
-		source : [["T", 106], ["F", 318]],
+		source : [["T", 106], ["RotF", 318]],
 		level : 9,
 		school : "Conj",
 		time : "1 bns",
@@ -6414,7 +6414,7 @@ SpellsList["intellect fortress"] = {
 	range : "30 ft",
 	components : "V",
 	duration : "Conc, 1 h",
-    description : "1+1/SL crea, each max 30 ft apart, has Psychic damage resistance and adv. on Int, Wis, and Cha saves",
+	description : "1+1/SL crea, each max 30 ft apart, has Psychic damage resistance and adv. on Int, Wis, and Cha saves",
 	descriptionFull : "For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as advantage on Intelligence, Wisdom, and Charisma saving throws." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["mind sliver"] = {
@@ -6457,8 +6457,8 @@ SpellsList["spirit shroud"] = {
 	range : "S:10-ft rad",
 	components : "V,S",
 	duration : "Conc, 1 min",
-    description : "My atks +1d8+1d8/2SL Cold/Necro/Radiant dmg, no heal until next turn; any crea I see -10 ft spd",
-    descriptionShorter : "My atks +1d8+1d8/2SL Cold/Necro/Radiant dmg, no heal 1 rnd; any crea -10 ft spd",
+	description : "My atks +1d8+1d8/2SL Cold/Necro/Radiant dmg, no heal until next turn; any crea I see -10 ft spd",
+	descriptionShorter : "My atks +1d8+1d8/2SL Cold/Necro/Radiant dmg, no heal 1 rnd; any crea -10 ft spd",
 	descriptionFull : "You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable."+
 	"\n   Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn."+
 	"\n   In addition, any creature of your choice that you can see that starts its turn within 10 feet of you has its speed reduced by 10 feet until the start of your next turn."+
@@ -6478,10 +6478,10 @@ SpellsList["summon abberation"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "A pickled tentacle and an eyeball in a platinum-inlaid vial worth at least 400 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "A pickled tentacle and an eyeball in a platinum-inlaid vial worth at least 400 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Abberant Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (300gp)",
+	description : "Summon choice of Abberant Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (300gp)",
 	descriptionFull : "You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Aberrant Spirit stat block. When you cast the spell, choose Beholderkin, Slaad, or Star Spawn. The creature resembles an aberration of that kind, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon beast"] = {
@@ -6492,10 +6492,10 @@ SpellsList["summon beast"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "A feather, tuft of fur, and fish tail inside a gilded acorn worth at least 200 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "A feather, tuft of fur, and fish tail inside a gilded acorn worth at least 200 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Bestial Spirit; obeys commands; takes turn after mine; disappears at 0 hp (200gp)",
+	description : "Summon choice of Bestial Spirit; obeys commands; takes turn after mine; disappears at 0 hp (200gp)",
 	descriptionFull : "You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Bestial Spirit stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon celestial"] = {
@@ -6506,10 +6506,10 @@ SpellsList["summon celestial"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "A golden reliquary worth at least 500 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "A golden reliquary worth at least 500 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Celestial Spirit; obeys commands; takes turn after mine; disappears at 0 hp (500gp)",
+	description : "Summon choice of Celestial Spirit; obeys commands; takes turn after mine; disappears at 0 hp (500gp)",
 	descriptionFull : "You call forth a celestial spirit. It manifests in an angelic form in an unoccupied space that you can see within range. This corporeal form uses the Celestial Spirit stat block. When you cast the spell, choose Avenger or Defender. Your choice determines the creature's attack in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon construct"] = {
@@ -6520,10 +6520,10 @@ SpellsList["summon construct"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "An ornate stone and metal lockbox worth at least 400 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "An ornate stone and metal lockbox worth at least 400 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Construct Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
+	description : "Summon choice of Construct Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
 	descriptionFull : "You call forth the spirit of a construct. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Construct Spirit stat block. When you cast the spell, choose a material: Clay, Metal, or Stone. The creature resembles a golem or a modron (your choice) made of the chosen material, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon elemental"] = {
@@ -6534,10 +6534,10 @@ SpellsList["summon elemental"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "Air, a pebble, ash, and water inside a gold-inlaid vial worth at least 400 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "Air, a pebble, ash, and water inside a gold-inlaid vial worth at least 400 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Elemental Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
+	description : "Summon choice of Elemental Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
 	descriptionFull : "You call forth an elemental spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Elemental Spirit stat block. When you cast the spell, choose an element: Air, Earth, Fire, or Water. The creature resembles a bipedal form wreathed in the chosen element, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon fey"] = {
@@ -6548,10 +6548,10 @@ SpellsList["summon fey"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "A gilded flower worth at least 300 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "A gilded flower worth at least 300 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Fey Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
+	description : "Summon choice of Fey Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
 	descriptionFull : "You call forth a fey spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Fey Spirit stat block. When you cast the spell, choose a mood: Fuming, Mirthful, or Tricksy. The creature resembles a fey creature of your choice marked by the chosen mood, which determines one of the traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon fiend"] = {
@@ -6562,10 +6562,10 @@ SpellsList["summon fiend"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "Humanoid blood inside a ruby vial worth at least 600 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "Humanoid blood inside a ruby vial worth at least 600 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Fiendish Spirit; obeys commands; takes turn after mine; disappears at 0 hp (500gp)",
+	description : "Summon choice of Fiendish Spirit; obeys commands; takes turn after mine; disappears at 0 hp (500gp)",
 	descriptionFull : "You call forth a fiendish spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Fiendish Spirit stat block. When you cast the spell, choose Demon, Devil, or Yugoloth. The creature resembles a fiend of the chosen type, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon shadowspawn"] = {
@@ -6576,10 +6576,10 @@ SpellsList["summon shadowspawn"] = {
 	school : "Conj",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "Tears inside a gem worth at least 300 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "Tears inside a gem worth at least 300 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Shadow Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
+	description : "Summon choice of Shadow Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
 	descriptionFull : "You call forth a shadowy spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Shadow Spirit stat block. When you cast the spell, choose an emotion: Fury, Despair, or Fear. The creature resembles a misshapen biped marked by the chosen emotion, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon undead"] = {
@@ -6590,33 +6590,33 @@ SpellsList["summon undead"] = {
 	school : "Necro",
 	time : "1 a",
 	range : "90 ft",
-    components : "V,S,M\u0192",
-    compMaterial : "A gilded skull worth at least 300 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "A gilded skull worth at least 300 gp",
 	duration : "Conc, 1 h",
-    description : "Summon choice of Undead Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
+	description : "Summon choice of Undead Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
 	descriptionFull : "You call forth an undead spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Undead Spirit stat block. When you cast the spell, choose the creature's form: Ghostly, Putrid, or Skeletal. The spirit resembles an undead creature with the chosen form, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["tasha's caustic brew"] = {
-    name : "Tasha's Caustic Brew",
-    nameAlt : "Caustic Brew",
+	name : "Tasha's Caustic Brew",
+	nameAlt : "Caustic Brew",
 	classes : ["artificer", "sorcerer", "wizard"],
 	source : [["T", 115]],
 	level : 1,
 	school : "Evoc",
 	time : "1 a",
 	range : "S:30-ft line",
-    components : "V,S,M",
-    compMaterial : "A bit of rotten food",
+	components : "V,S,M",
+	compMaterial : "A bit of rotten food",
 	duration : "Conc, 1 min",
 	save : "Dex",
-    description : "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at start of turn; action to clean self or adjacent",
-    descriptionShorter : "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at turn start; 1 a clean self/adjacent",
+	description : "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at start of turn; action to clean self or adjacent",
+	descriptionShorter : "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at turn start; 1 a clean self/adjacent",
 	descriptionFull : "A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns." +
 	AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 2d4 for each slot level above 1st."
 };
 SpellsList["tasha's mind whip"] = {
-    name : "Tasha's Mind Whip",
-    nameAlt : "Mind Whip",
+	name : "Tasha's Mind Whip",
+	nameAlt : "Mind Whip",
 	regExpSearch : /^(?=.*mind)(?=.*(whip|thrust)).*$/i, // "Mind Thrust" in UA:POR
 	classes : ["sorcerer", "wizard"],
 	source : [["T", 115], ["UA:POR", 8]],
@@ -6624,28 +6624,28 @@ SpellsList["tasha's mind whip"] = {
 	school : "Ench",
 	time : "1 a",
 	range : "90 ft",
-    components : "V",
+	components : "V",
 	duration : "1 rnd",
 	save : "Int",
-    description : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; only move, act, or bns; save half, no act limit",
-    descriptionShorter : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; move, act, or bns; save half, no act limit",
+	description : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; only move, act, or bns; save half, no act limit",
+	descriptionShorter : "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; move, act, or bns; save half, no act limit",
 	descriptionFull : "You psychically lash out at one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can't take a reaction until the end of its next turn. Moreover, on its next turn, it must choose whether it gets a move, an action, or a bonus action; it gets only one of the three. On a successful save, the target takes half as much damage and suffers none of the spell's other effects." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them."
 };
 SpellsList["tasha's otherworldly guise"] = {
-    name : "Tasha's Otherworldly Guise",
-    nameShort : "T's Otherworldly Guise",
-    nameAlt : "Otherworldly Guise",
+	name : "Tasha's Otherworldly Guise",
+	nameShort : "T's Otherworldly Guise",
+	nameAlt : "Otherworldly Guise",
 	classes : ["sorcerer", "warlock", "wizard"],
 	source : [["T", 116]],
 	level : 6,
 	school : "Trans",
 	time : "1 bns",
 	range : "Self",
-    components : "V,S,M\u0192",
-    compMaterial : "An object engraved with a symbol of the Outer Planes, worth at least 500 gp",
+	components : "V,S,M\u0192",
+	compMaterial : "An object engraved with a symbol of the Outer Planes, worth at least 500 gp",
 	duration : "Conc, 1 min",
-    description : "Fire/Poison or Radiant/Necrotic/Charm immune; 40 ft fly; +2 AC; 2 atks; spellcast. abi atks (500gp)",
-    descriptionFull : "Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself. You gain the following benefits until the spell ends:" +
+	description : "Fire/Poison or Radiant/Necrotic/Charm immune; 40 ft fly; +2 AC; 2 atks; spellcast. abi atks (500gp)",
+	descriptionFull : "Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself. You gain the following benefits until the spell ends:" +
 	"\n \u2022 You are immune to fire and poison damage (Lower Planes) or radiant and necrotic damage (Upper Planes)." +
 	"\n \u2022 You are immune to the poisoned condition (Lower Planes) or the charmed condition (Upper Planes)." +
 	"\n \u2022 Spectral wings appear on your back, giving you a flying speed of 40 feet." +
@@ -6654,8 +6654,1426 @@ SpellsList["tasha's otherworldly guise"] = {
 	"\n \u2022 You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature, like Extra Attack, that lets you attack more than once when you take the Attack action on your turn."
 };
 
-// Magic Items
 
+// >>>>>>>>>>>>>>>>>>> //
+// >>> Magic Items >>> //
+// >>>>>>>>>>>>>>>>>>> //
+// Tattoos
+var TCoE_magicTattoosDescription = desc([
+	" >>Tattoo Attunement<<. To attune to this item, you hold the needle to your skin where you want the tattoo to appear, pressing the needle there throughout the attunement process. When the attunement is complete, the needle turns into the ink that becomes the tattoo, which appears on the skin.",
+	" If your attunement to the tattoo ends, the tattoo vanishes, and the needle reappears in your space.",
+	"\n>>Magic Tattoos<< (TCoE 118)",
+	" Blending magic and artistry with ink and needles, magic tattoos imbue their bearers with wondrous abilities. Magic tattoos are initially bound to magic needles, which transfer their magic to a creature.",
+	" Once inscribed on a creature's body, damage or injury doesn't impair the tattoo's function, even if the tattoo is defaced. When applying a magic tattoo, a creature can customize the tattoo's appearance. A magic tattoo can look like a brand, scarification, a birthmark, patterns of scale, or any other cosmetic alteration.",
+	" The rarer a magic tattoo is, the more space it typically occupies on a creature's skin. The table below offers guidelines for how large a given tattoo is.",
+	"\n>>Tattoo Rarity\tArea Covered<<",
+	"Common     \tOne hand or foot or a quarter of a limb",
+	"Uncommon   \tHalf a limb or the scalp",
+	"Rare\t\tOne limb",
+	"Very Rare  \tTwo limbs or the chest or upper back",
+	"Legendary  \tTwo limbs and the torso"
+], "\n  ");
+magicTattoosTxt = { // a public variable to be used for any magical tattoo that uses these rules
+	base : TCoE_magicTattoosDescription,
+	unicode : TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	uppercase : TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/\byou\b/ig, "I"),
+	plain : TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, "$1").replace(/your/g, "my").replace(/\byou\b/ig, "I")
+};
+MagicItemsList["absorbing tattoo"] = function() {
+	var oObj = {
+		name : "Absorbing Tattoo",
+		source : [["T", 119]],
+		type : "wondrous item (tattoo)",
+		rarity : "very rare",
+		attunement : true,
+		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing. It grants me resistance to a damage type. As a reaction once per dawn when I take that type of damage, I can gain immunity against that instance of damage and recover half the damage as HP.",
+		descriptionFull : "Produced by a special needle, this magic tattoo features designs that emphasize one color."+
+		"\n   " + toUni("Damage Resistance") + ". While the tattoo is on your skin, you have resistance to a type of damage associated with that color, as shown on the table below. The DM chooses the color or determines it randomly."+
+		toUni("\nd10\tDamage Type\tColor")+
+		"\n   1\tAcid\t\tGreen"+
+		"\n   2\tCold\t\tBlue"+
+		"\n   3\tFire\t\tRed"+
+		"\n   4\tForce\t\tWhite"+
+		"\n   5\tLightning  \tYellow"+
+		"\n   6\tNecrotic\t\tBlack"+
+		"\n   7\tPoison\t\tViolet"+
+		"\n   8\tPsychic\t\tSilver"+
+		"\n   9\tRadiant\t\tGold"+
+		"\n 10\tThunder\t\tOrange"+
+		"\n\n   " + toUni("Damage Absorption") + ". When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reactino is used, it can't be used again until the next dawn." + magicTattoosTxt.unicode,
+		usages : 1,
+		recovery : "dawn",
+		additional : "Immunity",
+		choices : ["Acid (green)", "Cold (blue)", "Fire (red)", "Force (white)", "Lightning (yellow)", "Necrotic (black)", "Poison (violet)", "Psychic (silver)", "Radiant (gold)", "Thunder (orange)"]
+	};
+	var sDescr = "When I attune to this magic needle, it disappears and I gain a COLOR magical tattoo of a design of my choosing. It grants me resistance to TYPE damage. As a reaction once per dawn when I take TYPE damage, I can gain immunity against that instance of damage and recover half the damage as HP.";
+	for (var i = 0; i < oObj.choices.length; i++) {
+		var aType = oObj.choices[i].split(/ \(|\)/g);
+		oObj[oObj.choices[i].toLowerCase()] = {
+			name : aType[0] + " Absorbing Tattoo",
+			sortname : "Absorbing Tattoo, " + aType[0],
+			description : sDescr.replace(/TYPE/g, aType[0].toLowerCase()).replace(/COLOR/g, aType[1]),
+			dmgres : [aType[0]],
+			action : [["reaction", " (Immunity)"]]
+		}
+	}
+	return oObj;
+}();
+MagicItemsList["barrier tattoo"] = {
+	name : "Barrier Tattoo",
+	source : [["T", 122]],
+	type : "wondrous item (tattoo)",
+	description : "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tatoo grants me an Armor Class related to the rarity of the tattoo.",
+	descriptionFull : "Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal."+
+	"\n   " + toUni("Protection") + ". While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit."+
+	toUni("\nTattoo Rarity\tAC")+
+	"\n  Uncommon\t12 + your Dexterity modifier"+
+	"\n  Rare\t\t15 + your Dexterity modifier (maximum of +2)"+
+	"\n  Very Rare\t18\n"+
+	magicTattoosTxt.unicode,
+	attunement : true,
+	choices : ["AC 12+Dex (uncommon)", "AC 15+Dex (rare)", "AC 18 (very rare)"],
+	"ac 12+dex (uncommon)" : {
+		name : "Barrier Tattoo (uncommon)",
+		rarity : "uncommon",
+		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 12 + my Dexterity modifier. I can use a shield and still gain this benefit.",
+		addArmor : "Barrier Tattoo",
+		armorOptions : [{
+			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
+			name : "Barrier Tattoo",
+			source : [["T", 122]],
+			ac : 12,
+			affectsWildShape : true
+		}]
+	},
+	"ac 15+dex (rare)" : {
+		name : "Barrier Tattoo (rare)",
+		rarity : "rare",
+		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 15 + my Dexterity modifier (maximum of +2). I can use a shield and still gain this benefit.",
+		addArmor : "Barrier Tattoo",
+		armorOptions : [{
+			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
+			name : "Barrier Tattoo",
+			source : [["T", 122]],
+			ac : 15,
+			dex : 2,
+			affectsWildShape : true
+		}]
+	},
+	"ac 18 (very rare)" : {
+		name : "Barrier Tattoo (very rare)",
+		rarity : "very rare",
+		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 18. I can use a shield and still gain this benefit.",
+		addArmor : "Barrier Tattoo",
+		armorOptions : [{
+			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
+			name : "Barrier Tattoo",
+			source : [["T", 122]],
+			ac : 18,
+			dex : -10,
+			affectsWildShape : true
+		}]
+	}
+}
+MagicItemsList["blood fury tattoo"] = {
+	name : "Blood Fury Tattoo",
+	source : [["T", 122]],
+	type : "wondrous item (tattoo)",
+	rarity : "legendary",
+	attunement : true,
+	description : "This magical tattoo has 10 charges, regaining all at dawn. As a reaction when a creature I can see damages me, I can use 1 charge to make a melee attack with advantage against it. When I hit a creature with a melee attack, I can use 1 charge to deal it 4d6 necrotic damage and regain the same amount in hit points.",
+	descriptionFull : "Produced by a special needle, this magic tattoo evokes fury in its form and colors."+
+	"\n   " + toUni("Bloodthirsty Strikes") + ". The tattoo has 10 charges, and it regains all expended charges daily at dawn. While this tattoo is on your skin, you gain the following benefits:"+
+	"\n \u2022 When you hit a creature with a weapon attack, you can expend a charge to deal an extra 4d6 necrotic damage to the target, and you regain a number of hit points equal to the necrotic damage dealt."+
+	"\n \u2022 When a creature you can see damages you, you can expend a charge and use your reaction to make a melee attack against that creature, with advantage on your attack roll." + magicTattoosTxt.unicode,
+	usages : 10,
+	recovery : "dawn",
+	action : [["reaction", " (after taking damage)"]]
+}
+MagicItemsList["coiling grasp tattoo"] = {
+	name : "Coiling Grasp Tattoo",
+	source : [["T", 123]],
+	type : "wondrous item (tattoo)",
+	rarity : "uncommon",
+	attunement : true,
+	description : "This magical tattoo features intertwining designs. As an action, I can have a creature I can see within 15 ft make a DC 14 Str save or take 3d6 force damage and be grappled. It can use its action to try and escape (DC 14 Athletics/Acrobatics). Grapple ends if I halt it, use it again, or if the target is more than 15 ft away.",
+	descriptionFull : "Produced by a special needle, this magic tattoo has long intertwining designs."+
+	"\n   " + toUni("Grasping Tendrils") + ". While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature." + magicTattoosTxt.unicode,
+	action : [["action", ""]],
+	weaponsAdd : ["Coiling Grasp Tattoo"],
+	weaponOptions : [{
+		regExpSearch : /^(?=.*coiling grasp)(?=.*tattoo).*$/i,
+		name : "Coiling Grasp Tattoo",
+		source : [["T", 123]],
+		ability : 0,
+		type : "Magic Item",
+		damage : [3, 6, "force"],
+		range : "15 ft",
+		description : "Str save, success - no damage, fail - grappled; Escape DC 14 Athletics/Acrobatics",
+		abilitytodamage : false,
+		modifiers : ["dc+6", ""]
+	}]
+}
+MagicItemsList["eldritch claw tattoo"] = {
+	name : "Eldritch Claw Tattoo",
+	source : [["T", 126]],
+	type : "wondrous item (tattoo)",
+	rarity : "uncommon",
+	attunement : true,
+	description : "This magical tattoo featuring clawlike forms makes my unarmed strikes magical with a +1 bonus to attack and damage. As a bonus action once per dawn, I can have it empower me for 1 minute so that all my melee attacks with weapons and unarmed strikes have 15 ft reach and deal an extra 1d6 force damage.",
+	descriptionFull : "Produced by a special needle, this magic tattoo depicts clawlike forms and other jagged shapes."+
+	"\n   " + toUni("Magical Strikes") + ". While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes."+
+	"\n   " + toUni("Eldritch Maul") + ". As a bonus action, you can empower the tattoo for 1 minute. For the duration, each of your melee attacks with a weapon or an unarmed strike can reach a target up to 15 feet away from you, as inky tendrils launch toward the target. In addition, your melee attacks deal an extra 1d6 force damage on a hit. Once used, this bonus action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+	usages : 1,
+	recovery : "dawn",
+	additional : "Eldritch Maul",
+	action : [["bonus action", " (Eldritch Maul)"]],
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if ((v.baseWeaponName === "unarmed strike" || v.isMeleeWeapon) && (/eldritch (claw|maul)/i).test(v.WeaponTextName)) {
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					if (fields.Range.toLowerCase() === 'melee') {
+						fields.Range = 'Melee (15 ft reach)';
+						fields.Description += (fields.Description ? '; ' : '') + '+1d6 force damage';
+					} else {
+						fields.Description += (fields.Description ? '; ' : '') + '15 ft reach; +1d6 force damage';
+					}
+				};
+			},
+			"If I include the words 'Eldritch Maul' or 'Eldritch Claw' in the name of a melee weapon or an unarmed strike, it gets +10 ft reach and +1d6 force damage.",
+			700
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.baseWeaponName === "unarmed strike") {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+		]
+	}
+}
+MagicItemsList["ghost step tattoo"] = {
+	name : "Ghost Step Tattoo",
+	source : [["T", 128]],
+	type : "wondrous item (tattoo)",
+	rarity : "very rare",
+	attunement : true,
+	description : "As a bonus action 3 times per dawn, I can become incorporeal until next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or solid objects as difficult terrain, but can't end my turn in one.",
+	descriptionFull : "Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred."+
+	"\n   " + toUni("Ghostly Form") + ". The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:"+
+	"\n \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks."+
+	"\n \u2022 You can't be grappled or restrained."+
+	"\n \u2022 You can move through creatures and solid objects as if they were difficult terrain. If you end your turn in a solid object, you take 1d10 force damage. If the effect ends while you are inside a solid object, you instead are shunted to the nearest unoccupied space, and you take 1d10 force damage for every 5 feet traveled." + magicTattoosTxt.unicode,
+	usages : 3,
+	recovery : "dawn",
+	action : [["bonus action", ""]]
+}
+MagicItemsList["illuminator's tattoo"] = { // contains contributions by lizrdgizrd
+	name : "Illuminator's Tattoo",
+	source : [["T", 129]],
+	type : "wondrous item (tattoo)",
+	rarity : "common",
+	attunement : true,
+	description : "While this beautiful calligraphy tattoo is on my skin, I can write with my fingertip as if it is an ink pen that never runs out of ink. As an action, I can touch writing up to one page and speak a creature's name, making it invisible to everyone else but me and the creature for up to 24 hours or until I or the creature touch it.",
+	descriptionFull : "Produced by a special needle, this magic tattoo features beautiful calligraphy, images of writing implements, and the like."+
+	"\n   " + toUni("Magical Scribing") + ". While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink."+
+	"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+	usages : 1,
+	recovery : "dawn",
+	action : [["action", ""]]
+}
+MagicItemsList["lifewell tattoo"] = {
+	name : "Lifewell Tattoo",
+	source : [["T", 129]],
+	type : "wondrous item (tattoo)",
+	rarity : "very rare",
+	attunement : true,
+	description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring symbols of life and rebirth. It grants me resistance to necrotic damage. The first time per dawn when I would be reduced to 0 hit points, I drop to 1 hit point instead.",
+	descriptionFull : "Produced by a special needle, this magic tattoo features symbols of life and rebirth."+
+	"\n   " + toUni("Necrotic Resistance") + ". You have resistance to necrotic damage."+
+	"\n   " + toUni("Life Ward") + ". When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, this property can't be used again until the next dawn." + magicTattoosTxt.unicode,
+	usages : 1,
+	recovery : "dawn",
+	dmgres : ["Necrotic"]
+}
+MagicItemsList["masquerade tattoo"] = {
+	name : "Masquerade Tattoo",
+	source : [["T", 131]],
+	type : "wondrous item (tattoo)",
+	rarity : "common",
+	attunement : true,
+	description : "When I attune to this magic needle, it disappears and I gain a magical tattoo. As a bonus action, I can change its size, color, pattern, and location on my skin to whatever I want, but it's always obviously a tattoo. As an action once per dawn, I can use the tattoo to cast Disguise Self (DC 13 to discern the disguise).",
+	descriptionFull : "Produced by a special needle, this magic tattoo appears on your body as whatever you desire."+
+	"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin."+
+	"\n   " + toUni("Disguise Self.") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+	usages : 1,
+	recovery : "dawn",
+	additional : "Disguise Self",
+	action : [["bonus action", " (change)"]],
+	fixedDC : 13,
+	spellcastingBonus : {
+		name : "Disguise Self",
+		spells : ["disguise self"],
+		selection : ["disguise self"],
+		firstCol : "oncelr"
+	}
+}
+MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrdgizrd
+	name : "Shadowfell Brand Tattoo",
+	source : [["T", 134]],
+	type : "wondrous item (tattoo)",
+	rarity : "rare",
+	attunement : true,
+	description : "When I attune to this magic needle, it disappears and I gain a dark, abstract magical tattoo. It gives me darkvision with a range of 60 ft and advantage on Dexterity (Stealth) checks. As a reaction once per sunset when I take damage, I can become insubstantial for a moment, halving the damage I take.",
+	descriptionFull : "Produced by a special needle, this magic tattoo is dark in color and abstract."+
+	"\n   " + toUni("Shadow Essence") + ". You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks."+
+	"\n   " + toUni("Shadowy Defense.") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
+	usages : 1,
+	recovery : "sunset",
+	action : ["reaction", " (halve damage)"],
+	advantages : ["Stealth", true],
+	vision : [["Darkvision", 60]]
+}
+MagicItemsList["spellwrought tattoo"] = {
+	name : "Spellwrought Tattoo",
+	source : [["T", 135]],
+	type : "wondrous item (tattoo)",
+	description : "When I hold this magic needle against my skin and speak the command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its spell, requiring no material components. The tattoo glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+	descriptionFull : "Produced by a special needle, this magic tattoo contains a single spell of up to 5th level, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin."+
+	"\n   The level of the spell in the tattoo determines the spell's saving throw DC, attack bonus, spellcasting ability modifier, and the tattoo's rarity, as shown in the table below.\n"+
+	toUni("\n Spell\t\t     Spellcasting\tSave\tAttack"+
+	"\n Level\tRarity\t     Ability Mod.\t DC\tBonus")+
+	"\nCantrip\tCommon\t\t+3\t 13\t  +5"+
+	"\n  1st\tCommon\t\t+3\t 13\t  +5"+
+	"\n  2nd\tUncommon\t+3\t 13\t  +5"+
+	"\n  3rd\tUncommon\t+4\t 15\t  +7"+
+	"\n  4th\tRare\t\t+4\t 15\t  +7"+
+	"\n  5th\tRare\t\t+5\t 17\t  +9" + magicTattoosTxt.unicode.replace(/[\s\S]*in your space\.\n */, "\n"),
+	allowDuplicates : true,
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if ((/^spellwrought tattoo/i).test(spName)) {
+					if (spellObj.components) spellObj.components = spellObj.components.replace(/,?[RM][\u0192\u2020]?/ig, '');
+					if (spellObj.compMaterial) spellObj.compMaterial = "Spell cast using a Spellwrought Tattoo, require no material components";
+					spellObj.ritual = false;
+					["description", "descriptionMetric", "descriptionShorter", "descriptionShorterMetric"].forEach (function (attr) {
+						if (!spellObj[attr]) return;
+						spellObj[attr] = spellObj[attr].replace(/ \(\d+k? ?gp( cons\.?)?\)/i, '');
+					});
+					return true;
+				}
+			},
+			"When casting a spell using a Spellwrought Tattoo, no material components are needed, and can't be cast as a ritual."
+		]
+	},
+	choices : ["\x1BCantrip (common)", "1st-level (common)", "2nd-level (uncommon)", "3rd-level (uncommon)", "4th-level (rare)", "5th-level (rare)"], // \x1B to fool the sorting
+	"\x1bcantrip (common)" : {
+		name : "Spellwrought Tattoo (cantrip)",
+		sortname : "Spellwrought Tattoo  (cantrip)",
+		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its cantrip, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		fixedDC : 13,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [0,0],
+			psionic : false,
+			times : 20,
+			firstCol : "checkbox",
+			magicItemComponents : false
+		}
+	},
+	"1st-level (common)" : {
+		name : "Spellwrought Tattoo (1st-level)",
+		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 1st-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		fixedDC : 13,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [1,1],
+			psionic : false,
+			times : 20,
+			firstCol : "checkbox",
+			magicItemComponents : false
+		}
+	},
+	"2nd-level (uncommon)" : {
+		name : "Spellwrought Tattoo (2nd-level)",
+		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 2nd-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		fixedDC : 13,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [2,2],
+			psionic : false,
+			times : 20,
+			firstCol : "checkbox",
+			magicItemComponents : false
+		}
+	},
+	"3rd-level (uncommon)" : {
+		name : "Spellwrought Tattoo (3rd-level)",
+		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 3rd-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		fixedDC : 15,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [3,3],
+			psionic : false,
+			times : 20,
+			firstCol : "checkbox",
+			magicItemComponents : false
+		}
+	},
+	"4th-level (rare)" : {
+		name : "Spellwrought Tattoo (4th-level)",
+		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 4th-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		fixedDC : 15,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [4,4],
+			psionic : false,
+			times : 20,
+			firstCol : "checkbox",
+			magicItemComponents : false
+		}
+	},
+	"5th-level (rare)" : {
+		name : "Spellwrought Tattoo (5th-level)",
+		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 5th-level spell, requiring no material components, with DC 17, +9 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		fixedDC : 17,
+		spellFirstColTitle : "Us", // used
+		spellcastingBonus : {
+			level : [5,5],
+			psionic : false,
+			times : 20,
+			firstCol : "checkbox",
+			magicItemComponents : false
+		}
+	}
+}
+// Bonus to spell attack rolls and saving throw DCs
+MagicItemsList["all-purpose tool"] = {
+	name : "All-Purpose Tool",
+	source : [["T", 119]],
+	type : "wondrous item",
+	attunement : true,
+	prerequisite : "Requires attunement by an artificer",
+	prereqeval : function(v) { return classes.known.artificer ? true : false; },
+	description : "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
+	descriptionFull : "This simple screwdriver can transform into a variety of tools; as an action, you can touch the item and transform it into any type of artisan's tool of your choice (see the \"Equipment\" chapter in the Player's Handbook for a list of artisan's tools). Whatever form the tool takes, you are proficient with it."+
+	"\n   While holding this tool, you gain a bonus to the spell attack rolls and the saving throw DCs of your artificer spells. The bonus is determined by the tool's rarity."+
+	"\n   As an action, you can focus on the tool to channel your creative forces. Choose a cantrip that you don't know from any class list. For 8 hours, you can cast that cantrip, and it counts as an artificer cantrip for you. Once this property is used, it can't be used again until the next dawn.",
+	usages : 1,
+	recovery : "dawn",
+	additional : "choose cantrip",
+	eval : function () {
+		CurrentSpells['all-purpose tool'] = {
+			name : 'All-Purpose Tool (item)',
+			ability : "artificer",
+			list : { 'class' : 'any', level : [0, 0] },
+			known : { cantrips : 0, spells : 'list' },
+			bonus : {
+				bon1 : {
+					name : 'Just select "Full List"',
+					spells : []
+				},
+				bon2 : {
+					name : 'on the bottom left',
+					spells : []
+				}
+			},
+			typeList : 4,
+			refType : "item",
+			allowUpCasting : true,
+			firstCol : "8h"
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	removeeval : function () {
+		delete CurrentSpells['all-purpose tool'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// Remove the already known cantrips, from any source except magic items
+				if (spName === 'all-purpose tool') {
+					var allSpellsKnown = [];
+					for (var sCast in CurrentSpells) {
+						if (sCast.refType === "item") continue;
+						var oCast = CurrentSpells[sCast];
+						if (oCast.selectCa) allSpellsKnown = allSpellsKnown.concat(oCast.selectCa);
+						if (oCast.selectBo) allSpellsKnown = allSpellsKnown.concat(oCast.selectBo);
+					}
+					var knownCantrips = OrderSpells(allSpellsKnown, "single", false, false, 0);
+					if (!spList.notspells) spList.notspells = [];
+					spList.notspells = spList.notspells.concat(knownCantrips);
+				}
+			},
+		],
+		spellAdd : [
+			function (spellKey, spellObj, spName, isDuplicate) {
+				if (spName === 'all-purpose tool') {
+					spellObj.firstCol = "checkbox";
+				};
+			}
+		]
+	},
+	action : [["action", "(transform tool)"], ["action", " (choose cantrip)"]],
+	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
+	"+1 to spell attacks and dcs (uncommon)" : {
+		name : "All-Purpose Tool +1",
+		rarity : "uncommon",
+		description : "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a +1 bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('artificer') !== -1) return 1;
+				},
+				"While holding the All-Purpose Tool, I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
+			]
+		}
+	},
+	"+2 to spell attacks and dcs (rare)" : {
+		name : "All-Purpose Tool +2",
+		rarity : "rare",
+		description : "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a +2 bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('artificer') !== -1) return 2;
+				},
+				"While holding the All-Purpose Tool, I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
+			]
+		}
+	},
+	"+3 to spell attacks and dcs (very rare)" : {
+		name : "All-Purpose Tool +3",
+		rarity : "very rare",
+		description : "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a +3 bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('artificer') !== -1) return 3;
+				},
+				"While holding the All-Purpose Tool, I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
+			]
+		}
+	}
+}
+MagicItemsList["amulet of the devout"] = { // contains contributions by lizrdgizrd
+	name : "Amulet of the Devout",
+	source : [["T", 119]],
+	type : "wondrous item",
+	attunement : true,
+	prerequisite : "Requires attunement by a cleric or paladin",
+	prereqeval : function(v) {
+		return classes.known.cleric || classes.known.paladin ? true : false;
+	},
+	description : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
+	descriptionFull : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While you wear the holy symbol you gain a bonus to spell attack rolls and the saving throw DCs of your spells. The bonus is determined by the amulet's rarity."+
+	"\n   While you wear this amulet, you can use your Channel Divinity feature without expending one of the feature's uses. Once this property is used, it can't be used again until the next dawn.",
+	weight : 1, // as amulet holy symbol
+	usages : 1,
+	recovery : "dawn",
+	additional : "Channel Divinity",
+	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
+	"+1 to spell attacks and dcs (uncommon)" : {
+		name : "Amulet of the Devout +1",
+		rarity : "uncommon",
+		description : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a +1 bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare") return 1;
+				},
+				"While wearing the Amulet of the Devout, I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my spells."
+			]
+		}
+	},
+	"+2 to spell attacks and dcs (rare)" : {
+		name : "Amulet of the Devout +2",
+		rarity : "rare",
+		description : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a +2 bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare") return 2;
+				},
+				"While wearing the Amulet of the Devout, I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my spells."
+			]
+		}
+	},
+	"+3 to spell attacks and dcs (very rare)" : {
+		name : "Amulet of the Devout +3",
+		rarity : "very rare",
+		description : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a +3 bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare") return 3;
+				},
+				"While wearing the Amulet of the Devout, I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my spells."
+			]
+		}
+	}
+}
+MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
+	name : "Arcane Grimoire",
+	source : [["T", 120]],
+	type : "wondrous item",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a bonus to spell attack rolls and the saving throw DCs of my wizard spells.",
+	descriptionFull : "While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity."+
+	"\n   You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
+	weight : 3, // as spellbook
+	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
+	"+1 to spell attacks and dcs (uncommon)" : {
+		name : "Arcane Grimoire +1",
+		rarity : "uncommon",
+		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +1 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('wizard') !== -1) return 1;
+				},
+				"While holding the Arcana Grimoire, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
+			]
+		}
+	},
+	"+2 to spell attacks and dcs (rare)" : {
+		name : "Arcane Grimoire +2",
+		rarity : "rare",
+		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +2 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('wizard') !== -1) return 2;
+				},
+				"While holding the Arcana Grimoire, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
+			]
+		}
+	},
+	"+3 to spell attacks and dcs (very rare)" : {
+		name : "Arcane Grimoire +3",
+		rarity : "very rare",
+		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +3 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('wizard') !== -1) return 3;
+				},
+				"While holding the Arcana Grimoire, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
+			]
+		}
+	}
+}
+MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
+	name : "Bloodwell Vial",
+	source : [["T", 122]],
+	type : "wondrous item",
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer",
+	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
+	description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+	descriptionFull : "To attune to this vial, you must place a few drops of your blood into it. The vial can't be opened while your attunement to it lasts. If your attunement to the vial ends, the contained blood turns to ash. You can use the vial as a spellcasting focus for your spells while wearing or holding it, and you gain a bonus to spell attack rolls and to the saving throw DCs of your sorcerer spells. The bonus is determined by the vial's rarity."+
+	"\n   In addition, when you roll any Hit Dice to recover hit points while you are carrying the vial, you can regain 5 sorcery points. This property of the vial can't be used again until the next dawn.",
+	usages : 1,
+	recovery : "dawn",
+	additional : "recover 5 Sorcery Points",
+	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
+	"+1 to spell attacks and dcs (uncommon)" : {
+		name : "Bloodwell Vial +1",
+		rarity : "uncommon",
+		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +1 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('sorcerer') !== -1) return 1;
+				},
+				"While wearing or holding the Bloodwell Vial, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+			]
+		}
+	},
+	"+2 to spell attacks and dcs (rare)" : {
+		name : "Bloodwell Vial +2",
+		rarity : "rare",
+		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +1 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('sorcerer') !== -1) return 2;
+				},
+				"While wearing or holding the Bloodwell Vial, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+			]
+		}
+	},
+	"+3 to spell attacks and dcs (very rare)" : {
+		name : "Bloodwell Vial +3",
+		rarity : "very rare",
+		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +3 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('sorcerer') !== -1) return 3;
+				},
+				"While wearing or holding the Bloodwell Vial, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+			]
+		}
+	}
+}
+MagicItemsList["moon sickle"] = {
+	name : "Moon Sickle",
+	source : [["T", 133]],
+	type : "weapon (sickle)",
+	attunement : true,
+	prerequisite : "Requires attunement by a druid or ranger",
+	prereqeval : function(v) {
+		return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
+	},
+	description : "This silver-bladed sickle glimmers softly with moonlight. I gain a bonus to attack and damage rolls made with it. While I'm holding it, I gain a bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
+	descriptionFull : "This silver-bladed sickle glimmers softly with moonlight. While holding this magic weapon, you gain a bonus to attack and damage rolls made with it, and you gain a bonus to spell attack rolls and the saving throw DCs of your druid and ranger spells. The bonus is determined by the weapon's rarity. In addition, you can use the sickle as a spellcasting focus for your druid and ranger spells."+
+	"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
+	weight : 2,
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if (spellObj.psionic || !spellObj.level) return;
+				switch (spellKey) {
+					case "enervation" :
+					case "life transference" :
+					case "vampiric touch" :
+						var useSpellDescr = getSpellShortDescription(spellKey, spellObj);
+						var strAdd = " +1d4";
+						spellObj.description = useSpellDescr.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1" + strAdd);
+						return true;
+					default :
+						return genericSpellDmgEdit(spellKey, spellObj, "heal", "1d4");
+				}
+			},
+			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
+		]
+	},
+	choices : ["+1 weapon, +1 to spell attacks and DCs (uncommon)", "+2 weapon, +2 to spell attacks and DCs (rare)", "+3 weapon, +3 to spell attacks and DCs (very rare)"],
+	"+1 weapon, +1 to spell attacks and dcs (uncommon)" : {
+		name : "Moon Sickle +1",
+		rarity : "uncommon",
+		description : "This silver-bladed sickle glimmers softly with moonlight. I gain a +1 bonus to attack and damage rolls made with it. While I'm holding it, I gain a +1 bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
+				},
+				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+			]
+		},
+		weaponsAdd : ["Moon Sickle +1"]
+	},
+	"+2 weapon, +2 to spell attacks and dcs (rare)" : {
+		name : "Moon Sickle +2",
+		rarity : "rare",
+		description : "This silver-bladed sickle glimmers softly with moonlight. I gain a +2 bonus to attack and damage rolls made with it. While I'm holding it, I gain a +2 bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
+		calcChanges : {
+				spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
+				},
+				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+			]
+		},
+		weaponsAdd : ["Moon Sickle +2"]
+	},
+	"+3 weapon, +3 to spell attacks and dcs (very rare)" : {
+		name : "Moon Sickle +3",
+		rarity : "very rare",
+		description : "This silver-bladed sickle glimmers softly with moonlight. I gain a +3 bonus to attack and damage rolls made with it. While I'm holding it, I gain a +3 bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 3;
+				},
+				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+			]
+		},
+		weaponsAdd : ["Moon Sickle +3"]
+	}
+}
+MagicItemsList["rhythm maker's drum"] = {
+	name : "Rhythm Maker's Drum",
+	source : [["T", 134]],
+	type : "wondrous item (instrument)",
+	attunement : true,
+	prerequisite : "Requires attunement by a bard",
+	prereqeval : function(v) { return classes.known.bard ? true : false; },
+	description : "While holding this drum, I gain a bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
+	descriptionFull : "While holding this drum, you gain a bonus to spell attack rolls and to the spell saving throw DCs or your bard spells. The bonus is determined by the drum's rarity."+
+	"\n   As an action, you can play the drum to regain one use of your Bardic Inspiration feature. This property of the drum can't be used again until the next dawn.",
+	weight : 3,
+	usages : 1,
+	recovery : "dawn",
+	action : [["action", " (bardic inspiration)"]],
+	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
+	"+1 to spell attacks and dcs (uncommon)" : {
+		name : "Rhythm Maker's Drum +1",
+		rarity : "uncommon",
+		description : "While holding this drum, I gain a +1 bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('bard') !== -1) return 1;
+				},
+				"While holding the Rhythm Maker's Drum, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my bard spells."
+			]
+		}
+	},
+	"+2 to spell attacks and dcs (rare)" : {
+		name : "Rhythm Maker's Drum +2",
+		rarity : "uncommon",
+		description : "While holding this drum, I gain a +2 bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('bard') !== -1) return 2;
+				},
+				"While holding the Rhythm Maker's Drum, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my bard spells."
+			]
+		}
+	},
+	"+3 to spell attacks and dcs (very rare)" : {
+		name : "Rhythm Maker's Drum +3",
+		rarity : "uncommon",
+		description : "While holding this drum, I gain a +3 bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && spellcasters.indexOf('bard') !== -1) return 3;
+				},
+				"While holding the Rhythm Maker's Drum, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my bard spells."
+			]
+		}
+	}
+}
+// Spellbook alternatives
+MagicItemsList["alchemical compendium"] = {
+	name : "Alchemical Compendium",
+	source : [["T", 119]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this tome with spells as my spellbook and spellcasting focus. It has 3 charges, regaining 1d3 at dawn. With 1 charge \u0026 1 min of study, I can change a prepared spell to a transmutation spell within. As an action, I can touch an unattended, nonmagical object and use charges to transform it into another. See tooltip.",
+	descriptionLong : "I can use this acrid smelling, stained, heavy book with metal fittings as my spellbook and, while held, as my spellcasting focus. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a transmutation spell within. As an action, I can touch an unattended, nonmagical object and use charges to transform it into another. For 1 charge, the object can be up to 1 ft on a side. I can spend additional charges to increase these dimensions by 2 ft per charge. The new object must have no higher gp value than the original.",
+	descriptionFull : "Acrid odors cling to this stained, heavy volume. The book's metal fittings are copper, iron, lead, silver, and gold, some frozen mid-transition from one metal to another. When found, the book contains the following spells: enlarge/reduce, feather fall, flesh to stone, gaseous form, magic weapon, and polymorph. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the transmutation school."+
+	"\n \u2022 As an action, you can touch a nonmagical object that isn't being worn or carried and spend a number of charges to transform the target into another object. For 1 charge, the object can be no larger than 1 foot on a side. You can spend additional charges to increase the maximum dimensions by 2 feet per charge. The new object must have a gold value equal to or less than the original.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		addToKnown : ["enlarge/reduce", "feather fall", "flesh to stone", "gaseous form", "magic weapon", "polymorph"]
+	},
+	action : [["action", " (transform object)"]]
+}
+MagicItemsList["astromancy archive"] = {
+	name : "Astromancy Archive",
+	source : [["T", 120]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "As bonus action, I can (un)fold this disc into an armillary sphere. I can use it as a spellcasting focus and spellbook with 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min of study, I can swap a prepared spell for a divination spell within. As a reaction, I can use 1 charge to add/subtract d4 from attack/check/save in 30 ft.",
+	descriptionLong : "As a bonus action, I can unfold this brass disc of articulated, concentric rings into an armillary sphere or back into a disc. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a divination spell within. As a reaction when I see a creature within 30 ft roll for an attack, check, or save, I can expend 1 change to add or subtract 1d4 from the roll. This happens after I see the roll but before the roll's effects are applied.",
+	descriptionFull : "This brass disc of articulated, concentric rings unfolds into an armillary sphere. As a bonus action, you can unfold it into the sphere or back into a disc. When found, it contains the following spells, which are wizard spells for you while you are attuned to it: augury, divination, find the path, foresight, locate creature, and locate object. It functions as a spellbook for you, with spells encoded on the rings."+
+	"\n   While you are holding the archive, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The archive has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the archive, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the archive. The new spell must be of the divination school."+
+	"\n \u2022 When a creature you can see within 30 feet of you makes an attack roll, an ability check, or a saving throw, you can use your reaction to expend 1 charge and force the creature to roll a d4 and apply the number rolled as a bonus or penalty (your choice) to the original roll. You can do this after you see the roll but before its effects are applied.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		spellcastingBonus : {
+			name : "Astromancy Archive",
+			spells : ["augury", "divination", "find the path"], // not wizard spells!
+			selection : ["augury", "divination", "find the path"],
+			times : 3
+		},
+		addToKnown : ["foresight", "locate creature", "locate object"]
+	},
+	action : [
+		["bonus action", " (fold/unfold)"],
+		["reaction", " (add/subtract d4)"]
+	]
+}
+MagicItemsList["atlas of endless horizons"] = {
+	name : "Atlas of Endless Horizons",
+	source : [["T", 120]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this book with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge & 1 min of study, I can change a prepared spell to a conjuration spell within. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft, making it miss if I'm out of range.",
+	descriptionLong : "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to replace one of my prepared wizard spells with a conjuration spell in this book. As a reaction when I am hit by an attack, I can expend 1 charge to teleport up to 10 ft to an unoccupied space I can see. If my new position is out of range of the attack, it misses me.",
+	descriptionFull : "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: arcane gate, dimension door, gate, misty step, plane shift, teleportation circle, and word of recall. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the conjuration school."+
+	"\n \u2022 When you are hit by an attack, you can use your reaction to expend 1 charge to teleport up to 10 feet to an unoccupied space you can see. If your new position is out of range of the attack, it misses you.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		spellcastingBonus : {
+			name : "Atlas of Endless Horizons",
+			spells : ["word of recall"], // not a wizard spell!
+			selection : ["word of recall"]
+		},
+		addToKnown : ["arcane gate", "dimension door", "gate", "misty step", "plane shift", "teleportation circle"]
+	},
+	action : [["reaction", "Teleport 10ft (1 charge)"]]
+}
+MagicItemsList["crystalline chronicle"] = {
+	name : "Crystalline Chronicle",
+	source : [["T", 124]],
+	type : "wondrous item",
+	rarity : "very rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this orb with spells as a wizard spellcasting focus and spellbook. It lets me use Mage Hand, Mind Sliver, and Message. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to another within. I can use 1 charge to ignore components of a wizard spell (max 100 gp).",
+	descriptionLong : "This faintly humming etched crystal sphere hums pulses with irregular flares of inner light. I can retrieve and store information within the crystal as a spellbook by touching it. It contains several spells and has 3 charges, regaining 1d3 at dawn. While holding it, I can use it as a spellcasting focus for my wizard spells, I know the Mage Hand, Mind Sliver, and Message cantrips, I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to another within, and when I cast a wizard spell, I can expend 1 charge to cast it without verbal, somatic, or material components of up to 100 gp value.",
+	descriptionFull : "An etched crystal sphere the size of a grapefruit hums faintly and pulses with irregular flares of inner light. While you are touching the crystal, you can retrieve and store information and spells within the crystal at the same rate as reading and writing. When found, the crystal contains the following spells: detect thoughts, intellect fortress, Rary's telepathic bond, sending, telekinesis, Tasha's mind whip, and Tenser's floating disk. It functions as a spellbook for you, with its spells and other writing psychically encoded within it."+
+	"\n   While you are holding the crystal, you can use it as a spellcasting focus for your wizard spells, and you know the mage hand, mind sliver, and message cantrips if you don't already know them."+
+	"\n   The crystal has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the information within the crystal, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book."+
+	"\n \u2022 When you cast a wizard spell, you can expend 1 charge to cast the spell without verbal, somatic, or material components of up to 100 gp value.",
+	weight : 3, // As orb arcane focus
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		addToKnown : ["mage hand", "mind sliver", "message", "detect thoughts", "intellect fortress", "rary's telepathic bond", "sending", "telekinesis", "tasha's mind whip", "tenser's floating disk"]
+	}
+}
+MagicItemsList["duplicitous manuscript"] = {
+	name : "Duplicitous Manuscript",
+	source : [["T", 126]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this book with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an illusion spell within. As a reaction when a save or Investigation check is made vs. my illusion spells, I can use 1 charge to impose disadv.",
+	descriptionLong : "This book appears to be a volume of romance fiction to anyone but me. As an action, I can change its appearance and plot. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an illusion spell within. As a reaction while holding it when a creature I can see makes a save or an Intelligence (Investigation) check against an illusion spell I cast, I can expend 1 charge to impose disadvantage on the roll.",
+	descriptionFull : "To you, this book is a magical spellbook. To anyone else, the book appears to be a volume of verbose romance fiction. As an action, you can change the book's appearance and alter the plot of the romance."+
+	"\n   When found, the book contains the following spells: hallucinatory terrain, major image, mirror image, mislead, Nystul's magic aura, phantasmal force, and silent image. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the illusion school."+
+	"\n \u2022 When a creature you can see makes an Intelligence (Investigation) check to discern the true nature of an illusion spell you cast, or makes a saving throw against an illusion spell you cast, you can use your reaction and expend 1 charge to impose disadvantage on the roll.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		addToKnown : ["hallucinatory terrain", "major image", "mirror image", "mislead", "nystul's magic aura", "phantasmal force", "silent image"]
+	},
+	action : [
+		["reaction", " (impose disadv.)"],
+		["action", " (change book)"]
+	]
+}
+MagicItemsList["fulminating treatise"] = {
+	name : "Fulminating Treatise",
+	source : [["T", 128]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this tome as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an evocation spell within. As a reaction when my evocation spell damages a creature, I can use 1 charge to deal it 2d6 force damage and knock it prone.",
+	descriptionLong : "This thick, scorched book reeks of smoke and ozone, and sparks of energy crackles along the edges of its pages. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an evocation spell within. As a reaction while holding it when a creature I can see takes damage from an evocation spell I cast, I can expend 1 charge to deal the creature an extra 2d6 force damage and knock it prone if it's Large or smaller.",
+	descriptionFull : "This thick, scorched spellbook reeks of smoke and ozone, and sparks of energy crackles along the edges of its pages. When found, the book contains the following spells: contingency, fireball, gust of wind, Leomund's tiny hut, magic missile, thunderwave, and wall of force. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the evocation school."+
+	"\n \u2022 When one creature you can see takes damage from an evocation spell you cast, you can use your reaction and expend 1 charge to deal an extra 2d6 force damage to the creature and knock the creature prone if it is Large or smaller.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		addToKnown : ["contingency", "fireball", "gust of wind", "leomund's tiny hut", "magic missile", "thunderwave", "wall of force"]
+	},
+	action : [["reaction", "Add 2d6 Force Dmg (1 chg)"]]
+}
+MagicItemsList["heart weaver's primer"] = {
+	name : "Heart Weaver's Primer",
+	source : [["T", 128]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this book as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an enchantment spell in it. When I cast an enchantment spell, I can use 1 charge to grant disadv. on the first save one target makes against the spell.",
+	descriptionLong : "This pristine book smells faintly of a random scent I find pleasing. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells that I can prepare as wizards spells. It has 3 charges and it regains 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an enchantment spell within the book. When I cast an enchantment spell while holding the book, I can expend 1 charge to impose disadvantage on the first saving throw one target makes against the spell.",
+	descriptionFull : "This pristine book smells faintly of a random scent you find pleasing. When found, the book contains the following spells: antipathy/sympathy, charm person, dominate person, enthrall, hypnotic pattern, modify memory, and suggestion. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the enchantment school."+
+	"\n \u2022 When you cast an enchantment spell, you can expend 1 charge to impose disadvantage on the first saving throw one target makes against the spell.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		spellcastingBonus : {
+			name : "Heart Weaver's Primer",
+			spells : ["enthrall"], // not a wizard spell!
+			selection : ["enthrall"]
+		},
+		addToKnown : ["antipathy/sympathy", "charm person", "dominate person", "hypnotic pattern", "modify memory", "suggestion"]
+	}
+}
+MagicItemsList["libram of souls and flesh"] = {
+	name : "Libram of Souls and Flesh",
+	source : [["T", 129]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this tome with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a necromancy spell within. As an action, I can use 1 charge to appear undead for 10 min, causing undead I haven't damage to be indifferent.",
+	descriptionLong : "With covers made of skin and fittings of bone, this tome is cold to the touch, and fainlty whispers. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a necromancy spell within. As an action, I can expend 1 charge to appear undead for 10 minutes, fooling even spells. For the duration, undead are indifferent to me, unless I have damaged them. The effect ends early if I deal damage or force a creature to make a save.",
+	descriptionFull : "With covers made of skin and fittings of bone, this tome is cold to the touch, and it whispers faintly. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: animate dead, circle of death, false life, finger of death, speak with dead, summon undead, and vampiric touch. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the necromancy school."+
+	"\n \u2022 As an action, you can expend 1 charge to take on a semblance of undeath for 10 minutes. For the duration, you take on a deathly appearance, and undead creatures are indifferent to you, unless you have damaged them. You also appear undead to all outward inspection and to spells used to determine the target's status. The effect ends if you deal damage or force a creature to make a saving throw.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		spellcastingBonus : {
+			name : "Libram of Souls and Flesh",
+			spells : ["speak with dead"], // not a wizard spell!
+			selection : ["speak with dead"]
+		},
+		addToKnown : ["animate dead", "circle of death", "false life", "finger of death", "summon undead", "vampiric touch"]
+	},
+	action : [["action", "Semblance of Undeath"]]
+}
+MagicItemsList["planecaller's codex"] = {
+	name : "Planecaller's Codex",
+	source : [["T", 134]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this tome with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge & 1 min of study, I can change a prepared spell to a conjuration spell within. When I cast a conjuration spell to summon or create one creature, I can give it adv. on attacks for 1 min for 1 charge.",
+	descriptionLong : "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the multiverse. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a conjuration spell within the book. When I hold the book and cast a conjuration spell that summons or creates one creature, I can expend 1 charge to grant that creature advantage on attack rolls for 1 minute.",
+	descriptionFull : "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the Great Wheel of the multiverse. When found, the book contains the following spells: banishment, find familiar, gate, magic circle, planar binding, and summon elemental. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the conjuration school."+
+	"\n \u2022 When you cast a conjuration spell that summons or creates one creature, you can expend 1 charge to grant that creature advantage on attack rolls for 1 minute.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		addToKnown : ["banishment", "find familiar", "gate", "magic circle", "planar binding", "summon elemental"]
+	}
+}
+MagicItemsList["protective verses"] = {
+	name : "Protective Verses",
+	source : [["T", 134]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a wizard",
+	prereqeval : function(v) { return classes.known.wizard ? true : false; },
+	description : "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use Arcane Lock it. It has 3 charges, regains 1d3 at dawn. For 1 charge & 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
+	descriptionLong : "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, I can touch the book's cover and cause it to lock as if I cast arcane lock on it. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an abjuration spell within. When I hold the book and cast an abjuration, I can expend 1 charge to grant a creature I can see within 30 ft 2d10 temporary hit points.",
+	descriptionFull : "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast arcane lock on it. When found, the book contains the following spells: arcane lock, dispel magic, globe of invulnerability, glyph of warding, Mordenkainen's private sanctum, protection from evil, and symbol. It functions as a spellbook for you."+
+	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+	"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+	"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the abjuration school."+
+	"\n \u2022 When you cast an abjuration spell, you can expend 1 charge to grant a creature you can see within 30 feet of you 2d10 temporary hit points.",
+	weight : 3, // as spellbook
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	spellcastingBonusElsewhere : {
+		addTo : "wizard",
+		addToKnown : ["arcane lock", "dispel magic", "globe of invulnerability", "glyph of warding", "mordenkainen's private sanctum", "protection from evil and good", "symbol"]
+	},
+	action : [["action", " (Arcane Lock itself)"]]
+}
+// Sorcerer stones
+MagicItemsList["astral shard"] = {
+	name : "Astral Shard",
+	source : [["T", 120]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer",
+	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
+	description : "I can use this crystal swirling with silver mist as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. Immediately after I cast a spell with a metamagic option while I hold or wear this shard, I can teleport to an unoccupied space I can see within 30 ft.",
+	descriptionFull : "This crystal is a solidified shard of the Astral Plane, swirling with silver mist. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus for your sorcerer spells while you hold or wear it."+
+	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, immediately after casting the spell you can teleport to an unoccupied space you can see within 30 feet of you.",
+	weight : 1, // as crystal arcane focus
+	action : [["action", " (attach/detach)"]]
+}
+MagicItemsList["elemental essence shard"] = {
+	name : "Elemental Essence Shard",
+	source : [["T", 127]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer",
+	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
+	description : "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Elemental Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
+	descriptionFull : "This crackling crystal contains the essence of an elemental plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it."+
+	"\n   Roll a d4 and consult the Elemental Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property."+
+	toUni("\n d4\tEssence")+
+	"\n  1\tAir"+
+	"\n  2\tEarth"+
+	"\n  3\tFire"+
+	"\n  4\tWater\n"+
+	"\n   " + toUni("Air") + ". You can immediately fly up to 60 feet without provoking opportunity attacks."+
+	"\n   " + toUni("Earth") + ". You gain resistance to a damage type of your choice until the start of your next turn."+
+	"\n   " + toUni("Fire") + ". One target of the spell that you can see catches fire. The burning target takes 2d10 fire damage at the start of its next turn, and then the flames go out."+
+	"\n   " + toUni("Water") + ". You create a wave of water that bursts out from you in a 10-foot radius. Each creature of your choice that you can see in that area takes 2d6 cold damage and must succeed on a Strength saving throw against your spell save DC or be pushed 10 feet away from you and fall prone.",
+	weight : 1, // as crystal arcane focus
+	action : [["action", " (attach/detach)"]],
+	choices : ["Air Essence", "Earth Essence", "Fire Essence", "Water Essence"],
+	"air essence" : {
+		name : "Air Elemental Essence Shard",
+		name : "Elemental Essence Shard, Air",
+		description : "As an action, I can attach or detach this crackling crystal to a Tiny object. While I hold or wear it, I can use this crystal as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can immediately fly up to 60 ft without provoking opportunity attacks."
+	},
+	"earth essence" : {
+		name : "Earth Elemental Essence Shard",
+		name : "Elemental Essence Shard, Earth",
+		description : "As an action, I can attach or detach this crackling crystal to a Tiny object. While I hold or wear it, I can use this crystal as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I gain resistance to a damage type of my choice until the start of my next turn.."
+	},
+	"fire essence" : {
+		name : "Fire Elemental Essence Shard",
+		name : "Elemental Essence Shard, Fire",
+		description : "As an action, I can attach/detach this crackling crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, one target of that spell that I can see catches fire for a round, taking 2d10 fire damage at the start of its next turn."
+	},
+	"water essence" : {
+		name : "Water Elemental Essence Shard",
+		name : "Elemental Essence Shard, Water",
+		description : "As an action, I can attach/detach this crackling crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, all chosen creatures in 10 ft of me take 2d6 cold damage and must make a Str save or fall prone \u0026 be pushed back 10 ft"
+	}
+}
+MagicItemsList["far realm shard"] = {
+	name : "Far Realm Shard",
+	source : [["T", 127]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer",
+	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
+	description : "As an action, I can attach/detach this crystal to an object. While I hold or wear it, it works as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option, I can have a creature I can see in 30 ft make a Cha save (my spell save DC) or take 3d6 psychic damage \u0026 be frightened of me until my next turn starts.",
+	descriptionFull : "This writhing crystal is steeped in the warped essence of the Far Realm. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it."+
+	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can cause a slimy tentacle to rip through the fabric of reality and strike one creature you can see within 30 feet of you. The creature must succeed on a Charisma saving throw against your spell save DC or take 3d6 psychic damage and become frightened of you until the start of your next turn.",
+	weight : 1, // as crystal arcane focus
+	action : [["action", " (attach/detach)"]]
+}
+MagicItemsList["outer essence shard"] = {
+	name : "Outer Essence Shard",
+	source : [["T", 133]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer",
+	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
+	description : "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Outer Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
+	descriptionFull : "This flickering crystal holds the essence of an Outer Plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it."+
+	"\n   Roll a d4 and consult the Outer Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property."+
+	toUni("\n d4\tEssence")+
+	"\n  1\tLawful"+
+	"\n  2\tChaotic"+
+	"\n  3\tGood"+
+	"\n  4\tEvil\n"+
+	"\n   " + toUni("Lawful") + ". You can end one of the following conditions affecting yourself or one creature you can see within 30 feet of you: charmed, blinded, deafened, frightened, poisoned, or stunned."+
+	"\n   " + toUni("Chaotic") + ". Choose one creature who takes damage from the spell. That target has disadvantage on attack rolls and ability checks made before the start of your next turn."+
+	"\n   " + toUni("Good") + ". You or one creature of your choice that you can see within 30 feet of you gains 3d6 temporary hit points."+
+	"\n   " + toUni("Evil") + ". Choose one creature who takes damage from the spell. That target takes an extra 3d6 necrotic damage.",
+	weight : 1, // as crystal arcane focus
+	action : [["action", " (attach/detach)"]],
+	choices : ["Lawful Essence", "Chaotic Essence", "Good Essence", "Evil Essence"],
+	"lawful essence" : {
+		name : "Lawful Outer Essence Shard",
+		sortname : "Outer Essence Shard, Lawful",
+		description : "As an action, I can attach/detach this flickering crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can have myself or another I can see in 30 ft no longer be charmed, blinded, deafened, frightened, poisoned, or stunned."
+	},
+	"chaotic essence" : {
+		name : "Chaotic Outer Essence Shard",
+		sortname : "Outer Essence Shard, Chaotic",
+		description : "As an action, I can attach/detach this flickering crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can have one creature that was damaged by that spell have disadv. on its attacks and checks until my next turn starts."
+	},
+	"good essence" : {
+		name : "Good Outer Essence Shard",
+		sortname : "Outer Essence Shard, Good",
+		description : "As an action, I can attach or detach this flickering crystal to a Tiny object. While I hold or wear it, I can use this crystal as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can have one creature that I can see within 30 ft or myself gain 3d6 temporary hit points."
+	},
+	"evil essence" : {
+		name : "Evil Outer Essence Shard",
+		sortname : "Outer Essence Shard, Evil",
+		description : "As an action, I can attach or detach this flickering crystal to a Tiny object. While I hold or wear it, I can use this crystal as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can have one creature that took damage from that spell take an extra 3d6 necrotic damage."
+	}
+}
+MagicItemsList["shadowfell shard"] = {
+	name : "Shadowfell Shard",
+	source : [["T", 135]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer",
+	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
+	description : "As an action, I can attach/detach this dull crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can curse a target of that spell to have disadv. on checks and saves with an ability score of my choice until my next turn ends.",
+	descriptionFull : "This dull, cold crystal sits heavy and leaden, saturated by the Shadowfell's despair. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it."+
+	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can momentarily curse one creature targeted by the spell; choose one ability score, and until the end of your next turn, the creature has disadvantage on ability checks and saving throws that use that ability.",
+	weight : 1, // as crystal arcane focus
+	action : [["action", " (attach/detach)"]]
+}
+MagicItemsList["feywild shard"] = {
+	name : "Feywild Shard",
+	source : [["T", 127]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	prerequisite : "Requires attunement by a sorcerer",
+	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
+	description : "As an action, I can attach/detach this warm crystal that glints with sunset colors to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and once per dawn when I use a Metamagic option on a spell, I can choose to roll on the Wild Magic Surge table (see Notes for the table).",
+	descriptionFull : "This warm crystal glints with the sunset colors of the Feywild sky and evokes whispers of emotional memory. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it."+
+	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can roll on the Wild Magic Surge table in the Player's Handbook. If the result is a spell, it is too wild to be affected by your Metamagic, and if it normally requires concentration, it doesn't require concentration in this case; the spell lasts for its full duration."+
+	"\n   If you don't have the Wild Magic Sorcerous Origin, once this property is used to roll on the Wild Magic Surge table, it can't be used again until the next dawn.",
+	weight : 1, // as crystal arcane focus
+	action : [["action", " (attach/detach)"]],
+	choices : ["As a wild magic sorcerer (Wild Mage)", "As any other sorcerer"],
+	selfChoosing : function () {
+		return classes.known.sorcerer && /wild mag(ic|e)/i.test(classes.known.sorcerer.subclass) ? "as a wild magic sorcerer (wild mage)" : "as any other sorcerer";
+	},
+	"as a wild magic sorcerer (wild mage)" : {
+		name : "Feywild Shard (Wild Mage)",
+		description : "As an action, I can attach/detach this warm crystal that glints with sunset colors to a Tiny object. It falls off if my attunement ends. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can choose to roll on the Wild Magic Surge table."
+	},
+	"as any other sorcerer" : {
+		name : "Feywild Shard  ", // spaces are intentional
+		description : "As an action, I can attach/detach this warm crystal that glints with sunset colors to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and once per dawn when I use a Metamagic option on a spell, I can choose to roll on the Wild Magic Surge table (see Notes for the table).",
+		extraLimitedFeatures : [{
+			name : "Feywild Shard (wild magic surge)",
+			usages : 1,
+			recovery : "dawn"
+		}]
+	}
+}
+if (ClassSubList['sorcerer-wild magic'] && ClassSubList['sorcerer-wild magic'].features.subclassfeature1.toNotesPage) { // Add the wild magic surge tables to this item
+	MagicItemsList["feywild shard"].toNotesPage = ClassSubList['sorcerer-wild magic'].features.subclassfeature1.toNotesPage;
+}
+// Bard instruments
+MagicItemsList["reveler's concertina"] = {
+	name : "Reveler's Concertina",
+	source : [["T", 134]],
+	type : "wondrous item (instrument)",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a bard",
+	prereqeval : function(v) { return classes.known.bard ? true : false; },
+	description : "While holding this concertina, I gain a +2 bonus to the saving throw DC of my bard spells.\nOnce per dawn, I can use the concertina to cast Otto's Irresistible Dance.",
+	descriptionFull : "While holding this concertina, you gain a +2 bonus to the saving throw DC of your bard spells."+
+	"\n   As an action, you can use the concertina to cast Otto's irresistible dance from the item. This property of the concertina can't be used again until the next dawn.",
+	usages : 1,
+	recovery : "dawn",
+	additional : "Irresistible Dance",
+	spellcastingAbility : "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
+	spellcastingBonus : {
+		name : "Otto's Irresistible Dance",
+		spells : ["otto's irresistible dance"],
+		selection : ["otto's irresistible dance"],
+		firstCol : "oncelr"
+	},
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type !== "prepare" && spellcasters.indexOf('bard') !== -1) return 2;
+			},
+			"While holding the Reveler's Concertina, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my bard spells."
+		]
+	}
+}
+MagicItemsList["lyre of building"] = {
+	name : "Lyre of Building",
+	source : [["T", 131]],
+	type : "wondrous item (instrument)",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a bard",
+	prereqeval : function(v) { return classes.known.bard ? true : false; },
+	description : "While holding this lyre, I can cast mending as an action. As a reaction, I can protect a structure or object that takes damage from that damage type until the my next turn starts. As an action, I can play the lyre to cast Fabricate, Move Earth, Passwall, or Summon Construct from it, each spell once per dawn.",
+	descriptionFull : "While holding this lyre, you can cast mending as an action. You can also play the lyre as a reaction when an object or a structure you can see within 300 feet of you takes damage, causing it to be immune to that damage and any further damage of the same type until the start of your next turn."+
+	"\n   In addition, you can play the lyre as an action to cast fabricate, move earth, passwall, or summon construct, and that spell can't be cast from it again until the next dawn.",
+	weight : 2,
+	spellcastingAbility : "class",
+	spellcastingBonus : [{
+		name : "At will",
+		spells : ["mending"],
+		selection : ["mending"],
+		firstCol : "atwill"
+	}, {
+		name : "Once per dawn",
+		spells : ["fabricate", "move earth", "passwall", "summon construct"],
+		selection : ["fabricate", "move earth", "passwall", "summon construct"],
+		firstCol : "oncelr",
+		times : 4
+	}],
+	spellChanges : {
+		"fabricate" : {
+			time : "1 a",
+			changes : "Using the Lyre of Building, I can cast Fabricate as an action."
+		},
+		"mending" : {
+			time : "1 a",
+			changes : "Using the Lyre of Building, I can cast Mending as an action."
+		}
+	},
+	action : [["reaction", " (protect object)"]]
+}
+// Other magic items
+MagicItemsList["bell branch"] = {
+	name : "Bell Branch",
+	source : [["T", 122]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a druid or warlock",
+	prereqeval : function(v) {
+		return classes.known.druid || classes.known.warlock ? true : false;
+	},
+	description : "This silver branch with bells has 3 charges, regains 1d3 at dawn. I can use it as my spellcasting focus. As a bonus action, I can use 1 charge to detect the presence of aberrations, celestials, fiends, constructs, elementals, fey, or undead in 60 ft not behind total cover. I can use 1 charge to cast Protection from Evil and Good.",
+	descriptionFull : "This silver implement is shaped like a tree branch and is strung with small golden bells. The branch is a spellcasting focus for your spells while you hold it."+
+	"\n   The branch has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it."+
+	"\n \u2022 As a bonus action, you can expend 1 charge to detect the presence of aberrations, celestials, constructs, elementals, fey, fiends, or undead within 60 feet of you. If such creatures are present and don't have total cover from you, the bells ring softly, their tone indicating the creature types present."+
+	"\n \u2022 As an action, you can expend 1 charge to cast protection from evil and good.",
+	usages : 3,
+	recovery : "dawn",
+	additional : "regains 1d3",
+	action : [["bonus action", " (detect)"]],
+	spellFirstColTitle : "Ch",
+	spellcastingAbility : "class",
+	spellcastingBonus : {
+		name : "Protection from Evil/Good",
+		spells : ["protection from evil and good"],
+		selection : ["protection from evil and good"],
+		firstCol : 1
+	}
+}
+MagicItemsList["cauldron of rebirth"] = {
+	name : "Cauldron of Rebirth",
+	source : [["T", 122]],
+	type : "wondrous item",
+	rarity : "very rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a druid or warlock",
+	prereqeval : function(v) {
+		return classes.known.druid || classes.known.warlock ? true : false;
+	},
+	description : "After a long rest, I can use this Tiny pot to create a potion of greater healing that lasts up to 24 hours. As an action, I can have it grow to fit a Medium creature, or shrink it back down. I can place a dead creature inside with 200 lb salt (10 gp) for 8 hours to Raise Dead. Once used, it can't do this again for 7 days.",
+	descriptionFull : "This Tiny pot bears relief scenes of heroes on its cast iron sides. You can use the cauldron as a spellcasting focus for your druid spells, and it functions as a suitable component for the scrying spell. When you finish a long rest, you can use the cauldron to create a potion of greater healing. The potion lasts for 24 hours, then loses its magic if not consumed."+
+	"\n   As an action, you can cause the cauldron to grow large enough for a Medium creature to crouch within. You can revert the cauldron to its normal size as an action, harmlessly shunting anything that can't fit inside to the nearest unoccupied space."+
+	"\n   If you place the corpse of a humanoid into the cauldron and cover the corpse with 200 pounds of salt (which costs 10 gp) for at least 8 hours, the salt is consumed and the creature returns to life as if by raise dead at the next dawn. Once used, this property can't be used again for 7 days.",
+	action : [["action", " (grow/shrink)"]],
+	usages : 1,
+	recovery : "7 days",
+	additional : "Raise Dead"
+}
+MagicItemsList["devotee's censer"] = {
+	name : "Devotee's Censer",
+	source : [["T", 126]],
+	type : "weapon",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a cleric or paladin",
+	prereqeval : function(v) {
+		return classes.known.cleric || classes.known.paladin ? true : false;
+	},
+	description : "I can use this magic flail, perforated with tiny holes, as a holy symbol. Attacks with it deal +1d8 radiant damage. As a bonus action once per dawn, I can speak the command word to cause it to emanate incense out to 10 ft for 1 minute. At the start of each of my turns, all creatures in the incense heal 1d4 hit points.",
+	descriptionFull : "The rounded head of this flail is perforated with tiny holes, arranged in symbols and patterns. The flail counts as a holy symbol for you. When you hit with an attack using this magic flail, the target takes an extra 1d8 radiant damage."+
+	"\n   As a bonus action, you can speak the command word to cause the flail to emanate a thin cloud of incense out to 10 feet for 1 minute. At the start of each of your turns, you and any other creatures in the incense each regain 1d4 hit points. This property can't be used again until the next dawn.",
+	weight : 2,
+	usages : 1,
+	recovery : "dawn",
+	action : [["bonus action", " (incense cloud)"]],
+	weaponsAdd : ["Devotee's Censer"],
+	weaponOptions : [{
+		baseWeapon : "flail",
+		regExpSearch : /^(?=.*devotee)(?=.*censer).*$/i,
+		name : "Devotee's Censer",
+		source : [["T", 126]],
+		description : "+1d8 radiant damage"
+	}]
+}
+MagicItemsList["guardian emblem"] = {
+	name : "Guardian Emblem",
+	source : [["T", 128]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	prerequisite : "Requires attunement by a cleric or paladin",
+	prereqeval : function(v) {
+		return classes.known.cleric || classes.known.paladin ? true : false;
+	},
+	description : "As an action, I can attach or detach this symbol of a deity to a shield or a suit of armor. It has 3 charges, regaining all at dawn. As a reaction when I or a creature I can see within 30 ft suffers a critical hit while I wear the armor or wield the shield that bears the emblem, I can expend 1 charge to turn it into a normal hit.",
+	descriptionFull : "This emblem is the symbol of a deity or a spiritual tradition. As an action, you can attach the emblem to a suit of armor or a shield or remove it."+
+	"\n   The emblem has 3 charges. When you or a creature you can see within 30 feet of you suffers a critical hit while you're wearing the armor or wielding the shield that bears the emblem, you can use your reaction to expend 1 charge to turn the critical hit into a normal hit instead."+
+	"\n   The emblem regains all expended charges daily at dawn.",
+	usages : 3,
+	recovery : "dawn",
+	additional : "stop critical",
+	action : [
+		["action", " (attach/detach)"],
+		["reaction", " (stop critical)"]
+	]
+}
+MagicItemsList["nature's mantle"] = {
+	name : "Nature's Mantle",
+	source : [["T", 133]],
+	type : "wonderous item",
+	rarity : "uncommon",
+	attunement : true,
+	prerequisite : "Requires attunement by a druid or ranger.",
+	prereqeval : function(v) {
+		return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
+	},
+	description : "This cloak shifts color and texture to blend with the terrain surrounding me. While wearing the cloak, I can use it as a spellcasting focus for my druid and ranger spells. While I am in an area that is lightly obscured, I can Hide as a bonus action even if I am being directly observed.",
+	descriptionFull : "This cloak shifts color and texture to blend with the terrain surrounding you. While wearing the cloak, you can use it as a spellcasting focus for your druid and ranger spells."+
+	"\n   While you are in an area that is lightly obscured, you can Hide as a bonus action even if you are being directly observed.",
+	action : [["bonus action", " (Hide)"]]
+}
 // [dupl_start] reprint from Eberron: Rising from the Last War
 if (!MagicItemsList["prosthetic limb"]) {
 	MagicItemsList["prosthetic limb"] = {
@@ -6664,7 +8082,7 @@ if (!MagicItemsList["prosthetic limb"]) {
 		type : "wondrous item",
 		rarity : "common",
 		description : "This artificial limb replaces a lost limb, like a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. As an action, I can detach or reattach it. It can't be removed against my will. It detaches if I die.",
-		descriptionFull : "This item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
+		descriptionFull : "This item replaces a lost limb\u2014a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as an action, and it can't be removed against your will. It detaches if you die.",
 		action : [["action", " (attach/detach)"]]
 	}
 } // dupl_end

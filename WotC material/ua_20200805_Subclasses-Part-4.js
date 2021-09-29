@@ -1,5 +1,5 @@
 var iFileName = "ua_20200805_Subclasses-Part-4.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 4 article to MPMB's Character Record Sheet
 // This file contains contributions by AelarTheElfRogue
 
@@ -59,7 +59,6 @@ AddSubClass("bard", "college of spirits-ua",{
             action : [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
             toNotesPage : [{
                 name : "Spirits' Tales Table",
-                popupName: "College of Spirits - Spirits' Tales table",
                 note : desc([
 					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
 					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",

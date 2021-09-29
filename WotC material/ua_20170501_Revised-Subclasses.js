@@ -1,5 +1,5 @@
 var iFileName = "ua_20170501_Revised-Subclasses.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -286,18 +286,8 @@ AddSubClass("monk", "way of the kensei2-ua", {
 				atkAdd : [
 					function (fields, v) {
 						if (classes.known.monk && classes.known.monk.level > 2 && !v.isSpell && !v.theWea.monkweapon && (/kensei/i).test(v.WeaponTextName) && !v.theWea.special && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow')) {
-							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
-							try {
-								var curDie = eval_ish(fields.Damage_Die.replace('d', '*'));
-							} catch (e) {
-								var curDie = 'x';
-							};
-							if (isNaN(curDie) || curDie < aMonkDie) {
-								fields.Damage_Die = '1d' + aMonkDie;
-							};
-							if (theWea.ability === 1) {
-								fields.Mod = v.StrDex;
-							};
+							v.theWea.monkweapon = true;
+							v.theWea.kenseiweapon = true;
 							if (v.isRangedWeapon) {
 								fields.Description += (fields.Description ? '; ' : '') + 'As bonus action with Attack action, +1d4 damage';
 							};
@@ -316,7 +306,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if ((v.baseWeaponName == "unarmed strike" || ((/kensei/i).test(v.WeaponTextName) && !v.isSpell && (!(/heavy|special/i).test(fields.Description) || v.baseWeaponName === 'longbow'))) && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description)) {
+						if (!v.isSpell && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description) && (v.baseWeaponName === "unarmed strike" || v.theWea.kenseiweapon)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 						};
 					},

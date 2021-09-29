@@ -1,5 +1,5 @@
 var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Prestige Classes and Rune Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -12,10 +12,10 @@ SourceList["UA:PCRM"] = {
 };
 
 // Adds a prestige class, called "Rune Scribe" (includes contributions by K.12)
-ClassList["rune scribe"] = {
+ClassList["rune scribe"] = { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*rune)(?=.*scribe).*$/i,
 	name : "Rune Scribe",
-	source : ["UA:PCRM", 2],
+	source : [["UA:PCRM", 2]],
 	primaryAbility : "Dexterity and Intelligence",
 	prereqs : "\n   - Dexterity 13 and Intelligence 13;\n   - Proficiency in the Arcana skill\n   - Complete a special task: You must find a rune and present it to an NPC rune scribe who accepts it in return for tutoring you in the ways of rune magic",
 	die : 8,
@@ -144,7 +144,7 @@ ClassList["rune scribe"] = {
 					"- Freezing Bolt (complex): As an action, I expend spell slot and touch a creature",
 					"   It takes 2d8+1d8/SL cold damage and its speed is 0 until the end of my next turn",
 					"   If it succeeds on a DC 12+SL Con save, it takes only half damage and has normal speed",
-					"- Ice Brand (complex):  During a short rest, I can augment a weapon, or 20 ammo pieces",
+					"- Ice Brand (complex): During a short rest, I can augment a weapon, or 20 ammo pieces",
 					"   The weapon or ammo deals cold damage; It lasts for 24 hours or until I use this again",
 					"   I can expend a spell slot to also give the weapon a magic bonus of slot level dived by 3",
 					"- Winter's Howl (complex): I can cast Sleet Storm as an action once per short rest"

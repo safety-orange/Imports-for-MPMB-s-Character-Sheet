@@ -1,5 +1,5 @@
 var iFileName = "pub_20190903_DnDEK.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the sidekick rules from the Dungeons & Dragons Essentials Kit adventures to MPMB's Character Record Sheet
 /* - NOTICE -
 	These sidekick classes are available as normal classes because the sheet doesn't support classes for the companion page
@@ -56,7 +56,7 @@ ClassList["sidekick-expert"] = {
 		var matchRegex = /(\d+)d8 \((\d+\.?\d+?)\)/;
 		var match = HDobj.dieStr[1].match(matchRegex);
 		if (!match) return;
-		HDobj.dieStr.shift(); HDobj.average -= 3.5;  HDobj.fixed -= 3;
+		HDobj.dieStr.shift(); HDobj.average -= 3.5; HDobj.fixed -= 3;
 		HDobj.dieStr[0] = HDobj.dieStr[0].replace(matchRegex, (Number(match[1]) + 1) + "d8 (" + (Number(match[2]) + 4.5) + ")");
 		HDobj.dieStr.push("\n extra sidekick HD (included above), but no max 1st level");
 	},
@@ -287,7 +287,8 @@ ClassList["sidekick-warrior"] = {
 							v.CritChance = 19;
 						};
 					},
-					"My weapon attacks score a critical on a to hit roll of both 19 and 20."
+					"My weapon attacks score a critical on a to hit roll of both 19 and 20.",
+					19
 				]
 			}
 		},

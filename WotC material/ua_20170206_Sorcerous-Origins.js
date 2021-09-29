@@ -1,5 +1,5 @@
 var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -97,10 +97,10 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad, as well as Toby L.
-AddSubClass("sorcerer", "phoenix sorcery-ua", {
+AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*phoenix)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Phoenix Sorcery",
-	source : ["UA:SO", 1],
+	source : [["UA:SO", 1]],
 	fullname : "Phoenix Sorcerer",
 	features : {
 		"subclassfeature1" : {
@@ -167,10 +167,10 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad
-AddSubClass("sorcerer", "sea sorcery-ua", {
+AddSubClass("sorcerer", "sea sorcery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*sea)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Sea Sorcery",
-	source : ["UA:SO", 2],
+	source : [["UA:SO", 2]],
 	fullname : "Sea Sorcerer",
 	features : {
 		"subclassfeature1" : {
@@ -239,10 +239,10 @@ AddSubClass("sorcerer", "sea sorcery-ua", {
 	}
 });
 //this code includes contributions by /u/SoilentBrad
-AddSubClass("sorcerer", "stone sorcery-ua", {
+AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*stone)(?=.*(sorcerer|sorcery|witch)).*$/i,
 	subname : "Stone Sorcery",
-	source : ["UA:SO", 3],
+	source : [["UA:SO", 3]],
 	fullname : "Stone Sorcerer",
 	spellcastingExtra : ["compelled duel", "searing smite", "thunderous smite", "wrathful smite", "branding smite", "magic weapon", "blinding smite", "elemental weapon", "staggering smite"],
 	features : {

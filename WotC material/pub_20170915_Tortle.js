@@ -1,5 +1,5 @@
 var iFileName = "pub_20170915_Tortle.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the Tortle Race from the Tortle Package from Extra Life to MPMB's Character Record Sheet
 
 // Define the source
@@ -8,7 +8,8 @@ SourceList.TP={
 	abbreviation : "TP",
 	group : "Extra Life",
 	url : "https://dnd.wizards.com/products/tabletop-games/digital-only-rpg-products/tortle-package",
-	date : "2017/09/15"
+	date : "2017/09/15",
+	defaultExcluded : true
 };
 
 // The Tortle race

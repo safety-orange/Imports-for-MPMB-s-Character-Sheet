@@ -1,5 +1,5 @@
 var iFileName = "ua_20190815_Barbarian-and-Monk.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Barbarian and Monk article to MPMB's Character Record Sheet
 
 // Define the source
@@ -51,7 +51,6 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			toNotesPage : [{
 				name : "Wild Surge Table",
 				source : ["UA:BnM", 1],
-				popupName : "Wild Soul's Wild Surge Table",
 				note : [
 					"Magic erupts from me while I rage. Whenever I enter my rage, I have to roll on the table below to see what happens.",
 					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",

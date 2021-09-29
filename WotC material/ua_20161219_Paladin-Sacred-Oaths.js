@@ -1,5 +1,5 @@
 var iFileName = "ua_20161219_Paladin-Sacred-Oaths.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Paladin Sacred Oaths article to MPMB's Character Record Sheet
 
 // Define the source
@@ -55,10 +55,10 @@ AddSubClass("paladin", "oath of conquest-ua", {
 		}
 	}
 });
-AddSubClass("paladin", "oath of treachery-ua", {
+AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Treachery",
-	source : ["UA:PSO", 2],
+	source : [["UA:PSO", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conjure Duplicate",

@@ -1,5 +1,5 @@
 var iFileName = "ua_20160104_Kits-of-Old.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Kits of Old article to MPMB's Character Record Sheet
 
 // Define the source
@@ -48,10 +48,10 @@ AddSubClass("bard", "college of swords-ua", {
 		}
 	}
 });
-AddSubClass("bard", "college of satire-ua", {
+AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*satire).*$/i,
 	subname : "College of Satire",
-	source : ["UA:KoO", 2],
+	source : [["UA:KoO", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
@@ -166,10 +166,10 @@ AddSubClass("fighter", "cavalier-ua", {
 		}
 	}
 });
-AddSubClass("fighter", "scout-ua", {
+AddSubClass("fighter", "scout-ua", { // Still valid 2021-09-21
 	regExpSearch : /scout/i,
 	subname : "Scout",
-	source : ["UA:KoO", 4],
+	source : [["UA:KoO", 4]],
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",

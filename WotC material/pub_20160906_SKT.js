@@ -1,5 +1,5 @@
 var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -163,7 +163,6 @@ MagicItemsList["banner of the krig rune"] = {
 	}],
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Banner of the Krig Rune Features",
 		note : [
 			"Crafted from a thick, red fabric, this banner measures 5 ft high and 3 ft wide. The krig (war) rune is displayed on the fabric with round, metal plates sewn into it. It can be attached to a 10-ft pole to serve as a standard. Furling or unfurling the banner requires an action. The banner has the following properties.",
 			"As a bonus action, I can touch the unfurled banner and use the Mark of Courage, have it emanate courage. Me and my allies are immune to the frightened condition while within 20 ft of it. This benefit lasts for 10 minutes or until the banner is furled. Once I use this property, I can't use it again until I finish a short or long rest.",
@@ -281,6 +280,7 @@ MagicItemsList["ingot of the skold rune"] = {
 	},
 	"transferred to a shield" : {
 		name : "Skold Rune Shield",
+		sortname : "Rune Shield, Skold",
 		type : "shield",
 		rarity : "rare",
 		description : "This shield gives my +1 AC on top of its normal bonus to AC. While carrying it, the first time after a long rest that damage reduces me to 0 HP, I drop to 1 HP instead.",
@@ -290,6 +290,7 @@ MagicItemsList["ingot of the skold rune"] = {
 	},
 	"transferred to a two-handed melee weapon" : {
 		name : "Skold Rune Weapon",
+		sortname : "Rune Weapon, Skold",
 		type : "weapon (any two-handed melee)",
 		rarity : "uncommon",
 		description : "This magic weapon grants me a +1 bonus to AC.",
@@ -378,6 +379,7 @@ MagicItemsList["opal of the ild rune"] = {
 	},
 	"transferred to a suit of armor" : {
 		name : "Ild Rune Armor",
+		sortname : "Rune Armor, Ild",
 		type : "armor (any)",
 		rarity : "rare",
 		description : "This magic armor gives me resistance to cold damage.",
@@ -392,6 +394,7 @@ MagicItemsList["opal of the ild rune"] = {
 	},
 	"transferred to a weapon" : {
 		name : "Ild Rune Weapon",
+		sortname : "Rune Weapon, Ild",
 		type : "wondrous item",
 		rarity : "uncommon",
 		description : "This magic weapon deals +1d6 fire damage to any target it hits.",
@@ -426,7 +429,7 @@ MagicItemsList["orb of the stein rune"] = {
 		name : "Orb of the Stein Rune ",
 		type : "wondrous item",
 		rarity : "rare",
-		description : "TThis orb gives me petrification immunity. As a bonus action once per short rest, I can cast Meld Into Stone. As an action, I can hold my ground for 1 min or until I move any distance, giving me adv. on saves/checks vs. moving and enemies moving to a space in 10 ft must make a DC 12 Str save or have speed 0 for this turn.",
+		description : "This orb gives me petrification immunity. As a bonus action once per short rest, I can cast Meld Into Stone. As an action, I can hold my ground for 1 min or until I move any distance, giving me adv. on saves/checks vs. moving and enemies moving to a space in 10 ft must make a DC 12 Str save or have speed 0 for this turn.",
 		attunement : true,
 		savetxt : { immune : ["petrified"] },
 		action : [["action", ""]],
@@ -445,9 +448,10 @@ MagicItemsList["orb of the stein rune"] = {
 	},
 	"transferred to a shield" : {
 		name : "Stein Rune Shield",
+		sortname : "Rune Shield, Stein",
 		type : "shield",
 		rarity : "rare",
-		description : "This shield gives my resistance to all damage dealt by range weapon attack.",
+		description : "This shield gives me resistance to all damage dealt by range weapon attack.",
 		attunement : true,
 		shieldAdd : "Stein Rune Shield",
 		dmgres : ["Ranged Weapon Attacks"]
@@ -505,6 +509,7 @@ MagicItemsList["pennant of the vind rune"] = {
 	},
 	"transferred to a suit of armor" : {
 		name : "Vind Rune Armor",
+		sortname : "Rune Armor, Vind",
 		type : "armor (any)",
 		rarity : "uncommon",
 		description : "This magic armor doesn't impose disadvantage on stealth checks and gives me a 5 ft bonus to my speed.",
@@ -541,7 +546,8 @@ MagicItemsList["potion of giant size"] = {
 	type : "potion",
 	rarity : "legendary",
 	description : "Once as an action, I can drink this potion of pale white liquid or administer it to another to grow to Huge for 24 hours. This gives Str 25, +5 ft reach, double max HP (current HP also doubles), and roll three times damage die for weapons. When its effect ends, HP above the max HP becomes temporary HP.",
-	descriptionFull : "When you drink this potion, you become Huge for 24 hours if you are Medium or smaller, otherwise the potion does nothing. For that duration, your Strength becomes 25, if it isn't already higher, and your hit point maximum is doubled (your current hit points are doubled when you drink the potion). In addition, the reach of your melee attacks increases by 5 feet.\n   Everything you are carrying and wearing also increases in size for the duration. When rolling damage for weapons enlarged in this manner, roll three times the normal number of dice; for example, an enlarged longsword would deal 3d8 slashing damage (instead of1d8), or 3d10 slashing damage (instead of 1d10) when used with two hands.\n   When the effect ends, any hit points you have above your hit point maximum become temporary hit points. This potion is a pale white liquid made from the tongue of a giant clam, with a pungent aroma akin to that of rotting algae. It tastes sweet, however, when consumed."
+	descriptionFull : "When you drink this potion, you become Huge for 24 hours if you are Medium or smaller, otherwise the potion does nothing. For that duration, your Strength becomes 25, if it isn't already higher, and your hit point maximum is doubled (your current hit points are doubled when you drink the potion). In addition, the reach of your melee attacks increases by 5 feet.\n   Everything you are carrying and wearing also increases in size for the duration. When rolling damage for weapons enlarged in this manner, roll three times the normal number of dice; for example, an enlarged longsword would deal 3d8 slashing damage (instead of1d8), or 3d10 slashing damage (instead of 1d10) when used with two hands.\n   When the effect ends, any hit points you have above your hit point maximum become temporary hit points. This potion is a pale white liquid made from the tongue of a giant clam, with a pungent aroma akin to that of rotting algae. It tastes sweet, however, when consumed.",
+	weight : 0.5
 }
 MagicItemsList["robe of serpents"] = {
 	name : "Robe of Serpents",

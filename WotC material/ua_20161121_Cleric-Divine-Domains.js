@@ -1,5 +1,5 @@
 var iFileName = "ua_20161121_Cleric-Divine-Domains.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the content from the Unearthed Arcana: Cleric Divine Domains article to MPMB's Character Record Sheet
 
 // Define the source
@@ -162,10 +162,10 @@ AddSubClass("cleric", "grave domain-ua", {
 		}
 	}
 });
-AddSubClass("cleric", "protection domain-ua", {
+AddSubClass("cleric", "protection domain-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(protection|protect|defend|defense)).*$/i,
 	subname : "Protection Domain",
-	source : ["UA:CDD", 3],
+	source : [["UA:CDD", 3]],
 	spellcastingExtra : ["compelled duel", "protection from evil and good", "aid", "protection from poison", "protection from energy", "slow", "guardian of faith", "otiluke's resilient sphere", "antilife shell", "wall of force"],
 	features : {
 		"subclassfeature1" : {

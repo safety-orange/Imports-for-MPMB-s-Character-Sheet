@@ -1,5 +1,5 @@
 var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion("13.0.7");
+RequiredSheetVersion("13.0.8");
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -390,7 +390,8 @@ MagicItemsList["obsidian flint dragon plate"] = {
 		strReq : 15
 	},
 	dmgres : ["Poison"],
-	savetxt : { adv_vs : ["grappled"] }
+	savetxt : { adv_vs : ["grappled"] },
+	weight : 65
 }
 var DiA_shieldOfTheHiddenLordFullDescription = [
 	"The Shield of the Hidden Lord is of celestial origin and serves as a prison for the pit fiend Gargauth, whose mortal followers revere it as a god. Over time, Gargauth's evil has warped the shield's appearance, so that its celestial motif and designs have become twisted into a fiendish face that subtly moves in disturbing ways.",
@@ -416,7 +417,6 @@ MagicItemsList["shield of the hidden lord"] = {
 	attunement : true,
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of the Shield of the Hidden Lord",
 		note : desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}],
 	weight : 6,
@@ -465,7 +465,6 @@ MagicItemsList["soul coin"] = {
 	descriptionFull : DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	toNotesPage : [{
 		name : "Features",
-		popupName : "Features of Soul Coins",
 		note : desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I ")
 	}],
 	weight : 0.3,

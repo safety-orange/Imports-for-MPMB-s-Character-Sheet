@@ -1,5 +1,5 @@
 var iFileName = "pub_20190919_LR.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.0.8");
 // This file adds the Locathah from the Locathah Rising adventure from Extra Life to MPMB's Character Record Sheet
 
 SourceList.LR = {
@@ -7,7 +7,8 @@ SourceList.LR = {
     abbreviation : "LR",
     group : "Extra Life",
     url : "https://dnd.wizards.com/products/tabletop-games/digital-only-rpg-products/locathah-rising",
-    date : "2019/09/19"
+    date : "2019/09/19",
+	defaultExcluded : true
 };
 
 RaceList.locathah = {
