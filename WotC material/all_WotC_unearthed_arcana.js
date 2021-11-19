@@ -1,6 +1,6 @@
-if (sheetVersion < 13000008) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
+if (sheetVersion < 13000009) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.0.9");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -2374,7 +2374,6 @@ RaceList["dragonborn revenant-ua"] = {
 	weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 1],
 	trait : "Dragonborn Revenant (+1 Strength, +1 Constitution, +1 Charisma)\nBreath Weapon: As an action, 5 ft by 30 ft line, Dex save halves, necrotic damage.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
-	abilitySave : 3,
 	dmgres : ["Necrotic"],
 	features : {
 		"draconic ancestry" : {
@@ -3025,7 +3024,7 @@ ClassList["rangerua"] = {
 	},
 	equipment : "Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Ranger Conclaves", []],
-	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	spellcastingFactor : 2,
 	spellcastingList : {
 		"class" : "ranger"
@@ -3202,6 +3201,7 @@ AddSubClass("rangerua", "beast master-ua", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Conclave",
 	source : ["UA:RR", 5],
+	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	features : {
 		"subclassfeature3" : {
 			name : "Animal Companion",
@@ -3246,7 +3246,6 @@ AddSubClass("rangerua", "hunter-ua", {
 	regExpSearch : /^(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i,
 	subname : "Hunter Conclave",
 	source : ["UA:RR", 7],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Hunter's Prey",
@@ -3333,7 +3332,6 @@ AddSubClass("rangerua", "deep stalker-ua", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker Conclave",
 	source : ["UA:RR", 7],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Underdark Scout",
@@ -3384,7 +3382,6 @@ var UARR_AddRangerSubclassesToRevisedRanger = function() {
 		if (!oSub || !oSub.source || ClassList.rangerua.subclasses[1].indexOf(sSub) !== -1) continue;
 		var sSubSrc = isArray(oSub.source[0]) ? oSub.source[0][0] : oSub.source[0];
 		if (aSources.indexOf(sSubSrc) === -1) continue;
-		if (!oSub.attacks) oSub.attacks = ClassList["rangerua"].attacks;
 		ClassList.rangerua.subclasses[1].push(sSub);
 	}
 }();
@@ -4838,7 +4835,6 @@ var UARnR_theHorizonWalkerSubclass = {
 	subname : "Horizon Walker",
 	source : ["UA:RnR", 1],
 	fullname : "Horizon Walker",
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Planar magic",
@@ -4921,7 +4917,6 @@ var UARnR_thePrimevalGuardianSubclass = { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*primeval)(?=.*guardian).*$/i,
 	subname : "Primeval Guardian",
 	source : [["UA:RnR", 2]],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Guardian magic",
@@ -6210,7 +6205,8 @@ AddSubClass("mystic", "avatar-ua", {
 				"class" : "mystic",
 				school : ["Avatar"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -6275,7 +6271,8 @@ AddSubClass("mystic", "awakened-ua", {
 				"class" : "mystic",
 				school : ["Awake"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -6341,7 +6338,8 @@ AddSubClass("mystic", "immortal-ua", {
 				"class" : "mystic",
 				school : ["Immor"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -6418,7 +6416,8 @@ AddSubClass("mystic", "nomad-ua", {
 				"class" : "mystic",
 				school : ["Nomad"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -6562,7 +6561,8 @@ AddSubClass("mystic", "wu jen-ua", {
 				"class" : "mystic",
 				school : ["Wu Jen"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -6597,7 +6597,8 @@ AddSubClass("mystic", "wu jen-ua", {
 				name : "Arcane Dabbler",
 				"class" : "wizard",
 				level : [1, 3],
-				times : 3
+				times : 3,
+				psionic : true
 			}
 		},
 		"subclassfeature14" : {
@@ -10123,7 +10124,6 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : ["UA:AToS", 3],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Monster Slayer",
 	features : {
 		"subclassfeature3" : {
@@ -11955,9 +11955,9 @@ RaceList["eladrin-uaeng"] = {
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d12\")",
-	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
+	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
-	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
+	weightMetric : " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scorestxt : "+2 Dexterity, +1 Intelligence or Charisma",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
@@ -15966,7 +15966,6 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
 	source : ["UA:FRnR", 3],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Swarmkeeper",
 	features : {
 		"subclassfeature3" : {
@@ -18846,7 +18845,6 @@ var UASP3_rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua",
 	regExpSearch : /^(?=.*fey)(?=.*wanderer).*$/i,
 	subname : "Fey Wanderer",
 	source : [["UA:SP3", 5]],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Fey Wanderer",
 	features : {
 		"subclassfeature3" : {
@@ -19438,7 +19436,7 @@ AddSubClass("warlock", "the undead-ua",{
 			minlevel : 10,
 			description : desc([
 				"I have resistance to necrotic damage, or immunity while I'm in my Form of Dread",
-                "When I'm reduced to 0 hp, I can cause my body to explode and I revive with 1 hp after",
+                "When I'm reduced to 0 HP, I can cause my body to explode and I revive with 1 HP after",
                 "Each creature of my choice within 30 ft takes 2d10 + my warlock level necrotic damage",
                 "After this, I gain 1 level of exhaustion and must complete 1d4 long rests to do so again"
 			]),
@@ -19489,7 +19487,7 @@ SourceList["UA:SP5"] = {
 	date : "2020/10/26"
 };
 
-AddSubClass("monk", "ascendant dragon", {
+AddSubClass("monk", "ascendant dragon-ua", {
 	regExpSearch : /^(?=.*ascendant)(?=.*(dragon|draconic))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Ascendant Dragon",
 	source : [["UA:SP5", 1]],
@@ -19499,9 +19497,9 @@ AddSubClass("monk", "ascendant dragon", {
 			source : [["UA:SP5", 1]],
 			minlevel : 3,
 			description : desc([
-				"I learn to speak, read, and write Draconic",
 				"I can change the damage type of my unarmed strikes to acid, cold, fire, lightning, poison",
-				"If I fail a Persuasion or Intimidation check, I can reroll it as a reaction once per long rest"
+				"As a reaction when I fail an Intimidation or Persuasion check, I can reroll the check",
+				"If this turns it into a success, I can't do so again until I finish a long rest; I learn Draconic"
 			]),
 			languageProfs : ["Draconic"],
 			action : [["reaction", " (reroll check)"]],
@@ -19581,7 +19579,7 @@ AddSubClass("monk", "ascendant dragon", {
 			source : [["UA:SP5", 2]],
 			minlevel : 6,
 			description : " [Prof B / long rest or 1 ki]" + desc([
-				"When I use Step of the Wind, I gain a fly speed equal to my walking speed",
+				"When I use Step of the Wind, I can gain a flying speed equal to my walking speed",
 				"I can do this Prof. Bonus per long rest, or by using 2 ki points to use Step of the Wind"
 			]),
 			extraLimitedFeatures : [{
@@ -19631,12 +19629,11 @@ AddSubClass("monk", "ascendant dragon", {
 	}
 });
 
-var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
+var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", {
 	regExpSearch : /^(?=.*(drake|dragon|draconic))(?=.*(warden|ranger|trainer)).*$/i,
 	subname : "Drakewarden",
 	source : [["UA:SP5", 2]],
 	fullname : "Drakewarden",
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Draconic Gift",
@@ -20225,7 +20222,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			breathWeaponShape : "15-ft cone",
 			trait : desc([
 				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
-				"Psionic Mind: I can speak telepathically to " + (typePF ? "any creature I can see within 30 ft that understands a language  but it can't respond." : "a creature with a language I can see in 30 ft."),
+				"Psionic Mind: I can speak telepathically to " + (typePF ? "any creature I can see within 30 ft that understands a language but it can't respond." : "a creature with a language I can see in 30 ft."),
 				"Gem Flight: From 3rd level, I can temporarily fly. As a bonus action once per long rest, I can gain a flying speed equal to my walking speed and can hover. This lasts for 1 minute."
 			], "\n \u2022 "),
 			features : {
@@ -20393,34 +20390,12 @@ AddRacialVariant("draconic kobold-ua", "tail", {
 });
 
 // Draconic Feats
-FeatsList["gift of the chromatic dragon-ua"] = {
-	name : "Gift of the Chromatic Dragon",
-	source : [["UA:DO", 4]],
-	descriptionFull : "You've manifested some of the power of chromatic dragons, granting you the following benefits:"+
-	"\n \u2022 As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this ability, you can't do so again until you finish a long rest."+
-	"\n \u2022 When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof. Bonus per long rest.",
-	action : [
-		["bonus action", "Chromatic Gift (Infuse Weapon)"],
-		["reaction", "Chromatic Gift (Resistance)"]
-	],
-	extraLimitedFeatures : [{
-		name : "Chromatic Gift (Infuse Weapon)",
-		usages : 1,
-		recovery : "long rest"
-	}, {
-		name : "Chromatic Gift (Resistance)",
-		usages : "Proficiency Bonus per ",
-		usagescalc : "event.value = How('Proficiency Bonus');",
-		recovery : "long rest"
-	}]
-};
 FeatsList["gift of the metallic dragon-ua"] = {
 	name : "Gift of the Metallic Dragon",
 	source : [["UA:DO", 4]],
 	descriptionFull : "You've manifested some of the power of metallic dragons, granting you the following benefits:"+
 	"\n \u2022 You learn the cure wounds spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)."+
-	"\n \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest",
+	"\n \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description : "I know Cure Wounds. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add a d4 to AC, potentially causing the attack to miss. I can do this my Prof. Bonus per long rest.",
 	spellcastingAbility : [4, 5, 6],
 	allowUpCasting : true,
@@ -20441,31 +20416,6 @@ FeatsList["gift of the metallic dragon-ua"] = {
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}]
-};
-FeatsList["gift of the gem dragon-ua"] = {
-	name : "Gift of the Gem Dragon",
-	source : [["UA:DO", 5]],
-	descriptionFull : "You've manifested some of the power of gem dragons, granting you the following benefits:"+
-	"\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."+
-	"\n \u2022 When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or take 2d8 force damage and be pushed 10 feet away from you. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it make a Str save (DC 8 + Prof. Bonus + chosen ability score modifier) or take 2d8 force damage and be pushed 10 ft away. I can do this my Prof. Bonus per long rest. [+1 Int, Wis or Cha]",
-	action : [["reaction", ""]],
-	usages : "Proficiency Bonus per ",
-	usagescalc : "event.value = How('Proficiency Bonus');",
-	recovery : "long rest",
-	choices : ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof. Bonus + Int mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Intelligence]';",
-		scores : [0, 0, 0, 1, 0, 0]
-	},
-	"wisdom" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof. Bonus + Wis mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Wisdom]';",
-		scores : [0, 0, 0, 0, 1, 0]
-	},
-	"charisma" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof. Bonus + Cha mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Charisma]';",
-		scores : [0, 0, 0, 0, 0, 1]
-	}
 };
 
 // Draconic Spells
@@ -20508,63 +20458,6 @@ SpellsList["fizban's platinum shield-ua"] = {
 	"\n \u2022 The creature has resistance to acid, cold, fire, lightning, and poison damage."+
 	"\n \u2022 If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails."
 };
-SpellsList["flame stride-ua"] = { // contains contributions by NodHero
-	name : "Flame Stride",
-	classes : ["artificer", "ranger", "sorcerer", "wizard"],
-	source : [["UA:DO", 6]],
-	level : 3,
-	school : "Trans",
-	time : "1 bns",
-	range : "Self",
-	components : "V,S",
-	duration : "Conc, 1 min",
-    description : "+20+5/SL ft speed; provoke no opp atks for moving; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
-    descriptionShorter : "+20+5/SL ft spd; no opp atks with move; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
-    descriptionMetric : "+6+1,5/SL m spd; provoke no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
-    descriptionShorterMetric : "+6+1,5/SL m spd; no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
-	descriptionFull : "The billowing flames of a dragon cover your feet, granting you explosive speed. For the duration, your speed increases by 20 feet and moving doesn't provoke opportunity attacks."+
-	"\n   When you move within 5 feet of a creature or object that isn't being worn or carried, it takes 1d6 fire damage from your trail of heat. A creature or object can take this damage only once during a turn."+
-	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. Additionally, the spell deals an additional 1d6 fire damage for each slot level above 3rd."
-};
-SpellsList["icingdeath's frost-ua"] = {
-	name : "Icingdeath's Frost",
-	classes : ["sorcerer", "wizard"],
-	source : [["UA:DO", 6]],
-	level : 2,
-	school : "Evoc",
-	time : "1 a",
-	range : "S:15" + (typePF ? "-" : "") + "ft cone",
-	components : "S,M",
-	compMaterial : "A vial of meltwater",
-	duration : "Instantaneous",
-	save : "Con",
-	description : "All in area 3d8+1d8/SL Cold dmg and speed 0 for 1 min until 1 a to undo; save halves, normal speed",
-	descriptionShorter : "All in area 3d8+1d8/SL Cold dmg \u0026 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
-	descriptionFull : "A burst of icy cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is covered in ice for 1 minute or until a creature uses its action to break the ice off itself or another creature. A creature covered in ice has its speed reduced to 0. On a successful save, a creature takes half as much damage with no additional effects."+
-	AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by 1d8 for each slot level above 2nd."
-};
-SpellsList["nathair's mischief-ua"] = {
-	name : "Nathair's Mischief",
-	nameAlt : "Mischief",
-	classes : ["bard", "sorcerer", "wizard"],
-	source : [["UA:DO", 6]],
-	level : 2,
-	school : "Illus",
-	time : "1 a",
-	range : "60 ft",
-	components : "S,M",
-	compMaterial : "A piece of crust from an apple pie",
-	duration : "Conc, 1 min",
-	save : "Var",
-	description : "20-ft cube of magic, roll d4 for effect; At start of my turn, move cube 10 ft and reroll effect; see book",
-	descriptionFull : "You fill a 20-foot cube centered on a point you choose within range with fey and draconic magic. Roll on the Mischievous Surge table to determine the magical effect produced. At the start of each of your turns, you can move the cube up to 10 feet and reroll on the table."+
-	"\n\nMischievous Surge"+
-	toUni("\nd4\tEffect")+
-	"\n  1\tThe smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."+
-	"\n  2\tBouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."+
-	"\n  3\tEach creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."+
-	"\n  4\tDrops of molasses appear and hover in the cube, turning it into difficult terrain until the start of your next turn."
-};
 SpellsList["raulothim's psychic lance-ua"] = {
 	name : "Raulothim's Psychic Lance",
 	nameAlt : "Psychic Lance",
@@ -20583,19 +20476,203 @@ SpellsList["raulothim's psychic lance-ua"] = {
 	"\n   The target must succeed on an Intelligence saving throw or take 10d6 psychic damage and be incapacitated until the start of your next turn."+
 	AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d6 for each slot level above 4th."
 };
-SpellsList["summon draconic spirit-ua"] = {
-	name : "Summon Draconic Spirit",
-	classes : ["druid", "sorcerer", "wizard"],
-	source : [["UA:DO", 7]],
-	level : 5,
-	school : "Conj",
-	time : "1 a",
-	range : "60 ft",
-	components : "V,S,M\u0192",
-	compMaterial : "An art object from a dragon's hoard, worth at least 500 gp",
-	duration : "Conc, 1 min",
-	description : "Summon choice of Draconic Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (500gp)",
-	descriptionFull : "You call forth a draconic spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Draconic Spirit stat block. When you cast this spell, choose a family of dragon: Chromatic, Gem, or Metallic. The creature resembles a dragon of the chosen family, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends."+
-	"\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger."+
-	AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, use the higher level wherever the spell's level appears in the stat block."
+
+// ua_20211008_Travelers-of-the-Multiverse.js
+// This file adds the content from the Unearthed Arcana 2021: Travelers of the Multiverse article to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["UA:TotM"] = {
+	name : "Unearthed Arcana: Travelers of the Multiverse",
+	abbreviation : "UA:TotM",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2021/dnd/downloads/UA2021_TravelersoftheMultiverse.pdf",
+	date : "2021/10/08"
+};
+
+// New races
+RaceList["astral elf-ua"] = {
+	regExpSearch : /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(astral|silver void)\b).*$/i,
+	name : "Astral elf",
+	sortname : "Elf, Astral",
+	source : [["UA:TotM", 2]],
+	plural : "Astral elves",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", ["Elvish or other", 1]],
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	age : " typically claim adulthood around age 100 and can live to be 750 years old. Because nothing ages in the Astral Plane, astral elves from that plane can be thousands of years old.",
+	// height and weight taken from eladrin (MToF)
+	height : " range from under 5 to over 6 feet tall (4'6\" + 2d12\")",
+	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
+	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
+	weightMetric : " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	skills : ["Perception"],
+	spellcastingAbility : [4, 5, 6],
+	spellcastingBonus : {
+		name : "Astral Fire",
+		spells : ["dancing lights", "light", "sacred flame"],
+		firstCol : "atwill"
+	},
+	extraLimitedFeatures : [{
+		name : "Radiant Soul",
+		usages : 1,
+		recovery : "short rest"
+	}],
+	trait : "Astral Elf"+
+	"\n \u2022 Radiant Soul: Once per short rest when I succeed on a death save, I can regain HP equal to my proficiency bonus + my Int, Wis, or Cha mod (choose when selecting this race)."+
+	"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious."+
+	"\n \u2022 Trance Proficiencies. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest."
+};
+RaceList["autognome-ua"] = {
+	regExpSearch : /autognome/i,
+	name : "Autognome",
+	source : [["UA:TotM", 2]],
+	plural : "Autognomes",
+	size : 4,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", ["Gnomish or other", 1]],
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	age : " can live for centuries, up to 500 years",
+	// height and weight taken from gnome in the PHB
+	height : " are 3 to 4 feet tall (2'11\" + 2d4\")",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	armorAdd : "Armored Casing",
+	armorOptions : {
+		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
+		name : "Armored Casing",
+		source : [["UA:TotM", 2]],
+		ac : 13
+	},
+	extraLimitedFeatures : [{
+		name : "Built for Success",
+		usages : "Proficiency Bonus per ",
+		usagescalc : "event.value = How('Proficiency Bonus');",
+		recovery : "long rest"
+	}],
+	dmgres : ["Poison"],
+	savetxt : {
+		adv_vs : ["paralyzed", "poison"],
+		immune : ["disease"]
+	},
+	toolProfs : [["Tool of my choice", 2]],
+	trait : typePF ?
+		"Autognome (my type is Construct)"+
+		"\n \u2022 Cure Wounds, Healing Word, and Spare the Dying work on me."+
+		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier."+
+		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect."+
+		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe."+
+		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious."+
+		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest to regain hit point."
+		:
+		"Autognome (type is Construct; Cure Wounds, Healing Word, Spare the Dying work on me)"+
+		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier."+
+		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects."+
+		"\n \u2022 Mechanical Nature: I have immunities/resistances and don't need to eat, drink or breathe."+
+		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless."+
+		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest."
+};
+RaceList["giff-ua"] = {
+	regExpSearch : /giff|hippofolk/i,
+	name : "Giff",
+	source : [["UA:TotM", 3]],
+	plural : "Giff",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	carryingCapacity : 2,
+	savetxt : { text : ["Adv. on Strength saves"] },
+	advantages : [["Strength", true]],
+	trait : "Giff"+
+	"\n \u2022 Damage Dealer: Like a hippopotamus in a crystalware shop, I am naturally adept at damaging things. When I roll a 1 on a damage die for a melee attack, I can reroll the die and use the new roll. I can do so no more than once per turn."+
+	"\n \u2022 Hippo Build: I have advantage on Strength-based ability checks and Strength saving throws. In addition, I count as one size larger when determining my carrying capacity and the weight you can push, drag, or lift."
+};
+RaceList["hadozee-ua"] = {
+	regExpSearch : /hadozee/i,
+	name : "Hadozee",
+	source : [["UA:TotM", 3]],
+	plural : "Hadozees",
+	size : [3, 4],
+	speed : {
+		walk : { spd : 30, enc : 20 },
+		climb : { spd : "walk", enc : "walk" }
+	},
+	languageProfs : ["Common", 1],
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	action : [
+		["bonus action", "Dexterous Feet (Use an Object)"],
+		["reaction", "Glide (negate falling damage)"]
+	],
+	trait : "Hadozee"+
+	"\n \u2022 Dexterous Feet: As a bonus action, I can do the Use an Object action."+
+	"\n \u2022 Glide: If I'm not incapacitated or wearing heavy armor, I can extend my skin membranes and glide. When I do so, I can perform the following aerial maneuvers:"+
+	"   - When I fall, I can move up to 5 ft horizontally for every 1 ft I descend."+
+	"   - As a reaction when I would take damage from a fall, I can reduce this damage to 0."
+};
+RaceList["plasmoid-ua"] = {
+	regExpSearch : /plasmoid/i,
+	name : "Plasmoid",
+	source : [["UA:TotM", 3]],
+	plural : "Plasmoids",
+	size : [3, 4],
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	vision : [["Darkvision", 60]],
+	dmgres : ["Acid", "Poison"],
+	savetxt : {
+		adv_vs : ["poison"],
+		text : ["Adv. on grapple checks"]
+	},
+	action : [["bonus action", "Extrude/Reabsorb Pseudopod"]],
+	trait : "Plasmoid (my type is Ooze)"+
+	(typePF ? "\n" : "") + " \u2022 Hold Breath: I can hold my breath for 1 hour."+
+	"\n \u2022 Amorphous: I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple.")+
+	"\n \u2022 Shape Self: While not incapacitated, I can reshape my body to have a head and limbs, or back to a limbless blob (no action). As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. It can carry up to 10 lb. I can use it to manipulate objects, open unlocked doors, stow/retrieve objects, or pour out contents of a container." + (typePF ? " It can't attack or use magic items." : "")
+};
+RaceList["Thri-kreen-ua"] = {
+	regExpSearch : /thri.?kreen/i,
+	name : "Thri-kreen",
+	source : [["UA:TotM", 4]],
+	plural : "Thri-kreen",
+	size : [3, 4],
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	// age, height and weight taken from Shining South (2004) p17 (using the male option)
+	age : " reach maturity around 7 years old and typically live around 30 years",
+	height : " stand between 5 and 7 feet tall (5'2\" + 2d10\")",
+	weight : " weigh between 140 and 375 pounds (135 + 2d10 \xD7 2d6 lb)",
+	heightMetric : " stand from 1,6 to over 2 metres tall (160 + 5d10 cm)",
+	weightMetric : " weigh between 60 and 180 kg (60 + 5d10 \xD7 4d6 / 10 kg)",
+	armorAdd : "Chameleon Carapace",
+	armorOptions : {
+		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
+		name : "Chameleon Carapace",
+		source : [["UA:TotM", 4]],
+		ac : 13
+	},
+	vision : [["Darkvision", 60]],
+	trait : "Thri-kreen (my type is Monstrosity)"+
+	"\n \u2022 Chameleon Carapace: " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide."+
+	"\n \u2022 Secondary Arms: I have two slightly smaller arms below my primary pair of arms." + (typePF ? " " : "\n   ") + "I can't use these secondary arms to wield a shield or weapons other than light weapons."+
+	"\n \u2022 Sleepless Revitalization: I don't require sleep. I rest by refraining from strenuous activity."+
+	"\n \u2022 Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action)."
 };

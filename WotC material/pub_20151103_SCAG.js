@@ -693,7 +693,21 @@ AddSubClass("monk", "way of the sun soul", {
 				"If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) radiant damage"
 			]),
 			action : ["action", ""],
-			additional : "0 ki points + max 3 ki points"
+			additional : "0 ki points + max 3 ki points",
+			weaponsAdd : ['Searing Sunburst'],
+			weaponOptions : {
+				regExpSearch : /^(?=.*searing)(?=.*sunburst).*$/i,
+				name : "Searing Sunburst",
+				source : [["S", 131], ["X", 35]],
+				ability : 5,
+				type : "Spell",
+				damage : [2, 6, "radiant"],
+				range : "150 ft",
+				description : "All in 20-ft radius; Con save - success no damage; +2d6 damage per ki point (max 3 ki)",
+				abilitytodamage : false,
+				dc : true,
+				useSpellMod : "monk"
+			}
 		},
 		"subclassfeature17" : {
 			name : "Sun Shield",

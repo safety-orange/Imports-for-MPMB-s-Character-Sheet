@@ -9,12 +9,12 @@ const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
 const uglify  = require('gulp-uglify');
 
-const stableVersion = '"13.0.8"';
+const stableVersion = '"13.0.9"';
 const betaVersion   = '"13.1.0-beta1"';
 const betaFolder    = "/v13.1";
 const parentFolder  = "WotC material";
 const hasBetaFolder = fs.existsSync(`${parentFolder}${betaFolder}`);
-const pre13check = 'if (sheetVersion < 13000008) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\\nYou can get the latest version over at www.flapkan.com."; };';
+const pre13check = 'if (sheetVersion < 13000009) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\\nYou can get the latest version over at www.flapkan.com."; };';
 
 function concatAndMin(glob, fileName, beta) {
 	log.info(`Minifying and concatenating type '${glob}' for ${beta ? `beta (${betaVersion})` : `stable (${stableVersion})`} version`);

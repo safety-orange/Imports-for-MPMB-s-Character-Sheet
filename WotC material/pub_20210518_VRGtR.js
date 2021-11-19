@@ -391,7 +391,7 @@ AddSubClass("warlock", "the undead",{
 			minlevel : 10,
 			description : desc([
 				"I have resistance to necrotic damage, or immunity while I'm in my Form of Dread",
-                "As a reaction when reduced to 0 hp, I can drop to 1 hp instead and erupt with energy",
+                "As a reaction when reduced to 0 HP, I can drop to 1 HP instead and erupt with energy",
                 "Each creature of my choice within 30 ft takes 2d10 + my warlock level necrotic damage",
                 "After this, I gain 1 level of exhaustion and must complete 1d4 long rests to do so again"
 			]),
@@ -579,9 +579,9 @@ if (!BackgroundFeatureList["heart of darkness"]) {
 		source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]]
 	};
 } // dupl_end
-BackgroundList["investigator"] = {
-	regExpSearch : /investigator/i,
-	name : "Investigator",
+BackgroundList["investigator-vrgtr"] = {
+	regExpSearch : /^((?=.*investigator)(?=.*(VRGtR|Richten|Ravenloft))|private eye).*$/i,
+	name : "Investigator (VRGtR)",
 	source : [["VRGtR", 35], ["ALbackground", 0]],
 	skillstxt : "Choose two from Insight, Investigation, and Perception",
 	toolProfs : [["Disguise kit", 1], ["Thieves' tools", "Dex"]],

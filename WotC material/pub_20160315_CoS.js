@@ -550,6 +550,7 @@ MagicItemsList["blood spear"] = {
 	attunement : true,
 	weight : 3,
 	choices : ["Chosen of Kavan", "Not a chosen of Kavan"],
+	choicesNotInMenu : true,
 	"chosen of kavan" : {
 		name : "Blood\u200A Spear",
 		weaponsAdd : ["Blood Spear"],
@@ -738,7 +739,7 @@ MagicItemsList["saint markovia's thighbone"] = {
 		regExpSearch : /^(?=.*markovia)(?=.*thighbone).*$/i,
 		name : "Saint Markovia's Thighbone",
 		source : ["CoS", 222],
-		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if hp<26, DC 15 Wis save or die"
+		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if HP<26, DC 15 Wis save or die"
 	}
 }
 MagicItemsList["silver dragon shield +2"] = {

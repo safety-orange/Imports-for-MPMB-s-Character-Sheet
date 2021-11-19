@@ -207,7 +207,6 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
 	source : ["UA:FRnR", 3],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Swarmkeeper",
 	features : {
 		"subclassfeature3" : {

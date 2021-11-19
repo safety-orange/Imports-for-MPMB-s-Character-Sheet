@@ -106,7 +106,7 @@ if (MagicItemsList["alchemy jug"]) {
 	if (!MagicItemsList["alchemy jug"].choices) {
 		MagicItemsList["alchemy jug"].source = [["D", 150], ["CM", 144]];
 		MagicItemsList["alchemy jug"].allowDuplicates = true;
-		AddFeatureChoice(MagicItemsList["alchemy jug"], false, "\x1BRegular (acid and poison)", { // \x1B to fool the sorting
+		AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Regular (acid and poison)", {
 			name : "Alchemy Jug (regular)",
 			source : [["D", 150]],
 			description : MagicItemsList["alchemy jug"].description,

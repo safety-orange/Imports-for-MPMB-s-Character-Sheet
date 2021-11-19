@@ -829,7 +829,7 @@ BackgroundList["gruul anarch"] = {
 	regExpSearch : /^(?=.*gruul)(?=.*anarch).*$/i,
 	name : "Gruul Anarch",
 	source : ["G", 60],
-	skills : ["Nature", "Survival"],
+	skills : ["Animal Handling", "Athletics"],
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
@@ -905,7 +905,7 @@ BackgroundList["gruul anarch"] = {
 };
 BackgroundFeatureList["rubblebelt refuge"] = {
 	description : "I'm very familiar with areas of the city that most people shun: neighborhoods ruined by wurms, overgrown parks gone untended for decades, and the vast, long abandoned rubblebelts of broken terrain. There, I can find a suitable place for me and my allies to hide or rest, as well as food and fresh water for myself and up to five other people each day.",
-	source : ["G", 60]
+	source : ["G", 60]	
 };
 
 BackgroundList["izzet engineer"] = {

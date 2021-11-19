@@ -12,7 +12,7 @@ SourceList["UA:SP5"] = {
 	date : "2020/10/26"
 };
 
-AddSubClass("monk", "ascendant dragon", {
+AddSubClass("monk", "ascendant dragon-ua", {
 	regExpSearch : /^(?=.*ascendant)(?=.*(dragon|draconic))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Ascendant Dragon",
 	source : [["UA:SP5", 1]],
@@ -22,9 +22,9 @@ AddSubClass("monk", "ascendant dragon", {
 			source : [["UA:SP5", 1]],
 			minlevel : 3,
 			description : desc([
-				"I learn to speak, read, and write Draconic",
 				"I can change the damage type of my unarmed strikes to acid, cold, fire, lightning, poison",
-				"If I fail a Persuasion or Intimidation check, I can reroll it as a reaction once per long rest"
+				"As a reaction when I fail an Intimidation or Persuasion check, I can reroll the check",
+				"If this turns it into a success, I can't do so again until I finish a long rest; I learn Draconic"
 			]),
 			languageProfs : ["Draconic"],
 			action : [["reaction", " (reroll check)"]],
@@ -104,7 +104,7 @@ AddSubClass("monk", "ascendant dragon", {
 			source : [["UA:SP5", 2]],
 			minlevel : 6,
 			description : " [Prof B / long rest or 1 ki]" + desc([
-				"When I use Step of the Wind, I gain a fly speed equal to my walking speed",
+				"When I use Step of the Wind, I can gain a flying speed equal to my walking speed",
 				"I can do this Prof. Bonus per long rest, or by using 2 ki points to use Step of the Wind"
 			]),
 			extraLimitedFeatures : [{
@@ -154,12 +154,11 @@ AddSubClass("monk", "ascendant dragon", {
 	}
 });
 
-var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
+var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", {
 	regExpSearch : /^(?=.*(drake|dragon|draconic))(?=.*(warden|ranger|trainer)).*$/i,
 	subname : "Drakewarden",
 	source : [["UA:SP5", 2]],
 	fullname : "Drakewarden",
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Draconic Gift",

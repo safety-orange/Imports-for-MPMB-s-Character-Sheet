@@ -221,12 +221,19 @@ RaceList["harengon"] = {
 	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
 	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	action : [["reaction", "Lucky Footwork"], ["bonus action", "Rabbit Hop"]],
-	extraLimitedFeatures : [{
-		name : "Rabbit Hop",
-		usages : "Proficiency Bonus per ",
-		usagescalc : "event.value = How('Proficiency Bonus');",
-		recovery : "long rest"
-	}],
+	features : {
+		"rabbit hop" : {
+			name : "Rabbit Hop",
+			minlevel : 1,
+			usages : "Proficiency Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest",
+			additional : ProficiencyBonusList.map(function(n) {
+				var hopDistance = n * 5 + ' ft';
+				return What("Unit System") === "metric" ? ConvertToMetric(hopDistance) : hopDistance;
+			})
+		}
+	},
 	trait : "Harengon"+
 	"\n \u2022 Hare-Trigger: I can add my proficiency bonus to my initiative rolls."+
 	"\n \u2022 Leporine Senses: I have proficiency in the Perception skill."+
@@ -272,33 +279,29 @@ MagicItemsList["chromatic rose"] = {
 	allowDuplicates : true,
 	action : [["action", "Destroy Chromatic Rose for Cone"]],
 	choices : ["Black (acid)", "Blue (lightning)", "Green (poison)", "Red (fire)", "White (cold)"],
+	choicesNotInMenu : true,
 	"black (acid)" : {
 		name : "Black Chromatic Rose",
-		sortname : "Chromatic Rose, Black",
 		description : "While I hold this acid dripping rose, it grants me acid resistance. If I would take more than 10 acid damage from a single source (after resistance), the rose disintegrates and I take no damage. As an action, I can destroy it by blowing on its petals, causing a 20-ft cone that deals 3d10 acid damage, Con DC 15 halves.",
 		dmgres : ["Acid"]
 	},
 	"blue (lightning)" : {
 		name : "Blue Chromatic Rose",
-		sortname : "Chromatic Rose, Blue",
 		description : "While I hold this magic rose, it grants me lightning resistance. If I would take more than 10 lightning damage from a single source (after resistance), the rose disintegrates and I take no damage. As an action, I can destroy it by blowing on its petals, causing a 20-ft cone that deals 3d10 lightning damage, Con DC 15 halves.",
 		dmgres : ["Lightning"]
 	},
 	"green (poison)" : {
 		name : "Green Chromatic Rose",
-		sortname : "Chromatic Rose, Green",
 		description : "While I hold this magic rose, it grants me poison resistance. If I would take more than 10 poison damage from a single source (after resistance), the rose disintegrates and I take no damage. As an action, I can destroy it by blowing on its petals, causing a 20-ft cone that deals 3d10 poison damage, Con DC 15 halves.",
 		dmgres : ["Poison"]
 	},
 	"red (fire)" : {
 		name : "Red Chromatic Rose",
-		sortname : "Chromatic Rose, Red",
 		description : "While I hold this magic rose, it grants me fire resistance. If I would take more than 10 fire damage from a single source (after resistance), the rose disintegrates and I take no damage instead. As an action, I can destroy it by blowing on its petals, causing a 20-ft cone that deals 3d10 fire damage, Con DC 15 halves.",
 		dmgres : ["Fire"]
 	},
 	"white (cold)" : {
 		name : "White Chromatic Rose",
-		sortname : "Chromatic Rose, White",
 		description : "While I hold this magic rose, it grants me cold resistance. If I would take more than 10 cold damage from a single source (after resistance), the rose disintegrates and I take no damage. As an action, I can destroy it by blowing on its petals, causing a 20-ft cone that deals 3d10 cold damage, Con DC 15 halves.",
 		dmgres : ["Cold"]
 	}

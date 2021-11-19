@@ -123,8 +123,6 @@ MagicItemsList["heward's hireling armor"] = {
 	}
 }
 if (MagicItemsList["ioun stone"]) {
-	MagicItemsList["ioun stone"].choices = MagicItemsList["ioun stone"].choices.concat(["Supreme Intellect", "Historical Knowledge", "Natural Knowledge", "Religious Knowledge", "Language Knowledge", "Self-Preservation"]);
-	MagicItemsList["ioun stone"].choices.sort();
 	MagicItemsList["ioun stone"].incrementSkill = function (aSkill, iType, forceRemove) {
 		if (SkillsList.abbreviations.indexOf(aSkill) == -1) return;
 		var aIndx = SkillsList.abbreviations.indexOf(aSkill);
@@ -138,7 +136,7 @@ if (MagicItemsList["ioun stone"]) {
 			processMods( addIt, iName + " (magic item)", [{ type : "skill", field : aSkill, mod : 1, text : iTxt }] );
 		}
 	}
-	MagicItemsList["ioun stone"]["supreme intellect"] = {
+	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Supreme Intellect", {
 		source : ["LLoK", 55],
 		rarity : "rare",
 		magicItemTable : "G",
@@ -151,8 +149,8 @@ if (MagicItemsList["ioun stone"]) {
 			{ type : "skill", field : "Nature", mod : 1, text : "While the Ioun stone of Supreme Intellect orbits my head, I gain a +1 bonus on Intelligence checks." },
 			{ type : "skill", field : "Religion", mod : 1, text : "While the Ioun stone of Supreme Intellect orbits my head, I gain a +1 bonus on Intelligence checks." }
 		]
-	}
-	MagicItemsList["ioun stone"]["historical knowledge"] = {
+	});
+	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Historical Knowledge", {
 		source : ["LLoK", 55],
 		rarity : "rare",
 		magicItemTable : "G",
@@ -161,8 +159,8 @@ if (MagicItemsList["ioun stone"]) {
 		skills : ["History"],
 		changeeval : function () { MagicItemsList["ioun stone"].incrementSkill("His", "Historical Knowledge"); },
 		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("His", "Historical Knowledge", true); }
-	}
-	MagicItemsList["ioun stone"]["natural knowledge"] = {
+	});
+	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Natural Knowledge", {
 		source : ["LLoK", 55],
 		rarity : "rare",
 		magicItemTable : "G",
@@ -171,8 +169,8 @@ if (MagicItemsList["ioun stone"]) {
 		skills : ["Nature"],
 		changeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Nat", "Natural Knowledge"); },
 		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Nat", "Natural Knowledge", true); }
-	}
-	MagicItemsList["ioun stone"]["religious knowledge"] = {
+	});
+	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Religious Knowledge", {
 		source : ["LLoK", 55],
 		rarity : "rare",
 		magicItemTable : "G",
@@ -181,22 +179,22 @@ if (MagicItemsList["ioun stone"]) {
 		skills : ["Religion"],
 		changeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Rel", "Religious Knowledge"); },
 		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Rel", "Religious Knowledge", true); }
-	}
-	MagicItemsList["ioun stone"]["language knowledge"] = {
+	});
+	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Language Knowledge", {
 		source : ["LLoK", 55],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "As an action, I can make this pulsating bit of red jeweled crystal orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I am fluent in one additional language chosen by the DM.",
 		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You are fluent in one additional language while this pulsating bit of red jeweled crystal orbits your head. The DM chooses the language bestowed by the stone.",
 		languageProfs : [1]
-	}
-	MagicItemsList["ioun stone"]["self-preservation"] = {
+	});
+	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Self-Preservation", {
 		source : ["LLoK", 55],
 		rarity : "rare",
 		description : "As an action, I can make this silvery gem orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I gain a +1 bonus to Intelligence saving throws.",
 		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain a +1 bonus to Intelligence saving throws while this silvery gem orbits your head.",
 		addMod : [{ type : "save", field : "Int", mod : 1, text : "While the Ioun stone of Self-Preservation orbits my head, I gain a +1 bonus to Intelligence saving throws." }]
-	}
+	}, false, true); // force sorting on the last one
 }
 var LLoK_leatherGolemArmorFullDescription = [
 	"Strange rituals have repurposed the body of a flesh golem into this partially sentient suit of leather armor. While wearing this armor, you gain the following benefits:",

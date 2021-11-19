@@ -589,7 +589,6 @@ RaceList["yuan-ti pureblood"] = {
 	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	improvements : "Yuan-Ti Pureblood: +1 Intelligence, +2 Charisma;",
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)" + desc([
 		"Magic Resistance: I have advantage on saving throws against spells and other magical effects.",

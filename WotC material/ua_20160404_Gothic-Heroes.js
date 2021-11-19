@@ -173,7 +173,6 @@ RaceList["dragonborn revenant-ua"] = {
 	weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 1],
 	trait : "Dragonborn Revenant (+1 Strength, +1 Constitution, +1 Charisma)\nBreath Weapon: As an action, 5 ft by 30 ft line, Dex save halves, necrotic damage.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
-	abilitySave : 3,
 	dmgres : ["Necrotic"],
 	features : {
 		"draconic ancestry" : {

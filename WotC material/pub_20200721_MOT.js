@@ -336,7 +336,7 @@ AddSubClass("paladin", "oath of glory", { // includes contributions by BraabHims
 			source : [["T", 54], ["MOT", 29]],
 			minlevel : 3,
 			description : desc([
-				"As a bonus action after dealing damage with Divine Strike, I can grant temporary HP",
+				"As a bonus action after dealing damage with Divine Smite, I can grant temporary HP",
 				"I distribute the temporary HP how I choose across creatures within 30 ft, including me"
 			]),
 			additional : levels.map(function (n) {
@@ -674,6 +674,7 @@ MagicItemsList["molten bronze skin"] = {
 	"\n   While wearing the armor, you have resistance to fire damage. The armor also doesn't impose disadvantage on Dexterity (Stealth) checks.",
 	dmgres : ["Fire"],
 	choices : ["Breastplate", "Half Plate", "Plate"],
+	choicesNotInMenu : true,
 	"breastplate" : {
 		description : "This breastplate appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
 		armorAdd : "Molten Bronze Skin",

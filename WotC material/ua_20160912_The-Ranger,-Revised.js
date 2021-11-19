@@ -36,7 +36,7 @@ ClassList["rangerua"] = {
 	},
 	equipment : "Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Ranger Conclaves", []],
-	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	spellcastingFactor : 2,
 	spellcastingList : {
 		"class" : "ranger"
@@ -213,6 +213,7 @@ AddSubClass("rangerua", "beast master-ua", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Conclave",
 	source : ["UA:RR", 5],
+	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	features : {
 		"subclassfeature3" : {
 			name : "Animal Companion",
@@ -257,7 +258,6 @@ AddSubClass("rangerua", "hunter-ua", {
 	regExpSearch : /^(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i,
 	subname : "Hunter Conclave",
 	source : ["UA:RR", 7],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Hunter's Prey",
@@ -344,7 +344,6 @@ AddSubClass("rangerua", "deep stalker-ua", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker Conclave",
 	source : ["UA:RR", 7],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Underdark Scout",
@@ -395,7 +394,6 @@ var UARR_AddRangerSubclassesToRevisedRanger = function() {
 		if (!oSub || !oSub.source || ClassList.rangerua.subclasses[1].indexOf(sSub) !== -1) continue;
 		var sSubSrc = isArray(oSub.source[0]) ? oSub.source[0][0] : oSub.source[0];
 		if (aSources.indexOf(sSubSrc) === -1) continue;
-		if (!oSub.attacks) oSub.attacks = ClassList["rangerua"].attacks;
 		ClassList.rangerua.subclasses[1].push(sSub);
 	}
 }();

@@ -1437,7 +1437,21 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					"If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) radiant damage"
 				]),
 				action : ["action", ""],
-				additional : "0 ki points + max 3 ki points"
+				additional : "0 ki points + max 3 ki points",
+				weaponsAdd : ['Searing Sunburst'],
+				weaponOptions : {
+					regExpSearch : /^(?=.*searing)(?=.*sunburst).*$/i,
+					name : "Searing Sunburst",
+					source : [["S", 131], ["X", 35]],
+					ability : 5,
+					type : "Spell",
+					damage : [2, 6, "radiant"],
+					range : "150 ft",
+					description : "All in 20-ft radius; Con save - success no damage; +2d6 damage per ki point (max +6d6)",
+					abilitytodamage : false,
+					dc : true,
+					useSpellMod : "monk"
+				}
 			},
 			"subclassfeature17" : {
 				name : "Sun Shield",
@@ -1570,7 +1584,7 @@ AddSubClass("paladin", "oath of redemption", {
 });
 
 // Add 3 subclasses for the Ranger
-AddSubClass("ranger", "gloom stalker", {
+var XGtE_Ranger_Subclass_Gloom_Stalker = AddSubClass("ranger", "gloom stalker", {
 	regExpSearch : /^(?=.*gloom)(?=.*stalker).*$/i,
 	subname : "Gloom Stalker",
 	source : [["X", 41]],
@@ -1630,12 +1644,11 @@ AddSubClass("ranger", "gloom stalker", {
 		}
 	}
 });
-AddSubClass("ranger", "horizon walker", {
+var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker", {
 	regExpSearch : /^(?=.*horizon)(?=.*walker).*$/i,
 	subname : "Horizon Walker",
 	source : [["X", 42]],
 	fullname : "Horizon Walker",
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Detect Portal",
@@ -1709,7 +1722,7 @@ AddSubClass("ranger", "horizon walker", {
 		}
 	}
 });
-AddSubClass("ranger", "monster slayer", {
+var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : [["X", 43]],
@@ -1779,6 +1792,10 @@ AddSubClass("ranger", "monster slayer", {
 		}
 	}
 });
+// Add all three subclasses to the revised ranger as well, if it exists
+if (ClassList.rangerua) {
+	ClassList.rangerua.subclasses[1].push(XGtE_Ranger_Subclass_Gloom_Stalker, XGtE_Ranger_Subclass_Horizon_Walker, XGtE_Ranger_Subclass_Monster_Slayer);
+};
 
 // Add 4 subclasses for the Rogue
 AddSubClass("rogue", "inquisitive", {
@@ -2801,9 +2818,9 @@ AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlock feature that curses)", {
 	name : "Maddening Hex",
 	description : desc([
-		"As a bonus action, I cause pain around a target hexed by me within 30 ft that I can see",
-		"It and any within 5 ft of it that I can see take my Cha mod (min 1) in psychic damage",
-		"The Hex spell and any of my warlock features that curse are considered a hex for this"
+		"As a bonus action, I cause pain around a target hexed by me that I can see within 30 ft",
+		"It and any of my choice I can see in 5 ft of it take my Cha mod (min 1) in psychic damage",
+		"The Hex spell and all of my warlock features that curse are considered a hex for this"
 	]),
 	source : ["X", 57],
 	submenu : "[improves Hex spell or warlock feature that curses]",
@@ -2813,7 +2830,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warlock feature that curses)", {
 	name : "Relentless Hex",
 	description : desc([
-		"As a bonus action, I can teleport to a target hexed by me within 30 ft that I can see",
+		"As a bonus action, I can teleport to a target hexed by me that I can see within 30 ft",
 		"I teleport up to 30 ft to an unoccupied space that I can see within 5 ft of the target"
 	]),
 	source : ["X", 57],
@@ -3238,7 +3255,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		duration : "Instantaneous",
 		save : "Dex",
 		description : "Send 5+5/SL lb unattended object in 90 ft straight line; if crea hit, save or 3d8+1d8/SL Bludg. dmg",
-		descriptionFull : "Choose one object weighing 1 to 5 pounds within range that isn't being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage."
+		descriptionFull : "Choose one object weighing 1 to 5 pounds within range that isn't being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage increases by 1d8, for each slot level above 1st."
 	};
 	SpellsList["control flames"] = {
 		name : "Control Flames",
@@ -4390,8 +4407,8 @@ SpellsList["snare"] = {
 	school : "Abjur",
 	time : "1 min",
 	range : "Touch",
-	components : "V,S,M\u2020",
-	compMaterial : "25 feet of rope, which is consumed by the spell",
+	components : "S,M\u2020",
+	compMaterial : "25 feet of rope, which the spell consumes",
 	duration : "8 h, till trigger",
 	save : "Dex",
 	description : "5-ft rad trap; Investigation vs spell DC to see; save or restrained 3 ft in the air; save each rnd (5sp)",

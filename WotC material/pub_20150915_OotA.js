@@ -264,7 +264,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	choices : ["Obsidian (cantrip, uncommon)", "Lapis Lazuli (1st-level, uncommon)", "Quartz (2nd-level, rare)", "Bloodstone (3rd-level, rare)", "Amber (4th-level, very rare)", "Jade (5th-level, very rare)", "Topaz (6th-level, very rare)", "Star Ruby (7th-level, legendary)", "Ruby (8th-level, legendary)", "Diamond (9th-level, legendary)"],
 	"obsidian (cantrip, uncommon)" : {
 		name : "Spell Gem [Obsidian]",
-		sortname : "Spell Gem (cantrip) [Obsidian]",
+		sortname : "Spell Gem  (cantrip) [Obsidian]",
 		rarity : "uncommon",
 		description : "This gem can store one cantrip. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack.",
 		fixedDC : 13,

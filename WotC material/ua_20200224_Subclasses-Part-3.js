@@ -453,7 +453,6 @@ var UASP3_rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua",
 	regExpSearch : /^(?=.*fey)(?=.*wanderer).*$/i,
 	subname : "Fey Wanderer",
 	source : [["UA:SP3", 5]],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Fey Wanderer",
 	features : {
 		"subclassfeature3" : {

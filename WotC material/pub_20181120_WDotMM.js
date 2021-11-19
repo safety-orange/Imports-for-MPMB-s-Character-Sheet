@@ -36,11 +36,12 @@ MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
 }
 AddFeatureChoice(MagicItemsList["horn of valhalla"], false, "Endless Maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)", {
 	name : "Horn of the Endless Maze",
+	sortname : "Horn of Valhalla, Endless Maze",
 	source : ["WDotMM", 163],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G", // interpretation, made it the same as Brass Horn of Valhalla,
-	description : "As an action once per 7 days, I can blow this horn to summon 3d4+3 minotaurs (use berserker stats) from the Abyss in 60 ft. They return after 1 hour or when they drop to 0 hp. They follow my commands and are friendly to me and my companions if I'm proficient with all simple weapons. Otherwise, they attack me.",
+	description : "As an action once per 7 days, I can blow this horn to summon 3d4+3 minotaurs (use berserker stats) from the Abyss in 60 ft. They return after 1 hour or when they drop to 0 HP. They follow my commands and are friendly to me and my companions if I'm proficient with all simple weapons. Otherwise, they attack me.",
 	descriptionFull : "You can use an action to blow this horn. In response, 3d4+3 warrior spirits from the Abyss appear within 60 feet of you. They look like Minotaurs and use the statistics of a berserker. They return to the Abyss after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.\n   If you blow the horn without having proficiency with all simple weapons, the summoned berserkers attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands."
 });
 MagicItemsList["dodecahedron of doom"] = {
@@ -136,6 +137,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 	descriptionFull : "This shield is made from the scale of an ancient white dragon. It has a rune burned into its outward-facing side. A character who examines the rune and succeeds on a DC 20 Intelligence (History) check recognizes it as an uven (\"enemy\" in Giant) rune that confers great power.\n   While holding the shield, you benefit from the following properties.\n   " + toUni("Winter's Friend") + ". You are immune to cold damage.\n   " + toUni("Deadly Rebuke") + ". Immediately after a creature hits you with a melee attack, you can use your reaction to deal 3d6 necrotic damage to that creature.\n   " + toUni("Bane") + ". You can cast the Bane spell from the shield (save DC 17). The spell does not require concentration and lasts for 1 minute. Once you cast the spell from the shield, you can't do so again until you finish a short or long rest.\n   " + toUni("Gift of Vengeance") + ". You can transfer the shield's magic to a nonmagical weapon by tracing the uven rune on the weapon with one finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the shield is destroyed, and the rune is etched or burned into the chosen weapon. This weapon becomes a rare magic item that requires attunement. It has the properties of a +1 weapon. The bonus increases to +3 when the weapon is used against one of the following creature types, chosen by you at the time of the magic weapon's creation: aberrations, celestials, constructs, dragons, elementals, fey, fiends, giants, or undead.",
 	attunement : true,
 	choices : ["Shield", "Transferred to a weapon"],
+	choicesNotInMenu : true,
 	"shield" : {
 		name : "Shield of the Uven Rune ",
 		type : "shield",

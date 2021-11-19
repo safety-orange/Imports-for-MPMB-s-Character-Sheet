@@ -87,9 +87,9 @@ RaceList["eladrin"] = {
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d12\")",
-	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
+	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
-	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
+	weightMetric : " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 1, 0, 0],
 	trait : "Eladrin (+2 Dexterity, +1 Intelligence)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nFey Step: I can cast the Misty Step spell once using this trait. I regain the ability to do so when I finish a short rest.",
 	spellcastingAbility : 4,
@@ -336,7 +336,7 @@ WeaponsList["musket"] = {
 	damage : [1, 12, "piercing"],
 	range : "40/120 ft",
 	weight : 10,
-	description : "Ammunition, loading, two handed",
+	description : "Ammunition, loading, two-handed",
 	abilitytodamage : true,
 	ammo : "renaissance bullet",
 	defaultExcluded : true
@@ -381,7 +381,7 @@ WeaponsList["rifle hunting"] = {
 	damage : [2, 10, "piercing"],
 	range : "80/240 ft",
 	weight : 8,
-	description : "Ammunition, reload (5 shots), two handed",
+	description : "Ammunition, reload (5 shots), two-handed",
 	abilitytodamage : true,
 	ammo : "modern bullet",
 	defaultExcluded : true
@@ -396,7 +396,7 @@ WeaponsList["rifle automatic"] = {
 	damage : [2, 8, "piercing"],
 	range : "80/240 ft",
 	weight : 8,
-	description : "Ammunition, burst fire, reload (30 shots), two handed",
+	description : "Ammunition, burst fire, reload (30 shots), two-handed",
 	abilitytodamage : true,
 	ammo : "modern bullet",
 	defaultExcluded : true
@@ -411,7 +411,7 @@ WeaponsList["shotgun"] = {
 	damage : [2, 8, "piercing"],
 	range : "30/90 ft",
 	weight : 7,
-	description : "Ammunition, reload (2 shots), two handed",
+	description : "Ammunition, reload (2 shots), two-handed",
 	abilitytodamage : true,
 	ammo : "modern bullet",
 	defaultExcluded : true
@@ -426,7 +426,7 @@ WeaponsList["laser pistol"] = {
 	damage : [3, 6, "radiant"],
 	range : "40/120 ft",
 	weight : 2,
-	description : "Ammunition, reload (50 shots), two handed",
+	description : "Ammunition, reload (50 shots), two-handed",
 	abilitytodamage : true,
 	ammo : "energy cell",
 	defaultExcluded : true
@@ -441,7 +441,7 @@ WeaponsList["antimatter rifle"] = {
 	damage : [6, 8, "necrotic"],
 	range : "120/360 ft",
 	weight : 10,
-	description : "Ammunition, reload (2 shots), two handed",
+	description : "Ammunition, reload (2 shots), two-handed",
 	abilitytodamage : true,
 	ammo : "energy cell",
 	defaultExcluded : true
@@ -456,7 +456,7 @@ WeaponsList["laser rifle"] = {
 	damage : [3, 8, "radiant"],
 	range : "100/300 ft",
 	weight : 7,
-	description : "Ammunition, reload (30 shots), two handed",
+	description : "Ammunition, reload (30 shots), two-handed",
 	abilitytodamage : true,
 	ammo : "energy cell",
 	defaultExcluded : true

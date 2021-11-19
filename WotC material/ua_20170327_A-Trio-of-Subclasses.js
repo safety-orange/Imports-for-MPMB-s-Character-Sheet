@@ -132,7 +132,6 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
 	source : ["UA:AToS", 3],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Monster Slayer",
 	features : {
 		"subclassfeature3" : {

@@ -220,7 +220,8 @@ AddSubClass("mystic", "avatar-ua", {
 				"class" : "mystic",
 				school : ["Avatar"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -285,7 +286,8 @@ AddSubClass("mystic", "awakened-ua", {
 				"class" : "mystic",
 				school : ["Awake"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -351,7 +353,8 @@ AddSubClass("mystic", "immortal-ua", {
 				"class" : "mystic",
 				school : ["Immor"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -428,7 +431,8 @@ AddSubClass("mystic", "nomad-ua", {
 				"class" : "mystic",
 				school : ["Nomad"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -572,7 +576,8 @@ AddSubClass("mystic", "wu jen-ua", {
 				"class" : "mystic",
 				school : ["Wu Jen"],
 				level : [1, 9],
-				times : 2
+				times : 2,
+				psionic : true
 			}
 		},
 		"subclassfeature1.1" : {
@@ -607,7 +612,8 @@ AddSubClass("mystic", "wu jen-ua", {
 				name : "Arcane Dabbler",
 				"class" : "wizard",
 				level : [1, 3],
-				times : 3
+				times : 3,
+				psionic : true
 			}
 		},
 		"subclassfeature14" : {

@@ -38,10 +38,9 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 	weight : " weigh around 110 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to 1,7 metres tall (137 + 5d10 cm)",
 	weightMetric : " weigh around 50 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
-	improvements : "Pallid Elf: +2 Dexterity, +1 Wisdom;",
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Pallid Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nIncisive Sense: I have advantage on Intelligence (Investigation) and Wisdom (Insight) checks.\nBlessing of the Moonweaver: I know the Light cantrip. At 3rd level, I can cast Sleep once per long rest. At 5th level, I can also cast Invisibility on myself once per long rest. Spells cast using this trait require no material components and use Wisdom as spellcasting ability.",
-	abilitySave : 5,
+	spellcastingAbility : 5,
 	spellcastingBonus : {
 		name : "Blessing of the Moonweaver (level 1)",
 		spells : ["light"],
@@ -127,7 +126,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		"|Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll. "+
 		"|Halfling Nimbleness: I can move through the space of any creature that is of a size larger than me. "+
 		"|Timberwalk: Disadv. on checks to track me. I require no extra movement for difficult terrain of nonmagical plants."),
-	abilitySave : 5,
+	spellcastingAbility : 5,
 	spellcastingBonus : {
 		name : "Child of the Wood (level 1)",
 		spells : ["druidcraft"],
@@ -1834,7 +1833,7 @@ SpellsList["pulse wave"] = {
 	level : 3,
 	school : "Evoc",
 	time : "1 a",
-	range : "S:30ft cone",
+	range : "S:30" + (typePF ? "-" : "") + "ft cone",
 	components : "V,S",
 	duration : "Instantaneous",
 	save : "Con",
@@ -2782,8 +2781,9 @@ MagicItemsList["danoth's visor"] = {
 		note : EGtW_Vestiges_Replace(EGtW_DanothsVisorFullDescription)
 	}],
 	vision : [["Devil's Sight", "fixed 60"], ["Adv. on Investigation and Perception check that rely on sight", 0]],
-	choices : ["\x1BDormant", "Awakened", "Exalted"], // \x1B to fool the sorting
-	"\x1Bdormant" : {
+	choices : ["Dormant", "Awakened", "Exalted"],
+	choicesNotInMenu : true,
+	"dormant" : {
 		name : "Danoth's Visor [dormant]",
 		description : "These mithral-frame goggles with clear diamond lenses grant me the ability to see in normally in nonmagical and magical darkness out to 60 ft. Also, they grant me advantage on Intelligence (Investigation) and Wisdom (Perception) checks that rely on sight."
 	},
@@ -2857,8 +2857,9 @@ MagicItemsList["grimoire infinitus"] = {
 		addTo : "wizard",
 		addToKnown : ["alarm", "antimagic field", "bigby's hand", "blight", "charm person", "confusion", "control weather", "create undead", "detect thoughts", "enlarge/reduce", "fear", "foresight", "gaseous form", "glyph of warding", "legend lore", "leomund's tiny hut", "mass suggestion", "mislead", "misty step", "mordenkainen's faithful hound", "prismatic spray", "ray of enfeeblement", "silent image", "teleport", "thunderwave"]
 	},
-	choices : ["\x1BDormant", "Awakened", "Exalted"],
-	"\x1Bdormant" : {
+	choices : ["Dormant", "Awakened", "Exalted"],
+	choicesNotInMenu : true,
+	"dormant" : {
 		name : "Grimoire Infinitus [dormant]",
 		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizard spells, I can prepare 1 additional spell. See Notes page for more information.",
 		calcChanges: {
@@ -2944,8 +2945,9 @@ MagicItemsList["hide of the feral guardian"] = {
 		selection : ["polymorph"],
 		firstCol : "oncelr"
 	},
-	choices : ["\x1BDormant", "Awakened", "Exalted"],
-	"\x1Bdormant" : {
+	choices : ["Dormant", "Awakened", "Exalted"],
+	choicesNotInMenu : true,
+	"dormant" : {
 		name : "Hide of the Feral Guardian [dormant]",
 		description : "This +1 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +1 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to transform into a giant owl.",
 		armorAdd : "Hide of the Feral Guardian",
@@ -3080,8 +3082,9 @@ MagicItemsList["infiltrator's key"] = {
 		note : EGtW_Vestiges_Replace(EGtW_InfiltratorsKeyFullDescription)
 	}],
 	toolProfs : [["Thieves' tools", "Dex"]],
-	choices : ["\x1BDormant", "Awakened", "Exalted"],
-	"\x1Bdormant" : {
+	choices : ["Dormant", "Awakened", "Exalted"],
+	choicesNotInMenu : true,
+	"dormant" : {
 		name : "Infiltrator's Key [dormant]",
 		description : "This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items. It can be used as thieves' tools for the purpose of opening locks. I'm considered proficient when I do so with this key and gain adv. While holding it, I have adv. on Stealth checks to move silently."
 	},
@@ -3198,8 +3201,9 @@ MagicItemsList["stormgirdle"] = {
 			1
 		]
 	},
-	choices : ["\x1BDormant", "Awakened", "Exalted"],
-	"\x1Bdormant" : {
+	choices : ["Dormant", "Awakened", "Exalted"],
+	choicesNotInMenu : true,
+	"dormant" : {
 		name : "Stormgirdle [dormant]",
 		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 21. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. See Notes page for more information.",
 		scoresOverride : [21, 0, 0, 0, 0, 0],
@@ -3258,8 +3262,9 @@ MagicItemsList["verminshroud"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	choices : ["\x1BDormant", "Awakened", "Exalted"],
-	"\x1Bdormant" : {
+	choices : ["Dormant", "Awakened", "Exalted"],
+	choicesNotInMenu : true,
+	"dormant" : {
 		name : "Verminshroud [dormant]",
 		description : "This patchy cloak of rat pelts grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, and advantage on Perception checks that rely on smell. Once per dawn, I can use it to cast Polymorph on myself to become a rat or a giant rat, but I retain my Int, Wis, and Cha, as well as the benefits of this cloak.",
 		spellcastingAbility : "class",
@@ -3368,8 +3373,9 @@ MagicItemsList["wreath of the prism"] = {
 		note : EGtW_Vestiges_Replace(EGtW_WreathPrismFullDescription)
 	}],
 	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
-	choices : ["\x1BDormant", "Awakened", "Exalted"],
-	"\x1Bdormant" : {
+	choices : ["Dormant", "Awakened", "Exalted"],
+	choicesNotInMenu : true,
+	"dormant" : {
 		name : "Wreath of the Prism [dormant]",
 		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 5 or lower with an attack, I can cast dominate monster on that creature (save DC 13). See notes page for more information.",
 		fixedDC : 13,

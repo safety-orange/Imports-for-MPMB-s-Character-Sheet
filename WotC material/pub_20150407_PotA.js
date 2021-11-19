@@ -101,6 +101,7 @@ MagicItemsList["devastation orb"] = {
 	weight : 10,
 	allowDuplicates : true,
 	choices : ["Air", "Earth", "Fire", "Water"],
+	choicesNotInMenu : true,
 	"air" : {
 		name : "Devastation Orb of Air",
 		description : "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a powerful windstorm in 1 mile around it for 1 hour. Everything exposed to the wind is damage by it. See Notes page.",

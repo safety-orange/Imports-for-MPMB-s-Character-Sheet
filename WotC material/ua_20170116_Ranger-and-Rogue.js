@@ -17,7 +17,6 @@ var UARnR_theHorizonWalkerSubclass = {
 	subname : "Horizon Walker",
 	source : ["UA:RnR", 1],
 	fullname : "Horizon Walker",
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Planar magic",
@@ -100,7 +99,6 @@ var UARnR_thePrimevalGuardianSubclass = { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*primeval)(?=.*guardian).*$/i,
 	subname : "Primeval Guardian",
 	source : [["UA:RnR", 2]],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Guardian magic",

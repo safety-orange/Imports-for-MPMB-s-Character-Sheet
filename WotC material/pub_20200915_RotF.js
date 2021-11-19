@@ -590,7 +590,8 @@ MagicItemsList["lantern of tracking"] = function () { // contains contributions 
 		].join("\n   "),
 		allowDuplicates : true,
 		weight : 2,
-		choices : ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fey", "Fiends", "Giants", "Monstrosities", "Undead"]
+		choices : ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fey", "Fiends", "Giants", "Monstrosities", "Undead"],
+		choicesNotInMenu : true
 	};
 	var sDescr = "This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-ft radius and dim light for an additional 30 ft. While this lantern is within 300 ft of any CREATURE TYPE, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however.";
 	oObj.description = sDescr.replace("any CREATURE TYPE", "a specified creature type");
@@ -599,9 +600,7 @@ MagicItemsList["lantern of tracking"] = function () { // contains contributions 
 		oObj[sChoice] = {
 			name : "Lantern of " + oObj.choices[i] + " Tracking",
 			sortname : "Lantern of Tracking, " + oObj.choices[i],
-			description : sDescr.replace("CREATURE TYPE", sChoice),
-			usages : 1,
-			recovery : "dawn"
+			description : sDescr.replace("CREATURE TYPE", sChoice)
 		}
 	}
 	return oObj;

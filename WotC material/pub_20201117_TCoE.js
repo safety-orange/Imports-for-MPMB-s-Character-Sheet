@@ -1401,6 +1401,7 @@ MagicItemsList["mind sharpener"] = {
 	recovery : "dawn",
 	additional : "regains 1d4",
 	choices : ["Mind Sharpener Armor", "Mind Sharpener Robes"],
+	choicesNotInMenu : true,
 	"mind sharpener armor" : {
 		name : "Mind\u200A Sharpener",
 		type : "armor (light, medium, or heavy)",
@@ -2148,7 +2149,7 @@ RunFunctionAtEnd(function() {
 			name : "Blessed Strikes",
 			source : [["T", 31]],
 			description : desc([
-				"When a creature is damaged by my weapon attack or cantrip, I can do +1d8 radiant damage",
+				"When my weapon attack or cantrip damages a creature, I can do +1d8 radiant damage",
 				"Once I deal this extra damage, I can't do so again until the start of my next turn"
 			]),
 			calcChanges : {
@@ -3425,14 +3426,14 @@ AddFeatureChoice(ClassList.monk.features["unarmored movement"], true, "Ki-Fueled
 	]),
 	action : [["bonus action", ""]]
 }, "Optional 3rd-level monk features");
-AddFeatureChoice(ClassList.monk.features["slow fall"], true, "Quickened Healing (2 ki points)", {
+AddFeatureChoice(ClassList.monk.features["deflect missiles"], true, "Quickened Healing (2 ki points)", {
 	name : "Quickened Healing",
 	extraname : "Optional Monk 4",
 	source : [["T", 49]],
 	description : " [2 ki points]\n   As an action, I can regain HP equal to the roll of my martial arts die + Proficiency Bonus",
 	action : [["action", ""]]
 }, "Optional 4th-level monk features");
-AddFeatureChoice(ClassList.monk.features["deflect missiles"], true, "Focused Aim (1-3 ki points)", {
+AddFeatureChoice(ClassList.monk.features["slow fall"], true, "Focused Aim (1-3 ki points)", {
 	name : "Focused Aim",
 	extraname : "Optional Monk 5",
 	source : [["T", 49]],
@@ -3740,7 +3741,7 @@ if (!SourceList.MOT) {
 				source : [["T", 54], ["MOT", 29]],
 				minlevel : 3,
 				description : desc([
-					"As a bonus action after dealing damage with Divine Strike, I can grant temporary HP",
+					"As a bonus action after dealing damage with Divine Smite, I can grant temporary HP",
 					"I distribute the temporary HP how I choose across creatures within 30 ft, including me"
 				]),
 				additional : levels.map(function (n) {
@@ -4287,7 +4288,6 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 	regExpSearch : /^(?=.*fey)(?=.*wanderer).*$/i,
 	subname : "Fey Wanderer",
 	source : [["T", 58]],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Fey Wanderer",
 	features : {
 		"subclassfeature3" : {
@@ -4415,7 +4415,6 @@ var TCoE_Ranger_Subclass_Swarmkeeper = AddSubClass("ranger", "swarmkeeper", {
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
 	source : [["T", 59]],
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	fullname : "Swarmkeeper",
 	features : {
 		"subclassfeature3" : {
@@ -5240,10 +5239,11 @@ AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 });
 AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	name : "Undying Servitude",
-	description : "\n   Once per long rest, I can cast Animate Dead using a warlock spell slot",
+	description : "\n   Once per long rest, I can cast Animate Dead without using a spell slot",
 	source : [["T", 71]],
 	submenu : "[warlock level  5+]",
 	usages : 1,
+	additional : "no spell slot",
 	recovery : "long rest",
 	spellcastingBonus : {
 		name : "Undying Servitude",
@@ -6811,6 +6811,7 @@ MagicItemsList["coiling grasp tattoo"] = {
 		range : "15 ft",
 		description : "Str save, success - no damage, fail - grappled; Escape DC 14 Athletics/Acrobatics",
 		abilitytodamage : false,
+		dc : true,
 		modifiers : ["dc+6", ""]
 	}]
 }
@@ -6968,8 +6969,9 @@ MagicItemsList["spellwrought tattoo"] = {
 			"When casting a spell using a Spellwrought Tattoo, no material components are needed, and can't be cast as a ritual."
 		]
 	},
-	choices : ["\x1BCantrip (common)", "1st-level (common)", "2nd-level (uncommon)", "3rd-level (uncommon)", "4th-level (rare)", "5th-level (rare)"], // \x1B to fool the sorting
-	"\x1bcantrip (common)" : {
+	choices : ["Cantrip (common)", "1st-level (common)", "2nd-level (uncommon)", "3rd-level (uncommon)", "4th-level (rare)", "5th-level (rare)"],
+	choicesNotInMenu : true,
+	"cantrip (common)" : {
 		name : "Spellwrought Tattoo (cantrip)",
 		sortname : "Spellwrought Tattoo  (cantrip)",
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its cantrip, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
@@ -7237,7 +7239,7 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && spellcasters.indexOf('wizard') !== -1) return 1;
 				},
-				"While holding the Arcana Grimoire, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
+				"While holding the Arcane Grimoire, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
 			]
 		}
 	},
@@ -7250,7 +7252,7 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && spellcasters.indexOf('wizard') !== -1) return 2;
 				},
-				"While holding the Arcana Grimoire, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
+				"While holding the Arcane Grimoire, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
 			]
 		}
 	},
@@ -7263,7 +7265,7 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && spellcasters.indexOf('wizard') !== -1) return 3;
 				},
-				"While holding the Arcana Grimoire, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
+				"While holding the Arcane Grimoire, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my wizard spells."
 			]
 		}
 	}

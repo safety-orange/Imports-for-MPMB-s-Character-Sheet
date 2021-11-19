@@ -73,7 +73,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			breathWeaponShape : "15-ft cone",
 			trait : desc([
 				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
-				"Psionic Mind: I can speak telepathically to " + (typePF ? "any creature I can see within 30 ft that understands a language  but it can't respond." : "a creature with a language I can see in 30 ft."),
+				"Psionic Mind: I can speak telepathically to " + (typePF ? "any creature I can see within 30 ft that understands a language but it can't respond." : "a creature with a language I can see in 30 ft."),
 				"Gem Flight: From 3rd level, I can temporarily fly. As a bonus action once per long rest, I can gain a flying speed equal to my walking speed and can hover. This lasts for 1 minute."
 			], "\n \u2022 "),
 			features : {
@@ -240,35 +240,138 @@ AddRacialVariant("draconic kobold-ua", "tail", {
 	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."
 });
 
-// Draconic Feats
-FeatsList["gift of the chromatic dragon-ua"] = {
-	name : "Gift of the Chromatic Dragon",
-	source : [["UA:DO", 4]],
-	descriptionFull : "You've manifested some of the power of chromatic dragons, granting you the following benefits:"+
-	"\n \u2022 As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this ability, you can't do so again until you finish a long rest."+
-	"\n \u2022 When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof. Bonus per long rest.",
-	action : [
-		["bonus action", "Chromatic Gift (Infuse Weapon)"],
-		["reaction", "Chromatic Gift (Resistance)"]
-	],
-	extraLimitedFeatures : [{
-		name : "Chromatic Gift (Infuse Weapon)",
-		usages : 1,
-		recovery : "long rest"
-	}, {
-		name : "Chromatic Gift (Resistance)",
+// [dupl_start] Draconic Feats and Spell (that were virtually unchanged in Fizban's Treasury of Dragons)
+if (!SourceList.FToD) {
+	FeatsList["gift of the chromatic dragon"] = {
+		name : "Gift of the Chromatic Dragon",
+		source : [["FToD", 17], ["UA:DO", 4]],
+		descriptionFull : "You've manifested some of the power of chromatic dragons, granting you the following benefits:"+
+		"\n \u2022 As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this ability, you can't do so again until you finish a long rest."+
+		"\n \u2022 When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+		description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof. Bonus per long rest.",
+		action : [
+			["bonus action", "Chromatic Gift (Infuse Weapon)"],
+			["reaction", "Chromatic Gift (Resistance)"]
+		],
+		extraLimitedFeatures : [{
+			name : "Chromatic Gift (Infuse Weapon)",
+			usages : 1,
+			recovery : "long rest"
+		}, {
+			name : "Chromatic Gift (Resistance)",
+			usages : "Proficiency Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest"
+		}]
+	};
+	FeatsList["gift of the gem dragon"] = {
+		name : "Gift of the Gem Dragon",
+		source : [["FToD", 17], ["UA:DO", 5]],
+		descriptionFull : "You've manifested some of the power of gem dragons, granting you the following benefits:"+
+		"\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."+
+		"\n \u2022 When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or take 2d8 force damage and be pushed 10 feet away from you. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+		description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it make a Str save (DC 8 + Prof. Bonus + chosen ability score modifier) or take 2d8 force damage and be pushed 10 ft away. I can do this my Prof. Bonus per long rest. [+1 Int, Wis or Cha]",
+		action : [["reaction", ""]],
 		usages : "Proficiency Bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
-		recovery : "long rest"
-	}]
-};
+		recovery : "long rest",
+		choices : ["Intelligence", "Wisdom", "Charisma"],
+		"intelligence" : {
+			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof. Bonus + Int mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Intelligence]';",
+			scores : [0, 0, 0, 1, 0, 0]
+		},
+		"wisdom" : {
+			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof. Bonus + Wis mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Wisdom]';",
+			scores : [0, 0, 0, 0, 1, 0]
+		},
+		"charisma" : {
+			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof. Bonus + Cha mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Charisma]';",
+			scores : [0, 0, 0, 0, 0, 1]
+		}
+	};
+	SpellsList["flame stride-ua"] = { // contains contributions by NodHero (Ashardalon's Stride in FToD)
+		name : "Flame Stride",
+		classes : ["artificer", "ranger", "sorcerer", "wizard"],
+		source : [["FToD", 19], ["UA:DO", 6]],
+		level : 3,
+		school : "Trans",
+		time : "1 bns",
+		range : "Self",
+		components : "V,S",
+		duration : "Conc, 1 min",
+		description : "+20+5/SL ft speed; provoke no opp atks for moving; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
+		descriptionShorter : "+20+5/SL ft spd; no opp atks with move; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
+		descriptionMetric : "+6+1,5/SL m spd; provoke no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
+		descriptionShorterMetric : "+6+1,5/SL m spd; no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
+		descriptionFull : "The billowing flames of a dragon cover your feet, granting you explosive speed. For the duration, your speed increases by 20 feet and moving doesn't provoke opportunity attacks."+
+		"\n   When you move within 5 feet of a creature or object that isn't being worn or carried, it takes 1d6 fire damage from your trail of heat. A creature or object can take this damage only once during a turn."+
+		AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. Additionally, the spell deals an additional 1d6 fire damage for each slot level above 3rd."
+	};
+	SpellsList["nathair's mischief"] = {
+		name : "Nathair's Mischief",
+		nameAlt : "Mischief",
+		classes : ["bard", "sorcerer", "wizard"],
+		source : [["FToD", 20], ["UA:DO", 6]],
+		level : 2,
+		school : "Illus",
+		time : "1 a",
+		range : "60 ft",
+		components : "S,M",
+		compMaterial : "A piece of crust from an apple pie",
+		duration : "Conc, 1 min",
+		save : "Var",
+		description : "20-ft cube of magic, roll d4 for effect; At start of my turn, move cube 10 ft and reroll effect; see book",
+		descriptionFull : "You fill a 20-foot cube centered on a point you choose within range with fey and draconic magic. Roll on the Mischievous Surge table to determine the magical effect produced. At the start of each of your turns, you can move the cube up to 10 feet and reroll on the table."+
+		"\n\nMischievous Surge"+
+		toUni("\nd4\tEffect")+
+		"\n  1\tThe smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."+
+		"\n  2\tBouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."+
+		"\n  3\tEach creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."+
+		"\n  4\tDrops of molasses appear and hover in the cube, turning it into difficult terrain until the start of your next turn."
+	};
+	SpellsList["summon draconic spirit"] = {
+		name : "Summon Draconic Spirit",
+		classes : ["druid", "sorcerer", "wizard"],
+		source : [["FToD", 21], ["UA:DO", 7]],
+		level : 5,
+		school : "Conj",
+		time : "1 a",
+		range : "60 ft",
+		components : "V,S,M\u0192",
+		compMaterial : "An art object from a dragon's hoard, worth at least 500 gp",
+		duration : "Conc, 1 min",
+		description : "Summon choice of Draconic Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (500gp)",
+		descriptionFull : "You call forth a draconic spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Draconic Spirit stat block. When you cast this spell, choose a family of dragon: Chromatic, Gem, or Metallic. The creature resembles a dragon of the chosen family, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends."+
+		"\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger."+
+		AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, use the higher level wherever the spell's level appears in the stat block."
+	};
+	SpellsList["icingdeath's frost-ua"] = { // Rime's Binding Ice in FToD
+		name : "Icingdeath's Frost",
+		nameAlt : "Binding Ice",
+		classes : ["sorcerer", "wizard"],
+		source : [["FToD", 21], ["UA:DO", 6]],
+		level : 2,
+		school : "Evoc",
+		time : "1 a",
+		range : "S:15" + (typePF ? "-" : "") + "ft cone",
+		components : "S,M",
+		compMaterial : "A vial of meltwater",
+		duration : "Instantaneous",
+		save : "Con",
+		description : "All in area 3d8+1d8/SL Cold dmg and speed 0 for 1 min until 1 a to undo; save halves, normal speed",
+		descriptionShorter : "All in area 3d8+1d8/SL Cold dmg \u0026 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
+		descriptionFull : "A burst of icy cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is covered in ice for 1 minute or until a creature uses its action to break the ice off itself or another creature. A creature covered in ice has its speed reduced to 0. On a successful save, a creature takes half as much damage with no additional effects."+
+		AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by 1d8 for each slot level above 2nd."
+	};
+} // dupl_end
+
+// Draconic Feats
 FeatsList["gift of the metallic dragon-ua"] = {
 	name : "Gift of the Metallic Dragon",
 	source : [["UA:DO", 4]],
 	descriptionFull : "You've manifested some of the power of metallic dragons, granting you the following benefits:"+
 	"\n \u2022 You learn the cure wounds spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)."+
-	"\n \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest",
+	"\n \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description : "I know Cure Wounds. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add a d4 to AC, potentially causing the attack to miss. I can do this my Prof. Bonus per long rest.",
 	spellcastingAbility : [4, 5, 6],
 	allowUpCasting : true,
@@ -289,31 +392,6 @@ FeatsList["gift of the metallic dragon-ua"] = {
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}]
-};
-FeatsList["gift of the gem dragon-ua"] = {
-	name : "Gift of the Gem Dragon",
-	source : [["UA:DO", 5]],
-	descriptionFull : "You've manifested some of the power of gem dragons, granting you the following benefits:"+
-	"\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."+
-	"\n \u2022 When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or take 2d8 force damage and be pushed 10 feet away from you. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it make a Str save (DC 8 + Prof. Bonus + chosen ability score modifier) or take 2d8 force damage and be pushed 10 ft away. I can do this my Prof. Bonus per long rest. [+1 Int, Wis or Cha]",
-	action : [["reaction", ""]],
-	usages : "Proficiency Bonus per ",
-	usagescalc : "event.value = How('Proficiency Bonus');",
-	recovery : "long rest",
-	choices : ["Intelligence", "Wisdom", "Charisma"],
-	"intelligence" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof. Bonus + Int mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Intelligence]';",
-		scores : [0, 0, 0, 1, 0, 0]
-	},
-	"wisdom" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof. Bonus + Wis mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Wisdom]';",
-		scores : [0, 0, 0, 0, 1, 0]
-	},
-	"charisma" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof. Bonus + Cha mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Charisma]';",
-		scores : [0, 0, 0, 0, 0, 1]
-	}
 };
 
 // Draconic Spells
@@ -356,63 +434,6 @@ SpellsList["fizban's platinum shield-ua"] = {
 	"\n \u2022 The creature has resistance to acid, cold, fire, lightning, and poison damage."+
 	"\n \u2022 If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails."
 };
-SpellsList["flame stride-ua"] = { // contains contributions by NodHero
-	name : "Flame Stride",
-	classes : ["artificer", "ranger", "sorcerer", "wizard"],
-	source : [["UA:DO", 6]],
-	level : 3,
-	school : "Trans",
-	time : "1 bns",
-	range : "Self",
-	components : "V,S",
-	duration : "Conc, 1 min",
-    description : "+20+5/SL ft speed; provoke no opp atks for moving; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
-    descriptionShorter : "+20+5/SL ft spd; no opp atks with move; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
-    descriptionMetric : "+6+1,5/SL m spd; provoke no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
-    descriptionShorterMetric : "+6+1,5/SL m spd; no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
-	descriptionFull : "The billowing flames of a dragon cover your feet, granting you explosive speed. For the duration, your speed increases by 20 feet and moving doesn't provoke opportunity attacks."+
-	"\n   When you move within 5 feet of a creature or object that isn't being worn or carried, it takes 1d6 fire damage from your trail of heat. A creature or object can take this damage only once during a turn."+
-	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. Additionally, the spell deals an additional 1d6 fire damage for each slot level above 3rd."
-};
-SpellsList["icingdeath's frost-ua"] = {
-	name : "Icingdeath's Frost",
-	classes : ["sorcerer", "wizard"],
-	source : [["UA:DO", 6]],
-	level : 2,
-	school : "Evoc",
-	time : "1 a",
-	range : "S:15" + (typePF ? "-" : "") + "ft cone",
-	components : "S,M",
-	compMaterial : "A vial of meltwater",
-	duration : "Instantaneous",
-	save : "Con",
-	description : "All in area 3d8+1d8/SL Cold dmg and speed 0 for 1 min until 1 a to undo; save halves, normal speed",
-	descriptionShorter : "All in area 3d8+1d8/SL Cold dmg \u0026 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
-	descriptionFull : "A burst of icy cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is covered in ice for 1 minute or until a creature uses its action to break the ice off itself or another creature. A creature covered in ice has its speed reduced to 0. On a successful save, a creature takes half as much damage with no additional effects."+
-	AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by 1d8 for each slot level above 2nd."
-};
-SpellsList["nathair's mischief-ua"] = {
-	name : "Nathair's Mischief",
-	nameAlt : "Mischief",
-	classes : ["bard", "sorcerer", "wizard"],
-	source : [["UA:DO", 6]],
-	level : 2,
-	school : "Illus",
-	time : "1 a",
-	range : "60 ft",
-	components : "S,M",
-	compMaterial : "A piece of crust from an apple pie",
-	duration : "Conc, 1 min",
-	save : "Var",
-	description : "20-ft cube of magic, roll d4 for effect; At start of my turn, move cube 10 ft and reroll effect; see book",
-	descriptionFull : "You fill a 20-foot cube centered on a point you choose within range with fey and draconic magic. Roll on the Mischievous Surge table to determine the magical effect produced. At the start of each of your turns, you can move the cube up to 10 feet and reroll on the table."+
-	"\n\nMischievous Surge"+
-	toUni("\nd4\tEffect")+
-	"\n  1\tThe smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."+
-	"\n  2\tBouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."+
-	"\n  3\tEach creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."+
-	"\n  4\tDrops of molasses appear and hover in the cube, turning it into difficult terrain until the start of your next turn."
-};
 SpellsList["raulothim's psychic lance-ua"] = {
 	name : "Raulothim's Psychic Lance",
 	nameAlt : "Psychic Lance",
@@ -430,20 +451,4 @@ SpellsList["raulothim's psychic lance-ua"] = {
 	descriptionFull : "You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. Alternatively, you can utter the creature's name. If the named target is within range, it gains no benefit from cover or invisibility as the lance homes in on it. If the named target isn't within range, the lance dissipates, and the spell slot is not expended."+
 	"\n   The target must succeed on an Intelligence saving throw or take 10d6 psychic damage and be incapacitated until the start of your next turn."+
 	AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d6 for each slot level above 4th."
-};
-SpellsList["summon draconic spirit-ua"] = {
-	name : "Summon Draconic Spirit",
-	classes : ["druid", "sorcerer", "wizard"],
-	source : [["UA:DO", 7]],
-	level : 5,
-	school : "Conj",
-	time : "1 a",
-	range : "60 ft",
-	components : "V,S,M\u0192",
-	compMaterial : "An art object from a dragon's hoard, worth at least 500 gp",
-	duration : "Conc, 1 min",
-	description : "Summon choice of Draconic Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (500gp)",
-	descriptionFull : "You call forth a draconic spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Draconic Spirit stat block. When you cast this spell, choose a family of dragon: Chromatic, Gem, or Metallic. The creature resembles a dragon of the chosen family, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends."+
-	"\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger."+
-	AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };

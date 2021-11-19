@@ -518,9 +518,9 @@ RaceList["eladrin-mtof"] = {
 	skills : ["Perception"],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d12\")",
-	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
+	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
-	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
+	weightMetric : " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
 	abilitySave : 6,
 	trait : "Eladrin (+2 Dexterity, +1 Charisma)" + desc([

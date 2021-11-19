@@ -211,7 +211,7 @@ AddSubClass("warlock", "the undead-ua",{
 			minlevel : 10,
 			description : desc([
 				"I have resistance to necrotic damage, or immunity while I'm in my Form of Dread",
-                "When I'm reduced to 0 hp, I can cause my body to explode and I revive with 1 hp after",
+                "When I'm reduced to 0 HP, I can cause my body to explode and I revive with 1 HP after",
                 "Each creature of my choice within 30 ft takes 2d10 + my warlock level necrotic damage",
                 "After this, I gain 1 level of exhaustion and must complete 1d4 long rests to do so again"
 			]),

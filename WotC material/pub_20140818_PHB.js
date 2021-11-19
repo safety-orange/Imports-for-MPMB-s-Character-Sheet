@@ -706,7 +706,7 @@ AddSubClass("cleric", "war domain", {
 			source : ["P", 63],
 			minlevel : 6,
 			description : desc([
-				"As a reaction, when a creature within 30 ft makes an attack roll, I can grant a ",
+				"As a reaction, when a creature within 30 ft makes an attack roll, I can bless its attack",
 				"The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
 			]),
 			action : ["reaction", ""]
@@ -4244,7 +4244,7 @@ SpellsList["conjure barrage"] = {
 	level : 3,
 	school : "Conj",
 	time : "1 a",
-	range : "S:60ft cone",
+	range : "S:60" + (typePF ? "-" : "") + "ft cone",
 	components : "V,S,M",
 	compMaterial : "One piece of ammunition or a thrown weapon",
 	duration : "Instantaneous",
