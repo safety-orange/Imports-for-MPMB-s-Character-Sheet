@@ -61,13 +61,13 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			breathWeaponShape : "15-ft cone",
 			trait : desc([
 				">>TYPE<< Breath Weapon: When I take the Attack action on my turn, I can replace one attack with a breath weapon that deals 1d10 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Prof" + (typePF ? "iciency" : ".") + " Bonus). I can do this my Prof" + (typePF ? "iciency" : ".") + " Bonus per long rest.",
-				"Metallic Breath Weapon: At 3rd level I gain a second breath weapon once per long rest, that works just like the first, but I choose the effect when I use it: Enervating: Con save or incapacitated until my next turn starts. Repulsion: Str save or pushed 20 ft and prone."
+				"Metallic Breath Weapon: At 5th level I gain a second breath weapon once per long rest, that works just like the first, but I choose the effect when I use it: Enervating: Con save or incapacitated until my next turn starts. Repulsion: Str save or pushed 20 ft and prone."
 			], "\n \u2022 "),
 			features : {
 				"metallic breath weapon" : {
 					name: "Metallic Breath Weapon",
 					source : [["FToD", 12]],
-					minlevel: 3,
+					minlevel: 5,
 					usages: 1,
 					recovery: "long rest",
 					weaponsAdd : ["Metallic Breath Weapon"],

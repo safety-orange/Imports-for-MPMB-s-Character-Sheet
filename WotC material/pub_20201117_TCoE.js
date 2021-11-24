@@ -6974,6 +6974,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	"cantrip (common)" : {
 		name : "Spellwrought Tattoo (cantrip)",
 		sortname : "Spellwrought Tattoo  (cantrip)",
+		rarity : "common",
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its cantrip, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
@@ -6987,6 +6988,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	},
 	"1st-level (common)" : {
 		name : "Spellwrought Tattoo (1st-level)",
+		rarity : "common",
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 1st-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
@@ -7000,6 +7002,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	},
 	"2nd-level (uncommon)" : {
 		name : "Spellwrought Tattoo (2nd-level)",
+		rarity : "uncommon",
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 2nd-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
@@ -7013,6 +7016,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	},
 	"3rd-level (uncommon)" : {
 		name : "Spellwrought Tattoo (3rd-level)",
+		rarity : "uncommon",
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 3rd-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
@@ -7026,6 +7030,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	},
 	"4th-level (rare)" : {
 		name : "Spellwrought Tattoo (4th-level)",
+		rarity : "rare",
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 4th-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
@@ -7039,6 +7044,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	},
 	"5th-level (rare)" : {
 		name : "Spellwrought Tattoo (5th-level)",
+		rarity : "rare",
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 5th-level spell, requiring no material components, with DC 17, +9 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 17,
 		spellFirstColTitle : "Us", // used
@@ -7523,7 +7529,7 @@ MagicItemsList["atlas of endless horizons"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a wizard",
 	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	description : "I can use this book with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge & 1 min of study, I can change a prepared spell to a conjuration spell within. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft, making it miss if I'm out of range.",
+	description : "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a conjuration spell within. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft, making it miss if I'm out of range.",
 	descriptionLong : "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to replace one of my prepared wizard spells with a conjuration spell in this book. As a reaction when I am hit by an attack, I can expend 1 charge to teleport up to 10 ft to an unoccupied space I can see. If my new position is out of range of the attack, it misses me.",
 	descriptionFull : "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: arcane gate, dimension door, gate, misty step, plane shift, teleportation circle, and word of recall. It functions as a spellbook for you."+
 	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
@@ -7577,7 +7583,7 @@ MagicItemsList["duplicitous manuscript"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a wizard",
 	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	description : "I can use this book with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an illusion spell within. As a reaction when a save or Investigation check is made vs. my illusion spells, I can use 1 charge to impose disadv.",
+	description : "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an illusion spell within. As a reaction when a save or Investigation check is made vs. my illusion spells, I can use 1 charge to impose disadv.",
 	descriptionLong : "This book appears to be a volume of romance fiction to anyone but me. As an action, I can change its appearance and plot. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an illusion spell within. As a reaction while holding it when a creature I can see makes a save or an Intelligence (Investigation) check against an illusion spell I cast, I can expend 1 charge to impose disadvantage on the roll.",
 	descriptionFull : "To you, this book is a magical spellbook. To anyone else, the book appears to be a volume of verbose romance fiction. As an action, you can change the book's appearance and alter the plot of the romance."+
 	"\n   When found, the book contains the following spells: hallucinatory terrain, major image, mirror image, mislead, Nystul's magic aura, phantasmal force, and silent image. It functions as a spellbook for you."+
@@ -7660,7 +7666,7 @@ MagicItemsList["libram of souls and flesh"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a wizard",
 	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	description : "I can use this tome with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a necromancy spell within. As an action, I can use 1 charge to appear undead for 10 min, causing undead I haven't damage to be indifferent.",
+	description : "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a necromancy spell within. As an action, I can use 1 charge to appear undead for 10 min, causing undead I haven't damage to be indifferent.",
 	descriptionLong : "With covers made of skin and fittings of bone, this tome is cold to the touch, and fainlty whispers. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a necromancy spell within. As an action, I can expend 1 charge to appear undead for 10 minutes, fooling even spells. For the duration, undead are indifferent to me, unless I have damaged them. The effect ends early if I deal damage or force a creature to make a save.",
 	descriptionFull : "With covers made of skin and fittings of bone, this tome is cold to the touch, and it whispers faintly. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: animate dead, circle of death, false life, finger of death, speak with dead, summon undead, and vampiric touch. It functions as a spellbook for you."+
 	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
@@ -7690,7 +7696,7 @@ MagicItemsList["planecaller's codex"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a wizard",
 	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	description : "I can use this tome with spells as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge & 1 min of study, I can change a prepared spell to a conjuration spell within. When I cast a conjuration spell to summon or create one creature, I can give it adv. on attacks for 1 min for 1 charge.",
+	description : "This spellbook starts with 6 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a conjuration spell within. When I cast a conjuration spell to summon or create one creature, I can give it adv. on attacks for 1 min for 1 charge.",
 	descriptionLong : "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the multiverse. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a conjuration spell within the book. When I hold the book and cast a conjuration spell that summons or creates one creature, I can expend 1 charge to grant that creature advantage on attack rolls for 1 minute.",
 	descriptionFull : "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the Great Wheel of the multiverse. When found, the book contains the following spells: banishment, find familiar, gate, magic circle, planar binding, and summon elemental. It functions as a spellbook for you."+
 	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
@@ -7714,7 +7720,7 @@ MagicItemsList["protective verses"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a wizard",
 	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	description : "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use Arcane Lock it. It has 3 charges, regains 1d3 at dawn. For 1 charge & 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
+	description : "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use Arcane Lock it. It has 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
 	descriptionLong : "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, I can touch the book's cover and cause it to lock as if I cast arcane lock on it. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an abjuration spell within. When I hold the book and cast an abjuration, I can expend 1 charge to grant a creature I can see within 30 ft 2d10 temporary hit points.",
 	descriptionFull : "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast arcane lock on it. When found, the book contains the following spells: arcane lock, dispel magic, globe of invulnerability, glyph of warding, Mordenkainen's private sanctum, protection from evil, and symbol. It functions as a spellbook for you."+
 	"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
