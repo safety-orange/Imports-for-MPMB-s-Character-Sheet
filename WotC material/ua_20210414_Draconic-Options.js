@@ -178,7 +178,7 @@ RaceList["draconic kobold-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", 1],
-	vision : [["Darkvision", 60], ["Sunlight Sensitivity", 0]],
+	vision : [["Darkvision", 60]],
 	age : " reach adulthood at age 6 and can live up to 120 years, but rarely do so",
 	height : " are between 2 and 3 feet tall (2'1\" + 2d4\")",
 	weight : " weigh between 25 and 35 lb (25 + 2d4 \xD7 1 lb)",

@@ -226,29 +226,27 @@ CreatureList["frilled deathspitter"] = {
 	proficiencyBonus : 2,
 	attacksAction : 3,
 	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, 6, "piercing"],
-			range : "Melee (5 ft)",
-			description : "One bite and two claw attacks as an Attack action"
-		}, {
-			name : "Claw",
-			ability : 2,
-			damage : [1, 6, "slashing"],
-			range : "Melee (5 ft)",
-			description : "One bite and two claw attacks as an Attack action"
-		}, {
-			name : "Spit Poison",
-			ability : 2,
-			damage : [4, 8, "poison"],
-			range : "15/30 ft",
-			description : "Target blinded til end of next turn; DC 13 Con save for half damage and not blinded",
-			abilitytodamage : false
-		}
-	],
+		name : "Bite",
+		ability : 2,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+		description : "One bite and two claw attacks as an Attack action"
+	}, {
+		name : "Claw",
+		ability : 2,
+		damage : [1, 6, "slashing"],
+		range : "Melee (5 ft)",
+		description : "One bite and two claw attacks as an Attack action"
+	}, {
+		name : "Spit Poison",
+		ability : 2,
+		damage : [4, 8, "poison"],
+		range : "15/30 ft",
+		description : "Target blinded til end of next turn; DC 13 Con save for half damage and not blinded",
+		abilitytodamage : false
+	}],
 	traits : [{
-			name : "Multiattack",
-			description : "The deathspitter makes three attacks: one with its bite and two with its claws."
-		}
-	]
+		name : "Multiattack",
+		description : "The deathspitter makes three attacks: one with its bite and two with its claws."
+	}]
 };

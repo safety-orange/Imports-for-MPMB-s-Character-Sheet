@@ -6,6 +6,7 @@ RequiredSheetVersion("13.0.8");
 SourceList["RotF"] = {
 	name : "Icewind Dale: Rime of the Frostmaiden [creatures, items, spells]",
 	abbreviation : "RotF",
+	abbreviationSpellsheet: "RF",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
 	date : "2020/09/15"
@@ -395,6 +396,10 @@ CreatureList["demos magen"] = {
 		range : "80/320 ft",
 		description : ""
 	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The magen makes two melee attacks."
+	}],
 	traits : [{
 		name : "Fiery End",
 		description : "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying."
@@ -437,7 +442,7 @@ CreatureList["galvan magen"] = {
 		range : "Melee (5 ft)",
 		description : "Two shocking touch attacks as an Attack action; Adv. if target wears metal armor"
 	}, {
-		name : "Static Discharge (Recharge 5–6)",
+		name : "Static Discharge (Recharge 5-6)",
 		ability : 3,
 		damage : [4, 10, "lightning"],
 		range : "5-ft \xD7 30-ft line",
@@ -461,7 +466,10 @@ CreatureList["galvan magen"] = {
 		description : "Magen make ideal servants. At creation, each is instilled with an instinct to protect itself and its creator, and it follows its creator's instructions without hesitation. When its taks is complete, a magen stands immobile and silent until its creator gives it new orders."
 	}],
 	actions : [{
-		name : "Static Discharge (Recharge 5–6)",
+		name : "Multiattack",
+		description : "The magen makes two Shocking Touch attacks."
+	}, {
+		name : "Static Discharge (Recharge 5-6)",
 		description : "See Attack. The magen discharges a lightning bolt in a 60-ft line that is 5 ft wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d12 lightning damage on a failed save, or half as much damage on a successful one."
 	}]
 };

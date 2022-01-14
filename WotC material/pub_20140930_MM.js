@@ -136,42 +136,39 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, "", "piercing"],
-			range : "Melee (5 ft)",
-			description : "",
-			abilitytodamage : false
-		}, {
-			name : "Euphoria Breath (Recharge 5-6)",
-			ability : 3,
-			damage : ["Wis save", "", "Euphoria"],
-			range : "5 ft",
-			description : "For 1 min, target rolls d6 at turn start: 1-4 move random (no actions), 5-6 save again (no actions/move)",
-			dc : true,
-			abilitytodamage : false,
-			tooltip : "The dragon exhales a puff of euphoria gas at one creature within 5 feet of it. The target must succeed on a DC 11 Wisdom saving throw, or for 1 minute, the target can't take reactions and must roll a d6 at the start of each of its turns to determine its behavior during the turn: 1-4 - the target takes no action or bonus action and uses all its movment to move in a random direction. 5-6 - the target doesn't move, and the only thing it can do on its turn is make a DC 11 Wisdom saving throw, ending the effect on itself on a success."
-		}
-	],
+		name : "Bite",
+		ability : 2,
+		damage : [1, "", "piercing"],
+		range : "Melee (5 ft)",
+		description : "",
+		abilitytodamage : false
+	}, {
+		name : "Euphoria Breath (Recharge 5-6)",
+		ability : 3,
+		damage : ["Wis save", "", "Euphoria"],
+		range : "5 ft",
+		description : "For 1 min, target rolls d6 at turn start: 1-4 move random (no actions), 5-6 save again (no actions/move)",
+		dc : true,
+		abilitytodamage : false,
+		tooltip : "The dragon exhales a puff of euphoria gas at one creature within 5 feet of it. The target must succeed on a DC 11 Wisdom saving throw, or for 1 minute, the target can't take reactions and must roll a d6 at the start of each of its turns to determine its behavior during the turn: 1-4 - the target takes no action or bonus action and uses all its movment to move in a random direction. 5-6 - the target doesn't move, and the only thing it can do on its turn is make a DC 11 Wisdom saving throw, ending the effect on itself on a success."
+	}],
 	traits : [{
-			name : "Superior Invisibility",
-			description : "As a bonus action, the dragon can magically turn invisible until its concentration ends (as with a spell). Anything it wears or carries is invisible with it."
-		}, {
-			name : "Limited Telepathy",
-			description : "Using telepathy, the dragon can magically communicate with any other faerie dragon within 60 feet of it."
-		}, {
-			name : "Magic Resistance",
-			description : "The dragon has advantage on saves against spells and magical effects."
-		}, {
-			name : "Euphoria Breath (Recharge 5-6)",
-			description : "Exhale a puff of euphoria gas at a creature within 5 ft. It must succeed on a DC 11 Wisdom save, or for 1 minute, it can't take reactions and must roll a d6 at the start of each of its turns:\n 1-4 - No action or bonus action, using all movment to move in a random direction.\n 5-6 - The target does nothing except attempt another save to try end the effect on itself."
-		}
-	],
+		name : "Superior Invisibility",
+		description : "As a bonus action, the dragon can magically turn invisible until its concentration ends (as with a spell). Anything it wears or carries is invisible with it."
+	}, {
+		name : "Limited Telepathy",
+		description : "Using telepathy, the dragon can magically communicate with any other faerie dragon within 60 feet of it."
+	}, {
+		name : "Magic Resistance",
+		description : "The dragon has advantage on saves against spells and magical effects."
+	}, {
+		name : "Euphoria Breath (Recharge 5-6)",
+		description : "Exhale a puff of euphoria gas at a creature within 5 ft. It must succeed on a DC 11 Wisdom save, or for 1 minute, it can't take reactions and must roll a d6 at the start of each of its turns:\n 1-4 - No action or bonus action, using all movment to move in a random direction.\n 5-6 - The target does nothing except attempt another save to try end the effect on itself."
+	}],
 	features : [{
-			name : "Innate Spellcasting",
-			description : "Cast spells using Charisma (save DC 13), requiring no material components. The spells it knows depends on its age (and stack):\n Red: 1/day - Dancing Lights, Mage Hand, Minor Illusion\n Orange (6-10 years): 1/day - Color Spray\n Yellow (11-20 years): 1/day - Mirror Image\n Green (21-30 years): 1/day - Suggestion\n Blue (31-40 years): 1/day - Major Image\n Indigo (41-50 years): 1/day - Hallucinatory Terrain\n Violet (51+ years): 1/day - Polymorph"
-		}
-	]
+		name : "Innate Spellcasting",
+		description : "Cast spells using Charisma (save DC 13), requiring no material components. The spells it knows depends on its age (and stack):\n Red: 1/day - Dancing Lights, Mage Hand, Minor Illusion\n Orange (6-10 years): 1/day - Color Spray\n Yellow (11-20 years): 1/day - Mirror Image\n Green (21-30 years): 1/day - Suggestion\n Blue (31-40 years): 1/day - Major Image\n Indigo (41-50 years): 1/day - Hallucinatory Terrain\n Violet (51+ years): 1/day - Polymorph"
+	}]
 };
 CreatureList["crawling claw"] = {
 	name : "Crawling Claw",
@@ -194,18 +191,16 @@ CreatureList["crawling claw"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 4, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Does bludgeoning or slashing damage (claw's choice)"
-		}
-	],
+		name : "Claw",
+		ability : 1,
+		damage : [1, 4, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "Does bludgeoning or slashing damage (claw's choice)"
+	}],
 	traits : [{
-			name : "Turn Immunity",
-			description : "The claw is immune to effects that turn undead."
-		}
-	]
+		name : "Turn Immunity",
+		description : "The claw is immune to effects that turn undead."
+	}]
 };
 CreatureList["peryton"] = {
 	name : "Peryton",
@@ -229,30 +224,32 @@ CreatureList["peryton"] = {
 	proficiencyBonus : 2,
 	attacksAction : 2,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One gore and one talons attack as an Attack action; +2d8 after 30 ft dive straight down"
-		}, {
-			name : "Talons",
-			ability : 1,
-			damage : [2, 4, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "One talons and one gore attack as an Attack action; +2d8 after 30 ft dive straight down"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "One gore and one talons attack as an Attack action; +2d8 after 30 ft dive straight down"
+	}, {
+		name : "Talons",
+		ability : 1,
+		damage : [2, 4, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "One talons and one gore attack as an Attack action; +2d8 after 30 ft dive straight down"
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The peryton makes one gore attack and one talon attack."
+	}],
 	traits : [{
-			name : "Dive Attack",
-			description : "If the peryton is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target."
-		}, {
-			name : "Flyby",
-			description : "The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach."
-		}, {
-			name : "Keen Sight and Smell",
-			description : "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell."
-		}
-	]
+		name : "Dive Attack",
+		description : "If the peryton is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target."
+	}, {
+		name : "Flyby",
+		description : "The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach."
+	}, {
+		name : "Keen Sight and Smell",
+		description : "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell."
+	}]
 };
 
 // Blights and spores

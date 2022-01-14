@@ -1,11 +1,12 @@
 var iFileName = "pub_20190618_AcqInc.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["AcqInc"] = {
 	name : "Acquisitions Incorporated",
 	abbreviation : "AcqInc",
+	abbreviationSpellsheet: "AI",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/acqinc",
 	date : "2019/06/18"
@@ -358,7 +359,8 @@ SpellsList["gift of gab"] = {
 	source : ["AcqInc", 76],
 	level : 2,
 	school : "Ench",
-	time : "1 rea", // which you take when you speak to another creature
+	time : "1 rea",
+	timeFull : "1 reaction, which you take when you speak to another creature",
 	range : "Self",
 	components : "V,S,R\u2020",
 	compMaterial : "2 gp royalty component",

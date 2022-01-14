@@ -127,6 +127,8 @@ RunFunctionAtEnd(function () {
 					]),
 					amendTo : "Power Armor Model Features"
 				}],
+				choices : ["guardian", "infiltrator"],
+				choicesNotInMenu : true,
 				"guardian" : {
 					name : "Perfected Armor: Guardian",
 					description : " [Intelligence modifier per long rest]" + desc([

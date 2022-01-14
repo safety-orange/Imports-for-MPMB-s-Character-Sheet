@@ -1,5 +1,5 @@
 var iFileName = "ua_20170109_Artificer.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds the content from the Unearthed Arcana: Artificer article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Artificer; the ones provided here are extrapolated from other classes
 
@@ -148,7 +148,19 @@ ClassList['artificer-ua'] = {
 				"I create a construct that obeys my orders; It acts on its own initiative",
 				"I can repair it to 1 HP during a long rest, or build a new one in a week with 1000 gp",
 				"As a reaction when I'm attacked in melee, I can have it make a melee attack back"
-			])
+			]),
+			additional : "Large beast, CR 2 or less",
+			creaturesAdd : [["Mechanical Servant", false, function(AddRemove, prefix) {
+				if (!AddRemove) return;
+				var cObj = MakeCompMenu_CompOptions(prefix, "justCompanions");
+				if (!cObj.mechanicalserv || !cObj.mechanicalserv.length) {
+					var selectedRace = "Warhorse";
+				} else {
+					var compOptions = cObj.mechanicalserv.map(function(n) { return n[0] });
+					var selectedRace = AskUserOptions("Select Mechanical Servant", "Select which beast you would like to have as your mechanical servant.\nThis can be any beast that is Large and that has a challenge rating of 2.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
+				}
+				ApplyCompRace(selectedRace, prefix, "mechanicalserv");
+			}]]
 		},
 		"superior attunement" : {
 			name : "Superior Attunement",
@@ -651,3 +663,77 @@ var UAA_SetArtificerAttr = function(){
 		theObj.extrachoices.push(theI);
 	};
 }();
+
+// Add the mechanical servant as an option on the companion page
+CompanionList.mechanicalserv = {
+	name : "Mechanical Servant",
+	nameTooltip : "Artificer: Mechanical Servant",
+	nameOrigin : "Artificer 6",
+	nameMenu : "Mechanical Servant (2017 Artificer feature)",
+	source : [["UA:A", 4]],
+	includeCheck : function(sCrea, objCrea, iCreaCR) {
+		return objCrea.type.toLowerCase() === "beast" && objCrea.size === 2 && iCreaCR <= 2 ? true : false;
+	},
+	action : [["reaction", "Mechanical Servant (if attacked)"]],
+	notes : [{
+		name : "The mechanical servant has the statistics",
+		description : [
+			"of a chosen large beast of challenge rating 2 or lower",
+			"It has the Construct type, understands any language that I know, and has 60 ft Darkvision",
+			"In addition, it is immune to poison damage, being poisoned, and being charmed"
+		].join("\n   "),
+		joinString : " "
+	}, {
+		name : "I can have one servant at a time",
+		description : [
+			"If it dies, I can repair it or create a new one",
+			"I can repair the servant over the course of a long rest, which restores it to 1 HP",
+			"I can build a new servant by spending 8 hours a day for 7 days and 1000 gp of materials"
+		].join("\n   "),
+		joinString : "; "
+	}, {
+		name : "The servant rolls initiative and takes actions as normal",
+		description : "obeying my commands as best it can",
+		joinString : ", "
+	}, {
+		name : "As a reaction when I am attacked",
+		description : [
+			"in melee and my mechanical servant is within 5 ft of me,",
+			"I can command the servant to use its reaction to make a melee attack against the attacker"
+		].join("\n   "),
+		joinString : " "
+	}],
+	attributesAdd : {
+		header : "Servant",
+		type : "Construct",
+		damage_immunities : "poison",
+		condition_immunities : "charmed, poisoned",
+		senses : "Darkvision 60 ft",
+		languages : "understands the languages its creator speaks"
+	},
+	attributesChange : function(sCrea, objCrea) {
+		// Fix duplicate stuff
+		if (!sCrea || !CreatureList[sCrea]) return;
+		var oOrigCrea = CreatureList[sCrea];
+		// Fix possible duplicate darkvision if the base creature already has it
+		if (oOrigCrea.senses) {
+			var rxDarkvision = /[,;]?.?darkvision.(\d+).?(ft|m)|(\d+).?(ft|m).?darkvision/i;
+			var mDarkvisionMatch = oOrigCrea.senses.match(rxDarkvision);
+			if (mDarkvisionMatch) {
+				var iDvRange = mDarkvisionMatch[2].toLowerCase === "m" ? Math.round(mDarkvisionMatch[1] / UnitsList.metric.length, 0) : Number(mDarkvisionMatch[1]);
+				objCrea.senses = objCrea.senses.replace( (iDvRange >= 60 ? /[,;]? Darkvision 60 ft/i : rxDarkvision), "");
+			}
+		}
+		// Fix possible duplicate poison damage immunity
+		if (oOrigCrea.damage_immunities && /poison/i.test(oOrigCrea.damage_immunities)) {
+			objCrea.damage_immunities = objCrea.damage_immunities.replace(/[,;]? poison/i, "");
+		}
+		// Fix possible duplicate condition immunities
+		if (oOrigCrea.condition_immunities && /charmed/i.test(oOrigCrea.damage_immunities)) {
+			objCrea.damage_immunities = objCrea.damage_immunities.replace(/[,;]? charmed/i, "");
+		}
+		if (oOrigCrea.condition_immunities && /poisoned/i.test(oOrigCrea.damage_immunities)) {
+			objCrea.damage_immunities = objCrea.damage_immunities.replace(/[,;]? poisoned/i, "");
+		}
+	}
+}

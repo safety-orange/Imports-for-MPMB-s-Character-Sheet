@@ -1,5 +1,5 @@
 var iFileName = "pub_20180529_MToF.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
 
 // Define the source
@@ -949,7 +949,7 @@ MagicItemsList["infernal tack"] = {
 	function (AddRemove, prefix) {
 		if (!AddRemove) return;
 		// Show equipment section
-		CompOptions(prefix, ["visible", "comp.eqp"], true);
+		MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
 		// Add equipment when added
 		var equip = ["bit and bridle", "riding"];
 		for (var i = 0; i < equip.length; i++) {

@@ -1,11 +1,12 @@
 var iFileName = "pub_20200317_EGtW.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.W = {
 	name : "Explorer's Guide to Wildemount",
 	abbreviation : "EGtW",
+	abbreviationSpellsheet: "W",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/wildemount",
 	date : "2020/03/17"
@@ -32,7 +33,7 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 		adv_vs : ["charmed"]
 	},
 	skills : ["Perception"],
-	advantages : [ ["Insight", true], ["Investigation", false] ],
+	advantages : [ ["Insight", true], ["Investigation", true] ],
 	age : " typically claim adulthood around age 100 and can live to be 750 years old",
 	height : " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight : " weigh around 110 lb (90 + 2d10 \xD7 1d4 lb)",
@@ -1864,6 +1865,7 @@ SpellsList["temporal shunt"] = {
 	level : 5,
 	school : "Trans",
 	time : "1 rea",
+	timeFull : "1 reaction, taken when a creature you can see makes an attack roll or starts to cast a spell",
 	range : "120 ft",
 	components : "V,S",
 	duration : "1 rnd",
@@ -2028,6 +2030,10 @@ CreatureList["bristled moorbounder"] = {
 		damage : [4, 4, "slashing"],
 		range : "Melee (5 ft)",
 		description : "One blades and one claws attack as an Attack action"
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The moorbounder makes two attacks: one with its blades and one with its claws."
 	}],
 	traits : [{
 		name : "Bladed Hide",
@@ -3043,10 +3049,11 @@ MagicItemsList["hide of the feral guardian"] = {
 				range : "Melee (5 ft)",
 				description : "One bite and one claw attack as an Attack action"
 			}],
-			traits : [{
+			actions : [{
 				name : "Multiattack",
 				description : "The wolf makes two attacks: one with its bite and one with its claws."
-			}, {
+			}],
+			traits : [{
 				name : "Keen Hearing and Smell",
 				description : "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
 			}, {

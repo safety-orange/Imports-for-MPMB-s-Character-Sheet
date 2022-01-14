@@ -4,11 +4,12 @@ RequiredSheetVersion("13.0.9");
 
 // Define the source
 SourceList.FToD = {
-	name: "Fizban's Treasury of Dragons",
-	abbreviation: "FToD",
-	group: "Primary Sources",
-	url: "https://dnd.wizards.com/products/treasury-dragons",
-	date: "2021/10/19"
+	name : "Fizban's Treasury of Dragons",
+	abbreviation : "FToD",
+	abbreviationSpellsheet : "FD",
+	group : "Primary Sources",
+	url : "https://dnd.wizards.com/products/treasury-dragons",
+	date : "2021/10/19"
 };
 
 // Races
@@ -388,7 +389,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				}],
 				features : [{
 					name : "Warden",
-					description : "The drake obeys the commands of its warden and shares its proficiency bonus. It takes its turn immediately after that of its warden, on the same initiative. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its warden takes a bonus action to command it to take another action. If its warden is incapacitated, the beast can take any action, not just Dodge. The drake vanishes after a number of hours equal to its proficiency bonus, when it is reduced to 0 hit points, when its warden summons another drake, or when its warden dies."
+					description : "The drake obeys the commands of its warden and shares its proficiency bonus. It takes its turn immediately after that of its warden, on the same initiative. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its warden takes a bonus action to command it to take another action. If its warden is incapacitated, the drake can take any action, not just Dodge. The drake vanishes when it is reduced to 0 hit points, when its warden summons another drake, or when its warden dies."
 				}],
 				traits : [{
 					name : "Draconic Essence",

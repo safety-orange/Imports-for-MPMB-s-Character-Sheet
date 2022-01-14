@@ -405,29 +405,31 @@ CreatureList["gnarlid"] = {
 	proficiencyBonus : 2,
 	attacksAction : 2,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [1, 4, "piercing"],
-			range : "Melee (5 ft)",
-			description : "1d8 when enlarged; One bite and one claw attack as an Attack action",
-			modifiers : [-1, ""],
-		}, {
-			name : "Claw",
-			ability : 1,
-			damage : [1, 6, "slashing"],
-			range : "Melee (5 ft)",
-			description : "2d6 when enlarged; One claw and one bite attack as an Attack action",
-			modifiers : [-1, ""]
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+		description : "1d8 when enlarged; One bite and one claws attack as an Attack action",
+		modifiers : [-1, ""],
+	}, {
+		name : "Claws",
+		ability : 1,
+		damage : [1, 6, "slashing"],
+		range : "Melee (5 ft)",
+		description : "2d6 when enlarged; One claws and one bite attack as an Attack action",
+		modifiers : [-1, ""]
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The gnarlid makes two attacks: one with its bite and one with its claws."
+	}],
 	traits : [{
-			name : "Keen Smell",
-			description : "The gnarlid has advantage on Wisdom (Perception) checks that rely on smell.",
-		}, {
-			name : "Enlarge",
-			description : "As an action, the gnarlid can enlarge. When enlarged, its HP maximum and damage dealt is doubled."
-		}
-	]
+		name : "Keen Smell",
+		description : "The gnarlid has advantage on Wisdom (Perception) checks that rely on smell.",
+	}, {
+		name : "Enlarge",
+		description : "As an action, the gnarlid can enlarge. When enlarged, its HP maximum and damage dealt is doubled."
+	}]
 };
 CreatureList["ox"] = {
 	name : "Ox",
@@ -446,18 +448,16 @@ CreatureList["ox"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Ram",
-			ability : 1,
-			damage : [2, 4, "bludgeoning"],
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, see Charge trait"
-		}
-	],
+		name : "Ram",
+		ability : 1,
+		damage : [2, 4, "bludgeoning"],
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, see Charge trait"
+	}],
 	traits : [{
-			name : "Charge",
-			description : "If the ox hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 2d4 bludgeoning damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone."
-		}
-	]
+		name : "Charge",
+		description : "If the ox hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 2d4 bludgeoning damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone."
+	}]
 };
 CreatureList["terastodon"] = {
 	name : "Terastodon",
@@ -476,24 +476,22 @@ CreatureList["terastodon"] = {
 	proficiencyBonus : 3,
 	attacksAction : 1,
 	attacks : [{
-			name : "Gore",
-			ability : 1,
-			damage : [4, 8, "bludgeoning"],
-			range : "Melee (10 ft)",
-			description : "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
-		}, {
-			name : "Stomp",
-			ability : 1,
-			damage : [4, 10, "bludgeoning"],
-			range : "Melee (5 ft)",
-			description : "Can only be used on prone creatures (also see Trampling Charge trait)"
-		}
-	],
+		name : "Gore",
+		ability : 1,
+		damage : [4, 8, "bludgeoning"],
+		range : "Melee (10 ft)",
+		description : "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
+	}, {
+		name : "Stomp",
+		ability : 1,
+		damage : [4, 10, "bludgeoning"],
+		range : "Melee (5 ft)",
+		description : "Can only be used on prone creatures (also see Trampling Charge trait)"
+	}],
 	traits : [{
-			name : "Trampling Charge",
-			description : "If the terastodon moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the terastodon can make one stomp attack against it as a bonus action."
-		}
-	]
+		name : "Trampling Charge",
+		description : "If the terastodon moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the terastodon can make one stomp attack against it as a bonus action."
+	}]
 };
 CreatureList["terra stomper"] = {
 	name : "Terra Stomper",
@@ -515,24 +513,22 @@ CreatureList["terra stomper"] = {
 	proficiencyBonus : 3,
 	attacksAction : 2,
 	attacks : [{
-			name : "Tail",
-			ability : 1,
-			damage : [3, 8, "bludgeoning"],
-			range : "Melee (10 ft)",
-			description : "Medium or smaller target is grappled and restrained (escape DC 17); can't use bite again until grapple ends",
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [4, 12, "piercing"],
-			range : "Melee (10 ft)",
-			description : "One bite and one tail attack to a different as an Attack action"
-		}
-	],
+		name : "Tail",
+		ability : 1,
+		damage : [3, 8, "bludgeoning"],
+		range : "Melee (10 ft)",
+		description : "Medium or smaller target is grappled and restrained (escape DC 17); can't use bite again until grapple ends",
+	}, {
+		name : "Bite",
+		ability : 1,
+		damage : [4, 12, "piercing"],
+		range : "Melee (10 ft)",
+		description : "One bite and one tail attack to a different as an Attack action"
+	}],
 	traits : [{
-			name : "Multiattack",
-			description : "The terra stomper makes two attacks: one with its bite and one with its tail. It can't make both attacks against the same target."
-		}
-	]
+		name : "Multiattack",
+		description : "The terra stomper makes two attacks: one with its bite and one with its tail. It can't make both attacks against the same target."
+	}]
 };
 CreatureList["timbermaw"] = {
 	name : "Timbermaw",
@@ -552,24 +548,22 @@ CreatureList["timbermaw"] = {
 	proficiencyBonus : 2,
 	attacksAction : 2,
 	attacks : [{
-			name : "Tentacles",
-			ability : 1,
-			damage : [2, 6, "slashing"],
-			range : "Melee",
-			description : "On hit, can make beak attack"
-		}, {
-			name : "Beak",
-			ability : 1,
-			damage : [1, 6, "piercing"],
-			range : "Melee",
-			description : "Only on hit with a tentacle attack"
-		}
-	],
+		name : "Tentacles",
+		ability : 1,
+		damage : [2, 6, "slashing"],
+		range : "Melee",
+		description : "On hit, can make beak attack"
+	}, {
+		name : "Beak",
+		ability : 1,
+		damage : [1, 6, "piercing"],
+		range : "Melee",
+		description : "Only on hit with a tentacle attack"
+	}],
 	traits : [{
-			name : "Forest Camouflage",
-			description : "The timbermaw has advantage on Dexterity (Stealth) checks made to hide in woodland terrain."
-		}
-	]
+		name : "Forest Camouflage",
+		description : "The timbermaw has advantage on Dexterity (Stealth) checks made to hide in woodland terrain."
+	}]
 };
 CreatureList["vampire null"] = {
 	name : "Vampire Null",
@@ -592,16 +586,14 @@ CreatureList["vampire null"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Slam",
-			ability : 1,
-			damage : [1, 6, "bludgeoning"],
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	],
+		name : "Slam",
+		ability : 1,
+		damage : [1, 6, "bludgeoning"],
+		range : "Melee (5 ft)",
+		description : ""
+	}],
 	traits : [{
-			name : "Undead Fortitude",
-			description : "If damage reduces the null to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the null drops to 1 hit point instead."
-		}
-	]
+		name : "Undead Fortitude",
+		description : "If damage reduces the null to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the null drops to 1 hit point instead."
+	}]
 };

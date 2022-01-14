@@ -1597,7 +1597,7 @@ ClassList.artificer = {
 					AddMagicItem("Enhanced Arcane Focus +" + (classes.known.artificer.level < 10 ? 1 : 2));
 				},
 				removeeval : function (lvl, chc) {
-					RemoveMagicItem("wand of the war mage, +1, +2, or +3");
+					RemoveMagicItem("enhanced arcane focus, +1 or +2");
 				}
 			},
 			"enhanced defense (armor)" : {
@@ -2527,6 +2527,45 @@ MagicItemsList["boots of the winding path"] = {
 	attunement : true,
 	action : [["bonus action", ""]]
 }
+MagicItemsList["enhanced arcane focus, +1 or +2"] = {
+	name : "Enhanced Arcane Focus, +1 or +2",
+	nameTest : /^(?=.*enhanced)(?=.*(arcane focus|rod|wand|staff)).*$/i,
+	source : [["E:RLW", 62], ["T", 21]],
+	type : "wondrous item",
+	description : "While I am holding this arcane focus (rod, staff, or wand), I gain a +1 bonus to spell attack rolls (or +2 if the artificer that created it is level 10 or higher). In addition, I ignore half cover when making a spell attack.",
+	descriptionFull : "While holding this rod, staff, or wand, a creature gains a +1 bonus to spell attack rolls. In addition, the creature ignores half cover when making a spell attack.\n   The bonus increases to +2 when it is created by someone with 10 levels or more in the artificer class.",
+	attunement : true,
+	weight : 1,
+	prerequisite : "Requires attunement by a spellcaster",
+	prereqeval : function(v) { return v.isSpellcaster; },
+	choices : ["+1 to spell attacks", "+2 to spell attacks (artificer level 10+)"],
+	"+1 to spell attacks" : {
+		name : "Enhanced Arcane Focus +1",
+		nameTest : /^(?=.*enhanced)(?=.*(arcane focus|rod|wand|staff))(?=.*\+1)(?!.*\+2).*$/i,
+		description : "While I am holding this arcane focus (rod, staff, or wand), I gain a +1 bonus to spell attack rolls and I ignore half cover when making a spell attack.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 1;
+				},
+				"I gain a +1 bonus to spell attack rolls."
+			]
+		}
+	},
+	"+2 to spell attacks (artificer level 10+)" : {
+		name : "Enhanced Arcane Focus +2",
+		nameTest : /^(?=.*enhanced)(?=.*(arcane focus|rod|wand|staff))(?!.*\+1)(?=.*\+2).*$/i,
+		description : "While I am holding this arcane focus (rod, staff, or wand), I gain a +2 bonus to spell attack rolls and I ignore half cover when making a spell attack.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"I gain a +2 bonus to spell attack rolls."
+			]
+		}
+	}
+}
 MagicItemsList["radiant weapon"] = {
 	name : "Radiant Weapon",
 	nameTest : "Radiant",
@@ -2624,7 +2663,7 @@ MagicItemsList["returning weapon"] = {
 		prefixOrSuffix : "suffix",
 		descriptionChange : ["replace", "weapon"],
 		excludeCheck : function (inObjKey, inObj) {
-			return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
+			return !/\bthrown\b/i.test(inObj.description);
 		}
 	},
 	calcChanges : {

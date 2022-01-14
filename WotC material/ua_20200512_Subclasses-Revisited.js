@@ -179,6 +179,8 @@ if (!SourceList.T) {
 					"I can deal bonus damage on my attacks, its type depending on my patron's genie kind",
 					'Use the "Choose Feature" button above to choose the kind of genie your patron is'
 				]),
+				choices : ["dao (earth)", "djinni (air)", "efreeti (fire)", "marid (water)"],
+				choicesNotInMenu : true,
 				"dao (earth)" : {
 					name : "Dao's Wrath",
 					description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof. Bonus in extra bludgeoning damage",
@@ -245,6 +247,8 @@ if (!SourceList.T) {
 					'Use the "Choose Feature" button above to choose the kind of genie your patron is',
 					"As a bonus action, I can gain a flying speed of 30 ft and I can hover, for 10 minutes"
 				]),
+				choices : ["dao (earth)", "djinni (air)", "efreeti (fire)", "marid (water)"],
+				choicesNotInMenu : true,
 				"dao (earth)" : {
 					name : "Dao's Elemental Gift",
 					description : desc([

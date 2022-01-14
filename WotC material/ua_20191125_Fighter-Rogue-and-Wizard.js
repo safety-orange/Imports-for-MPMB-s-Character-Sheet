@@ -1,5 +1,5 @@
 var iFileName = "ua_20191125_Fighter-Rogue-and-Wizard.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
 
 // Define the source
@@ -471,6 +471,7 @@ SpellsList["mental barrier-ua"] = {
 	level : 2,
 	school : "Abjur",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are forced to make an Intelligence, a Wisdom, or a Charisma saving throw",
 	range : "Self",
 	components : "V",
 	duration : "1 rnd",

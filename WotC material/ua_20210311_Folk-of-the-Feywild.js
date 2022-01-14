@@ -119,7 +119,7 @@ RaceList["owlfolk-ua"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 },
 		fly : { spd : "walk", enc : "walk" }
-			},
+	},
 	skills : ["Stealth"],
 	vision : [["Darkvision", 90]],
 	languageProfs : ["Common", 1],

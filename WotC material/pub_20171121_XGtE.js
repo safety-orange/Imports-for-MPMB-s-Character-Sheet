@@ -1,11 +1,12 @@
 var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.X={
 	name : "Xanathar's Guide to Everything",
 	abbreviation : "XGtE",
+	abbreviationSpellsheet: "X",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
 	date : "2017/11/21"
@@ -3191,6 +3192,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		level : 1,
 		school : "Abjur",
 		time : "1 rea",
+		timeFull : "1 reaction, which you take when you take acid, cold, fire, lightning, or thunder damage",
 		range : "Self",
 		components : "S",
 		duration : "1 rnd",
@@ -4421,6 +4423,7 @@ SpellsList["soul cage"] = {
 	level : 6,
 	school : "Necro",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when a humanoid you can see within 60 feet of you dies",
 	range : "60 ft",
 	components : "V,S,M\u0192",
 	compMaterial : "A tiny silver cage worth 100 gp",
@@ -4724,6 +4727,35 @@ WeaponsList["word of radiance"] = {
 	description : "Con save, success - no damage; Only chosen creatures I can see are affected",
 	abilitytodamage : false,
 	dc : true
+};
+
+// Companion options (Find Greater Steed spell)
+CompanionList.steed = {
+	name : "Find Greater Steed",
+	nameTooltip : "the Find Greater Steed spell",
+	nameOrigin : "4th-level conjuration spell",
+	nameMenu : "Greater steed (Find Greater Steed spell)",
+	source : [["X", 156]],
+	action : [["action", "Find Greater Steed (dismiss)"]],
+	attributesAdd : {
+		header : "Mount",
+		type : ["Celestial", "Fey", "Fiend"],
+		subtype : "",
+		features : [{
+			name : "Find Greater Steed",
+			description : "If dropped to 0 HP, the steed disappears, leaving behind no physical form."
+		}],
+		languages : "understands one language its master speaks (master's choice)"
+	},
+	attributesChange : function(sCrea, objCrea) {
+		if (objCrea.scores[3] < 6) objCrea.scores[3] = 6;
+	},
+	notes : function() {
+		if (!CompanionList.mount) return;
+		var a = newObj(CompanionList.mount.notes);
+		a[0].description = a[0].description.replace(/It assumes a chosen form.*/i, "It has the chosen form: griffon, pegasus, peryton, dire wolf, rhinoceros, or saber-toothed tiger");
+		return a;
+	}()
 };
 
 // Add creatures
@@ -5359,7 +5391,7 @@ MagicItemsList["talking doll"] = {
 	type : "wondrous item",
 	rarity : "common",
 	attunement : true,
-	description : "During a short rest with this doll within 5 ft of me, I can tell it to say up to 6 phrases of up to 6 words each, and set an observable condition under which the doll speaks each phrase. Conditions must happen within 5 ft of the doll. The doll can remember only 6 phrases and are lost when my attunement to it ends.",
+	description : "During a short rest with this doll within 5 ft of me, I can tell it to say up to 6 phrases of up to 6 words each, and set an observable condition under which the doll speaks each phrase. Conditions must happen within 5 ft of the doll. The doll can remember only 6 phrases that are lost when my attunement to it ends.",
 	descriptionFull : "While this stuffed doll is within 5 feet of you, you can spend a short rest telling it to say up to six phrases, none of which can be more than six words long, and set an observable condition under which the doll speaks each phrase. You can also replace old phrases with new ones. Whatever the condition, it must occur within 5 feet of the doll to make it speak. For example, whenever someone picks up the doll, it might say, \"I want a piece of candy.\" The doll's phrases are lost when your attunement to the doll ends."
 }
 MagicItemsList["tankard of sobriety"] = {

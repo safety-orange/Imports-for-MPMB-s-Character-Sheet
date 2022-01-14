@@ -1,5 +1,5 @@
 var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -823,6 +823,7 @@ PsionicsList["ab2-adaptive shield"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you take acid, cold, fire, lightning, or thunder damage",
 	range : "Self",
 	duration : "Next turn end",
 	description : "If taking Acid, Cold, Fire, Lightning, or Thunder damage, gain resistance to it until end of next turn",
@@ -1095,6 +1096,7 @@ PsionicsList["bf2-knock back"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you hit a target with a melee attack",
 	range : "Self",
 	duration : "Instantaneous",
 	save : "Str",
@@ -1262,6 +1264,7 @@ PsionicsList["cm3-acid spray"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you take piercing or slashing damage",
 	range : "5 ft",
 	duration : "Instantaneous",
 	description : "Use after I take Piercing or Slashing damage; all creatures in range take 2d6 Acid damage",
@@ -1570,6 +1573,7 @@ PsionicsList["d3-sudden shift"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when are hit by an attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "Use when hit by an attack; it misses, and I move up to 5 ft without provoking opportunity attacks",
@@ -1670,6 +1674,7 @@ PsionicsList["if2-psychic parry"] = {
 	level : 1,
 	school : "Awake",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you make an Intelligence, a Wisdom, or a Charisma saving throw",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "Add +1/PP to the result of an Int, Wis, or Cha save; use after rolling, but before knowing if successful",
@@ -1713,6 +1718,7 @@ PsionicsList["id1-iron hide"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are hit by an attack",
 	range : "Self",
 	duration : "Next turn end",
 	description : "I gain +1/PP AC; use when hit by attack; bonus works against triggering attack",
@@ -2937,6 +2943,7 @@ PsionicsList["na2-seeking missile"] = {
 	level : 1,
 	school : "Nomad",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you miss with a ranged weapon attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "When I miss with a ranged attack, I can reroll the attack roll against the same target",
@@ -3158,6 +3165,7 @@ PsionicsList["ns3-defensive step"] = {
 	level : 1,
 	school : "Nomad",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are hit by an attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "When hit by an attack, I gain +4 AC, and then teleport 10 ft to a space I can see",
@@ -3267,6 +3275,7 @@ PsionicsList["p2-all-around sight"] = {
 	level : 1,
 	school : "Awake",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are hit by an attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "After an attack hits me, impose disadvantage on that attack roll",

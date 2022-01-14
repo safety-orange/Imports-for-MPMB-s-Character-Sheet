@@ -1,11 +1,12 @@
 var iFileName = "pub_20150416_EE.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.E={
 	name : "Elemental Evil Player's Companion", // November 2017 version
 	abbreviation : "EE",
+	abbreviationSpellsheet: "EE",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
 	date : "2015/04/16"
@@ -318,6 +319,7 @@ SpellsList["absorb elements"] = {
 	level : 1,
 	school : "Abjur",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you take acid, cold, fire, lightning, or thunder damage",
 	range : "Self",
 	components : "S",
 	duration : "1 rnd",

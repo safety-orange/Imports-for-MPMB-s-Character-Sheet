@@ -42,6 +42,7 @@ RequiredSheetVersion("13.0.8");
 SourceList.T = {
 	name : "Tasha's Cauldron of Everything",
 	abbreviation : "TCoE",
+	abbreviationSpellsheet: "T",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tashas-cauldron-everything",
 	date : "2020/11/17"
@@ -248,7 +249,7 @@ if (!SourceList["E:RLW"]) {
 						AddMagicItem("Enhanced Arcane Focus +" + (classes.known.artificer.level < 10 ? 1 : 2));
 					},
 					removeeval : function (lvl, chc) {
-						RemoveMagicItem("wand of the war mage, +1, +2, or +3");
+						RemoveMagicItem("enhanced arcane focus, +1 or +2");
 					}
 				},
 				"enhanced defense (armor)" : {
@@ -1178,6 +1179,45 @@ if (!SourceList["E:RLW"]) {
 		attunement : true,
 		action : [["bonus action", ""]]
 	}
+	MagicItemsList["enhanced arcane focus, +1 or +2"] = {
+		name : "Enhanced Arcane Focus, +1 or +2",
+		nameTest : /^(?=.*enhanced)(?=.*(arcane focus|rod|wand|staff)).*$/i,
+		source : [["E:RLW", 62], ["T", 21]],
+		type : "wondrous item",
+		description : "While I am holding this arcane focus (rod, staff, or wand), I gain a +1 bonus to spell attack rolls (or +2 if the artificer that created it is level 10 or higher). In addition, I ignore half cover when making a spell attack.",
+		descriptionFull : "While holding this rod, staff, or wand, a creature gains a +1 bonus to spell attack rolls. In addition, the creature ignores half cover when making a spell attack.\n   The bonus increases to +2 when it is created by someone with 10 levels or more in the artificer class.",
+		attunement : true,
+		weight : 1,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; },
+		choices : ["+1 to spell attacks", "+2 to spell attacks (artificer level 10+)"],
+		"+1 to spell attacks" : {
+			name : "Enhanced Arcane Focus +1",
+			nameTest : /^(?=.*enhanced)(?=.*(arcane focus|rod|wand|staff))(?=.*\+1)(?!.*\+2).*$/i,
+			description : "While I am holding this arcane focus (rod, staff, or wand), I gain a +1 bonus to spell attack rolls and I ignore half cover when making a spell attack.",
+			calcChanges : {
+				spellCalc : [
+					function (type, spellcasters, ability) {
+						if (type == "attack") return 1;
+					},
+					"I gain a +1 bonus to spell attack rolls."
+				]
+			}
+		},
+		"+2 to spell attacks (artificer level 10+)" : {
+			name : "Enhanced Arcane Focus +2",
+			nameTest : /^(?=.*enhanced)(?=.*(arcane focus|rod|wand|staff))(?!.*\+1)(?=.*\+2).*$/i,
+			description : "While I am holding this arcane focus (rod, staff, or wand), I gain a +2 bonus to spell attack rolls and I ignore half cover when making a spell attack.",
+			calcChanges : {
+				spellCalc : [
+					function (type, spellcasters, ability) {
+						if (type == "attack") return 2;
+					},
+					"I gain a +2 bonus to spell attack rolls."
+				]
+			}
+		}
+	}
 	MagicItemsList["radiant weapon"] = {
 		name : "Radiant Weapon",
 		nameTest : "Radiant",
@@ -1275,7 +1315,7 @@ if (!SourceList["E:RLW"]) {
 			prefixOrSuffix : "suffix",
 			descriptionChange : ["replace", "weapon"],
 			excludeCheck : function (inObjKey, inObj) {
-				return !(/melee/i).test(inObj.range) || !(/thrown/i).test(inObj.description);
+				return !/\bthrown\b/i.test(inObj.description);
 			}
 		},
 		calcChanges : {
@@ -5476,6 +5516,8 @@ AddSubClass("warlock", "the genie", {
 				"I can deal bonus damage on my attacks, its type depending on my patron's genie kind",
 				'Use the "Choose Feature" button above to choose the kind of genie your patron is'
 			]),
+			choices : ["dao (earth)", "djinni (air)", "efreeti (fire)", "marid (water)"],
+			choicesNotInMenu : true,
 			"dao (earth)" : {
 				name : "Dao's Wrath",
 				description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof. Bonus in extra bludgeoning damage",
@@ -5542,6 +5584,8 @@ AddSubClass("warlock", "the genie", {
 				'Use the "Choose Feature" button above to choose the kind of genie your patron is',
 				"As a bonus action, I can gain a flying speed of 30 ft and I can hover, for 10 minutes"
 			]),
+			choices : ["dao (earth)", "djinni (air)", "efreeti (fire)", "marid (water)"],
+			choicesNotInMenu : true,
 			"dao (earth)" : {
 				name : "Dao's Elemental Gift",
 				description : desc([
@@ -7125,7 +7169,7 @@ MagicItemsList["all-purpose tool"] = {
 			}
 		]
 	},
-	action : [["action", "(transform tool)"], ["action", " (choose cantrip)"]],
+	action : [["action", " (transform tool)"], ["action", " (choose cantrip)"]],
 	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
 	"+1 to spell attacks and dcs (uncommon)" : {
 		name : "All-Purpose Tool +1",
@@ -7133,8 +7177,8 @@ MagicItemsList["all-purpose tool"] = {
 		description : "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a +1 bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
 		calcChanges : {
 			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && spellcasters.indexOf('artificer') !== -1) return 1;
+				function (type, spellcasters, ability, spell) {
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 1;
 				},
 				"While holding the All-Purpose Tool, I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]
@@ -7146,8 +7190,8 @@ MagicItemsList["all-purpose tool"] = {
 		description : "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a +2 bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
 		calcChanges : {
 			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && spellcasters.indexOf('artificer') !== -1) return 2;
+				function (type, spellcasters, ability, spell) {
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 2;
 				},
 				"While holding the All-Purpose Tool, I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]
@@ -7159,8 +7203,8 @@ MagicItemsList["all-purpose tool"] = {
 		description : "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a +3 bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
 		calcChanges : {
 			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && spellcasters.indexOf('artificer') !== -1) return 3;
+				function (type, spellcasters, ability, spell) {
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 3;
 				},
 				"While holding the All-Purpose Tool, I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]

@@ -1,11 +1,12 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
 SourceList.P={
 	name : "Player's Handbook",
 	abbreviation : "PHB",
+	abbreviationSpellsheet: "P",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 	date : "2014/08/19"
@@ -1534,14 +1535,17 @@ AddSubClass("ranger", "beast master", {
 				"As an action, I can have it take the Attack, Dash, Disengage, or Help action on its turn",
 				"I can still use Extra Attack while commanding it to Attack; No action to order to move"
 			]),
-			additional : "1/4 CR up to medium sized beast",
+			additional : "Medium or smaller beast, CR \u00BC or less",
 			creaturesAdd : [["Ranger's Companion", false, function(AddRemove, prefix) {
 				if (!AddRemove) return;
-				var cObj = MakeCompMenu(prefix);
-				var compOptions = cObj.companions.map(function(n) { return n[0] });
-				var selectedRace = AskUserOptions("Select Ranger's Companion", "Select which beast you would like to have as your ranger's companion.\nThis can be any beast that is no larger than Medium and that has a challenge rating of 1/4 or lower.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
-				Value(prefix + "Comp.Race", selectedRace);
-				changeCompType("companion", prefix);
+				var cObj = MakeCompMenu_CompOptions(prefix, "justCompanions");
+				if (!cObj.companion || !cObj.companion.length) {
+					var selectedRace = "Wolf";
+				} else {
+					var compOptions = cObj.companion.map(function(n) { return n[0] });
+					var selectedRace = AskUserOptions("Select Ranger's Companion", "Select which beast you would like to have as your ranger's companion.\nThis can be any beast that is no larger than Medium and that has a challenge rating of 1/4 or lower.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
+				}
+				ApplyCompRace(selectedRace, prefix, "companion");
 			}]]
 		},
 		"subclassfeature7" : {
@@ -1551,8 +1555,7 @@ AddSubClass("ranger", "beast master", {
 			description : desc([
 				"My beast's attacks count as magical for overcoming resistances and immunities",
 				"As a bonus action, I can command it to take the Dash/Disengage/Help action on its turn"
-			]),
-			action : [["bonus action", ""]]
+			])
 		},
 		"subclassfeature11" : {
 			name : "Bestial Fury",

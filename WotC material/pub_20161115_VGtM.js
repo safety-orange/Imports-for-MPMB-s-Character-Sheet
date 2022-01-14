@@ -1085,6 +1085,10 @@ CreatureList["velociraptor"] = {
 		range : "Melee (5 ft)",
 		description : "One bite and one claw attack as an Attack action"
 	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The velociraptor makes two attacks: one with its bite and one with its claws."
+	}],
 	traits : [{
 		name : "Pack Tactics",
 		description : "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated."

@@ -1,5 +1,5 @@
 var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.0");
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -186,6 +186,10 @@ CreatureList["abyssal chicken"] = {
 		range : "Melee (5 ft)",
 		description : "One claws and one bite attack as an Attack action"
 	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The abyssal chicken makes two attacks: one with its bite and one with its claws."
+	}],
 	traits : [{
 		name : "Bad Flier",
 		description : "The abyssal chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed."
@@ -338,7 +342,7 @@ if (!SourceList.MToF) {
 		function (AddRemove, prefix) {
 			if (!AddRemove) return;
 			// Show equipment section
-			CompOptions(prefix, ["visible", "comp.eqp"], true);
+			MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
 			// Add equipment when added
 			var equip = ["bit and bridle", "riding"];
 			for (var i = 0; i < equip.length; i++) {

@@ -1,6 +1,6 @@
-if (sheetVersion < 13000009) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
+if (sheetVersion < 13001000) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.0.9");
+RequiredSheetVersion("13.1.0");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -3000,7 +3000,7 @@ SourceList["UA:RR"] = {
 };
 
 //adds an alternative ranger class, including three subclasses
-ClassList["rangerua"] = {
+ClassList.rangerua = {
 	regExpSearch : /^((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	name : "Ranger",
 	source : ["UA:RR", 2],
@@ -3197,6 +3197,7 @@ ClassList["rangerua"] = {
 		}
 	}
 };
+
 AddSubClass("rangerua", "beast master-ua", {
 	regExpSearch : /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Beast Conclave",
@@ -3208,7 +3209,13 @@ AddSubClass("rangerua", "beast master-ua", {
 			source : ["UA:RR", 5],
 			minlevel : 3,
 			description : "\n   " + "I call an animal by spending 8 hours and 50 gp; I can revive it with 8 hours and 25 gp",
-			additional : ["", "", "", "+1 HD for companion", "+2 HD for companion", "+3 HD for companion", "+4 HD for companion", "+5 HD for companion", "+6 HD for companion", "+7 HD for companion", "+8 HD for companion", "+9 HD for companion", "+10 HD for companion", "+11 HD for companion", "+12 HD for companion", "+13 HD for companion", "+14 HD for companion", "+15 HD for companion", "+16 HD for companion", "+17 HD for companion"]
+			additional : ["", "", "", "+1 HD for companion", "+2 HD for companion", "+3 HD for companion", "+4 HD for companion", "+5 HD for companion", "+6 HD for companion", "+7 HD for companion", "+8 HD for companion", "+9 HD for companion", "+10 HD for companion", "+11 HD for companion", "+12 HD for companion", "+13 HD for companion", "+14 HD for companion", "+15 HD for companion", "+16 HD for companion", "+17 HD for companion"],
+			creaturesAdd : [["Animal Companion", false, function(AddRemove, prefix) {
+				if (!AddRemove) return;
+				var compOptions = ["Ape", "Black Bear", "Boar", "Giant Badger", "Giant Weasel", "Mule", "Panther", "Wolf"];
+				var selectedRace = AskUserOptions("Select Animal Companion", "Select which beast you would like to have as your animal companion.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
+				ApplyCompRace(selectedRace, prefix, "companionrr");
+			}]]
 		},
 		"subclassfeature3.1" : {
 			name : "Companion's Bond",
@@ -3242,6 +3249,173 @@ AddSubClass("rangerua", "beast master-ua", {
 		}
 	}
 });
+// Add the Beast Conclave's Animal Companion as a companion option
+CompanionList.companionrr = {
+	name : "Animal Companion",
+	nameTooltip : "Beast Conclave: Animal Companion",
+	nameOrigin : "Beast Conclave 3",
+	nameMenu : "Animal Companion (Beast Conclave feature)",
+	source : [["UA:RR", 5]],
+	includeCheck : function(sCrea, objCrea, iCreaCR) {
+		// Only specific animals
+		return /^(ape|black bear|boar|giant badger|giant weasel|mule|panther|wolf)$/i.test(sCrea);
+	},
+	attributesAdd : {
+		header : "Companion",
+		minlevelLinked : ["rangerua", "ranger", "spell-less ranger"],
+		attacksAction : 1,
+		proficiencyBonusLinked : true,
+		features : [{
+			name : "Coordinated Attack",
+			description : "As a reaction when the ranger owner takes the Attack action, the companion can make one melee attack.",
+			minlevel : 5
+		}, {
+			name : "Storm of Claws and Fangs",
+			description : "As an action, the companion can make a melee attack against each creature that is within 5 ft.",
+			minlevel : 11
+		}, {
+			name : "Superior Beast's Defense",
+			description : "As a reaction, the companion can halve the damage of an attack from an attacker that it can see.",
+			minlevel : 15
+		}],
+		hdLinked : function(prefix) {
+			var iTotalHD = CurrentCompRace[prefix] && CurrentCompRace[prefix].hd ? CurrentCompRace[prefix].hd[0] : 0;
+			var bRngLvls = false;
+			["rangerua", "ranger", "spell-less ranger"].forEach(function (n) {
+				if (classes.known[n]) {
+					bRngLvls = true;
+					iTotalHD += classes.known[n].level > 3 ? classes.known[n].level - 3 : 0;
+				}
+			})
+			if (!bRngLvls && classes.totallevel > 3) iTotalHD += classes.totallevel - 3;
+			return iTotalHD;
+		}
+	},
+	notes : [{
+		name : "Call forth and bond with an animal",
+		description : "from the wilderness by spending 8 hours and 50 gp",
+		joinString : " "
+	}, {
+		name : "I can have one companion at a time",
+		description : "If it dies, I can spend 8 hours and 25 gp to bring it back",
+		joinString : "; "
+	}, {
+		name : "Companion's Bond",
+		description : [
+			"It obeys my commands as best it can, or acts on its own if I can't command it",
+			"When moving stealthily together with only my companion, we can move at a normal pace",
+			"It uses my Proficiency Bonus instead of its own and adds this to its AC and damage rolls",
+			"My companion gains proficiency with 2 skills of my choice (not automated), as well as all saves",
+			"It gains a HD (and thus HP) for every ranger level I gain after 3rd, and an ASI whenever I do"
+		].join("\n   "),
+		joinString : typePF ? ": " : "\n   "
+	}, {
+		name : "In Combat",
+		description : [
+			"My companion rolls for initiative and takes actions as normal, but can't use Multiattack",
+			"My companion gains a bonus on damage rolls against my favored enemies just like me"
+		].join("\n   "),
+		joinString : typePF ? ": " : ":\n   "
+	}, {
+		name : "Coordinated Attack (Beast Conclave 5, UA:RR 6)",
+		description : "When I take the Attack action, my companion can use its reaction to make one melee attack",
+		joinString : "\n   ",
+		minlevel : 5
+	}, {
+		name : "Beast's Defense (Beast Conclave 7, UA:RR 6)",
+		description : "While my companion can see me, it has advantage on all saving throws",
+		joinString : "\n   ",
+		minlevel : 7
+	}, {
+		name : "Storm of Claws and Fangs (Beast Conclave 11, UA:RR 6)",
+		description : "My companion can, as an action, make a melee attack vs. all creatures within 5 ft of it",
+		joinString : "\n   ",
+		minlevel : 11
+	}, {
+		name : "Superior Beast's Defense (Beast Conclave 15, UA:RR 6)",
+		description : "My companion can, as a reaction, halve the damage of an attack from an attacker that it sees",
+		joinString : "\n   ",
+		minlevel : 15
+	}],
+	attributesChange : function(sCrea, objCrea) {
+		// Add Prof to attack damage
+		for (var i = 0; i < objCrea.attacks.length; i++) {
+			var oAtk = objCrea.attacks[i];
+			if (!oAtk.modifiers) {
+				oAtk.modifiers = ["", "Prof"];
+			} else {
+				oAtk.modifiers[1] += "+Prof";
+			}
+			if (oAtk.description) { // Remove multiattack
+				oAtk.description = oAtk.description.replace(/(((One|Two|2).+as an Attack action)|(2 per Attack));? ?/i, '');
+			}
+		};
+		// Remove multiattack trait/feature/action
+		["traits", "features", "actions"].forEach(function (n) {
+			if (!objCrea[n]) return;
+			for (var i = objCrea[n].length - 1; i > -1; i--) {
+				var oN = objCrea[n][i];
+				if (oN.name && /multiattack/i.test(oN.name)) {
+					objCrea[n].splice(i, 1);
+				}
+			}
+		})
+		// Proficient with all saving throws
+		var aSaves = objCrea.saves ? objCrea.saves : ["", "", "", "", "", ""];
+		for (var i = 0; i < aSaves.length; i++) {
+			var iProfSave = Math.round((objCrea.scores[i] - 10.5) * 0.5) + objCrea.proficiencyBonus;
+			if (aSaves[i] === "" || aSaves[i] < iProfSave) {
+				aSaves[i] = iProfSave;
+			}
+		}
+		objCrea.saves = aSaves;
+	},
+	eval : function(prefix, lvl) {
+		// Set the alignment to be the same as the main character
+		var iAlignInx = tDoc.getField("Alignment").currentValueIndices;
+		if (iAlignInx !== -1) {
+			PickDropdown(prefix + "Comp.Desc.Alignment", iAlignInx);
+		} else {
+			Value(prefix + "Comp.Desc.Alignment", What("Alignment"));
+		}
+		// Set HP to use fixed values
+		var sHPfld = prefix + "Comp.Use.HP.Max";
+		var aHPsets = How(sHPfld).split(",");
+		aHPsets[3] = "fixed";
+		AddTooltip(sHPfld, undefined, aHPsets.join());
+		// Add Prof to the AC, if not already present
+		AddToModFld(prefix + "Comp.Use.AC", "Prof", false, "Animal Companion", "An beast conclave's animal companion adds its proficiency bonus (Prof) to its AC.");
+		// Add oProf to 
+		// Alert player of things that have to be done manually
+		app.alert({
+			cMsg : toUni("Pick Two Skills") + "\nThe Ranger's Animal Companion that you have just added, gains proficiency with two additional skills as those already selected. Because there is no automation for selecting these proficiencies, please do so manually.\n\n" + toUni("Ability Score Improvements") + "\nThe Ranger's Animal Companion gains Ability Score Improvements (ASI) whenever your character gains them. There is no automation for adding these either, so please don't forget to increase the ability scores for the animal companion when you get the reminder pop-up. Also, remember that any DCs for abilities that the beast possesses are based on ability scores and that they might need to be manually changed when changing the ability scores.\nThe 'Notes' section on the companion page automatically keeps track of how many points you can increase the ability scores and what the base value of those scores are according to the Monster Manual.",
+			nIcon : 3,
+			cTitle : "Don't forget the Skills and Ability Score Improvements!"
+		});
+	},
+	changeeval : function (prefix, lvl) {
+		// Update the string with the number of Ability Score Improvements (ASI)
+		var objCreaFnd = CurrentCompRace[prefix];
+		if (objCreaFnd.typeFound !== "creature" || !CreatureList[objCreaFnd.known]) return;
+		var objCrea = CreatureList[objCreaFnd.known];
+		var iASIs = 0;
+		for (var aClass in classes.known) {
+			if (!CurrentClasses[aClass].improvements) continue;
+			var classLvL = Math.min(CurrentClasses[aClass].improvements.length, classes.known[aClass].level);
+			iASIs += 2 * CurrentClasses[aClass].improvements[classLvL - 1];
+		}
+		var sNote = What(prefix + "Cnote.Left");
+		var sNoteNew = sNote;
+		if (!iASIs) {
+			sNoteNew = sNote.replace(/[\r\n]? *Currently, there are \d+ points.*/, "");
+		} else {
+			var sIncreases = "Currently, there are " + iASIs + " points to divide " + (objCrea && objCrea.scores ? "(default: " + objCrea.scores[0] + " Str, " + objCrea.scores[1] + " Dex, " + objCrea.scores[2] + " Con, " + objCrea.scores[3] + " Int, " + objCrea.scores[4] + " Wis, " + objCrea.scores[5] + " Cha)" : "among the ability scores");
+			sNoteNew = sNote.replace(/(ASI.*)([\r\n]? *Currently, there are \d+ points.*)?/, "$1\r   " + sIncreases);
+		}
+		if (sNote !== sNoteNew) Value(prefix + "Cnote.Left", sNoteNew);
+	}
+}
+
 AddSubClass("rangerua", "hunter-ua", {
 	regExpSearch : /^(?!.*(monster|barbarian|bard|cleric|druid|fighter|monk|paladin|rogue|sorcerer|warlock|wizard))(?=.*(hunter|huntress|hunts(wo)?m(e|a)n)).*$/i,
 	subname : "Hunter Conclave",
@@ -3328,6 +3502,7 @@ AddSubClass("rangerua", "hunter-ua", {
 		}
 	}
 });
+
 AddSubClass("rangerua", "deep stalker-ua", {
 	regExpSearch : /^(?=.*deep)(?=.*stalker).*$/i,
 	subname : "Deep Stalker Conclave",
@@ -6808,6 +6983,7 @@ PsionicsList["ab2-adaptive shield"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you take acid, cold, fire, lightning, or thunder damage",
 	range : "Self",
 	duration : "Next turn end",
 	description : "If taking Acid, Cold, Fire, Lightning, or Thunder damage, gain resistance to it until end of next turn",
@@ -7080,6 +7256,7 @@ PsionicsList["bf2-knock back"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you hit a target with a melee attack",
 	range : "Self",
 	duration : "Instantaneous",
 	save : "Str",
@@ -7247,6 +7424,7 @@ PsionicsList["cm3-acid spray"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you take piercing or slashing damage",
 	range : "5 ft",
 	duration : "Instantaneous",
 	description : "Use after I take Piercing or Slashing damage; all creatures in range take 2d6 Acid damage",
@@ -7555,6 +7733,7 @@ PsionicsList["d3-sudden shift"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when are hit by an attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "Use when hit by an attack; it misses, and I move up to 5 ft without provoking opportunity attacks",
@@ -7655,6 +7834,7 @@ PsionicsList["if2-psychic parry"] = {
 	level : 1,
 	school : "Awake",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you make an Intelligence, a Wisdom, or a Charisma saving throw",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "Add +1/PP to the result of an Int, Wis, or Cha save; use after rolling, but before knowing if successful",
@@ -7698,6 +7878,7 @@ PsionicsList["id1-iron hide"] = {
 	level : 1,
 	school : "Immor",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are hit by an attack",
 	range : "Self",
 	duration : "Next turn end",
 	description : "I gain +1/PP AC; use when hit by attack; bonus works against triggering attack",
@@ -8922,6 +9103,7 @@ PsionicsList["na2-seeking missile"] = {
 	level : 1,
 	school : "Nomad",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you miss with a ranged weapon attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "When I miss with a ranged attack, I can reroll the attack roll against the same target",
@@ -9143,6 +9325,7 @@ PsionicsList["ns3-defensive step"] = {
 	level : 1,
 	school : "Nomad",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are hit by an attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "When hit by an attack, I gain +4 AC, and then teleport 10 ft to a space I can see",
@@ -9252,6 +9435,7 @@ PsionicsList["p2-all-around sight"] = {
 	level : 1,
 	school : "Awake",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are hit by an attack",
 	range : "Self",
 	duration : "Instantaneous",
 	description : "After an attack hits me, impose disadvantage on that attack roll",
@@ -17641,6 +17825,7 @@ SpellsList["mental barrier-ua"] = {
 	level : 2,
 	school : "Abjur",
 	time : "1 rea",
+	timeFull : "1 reaction, which you take when you are forced to make an Intelligence, a Wisdom, or a Charisma saving throw",
 	range : "Self",
 	components : "V",
 	duration : "1 rnd",
@@ -18540,6 +18725,8 @@ RunFunctionAtEnd(function () {
 					]),
 					amendTo : "Power Armor Model Features"
 				}],
+				choices : ["guardian", "infiltrator"],
+				choicesNotInMenu : true,
 				"guardian" : {
 					name : "Perfected Armor: Guardian",
 					description : " [Intelligence modifier per long rest]" + desc([
@@ -19697,7 +19884,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 				}],
 				features : [{
 					name : "Warden",
-					description : "The drake obeys the commands of its warden and shares its proficiency bonus. It takes its turn immediately after that of its warden, on the same initiative. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its warden takes a bonus action to command it to take another action. If its warden is incapacitated, the beast can take any action, not just Dodge. The drake vanishes after a number of hours equal to its proficiency bonus, when it is reduced to 0 hit points, when its warden summons another drake, or when its warden dies."
+					description : "The drake obeys the commands of its warden and shares its proficiency bonus. It takes its turn immediately after that of its warden, on the same initiative. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its warden takes a bonus action to command it to take another action. If its warden is incapacitated, the drake can take any action, not just Dodge. The drake vanishes after a number of hours equal to its proficiency bonus, when it is reduced to 0 hit points, when its warden summons another drake, or when its warden dies."
 				}],
 				traits : [{
 					name : "Draconic Essence",
@@ -20109,7 +20296,7 @@ RaceList["owlfolk-ua"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 },
 		fly : { spd : "walk", enc : "walk" }
-			},
+	},
 	skills : ["Stealth"],
 	vision : [["Darkvision", 90]],
 	languageProfs : ["Common", 1],
@@ -20327,7 +20514,7 @@ RaceList["draconic kobold-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", 1],
-	vision : [["Darkvision", 60], ["Sunlight Sensitivity", 0]],
+	vision : [["Darkvision", 60]],
 	age : " reach adulthood at age 6 and can live up to 120 years, but rarely do so",
 	height : " are between 2 and 3 feet tall (2'1\" + 2d4\")",
 	weight : " weigh between 25 and 35 lb (25 + 2d4 \xD7 1 lb)",

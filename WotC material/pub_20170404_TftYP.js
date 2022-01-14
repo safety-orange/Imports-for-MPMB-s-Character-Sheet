@@ -107,33 +107,33 @@ CreatureList["giant lightning eel"] = {
 	proficiencyBonus : 2,
 	attacksAction : 2,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Two bite attacks as an Attack action; +1d8 lightning damage on a hit"
-		}, {
-			name : "Lightning Jolt (Recharge 5-6)",
-			ability : 3,
-			damage : [3, 8, "lightning"], //[#, die, type] "" for die is allowed
-			range : "Out/in 5/15 ft",
-			dc : true,
-			description : "Out water: 5 ft, 1 crea; In water: all in 15 ft; Con save: fail― stunned until eel's next turn end, success― half damage",
-			modifiers : [-1, ""],
-			abilitytodamage : false,
-			tooltip : "One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned"
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "+1d8 lightning damage on a hit; Two bite attacks as an Attack action"
+	}, {
+		name : "Lightning Jolt (Recharge 5-6)",
+		ability : 3,
+		damage : [3, 8, "lightning"], //[#, die, type] "" for die is allowed
+		range : "Out/in 5/15 ft",
+		dc : true,
+		description : "Out water: 5 ft, 1 crea; In water: all in 15 ft; Con save: fail― stunned until eel's next turn end, success― half damage",
+		modifiers : [-1, ""],
+		abilitytodamage : false,
+		tooltip : "One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned"
+	}],
 	traits : [{
-			name : "Water Breathing",
-			description : "The eel can breathe only underwater."
-		}
-	],
+		name : "Water Breathing",
+		description : "The eel can breathe only underwater."
+	}],
 	actions : [{
-			name : "Lightning Jolt (Recharge 5-6)",
-			description : "See Attack. One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned"
-		}
-	]
+		name : "Multiattack",
+		description : "The eel makes two bite attacks."
+	}, {
+		name : "Lightning Jolt (Recharge 5-6)",
+		description : "See Attack. One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned"
+	}]
 };
 CreatureList["giant subterranean lizard"] = {
 	name : "Giant Subterranean Lizard",
