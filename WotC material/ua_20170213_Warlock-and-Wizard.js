@@ -453,12 +453,12 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 1) ) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });
@@ -580,12 +580,13 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
-					output.magic += v.pactMag;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 2) ) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					output.magic += 2;
+					v.pactMag = 2;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +2 to its To Hit and Damage."
 		]
 	}
 });
@@ -613,12 +614,13 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
-					output.magic += v.pactMag;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 3) ) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					output.magic += 3;
+					v.pactMag = 3;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +3 to its To Hit and Damage."
 		]
 	}
 });

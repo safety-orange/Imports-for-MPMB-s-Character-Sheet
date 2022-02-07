@@ -510,7 +510,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
-		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
+		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
 	submenu : "[improves Pact of the Blade]",
@@ -518,12 +518,12 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });

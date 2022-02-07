@@ -816,7 +816,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with sidearms and land vehicles",
 			weaponProfs : [false, false, ["Sidearms"]],
-			toolProfs : ["Hacking tools"]
+			toolProfs : ["Vehicles (land)"]
 		},
 		"subclassfeature1.2" : {
 			name : "Heart of the City",
@@ -1028,13 +1028,12 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", { // Still
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponTextName)) {
+				if (v.isRangedWeapon && /firearm/i.test(v.theWea.type + " " + v.theWea.list) && /\bpact\b/i.test(v.WeaponTextName)) {
 					v.pactWeapon = true;
-					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				}
 			},
-			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
+			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon.",
+			90
 		]
 	}
 });
@@ -5989,12 +5988,12 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 1) ) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });
@@ -6116,12 +6115,13 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
-					output.magic += v.pactMag;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 2) ) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					output.magic += 2;
+					v.pactMag = 2;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +2 to its To Hit and Damage."
 		]
 	}
 });
@@ -6149,12 +6149,13 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
-					output.magic += v.pactMag;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 3) ) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					output.magic += 3;
+					v.pactMag = 3;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +3 to its To Hit and Damage."
 		]
 	}
 });
@@ -12055,7 +12056,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
-		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
+		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
 	submenu : "[improves Pact of the Blade]",
@@ -12063,12 +12064,12 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });

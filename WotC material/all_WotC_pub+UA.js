@@ -40,16 +40,17 @@ MagicItemsList["hew"] = {
 	type : "weapon (battleaxe)",
 	rarity : "uncommon",
 	magicItemTable : "F",
-	description : "This rusty old battleaxe has runes in Dwarvish on its head which read \"Hew\". It deals maximum damage against plant creatures or an object made of wood. While carrying the axe and travelling through a forest, I feel uneasy. Its creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood.",
-	descriptionFull : "This rusty old battleaxe has runes in Dwarvish on the axe head which read \"Hew\". It deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe's creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.",
+	description : 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
+	descriptionFull : 'This rusty old battleaxe of dwarven manufacture has has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
 	weight : 4,
 	weaponsAdd : ["Hew"],
 	weaponOptions : {
 		baseWeapon : "battleaxe",
-		regExpSearch : /hew/i,
+		regExpSearch : /\bhew\b/i,
 		name : "Hew",
 		source : ["LMoP", 33],
-		description : "Versatile (1d10); Max damage against plant creatures and wooden objects"
+		description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
+		modifiers : [1,1]
 	}
 }
 MagicItemsList["lightbringer"] = {
@@ -4188,7 +4189,7 @@ WeaponsList["thorn whip"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "piercing"],
 	range : "Melee, 30 ft",
-	description : "Melee spell attack, pull target 10 ft closer to me",
+	description : "Melee spell attack, pull target up to 10 ft closer",
 	abilitytodamage : false
 };
 
@@ -4753,8 +4754,8 @@ SpellsList["thorn whip"] = {
 	components : "V,S,M",
 	compMaterial : "The stem of a plant with thorns",
 	duration : "Instantaneous",
-	description : "Melee spell attack for 1d6 Piercing dmg and pull crea 10 ft towards me; +1d6 at CL 5, 11, and 17",
-	descriptionCantripDie : "Melee spell attack for `CD`d6 Piercing dmg and pull crea 10 ft towards me",
+	description : "Melee spell atk for 1d6 Piercing dmg and pull crea up to 10 ft towards me; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "Melee spell attack for `CD`d6 Piercing dmg and pull crea up to 10 ft towards me",
 	descriptionFull : "You create a long, vine-like whip covered in thorns that lashes out at your command toward a creature in range. Make a melee spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and if the creature is Large or smaller, you pull the creature up to 10 feet closer to you." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["thunderous smite"] = {
@@ -17728,12 +17729,11 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						var hasPactWeapon = GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade';
-						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponTextName)) || (/^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
+						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || /^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i.test(v.WeaponText))) {
 							fields.Mod = 6;
 						};
 					},
-					"If I include the word 'Hexblade' in the name of a weapon that is not two-handed, it gets treated as the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than the ability it would otherwise use. Alternatively, if I have the Pact of the Blade feature, this will also work if I include 'Pact' in the name of a weapon, regardless if it has the two-handed property."
+					"If I include the word 'Hexblade' in the name of a weapon that is not two-handed, it gets treated as the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than the ability it would otherwise use. Alternatively, if I have the Pact of the Blade feature, this will also work for any weapons set to be my Pact Weapon."
 				]
 			}
 		},
@@ -17935,21 +17935,20 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 				}
-				if (!v.theWea.isMagicWeapon && !v.thisWeapon[1] && v.pactWeapon) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n \u2022 If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n \u2022 If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage (for magic weapons that don't give a bonus like this, you'll have to add it to the modifier fields manually).",
+			290
 		],
 		atkAdd : [
 			function (fields, v) {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
-					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				};
-			}, ""]
+			}, "", 90]
 	}
 });
 AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
@@ -19785,8 +19784,8 @@ MagicItemsList["pole of collapsing"] = {
 	source : [["X", 138], ["WBtW", 212]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "As an action while holding this 10 ft pole, I can speak a command word to have it collapse into a 1-ft-long rod. The poles weight doesn't change. As an action while holding the rod, I can speak a different command word to have it elongate back to a pole, but only as long as the surrounding space allows.",
-	descriptionFull : "While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The poles weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows.",
+	description : "As an action while holding this 10 ft pole, I can speak a command word to have it collapse into a 1-ft-long rod. The pole's weight doesn't change. As an action while holding the rod, I can speak a different command word to have it elongate back to a pole, but only as long as the surrounding space allows.",
+	descriptionFull : "While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The pole's weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows.",
 	weight : 7,
 	action : [["action", ""]]
 }
@@ -24948,6 +24947,7 @@ ClassList["sidekick-warrior"] = {
 ClassList["sidekick-spellcaster"] = {
 	setSidekickSpells : function (knownObj, lvlA) {
 		var spCast = CurrentSpells["sidekick-spellcaster"];
+		if (!spCast) return;
 		if (!spCast.selectCa) spCast.selectCa = [];
 		if (!spCast.selectSp) spCast.selectSp = [];
 		for (var knownType in knownObj) {
@@ -25173,6 +25173,7 @@ AddSubClass("sidekick-spellcaster", "mage", {
 			description : "\n   I can cast wizard cantrips/spells I know, using Intelligence as my spellcasting ability",
 			weaponsAdd : ["Fire Bolt"],
 			changeeval : function (lvlA, choiceA) {
+				if (!lvlA[1]) return;
 				// set the spells known for the level
 				var knownObj = {
 					Ca : {
@@ -25225,6 +25226,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 			description : "\n   I can cast cleric cantrips/spells I know, using Wisdom as my spellcasting ability",
 			weaponsAdd : ["Sacred Flame"],
 			changeeval : function (lvlA, choiceA) {
+				if (!lvlA[1]) return;
 				// set the spells known for the level
 				var knownObj = {
 					Ca : {
@@ -25250,6 +25252,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 		}
 	}
 });
+
 // pub_20190917_DiA.js
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
@@ -25416,7 +25419,8 @@ CreatureList["abyssal chicken"] = {
 	hd : [3, 4],
 	speed : "30 ft, fly 30 ft",
 	scores : [6, 14, 13, 4, 9, 5],
-	damage_immunities : "cold, fire, lightning",
+	damage_resistances : "cold, fire, lightning",
+	damage_immunities : "poison",
 	condition_immunities : "blinded, poisoned",
 	senses : "Blindsight 30 ft (blind beyond this radius)",
 	passivePerception : 9,
@@ -34308,6 +34312,11 @@ AddSubClass("cleric", "peace domain", {
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
+		"subclassfeature1.1" : {
+			name : "Implement of Peace",
+			description : "\n   " + "I gain proficiency in the Insight, Performance, or Persuasion skill (my choice)",
+			skillstxt : "Choose one from: Insight, Performance, or Persuasion"
+		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Balm of Peace",
 			source : [["T", 33]],
@@ -37068,13 +37077,13 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 		"My pact of the chain familiars gain an extra feature listing the extra bonuses they gain."]
 	}
 });
-AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact of the Talisman)", {
+AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact of the Talisman)", {
 	name : "Protection of the Talisman",
 	source : [["T", 71]],
 	submenu : "[improves Pact of the Talisman]",
 	description : "\n   When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll",
 	prereqeval : function(v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
+		return classes.known.warlock.level >= 7 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
 	usages: "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",
@@ -40875,8 +40884,7 @@ RaceList["fairy"] = {
 	trait : "Fairy"+
 	(typePF ? "\n \u2022 Fey: My " : "(") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")") +
 	"\n \u2022 Flight: I have flying speed equal to my walking speed, but can't use it when wearing medium or heavy armor."+
-	"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I can cast Faerie Fire and at 5th level I can cast Enlarge/Reduce. I can cast both spells without using a spell slot once per long rest each, as well as by using spell slots as normal."+
-	"\n \u2022 Fey Passage: I can squeeze through a space as narrow as 1 inch wide."
+	"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I can cast Faerie Fire and at 5th level I can cast Enlarge/Reduce. I can cast both spells without using a spell slot once per long rest each, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these, chosen when I select the race."
 };
 RaceList["harengon"] = {
 	regExpSearch : /harengon/i,
@@ -44971,7 +44979,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with sidearms and land vehicles",
 			weaponProfs : [false, false, ["Sidearms"]],
-			toolProfs : ["Hacking tools"]
+			toolProfs : ["Vehicles (land)"]
 		},
 		"subclassfeature1.2" : {
 			name : "Heart of the City",
@@ -45183,13 +45191,12 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", { // Still
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponTextName)) {
+				if (v.isRangedWeapon && /firearm/i.test(v.theWea.type + " " + v.theWea.list) && /\bpact\b/i.test(v.WeaponTextName)) {
 					v.pactWeapon = true;
-					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				}
 			},
-			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
+			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon.",
+			90
 		]
 	}
 });
@@ -50144,12 +50151,12 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 1) ) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });
@@ -50271,12 +50278,13 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 2 - v.pactMag : 2;
-					output.magic += v.pactMag;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 2) ) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					output.magic += 2;
+					v.pactMag = 2;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +2 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +2 to its To Hit and Damage."
 		]
 	}
 });
@@ -50304,12 +50312,13 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 3 - v.pactMag : 3;
-					output.magic += v.pactMag;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 3) ) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					output.magic += 3;
+					v.pactMag = 3;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name or description, it will be treated as a Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +3 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +3 to its To Hit and Damage."
 		]
 	}
 });
@@ -56210,7 +56219,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
-		"Any pact weapon I create has a +1 magic weapon, if it isn't already a magic weapon"
+		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
 	]),
 	source : ["UA:RCO", 6],
 	submenu : "[improves Pact of the Blade]",
@@ -56218,12 +56227,12 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.thisWeapon[1] && (v.pactWeapon || (/\bpact\b/i).test(v.WeaponTextName))) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a weapon's name, it will be treated as my Pact Weapon. If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });

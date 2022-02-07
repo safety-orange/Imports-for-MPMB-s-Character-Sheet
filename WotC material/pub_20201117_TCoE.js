@@ -2322,6 +2322,11 @@ AddSubClass("cleric", "peace domain", {
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
+		"subclassfeature1.1" : {
+			name : "Implement of Peace",
+			description : "\n   " + "I gain proficiency in the Insight, Performance, or Persuasion skill (my choice)",
+			skillstxt : "Choose one from: Insight, Performance, or Persuasion"
+		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Balm of Peace",
 			source : [["T", 33]],
@@ -5251,13 +5256,13 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 		"My pact of the chain familiars gain an extra feature listing the extra bonuses they gain."]
 	}
 });
-AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact of the Talisman)", {
+AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact of the Talisman)", {
 	name : "Protection of the Talisman",
 	source : [["T", 71]],
 	submenu : "[improves Pact of the Talisman]",
 	description : "\n   When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll",
 	prereqeval : function(v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
+		return classes.known.warlock.level >= 7 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
 	usages: "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",

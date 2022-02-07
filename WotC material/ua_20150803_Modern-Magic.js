@@ -35,7 +35,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with sidearms and land vehicles",
 			weaponProfs : [false, false, ["Sidearms"]],
-			toolProfs : ["Hacking tools"]
+			toolProfs : ["Vehicles (land)"]
 		},
 		"subclassfeature1.2" : {
 			name : "Heart of the City",
@@ -247,13 +247,12 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", { // Still
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isRangedWeapon && ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) && (/\bpact\b/i).test(v.WeaponTextName)) {
+				if (v.isRangedWeapon && /firearm/i.test(v.theWea.type + " " + v.theWea.list) && /\bpact\b/i.test(v.WeaponTextName)) {
 					v.pactWeapon = true;
-					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as magical/i).test(fields.Description) && !v.pactWeapon) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				}
 			},
-			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon."
+			"If I include the word 'Pact' in a firearm weapon's name, it gets treated as my Pact Weapon.",
+			90
 		]
 	}
 });

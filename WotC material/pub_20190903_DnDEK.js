@@ -319,6 +319,7 @@ ClassList["sidekick-warrior"] = {
 ClassList["sidekick-spellcaster"] = {
 	setSidekickSpells : function (knownObj, lvlA) {
 		var spCast = CurrentSpells["sidekick-spellcaster"];
+		if (!spCast) return;
 		if (!spCast.selectCa) spCast.selectCa = [];
 		if (!spCast.selectSp) spCast.selectSp = [];
 		for (var knownType in knownObj) {
@@ -544,6 +545,7 @@ AddSubClass("sidekick-spellcaster", "mage", {
 			description : "\n   I can cast wizard cantrips/spells I know, using Intelligence as my spellcasting ability",
 			weaponsAdd : ["Fire Bolt"],
 			changeeval : function (lvlA, choiceA) {
+				if (!lvlA[1]) return;
 				// set the spells known for the level
 				var knownObj = {
 					Ca : {
@@ -596,6 +598,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 			description : "\n   I can cast cleric cantrips/spells I know, using Wisdom as my spellcasting ability",
 			weaponsAdd : ["Sacred Flame"],
 			changeeval : function (lvlA, choiceA) {
+				if (!lvlA[1]) return;
 				// set the spells known for the level
 				var knownObj = {
 					Ca : {

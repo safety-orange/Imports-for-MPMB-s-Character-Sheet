@@ -201,8 +201,7 @@ RaceList["fairy"] = {
 	trait : "Fairy"+
 	(typePF ? "\n \u2022 Fey: My " : "(") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")") +
 	"\n \u2022 Flight: I have flying speed equal to my walking speed, but can't use it when wearing medium or heavy armor."+
-	"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I can cast Faerie Fire and at 5th level I can cast Enlarge/Reduce. I can cast both spells without using a spell slot once per long rest each, as well as by using spell slots as normal."+
-	"\n \u2022 Fey Passage: I can squeeze through a space as narrow as 1 inch wide."
+	"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I can cast Faerie Fire and at 5th level I can cast Enlarge/Reduce. I can cast both spells without using a spell slot once per long rest each, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these, chosen when I select the race."
 };
 RaceList["harengon"] = {
 	regExpSearch : /harengon/i,

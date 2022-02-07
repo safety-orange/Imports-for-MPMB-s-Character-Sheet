@@ -38,16 +38,17 @@ MagicItemsList["hew"] = {
 	type : "weapon (battleaxe)",
 	rarity : "uncommon",
 	magicItemTable : "F",
-	description : "This rusty old battleaxe has runes in Dwarvish on its head which read \"Hew\". It deals maximum damage against plant creatures or an object made of wood. While carrying the axe and travelling through a forest, I feel uneasy. Its creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood.",
-	descriptionFull : "This rusty old battleaxe has runes in Dwarvish on the axe head which read \"Hew\". It deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe's creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.",
+	description : 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
+	descriptionFull : 'This rusty old battleaxe of dwarven manufacture has has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
 	weight : 4,
 	weaponsAdd : ["Hew"],
 	weaponOptions : {
 		baseWeapon : "battleaxe",
-		regExpSearch : /hew/i,
+		regExpSearch : /\bhew\b/i,
 		name : "Hew",
 		source : ["LMoP", 33],
-		description : "Versatile (1d10); Max damage against plant creatures and wooden objects"
+		description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
+		modifiers : [1,1]
 	}
 }
 MagicItemsList["lightbringer"] = {

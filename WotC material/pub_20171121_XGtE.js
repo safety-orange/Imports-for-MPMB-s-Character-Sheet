@@ -2574,12 +2574,11 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						var hasPactWeapon = GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade';
-						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || (hasPactWeapon && (/\bpact\b/i).test(v.WeaponTextName)) || (/^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i).test(v.WeaponText))) {
+						if (What('Cha Mod') > What(AbilityScores.abbreviations[fields.Mod - 1] + ' Mod') && (v.pactWeapon || v.theWea.pactWeapon || /^(?=.*hexblade)(?!.*((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b).*$/i.test(v.WeaponText))) {
 							fields.Mod = 6;
 						};
 					},
-					"If I include the word 'Hexblade' in the name of a weapon that is not two-handed, it gets treated as the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than the ability it would otherwise use. Alternatively, if I have the Pact of the Blade feature, this will also work if I include 'Pact' in the name of a weapon, regardless if it has the two-handed property."
+					"If I include the word 'Hexblade' in the name of a weapon that is not two-handed, it gets treated as the weapon I imbued to use Charisma instead of Strength or Dexterity, if my Charisma modifier is higher than the ability it would otherwise use. Alternatively, if I have the Pact of the Blade feature, this will also work for any weapons set to be my Pact Weapon."
 				]
 			}
 		},
@@ -2781,21 +2780,20 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 				}
-				if (!v.theWea.isMagicWeapon && !v.thisWeapon[1] && v.pactWeapon) {
-					v.pactMag = v.pactMag !== undefined ? 1 - v.pactMag : 1;
+				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					v.pactMag = 1;
 					output.magic += v.pactMag;
 				};
 			},
-			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n \u2022 If it doesn't already include a magical bonus in its name, the calculation will add +1 to its To Hit and Damage."
+			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n \u2022 If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage (for magic weapons that don't give a bonus like this, you'll have to add it to the modifier fields manually).",
+			290
 		],
 		atkAdd : [
 			function (fields, v) {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
-					fields.Proficiency = true;
-					if (!v.thisWeapon[1] && !v.theWea.isMagicWeapon && !(/counts as( a)? magical/i).test(fields.Description)) fields.Description += (fields.Description ? '; ' : '') + 'Counts as magical';
 				};
-			}, ""]
+			}, "", 90]
 	}
 });
 AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
@@ -5290,8 +5288,8 @@ MagicItemsList["pole of collapsing"] = {
 	source : [["X", 138], ["WBtW", 212]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "As an action while holding this 10 ft pole, I can speak a command word to have it collapse into a 1-ft-long rod. The poles weight doesn't change. As an action while holding the rod, I can speak a different command word to have it elongate back to a pole, but only as long as the surrounding space allows.",
-	descriptionFull : "While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The poles weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows.",
+	description : "As an action while holding this 10 ft pole, I can speak a command word to have it collapse into a 1-ft-long rod. The pole's weight doesn't change. As an action while holding the rod, I can speak a different command word to have it elongate back to a pole, but only as long as the surrounding space allows.",
+	descriptionFull : "While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The pole's weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows.",
 	weight : 7,
 	action : [["action", ""]]
 }

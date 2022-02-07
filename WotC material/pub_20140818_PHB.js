@@ -4040,7 +4040,7 @@ WeaponsList["thorn whip"] = {
 	type : "Cantrip",
 	damage : ["C", 6, "piercing"],
 	range : "Melee, 30 ft",
-	description : "Melee spell attack, pull target 10 ft closer to me",
+	description : "Melee spell attack, pull target up to 10 ft closer",
 	abilitytodamage : false
 };
 
@@ -4605,8 +4605,8 @@ SpellsList["thorn whip"] = {
 	components : "V,S,M",
 	compMaterial : "The stem of a plant with thorns",
 	duration : "Instantaneous",
-	description : "Melee spell attack for 1d6 Piercing dmg and pull crea 10 ft towards me; +1d6 at CL 5, 11, and 17",
-	descriptionCantripDie : "Melee spell attack for `CD`d6 Piercing dmg and pull crea 10 ft towards me",
+	description : "Melee spell atk for 1d6 Piercing dmg and pull crea up to 10 ft towards me; +1d6 at CL 5, 11, and 17",
+	descriptionCantripDie : "Melee spell attack for `CD`d6 Piercing dmg and pull crea up to 10 ft towards me",
 	descriptionFull : "You create a long, vine-like whip covered in thorns that lashes out at your command toward a creature in range. Make a melee spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and if the creature is Large or smaller, you pull the creature up to 10 feet closer to you." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
 SpellsList["thunderous smite"] = {
