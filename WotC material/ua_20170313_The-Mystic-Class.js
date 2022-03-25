@@ -612,8 +612,7 @@ AddSubClass("mystic", "wu jen-ua", {
 				name : "Arcane Dabbler",
 				"class" : "wizard",
 				level : [1, 3],
-				times : 3,
-				psionic : true
+				times : 3
 			}
 		},
 		"subclassfeature14" : {

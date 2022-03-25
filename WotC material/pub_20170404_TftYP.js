@@ -384,7 +384,7 @@ MagicItemsList["shatterspike"] = {
 		name : "Shatterspike",
 		source : ["TftYP", 229],
 		description : "Versatile (1d10); Against objects: always critical hit, can choose to deal bludgeoning damage",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }
 MagicItemsList["spear of backbiting"] = {
@@ -468,7 +468,7 @@ MagicItemsList["waythe"] = {
 		name : "Waythe",
 		source : ["TftYP", 229],
 		description : "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	usages : 7,
 	recovery : "dawn",
@@ -587,6 +587,7 @@ MagicItemsList["plantslayer longsword"] = {
 		regExpSearch : /^(?=.*plantslayer)(?=.*longsword).*$/i,
 		name : "Plantslayer Longsword",
 		source : ["TftYP", 70],
-		description : "Versatile (1d10); +2d6 damage vs. plants"
+		description : "Versatile (1d10); +2d6 damage vs. plants",
+		modifiers : [1, 1]
 	}
 }

@@ -250,7 +250,7 @@ MagicItemsList["hazirawn"] = {
 			name : "Hazirawn",
 			source : ["HotDQ", 94],
 			description : "Heavy, two-handed; +1d6 necrotic damage",
-			modifiers : [1,1]
+			modifiers : [1, 1]
 		}
 	},
 	"attuned" : {
@@ -383,6 +383,6 @@ MagicItemsList["dragontooth dagger"] = {
 		name : "Dragontooth Dagger",
 		source : ["RoT", 94],
 		description : "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \u0026 +2d6 acid damage",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }

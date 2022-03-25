@@ -705,7 +705,7 @@ MagicItemsList["lost sword"] = {
 		regExpSearch : /^(?=.*lost)(?=.*sword).*$/i,
 		name : "Lost Sword",
 		source : ["CoS", 81],
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	spellcastingBonus : {
 		name : "Once per dawn",

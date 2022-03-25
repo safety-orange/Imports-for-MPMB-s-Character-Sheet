@@ -180,7 +180,7 @@ MagicItemsList["drown"] = {
 		name : "Drown",
 		source : ["PotA", 224],
 		description : "Thrown, versatile (1d8); +1d8 cold damage",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	toNotesPage : [{
 		name : "Features",
@@ -325,7 +325,7 @@ MagicItemsList["reszur"] = {
 		name : "Reszur",
 		source : ["PotA", 157],
 		description : "Finesse, light, thrown; Doesn't make any noise",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }
 MagicItemsList["seeker dart"] = {

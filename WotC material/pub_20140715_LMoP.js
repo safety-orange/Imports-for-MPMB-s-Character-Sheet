@@ -48,7 +48,7 @@ MagicItemsList["hew"] = {
 		name : "Hew",
 		source : ["LMoP", 33],
 		description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }
 MagicItemsList["lightbringer"] = {

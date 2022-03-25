@@ -50,7 +50,7 @@ MagicItemsList["hew"] = {
 		name : "Hew",
 		source : ["LMoP", 33],
 		description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }
 MagicItemsList["lightbringer"] = {
@@ -5074,7 +5074,7 @@ MagicItemsList["hazirawn"] = {
 			name : "Hazirawn",
 			source : ["HotDQ", 94],
 			description : "Heavy, two-handed; +1d6 necrotic damage",
-			modifiers : [1,1]
+			modifiers : [1, 1]
 		}
 	},
 	"attuned" : {
@@ -5207,7 +5207,7 @@ MagicItemsList["dragontooth dagger"] = {
 		name : "Dragontooth Dagger",
 		source : ["RoT", 94],
 		description : "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \u0026 +2d6 acid damage",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }
 
@@ -7243,7 +7243,7 @@ MagicItemsList["drown"] = {
 		name : "Drown",
 		source : ["PotA", 224],
 		description : "Thrown, versatile (1d8); +1d8 cold damage",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	toNotesPage : [{
 		name : "Features",
@@ -7388,7 +7388,7 @@ MagicItemsList["reszur"] = {
 		name : "Reszur",
 		source : ["PotA", 157],
 		description : "Finesse, light, thrown; Doesn't make any noise",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }
 MagicItemsList["seeker dart"] = {
@@ -12169,7 +12169,7 @@ MagicItemsList["lost sword"] = {
 		regExpSearch : /^(?=.*lost)(?=.*sword).*$/i,
 		name : "Lost Sword",
 		source : ["CoS", 81],
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	spellcastingBonus : {
 		name : "Once per dawn",
@@ -14586,7 +14586,7 @@ MagicItemsList["shatterspike"] = {
 		name : "Shatterspike",
 		source : ["TftYP", 229],
 		description : "Versatile (1d10); Against objects: always critical hit, can choose to deal bludgeoning damage",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	}
 }
 MagicItemsList["spear of backbiting"] = {
@@ -14670,7 +14670,7 @@ MagicItemsList["waythe"] = {
 		name : "Waythe",
 		source : ["TftYP", 229],
 		description : "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	usages : 7,
 	recovery : "dawn",
@@ -14789,7 +14789,8 @@ MagicItemsList["plantslayer longsword"] = {
 		regExpSearch : /^(?=.*plantslayer)(?=.*longsword).*$/i,
 		name : "Plantslayer Longsword",
 		source : ["TftYP", 70],
-		description : "Versatile (1d10); +2d6 damage vs. plants"
+		description : "Versatile (1d10); +2d6 damage vs. plants",
+		modifiers : [1, 1]
 	}
 }
 
@@ -23242,7 +23243,7 @@ MagicItemsList["rakdos riteknife"] = {
 		name : "Rakdos Riteknife",
 		source : ["G", 180],
 		description : "Finesse, light, thrown; Imprisons soul on kill (max 5); +1d4 necrotic damage per stored soul",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	usages : 1,
 	recovery : "long rest",
@@ -33848,7 +33849,8 @@ AddFeatureChoice(ClassList.barbarian.features["danger sense"], true, "Primal Kno
 		"At 3rd level and again at 10th level I gain proficiency with one skill of my choice",
 		"I can choose from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival"
 	]),
-	skillstxt : "Choose one from Animal Handling, Athletics, Intimidation, Nature, Perception and Survival.\nChoose another from this list at 10th level"
+	skillstxt : "Choose one from Animal Handling, Athletics, Intimidation, Nature, Perception and Survival.\nChoose another from this list at 10th level",
+	prereqeval : function (v) { return classes.known.barbarian.level >= 3 ? true : "skip"; }
 }, "Optional 3rd-level barbarian features");
 AddFeatureChoice(ClassList.barbarian.features["feral instinct"], true, "Instinctive Pounce", {
 	name : "Instinctive Pounce",
@@ -39030,7 +39032,7 @@ MagicItemsList["moon sickle"] = {
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
 				},
-				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
 		weaponsAdd : ["Moon Sickle +1"]
@@ -39044,7 +39046,7 @@ MagicItemsList["moon sickle"] = {
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
 				},
-				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
 		weaponsAdd : ["Moon Sickle +2"]
@@ -39058,7 +39060,7 @@ MagicItemsList["moon sickle"] = {
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 3;
 				},
-				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
 		weaponsAdd : ["Moon Sickle +3"]
@@ -40358,7 +40360,7 @@ AddSubClass("warlock", "the undead",{
 		"subclassfeature6" : {
 			name : "Grave Touched",
 			source : [["VRGtR", 30]],
-			minlevel : 3,
+			minlevel : 6,
 			description : desc([
 				"I no longer need to eat, drink, or breathe",
                 "Once per turn if I damage a creature with an attack, I can change its type to necrotic",
@@ -40835,8 +40837,8 @@ RaceList["fairy"] = {
 	},
 	languageProfs : ["Common", 1],
 	age : " typically live to be around 100 years old",
-	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
 	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	spellcastingAbility : [4, 5, 6],
 	spellcastingBonus : {
@@ -40899,8 +40901,8 @@ RaceList["harengon"] = {
 	addMod : [{ type : "skill", field : "Init", mod : "Prof", text : "I can add my proficiency bonus to my initiative rolls." }],
 	languageProfs : ["Common", 1],
 	age : " typically live to be around 100 years old",
-	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
 	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	action : [["reaction", "Lucky Footwork"], ["bonus action", "Rabbit Hop"]],
 	features : {
@@ -41165,7 +41167,8 @@ MagicItemsList["woodcutter's axe"] = {
 		regExpSearch : /^(?=.*woodcutter)(?=.*axe).*$/i,
 		name : "Woodcutter's Axe",
 		source : [["WBtW", 214]],
-		description : "Heavy, two-handed; +2d6 damage vs. plants/wood"
+		description : "Heavy, two-handed; +2d6 damage vs. plants/wood",
+		modifiers : [1, 1]
 	}
 }
 var WBtW_Witchlight_Vane_Full_Description = [

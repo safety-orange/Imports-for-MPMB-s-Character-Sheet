@@ -1786,7 +1786,7 @@ MagicItemsList["rakdos riteknife"] = {
 		name : "Rakdos Riteknife",
 		source : ["G", 180],
 		description : "Finesse, light, thrown; Imprisons soul on kill (max 5); +1d4 necrotic damage per stored soul",
-		modifiers : [1,1]
+		modifiers : [1, 1]
 	},
 	usages : 1,
 	recovery : "long rest",

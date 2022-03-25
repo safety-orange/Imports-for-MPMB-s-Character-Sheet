@@ -152,8 +152,8 @@ RaceList["fairy"] = {
 	},
 	languageProfs : ["Common", 1],
 	age : " typically live to be around 100 years old",
-	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
 	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	spellcastingAbility : [4, 5, 6],
 	spellcastingBonus : {
@@ -216,8 +216,8 @@ RaceList["harengon"] = {
 	addMod : [{ type : "skill", field : "Init", mod : "Prof", text : "I can add my proficiency bonus to my initiative rolls." }],
 	languageProfs : ["Common", 1],
 	age : " typically live to be around 100 years old",
-	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Randome Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
+	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
 	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	action : [["reaction", "Lucky Footwork"], ["bonus action", "Rabbit Hop"]],
 	features : {
@@ -482,7 +482,8 @@ MagicItemsList["woodcutter's axe"] = {
 		regExpSearch : /^(?=.*woodcutter)(?=.*axe).*$/i,
 		name : "Woodcutter's Axe",
 		source : [["WBtW", 214]],
-		description : "Heavy, two-handed; +2d6 damage vs. plants/wood"
+		description : "Heavy, two-handed; +2d6 damage vs. plants/wood",
+		modifiers : [1, 1]
 	}
 }
 var WBtW_Witchlight_Vane_Full_Description = [

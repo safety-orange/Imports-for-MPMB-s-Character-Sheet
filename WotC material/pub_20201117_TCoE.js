@@ -1705,7 +1705,8 @@ AddFeatureChoice(ClassList.barbarian.features["danger sense"], true, "Primal Kno
 		"At 3rd level and again at 10th level I gain proficiency with one skill of my choice",
 		"I can choose from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival"
 	]),
-	skillstxt : "Choose one from Animal Handling, Athletics, Intimidation, Nature, Perception and Survival.\nChoose another from this list at 10th level"
+	skillstxt : "Choose one from Animal Handling, Athletics, Intimidation, Nature, Perception and Survival.\nChoose another from this list at 10th level",
+	prereqeval : function (v) { return classes.known.barbarian.level >= 3 ? true : "skip"; }
 }, "Optional 3rd-level barbarian features");
 AddFeatureChoice(ClassList.barbarian.features["feral instinct"], true, "Instinctive Pounce", {
 	name : "Instinctive Pounce",
@@ -7421,7 +7422,7 @@ MagicItemsList["moon sickle"] = {
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
 				},
-				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
 		weaponsAdd : ["Moon Sickle +1"]
@@ -7435,7 +7436,7 @@ MagicItemsList["moon sickle"] = {
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
 				},
-				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
 		weaponsAdd : ["Moon Sickle +2"]
@@ -7449,7 +7450,7 @@ MagicItemsList["moon sickle"] = {
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 3;
 				},
-				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my sorcerer spells."
+				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
 		weaponsAdd : ["Moon Sickle +3"]
