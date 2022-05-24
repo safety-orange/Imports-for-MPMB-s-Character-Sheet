@@ -7,6 +7,7 @@ SourceList.ToA={
 	name : "Tomb of Annihilation [backgrounds, beasts, items]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
 	date : "2017/09/19"
 };

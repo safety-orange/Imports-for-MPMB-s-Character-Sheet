@@ -60,7 +60,7 @@ AddSubClass("barbarian", "storm herald-ua", {
 			name : "Storm Aura",
 			source : ["UA:BPP", 2],
 			minlevel : 3,
-			description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the \"Choose Feature\" button above to select the aura",
+			description : "\n   " + 'While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the "Choose Feature" button above to select the aura',
 			choices : ["Desert", "Sea", "Tundra"],
 			"desert" : {
 				name : "Storm of Fury: Desert",
@@ -89,7 +89,7 @@ AddSubClass("barbarian", "storm herald-ua", {
 			name : "Storm Soul",
 			source : ["UA:BPP", 2],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -120,7 +120,7 @@ AddSubClass("barbarian", "storm herald-ua", {
 			name : "Raging Storm",
 			source : ["UA:BPP", 2],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -158,7 +158,7 @@ AddSubClass("barbarian", "zealot-ua", {
 			name : "Divine Fury",
 			source : ["UA:BPP", 2],
 			minlevel : 3,
-			description : "\n   " + "While raging, I can become cloaked in an aura of divine power until my rage ends" + "\n   " + "Choose a damage type using the \"Choose Feature\" button above",
+			description : "\n   " + 'While raging, I can become cloaked in an aura of divine power until my rage ends" + "\n   " + "Choose a damage type using the "Choose Feature" button above',
 			additional : ["", "", "1d6+1", "1d6+2", "1d6+2", "1d6+3", "1d6+3", "1d6+4", "1d6+4", "1d6+5", "1d6+5", "1d6+6", "1d6+6", "1d6+7", "1d6+7", "1d6+8", "1d6+8", "1d6+9", "1d6+9", "1d6+10"],
 			usages : 1,
 			recovery : "turn",

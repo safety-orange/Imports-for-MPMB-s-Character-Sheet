@@ -6,7 +6,7 @@ RequiredSheetVersion("13.1.0");
 SourceList.X={
 	name : "Xanathar's Guide to Everything",
 	abbreviation : "XGtE",
-	abbreviationSpellsheet: "X",
+	abbreviationSpellsheet : "X",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
 	date : "2017/11/21"
@@ -100,7 +100,7 @@ AddSubClass("barbarian", "storm herald", {
 			description : desc([
 				"While raging, I emanate a 10-ft radius aura, but not through total cover",
 				"The aura's features activate when I enter my rage or as a bonus action while raging",
-				"Use the \"Choose Feature\" button above to select the type of aura"
+				'Use the "Choose Feature" button above to select the type of aura'
 			]),
 			choices : ["Desert", "Sea", "Tundra"],
 			action : ["bonus action", " (reactivate)"],
@@ -144,7 +144,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Soul",
 			source : ["X", 10],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -202,7 +202,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Raging Storm",
 			source : ["X", 11],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -245,7 +245,7 @@ AddSubClass("barbarian", "zealot", {
 			description : desc([
 				"While raging, the first creature I hit with a weapon attack in my turn gets extra damage",
 				"This is necrotic or radiant damage equal to 1d6 + half my barbarian level",
-				"Choose a damage type using the \"Choose Feature\" button above"
+				'Choose a damage type using the "Choose Feature" button above'
 			]),
 			additional : levels.map(function (n) { return n < 3 ? "" : "+1d6+" + Math.floor(n/2) + " damage"; }),
 			choices : ["Necrotic Damage", "Radiant Damage"],
@@ -415,7 +415,7 @@ AddSubClass("bard", "college of swords", {
 			name : "Fighting Style",
 			source : ["X", 15],
 			minlevel : 3,
-			description : "\n   " + "Select a Fighting Style for the college of swords using the \"Choose Feature\" button above",
+			description : "\n   " + 'Select a Fighting Style for the college of swords using the "Choose Feature" button above',
 			choices : ["Dueling", "Two-Weapon Fighting"],
 			"dueling" : FightingStyles.dueling,
 			"two-weapon fighting" : FightingStyles.two_weapon
@@ -907,7 +907,7 @@ AddSubClass("fighter", "arcane archer", {
 				"I can unleash magical effects when I fire an arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
+				'Use the "Choose Feature" button above to add Arcane Shots Options to the third page'
 			]),
 			usages : 2,
 			recovery : "short rest",
@@ -1032,7 +1032,7 @@ AddSubClass("fighter", "cavalier", {
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with Animal Handling, History, Insight, Performance, or Persuasion",
-				"Alternatively, I learn one language; Use the \"Choose Feature\" button above for this"
+				'Alternatively, I learn one language; Use the "Choose Feature" button above for this'
 			]),
 			choices : ["Language proficiency", "Skill proficiency: Animal Handling, History, Insight, Performance, or Persuasion"],
 			"language proficiency" : {
@@ -1140,7 +1140,7 @@ AddSubClass("fighter", "samurai", {
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with History, Insight, Performance, or Persuasion",
-				"Alternatively, I learn one language; Use the \"Choose Feature\" button above for this"
+				'Alternatively, I learn one language; Use the "Choose Feature" button above for this'
 			]),
 			choices : ["Language proficiency", "Skill proficiency: History, Insight, Performance, or Persuasion"],
 			"language proficiency" : {
@@ -2061,7 +2061,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 			description : desc([
 				"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 				"These cleric spells count as sorcerer spells for me",
-				"I also learn a spell based on my affinity, use the \"Choose Feature\" button above for this"
+				'I also learn a spell based on my affinity, use the "Choose Feature" button above for this'
 			]),
 			choices : ["Good", "Evil", "Law", "Chaos", "Neutrality"],
 			"good" : {

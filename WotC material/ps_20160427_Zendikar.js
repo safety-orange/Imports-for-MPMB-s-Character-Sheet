@@ -8,6 +8,7 @@ SourceList["PS:Z"] = {
 	name : "Plane Shift: Zendikar", 
 	abbreviation : "PS:Z",
 	group : "Plane Shift",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://media.wizards.com/2016/downloads/magic/Plane%20Shift%20Zendikar.pdf",
 	date : "2016/04/27"
 };

@@ -6,8 +6,9 @@ RequiredSheetVersion("13.0.8");
 SourceList["RotF"] = {
 	name : "Icewind Dale: Rime of the Frostmaiden [creatures, items, spells]",
 	abbreviation : "RotF",
-	abbreviationSpellsheet: "RF",
+	abbreviationSpellsheet : "RF",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
 	date : "2020/09/15"
 };

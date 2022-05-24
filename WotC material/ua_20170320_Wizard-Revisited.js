@@ -82,7 +82,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Initiate",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
+				description : "\n   " + 'Choose a Cleric Domain using the "Choose Feature" button above' + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
 				calcChanges : {
 					spellList : [
 						function(spList, spName, spType) {
@@ -130,7 +130,7 @@ RunFunctionAtEnd(function() {
 				name : "Channel Arcana: Domain",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -138,7 +138,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Acolyte",
 				source : [["UA:TF", 3], ["UA:WR", 1]],
 				minlevel : 6,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -146,7 +146,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 10,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -154,7 +154,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane High Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 14,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			}

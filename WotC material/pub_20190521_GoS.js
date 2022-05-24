@@ -7,6 +7,7 @@ SourceList["GoS"] = {
 	name : "Ghosts of Saltmarsh [backgrounds, beasts, items]",
 	abbreviation : "GoS",
 	group : "Adventure Books",
+	campaignSetting : "Anthology",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/ghosts-saltmarsh",
 	date : "2019/05/21"
 };

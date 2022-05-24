@@ -4,11 +4,12 @@ RequiredSheetVersion("13.0.8");
 
 // Define the source
 SourceList.VRGtR = {
-	name: "Van Richten's Guide to Ravenloft",
-	abbreviation: "VRGtR",
-	group: "Primary Sources",
-	url: "https://dnd.wizards.com/products/van-richtens-guide-ravenloft",
-	date: "2021/05/18"
+	name : "Van Richten's Guide to Ravenloft",
+	abbreviation : "VRGtR",
+	group : "Primary Sources",
+	campaignSetting : "Ravenloft",
+	url : "https://dnd.wizards.com/products/van-richtens-guide-ravenloft",
+	date : "2021/05/18"
 };
 
 // Races

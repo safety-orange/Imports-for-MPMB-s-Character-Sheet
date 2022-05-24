@@ -49,7 +49,7 @@ ClassList.rangerua = {
 			name : "Favored Enemy",
 			source : ["UA:RR", 2],
 			minlevel : 1,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select a favored enemy" + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
+			description : "\n   " + 'Use the "Choose Feature" button above to select a favored enemy' + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
 			additional : levels.map(function (n) {
 				return (n < 6 ? "+2" : "+4") + " weapon attack damage";
 			}),
@@ -135,7 +135,7 @@ ClassList.rangerua = {
 			name : "Greater Favored Enemy",
 			source : ["UA:RR", 4],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select a greater favored enemy" + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
+			description : "\n   " + 'Use the "Choose Feature" button above to select a greater favored enemy' + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
 			additional : "+4 weapon attack damage",
 			choices : ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fiends", "Giants"],
 			"aberrations" : {
@@ -437,7 +437,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Hunter's Prey",
 			source : ["UA:RR", 7],
 			minlevel : 3,
-			description : "\n   " + "Choose Colossus Slayer, Giant Killer, or Horde Breaker with the \"Choose Feature\" button",
+			description : "\n   " + 'Choose Colossus Slayer, Giant Killer, or Horde Breaker with the "Choose Feature" button',
 			choices : ["Colossus Slayer", "Giant killer", "Horde Breaker"],
 			"colossus slayer" : {
 				name : "Hunter's Prey: Colossus Slayer",
@@ -457,7 +457,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Defensive Tactics",
 			source : ["UA:RR", 7],
 			minlevel : 7,
-			description : "\n   " + "\"Choose Feature\" button to choose Escape the Horde, Multiattack Defense, or Steel Will",
+			description : "\n   " + '"Choose Feature" button to choose Escape the Horde, Multiattack Defense, or Steel Will',
 			choices : ["Escape the Horde", "Multiattack Defense", "Steel Will"],
 			"escape the horde" : {
 				name : "Defensive Tactic: Escape the Horde",
@@ -477,7 +477,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Multiattack",
 			source : ["UA:RR", 7],
 			minlevel : 11,
-			description : "\n   " + "Choose Volley or Whirlwind Attack using the \"Choose Feature\" button above",
+			description : "\n   " + 'Choose Volley or Whirlwind Attack using the "Choose Feature" button above',
 			choices : ["Volley", "Whirlwind Attack"],
 			"volley" : {
 				name : "Multiattack: Volley",
@@ -494,7 +494,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Superior Hunter's Defense",
 			source : ["UA:RR", 7],
 			minlevel : 15,
-			description : "\n   " + "\"Choose Feature\" button to choose Evasion, Stand Against the Tide, or Uncanny Dodge",
+			description : "\n   " + '"Choose Feature" button to choose Evasion, Stand Against the Tide, or Uncanny Dodge',
 			choices : ["Evasion", "Stand Against the Tide", "Uncanny Dodge"],
 			"evasion" : {
 				name : "Evasion",

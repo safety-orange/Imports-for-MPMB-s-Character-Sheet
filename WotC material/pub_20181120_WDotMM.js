@@ -7,6 +7,7 @@ SourceList["WDotMM"] = {
 	name : "Waterdeep: Dungeon of the Mad Mage [items]",
 	abbreviation : "WDotMM",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/waterdeep-dungeon-mad-mage",
 	date : "2018/11/20"
 };

@@ -36,7 +36,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				"I learn the basics of scribing runes, and can activate all properties of a master rune",
 				"The first rune I master is the one I found to qualify to become a rune scribe",
 				"To use any features of a master rune, I need to first attune to it just like a magic item",
-				"Use the \"Choose Feature\" button above to add master runes to the third page"
+				'Use the "Choose Feature" button above to add master runes to the third page'
 			]),
 			extraname : "Master Rune",
 			extrachoices : ["Opal of the Ild Rune", "Orb of the Stein Rune", "Pennant of the Vind Rune", "Shard of the Kalt Rune"],	

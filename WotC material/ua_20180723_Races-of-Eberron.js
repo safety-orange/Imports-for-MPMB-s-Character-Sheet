@@ -8,6 +8,7 @@ SourceList["UA:RoE"] = {
 	name : "Unearthed Arcana: Races of Eberron",
 	abbreviation : "UA:RoE",
 	group : "Unearthed Arcana",
+	campaignSetting : "Eberron",
 	url : "https://media.wizards.com/2018/dnd/downloads/723UA_EberronRaces7232018.pdf",
 	date : "2018/07/23"
 };

@@ -7,6 +7,7 @@ SourceList["PotA"] = {
 	name : "Princes of the Apocalypse [items]",
 	abbreviation : "PotA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/princes-apocalypse",
 	date : "2015/04/07"
 };

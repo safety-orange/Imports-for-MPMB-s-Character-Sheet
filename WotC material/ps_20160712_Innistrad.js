@@ -8,7 +8,8 @@ SourceList["PS:I"] = {
 	name : "Plane Shift: Innistrad",
 	abbreviation : "PS:I",
 	group : "Plane Shift",
-	url : "https://bit.ly/29GAcW1",
+	campaignSetting : "Magic: The Gathering",
+	url : "https://media.wizards.com/2016/dnd/downloads/Plane_Shift_Innistrad.pdf",
 	date : "2016/07/12"
 };
 

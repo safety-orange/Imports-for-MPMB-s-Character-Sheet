@@ -123,7 +123,7 @@ ClassList['artificer-ua2'] = {
 			source : ["UA:A2", 5],
 			minlevel : 2,
 			description : desc([
-				"Use the \"Choose Feature\" button above to add Artificer Infusions to the third page",
+				'Use the "Choose Feature" button above to add Artificer Infusions to the third page',
 				"Whenever I gain an artificer level, I can replace an infusion I know with another"
 			]),
 			additional : levels.map(function (n) {
@@ -835,7 +835,7 @@ if (!MagicItemsList["returning weapon"]) {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && v.isWeapon && /^(?=.*returning)(?=.*\bthrown\b).*$/i.test(v.WeaponText) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
@@ -845,7 +845,7 @@ if (!MagicItemsList["returning weapon"]) {
 			],
 			atkCalc : [
 				function (fields, v, output) {
-					if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+					if (v.isWeapon && /^(?=.*returning)(?=.*\bthrown\b).*$/i.test(v.WeaponText) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
 						output.magic = v.thisWeapon[1] + 1;
 					}
 				}, ''

@@ -4,11 +4,12 @@ RequiredSheetVersion("13.0.8");
 // All content in this file contains contributions by Ratatoskr589
 
 SourceList.CM = {
-	name: "Candlekeep Mysteries",
-	abbreviation: "CM",
-	group: "Adventure Books",
-	url: "https://dnd.wizards.com/products/candlekeep-mysteries",
-	date: "2021/03/16"
+	name : "Candlekeep Mysteries",
+	abbreviation : "CM",
+	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
+	url : "https://dnd.wizards.com/products/candlekeep-mysteries",
+	date : "2021/03/16"
 };
 
 MagicItemsList["orcus figurine"] = {
@@ -149,7 +150,7 @@ MagicItemsList["gloves of soul catching"] = {
 	rarity : "legendary",	
 	notLegalAL : true,
 	attunement : true,
-	description : "My Constitution increases to 20 while wearing these gloves. After hitting with an unarmed strike while wearing these gloves, i can deal an extra 2d10 force damage to target and regain an equal amount of HP. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
+	description : "My Constitution increases to 20 while wearing these gloves. After hitting with an unarmed strike while wearing these gloves, I can deal an extra 2d10 force damage to target and regain an equal amount of HP. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	descriptionFull : "Your Constitution score is 20 while you wear these gloves. This property of the gloves has no effect on you if your Constitution is already 20 or higher."+
 	"\n   After making a successful unarmed strike while wearing these gloves, you can use the gloves to deal an extra 2d10 force damage to the target, and you regain a number of hit points equal to the force damage dealt. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	scoresOverride : [0, 0, 20, 0, 0, 0],

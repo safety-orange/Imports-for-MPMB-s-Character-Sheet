@@ -7,6 +7,7 @@ SourceList.HotDQ={
 	name : "Hoard of the Dragon Queen [background features, items]",
 	abbreviation : "HotDQ",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
 	date : "2014/08/19"
 };
@@ -14,6 +15,7 @@ SourceList.RoT = {
 	name : "Rise of Tiamat [items]",
 	abbreviation : "RoT",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rise-tiamat",
 	date : "2014/11/04"
 };

@@ -740,7 +740,10 @@ MagicItemsList["amethyst lodestone"] = {
 	type : "wondrous item",
 	rarity : "very rare",
 	attunement : true,
-	description : "This" + (typePF ? "" : " mineral") + " grants me adv. on Str saves. It has 6 charges, regain" + (typePF ? "s" : "ing") + " 1d6 at dawn. As an action, I can use" + (typePF ? "" : " its charges to") + ": \u2022 1 charge to get a fly speed equal to my walk speed for 10 min" + (typePF ? "" : "utes") + " and can hover. \u2022 1 charge to have a creature I can see in 60 ft make a DC 18 Str save or be pushed 20 ft in any direction. \u2022 3 charges to cast Reverse Gravity (DC 18).",
+	description : "This " + (typePF ? "" : "mineral ") + "grants me adv. on Str saves. It has 6 charges, regain" + (typePF ? "s" : "ing") + " 1d6 at dawn."+
+		(typePF ? " " : "\n") + "\u2022 1 charge, bonus action: I gain a fly speed equal to walk speed for 10 min and I can hover."+
+		(typePF ? " \u2022 1 charge, action: a creature I can see in 60 ft makes DC 18 Str save or pushed 20 ft in chosen direction." : "\n\u2022 1 charge, action: a creature I can see in 60 ft must make a DC 18 Str save or be pushed up to 20 ft in a direction of my choice.")+
+		" \u2022 3 charges, action: I cast Reverse Gravity (DC 18).",
 	descriptionFull : "This fist-sized chunk of amethyst is infused with an amethyst dragon's ability to bend gravitational forces. While you are carrying the lodestone, you have advantage on Strength saving throws."+
 	"\n   The lodestone has 6 charges for the following properties, which you can use while you are holding the stone. The stone regains 1d6 expended charges daily at dawn."+
 	"\n   " + toUni("Flight") + ". As a bonus action, you can expend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover."+
@@ -759,7 +762,7 @@ MagicItemsList["amethyst lodestone"] = {
 	},
 	advantages : [["Strength", true]],
 	savetxt : { text : ["Adv. on Str saves"] },
-	action : [["action", ""]]
+	action : [["bonus action", " (Flight)"], ["action", " (Grav. Thrust)"]]
 }
 MagicItemsList["crystal blade"] = {
 	name : "Crystal Blade",

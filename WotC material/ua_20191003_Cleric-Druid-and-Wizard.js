@@ -322,7 +322,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			source : ["UA:CDnW", 4],
 			minlevel : 6,
 			description : desc([
-				"Use the \"Choose Feature\" button above to add Resonants to the third page",
+				'Use the "Choose Feature" button above to add Resonants to the third page',
 				"Whenever I gain a wizard level, I can replace a Resonant I know with another"
 			]),
 			additional : levels.map(function (n) {

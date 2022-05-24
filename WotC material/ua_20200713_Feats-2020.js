@@ -5,11 +5,11 @@ RequiredSheetVersion("13.0.8");
 
 // Define the source
 SourceList["UA:F2"] = {
-	name: "Unearthed Arcana: Feats 2020",
-	abbreviation: "UA:F2",
-	group: "Unearthed Arcana",
-	url: "https://media.wizards.com/2020/dnd/downloads/UA2020_Feats.pdf",
-	date: "2020/07/13"
+	name : "Unearthed Arcana: Feats 2020",
+	abbreviation : "UA:F2",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2020/dnd/downloads/UA2020_Feats.pdf",
+	date : "2020/07/13"
 };
 
 // [dupl_start] (mostly) the same as in Tasha's Cauldron of Everything

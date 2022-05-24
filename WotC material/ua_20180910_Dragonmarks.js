@@ -8,6 +8,7 @@ SourceList["UA:D"] = {
 	name : "Unearthed Arcana: Dragonmarks",
 	abbreviation : "UA:D",
 	group : "Unearthed Arcana",
+	campaignSetting : "Eberron",
 	url : "https://media.wizards.com/2018/dnd/downloads/UA_Dragonmarks.pdf",
 	date : "2018/09/10"
 };

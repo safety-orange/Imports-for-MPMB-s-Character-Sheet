@@ -6,8 +6,8 @@ RequiredSheetVersion("13.1.0");
 SourceList.P={
 	name : "Player's Handbook",
 	abbreviation : "PHB",
-	abbreviationSpellsheet: "P",
-	group : "Primary Sources",
+	abbreviationSpellsheet : "P",
+	group : "Core Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 	date : "2014/08/19"
 };
@@ -221,7 +221,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name : "Totem Spirit",
 			source : ["P", 50],
 			minlevel : 3,
-			description : "\n   " + "Choose Bear, Eagle, Elk, Wolf, or Tiger Spirit using the \"Choose Feature\" button above",
+			description : "\n   " + 'Choose Bear, Eagle, Elk, Wolf, or Tiger Spirit using the "Choose Feature" button above',
 			choices : ["Bear", "Eagle", "Wolf"],
 			"bear" : {
 				name : "Bear Spirit",
@@ -248,7 +248,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name : "Aspect of the Beast",
 			source : ["P", 50],
 			minlevel : 6,
-			description : "\n   " + "Choose Bear, Eagle, Elk, Wolf, or Tiger Aspect using the \"Choose Feature\" button above",
+			description : "\n   " + 'Choose Bear, Eagle, Elk, Wolf, or Tiger Aspect using the "Choose Feature" button above',
 			choices : ["Bear", "Eagle", "Wolf"],
 			"bear" : {
 				name : "Aspect of the Bear",
@@ -286,7 +286,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name : "Totemic Attunement",
 			source : ["P", 50],
 			minlevel : 14,
-			description : "\n   " + "Choose Bear, Eagle, Elk, Wolf, or Tiger Attunement using the \"Choose Feature\" button",
+			description : "\n   " + 'Choose Bear, Eagle, Elk, Wolf, or Tiger Attunement using the "Choose Feature" button',
 			choices : ["Bear", "Eagle", "Wolf"],
 			"bear" : {
 				name : "Bear Attunement",
@@ -1043,7 +1043,7 @@ AddSubClass("monk", "way of the four elements", {
 			name : "Disciple of the Elements",
 			source : ["P", 80],
 			minlevel : 3,
-			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
+			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + 'Use the "Choose Feature" button above to add Elemental Disciplines to the third page' + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : ((n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " known; ") + (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " max ki";
 			}),
@@ -3823,7 +3823,7 @@ FeatsList["sharpshooter"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isRangedWeapon && fields.Proficiency && (/power.{0,3}attack|sharp.{0,3}shoo?t/i).test(v.WeaponText)) {
+				if (v.isRangedWeapon && fields.Proficiency && /power.{0,3}attack|sharp.{0,3}shoo?t/i.test(v.WeaponText) && !/\bthrown\b/i.test(fields.Description)) {
 					output.extraDmg += 10;
 					output.extraHit -= 5;
 				};

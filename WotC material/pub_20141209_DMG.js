@@ -6,7 +6,7 @@ RequiredSheetVersion("13.0.8");
 SourceList.D={
 	name : "Dungeon Master's Guide",
 	abbreviation : "DMG",
-	group : "Primary Sources",
+	group : "Core Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide",
 	date : "2014/12/09"
 };
@@ -1402,7 +1402,7 @@ MagicItemsList["whelm"] = {
 		name : "Whelm",
 		source : ["D", 218],
 		range : "Melee, 20/60 ft",
-		description : "Versatile (1d10), thrown; Returning; +1d8 damage when thrown (+2d8 vs. giants)",
+		description : "Versatile (1d10), thrown, returning; +1d8 damage when thrown (+2d8 vs. giants)",
 		modifiers : [3,3]
 	},
 	toNotesPage : [{

@@ -42,7 +42,7 @@ RunFunctionAtEnd(function() {
 				name : "Chosen of the Gods",
 				source : ["UA:MC", 8],
 				minlevel : 1,
-				description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "I add the chosen domain's spells to my known spells, when they are of a level I can cast" + "\n   " + "These count as sorcerer spells, but do not count against the number of spells I can know",
+				description : "\n   " + 'Choose a Cleric Domain using the "Choose Feature" button above' + "\n   " + "I add the chosen domain's spells to my known spells, when they are of a level I can cast" + "\n   " + "These count as sorcerer spells, but do not count against the number of spells I can know",
 				choices : []
 			},
 			"subclassfeature14" : {
@@ -132,7 +132,7 @@ ClassList["spell-less ranger"] = {
 			name : "Combat Maneuvers",
 			source : ["UA:MC", 6],
 			minlevel : 2,
-			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + 'Use the "Choose Feature" button above to add a Maneuver to the third page' + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : levels.map( function(n) {
 				if (n < 2) return "";
 				return (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " maneuvers known";

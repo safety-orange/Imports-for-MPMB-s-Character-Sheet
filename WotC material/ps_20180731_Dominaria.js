@@ -7,6 +7,7 @@ SourceList["PS:D"] = {
 	name : "Plane Shift: Dominaria", 
 	abbreviation : "PS:D",
 	group : "Plane Shift",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://media.wizards.com/2018/downloads/magic/Plane_Shift_Dominaria.pdf",
 	date : "2018/07/31"
 };

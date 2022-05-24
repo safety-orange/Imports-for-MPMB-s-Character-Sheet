@@ -9,6 +9,7 @@ SourceList["LMoP"] = {
 	name : "Lost Mines of Phandelver [items]",
 	abbreviation : "LMoP",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_starterset",
 	date : "2014/07/15"
 };
@@ -155,8 +156,8 @@ MagicItemsList["staff of defense"] = {
 SourceList.P={
 	name : "Player's Handbook",
 	abbreviation : "PHB",
-	abbreviationSpellsheet: "P",
-	group : "Primary Sources",
+	abbreviationSpellsheet : "P",
+	group : "Core Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
 	date : "2014/08/19"
 };
@@ -370,7 +371,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name : "Totem Spirit",
 			source : ["P", 50],
 			minlevel : 3,
-			description : "\n   " + "Choose Bear, Eagle, Elk, Wolf, or Tiger Spirit using the \"Choose Feature\" button above",
+			description : "\n   " + 'Choose Bear, Eagle, Elk, Wolf, or Tiger Spirit using the "Choose Feature" button above',
 			choices : ["Bear", "Eagle", "Wolf"],
 			"bear" : {
 				name : "Bear Spirit",
@@ -397,7 +398,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name : "Aspect of the Beast",
 			source : ["P", 50],
 			minlevel : 6,
-			description : "\n   " + "Choose Bear, Eagle, Elk, Wolf, or Tiger Aspect using the \"Choose Feature\" button above",
+			description : "\n   " + 'Choose Bear, Eagle, Elk, Wolf, or Tiger Aspect using the "Choose Feature" button above',
 			choices : ["Bear", "Eagle", "Wolf"],
 			"bear" : {
 				name : "Aspect of the Bear",
@@ -435,7 +436,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name : "Totemic Attunement",
 			source : ["P", 50],
 			minlevel : 14,
-			description : "\n   " + "Choose Bear, Eagle, Elk, Wolf, or Tiger Attunement using the \"Choose Feature\" button",
+			description : "\n   " + 'Choose Bear, Eagle, Elk, Wolf, or Tiger Attunement using the "Choose Feature" button',
 			choices : ["Bear", "Eagle", "Wolf"],
 			"bear" : {
 				name : "Bear Attunement",
@@ -1192,7 +1193,7 @@ AddSubClass("monk", "way of the four elements", {
 			name : "Disciple of the Elements",
 			source : ["P", 80],
 			minlevel : 3,
-			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + "Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page" + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
+			description : "\n   " + "I know Elemental Attunement and additional Elemental Disciplines, depending on level" + "\n   " + 'Use the "Choose Feature" button above to add Elemental Disciplines to the third page' + "\n   " + "From 5th level onward, I can use additional ki points to increase their spell slot level" + "\n   " + "I can trade known Elemental Disciplines for others when I gain new ones",
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : ((n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " known; ") + (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " max ki";
 			}),
@@ -3972,7 +3973,7 @@ FeatsList["sharpshooter"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isRangedWeapon && fields.Proficiency && (/power.{0,3}attack|sharp.{0,3}shoo?t/i).test(v.WeaponText)) {
+				if (v.isRangedWeapon && fields.Proficiency && /power.{0,3}attack|sharp.{0,3}shoo?t/i.test(v.WeaponText) && !/\bthrown\b/i.test(fields.Description)) {
 					output.extraDmg += 10;
 					output.extraHit -= 5;
 				};
@@ -4831,6 +4832,7 @@ SourceList.HotDQ={
 	name : "Hoard of the Dragon Queen [background features, items]",
 	abbreviation : "HotDQ",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
 	date : "2014/08/19"
 };
@@ -4838,6 +4840,7 @@ SourceList.RoT = {
 	name : "Rise of Tiamat [items]",
 	abbreviation : "RoT",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rise-tiamat",
 	date : "2014/11/04"
 };
@@ -5218,7 +5221,7 @@ MagicItemsList["dragontooth dagger"] = {
 SourceList.M={
 	name : "Monster Manual",
 	abbreviation : "MM",
-	group : "Primary Sources",
+	group : "Core Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual",
 	date : "2014/09/30"
 };
@@ -5636,7 +5639,7 @@ MagicItemsList["shield guardian amulet"] = {
 SourceList.D={
 	name : "Dungeon Master's Guide",
 	abbreviation : "DMG",
-	group : "Primary Sources",
+	group : "Core Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide",
 	date : "2014/12/09"
 };
@@ -7032,7 +7035,7 @@ MagicItemsList["whelm"] = {
 		name : "Whelm",
 		source : ["D", 218],
 		range : "Melee, 20/60 ft",
-		description : "Versatile (1d10), thrown; Returning; +1d8 damage when thrown (+2d8 vs. giants)",
+		description : "Versatile (1d10), thrown, returning; +1d8 damage when thrown (+2d8 vs. giants)",
 		modifiers : [3,3]
 	},
 	toNotesPage : [{
@@ -7070,6 +7073,7 @@ SourceList["PotA"] = {
 	name : "Princes of the Apocalypse [items]",
 	abbreviation : "PotA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/princes-apocalypse",
 	date : "2015/04/07"
 };
@@ -7912,8 +7916,9 @@ BackgroundFeatureList["phlan survivor"] = {
 SourceList.E={
 	name : "Elemental Evil Player's Companion", // November 2017 version
 	abbreviation : "EE",
-	abbreviationSpellsheet: "EE",
+	abbreviationSpellsheet : "EE",
 	group : "Primary Sources",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
 	date : "2015/04/16"
 };
@@ -8915,6 +8920,7 @@ SourceList["AL:RoD"]={
 	name : "Rage of Demons Backgrounds [Hillsfar]",
 	abbreviation : "AL:RoD",
 	group : "Adventurers League",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf",
 	date : "2015/07/14"
 };
@@ -9416,6 +9422,7 @@ SourceList.OotA={
 	name : "Out of the Abyss [beasts, background features, items]",
 	abbreviation : "OotA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
 	date : "2015/09/15"
 };
@@ -9883,6 +9890,7 @@ SourceList.S={
 	name : "Sword Coast Adventure Guide",
 	abbreviation : "SCAG",
 	group : "Primary Sources",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide",
 	date : "2015/11/03"
 };
@@ -11471,6 +11479,7 @@ SourceList.CoS={
 	name : "Curse of Strahd [background, items, pack]",
 	abbreviation : "CoS",
 	group : "Adventure Books",
+	campaignSetting : "Ravenloft",
 	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
 	date : "2016/03/15"
 };
@@ -12280,6 +12289,7 @@ SourceList.SKT={
 	name : "Storm King's Thunder [beasts, items]",
 	abbreviation : "SKT",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder",
 	date : "2016/09/06"
 };
@@ -14209,6 +14219,7 @@ SourceList.TftYP={
 	name : "Tales from the Yawning Portal [beasts, items]",
 	abbreviation : "TftYP",
 	group : "Adventure Books",
+	campaignSetting : "Anthology",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
 	date : "2017/04/04"
 };
@@ -14859,6 +14870,7 @@ SourceList.ToA={
 	name : "Tomb of Annihilation [backgrounds, beasts, items]",
 	abbreviation : "ToA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
 	date : "2017/09/19"
 };
@@ -15471,7 +15483,7 @@ RaceList["grung"] = {
 SourceList.X={
 	name : "Xanathar's Guide to Everything",
 	abbreviation : "XGtE",
-	abbreviationSpellsheet: "X",
+	abbreviationSpellsheet : "X",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
 	date : "2017/11/21"
@@ -15565,7 +15577,7 @@ AddSubClass("barbarian", "storm herald", {
 			description : desc([
 				"While raging, I emanate a 10-ft radius aura, but not through total cover",
 				"The aura's features activate when I enter my rage or as a bonus action while raging",
-				"Use the \"Choose Feature\" button above to select the type of aura"
+				'Use the "Choose Feature" button above to select the type of aura'
 			]),
 			choices : ["Desert", "Sea", "Tundra"],
 			action : ["bonus action", " (reactivate)"],
@@ -15609,7 +15621,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Storm Soul",
 			source : ["X", 10],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -15667,7 +15679,7 @@ AddSubClass("barbarian", "storm herald", {
 			name : "Raging Storm",
 			source : ["X", 11],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -15710,7 +15722,7 @@ AddSubClass("barbarian", "zealot", {
 			description : desc([
 				"While raging, the first creature I hit with a weapon attack in my turn gets extra damage",
 				"This is necrotic or radiant damage equal to 1d6 + half my barbarian level",
-				"Choose a damage type using the \"Choose Feature\" button above"
+				'Choose a damage type using the "Choose Feature" button above'
 			]),
 			additional : levels.map(function (n) { return n < 3 ? "" : "+1d6+" + Math.floor(n/2) + " damage"; }),
 			choices : ["Necrotic Damage", "Radiant Damage"],
@@ -15880,7 +15892,7 @@ AddSubClass("bard", "college of swords", {
 			name : "Fighting Style",
 			source : ["X", 15],
 			minlevel : 3,
-			description : "\n   " + "Select a Fighting Style for the college of swords using the \"Choose Feature\" button above",
+			description : "\n   " + 'Select a Fighting Style for the college of swords using the "Choose Feature" button above',
 			choices : ["Dueling", "Two-Weapon Fighting"],
 			"dueling" : FightingStyles.dueling,
 			"two-weapon fighting" : FightingStyles.two_weapon
@@ -16372,7 +16384,7 @@ AddSubClass("fighter", "arcane archer", {
 				"I can unleash magical effects when I fire an arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
+				'Use the "Choose Feature" button above to add Arcane Shots Options to the third page'
 			]),
 			usages : 2,
 			recovery : "short rest",
@@ -16497,7 +16509,7 @@ AddSubClass("fighter", "cavalier", {
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with Animal Handling, History, Insight, Performance, or Persuasion",
-				"Alternatively, I learn one language; Use the \"Choose Feature\" button above for this"
+				'Alternatively, I learn one language; Use the "Choose Feature" button above for this'
 			]),
 			choices : ["Language proficiency", "Skill proficiency: Animal Handling, History, Insight, Performance, or Persuasion"],
 			"language proficiency" : {
@@ -16605,7 +16617,7 @@ AddSubClass("fighter", "samurai", {
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with History, Insight, Performance, or Persuasion",
-				"Alternatively, I learn one language; Use the \"Choose Feature\" button above for this"
+				'Alternatively, I learn one language; Use the "Choose Feature" button above for this'
 			]),
 			choices : ["Language proficiency", "Skill proficiency: History, Insight, Performance, or Persuasion"],
 			"language proficiency" : {
@@ -17296,7 +17308,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 			description : desc([
 				"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
 				"These cleric spells count as sorcerer spells for me",
-				"I also learn a spell based on my affinity, use the \"Choose Feature\" button above for this"
+				'I also learn a spell based on my affinity, use the "Choose Feature" button above for this'
 			]),
 			choices : ["Good", "Evil", "Law", "Chaos", "Neutrality"],
 			"good" : {
@@ -20824,6 +20836,7 @@ SourceList["WDH"] = {
 	name : "Waterdeep: Dragon Heist [items]",
 	abbreviation : "WDH",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dragonheist",
 	date : "2018/09/18"
 };
@@ -21521,6 +21534,7 @@ SourceList.G = {
 	name : "Guildmasters' Guide to Ravnica",
 	abbreviation : "GGtR",
 	group : "Primary Sources",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/guildmasters-guide-ravnica",
 	date : "2018/11/20"
 };
@@ -23395,6 +23409,7 @@ SourceList["WDotMM"] = {
 	name : "Waterdeep: Dungeon of the Mad Mage [items]",
 	abbreviation : "WDotMM",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/waterdeep-dungeon-mad-mage",
 	date : "2018/11/20"
 };
@@ -23716,6 +23731,7 @@ SourceList["GoS"] = {
 	name : "Ghosts of Saltmarsh [backgrounds, beasts, items]",
 	abbreviation : "GoS",
 	group : "Adventure Books",
+	campaignSetting : "Anthology",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/ghosts-saltmarsh",
 	date : "2019/05/21"
 };
@@ -24183,8 +24199,9 @@ CreatureList["giant sea eel"] = {
 SourceList["AcqInc"] = {
 	name : "Acquisitions Incorporated",
 	abbreviation : "AcqInc",
-	abbreviationSpellsheet: "AI",
+	abbreviationSpellsheet : "AI",
 	group : "Primary Sources",
+	campaignSetting : "Penny Arcade",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/acqinc",
 	date : "2019/06/18"
 };
@@ -24645,7 +24662,7 @@ MagicItemsList["piercer"] = {
 SourceList["DnDEK"] = {
 	name : "Dungeons & Dragons Essentials Kit [sidekick classes]",
 	abbreviation : "DnDEK",
-	group : "Adventure Books",
+	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/essentials-kit",
 	date : "2019/09/03",
 	defaultExcluded : true
@@ -25262,6 +25279,7 @@ SourceList["DiA"] = {
 	name : "Baldur's Gate: Descent into Avernus [background, items]",
 	abbreviation : "DiA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/baldursgate_descent",
 	date : "2019/09/17"
 };
@@ -25787,6 +25805,7 @@ SourceList["E:RLW"] = {
 	name : "Eberron: Rising from the Last War",
 	abbreviation : "E:RLW",
 	group : "Primary Sources",
+	campaignSetting : "Eberron",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/eberron",
 	date : "2019/11/19"
 };
@@ -28313,7 +28332,7 @@ MagicItemsList["returning weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+				if (!v.theWea.isMagicWeapon && v.isWeapon && /^(?=.*returning)(?=.*\bthrown\b).*$/i.test(v.WeaponText) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
@@ -28323,7 +28342,7 @@ MagicItemsList["returning weapon"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+				if (v.isWeapon && /^(?=.*returning)(?=.*\bthrown\b).*$/i.test(v.WeaponText) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			}, ''
@@ -29092,8 +29111,9 @@ CreatureList["fastieth"] = {
 SourceList.W = {
 	name : "Explorer's Guide to Wildemount",
 	abbreviation : "EGtW",
-	abbreviationSpellsheet: "W",
+	abbreviationSpellsheet : "W",
 	group : "Primary Sources",
+	campaignSetting : "Critical Role",
 	url : "https://dnd.wizards.com/products/wildemount",
 	date : "2020/03/17"
 };
@@ -31891,6 +31911,7 @@ SourceList.MOT = {
 	name : "Mythic Odysseys of Theros",
 	abbreviation : "MOT",
 	group : "Primary Sources",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/mythic-odysseys-theros",
 	date : "2020/07/21"
 };
@@ -32593,8 +32614,9 @@ MagicItemsList["two-birds sling"] = {
 SourceList["RotF"] = {
 	name : "Icewind Dale: Rime of the Frostmaiden [creatures, items, spells]",
 	abbreviation : "RotF",
-	abbreviationSpellsheet: "RF",
+	abbreviationSpellsheet : "RF",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
 	date : "2020/09/15"
 };
@@ -33433,7 +33455,7 @@ SpellsList["frost fingers"] = { // contains contributions by BraabHimself
 SourceList.T = {
 	name : "Tasha's Cauldron of Everything",
 	abbreviation : "TCoE",
-	abbreviationSpellsheet: "T",
+	abbreviationSpellsheet : "T",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tashas-cauldron-everything",
 	date : "2020/11/17"
@@ -34860,8 +34882,12 @@ AddFightingStyle(["fighter", "ranger"], "Thrown Weapon Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
-					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
+				if (v.isWeapon && /\bthrown\b/i.test(fields.Description) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+					if (v.isMeleeWeapon) {
+						fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
+					} else {
+						v.Damage_Bonus += 2;
+					}
 				};
 			},
 			"I deal +2 damage when I hit a ranged attack made with a thrown weapon."
@@ -38943,7 +38969,7 @@ MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
 	attunement : true,
 	prerequisite : "Requires attunement by a sorcerer",
 	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
-	description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+	description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attuned to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
 	descriptionFull : "To attune to this vial, you must place a few drops of your blood into it. The vial can't be opened while your attunement to it lasts. If your attunement to the vial ends, the contained blood turns to ash. You can use the vial as a spellcasting focus for your spells while wearing or holding it, and you gain a bonus to spell attack rolls and to the saving throw DCs of your sorcerer spells. The bonus is determined by the vial's rarity."+
 	"\n   In addition, when you roll any Hit Dice to recover hit points while you are carrying the vial, you can regain 5 sorcery points. This property of the vial can't be used again until the next dawn.",
 	usages : 1,
@@ -39748,11 +39774,12 @@ MagicItemsList["nature's mantle"] = {
 // All content in this file contains contributions by Ratatoskr589
 
 SourceList.CM = {
-	name: "Candlekeep Mysteries",
-	abbreviation: "CM",
-	group: "Adventure Books",
-	url: "https://dnd.wizards.com/products/candlekeep-mysteries",
-	date: "2021/03/16"
+	name : "Candlekeep Mysteries",
+	abbreviation : "CM",
+	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
+	url : "https://dnd.wizards.com/products/candlekeep-mysteries",
+	date : "2021/03/16"
 };
 
 MagicItemsList["orcus figurine"] = {
@@ -39893,7 +39920,7 @@ MagicItemsList["gloves of soul catching"] = {
 	rarity : "legendary",	
 	notLegalAL : true,
 	attunement : true,
-	description : "My Constitution increases to 20 while wearing these gloves. After hitting with an unarmed strike while wearing these gloves, i can deal an extra 2d10 force damage to target and regain an equal amount of HP. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
+	description : "My Constitution increases to 20 while wearing these gloves. After hitting with an unarmed strike while wearing these gloves, I can deal an extra 2d10 force damage to target and regain an equal amount of HP. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	descriptionFull : "Your Constitution score is 20 while you wear these gloves. This property of the gloves has no effect on you if your Constitution is already 20 or higher."+
 	"\n   After making a successful unarmed strike while wearing these gloves, you can use the gloves to deal an extra 2d10 force damage to the target, and you regain a number of hit points equal to the force damage dealt. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	scoresOverride : [0, 0, 20, 0, 0, 0],
@@ -39986,11 +40013,12 @@ MagicItemsList["nether scroll of azumar"] = {
 
 // Define the source
 SourceList.VRGtR = {
-	name: "Van Richten's Guide to Ravenloft",
-	abbreviation: "VRGtR",
-	group: "Primary Sources",
-	url: "https://dnd.wizards.com/products/van-richtens-guide-ravenloft",
-	date: "2021/05/18"
+	name : "Van Richten's Guide to Ravenloft",
+	abbreviation : "VRGtR",
+	group : "Primary Sources",
+	campaignSetting : "Ravenloft",
+	url : "https://dnd.wizards.com/products/van-richtens-guide-ravenloft",
+	date : "2021/05/18"
 };
 
 // Races
@@ -40688,11 +40716,11 @@ FeatsList["living shadow"] = MagicItemsList["living shadow"];
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
 SourceList.WBtW = {
-	name: "The Wild Beyond the Witchlight",
-	abbreviation: "WBtW",
-	group: "Adventure Books",
-	url: "https://dnd.wizards.com/products/wild-beyond-witchlight",
-	date: "2021/09/21"
+	name : "The Wild Beyond the Witchlight",
+	abbreviation : "WBtW",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/wild-beyond-witchlight",
+	date : "2021/09/21"
 };
 
 // Backgrounds
@@ -42117,7 +42145,10 @@ MagicItemsList["amethyst lodestone"] = {
 	type : "wondrous item",
 	rarity : "very rare",
 	attunement : true,
-	description : "This" + (typePF ? "" : " mineral") + " grants me adv. on Str saves. It has 6 charges, regain" + (typePF ? "s" : "ing") + " 1d6 at dawn. As an action, I can use" + (typePF ? "" : " its charges to") + ": \u2022 1 charge to get a fly speed equal to my walk speed for 10 min" + (typePF ? "" : "utes") + " and can hover. \u2022 1 charge to have a creature I can see in 60 ft make a DC 18 Str save or be pushed 20 ft in any direction. \u2022 3 charges to cast Reverse Gravity (DC 18).",
+	description : "This " + (typePF ? "" : "mineral ") + "grants me adv. on Str saves. It has 6 charges, regain" + (typePF ? "s" : "ing") + " 1d6 at dawn."+
+		(typePF ? " " : "\n") + "\u2022 1 charge, bonus action: I gain a fly speed equal to walk speed for 10 min and I can hover."+
+		(typePF ? " \u2022 1 charge, action: a creature I can see in 60 ft makes DC 18 Str save or pushed 20 ft in chosen direction." : "\n\u2022 1 charge, action: a creature I can see in 60 ft must make a DC 18 Str save or be pushed up to 20 ft in a direction of my choice.")+
+		" \u2022 3 charges, action: I cast Reverse Gravity (DC 18).",
 	descriptionFull : "This fist-sized chunk of amethyst is infused with an amethyst dragon's ability to bend gravitational forces. While you are carrying the lodestone, you have advantage on Strength saving throws."+
 	"\n   The lodestone has 6 charges for the following properties, which you can use while you are holding the stone. The stone regains 1d6 expended charges daily at dawn."+
 	"\n   " + toUni("Flight") + ". As a bonus action, you can expend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover."+
@@ -42136,7 +42167,7 @@ MagicItemsList["amethyst lodestone"] = {
 	},
 	advantages : [["Strength", true]],
 	savetxt : { text : ["Adv. on Str saves"] },
-	action : [["action", ""]]
+	action : [["bonus action", " (Flight)"], ["action", " (Grav. Thrust)"]]
 }
 MagicItemsList["crystal blade"] = {
 	name : "Crystal Blade",
@@ -43146,12 +43177,13 @@ CreatureList["giant canary"] = {
 
 // Define the source
 SourceList.SCC = {
-	name: "Strixhaven: A Curriculum of Chaos",
-	abbreviation: "SCC",
-	abbreviationSpellsheet: "SC",
-	group: "Primary Sources",
-	url: "https://dnd.wizards.com/products/strixhaven-curriculum-chaos",
-	date: "2021/12/07"
+	name : "Strixhaven: A Curriculum of Chaos",
+	abbreviation : "SCC",
+	abbreviationSpellsheet : "SC",
+	group : "Adventure Books",
+	campaignSetting : "Magic: The Gathering",
+	url : "https://dnd.wizards.com/products/strixhaven-curriculum-chaos",
+	date : "2021/12/07"
 };
 
 // Race
@@ -44175,6 +44207,7 @@ SourceList["UA:E"] = {
 	name : "Unearthed Arcana: Eberron",
 	abbreviation : "UA:E",
 	group : "Unearthed Arcana",
+	campaignSetting : "Eberron",
 	url : "https://media.wizards.com/2015/downloads/dnd/UA_Eberron_v1.1.pdf",
 	date : "2015/02/02"
 };
@@ -44572,7 +44605,7 @@ RunFunctionAtEnd(function() {
 				name : "Chosen of the Gods",
 				source : ["UA:MC", 8],
 				minlevel : 1,
-				description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "I add the chosen domain's spells to my known spells, when they are of a level I can cast" + "\n   " + "These count as sorcerer spells, but do not count against the number of spells I can know",
+				description : "\n   " + 'Choose a Cleric Domain using the "Choose Feature" button above' + "\n   " + "I add the chosen domain's spells to my known spells, when they are of a level I can cast" + "\n   " + "These count as sorcerer spells, but do not count against the number of spells I can know",
 				choices : []
 			},
 			"subclassfeature14" : {
@@ -44662,7 +44695,7 @@ ClassList["spell-less ranger"] = {
 			name : "Combat Maneuvers",
 			source : ["UA:MC", 6],
 			minlevel : 2,
-			description : "\n   " + "Use the \"Choose Feature\" button above to add a Maneuver to the third page" + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description : "\n   " + 'Use the "Choose Feature" button above to add a Maneuver to the third page' + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			additional : levels.map( function(n) {
 				if (n < 2) return "";
 				return (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " maneuvers known";
@@ -44954,6 +44987,7 @@ SourceList["UA:MM"] = {
 	name : "Unearthed Arcana: Modern Magic",
 	abbreviation : "UA:MM",
 	group : "Unearthed Arcana",
+	campaignSetting : "Modern",
 	url : "https://media.wizards.com/2015/downloads/dnd/UA_ModernMagic.pdf",
 	date : "2015/08/03"
 };
@@ -45609,7 +45643,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				"I learn the basics of scribing runes, and can activate all properties of a master rune",
 				"The first rune I master is the one I found to qualify to become a rune scribe",
 				"To use any features of a master rune, I need to first attune to it just like a magic item",
-				"Use the \"Choose Feature\" button above to add master runes to the third page"
+				'Use the "Choose Feature" button above to add master runes to the third page'
 			]),
 			extraname : "Master Rune",
 			extrachoices : ["Opal of the Ild Rune", "Orb of the Stein Rune", "Pennant of the Vind Rune", "Shard of the Kalt Rune"],	
@@ -47004,7 +47038,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Initiate",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "Choose a Cleric Domain using the \"Choose Feature\" button above" + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
+				description : "\n   " + 'Choose a Cleric Domain using the "Choose Feature" button above' + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
 				calcChanges : {
 					spellList : [
 						function(spList, spName, spType) {
@@ -47052,7 +47086,7 @@ RunFunctionAtEnd(function() {
 				name : "Channel Arcana: Domain",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -47060,7 +47094,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Acolyte",
 				source : [["UA:TF", 3], ["UA:WR", 1]],
 				minlevel : 6,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -47068,7 +47102,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 10,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -47076,7 +47110,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane High Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 14,
-				description : "\n   " + "Use the \"Choose Feature\" button above to select the domain",
+				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
 				choices : [],
 				choicesNotInMenu : true
 			}
@@ -47202,7 +47236,7 @@ ClassList.rangerua = {
 			name : "Favored Enemy",
 			source : ["UA:RR", 2],
 			minlevel : 1,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select a favored enemy" + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
+			description : "\n   " + 'Use the "Choose Feature" button above to select a favored enemy' + "\n   " + "Choose from beasts, fey, humanoids, monstrosities, or undead" + "\n   " + "I get a bonus to damage rolls with weapon attacks against the chosen favored enemy" + "\n   " + "I have adv. on Wis (Survival) to track and Int checks to recall info about them" + "\n   " + "I also learn one language of my choice, typically one associated with the favored enemy",
 			additional : levels.map(function (n) {
 				return (n < 6 ? "+2" : "+4") + " weapon attack damage";
 			}),
@@ -47288,7 +47322,7 @@ ClassList.rangerua = {
 			name : "Greater Favored Enemy",
 			source : ["UA:RR", 4],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select a greater favored enemy" + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
+			description : "\n   " + 'Use the "Choose Feature" button above to select a greater favored enemy' + "\n   " + "Choose from aberrations, celestials, constructs, dragons, elementals, fiends, or giants" + "\n   " + "I get all the bonuses from Favored Enemy for this creature type as well" + "\n   " + "Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
 			additional : "+4 weapon attack damage",
 			choices : ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fiends", "Giants"],
 			"aberrations" : {
@@ -47590,7 +47624,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Hunter's Prey",
 			source : ["UA:RR", 7],
 			minlevel : 3,
-			description : "\n   " + "Choose Colossus Slayer, Giant Killer, or Horde Breaker with the \"Choose Feature\" button",
+			description : "\n   " + 'Choose Colossus Slayer, Giant Killer, or Horde Breaker with the "Choose Feature" button',
 			choices : ["Colossus Slayer", "Giant killer", "Horde Breaker"],
 			"colossus slayer" : {
 				name : "Hunter's Prey: Colossus Slayer",
@@ -47610,7 +47644,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Defensive Tactics",
 			source : ["UA:RR", 7],
 			minlevel : 7,
-			description : "\n   " + "\"Choose Feature\" button to choose Escape the Horde, Multiattack Defense, or Steel Will",
+			description : "\n   " + '"Choose Feature" button to choose Escape the Horde, Multiattack Defense, or Steel Will',
 			choices : ["Escape the Horde", "Multiattack Defense", "Steel Will"],
 			"escape the horde" : {
 				name : "Defensive Tactic: Escape the Horde",
@@ -47630,7 +47664,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Multiattack",
 			source : ["UA:RR", 7],
 			minlevel : 11,
-			description : "\n   " + "Choose Volley or Whirlwind Attack using the \"Choose Feature\" button above",
+			description : "\n   " + 'Choose Volley or Whirlwind Attack using the "Choose Feature" button above',
 			choices : ["Volley", "Whirlwind Attack"],
 			"volley" : {
 				name : "Multiattack: Volley",
@@ -47647,7 +47681,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			name : "Superior Hunter's Defense",
 			source : ["UA:RR", 7],
 			minlevel : 15,
-			description : "\n   " + "\"Choose Feature\" button to choose Evasion, Stand Against the Tide, or Uncanny Dodge",
+			description : "\n   " + '"Choose Feature" button to choose Evasion, Stand Against the Tide, or Uncanny Dodge',
 			choices : ["Evasion", "Stand Against the Tide", "Uncanny Dodge"],
 			"evasion" : {
 				name : "Evasion",
@@ -47787,7 +47821,7 @@ AddSubClass("barbarian", "storm herald-ua", {
 			name : "Storm Aura",
 			source : ["UA:BPP", 2],
 			minlevel : 3,
-			description : "\n   " + "While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the \"Choose Feature\" button above to select the aura",
+			description : "\n   " + 'While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the "Choose Feature" button above to select the aura',
 			choices : ["Desert", "Sea", "Tundra"],
 			"desert" : {
 				name : "Storm of Fury: Desert",
@@ -47816,7 +47850,7 @@ AddSubClass("barbarian", "storm herald-ua", {
 			name : "Storm Soul",
 			source : ["UA:BPP", 2],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -47847,7 +47881,7 @@ AddSubClass("barbarian", "storm herald-ua", {
 			name : "Raging Storm",
 			source : ["UA:BPP", 2],
 			minlevel : 14,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the effect",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
 			choicesNotInMenu : true,
 			"desert" : {
@@ -47885,7 +47919,7 @@ AddSubClass("barbarian", "zealot-ua", {
 			name : "Divine Fury",
 			source : ["UA:BPP", 2],
 			minlevel : 3,
-			description : "\n   " + "While raging, I can become cloaked in an aura of divine power until my rage ends" + "\n   " + "Choose a damage type using the \"Choose Feature\" button above",
+			description : "\n   " + 'While raging, I can become cloaked in an aura of divine power until my rage ends" + "\n   " + "Choose a damage type using the "Choose Feature" button above',
 			additional : ["", "", "1d6+1", "1d6+2", "1d6+2", "1d6+3", "1d6+3", "1d6+4", "1d6+4", "1d6+5", "1d6+5", "1d6+6", "1d6+6", "1d6+7", "1d6+7", "1d6+8", "1d6+8", "1d6+9", "1d6+9", "1d6+10"],
 			usages : 1,
 			recovery : "turn",
@@ -48574,7 +48608,7 @@ AddSubClass("fighter", "arcane archer-ua", {
 			name : "Arcane Shot",
 			source : ["UA:FMA", 1],
 			minlevel : 3,
-			description : "\n   " + "Use the \"Choose Feature\" button above to add Arcane Shots to the third page",
+			description : "\n   " + 'Use the "Choose Feature" button above to add Arcane Shots to the third page',
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " known"; }),
 			extraname : "Arcane Shot",
 			extrachoices : ["Beguiling Arrow", "Brute Bane Arrow", "Bursting Arrow", "Defending Arrow", "Grasping Arrow", "Piercing Arrow", "Seeking Arrow", "Shadow Arrow"],
@@ -49426,7 +49460,7 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 			name : "Blessed Countenance",
 			source : ["UA:SO", 1],
 			minlevel : 6,
-			description : "\n   " + "Choose an otherworldly quality using the \"Choose Feature\" button above" + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus",
+			description : "\n   " + 'Choose an otherworldly quality using the "Choose Feature" button above' + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus",
 			choices : ["Beautiful", "Youthful", "Kind", "Imposing"],
 			"beautiful" : {
 				name : "Beautiful",
@@ -55464,7 +55498,7 @@ AddSubClass("bard", "college of swords2-ua", {
 			name : "Fighting Style",
 			source : ["UA:RS", 2],
 			minlevel : 3,
-			description : "\n   " + "Select a Fighting Style for the college of swords using the \"Choose Feature\" button above",
+			description : "\n   " + 'Select a Fighting Style for the college of swords using the "Choose Feature" button above',
 			choices : ["Dueling", "Two-Weapon Fighting"],
 			"dueling" : FightingStyles.dueling,
 			"two-weapon fighting" : FightingStyles.two_weapon
@@ -55533,7 +55567,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 				"I can unleash magical effects when I fire a magic arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
+				'Use the "Choose Feature" button above to add Arcane Shots Options to the third page'
 			]),
 			usages : 2,
 			recovery : "short rest",
@@ -55774,7 +55808,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 			source : ["UA:RS", 5],
 			minlevel : 14,
 			description : desc([
-				"Choose an otherworldly quality using the \"Choose Feature\" button above",
+				'Choose an otherworldly quality using the "Choose Feature" button above',
 				"As a bonus action, I can manifest a pair of spectral wings that give me 30 ft fly speed",
 				"These wings last until I become incapacitated or I dismiss them as a bonus action"
 			]),
@@ -57228,7 +57262,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			source : ["UA:GSS", 1],
 			minlevel : 1,
 			description : desc([
-				"Choose a giant heritage using the \"Choose Feature\" button above",
+				'Choose a giant heritage using the "Choose Feature" button above',
 				"I learn spells based on my giant heritage, which I add to my known spells"
 			]),
 			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
@@ -57316,7 +57350,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			name : "Soul of Lost Ostoria",
 			source : ["UA:GSS", 1],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the giant heritage",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the giant heritage',
 			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
 			choicesNotInMenu : true,
 			"cloud giant" : {
@@ -57423,6 +57457,7 @@ SourceList["UA:RoE"] = {
 	name : "Unearthed Arcana: Races of Eberron",
 	abbreviation : "UA:RoE",
 	group : "Unearthed Arcana",
+	campaignSetting : "Eberron",
 	url : "https://media.wizards.com/2018/dnd/downloads/723UA_EberronRaces7232018.pdf",
 	date : "2018/07/23"
 };
@@ -57843,6 +57878,7 @@ SourceList["UA:MIoE"] = {
 	name : "Unearthed Arcana: Magic Items of Eberron",
 	abbreviation : "UA:MIoE",
 	group : "Unearthed Arcana",
+	campaignSetting : "Eberron",
 	url : "https://media.wizards.com/2018/dnd/downloads/UA_Magic_Items_of_Eberron.pdf",
 	date : "2018/08/10"
 };
@@ -57974,6 +58010,7 @@ SourceList["UA:RoR"] = {
 	name : "Unearthed Arcana: Races of Ravnica",
 	abbreviation : "UA:RoR",
 	group : "Unearthed Arcana",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://media.wizards.com/2018/dnd/downloads/UA_RavnicaRaces.pdf",
 	date : "2018/08/13"
 };
@@ -58231,6 +58268,7 @@ SourceList["UA:D"] = {
 	name : "Unearthed Arcana: Dragonmarks",
 	abbreviation : "UA:D",
 	group : "Unearthed Arcana",
+	campaignSetting : "Eberron",
 	url : "https://media.wizards.com/2018/dnd/downloads/UA_Dragonmarks.pdf",
 	date : "2018/09/10"
 };
@@ -60030,7 +60068,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			source : ["UA:CDnW", 4],
 			minlevel : 6,
 			description : desc([
-				"Use the \"Choose Feature\" button above to add Resonants to the third page",
+				'Use the "Choose Feature" button above to add Resonants to the third page',
 				"Whenever I gain a wizard level, I can replace a Resonant I know with another"
 			]),
 			additional : levels.map(function (n) {
@@ -60704,8 +60742,12 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting (ua)"
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
-					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
+				if (v.isWeapon && /\bthrown\b/i.test(fields.Description) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+					if (v.isMeleeWeapon) {
+						fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
+					} else {
+						v.Damage_Bonus += 1;
+					}
 				};
 			},
 			"I deal +1 damage when I hit a ranged attack made with a thrown weapon."
@@ -63489,11 +63531,11 @@ AddSubClass("wizard","order of scribes-ua", {
 
 // Define the source
 SourceList["UA:F2"] = {
-	name: "Unearthed Arcana: Feats 2020",
-	abbreviation: "UA:F2",
-	group: "Unearthed Arcana",
-	url: "https://media.wizards.com/2020/dnd/downloads/UA2020_Feats.pdf",
-	date: "2020/07/13"
+	name : "Unearthed Arcana: Feats 2020",
+	abbreviation : "UA:F2",
+	group : "Unearthed Arcana",
+	url : "https://media.wizards.com/2020/dnd/downloads/UA2020_Feats.pdf",
+	date : "2020/07/13"
 };
 
 FeatsList["crusher-ua"] = {
@@ -64185,6 +64227,7 @@ SourceList["UA:GL"] = {
 	name : "Unearthed Arcana: Gothic Lineages",
 	abbreviation : "UA:GL",
 	group : "Unearthed Arcana",
+	campaignSetting : "Ravenloft",
 	url : "https://media.wizards.com/2021/dnd/downloads/UA2021_GothicLineages.pdf",
 	date : "2021/01/26"
 };
@@ -64838,6 +64881,7 @@ SourceList["UA:TotM"] = {
 	name : "Unearthed Arcana: Travelers of the Multiverse",
 	abbreviation : "UA:TotM",
 	group : "Unearthed Arcana",
+	campaignSetting : "Spelljammer",
 	url : "https://media.wizards.com/2021/dnd/downloads/UA2021_TravelersoftheMultiverse.pdf",
 	date : "2021/10/08"
 };

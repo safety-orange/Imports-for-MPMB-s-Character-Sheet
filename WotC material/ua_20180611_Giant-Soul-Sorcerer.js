@@ -35,7 +35,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			source : ["UA:GSS", 1],
 			minlevel : 1,
 			description : desc([
-				"Choose a giant heritage using the \"Choose Feature\" button above",
+				'Choose a giant heritage using the "Choose Feature" button above',
 				"I learn spells based on my giant heritage, which I add to my known spells"
 			]),
 			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
@@ -123,7 +123,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			name : "Soul of Lost Ostoria",
 			source : ["UA:GSS", 1],
 			minlevel : 6,
-			description : "\n   " + "Use the \"Choose Feature\" button above to select the giant heritage",
+			description : "\n   " + 'Use the "Choose Feature" button above to select the giant heritage',
 			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
 			choicesNotInMenu : true,
 			"cloud giant" : {

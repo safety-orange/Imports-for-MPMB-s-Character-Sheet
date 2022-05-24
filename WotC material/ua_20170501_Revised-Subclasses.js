@@ -82,7 +82,7 @@ AddSubClass("bard", "college of swords2-ua", {
 			name : "Fighting Style",
 			source : ["UA:RS", 2],
 			minlevel : 3,
-			description : "\n   " + "Select a Fighting Style for the college of swords using the \"Choose Feature\" button above",
+			description : "\n   " + 'Select a Fighting Style for the college of swords using the "Choose Feature" button above',
 			choices : ["Dueling", "Two-Weapon Fighting"],
 			"dueling" : FightingStyles.dueling,
 			"two-weapon fighting" : FightingStyles.two_weapon
@@ -151,7 +151,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 				"I can unleash magical effects when I fire a magic arrow from a short- or longbow",
 				"I can use this once per turn as part of the Attack action, after an attack hits",
 				"I know a number of Arcane Shot Options and learn additional at certain levels",
-				"Use the \"Choose Feature\" button above to add Arcane Shots Options to the third page"
+				'Use the "Choose Feature" button above to add Arcane Shots Options to the third page'
 			]),
 			usages : 2,
 			recovery : "short rest",
@@ -392,7 +392,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 			source : ["UA:RS", 5],
 			minlevel : 14,
 			description : desc([
-				"Choose an otherworldly quality using the \"Choose Feature\" button above",
+				'Choose an otherworldly quality using the "Choose Feature" button above',
 				"As a bonus action, I can manifest a pair of spectral wings that give me 30 ft fly speed",
 				"These wings last until I become incapacitated or I dismiss them as a bonus action"
 			]),

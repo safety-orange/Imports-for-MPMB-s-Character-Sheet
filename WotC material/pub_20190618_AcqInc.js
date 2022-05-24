@@ -6,8 +6,9 @@ RequiredSheetVersion("13.1.0");
 SourceList["AcqInc"] = {
 	name : "Acquisitions Incorporated",
 	abbreviation : "AcqInc",
-	abbreviationSpellsheet: "AI",
+	abbreviationSpellsheet : "AI",
 	group : "Primary Sources",
+	campaignSetting : "Penny Arcade",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/acqinc",
 	date : "2019/06/18"
 };

@@ -7,6 +7,7 @@ SourceList["AL:RoD"]={
 	name : "Rage of Demons Backgrounds [Hillsfar]",
 	abbreviation : "AL:RoD",
 	group : "Adventurers League",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf",
 	date : "2015/07/14"
 };

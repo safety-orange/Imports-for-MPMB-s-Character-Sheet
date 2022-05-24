@@ -7,6 +7,7 @@ SourceList.OotA={
 	name : "Out of the Abyss [beasts, background features, items]",
 	abbreviation : "OotA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
 	date : "2015/09/15"
 };

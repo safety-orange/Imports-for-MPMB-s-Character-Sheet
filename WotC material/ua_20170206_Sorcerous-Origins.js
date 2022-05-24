@@ -53,7 +53,7 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 			name : "Blessed Countenance",
 			source : ["UA:SO", 1],
 			minlevel : 6,
-			description : "\n   " + "Choose an otherworldly quality using the \"Choose Feature\" button above" + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus",
+			description : "\n   " + 'Choose an otherworldly quality using the "Choose Feature" button above' + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus",
 			choices : ["Beautiful", "Youthful", "Kind", "Imposing"],
 			"beautiful" : {
 				name : "Beautiful",

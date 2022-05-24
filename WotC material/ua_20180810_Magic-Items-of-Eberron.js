@@ -8,6 +8,7 @@ SourceList["UA:MIoE"] = {
 	name : "Unearthed Arcana: Magic Items of Eberron",
 	abbreviation : "UA:MIoE",
 	group : "Unearthed Arcana",
+	campaignSetting : "Eberron",
 	url : "https://media.wizards.com/2018/dnd/downloads/UA_Magic_Items_of_Eberron.pdf",
 	date : "2018/08/10"
 };

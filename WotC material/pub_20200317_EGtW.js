@@ -6,8 +6,9 @@ RequiredSheetVersion("13.1.0");
 SourceList.W = {
 	name : "Explorer's Guide to Wildemount",
 	abbreviation : "EGtW",
-	abbreviationSpellsheet: "W",
+	abbreviationSpellsheet : "W",
 	group : "Primary Sources",
+	campaignSetting : "Critical Role",
 	url : "https://dnd.wizards.com/products/wildemount",
 	date : "2020/03/17"
 };

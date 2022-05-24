@@ -8,6 +8,7 @@ SourceList["PS:A"] = {
 	name : "Plane Shift: Amonkhet",
 	abbreviation : "PS:A",
 	group : "Plane Shift",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://media.wizards.com/2017/downloads/magic/plane-shift_amonkhet.pdf",
 	date : "2017/07/05"
 };

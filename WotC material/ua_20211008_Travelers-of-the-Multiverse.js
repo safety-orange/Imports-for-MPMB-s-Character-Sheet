@@ -7,6 +7,7 @@ SourceList["UA:TotM"] = {
 	name : "Unearthed Arcana: Travelers of the Multiverse",
 	abbreviation : "UA:TotM",
 	group : "Unearthed Arcana",
+	campaignSetting : "Spelljammer",
 	url : "https://media.wizards.com/2021/dnd/downloads/UA2021_TravelersoftheMultiverse.pdf",
 	date : "2021/10/08"
 };

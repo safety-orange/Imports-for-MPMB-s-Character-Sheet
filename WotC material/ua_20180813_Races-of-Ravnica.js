@@ -7,6 +7,7 @@ SourceList["UA:RoR"] = {
 	name : "Unearthed Arcana: Races of Ravnica",
 	abbreviation : "UA:RoR",
 	group : "Unearthed Arcana",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://media.wizards.com/2018/dnd/downloads/UA_RavnicaRaces.pdf",
 	date : "2018/08/13"
 };

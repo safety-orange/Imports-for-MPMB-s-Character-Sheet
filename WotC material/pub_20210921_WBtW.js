@@ -3,11 +3,11 @@ RequiredSheetVersion("13.0.8");
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
 SourceList.WBtW = {
-	name: "The Wild Beyond the Witchlight",
-	abbreviation: "WBtW",
-	group: "Adventure Books",
-	url: "https://dnd.wizards.com/products/wild-beyond-witchlight",
-	date: "2021/09/21"
+	name : "The Wild Beyond the Witchlight",
+	abbreviation : "WBtW",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/wild-beyond-witchlight",
+	date : "2021/09/21"
 };
 
 // Backgrounds

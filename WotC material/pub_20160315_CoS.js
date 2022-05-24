@@ -7,6 +7,7 @@ SourceList.CoS={
 	name : "Curse of Strahd [background, items, pack]",
 	abbreviation : "CoS",
 	group : "Adventure Books",
+	campaignSetting : "Ravenloft",
 	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
 	date : "2016/03/15"
 };

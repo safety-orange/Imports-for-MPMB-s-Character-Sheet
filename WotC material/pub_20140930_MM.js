@@ -6,7 +6,7 @@ RequiredSheetVersion("13.0.8");
 SourceList.M={
 	name : "Monster Manual",
 	abbreviation : "MM",
-	group : "Primary Sources",
+	group : "Core Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual",
 	date : "2014/09/30"
 };

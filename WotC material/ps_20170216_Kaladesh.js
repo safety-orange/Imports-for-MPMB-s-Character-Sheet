@@ -8,6 +8,7 @@ SourceList["PS:K"] = {
 	name : "Plane Shift: Kaladesh",
 	abbreviation : "PS:K",
 	group : "Plane Shift",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://media.wizards.com/2017/downloads/magic/Plane-Shift_Kaladesh.pdf",
 	date : "2017/02/16"
 };

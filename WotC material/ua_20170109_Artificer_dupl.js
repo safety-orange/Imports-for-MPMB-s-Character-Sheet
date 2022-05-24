@@ -105,7 +105,7 @@ ClassList['artificer-ua'] = {
 			name : "Wondrous Invention",
 			source : ["UA:A", 3],
 			minlevel : 2,
-			description : "\n   " + "I gain a magic item that I have crafted; Use the \"Choose Feature\" button above",
+			description : "\n   " + 'I gain a magic item that I have crafted; Use the "Choose Feature" button above',
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : n < 5 ? "1 item" : (n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5) + " items";
 			}),
@@ -206,7 +206,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			description : desc([
 				"I learn Alchemical Formulae that I can use if I have my Alchemist's Satchel within reach",
 				"I learn the Alchemical Acid and Fire formulae, and additional depending on my level",
-				"Use the \"Choose Feature\" button above to select additional Alchemical Formulae"
+				'Use the "Choose Feature" button above to select additional Alchemical Formulae'
 			]),
 			additional : levels.map(function (n) {
 				if (n < 3 ? 1 : n < 9 ? 2 : n < 14 ? 3 : n < 17 ? 4 : 5) + " additional formula";

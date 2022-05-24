@@ -7,6 +7,7 @@ SourceList["DiA"] = {
 	name : "Baldur's Gate: Descent into Avernus [background, items]",
 	abbreviation : "DiA",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/baldursgate_descent",
 	date : "2019/09/17"
 };

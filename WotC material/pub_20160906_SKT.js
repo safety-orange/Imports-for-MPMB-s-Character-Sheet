@@ -7,6 +7,7 @@ SourceList.SKT={
 	name : "Storm King's Thunder [beasts, items]",
 	abbreviation : "SKT",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder",
 	date : "2016/09/06"
 };

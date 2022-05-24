@@ -16,7 +16,7 @@ RequiredSheetVersion("13.0.8");
 SourceList["DnDEK"] = {
 	name : "Dungeons & Dragons Essentials Kit [sidekick classes]",
 	abbreviation : "DnDEK",
-	group : "Adventure Books",
+	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/essentials-kit",
 	date : "2019/09/03",
 	defaultExcluded : true

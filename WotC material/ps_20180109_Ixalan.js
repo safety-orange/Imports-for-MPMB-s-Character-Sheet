@@ -7,6 +7,7 @@ SourceList["PS:X"] = {
 	name : "Plane Shift: Ixalan", 
 	abbreviation : "PS:X",
 	group : "Plane Shift",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://media.wizards.com/2018/downloads/magic/plane-shift_ixalan.pdf",
 	date : "2018/01/09"
 };

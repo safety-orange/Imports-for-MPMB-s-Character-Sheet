@@ -4,12 +4,13 @@ RequiredSheetVersion("13.1.0");
 
 // Define the source
 SourceList.SCC = {
-	name: "Strixhaven: A Curriculum of Chaos",
-	abbreviation: "SCC",
-	abbreviationSpellsheet: "SC",
-	group: "Primary Sources",
-	url: "https://dnd.wizards.com/products/strixhaven-curriculum-chaos",
-	date: "2021/12/07"
+	name : "Strixhaven: A Curriculum of Chaos",
+	abbreviation : "SCC",
+	abbreviationSpellsheet : "SC",
+	group : "Adventure Books",
+	campaignSetting : "Magic: The Gathering",
+	url : "https://dnd.wizards.com/products/strixhaven-curriculum-chaos",
+	date : "2021/12/07"
 };
 
 // Race

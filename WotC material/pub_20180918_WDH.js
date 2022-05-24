@@ -7,6 +7,7 @@ SourceList["WDH"] = {
 	name : "Waterdeep: Dragon Heist [items]",
 	abbreviation : "WDH",
 	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/dragonheist",
 	date : "2018/09/18"
 };

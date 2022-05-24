@@ -42,7 +42,7 @@ RequiredSheetVersion("13.0.8");
 SourceList.T = {
 	name : "Tasha's Cauldron of Everything",
 	abbreviation : "TCoE",
-	abbreviationSpellsheet: "T",
+	abbreviationSpellsheet : "T",
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tashas-cauldron-everything",
 	date : "2020/11/17"
@@ -2964,8 +2964,12 @@ AddFightingStyle(["fighter", "ranger"], "Thrown Weapon Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isMeleeWeapon && (/thrown/i).test(fields.Description)) {
-					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
+				if (v.isWeapon && /\bthrown\b/i.test(fields.Description) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+					if (v.isMeleeWeapon) {
+						fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
+					} else {
+						v.Damage_Bonus += 2;
+					}
 				};
 			},
 			"I deal +2 damage when I hit a ranged attack made with a thrown weapon."
@@ -7333,7 +7337,7 @@ MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
 	attunement : true,
 	prerequisite : "Requires attunement by a sorcerer",
 	prereqeval : function(v) { return classes.known.sorcerer ? true : false; },
-	description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+	description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attuned to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
 	descriptionFull : "To attune to this vial, you must place a few drops of your blood into it. The vial can't be opened while your attunement to it lasts. If your attunement to the vial ends, the contained blood turns to ash. You can use the vial as a spellcasting focus for your spells while wearing or holding it, and you gain a bonus to spell attack rolls and to the saving throw DCs of your sorcerer spells. The bonus is determined by the vial's rarity."+
 	"\n   In addition, when you roll any Hit Dice to recover hit points while you are carrying the vial, you can regain 5 sorcery points. This property of the vial can't be used again until the next dawn.",
 	usages : 1,

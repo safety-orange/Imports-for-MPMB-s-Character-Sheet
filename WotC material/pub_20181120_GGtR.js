@@ -7,6 +7,7 @@ SourceList.G = {
 	name : "Guildmasters' Guide to Ravnica",
 	abbreviation : "GGtR",
 	group : "Primary Sources",
+	campaignSetting : "Magic: The Gathering",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/guildmasters-guide-ravnica",
 	date : "2018/11/20"
 };

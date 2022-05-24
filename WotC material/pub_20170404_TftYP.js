@@ -7,6 +7,7 @@ SourceList.TftYP={
 	name : "Tales from the Yawning Portal [beasts, items]",
 	abbreviation : "TftYP",
 	group : "Adventure Books",
+	campaignSetting : "Anthology",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
 	date : "2017/04/04"
 };
