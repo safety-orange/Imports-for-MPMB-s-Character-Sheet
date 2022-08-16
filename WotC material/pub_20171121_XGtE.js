@@ -119,7 +119,8 @@ AddSubClass("barbarian", "storm herald", {
 					"While raging, I emanate a 10-ft radius aura, but not through total cover",
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
 					"Whenever I active my aura, I can choose one creature in my aura other than me",
-					"It takes lightning damage, or half as much on a successful Dexterity saving throw"
+					"It takes lightning damage, or half as much on a successful Dexterity saving throw",
+					"My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier"
 				]),
 				additional : levels.map(function (n) { return n < 3 ? "" : (n < 10 ? 1 : n < 15 ? 2 : n < 20 ? 3 : 4) + "d6 lightning damage"; })
 			},
@@ -209,7 +210,8 @@ AddSubClass("barbarian", "storm herald", {
 				name : "Raging Storm: Desert",
 				description : desc([
 					"As a reaction when hit by a creature in my Storm Aura, I can have it make a Dex save",
-					"On a failed save, the attacker takes fire damage equal to half my barbarian level"
+					"On a failed save, the attacker takes fire damage equal to half my barbarian level",
+					"My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier"
 				]),
 				action : ["reaction", " (if hit)"],
 				additional : levels.map(function (n) { return n < 14 ? "" : Math.floor(n/2) + " fire damage"; })
@@ -226,7 +228,8 @@ AddSubClass("barbarian", "storm herald", {
 				name : "Raging Storm: Tundra",
 				description : desc([
 					"Whenever I activate my Storm Aura, I can choose a creature in my aura that I can see",
-					"It must make a Str save or have its speed reduced to 0 until the start of my next turn"
+					"It must make a Str save or have its speed reduced to 0 until the start of my next turn",
+					"My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier"
 				])
 			}
 		}
@@ -2780,12 +2783,33 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 				}
-				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
-					v.pactMag = 1;
-					output.magic += v.pactMag;
+				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					var iPactWeaBonus = 1;
+					var bContinue = true;
+					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
+						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
+							if (!n) {
+								var nmbr = 0;
+							} else if (isNaN(n)) {
+								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+							} else {
+								var nmbr = Number(n);
+							}
+							return nmbr < iPactWeaBonus;
+						});
+					}
+					// if the continue boolean wasn't set to false, we can proceed
+					if (bContinue) {
+						v.pactMag = iPactWeaBonus;
+						output.magic += v.pactMag;
+					}
 				};
 			},
-			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n \u2022 If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage (for magic weapons that don't give a bonus like this, you'll have to add it to the modifier fields manually).",
+			"If I include the word 'Pact' in a the name of a melee weapon, shortbow, longbow, light crossbow, or heavy crossbow, it will be treated as my Pact Weapon.\n \u2022 If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon with at least a +1 bonus, the calculation will add +1 to its To Hit and Damage.",
 			290
 		],
 		atkAdd : [
@@ -4827,7 +4851,7 @@ MagicItemsList["adamantine weapon"] = {
 					fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
 				}
 			},
-			'If I include the word "Adamantine" in a the name of a melee weapon, it will be treated as the magic item Adamantine Weapon. Whenever it hits an object, it automatically scores a critical hit.'
+			'If I include the word "Adamantine" in the name of a melee weapon, it will be treated as the magic item Adamantine Weapon. Whenever it hits an object, it automatically scores a critical hit.'
 		]
 	}
 }

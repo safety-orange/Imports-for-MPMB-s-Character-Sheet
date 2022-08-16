@@ -46,12 +46,10 @@ RaceList.tortle = {
 	heightMetric : " stand between 1,5 and 1,8 metres tall (150 + 5d8 cm)",
 	weightMetric : " weigh around 190 kg (180 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [2, 0, 0, 0, 1, 0],
-	features : {
-		"shell defense" : {
-			name : "Shell Defense",
-			minlevel : 1,
-			action : ["action", ""]
-		}
-	},
-	trait : "Tortle (+2 Strength, +1 Wisdom)\nClaws: I can use my claws to make unarmed strikes dealing 1d4 slashing damage.\nHold Breath: I can hold my breath for up to 1 hour at a time.\nNatural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armour.\nShell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell."
+	action : [["action", "Shell Defense (start)"], ["bonus action", "Shell Defense (end)"]],
+	trait : "Tortle (+2 Strength, +1 Wisdom)"+
+	"\n \u2022 Claws: My unarmed strikes with my claws deal 1d4 slashing damage."+
+	"\n \u2022 Hold Breath: I can hold my breath for up to 1 hour at a time."+
+	"\n \u2022 Natural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armor."+
+	"\n \u2022 Shell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell."
 };

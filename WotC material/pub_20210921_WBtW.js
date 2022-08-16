@@ -1,5 +1,5 @@
 var iFileName = "pub_20210921_WBtW.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.1");
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
 SourceList.WBtW = {
@@ -121,6 +121,7 @@ BackgroundList["witchlight hand"] = {
 	feature : "Carnival Fixture",
 	trait : BackgroundList["feylost"].trait,
 	ideal : BackgroundList["feylost"].ideal,
+	bond : BackgroundList["feylost"].bond,
 	flaw : BackgroundList["feylost"].flaw,
 	extra : [
 		"Select Carnival Companion",
@@ -143,18 +144,14 @@ BackgroundFeatureList["carnival fixture"] = {
 RaceList["fairy"] = {
 	regExpSearch : /fairy/i,
 	name : "Fairy",
-	source : [["WBtW", 12]],
+	source : [["WBtW", 12], ["MotM", 14]],
 	plural : "Fairies",
 	size : 4,
 	speed : {
 		walk : { spd : 30, enc : 20 },
 		fly : { spd : "walk", enc : 0 }
 	},
-	languageProfs : ["Common", 1],
-	age : " typically live to be around 100 years old",
-	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	spellcastingAbility : [4, 5, 6],
 	spellcastingBonus : {
 		name : "Fairy Magic",
@@ -199,14 +196,14 @@ RaceList["fairy"] = {
 		}
 	},
 	trait : "Fairy"+
-	(typePF ? "\n \u2022 Fey: My " : "(") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")") +
-	"\n \u2022 Flight: I have flying speed equal to my walking speed, but can't use it when wearing medium or heavy armor."+
-	"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I can cast Faerie Fire and at 5th level I can cast Enlarge/Reduce. I can cast both spells without using a spell slot once per long rest each, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these, chosen when I select the race."
+		(typePF ? "\n \u2022 Fey: My " : " (") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")") +
+		"\n \u2022 Flight: I have a flying speed equal to my walking speed. To use this speed, I can't be wearing medium or heavy armor."+
+		"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I can cast Faerie Fire. At 5th level, I can cast Enlarge/Reduce. I can cast each spell without using a spell slot once per long rest, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice)."
 };
 RaceList["harengon"] = {
 	regExpSearch : /harengon/i,
 	name : "Harengon",
-	source : [["WBtW", 13]],
+	source : [["WBtW", 13], ["MotM", 22]],
 	plural : "Harengons",
 	size : [3, 4],
 	speed : {
@@ -214,11 +211,7 @@ RaceList["harengon"] = {
 	},
 	skills : ["Perception"],
 	addMod : [{ type : "skill", field : "Init", mod : "Prof", text : "I can add my proficiency bonus to my initiative rolls." }],
-	languageProfs : ["Common", 1],
-	age : " typically live to be around 100 years old",
-	height : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	weight : " vary in size. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the PHB, and choose the row in the table that best represents the build you imagine for your character.",
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	action : [["reaction", "Lucky Footwork"], ["bonus action", "Rabbit Hop"]],
 	features : {
 		"rabbit hop" : {
@@ -234,10 +227,10 @@ RaceList["harengon"] = {
 		}
 	},
 	trait : "Harengon"+
-	"\n \u2022 Hare-Trigger: I can add my proficiency bonus to my initiative rolls."+
-	"\n \u2022 Leporine Senses: I have proficiency in the Perception skill."+
-	"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0."+
-	"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof. Bonus without provoking opportunity attacks. I can do this my Prof. Bonus times per long rest."
+		"\n \u2022 Hare-Trigger: I can add my proficiency bonus to my initiative rolls."+
+		"\n \u2022 Leporine Senses: I have proficiency in the Perception skill."+
+		"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0."+
+		"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof. Bonus without provoking opportunity attacks. I can do this my Prof. Bonus times per long rest."
 };
 
 // Magic Items

@@ -92,7 +92,7 @@ if (!RaceList["sea elf"]) {
 			swim : { spd : 30, enc : 20 }
 		},
 		weaponProfs : [false, false, ["spear", "trident", "light crossbow", "net"]],
-		languageProfs : ["Common", "Elvish", "Aquan"],
+		languageProfs : ["Common", "Elvish", "Aquan", "Friend of the Sea"],
 		vision : [["Darkvision", 60]],
 		savetxt : {
 			text : ["Magic can't put me to sleep"],

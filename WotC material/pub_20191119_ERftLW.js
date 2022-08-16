@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.1");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -134,14 +134,12 @@ if (!SourceList.V) {
 				usages : 1,
 				recovery : "short rest",
 				additional : levels.map(function (n) { return "+" + n + " damage"; })
-			},
-			"nimble escape" : {
-				name : "Nimble Escape",
-				minlevel : 1,
-				action : [["bonus action", " (disengage/hide)"]]
 			}
 		},
-		trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
+		action : [["bonus action", "Nimble Escape (disengage/hide)"]],
+		trait : "Goblin (+2 Dexterity, +1 Constitution)"+
+		"\n \u2022 Fury of the Small: Once per short rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level."+
+		"\n \u2022 Nimble Escape: As a bonus action, I can take the Disengage or Hide action."
 	};
 	RaceList["hobgoblin"] = {
 		regExpSearch : /hobgoblin/i,
@@ -222,7 +220,7 @@ RaceList["kalashtar"] = {
 
 // The four subraces of the shifter
 RaceList["beasthide shifter"] = {
-	regExpSearch : /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
+	regExpSearch : /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
 	name : "Beasthide shifter",
 	sortname : "Shifter, Beasthide",
 	source : [["E:RLW", 34]],
@@ -240,7 +238,7 @@ RaceList["beasthide shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 2, 0, 0, 0],
-	trait : "Beasthide Shifter: (+1 Strength, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC.",
+	trait : "Beasthide Shifter (+1 Strength, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC.",
 	features : {
 		"shift" : {
 			name : "Shift",
@@ -253,7 +251,7 @@ RaceList["beasthide shifter"] = {
 	}
 };
 RaceList["longtooth shifter"] = {
-	regExpSearch : /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
+	regExpSearch : /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 	name : "Longtooth shifter",
 	sortname : "Shifter, Longtooth",
 	source : [["E:RLW", 34]],
@@ -280,7 +278,7 @@ RaceList["longtooth shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [2, 1, 0, 0, 0, 0],
-	trait : "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	trait : "Longtooth Shifter (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
 	action : [['bonus action', 'Longtooth Fangs attack (while shifted)']],
 	features : {
 		"shift" : {
@@ -294,7 +292,7 @@ RaceList["longtooth shifter"] = {
 	}
 };
 RaceList["swiftstride shifter"] = {
-	regExpSearch : /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
+	regExpSearch : /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
 	name : "Swiftstride shifter",
 	sortname : "Shifter, Swiftstride",
 	source : [["E:RLW", 34]],
@@ -312,7 +310,7 @@ RaceList["swiftstride shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
-	trait : "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 10 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	trait : "Swiftstride Shifter (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 10 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
 	action : [['reaction', 'Stride (while shifted)']],
 	features : {
 		"shift" : {
@@ -326,7 +324,7 @@ RaceList["swiftstride shifter"] = {
 	}
 };
 RaceList["wildhunt shifter"] = {
-	regExpSearch : /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
+	regExpSearch : /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
 	name : "Wildhunt shifter",
 	sortname : "Shifter, Wildhunt",
 	source : [["E:RLW", 34]],
@@ -344,7 +342,7 @@ RaceList["wildhunt shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 2, 0],
-	trait : "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have advantage on Wisdom checks and no creature within 30 ft can make an attack roll with advantage against me, unless I'm incapacitated.",
+	trait : "Wildhunt Shifter (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have advantage on Wisdom checks and no creature within 30 ft can make an attack roll with advantage against me, unless I'm incapacitated.",
 	features : {
 		"shift" : {
 			name : "Shift",
@@ -1926,7 +1924,8 @@ RunFunctionAtEnd(function() {
 		if (aMI.type && !(/potion|scroll/i).test(aMI.type) &&
 			( (!aMI.rarity && aMI.choices) || (aMI.rarity && aMI.rarity.toLowerCase() === "common") )
 		) {
-			if (aMI.choices) {
+			// only look at choices if the main object has no rarity (i.e. the choices have different rarities)
+			if (!aMI.rarity && aMI.choices) {
 				for (var c = 0; c < aMI.choices.length; c++) {
 					var choiceNmLC = aMI.choices[c].toLowerCase();
 					var aMIchoice = aMI[choiceNmLC];
@@ -1935,6 +1934,7 @@ RunFunctionAtEnd(function() {
 					artMi.push([mi, 0, choiceNmLC]);
 				}
 			} else {
+				// the main object has rarity "common", so add it as a whole
 				artMi.push([mi]);
 			}
 		}
@@ -2670,7 +2670,7 @@ MagicItemsList["returning weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isWeapon && /^(?=.*returning)(?=.*\bthrown\b).*$/i.test(v.WeaponText) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+				if (!v.theWea.isMagicWeapon && v.isThrownWeapon && /returning/i.test(v.WeaponText)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 					fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
@@ -2680,7 +2680,7 @@ MagicItemsList["returning weapon"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isWeapon && /^(?=.*returning)(?=.*\bthrown\b).*$/i.test(v.WeaponText) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+				if (v.isThrownWeapon && /returning/i.test(v.WeaponText)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			}, ''

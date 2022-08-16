@@ -1,5 +1,5 @@
 var iFileName = "ua_20191104_Class-Feature-Variants.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.1");
 // This file adds the content from the Unearthed Arcana: Class Feature Variants article to MPMB's Character Record Sheet
 
 // Define the source
@@ -229,7 +229,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting (ua)"
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isWeapon && /\bthrown\b/i.test(fields.Description) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+				if (v.isThrownWeapon) {
 					if (v.isMeleeWeapon) {
 						fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
 					} else {

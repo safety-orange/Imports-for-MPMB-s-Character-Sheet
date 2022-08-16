@@ -256,10 +256,14 @@ RaceList["goliath"] = { // Added cold resistance in accordance with the VGtM 202
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	},
-	trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 feet.",
+	trait : "Goliath (+2 Strength, +1 Constitution)"+
+	"\n \u2022 Stone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Constitution modifier."+
+	"\n \u2022 Powerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift."+
+	"\n \u2022 Mountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 ft."+
+	(typePF ? "\n \u2022 Natural Athlete: I have proficiency in the Athletics skill." : ""),
 	carryingCapacity : 2
 };
 

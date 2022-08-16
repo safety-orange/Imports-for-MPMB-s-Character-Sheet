@@ -111,6 +111,7 @@ if (!SourceList.G) {
 			description : "Use as bonus action after charge 30 ft"
 		},
 		weaponsAdd : ["Hooves"],
+		action : [["bonus action", "Hooves (after charge)"]],
 		skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 		age : " mature and age at about the same rate as humans",
 		height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
@@ -123,8 +124,7 @@ if (!SourceList.G) {
 			"Hooves: I can use my hooves for unarmed strikes that deal 1d4 bludgeoning damage.",
 			"Charge: If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
 			"Equine Build: I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft."
-		]),
-		action : [["bonus action", "Hooves (after charge)"]],
+		], "\n \u2022 "),
 		carryingCapacity : 2
 	};
 	RaceList["minotaur"] = {
@@ -186,7 +186,7 @@ if (!RaceList["triton"]) {
 			walk : { spd : 30, enc : 20 },
 			swim : { spd : 30, enc : 20 }
 		},
-		languageProfs : ["Common", "Primordial"],
+		languageProfs : ["Common", "Primordial", "Emissary of the Sea"],
 		dmgres : ["Cold"],
 		vision : [["Darkvision", 60]],
 		age : " reach maturity around age 15 and can live up to 200 years",

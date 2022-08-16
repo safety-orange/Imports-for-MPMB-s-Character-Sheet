@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.1");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -3815,7 +3815,7 @@ FeatsList["sharpshooter"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isRangedWeapon || (!v.isSpell && (/thrown/i).test(fields.Description))) {
+				if (v.isRangedWeapon || v.isThrownWeapon) {
 					fields.Description += (fields.Description ? '; ' : '') + "No disadv. at long range; Ignore \u00BD and \u00BE cover";
 				};
 			},
@@ -3823,7 +3823,7 @@ FeatsList["sharpshooter"] = {
 		],
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.isRangedWeapon && fields.Proficiency && /power.{0,3}attack|sharp.{0,3}shoo?t/i.test(v.WeaponText) && !/\bthrown\b/i.test(fields.Description)) {
+				if (v.isRangedWeapon && fields.Proficiency && /power.{0,3}attack|sharp.{0,3}shoo?t/i.test(v.WeaponText)) {
 					output.extraDmg += 10;
 					output.extraHit -= 5;
 				};

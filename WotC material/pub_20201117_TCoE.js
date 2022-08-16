@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.1");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -577,7 +577,8 @@ if (!SourceList["E:RLW"]) {
 			if (aMI.type && !(/potion|scroll/i).test(aMI.type) &&
 				( (!aMI.rarity && aMI.choices) || (aMI.rarity && aMI.rarity.toLowerCase() === "common") )
 			) {
-				if (aMI.choices) {
+				// only look at choices if the main object has no rarity (i.e. the choices have different rarities)
+				if (!aMI.rarity && aMI.choices) {
 					for (var c = 0; c < aMI.choices.length; c++) {
 						var choiceNmLC = aMI.choices[c].toLowerCase();
 						var aMIchoice = aMI[choiceNmLC];
@@ -586,6 +587,7 @@ if (!SourceList["E:RLW"]) {
 						artMi.push([mi, 0, choiceNmLC]);
 					}
 				} else {
+					// the main object has rarity "common", so add it as a whole
 					artMi.push([mi]);
 				}
 			}
@@ -1321,7 +1323,7 @@ if (!SourceList["E:RLW"]) {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+					if (!v.theWea.isMagicWeapon && v.isThrownWeapon && /returning/i.test(v.WeaponText)) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 						fields.Description += (fields.Description ? '; ' : '') + 'Returns immediately after ranged attack';
@@ -1331,7 +1333,7 @@ if (!SourceList["E:RLW"]) {
 			],
 			atkCalc : [
 				function (fields, v, output) {
-					if (v.isMeleeWeapon && (/^(?=.*returning)(?=.*thrown).*$/i).test(v.WeaponText)) {
+					if (v.isThrownWeapon && /returning/i.test(v.WeaponText)) {
 						output.magic = v.thisWeapon[1] + 1;
 					}
 				}, ''
@@ -2964,7 +2966,7 @@ AddFightingStyle(["fighter", "ranger"], "Thrown Weapon Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isWeapon && /\bthrown\b/i.test(fields.Description) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+				if (v.isThrownWeapon) {
 					if (v.isMeleeWeapon) {
 						fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
 					} else {
@@ -4904,8 +4906,8 @@ AddSubClass("sorcerer", "aberrant mind", {
 				school : ["Ench", "Div"],
 				level : [4, 4],
 				firstCol : "PS",
-				extraspells : ["evard's black tentacles", "summon abberation"],
-				selection : ["evard's black tentacles", "summon abberation"],
+				extraspells : ["evard's black tentacles", "summon aberration"],
+				selection : ["evard's black tentacles", "summon aberration"],
 				times : levels.map(function (n) { return n < 7 ? 0 : 2; })
 			}, {
 				name : "Psionic Spells (5th-level)",
@@ -5318,7 +5320,7 @@ AddSubClass("warlock", "the fathomless", {
 			description : desc([
 				"As a bonus action, I can summon or move a spectral tentacle and make an attack with it",
 				"I can summon it to a space within 60 ft that I can see or move an existing one 30 ft",
-				"I make melee spell attacks with 10 ft reach with it that deal cold or lightning damage",
+				"I make melee spell attacks with 10 ft reach with it that deal cold damage",
 				"Creatures hit by the tentacle suffer 10 ft speed reduction until the start of my next turn",
 				"The 10-ft long tentacle lasts for 1 minute or until I summon another"
 			]),
@@ -6134,7 +6136,7 @@ FeatsList["piercer"] = {
 	name : "Piercer",
 	source : [["T", 80], ["UA:F2", 2]],
 	descriptionFull : "You have achieved a penetrating precision in combat, granting you the following benefits:\n \u2022 Increase your Strength or Dexterity by 1, to a maximum of 20.\n \u2022 Once per turn, when you hit a creature with an attack that deals piercing damage, you can reroll one of the attack's damage dice, and you must use the new roll.\n \u2022 When you score a critical hit that deals piercing damage to a creature, you can roll one additional damage die when determining the extra piercing damage the target takes.",
-	description : "Once per turn when I deal piercing damage to a target, I can reroll one of the damage die and use the new roll. If I deal piercing damage on a critical hit to a target I can roll one additional damage die. [+1 Strength or Dexterity]",
+	description : "Once per turn when I deal piercing damage to a target, I can reroll one of the damage die and use the new roll. If I deal piercing damage on a critical hit to a target, I can roll one additional damage die. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
 	calcChanges : {
 		atkAdd : [
@@ -6524,8 +6526,8 @@ SpellsList["spirit shroud"] = {
 		}
 	}
 };
-SpellsList["summon abberation"] = {
-	name : "Summon Abberation",
+SpellsList["summon aberration"] = {
+	name : "Summon aberration",
 	classes : ["warlock", "wizard"],
 	source : [["T", 109]],
 	level : 4,
@@ -7831,22 +7833,22 @@ MagicItemsList["elemental essence shard"] = {
 	choices : ["Air Essence", "Earth Essence", "Fire Essence", "Water Essence"],
 	"air essence" : {
 		name : "Air Elemental Essence Shard",
-		name : "Elemental Essence Shard, Air",
+		sortname : "Elemental Essence Shard, Air",
 		description : "As an action, I can attach or detach this crackling crystal to a Tiny object. While I hold or wear it, I can use this crystal as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can immediately fly up to 60 ft without provoking opportunity attacks."
 	},
 	"earth essence" : {
 		name : "Earth Elemental Essence Shard",
-		name : "Elemental Essence Shard, Earth",
-		description : "As an action, I can attach or detach this crackling crystal to a Tiny object. While I hold or wear it, I can use this crystal as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I gain resistance to a damage type of my choice until the start of my next turn.."
+		sortname : "Elemental Essence Shard, Earth",
+		description : "As an action, I can attach or detach this crackling crystal to a Tiny object. While I hold or wear it, I can use this crystal as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I gain resistance to a damage type of my choice until the start of my next turn."
 	},
 	"fire essence" : {
 		name : "Fire Elemental Essence Shard",
-		name : "Elemental Essence Shard, Fire",
+		sortname : "Elemental Essence Shard, Fire",
 		description : "As an action, I can attach/detach this crackling crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, one target of that spell that I can see catches fire for a round, taking 2d10 fire damage at the start of its next turn."
 	},
 	"water essence" : {
 		name : "Water Elemental Essence Shard",
-		name : "Elemental Essence Shard, Water",
+		sortname : "Elemental Essence Shard, Water",
 		description : "As an action, I can attach/detach this crackling crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, all chosen creatures in 10 ft of me take 2d6 cold damage and must make a Str save or fall prone \u0026 be pushed back 10 ft"
 	}
 }

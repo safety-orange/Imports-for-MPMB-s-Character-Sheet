@@ -78,7 +78,9 @@ if (!RaceList["goblin"]) {
 			}
 		},
 		action : [["bonus action", "Nimble Escape (disengage/hide)"]],
-		trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
+		trait : "Goblin (+2 Dexterity, +1 Constitution)"+
+		"\n \u2022 Fury of the Small: Once per short rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level."+
+		"\n \u2022 Nimble Escape: As a bonus action, I can take the Disengage or Hide action."
 	};
 } // dupl_end
 

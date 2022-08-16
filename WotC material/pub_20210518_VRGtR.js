@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.1");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -22,7 +22,7 @@ RaceList["dhampir"] = {
 	speed : {
 		walk : { spd : 35, enc : 25 }
 	},
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	trait : "Dhampir" + (typePF ? "\n " : "\t") +
 	"\u2022 Deathless Nature: I don't need to breathe." +
 	"\n \u2022 Spider Climb: Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free." +
@@ -34,7 +34,6 @@ RaceList["dhampir"] = {
 			speed : { climb : { spd : "walk", enc : "walk" } }
 		}
 	},
-	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
 	weaponsAdd : ["Vampiric Bite"],
 	weaponOptions : [{
@@ -83,7 +82,7 @@ RaceList["hexblood"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	trait : "Hexblood" + (typePF ? "\n " : "\t") +
 	"\u2022 Fey: My creature type is fey, rather than humanoid." +
 	"\n \u2022 Eerie Token: As a bonus action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information." +
@@ -97,7 +96,6 @@ RaceList["hexblood"] = {
 		"If I'm within 10 miles of the token, I can enter a trance as an action. The trance lasts for 1 minute, but it ends early if I dismiss it (no action required) or I'm incapacitated. During this trance, I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. When the trance ends, the token is harmlessly destroyed.",
 		"\nOnce I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."]
 	}],
-	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
 	action : [["bonus action", "Eerie Token (create)"], ["action", "Eerie Token (use)"]],
 	extraLimitedFeatures : [{
@@ -157,11 +155,10 @@ RaceList["reborn"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	trait : "Reborn" +
 	"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it in an inactive, motionless state." +
 	"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
-	languageProfs : ["Common", 1],
 	dmgres : ["Poison"],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],

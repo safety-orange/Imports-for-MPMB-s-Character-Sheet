@@ -670,7 +670,7 @@ if (!SourceList.V) {
 		speed : {
 			walk : { spd : 30, enc : 20 }
 		},
-		languageProfs : ["Common", "Elvish", "Giant"],
+		languageProfs : ["Common", "Elvish", "Giant", "Speech of Beast and Leaf"],
 		age : " reach adulthood around 30 and can live for 500 years",
 		height : " are between 6 and half and 8 feet tall (6'2\" + 2d12\")",
 		weight : " weigh between 240 and 300 lb (175 + 2d12 \xD7 2d6 lb)",
@@ -681,29 +681,29 @@ if (!SourceList.V) {
 		spellcastingAbility : 5,
 		features : {
 			"firbolg magic (detect magic)" : {
-				name : "Firbolg Magic (Detect Magic)",
-				limfeaname : "Detect Magic",
+				name : "Firbolg Magic",
 				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
 				spellcastingBonus : {
 					name : "Firbolg Magic",
-					spells : ["detect magic"],
-					selection : ["detect magic"],
-					firstCol : 'oncesr'
-				}
-			},
-			"firbolg magic (disguise self)" : {
-				name : "Firbolg Magic (Disguise Self)",
-				limfeaname : "Disguise Self",
-				minlevel : 1,
-				usages : 1,
-				recovery : "short rest",
-				spellcastingBonus : {
-					name : "Firbolg Magic",
-					spells : ["disguise self"],
-					selection : ["disguise self"],
-					firstCol : 'oncesr'
+					spells : ["detect magic", "disguise self"],
+					selection : ["detect magic", "disguise self"],
+					firstCol : 'oncesr',
+					times : 2
+				},
+				extraLimitedFeatures : [{
+					name : "Detect Magic",
+					usages : 1,
+					recovery: "short rest"
+				}, {
+					name : "Disguise Self",
+					usages : 1,
+					recovery: "short rest"
+				}],
+				spellChanges : {
+					"disguise self" : {
+						description : "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
+						changes : "Using Firbolg Magic, I can cast Disguise Self once per short rest to also seem up to 3 feet shorter or taller."
+					}
 				}
 			},
 			"hidden step" : {
@@ -711,7 +711,7 @@ if (!SourceList.V) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			}
 		},
 		carryingCapacity : 2
@@ -744,7 +744,9 @@ if (!SourceList.V) {
 				}
 			},
 			action : [["bonus action", "Nimble Escape (disengage/hide)"]],
-			trait : "Goblin (+2 Dexterity, +1 Constitution)\n\nFury of the Small: Once per short rest, when I hit a creature of a size category larger than mine, I deal extra damage equal to my level.\n\nNimble Escape: As a bonus action, I can take the Disengage or Hide action."
+			trait : "Goblin (+2 Dexterity, +1 Constitution)"+
+			"\n \u2022 Fury of the Small: Once per short rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level."+
+			"\n \u2022 Nimble Escape: As a bonus action, I can take the Disengage or Hide action."
 		};
 	}
 	if (!RaceList["goliath"]) {
@@ -772,11 +774,14 @@ if (!SourceList.V) {
 					minlevel : 1,
 					usages : 1,
 					recovery : "short rest",
-					tooltip : "",
-					action : ["reaction", ""]
+					action : [["reaction", ""]]
 				}
 			},
-			trait : "Goliath (+2 Strength, +1 Constitution)" + (typePF ? "\n" : "") + "\nStone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Con" + (typePF ? "" : "stitution") + " modifier." + (typePF ? "\n" : "") + "\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." + (typePF ? "\n" : "") + "\nMountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 feet.",
+			trait : "Goliath (+2 Strength, +1 Constitution)"+
+			"\n \u2022 Stone's Endurance: Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Constitution modifier."+
+			"\n \u2022 Powerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift."+
+			"\n \u2022 Mountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 ft."+
+			(typePF ? "\n \u2022 Natural Athlete: I have proficiency in the Athletics skill." : ""),
 			carryingCapacity : 2
 		};
 	}
@@ -827,7 +832,9 @@ if (!SourceList.V) {
 		heightMetric : " are around 1,5 metres tall (135 + 5d8 cm)",
 		weightMetric : " weigh between 40 and 55 kg (35 + 5d8 \xD7 2d4 / 10 kg)",
 		scores : [0, 2, 0, 0, 1, 0],
-		trait : "Kenku (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n" : "") + "\nExpert Forgery: Kenku can duplicate other creatures' handwriting and craftwork. I have advantage on all checks made to produce forgeries or duplicates of existing objects." + (typePF ? "\n" : "") + "\nMimicry: I can mimic any sounds I have heard, including voices, but can otherwise not speak. Creatures hearing these sounds can determine they are imitations with a successful Wisdom (Insight) check opposed by my Charisma (Deception)."
+		trait : "Kenku (+2 Dexterity, +1 Wisdom)"+
+			"\n \u2022 Expert Forgery: Kenku can duplicate other creatures' handwriting and craftwork. I have advantage on all checks made to produce forgeries or duplicates of existing objects."+
+			"\n \u2022 Mimicry: I can mimic any sounds I have heard, including voices, but can otherwise not speak. Creatures hearing these sounds can determine they are imitations with a successful Wisdom (Insight) check opposed by my Charisma (Deception)."
 	};
 }
 // reprints from Elemental Evil Player's Companion
@@ -1057,7 +1064,7 @@ if (!SourceList.MToF) {
 			swim : { spd : 30, enc : 20 }
 		},
 		weaponProfs : [false, false, ["spear", "trident", "light crossbow", "net"]],
-		languageProfs : ["Common", "Elvish", "Aquan"],
+		languageProfs : ["Common", "Elvish", "Aquan", "Friend of the Sea"],
 		vision : [["Darkvision", 60]],
 		savetxt : {
 			text : ["Magic can't put me to sleep"],
@@ -1112,14 +1119,12 @@ if (!RaceList.tortle) {
 		heightMetric : " stand between 1,5 and 1,8 metres tall (150 + 5d8 cm)",
 		weightMetric : " weigh around 190 kg (180 + 5d8 \xD7 4d4 / 10 kg)",
 		scores : [2, 0, 0, 0, 1, 0],
-		features : {
-			"shell defense" : {
-				name : "Shell Defense",
-				minlevel : 1,
-				action : ["action", ""]
-			}
-		},
-		trait : "Tortle (+2 Strength, +1 Wisdom)\nClaws: I can use my claws to make unarmed strikes dealing 1d4 slashing damage.\nHold Breath: I can hold my breath for up to 1 hour at a time.\nNatural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armour.\nShell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell."
+		action : [["action", "Shell Defense (start)"], ["bonus action", "Shell Defense (end)"]],
+		trait : "Tortle (+2 Strength, +1 Wisdom)"+
+		"\n \u2022 Claws: My unarmed strikes with my claws deal 1d4 slashing damage."+
+		"\n \u2022 Hold Breath: I can hold my breath for up to 1 hour at a time."+
+		"\n \u2022 Natural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armor."+
+		"\n \u2022 Shell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell."
 	};
 } // dupl_end
 
@@ -2170,7 +2175,7 @@ MagicItemsList["bloodaxe"] = {
 };
 MagicItemsList["breathing bubble"] = {
 	name : "Breathing Bubble",
-	source : [["W", 266]],
+	source : [["W", 266], ["CotN", 212]],
 	type : "wondrous item",
 	rarity : "common",
 	notLegalAL : true,
@@ -2558,7 +2563,7 @@ MagicItemsList["ring of obscuring"] = {
 		"fog cloud" : {
 			range : "Self",
 			duration : "1 min",
-			changes : "When I cast fog cloud with the Ring of Obscuring, the spell is centered on me, lasts for 1 minute, and the requires no concentration.",
+			changes : "When I cast fog cloud with the Ring of Obscuring, the spell is centered on me, lasts for 1 minute, and the requires no concentration."
 		}
 	}
 };

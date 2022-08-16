@@ -1,6 +1,6 @@
-if (sheetVersion < 13001000) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
+if (sheetVersion < 13001001) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version over at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.1");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -5990,12 +5990,33 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 1) ) {
-					v.pactMag = 1;
-					output.magic += v.pactMag;
+				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					var iPactWeaBonus = 1;
+					var bContinue = true;
+					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
+						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
+							if (!n) {
+								var nmbr = 0;
+							} else if (isNaN(n)) {
+								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+							} else {
+								var nmbr = Number(n);
+							}
+							return nmbr < iPactWeaBonus;
+						});
+					}
+					// if the continue boolean wasn't set to false, we can proceed
+					if (bContinue) {
+						v.pactMag = iPactWeaBonus;
+						output.magic += v.pactMag;
+					}
 				};
 			},
-			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon with at least a +1 bonus, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });
@@ -6117,10 +6138,31 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 2) ) {
-					if (v.pactMag) output.magic -= v.pactMag;
-					output.magic += 2;
-					v.pactMag = 2;
+				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				var iPactWeaBonus = 2;
+				if (v.pactWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < iPactWeaBonus)) {
+					var bContinue = true;
+					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
+						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
+							if (!n) {
+								var nmbr = 0;
+							} else if (isNaN(n)) {
+								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+							} else {
+								var nmbr = Number(n);
+							}
+							return nmbr < iPactWeaBonus;
+						});
+					}
+					// if the continue boolean wasn't set to false, we can proceed
+					if (bContinue) {
+						if (v.pactMag) output.magic -= v.pactMag;
+						v.pactMag = iPactWeaBonus;
+						output.magic += v.pactMag;
+					}
 				};
 			},
 			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +2 to its To Hit and Damage."
@@ -6151,10 +6193,31 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < 3) ) {
-					if (v.pactMag) output.magic -= v.pactMag;
-					output.magic += 3;
-					v.pactMag = 3;
+				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				var iPactWeaBonus = 3;
+				if (v.pactWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < iPactWeaBonus)) {
+					var bContinue = true;
+					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
+						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
+							if (!n) {
+								var nmbr = 0;
+							} else if (isNaN(n)) {
+								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+							} else {
+								var nmbr = Number(n);
+							}
+							return nmbr < iPactWeaBonus;
+						});
+					}
+					// if the continue boolean wasn't set to false, we can proceed
+					if (bContinue) {
+						if (v.pactMag) output.magic -= v.pactMag;
+						v.pactMag = iPactWeaBonus;
+						output.magic += v.pactMag;
+					}
 				};
 			},
 			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +3 to its To Hit and Damage."
@@ -12057,7 +12120,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
-		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
+		"Any pact weapon I create is a +1 magic weapon, if it isn't already a +1 magic weapon"
 	]),
 	source : ["UA:RCO", 6],
 	submenu : "[improves Pact of the Blade]",
@@ -12065,12 +12128,33 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
-					v.pactMag = 1;
-					output.magic += v.pactMag;
+				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					var iPactWeaBonus = 1;
+					var bContinue = true;
+					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
+						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
+							if (!n) {
+								var nmbr = 0;
+							} else if (isNaN(n)) {
+								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+							} else {
+								var nmbr = Number(n);
+							}
+							return nmbr < iPactWeaBonus;
+						});
+					}
+					// if the continue boolean wasn't set to false, we can proceed
+					if (bContinue) {
+						v.pactMag = iPactWeaBonus;
+						output.magic += v.pactMag;
+					}
 				};
 			},
-			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon with at least a +1 bonus, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });
@@ -16544,7 +16628,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting (ua)"
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isWeapon && /\bthrown\b/i.test(fields.Description) && /\d ?(ft|m)\.?[^)]/.test(fields.Range)) {
+				if (v.isThrownWeapon) {
 					if (v.isMeleeWeapon) {
 						fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
 					} else {

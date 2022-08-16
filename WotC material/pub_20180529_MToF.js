@@ -503,7 +503,7 @@ RaceList["eladrin-mtof"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
 	name : "Eladrin",
 	sortname : "Elf, Fey (Eladrin)",
-	source : ["MToF", 61],
+	source : [["MToF", 61]],
 	plural : "Eladrin",
 	size : 3,
 	speed : {
@@ -539,9 +539,9 @@ RaceList["eladrin-mtof"] = {
 	},
 	toNotesPage : [{
 		name : "Eladrin Season Features",
-		source : ["MToF", 62],
+		source : [["MToF", 62]],
 		popupName : "Eladrin Shifting Season Features",
-		additional : "save DC 8 + Cha mod + prof bonus",
+		additional : "save DC 8 + Cha mod + Prof. Bonus",
 		page3notes : true,
 		note : "\n  \u2022 Autumn (Eladrin Season, MToF 62)" + desc([
 			" After using Fey Step, up to 2 creatures I can see within 10 ft of me must make a Wis save",
@@ -570,7 +570,7 @@ RaceList["sea elf"] = {
 		swim : { spd : 30, enc : 20 }
 	},
 	weaponProfs : [false, false, ["spear", "trident", "light crossbow", "net"]],
-	languageProfs : ["Common", "Elvish", "Aquan"],
+	languageProfs : ["Common", "Elvish", "Aquan", "Friend of the Sea"],
 	vision : [["Darkvision", 60]],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
@@ -633,7 +633,7 @@ RaceList["shadar-kai elf"] = {
 RaceList["githyanki-mtof"] = {
 	regExpSearch : /githyanki/i,
 	name : "Githyanki",
-	source : ["MToF", 96],
+	source : [["MToF", 96]],
 	plural : "Githyanki",
 	size : 3,
 	speed : {
@@ -663,6 +663,13 @@ RaceList["githyanki-mtof"] = {
 		selection : ["mage hand"],
 		firstCol : 'atwill'
 	},
+	spellChanges : {
+		"mage hand" : {
+			components : "",
+			description : "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
+			changes : "Using Githyanki Psionics, I can cast Mage Hand without requiring components and the spectral hand is invisible."
+		}
+	},
 	features : {
 		"jump" : {
 			name : "Githyanki Psionics (level 3)",
@@ -675,6 +682,13 @@ RaceList["githyanki-mtof"] = {
 				spells : ["jump"],
 				selection : ["jump"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"jump" : {
+					components : "",
+					compMaterial : "",
+					changes : "Using Githyanki Psionics, I can cast Jump once per long rest without requiring components."
+				}
 			}
 		},
 		"misty step" : {
@@ -688,6 +702,12 @@ RaceList["githyanki-mtof"] = {
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"misty step" : {
+					components : SpellsList["misty step"].components + "*",
+					changes : "Using Githyanki Psionics, I can cast Misty Step once per long rest without requiring components."
+				}
 			}
 		}
 	}
@@ -704,7 +724,7 @@ AddRacialVariant("githyanki-mtof", "skill proficiency", {
 RaceList["githzerai-mtof"] = {
 	regExpSearch : /githzerai/i,
 	name : "Githzerai",
-	source : ["MToF", 96],
+	source : [["MToF", 96]],
 	plural : "Githzerai",
 	size : 3,
 	speed : {
@@ -732,6 +752,13 @@ RaceList["githzerai-mtof"] = {
 		selection : ["mage hand"],
 		firstCol : 'atwill'
 	},
+	spellChanges : {
+		"mage hand" : {
+			components : "",
+			description : "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
+			changes : "Using Githzerai Psionics, I can cast Mage Hand without requiring components and the spectral hand is invisible."
+		}
+	},
 	features : {
 		"shield" : {
 			name : "Githzerai Psionics (level 3)",
@@ -744,6 +771,12 @@ RaceList["githzerai-mtof"] = {
 				spells : ["shield"],
 				selection : ["shield"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"shield" : {
+					components : "",
+					changes : "Using Githzerai Psionics, I can cast Shield once per long rest without requiring components."
+				}
 			}
 		},
 		"detect thoughts" : {
@@ -757,6 +790,13 @@ RaceList["githzerai-mtof"] = {
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : 'oncelr'
+			},
+			spellChanges : {
+				"detect thoughts" : {
+					components : "",
+					compMaterial : "",
+					changes : "Using Githzerai Psionics, I can cast Detect Thoughts once per long rest without requiring components."
+				}
 			}
 		}
 	}

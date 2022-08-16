@@ -1,5 +1,5 @@
 var iFileName = "pub_20211019_FToD.js";
-RequiredSheetVersion("13.0.9");
+RequiredSheetVersion("13.1.1");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
@@ -41,7 +41,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			variants : [["Amethyst", "Force"], ["Crystal", "Radiant"], ["Emerald", "Psychic"], ["Sapphire", "Thunder"], ["Topaz", "Necrotic"]],
 			breathWeaponShape : "15-ft cone",
 			trait : desc([
-				">>TYPE<< Breath Weapon: When I take the Attack action on my turn, I can replace one attack with a breath weapon that deals 1d10 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Prof. Bonus). I can do this my Proficiency Bonus per long rest.",
+				">>TYPE<< Breath Weapon: When I take the Attack action on my turn, I can replace one attack with a breath weapon that deals 1d10 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Prof. Bonus). I can do this my Prof" + (typePF ? "iciency" : ".") + " Bonus per long rest.",
 				"Psionic Mind: " + (typePF ? "I can send telepathic messages to any creature I can see within 30 ft that understands at least one language." : "I can telepathically message a creature with a language I can see in 30 ft."),
 				"Gem Flight: From 5th level, I can manifest spectral wings. As a bonus action once per long rest, I can gain, for 1 minute, a flying speed equal to my walking speed and can hover."
 			], "\n \u2022 "),
@@ -51,7 +51,8 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 					source : [["FToD", 11]],
 					minlevel: 5,
 					usages: 1,
-					recovery: "long rest"
+					recovery: "long rest",
+					action : [["bonus action", ""]]
 				}
 			}
 		},
@@ -101,7 +102,6 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			speed : {
 				walk : { spd : 30, enc : 20 }
 			},
-			languageProfs : ["Common", 1],
 			weaponsAdd : ["Breath Weapon"],
 			weaponOptions: [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
@@ -121,7 +121,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
 			heightMetric : " stand well over 1,8 metres tall (170 + 5d8 cm)",
 			weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-			scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+			scoresGeneric : true,
 			trait : sDrBrn + " Dragonborn"+
 				"\n \u2022 " + sDrBrn + ' Ancestry: Choose a type of dragon using the "Racial Options" button. The damage type of my resistance and my breath weapon are determined by the dragon type chosen.'+
 				+ oDrBrn.trait.replace(/>>type<< /ig, ""),
@@ -1122,7 +1122,7 @@ MagicItemsList["sapphire buckler"] = {
 	weight : 6,
 	shieldAdd : "Sapphire Buckler",
 	dmgres : ["Psychic", "Thunder"],
-	action : [["reaction", " (damaged in melee"], ["action", " (locate aberrations"]]
+	action : [["reaction", " (damaged in melee)"], ["action", " (locate aberrations)"]]
 }
 MagicItemsList["topaz annihilator"] = {
 	name : "Topaz Annihilator",

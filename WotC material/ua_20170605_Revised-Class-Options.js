@@ -510,7 +510,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
-		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon"
+		"Any pact weapon I create is a +1 magic weapon, if it isn't already a +1 magic weapon"
 	]),
 	source : ["UA:RCO", 6],
 	submenu : "[improves Pact of the Blade]",
@@ -518,12 +518,33 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (v.pactWeapon && !v.theWea.isMagicWeapon && !v.thisWeapon[1] && !v.pactMag) {
-					v.pactMag = 1;
-					output.magic += v.pactMag;
+				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.pactMag) {
+					var iPactWeaBonus = 1;
+					var bContinue = true;
+					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
+						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
+							if (!n) {
+								var nmbr = 0;
+							} else if (isNaN(n)) {
+								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+							} else {
+								var nmbr = Number(n);
+							}
+							return nmbr < iPactWeaBonus;
+						});
+					}
+					// if the continue boolean wasn't set to false, we can proceed
+					if (bContinue) {
+						v.pactMag = iPactWeaBonus;
+						output.magic += v.pactMag;
+					}
 				};
 			},
-			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon with at least a +1 bonus, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });
