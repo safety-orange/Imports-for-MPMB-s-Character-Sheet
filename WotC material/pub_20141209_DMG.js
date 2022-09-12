@@ -874,6 +874,7 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 	recovery : "long rest",
 	limfeaname : "Rod of the Pact Keeper (warlock spell slot)",
 	action : [["action", ""]],
+	allowDuplicates : true,
 	choices : ["+1 Rod (uncommon)", "+2 Rod (rare)", "+3 Rod (very rare)"],
 	"+1 rod (uncommon)" : {
 		name : "Rod of the Pact Keeper +1",

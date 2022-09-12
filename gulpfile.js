@@ -9,12 +9,14 @@ const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
 const uglify  = require('gulp-uglify');
 
-const stableVersion = '"13.1.1"';
+const stableVersion = '"13.1.2"';
 const betaVersion   = '"13.2.0-beta1"';
 const betaFolder    = "/v13.2";
 const parentFolder  = "WotC material";
 const hasBetaFolder = fs.existsSync(`${parentFolder}${betaFolder}`);
-const pre13check = 'if (sheetVersion < 13001001) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\\nYou can get the latest version over at www.flapkan.com."; };';
+const aStableVer    = stableVersion.match(/\d+/g);
+const stableVerNo   = aStableVer[0] + aStableVer[1].padStart(3, '0') + aStableVer[2].padStart(3, '0');
+const tooOldcheck   = 'if (sheetVersion < ' + stableVerNo + ') { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\\nYou can get the latest version on www.flapkan.com."; };';
 
 function concatAndMin(glob, fileName, beta) {
 	log.info(`Minifying and concatenating type '${glob}' for ${beta ? `beta (${betaVersion})` : `stable (${stableVersion})`} version`);
@@ -25,7 +27,7 @@ function concatAndMin(glob, fileName, beta) {
 		.pipe(replace(/RequiredSheetVersion\(.*?\)[,;][\r\n]*/g, ""))
 		.pipe(replace(/\/\/.*?dupl_start[\s\S]*?dupl_end.*?[\r\n]*/ig,""))
 		.pipe(concat(`${fileName}.js`, {newLine: '\n'}))
-		.pipe(header(`${pre13check}\nvar iFileName = "${fileName}.js";\nRequiredSheetVersion(${requiredVersion});\n`))
+		.pipe(header(`${tooOldcheck}\nvar iFileName = "${fileName}.js";\nRequiredSheetVersion(${requiredVersion});\n`))
 		.pipe(dest(folder))
 		.pipe(uglify())
 		.pipe(replace(`${fileName}.js`, `${fileName}.min.js`))
@@ -43,7 +45,7 @@ function combine(minified, beta) {
 	return src([`${path}published${ext}`, `${path}unearthed_arcana${ext}`])
 		.pipe(replace(/if ?\(sheetVersion ?< ?\d+\.?\d*e?\d*\)[ {]*?throw[\s\S]*?var iFileName[\s\S]*?RequiredSheetVersion\(.*?\)[,;][\r\n]*/, ""))
 		.pipe(concat(fileName, {newLine: minified ? '' : '\n'}))
-		.pipe(header(`${pre13check}\nvar iFileName = "${fileName}";${minified ? '' : '\n'}RequiredSheetVersion(${requiredVersion})${minified ? ',' : ';\n'}`))
+		.pipe(header(`${tooOldcheck}\nvar iFileName = "${fileName}";${minified ? '' : '\n'}RequiredSheetVersion(${requiredVersion})${minified ? ',' : ';\n'}`))
 		.pipe(dest(folder));
 }
 

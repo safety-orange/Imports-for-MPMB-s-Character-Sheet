@@ -806,7 +806,6 @@ MagicItemsList["dragonhide belt, +1, +2, or +3"] = {
 	source : [["FToD", 23]],
 	type : "wondrous item",
 	rarity : "very rare",
-	attunement : true,
 	description : "This finely detailed belt is made of dragonhide. While wearing it, I gain a bonus to the save DCs of my ki features determined by its rarity: uncommon (+1), rare (+2), or very rare (+3). As an action, I can use it to regain ki points equal to a roll of my Martial Arts die. I can't use this action again until the next dawn.",
 	descriptionFull : "This finely detailed belt is made of dragonhide. While wearing it, you gain a bonus to the saving throw DCs of your ki features. The bonus is determined by the belt's rarity: uncommon (+1), rare (+2), or very rare (+3). In addition, you can use an action to regain ki points equal to a roll of your Martial Arts die. You can't use this action again until the next dawn.",
 	attunement : true,
@@ -815,12 +814,13 @@ MagicItemsList["dragonhide belt, +1, +2, or +3"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "regain ki points",
-	action : [["action", " (regain ki)"]],
+	allowDuplicates : true,
 	choices : ["+1 to ki save DCs (uncommon)", "+2 to ki save DCs (rare)", "+3 to ki save DCs (very rare)"],
 	"+1 to ki save dcs (uncommon)" : {
 		name : "Dragonhide Belt +1",
 		rarity : "uncommon",
 		description : "This finely detailed belt is made of dragonhide. While wearing it, I gain a +1 bonus to the saving throw DCs of my ki features. As an action, I can use it to regain ki points equal to a roll of my Martial Arts die. Once I do so, I can't use this action again until the next dawn.",
+		action : [["action", " (regain ki)"]],
 		addMod : [{
 			type : "dc", field : "Wis", mod : 1, text : "I gain a +1 bonus to the saving throw DCs of my ki features while attuned to this belt."
 		}],
@@ -837,6 +837,7 @@ MagicItemsList["dragonhide belt, +1, +2, or +3"] = {
 		name : "Dragonhide Belt +2",
 		rarity : "uncommon",
 		description : "This finely detailed belt is made of dragonhide. While wearing it, I gain a +2 bonus to the saving throw DCs of my ki features. As an action, I can use it to regain ki points equal to a roll of my Martial Arts die. Once I do so, I can't use this action again until the next dawn.",
+		action : [["action", " (regain ki)"]],
 		addMod : [{
 			type : "dc", field : "Wis", mod : 2, text : "I gain a +2 bonus to the saving throw DCs of my ki features while attuned to this belt."
 		}],
@@ -853,6 +854,7 @@ MagicItemsList["dragonhide belt, +1, +2, or +3"] = {
 		name : "Dragonhide Belt +3",
 		rarity : "uncommon",
 		description : "This finely detailed belt is made of dragonhide. While wearing it, I gain a +3 bonus to the saving throw DCs of my ki features. As an action, I can use it to regain ki points equal to a roll of my Martial Arts die. Once I do so, I can't use this action again until the next dawn.",
+		action : [["action", " (regain ki)"]],
 		addMod : [{
 			type : "dc", field : "Wis", mod : 3, text : "I gain a +3 bonus to the saving throw DCs of my ki features while attuned to this belt."
 		}],

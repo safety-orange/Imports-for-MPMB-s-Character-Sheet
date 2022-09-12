@@ -1,5 +1,5 @@
 var iFileName = "pub_20220125_MotM.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.1");
 // This file adds all the player-material from Mordenkainen Presents: Monsters of the Multiverse to MPMB's Character Record Sheet
 // Includes many contributions by NodHero and BraabHimself
 

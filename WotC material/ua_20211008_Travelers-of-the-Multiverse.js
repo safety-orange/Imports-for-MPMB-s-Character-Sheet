@@ -1,5 +1,5 @@
 var iFileName = "ua_20211008_Travelers-of-the-Multiverse.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.1");
 // This file adds the content from the Unearthed Arcana 2021: Travelers of the Multiverse article to MPMB's Character Record Sheet
 
 // Define the source
@@ -24,13 +24,8 @@ RaceList["astral elf-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", ["Elvish or other", 1]],
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	age : " typically claim adulthood around age 100 and can live to be 750 years old. Because nothing ages in the Astral Plane, astral elves from that plane can be thousands of years old.",
-	// height and weight taken from eladrin (MToF)
-	height : " range from under 5 to over 6 feet tall (4'6\" + 2d12\")",
-	weight : " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
-	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
-	weightMetric : " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	vision : [["Darkvision", 60]],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
@@ -63,13 +58,8 @@ RaceList["autognome-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", ["Gnomish or other", 1]],
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	age : " can live for centuries, up to 500 years",
-	// height and weight taken from gnome in the PHB
-	height : " are 3 to 4 feet tall (2'11\" + 2d4\")",
-	weight : " weigh around 40 lb (35 + 2d4 lb)",
-	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
-	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	armorAdd : "Armored Casing",
 	armorOptions : {
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
@@ -96,12 +86,12 @@ RaceList["autognome-ua"] = {
 		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect."+
 		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe."+
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious."+
-		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest to regain hit point."
+		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
 		:
 		"Autognome (type is Construct; Cure Wounds, Healing Word, Spare the Dying work on me)"+
 		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier."+
 		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects."+
-		"\n \u2022 Mechanical Nature: I have immunities/resistances and don't need to eat, drink or breathe."+
+		"\n \u2022 Mechanical Nature: I have immunities/resistances and don't need to eat, drink or breathe"+
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless."+
 		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest."
 };
@@ -114,14 +104,13 @@ RaceList["giff-ua"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	carryingCapacity : 2,
-	savetxt : { text : ["Adv. on Strength saves"] },
+	savetxt : { text : ["Adv. on Str saves and checks"] },
 	advantages : [["Strength", true]],
 	trait : "Giff"+
 	"\n \u2022 Damage Dealer: Like a hippopotamus in a crystalware shop, I am naturally adept at damaging things. When I roll a 1 on a damage die for a melee attack, I can reroll the die and use the new roll. I can do so no more than once per turn."+
-	"\n \u2022 Hippo Build: I have advantage on Strength-based ability checks and Strength saving throws. In addition, I count as one size larger when determining my carrying capacity and the weight you can push, drag, or lift."
+	"\n \u2022 Hippo Build: I have advantage on Strength-based ability checks and Strength saving throws. In addition, I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift."
 };
 RaceList["hadozee-ua"] = {
 	regExpSearch : /hadozee/i,
@@ -133,8 +122,7 @@ RaceList["hadozee-ua"] = {
 		walk : { spd : 30, enc : 20 },
 		climb : { spd : "walk", enc : "walk" }
 	},
-	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	action : [
 		["bonus action", "Dexterous Feet (Use an Object)"],
 		["reaction", "Glide (negate falling damage)"]
@@ -154,8 +142,7 @@ RaceList["plasmoid-ua"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	vision : [["Darkvision", 60]],
 	dmgres : ["Acid", "Poison"],
 	savetxt : {
@@ -168,7 +155,7 @@ RaceList["plasmoid-ua"] = {
 	"\n \u2022 Amorphous: I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple.")+
 	"\n \u2022 Shape Self: While not incapacitated, I can reshape my body to have a head and limbs, or back to a limbless blob (no action). As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. It can carry up to 10 lb. I can use it to manipulate objects, open unlocked doors, stow/retrieve objects, or pour out contents of a container." + (typePF ? " It can't attack or use magic items." : "")
 };
-RaceList["Thri-kreen-ua"] = {
+RaceList["thri-kreen-ua"] = {
 	regExpSearch : /thri.?kreen/i,
 	name : "Thri-kreen",
 	source : [["UA:TotM", 4]],
@@ -177,14 +164,15 @@ RaceList["Thri-kreen-ua"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric : true,
 	// age, height and weight taken from Shining South (2004) p17 (using the male option)
 	age : " reach maturity around 7 years old and typically live around 30 years",
 	height : " stand between 5 and 7 feet tall (5'2\" + 2d10\")",
 	weight : " weigh between 140 and 375 pounds (135 + 2d10 \xD7 2d6 lb)",
 	heightMetric : " stand from 1,6 to over 2 metres tall (160 + 5d10 cm)",
 	weightMetric : " weigh between 60 and 180 kg (60 + 5d10 \xD7 4d6 / 10 kg)",
+	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
+	vision : [["Darkvision", 60]],
 	armorAdd : "Chameleon Carapace",
 	armorOptions : {
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
@@ -192,10 +180,10 @@ RaceList["Thri-kreen-ua"] = {
 		source : [["UA:TotM", 4]],
 		ac : 13
 	},
-	vision : [["Darkvision", 60]],
+	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my type is Monstrosity)"+
 	"\n \u2022 Chameleon Carapace: " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide."+
 	"\n \u2022 Secondary Arms: I have two slightly smaller arms below my primary pair of arms." + (typePF ? " " : "\n   ") + "I can't use these secondary arms to wield a shield or weapons other than light weapons."+
-	"\n \u2022 Sleepless Revitalization: I don't require sleep. I rest by refraining from strenuous activity."+
-	"\n \u2022 Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action)."
+	"\n \u2022 Sleepless: I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity."+
+	"\n \u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action)."
 };
