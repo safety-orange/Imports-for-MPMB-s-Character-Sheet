@@ -229,15 +229,19 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Thrown Weapon Fighting (ua)"
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isThrownWeapon) {
-					if (v.isMeleeWeapon) {
-						fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
-					} else {
-						v.Damage_Bonus += 1;
-					}
+				if (v.isThrownWeapon && v.isMeleeWeapon) {
+					fields.Description += (fields.Description ? '; ' : '') + '+1 damage when thrown';
 				};
 			},
 			"I deal +1 damage when I hit a ranged attack made with a thrown weapon."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isThrownWeapon && !v.isMeleeWeapon) {
+					output.extraDmg += 1;
+				};
+			},
+			""
 		]
 	}
 });

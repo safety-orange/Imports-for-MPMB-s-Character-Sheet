@@ -2954,15 +2954,19 @@ AddFightingStyle(["fighter", "ranger"], "Thrown Weapon Fighting", {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.isThrownWeapon) {
-					if (v.isMeleeWeapon) {
-						fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
-					} else {
-						v.Damage_Bonus += 2;
-					}
+				if (v.isThrownWeapon && v.isMeleeWeapon) {
+					fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
 				};
 			},
 			"I deal +2 damage when I hit a ranged attack made with a thrown weapon."
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isThrownWeapon && !v.isMeleeWeapon) {
+					output.extraDmg += 2;
+				};
+			},
+			""
 		]
 	}
 });
