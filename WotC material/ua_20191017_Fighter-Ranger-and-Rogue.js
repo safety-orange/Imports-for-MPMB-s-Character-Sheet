@@ -15,13 +15,13 @@ SourceList["UA:FRnR"] = {
 AddSubClass("fighter", "rune knight-ua", {
 	regExpSearch : /^(?=.*rune)(?=.*knight).*$/i,
 	subname : "Rune Knight",
-	source : ["UA:FRnR", 1],
+	source : [["UA:FRnR", 1]],
 	fullname : "Rune Knight",
 	abilitySave : 4,
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
-			source : ["UA:FRnR", 1],
+			source : [["UA:FRnR", 1]],
 			minlevel : 3,
 			description : "\n   I gain proficiency with smith's tools and I learn to speak, read, and write Giant",
 			toolProfs : ["Smith's tools"],
@@ -29,7 +29,7 @@ AddSubClass("fighter", "rune knight-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Rune Magic",
-			source : ["UA:FRnR", 1],
+			source : [["UA:FRnR", 1]],
 			minlevel : 3,
 			description : desc([
 				"I learn how to use runes to enhance my weapons, armor, and shields",
@@ -50,7 +50,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			extrachoices : ["Haug (Hill Rune)", "Ild (Fire Rune)", "Ise (Frost Rune)", "Skye (Cloud Rune)", "Stein (Stone Rune)", "Uvar (Storm Rune)"],
 			"haug (hill rune)" : {
 				name : "Haug",
-				source : ["UA:FRnR", 1],
+				source : [["UA:FRnR", 1]],
 				description : desc([
 					"While I wear an object inscribed with this rune, I gain a resilience reminiscent of hill giants",
 					"I always gain advantage on saves against being poisoned and resistance to poison damage",
@@ -66,7 +66,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			},
 			"ild (fire rune)" : {
 				name : "Ild",
-				source : ["UA:FRnR", 1],
+				source : [["UA:FRnR", 1]],
 				description : desc([
 					"While I wear an object inscribed with this, I gain craftsmanship reminiscent of fire giants",
 					"I always double my proficiency bonus when making an ability check with a tool",
@@ -84,7 +84,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			},
 			"ise (frost rune)" : {
 				name : "Ise",
-				source : ["UA:FRnR", 2],
+				source : [["UA:FRnR", 2]],
 				description : desc([
 					"While I wear an object inscribed with this, I gain a stoic calm reminiscent of frost giants",
 					"I always gain advantage on Wisdom (Animal Handling) and Charisma (Intimidation) checks",
@@ -99,7 +99,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			},
 			"skye (cloud rune)" : {
 				name : "Skye",
-				source : ["UA:FRnR", 2],
+				source : [["UA:FRnR", 2]],
 				description : desc([
 					"While I wear an object inscribed with this, I gain a deceptiveness reminiscent of cloud giants",
 					"I always gain advantage on Dexterity (Sleight of Hand) and Charisma (Deception) checks",
@@ -115,7 +115,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			},
 			"stein (stone rune)" : {
 				name : "Stein",
-				source : ["UA:FRnR", 2],
+				source : [["UA:FRnR", 2]],
 				description : desc([
 					"While I wear an object inscribed with this, I gain insightfulness reminiscent of stone giants",
 					"I always gain adv. on Wisdom (Insight) checks and I gain darkvision 60 ft (or +30 ft)",
@@ -134,7 +134,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			},
 			"uvar (storm rune)" : {
 				name : "Uvar",
-				source : ["UA:FRnR", 2],
+				source : [["UA:FRnR", 2]],
 				description : desc([
 					"While I wear an object inscribed with this rune, I can glimpse the future like storm giants",
 					"I always gain adv. on Int (Arcana) checks and I can't be surprised while not incapacitated",
@@ -153,7 +153,7 @@ AddSubClass("fighter", "rune knight-ua", {
 		},
 		"subclassfeature3.2" : {
 			name : "Giant Might",
-			source : ["UA:FRnR", 2],
+			source : [["UA:FRnR", 2]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can imbue myself with giant magic for 1 minute and gain benefits:",
@@ -170,7 +170,7 @@ AddSubClass("fighter", "rune knight-ua", {
 		},
 		"subclassfeature7" : {
 			name : "Defensive Runes",
-			source : ["UA:FRnR", 2],
+			source : [["UA:FRnR", 2]],
 			minlevel : 7,
 			description : desc([
 				"As a reaction when I see a creature get hit by an attack within 60 ft, I can grant it AC",
@@ -180,7 +180,7 @@ AddSubClass("fighter", "rune knight-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Great Stature",
-			source : ["UA:FRnR", 2],
+			source : [["UA:FRnR", 2]],
 			minlevel : 10,
 			description : desc([
 				"My runes permanently make me grow; I add 3d4 inches to my length",
@@ -189,13 +189,13 @@ AddSubClass("fighter", "rune knight-ua", {
 		},
 		"subclassfeature15" : {
 			name : "Rune Magic Mastery",
-			source : ["UA:FRnR", 3],
+			source : [["UA:FRnR", 3]],
 			minlevel : 15,
 			description : " \n  I can use each of my runes twice instead of once per short rest and I learn another rune"
 		},
 		"subclassfeature18" : {
 			name : "Blessing of the All Father",
-			source : ["UA:FRnR", 3],
+			source : [["UA:FRnR", 3]],
 			minlevel : 18,
 			description : "\n   When I use Giant Might, I can have it also affect a willing ally that I can see within 60 ft"
 		}
@@ -206,12 +206,12 @@ AddSubClass("fighter", "rune knight-ua", {
 var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua", {
 	regExpSearch : /swarmkeeper/i,
 	subname : "Swarmkeeper",
-	source : ["UA:FRnR", 3],
+	source : [["UA:FRnR", 3]],
 	fullname : "Swarmkeeper",
 	features : {
 		"subclassfeature3" : {
 			name : "Swarmkeeper Magic",
-			source : ["UA:FRnR", 3],
+			source : [["UA:FRnR", 3]],
 			minlevel : 3,
 			description : desc([
 				"I learn Mage Hand; When I cast it, the hand takes the form of swarming nature spirits",
@@ -228,7 +228,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 		},
 		"subclassfeature3.1" : {
 			name : "Gathered Swarm",
-			source : ["UA:FRnR", 3],
+			source : [["UA:FRnR", 3]],
 			minlevel : 3,
 			description : desc([
 				"I constantly have a swarm of fey spirits crawling in my space, they look like Tiny beasts",
@@ -246,7 +246,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 		},
 		"subclassfeature7" : {
 			name : "Writhing Tide",
-			source : ["UA:FRnR", 3],
+			source : [["UA:FRnR", 3]],
 			minlevel : 7,
 			description : desc([
 				"Whenever I activate Gathered Swarm, I gain one additional benefit of my choice:",
@@ -264,7 +264,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 			"scuttling eyes" : {
 				name : "Scuttling Eyes",
 				extraname : "Swarmkeeper 11",
-				source : ["UA:FRnR", 4],
+				source : [["UA:FRnR", 4]],
 				description : desc([
 					"As an action, I can from a spirit of my swarm into a Tiny beast of my choice for 1 hour",
 					"It has AC 18, my senses, and 40 ft speed it can use to walk, climb, fly, or swim",
@@ -282,7 +282,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 			"storm of minions" : {
 				name : "Storm of Minions",
 				extraname : "Swarmkeeper 15",
-				source : ["UA:FRnR", 4],
+				source : [["UA:FRnR", 4]],
 				description : desc([
 					"As an action, I can create a 10-ft radius swarm-filled sphere on a point within 120 ft",
 					"I can choose any number of creatures that I can see to be unaffected by it",
@@ -306,18 +306,18 @@ if (ClassList.rangerua) { ClassList.rangerua.subclasses[1].push(UAFRnR_rangerSub
 AddSubClass("rogue", "the revived-ua", {
 	regExpSearch : /^(?=.*(rogue|miscreant))(?=.*revived).*$/i,
 	subname : "the Revived",
-	source : ["UA:FRnR", 4],
+	source : [["UA:FRnR", 4]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tokens of Past Lives",
-			source : ["UA:FRnR", 4],
+			source : [["UA:FRnR", 4]],
 			minlevel : 3,
 			description : "\n   I gain a chosen skill or tool proficiency and can change it whenever I finish a long rest",
 			skillstxt : "Choose one skill or tool; I can change the choice whenever I finish a long rest"
 		},
 		"subclassfeature3.1" : {
 			name : "Revived Nature",
-			source : ["UA:FRnR", 4],
+			source : [["UA:FRnR", 4]],
 			minlevel : 3,
 			description : desc([
 				"I have resistance to poison damage and adv. on saves against disease and being poisoned",
@@ -329,7 +329,7 @@ AddSubClass("rogue", "the revived-ua", {
 		},
 		"subclassfeature3.2" : {
 			name : "Bolts from the Grave",
-			source : ["UA:FRnR", 5],
+			source : [["UA:FRnR", 5]],
 			minlevel : 3,
 			description : desc([
 				"Immediately after I use my cunning action, I can unleash bolts of necrotic energy",
@@ -340,7 +340,7 @@ AddSubClass("rogue", "the revived-ua", {
 			weaponOptions : [{
 				regExpSearch : /^(?=.*bolts?)(?=.*grave).*$/i,
 				name : "Bolts from the Grave",
-				source : ["UA:FRnR", 5],
+				source : [["UA:FRnR", 5]],
 				ability : 2,
 				type : "Spell",
 				damage : [1, 6, "necrotic"],
@@ -361,7 +361,7 @@ AddSubClass("rogue", "the revived-ua", {
 		},
 		"subclassfeature9" : {
 			name : "Connect with the Dead",
-			source : ["UA:FRnR", 5],
+			source : [["UA:FRnR", 5]],
 			minlevel : 9,
 			description : desc([
 				"I can cast Speak with Dead without a spell slot or material components using Intelligence",
@@ -387,7 +387,7 @@ AddSubClass("rogue", "the revived-ua", {
 		},
 		"subclassfeature13" : {
 			name : "Audience with Death",
-			source : ["UA:FRnR", 5],
+			source : [["UA:FRnR", 5]],
 			minlevel : 13,
 			description : desc([
 				"I have adv. on death saves; Whenever I make one, I can ask a question to a death entity",
@@ -401,7 +401,7 @@ AddSubClass("rogue", "the revived-ua", {
 			}],
 			"ethereal jaunt" : {
 				name : "Ethereal Jaunt",
-				source : ["UA:FRnR", 5],
+				source : [["UA:FRnR", 5]],
 				extraname : "the Revived 17",
 				description : desc([
 					"I can now use my cunning action to teleport to an unoccupied space within 30 ft",

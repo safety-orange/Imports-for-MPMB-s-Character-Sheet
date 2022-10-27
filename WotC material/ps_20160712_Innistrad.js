@@ -18,7 +18,7 @@ RaceList["gavony human"] = {
 	regExpSearch : /^(?=.*\bgavonian?s?\b).*$/i,
 	name : "Gavonian",
 	sortname : "Human, Gavony",
-	source : ["PS:I", 8],
+	source : [["PS:I", 8]],
 	plural : "Gavonians",
 	size : 3,
 	speed : {
@@ -38,7 +38,7 @@ RaceList["kessig human"] = {
 	regExpSearch : /^(?=.*\bkessig(er)?s?\b).*$/i,
 	name : "Kessiger",
 	sortname : "Human, Kessig",
-	source : ["PS:I", 8],
+	source : [["PS:I", 8]],
 	plural : "Kessigers",
 	size : 3,
 	speed : {
@@ -58,7 +58,7 @@ RaceList["nephalia human"] = {
 	regExpSearch : /^(?=.*\bnephalian?s?\b).*$/i,
 	name : "Nephalian",
 	sortname : "Human, Nephalia",
-	source : ["PS:I", 8],
+	source : [["PS:I", 8]],
 	plural : "Nephalians",
 	size : 3,
 	speed : {
@@ -78,7 +78,7 @@ RaceList["stensia human"] = {
 	regExpSearch : /^(?=.*\bstensian?s?\b).*$/i,
 	name : "Stensian",
 	sortname : "Human, Stensia",
-	source : ["PS:I", 8],
+	source : [["PS:I", 8]],
 	plural : "Stensians",
 	size : 3,
 	speed : {
@@ -104,7 +104,7 @@ RaceList["stensia human"] = {
 BackgroundList["inquisitor"] = {
 	regExpSearch : /inquisitor/i,
 	name : "Inquisitor",
-	source : ["PS:I", 12],
+	source : [["PS:I", 12]],
 	skills : ["Investigation", "Religion"],
 	gold : 15,
 	equipright : [
@@ -164,5 +164,5 @@ BackgroundList["inquisitor"] = {
 };
 BackgroundFeatureList["legal authority"] = {
 	description : "As an inquisitor of the church, I have the authority to arrest criminals. In the absence of other authorities, I am authorized to pass judgment and even carry out sentencing. If I abuse this power, however, my superiors in the church might strip it from me.",
-	source : ["PS:I", 12]
+	source : [["PS:I", 12]]
 };

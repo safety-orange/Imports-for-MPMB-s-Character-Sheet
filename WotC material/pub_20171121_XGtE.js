@@ -16,12 +16,12 @@ SourceList.X={
 AddSubClass("barbarian", "ancestral guardian", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
-	source : ["X", 9],
+	source : [["X", 9]],
 	fullname : "Ancestral Guardian",
 	features : {
 		"subclassfeature3" : {
 			name : "Ancestral Protectors",
-			source : ["X", 10],
+			source : [["X", 10]],
 			minlevel : 3,
 			description : desc([
 				"While raging, the first creature I hit with an attack on my turn becomes distracted",
@@ -32,7 +32,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 		},
 		"subclassfeature6" : {
 			name : "Spirit Shield",
-			source : ["X", 10],
+			source : [["X", 10]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction while raging when an ally I see within 30 ft is damaged, I can reduce it",
@@ -43,7 +43,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 		},
 		"subclassfeature10" : {
 			name : "Consult the Spirits",
-			source : ["X", 10],
+			source : [["X", 10]],
 			minlevel : 10,
 			description : desc([
 				"I can cast either Clairvoyance or Augury, without a spell slot or material components",
@@ -80,7 +80,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 		},
 		"subclassfeature14" : {
 			name : "Vengeful Ancestors",
-			source : ["X", 10],
+			source : [["X", 10]],
 			minlevel : 14,
 			description : "\n   " + "When using Spirit Shield, the attacker takes the reduced amount as force damage"
 		}
@@ -89,13 +89,13 @@ AddSubClass("barbarian", "ancestral guardian", {
 AddSubClass("barbarian", "storm herald", {
 	regExpSearch : /^(?=.*storm)(?=.*herald).*$/i,
 	subname : "Path of the Storm Herald",
-	source : ["X", 10],
+	source : [["X", 10]],
 	fullname : "Storm Herald",
 	abilitySave : 3,
 	features : {
 		"subclassfeature3" : {
 			name : "Storm Aura",
-			source : ["X", 10],
+			source : [["X", 10]],
 			minlevel : 3,
 			description : desc([
 				"While raging, I emanate a 10-ft radius aura, but not through total cover",
@@ -143,7 +143,7 @@ AddSubClass("barbarian", "storm herald", {
 		},
 		"subclassfeature6" : {
 			name : "Storm Soul",
-			source : ["X", 10],
+			source : [["X", 10]],
 			minlevel : 6,
 			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
@@ -181,7 +181,7 @@ AddSubClass("barbarian", "storm herald", {
 		},
 		"subclassfeature10" : {
 			name : "Shielding Storm",
-			source : ["X", 10],
+			source : [["X", 10]],
 			minlevel : 10,
 			description : "\n   " + "In rage, creatures of my choice within my Storm Aura also gain Storm Soul resistance",
 			choices : ["desert", "sea", "tundra"],
@@ -201,7 +201,7 @@ AddSubClass("barbarian", "storm herald", {
 		},
 		"subclassfeature14" : {
 			name : "Raging Storm",
-			source : ["X", 11],
+			source : [["X", 11]],
 			minlevel : 14,
 			description : "\n   " + 'Use the "Choose Feature" button above to select the effect',
 			choices : ["desert", "sea", "tundra"],
@@ -238,12 +238,12 @@ AddSubClass("barbarian", "storm herald", {
 AddSubClass("barbarian", "zealot", {
 	regExpSearch : /zealot/i,
 	subname : "Path of the Zealot",
-	source : ["X", 11],
+	source : [["X", 11]],
 	fullname : "Zealot",
 	features : {
 		"subclassfeature3" : {
 			name : "Divine Fury",
-			source : ["X", 11],
+			source : [["X", 11]],
 			minlevel : 3,
 			description : desc([
 				"While raging, the first creature I hit with a weapon attack in my turn gets extra damage",
@@ -283,13 +283,13 @@ AddSubClass("barbarian", "zealot", {
 		},
 		"subclassfeature3.1" : {
 			name : "Warrior of the Gods",
-			source : ["X", 11],
+			source : [["X", 11]],
 			minlevel : 3,
 			description : "\n   " + "Spells restoring me to life (not undeath or anything else) don't require material comp."
 		},
 		"subclassfeature6" : {
 			name : "Fanatical Focus",
-			source : ["X", 11],
+			source : [["X", 11]],
 			minlevel : 6,
 			description : desc([
 				"When I fail a saving throw while raging, I can reroll it and must use the new roll",
@@ -300,7 +300,7 @@ AddSubClass("barbarian", "zealot", {
 		},
 		"subclassfeature10" : {
 			name : "Zealous Presence",
-			source : ["X", 11],
+			source : [["X", 11]],
 			minlevel : 10,
 			description : desc([
 				"As a bonus action, I choose up to 10 creatures within 60 ft that can hear my battle cry",
@@ -312,7 +312,7 @@ AddSubClass("barbarian", "zealot", {
 		},
 		"subclassfeature14" : {
 			name : "Rage Beyond Death",
-			source : ["X", 11],
+			source : [["X", 11]],
 			minlevel : 14,
 			description : desc([
 				"While raging, having 0 hit points doesn't knock me unconscious",
@@ -327,11 +327,11 @@ AddSubClass("barbarian", "zealot", {
 AddSubClass("bard", "college of glamour", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname : "College of Glamour",
-	source : ["X", 14],
+	source : [["X", 14]],
 	features : {
 		"subclassfeature3" : {
 			name : "Mantle of Inspiration",
-			source : ["X", 14],
+			source : [["X", 14]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I expend one Bardic Inspiration die to aid those within 60 ft of me",
@@ -343,7 +343,7 @@ AddSubClass("bard", "college of glamour", {
 		},
 		"subclassfeature3.1" : {
 			name : "Enthralling Performance",
-			source : ["X", 14],
+			source : [["X", 14]],
 			minlevel : 3,
 			recovery : "short rest",
 			usages : 1,
@@ -357,7 +357,7 @@ AddSubClass("bard", "college of glamour", {
 		},
 		"subclassfeature6" : {
 			name : "Mantle of Majesty",
-			source : ["X", 14],
+			source : [["X", 14]],
 			minlevel : 6,
 			recovery : "long rest",
 			usages : 1,
@@ -383,7 +383,7 @@ AddSubClass("bard", "college of glamour", {
 		},
 		"subclassfeature14" : {
 			name : "Unbreakable Majesty",
-			source : ["X", 14],
+			source : [["X", 14]],
 			minlevel : 14,
 			recovery : "short rest",
 			usages : 1,
@@ -400,12 +400,12 @@ AddSubClass("bard", "college of glamour", {
 AddSubClass("bard", "college of swords", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
-	source : ["X", 15],
+	source : [["X", 15]],
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
-			source : ["X", 15],
+			source : [["X", 15]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with medium armor and scimitars",
@@ -416,7 +416,7 @@ AddSubClass("bard", "college of swords", {
 		},
 		"subclassfeature3.1" : {
 			name : "Fighting Style",
-			source : ["X", 15],
+			source : [["X", 15]],
 			minlevel : 3,
 			description : "\n   " + 'Select a Fighting Style for the college of swords using the "Choose Feature" button above',
 			choices : ["Dueling", "Two-Weapon Fighting"],
@@ -425,7 +425,7 @@ AddSubClass("bard", "college of swords", {
 		},
 		"subclassfeature3.2" : {
 			name : "Blade Flourish",
-			source : ["X", 15],
+			source : [["X", 15]],
 			minlevel : 3,
 			description : desc([
 				"When I take the Attack action on my turn, I gain bonus speed and special attack options",
@@ -440,7 +440,7 @@ AddSubClass("bard", "college of swords", {
 		},
 		"subclassfeature14" : {
 			name : "Master Flourish",
-			source : ["X", 16],
+			source : [["X", 16]],
 			minlevel : 14,
 			description : "\n   " + "When I do a Blade Flourish, I can use a d6 instead of expending a Bardic Inspiration die"
 		}
@@ -449,11 +449,11 @@ AddSubClass("bard", "college of swords", {
 AddSubClass("bard", "college of whispers", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname : "College of Whispers",
-	source : ["X", 16],
+	source : [["X", 16]],
 	features : {
 		"subclassfeature3" : {
 			name : "Psychic Blades",
-			source : ["X", 16],
+			source : [["X", 16]],
 			minlevel : 3,
 			description : desc([
 				"When I hit a creature with a weapon attack, I can expend one use of Bardic Inspiration",
@@ -463,7 +463,7 @@ AddSubClass("bard", "college of whispers", {
 		},
 		"subclassfeature3.1" : {
 			name : "Words of Terror",
-			source : ["X", 16],
+			source : [["X", 16]],
 			minlevel : 3,
 			recovery : "short rest",
 			usages : 1,
@@ -476,7 +476,7 @@ AddSubClass("bard", "college of whispers", {
 		},
 		"subclassfeature6" : {
 			name : "Mantle of Whispers",
-			source : ["X", 16],
+			source : [["X", 16]],
 			minlevel : 6,
 			recovery : "short rest",
 			usages : 1,
@@ -492,7 +492,7 @@ AddSubClass("bard", "college of whispers", {
 		},
 		"subclassfeature14" : {
 			name : "Shadow Lore",
-			source : ["X", 16],
+			source : [["X", 16]],
 			minlevel : 14,
 			recovery : "long rest",
 			usages : 1,
@@ -513,12 +513,12 @@ AddSubClass("bard", "college of whispers", {
 AddSubClass("cleric", "forge domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(forge|forgery|blacksmith)).*$/i,
 	subname : "Forge Domain",
-	source : ["X", 18],
+	source : [["X", 18]],
 	spellcastingExtra : ["identify", "searing smite", "heat metal", "magic weapon", "elemental weapon", "protection from energy", "fabricate", "wall of fire", "animate objects", "creation"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["X", 19],
+			source : [["X", 19]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor and smith's tools",
 			armorProfs : [false, false, true, false],
@@ -526,7 +526,7 @@ AddSubClass("cleric", "forge domain", {
 		},
 		"subclassfeature1.1" : {
 			name : "Blessing of the Forge",
-			source : ["X", 19],
+			source : [["X", 19]],
 			minlevel : 1,
 			action : ["action", ""],
 			usages : 1,
@@ -539,7 +539,7 @@ AddSubClass("cleric", "forge domain", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Artisan's Blessing",
-			source : ["X", 19],
+			source : [["X", 19]],
 			minlevel : 2,
 			description : desc([
 				"With an hour-long ritual, I can craft a nonmagical item that is at least part metal",
@@ -552,7 +552,7 @@ AddSubClass("cleric", "forge domain", {
 		},
 		"subclassfeature6" : {
 			name : "Soul of the Forge",
-			source : ["X", 19],
+			source : [["X", 19]],
 			minlevel : 6,
 			description : "\n   " + "I gain resistance to fire damage and +1 to AC while wearing medium or heavy armor",
 			dmgres : ["Fire"],
@@ -564,7 +564,7 @@ AddSubClass("cleric", "forge domain", {
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["X", 19],
+			source : [["X", 19]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -584,7 +584,7 @@ AddSubClass("cleric", "forge domain", {
 		},
 		"subclassfeature17" : {
 			name : "Saint of Forge and Fire",
-			source : ["X", 19],
+			source : [["X", 19]],
 			minlevel : 17,
 			description : desc([
 				"I gain immunity to fire damage",
@@ -598,12 +598,12 @@ AddSubClass("cleric", "forge domain", {
 AddSubClass("cleric", "grave domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*grave).*$/i,
 	subname : "Grave Domain",
-	source : ["X", 19],
+	source : [["X", 19]],
 	spellcastingExtra : ["bane", "false life", "gentle repose", "ray of enfeeblement", "revivify", "vampiric touch", "blight", "death ward", "antilife shell", "raise dead"],
 	features : {
 		"subclassfeature1" : {
 			name : "Circle of Mortality",
-			source : ["X", 20],
+			source : [["X", 20]],
 			minlevel : 1,
 			action : ["bonus action", ""],
 			description : desc([
@@ -626,7 +626,7 @@ AddSubClass("cleric", "grave domain", {
 		},
 		"subclassfeature1.1" : {
 			name : "Eyes of the Grave",
-			source : ["X", 20],
+			source : [["X", 20]],
 			minlevel : 1,
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
@@ -638,7 +638,7 @@ AddSubClass("cleric", "grave domain", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Path to the Grave",
-			source : ["X", 20],
+			source : [["X", 20]],
 			minlevel : 2,
 			action : ["action", ""],
 			description : desc([
@@ -648,7 +648,7 @@ AddSubClass("cleric", "grave domain", {
 		},
 		"subclassfeature6" : {
 			name : "Sentinel at Death's Door",
-			source : ["X", 20],
+			source : [["X", 20]],
 			minlevel : 6,
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
@@ -658,7 +658,7 @@ AddSubClass("cleric", "grave domain", {
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",
-			source : ["X", 20],
+			source : [["X", 20]],
 			minlevel : 8,
 			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
@@ -681,7 +681,7 @@ AddSubClass("cleric", "grave domain", {
 		},
 		"subclassfeature17" : {
 			name : "Keeper of Souls",
-			source : ["X", 20],
+			source : [["X", 20]],
 			minlevel : 17,
 			description : desc([
 				"Once per round, if I'm not incapacitated, I can manipulate the energy of the dying",
@@ -696,11 +696,11 @@ AddSubClass("cleric", "grave domain", {
 AddSubClass("druid", "circle of dreams", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
 	subname : "Circle of Dreams",
-	source : ["X", 22],
+	source : [["X", 22]],
 	features : {
 		"subclassfeature2" : {
 			name : "Balm of the Summer Court",
-			source : ["X", 22],
+			source : [["X", 22]],
 			minlevel : 2,
 			description : desc([
 				"I have a pool of fey energy represented by a number of d6s equal to my druid level",
@@ -714,7 +714,7 @@ AddSubClass("druid", "circle of dreams", {
 		},
 		"subclassfeature6" : {
 			name : "Hearth of Moonlight and Shadow",
-			source : ["X", 22],
+			source : [["X", 22]],
 			minlevel : 6,
 			description : desc([
 				"At the start of a rest, I can create a 30-ft radius invisible magical sphere",
@@ -726,7 +726,7 @@ AddSubClass("druid", "circle of dreams", {
 		},
 		"subclassfeature10" : {
 			name : "Hidden Paths",
-			source : ["X", 22],
+			source : [["X", 22]],
 			minlevel : 10,
 			description : desc([
 				"As a bonus action, I can teleport myself up to 60 ft to a spot I can see",
@@ -739,7 +739,7 @@ AddSubClass("druid", "circle of dreams", {
 		},
 		"subclassfeature14" : {
 			name : "Walker in Dreams",
-			source : ["X", 23],
+			source : [["X", 23]],
 			minlevel : 14,
 			usages : 1,
 			recovery : "long rest",
@@ -789,11 +789,11 @@ AddSubClass("druid", "circle of dreams", {
 AddSubClass("druid", "circle of the shepherd", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
-	source : ["X", 23],
+	source : [["X", 23]],
 	features : {
 		"subclassfeature2" : {
 			name : "Speech of the Woods",
-			source : ["X", 23],
+			source : [["X", 23]],
 			minlevel : 2,
 			description : desc([
 				"I can talk with beasts, they understand me and I them, to the limit of their intelligence",
@@ -803,7 +803,7 @@ AddSubClass("druid", "circle of the shepherd", {
 		},
 		"subclassfeature2.1" : {
 			name : "Spirit Totem",
-			source : ["X", 23],
+			source : [["X", 23]],
 			minlevel : 2,
 			description : desc([
 				"As a bonus action, I can summon, or move, a spirit to a point I can see within 60 ft",
@@ -823,7 +823,7 @@ AddSubClass("druid", "circle of the shepherd", {
 		},
 		"subclassfeature6" : {
 			name : "Mighty Summoner",
-			source : ["X", 24],
+			source : [["X", 24]],
 			minlevel : 6,
 			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical",
 			calcChanges : {
@@ -845,14 +845,14 @@ AddSubClass("druid", "circle of the shepherd", {
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
-			source : ["X", 24],
+			source : [["X", 24]],
 			minlevel : 10,
 			description : "\n   " + "When a Beast or Fey that I summoned ends its turn in my Spirit Totem aura, it heals",
 			additional : levels.map(function (n) { return n < 10 ? "" : "heals " + Math.floor(n / 2) + " HP"; })
 		},
 		"subclassfeature14" : {
 			name : "Faithful Summons",
-			source : ["X", 24],
+			source : [["X", 24]],
 			minlevel : 14,
 			description : desc([
 				"When I am reduced to 0 HP or incapacitated against my will, I can cast Conjure Animals",
@@ -884,13 +884,13 @@ AddSubClass("druid", "circle of the shepherd", {
 AddSubClass("fighter", "arcane archer", {
 	regExpSearch : /^(?=.*arcane)(?=.*archer).*$/i,
 	subname : "Arcane Archer",
-	source : ["X", 28],
+	source : [["X", 28]],
 	fullname : "Arcane Archer",
 	abilitySave : 4,
 	features : {
 		"subclassfeature3" : {
 			name : "Arcane Archer's Lore",
-			source : ["X", 28],
+			source : [["X", 28]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with either the Arcana or Nature skill",
@@ -904,7 +904,7 @@ AddSubClass("fighter", "arcane archer", {
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Shot",
-			source : ["X", 28],
+			source : [["X", 28]],
 			minlevel : 3,
 			description : desc([
 				"I can unleash magical effects when I fire an arrow from a short- or longbow",
@@ -922,7 +922,7 @@ AddSubClass("fighter", "arcane archer", {
 			}),
 			"banishing arrow [abjuration]" : {
 				name : "Banishing Arrow [Abjuration]",
-				source : ["X", 29],
+				source : [["X", 29]],
 				description : desc([
 					"The target makes a Cha save or is banished to the Feywild until the end of its next turn",
 					"While banished, its speed is 0 and is incapacitated; It re-appearing in the same spot",
@@ -932,7 +932,7 @@ AddSubClass("fighter", "arcane archer", {
 			},
 			"beguiling arrow [enchantment]" : {
 				name : "Beguiling Arrow [Enchantment]",
-				source : ["X", 29],
+				source : [["X", 29]],
 				description : desc([
 					"The target takes extra psychic damage and must succeed on a Wisdom save",
 					"If failed, it is charmed by one of my allies within 30 ft of it that I choose",
@@ -942,13 +942,13 @@ AddSubClass("fighter", "arcane archer", {
 			},
 			"bursting arrow [evocation]" : {
 				name : "Bursting Arrow [Evocation]",
-				source : ["X", 29],
+				source : [["X", 29]],
 				description : "\n   " + "The target, in addition to the shot, and all creatures within 10 ft of it take damage",
 				additional : levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; })
 			},
 			"enfeebling arrow [necromancy]" : {
 				name : "Enfeebling Arrow [Necromancy]",
-				source : ["X", 29],
+				source : [["X", 29]],
 				description : desc([
 					"The target takes extra necrotic damage and must make a Constitution save",
 					"If failed, the damage of the target's attacks are halved until the start of my next turn"
@@ -957,7 +957,7 @@ AddSubClass("fighter", "arcane archer", {
 			},
 			"grasping arrow [conjuration]" : {
 				name : "Grasping Arrow [Conjuration]",
-				source : ["X", 29],
+				source : [["X", 29]],
 				description : desc([
 					"The target takes extra poison damage as brambles wrap around it for 1 minute",
 					"The brambles give it -10 ft speed and do it slashing damage every round it moves",
@@ -967,7 +967,7 @@ AddSubClass("fighter", "arcane archer", {
 			},
 			"piercing arrow [transmutation]" : {
 				name : "Piercing Arrow [Transmutation]",
-				source : ["X", 29],
+				source : [["X", 29]],
 				description : desc([
 					"With this I don't roll for the attack, but shoot the arrow in a 30-ft long, 1-ft wide line",
 					"It passes through objects, ignoring cover, but all creatures in the area take damage",
@@ -978,7 +978,7 @@ AddSubClass("fighter", "arcane archer", {
 			},
 			"seeking arrow [divination]" : {
 				name : "Seeking Arrow [Divination]",
-				source : ["X", 30],
+				source : [["X", 30]],
 				description : desc([
 					"With this I don't roll for the attack, but I choose a target I have seen in the last minute",
 					"The seeking arrow moves around corners, obstacles, and ignores cover to hit the target",
@@ -990,7 +990,7 @@ AddSubClass("fighter", "arcane archer", {
 			},
 			"shadow arrow [illusion]" : {
 				name : "Shadow Arrow [Illusion]",
-				source : ["X", 30],
+				source : [["X", 30]],
 				description : desc([
 					"The target takes extra psychic damage and must succeed on a Wisdom save",
 					"If failed, the target can't see anything beyond 5 ft until the end of my next turn"
@@ -1000,13 +1000,13 @@ AddSubClass("fighter", "arcane archer", {
 		},
 		"subclassfeature7" : {
 			name : "Magic Arrow",
-			source : ["X", 28],
+			source : [["X", 28]],
 			minlevel : 7,
 			description : "\n   " + "Whenever I fire a nonmagical arrow from a short- or longbow, I can make it magical"
 		},
 		"subclassfeature7.1" : {
 			name : "Curving Shot",
-			source : ["X", 28],
+			source : [["X", 28]],
 			minlevel : 7,
 			description : desc([
 				"Once per turn when I miss with a magic arrow, I can use a bonus action to redirect it",
@@ -1016,7 +1016,7 @@ AddSubClass("fighter", "arcane archer", {
 		},
 		"subclassfeature15" : {
 			name : "Ever-Ready Shot",
-			source : ["X", 28],
+			source : [["X", 28]],
 			minlevel : 15,
 			description : "\n   " + "I regain one use of Arcane Shot if I have no more remaining when I roll initiative"
 		}
@@ -1025,13 +1025,13 @@ AddSubClass("fighter", "arcane archer", {
 AddSubClass("fighter", "cavalier", {
 	regExpSearch : /cavalier/i,
 	subname : "Cavalier",
-	source : ["X", 30],
+	source : [["X", 30]],
 	fullname : "Cavalier",
 	abilitySave : 1,
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiency",
-			source : ["X", 30],
+			source : [["X", 30]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with Animal Handling, History, Insight, Performance, or Persuasion",
@@ -1051,7 +1051,7 @@ AddSubClass("fighter", "cavalier", {
 		},
 		"subclassfeature3.1" : {
 			name : "Born in the Saddle",
-			source : ["X", 30],
+			source : [["X", 30]],
 			minlevel : 3,
 			description : desc([
 				"I have advantage on saves to avoid falling off my mount, and land on my feet if I fail",
@@ -1061,7 +1061,7 @@ AddSubClass("fighter", "cavalier", {
 		},
 		"subclassfeature3.2" : {
 			name : "Unwavering Mark",
-			source : ["X", 30],
+			source : [["X", 30]],
 			minlevel : 3,
 			description : desc([
 				"If I hit a creature with a melee weapon attack, I mark it until the end of my next turn",
@@ -1089,7 +1089,7 @@ AddSubClass("fighter", "cavalier", {
 		},
 		"subclassfeature7" : {
 			name : "Warding Maneuver",
-			source : ["X", 30],
+			source : [["X", 30]],
 			minlevel : 7,
 			description : desc([
 				"As a reaction when I or a creature within 5 ft is hit, I can try to fend off the strike",
@@ -1103,7 +1103,7 @@ AddSubClass("fighter", "cavalier", {
 		},
 		"subclassfeature10" : {
 			name : "Hold the Line",
-			source : ["X", 30],
+			source : [["X", 30]],
 			minlevel : 10,
 			description : desc([
 				"Creatures provoke opportunity attacks when moving 5 ft or more while within my reach",
@@ -1112,7 +1112,7 @@ AddSubClass("fighter", "cavalier", {
 		},
 		"subclassfeature15" : {
 			name : "Ferocious Charger",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 15,
 			description : desc([
 				"If I hit a creature after moving 10 ft in a straight line, it must make a Strength save",
@@ -1121,7 +1121,7 @@ AddSubClass("fighter", "cavalier", {
 		},
 		"subclassfeature18" : {
 			name : "Vigilant Defender",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 18,
 			description : desc([
 				"I can make opportunity attacks without using my reaction",
@@ -1134,12 +1134,12 @@ AddSubClass("fighter", "cavalier", {
 AddSubClass("fighter", "samurai", {
 	regExpSearch : /samurai/i,
 	subname : "Samurai",
-	source : ["X", 31],
+	source : [["X", 31]],
 	fullname : "Samurai",
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiency",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with History, Insight, Performance, or Persuasion",
@@ -1159,7 +1159,7 @@ AddSubClass("fighter", "samurai", {
 		},
 		"subclassfeature3.1" : {
 			name : "Fighting Spirit",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can give myself advantage on weapon attacks and temporary HP",
@@ -1172,7 +1172,7 @@ AddSubClass("fighter", "samurai", {
 		},
 		"subclassfeature7" : {
 			name : "Elegant Courtier",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 7,
 			description : desc([
 				"I can add my Wisdom modifier to any Charisma (Persuasion) checks I make",
@@ -1183,13 +1183,13 @@ AddSubClass("fighter", "samurai", {
 		},
 		"subclassfeature10" : {
 			name : "Tireless Spirit",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 10,
 			description : "\n   " + "I regain one use of Fighting Spirit if I have no more remaining when I roll initiative"
 		},
 		"subclassfeature15" : {
 			name : "Rapid Strike",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 15,
 			description : desc([
 				"With the Attack action, I can forgo advantage on one attack to make one extra attack",
@@ -1198,7 +1198,7 @@ AddSubClass("fighter", "samurai", {
 		},
 		"subclassfeature18" : {
 			name : "Strength Before Death",
-			source : ["X", 31],
+			source : [["X", 31]],
 			minlevel : 18,
 			description : desc([
 				"If I'm reduced to 0 HP but not killed outright, I can delay falling unconscious",
@@ -1216,12 +1216,12 @@ AddSubClass("fighter", "samurai", {
 AddSubClass("monk", "way of the drunken master", {
 	regExpSearch : /^((?=.*drunken)(?=.*master))|((?=.*drunk)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Drunken Master",
-	source : ["X", 33],
+	source : [["X", 33]],
 	fullname : "Drunken Master",
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
-			source : ["X", 34],
+			source : [["X", 34]],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency with the Performance skill and brewer's supplies",
 			skills : ["Performance"],
@@ -1229,13 +1229,13 @@ AddSubClass("monk", "way of the drunken master", {
 		},
 		"subclassfeature3.1" : {
 			name : "Drunken Technique",
-			source : ["X", 34],
+			source : [["X", 34]],
 			minlevel : 3,
 			description : "\n   " + "When using Flurry of Blows, I gain the benefits of a Disengage and +10 ft speed this turn"
 		},
 		"subclassfeature6" : {
 			name : "Tipsy Sway",
-			source : ["X", 34],
+			source : [["X", 34]],
 			minlevel : 6,
 			description : "\n   " + "1 ki point: as a reaction if missed in melee, attacker instead hits other I see within 5 ft",
 			additional : "Standing up from prone costs only 5 ft",
@@ -1243,14 +1243,14 @@ AddSubClass("monk", "way of the drunken master", {
 		},
 		"subclassfeature11" : {
 			name : "Drunkard's Luck",
-			source : ["X", 34],
+			source : [["X", 34]],
 			minlevel : 11,
 			description : "\n   " + "By spending 2 ki points, I can remove disadv. from an ability check, attack roll, or save",
 			additional : "2 ki points"
 		},
 		"subclassfeature17" : {
 			name : "Intoxicated Frenzy",
-			source : ["X", 34],
+			source : [["X", 34]],
 			minlevel : 17,
 			description : "\n   " + "I can make 3 extra attacks with Flurry of Blows if each is used on a different target"
 		}
@@ -1261,12 +1261,12 @@ RunFunctionAtEnd(function () {
 	var theKenseiSubclassName = AddSubClass("monk", "way of the kensei", {
 		regExpSearch : /kensei/i,
 		subname : "Way of the Kensei",
-		source : ["X", 34],
+		source : [["X", 34]],
 		fullname : "Kensei",
 		features : {
 			"subclassfeature3" : {
 				name : "Path of the Kensei",
-				source : ["X", 34],
+				source : [["X", 34]],
 				minlevel : 3,
 				description : desc([
 					"I gain proficiency with either calligrapher's supplies or painter's supplies",
@@ -1302,7 +1302,7 @@ RunFunctionAtEnd(function () {
 			},
 			"ki-empowered strikes" : {
 				name : "One with the Blade",
-				source : ["X", 34],
+				source : [["X", 34]],
 				minlevel : 6,
 				description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 				calcChanges : {
@@ -1318,14 +1318,14 @@ RunFunctionAtEnd(function () {
 				"deft strike" : {
 					name : "Deft Strike",
 					extraname : "Way of the Kensei 6",
-					source : ["X", 35],
+					source : [["X", 35]],
 					description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 					additional : "1 ki point"
 				},
 				"sharpen the blade" : {
 					name : "Sharpen the Blade",
 					extraname : "Way of the Kensei 11",
-					source : ["X", 35],
+					source : [["X", 35]],
 					description : desc([
 						"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
 						"This bonus is equal to the number of ki points I spend and doesn't stack with magic",
@@ -1343,7 +1343,7 @@ RunFunctionAtEnd(function () {
 			},
 			"subclassfeature17" : {
 				name : "Unerring Accuracy",
-				source : ["X", 35],
+				source : [["X", 35]],
 				minlevel : 17,
 				description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
 			}
@@ -1476,11 +1476,11 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 AddSubClass("paladin", "oath of conquest", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
-	source : ["X", 37],
+	source : [["X", 37]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conquering Presence",
-			source : ["X", 38],
+			source : [["X", 38]],
 			minlevel : 3,
 			description : desc([
 				"As an action, all creatures of my choice within a 30-ft radius must make a Wisdom save",
@@ -1491,13 +1491,13 @@ AddSubClass("paladin", "oath of conquest", {
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Guided Strike",
-			source : ["X", 38],
+			source : [["X", 38]],
 			minlevel : 3,
 			description : "\n   " + "When I make an attack roll, I can add a +10 bonus to the roll after seeing the d20 roll"
 		},
 		"subclassfeature7" : {
 			name : "Aura of Conquest",
-			source : ["X", 38],
+			source : [["X", 38]],
 			minlevel : 7,
 			description : desc([
 				"Creatures that are frightened of me have their speed reduced to 0 while in my aura",
@@ -1510,7 +1510,7 @@ AddSubClass("paladin", "oath of conquest", {
 		},
 		"subclassfeature15" : {
 			name : "Scornful Rebuke",
-			source : ["X", 38],
+			source : [["X", 38]],
 			minlevel : 15,
 			description : desc([
 				"Whenever I'm hit with an attack while I'm not incapacitated, the attacker takes damage",
@@ -1519,7 +1519,7 @@ AddSubClass("paladin", "oath of conquest", {
 		},
 		"subclassfeature20" : {
 			name : "Invincible Conqueror",
-			source : ["X", 38],
+			source : [["X", 38]],
 			minlevel : 20,
 			description : desc([
 				"As an action, I can gain the following benefits for 1 minute:",
@@ -1536,11 +1536,11 @@ AddSubClass("paladin", "oath of conquest", {
 AddSubClass("paladin", "oath of redemption", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
-	source : ["X", 38],
+	source : [["X", 38]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Emissary of Peace",
-			source : ["X", 39],
+			source : [["X", 39]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I grant myself +5 on Charisma (Persuasion) checks for 10 minutes",
 			action : ["bonus action", ""],
@@ -1548,7 +1548,7 @@ AddSubClass("paladin", "oath of redemption", {
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Rebuke the Violent",
-			source : ["X", 39],
+			source : [["X", 39]],
 			minlevel : 3,
 			description : desc([
 				"As a reaction after a creature within 30 ft attacks and damages another, I can rebuke it",
@@ -1558,7 +1558,7 @@ AddSubClass("paladin", "oath of redemption", {
 		},
 		"subclassfeature7" : {
 			name : "Aura of the Guardian",
-			source : ["X", 39],
+			source : [["X", 39]],
 			minlevel : 7,
 			description : desc([
 				"As a reaction when an ally within my aura takes damage, I instead take the damage",
@@ -1569,14 +1569,14 @@ AddSubClass("paladin", "oath of redemption", {
 		},
 		"subclassfeature15" : {
 			name : "Protective Spirit",
-			source : ["X", 39],
+			source : [["X", 39]],
 			minlevel : 15,
 			description : "\n   " + "At the end of my turn when I'm below half HP and not incapacitated, I regain HP",
 			additional : levels.map(function (n) { return n < 15 ? "" : "1d6+" + Math.floor(n/2) + " HP"; })
 		},
 		"subclassfeature20" : {
 			name : "Emissary of Redemption",
-			source : ["X", 39],
+			source : [["X", 39]],
 			minlevel : 20,
 			description : desc([
 				"When taking damage from a creature, I take only half and it takes the other half",
@@ -1596,7 +1596,7 @@ var XGtE_Ranger_Subclass_Gloom_Stalker = AddSubClass("ranger", "gloom stalker", 
 	features : {
 		"subclassfeature3" : {
 			name : "Dread Ambusher",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 3,
 			description : desc([
 				"I can add my Wisdom modifier to my initiative rolls",
@@ -1607,7 +1607,7 @@ var XGtE_Ranger_Subclass_Gloom_Stalker = AddSubClass("ranger", "gloom stalker", 
 		},
 		"subclassfeature3.1" : {
 			name : "Gloom Stalker Magic",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 3,
 			description : desc([
 				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
@@ -1618,7 +1618,7 @@ var XGtE_Ranger_Subclass_Gloom_Stalker = AddSubClass("ranger", "gloom stalker", 
 		},
 		"subclassfeature3.2" : {
 			name : "Umbral Sight",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 3,
 			description : desc([
 				"I gain 60 ft darkvision, or add 30 ft to darkvision if I already had it because of my race",
@@ -1628,20 +1628,20 @@ var XGtE_Ranger_Subclass_Gloom_Stalker = AddSubClass("ranger", "gloom stalker", 
 		},
 		"subclassfeature7" : {
 			name : "Iron Mind",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 7,
 			description : "\n   " + "I gain proficiency with Wis saves, or if I'm already proficient, either Int or Cha saves",
 			saves : ["Wis"]
 		},
 		"subclassfeature11" : {
 			name : "Stalker's Flurry",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 11,
 			description : "\n   " + "Once on each of my turns when I miss a weapon attack, I can make an extra attack"
 		},
 		"subclassfeature15" : {
 			name : "Shadowy Dodge",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 15,
 			description : "\n   " + "As a reaction when I'm attacked without adv., I can impose disadv. on the attack roll",
 			action : ["reaction", " (when attacked)"]
@@ -1656,7 +1656,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 	features : {
 		"subclassfeature3" : {
 			name : "Detect Portal",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 3,
 			description : "\n   " + "As an action, I sense the distance and direction to the closest planar portal within 1 mile",
 			usages : 1,
@@ -1665,7 +1665,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 		},
 		"subclassfeature3.1" : {
 			name : "Horizon Walker Magic",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 3,
 			description : desc([
 				"I add a spell to my known spells at level 3, 5, 9, 13, and 17",
@@ -1676,7 +1676,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 		},
 		"subclassfeature3.2" : {
 			name : "Planar Warrior",
-			source : ["X", 42],
+			source : [["X", 42]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I choose one creature that I can see within 30 ft of me",
@@ -1688,7 +1688,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 		},
 		"subclassfeature7" : {
 			name : "Ethereal Step",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 7,
 			description : "\n   " + "As a bonus action, I can cast the Etherealness spell, which lasts until the end of my turn",
 			usages : 1,
@@ -1710,7 +1710,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 		},
 		"subclassfeature11" : {
 			name : "Distant Strike",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 11,
 			description : desc([
 				"With the Attack action, I can teleport 10 ft before each attack, to a place I can see",
@@ -1719,7 +1719,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 		},
 		"subclassfeature15" : {
 			name : "Spectral Defense",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 15,
 			description : "\n   " + "As a reaction when an attack damages me, I can give myself resistance vs. that attack",
 			action : ["reaction", ""]
@@ -1734,7 +1734,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 	features : {
 		"subclassfeature3" : {
 			name : "Hunter's Sense",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 3,
 			description : desc([
 				"As an action, I learn vulnerabilities/immunities/resistances of a target I see within 60 ft",
@@ -1747,7 +1747,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 		},
 		"subclassfeature3.1" : {
 			name : "Monster Slayer Magic",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
 			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "hold monster"],
@@ -1755,7 +1755,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 		},
 		"subclassfeature3.2" : {
 			name : "Slayer's Prey",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I designate a creature I see within 60 ft; This lasts until I do this again",
@@ -1765,7 +1765,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 		},
 		"subclassfeature7" : {
 			name : "Supernatural Defense",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 7,
 			description : desc([
 				"I add 1d6 to saving throws the current target of my Slayer's Prey forces me to make",
@@ -1774,7 +1774,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 		},
 		"subclassfeature11" : {
 			name : "Magic-User's Nemesis",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 11,
 			description : desc([
 				"As a reaction when I see someone within 60 ft casting a spell or teleporting, I can foil it",
@@ -1786,7 +1786,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 		},
 		"subclassfeature15" : {
 			name : "Slayer's Counter",
-			source : ["X", 43],
+			source : [["X", 43]],
 			minlevel : 15,
 			description : desc([
 				"As a reaction when the target of my Slayer's Prey has me make a save, I can attack it",
@@ -1805,17 +1805,17 @@ if (ClassList.rangerua) {
 AddSubClass("rogue", "inquisitive", {
 	regExpSearch : /^(?=.*(rogue|miscreant))(?=.*inquisitive).*$/i,
 	subname : "Inquisitive",
-	source : ["X", 45],
+	source : [["X", 45]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ear for Deceit",
-			source : ["X", 45],
+			source : [["X", 45]],
 			minlevel : 3,
 			description : "\n   " + "For Wis (Insight) to sense if another is lying, I can treat a die roll of 7 or lower as an 8"
 		},
 		"subclassfeature3.1" : {
 			name : "Eye for Detail",
-			source : ["X", 46],
+			source : [["X", 46]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can do either of the following:",
@@ -1826,7 +1826,7 @@ AddSubClass("rogue", "inquisitive", {
 		},
 		"subclassfeature3.2" : {
 			name : "Insightful Fighting",
-			source : ["X", 46],
+			source : [["X", 46]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can decipher the tactics of another I can see that's not incapacitated",
@@ -1838,7 +1838,7 @@ AddSubClass("rogue", "inquisitive", {
 		},
 		"subclassfeature9" : {
 			name : "Steady Eye",
-			source : ["X", 46],
+			source : [["X", 46]],
 			minlevel : 9,
 			description : desc([
 				"I'm more perceptive when I don't move more than half my speed in the same turn",
@@ -1847,7 +1847,7 @@ AddSubClass("rogue", "inquisitive", {
 		},
 		"subclassfeature13" : {
 			name : "Unerring Eye",
-			source : ["X", 46],
+			source : [["X", 46]],
 			minlevel : 13,
 			description : desc([
 				"As an action, I can sense magical deceptions within 30 feet of me, but not what it does",
@@ -1860,7 +1860,7 @@ AddSubClass("rogue", "inquisitive", {
 		},
 		"subclassfeature17" : {
 			name : "Eye for Weakness",
-			source : ["X", 46],
+			source : [["X", 46]],
 			minlevel : 17,
 			description : "\n   " + "While my Insightful Fighting is active, I add 3d6 to sneak attacks against that target"
 		}
@@ -1932,11 +1932,11 @@ if (!ClassSubList["rogue-mastermind"] && (!SourceList.S || SourceList.S.abbrevia
 AddSubClass("rogue", "scout", {
 	regExpSearch : /scout/i,
 	subname : "Scout",
-	source : ["X", 47],
+	source : [["X", 47]],
 	features : {
 		"subclassfeature3" : {
 			name : "Skirmisher",
-			source : ["X", 47],
+			source : [["X", 47]],
 			minlevel : 3,
 			description : desc([
 				"As a reaction when a hostile ends its turn within 5 ft of me, I can move half my speed",
@@ -1946,14 +1946,14 @@ AddSubClass("rogue", "scout", {
 		},
 		"subclassfeature3.1" : {
 			name : "Survivalist",
-			source : ["X", 47],
+			source : [["X", 47]],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency and expertise with the Nature and Survival skills",
 			skills : [['Nature', 'full'], ['Survival', 'full']]
 		},
 		"subclassfeature9" : {
 			name : "Superior Mobility",
-			source : ["X", 47],
+			source : [["X", 47]],
 			minlevel : 9,
 			description : "\n   " + "I gain +10 ft to my walking speed (and swimming/climbing speed, if applicable)",
 			speed : {
@@ -1964,7 +1964,7 @@ AddSubClass("rogue", "scout", {
 		},
 		"subclassfeature13" : {
 			name : "Ambush Master",
-			source : ["X", 47],
+			source : [["X", 47]],
 			minlevel : 13,
 			description : desc([
 				"I gain advantage on Initiative rolls",
@@ -1975,7 +1975,7 @@ AddSubClass("rogue", "scout", {
 		},
 		"subclassfeature17" : {
 			name : "Sudden Strike",
-			source : ["X", 47],
+			source : [["X", 47]],
 			minlevel : 17,
 			description : desc([
 				"With the Attack action, I can make one additional attack as a bonus action",
@@ -2051,7 +2051,7 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList.S || SourceList.S.abbrev
 AddSubClass("sorcerer", "divine soul", { // this code includes contributions by SoilentBrad
 	regExpSearch : /^(?=.*divine)(?=.*soul).*$/i,
 	subname : "Divine Soul",
-	source : ["X", 50],
+	source : [["X", 50]],
 	fullname : "Divine Soul",
 	spellcastingList : {
 		"class" : ["cleric", "sorcerer"]
@@ -2059,7 +2059,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 	features : {
 		"subclassfeature1" : {
 			name : "Divine Magic",
-			source : ["X", 50],
+			source : [["X", 50]],
 			minlevel : 1,
 			description : desc([
 				"When I learn spells/cantrips or replace known, I can also pick from the cleric spell list",
@@ -2149,7 +2149,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 		},
 		"subclassfeature1.2" : {
 			name : "Favored by the Gods",
-			source : ["X", 50],
+			source : [["X", 50]],
 			minlevel : 1,
 			description : "\n   " + "If I fail a saving throw or miss with an attack roll, I can add 2d4 to the total",
 			recovery : "short rest",
@@ -2157,7 +2157,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 		},
 		"subclassfeature6" : {
 			name : "Empowered Healing",
-			source : ["X", 50],
+			source : [["X", 50]],
 			minlevel : 6,
 			description : desc([
 				"Once per turn, when I or an ally in 5 ft roll dice to healing with a spell, I can reroll dice",
@@ -2167,7 +2167,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 		},
 		"subclassfeature14" : {
 			name : "Otherworldy Wings",
-			source : ["X", 50],
+			source : [["X", 50]],
 			minlevel : 14,
 			description : desc([
 				"As a bonus action, I can manifest a pair of spectral wings that give me 30 ft fly speed",
@@ -2201,7 +2201,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 		},
 		"subclassfeature18" : {
 			name : "Unearthly Recovery",
-			source : ["X", 50],
+			source : [["X", 50]],
 			minlevel : 18,
 			description : desc([
 				"As a bonus action when I have less than half of my max HP remaining, I can heal myself",
@@ -2216,19 +2216,19 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 AddSubClass("sorcerer", "shadow magic", {
 	regExpSearch : /^(?=.*(sorcerer|witch))(?=.*shadow).*$/i,
 	subname : "Shadow Magic",
-	source : ["X", 50],
+	source : [["X", 50]],
 	fullname : "Shadow Sorcerer",
 	features : {
 		"subclassfeature1" : {
 			name : "Eyes of the Dark",
-			source : ["X", 51],
+			source : [["X", 51]],
 			minlevel : 1,
 			description : "\n   " + "I gain 120 ft darkvision",
 			vision : [["Darkvision", 120]]
 		},
 		"subclassfeature1.1" : {
 			name : "Strength of the Grave",
-			source : ["X", 51],
+			source : [["X", 51]],
 			minlevel : 1,
 			description : desc([
 				"When damage reduces me to 0 HP, that isn't radiant damage or a critical hit,",
@@ -2239,7 +2239,7 @@ AddSubClass("sorcerer", "shadow magic", {
 		},
 		"subclassfeature3" : {
 			name : "Darkness",
-			source : ["X", 51],
+			source : [["X", 51]],
 			minlevel : 3,
 			description : desc([
 				"I learn Darkness, which doesn't count against my number of spells known",
@@ -2334,7 +2334,7 @@ AddSubClass("sorcerer", "shadow magic", {
 		},
 		"subclassfeature14" : {
 			name : "Shadow Walk",
-			source : ["X", 51],
+			source : [["X", 51]],
 			minlevel : 14,
 			description : desc([
 				"As a bonus action when I'm in dim light or darkness, I can teleport up to 120 ft",
@@ -2344,7 +2344,7 @@ AddSubClass("sorcerer", "shadow magic", {
 		},
 		"subclassfeature18" : {
 			name : "Umbral Form",
-			source : ["X", 51],
+			source : [["X", 51]],
 			minlevel : 18,
 			additional : "6 sorcery points",
 			description : desc([
@@ -2441,12 +2441,12 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList.S || SourceList.S.ab
 AddSubClass("warlock", "the celestial", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
-	source : ["X", 54],
+	source : [["X", 54]],
 	spellcastingExtra : ["cure wounds", "guiding bolt", "flaming sphere", "lesser restoration", "daylight", "revivify", "guardian of faith", "wall of fire", "flame strike", "greater restoration"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Cantrips",
-			source : ["X", 54],
+			source : [["X", 54]],
 			minlevel : 1,
 			description : "\n   " + "I learn the Light and Sacred Flame cantrips, not counting for the number I can know",
 			spellcastingBonus : [{
@@ -2461,7 +2461,7 @@ AddSubClass("warlock", "the celestial", {
 		},
 		"subclassfeature1.1" : {
 			name : "Healing Light",
-			source : ["X", 54],
+			source : [["X", 54]],
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can heal a creature I can see within 60 ft by expending dice",
@@ -2475,7 +2475,7 @@ AddSubClass("warlock", "the celestial", {
 		},
 		"subclassfeature6" : {
 			name : "Radiant Soul",
-			source : ["X", 55],
+			source : [["X", 55]],
 			minlevel : 6,
 			description : desc([
 				"I add my Cha modifier once to the fire or radiant damage of cantrips and spells I cast",
@@ -2501,7 +2501,7 @@ AddSubClass("warlock", "the celestial", {
 		},
 		"subclassfeature10" : {
 			name : "Celestial Resilience",
-			source : ["X", 55],
+			source : [["X", 55]],
 			minlevel : 10,
 			description : desc([
 				"When I finish a short or long rest, I and up to five allies gain temporary hit points",
@@ -2511,7 +2511,7 @@ AddSubClass("warlock", "the celestial", {
 		},
 		"subclassfeature14" : {
 			name : "Searing Vengeance",
-			source : ["X", 55],
+			source : [["X", 55]],
 			minlevel : 14,
 			description : desc([
 				"At the start of my turn when I would make a death save, I can instead spring back up",
@@ -2527,12 +2527,12 @@ AddSubClass("warlock", "the celestial", {
 AddSubClass("warlock", "the hexblade", { // this code includes contributions by SoilentBrad
 	regExpSearch : /^(?=.*hexblade)(?=.*warlock).*$/i,
 	subname : "the Hexblade",
-	source : ["X", 55],
+	source : [["X", 55]],
 	spellcastingExtra : ["shield", "wrathful smite", "blur", "branding smite", "blink", "elemental weapon", "phantasmal killer", "staggering smite", "banishing smite", "cone of cold"],
 	features : {
 		"subclassfeature1" : {
 			name : "Hexblade's Curse",
-			source : ["X", 55],
+			source : [["X", 55]],
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can curse a creature I can see within 30 ft of me for 1 minute",
@@ -2563,7 +2563,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 		},
 		"subclassfeature1.1" : {
 			name : "Hex Warrior",
-			source : ["X", 55],
+			source : [["X", 55]],
 			minlevel : 1,
 			description : desc([
 				"I gain proficiency with medium armor, shields, and martial weapons",
@@ -2660,7 +2660,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 		},
 		"subclassfeature10" : {
 			name : "Armor of Hexes",
-			source : ["X", 56],
+			source : [["X", 56]],
 			minlevel : 10,
 			description : desc([
 				"As a reaction when a Hexblade's Curse recipient hits me with an attack, I can roll a d6",
@@ -2669,7 +2669,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 		},
 		"subclassfeature14" : {
 			name : "Master of Hexes",
-			source : ["X", 56],
+			source : [["X", 56]],
 			minlevel : 14,
 			description : desc([
 				"When the target of my Hexblade's Curse dies, I can curse another I can see within 30 ft",
@@ -2711,7 +2711,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"It takes 1d8 force damage and another 1d8 force damage per level of the spell slot",
 		"The target is only knocked prone if it is Huge or smaller"
 	]),
-	source : ["X", 56],
+	source : [["X", 56]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
@@ -2721,7 +2721,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"As an action, I can gain darkvision, and the ability to see through solid objects, out to 30 ft",
 		"Objects appear ghostly to me; This lasts up to 1 minute, while I'm concentrating on this"
 	]),
-	source : ["X", 56],
+	source : [["X", 56]],
 	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
@@ -2774,7 +2774,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon",
 		"I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon"
 	]),
-	source : ["X", 57],
+	source : [["X", 57]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
@@ -2826,7 +2826,7 @@ AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
 		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn"
 	]),
-	source : ["X", 57],
+	source : [["X", 57]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
@@ -2845,7 +2845,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 		"It and any of my choice I can see in 5 ft of it take my Cha mod (min 1) in psychic damage",
 		"The Hex spell and all of my warlock features that curse are considered a hex for this"
 	]),
-	source : ["X", 57],
+	source : [["X", 57]],
 	submenu : "[improves Hex spell or warlock feature that curses]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action : ["bonus action", ""]
@@ -2856,7 +2856,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 		"As a bonus action, I can teleport to a target hexed by me that I can see within 30 ft",
 		"I teleport up to 30 ft to an unoccupied space that I can see within 5 ft of the target"
 	]),
-	source : ["X", 57],
+	source : [["X", 57]],
 	submenu : "[improves Hex spell or warlock feature that curses]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action : ["bonus action", ""]
@@ -2920,12 +2920,12 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 AddSubClass("wizard", "war magic", {
 	regExpSearch : /^(?=.*war)(?=.*(wizard|magic|mage)).*$/i,
 	subname : "War Magic",
-	source : ["X", 59],
+	source : [["X", 59]],
 	fullname : "War Mage",
 	features : {
 		"subclassfeature2" : { //has to be identical to a feature named in the ClassList
 			name : "Arcane Deflection",
-			source : ["X", 59],
+			source : [["X", 59]],
 			minlevel : 2,
 			description : desc([
 				"As a reaction when I'm hit by an attack, I can gain +2 to my AC against that attack",
@@ -2936,14 +2936,14 @@ AddSubClass("wizard", "war magic", {
 		},
 		"subclassfeature2.1" : {
 			name : "Tactical Wit",
-			source : ["X", 60],
+			source : [["X", 60]],
 			minlevel : 2,
 			description : "\n   " + "I gain a bonus to my initiative rolls equal to my Intelligence modifier",
 			addMod : { type : "skill", field : "Init", mod : "max(Int|0)", text : "I can add my Intelligence modifier to initiative rolls." }
 		},
 		"subclassfeature6" : {
 			name : "Power Surge",
-			source : ["X", 60],
+			source : [["X", 60]],
 			minlevel : 6,
 			description : desc([
 				"I have a pool of stored power surges that I can use to empower my damaging spells",
@@ -2960,13 +2960,13 @@ AddSubClass("wizard", "war magic", {
 		},
 		"subclassfeature10" : {
 			name : "Durable Magic",
-			source : ["X", 60],
+			source : [["X", 60]],
 			minlevel : 10,
 			description : "\n   " + "While I'm maintaining concentration on a spell, I gain +2 to AC and all saving throws"
 		},
 		"subclassfeature14" : {
 			name : "Deflecting Shroud",
-			source : ["X", 60],
+			source : [["X", 60]],
 			minlevel : 14,
 			description : desc([
 				"When I use my Arcane Deflection feature, magical energy arcs from me to creatures",
@@ -2980,7 +2980,7 @@ AddSubClass("wizard", "war magic", {
 // Add feats
 FeatsList["bountiful luck"] = {
 	name : "Bountiful Luck",
-	source : ["X", 73],
+	source : [["X", 73]],
 	prerequisite : "Being a Halfling",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of fortune's favor!\n   When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll\n   When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
@@ -2989,17 +2989,17 @@ FeatsList["bountiful luck"] = {
 };
 FeatsList["dragon fear"] = {
 	name : "Dragon Fear",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
-	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that see and hear me must make a DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' Wis save (8 + prof. bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
+	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that see and hear me must make a DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' Wis save (8 + Prof Bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
 	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
 FeatsList["dragon hide"] = {
 	name : "Dragon Hide",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being a Dragonborn",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dragonborn') !== -1; },
 	descriptionFull : "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
@@ -3009,21 +3009,21 @@ FeatsList["dragon hide"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
-		source : ["X", 74],
+		source : [["X", 74]],
 		damage : [1, 4, "slashing"]
 	},
 	weaponsAdd : ['Retractable Claws'],
 	armorOptions : {
 		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
 		name : "Dragon Hide",
-		source : ["X", 74],
+		source : [["X", 74]],
 		ac : 13
 	},
 	armorAdd : "Dragon Hide"
 };
 FeatsList["drow high magic"] = {
 	name : "Drow High Magic",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being a Drow (Dark Elf)",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dark elf') !== -1; },
 	descriptionFull : "You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells.",
@@ -3048,7 +3048,7 @@ FeatsList["drow high magic"] = {
 };
 FeatsList["dwarven fortitude"] = {
 	name : "Dwarven Fortitude",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being a Dwarf",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
 	descriptionFull : "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
@@ -3057,7 +3057,7 @@ FeatsList["dwarven fortitude"] = {
 };
 FeatsList["elven accuracy"] = {
 	name : "Elven Accuracy",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being an Elf or a Half-Elf",
 	prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
 	descriptionFull : "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:\n \u2022 Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.",
@@ -3066,7 +3066,7 @@ FeatsList["elven accuracy"] = {
 };
 FeatsList["fade away"] = {
 	name : "Fade Away",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being a Gnome",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('gnome') !== -1; },
 	descriptionFull : "Your people are clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
@@ -3078,7 +3078,7 @@ FeatsList["fade away"] = {
 };
 FeatsList["fey teleportation"] = { // this code includes contributions by SoilentBrad
 	name : "Fey Teleportation",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being a High Elf",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('high elf') !== -1; },
 	descriptionFull : "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 You learn to speak, read, and write Sylvan.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
@@ -3097,7 +3097,7 @@ FeatsList["fey teleportation"] = { // this code includes contributions by Soilen
 };
 FeatsList["flames of phlegethos"] = {
 	name : "Flames of Phlegethos",
-	source : ["X", 74],
+	source : [["X", 74]],
 	prerequisite : "Being a Tiefling",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
@@ -3106,7 +3106,7 @@ FeatsList["flames of phlegethos"] = {
 };
 FeatsList["infernal constitution"] = {
 	name : "Infernal Constitution",
-	source : ["X", 75],
+	source : [["X", 75]],
 	prerequisite : "Being a Tiefling",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
@@ -3117,7 +3117,7 @@ FeatsList["infernal constitution"] = {
 };
 FeatsList["orcish fury"] = {
 	name : "Orcish Fury",
-	source : ["X", 75],
+	source : [["X", 75]],
 	prerequisite : "Being a Half-Orc",
 	prereqeval : function(v) { return (/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known); },
 	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
@@ -3130,7 +3130,7 @@ FeatsList["orcish fury"] = {
 };
 FeatsList["prodigy"] = {
 	name : "Prodigy",
-	source : ["X", 75],
+	source : [["X", 75]],
 	prerequisite : "Being a Half-Elf, Half-Orc, or Human",
 	prereqeval : function(v) { return (/human|^(?=.*half)(?=.*(elf|orc)).*$/i).test(CurrentRace.known); },
 	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
@@ -3141,7 +3141,7 @@ FeatsList["prodigy"] = {
 };
 FeatsList["second chance"] = {
 	name : "Second Chance",
-	source : ["X", 75],
+	source : [["X", 75]],
 	prerequisite : "Being a Halfling",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "Fortune favors you when someone tries to strike you. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
@@ -3153,7 +3153,7 @@ FeatsList["second chance"] = {
 };
 FeatsList["squat nimbleness"] = {
 	name : "Squat Nimbleness",
-	source : ["X", 75],
+	source : [["X", 75]],
 	prerequisite : "Being a Dwarf or a small race",
 	prereqeval : function(v) { return (/dwarf/i).test(CurrentRace.known) || tDoc.getField('Size Category').currentValueIndices === 4; },
 	descriptionFull : "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill (your choice).\n \u2022 You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled.",
@@ -3164,7 +3164,7 @@ FeatsList["squat nimbleness"] = {
 };
 FeatsList["wood elf magic"] = {
 	name : "Wood Elf Magic",
-	source : ["X", 75],
+	source : [["X", 75]],
 	prerequisite : "Being a Wood Elf",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('wood elf') !== -1; },
 	descriptionFull : "You learn the magic of the primeval woods, which are revered and protected by your people. You learn one druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest. Wisdom is your spellcasting ability for all three spells.",
@@ -3218,7 +3218,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 		range : "Self",
 		components : "S",
 		duration : "1 rnd",
-		description : "Acid, Cold, Fire, Lightning, or Thunder resistance vs. 1 atk; first melee hit next rnd +1d6+1d6/SL dmg",
+		description : "Acid, Cold, Fire, Lightning, or Thunder resistance till next turn start; first melee hit +1d6+1d6/SL dmg",
 		descriptionFull : "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st."
 	};
 	SpellsList["aganazzar's scorcher"] = {
@@ -3851,7 +3851,7 @@ if (!SourceList.E || !(/Elemental.*Evil.*Player.*Companion/i).test(SourceList.E.
 SpellsList["catnap"] = {
 	name : "Catnap",
 	classes : ["artificer", "bard", "sorcerer", "wizard"],
-	source : ["X", 151],
+	source : [["X", 151]],
 	level : 3,
 	school : "Ench",
 	time : "1 a",
@@ -3865,7 +3865,7 @@ SpellsList["catnap"] = {
 SpellsList["cause fear"] = {
 	name : "Cause Fear",
 	classes : ["warlock", "wizard"],
-	source : ["X", 151],
+	source : [["X", 151]],
 	level : 1,
 	school : "Necro",
 	time : "1 a",
@@ -3879,7 +3879,7 @@ SpellsList["cause fear"] = {
 SpellsList["ceremony"] = {
 	name : "Ceremony",
 	classes : ["cleric", "paladin"],
-	source : ["X", 151],
+	source : [["X", 151]],
 	ritual : true,
 	level : 1,
 	school : "Abjur",
@@ -3914,7 +3914,7 @@ SpellsList["chaos bolt"] = {
 SpellsList["charm monster"] = {
 	name : "Charm Monster",
 	classes : ["bard", "druid", "sorcerer", "warlock", "wizard"],
-	source : ["X", 151],
+	source : [["X", 151]],
 	level : 4,
 	school : "Ench",
 	time : "1 a",
@@ -3928,7 +3928,7 @@ SpellsList["charm monster"] = {
 SpellsList["create homunculus"] = {
 	name : "Create Homunculus",
 	classes : ["wizard"],
-	source : ["X", 152],
+	source : [["X", 152]],
 	level : 6,
 	school : "Trans",
 	time : "1 h",
@@ -3943,7 +3943,7 @@ SpellsList["create homunculus"] = {
 SpellsList["crown of stars"] = {
 	name : "Crown of Stars",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 152],
+	source : [["X", 152]],
 	level : 7,
 	school : "Evoc",
 	time : "1 a",
@@ -3957,7 +3957,7 @@ SpellsList["crown of stars"] = {
 SpellsList["danse macabre"] = {
 	name : "Danse Macabre",
 	classes : ["warlock", "wizard"],
-	source : ["X", 153],
+	source : [["X", 153]],
 	level : 5,
 	school : "Necro",
 	time : "1 a",
@@ -3970,7 +3970,7 @@ SpellsList["danse macabre"] = {
 SpellsList["dawn"] = {
 	name : "Dawn",
 	classes : ["cleric", "wizard"],
-	source : ["X", 153],
+	source : [["X", 153]],
 	level : 5,
 	school : "Evoc",
 	time : "1 a",
@@ -3985,7 +3985,7 @@ SpellsList["dawn"] = {
 SpellsList["dragon's breath"] = {
 	name : "Dragon's Breath",
 	classes : ["sorcerer", "wizard"],
-	source : ["X", 154],
+	source : [["X", 154]],
 	level : 2,
 	school : "Trans",
 	time : "1 bns",
@@ -4007,7 +4007,7 @@ SpellsList["dragon's breath"] = {
 SpellsList["druid grove"] = {
 	name : "Druid Grove",
 	classes : ["druid"],
-	source : ["X", 154],
+	source : [["X", 154]],
 	level : 6,
 	school : "Abjur",
 	time : "10 min",
@@ -4021,7 +4021,7 @@ SpellsList["druid grove"] = {
 SpellsList["enemies abound"] = {
 	name : "Enemies Abound",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
-	source : ["X", 155],
+	source : [["X", 155]],
 	level : 3,
 	school : "Ench",
 	time : "1 a",
@@ -4035,7 +4035,7 @@ SpellsList["enemies abound"] = {
 SpellsList["enervation"] = {
 	name : "Enervation",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 155],
+	source : [["X", 155]],
 	level : 5,
 	school : "Necro",
 	time : "1 a",
@@ -4053,7 +4053,7 @@ SpellsList["enervation"] = {
 SpellsList["far step"] = {
 	name : "Far Step",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 155],
+	source : [["X", 155]],
 	level : 5,
 	school : "Conj",
 	time : "1 bns",
@@ -4066,7 +4066,7 @@ SpellsList["far step"] = {
 SpellsList["find greater steed"] = {
 	name : "Find Greater Steed",
 		classes : ["paladin"],
-		source : ["X", 156],
+		source : [["X", 156]],
 		level : 4,
 		school : "Conj",
 		time : "10 min",
@@ -4079,7 +4079,7 @@ SpellsList["find greater steed"] = {
 SpellsList["guardian of nature"] = {
 	name : "Guardian of Nature",
 	classes : ["druid", "ranger"],
-	source : ["X", 157],
+	source : [["X", 157]],
 	level : 4,
 	school : "Trans",
 	time : "1 bns",
@@ -4092,7 +4092,7 @@ SpellsList["guardian of nature"] = {
 SpellsList["healing spirit"] = { // limited usages (https://media.wizards.com/2020/dnd/downloads/XGtE-Errata.pdf)
 	name : "Healing Spirit",
 	classes : ["druid", "ranger"],
-	source : ["X", 157],
+	source : [["X", 157]],
 	level : 2,
 	school : "Conj",
 	time : "1 bns",
@@ -4106,7 +4106,7 @@ SpellsList["healing spirit"] = { // limited usages (https://media.wizards.com/20
 SpellsList["holy weapon"] = { 
 	name : "Holy Weapon",
 	classes : ["cleric", "paladin"],
-	source : ["X", 157],
+	source : [["X", 157]],
 	level : 5,
 	school : "Evoc",
 	time : "1 bns",
@@ -4125,7 +4125,7 @@ SpellsList["holy weapon"] = {
 SpellsList["illusory dragon"] = {
 	name : "Illusory Dragon",
 	classes : ["wizard"],
-	source : ["X", 157],
+	source : [["X", 157]],
 	level : 8,
 	school : "Illus",
 	time : "1 a",
@@ -4146,7 +4146,7 @@ SpellsList["illusory dragon"] = {
 SpellsList["infernal calling"] = {
 	name : "Infernal Calling",
 	classes : ["warlock", "wizard"],
-	source : ["X", 158],
+	source : [["X", 158]],
 	level : 5,
 	school : "Conj",
 	time : "1 min",
@@ -4160,7 +4160,7 @@ SpellsList["infernal calling"] = {
 SpellsList["infestation"] = {
 	name : "Infestation",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["X", 158],
+	source : [["X", 158]],
 	level : 0,
 	school : "Conj",
 	time : "1 a",
@@ -4176,7 +4176,7 @@ SpellsList["infestation"] = {
 SpellsList["invulnerability"] = {
 	name : "Invulnerability",
 	classes : ["wizard"],
-	source : ["X", 160],
+	source : [["X", 160]],
 	level : 9,
 	school : "Abjur",
 	time : "1 a",
@@ -4190,7 +4190,7 @@ SpellsList["invulnerability"] = {
 SpellsList["life transference"] = { // can't reduce damage taken (https://media.wizards.com/2020/dnd/downloads/XGtE-Errata.pdf)
 	name : "Life Transference",
 	classes : ["cleric", "wizard"],
-	source : ["X", 160],
+	source : [["X", 160]],
 	level : 3,
 	school : "Necro",
 	time : "1 a",
@@ -4203,7 +4203,7 @@ SpellsList["life transference"] = { // can't reduce damage taken (https://media.
 SpellsList["maddening darkness"] = {
 	name : "Maddening Darkness",
 	classes : ["warlock", "wizard"],
-	source : ["X", 160],
+	source : [["X", 160]],
 	level : 8,
 	school : "Evoc",
 	time : "1 a",
@@ -4219,7 +4219,7 @@ SpellsList["maddening darkness"] = {
 SpellsList["mass polymorph"] = {
 	name : "Mass Polymorph",
 	classes : ["bard", "sorcerer", "wizard"],
-	source : ["X", 160],
+	source : [["X", 160]],
 	level : 9,
 	school : "Trans",
 	time : "1 a",
@@ -4234,7 +4234,7 @@ SpellsList["mass polymorph"] = {
 SpellsList["mental prison"] = {
 	name : "Mental Prison",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 161],
+	source : [["X", 161]],
 	level : 6,
 	school : "Illus",
 	time : "1 a",
@@ -4253,7 +4253,7 @@ SpellsList["mental prison"] = {
 SpellsList["mighty fortress"] = {
 	name : "Mighty Fortress",
 	classes : ["wizard"],
-	source : ["X", 161],
+	source : [["X", 161]],
 	level : 8,
 	school : "Conj",
 	time : "1 min",
@@ -4267,7 +4267,7 @@ SpellsList["mighty fortress"] = {
 SpellsList["mind spike"] = { // +1d8 at higher levels errata (https://media.wizards.com/2020/dnd/downloads/XGtE-Errata.pdf)
 	name : "Mind Spike",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 162],
+	source : [["X", 162]],
 	level : 2,
 	school : "Div",
 	time : "1 a",
@@ -4283,7 +4283,7 @@ SpellsList["mind spike"] = { // +1d8 at higher levels errata (https://media.wiza
 SpellsList["negative energy flood"] = {
 	name : "Negative Energy Flood",
 	classes : ["warlock", "wizard"],
-	source : ["X", 163],
+	source : [["X", 163]],
 	level : 5,
 	school : "Necro",
 	time : "1 a",
@@ -4298,7 +4298,7 @@ SpellsList["negative energy flood"] = {
 SpellsList["power word pain"] = {
 	name : "Power Word Pain",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 163],
+	source : [["X", 163]],
 	level : 7,
 	school : "Ench",
 	time : "1 a",
@@ -4311,7 +4311,7 @@ SpellsList["power word pain"] = {
 SpellsList["primal savagery"] = { 
 	name : "Primal Savagery",
 	classes : ["druid"],
-	source : ["X", 163],
+	source : [["X", 163]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -4325,7 +4325,7 @@ SpellsList["primal savagery"] = {
 SpellsList["psychic scream"] = {
 	name : "Psychic Scream",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
-	source : ["X", 163],
+	source : [["X", 163]],
 	level : 9,
 	school : "Ench",
 	time : "1 a",
@@ -4339,7 +4339,7 @@ SpellsList["psychic scream"] = {
 SpellsList["scatter"] = {
 	name : "Scatter",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 164],
+	source : [["X", 164]],
 	level : 6,
 	school : "Conj",
 	time : "1 a",
@@ -4353,7 +4353,7 @@ SpellsList["scatter"] = {
 SpellsList["shadow blade"] = {
 	name : "Shadow Blade",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 164],
+	source : [["X", 164]],
 	level : 2,
 	school : "Illus",
 	time : "1 bns",
@@ -4367,15 +4367,15 @@ SpellsList["shadow blade"] = {
 	descriptionFull : "You weave together threads of shadow to create a sword of solidified gloom in your hand. This magic sword lasts until the spell ends. It counts as a simple melee weapon with which you are proficient. It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties (range 20/60). In addition, when you use the sword to attack a target that is in dim light or darkness, you make the attack roll with advantage." + "\n   " + "If you drop the weapon or throw it, it dissipates at the end of the turn. Thereafter, while the spell persists, you can use a bonus action to cause the sword to reappear in your hand." + AtHigherLevels + "When you cast this spell using a 3rd- or 4th-level spell slot, the damage increases to 3d8. When you cast it using a 5th- or 6th-level spell slot, the damage increases to 4d8. When you cast it using a spell slot of 7th level or higher, the damage increases to 5d8."
 };
 WeaponsList["shadow blade"] = {
-    regExpSearch : /(?=.*shadow)(?=.*blade).*$/i,
-    name : "Shadow Blade",
-    source : ["X", 164],
-    list : "spell",
-    ability : 1,
-    type : "Simple",
-    damage : [2, 8, "psychic"],
-    range : "Melee, 20/60 ft",
-    description : "Finesse, light, thrown; +1d8 at SL3/5/7; Adv. if target in dim light/darkness",
+	regExpSearch : /(?=.*shadow)(?=.*blade).*$/i,
+	name : "Shadow Blade",
+	source : [["X", 164]],
+	list : "spell",
+	ability : 1,
+	type : "Simple",
+	damage : [2, 8, "psychic"],
+	range : "Melee, 20/60 ft",
+	description : "Finesse, light, thrown; +1d8 at SL3/5/7; Adv. if target in dim light/darkness",
 	abilitytodamage : true,
 	isAlwaysProf : true,
 	useSpellcastingAbility : false
@@ -4383,7 +4383,7 @@ WeaponsList["shadow blade"] = {
 SpellsList["shadow of moil"] = {
 	name : "Shadow of Moil",
 	classes : ["warlock"],
-	source : ["X", 164],
+	source : [["X", 164]],
 	level : 4,
 	school : "Necro",
 	time : "1 a",
@@ -4398,7 +4398,7 @@ SpellsList["shadow of moil"] = {
 SpellsList["sickening radiance"] = {
 	name : "Sickening Radiance",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 164],
+	source : [["X", 164]],
 	level : 4,
 	school : "Evoc",
 	time : "1 a",
@@ -4413,7 +4413,7 @@ SpellsList["sickening radiance"] = {
 SpellsList["skill empowerment"] = {
 	name : "Skill Empowerment",
 	classes : ["artificer", "bard", "sorcerer", "wizard"],
-	source : ["X", 165],
+	source : [["X", 165]],
 	level : 5,
 	school : "Trans",
 	time : "1 a",
@@ -4426,7 +4426,7 @@ SpellsList["skill empowerment"] = {
 SpellsList["snare"] = {
 	name : "Snare",
 	classes : ["artificer", "druid", "ranger", "wizard"],
-	source : ["X", 165],
+	source : [["X", 165]],
 	level : 1,
 	school : "Abjur",
 	time : "1 min",
@@ -4441,7 +4441,7 @@ SpellsList["snare"] = {
 SpellsList["soul cage"] = {
 	name : "Soul Cage",
 	classes : ["warlock", "wizard"],
-	source : ["X", 165],
+	source : [["X", 165]],
 	level : 6,
 	school : "Necro",
 	time : "1 rea",
@@ -4456,7 +4456,7 @@ SpellsList["soul cage"] = {
 SpellsList["steel wind strike"] = {
 	name : "Steel Wind Strike",
 	classes : ["ranger", "wizard"],
-	source : ["X", 166],
+	source : [["X", 166]],
 	level : 5,
 	school : "Conj",
 	time : "1 a",
@@ -4470,7 +4470,7 @@ SpellsList["steel wind strike"] = {
 SpellsList["summon greater demon"] = {
 	name : "Summon Greater Demon",
 	classes : ["warlock", "wizard"],
-	source : ["X", 166],
+	source : [["X", 166]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -4485,7 +4485,7 @@ SpellsList["summon greater demon"] = {
 SpellsList["summon lesser demons"] = {
 	name : "Summon Lesser Demons",
 	classes : ["warlock", "wizard"],
-	source : ["X", 167],
+	source : [["X", 167]],
 	level : 3,
 	school : "Conj",
 	time : "1 a",
@@ -4499,7 +4499,7 @@ SpellsList["summon lesser demons"] = {
 SpellsList["synaptic static"] = {
 	name : "Synaptic Static",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
-	source : ["X", 167],
+	source : [["X", 167]],
 	level : 5,
 	school : "Ench",
 	time : "1 a",
@@ -4514,7 +4514,7 @@ SpellsList["synaptic static"] = {
 SpellsList["temple of the gods"] = {
 	name : "Temple of the Gods",
 	classes : ["cleric"],
-	source : ["X", 167],
+	source : [["X", 167]],
 	level : 7,
 	school : "Conj",
 	time : "1 h",
@@ -4528,7 +4528,7 @@ SpellsList["temple of the gods"] = {
 SpellsList["tenser's transformation"] = {
 	name : "Tenser's Transformation",
 	classes : ["wizard"],
-	source : ["X", 168],
+	source : [["X", 168]],
 	level : 6,
 	school : "Trans",
 	time : "1 a",
@@ -4543,7 +4543,7 @@ SpellsList["tenser's transformation"] = {
 SpellsList["thunder step"] = {
 	name : "Thunder Step",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 168],
+	source : [["X", 168]],
 	level : 3,
 	school : "Conj",
 	time : "1 a",
@@ -4558,7 +4558,7 @@ SpellsList["thunder step"] = {
 SpellsList["tiny servant"] = {
 	name : "Tiny Servant",
 	classes : ["artificer", "wizard"],
-	source : ["X", 168],
+	source : [["X", 168]],
 	level : 3,
 	school : "Trans",
 	time : "1 min",
@@ -4586,7 +4586,7 @@ SpellsList["toll the dead"] = {
 SpellsList["wall of light"] = {
 	name : "Wall of Light",
 	classes : ["sorcerer", "warlock", "wizard"],
-	source : ["X", 170],
+	source : [["X", 170]],
 	level : 5,
 	school : "Evoc",
 	time : "1 a",
@@ -4604,7 +4604,7 @@ SpellsList["wall of light"] = {
 SpellsList["word of radiance"] = {
 	name : "Word of Radiance",
 	classes : ["cleric"],
-	source : ["X", 171],
+	source : [["X", 171]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -4620,7 +4620,7 @@ SpellsList["word of radiance"] = {
 SpellsList["wrath of nature"] = {
 	name : "Wrath of Nature",
 	classes : ["druid", "ranger"],
-	source : ["X", 171],
+	source : [["X", 171]],
 	level : 5,
 	school : "Evoc",
 	time : "1 a",
@@ -4634,7 +4634,7 @@ SpellsList["wrath of nature"] = {
 SpellsList["zephyr strike"] = { 
 	name : "Zephyr Strike",
 	classes : ["ranger"],
-	source : ["X", 171],
+	source : [["X", 171]],
 	level : 1,
 	school : "Trans",
 	time : "1 bns",
@@ -4677,7 +4677,7 @@ WeaponsList["frostbite"] = {
 WeaponsList["infestation"] = {
 	regExpSearch : /infestation/i,
 	name : "Infestation",
-	source : ["X", 158],
+	source : [["X", 158]],
 	list : "spell",
 	ability : 6,
 	type : "Cantrip",
@@ -4702,7 +4702,7 @@ WeaponsList["magic stone"] = {
 WeaponsList["primal savagery"] = {
 	regExpSearch : /^(?=.*primal)(?=.*savagery).*$/i,
 	name : "Primal Savagery",
-	source : ["X", 169],
+	source : [["X", 169]],
 	list : "spell",
 	ability : 5,
 	type : "Cantrip",
@@ -4740,7 +4740,7 @@ WeaponsList["toll the dead"] = {
 WeaponsList["word of radiance"] = {
 	regExpSearch : /^(?=.*word)(?=.*radiance).*$/i,
 	name : "Word of Radiance",
-	source : ["X", 171],
+	source : [["X", 171]],
 	list : "spell",
 	ability : 5,
 	type : "Cantrip",
@@ -4783,7 +4783,7 @@ CompanionList.steed = {
 // Add creatures
 CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains contributions by SoilentBrad)
 	name : "Tiny Servant",
-	source : ["X", 169],
+	source : [["X", 169]],
 	size : 5,
 	type : "Construct",
 	alignment : "Unaligned",
@@ -4811,7 +4811,7 @@ CreatureList["tiny servant"] = { // Stats for the Tiny Servant spell (contains c
 // Magic Items
 MagicItemsList["adamantine ammunition"] = {
 	name : "Adamantine Ammunition",
-	source : ["X", 78],
+	source : [["X", 78]],
 	type : "weapon (any ammunition)",
 	rarity : "unknown",
 	description : "Whenever a ammunition made or coated with adamantine hits an object, the hit is a critical hit. The adamantine version of ten pieces of ammunition costs 500 gp more than the normal version, whether the ammunition is made of the metal or coated with it.",
@@ -4829,7 +4829,7 @@ MagicItemsList["adamantine ammunition"] = {
 }
 MagicItemsList["adamantine weapon"] = {
 	name : "Adamantine Weapon",
-	source : ["X", 78],
+	source : [["X", 78]],
 	type : "weapon (any melee)",
 	rarity : "unknown",
 	description : "Whenever a weapon made or coated with adamantine hits an object, the hit is a critical hit. The adamantine version of a melee weapon costs 500 gp more than the normal version, whether the weapon is made of the metal or coated with it.",
@@ -4858,7 +4858,7 @@ MagicItemsList["adamantine weapon"] = {
 MagicItemsList["armor of gleaming"] = {
 	name : "Armor of Gleaming",
 	nameTest : "of Gleaming",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "armor (medium, or heavy)",
 	rarity : "common",
 	description : "This armor never gets dirty.",
@@ -4875,7 +4875,7 @@ MagicItemsList["armor of gleaming"] = {
 }
 MagicItemsList["bead of nourishment"] = {
 	name : "Bead of Nourishment",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once I can eat this spongy, flavorless, gelatinous bead. It dissolves on my tongue and provides as much nourishment as 1 day of rations.",
@@ -4883,7 +4883,7 @@ MagicItemsList["bead of nourishment"] = {
 }
 MagicItemsList["bead of refreshment"] = {
 	name : "Bead of Refreshment",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once I can drop this spongy, flavorless, gelatinous bead in liquid. It dissolves in the liquid and transforms up to a pint of it into fresh, cold drinking water. The bead has no effect on magical liquids or harmful substances such as poison.",
@@ -4891,7 +4891,7 @@ MagicItemsList["bead of refreshment"] = {
 }
 MagicItemsList["boots of false tracks"] = {
 	name : "Boots of False Tracks",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Only humanoids can wear these boots. While wearing the boots, I can choose to have them leave tracks like those of another kind of humanoid of my size.",
@@ -4899,7 +4899,7 @@ MagicItemsList["boots of false tracks"] = {
 }
 MagicItemsList["candle of the deep"] = {
 	name : "Candle of the Deep",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle.",
@@ -4908,7 +4908,7 @@ MagicItemsList["candle of the deep"] = {
 MagicItemsList["cast-off armor"] = {
 	name : "Cast-Off Armor",
 	nameTest : "Cast-Off",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "armor (light, medium, or heavy)",
 	rarity : "common",
 	description : "As an action, I can doff this armor.",
@@ -4923,7 +4923,7 @@ MagicItemsList["cast-off armor"] = {
 }
 MagicItemsList["charlatan's die"] = {
 	name : "Charlatan's Die",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Whenever I roll this six-sided die, I can control which number it rolls.",
@@ -4932,7 +4932,7 @@ MagicItemsList["charlatan's die"] = {
 }
 MagicItemsList["cloak of billowing"] = {
 	name : "Cloak of Billowing",
-	source : ["X", 136],
+	source : [["X", 136]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "As a bonus action while wearing this cloak, I can make it billow dramatically.",
@@ -4950,7 +4950,7 @@ MagicItemsList["cloak of many fashions"] = {
 }
 MagicItemsList["clockwork amulet"] = {
 	name : "Clockwork Amulet",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once per dawn when I make an attack roll while wearing this copper amulet, I can forgo rolling the d20 to get a 10 on the die. The amulet contains tiny interlocking gears powered by magic from Mechanus, a plane of clockwork predictability. When I hold it up to my ear, I can hear faint ticking and whirring noises.",
@@ -4960,7 +4960,7 @@ MagicItemsList["clockwork amulet"] = {
 }
 MagicItemsList["clothes of mending"] = {
 	name : "Clothes of Mending",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This elegant outfit of traveler's clothes magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
@@ -4969,7 +4969,7 @@ MagicItemsList["clothes of mending"] = {
 }
 MagicItemsList["dark shard amulet"] = {
 	name : "Dark Shard Amulet",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "I can use this amulet of extraplanar material from the realm of my warlock patron as a spellcasting focus for my warlock spells. Once per long rest, I can use it to cast a warlock cantrip that I don't know. To do so, I must make a DC 10 Intelligence (Arcana) check, wasting the attempt as well as my action if I fail.",
@@ -5044,7 +5044,7 @@ MagicItemsList["dread helm"] = {
 }
 MagicItemsList["ear horn of hearing"] = {
 	name : "Ear Horn of Hearing",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "While held up to my ear, this horn suppresses the effects of the deafened condition on me, allowing me to hear normally.",
@@ -5054,7 +5054,7 @@ MagicItemsList["ear horn of hearing"] = {
 }
 MagicItemsList["enduring spellbook"] = {
 	name : "Enduring Spellbook",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This spellbook, along with anything written on its pages, can't be damaged by fire or immersion in water. In addition, the spellbook doesn't deteriorate with age.",
@@ -5072,7 +5072,7 @@ MagicItemsList["ersatz eye"] = {
 }
 MagicItemsList["hat of vermin"] = {
 	name : "Hat of Vermin",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This hat has 3 charges, regaining all at dawn. As an action while holding it, I can expend 1 charge and speak a command word to have one bat, frog, or rat appear in the hat. The creature acts as an ordinary member of its kind and disappears after 1 hour or when it has 0 HP. It is not under my control.",
@@ -5083,7 +5083,7 @@ MagicItemsList["hat of vermin"] = {
 }
 MagicItemsList["hat of wizardry"] = {
 	name : "Hat of Wizardry",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "I can use this antiquated, cone-shaped hat adorned with gold crescent moons and stars as a spellcasting focus for my wizard spells. Once per long rest, I can use it to cast a wizard cantrip that I don't know. To do so, I must make a DC 10 Intelligence (Arcana) check, wasting the attempt as well as my action if I fail.",
@@ -5149,7 +5149,7 @@ MagicItemsList["hat of wizardry"] = {
 }
 MagicItemsList["heward's handy spice pouch"] = {
 	name : "Heward's Handy Spice Pouch",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This belt pouch appears empty. It has 10 charges, regaining 1d6+4 expended charges at dawn. As an action while holding it, I can speak the name of any nonmagical food seasoning (e.g. salt, pepper, or saffron), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal.",
@@ -5161,7 +5161,7 @@ MagicItemsList["heward's handy spice pouch"] = {
 }
 MagicItemsList["horn of silent alarm"] = {
 	name : "Horn of Silent Alarm",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This horn has 4 charges, regaining 1d4 expended charges daily at dawn. As an action, I can expend 1 charge and blow it, have only one creature within 600 ft of my choice hear the horns blare, provided it isn't deafened. No other creature hears sound coming from the horn.",
@@ -5174,7 +5174,7 @@ MagicItemsList["horn of silent alarm"] = {
 }
 MagicItemsList["instrument of illusions"] = { // contains contributions by AelarTheElFRogue
 	name : "Instrument of Illusions",
-	source : ["X", 137],
+	source : [["X", 137]],
 	type : "wondrous item (instrument)",
 	rarity : "common",
 	description : "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius (15-ft for bards) sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
@@ -5218,7 +5218,7 @@ MagicItemsList["instrument of scribing"] = {
 }
 MagicItemsList["lock of trickery"] = {
 	name : "Lock of Trickery",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This lock appears to be an ordinary lock and comes with a single key. The tumblers in this lock magically adjust to thwart burglars. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check, but has disadvantage on that check.",
@@ -5228,7 +5228,7 @@ MagicItemsList["lock of trickery"] = {
 MagicItemsList["moon-touched sword"] = {
 	name : "Moon-Touched Sword",
 	nameTest : "Moon-Touched",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "weapon (any sword)",
 	rarity : "common",
 	description : "In darkness, the unsheathed blade of this sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
@@ -5256,7 +5256,7 @@ MagicItemsList["moon-touched sword"] = {
 }
 MagicItemsList["mystery key"] = {
 	name : "Mystery Key",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "A question mark is worked into the head of this key. The key has a 5% chance of unlocking any lock into which it's inserted. Once it unlocks something, the key disappears.",
@@ -5274,7 +5274,7 @@ MagicItemsList["orb of direction"] = {
 }
 MagicItemsList["orb of time"] = {
 	name : "Orb of Time",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "As an action while holding this orb, I can determine whether it is morning, afternoon, evening, or nighttime outside. This property functions only on the Material Plane.",
@@ -5284,7 +5284,7 @@ MagicItemsList["orb of time"] = {
 }
 MagicItemsList["perfume of bewitching"] = {
 	name : "Perfume of Bewitching",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once as an action, I can apply the perfume in this tiny vial to myself and its effect lasts 1 hour. For the duration, I have advantage on all Charisma checks directed at humanoids of challenge rating 1 or lower. Those subjected to the perfume's effect are not aware that they've been influenced by magic.",
@@ -5300,7 +5300,7 @@ MagicItemsList["pipe of smoke monsters"] = {
 }
 MagicItemsList["pole of angling"] = {
 	name : "Pole of Angling",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "While holding this 10 ft pole, I can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10 ft pole.",
@@ -5319,7 +5319,7 @@ MagicItemsList["pole of collapsing"] = {
 }
 MagicItemsList["pot of awakening"] = {
 	name : "Pot of Awakening",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "If I plant an ordinary shrub in this 10 lb clay pot and let it grow for 30 days, the shrub magically transforms into an awakened shrub at the end of that time. When the shrub awakens, its roots break the pot, destroying it. The awakened shrub is friendly toward me. Absent commands from me, it does nothing.",
@@ -5328,7 +5328,7 @@ MagicItemsList["pot of awakening"] = {
 }
 MagicItemsList["rope of mending"] = {
 	name : "Rope of Mending",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "I can cut this 50-foot coil of hempen rope into any number of smaller pieces, and then use an action to speak a command word and cause the pieces to knit back together. The pieces must be in contact with each other and not otherwise in use. A rope of mending is forever shortened if a section of it is lost.",
@@ -5338,7 +5338,7 @@ MagicItemsList["rope of mending"] = {
 }
 MagicItemsList["ruby of the war mage"] = {
 	name : "Ruby of the War Mage",
-	source : ["X", 138],
+	source : [["X", 138]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "By pressing this 1-inch-diameter ruby etched with eldritch runes to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. I can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless my attunement ends, I detach it as an action, or the weapon is destroyed.",
@@ -5349,7 +5349,7 @@ MagicItemsList["ruby of the war mage"] = {
 }
 MagicItemsList["shield of expression"] = {
 	name : "Shield of Expression",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "shield",
 	rarity : "common",
 	description : "The front of this shield is shaped in the likeness of a face. As a bonus action while bearing the shield, I can have the shield alter the expression of the face.",
@@ -5361,7 +5361,7 @@ MagicItemsList["shield of expression"] = {
 MagicItemsList["smoldering armor"] = {
 	name : "Smoldering Armor",
 	nameTest : "Smoldering",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "armor (light, medium, or heavy)",
 	rarity : "common",
 	description : "Wisps of harmless, odorless smoke rise from this armor while it is worn.",
@@ -5374,7 +5374,7 @@ MagicItemsList["smoldering armor"] = {
 }
 MagicItemsList["staff of adornment"] = {
 	name : "Staff of Adornment",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "staff",
 	rarity : "common",
 	description : "If I place an object up to 1 lb above the tip of the staff while holding it, the object floats 1 inch from its tip and remains there until it is removed or until I no longer possess the staff. It can have up to three objects floating over its tip at any given time and I can make one or more objects slowly spin or turn in place.",
@@ -5383,11 +5383,11 @@ MagicItemsList["staff of adornment"] = {
 }
 MagicItemsList["staff of birdcalls"] = {
 	name : "Staff of Birdcalls",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "staff",
 	rarity : "common",
-	description : "This staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can use 1 charge to create a sound out to a range of 60 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's book, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-	descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's book, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+	description : "This staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can use 1 charge to create a sound out to a range of 60 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+	descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
 	weight : 4,
 	usages : 10,
 	recovery : "dawn",
@@ -5396,7 +5396,7 @@ MagicItemsList["staff of birdcalls"] = {
 }
 MagicItemsList["staff of flowers"] = {
 	name : "Staff of Flowers",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "staff",
 	rarity : "common",
 	description : "This staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can use 1 charge to cause a flower of my choice to sprout from a patch of earth or soil within 5 ft or from the staff itself. The flower is nonmagical and grows or withers as a normal flower would.",
@@ -5418,7 +5418,7 @@ MagicItemsList["talking doll"] = {
 }
 MagicItemsList["tankard of sobriety"] = {
 	name : "Tankard of Sobriety",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This tankard has a stern face sculpted into one side. I can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison.",
@@ -5427,7 +5427,7 @@ MagicItemsList["tankard of sobriety"] = {
 }
 MagicItemsList["unbreakable arrow"] = {
 	name : "Unbreakable Arrow",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "weapon (arrow)",
 	rarity : "common",
 	description : "This arrow can't be broken, except when it is within an Antimagic Field.",
@@ -5436,7 +5436,7 @@ MagicItemsList["unbreakable arrow"] = {
 }
 MagicItemsList["veteran's cane"] = {
 	name : "Veteran's Cane",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once as a bonus action, I can grasp this walking cane and speak its command word to have it transform into an ordinary longsword. Once transformed, the longsword is nonmagical and can't revert back to a walking cane.",
@@ -5447,7 +5447,7 @@ MagicItemsList["veteran's cane"] = {
 MagicItemsList["walloping ammunition"] = {
 	name : "Walloping Ammunition",
 	nameTest : "Walloping",
-	source : ["X", 139],
+	source : [["X", 139]],
 	type : "weapon (any ammunition)",
 	rarity : "common",
 	description : "This magic ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
@@ -5464,7 +5464,7 @@ MagicItemsList["walloping ammunition"] = {
 }
 MagicItemsList["wand of conducting"] = {
 	name : "Wand of Conducting",
-	source : ["X", 140],
+	source : [["X", 140]],
 	type : "wand",
 	rarity : "common",
 	description : "This wand has 3 charges, regaining all at dawn. As an action, I can wave it around and expend 1 charge to create orchestral music that can be heard out to a range of 60 ft and ends when I stop waving the wand. If I use its last charge, roll a d20. On a 1, a sad tuba sound plays as the wand crumbles to dust.",
@@ -5476,7 +5476,7 @@ MagicItemsList["wand of conducting"] = {
 }
 MagicItemsList["wand of pyrotechnics"] = {
 	name : "Wand of Pyrotechnics",
-	source : ["X", 140],
+	source : [["X", 140]],
 	type : "wand",
 	rarity : "common",
 	description : "This wand has 7 charges, regaining 1d6+1 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can expend 1 charge to create a harmless burst of sound light at a point I can see up to 60 ft away, with the noise travelling 300 ft. The light is as bright as a torch flame but lasts only a second.",

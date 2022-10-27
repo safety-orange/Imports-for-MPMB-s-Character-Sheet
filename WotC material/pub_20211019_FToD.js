@@ -41,7 +41,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			variants : [["Amethyst", "Force"], ["Crystal", "Radiant"], ["Emerald", "Psychic"], ["Sapphire", "Thunder"], ["Topaz", "Necrotic"]],
 			breathWeaponShape : "15-ft cone",
 			trait : desc([
-				">>TYPE<< Breath Weapon: When I take the Attack action on my turn, I can replace one attack with a breath weapon that deals 1d10 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Prof. Bonus). I can do this my Prof" + (typePF ? "iciency" : ".") + " Bonus per long rest.",
+				">>TYPE<< Breath Weapon: When I take the Attack action on my turn, I can replace one attack with a breath weapon that deals 1d10 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Prof Bonus). I can do this my Prof" + (typePF ? "iciency" : ".") + " Bonus per long rest.",
 				"Psionic Mind: " + (typePF ? "I can send telepathic messages to any creature I can see within 30 ft that understands at least one language." : "I can telepathically message a creature with a language I can see in 30 ft."),
 				"Gem Flight: From 5th level, I can manifest spectral wings. As a bonus action once per long rest, I can gain, for 1 minute, a flying speed equal to my walking speed and can hover."
 			], "\n \u2022 "),
@@ -263,7 +263,7 @@ AddSubClass("monk", "ascendant dragon", {
 			description : desc([
 				"When I use Step of the Wind, I can gain a flying speed equal to my walking speed"
 			]),
-			usages : "Prof. Bonus per ",
+			usages : "Prof Bonus per ",
 			recovery : "long rest",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			"aspect of the wyrm" : {
@@ -531,7 +531,7 @@ FeatsList["gift of the chromatic dragon"] = {
 	descriptionFull : "You've manifested some of the power of chromatic dragons, granting you the following benefits:"+
 	"\n   " + toUni("Chromatic Infusion") + ". As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest."+
 	"\n   " + toUni("Reactive Resistance") + ". When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof. Bonus per long rest.",
+	description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof Bonus per long rest.",
 	action : [
 		["bonus action", "Chromatic Gift (Chromatic Infusion)"],
 		["reaction", "Chromatic Gift (Reactive Resistance)"]
@@ -553,22 +553,22 @@ FeatsList["gift of the gem dragon"] = {
 	descriptionFull : "You've manifested some of the power of gem dragons, granting you the following benefits:"+
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."+
 	"\n   " + toUni("Telekinetic Reprisal") + ". When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes 2d8 force damage and is pushed up to 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it take 2d8 force damage and push it up to 10 ft away. If it succeeds on a Str save (DC 8 + Prof. Bonus + chosen ability score modifier), it halves the damage and isn't pushed. I can do this my Prof. Bonus per long rest. [+1 Int, Wis or Cha]",
+	description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it take 2d8 force damage and push it up to 10 ft away. If it succeeds on a Str save (DC 8 + Prof Bonus + chosen ability score modifier), it halves the damage and isn't pushed. I can do this my Prof Bonus per long rest. [+1 Int, Wis or Cha]",
 	action : [["reaction", ""]],
 	usages : "Proficiency Bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof. Bonus + Int mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Intelligence]';",
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof Bonus + Int mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Intelligence]';",
 		scores : [0, 0, 0, 1, 0, 0]
 	},
 	"wisdom" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof. Bonus + Wis mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Wisdom]';",
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof Bonus + Wis mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Wisdom]';",
 		scores : [0, 0, 0, 0, 1, 0]
 	},
 	"charisma" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof. Bonus + Cha mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Charisma]';",
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof Bonus + Cha mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Charisma]';",
 		scores : [0, 0, 0, 0, 0, 1]
 	}
 };
@@ -601,7 +601,7 @@ FeatsList["gift of the metallic dragon"] = {
 };
 
 // Spells
-SpellsList["ashardalon's stride"] = { // contains contributions by NodHero (Flame Stride in UA:DO)
+SpellsList["ashardalon's stride"] = { // contains contributions by Nod_Hero (Flame Stride in UA:DO)
 	name : "Ashardalon's Stride",
 	nameAlt : "Flame Stride",
 	classes : ["artificer", "ranger", "sorcerer", "wizard"],
@@ -1744,6 +1744,7 @@ MagicItemsList["scaled ornament"] = function (n) {
 // Creatures
 CreatureList["giant canary"] = {
 	name : "Giant Canary",
+	nameAlt : ["Canary, Giant"],
 	source : [["FToD", 23]],
 	size : 2,
 	type : "Beast",

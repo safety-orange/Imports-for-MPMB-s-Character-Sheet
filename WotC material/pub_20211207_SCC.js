@@ -772,6 +772,7 @@ MagicItemsList["masque charm"] = {
 // Creatures (for Strixhaven Mascot feat)
 CreatureList["art elemental mascot"] = { // Prismari
 	name : "Art Elemental Mascot",
+	nameAlt : ["Mascot, Art Elemental"],
 	source : [["SCC", 185]],
 	size : 4,
 	type : "Elemental",
@@ -818,6 +819,7 @@ CreatureList["art elemental mascot"] = { // Prismari
 };
 CreatureList["fractal mascot"] = { // Quandrix
 	name : "Fractal Mascot",
+	nameAlt : ["Mascot, Fractal"],
 	source : [["SCC", 192]],
 	size : 4,
 	type : "Construct",
@@ -857,6 +859,7 @@ CreatureList["fractal mascot"] = { // Quandrix
 };
 CreatureList["inkling mascot"] = { // Silverquill
 	name : "Inkling Mascot",
+	nameAlt : ["Mascot, Inkling"],
 	source : [["SCC", 195]],
 	size : 5,
 	type : "Ooze",
@@ -899,6 +902,7 @@ CreatureList["inkling mascot"] = { // Silverquill
 };
 CreatureList["pest mascot"] = { // Witherbloom
 	name : "Pest Mascot",
+	nameAlt : ["Mascot, Pest"],
 	source : [["SCC", 203]],
 	size : 5,
 	type : "Monstrosity",
@@ -934,6 +938,7 @@ CreatureList["pest mascot"] = { // Witherbloom
 };
 CreatureList["spirit statue mascot"] = { // Lorehold
 	name : "Spirit Statue Mascot",
+	nameAlt : ["Mascot, Spirit Statue"],
 	source : [["SCC", 216]],
 	size : 3,
 	type : "Construct",

@@ -248,7 +248,7 @@ if (!SourceList.FToD) {
 		descriptionFull : "You've manifested some of the power of chromatic dragons, granting you the following benefits:"+
 		"\n \u2022 As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this ability, you can't do so again until you finish a long rest."+
 		"\n \u2022 When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-		description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof. Bonus per long rest.",
+		description : "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof Bonus per long rest.",
 		action : [
 			["bonus action", "Chromatic Gift (Infuse Weapon)"],
 			["reaction", "Chromatic Gift (Resistance)"]
@@ -270,26 +270,26 @@ if (!SourceList.FToD) {
 		descriptionFull : "You've manifested some of the power of gem dragons, granting you the following benefits:"+
 		"\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."+
 		"\n \u2022 When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or take 2d8 force damage and be pushed 10 feet away from you. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-		description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it make a Str save (DC 8 + Prof. Bonus + chosen ability score modifier) or take 2d8 force damage and be pushed 10 ft away. I can do this my Prof. Bonus per long rest. [+1 Int, Wis or Cha]",
+		description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it make a Str save (DC 8 + Prof Bonus + chosen ability score modifier) or take 2d8 force damage and be pushed 10 ft away. I can do this my Prof Bonus per long rest. [+1 Int, Wis or Cha]",
 		action : [["reaction", ""]],
 		usages : "Proficiency Bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest",
 		choices : ["Intelligence", "Wisdom", "Charisma"],
 		"intelligence" : {
-			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof. Bonus + Int mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Intelligence]';",
+			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof Bonus + Int mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof Bonus per long rest. [+1 Intelligence]';",
 			scores : [0, 0, 0, 1, 0, 0]
 		},
 		"wisdom" : {
-			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof. Bonus + Wis mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Wisdom]';",
+			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof Bonus + Wis mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof Bonus per long rest. [+1 Wisdom]';",
 			scores : [0, 0, 0, 0, 1, 0]
 		},
 		"charisma" : {
-			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(What('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof. Bonus + Cha mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof. Bonus per long rest. [+1 Charisma]';",
+			calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it make a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof Bonus + Cha mod) or take 2d8 force damage and be pushed 10 ft away from me. I can do this my Prof Bonus per long rest. [+1 Charisma]';",
 			scores : [0, 0, 0, 0, 0, 1]
 		}
 	};
-	SpellsList["flame stride-ua"] = { // contains contributions by NodHero (Ashardalon's Stride in FToD)
+	SpellsList["flame stride-ua"] = { // contains contributions by Nod_Hero (Ashardalon's Stride in FToD)
 		name : "Flame Stride",
 		classes : ["artificer", "ranger", "sorcerer", "wizard"],
 		source : [["FToD", 19], ["UA:DO", 6]],
@@ -372,7 +372,7 @@ FeatsList["gift of the metallic dragon-ua"] = {
 	descriptionFull : "You've manifested some of the power of metallic dragons, granting you the following benefits:"+
 	"\n \u2022 You learn the cure wounds spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)."+
 	"\n \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description : "I know Cure Wounds. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add a d4 to AC, potentially causing the attack to miss. I can do this my Prof. Bonus per long rest.",
+	description : "I know Cure Wounds. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add a d4 to AC, potentially causing the attack to miss. I can do this my Prof Bonus per long rest.",
 	spellcastingAbility : [4, 5, 6],
 	allowUpCasting : true,
 	spellcastingBonus : [{

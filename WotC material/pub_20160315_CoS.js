@@ -503,7 +503,7 @@ BackgroundFeatureList["heart of darkness"] = {
 // Equipment pack
 PacksList.monsterhunter = {
 	name : "Monster hunter's pack (33 gp)",
-	source : ["CoS", 209],
+	source : [["CoS", 209]],
 	items : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -523,7 +523,7 @@ PacksList.monsterhunter = {
 MagicItemsList["plantslayer battleaxe"] = {
 	name : "Plantslayer Battleaxe", // name taken from Adventurers League Content Catalogue v8.07, page 28
 	nameAlt : "Adventurer's Battleaxe",
-	source : ["CoS", 198],
+	source : [["CoS", 198]],
 	type : "weapon (battleaxe)",
 	rarity : "rare",
 	magicItemTable : "F",
@@ -535,14 +535,14 @@ MagicItemsList["plantslayer battleaxe"] = {
 		baseWeapon : "battleaxe",
 		regExpSearch : /^(?=.*plantslayer)(?=.*battleaxe).*$/i,
 		name : "Plantslayer Battleaxe",
-		source : ["CoS", 198],
+		source : [["CoS", 198]],
 		description : "Versatile (1d10); +1d8 damage vs. plants",
 		weight : 2
 	}
 }
 MagicItemsList["blood spear"] = {
 	name : "Blood Spear",
-	source : ["CoS", 221],
+	source : [["CoS", 221]],
 	type : "weapon (spear)",
 	rarity : "uncommon",
 	magicItemTable : "G",
@@ -559,7 +559,7 @@ MagicItemsList["blood spear"] = {
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
 			name : "Blood Spear",
-			source : ["CoS", 221],
+			source : [["CoS", 221]],
 			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
 			modifiers : [2,2]
 		}
@@ -571,14 +571,14 @@ MagicItemsList["blood spear"] = {
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
 			name : "Blood Spear",
-			source : ["CoS", 221],
+			source : [["CoS", 221]],
 			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP"
 		}
 	}
 }
 MagicItemsList["green copper ewer"] = {
 	name : "Green Copper Ewer",
-	source : ["CoS", 188],
+	source : [["CoS", 188]],
 	type : "wondrous item",
 	rarity : "unknown",
 	description : "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. If I speak the ewer's command word while grasping its handle, the ewer fills with 1 gallon of wine. After doing so, it can't produce more wine until the next dawn.",
@@ -586,7 +586,7 @@ MagicItemsList["green copper ewer"] = {
 }
 MagicItemsList["gulthias staff"] = {
 	name : "Gulthias Staff",
-	source : ["CoS", 221],
+	source : [["CoS", 221]],
 	type : "staff",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -603,13 +603,13 @@ MagicItemsList["gulthias staff"] = {
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*gulthias)(?=.*staff).*$/i,
 		name : "Gulthias Staff",
-		source : ["CoS", 221],
+		source : [["CoS", 221]],
 		description : "Versatile (1d8); On hit, 1 charge to regain HP equal to damage dealt but DC 12 Wis save or madness"
 	},
 }
 MagicItemsList["holy symbol of ravenkind"] = {
 	name : "Holy Symbol of Ravenkind",
-	source : ["CoS", 222],
+	source : [["CoS", 222]],
 	type : "wondrous item",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -634,7 +634,7 @@ MagicItemsList["holy symbol of ravenkind"] = {
 }
 MagicItemsList["icon of ravenloft"] = {
 	name : "Icon of Ravenloft",
-	source : ["CoS", 222],
+	source : [["CoS", 222]],
 	type : "wondrous item",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -687,7 +687,7 @@ MagicItemsList["icon of ravenloft"] = {
 }
 MagicItemsList["lost sword"] = {
 	name : "Lost Sword",
-	source : ["CoS", 81],
+	source : [["CoS", 81]],
 	type : "weapon (shortsword)",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -705,7 +705,7 @@ MagicItemsList["lost sword"] = {
 		baseWeapon : "shortsword",
 		regExpSearch : /^(?=.*lost)(?=.*sword).*$/i,
 		name : "Lost Sword",
-		source : ["CoS", 81],
+		source : [["CoS", 81]],
 		modifiers : [1, 1]
 	},
 	spellcastingBonus : {
@@ -727,7 +727,7 @@ MagicItemsList["lost sword"] = {
 }
 MagicItemsList["saint markovia's thighbone"] = {
 	name : "Saint Markovia's Thighbone",
-	source : ["CoS", 222],
+	source : [["CoS", 222]],
 	type : "weapon (mace)",
 	rarity : "rare",
 	description : "This mace sheds bright light in a 20-ft radius and dim light for another 20 ft while held. Fiends and undead hit with it take +2d6 radiant damage, become frightened of me until my next turn ends, and if below 26 HP after its damage, must make a DC 15 Wis save or die. If it hits an undead, it crumbles after the combat.",
@@ -739,13 +739,13 @@ MagicItemsList["saint markovia's thighbone"] = {
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*markovia)(?=.*thighbone).*$/i,
 		name : "Saint Markovia's Thighbone",
-		source : ["CoS", 222],
+		source : [["CoS", 222]],
 		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if HP<26, DC 15 Wis save or die"
 	}
 }
 MagicItemsList["silver dragon shield +2"] = {
 	name : "Silver Dragon Shield +2",
-	source : ["CoS", 68],
+	source : [["CoS", 68]],
 	type : "shield",
 	rarity : "rare",
 	description : "While holding this shield, I have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC. It is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon. The shield whispers warnings to me, granting me a +2 bonus to initiative while I am not incapacitated.",
@@ -756,7 +756,7 @@ MagicItemsList["silver dragon shield +2"] = {
 }
 MagicItemsList["statuette of saint markovia"] = {
 	name : "Statuette of Saint Markovia",
-	source : ["CoS", 152],
+	source : [["CoS", 152]],
 	type : "wondrous item",
 	rarity : "unknown",
 	storyItemAL : true,
@@ -766,7 +766,7 @@ MagicItemsList["statuette of saint markovia"] = {
 }
 MagicItemsList["sunsword"] = {
 	name : "Sunsword",
-	source : ["CoS", 223],
+	source : [["CoS", 223]],
 	type : "weapon (longsword)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -781,7 +781,7 @@ MagicItemsList["sunsword"] = {
 		baseWeapon : "longsword",
 		regExpSearch : /sunsword/i,
 		name : "Sunsword",
-		source : ["CoS", 223],
+		source : [["CoS", 223]],
 		damage : [1, 8, "radiant"],
 		description : "Finesse, versatile (1d10); +1d8 damage to undead",
 		modifiers : [2, 2]

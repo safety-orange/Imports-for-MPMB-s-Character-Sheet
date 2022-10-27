@@ -15,11 +15,11 @@ SourceList["UA:BC"] = {
 AddSubClass("bard", "college of glamour-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname : "College of Glamour",
-	source : ["UA:BC", 1],
+	source : [["UA:BC", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Mantle of Inspiration",
-			source : ["UA:BC", 1],
+			source : [["UA:BC", 1]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I expend one bardic inspiration die to aid those within 60 ft of me" + "\n   " + "A number of allies equal to my Cha mod gain twice the die roll in temporary HP" + "\n   " + "They can use a reaction to move their speed toward me, without opportunity attacks",
 			additional : "1 bardic inspiration die",
@@ -27,7 +27,7 @@ AddSubClass("bard", "college of glamour-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Enthralling Performance",
-			source : ["UA:BC", 1],
+			source : [["UA:BC", 1]],
 			minlevel : 3,
 			recovery : "short rest",
 			usages : 1,
@@ -35,7 +35,7 @@ AddSubClass("bard", "college of glamour-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Mantle of Majesty",
-			source : ["UA:BC", 1],
+			source : [["UA:BC", 1]],
 			minlevel : 6,
 			recovery : "long rest",
 			usages : 1,
@@ -57,7 +57,7 @@ AddSubClass("bard", "college of glamour-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Unbreakable Majesty",
-			source : ["UA:BC", 2],
+			source : [["UA:BC", 2]],
 			minlevel : 14,
 			recovery : "short rest",
 			usages : 1,
@@ -82,18 +82,18 @@ AddSubClass("bard", "college of glamour-ua", {
 AddSubClass("bard", "college of whispers-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname : "College of Whispers",
-	source : ["UA:BC", 2],
+	source : [["UA:BC", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Venomous Blades",
-			source : ["UA:BC", 2],
+			source : [["UA:BC", 2]],
 			minlevel : 3,
 			description : "\n   " + "When I hit with a weapon attack, I can expend a bardic inspiration die to add damage" + "\n   " + "I roll the inspiration die twice, dealing the total in Poison damage to the target" + "\n   " + "I can do this no more than once per round on my turn",
 			additional : "1 bardic inspiration die"
 		},
 		"subclassfeature3.1" : {
 			name : "Venomous Words",
-			source : ["UA:BC", 2],
+			source : [["UA:BC", 2]],
 			minlevel : 3,
 			recovery : "short rest",
 			usages : 1,
@@ -101,14 +101,14 @@ AddSubClass("bard", "college of whispers-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Mantle of Whispers",
-			source : ["UA:BC", 2],
+			source : [["UA:BC", 2]],
 			minlevel : 6,
 			action : ["reaction", ""],
 			description : "\n   " + "As a reaction when a creature dies within 5 ft or by my hand, I can capture its shadow" + "\n   " + "I can use shadows of those with the same type and size as me (or Medium if I'm Small)" + "\n   " + "I can have only one captured shadow at a time and I can don it as a shadow disguise",
 			"shadow disguise" : {
 				name : "Shadow Disguise",
 				extraname : "Mantle of Whispers",
-				source : ["UA:BC", 2],
+				source : [["UA:BC", 2]],
 				action : [["action", " (start)"], ['bonus action', ' (end)']],
 				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends"
 			},
@@ -116,7 +116,7 @@ AddSubClass("bard", "college of whispers-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Shadow Lore",
-			source : ["UA:BC", 3],
+			source : [["UA:BC", 3]],
 			minlevel : 14,
 			recovery : "long rest",
 			usages : 1,

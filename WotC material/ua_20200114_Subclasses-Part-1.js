@@ -93,7 +93,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 			minlevel : 10,
 			description : desc([
 				"In rage, when I hit a creature with my natural weapon, I can have it make a Wis save",
-				"If it fails (DC 8 + my Prof bonus + my Con mod) it suffers one effect of my choice:",
+				"If it fails (DC 8 + my Prof Bonus + my Con mod) it suffers one effect of my choice:",
 				" \u2022 It uses its reaction to make a melee attack against one creature I can see of my choice",
 				" \u2022 It takes 2d12 psychic damage"
 			]),

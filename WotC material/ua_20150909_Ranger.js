@@ -22,7 +22,7 @@ SourceList["UA:R"] = {
 ClassList["ua-playtest-ranger"] = {
 	regExpSearch : /^(?=.*playtest)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	name : "Playtest Ranger",
-	source : ["UA:R", 0],
+	source : [["UA:R", 0]],
 	primaryAbility : "Dexterity and Wisdom",
 	prereqs : "Dexterity 13 and Wisdom 13",
 	die : 12,
@@ -49,7 +49,7 @@ ClassList["ua-playtest-ranger"] = {
 	features : {
 		"ambuscade" : {
 			name : "Ambuscade",
-			source : ["UA:R", 2],
+			source : [["UA:R", 2]],
 			minlevel : 1,
 			description : desc([
 				"When I roll initiative, I gain a special turn before others can act",
@@ -61,7 +61,7 @@ ClassList["ua-playtest-ranger"] = {
 		"fighting style" : ClassList.ranger.features["fighting style"],
 		"skirmisher's stealth" : {
 			name : "Skirmisher's Stealth",
-			source : ["UA:R", 3],
+			source : [["UA:R", 3]],
 			minlevel : 2,
 			description : desc([
 				"At the start of my turn, I can choose a creature I'm hidden from",
@@ -72,7 +72,7 @@ ClassList["ua-playtest-ranger"] = {
 		},
 		"subclassfeature3" : {
 			name : "Ranger Path",
-			source : ["UA:R", 3],
+			source : [["UA:R", 3]],
 			minlevel : 3,
 			description : desc([
 				"Choose a Ranger Path you wish to follow and put it in the \"Class\" field",
@@ -85,11 +85,11 @@ ClassList["ua-playtest-ranger"] = {
 AddSubClass("ua-playtest-ranger", "guardian-ua", {
 	regExpSearch : /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Guardian",
-	source : ["UA:R", 3],
+	source : [["UA:R", 3]],
 	features : {
 		"subclassfeature3" : {
 			name : "Brown Bear Spirit Companion",
-			source : ["UA:R", 3],
+			source : [["UA:R", 3]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can have my brown bear spirit animal materialize or dismiss it",
@@ -103,7 +103,7 @@ AddSubClass("ua-playtest-ranger", "guardian-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Guardian's Shroud",
-			source : ["UA:R", 4],
+			source : [["UA:R", 4]],
 			minlevel : 3,
 			description :"\n   " + "When I call my spirit animal, I grant me or an ally I can see 2d6 + Wis mod temp HP"
 		}
@@ -112,11 +112,11 @@ AddSubClass("ua-playtest-ranger", "guardian-ua", {
 AddSubClass("ua-playtest-ranger", "seeker-ua", {
 	regExpSearch : /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Seeker",
-	source : ["UA:R", 4],
+	source : [["UA:R", 4]],
 	features : {
 		"subclassfeature3" : {
 			name : "Giant Eagle Spirit Companion",
-			source : ["UA:R", 3],
+			source : [["UA:R", 3]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can have my giant eagle spirit animal materialize or dismiss it",
@@ -130,7 +130,7 @@ AddSubClass("ua-playtest-ranger", "seeker-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Seeker's Eye",
-			source : ["UA:R", 4],
+			source : [["UA:R", 4]],
 			minlevel : 3,
 			description : desc([
 				"When I call my spirit animal, I can choose a creature that I can see",
@@ -142,11 +142,11 @@ AddSubClass("ua-playtest-ranger", "seeker-ua", {
 AddSubClass("ua-playtest-ranger", "stalker-ua", {
 	regExpSearch : /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Stalker",
-	source : ["UA:R", 4],
+	source : [["UA:R", 4]],
 	features : {
 		"subclassfeature3" : {
 			name : "Dire Wolf Spirit Companion",
-			source : ["UA:R", 3],
+			source : [["UA:R", 3]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can have my dire wolf spirit animal materialize or dismiss it",
@@ -160,7 +160,7 @@ AddSubClass("ua-playtest-ranger", "stalker-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Stalker's Fangs",
-			source : ["UA:R", 4],
+			source : [["UA:R", 4]],
 			minlevel : 3,
 			description : desc([
 				"When I call my spirit animal, I can choose a creature that I can see",

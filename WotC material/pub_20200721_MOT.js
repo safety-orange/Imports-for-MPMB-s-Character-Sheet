@@ -13,41 +13,41 @@ SourceList.MOT = {
 };
 
 RaceList["leonin"] = { // includes contributions by BraabHimself
-    regExpSearch : /leonin/i,
-    name : "Leonin",
-    source : [["MOT", 20]],
-    plural : "Leonin",
-    size : 3,
-    speed : {
-        walk : { spd : 35, enc : 25 }
-    },
-    skillstxt : "Choose one from Athletics, Intimidation, Perception, or Survival",
-    languageProfs : ["Common", "Leonin"],
-    vision : [["Darkvision", 60]],
-    weaponOptions : [{
-        baseWeapon : "unarmed strike",
-        regExpSearch : /^(?=.*(leonin|\bcats?\b))(?=.*claw).*$/i,
-        name : "Leonin Claws",
-        source : [["MoT", 21]],
-        damage : [1, 4, "slashing"]
-    }],
-    weaponsAdd : ["Leonin Claws"],
+	regExpSearch : /leonin/i,
+	name : "Leonin",
+	source : [["MOT", 20]],
+	plural : "Leonin",
+	size : 3,
+	speed : {
+		walk : { spd : 35, enc : 25 }
+	},
+	skillstxt : "Choose one from Athletics, Intimidation, Perception, or Survival",
+	languageProfs : ["Common", "Leonin"],
+	vision : [["Darkvision", 60]],
+	weaponOptions : [{
+		baseWeapon : "unarmed strike",
+		regExpSearch : /^(?=.*(leonin|\bcats?\b))(?=.*claw).*$/i,
+		name : "Leonin Claws",
+		source : [["MoT", 21]],
+		damage : [1, 4, "slashing"]
+	}],
+	weaponsAdd : ["Leonin Claws"],
 	abilitySave : 3,
-    age : " mature and age at about the same rate as humans",
-    height : " are typically over 6 feet tall, with some standing over 7 feet (5'6\" + 2d10\")",
+	age : " mature and age at about the same rate as humans",
+	height : " are typically over 6 feet tall, with some standing over 7 feet (5'6\" + 2d10\")",
 	weight : " weigh around 250 lb (180 + 2d10 \xD7 2d6 lb)",
-    heightMetric : " are typically over 1,8 metres tall, with some standing over 2,1 metres (167 + 5d10 cm)",
+	heightMetric : " are typically over 1,8 metres tall, with some standing over 2,1 metres (167 + 5d10 cm)",
 	weightMetric : " weigh around 120 kg (80 + 5d10 \xD7 4d6 / 10 kg)",
-    scores : [1, 0, 2, 0, 0, 0],
-    features : {
-        "daunting roar" : {
-            name : "Daunting Roar",
-            minlevel : 1,
-            usages : 1,
-            recovery : "short rest",
-            action : [["bonus action", ""]]
-        }
-    },
+	scores : [1, 0, 2, 0, 0, 0],
+	features : {
+		"daunting roar" : {
+			name : "Daunting Roar",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			action : [["bonus action", ""]]
+		}
+	},
 	trait : "Leonin (+2 Constitution +1 Strength)" + desc([
 		"Claws: I can use my claws to make unarmed strikes that deal 1d4 slashing damage.",
 		"Daunting Roar: As a bonus action once per short rest, I can let out a menacing roar. Creatures of my choice within 10 ft of me that can hear me must make a Wisdom saving throw (DC 8 + Constitution modifier + Proficiency Bonus) or become frightened of me until the end of my next turn.",
@@ -67,7 +67,7 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 	languageProfs : ["Common", "Sylvan"],
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
-        regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
+		regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
 		name : "Satyr Headbutt",
 		source : [["MOT", 25]],
 		damage : [1, 4, "bludgeoning"]
@@ -158,7 +158,7 @@ if (!SourceList.G) {
 		trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
 			"Horns: I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
 			"Goring Rush: When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
-			"Hammering Horns: As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof bonus) or be pushed up to 10 ft away from me."
+			"Hammering Horns: As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me."
 		]),
 		features : {
 			"goring rush" : {
@@ -398,52 +398,52 @@ BackgroundList["athlete"] = { // includes contributions by Smashman
 	toolProfs : ["Vehicles (land)"],
 	gold : 10,
 	equipleft : [
-        ["A bronze discus or leather ball", "", ""],
-    ],
+		["A bronze discus or leather ball", "", ""],
+	],
 	equipright : [
-        ["Traveler's clothes", "", 4],
-        ["A lucky charm or past trophy", "", ""],
-        ["Belt pouch (with coins)", "", 1]
-    ],
+		["Traveler's clothes", "", 4],
+		["A lucky charm or past trophy", "", ""],
+		["Belt pouch (with coins)", "", 1]
+	],
 	feature : "Echoes of Victory",
 	trait : [
-        "I feel most at peace during physical exertion, be it exercise or battle.",
-        "I don't like to sit idle.",
-        "I have a daily exercise routine that I refuse to break.",
-        "Obstacles exist to be overcome.",
-        "When I see others struggling, I offer to help.",
-        "I love to trade banter and gibes.",
-        "Anything worth doing is worth doing best.",
-        "I get irritated if people praise someone else and not me.",
-    ],
+		"I feel most at peace during physical exertion, be it exercise or battle.",
+		"I don't like to sit idle.",
+		"I have a daily exercise routine that I refuse to break.",
+		"Obstacles exist to be overcome.",
+		"When I see others struggling, I offer to help.",
+		"I love to trade banter and gibes.",
+		"Anything worth doing is worth doing best.",
+		"I get irritated if people praise someone else and not me.",
+	],
 	ideal : [
-        ["Competition", "Competition: I strive to test myself in all things. (Chaotic)"],
-        ["Triumph", "Triumph: The best part of winning is seeing my rivals brought low. (Evil)"],
-        ["Camaraderie", "Camaraderie: The strongest bonds are forged through struggle. (Good)"],
-        ["People", "People: I strive to inspire my spectators. (Neutral)"],
-        ["Tradition", "Tradition: Every game has rules, and the playing field must be level. (Lawful)"],
-        ["Growth", "Growth: Lessons hide in victory and defeat. (Any)"],
-    ],
+		["Competition", "Competition: I strive to test myself in all things. (Chaotic)"],
+		["Triumph", "Triumph: The best part of winning is seeing my rivals brought low. (Evil)"],
+		["Camaraderie", "Camaraderie: The strongest bonds are forged through struggle. (Good)"],
+		["People", "People: I strive to inspire my spectators. (Neutral)"],
+		["Tradition", "Tradition: Every game has rules, and the playing field must be level. (Lawful)"],
+		["Growth", "Growth: Lessons hide in victory and defeat. (Any)"],
+	],
 	bond : [
-        "My teammates are my family.",
-        "I will overcome a rival and prove myself their better.",
-        "My mistake got someone hurt. I'll never make that mistake again.",
-        "I will be the best for the honor and glory of my home.",
-        "The person who trained me is the most important person in my world.",
-        "I strive to live up to a specific hero's example.",
-    ],
+		"My teammates are my family.",
+		"I will overcome a rival and prove myself their better.",
+		"My mistake got someone hurt. I'll never make that mistake again.",
+		"I will be the best for the honor and glory of my home.",
+		"The person who trained me is the most important person in my world.",
+		"I strive to live up to a specific hero's example.",
+	],
 	flaw : [
-        "I indulge in a habit that threatens my reputation or my health.",
-        "I'll do absolutely anything to win.",
-        "I ignore anyone who doesn't compete and anyone who loses to me.",
-        "I have lingering pain from old injuries.",
-        "Any defeat or failure on my part is because my opponent cheated.",
-        "I must be the captain of any group I join.",
-    ]
+		"I indulge in a habit that threatens my reputation or my health.",
+		"I'll do absolutely anything to win.",
+		"I ignore anyone who doesn't compete and anyone who loses to me.",
+		"I have lingering pain from old injuries.",
+		"Any defeat or failure on my part is because my opponent cheated.",
+		"I must be the captain of any group I join.",
+	]
 };
 BackgroundFeatureList["echoes of victory"] = { // includes contributions by Smashman
-    description: "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
-    source: [["MOT", 31]]
+	description: "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
+	source: [["MOT", 31]]
 };
 
 // Creature: possible familiar

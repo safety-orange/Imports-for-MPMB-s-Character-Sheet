@@ -16,7 +16,7 @@ SourceList.ToA={
 AddRacialVariant("human", "yuan-ti transformed", {
 	defaultExcluded : true,
 	regExpSearch : /^(?!.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
-	source : ["ToA", 119],
+	source : [["ToA", 119]],
 	vision : [["Darkvision", 60]],
 	savetxt : {
 		immune : ["poison"],
@@ -56,7 +56,7 @@ AddRacialVariant("human", "yuan-ti transformed", {
 AddRacialVariant("human", "yuan-ti transformed variant", {
 	defaultExcluded : true,
 	regExpSearch : /^(?=.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
-	source : ["ToA", 119],
+	source : [["ToA", 119]],
 	skillstxt : "Choose any one skill",
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
@@ -268,7 +268,7 @@ BackgroundFeatureList["historical knowledge"] = {
 WeaponsList["yklwa"] = {
 	regExpSearch : /yklwa/i,
 	name : "Yklwa",
-	source : ["ToA", 32],
+	source : [["ToA", 32]],
 	list : "melee",
 	ability : 1,
 	type : "Simple",
@@ -284,14 +284,14 @@ WeaponsList["yklwa"] = {
 GearList["rain catcher"] = {
 	infoname : "Rain catcher [1 gp]",
 	name : "Rain catcher",
-	source : ["ToA", 32],
+	source : [["ToA", 32]],
 	amount : 1,
 	weight : 5
 };
 GearList["insect repellent salve"] = {
 	infoname : "Salve (vial) [5 sp]",
 	name : "Insect Repellent Salve, applications of",
-	source : ["ToA", 32],
+	source : [["ToA", 32]],
 	amount : 20,
 	weight : "",
 	type : "insect repellent"
@@ -299,7 +299,7 @@ GearList["insect repellent salve"] = {
 GearList["insect repellent incense"] = {
 	infoname : "Incense (block) [1 gp]",
 	name : "Insect Repellent Incense, blocks of",
-	source : ["ToA", 32],
+	source : [["ToA", 32]],
 	amount : 1,
 	weight : "",
 	type : "insect repellent"
@@ -543,7 +543,7 @@ if (!SourceList.V) {
 // The following creatures were transcribed with the help of SoilentBrand and @lowbrr
 CreatureList["almiraj"] = {
 	name : "Almiraj",
-	source : ["ToA", 211],
+	source : [["ToA", 211]],
 	size : 4, //Small
 	type : "Beast",
 	companion : "familiar_not_al",
@@ -576,7 +576,8 @@ CreatureList["almiraj"] = {
 };
 CreatureList["flying monkey"] = {
 	name : "Flying Monkey",
-	source : ["ToA", 220],
+	nameAlt : ["Monkey, Flying"],
+	source : [["ToA", 220]],
 	size : 4, //Small
 	type : "Beast",
 	companion : "familiar_not_al",
@@ -605,7 +606,8 @@ CreatureList["flying monkey"] = {
 };
 CreatureList["giant snapping turtle"] = {
 	name : "Giant Snapping Turtle",
-	source : ["ToA", 222],
+	nameAlt : ["Turtle, Giant Snapping"],
+	source : [["ToA", 222]],
 	size : 2, //Large
 	type : "Beast",
 	alignment : "Unaligned",
@@ -636,7 +638,7 @@ CreatureList["giant snapping turtle"] = {
 };
 CreatureList["jaculi"] = {
 	name : "Jaculi",
-	source : ["ToA", 225],
+	source : [["ToA", 225]],
 	size : 2, //Large
 	type : "Beast",
 	alignment : "Unaligned",
@@ -677,9 +679,45 @@ CreatureList["jaculi"] = {
 };
 
 // Magic Items
+MagicItemsList["bob (battleaxe)"] = { // contributed by Nod_Hero
+	name : "Bob (battleaxe)",
+	nameAlt : "Bob",
+	source : [["ToA", 89]],
+	type : "weapon (battleaxe)",
+	rarity : "uncommon",
+	description : "Dwarvish runes on the head of this rusty battleaxe read 'Bob'. It adds a +1 bonus to attack and damage rolls made with it, floats on water and other liquids, and grants me advantage on Strength (Athletics) checks made to swim.",
+	descriptionFull : "Etched into the haft of the battleaxe are Dethek (Dwarvish) runes that spell the weapon's name: Bob. It floats on water and other liquids, adds a +1 bonus to attack and damage rolls made with it, and grants its bearer advantage on Strength (Athletics) checks made to swim.",
+	weight : 4,
+	weaponsAdd : ["Bob"],
+	weaponOptions : [{
+		baseWeapon : "battleaxe",
+		regExpSearch : /\bbob\b/i,
+		name : "Bob",
+		source : [["ToA", 89]],
+		description : "Versatile (1d10); Floats",
+		modifiers : [1, 1]
+	}]
+};
+MagicItemsList["longsword of speaking draconic"] = { // contributed by Nod_Hero
+	name : "Longsword of Speaking Draconic",
+	source : [["ToA", 173]],
+	type : "weapon (longsword)",
+	rarity : "common",
+	description : "This longsword has a dragon-shaped hilt. While I carry it, I gain the ability to speak and understand the Draconic language.",
+	descriptionFull : "This longsword has a dragon-shaped hilt. While you carry it, you gain the ability to speak and understand the Draconic language.",
+	weight : 3,
+	languageProfs : ["Draconic"],
+	weaponsAdd : ["Longsword of Speaking Draconic"],
+	weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /^(?=.*longsword)(?=.*speaking)(?=.*draconic).*$/i,
+		name : "Longsword of Speaking Draconic",
+		source : [["ToA", 173]]
+	}
+};
 MagicItemsList["amulet of the black skull"] = {
 	name : "Amulet of the Black Skull",
-	source : ["ToA", 206],
+	source : [["ToA", 206]],
 	type : "wondrous item",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -708,7 +746,7 @@ MagicItemsList["amulet of the black skull"] = {
 }
 MagicItemsList["bookmark"] = {
 	name : "Bookmark",
-	source : ["ToA", 206],
+	source : [["ToA", 206]],
 	type : "weapon (dagger)",
 	rarity : "legendary",
 	notLegalAL : true,
@@ -722,7 +760,7 @@ MagicItemsList["bookmark"] = {
 		baseWeapon : "dagger",
 		regExpSearch : /bookmark/i,
 		name : "Bookmark",
-		source : ["ToA", 206],
+		source : [["ToA", 206]],
 		modifiers : [3, 3]
 	},
 	extraLimitedFeatures : [{
@@ -753,7 +791,7 @@ MagicItemsList["bookmark"] = {
 }
 MagicItemsList["ghost lantern"] = {
 	name : "Ghost Lantern",
-	source : ["ToA", 206],
+	source : [["ToA", 206]],
 	type : "wondrous item",
 	rarity : "legendary",
 	magicItemTable : "C",
@@ -771,7 +809,7 @@ MagicItemsList["ghost lantern"] = {
 }
 MagicItemsList["mask of the beast"] = {
 	name : "Mask of the Beast",
-	source : ["ToA", 207],
+	source : [["ToA", 207]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "C",
@@ -790,7 +828,7 @@ MagicItemsList["mask of the beast"] = {
 }
 MagicItemsList["scorpion armor"] = {
 	name : "Scorpion Armor",
-	source : ["ToA", 208],
+	source : [["ToA", 208]],
 	type : "armor (plate)",
 	rarity : "rare",
 	magicItemTable : "I",
@@ -804,7 +842,7 @@ MagicItemsList["scorpion armor"] = {
 	armorOptions : {
 		regExpSearch : /^(?=.*scorpion)(?=.*armor).*$/i,
 		name : "Scorpion Armor",
-		source : ["ToA", 208],
+		source : [["ToA", 208]],
 		type : "heavy",
 		ac : 18,
 		stealthdis : false,

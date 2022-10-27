@@ -17,7 +17,7 @@ RaceList["eladrin-uaeng"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
 	name : "Eladrin",
 	sortname : "Elf, Fey (Eladrin)",
-	source : ["UA:EnG", 1],
+	source : [["UA:EnG", 1]],
 	plural : "Eladrin",
 	size : 3,
 	speed : {
@@ -60,7 +60,7 @@ RaceList["eladrin-uaeng"] = {
 RaceList["githyanki-ua"] = {
 	regExpSearch : /githyanki/i,
 	name : "Githyanki",
-	source : ["UA:EnG", 2],
+	source : [["UA:EnG", 2]],
 	plural : "Githyanki",
 	size : 3,
 	speed : {
@@ -130,7 +130,7 @@ AddRacialVariant("githyanki-ua", "skill proficiency", {
 RaceList["githzerai-ua"] = {
 	regExpSearch : /githzerai/i,
 	name : "Githzerai",
-	source : ["UA:EnG", 3],
+	source : [["UA:EnG", 3]],
 	plural : "Githzerai",
 	size : 3,
 	speed : {

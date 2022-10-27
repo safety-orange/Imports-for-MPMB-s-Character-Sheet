@@ -16,7 +16,7 @@ SourceList["WDH"] = {
 WeaponsList["oversized longbow"] = {
 	regExpSearch : /^(?=.*oversized?)(?=.*longbow).*$/i,
 	name : "Oversized Longbow",
-	source : ["WDH", 201],
+	source : [["WDH", 201]],
 	list : "ranged",
 	ability : 2,
 	type : "Martial",
@@ -31,7 +31,7 @@ WeaponsList["oversized longbow"] = {
 };
 AmmoList["oversized arrow"] = {
 	name : "Oversized Arrows",
-	source : ["WDH", 201],
+	source : [["WDH", 201]],
 	icon : "Arrows",
 	weight : 0.10,
 	defaultExcluded : true
@@ -41,7 +41,7 @@ AmmoList["oversized arrow"] = {
 var WDH_azuredgeFullDescription = "Forged by the archwizard Ahghairon, this intelligent battleaxe was crafted to defend Waterdeep. Its current wielder is a former member of Force Grey named Meloon Wardragon, but the weapon is searching for a new owner.\n   Azuredge has a solid steel handle etched with tiny runes, wrapped in blue dragon hide with a star sapphire set into the pommel. The axe head is forged from silver, electrum, and steel alloys whose edges constantly shimmer with a deep blue luminescence.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. The Shield spell provides no defense against the axe, which passes through that spell's barrier of magical force.\n   When you hit a fiend or an undead with the axe, cold blue flames erupt from its blade and deal an extra 2d6 radiant damage to the target.\n   >>Hurling<<. The battleaxe has 3 charges. You can expend 1 charge and make a ranged attack with the axe, hurling it as if it had the thrown property with a normal range of 60 feet and a long range of 180 feet. Whether it hits or misses, the axe flies back to you at the end of the current turn, landing in your open hand or at your feet in your space (as you choose). The axe regains all expended charges daily at dawn.\n   >>Illumination<<. While holding the axe, you can use an action to cause the axe to glow blue or to quench the glow. This glow sheds bright light in a 30-foot radius and dim light for an additional 30 feet.\n   >>Sentience<<. Azuredge is a sentient lawful neutral weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.\n   The weapon communicates telepathically with its wielder and can speak, read, and understand Common. It has a calm, delicate voice. The weapon can sense the presence of non-lawful creatures within 120 feet of it.\n   >>Personality<<. Azuredge is sworn to protect Waterdeep, and it desires to be wielded by a law-abiding person willing to dedicate everything to the city's defense. The weapon is patient and takes its time finding its ideal wielder.\n   If someone tries to use Azuredge against its will, the axe can become ten times heavier than normal, and can magically adhere to any Medium or larger object or surface it comes into contact with. Once it does so, the axe can't be wielded. Nothing short of a Wish spell can separate the axe from the item or surface to which it is adhered without destroying one or the other, though the axe can choose to end the effect at any time.";
 MagicItemsList["azuredge"] = {
 	name : "Azuredge",
-	source : ["WDH", 189],
+	source : [["WDH", 189]],
 	type : "weapon (battleaxe)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -58,7 +58,7 @@ MagicItemsList["azuredge"] = {
 		baseWeapon : "battleaxe",
 		regExpSearch : /azuredge/i,
 		name : "Azuredge",
-		source : ["WDH", 189],
+		source : [["WDH", 189]],
 		range : "Melee, 60/180 ft",
 		description : "Versatile (1d10), thrown (1 charge); Returning; Ignores Shield spell; +2d6 radiant damage vs. fiends/undead",
 		modifiers : [3,3]
@@ -76,7 +76,7 @@ MagicItemsList["azuredge"] = {
 }
 MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
 	name : "Badge of the Watch",
-	source : ["WDH", 189],
+	source : [["WDH", 189]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "F",
@@ -99,7 +99,7 @@ var WDH_blackstaffFullDescription = "The Blackstaff is a sentient, rune-carved s
 if (MagicItemsList["staff of power"]) {
 	MagicItemsList["blackstaff"] = {
 		name : "Blackstaff",
-		source : ["WDH", 190],
+		source : [["WDH", 190]],
 		type : "staff",
 		rarity : "legendary",
 		storyItemAL : true,
@@ -117,7 +117,7 @@ if (MagicItemsList["staff of power"]) {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /blackstaff/i,
 			name : "Blackstaff",
-			source : ["WDH", 190],
+			source : [["WDH", 190]],
 			description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
 			modifiers : [2, 2]
 		},
@@ -165,7 +165,7 @@ if (MagicItemsList["staff of power"]) {
 }
 MagicItemsList["bracer of flying daggers"] = {
 	name : "Bracer of Flying Daggers",
-	source : ["WDH", 190],
+	source : [["WDH", 190]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -178,14 +178,14 @@ MagicItemsList["bracer of flying daggers"] = {
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*bracer)(?=.*flying)(?=.*dagger).*$/i,
 		name : "Bracer of Flying Daggers",
-		source : ["WDH", 190],
+		source : [["WDH", 190]],
 		range : "20/60 ft",
 		description : "Finesse, light, thrown; As action, throw 2; Doesn't work with Attack action"
 	}
 }
 MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Pengsloth
 	name : "Dragonstaff of Ahghairon",
-	source : ["WDH", 191],
+	source : [["WDH", 191]],
 	type : "staff",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -213,7 +213,7 @@ MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Peng
 }
 MagicItemsList["feather of diatryma summoning"] = {
 	name : "Feather of Diatryma Summoning",
-	source : ["WDH", 191],
+	source : [["WDH", 191]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "D",
@@ -226,7 +226,7 @@ MagicItemsList["feather of diatryma summoning"] = {
 }
 MagicItemsList["knave's eye patch"] = { // contains contributions by Pengsloth
 	name : "Knave's Eye Patch",
-	source : ["WDH", 191],
+	source : [["WDH", 191]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -237,7 +237,7 @@ MagicItemsList["knave's eye patch"] = { // contains contributions by Pengsloth
 }
 MagicItemsList["lord's ensemble"] = {
 	name : "Lord's Ensemble",
-	source : ["WDH", 191],
+	source : [["WDH", 191]],
 	type : "wondrous item",
 	rarity : "very rare",
 	storyItemAL : true,
@@ -250,7 +250,7 @@ MagicItemsList["lord's ensemble"] = {
 }
 MagicItemsList["paper bird"] = {
 	name : "Paper Bird",
-	source : ["WDH", 191],
+	source : [["WDH", 191]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
@@ -261,7 +261,7 @@ MagicItemsList["paper bird"] = {
 }
 MagicItemsList["ring of truth telling"] = {
 	name : "Ring of Truth Telling",
-	source : ["WDH", 192],
+	source : [["WDH", 192]],
 	type : "ring",
 	rarity : "uncommon",
 	magicItemTable : "B",
@@ -271,7 +271,7 @@ MagicItemsList["ring of truth telling"] = {
 }
 MagicItemsList["smokepowder"] = {
 	name : "Smokepowder",
-	source : ["WDH", 192],
+	source : [["WDH", 192]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",

@@ -328,7 +328,7 @@ SpellsList["absorb elements"] = {
 	range : "Self",
 	components : "S",
 	duration : "1 rnd",
-	description : "Acid, Cold, Fire, Lightning, or Thunder resistance vs. 1 atk; first melee hit next rnd +1d6+1d6/SL dmg",
+	description : "Acid, Cold, Fire, Lightning, or Thunder resistance till next turn start; first melee hit +1d6+1d6/SL dmg",
 	descriptionFull : "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st."
 };
 SpellsList["aganazzar's scorcher"] = {

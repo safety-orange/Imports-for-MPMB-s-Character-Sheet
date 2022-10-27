@@ -18,7 +18,7 @@ SourceList["UA:SS"] = {
 SpellsList["cause fear-uass"] = {
 	name : "Cause Fear",
 	classes : ["warlock", "wizard"],
-	source : ["UA:SS", 2],
+	source : [["UA:SS", 2]],
 	level : 1,
 	school : "Necro",
 	time : "1 a",
@@ -32,7 +32,7 @@ SpellsList["cause fear-uass"] = {
 SpellsList["ceremony-uass"] = {
 	name : "Ceremony",
 	classes : ["cleric", "paladin"],
-	source : ["UA:SS", 2],
+	source : [["UA:SS", 2]],
 	ritual : true,
 	level : 1,
 	school : "Evoc",
@@ -47,7 +47,7 @@ SpellsList["ceremony-uass"] = {
 SpellsList["chaos bolt-uass"] = {
 	name : "Chaos Bolt",
 	classes : ["sorcerer"],
-	source : ["UA:SS", 2],
+	source : [["UA:SS", 2]],
 	level : 1,
 	school : "Evoc",
 	time : "1 a",
@@ -60,7 +60,7 @@ SpellsList["chaos bolt-uass"] = {
 SpellsList["guiding hand-uass"] = {
 	name : "Guiding Hand",
 	classes : ["bard", "cleric", "druid", "wizard"],
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	ritual : true,
 	level : 1,
 	school : "Div",
@@ -74,7 +74,7 @@ SpellsList["guiding hand-uass"] = {
 SpellsList["hand of radiance-uass"] = {
 	name : "Hand of Radiance",
 	classes : ["cleric"],
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
@@ -89,7 +89,7 @@ SpellsList["hand of radiance-uass"] = {
 SpellsList["healing elixir-uass"] = {
 	name : "Healing Elixir",
 	classes : ["warlock", "wizard"],
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	level : 1,
 	school : "Conj",
 	time : "1 min",
@@ -104,7 +104,7 @@ SpellsList["healing elixir-uass"] = {
 SpellsList["infestation-uass"] = {
 	name : "Infestation",
 	classes : ["druid", "sorcerer", "warlock", "wizard"],
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	level : 0,
 	school : "Conj",
 	time : "1 a",
@@ -120,7 +120,7 @@ SpellsList["infestation-uass"] = {
 SpellsList["primal savagery-uass"] = {
 	name : "Primal Savagery",
 	classes : ["druid"],
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	level : 0,
 	school : "Trans",
 	time : "1 a",
@@ -134,7 +134,7 @@ SpellsList["primal savagery-uass"] = {
 SpellsList["puppet-uass"] = {
 	name : "Puppet",
 	classes : ["bard", "warlock", "wizard"],
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	level : 1,
 	school : "Ench",
 	time : "1 a",
@@ -148,7 +148,7 @@ SpellsList["puppet-uass"] = {
 SpellsList["sense emotion-uass"] = {
 	name : "Sense Emotion",
 	classes : ["bard", "warlock", "wizard"],
-	source : ["UA:SS", 4],
+	source : [["UA:SS", 4]],
 	level : 1,
 	school : "Div",
 	time : "1 a",
@@ -161,7 +161,7 @@ SpellsList["sense emotion-uass"] = {
 SpellsList["snare-uass"] = {
 	name : "Snare",
 	classes : ["druid", "ranger", "wizard"],
-	source : ["UA:SS", 4],
+	source : [["UA:SS", 4]],
 	level : 1,
 	school : "Abjur",
 	time : "1 min",
@@ -176,7 +176,7 @@ SpellsList["snare-uass"] = {
 SpellsList["sudden awakening-uass"] = {
 	name : "Sudden Awakening",
 	classes : ["bard", "ranger", "sorcerer", "wizard"],
-	source : ["UA:SS", 4],
+	source : [["UA:SS", 4]],
 	level : 1,
 	school : "Ench",
 	time : "1 bns",
@@ -189,7 +189,7 @@ SpellsList["sudden awakening-uass"] = {
 SpellsList["unearthly chorus-uass"] = {
 	name : "Unearthly Chorus",
 	classes : ["bard"],
-	source : ["UA:SS", 4],
+	source : [["UA:SS", 4]],
 	level : 1,
 	school : "Illus",
 	time : "1 a",
@@ -203,7 +203,7 @@ SpellsList["unearthly chorus-uass"] = {
 SpellsList["virtue-uass"] = {
 	name : "Virtue",
 	classes : ["cleric"],
-	source : ["UA:SS", 5],
+	source : [["UA:SS", 5]],
 	level : 0,
 	school : "Abjur",
 	time : "1 a",
@@ -216,7 +216,7 @@ SpellsList["virtue-uass"] = {
 SpellsList["wild cunning-uass"] = {
 	name : "Wild Cunning",
 	classes : ["druid", "ranger"],
-	source : ["UA:SS", 5],
+	source : [["UA:SS", 5]],
 	ritual : true,
 	level : 1,
 	school : "Trans",
@@ -230,7 +230,7 @@ SpellsList["wild cunning-uass"] = {
 SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/JeremyECrawford/status/849302527069884416
 	name : "Zephyr Strike",
 	classes : ["ranger"],
-	source : ["UA:SS", 5],
+	source : [["UA:SS", 5]],
 	level : 1,
 	school : "Trans",
 	time : "1 bns",
@@ -245,7 +245,7 @@ SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/Jerem
 WeaponsList["hand of radiance-uass"] = {
 	regExpSearch : /^(?=.*hand)(?=.*radiance).*$/i,
 	name : "Hand of Radiance",
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	list : "spell",
 	ability : 5,
 	type : "Cantrip",
@@ -258,7 +258,7 @@ WeaponsList["hand of radiance-uass"] = {
 WeaponsList["infestation-uass"] = {
 	regExpSearch : /infestation/i,
 	name : "Infestation",
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	list : "spell",
 	ability : 6,
 	type : "Cantrip",
@@ -271,7 +271,7 @@ WeaponsList["infestation-uass"] = {
 WeaponsList["primal savagery-uass"] = {
 	regExpSearch : /^(?=.*primal)(?=.*savagery).*$/i,
 	name : "Primal Savagery",
-	source : ["UA:SS", 3],
+	source : [["UA:SS", 3]],
 	list : "spell",
 	ability : 5,
 	type : "Cantrip",

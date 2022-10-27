@@ -15,12 +15,12 @@ SourceList["UA:CDnW"] = {
 AddSubClass("cleric", "twilight domain-ua", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(twilight|transition)).*$/i,
 	subname : "Twilight Domain",
-	source : ["UA:CDnW", 1],
+	source : [["UA:CDnW", 1]],
 	spellcastingExtra : ["faerie fire", "sleep", "darkness", "invisibility", "aura of vitality", "leomund's tiny hut", "aura of life", "greater invisibility", "circle of power", "dream"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["UA:CDnW", 1],
+			source : [["UA:CDnW", 1]],
 			minlevel : 1,
 			description : "\n   I gain proficiency with martial weapons and heavy armor",
 			armorProfs : [false, false, true, false],
@@ -28,7 +28,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Eyes of Night",
-			source : ["UA:CDnW", 1],
+			source : [["UA:CDnW", 1]],
 			minlevel : 1,
 			description : desc([
 				"I gain Darkvision with unlimited range and can give this benefit to allies",
@@ -43,7 +43,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 		},
 		"subclassfeature1.2" : {
 			name : "Vigilant Blessing",
-			source : ["UA:CDnW", 1],
+			source : [["UA:CDnW", 1]],
 			minlevel : 1,
 			description : desc([
 				"As an action, I can grant myself or a creature I touch adv. on the next initiative roll",
@@ -53,7 +53,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Twilight Sanctuary",
-			source : ["UA:CDnW", 1],
+			source : [["UA:CDnW", 1]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I can use my holy symbol to create a 30-ft radius sphere around myself",
@@ -65,7 +65,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Steps of the Brave",
-			source : ["UA:CDnW", 2],
+			source : [["UA:CDnW", 2]],
 			minlevel : 6,
 			description : desc([
 				"I have adv. on saves against being frightened",
@@ -76,7 +76,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["UA:CDnW", 1],
+			source : [["UA:CDnW", 1]],
 			minlevel : 8,
 			description : "\n  Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -96,7 +96,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 		},
 		"subclassfeature17" : {
 			name : "Midnight Shroud",
-			source : ["UA:CDnW", 2],
+			source : [["UA:CDnW", 2]],
 			minlevel : 17,
 			description : desc([
 				"When I use a spell slot to cast Darkness, I can choose my Wis mod of creatures I can see",
@@ -122,11 +122,11 @@ AddSubClass("cleric", "twilight domain-ua", {
 AddSubClass("druid", "circle of wildfire-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*wild.{0,1}fire).*$/i,
 	subname : "Circle of Wildfire",
-	source : ["UA:CDnW", 2],
+	source : [["UA:CDnW", 2]],
 	features : {
 		"subclassfeature2" : {
 			name : "Circle Spells",
-			source : ["UA:CDnW", 2],
+			source : [["UA:CDnW", 2]],
 			minlevel : 2,
 			description : desc([
 				"My mystical bond with a wildfire spirit gives me the ability to cast certain spells",
@@ -143,7 +143,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 		},
 		"subclassfeature2.1" : {
 			name : "Summon Wildfire",
-			source : ["UA:CDnW", 2],
+			source : [["UA:CDnW", 2]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I can expend a use of wild shape to summon a wildfire spirit within 30 ft",
@@ -232,7 +232,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Enhanced Bond",
-			source : ["UA:CDnW", 3],
+			source : [["UA:CDnW", 3]],
 			minlevel : 6,
 			description : desc([
 				"While my wildfire spirit is present, I can have my spells originate from it (no range 'self')",
@@ -241,7 +241,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Flames of Life",
-			source : ["UA:CDnW", 3],
+			source : [["UA:CDnW", 3]],
 			minlevel : 10,
 			description : desc([
 				"As a reaction when a creature dies in 30 ft of me/wildfire spirit, I can have flames erupt",
@@ -255,7 +255,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Blazing Endurance",
-			source : ["UA:CDnW", 3],
+			source : [["UA:CDnW", 3]],
 			minlevel : 14,
 			description : desc([
 				"If I drop to 0 HP and don't die, I can stay at 1 HP instead with 5\xD7 druid level temp HP",
@@ -271,12 +271,12 @@ AddSubClass("druid", "circle of wildfire-ua", {
 AddSubClass("wizard", "onomancy-ua", {
 	regExpSearch : /onomancy|onomancer/i,
 	subname : "Onomancy",
-	source : ["UA:CDnW", 4],
+	source : [["UA:CDnW", 4]],
 	fullname : "Onomancer",
 	features : {
 		"subclassfeature2" : {
 			name : "Bonus Proficiencies",
-			source : ["UA:CDnW", 4],
+			source : [["UA:CDnW", 4]],
 			minlevel : 2,
 			description : "\n   I learn a language of my choice and gain proficiency with calligrapher's tools",
 			toolProfs : ["Calligrapher's tools"],
@@ -284,7 +284,7 @@ AddSubClass("wizard", "onomancy-ua", {
 		},
 		"subclassfeature2.1" : {
 			name : "Extract Name",
-			source : ["UA:CDnW", 4],
+			source : [["UA:CDnW", 4]],
 			minlevel : 2,
 			description : desc([
 				"As a bonus action, I can have a creature I can see within 60 ft make a Wisdom save",
@@ -298,7 +298,7 @@ AddSubClass("wizard", "onomancy-ua", {
 		},
 		"subclassfeature2.2" : {
 			name : "Fateful Naming",
-			source : ["UA:CDnW", 4],
+			source : [["UA:CDnW", 4]],
 			minlevel : 2,
 			description : desc([
 				"I add Bane and Bless to my spellbook and they count as wizard spells for me",
@@ -319,7 +319,7 @@ AddSubClass("wizard", "onomancy-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Resonants",
-			source : ["UA:CDnW", 4],
+			source : [["UA:CDnW", 4]],
 			minlevel : 6,
 			description : desc([
 				'Use the "Choose Feature" button above to add Resonants to the third page',
@@ -335,7 +335,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			extrachoices : ["Absorption", "Devastation", "Dissolution", "Nullification", "Puppetry", "Sympathy"],
 			"absorption" : {
 				name : "Absorption",
-				source : ["UA:CDnW", 5],
+				source : [["UA:CDnW", 5]],
 				description : "\n   When the spell deals damage to the named target, I gain a number of temporary hit points",
 				additional : levels.map(function (n) {
 					return (n < 10 ? 3 : n < 14 ? 4 : 5) + "d6 temporary hit points";
@@ -343,12 +343,12 @@ AddSubClass("wizard", "onomancy-ua", {
 			},
 			"devastation" : {
 				name : "Devastation",
-				source : ["UA:CDnW", 5],
+				source : [["UA:CDnW", 5]],
 				description : "\n   The named creature has disadvantage on its first saving throw against the spell"
 			},
 			"dissolution" : {
 				name : "Dissolution",
-				source : ["UA:CDnW", 5],
+				source : [["UA:CDnW", 5]],
 				description : "\n   The first time the named creature takes damage from the spell, it takes extra damage",
 				additional : levels.map(function (n) {
 					return "+" + (n < 10 ? 2 : n < 14 ? 3 : 4) + "d8 force damage";
@@ -356,7 +356,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			},
 			"nullification" : {
 				name : "Nullification",
-				source : ["UA:CDnW", 5],
+				source : [["UA:CDnW", 5]],
 				description : desc([
 					"If the named creature is affected by any other spells, I know what those spells are",
 					"In addition, I can try to end one of my choice with an Int check (DC 10 + spell level)"
@@ -364,7 +364,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			},
 			"puppetry" : {
 				name : "Puppetry",
-				source : ["UA:CDnW", 5],
+				source : [["UA:CDnW", 5]],
 				description : desc([
 					"The first time the named creature takes damage from the spell, it is moved as well",
 					"I choose to knock it prone or move it up to 10 ft directly towards me or away from me"
@@ -372,13 +372,13 @@ AddSubClass("wizard", "onomancy-ua", {
 			},
 			"sympathy" : {
 				name : "Sympathy",
-				source : ["UA:CDnW", 5],
+				source : [["UA:CDnW", 5]],
 				description : "\n   I can target the named creature with the spell even if I can't see it or it is has total cover"
 			}
 		},
 		"subclassfeature6.1" : {
 			name : "Resonant Utterance",
-			source : ["UA:CDnW", 4],
+			source : [["UA:CDnW", 4]],
 			minlevel : 6,
 			description : desc([
 				"When I use a spell slot to cast a wizard spell, I can use one resonant that I know",
@@ -390,7 +390,7 @@ AddSubClass("wizard", "onomancy-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Relentless Naming",
-			source : ["UA:CDnW", 5],
+			source : [["UA:CDnW", 5]],
 			minlevel : 14,
 			description : desc([
 				"When I speak the true name of a creature when I cast a damage dealing spell at it,",

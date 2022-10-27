@@ -276,7 +276,7 @@ BackgroundFeatureList["down low"] = {
 
 MagicItemsList["charm of plant command"] = {
 	name : "Charm of Plant Command",
-	source : ["GoS", 229],
+	source : [["GoS", 229]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "C",
@@ -301,7 +301,7 @@ MagicItemsList["charm of plant command"] = {
 }
 MagicItemsList["cursed luckstone"] = {
 	name : "Cursed Luckstone",
-	source : ["GoS", 229],
+	source : [["GoS", 229]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "C",
@@ -313,7 +313,7 @@ MagicItemsList["cursed luckstone"] = {
 }
 MagicItemsList["helm of underwater action"] = {
 	name : "Helm of Underwater Action",
-	source : ["GoS", 229],
+	source : [["GoS", 229]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -326,7 +326,7 @@ MagicItemsList["helm of underwater action"] = {
 }
 MagicItemsList["pipe of remembrance"] = {
 	name : "Pipe of Remembrance",
-	source : ["GoS", 229],
+	source : [["GoS", 229]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Smoke exhaled from this delicate wooden pipe with a river stone bowl does not dissipate, but lingers around. Once per dawn, I can have that smoke form moving shapes after 10 minutes. The shapes reenact my most impressive and heroic achievements realistically for 5 minutes, after which the smoke dissipates.",
@@ -336,7 +336,7 @@ MagicItemsList["pipe of remembrance"] = {
 }
 MagicItemsList["pressure capsule"] = {
 	name : "Pressure Capsule",
-	source : ["GoS", 229],
+	source : [["GoS", 229]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Consuming this capsule of beeswax, sand, and enchanted water plants will prevent the effects of swimming at depths greater than 100 ft for 1 hour. Thus, a creature without a swimming speed does not multiply the time spend swimming at depth for the purpose of determining exhaustion.",
@@ -344,7 +344,7 @@ MagicItemsList["pressure capsule"] = {
 }
 MagicItemsList["sekolahian worshiping statuette"] = {
 	name : "Sekolahian Worshiping Statuette",
-	source : ["GoS", 229],
+	source : [["GoS", 229]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Skillfully carved from sandstone, this 1-ft-tall statuette depicts a shark twisting through the water with its mouth open. Once per hour when a Tiny sea-dwelling animal is within 1 inch of the statuette's mouth, the shark flashes to life and deals 1 piercing damage to it.",
@@ -354,7 +354,7 @@ MagicItemsList["sekolahian worshiping statuette"] = {
 // Creatures [Sea Lion removed, because it was completely rewritten as a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/GoS-Errata.pdf ]
 CreatureList["fish"] = {
 	name : "Fish",
-	source : ["GoS", 215],
+	source : [["GoS", 215]],
 	size : 5,
 	type : "Beast",
 	companion : "familiar",
@@ -377,7 +377,8 @@ CreatureList["fish"] = {
 }
 CreatureList["giant white moray eel"] = {
 	name : "Giant White Moray Eel",
-	source : ["GoS", 216],
+	nameAlt : ["Eel, Giant White Moray"],
+	source : [["GoS", 216]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -409,7 +410,8 @@ CreatureList["giant white moray eel"] = {
 }
 CreatureList["giant coral snake"] = {
 	name : "Giant Coral Snake",
-	source : ["GoS", 236],
+	nameAlt : ["Snake, Giant Coral"],
+	source : [["GoS", 236]],
 	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -436,7 +438,8 @@ CreatureList["giant coral snake"] = {
 }
 CreatureList["giant sea eel"] = {
 	name : "Giant Sea Eel",
-	source : ["GoS", 237],
+	nameAlt : ["Eel, Giant Sea"],
+	source : [["GoS", 237]],
 	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",

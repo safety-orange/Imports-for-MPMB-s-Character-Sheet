@@ -15,11 +15,11 @@ SourceList["UA:RCO"] = {
 AddSubClass("druid", "circle of the shepherd2-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
-	source : ["UA:RCO", 1],
+	source : [["UA:RCO", 1]],
 	features : {
 		"subclassfeature2" : {
 			name : "Speech of the Woods",
-			source : ["UA:RCO", 1],
+			source : [["UA:RCO", 1]],
 			minlevel : 2,
 			description : desc([
 				"I can talk with beasts, they understand me and I them, to the limit of their intelligence",
@@ -29,7 +29,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 		},
 		"subclassfeature2.1" : {
 			name : "Spirit Totem",
-			source : ["UA:RCO", 1],
+			source : [["UA:RCO", 1]],
 			minlevel : 2,
 			description : desc([
 				"As a bonus action, I can summon, or move, a spirit to a point I can see within 60 ft",
@@ -47,7 +47,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Mighty Summoner",
-			source : ["UA:RCO", 2],
+			source : [["UA:RCO", 2]],
 			minlevel : 6,
 			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical",
 			calcChanges : {
@@ -69,7 +69,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
-			source : ["UA:RCO", 2],
+			source : [["UA:RCO", 2]],
 			minlevel : 10,
 			description : "\n   " + "When a Beast or Fey that I summoned ends its turn in my Spirit Totem aura, it heals",
 			additional : levels.map(function (n) {
@@ -79,7 +79,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Faithful Summons",
-			source : ["UA:RCO", 2],
+			source : [["UA:RCO", 2]],
 			minlevel : 14,
 			description : desc([
 				"When I am reduced to 0 HP or incapacitated against my will, I can cast Conjure Animals",
@@ -109,13 +109,13 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 AddSubClass("fighter", "cavalier2-ua", {
 	regExpSearch : /cavalier/i,
 	subname : "Cavalier",
-	source : ["UA:RCO", 2],
+	source : [["UA:RCO", 2]],
 	fullname : "Cavalier",
 	abilitySave : 1,
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiency",
-			source : ["UA:RCO", 2],
+			source : [["UA:RCO", 2]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with Animal Handling, History, Insight, Performance, or Persuasion",
@@ -135,7 +135,7 @@ AddSubClass("fighter", "cavalier2-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Born in the Saddle",
-			source : ["UA:RCO", 2],
+			source : [["UA:RCO", 2]],
 			minlevel : 3,
 			description : desc([
 				"I have advantage on saves to avoid falling off my mount, and land on my feet if I fail",
@@ -145,7 +145,7 @@ AddSubClass("fighter", "cavalier2-ua", {
 		},
 		"subclassfeature3.2" : {
 			name : "Combat Superiority",
-			source : ["UA:RCO", 2],
+			source : [["UA:RCO", 2]],
 			minlevel : 3,
 			description : desc([
 				"I gain a number of superiority dice that I can use to fuel special maneuvers (see below)",
@@ -169,7 +169,7 @@ AddSubClass("fighter", "cavalier2-ua", {
 		},
 		"subclassfeature7" : {
 			name : "Ferocious Charger",
-			source : ["UA:RCO", 3],
+			source : [["UA:RCO", 3]],
 			minlevel : 7,
 			description : desc([
 				"I can use two superiority dice, instead of just one, when using the Trip Attack Maneuver",
@@ -178,13 +178,13 @@ AddSubClass("fighter", "cavalier2-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Improved Combat Superiority",
-			source : ["UA:RCO", 3],
+			source : [["UA:RCO", 3]],
 			minlevel : 10,
 			description : "\n   " + "My superiority dice turn into d10s at 10th level and into d12s at 18th level"
 		},
 		"subclassfeature15" : {
 			name : "Relentless",
-			source : ["UA:RCO", 3],
+			source : [["UA:RCO", 3]],
 			minlevel : 15,
 			description : "\n   " + "I regain one superiority die if I have no more remaining when I roll initiative"
 		}
@@ -193,11 +193,11 @@ AddSubClass("fighter", "cavalier2-ua", {
 AddSubClass("paladin", "oath of conquest2-ua", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
-	source : ["UA:RCO", 3],
+	source : [["UA:RCO", 3]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Conquering Presence",
-			source : ["UA:RCO", 4],
+			source : [["UA:RCO", 4]],
 			minlevel : 3,
 			description : desc([
 				"As an action, all creatures of my choice within 30-ft radius must make a Wisdom save",
@@ -208,13 +208,13 @@ AddSubClass("paladin", "oath of conquest2-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Guided Strike",
-			source : ["UA:RCO", 4],
+			source : [["UA:RCO", 4]],
 			minlevel : 3,
 			description : "\n   " + "When I make an attack roll, I can add a +10 bonus to the roll after seeing the d20 roll"
 		},
 		"subclassfeature7" : {
 			name : "Aura of Conquest",
-			source : ["UA:RCO", 4],
+			source : [["UA:RCO", 4]],
 			minlevel : 7,
 			description : desc([
 				"Enemies that are frightened of me have their speed reduced to 0 while in my aura",
@@ -227,7 +227,7 @@ AddSubClass("paladin", "oath of conquest2-ua", {
 		},
 		"subclassfeature15" : {
 			name : "Scornful Rebuke",
-			source : ["UA:RCO", 4],
+			source : [["UA:RCO", 4]],
 			minlevel : 15,
 			description : desc([
 				"Whenever I'm hit with an attack while I'm not incapacitated, the attacker takes damage",
@@ -236,7 +236,7 @@ AddSubClass("paladin", "oath of conquest2-ua", {
 		},
 		"subclassfeature20" : {
 			name : "Invincible Conqueror",
-			source : ["UA:RCO", 4],
+			source : [["UA:RCO", 4]],
 			minlevel : 20,
 			description : desc([
 				"As an action, I can gain the following benefits for 1 minute:",
@@ -253,12 +253,12 @@ AddSubClass("paladin", "oath of conquest2-ua", {
 AddSubClass("warlock", "the celestial-ua", {
 	regExpSearch : /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname : "the Celestial",
-	source : ["UA:RCO", 4],
+	source : [["UA:RCO", 4]],
 	spellcastingExtra : ["burning hands", "cure wounds", "flaming sphere", "lesser restoration", "daylight", "revivify", "guardian of faith", "wall of fire", "flame strike", "greater restoration"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Cantrips",
-			source : ["UA:RCO", 5],
+			source : [["UA:RCO", 5]],
 			minlevel : 1,
 			description : "\n   " + "I know the Light and Sacred Flame cantrips",
 			spellcastingBonus : [{
@@ -273,7 +273,7 @@ AddSubClass("warlock", "the celestial-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Healing Light",
-			source : ["UA:RCO", 5],
+			source : [["UA:RCO", 5]],
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can heal a creature on touch by expending dice from my pool",
@@ -289,7 +289,7 @@ AddSubClass("warlock", "the celestial-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Radiant Soul",
-			source : ["UA:RCO", 5],
+			source : [["UA:RCO", 5]],
 			minlevel : 6,
 			description : desc([
 				"I add my Cha modifier to cantrips/spells I cast that deal fire or radiant damage",
@@ -315,7 +315,7 @@ AddSubClass("warlock", "the celestial-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Radiant Resilience",
-			source : ["UA:RCO", 5],
+			source : [["UA:RCO", 5]],
 			minlevel : 10,
 			description : desc([
 				"When I finish a short or long rest, I and up to five allies gain temporary hit points",
@@ -328,7 +328,7 @@ AddSubClass("warlock", "the celestial-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Searing Vengeance",
-			source : ["UA:RCO", 5],
+			source : [["UA:RCO", 5]],
 			minlevel : 14,
 			description : desc([
 				"At the start of my turn when I would make a death save, I can instead spring back up",
@@ -471,7 +471,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 		"It takes 1d8 force damage and another 1d8 force damage per level of the spell slot",
 		"If the target takes any of this bonus damage, it is knocked prone if it is Huge or smaller"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; }
 });
@@ -499,7 +499,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 		"As an action, I can see through solid objects out to 30 ft, until the end of my current turn",
 		"Objects appear ghostly to me; I also gain 30 ft darkvision for the duration"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
@@ -512,7 +512,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
 		"Any pact weapon I create is a +1 magic weapon, if it isn't already a +1 magic weapon"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
 	calcChanges : {
@@ -554,7 +554,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 		"As a bonus action when my Eldritch Blast hits, I can cast Fireball using a warlock spell slot",
 		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
@@ -565,7 +565,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 		"As a bonus action, I cause pain around a target affected by a hex of mine (spell/feature)",
 		"It and any of my choice within 5 ft of it take my Cha mod (min 0) in psychic damage"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[warlock level  5+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	action : ["bonus action", ""]
@@ -576,7 +576,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 		"As a bonus action, I can teleport next to a target affected by a hex of mine (spell/feature)",
 		"To do so, I must see the target and the space I'm teleporting to, and be within 30 ft of it"
 	]),
-	source : ["UA:RCO", 6],
+	source : [["UA:RCO", 6]],
 	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	action : ["bonus action", ""]

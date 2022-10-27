@@ -20,7 +20,7 @@ AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 	features : {
 		"subclassfeature1" : {
 			name : "Shielding Aurora",
-			source : ["UA:TF", 1],
+			source : [["UA:TF", 1]],
 			minlevel : 1,
 			description : "\n   " + "As a bonus action, I create a whirling aurora of brilliant energy around me" + "\n   " + "It lasts until the end of my next turn and grants me resistance to all damage" + "\n   " + "Any hostile ending its turn in 10 ft of me get Warlock level + Cha mod radiant damage",
 			usages : 1,
@@ -29,21 +29,21 @@ AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature6" : {
 			name : "Astral Refuge",
-			source : ["UA:TF", 2],
+			source : [["UA:TF", 2]],
 			minlevel : 6,
 			description : "\n   " + "As an action, I can step into an astral refuge, coming back at the end of the turn" + "\n   " + "While in the astral refuge, I can take two actions to cast spells targeting just me",
 			action : ["action", ""]
 		},
 		"subclassfeature10" : {
 			name : "Far Wanderer",
-			source : ["UA:TF", 2],
+			source : [["UA:TF", 2]],
 			minlevel : 10,
 			description : "\n   " + "I no longer need to breathe, and I gain resistance to fire damage and cold damage",
 			dmgres : ["Cold", "Fire"]
 		},
 		"subclassfeature14" : {
 			name : "Astral Sequestration",
-			source : ["UA:TF", 2],
+			source : [["UA:TF", 2]],
 			minlevel : 14,
 			description : "\n   " + "With a 5 minutes ritual, I can shift myself and ten willing creatures to the Astral Plane" + "\n   " + "While sequestered an Astral Plane, we gain the full benefits of a short rest" + "\n   " + "After this rest, we return to the same space as before, without any time having passed",
 			usages : 1,
@@ -55,7 +55,7 @@ AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 // Add a Pact Boon option that is only available for "the Seeker" subclass
 AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Star Chain", {
 	name : "Pact of the Star Chain",
-	source : ["UA:TF", 1],
+	source : [["UA:TF", 1]],
 	description : desc([
 		"My patron grants me an item of power which disappears when I die",
 		"While it is on my person, I can cast Augury as a ritual",

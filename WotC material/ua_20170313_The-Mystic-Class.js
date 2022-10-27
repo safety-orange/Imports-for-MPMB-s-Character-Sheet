@@ -16,7 +16,7 @@ SourceList["UA:TMC"] = {
 ClassList.mystic = {
 	regExpSearch : /psion\b|mystic/i,
 	name : "Mystic",
-	source : ["UA:TMC", 1],
+	source : [["UA:TMC", 1]],
 	primaryAbility : "Intelligence",
 	abilitySave : 4,
 	prereqs : "Intelligence 13",
@@ -47,7 +47,7 @@ ClassList.mystic = {
 	features : {
 		"psi points" : {
 			name : "Psi Points",
-			source : ["UA:TMC", 3],
+			source : [["UA:TMC", 3]],
 			minlevel : 1,
 			description : desc([
 				"I use psi points to fuel my psionic disciplines, up to my psi limit per instance"
@@ -64,7 +64,7 @@ ClassList.mystic = {
 		},
 		"psionics" : {
 			name : "Psionics",
-			source : ["UA:TMC", 3],
+			source : [["UA:TMC", 3]],
 			minlevel : 1,
 			description : desc([
 				"I can use psionic talents/disciplines that I know, using Intelligence as my psionic ability"
@@ -77,7 +77,7 @@ ClassList.mystic = {
 		},
 		"psychic focus" : {
 			name : "Psychic Focus",
-			source : ["UA:TMC", 3],
+			source : [["UA:TMC", 3]],
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can choose one of my psionic disciplines and gain its focus benefit",
@@ -87,7 +87,7 @@ ClassList.mystic = {
 		},
 		"subclassfeature1" : {
 			name : "Mystic Order",
-			source : ["UA:TMC", 4],
+			source : [["UA:TMC", 4]],
 			minlevel : 1,
 			description : desc([
 				"Choose a Mystic Order that shapes the nature of your rage and put it in the \"Class\" field"
@@ -95,7 +95,7 @@ ClassList.mystic = {
 		},
 		"mystical recovery" : {
 			name : "Mystical Recovery",
-			source : ["UA:TMC", 4],
+			source : [["UA:TMC", 4]],
 			minlevel : 2,
 			description : desc([
 				"As a bonus action after using psi points on a discipline, I can regain HP per point spent"
@@ -104,7 +104,7 @@ ClassList.mystic = {
 		},
 		"telepathy" : {
 			name : "Telepathy",
-			source : ["UA:TMC", 4],
+			source : [["UA:TMC", 4]],
 			minlevel : 2,
 			description : desc([
 				"I can telepathically speak to creatures I can see within 120 ft, if they know a language" // 'to' not 'with', so one-way
@@ -112,7 +112,7 @@ ClassList.mystic = {
 		},
 		"strength of mind" : {
 			name : "Strength of Mind",
-			source : ["UA:TMC", 4],
+			source : [["UA:TMC", 4]],
 			minlevel : 4,
 			description : desc([
 				"After a short rest, I can change my Wisdom save proficiency to another ability score"
@@ -120,7 +120,7 @@ ClassList.mystic = {
 		},
 		"potent psionics" : {
 			name : "Potent Psionics",
-			source : ["UA:TMC", 4],
+			source : [["UA:TMC", 4]],
 			minlevel : 8,
 			description : desc([
 				"Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
@@ -159,7 +159,7 @@ ClassList.mystic = {
 		},
 		"consumptive power" : {
 			name : "Consumptive Power",
-			source : ["UA:TMC", 5],
+			source : [["UA:TMC", 5]],
 			minlevel : 10,
 			description : desc([
 				"Once per long rest, I can use my HP to fuel a psionic discipline instead of psi points",
@@ -170,7 +170,7 @@ ClassList.mystic = {
 		},
 		"psionic mastery" : {
 			name : "Psionic Mastery",
-			source : ["UA:TMC", 5],
+			source : [["UA:TMC", 5]],
 			minlevel : 11,
 			description : desc([
 				"As an action, I can gain a pool of special psi points that last until I finish a long rest",
@@ -192,7 +192,7 @@ ClassList.mystic = {
 		},
 		"psionic body" : {
 			name : "Psionic Body",
-			source : ["UA:TMC", 5],
+			source : [["UA:TMC", 5]],
 			minlevel : 20,
 			description : desc([
 				"I no longer age and I have resistance to bludgeoning, piercing, and slashing damage",
@@ -208,11 +208,11 @@ ClassList.mystic = {
 AddSubClass("mystic", "avatar-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*avatar).*$/i,
 	subname : "Order of the Avatar",
-	source : ["UA:TMC", 5],
+	source : [["UA:TMC", 5]],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Disciplines",
-			source : ["UA:TMC", 5],
+			source : [["UA:TMC", 5]],
 			minlevel : 1,
 			description : "\n   " + "I know two additional psionic disciplines, chosen from the avatar disciplines",
 			spellcastingBonus : {
@@ -226,20 +226,20 @@ AddSubClass("mystic", "avatar-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Armor Training",
-			source : ["UA:TMC", 5],
+			source : [["UA:TMC", 5]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with medium armor and shields.",
 			armorProfs : [false, true, false, true]
 		},
 		"subclassfeature3" : {
 			name : "Avatar of Battle",
-			source : ["UA:TMC", 5],
+			source : [["UA:TMC", 5]],
 			minlevel : 3,
 			description : "\n   " + "Allies within 30 ft of me gain +2 on initiative rolls while I'm not incapacitated"
 		},
 		"subclassfeature6" : {
 			name : "Avatar of Healing",
-			source : ["UA:TMC", 6],
+			source : [["UA:TMC", 6]],
 			minlevel : 6,
 			description : desc([
 				"Allies within 30 ft of me that get healed through a psionic discipline, get extra healing",
@@ -264,7 +264,7 @@ AddSubClass("mystic", "avatar-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Avatar of Speed",
-			source : ["UA:TMC", 6],
+			source : [["UA:TMC", 6]],
 			minlevel : 14,
 			description : "\n   " + "Allies within 30 ft of me can use Dash as a bonus action while I'm not incapacitated"
 		}
@@ -274,11 +274,11 @@ AddSubClass("mystic", "avatar-ua", {
 AddSubClass("mystic", "awakened-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*awakened).*$/i,
 	subname : "Order of the Awakened",
-	source : ["UA:TMC", 6],
+	source : [["UA:TMC", 6]],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Disciplines",
-			source : ["UA:TMC", 6],
+			source : [["UA:TMC", 6]],
 			minlevel : 1,
 			description : " [+2 awakened disciplines]",
 			spellcastingBonus : {
@@ -292,7 +292,7 @@ AddSubClass("mystic", "awakened-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Awakened Talent",
-			source : ["UA:TMC", 6],
+			source : [["UA:TMC", 6]],
 			minlevel : 1,
 			description : desc([
 				"I gain proficiency with two skills of my choice, taken from the following list:",
@@ -302,7 +302,7 @@ AddSubClass("mystic", "awakened-ua", {
 		},
 		"subclassfeature3" : {
 			name : "Psionic Investigation",
-			source : ["UA:TMC", 6],
+			source : [["UA:TMC", 6]],
 			minlevel : 3,
 			description : desc([
 				"By concentrating on an object I'm holding for 10 minutes, I learn the object's history",
@@ -314,7 +314,7 @@ AddSubClass("mystic", "awakened-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Psionic Surge",
-			source : ["UA:TMC", 6],
+			source : [["UA:TMC", 6]],
 			minlevel : 6,
 			description : desc([
 				"I can end my psychic focus to impose disadv. on a save vs. a discipline or talent I use",
@@ -325,7 +325,7 @@ AddSubClass("mystic", "awakened-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Spectral Form",
-			source : ["UA:TMC", 6],
+			source : [["UA:TMC", 6]],
 			minlevel : 14,
 			description : desc([
 				"As an action, I can become ghostly and move through objects and creatures for 10 min",
@@ -341,11 +341,11 @@ AddSubClass("mystic", "awakened-ua", {
 AddSubClass("mystic", "immortal-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*immortal).*$/i,
 	subname : "Order of the Immortal",
-	source : ["UA:TMC", 6],
+	source : [["UA:TMC", 6]],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Disciplines",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 1,
 			description : "\n   " + "I know two additional psionic disciplines, taken from the immortal disciplines",
 			spellcastingBonus : {
@@ -359,7 +359,7 @@ AddSubClass("mystic", "immortal-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Immortal Durability",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 1,
 			description : desc([
 				"My hit point maximum increases by an amount equal to my mystic level",
@@ -375,7 +375,7 @@ AddSubClass("mystic", "immortal-ua", {
 			armorOptions : {
 				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
 				name : "Immortal Durability",
-				source : ["UA:TMC", 7],
+				source : [["UA:TMC", 7]],
 				ac : "10+Con",
 				affectsWildShape : true
 			},
@@ -383,7 +383,7 @@ AddSubClass("mystic", "immortal-ua", {
 		},
 		"subclassfeature3" : {
 			name : "Psionic Resilience",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 3,
 			description : desc([
 				"At the start of each turn, I gain my Intelligence modifier in temporary HP (min 0)"
@@ -391,7 +391,7 @@ AddSubClass("mystic", "immortal-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Surge of Health",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction when I take damage, I can halve that damage, but end my psychic focus",
@@ -403,7 +403,7 @@ AddSubClass("mystic", "immortal-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Immortal Will",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 14,
 			description : desc([
 				"If I end my turn at 0 HP, I can use 5 psi points to regain mystic level + Con mod in HP"
@@ -419,11 +419,11 @@ AddSubClass("mystic", "immortal-ua", {
 AddSubClass("mystic", "nomad-ua", {
 	regExpSearch : /^(?=.*(psion\b|mystic))(?=.*nomad).*$/i,
 	subname : "Order of the Nomad",
-	source : ["UA:TMC", 7],
+	source : [["UA:TMC", 7]],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Disciplines",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 1,
 			description : "\n   " + "I know two additional psionic disciplines, taken from the nomad disciplines",
 			spellcastingBonus : {
@@ -437,7 +437,7 @@ AddSubClass("mystic", "nomad-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Breadth of Knowledge",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 1,
 			description : desc([
 				"After I finish a long rest, I gain two proficiencies in chosen language, tool, or skill",
@@ -446,7 +446,7 @@ AddSubClass("mystic", "nomad-ua", {
 		},
 		"subclassfeature3" : {
 			name : "Memory of One Thousand Steps",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 3,
 			description : desc([
 				"As a reaction when hit by an attack, I can teleport away, causing the attack to miss",
@@ -458,7 +458,7 @@ AddSubClass("mystic", "nomad-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Superior Teleportation",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 6,
 			description : desc([
 				"When I use a psionic discipline to teleport, I can increase its distance by up to 10 ft"
@@ -485,7 +485,7 @@ AddSubClass("mystic", "nomad-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Effortless Journey",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 14,
 			description : desc([
 				"Once during my turn, I can teleport instead of moving, up to my movement speed ",
@@ -498,12 +498,12 @@ AddSubClass("mystic", "nomad-ua", {
 AddSubClass("mystic", "soul knife-ua", {
 	regExpSearch : /^(?=.*soul\b)(?=.*\bknife).*$/i,
 	subname : "Order of the Soul Knife",
-	source : ["UA:TMC", 7],
+	source : [["UA:TMC", 7]],
 	fullname : "Soul Knife",
 	features : {
 		"subclassfeature1" : {
 			name : "Martial Training",
-			source : ["UA:TMC", 7],
+			source : [["UA:TMC", 7]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with medium armor and martial weapons",
 			armor : [false, true, false, false],
@@ -511,7 +511,7 @@ AddSubClass("mystic", "soul knife-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Soul Knife",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can create or dismiss my soul knives on both my fists",
@@ -522,7 +522,7 @@ AddSubClass("mystic", "soul knife-ua", {
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bsoul)(?=.*(knives|knife|weapon)\b).*$/i,
 				name : "Soul Knife",
-				source : ["UA:TMC", 8],
+				source : [["UA:TMC", 8]],
 				ability : 1,
 				type : "Martial",
 				damage : [1, 8, "psychic"],
@@ -533,7 +533,7 @@ AddSubClass("mystic", "soul knife-ua", {
 		},
 		"subclassfeature3" : {
 			name : "Hone the Blade",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 3,
 			description : desc([
 				"I can spend psi points to give my soul knives a bonus to attack and damage for 10 min",
@@ -542,7 +542,7 @@ AddSubClass("mystic", "soul knife-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Consumptive Knife",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 6,
 			description : desc([
 				"Whenever I slay an enemy with a soul knife attack, I immediately regain 2 psi points"
@@ -550,7 +550,7 @@ AddSubClass("mystic", "soul knife-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Phantom Knife",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 14,
 			description : desc([
 				"As an action, I can make one attack with my soul knife, treating the target's AC as 10"
@@ -563,12 +563,12 @@ AddSubClass("mystic", "soul knife-ua", {
 AddSubClass("mystic", "wu jen-ua", {
 	regExpSearch : /^(?=.*\bwu\b)(?=.*\bjen\b).*$/i,
 	subname : "Order of the Wu Jen",
-	source : ["UA:TMC", 8],
+	source : [["UA:TMC", 8]],
 	fullname : "Wu Jen",
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Disciplines",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 1,
 			description : " [+2 wu jen disciplines]",
 			spellcastingBonus : {
@@ -582,7 +582,7 @@ AddSubClass("mystic", "wu jen-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Hermit's Study",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 1,
 			description : desc([
 				"I gain proficiency with two skills of my choice, taken from the following list:",
@@ -592,7 +592,7 @@ AddSubClass("mystic", "wu jen-ua", {
 		},
 		"subclassfeature3" : {
 			name : "Elemental Attunement",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 3,
 			description : desc([
 				"If a target's resistance reduces damage of one of my psionic disciplines, I can bypass it",
@@ -601,7 +601,7 @@ AddSubClass("mystic", "wu jen-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Arcane Dabbler",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 6,
 			description : desc([
 				"I know 3 wizard spells (1-3 level); When I gain a mystic level, I can swap one of these",
@@ -617,7 +617,7 @@ AddSubClass("mystic", "wu jen-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Elemental Mastery",
-			source : ["UA:TMC", 8],
+			source : [["UA:TMC", 8]],
 			minlevel : 14,
 			description : desc([
 				"As a reaction when I take damage to which I have resistance, I can ignore that damage",
@@ -631,7 +631,7 @@ AddSubClass("mystic", "wu jen-ua", {
 PsionicsList["beacon-ua-psy"] = {
 	name : "Beacon",
 	classes : ["mystic"],
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 0,
 	time : "1 bns",
@@ -643,7 +643,7 @@ PsionicsList["beacon-ua-psy"] = {
 PsionicsList["blade meld-ua-psy"] = {
 	name : "Blade Meld",
 	classes : ["mystic"],
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 0,
 	time : "1 bns",
@@ -655,7 +655,7 @@ PsionicsList["blade meld-ua-psy"] = {
 PsionicsList["blind spot-ua-psy"] = {
 	name : "Blind Spot",
 	classes : ["mystic"],
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -668,7 +668,7 @@ PsionicsList["blind spot-ua-psy"] = {
 PsionicsList["delusion-ua-psy"] = {
 	name : "Delusion",
 	classes : ["mystic"],
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -680,7 +680,7 @@ PsionicsList["delusion-ua-psy"] = {
 PsionicsList["energy beam-ua-psy"] = {
 	name : "Energy Beam",
 	classes : ["mystic"],
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -694,7 +694,7 @@ PsionicsList["energy beam-ua-psy"] = {
 PsionicsList["light step-ua-psy"] = {
 	name : "Light Step",
 	classes : ["mystic"],
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 0,
 	time : "1 bns",
@@ -706,7 +706,7 @@ PsionicsList["light step-ua-psy"] = {
 PsionicsList["mind meld-ua-psy"] = {
 	name : "Mind Meld",
 	classes : ["mystic"],
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 0,
 	time : "1 bns",
@@ -718,7 +718,7 @@ PsionicsList["mind meld-ua-psy"] = {
 PsionicsList["mind slam-ua-psy"] = {
 	name : "Mind Slam",
 	classes : ["mystic"],
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -732,7 +732,7 @@ PsionicsList["mind slam-ua-psy"] = {
 PsionicsList["mind thrust-ua-psy"] = {
 	name : "Mind Thrust",
 	classes : ["mystic"],
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -746,7 +746,7 @@ PsionicsList["mind thrust-ua-psy"] = {
 PsionicsList["mystic charm-ua-psy"] = {
 	name : "Mystic Charm",
 	classes : ["mystic"],
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -759,7 +759,7 @@ PsionicsList["mystic charm-ua-psy"] = {
 PsionicsList["mystic hand-ua-psy"] = {
 	name : "Mystic Hand",
 	classes : ["mystic"],
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -771,7 +771,7 @@ PsionicsList["mystic hand-ua-psy"] = {
 PsionicsList["psychic hammer-ua-psy"] = {
 	name : "Psychic Hammer",
 	classes : ["mystic"],
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	psionic : true,
 	level : 0,
 	time : "1 a",
@@ -788,7 +788,7 @@ PsionicsList["psychic hammer-ua-psy"] = {
 PsionicsList["adaptive body-ua-psy"] = {
 	name : "Adaptive Body",
 	classes : ["mystic"],
-	source : ["UA:TMC", 10],
+	source : [["UA:TMC", 10]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -804,7 +804,7 @@ PsionicsList["adaptive body-ua-psy"] = {
 PsionicsList["ab1-environmental adaptation"] = {
 	name : "Environmental Adaptation",
 	nameShort : "Environmental Adapt.",
-	source : ["UA:TMC", 10],
+	source : [["UA:TMC", 10]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -817,7 +817,7 @@ PsionicsList["ab1-environmental adaptation"] = {
 };
 PsionicsList["ab2-adaptive shield"] = {
 	name : "Adaptive Shield",
-	source : ["UA:TMC", 10],
+	source : [["UA:TMC", 10]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -831,7 +831,7 @@ PsionicsList["ab2-adaptive shield"] = {
 };
 PsionicsList["ab3-energy adaptation"] = {
 	name : "Energy Adaptation",
-	source : ["UA:TMC", 10],
+	source : [["UA:TMC", 10]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -844,7 +844,7 @@ PsionicsList["ab3-energy adaptation"] = {
 };
 PsionicsList["ab4-energy immunity"] = {
 	name : "Energy Immunity",
-	source : ["UA:TMC", 10],
+	source : [["UA:TMC", 10]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -859,7 +859,7 @@ PsionicsList["ab4-energy immunity"] = {
 PsionicsList["aura sight-ua-psy"] = {
 	name : "Aura Sight",
 	classes : ["mystic"],
-	source : ["UA:TMC", 10],
+	source : [["UA:TMC", 10]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -874,7 +874,7 @@ PsionicsList["aura sight-ua-psy"] = {
 };
 PsionicsList["as1-asses foe"] = {
 	name : "Asses Foe",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -887,7 +887,7 @@ PsionicsList["as1-asses foe"] = {
 };
 PsionicsList["as2-read moods"] = {
 	name : "Read Moods",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -900,7 +900,7 @@ PsionicsList["as2-read moods"] = {
 };
 PsionicsList["as3-view aura"] = {
 	name : "View Aura",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -913,7 +913,7 @@ PsionicsList["as3-view aura"] = {
 };
 PsionicsList["as4-perceive the unseen"] = {
 	name : "Perceive the Unseen",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -928,7 +928,7 @@ PsionicsList["as4-perceive the unseen"] = {
 PsionicsList["bestial form-ua-psy"] = {
 	name : "Bestial Form",
 	classes : ["mystic"],
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -943,7 +943,7 @@ PsionicsList["bestial form-ua-psy"] = {
 };
 PsionicsList["bf1-bestial claws"] = {
 	name : "Bestial Claws",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -956,7 +956,7 @@ PsionicsList["bf1-bestial claws"] = {
 };
 PsionicsList["bf2-bestial transformation"] = {
 	name : "Bestial Transformation",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -969,7 +969,7 @@ PsionicsList["bf2-bestial transformation"] = {
 };
 PsionicsList["bf3-bt - amphibious"] = {
 	name : " - Amphibious",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -982,7 +982,7 @@ PsionicsList["bf3-bt - amphibious"] = {
 };
 PsionicsList["bf4-bt - climbing"] = {
 	name : " - Climbing",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -995,7 +995,7 @@ PsionicsList["bf4-bt - climbing"] = {
 };
 PsionicsList["bf5-bt - flight"] = {
 	name : " - Flight",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1008,7 +1008,7 @@ PsionicsList["bf5-bt - flight"] = {
 };
 PsionicsList["bf6-bt - keen senses"] = {
 	name : " - Keen Senses",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1021,7 +1021,7 @@ PsionicsList["bf6-bt - keen senses"] = {
 };
 PsionicsList["bf7-bt - perfect senses"] = {
 	name : " - Perfect Senses",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1034,7 +1034,7 @@ PsionicsList["bf7-bt - perfect senses"] = {
 };
 PsionicsList["bf8-bt - swimming"] = {
 	name : " - Swimming",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1047,7 +1047,7 @@ PsionicsList["bf8-bt - swimming"] = {
 };
 PsionicsList["bf9-bt - tough hide"] = {
 	name : " - Tough Hide",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1062,7 +1062,7 @@ PsionicsList["bf9-bt - tough hide"] = {
 PsionicsList["brute force-ua-psy"] = {
 	name : "Brute Force",
 	classes : ["mystic"],
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1077,7 +1077,7 @@ PsionicsList["brute force-ua-psy"] = {
 };
 PsionicsList["bf1-brute strike"] = {
 	name : "Brute Strike",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1090,7 +1090,7 @@ PsionicsList["bf1-brute strike"] = {
 };
 PsionicsList["bf2-knock back"] = {
 	name : "Knock Back",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1105,7 +1105,7 @@ PsionicsList["bf2-knock back"] = {
 };
 PsionicsList["bf3-mighty leap"] = {
 	name : "Mighty Leap",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1118,7 +1118,7 @@ PsionicsList["bf3-mighty leap"] = {
 };
 PsionicsList["bf4-feat of strength"] = {
 	name : "Feat of Strength",
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1133,7 +1133,7 @@ PsionicsList["bf4-feat of strength"] = {
 PsionicsList["celerity-ua-psy"] = {
 	name : "Celerity",
 	classes : ["mystic"],
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1148,7 +1148,7 @@ PsionicsList["celerity-ua-psy"] = {
 };
 PsionicsList["c1-rapid step"] = {
 	name : "Rapid Step",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1161,7 +1161,7 @@ PsionicsList["c1-rapid step"] = {
 };
 PsionicsList["c2-agile defense"] = {
 	name : "Agile Defense",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1174,7 +1174,7 @@ PsionicsList["c2-agile defense"] = {
 };
 PsionicsList["c3-blur of motion"] = {
 	name : "Blur of Motion",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1187,7 +1187,7 @@ PsionicsList["c3-blur of motion"] = {
 };
 PsionicsList["c4-surge of speed"] = {
 	name : "Surge of Speed",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1200,7 +1200,7 @@ PsionicsList["c4-surge of speed"] = {
 };
 PsionicsList["c5-surge of action"] = {
 	name : "Surge of Action",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1215,7 +1215,7 @@ PsionicsList["c5-surge of action"] = {
 PsionicsList["corrosive metabolism-ua-psy"] = {
 	name : "Corrosive Metabolism",
 	classes : ["mystic"],
-	source : ["UA:TMC", 11],
+	source : [["UA:TMC", 11]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1230,7 +1230,7 @@ PsionicsList["corrosive metabolism-ua-psy"] = {
 };
 PsionicsList["cm1-corrosive touch"] = {
 	name : "Corrosive Touch",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1244,7 +1244,7 @@ PsionicsList["cm1-corrosive touch"] = {
 };
 PsionicsList["cm2-venom strike"] = {
 	name : "Venom Strike",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1258,7 +1258,7 @@ PsionicsList["cm2-venom strike"] = {
 };
 PsionicsList["cm3-acid spray"] = {
 	name : "Acid Spray",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1273,7 +1273,7 @@ PsionicsList["cm3-acid spray"] = {
 PsionicsList["cm4-breath of the black dragon"] = {
 	name : "Breath of the Black Dragon",
 	nameShort : "Breath o/t Black Dragon",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1288,7 +1288,7 @@ PsionicsList["cm4-breath of the black dragon"] = {
 PsionicsList["cm5-breath of the green dragon"] = {
 	name : "Breath of the Green Dragon",
 	nameShort : "Breath o/t Green Dragon",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1304,7 +1304,7 @@ PsionicsList["cm5-breath of the green dragon"] = {
 PsionicsList["crown of despair-ua-psy"] = {
 	name : "Crown of Despair",
 	classes : ["mystic"],
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1319,7 +1319,7 @@ PsionicsList["crown of despair-ua-psy"] = {
 };
 PsionicsList["cd1-crowned in sorrow"] = {
 	name : "Crowned in Sorrow",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1333,7 +1333,7 @@ PsionicsList["cd1-crowned in sorrow"] = {
 };
 PsionicsList["cd2-call to inaction"] = {
 	name : "Call to Inaction",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1347,7 +1347,7 @@ PsionicsList["cd2-call to inaction"] = {
 };
 PsionicsList["cd3-visions of despair"] = {
 	name : "Visions of Despair",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1361,7 +1361,7 @@ PsionicsList["cd3-visions of despair"] = {
 };
 PsionicsList["cd4-dolorous mind"] = {
 	name : "Dolorous Mind",
-	source : ["UA:TMC", 12],
+	source : [["UA:TMC", 12]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1377,7 +1377,7 @@ PsionicsList["cd4-dolorous mind"] = {
 PsionicsList["crown of disgust-ua-psy"] = {
 	name : "Crown of Disgust",
 	classes : ["mystic"],
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1392,7 +1392,7 @@ PsionicsList["crown of disgust-ua-psy"] = {
 };
 PsionicsList["cd1-eye of horror"] = {
 	name : "Eye of Horror",
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1406,7 +1406,7 @@ PsionicsList["cd1-eye of horror"] = {
 };
 PsionicsList["cd2-wall of repulsion"] = {
 	name : "Wall of Repulsion",
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1421,7 +1421,7 @@ PsionicsList["cd2-wall of repulsion"] = {
 };
 PsionicsList["cd3-visions of disgust"] = {
 	name : "Visions of Disgust",
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1435,7 +1435,7 @@ PsionicsList["cd3-visions of disgust"] = {
 };
 PsionicsList["cd4-world of horror"] = {
 	name : "World of Horror",
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1451,7 +1451,7 @@ PsionicsList["cd4-world of horror"] = {
 PsionicsList["crown of rage-ua-psy"] = {
 	name : "Crown of Rage",
 	classes : ["mystic"],
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1466,7 +1466,7 @@ PsionicsList["crown of rage-ua-psy"] = {
 };
 PsionicsList["cr1-primal fury"] = {
 	name : "Primal Fury",
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1480,7 +1480,7 @@ PsionicsList["cr1-primal fury"] = {
 };
 PsionicsList["cr2-fighting words"] = {
 	name : "Fighting Words",
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1494,7 +1494,7 @@ PsionicsList["cr2-fighting words"] = {
 };
 PsionicsList["cr3-mindless courage"] = {
 	name : "Mindless Courage",
-	source : ["UA:TMC", 13],
+	source : [["UA:TMC", 13]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1508,7 +1508,7 @@ PsionicsList["cr3-mindless courage"] = {
 };
 PsionicsList["cr4-punishing fury"] = {
 	name : "Punishing Fury",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1524,7 +1524,7 @@ PsionicsList["cr4-punishing fury"] = {
 PsionicsList["diminution-ua-psy"] = {
 	name : "Diminution",
 	classes : ["mystic"],
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1539,7 +1539,7 @@ PsionicsList["diminution-ua-psy"] = {
 };
 PsionicsList["d1-miniature form"] = {
 	name : "Miniature Form",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1553,7 +1553,7 @@ PsionicsList["d1-miniature form"] = {
 };
 PsionicsList["d2-toppling shift"] = {
 	name : "Toppling Shift",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1567,7 +1567,7 @@ PsionicsList["d2-toppling shift"] = {
 };
 PsionicsList["d3-sudden shift"] = {
 	name : "Sudden Shift",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1581,7 +1581,7 @@ PsionicsList["d3-sudden shift"] = {
 };
 PsionicsList["d4-microscopic form"] = {
 	name : "Microscopic Form",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1597,7 +1597,7 @@ PsionicsList["d4-microscopic form"] = {
 PsionicsList["giant growth-ua-psy"] = {
 	name : "Giant Growth",
 	classes : ["mystic"],
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1612,7 +1612,7 @@ PsionicsList["giant growth-ua-psy"] = {
 };
 PsionicsList["gg1-ogre form"] = {
 	name : "Ogre Form",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1625,7 +1625,7 @@ PsionicsList["gg1-ogre form"] = {
 };
 PsionicsList["gg2-giant form"] = {
 	name : "Giant Form",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1640,7 +1640,7 @@ PsionicsList["gg2-giant form"] = {
 PsionicsList["intellect fortress-ua-psy"] = {
 	name : "Intellect Fortress",
 	classes : ["mystic"],
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1655,7 +1655,7 @@ PsionicsList["intellect fortress-ua-psy"] = {
 };
 PsionicsList["if1-psychic backlash"] = {
 	name : "Psychic Backlash",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1668,7 +1668,7 @@ PsionicsList["if1-psychic backlash"] = {
 };
 PsionicsList["if2-psychic parry"] = {
 	name : "Psychic Parry",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1682,7 +1682,7 @@ PsionicsList["if2-psychic parry"] = {
 };
 PsionicsList["if3-psychic redoubt"] = {
 	name : "Psychic Redoubt",
-	source : ["UA:TMC", 14],
+	source : [["UA:TMC", 14]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1697,7 +1697,7 @@ PsionicsList["if3-psychic redoubt"] = {
 PsionicsList["iron durability-ua-psy"] = {
 	name : "Iron Durability",
 	classes : ["mystic"],
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1712,7 +1712,7 @@ PsionicsList["iron durability-ua-psy"] = {
 };
 PsionicsList["id1-iron hide"] = {
 	name : "Iron Hide",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1726,7 +1726,7 @@ PsionicsList["id1-iron hide"] = {
 };
 PsionicsList["id2-steel hide"] = {
 	name : "Steel Hide",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1739,7 +1739,7 @@ PsionicsList["id2-steel hide"] = {
 };
 PsionicsList["id3-iron resistance"] = {
 	name : "Iron Resistance",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -1754,7 +1754,7 @@ PsionicsList["id3-iron resistance"] = {
 PsionicsList["mantle of awe-ua-psy"] = {
 	name : "Mantle of Awe",
 	classes : ["mystic"],
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1769,7 +1769,7 @@ PsionicsList["mantle of awe-ua-psy"] = {
 };
 PsionicsList["moa1-charming presence"] = {
 	name : "Charming Presence",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1782,7 +1782,7 @@ PsionicsList["moa1-charming presence"] = {
 };
 PsionicsList["moa2-center of attention"] = {
 	name : "Center of Attention",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1796,7 +1796,7 @@ PsionicsList["moa2-center of attention"] = {
 };
 PsionicsList["moa3-invoke awe"] = {
 	name : "Invoke Awe",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -1812,7 +1812,7 @@ PsionicsList["moa3-invoke awe"] = {
 PsionicsList["mantle of command-ua-psy"] = {
 	name : "Mantle of Command",
 	classes : ["mystic"],
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1827,7 +1827,7 @@ PsionicsList["mantle of command-ua-psy"] = {
 };
 PsionicsList["mc1-coordinated movement"] = {
 	name : "Coordinated Movement",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1840,7 +1840,7 @@ PsionicsList["mc1-coordinated movement"] = {
 };
 PsionicsList["mc2-commander's sight"] = {
 	name : "Commander's Sight",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1853,7 +1853,7 @@ PsionicsList["mc2-commander's sight"] = {
 };
 PsionicsList["mc3-command to strike"] = {
 	name : "Command to Strike",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1866,7 +1866,7 @@ PsionicsList["mc3-command to strike"] = {
 };
 PsionicsList["mc4-strategic mind"] = {
 	name : "Strategic Mind",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1879,7 +1879,7 @@ PsionicsList["mc4-strategic mind"] = {
 };
 PsionicsList["mc5-overwhelming attack"] = {
 	name : "Overwhelming Attack",
-	source : ["UA:TMC", 15],
+	source : [["UA:TMC", 15]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1894,7 +1894,7 @@ PsionicsList["mc5-overwhelming attack"] = {
 PsionicsList["mantle of courage-ua-psy"] = {
 	name : "Mantle of Courage",
 	classes : ["mystic"],
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1909,7 +1909,7 @@ PsionicsList["mantle of courage-ua-psy"] = {
 };
 PsionicsList["mc1-incite courage"] = {
 	name : "Incite Courage",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1922,7 +1922,7 @@ PsionicsList["mc1-incite courage"] = {
 };
 PsionicsList["mc2-aura of victory"] = {
 	name : "Aura of Victory",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1935,7 +1935,7 @@ PsionicsList["mc2-aura of victory"] = {
 };
 PsionicsList["mc3-pillar of confidence"] = {
 	name : "Pillar of Confidence",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1950,7 +1950,7 @@ PsionicsList["mc3-pillar of confidence"] = {
 PsionicsList["mantle of fear-ua-psy"] = {
 	name : "Mantle of Fear",
 	classes : ["mystic"],
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1965,7 +1965,7 @@ PsionicsList["mantle of fear-ua-psy"] = {
 };
 PsionicsList["mf1-incite fear"] = {
 	name : "Incite Fear",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1979,7 +1979,7 @@ PsionicsList["mf1-incite fear"] = {
 };
 PsionicsList["mf2-unsettling aura"] = {
 	name : "Unsettling Aura",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -1992,7 +1992,7 @@ PsionicsList["mf2-unsettling aura"] = {
 };
 PsionicsList["mf3-incite panic"] = {
 	name : "Incite Panic",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2008,7 +2008,7 @@ PsionicsList["mf3-incite panic"] = {
 PsionicsList["mantle of fury-ua-psy"] = {
 	name : "Mantle of Fury",
 	classes : ["mystic"],
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2023,7 +2023,7 @@ PsionicsList["mantle of fury-ua-psy"] = {
 };
 PsionicsList["mf1-incite fury"] = {
 	name : "Incite Fury",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2036,7 +2036,7 @@ PsionicsList["mf1-incite fury"] = {
 };
 PsionicsList["mf2-mindless charge"] = {
 	name : "Mindless Charge",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2049,7 +2049,7 @@ PsionicsList["mf2-mindless charge"] = {
 };
 PsionicsList["mf3-aura of bloodletting"] = {
 	name : "Aura of Bloodletting",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2062,7 +2062,7 @@ PsionicsList["mf3-aura of bloodletting"] = {
 };
 PsionicsList["mf4-overwhelming fury"] = {
 	name : "Overwhelming Fury",
-	source : ["UA:TMC", 16],
+	source : [["UA:TMC", 16]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2078,7 +2078,7 @@ PsionicsList["mf4-overwhelming fury"] = {
 PsionicsList["mantle of joy-ua-psy"] = {
 	name : "Mantle of Joy",
 	classes : ["mystic"],
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2093,7 +2093,7 @@ PsionicsList["mantle of joy-ua-psy"] = {
 };
 PsionicsList["mj1-soothing presence"] = {
 	name : "Soothing Presence",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2106,7 +2106,7 @@ PsionicsList["mj1-soothing presence"] = {
 };
 PsionicsList["mj2-comforting aura"] = {
 	name : "Comforting Aura",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2119,7 +2119,7 @@ PsionicsList["mj2-comforting aura"] = {
 };
 PsionicsList["mj3-aura of jubilation"] = {
 	name : "Aura of Jubilation",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2132,7 +2132,7 @@ PsionicsList["mj3-aura of jubilation"] = {
 };
 PsionicsList["mj4-beacon of recovery"] = {
 	name : "Beacon of Recovery",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Avatar",
@@ -2147,7 +2147,7 @@ PsionicsList["mj4-beacon of recovery"] = {
 PsionicsList["mastery of air-ua-psy"] = {
 	name : "Mastery of Air",
 	classes : ["mystic"],
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2162,7 +2162,7 @@ PsionicsList["mastery of air-ua-psy"] = {
 };
 PsionicsList["ma1-wind step"] = {
 	name : "Wind Step",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2175,7 +2175,7 @@ PsionicsList["ma1-wind step"] = {
 };
 PsionicsList["ma2-wind stream"] = {
 	name : "Wind Stream",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2189,7 +2189,7 @@ PsionicsList["ma2-wind stream"] = {
 };
 PsionicsList["ma3-cloak of air"] = {
 	name : "Cloak of Air",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2202,7 +2202,7 @@ PsionicsList["ma3-cloak of air"] = {
 };
 PsionicsList["ma4-wind form"] = {
 	name : "Wind Form",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2215,7 +2215,7 @@ PsionicsList["ma4-wind form"] = {
 };
 PsionicsList["ma5-misty form"] = {
 	name : "Misty Form",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2229,7 +2229,7 @@ PsionicsList["ma5-misty form"] = {
 };
 PsionicsList["ma6-animate air"] = {
 	name : "Animate Air",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2244,7 +2244,7 @@ PsionicsList["ma6-animate air"] = {
 PsionicsList["mastery of fire-ua-psy"] = {
 	name : "Mastery of Fire",
 	classes : ["mystic"],
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2259,7 +2259,7 @@ PsionicsList["mastery of fire-ua-psy"] = {
 };
 PsionicsList["mf1-combustion"] = {
 	name : "Combustion",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2273,7 +2273,7 @@ PsionicsList["mf1-combustion"] = {
 };
 PsionicsList["mf2-rolling flame"] = {
 	name : "Rolling Flame",
-	source : ["UA:TMC", 17],
+	source : [["UA:TMC", 17]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2286,7 +2286,7 @@ PsionicsList["mf2-rolling flame"] = {
 };
 PsionicsList["mf3-detonation"] = {
 	name : "Detonation",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2300,7 +2300,7 @@ PsionicsList["mf3-detonation"] = {
 };
 PsionicsList["mf4-fire storm"] = {
 	name : "Fire Storm",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2313,7 +2313,7 @@ PsionicsList["mf4-fire storm"] = {
 };
 PsionicsList["mf5-animate fire"] = {
 	name : "Animate Fire",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2328,7 +2328,7 @@ PsionicsList["mf5-animate fire"] = {
 PsionicsList["mastery of force-ua-psy"] = {
 	name : "Mastery of Force",
 	classes : ["mystic"],
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2343,7 +2343,7 @@ PsionicsList["mastery of force-ua-psy"] = {
 };
 PsionicsList["mf1-push"] = {
 	name : "Push",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2357,7 +2357,7 @@ PsionicsList["mf1-push"] = {
 };
 PsionicsList["mf2-move"] = {
 	name : "Move",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2371,7 +2371,7 @@ PsionicsList["mf2-move"] = {
 };
 PsionicsList["mf3-inertial armor"] = {
 	name : "Inertial Armor",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2384,7 +2384,7 @@ PsionicsList["mf3-inertial armor"] = {
 };
 PsionicsList["mf4-telekinetic barrier"] = {
 	name : "Telekinetic Barrier",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2397,7 +2397,7 @@ PsionicsList["mf4-telekinetic barrier"] = {
 };
 PsionicsList["mf5-grasp"] = {
 	name : "Grasp",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2411,7 +2411,7 @@ PsionicsList["mf5-grasp"] = {
 };
 PsionicsList["mf6-crush (with grasp)"] = {
 	name : " - Crush (with Grasp)",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2424,7 +2424,7 @@ PsionicsList["mf6-crush (with grasp)"] = {
 };
 PsionicsList["mf7-move (with grasp)"] = {
 	name : " - Move (with Grasp)",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2439,7 +2439,7 @@ PsionicsList["mf7-move (with grasp)"] = {
 PsionicsList["mastery of ice-ua-psy"] = {
 	name : "Mastery of Ice",
 	classes : ["mystic"],
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2454,7 +2454,7 @@ PsionicsList["mastery of ice-ua-psy"] = {
 };
 PsionicsList["mi1-ice spike"] = {
 	name : "Ice Spike",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2468,7 +2468,7 @@ PsionicsList["mi1-ice spike"] = {
 };
 PsionicsList["mi2-ice sheet"] = {
 	name : "Ice Sheet",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2482,7 +2482,7 @@ PsionicsList["mi2-ice sheet"] = {
 };
 PsionicsList["mi3-frozen sanctuary"] = {
 	name : "Frozen Sanctuary",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2495,7 +2495,7 @@ PsionicsList["mi3-frozen sanctuary"] = {
 };
 PsionicsList["mi4-frozen rain"] = {
 	name : "Frozen Rain",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2509,7 +2509,7 @@ PsionicsList["mi4-frozen rain"] = {
 };
 PsionicsList["mi5-ice barrier"] = {
 	name : "Ice Barrier",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2526,7 +2526,7 @@ PsionicsList["mastery of light and darkness-ua-psy"] = {
 	name : "Mastery of Light and Darkness",
 	nameShort : "Mastery of Light \u0026 Dark",
 	classes : ["mystic"],
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2541,7 +2541,7 @@ PsionicsList["mastery of light and darkness-ua-psy"] = {
 };
 PsionicsList["mld1-darkness"] = {
 	name : "Darkness",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2554,7 +2554,7 @@ PsionicsList["mld1-darkness"] = {
 };
 PsionicsList["mld2-light"] = {
 	name : "Light",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2568,7 +2568,7 @@ PsionicsList["mld2-light"] = {
 };
 PsionicsList["mld3-shadow beasts"] = {
 	name : "Shadow Beasts",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2581,7 +2581,7 @@ PsionicsList["mld3-shadow beasts"] = {
 };
 PsionicsList["mld4-radiant beam"] = {
 	name : "Radiant Beam",
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2597,7 +2597,7 @@ PsionicsList["mld4-radiant beam"] = {
 PsionicsList["mastery of water-ua-psy"] = {
 	name : "Mastery of Water",
 	classes : ["mystic"],
-	source : ["UA:TMC", 19],
+	source : [["UA:TMC", 19]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2612,7 +2612,7 @@ PsionicsList["mastery of water-ua-psy"] = {
 };
 PsionicsList["mwa1-dessicate"] = {
 	name : "Dessicate",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2626,7 +2626,7 @@ PsionicsList["mwa1-dessicate"] = {
 };
 PsionicsList["mwa2-watery grasp"] = {
 	name : "Watery Grasp",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2640,7 +2640,7 @@ PsionicsList["mwa2-watery grasp"] = {
 };
 PsionicsList["mwa3-water whip"] = {
 	name : "Water Whip",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2655,7 +2655,7 @@ PsionicsList["mwa3-water whip"] = {
 };
 PsionicsList["mwa4-water breathing"] = {
 	name : "Water Breathing",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2668,7 +2668,7 @@ PsionicsList["mwa4-water breathing"] = {
 };
 PsionicsList["mwa5-water sphere"] = {
 	name : "Water Sphere",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2682,7 +2682,7 @@ PsionicsList["mwa5-water sphere"] = {
 };
 PsionicsList["mwa6-animate water"] = {
 	name : "Animate Water",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2697,7 +2697,7 @@ PsionicsList["mwa6-animate water"] = {
 PsionicsList["mastery of weather-ua-psy"] = {
 	name : "Mastery of Weather",
 	classes : ["mystic"],
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2712,7 +2712,7 @@ PsionicsList["mastery of weather-ua-psy"] = {
 };
 PsionicsList["mw1-cloud steps"] = {
 	name : "Cloud Steps",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2725,7 +2725,7 @@ PsionicsList["mw1-cloud steps"] = {
 };
 PsionicsList["mw2-hungry lightning"] = {
 	name : "Hungry Lightning",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2739,7 +2739,7 @@ PsionicsList["mw2-hungry lightning"] = {
 };
 PsionicsList["mw3-wall of clouds"] = {
 	name : "Wall of Clouds",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2752,7 +2752,7 @@ PsionicsList["mw3-wall of clouds"] = {
 };
 PsionicsList["mw4-whirlwind"] = {
 	name : "Whirlwind",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2766,7 +2766,7 @@ PsionicsList["mw4-whirlwind"] = {
 };
 PsionicsList["mw5-lightning leap"] = {
 	name : "Lightning Leap",
-	source : ["UA:TMC", 20],
+	source : [["UA:TMC", 20]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2780,7 +2780,7 @@ PsionicsList["mw5-lightning leap"] = {
 };
 PsionicsList["mw6-wall of thunder"] = {
 	name : "Wall of Thunder",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2795,7 +2795,7 @@ PsionicsList["mw6-wall of thunder"] = {
 };
 PsionicsList["mw7-thunder clap"] = {
 	name : "Thunder Clap",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2812,7 +2812,7 @@ PsionicsList["mastery of wood and earth-ua-psy"] = {
 	name : "Mastery of Wood and Earth",
 	nameShort : "Mastery of Wood \u0026 Earth",
 	classes : ["mystic"],
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2827,7 +2827,7 @@ PsionicsList["mastery of wood and earth-ua-psy"] = {
 };
 PsionicsList["mwe1-animate weapon"] = {
 	name : "Animate Weapon",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2840,7 +2840,7 @@ PsionicsList["mwe1-animate weapon"] = {
 };
 PsionicsList["mwe2-warp weapon"] = {
 	name : "Warp Weapon",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2854,7 +2854,7 @@ PsionicsList["mwe2-warp weapon"] = {
 };
 PsionicsList["mwe3-warp armor"] = {
 	name : "Warp Armor",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2868,7 +2868,7 @@ PsionicsList["mwe3-warp armor"] = {
 };
 PsionicsList["mwe4-wall of wood"] = {
 	name : "Wall of Wood",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2881,7 +2881,7 @@ PsionicsList["mwe4-wall of wood"] = {
 };
 PsionicsList["mwe5-armored form"] = {
 	name : "Armored Form",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2894,7 +2894,7 @@ PsionicsList["mwe5-armored form"] = {
 };
 PsionicsList["mwe6-animate earth"] = {
 	name : "Animate Earth",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Wu Jen",
@@ -2909,7 +2909,7 @@ PsionicsList["mwe6-animate earth"] = {
 PsionicsList["nomadic arrow-ua-psy"] = {
 	name : "Nomadic Arrow",
 	classes : ["mystic"],
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -2924,7 +2924,7 @@ PsionicsList["nomadic arrow-ua-psy"] = {
 };
 PsionicsList["na1-speed dart"] = {
 	name : "Speed Dart",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -2937,7 +2937,7 @@ PsionicsList["na1-speed dart"] = {
 };
 PsionicsList["na2-seeking missile"] = {
 	name : "Seeking Missile",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -2951,7 +2951,7 @@ PsionicsList["na2-seeking missile"] = {
 };
 PsionicsList["na3-faithful archer"] = {
 	name : "Faithful Archer",
-	source : ["UA:TMC", 21],
+	source : [["UA:TMC", 21]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -2966,7 +2966,7 @@ PsionicsList["na3-faithful archer"] = {
 PsionicsList["nomadic chameleon-ua-psy"] = {
 	name : "Nomadic Chameleon",
 	classes : ["mystic"],
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -2981,7 +2981,7 @@ PsionicsList["nomadic chameleon-ua-psy"] = {
 };
 PsionicsList["nc1-chameleon"] = {
 	name : "Chameleon",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -2994,7 +2994,7 @@ PsionicsList["nc1-chameleon"] = {
 };
 PsionicsList["nc2-step from sight"] = {
 	name : "Step from Sight",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3007,7 +3007,7 @@ PsionicsList["nc2-step from sight"] = {
 };
 PsionicsList["nc3-enduring invisibility"] = {
 	name : "Enduring Invisibility",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3022,7 +3022,7 @@ PsionicsList["nc3-enduring invisibility"] = {
 PsionicsList["nomadic mind-ua-psy"] = {
 	name : "Nomadic Mind",
 	classes : ["mystic"],
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3037,7 +3037,7 @@ PsionicsList["nomadic mind-ua-psy"] = {
 };
 PsionicsList["nm1-wandering mind"] = {
 	name : "Wandering Mind",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3050,7 +3050,7 @@ PsionicsList["nm1-wandering mind"] = {
 };
 PsionicsList["nm2-find creature"] = {
 	name : "Find Creature",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3063,7 +3063,7 @@ PsionicsList["nm2-find creature"] = {
 };
 PsionicsList["nm3-item lore"] = {
 	name : "Item Lore",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3076,7 +3076,7 @@ PsionicsList["nm3-item lore"] = {
 };
 PsionicsList["nm4-psychic speech"] = {
 	name : "Psychic Speech",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3089,7 +3089,7 @@ PsionicsList["nm4-psychic speech"] = {
 };
 PsionicsList["nm5-wandering eye"] = {
 	name : "Wandering Eye",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3103,7 +3103,7 @@ PsionicsList["nm5-wandering eye"] = {
 };
 PsionicsList["nm6-phasing eye"] = {
 	name : "Phasing Eye",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3118,7 +3118,7 @@ PsionicsList["nm6-phasing eye"] = {
 PsionicsList["nomadic step-ua-psy"] = {
 	name : "Nomadic Step",
 	classes : ["mystic"],
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3133,7 +3133,7 @@ PsionicsList["nomadic step-ua-psy"] = {
 };
 PsionicsList["ns1-step of a dozen paces"] = {
 	name : "Step of a Dozen Paces",
-	source : ["UA:TMC", 22],
+	source : [["UA:TMC", 22]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3146,7 +3146,7 @@ PsionicsList["ns1-step of a dozen paces"] = {
 };
 PsionicsList["ns2-nomadic anchor"] = {
 	name : "Nomadic Anchor",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3159,7 +3159,7 @@ PsionicsList["ns2-nomadic anchor"] = {
 };
 PsionicsList["ns3-defensive step"] = {
 	name : "Defensive Step",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3173,7 +3173,7 @@ PsionicsList["ns3-defensive step"] = {
 };
 PsionicsList["ns4-there and back again"] = {
 	name : "There and Back Again",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3186,7 +3186,7 @@ PsionicsList["ns4-there and back again"] = {
 };
 PsionicsList["ns5-transposition"] = {
 	name : "Transposition",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3199,7 +3199,7 @@ PsionicsList["ns5-transposition"] = {
 };
 PsionicsList["ns6-baleful transposition"] = {
 	name : "Baleful Transposition",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3213,7 +3213,7 @@ PsionicsList["ns6-baleful transposition"] = {
 };
 PsionicsList["ns7-phantom caravan"] = {
 	name : "Phantom Caravan",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3226,7 +3226,7 @@ PsionicsList["ns7-phantom caravan"] = {
 };
 PsionicsList["ns8-nomad's gate"] = {
 	name : "Nomad's Gate",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3241,7 +3241,7 @@ PsionicsList["ns8-nomad's gate"] = {
 PsionicsList["precognition-ua-psy"] = {
 	name : "Precognition",
 	classes : ["mystic"],
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3256,7 +3256,7 @@ PsionicsList["precognition-ua-psy"] = {
 };
 PsionicsList["p1-precognitive hunch"] = {
 	name : "Precognitive Hunch",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3269,7 +3269,7 @@ PsionicsList["p1-precognitive hunch"] = {
 };
 PsionicsList["p2-all-around sight"] = {
 	name : "All-Around Sight",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3283,7 +3283,7 @@ PsionicsList["p2-all-around sight"] = {
 };
 PsionicsList["p3-danger sense"] = {
 	name : "Danger Sense",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3296,7 +3296,7 @@ PsionicsList["p3-danger sense"] = {
 };
 PsionicsList["p4-victory before battle"] = {
 	name : "Victory Before Battle",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3311,7 +3311,7 @@ PsionicsList["p4-victory before battle"] = {
 PsionicsList["psionic restoration-ua-psy"] = {
 	name : "Psionic Restoration",
 	classes : ["mystic"],
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3326,7 +3326,7 @@ PsionicsList["psionic restoration-ua-psy"] = {
 };
 PsionicsList["pr1-mend wounds"] = {
 	name : "Mend Wounds",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3339,7 +3339,7 @@ PsionicsList["pr1-mend wounds"] = {
 };
 PsionicsList["pr2-restore health"] = {
 	name : "Restore Health",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3352,7 +3352,7 @@ PsionicsList["pr2-restore health"] = {
 };
 PsionicsList["pr3-restore life"] = {
 	name : "Restore Life",
-	source : ["UA:TMC", 23],
+	source : [["UA:TMC", 23]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3365,7 +3365,7 @@ PsionicsList["pr3-restore life"] = {
 };
 PsionicsList["pr4-restore vigor"] = {
 	name : "Restore Vigor",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3380,7 +3380,7 @@ PsionicsList["pr4-restore vigor"] = {
 PsionicsList["psionic weapon-ua-psy"] = {
 	name : "Psionic Weapon",
 	classes : ["mystic"],
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3395,7 +3395,7 @@ PsionicsList["psionic weapon-ua-psy"] = {
 };
 PsionicsList["pw1-ethereal weapon"] = {
 	name : "Ethereal Weapon",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3408,7 +3408,7 @@ PsionicsList["pw1-ethereal weapon"] = {
 };
 PsionicsList["pw2-lethal strike"] = {
 	name : "Lethal Strike",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3421,7 +3421,7 @@ PsionicsList["pw2-lethal strike"] = {
 };
 PsionicsList["pw3-augmented weapon"] = {
 	name : "Augmented Weapon",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Immor",
@@ -3436,7 +3436,7 @@ PsionicsList["pw3-augmented weapon"] = {
 PsionicsList["psychic assault-ua-psy"] = {
 	name : "Psychic Assault",
 	classes : ["mystic"],
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3451,7 +3451,7 @@ PsionicsList["psychic assault-ua-psy"] = {
 };
 PsionicsList["pa1-psionic blast"] = {
 	name : "Psionic Blast",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3464,7 +3464,7 @@ PsionicsList["pa1-psionic blast"] = {
 };
 PsionicsList["pa2-ego whip"] = {
 	name : "Ego Whip",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3478,7 +3478,7 @@ PsionicsList["pa2-ego whip"] = {
 };
 PsionicsList["pa3-id insinuation"] = {
 	name : "Id Insinuation",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3492,7 +3492,7 @@ PsionicsList["pa3-id insinuation"] = {
 };
 PsionicsList["pa4-psychic blast"] = {
 	name : "Psychic Blast",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3506,7 +3506,7 @@ PsionicsList["pa4-psychic blast"] = {
 };
 PsionicsList["pa5-psychic crush"] = {
 	name : "Psychic Crush",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3522,7 +3522,7 @@ PsionicsList["pa5-psychic crush"] = {
 PsionicsList["psychic disruption-ua-psy"] = {
 	name : "Psychic Disruption",
 	classes : ["mystic"],
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3537,7 +3537,7 @@ PsionicsList["psychic disruption-ua-psy"] = {
 };
 PsionicsList["pd1-distracting haze"] = {
 	name : "Distracting Haze",
-	source : ["UA:TMC", 24],
+	source : [["UA:TMC", 24]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3551,7 +3551,7 @@ PsionicsList["pd1-distracting haze"] = {
 };
 PsionicsList["pd2-daze"] = {
 	name : "Daze",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3565,7 +3565,7 @@ PsionicsList["pd2-daze"] = {
 };
 PsionicsList["pd3-mind storm"] = {
 	name : "Mind Storm",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3581,7 +3581,7 @@ PsionicsList["pd3-mind storm"] = {
 PsionicsList["psychic inquisition-ua-psy"] = {
 	name : "Psychic Inquisition",
 	classes : ["mystic"],
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3596,7 +3596,7 @@ PsionicsList["psychic inquisition-ua-psy"] = {
 };
 PsionicsList["pi1-hammer of inquisition"] = {
 	name : "Hammer of Inquisition",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3610,7 +3610,7 @@ PsionicsList["pi1-hammer of inquisition"] = {
 };
 PsionicsList["pi2-forceful query"] = {
 	name : "Forceful Query",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3624,7 +3624,7 @@ PsionicsList["pi2-forceful query"] = {
 };
 PsionicsList["pi3-ransack mind"] = {
 	name : "Ransack Mind",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3638,7 +3638,7 @@ PsionicsList["pi3-ransack mind"] = {
 };
 PsionicsList["pi4-phantom idea"] = {
 	name : "Phantom Idea",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3654,7 +3654,7 @@ PsionicsList["pi4-phantom idea"] = {
 PsionicsList["psychic phantoms-ua-psy"] = {
 	name : "Psychic Phantoms",
 	classes : ["mystic"],
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3669,7 +3669,7 @@ PsionicsList["psychic phantoms-ua-psy"] = {
 };
 PsionicsList["pp1-distracting figment"] = {
 	name : "Distracting Figment",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3683,7 +3683,7 @@ PsionicsList["pp1-distracting figment"] = {
 };
 PsionicsList["pp2-phantom foe"] = {
 	name : "Phantom Foe",
-	source : ["UA:TMC", 25],
+	source : [["UA:TMC", 25]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3697,7 +3697,7 @@ PsionicsList["pp2-phantom foe"] = {
 };
 PsionicsList["pp3-phantom betrayal"] = {
 	name : "Phantom Betrayal",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3711,7 +3711,7 @@ PsionicsList["pp3-phantom betrayal"] = {
 };
 PsionicsList["pp4-phantom riches"] = {
 	name : "Phantom Riches",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3727,7 +3727,7 @@ PsionicsList["pp4-phantom riches"] = {
 PsionicsList["telepathic contact-ua-psy"] = {
 	name : "Telepathic Contact",
 	classes : ["mystic"],
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3742,7 +3742,7 @@ PsionicsList["telepathic contact-ua-psy"] = {
 };
 PsionicsList["tc1-exacting query"] = {
 	name : "Exacting Query",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3756,7 +3756,7 @@ PsionicsList["tc1-exacting query"] = {
 };
 PsionicsList["tc2-occluded mind"] = {
 	name : "Occluded Mind",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3770,7 +3770,7 @@ PsionicsList["tc2-occluded mind"] = {
 };
 PsionicsList["tc3-broken will"] = {
 	name : "Broken Will",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3784,7 +3784,7 @@ PsionicsList["tc3-broken will"] = {
 };
 PsionicsList["tc4-psychic grip"] = {
 	name : "Psychic Grip",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3798,7 +3798,7 @@ PsionicsList["tc4-psychic grip"] = {
 };
 PsionicsList["tc5-psychic domination"] = {
 	name : "Psychic Domination",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Awake",
@@ -3814,7 +3814,7 @@ PsionicsList["tc5-psychic domination"] = {
 PsionicsList["third eye-ua-psy"] = {
 	name : "Third Eye",
 	classes : ["mystic"],
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3829,7 +3829,7 @@ PsionicsList["third eye-ua-psy"] = {
 };
 PsionicsList["te1-tremorsense"] = {
 	name : "Tremorsense",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3842,7 +3842,7 @@ PsionicsList["te1-tremorsense"] = {
 };
 PsionicsList["te2-unwavering eye"] = {
 	name : "Unwavering Eye",
-	source : ["UA:TMC", 26],
+	source : [["UA:TMC", 26]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3855,7 +3855,7 @@ PsionicsList["te2-unwavering eye"] = {
 };
 PsionicsList["te3-piercing sight"] = {
 	name : "Piercing Sight",
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3868,7 +3868,7 @@ PsionicsList["te3-piercing sight"] = {
 };
 PsionicsList["te4-truesight"] = {
 	name : "Truesight",
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	psionic : true,
 	level : 1,
 	school : "Nomad",
@@ -3884,7 +3884,7 @@ PsionicsList["te4-truesight"] = {
 ArmourList["inertial armor-ua-psy"] = {
 	regExpSearch : /^(?=.*(inertial|psychic|psionic))(?=.*armou?r).*$/i,
 	name : "Inertial armor",
-	source : ["UA:TMC", 18],
+	source : [["UA:TMC", 18]],
 	ac : 14,
 	list : "magic"
 };
@@ -3893,7 +3893,7 @@ ArmourList["inertial armor-ua-psy"] = {
 WeaponsList["energy beam-ua-psy"] = {
 	regExpSearch : /^(?=.*\benergy\b)(?=.*\bbeam\b).*$/i,
 	name : "Energy Beam",
-	source : ["UA:TMC", 27],
+	source : [["UA:TMC", 27]],
 	list : "psionic",
 	ability : 4,
 	type : "Cantrip",
@@ -3906,7 +3906,7 @@ WeaponsList["energy beam-ua-psy"] = {
 WeaponsList["mind slam-ua-psy"] = {
 	regExpSearch : /^(?=.*\bmind\b)(?=.*\bslam\b).*$/i,
 	name : "Mind Slam",
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	list : "psionic",
 	ability : 4,
 	type : "Cantrip",
@@ -3919,7 +3919,7 @@ WeaponsList["mind slam-ua-psy"] = {
 WeaponsList["mind thrust-ua-psy"] = {
 	regExpSearch : /^(?=.*\bmind\b)(?=.*\bthrust\b).*$/i,
 	name : "Mind Thrust",
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	list : "psionic",
 	ability : 4,
 	type : "Cantrip",
@@ -3932,7 +3932,7 @@ WeaponsList["mind thrust-ua-psy"] = {
 WeaponsList["psychic hammer-ua-psy"] = {
 	regExpSearch : /^(?=.*\bpsychic\b)(?=.*\bhammer\b).*$/i,
 	name : "Psychic Hammer",
-	source : ["UA:TMC", 28],
+	source : [["UA:TMC", 28]],
 	list : "psionic",
 	ability : 4,
 	type : "Cantrip",

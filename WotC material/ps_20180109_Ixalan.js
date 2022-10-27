@@ -17,7 +17,7 @@ RaceList["green merfolk"] = {
 	regExpSearch : /^(?=.*green)(?=.*(merfolk|mermaid|merman)\b).*$/i,
 	name : "Green Merfolk",
 	sortname : "Merfolk, Green",
-	source : ["PS:X", 12],
+	source : [["PS:X", 12]],
 	plural : "Green Merfolk",
 	size : 3,
 	speed : {
@@ -44,7 +44,7 @@ RaceList["blue merfolk"] = {
 	regExpSearch : /^(?=.*blue)(?=.*(merfolk|mermaid|merman)\b).*$/i,
 	name : "Blue Merfolk",
 	sortname : "Merfolk, Blue",
-	source : ["PS:X", 12],
+	source : [["PS:X", 12]],
 	plural : "Blue Merfolk",
 	size : 3,
 	speed : {
@@ -73,7 +73,7 @@ RaceList["ixalan vampire"] = {
 	regExpSearch : /^(?=.*vampire)(?=.*ixalan).*$/i,
 	name : "Vampire",
 	sortname : "Vampire, Ixalan",
-	source : ["PS:X", 14],
+	source : [["PS:X", 14]],
 	plural : "Vampires",
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
@@ -83,7 +83,7 @@ RaceList["ixalan vampire"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*blood)(?=.*thirst).*$/i,
 		name : "Blood Thirst",
-		source : ["PS:X", 14],
+		source : [["PS:X", 14]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 6, "necrotic"],
@@ -102,7 +102,7 @@ RaceList["ixalan orc"] = {
 	regExpSearch : /^(?=.*ixalan)(?=.*orc).*$/i,
 	name : "Ixalan orc",
 	sortname : "Orc, Ixalan",
-	source : ["PS:X", 15],
+	source : [["PS:X", 15]],
 	plural : "Ixalan orcs",
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
@@ -152,7 +152,7 @@ RaceList["ixalan goblin"] = {
 	regExpSearch : /^(?=.*ixalan)(?=.*goblin).*$/i,
 	name : "Ixalan goblin",
 	sortname : "Goblin, Ixalan",
-	source : ["PS:X", 16],
+	source : [["PS:X", 16]],
 	plural : "Ixalan goblins",
 	size : 4,
 	speed : {
@@ -173,7 +173,7 @@ RaceList["ixalan goblin"] = {
 RaceList["siren"] = {
 	regExpSearch : /\bsiren\b/i,
 	name : "Siren",
-	source : ["PS:X", 17],
+	source : [["PS:X", 17]],
 	plural : "Sirens",
 	size : 3,
 	speed : {
@@ -196,7 +196,7 @@ RaceList["siren"] = {
 
 FeatsList["vampiric exultation"] = {
 	name : "Vampiric Exultation",
-	source : ["PS:X", 14],
+	source : [["PS:X", 14]],
 	prerequisite : "Being an Ixalan Vampire",
 	prereqeval : function () { return CurrentRace.known == 'ixalan vampire' },
 	descriptionFull : "As an action, you can transform the lower half of your body into an inky black vapor, allowing you to float through the air. While transformed, you have a flying speed of 30 feet. You can maintain this form for up to 10 minutes. Once you use this ability, you can't use it again until you finish a short or long rest.",
@@ -209,7 +209,7 @@ FeatsList["vampiric exultation"] = {
 // Adds 1 creature, a beast
 CreatureList["frilled deathspitter"] = {
 	name : "Frilled Deathspitter",
-	source : ["PS:X", 30],
+	source : [["PS:X", 30]],
 	size : 4,
 	type : "Beast",
 	alignment : "Unaligned",

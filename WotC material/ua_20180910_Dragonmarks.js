@@ -289,7 +289,7 @@ RaceList["dragonmark passage human-ua"] = { // different in Unearthed Arcana
 	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Passage (Human)",
-	source : ["UA:D", 4],
+	source : [["UA:D", 4]],
 	plural : "Humans (dragonmark)",
 	size : 3,
 	speed : {

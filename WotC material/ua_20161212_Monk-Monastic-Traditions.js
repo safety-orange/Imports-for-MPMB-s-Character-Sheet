@@ -15,11 +15,11 @@ SourceList["UA:MMT"] = {
 AddSubClass("monk", "way of the kensei-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
-	source : ["UA:MMT", 1],
+	source : [["UA:MMT", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Path of the Kensei",
-			source : ["UA:MMT", 1],
+			source : [["UA:MMT", 1]],
 			minlevel : 3,
 			description : " [3 martial weapons proficiencies]" + "\n   " + "Martial weapons I am proficient with count as kensei weapons for me" + "\n   " + "With these, I can use Dex instead of Str and use the Martial Arts damage die" + "\n   " + "As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
 			action: ["bonus action", " (after hit)"],
@@ -46,14 +46,14 @@ AddSubClass("monk", "way of the kensei-ua", {
 			"kensei defense" : {
 				name : "Kensei Defense",
 				extraname : "Way of the Kensei 3",
-				source : ["UA:MMT", 1],
+				source : [["UA:MMT", 1]],
 				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
 			},
 			autoSelectExtrachoices : [{ extrachoice : "kensei defense" }]
 		},
 		"ki-empowered strikes" : {
 			name : "One with the Blade",
-			source : ["UA:MMT", 1],
+			source : [["UA:MMT", 1]],
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
@@ -69,7 +69,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Precise Strike",
-			source : ["UA:MMT", 1],
+			source : [["UA:MMT", 1]],
 			minlevel : 6,
 			description : "As a bonus action, I can focus my attention on one creature I can see within 30 ft" + "\n   " + "This turn, I double my proficiency bonus on my next weapon attack against that mark",
 			usages : 1,
@@ -88,7 +88,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
 				extraname : "Way of the Kensei 11",
-				source : ["UA:MMT", 1],
+				source : [["UA:MMT", 1]],
 				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
 				action : ["bonus action", ""]
 			},
@@ -99,7 +99,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 		},
 		"subclassfeature17" : {
 			name : "Unerring Accuracy",
-			source : ["UA:MMT", 1],
+			source : [["UA:MMT", 1]],
 			minlevel : 17,
 			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses"
 		}
@@ -112,7 +112,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 	features : {
 		"subclassfeature3" : {
 			name : "Path of Tranquility",
-			source : ["UA:MMT", 2],
+			source : [["UA:MMT", 2]],
 			minlevel : 3,
 			description : "\n   " + "I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour",
 			usages : 1,
@@ -134,7 +134,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature3.1" : {
 			name : "Healing Hands",
-			source : ["UA:MMT", 2],
+			source : [["UA:MMT", 2]],
 			minlevel : 3,
 			description : "\n   " + "As an action, I use points to heal living creature; or 5 points to cure one poison/disease" + "\n   " + "With Flurry of Blows, I can replace one unarmed strike with a use of this feature",
 			usages : [0, 0, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
@@ -143,14 +143,14 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature6" : {
 			name : "Emissary of Peace",
-			source : ["UA:MMT", 2],
+			source : [["UA:MMT", 2]],
 			minlevel : 6,
 			description : " [Performance or Persuasion prof]" + "\n   " + "I get adv. on Cha checks to calm or counsel peace; not with Deception or Intimidation",
 			skillstxt : "Choose one from: Performance or Persuasion",
 			"douse the flames of war" : {
 				name : "Douse the Flames of War",
 				extraname : "Way of Tranquility 11",
-				source : ["UA:MMT", 1],
+				source : [["UA:MMT", 1]],
 				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
 				action : ["action", ""]
 			},
@@ -161,7 +161,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature17" : {
 			name : "Anger of a Gentle Soul",
-			source : ["UA:MMT", 2],
+			source : [["UA:MMT", 2]],
 			minlevel : 17,
 			description : "\n   " + "As a reaction if another I see goes to 0 HP, I get bonus damage until my next turn ends",
 			usages : 1,

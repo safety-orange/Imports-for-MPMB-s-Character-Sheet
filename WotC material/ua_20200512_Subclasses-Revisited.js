@@ -61,7 +61,7 @@ AddSubClass("rogue", "phantom-ua", {
 				["action", "Destroy Soul Trinket"]
 			],
 			extraLimitedFeatures : [{
-				name : "Soul Trinkets (max Prof. Bonus)",
+				name : "Soul Trinkets (max Prof Bonus)",
 				usages : "",
 				recovery : "Special"
 			}],
@@ -183,7 +183,7 @@ if (!SourceList.T) {
 				choicesNotInMenu : true,
 				"dao (earth)" : {
 					name : "Dao's Wrath",
-					description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof. Bonus in extra bludgeoning damage",
+					description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof Bonus in extra bludgeoning damage",
 					calcChanges : {
 						atkAdd : [
 							function (fields, v) {
@@ -286,7 +286,7 @@ if (!SourceList.T) {
 					dmgres : ["Cold"]
 				},
 				additional : "Fly 10 min",
-				usages : "Prof. Bonus per ",
+				usages : "Prof Bonus per ",
 				usagescalc : "event.value = How('Proficiency Bonus');",
 				recovery : "long rest"
 			},
@@ -408,8 +408,8 @@ AddSubClass("wizard","order of scribes-ua", {
 				companionFunctions.remove("Manifest Mind");
 			},
 			action : [["bonus action",""],["bonus action","Hover spellbook 30ft"],["bonus action","dismiss Manifestation"]],
-			usages : "Prof. Bonus per ",
-			usagescalc : "event.value = What('Proficiency Bonus');",
+			usages : "Prof Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
 		"subclassfeature14" : {
@@ -428,8 +428,8 @@ AddSubClass("wizard","order of scribes-ua", {
 				"one of these spells with the wish spell, which will restore one spell per casting."
 			]),
 			action : ["action","Swap places with spellbook"],
-			usages : "Prof. Bonus per ",
-			usagescalc : "event.value = What('Proficiency Bonus');",
+			usages : "Prof Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		}
 	}

@@ -31,7 +31,7 @@ RaceList["fallen aasimar"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 0, 0, 0, 2],
-	trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
+	trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof Bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -359,7 +359,7 @@ RaceList["kenku"] = {
 RaceList["kobold"] = {
 	regExpSearch : /kobold/i,
 	name : "Kobold",
-	source : ["V", 119],
+	source : [["V", 119]],
 	plural : "Kobolds",
 	size : 4,
 	speed : {
@@ -387,7 +387,7 @@ RaceList["kobold"] = {
 RaceList["lizardfolk"] = {
 	regExpSearch : /lizard(folk|man|men)/i,
 	name : "Lizardfolk",
-	source : ["V", 111],
+	source : [["V", 111]],
 	plural : "Lizardfolk",
 	size : 3,
 	speed : {
@@ -400,14 +400,14 @@ RaceList["lizardfolk"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bbite\b/i,
 		name : "Bite",
-		source : ["V", 113],
+		source : [["V", 113]],
 		damage : [1, 6, "piercing"]
 	},
 	weaponsAdd : ["Bite"],
 	armorOptions : {
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
-		source : ["V", 113],
+		source : [["V", 113]],
 		ac : 13
 	},
 	armorAdd : "Natural Armor",
@@ -473,7 +473,7 @@ RaceList["tabaxi"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(tabaxi|\bcat\b))(?=.*claw).*$/i,
 		name : "Tabaxi Claws",
-		source : ["V", 115],
+		source : [["V", 115]],
 		damage : [1, 4, "slashing"]
 	},
 	weaponsAdd : ["Tabaxi Claws"],
@@ -582,7 +582,7 @@ if (!SpellsList["wall of water"]) {
 RaceList["yuan-ti pureblood"] = {
 	regExpSearch : /^(?!.*human)(?=.*yuan.ti)(?=.*pure.?blood).*$/i,
 	name : "Yuan-Ti Pureblood",
-	source : ["V", 120],
+	source : [["V", 120]],
 	plural : "Yuan-Ti Purebloods",
 	size : 3,
 	speed : {
@@ -728,6 +728,7 @@ CreatureList["ox"] = {
 };
 CreatureList["deep rothe"] = {
 	name : "Deep Roth\xE9",
+	nameAlt : ["Roth\xE9, Deep"],
 	source : [["V", 208], ["MotM", 71]],
 	size : 3, //Medium
 	type : "Beast",
@@ -857,6 +858,7 @@ CreatureList["dolphin"] = {
 };
 CreatureList["cranium rat"] = {
 	name : "Cranium Rat",
+	nameAlt : ["Rat, Cranium"],
 	source : [["V", 133], ["MotM", 83]],
 	size : 5, //Tiny
 	type : "Aberration", // Change in MotM from Beast
@@ -1177,7 +1179,7 @@ CreatureList["gazer"] = {
 // Magic Items
 MagicItemsList["mind blade"] = {
 	name : "Mind Blade",
-	source : ["V", 81],
+	source : [["V", 81]],
 	type : "weapon (any sword)",
 	rarity : "rare",
 	description : "Mind flayers can turn any nonmagical sword into a mind blade. Only one creature can attune to this sword: either a specific mind flayer or one of its thralls. In the hands of its intended wielder, the mind blade is a magic weapon that deals an extra 2d6 psychic damage to any target it hits.",
@@ -1209,7 +1211,7 @@ MagicItemsList["mind blade"] = {
 }
 MagicItemsList["mind carapace armor"] = {
 	name : "Mind Carapace Armor",
-	source : ["V", 81],
+	source : [["V", 81]],
 	type : "armor (heavy)",
 	rarity : "uncommon",
 	description : "Only one creature can attune to this armor: either a specific mind flayer or one of its thralls. To its intended wearer, the armor grants advantage on Intelligence, Wisdom, and Charisma saving throws and makes its wearer immune to the frightened condition.",
@@ -1232,7 +1234,7 @@ MagicItemsList["mind carapace armor"] = {
 }
 MagicItemsList["mind lash"] = {
 	name : "Mind Lash",
-	source : ["V", 81],
+	source : [["V", 81]],
 	type : "weapon (whip)",
 	rarity : "rare",
 	description : "This magic whip strips away a creature's will to survive as it also strips away flesh and deals +2d4 psychic damage on each hit. Any target taking psychic damage must succeed on a DC 15 Wisdom save or have disadv. on Int, Wis, and Cha saves for 1 minute. It can repeat the save at the end of each of its turns.",
@@ -1246,13 +1248,13 @@ MagicItemsList["mind lash"] = {
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*mind)(?=.*lash).*$/i,
 		name : "Mind Lash",
-		source : ["V", 81],
+		source : [["V", 81]],
 		description : "Finesse, reach; +2d4 psychic damage; DC 15 Wis save or disadv. on Int/Wis/Cha saves for 1 min"
 	}
 }
 MagicItemsList["shield of far sight"] = {
 	name : "Shield of Far Sight",
-	source : ["V", 81],
+	source : [["V", 81]],
 	type : "shield",
 	rarity : "rare",
 	description : "The mind flayer that created this shield can see through its eye with 60 ft darkvision while it is on the same plane. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield. If a shield of far sight is destroyed, its creator is blinded for 2d12 hours.",
@@ -1262,7 +1264,7 @@ MagicItemsList["shield of far sight"] = {
 }
 MagicItemsList["survival mantle"] = {
 	name : "Survival Mantle",
-	source : ["V", 81],
+	source : [["V", 81]],
 	type : "armor (half plate)",
 	rarity : "unknown",
 	description : "This mantle functions as a half plate and takes just as long to don or doff. It encases portions of my shoulders, neck, and chest so that I can breathe normally in any environment (including a vacuum) and gives me advantage on saving throws against gases (such as Cloudkill, Stinking Cloud, or inhaled poisons).",
@@ -1273,7 +1275,7 @@ MagicItemsList["survival mantle"] = {
 	armorOptions : {
 		regExpSearch : /^(?=.*survival)(?=.*mantle).*$/i,
 		name : "Survival Mantle",
-		source : ["V", 81],
+		source : [["V", 81]],
 		type : "medium",
 		ac : 15,
 		stealthdis : true,

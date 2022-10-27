@@ -15,11 +15,11 @@ SourceList["UA:TS"] = {
 AddSubClass("druid", "circle of spores-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
-	source : ["UA:TS", 1],
+	source : [["UA:TS", 1]],
 	features : {
 		"subclassfeature2" : {
 			name : "Circle Spells",
-			source : ["UA:TS", 1],
+			source : [["UA:TS", 1]],
 			minlevel : 2,
 			description : desc([
 				"My link to the cycle of life and death gives me with the ability to cast certain spells",
@@ -36,7 +36,7 @@ AddSubClass("druid", "circle of spores-ua", {
 		},
 		"subclassfeature2.1" : {
 			name : "Halo of Spores",
-			source : ["UA:TS", 1],
+			source : [["UA:TS", 1]],
 			minlevel : 2,
 			description : "\n   " + "As a reaction on my turn, I can do poison damage to one creature I can see within 10 ft",
 			additional : levels.map(function (n) { return n < 2 ? "" : (n < 6 ? 3 : n < 10 ? 6 : n < 14 ? 9 : 12) + " poison damage"; }),
@@ -44,7 +44,7 @@ AddSubClass("druid", "circle of spores-ua", {
 		},
 		"subclassfeature2.2" : {
 			name : "Symbiotic Entity",
-			source : ["UA:TS", 1],
+			source : [["UA:TS", 1]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I expend a Wild Shape use to boost my spores instead of transforming",
@@ -69,7 +69,7 @@ AddSubClass("druid", "circle of spores-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Fungal Infestation",
-			source : ["UA:TS", 2],
+			source : [["UA:TS", 2]],
 			minlevel : 6,
 			description : desc([
 				"If I kill a humanoid with my Halo of Spores, it rises as a zombie at the end of my turn",
@@ -79,7 +79,7 @@ AddSubClass("druid", "circle of spores-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Spreading Spores",
-			source : ["UA:TS", 2],
+			source : [["UA:TS", 2]],
 			minlevel : 10,
 			description : desc([
 				"As a bonus action, I create a 10-ft cube of fungal spores within 30 ft, lasting for 1 min",
@@ -90,7 +90,7 @@ AddSubClass("druid", "circle of spores-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Fungal Body",
-			source : ["UA:TS", 2],
+			source : [["UA:TS", 2]],
 			minlevel : 14,
 			description : "\n   " + "I'm immune to critical hits and to being blinded, deafened, frightened, and poisoned",
 			savetxt : { immune : ["blinded", "deafened", "frightened", "poisoned", "critical hits"] }
@@ -100,12 +100,12 @@ AddSubClass("druid", "circle of spores-ua", {
 var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 	regExpSearch : /brute/i,
 	subname : "Brute",
-	source : ["UA:TS", 2],
+	source : [["UA:TS", 2]],
 	fullname : "Brute",
 	features : {
 		"subclassfeature3" : {
 			name : "Brute Force",
-			source : ["UA:TS", 2],
+			source : [["UA:TS", 2]],
 			minlevel : 3,
 			description : "\n   " + "I do additional damage with weapons that I'm proficient with",
 			additional : levels.map(function (n) { 
@@ -124,7 +124,7 @@ var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 		},
 		"subclassfeature7" : {
 			name : "Brutish Durability",
-			source : ["UA:TS", 2],
+			source : [["UA:TS", 2]],
 			minlevel : 7,
 			description : desc([
 				"I add +1d6 to all my saving throws, including death saves",
@@ -134,14 +134,14 @@ var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 		},
 		"subclassfeature15" : {
 			name : "Devastating Critical",
-			source : ["UA:TS", 2],
+			source : [["UA:TS", 2]],
 			minlevel : 15,
 			description : "\n   " + "Whenever I score a critical hit with a weapon, I add my fighter level to the damage",
 			additional : levels.map(function (n) { return n < 15 ? "" : "+" + n + " damage on crit"; })
 		},
 		"subclassfeature18" : {
 			name : "Survivor",
-			source : ["UA:TS", 2],
+			source : [["UA:TS", 2]],
 			minlevel : 18,
 			description : desc([
 				"If I have less than half my max HP at the start of my turn, I heal myself",
@@ -162,12 +162,12 @@ RunFunctionAtEnd(function () {
 AddSubClass("wizard", "school of invention-ua", {
 	regExpSearch : /^(?=.*wizard)(?=.*invent(ion|or)).*$/i,
 	subname : "School of Invention",
-	source : ["UA:TS", 2],
+	source : [["UA:TS", 2]],
 	fullname : "Wizard (Inventor)",
 	features : {
 		"subclassfeature2" : {
 			name : "Tools of the Inventor",
-			source : ["UA:TS", 3],
+			source : [["UA:TS", 3]],
 			minlevel : 2,
 			description : "\n   " + "I gain proficiency with light armor and two tools of my choice",
 			toolProfs : [["Any one tool", 2]],
@@ -175,7 +175,7 @@ AddSubClass("wizard", "school of invention-ua", {
 		},
 		"subclassfeature2.1" : {
 			name : "Arcanomechanical Armor",
-			source : ["UA:TS", 3],
+			source : [["UA:TS", 3]],
 			minlevel : 2,
 			description : desc([
 				"After a long rest, I can transform a studded leather armor into arcanomechanical armor",
@@ -186,7 +186,7 @@ AddSubClass("wizard", "school of invention-ua", {
 			armorOptions : {
 				regExpSearch : /arcanomechanical/i,
 				name : "Arcanomechanical",
-				source : ["UA:TS", 3],
+				source : [["UA:TS", 3]],
 				type : "light",
 				ac : 12,
 				weight : 8,
@@ -196,7 +196,7 @@ AddSubClass("wizard", "school of invention-ua", {
 		},
 		"subclassfeature2.2" : {
 			name : "Reckless Casting",
-			source : ["UA:TS", 3],
+			source : [["UA:TS", 3]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I can attempt to cast a random spell or cantrip by rolling a d10 on a table",
@@ -249,7 +249,7 @@ AddSubClass("wizard", "school of invention-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Alchemical Casting",
-			source : ["UA:TS", 4],
+			source : [["UA:TS", 4]],
 			minlevel : 6,
 			description : desc([
 				"I can manipulate spells cast while wearing and attuned to my Arcanomechanical Armor",
@@ -260,7 +260,7 @@ AddSubClass("wizard", "school of invention-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Prodigious Inspiration",
-			source : ["UA:TS", 4],
+			source : [["UA:TS", 4]],
 			minlevel : 10,
 			description : "\n   " + "As a bonus action, I can replace a prepared spell with another from my spellbook",
 			usages : 1,
@@ -269,7 +269,7 @@ AddSubClass("wizard", "school of invention-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Controlled Chaos",
-			source : ["UA:TS", 4],
+			source : [["UA:TS", 4]],
 			minlevel : 14,
 			description : desc([
 				"When I expend a spell slot to cast a spell using Reckless Casting, it is more powerful",

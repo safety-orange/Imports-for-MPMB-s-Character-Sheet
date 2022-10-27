@@ -34,7 +34,7 @@ BackgroundFeatureList["dragon scholar"] = {
 // The magic cauldron on page 79 is omitted as its only magic is that it functions as the material component for the Augury spell. Not something an adventurer is likely to use, with it being 50 lb.
 MagicItemsList["dragongleam"] = {
 	name : "Dragongleam",
-	source : ["HotDQ", 69],
+	source : [["HotDQ", 69]],
 	type : "weapon (spear)",
 	rarity : "rare",
 	magicItemTable : "F",
@@ -60,12 +60,12 @@ MagicItemsList["dragongleam"] = {
 		baseWeapon : "spear",
 		regExpSearch : /dragongleam/i,
 		name : "Dragongleam",
-		source : ["HotDQ", 69]
+		source : [["HotDQ", 69]]
 	}
 }
 MagicItemsList["tankard of plenty"] = {
 	name : "Tankard of Plenty",
-	source : ["HotDQ", 74],
+	source : [["HotDQ", 74]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "A",
@@ -234,7 +234,7 @@ MagicItemsList["dragon mask"] = {
 }
 MagicItemsList["hazirawn"] = {
 	name : "Hazirawn",
-	source : ["HotDQ", 94],
+	source : [["HotDQ", 94]],
 	type : "weapon (greatsword)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -250,7 +250,7 @@ MagicItemsList["hazirawn"] = {
 			baseWeapon : "greatsword",
 			regExpSearch : /hazirawn/i,
 			name : "Hazirawn",
-			source : ["HotDQ", 94],
+			source : [["HotDQ", 94]],
 			description : "Heavy, two-handed; +1d6 necrotic damage",
 			modifiers : [1, 1]
 		}
@@ -269,7 +269,7 @@ MagicItemsList["hazirawn"] = {
 			baseWeapon : "greatsword",
 			regExpSearch : /hazirawn/i,
 			name : "Hazirawn",
-			source : ["HotDQ", 94],
+			source : [["HotDQ", 94]],
 			description : "Heavy, two-handed; +2d6 necrotic damage; Wounding (can't regain HP for 1 min, DC 15 Con save to stop)",
 			modifiers : [2,2]
 		},
@@ -291,7 +291,7 @@ MagicItemsList["hazirawn"] = {
 }
 MagicItemsList["insignia of claws"] = {
 	name : "Insignia of Claws",
-	source : ["HotDQ", 94],
+	source : [["HotDQ", 94]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -317,7 +317,7 @@ MagicItemsList["insignia of claws"] = {
 }
 MagicItemsList["wand of winter"] = {
 	name : "Wand of Winter",
-	source : ["HotDQ", 94],
+	source : [["HotDQ", 94]],
 	type : "wand",
 	rarity : "rare",
 	attunement : true,
@@ -371,7 +371,7 @@ MagicItemsList["wand of winter"] = {
 }
 MagicItemsList["dragontooth dagger"] = {
 	name : "Dragontooth Dagger",
-	source : ["RoT", 94],
+	source : [["RoT", 94]],
 	type : "weapon (dagger)",
 	rarity : "rare",
 	magicItemTable : "H",
@@ -383,7 +383,7 @@ MagicItemsList["dragontooth dagger"] = {
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*dragontooth)(?=.*dagger).*$/i,
 		name : "Dragontooth Dagger",
-		source : ["RoT", 94],
+		source : [["RoT", 94]],
 		description : "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \u0026 +2d6 acid damage",
 		modifiers : [1, 1]
 	}

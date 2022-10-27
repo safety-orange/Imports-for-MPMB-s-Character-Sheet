@@ -88,7 +88,7 @@ if (!RaceList["goblin"]) {
 RaceList["loxodon"] = {
 	regExpSearch : /loxodon/i,
 	name : "Loxodon",
-	source : ["G", 18],
+	source : [["G", 18]],
 	plural : "Loxodons",
 	size : 3,
 	speed : {
@@ -99,7 +99,7 @@ RaceList["loxodon"] = {
 	armorOptions : {
 		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
 		name : "Loxodon Natural Armor",
-		source : ["G", 18],
+		source : [["G", 18]],
 		ac : "12+Con",
 		dex : -10
 	},
@@ -151,7 +151,7 @@ RaceList["minotaur"] = {
 	trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
 		"Horns: I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
 		"Goring Rush: When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
-		"Hammering Horns: As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof bonus) or be pushed up to 10 ft away from me."
+		"Hammering Horns: As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me."
 	]),
 	features : {
 		"goring rush" : {
@@ -171,7 +171,7 @@ RaceList["minotaur"] = {
 RaceList["simic hybrid"] = {
 	regExpSearch : /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
 	name : "Simic hybrid",
-	source : ["G", 20],
+	source : [["G", 20]],
 	plural : "Simic hybrids",
 	size : 3,
 	speed : {
@@ -183,13 +183,13 @@ RaceList["simic hybrid"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
 		name : "Grappling Appendages",
-		source : ["G", 20],
+		source : [["G", 20]],
 		damage : [1, 6, "bludgeoning"],
 		description : "After hitting, start grapple on target as a bonus action"
 	}, {
 		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
 		name : "Acid Spit",
-		source : ["G", 21],
+		source : [["G", 21]],
 		ability : 3,
 		type : "Natural",
 		damage : ["C", 10, "acid"],
@@ -246,7 +246,7 @@ RaceList["simic hybrid"] = {
 						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 						break;
 					case "Acid Spit":
-						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
+						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof Bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
 						AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 						AddWeapon("Acid Spit");
@@ -292,12 +292,12 @@ RaceList["simic hybrid"] = {
 };
 AddRacialVariant("simic hybrid", "manta glide", {
 	regExpSearch : /manta glide/i,
-	source : ["G", 20],
+	source : [["G", 20]],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit."
 });
 AddRacialVariant("simic hybrid", "nimble climber", {
 	regExpSearch : /nimble climber/i,
-	source : ["G", 20],
+	source : [["G", 20]],
 	speed : {
 		walk : { spd : 30, enc : 20 },
 		climb : { spd : 'walk', enc : 'walk' }
@@ -306,7 +306,7 @@ AddRacialVariant("simic hybrid", "nimble climber", {
 });
 AddRacialVariant("simic hybrid", "underwater adaptation", {
 	regExpSearch : /underwater adaptation/i,
-	source : ["G", 20],
+	source : [["G", 20]],
 	speed : {
 		walk : { spd : 30, enc : 20 },
 		swim : { spd : 'walk', enc : 'walk' }
@@ -318,7 +318,7 @@ AddRacialVariant("simic hybrid", "underwater adaptation", {
 RaceList["vedalken"] = {
 	regExpSearch : /vedalken/i,
 	name : "Vedalken",
-	source : ["G", 21],
+	source : [["G", 21]],
 	plural : "Vedalken",
 	size : 3,
 	speed : {
@@ -538,7 +538,7 @@ AddSubClass("druid", "circle of spores", {
 BackgroundList["azorius functionary"] = {
 	regExpSearch : /^(?=.*azorius)(?=.*functionary).*$/i,
 	name : "Azorius Functionary",
-	source : ["G", 33],
+	source : [["G", 33]],
 	skills : ["Insight", "Intimidation"],
 	calcChanges : {
 		spellList : [
@@ -602,13 +602,13 @@ BackgroundList["azorius functionary"] = {
 };
 BackgroundFeatureList["legal authority"] = {
 	description : "I have the authority to enforce the laws of Ravnica, inspiring respect and fear as a result. People mind their manners, avoid my attention, and assume I have a right to be wherever I am. My Azorius insignia gets me an audience with anyone I want, though it might work adversely with incorrigible lawbreakers. Abusing this privilege can get me in serious trouble.",
-	source : ["G", 33]
+	source : [["G", 33]]
 };
 
 BackgroundList["boros legionnaire"] = {
 	regExpSearch : /^(?=.*boros)(?=.*legionnaire).*$/i,
 	name : "Boros Legionnaire",
-	source : ["G", 40],
+	source : [["G", 40]],
 	skills : ["Athletics", "Intimidation"],
 	calcChanges : {
 		spellList : [
@@ -674,13 +674,13 @@ BackgroundList["boros legionnaire"] = {
 };
 BackgroundFeatureList["legion station"] = {
 	description : "I am established in the hierarchy of the Boros Legion. I can requisition simple equipment for temporary use. I have access to any Boros garrison in Ravnica where I can rest in safety and have access to medics. I'm paid 1 gp per week (a Boros-minted 1-zino coin), allowing me (together with the free garrison lodging) to have a poor lifestyle between adventures.",
-	source : ["G", 40]
+	source : [["G", 40]]
 };
 
 BackgroundList["dimir operative"] = {
 	regExpSearch : /^(?=.*dimir)(?=.*operative).*$/i,
 	name : "Dimir Operative",
-	source : ["G", 46],
+	source : [["G", 46]],
 	skills : ["Deception", "Stealth"],
 	calcChanges : {
 		spellList : [
@@ -755,13 +755,13 @@ BackgroundList["dimir operative"] = {
 };
 BackgroundFeatureList["false guild identity"] = {
 	description : "I have more than one identity. The one I wear most of the time makes me appear to be a member of a guild other than my own. I have documentation, established acquaintances, and disguises that allow me to assume that persona and fit into the secondary guild. Whenever I choose, I can drop this identity and blend into the guildless masses of the city.",
-	source : ["G", 46]
+	source : [["G", 46]]
 };
 
 BackgroundList["golgari agent"] = {
 	regExpSearch : /^(?=.*golgari)(?=.*agent).*$/i,
 	name : "Golgari Agent",
-	source : ["G", 53],
+	source : [["G", 53]],
 	skills : ["Nature", "Survival"],
 	calcChanges : {
 		spellList : [
@@ -825,13 +825,13 @@ BackgroundList["golgari agent"] = {
 };
 BackgroundFeatureList["undercity paths"] = {
 	description : "I know hidden, underground pathways that I can use to bypass crowds, obstacles, and observation as I move through the city. I can lead a group to travel between two locations in the city twice as fast as normally. The paths of the undercity are haunted by dangers that rarely brave the light of the surface world, so my journey isn't guaranteed to be safe.",
-	source : ["G", 53]
+	source : [["G", 53]]
 };
 
 BackgroundList["gruul anarch"] = {
 	regExpSearch : /^(?=.*gruul)(?=.*anarch).*$/i,
 	name : "Gruul Anarch",
-	source : ["G", 60],
+	source : [["G", 60]],
 	skills : ["Animal Handling", "Athletics"],
 	calcChanges : {
 		spellList : [
@@ -908,13 +908,13 @@ BackgroundList["gruul anarch"] = {
 };
 BackgroundFeatureList["rubblebelt refuge"] = {
 	description : "I'm very familiar with areas of the city that most people shun: neighborhoods ruined by wurms, overgrown parks gone untended for decades, and the vast, long abandoned rubblebelts of broken terrain. There, I can find a suitable place for me and my allies to hide or rest, as well as food and fresh water for myself and up to five other people each day.",
-	source : ["G", 60]	
+	source : [["G", 60]]	
 };
 
 BackgroundList["izzet engineer"] = {
 	regExpSearch : /^(?=.*izzet)(?=.*engineer).*$/i,
 	name : "Izzet Engineer",
-	source : ["G", 66],
+	source : [["G", 66]],
 	skills : ["Arcana", "Investigation"],
 	calcChanges : {
 		spellList : [
@@ -980,13 +980,13 @@ BackgroundList["izzet engineer"] = {
 };
 BackgroundFeatureList["urban infrastructure"] = {
 	description : "Although the Izzet League is infamous for mad inventions it is also involved in construction of the city's infrastructure. I have a basic knowledge of the structure of buildings and what is behind its walls. I can find their blueprints showing entry points, secret spaces, structural weaknesses, or secret spaces. My guild won't protect me if I use this knowledge unlawfully.",
-	source : ["G", 66]
+	source : [["G", 66]]
 };
 
 BackgroundList["orzhov representative"] = {
 	regExpSearch : /^(?=.*orzhov)(?=.*representative).*$/i,
 	name : "Orzhov Representative",
-	source : ["G", 72],
+	source : [["G", 72]],
 	skills : ["Intimidation", "Religion"],
 	calcChanges : {
 		spellList : [
@@ -1047,13 +1047,13 @@ BackgroundList["orzhov representative"] = {
 };
 BackgroundFeatureList["leverage"] = {
 	description : "I can exert leverage over one or more below me in the guild's hierarchy and demand their help as needs warrant. For example, deliver a message, arrange a ride, or clean up a bloody mess. As my status in the guild improves, I gain influence over more people of higher station. The DM decides if the demands are reasonable and if subordinates are available.",
-	source : ["G", 72]
+	source : [["G", 72]]
 };
 
 BackgroundList["rakdos cultist"] = {
 	regExpSearch : /^(?=.*rakdos)(?=.*cultist).*$/i,
 	name : "Rakdos Cultist",
-	source : ["G", 79],
+	source : [["G", 79]],
 	skills : ["Acrobatics", "Performance"],
 	calcChanges : {
 		spellList : [
@@ -1133,13 +1133,13 @@ BackgroundList["rakdos cultist"] = {
 };
 BackgroundFeatureList["fearsome reputation"] = {
 	description : "People recognize me as a member of the Cult of Rakdos, and they're careful not to draw my anger or ridicule. I can get away with minor criminal offenses, such as refusing to pay for food at a restaurant or breaking down a door at a local shop, if no legal authorities witness the crime. Most are too daunted by me to report my wrongdoing to the Azorius.",
-	source : ["G", 79]
+	source : [["G", 79]]
 };
 
 BackgroundList["selesnya initiate"] = {
 	regExpSearch : /^(?=.*selesnya)(?=.*initiate).*$/i,
 	name : "Selesnya Initiate",
-	source : ["G", 86],
+	source : [["G", 86]],
 	skills : ["Nature", "Persuasion"],
 	calcChanges : {
 		spellList : [
@@ -1203,13 +1203,13 @@ BackgroundList["selesnya initiate"] = {
 };
 BackgroundFeatureList["conclave's shelter"] = {
 	description : "My companions and I can find a place to hide or rest in any Selesnya enclave in the city, unless I have proven to be a danger to them. The members of the enclave will shield me from anyone searching for me, but will not risk their lives. I can receive free healing and care at a Selesnya enclave, though I must provide material components needed for spells.",
-	source : ["G", 86]
+	source : [["G", 86]]
 };
 
 BackgroundList["simic scientist"] = {
 	regExpSearch : /^(?=.*simic)(?=.*scientist).*$/i,
 	name : "Simic Scientist",
-	source : ["G", 93],
+	source : [["G", 93]],
 	skills : ["Arcana", "Medicine"],
 	calcChanges : {
 		spellList : [
@@ -1287,14 +1287,14 @@ BackgroundList["simic scientist"] = {
 };
 BackgroundFeatureList["simic researcher"] = {
 	description : "I know where or from whom I can acquire scientific facts, usually from a Simic laboratory, or sometimes an Izzet facility, library, university, independent scholar, or creature. I might need to offer bribes, favors, or other incentives to induce people to reveal their secrets. The DM can rule that the knowledge is inaccessible place, can't be found, or requires a quest.",
-	source : ["G", 93]
+	source : [["G", 93]]
 };
 
 // Spells
 SpellsList["encode thoughts"] = {
 	name : "Encode Thoughts",
 	classes : [],
-	source : ["G", 47],
+	source : [["G", 47]],
 	level : 0,
 	school : "Ench",
 	time : "1 a",
@@ -1331,7 +1331,7 @@ if (!SourceList.X) {
 // Magic Items
 MagicItemsList["guild keyrune"] = {
 	name : "Guild Keyrune",
-	source : ["G", 177],
+	source : [["G", 177]],
 	type : "wondrous item",
 	description : "As an action, I can speak this ceremonial key's command word to have it transforms into a creature. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for some hours, until it has 0 HP, or I dismiss it as an action.",
 	descriptionLong : "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a creature if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
@@ -1463,7 +1463,7 @@ MagicItemsList["guild keyrune"] = {
 }
 MagicItemsList["guild signet"] = {
 	name : "Guild Signet",
-	source : ["G", 178],
+	source : [["G", 178]],
 	type : "ring",
 	rarity : "uncommon",
 	description : "This signet ring bears a symbol of its associated guild. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast the spell within (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
@@ -1597,7 +1597,7 @@ MagicItemsList["guild signet"] = {
 }
 MagicItemsList["illusionist's bracers"] = {
 	name : "Illusionist's Bracers",
-	source : ["G", 178],
+	source : [["G", 178]],
 	type : "wondrous item",
 	rarity : "very rare",
 	description : "While wearing the bracers, whenever I cast a cantrip, I can use a bonus action on the same turn to cast that cantrip a second time.",
@@ -1610,7 +1610,7 @@ MagicItemsList["illusionist's bracers"] = {
 }
 MagicItemsList["mizzium apparatus"] = {
 	name : "Mizzium Apparatus",
-	source : ["G", 179],
+	source : [["G", 179]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "I can use this harness as an arcane focus and to attempt to cast a spells that I do not know or have prepared but is on my class' spell list. This requires an Int (Arcana) check DC 10 + twice the spell slot level and components and a spell slot as appropriate for the spell. On a failure, I cast a random spell, see Notes page.",
@@ -1683,7 +1683,7 @@ MagicItemsList["mizzium apparatus"] = {
 MagicItemsList["mizzium armor"] = {
 	name : "Mizzium Armor",
 	nameTest : "Mizzium",
-	source : ["G", 179],
+	source : [["G", 179]],
 	type : "armor (medium or heavy)",
 	rarity : "rare",
 	description : "This armor is reinforced with a magically enhanced metal alloy called mizzium. While I'm wearing it, any critical hit against me becomes a normal hit. In addition, when I'm subjected to a magical effect that allows me to make a Str or Con save to take only half damage, I instead take no damage if I succeed on it.",
@@ -1701,7 +1701,7 @@ MagicItemsList["mizzium armor"] = {
 }
 MagicItemsList["mizzium mortar"] = {
 	name : "Mizzium Mortar",
-	source : ["G", 179],
+	source : [["G", 179]],
 	type : "wondrous item",
 	rarity : "rare",
 	description : "This 4-ft-long, 6-inch-diameter tube has 4 charges, regaining 1d4 at dawn. As an action, I can expend 1 charge to have all in a 30-ft cone take 5d4 fire damage. As an action, I can expend 3 charges to have all in a 20-ft radius, 40-ft high cylinder in 60 ft take 5d8 fire damage. For both effects DC 15 Dex save halves.",
@@ -1714,7 +1714,7 @@ MagicItemsList["mizzium mortar"] = {
 }
 MagicItemsList["moodmark paint"] = {
 	name : "Moodmark Paint",
-	source : ["G", 180],
+	source : [["G", 180]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once, I can spend 1 minute to apply this thick black paint to a creature's face. For the next 8 hours, anyone seeing the target can make a DC 10 Wisdom (Insight) check to see if it is happy, sad, angry, disgusted, surprised, or afraid, as well as the main source of that emotion. Drows have advantage on this check.",
@@ -1723,7 +1723,7 @@ MagicItemsList["moodmark paint"] = {
 }
 MagicItemsList["pariah's shield"] = {
 	name : "Pariah's Shield",
-	source : ["G", 180],
+	source : [["G", 180]],
 	type : "shield",
 	rarity : "rare",
 	description : "While I wield this shield. I gain a +1 bonus to AC for every two allies within 5 ft of me on top of the shield's AC bonus, up to a +3 bonus. As a reaction when a creature I can see within 5 ft of me takes damage, I can take that damage instead, but the damage type for it changes to force.",
@@ -1735,7 +1735,7 @@ MagicItemsList["pariah's shield"] = {
 }
 MagicItemsList["peregrine mask"] = {
 	name : "Peregrine Mask",
-	source : ["G", 180],
+	source : [["G", 180]],
 	type : "wondrous item",
 	rarity : "very rare",
 	description : "While wearing this winged helm, I have a flying speed of 60 ft and advantage on initiative rolls.",
@@ -1746,7 +1746,7 @@ MagicItemsList["peregrine mask"] = {
 }
 MagicItemsList["pyroconverger"] = {
 	name : "Pyroconverger",
-	source : ["G", 180],
+	source : [["G", 180]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "As an action, I can use this flamethrower to deal 4d6 fire damage to all in a 10-ft cone, DC 13 Dex save halves. I must roll a d10 each time I use it and add the times it was used since my last long rest. If the total is 11 or higher, it malfunctions and I take 4d6 fire damage and I can't use it again until I finish a long rest.",
@@ -1757,7 +1757,7 @@ MagicItemsList["pyroconverger"] = {
 	weaponOptions : {
 		regExpSearch : /pyroconverger/i,
 		name : "Pyroconverger",
-		source : ["G", 180],
+		source : [["G", 180]],
 		ability : 0,
 		type : "Magic Item",
 		damage : [4, 6, "fire"],
@@ -1773,7 +1773,7 @@ MagicItemsList["pyroconverger"] = {
 }
 MagicItemsList["rakdos riteknife"] = {
 	name : "Rakdos Riteknife",
-	source : ["G", 180],
+	source : [["G", 180]],
 	type : "weapon (dagger)",
 	rarity : "legendary",
 	description : "This has +1 to hit/damage and imprisons souls of any killed with it, up to 5. It deals +1d4 necr. per stored soul. As a bonus action, I can release souls to regain 1d10 HP per soul. Once per long rest as a reaction after I deal damage with it, I can release 5 souls to have the target make a DC 15 Con save or die if below 75 HP.",
@@ -1787,7 +1787,7 @@ MagicItemsList["rakdos riteknife"] = {
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*rakdos)(?=.*riteknife).*$/i,
 		name : "Rakdos Riteknife",
-		source : ["G", 180],
+		source : [["G", 180]],
 		description : "Finesse, light, thrown; Imprisons soul on kill (max 5); +1d4 necrotic damage per stored soul",
 		modifiers : [1, 1]
 	},
@@ -1797,7 +1797,7 @@ MagicItemsList["rakdos riteknife"] = {
 }
 MagicItemsList["skyblinder staff"] = {
 	name : "Skyblinder Staff",
-	source : ["G", 181],
+	source : [["G", 181]],
 	type : "staff",
 	rarity : "uncommon",
 	description : "This +1 quarterstaff gives me a +1 bonus on spell attacks. As a reaction when a flying creature I can see within 30 ft makes an attack roll against me, I can cause the staff to flare with light. The attacker has disadvantage on the attack roll, and it must make a DC 15 Con save or be blinded until the start of its next turn.",
@@ -1810,7 +1810,7 @@ MagicItemsList["skyblinder staff"] = {
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
 		name : "Skyblinder Staff",
-		source : ["G", 181],
+		source : [["G", 181]],
 		modifiers : [1, 1]
 	},
 	calcChanges : {
@@ -1824,7 +1824,7 @@ MagicItemsList["skyblinder staff"] = {
 }
 MagicItemsList["spies' murmur"] = {
 	name : "Spies' Murmur",
-	source : ["G", 181],
+	source : [["G", 181]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "This dark metal headpiece is worn curved around the ear. I can communicate telepathically with others that I know within 1 mile who are also wearing a spies' murmur. As a bonus action, I can allow that creature to hear everything I hear for 1 hour. I can end this effect as a bonus action, and it ends if I am incapacitated.",
@@ -1833,7 +1833,7 @@ MagicItemsList["spies' murmur"] = {
 }
 MagicItemsList["sunforger"] = {
 	name : "Sunforger",
-	source : ["G", 181],
+	source : [["G", 181]],
 	type : "weapon (warhammer)",
 	rarity : "rare",
 	description : "This warhammer adds +2 to attack and damage rolls made with it. As an action once per short rest, I can hurl it up to 120 ft to a point I can see where it explodes in a 20-ft radius, dealing 6d6 fire damage to all within, DC 15 Dex save halves. Within 24 hours afterward, I can have it reform in my hand as an action.",
@@ -1846,7 +1846,7 @@ MagicItemsList["sunforger"] = {
 		baseWeapon : "warhammer",
 		regExpSearch : /sunforger/i,
 		name : "Sunforger",
-		source : ["G", 181],
+		source : [["G", 181]],
 		description : "Versatile (1d10); As action, hurl 120 ft for 20-ft rad 6d6 fire dmg, Dex DC 15 half",
 		modifiers : [2, 2]
 	},
@@ -1856,7 +1856,7 @@ MagicItemsList["sunforger"] = {
 }
 MagicItemsList["sword of the paruns"] = {
 	name : "Sword of the Paruns",
-	source : ["G", 181],
+	source : [["G", 181]],
 	type : "weapon (longsword)",
 	rarity : "very rare",
 	description : "This longsword has a +1 to hit and damage. Once per round after I take an action while holding it, I can use it to have a creature within 60 ft use its reaction to do something based on the action I was taking: [Attack] make one weapon attack, [Dash] move its speed, or [Dodge] gain the benefits of a Dodge action.",
@@ -1868,14 +1868,14 @@ MagicItemsList["sword of the paruns"] = {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*sword)(?=.*paruns).*$/i,
 		name : "Sword of the Paruns",
-		source : ["G", 181],
+		source : [["G", 181]],
 		description : "Versatile (1d10); Have ally in 60 ft do something when I take the Attack, Dash, or Dodge action",
 		modifiers : [1, 1]
 	}
 }
 MagicItemsList["voyager staff"] = {
 	name : "Voyager Staff",
-	source : ["G", 181],
+	source : [["G", 181]],
 	type : "staff",
 	rarity : "very rare",
 	description : "This +1 quarterstaff gives me a +1 bonus on spell attacks. It has 10 charges, regaining 1d6+4 expended charges at dawn. If I expend its last charge, roll a d20. On a 1, it vanishes. I can use its charges to cast Banishment (4 ch), Blink (3 ch), Misty Step (2 ch), Passwall (5 ch), and Teleport (7 ch), using my spellcasting ability.",
@@ -1889,7 +1889,7 @@ MagicItemsList["voyager staff"] = {
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*voyager)(?=.*staff).*$/i,
 		name : "Voyager Staff",
-		source : ["G", 181],
+		source : [["G", 181]],
 		modifiers : [1, 1]
 	},
 	calcChanges : {

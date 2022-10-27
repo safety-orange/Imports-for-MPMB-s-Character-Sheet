@@ -17,12 +17,12 @@ SourceList["PS:K"] = {
 AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_name
 	regExpSearch : /pyromanc(er|y)/i,
 	subname : "Pyromancy",
-	source : ["PS:K", 9],
+	source : [["PS:K", 9]],
 	fullname : "Pyromancer",
 	features : {
 		"subclassfeature1" : {
 			name : "Heart of Fire",
-			source : ["PS:K", 9],
+			source : [["PS:K", 9]],
 			minlevel : 1,
 			description : desc([
 				"When I start casting a spell (not cantrip) that deals fire damage, flames erupt from me",
@@ -32,14 +32,14 @@ AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_na
 		},
 		"subclassfeature6" : {
 			name : "Fire in the Veins",
-			source : ["PS:K", 9],
+			source : [["PS:K", 9]],
 			minlevel : 6,
 			description : "\n   " + "I have resistance to fire damage and spells I cast ignore resistance to fire damage",
 			dmgres : ["Fire"]
 		},
 		"subclassfeature14" : {
 			name : "Pyromancer's Fury",
-			source : ["PS:K", 9],
+			source : [["PS:K", 9]],
 			minlevel : 14,
 			description : desc([
 				"As a reaction when hit by a melee attack, I can deal fire damage to the attacker",
@@ -50,7 +50,7 @@ AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_na
 		},
 		"subclassfeature18" : {
 			name : "Fiery Soul",
-			source : ["PS:K", 9],
+			source : [["PS:K", 9]],
 			minlevel : 18,
 			description : desc([
 				"I have immunity to fire damage",
@@ -64,7 +64,7 @@ AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_na
 // Adds 2 feats
 FeatsList["quicksmithing"] = { // Includes contributions by userZynx_name
 	name : "Quicksmithing",
-	source : ["PS:K", 13],
+	source : [["PS:K", 13]],
 	descriptionFull : "You have mastered the art of on-the-fly invention, improvement, and jury-rigging. You can use your talents to create immediate, short-term magical effects similar to spells, given time and an adequate supply of aether.\n   When you choose this feat, you master two magical effects, each of which recreates the effect of a 1st-level spell that has the ritual tag. These spells can come from any class list, but Intelligence is your spellcasting ability for them.\n   If you come across a schematic geared toward quicksmithing or study with another quicksmith, you might be able to add another spell to the effects you have mastered. The spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of mastering the spell takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents aether you use as you experiment with the spell effect to master it.\n   In addition, you have proficiency with artisan's tools (quicksmith's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours unless you spend 1 hour repairing it to keep it functioning. You can use your action to dismantle the device, at which point you can reclaim the materials used to create it. You can have up to three such devices active at a time.\n   When you create a device, choose one of the following options:\n   " + toUni("Clockwork Toy") + ". This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.\n   " + toUni("Fire Starter") + ". This device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\n   " + toUni("Music Box") + ". When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.",
 	description : "I gain the Tinker ability of a Rock Gnome, including proficiency with tinker's tools. I learn two 1st-level ritual spells and can learn more if found and no higher spell level than half my character level. I can cast these as rituals with Intelligence as my spellcasting ability.",
 	prerequisite : "Intelligence 13 or higher",
@@ -86,7 +86,7 @@ FeatsList["quicksmithing"] = { // Includes contributions by userZynx_name
 };
 FeatsList["servo crafting"] = { // Includes contributions by userZynx_name
 	name : "Servo Crafting",
-	source : ["PS:K", 13],
+	source : [["PS:K", 13]],
 	descriptionFull : "You are skilled in the creation of servos\u2014tiny constructs that function as personal assistants. You can cast the find familiar spell as a ritual, creating a servo to serve as your familiar instead of an animal. A servo's statistics appear in the \"Artifact Creatures\" section of the Plane Shift: Kaladesh document. In every other way, a servo familiar functions as described in the find familiar spell.\n   You can communicate telepathically with your servo familiar and perceive through its senses as long as you are on the same plane of existence. You can speak through your servo in your own voice.\n   Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your servo familiar to make one attack of its own.",
 	description : "I can cast Find Familiar as a ritual, creating a servo instead of an animal. I can telepathically communicate with it, perceive its senses, and speak through it in my own voice. When I use the Attack action, I can forfeit one attack for it to attack.",
 	prerequisite : "Intelligence 13 or higher",
@@ -105,7 +105,7 @@ RaceList["aetherborn"] = { // Includes contributions by SoilentBrad
 	regExpSearch : /aetherborn/i,
 	name : "Aetherborn",
 	sortname : "Aetherborn",
-	source : ["PS:K", 17],
+	source : [["PS:K", 17]],
 	plural : "Aetherborn",
 	size : 3,
 	speed : {
@@ -127,7 +127,7 @@ RaceList["kaladesh dwarf"] = { // Includes contributions by SoilentBrad
 	regExpSearch : /^(?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\bkaladesh\b).*$/i,
 	name : "Kaladesh dwarf",
 	sortname : "Dwarf, Kaladesh",
-	source : ["PS:K", 19],
+	source : [["PS:K", 19]],
 	plural : "Kaladesh dwarves",
 	size : 3,
 	speed : {
@@ -153,7 +153,7 @@ RaceList["vahadar elf"] = { // Includes contributions by SoilentBrad
 	regExpSearch : /^(?!.*half)((?=.*\bvahadar\b)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\bcity\b))).*$/i,
 	name : "Vahadar",
 	sortname : "Elf, Vahadar",
-	source : ["PS:K", 21],
+	source : [["PS:K", 21]],
 	plural : "Vahadar",
 	size : 3,
 	speed : {
@@ -186,7 +186,7 @@ RaceList["bishtahar elf"] = {
 	regExpSearch : /^(?!.*half)(?=.*\bbishtahar\b).*$/i,
 	name : "Bishtahar",
 	sortname : "Elf, Bishtahar",
-	source : ["PS:K", 21],
+	source : [["PS:K", 21]],
 	plural : "Bishtahar",
 	size : 3,
 	speed : {
@@ -212,7 +212,7 @@ RaceList["tirahar elf"] = {
 	regExpSearch : /^(?!.*half)(?=.*\btirahar\b).*$/i,
 	name : "Tirahar",
 	sortname : "Elf, Tirahar",
-	source : ["PS:K", 21],
+	source : [["PS:K", 21]],
 	plural : "Tirahar",
 	size : 3,
 	speed : {
@@ -238,7 +238,7 @@ RaceList["vedalken-psk"] = { // Includes contributions by SoilentBrad
 	regExpSearch : /vedalken/i,
 	name : "Vedalken",
 	sortname : "Vedalken",
-	source : ["PS:K", 24],
+	source : [["PS:K", 24]],
 	plural : "Vedalken",
 	size : 3,
 	speed : {
@@ -256,7 +256,7 @@ RaceList["vedalken-psk"] = { // Includes contributions by SoilentBrad
 // Adds 3 creatures, 2 beast and 1 optional familiar
 CreatureList["gremlin"] = { // Includes contributions by SoilentBrad
 	name : "Gremlin",
-	source : ["PS:K", 26],
+	source : [["PS:K", 26]],
 	size : 4,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -291,7 +291,8 @@ CreatureList["gremlin"] = { // Includes contributions by SoilentBrad
 };
 CreatureList["sky whale"] = { // Includes contributions by SoilentBrad
 	name : "Sky Whale",
-	source : ["PS:K", 28],
+	nameAlt : ["Whale, Sky"],
+	source : [["PS:K", 28]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -333,7 +334,7 @@ CreatureList["sky whale"] = { // Includes contributions by SoilentBrad
 };
 CreatureList["servo"] = { // Includes contributions by userZynx_name
 	name : "Servo",
-	source : ["PS:K", 32],
+	source : [["PS:K", 32]],
 	size : 5,
 	type : "Construct",
 	companion : "familiar_not_al",

@@ -15,7 +15,7 @@ SourceList["PotA"] = {
 // Magic Items
 MagicItemsList["balloon pack"] = {
 	name : "Balloon Pack",
-	source : ["PotA", 222],
+	source : [["PotA", 222]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "C",
@@ -51,7 +51,7 @@ MagicItemsList["balloon pack"] = {
 }
 MagicItemsList["bottled breath"] = {
 	name : "Bottled Breath",
-	source : ["PotA", 222],
+	source : [["PotA", 222]],
 	type : "potion",
 	rarity : "uncommon",
 	magicItemTable : "C",
@@ -61,7 +61,7 @@ MagicItemsList["bottled breath"] = {
 }
 MagicItemsList["claws of the umber hulk"] = {
 	name : "Claws of the Umber Hulk",
-	source : ["PotA", 222],
+	source : [["PotA", 222]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "F",
@@ -74,7 +74,7 @@ MagicItemsList["claws of the umber hulk"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*claws)(?=.*umber)(?=.*hulk).*$/i,
 		name : "Claws of the Umber Hulk",
-		source : ["PotA", 222],
+		source : [["PotA", 222]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 8, "slashing"],
@@ -93,7 +93,7 @@ var PotA_tempDevastationOrbNoteTxt = [
 ];
 MagicItemsList["devastation orb"] = {
 	name : "Devastation Orb",
-	source : ["PotA", 222],
+	source : [["PotA", 222]],
 	type : "wondrous item",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -149,7 +149,7 @@ MagicItemsList["devastation orb"] = {
 }
 MagicItemsList["drown"] = {
 	name : "Drown",
-	source : ["PotA", 224],
+	source : [["PotA", 224]],
 	type : "weapon (trident)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -179,7 +179,7 @@ MagicItemsList["drown"] = {
 		baseWeapon : "trident",
 		regExpSearch : /drown/i,
 		name : "Drown",
-		source : ["PotA", 224],
+		source : [["PotA", 224]],
 		description : "Thrown, versatile (1d8); +1d8 cold damage",
 		modifiers : [1, 1]
 	},
@@ -196,7 +196,7 @@ MagicItemsList["drown"] = {
 }
 MagicItemsList["ironfang"] = {
 	name : "Ironfang",
-	source : ["PotA", 224],
+	source : [["PotA", 224]],
 	type : "weapon (war pick)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -247,7 +247,7 @@ MagicItemsList["ironfang"] = {
 		baseWeapon : "war pick",
 		regExpSearch : /ironfang/i,
 		name : "Ironfang",
-		source : ["PotA", 224],
+		source : [["PotA", 224]],
 		description : "+1d8 thunder damage",
 		modifiers : [2,2]
 	},
@@ -265,7 +265,7 @@ MagicItemsList["ironfang"] = {
 }
 MagicItemsList["lost crown of besilmer"] = {
 	name : "Lost Crown of Besilmer",
-	source : ["PotA", 223],
+	source : [["PotA", 223]],
 	type : "wondrous item",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -281,7 +281,7 @@ MagicItemsList["lost crown of besilmer"] = {
 }
 MagicItemsList["orcsplitter"] = {
 	name : "Orcsplitter",
-	source : ["PotA", 224],
+	source : [["PotA", 224]],
 	type : "weapon (greataxe)",
 	rarity : "legendary",
 	magicItemTable : "G",
@@ -295,7 +295,7 @@ MagicItemsList["orcsplitter"] = {
 		baseWeapon : "greataxe",
 		regExpSearch : /orcsplitter/i,
 		name : "Orcsplitter",
-		source : ["PotA", 224],
+		source : [["PotA", 224]],
 		description : "Heavy, two-handed; On 20 vs. Orc: it DC 17 Con save or 0 HP",
 		modifiers : [2,2]
 	},
@@ -313,7 +313,7 @@ MagicItemsList["orcsplitter"] = {
 }
 MagicItemsList["reszur"] = {
 	name : "Reszur",
-	source : ["PotA", 157],
+	source : [["PotA", 157]],
 	type : "weapon (dagger)",
 	rarity : "uncommon",
 	description : "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speaks the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
@@ -324,14 +324,14 @@ MagicItemsList["reszur"] = {
 		baseWeapon : "dagger",
 		regExpSearch : /reszur/i,
 		name : "Reszur",
-		source : ["PotA", 157],
+		source : [["PotA", 157]],
 		description : "Finesse, light, thrown; Doesn't make any noise",
 		modifiers : [1, 1]
 	}
 }
 MagicItemsList["seeker dart"] = {
 	name : "Seeker Dart",
-	source : ["PotA", 223],
+	source : [["PotA", 223]],
 	type : "weapon (dart)",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -341,7 +341,7 @@ MagicItemsList["seeker dart"] = {
 }
 MagicItemsList["storm boomerang"] = {
 	name : "Storm Boomerang",
-	source : ["PotA", 223],
+	source : [["PotA", 223]],
 	type : "weapon (javelin)",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -365,7 +365,7 @@ MagicItemsList["storm boomerang"] = {
 }
 MagicItemsList["tinderstrike"] = {
 	name : "Tinderstrike",
-	source : ["PotA", 225],
+	source : [["PotA", 225]],
 	type : "weapon (dagger)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -395,7 +395,7 @@ MagicItemsList["tinderstrike"] = {
 		baseWeapon : "dagger",
 		regExpSearch : /tinderstrike/i,
 		name : "Tinderstrike",
-		source : ["PotA", 225],
+		source : [["PotA", 225]],
 		description : "Finesse, light, thrown; +2d6 fire damage",
 		modifiers : [2,2]
 	},
@@ -412,7 +412,7 @@ MagicItemsList["tinderstrike"] = {
 }
 MagicItemsList["weird tank"] = {
 	name : "Weird Tank",
-	source : ["PotA", 223],
+	source : [["PotA", 223]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -425,7 +425,7 @@ MagicItemsList["weird tank"] = {
 }
 MagicItemsList["windvane"] = {
 	name : "Windvane",
-	source : ["PotA", 225],
+	source : [["PotA", 225]],
 	type : "weapon (spear)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -455,7 +455,7 @@ MagicItemsList["windvane"] = {
 		baseWeapon : "spear",
 		regExpSearch : /windvane/i,
 		name : "Windvane",
-		source : ["PotA", 225],
+		source : [["PotA", 225]],
 		description : "Finesse, thrown, versatile (1d6); +1d6 lightning damage",
 		modifiers : [2,2]
 	},
@@ -472,7 +472,7 @@ MagicItemsList["windvane"] = {
 }
 MagicItemsList["wingwear"] = {
 	name : "Wingwear",
-	source : ["PotA", 223],
+	source : [["PotA", 223]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "C",

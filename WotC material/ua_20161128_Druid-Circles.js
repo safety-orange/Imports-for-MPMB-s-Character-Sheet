@@ -15,11 +15,11 @@ SourceList["UA:DC"] = {
 AddSubClass("druid", "circle of dreams-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
 	subname : "Circle of Dreams",
-	source : ["UA:DC", 1],
+	source : [["UA:DC", 1]],
 	features : {
 		"subclassfeature2" : {
 			name : "Balm of the Summer Court",
-			source : ["UA:DC", 1],
+			source : [["UA:DC", 1]],
 			minlevel : 2,
 			description : desc([
 				"I have a pool of fey energy represented by a number of d6s equal to my druid level",
@@ -34,7 +34,7 @@ AddSubClass("druid", "circle of dreams-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Hearth of Moonlight and Shadow",
-			source : ["UA:DC", 1],
+			source : [["UA:DC", 1]],
 			minlevel : 6,
 			description : desc([
 				"At the start of a short or long rest, I can create a warded area of 30-ft radius",
@@ -45,7 +45,7 @@ AddSubClass("druid", "circle of dreams-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Hidden Paths",
-			source : ["UA:DC", 1],
+			source : [["UA:DC", 1]],
 			minlevel : 10,
 			description : desc([
 				"On my turn, I can teleport up to 30 ft to where I can see; Moved distance costs speed",
@@ -58,7 +58,7 @@ AddSubClass("druid", "circle of dreams-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Purifying Light",
-			source : ["UA:DC", 1],
+			source : [["UA:DC", 1]],
 			minlevel : 14,
 			description : desc([
 				"When I use a spell slot with a spell to restores HP, I can use Dispel Magic on the target",
@@ -73,17 +73,17 @@ AddSubClass("druid", "circle of dreams-ua", {
 AddSubClass("druid", "circle of the shepherd-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
-	source : ["UA:DC", 1],
+	source : [["UA:DC", 1]],
 	features : {
 		"subclassfeature2" : {
 			name : "Beast Speech",
-			source : ["UA:DC", 2],
+			source : [["UA:DC", 2]],
 			minlevel : 2,
 			description : "\n   " + "I can talk with beasts, they understand me and I them, to the limit of their intelligence" + "\n   " + "This doesn't automatically make me friends with all beasts"
 		},
 		"subclassfeature2.1" : {
 			name : "Spirit Bond",
-			source : ["UA:DC", 2],
+			source : [["UA:DC", 2]],
 			minlevel : 2,
 			description : "\n   " + "As a bonus action, I can summon a spirit to an empty space within 60 ft that I can see" + "\n   " + "The Bear, Hawk, or Wolf spirit, creates a 30-ft radius aura and persist for 1 minute" + "\n   " + "It doesn't occupy space, is immobile, and counts as neither a creature nor an object" + "\n    - " + "Bear: my allies in the area and I instantly gain 5 + my druid level in temp HP" + "\n       " + "While in the aura, my allies and I gain advantage on Strength checks and saves" + "\n    - " + "Hawk: my allies and I gain advantage on attacks against targets in the aura" + "\n    - " + "Wolf: my allies and I gain advantage on ability checks to detect targets in the aura" + "\n       " + "If I cast a healing spell with a spell slot, allies in the aura heal my druid level in HP",
 			usages : 1,
@@ -92,7 +92,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Mighty Summoner",
-			source : ["UA:DC", 2],
+			source : [["UA:DC", 2]],
 			minlevel : 6,
 			description : "\n   " + "Beast I summon with my spells have +2 HP per HD and their attacks count as magical",
 			calcChanges : {
@@ -114,7 +114,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Guardian Spirit",
-			source : ["UA:DC", 2],
+			source : [["UA:DC", 2]],
 			minlevel : 10,
 			description : "\n   " + "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours",
 			spellcastingBonus : {
@@ -136,7 +136,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Faithful Summons",
-			source : ["UA:DC", 2],
+			source : [["UA:DC", 2]],
 			minlevel : 14,
 			description : "\n   " + "When I am reduced to 0 HP or incapacitated against my will, I can summon protectors" + "\n   " + "I gain the benefits of a Conjure Animals spell as if cast with a 9th-level spell slot" + "\n   " + "It summons 4 beast of my choice with CR 2 or lower within 20 ft of me for 1 hour" + "\n   " + "If they receive no commands from me, they protect me from harm and attack foes",
 			usages : 1,
@@ -151,7 +151,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 	features : {
 		"subclassfeature2" : {
 			name : "Harvest's Scythe",
-			source : ["UA:DC", 3],
+			source : [["UA:DC", 3]],
 			minlevel : 2,
 			description : "\n   " + "I have a pool of energy represented by a number of d10s equal to my druid level" + "\n   " + "When I roll damage for a spell, I can do extra necrotic damage with dice from the pool" + "\n   " + "I can spend up to half my druid level worth of dice from the pool at once" + "\n   " + "If I any hostiles die from an augmented spell, I can heal one ally I can see within 30 ft" + "\n   " + "The ally regains 2 HP per die spent; or 5 HP per die if one of the slain was undead",
 			usages : ["", "2d10 per ", "3d10 per ", "4d10 per ", "5d10 per ", "6d10 per ", "7d10 per ", "8d10 per ", "9d10 per ", "10d10 per ", "11d10 per ", "12d10 per ", "13d10 per ", "14d10 per ", "15d10 per ", "16d10 per ", "17d10 per ", "18d10 per ", "19d10 per ", "20d10 per "],
@@ -159,7 +159,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature6" : {
 			name : "Speech Beyond the Grave",
-			source : ["UA:DC", 3],
+			source : [["UA:DC", 3]],
 			minlevel : 6,
 			description : "\n   " + "Once per short rest, I can cast Speak with Dead without spell slots or material comp." + "\n   " + "The target and I can understand each other, regardless of language or intelligence",
 			usages : 1,
@@ -180,14 +180,14 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature10" : {
 			name : "Watcher at the Threshold",
-			source : ["UA:DC", 3],
+			source : [["UA:DC", 3]],
 			minlevel : 10,
 			description : "\n   " + "I gain resistance to necrotic and radiant damage" + "\n   " + "While I'm not incapacitated, allies within 30 ft of me gain adv. on their death saves",
 			dmgres : ["Necrotic", "Radiant"]
 		},
 		"subclassfeature14" : {
 			name : "Paths of the Dead",
-			source : ["UA:DC", 3],
+			source : [["UA:DC", 3]],
 			minlevel : 14,
 			description : "\n   " + "Once per short rest, I can cast Etherealness without needing a spell slot",
 			usages : 1,

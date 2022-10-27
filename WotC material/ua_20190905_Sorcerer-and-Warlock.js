@@ -17,13 +17,13 @@ var UASnW_abberantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm
 AddSubClass("sorcerer", "aberrant mind-ua", {
 	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
 	subname : "Aberrant Mind",
-	source : ["UA:SnW", 1],
+	source : [["UA:SnW", 1]],
 	spellcastingExtra : UASnW_abberantMindExtraSpell,
 	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
 			name : "Invasive Thoughts",
-			source : ["UA:SnW", 1],
+			source : [["UA:SnW", 1]],
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can telepathic link myself with a creature within 30 ft that I can see",
@@ -34,26 +34,26 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Psionic Spells",
-			source : ["UA:SnW", 1],
+			source : [["UA:SnW", 1]],
 			minlevel : 1,
 			description : "\n   I learn additional spells, which do not count towards the number of spell I can know"
 		},
 		"subclassfeature1.2" : {
 			name : "Warped Being",
-			source : ["UA:SnW", 1],
+			source : [["UA:SnW", 1]],
 			minlevel : 1,
 			description : "\n   My aberrant origin gives me an AC of 13 + my Dex mod when I am not wearing armor",
 			armorOptions : {
 				regExpSearch : /^(?=.*warped)(?=.*being).*$/i,
 				name : "Warped Being",
-				source : ["UA:SnW", 1],
+				source : [["UA:SnW", 1]],
 				ac : 13
 			},
 			armorAdd : "Warped Being"
 		},
 		"subclassfeature6" : {
 			name : "Psionic Sorcery",
-			source : ["UA:SnW", 2],
+			source : [["UA:SnW", 2]],
 			minlevel : 6,
 			description : desc([
 				"I can expend sorcery points instead of a spell slot to cast a spell from my Psionic Spells",
@@ -75,7 +75,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 		},
 		"subclassfeature6.1" : {
 			name : "Psychic Defenses",
-			source : ["UA:SnW", 2],
+			source : [["UA:SnW", 2]],
 			minlevel : 6,
 			description : "\n   I gain resistance to psychic damage and adv. on saves vs. being charmed or frightened",
 			dmgres : ["Psychic"],
@@ -83,7 +83,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Revelation in Flesh",
-			source : ["UA:SnW", 2],
+			source : [["UA:SnW", 2]],
 			minlevel : 14,
 			description : desc([
 				"As a bonus action, I can expend 1 or more sorcery points to transform for 1 minute",
@@ -99,7 +99,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 		},
 		"subclassfeature18" : {
 			name : "Warp Reality",
-			source : ["UA:SnW", 2],
+			source : [["UA:SnW", 2]],
 			minlevel : 18,
 			description : desc([
 				"As an action, I can radiate a 20-ft radius aura of difficult terrain for 1 minute",
@@ -118,12 +118,12 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 AddSubClass("warlock", "the lurker in the deep-ua", {
 	regExpSearch : /^(?=.*warlock)(?=.*lurker)(?=.*(deep|depth)).*$/i,
 	subname : "the Lurker in the Deep",
-	source : ["UA:SnW", 2],
+	source : [["UA:SnW", 2]],
 	spellcastingExtra : ["create or destroy water", "thunderwave", "gust of wind", "shatter", "lightning bolt", "sleet storm", "control water", "evard's black tentacles", "commune with nature", "cone of cold"],
 	features : {
 		"subclassfeature1" : {
 			name : "Grasp of the Deep",
-			source : ["UA:SnW", 3],
+			source : [["UA:SnW", 3]],
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can summon or move a spectral tentacle and make an attack with it",
@@ -142,7 +142,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 			weaponOptions : [{
 				regExpSearch : /^((?=.*grasp)(?=.*deep)|(?=.*spectral)(?=.*tentacle)).*$/i,
 				name : "Grasp of the Deep",
-				source : ["UA:SnW", 3],
+				source : [["UA:SnW", 3]],
 				ability : 6,
 				type : "Spell",
 				damage : [1, 8, "Cold/Lightning"],
@@ -164,7 +164,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Scion of the Deep",
-			source : ["UA:SnW", 3],
+			source : [["UA:SnW", 3]],
 			minlevel : 1,
 			description : desc([
 				"I can communicate telepathically with any aberration, beast, elemental, or monstrosity",
@@ -173,7 +173,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Fathomless Soul",
-			source : ["UA:SnW", 3],
+			source : [["UA:SnW", 3]],
 			minlevel : 6,
 			description : " [cold resistance]\n   I have a swimming speed equal to my walking speed; I can breathe both air and water",
 			dmgres : ["Cold"],
@@ -181,7 +181,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 		},
 		"subclassfeature6.1" : {
 			name : "Guardian Grasp",
-			source : ["UA:SnW", 3],
+			source : [["UA:SnW", 3]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction when a creature in 10 ft of my tentacle takes damage, I can have it help",
@@ -191,7 +191,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Devouring Maw",
-			source : ["UA:SnW", 3],
+			source : [["UA:SnW", 3]],
 			minlevel : 10,
 			description : desc([
 				"As an action, I can summon a 10-ft radius translucent maw within 60 ft for 1 minute",
@@ -208,7 +208,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Unleash the Depths",
-			source : ["UA:SnW", 4],
+			source : [["UA:SnW", 4]],
 			minlevel : 14,
 			description : desc([
 				"As an action, I can choose one of the following effects to occur within 30 ft of me:",

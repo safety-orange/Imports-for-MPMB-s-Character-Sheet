@@ -199,7 +199,7 @@ AddSubClass("bard", "college of spirits",{
 			source : [["VRGtR", 28]],
 			minlevel : 3,
 			description : desc([
-                "I learn the Guidance cantrip and can cast it with a range of 60 ft"
+				"I learn the Guidance cantrip and can cast it with a range of 60 ft"
 			]),
 			spellcastingBonus : {
 				name : "Guiding Whispers",
@@ -219,7 +219,7 @@ AddSubClass("bard", "college of spirits",{
 			source : [["VRGtR", 28]],
 			minlevel : 3,
 			description : " [only for bard spells]" + desc([
-                "I can use a candle, crystal ball, skull, spirit board, or tarokka deck as a spellcasting focus"
+				"I can use a candle, crystal ball, skull, spirit board, or tarokka deck as a spellcasting focus"
 			])
 		},
 		"subclassfeature3.2" : {
@@ -228,22 +228,22 @@ AddSubClass("bard", "college of spirits",{
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can expend a bardic inspiration die to roll on the Spirit Tales table",
-                "I retain the rolled tale in my mind until I bestow its effects or finish a short or long rest",
-                "I can only retain one tale at a time; I need to hold a spiritual focus to roll on the table",
-                "As an action, I can choose a creature I see in 30 ft or myself to bestow the tale's effect",
-                "The tales use my spell save DC; See the Notes page for the Spirit Tales table"
+				"I retain the rolled tale in my mind until I bestow its effects or finish a short or long rest",
+				"I can only retain one tale at a time; I need to hold a spiritual focus to roll on the table",
+				"As an action, I can choose a creature I see in 30 ft or myself to bestow the tale's effect",
+				"The tales use my spell save DC; See the Notes page for the Spirit Tales table"
 			]),
-            action : [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
-            toNotesPage : [{
-                name : "Spirit Tales Table",
-                note : desc([
+			action : [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
+			toNotesPage : [{
+				name : "Spirit Tales Table",
+				note : desc([
 					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
 					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",
 					"As an action, I can choose myself or one creature I can see within 30 ft to be the target of the tale's effect. If the tale requires a saving throw, the DC equals my spell save DC.",
 					"\nRoll " + (typePF ? "" : " ") + "Tale"
 				])+
 				 desc([
-                    "  1    Tale of the Clever Animal: For the next 10 minutes, whenever the target makes an Intelligence, a Wisdom, or a Charisma check, the target can roll my Bardic Inspiration die immediately after rolling the d20 and add it to the check.",
+					"  1    Tale of the Clever Animal: For the next 10 minutes, whenever the target makes an Intelligence, a Wisdom, or a Charisma check, the target can roll my Bardic Inspiration die immediately after rolling the d20 and add it to the check.",
 					"  2    Tale of the Renowned Duelist: I make a melee spell attack against the target. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
 					"  3    Tale of the Beloved Friends: The target and another creature of its choice it can see within 5 ft of it gains temporary hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
 					"  4    Tale of the Runaway: The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 0) to immediately use the same reaction.",
@@ -255,10 +255,10 @@ AddSubClass("bard", "college of spirits",{
 					" 10    Tale of the Dragon: The target spews fire from the mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to four rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
 					" 11    Tale of the Angel: The target regains hit points equal to two rolls of my Bardic Inspiration die + my Charisma modifier, and I end one condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
 					" 12    Tale of the Mind-Bender: I evoke an incomprehensible fable from an otherworldly being. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die and be stunned until the end of its next turn."
-                ], "\n")
-            }]
-        },
-        "subclassfeature6" : {
+				], "\n")
+			}]
+		},
+		"subclassfeature6" : {
 			name : "Spiritual Focus: Improve spells",
 			source : [["VRGtR", 28]],
 			minlevel : 6,
@@ -317,25 +317,25 @@ AddSubClass("bard", "college of spirits",{
 				])
 			},
 			defaultChoice : "allow +1d6 for any bard spell"
-        },
+		},
 		"subclassfeature6.1" : {
 			name : "Spirit Session",
 			source : [["VRGtR", 29]],
 			minlevel : 6,
 			description : desc([
 				"Using my spiritual focus, I can conduct a hour-long ritual to channel spirit during a rest",
-                "The number of willing participants, me included, can be up to my Proficiency Bonus",
-                "At the end, I learn a divination or necromancy spell of my choice until I start a long rest",
-                "The spell can't be higher level than the number of participants and of a level I can cast"
-            ]),
-            usages : 1,
-            recovery : "long rest",
+				"The number of willing participants, me included, can be up to my Proficiency Bonus",
+				"At the end, I learn a divination or necromancy spell of my choice until I start a long rest",
+				"The spell can't be higher level than the number of participants and of a level I can cast"
+			]),
+			usages : 1,
+			recovery : "long rest",
 			spellcastingBonus : {
 				name : "Spirit Session",
 				school : ["Div", "Necro"],
 				firstCol : "SS"
 			}
-        },
+		},
 		"subclassfeature14" : {
 			name : "Mystical Connection",
 			source : [["VRGtR", 29]],
@@ -359,19 +359,19 @@ AddSubClass("warlock", "the undead",{
 			minlevel : 1,
 			description : desc([
 				"As a bonus action, I can transform for 1 minute and gain the following benefits:",
-                " \u2022 I gain temporary hit points equal to 1d10 + my warlock level",
-                " \u2022 I am immune to the frightened condition",
-                " \u2022 Once per turns when I hit an attack, I can force the target to make a Wis save",
-                "   If the target fails this save, it is frightened of me until the end of my next turn"
-            ]),
-            additional : levels.map(function (n) {
+				" \u2022 I gain temporary hit points equal to 1d10 + my warlock level",
+				" \u2022 I am immune to the frightened condition",
+				" \u2022 Once per turns when I hit an attack, I can force the target to make a Wis save",
+				"   If the target fails this save, it is frightened of me until the end of my next turn"
+			]),
+			additional : levels.map(function (n) {
 				return "1d10+" + n + " temp HP";
-            }),
-            usages : "Prof Bonus per ",
-            usagescalc : "event.value = How('Proficiency Bonus');",
-            recovery : "long rest",
-            action : [["bonus action", ""]],
-            savetxt : { immune : ["frightened (Form of Dread)"] }
+			}),
+			usages : "Prof Bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest",
+			action : [["bonus action", ""]],
+			savetxt : { immune : ["frightened (Form of Dread)"] }
 		},
 		"subclassfeature6" : {
 			name : "Grave Touched",
@@ -379,8 +379,8 @@ AddSubClass("warlock", "the undead",{
 			minlevel : 6,
 			description : desc([
 				"I no longer need to eat, drink, or breathe",
-                "Once per turn if I damage a creature with an attack, I can change its type to necrotic",
-                "While I'm in my Form of Dread, I can roll one extra damage die for this necrotic damage"
+				"Once per turn if I damage a creature with an attack, I can change its type to necrotic",
+				"While I'm in my Form of Dread, I can roll one extra damage die for this necrotic damage"
 			])
 		},
 		"subclassfeature10" : {
@@ -389,16 +389,16 @@ AddSubClass("warlock", "the undead",{
 			minlevel : 10,
 			description : desc([
 				"I have resistance to necrotic damage, or immunity while I'm in my Form of Dread",
-                "As a reaction when reduced to 0 HP, I can drop to 1 HP instead and erupt with energy",
-                "Each creature of my choice within 30 ft takes 2d10 + my warlock level necrotic damage",
-                "After this, I gain 1 level of exhaustion and must complete 1d4 long rests to do so again"
+				"As a reaction when reduced to 0 HP, I can drop to 1 HP instead and erupt with energy",
+				"Each creature of my choice within 30 ft takes 2d10 + my warlock level necrotic damage",
+				"After this, I gain 1 level of exhaustion and must complete 1d4 long rests to do so again"
 			]),
 			additional : levels.map(function (n) {
 				return n < 10 ? "" : "2d10+" + n + " damage, 1\xD7 per 1d4 long rests"
 			}),
 			action : [["reaction", ""]],
-            dmgres : [["Necrotic"]],
-            savetxt : { immune : ["necrotic (Form of Dread)"] },
+			dmgres : [["Necrotic"]],
+			savetxt : { immune : ["necrotic (Form of Dread)"] },
 			extraLimitedFeatures : [{
 				name : "Necrotic Husk (revive)",
 				usages : 1,
@@ -411,19 +411,19 @@ AddSubClass("warlock", "the undead",{
 			minlevel : 14,
 			description : desc([
 				"As an action, I can project my spirit from my body, leaving it suspended and unconscious",
-                "This lasts 1 hour or until my concentration is broken; Damage and effects affect both",
-                "When it ends, I can have my spirit return to my body or my body teleport to my spirit",
-                "My spirit has my abilities, but no gear; While projecting I gain the following benefits:",
-                " \u2022 My spirit and body gain resistance to bludgeoning, piercing, and slashing damage",
-                " \u2022 My conjuration/necromancy spells need no verbal, somatic, non-costly material comp.",
-                " \u2022 I gain a flying speed equal to my walking speed and can hover",
-                " \u2022 Move through creatures/objects as difficult terrain; 1d10 force damage if end turn in",
-                " \u2022 While in my Form of Dread, once per turns when I deal necrotic damage, I can heal",
-                "   I regain hit points equal to half the amount of necrotic damage dealt"
+				"This lasts 1 hour or until my concentration is broken; Damage and effects affect both",
+				"When it ends, I can have my spirit return to my body or my body teleport to my spirit",
+				"My spirit has my abilities, but no gear; While projecting I gain the following benefits:",
+				" \u2022 My spirit and body gain resistance to bludgeoning, piercing, and slashing damage",
+				" \u2022 My conjuration/necromancy spells need no verbal, somatic, non-costly material comp.",
+				" \u2022 I gain a flying speed equal to my walking speed and can hover",
+				" \u2022 Move through creatures/objects as difficult terrain; 1d10 force damage if end turn in",
+				" \u2022 While in my Form of Dread, once per turns when I deal necrotic damage, I can heal",
+				"   I regain hit points equal to half the amount of necrotic damage dealt"
 			]),
 			usages : 1,
-            recovery : "long rest",
-            action : [["action", ""]]
+			recovery : "long rest",
+			action : [["action", ""]]
 		}
 	}
 });
@@ -673,7 +673,7 @@ MagicItemsList["living shadow"] = {
 	source : [["VRGtR", 24]],
 	type : "dark gift",
 	rarity : "",
-	description : "I learn the Mage Hand cantrip and require no components to cast it. My Prof. Bonus per long rest, I can gain +10 ft reach for one melee attack. The first time I roll a 1 on a d20 after a short rest, my shadow will act up. The next time I or another I can see in 30 ft rolls a d20, I roll a d4. If even: add to roll, odd: subtract.",
+	description : "I learn the Mage Hand cantrip and require no components to cast it. My Prof Bonus per long rest, I can gain +10 ft reach for one melee attack. The first time I roll a 1 on a d20 after a short rest, my shadow will act up. The next time I or another I can see in 30 ft rolls a d20, I roll a d4. If even: add to roll, odd: subtract.",
 	descriptionLong : "I learn the Mage Hand cantrip and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. My proficiency bonus per long rest, when I make a melee attack, I can gain +10 ft reach for that attack as my shadow stretches and delivers the attack. The first time after a short rest when I roll a 1 on an attack, check, or save, my shadow will act up. The next time I or a creature I can see within 30 ft rolls for an attack, check, or save, roll a d4. If the number is odd, reduce the total by that number. If it is even, increase the total by that number instead.",
 	descriptionFull : "The shadow you cast is animate and ever-present, even when lighting conditions would otherwise prevent it. Your shadow occasionally moves out of sync with you. Sometimes it appears to be undertaking random but mundane tasks, while at other times it acts out your darker impulses, threatening or even attacking other shadows. With effort, you can bend this shadow puppetry to your will.\n"+
 	toUni("Grasping Shadow") + ". You learn the mage hand cantrip if you don't already know it, and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. Your spellcasting ability for this spell is Intelligence, Wisdom, or Charisma (your choice when you gain this Dark Gift).\n"+

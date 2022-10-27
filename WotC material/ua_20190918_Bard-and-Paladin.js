@@ -15,11 +15,11 @@ SourceList["UA:BnP"] = {
 AddSubClass("bard", "college of eloquence-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 	subname : "College of Eloquence",
-	source : ["UA:BnP", 1],
+	source : [["UA:BnP", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Universal Speech",
-			source : ["UA:BnP", 1],
+			source : [["UA:BnP", 1]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can expend one bardic inspiration die to make me understood by all",
@@ -31,7 +31,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Soothing Words",
-			source : ["UA:BnP", 1],
+			source : [["UA:BnP", 1]],
 			minlevel : 3,
 			description : "\n   I can cast Calm Emotions without expending a spell slot",
 			spellcastingBonus : {
@@ -46,7 +46,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Undeniable Logic",
-			source : ["UA:BnP", 1],
+			source : [["UA:BnP", 1]],
 			minlevel : 6,
 			description : desc([
 				"As a bonus action, I can expend one bardic inspiration die to encourage or befuddle",
@@ -60,7 +60,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Infectious Inspiration",
-			source : ["UA:BnP", 2],
+			source : [["UA:BnP", 2]],
 			minlevel : 14,
 			description : desc([
 				"My bardic inspiration dice are not lost if the check, attack, or save it was added to fails",
@@ -78,11 +78,11 @@ AddSubClass("bard", "college of eloquence-ua", {
 AddSubClass("paladin", "oath of heroism-ua", {
 	regExpSearch : /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of Heroism",
-	source : ["UA:BnP", 2],
+	source : [["UA:BnP", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Peerless Athlete",
-			source : ["UA:BnP", 2],
+			source : [["UA:BnP", 2]],
 			minlevel : 3,
 			description : "\n   As a bonus action, I gain adv. on Str (Athletics) and Dex (Acrobatics) checks for 10 min",
 			action : [["bonus action", ""]],
@@ -90,14 +90,14 @@ AddSubClass("paladin", "oath of heroism-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Legendary Strike",
-			source : ["UA:BnP", 2],
+			source : [["UA:BnP", 2]],
 			minlevel : 3,
 			description : "\n   As a bonus action, my weapon attacks score a critical hit on a roll of 19 or 20 for 1 min",
 			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Mighty Deed",
-			source : ["UA:BnP", 2],
+			source : [["UA:BnP", 2]],
 			minlevel : 7,
 			description : desc([
 				"When I score a critical hit or reduce a target to 0 HP, I can bolster morale or demoralize",
@@ -110,7 +110,7 @@ AddSubClass("paladin", "oath of heroism-ua", {
 		},
 		"subclassfeature15" : {
 			name : "Glorious Defense",
-			source : ["UA:BnP", 2],
+			source : [["UA:BnP", 2]],
 			minlevel : 15,
 			description : desc([
 				"As a reaction when a creature I can see hits me with an attack roll, I can gain bonus AC",
@@ -121,7 +121,7 @@ AddSubClass("paladin", "oath of heroism-ua", {
 		},
 		"subclassfeature20" : {
 			name : "Living Myth",
-			source : ["UA:BnP", 3],
+			source : [["UA:BnP", 3]],
 			minlevel : 20,
 			description : desc([
 				"As a bonus action, I can gain the following benefits for 1 minute:",

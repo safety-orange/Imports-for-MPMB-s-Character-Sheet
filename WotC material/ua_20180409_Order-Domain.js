@@ -15,19 +15,19 @@ SourceList["UA:OD"] = {
 AddSubClass("cleric", "order domain-ua", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*order).*$/i,
 	subname : "Order Domain",
-	source : ["UA:OD", 1],
+	source : [["UA:OD", 1]],
 	spellcastingExtra : ["command", "heroism", "enhance ability", "hold person", "mass healing word", "slow", "compulsion", "locate creature", "commune", "dominate person"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["UA:OD", 1],
+			source : [["UA:OD", 1]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
 			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Voice of Authority",
-			source : ["UA:OD", 1],
+			source : [["UA:OD", 1]],
 			minlevel : 1,
 			description : desc([
 				"Whenever I use a spell slot to cast a spell on an ally, it can use its reaction to attack",
@@ -37,7 +37,7 @@ AddSubClass("cleric", "order domain-ua", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Order's Demand",
-			source : ["UA:OD", 1],
+			source : [["UA:OD", 1]],
 			minlevel : 2,
 			description : desc([
 				"As an action, all chosen targets in 30 ft that can see or hear me must make a Wis save",
@@ -48,7 +48,7 @@ AddSubClass("cleric", "order domain-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Order's Dominion",
-			source : ["UA:OD", 2],
+			source : [["UA:OD", 2]],
 			minlevel : 6,
 			description : desc([
 				"When I cast an enchantment spell using a spell slot, I regain one expended spell slot",
@@ -57,7 +57,7 @@ AddSubClass("cleric", "order domain-ua", {
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["UA:OD", 2],
+			source : [["UA:OD", 2]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -77,7 +77,7 @@ AddSubClass("cleric", "order domain-ua", {
 		},
 		"subclassfeature17" : {
 			name : "Order's Wrath",
-			source : ["UA:OD", 2],
+			source : [["UA:OD", 2]],
 			minlevel : 17,
 			description : desc([
 				"If I deal my Divine Strike damage to a creature, it takes extra damage from my allies",

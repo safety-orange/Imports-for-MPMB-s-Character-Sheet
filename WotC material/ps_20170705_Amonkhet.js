@@ -17,7 +17,7 @@ SourceList["PS:A"] = {
 BackgroundList["initiate"] = {
 	regExpSearch : /initiate/i,
 	name : "Initiate",
-	source : ["PS:A", 8],
+	source : [["PS:A", 8]],
 	skills : ["Athletics", "Intimidation"],
 	gold : 15,
 	equipright : [
@@ -83,7 +83,7 @@ BackgroundList["initiate"] = {
 BackgroundList["vizier"] = {
 	regExpSearch : /vizier/i,
 	name : "Vizier",
-	source : ["PS:A", 10],
+	source : [["PS:A", 10]],
 	skills : ["History", "Religion"],
 	gold : 25,
 	equipright : [
@@ -149,15 +149,15 @@ BackgroundList["vizier"] = {
 };
 BackgroundFeatureList["trials of the five gods"] = {
 	description : "I live to do the five trials to determine my worthiness in the afterlife. While preparing for these, I have access to training, a place to live, and regular meals. I can enjoy these benefits only as long as I obey the societal norms of Naktamun, obeying the orders of the gods and the instructions of their viziers. If I violate these norms, I risk being treated as a dissenter.",
-	source : ["PS:I", 9]
+	source : [["PS:A", 9]]
 };
 BackgroundFeatureList["voice of authority"] = {
 	description : "My voice is the voice of my god, at least in theory. My job might include training and instructing initiates, and they are required to obey me. In any circumstance, an initiate is expected to defer to my voice and obey my commands. If I abuse this authority, though, my god might personally punish me.",
-	source : ["PS:I", 10]
+	source : [["PS:A", 10]]
 };
 BackgroundFeatureList["shelter of dissenters"] = {
 	description : "If dissenters wish to have any hope of survival, whether hiding within the city or cast out into the desert, they must help each other. I can find a place to hide, rest, or recuperate among other dissenters. They will help shield me from those who hunt me, possibly even risking their lives for me.",
-	source : ["PS:I", 11]
+	source : [["PS:A", 11]]
 };
 
 // Adds 5 races
@@ -165,7 +165,7 @@ RaceList["ibis-headed aven"] = { // Includes contributions by /u/MILKB0T
 	regExpSearch : /^(?=.*aven)(?=.*ibis).*$/i,
 	name : "Ibis-Headed Aven",
 	sortname : "Aven, Ibis-Headed",
-	source : ["PS:A", 16],
+	source : [["PS:A", 16]],
 	plural : "Ibis-Headed Avens",
 	size : 3,
 	speed : {
@@ -205,7 +205,7 @@ if (!SourceList["PS:D"]) {
 RaceList["khenra"] = { // Includes contributions by /u/juju2569
 	regExpSearch : /khenra/i,
 	name : "Khenra",
-	source : ["PS:A", 18],
+	source : [["PS:A", 18]],
 	plural : "Khenra",
 	size : 3,
 	speed : { walk : { spd : 35, enc : 25 } },
@@ -223,7 +223,7 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*amonkhet)(?=.*minotaur).*$/i,
 	name : "Amonkhet Minotaur",
 	sortname : "Minotaur, Amonkhet",
-	source : ["PS:A", 20],
+	source : [["PS:A", 20]],
 	plural : "Amonkhet Minotaurs",
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
@@ -277,7 +277,7 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 RaceList["naga"] = { // Includes contributions by /u/juju2569
 	regExpSearch : /naga/i,
 	name : "Naga",
-	source : ["PS:A", 22],
+	source : [["PS:A", 22]],
 	plural : "Nagas",
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
@@ -287,17 +287,17 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 	weaponOptions : [{ // Includes contributions by /u/juju2569
 		regExpSearch : /^(?=.*naga)(?=.*bite).*$/i,
 		name : "Naga Bite",
-		source : ["PS:A", 22],
+		source : [["PS:A", 22]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 4, "piercing"],
 		range : "Melee",
-		description : "Target must make Constitution save (DC 8 + Prof bonus + Con mod) or take +1d4 poison damage",
+		description : "Target must make Constitution save (DC 8 + Prof Bonus + Con mod) or take +1d4 poison damage",
 		abilitytodamage : true
 	}, {
 		regExpSearch : /\bconstrict\b/i,
 		name : "Constrict",
-		source : ["PS:A", 22],
+		source : [["PS:A", 22]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
@@ -322,19 +322,19 @@ WeaponsList.longsword.regExpSearch = WeaponsList.longsword.regExpSearch.replace(
 AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(solidarity|teamwork|oketra)\b).*$/i,
 	subname : "Solidarity Domain",
-	source : ["PS:A", 24],
+	source : [["PS:A", 24]],
 	spellcastingExtra : ["bless", "guiding bolt", "aid", "warding bond", "beacon of hope", "crusader's mantle", "aura of life", "guardian of faith", "circle of power", "mass cure wounds"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["PS:A", 24],
+			source : [["PS:A", 24]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
 			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Solidarity's Action",
-			source : ["PS:A", 24],
+			source : [["PS:A", 24]],
 			minlevel : 1,
 			description : "\n   " + "When I do the Help action to aid an ally, I can make a weapon attack as a bonus action",
 			usages : "Wisdom modifier per ",
@@ -344,7 +344,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Preserve Life",
-			source : ["PS:A", 24],
+			source : [["PS:A", 24]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I heal chosen living creatures within 30 ft of me, up to half their max HP",
@@ -355,7 +355,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Oketra's Blessing",
-			source : ["PS:A", 24],
+			source : [["PS:A", 24]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction, when a creature within 30 ft makes an attack roll, I can grant a bonus",
@@ -365,7 +365,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["PS:A", 25],
+			source : [["PS:A", 25]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
@@ -382,7 +382,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 		},
 		"subclassfeature17" : {
 			name : "Supreme Healing",
-			source : ["PS:A", 25],
+			source : [["PS:A", 25]],
 			minlevel : 17,
 			description : "\n   " + "When I cast a healing spell, all dice for determining HP are treated as rolling maximum",
 		}
@@ -391,12 +391,12 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(strength|toughness|rhonas)\b).*$/i,
 	subname : "Strength Domain",
-	source : ["PS:A", 25],
+	source : [["PS:A", 25]],
 	spellcastingExtra : ["divine favor", "shield of faith", "enhance ability", "protection from poison", "haste", "protection from energy", "dominate beast", "stoneskin", "destructive wave", "insect plague"],
 	features : {
 		"subclassfeature1" : {
 			name : "Acolyte of Strength",
-			source : ["PS:A", 26],
+			source : [["PS:A", 26]],
 			minlevel : 1,
 			description : desc([
 				"I learn a druid cantrip",
@@ -412,14 +412,14 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 		},
 		"subclassfeature1.1" : {
 			name : "Bonus Proficiency",
-			source : ["PS:A", 26],
+			source : [["PS:A", 26]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with heavy armor",
 			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Feat of Strength",
-			source : ["PS:A", 26],
+			source : [["PS:A", 26]],
 			minlevel : 2,
 			description : desc([
 				"When I make an attack roll, ability check, or save using Strength, I can bless it",
@@ -428,7 +428,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Rhonas's Blessing",
-			source : ["PS:A", 26],
+			source : [["PS:A", 26]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction if any within 30 ft do an attack, check, or save using Str, I can bless it",
@@ -438,7 +438,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["PS:A", 26],
+			source : [["PS:A", 26]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
@@ -455,7 +455,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 		},
 		"subclassfeature17" : {
 			name : "Avatar of Battle",
-			source : ["PS:A", 26],
+			source : [["PS:A", 26]],
 			minlevel : 17,
 			description : "\n   " + "I have resistance to bludgeoning/piercing/slashing damage from nonmagical weapons",
 			dmgres : [["Bludgeoning", "Bludg. (nonmagical)"], ["Piercing", "Pierc. (nonmagical)"], ["Slashing", "Slash. (nonmagical)"]]
@@ -465,12 +465,12 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(ambition|bontu)\b).*$/i,
 	subname : "Ambition Domain",
-	source : ["PS:A", 27],
+	source : [["PS:A", 27]],
 	spellcastingExtra : ["bane", "disguise self", "mirror image", "ray of enfeeblement", "bestow curse", "vampiric touch", "death ward", "dimension door", "dominate person", "modify memory"],
 	features : {
 		"subclassfeature1" : {
 			name : "Warding Flare",
-			source : ["PS:A", 27],
+			source : [["PS:A", 27]],
 			minlevel : 1,
 			description : desc([
 				"When a creature within 30 ft attacks me and I can see it, I can interpose divine light",
@@ -483,7 +483,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Invoke Duplicity",
-			source : ["PS:A", 27],
+			source : [["PS:A", 27]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)",
@@ -496,14 +496,14 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Cloak of Shadows",
-			source : ["PS:A", 27],
+			source : [["PS:A", 27]],
 			minlevel : 6,
 			description : "\n   " + "As an action, I become invisible until the end of my next turn or I attack/cast a spell",
 			action : ["action", ""]
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",
-			source : ["PS:A", 27],
+			source : [["PS:A", 27]],
 			minlevel : 8,
 			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
@@ -526,7 +526,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 		},
 		"subclassfeature17" : {
 			name : "Improved Duplicity",
-			source : ["PS:A", 27],
+			source : [["PS:A", 27]],
 			minlevel : 17,
 			description : desc([
 				"When I use Invoke Duplicity, I make four illusory duplicates instead of one",
@@ -538,12 +538,12 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(zeal|hazoret)\b).*$/i,
 	subname : "Zeal Domain",
-	source : ["PS:A", 28],
+	source : [["PS:A", 28]],
 	spellcastingExtra : ["searing smite", "thunderous smite", "magic weapon", "shatter", "haste", "fireball", "fire shield", "freedom of movement", "destructive wave", "flame strike"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["PS:A", 28],
+			source : [["PS:A", 28]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with martial weapons and heavy armor",
 			armorProfs : [false, false, true, false],
@@ -551,7 +551,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 		},
 		"subclassfeature1.1" : {
 			name : "Priest of Zeal",
-			source : ["PS:A", 28],
+			source : [["PS:A", 28]],
 			minlevel : 1,
 			description : "\n   " + "When I use the Attack action, I can make a weapon attack as a bonus action",
 			usages : "Wisdom modifier per ",
@@ -561,19 +561,19 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Consuming Fervor",
-			source : ["PS:A", 28],
+			source : [["PS:A", 28]],
 			minlevel : 2,
 			description : "\n   " + "Instead of rolling, I can do maximum damage when I do fire or thunder damage"
 		},
 		"subclassfeature6" : {
 			name : "Resounding Strike",
-			source : ["PS:A", 28],
+			source : [["PS:A", 28]],
 			minlevel : 6,
 			description : "\n   " + "When I deal thunder damage to a Large or smaller foe, I can push it up to 10 ft away"
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["PS:A", 28],
+			source : [["PS:A", 28]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
@@ -590,7 +590,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 		},
 		"subclassfeature17" : {
 			name : "Blaze of Glory",
-			source : ["PS:A", 28],
+			source : [["PS:A", 28]],
 			minlevel : 17,
 			description : desc([
 				"As a reaction when I'm reduced to 0 HP or killed outright, I can do a final heroic act",
@@ -608,7 +608,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 // Adds 1 creature
 CreatureList["serpopard"] = {
 	name : "Serpopard",
-	source : ["PS:A", 37],
+	source : [["PS:A", 37]],
 	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -651,7 +651,7 @@ CreatureList["serpopard"] = {
 };
 CreatureList["cerodon"] = {
 	name : "Cerodon",
-	source : ["PS:A", 37],
+	source : [["PS:A", 37]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -690,7 +690,7 @@ CreatureList["cerodon"] = {
 };
 CreatureList["hippopotamus"] = {
 	name : "Hippopotamus",
-	source : ["PS:A", 37],
+	source : [["PS:A", 37]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",

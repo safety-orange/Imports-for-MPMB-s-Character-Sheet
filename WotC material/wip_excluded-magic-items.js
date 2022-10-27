@@ -10,7 +10,7 @@
 	// Artifact
 	MagicItemsList["draakhorn"] = {
 		name : "Draakhorn",
-		source : ["RoT", 93],
+		source : [["RoT", 93]],
 		type : "wondrous item",
 		rarity : "artifact",
 		description : "",
@@ -21,7 +21,7 @@
 	// Intelligent Items with sub-choices
 	MagicItemsList["moonblade"] = {
 		name : "Moonblade",
-		source : ["D", 217],
+		source : [["D", 217]],
 		type : "weapon (longsword)",
 		rarity : "legendary",
 		description : "",
@@ -32,7 +32,7 @@
 	// Artifacts
 	MagicItemsList["axe of the dwarvish lords"] = {
 		name : "Axe of the Dwarvish Lords",
-		source : ["D", 221],
+		source : [["D", 221]],
 		type : "weapon (battleaxe)",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -44,7 +44,7 @@
 	}
 	MagicItemsList["book of exalted deeds"] = {
 		name : "Book of Exalted Deeds",
-		source : ["D", 222],
+		source : [["D", 222]],
 		type : "wondrous item",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -57,7 +57,7 @@
 	}
 	MagicItemsList["book of vile darkness"] = {
 		name : "Book of Vile Darkness",
-		source : ["D", 222],
+		source : [["D", 222]],
 		type : "wondrous item",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -68,7 +68,7 @@
 	}
 	MagicItemsList["hand of vecna"] = {
 		name : "Hand of Vecna",
-		source : ["D", 224],
+		source : [["D", 224]],
 		type : "wondrous item",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -78,7 +78,7 @@
 	}
 	MagicItemsList["eye of vecna"] = {
 		name : "Eye of Vecna",
-		source : ["D", 224],
+		source : [["D", 224]],
 		type : "wondrous item",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -88,7 +88,7 @@
 	}
 	MagicItemsList["sword of kas"] = {
 		name : "Sword of Kas",
-		source : ["D", 226],
+		source : [["D", 226]],
 		type : "weapon (longsword)",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -99,7 +99,7 @@
 	}
 	MagicItemsList["wand of orcus"] = {
 		name : "Wand of Orcus",
-		source : ["D", 227],
+		source : [["D", 227]],
 		type : "wand",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -112,7 +112,7 @@
 { // pub_20160906_SKT.js
 	MagicItemsList["wyrmskull throne"] = { // artifact
 		name : "Wyrmskull Throne",
-		source : ["SKT", 237],
+		source : [["SKT", 237]],
 		type : "wondrous item",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -123,7 +123,7 @@
 { // pub_20170919_ToA.js
 	MagicItemsList["ring of winter"] = {
 		name : "Ring of Winter",
-		source : ["ToA", 207],
+		source : [["ToA", 207]],
 		type : "ring",
 		rarity : "artifact",
 		notLegalAL : true,
@@ -134,7 +134,7 @@
 	}
 	MagicItemsList["staff of the forgotten one"] = {
 		name : "Staff of the Forgotten One",
-		source : ["ToA", 208],
+		source : [["ToA", 208]],
 		type : "staff",
 		rarity : "artifact",
 		storyItemAL : true,
@@ -149,7 +149,7 @@
 	// It doesn't really make sense to add them to a character sheet
 	MagicItemsList["dimensional seal"] = {
 		name : "Dimensional Seal",
-		source : ["WGtE", 118],
+		source : [["WGtE", 118]],
 		type : "eldritch machine",
 		rarity : "legendary",
 		description : "",
@@ -157,7 +157,7 @@
 	}
 	MagicItemsList["mabaran resonator"] = {
 		name : "Mabaran Resonator",
-		source : ["WGtE", 118],
+		source : [["WGtE", 118]],
 		type : "eldritch machine",
 		rarity : "legendary",
 		description : "",
@@ -166,7 +166,7 @@
 	}
 	MagicItemsList["master's call"] = {
 		name : "Master's Call",
-		source : ["WGtE", 119],
+		source : [["WGtE", 119]],
 		type : "eldritch machine",
 		rarity : "legendary",
 		description : "",
@@ -174,7 +174,7 @@
 	}
 	MagicItemsList["storm sphere"] = {
 		name : "Storm Sphere",
-		source : ["WGtE", 119],
+		source : [["WGtE", 119]],
 		type : "eldritch machine",
 		rarity : "very rare",
 		description : "",
@@ -183,7 +183,7 @@
 	}
 	MagicItemsList["spell sink"] = {
 		name : "Spell Sink",
-		source : ["WGtE", 119],
+		source : [["WGtE", 119]],
 		type : "eldritch machine",
 		rarity : "legendary",
 		description : "",
@@ -193,7 +193,7 @@
 { // pub_20180918_WDH.js
 	MagicItemsList["stone of golorr"] = {
 		name : "Stone of Golorr",
-		source : ["WDH", 192],
+		source : [["WDH", 192]],
 		type : "wondrous item",
 		rarity : "artifact",
 		storyItemAL : true,
@@ -205,7 +205,7 @@
 { // pub_20181107_LLoK.js
 	MagicItemsList["deck of several things"] = { // plot device
 		name : "Deck of Several Things",
-		source : ["LLoK", 53],
+		source : [["LLoK", 53]],
 		type : "wondrous item",
 		rarity : "legendary",
 		storyItemAL : true,
@@ -216,7 +216,7 @@
 { // pub_20190917_DiA.js
 	MagicItemsList["sword of zariel"] = {
 		name : "Sword of Zariel",
-		source : ["DiA", 225],
+		source : [["DiA", 225]],
 		type : "weapon (longsword)",
 		rarity : "artifact",
 		storyItemAL : true,

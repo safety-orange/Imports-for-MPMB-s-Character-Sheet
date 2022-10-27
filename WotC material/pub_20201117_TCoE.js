@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.3");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -592,18 +592,6 @@ if (!SourceList["E:RLW"]) {
 				}
 			}
 		}
-		var getLetterRange = function(str) {
-			var iCharNr = removeDiacritics(str[0].toLowerCase()).charCodeAt(0) - 97;
-			var oOpt = {
-				"A-F" : ("f").charCodeAt(0) - 97,
-				"G-Q" : ("q").charCodeAt(0) - 97,
-				"R-Z" : ("z").charCodeAt(0) - 97,
-			}
-			for (var sRng in oOpt) {
-				if (iCharNr <= oOpt[sRng]) return sRng;
-			}
-			return sRng; // higher than the last, so just return the last
-		};
 		var theObj = ClassList.artificer.features["infuse item"];
 		for (var a = 0; a < artMi.length; a++) {
 			var MI0 = artMi[a][0];
@@ -629,7 +617,7 @@ if (!SourceList["E:RLW"]) {
 				magicitemsAdd : [anArtMi.name],
 				additional : anArtMi.attunement ? "requires attunement" : undefined,
 				prereqeval : MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
-				submenu : "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" "+MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name) + "]")
+				submenu : "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" "+MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name, ["A-F", "G-Q", "R-Z"]) + "]")
 			};
 			theObj.extrachoices.push(theI);
 		};
@@ -1650,7 +1638,7 @@ RunFunctionAtEnd(function () {
 		"As a bonus action, I can activate a defensive shield to gain my artificer level in temp HP"
 	])
 	var guardianAdditional = levels.map(function (n) {
-		return n + " temp HP, Prof. B. per long rest";
+		return n + " temp HP, Prof B. per long rest";
 	})
 	var infiltratorTxt = desc([
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
@@ -1733,7 +1721,7 @@ AddSubClass("barbarian", "path of the beast", {
 			minlevel : 3,
 			description : desc([
 				"When I enter my rage, I can transform to gain a bite, tail, or claws attack for that rage",
-				"On a hit with the bite attack once on each of my turns, I can heal my Prof. Bonus in HP",
+				"On a hit with the bite attack once on each of my turns, I can heal my Prof Bonus in HP",
 				"This only works if I have less than half my hit points when I hit with this bite attack",
 				"With the claws I can make one extra attack when I attack with it in my Attack action",
 				"As a reaction with the tail when I'm hit, I can add 1d8 to my AC for that attack",
@@ -1747,7 +1735,7 @@ AddSubClass("barbarian", "path of the beast", {
 				type : "Natural",
 				damage : [1, 8, "piercing"],
 				range : "Melee",
-				description : "Only in rage; On a hit once on my turn, regain Prof. Bonus in HP (if below 1/2 HP)",
+				description : "Only in rage; On a hit once on my turn, regain Prof Bonus in HP (if below 1/2 HP)",
 				abilitytodamage : true,
 				bestialNaturalWeapon : true
 			}, {
@@ -1806,7 +1794,7 @@ AddSubClass("barbarian", "path of the beast", {
 			minlevel : 10,
 			description : desc([
 				"In rage, when I hit a creature with my natural weapon, I can have it make a Wis save",
-				"If it fails (DC 8 + my Prof bonus + my Con mod) it suffers one effect of my choice:",
+				"If it fails (DC 8 + my Prof Bonus + my Con mod) it suffers one effect of my choice:",
 				" \u2022 It uses its reaction to make a melee attack against one creature I can see of my choice",
 				" \u2022 It takes 2d12 psychic damage"
 			]),
@@ -2314,7 +2302,7 @@ AddSubClass("cleric", "peace domain", {
 			minlevel : 1,
 			description : levels.map(function (n) {
 				return desc([
-					"As an action, I can magically bond my Prof. Bonus of willing creatures I can see in 30 ft",
+					"As an action, I can magically bond my Prof Bonus of willing creatures I can see in 30 ft",
 					"I can be one of the bonded creatures; The bond lasts for 10 min or until I use this again",
 					"While within " + (n < 17 ? 30 : 60) + " ft of another, a bonded target can add +1d4 to a save, attack, or check",
 					"Each creature can add the +1d4 only once per turn"
@@ -2818,7 +2806,7 @@ AddSubClass("druid", "circle of wildfire", {
 				'It disappears if I summon another; See "Wildfire Spirit" on a companion page for its stats',
 			]),
 			action : [["action", ""], ["bonus action", "Command Wildfire Spirit"]],
-			creaturesAdd : [["Wildfire Spirit"]],
+			creaturesAdd : [["Wildfire Spirit", true]],
 			creatureOptions : [{
 				name : "Wildfire Spirit",
 				source : [["T", 40]],
@@ -3170,7 +3158,7 @@ AddSubClass("fighter", "psi warrior", {
 			name : "Telekinetic Adept: Telekinetic Thrust",
 			source : [["T", 43]],
 			minlevel : 7,
-			description : " [DC 8 + Prof B + Int mod]" + desc([
+			description : " [DC 8 + Prof B. + Int mod]" + desc([
 				"When I deal damage with my Psionic Strike, I can have the target make a Strength save",
 				"If failed, I knock the target prone or move it up to 10 ft in any direction horizontally"
 			]),
@@ -3615,7 +3603,7 @@ AddSubClass("monk", "way of the astral self", {
 			"astral arms" : {
 				name : "Astral Arms",
 				extraname : "Way of the Astral Self 3",
-				source : ["UA:BnM", 2],
+				source : [["T", 50]],
 				description : desc([
 					"As a bonus action, I can summon my astral arms to hover next to or over my own arms",
 					"When I summon them, all creatures of my choice I can see in 10 ft must make a Dex save",
@@ -3696,7 +3684,7 @@ AddSubClass("monk", "way of the astral self", {
 			"astral body" : {
 				name : "Awakened Astral Self",
 				extraname : "Way of the Astral Self 17",
-				source : ["UA:BnM", 3],
+				source : [["T", 50]],
 				description : " [5 ki points]" + desc([
 					"As a bonus action, I can summon my astral arms and astral visage, with extra benefits:",
 					" \u2022 Armor of the Spirit: I gain a +2 bonus to my armor class",
@@ -3873,7 +3861,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			name : "Aura of the Sentinel",
 			source : [["T", 55]],
 			minlevel : 7,
-			description : "\n   If I'm not incapacitated, chosen creatures in range and I add my Prof. Bonus to Initiative",
+			description : "\n   If I'm not incapacitated, chosen creatures in range and I add my Prof Bonus to Initiative",
 			additional : levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
 			addMod : [{ type : "skill", field : "Init", mod : "prof", text : "I can add my Proficiency Bonus to initiative rolls." }]
 		},
@@ -3944,7 +3932,7 @@ var TCoE_Deft_Explorer = function () {
 			]),
 			action : [["action", ""]],
 			additional : "1d8 + Wis Mod",
-			usages: "Prof. Bonus per ",
+			usages: "Prof Bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -4013,9 +4001,10 @@ var TCoE_Additional_Ranger_Spells = {
 			},
 			"This optional class feature expands the spell list of the ranger class with the following spells (spell level in brackets): Entangle (1), Searing Smite (1), Aid (2), Enhance Ability (2), Gust of Wind (2), Magic Weapon (2), Elemental Weapon (3), Meld into Stone (3), Revivify (3), Dominate Beast (4), and Greater Restoration (5)."
 		]
-	}
+	},
+	prereqeval : function (v) { return (classes.known.ranger && classes.known.ranger.level >= 2) || (classes.known.rangerau && classes.known.rangerau.level >= 2) ? true : "skip"; }
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Additional Ranger Spells", TCoE_Additional_Ranger_Spells, "Optional 2nd-level ranger features");
+AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Additional Ranger Spells (prereq: level 2 ranger)", TCoE_Additional_Ranger_Spells, "Optional ranger features");
 // Blind Fighting & Thrown Weapon Fighting already added in the Fighter Options section
 AddFightingStyle(["ranger"], "Druidic Warrior", {
 	name : "Druidic Warrior Fighting Style",
@@ -4035,9 +4024,10 @@ var TCoE_Ranger_Spellcasting_Focus = {
 	name : "Spellcasting Focus",
 	extraname : "Optional Ranger 2",
 	source : [["T", 57], ["UA:CFV", 8]],
-	description : "\n   I can use a druidic focus as a spellcasting focus for my ranger spells"
+	description : "\n   I can use a druidic focus as a spellcasting focus for my ranger spells",
+	prereqeval : function (v) { return (classes.known.ranger && classes.known.ranger.level >= 2) || (classes.known.rangerau && classes.known.rangerau.level >= 2) ? true : "skip"; }
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spellcasting Focus", TCoE_Ranger_Spellcasting_Focus, "Optional 2nd-level ranger features");
+AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spellcasting Focus (prereq: level 2 ranger)", TCoE_Ranger_Spellcasting_Focus, "Optional ranger features");
 var TCoE_Primal_Awareness = {
 	name : "Primal Awareness",
 	source : [["T", 57]],
@@ -4073,9 +4063,9 @@ var TCoE_Ranger_Martial_Versatility = {
 	extraname : "Optional Ranger 4",
 	source : [["T", 57]],
 	description : " [ASI = Ability Score Improvement]\n   Whenever I gain an ASI from the ranger class, I can change my ranger fighting style",
-	prereqeval : function (v) { return classes.known.ranger && classes.known.ranger.level >= 4 ? true : classes.known.rangerau && classes.known.rangerau.level >= 4 ? true : "skip"; }
+	prereqeval : function (v) { return (classes.known.ranger && classes.known.ranger.level >= 4) || (classes.known.rangerau && classes.known.rangerau.level >= 4) ? true : "skip"; }
 };
-AddFeatureChoice(ClassList.ranger.features['primeval awareness'], true, "Martial Versatility", TCoE_Ranger_Martial_Versatility, "Optional 4th-level ranger features");
+AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Martial Versatility (prereq: level 4 ranger)", TCoE_Ranger_Martial_Versatility, "Optional ranger features");
 var TCoE_Natures_Veil = {
 	name : "Nature's Veil",
 	source : [["T", 57]],
@@ -4112,9 +4102,10 @@ RunFunctionAtEnd(function() {
 	// Now add the alternative class feature as another choice
 	AddFeatureChoice(ClassList.rangerua.features["favored enemy"], false, "[alternative feature] Favored Foe", TCoE_Favored_Foe);
 
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spellcasting Focus", TCoE_Ranger_Spellcasting_Focus, "Optional 2nd-level ranger features");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Additional Ranger Spells (prereq: level 2 ranger)", TCoE_Additional_Ranger_Spells, "Optional ranger features");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spellcasting Focus (prereq: level 2 ranger)", TCoE_Ranger_Spellcasting_Focus, "Optional ranger features");
 	CreateClassFeatureVariant("rangerua", "primeval awareness", "Primal Awareness", TCoE_Primal_Awareness);
-	AddFeatureChoice(ClassList.rangerua.features['primeval awareness'], true, "Martial Versatility", TCoE_Ranger_Martial_Versatility, "Optional 4th-level ranger features");
+	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Martial Versatility (prereq: level 4 ranger)", TCoE_Ranger_Martial_Versatility, "Optional ranger features");
 	CreateClassFeatureVariant("rangerua", "hide in plain sight", "Nature's Veil", TCoE_Natures_Veil);
 });
 
@@ -4615,7 +4606,7 @@ AddSubClass("rogue", "phantom", {
 				["action", "Destroy Soul Trinket"]
 			],
 			extraLimitedFeatures : [{
-				name : "Soul Trinkets (max Prof. Bonus)",
+				name : "Soul Trinkets (max Prof Bonus)",
 				usages : "",
 				recovery : "Special"
 			}],
@@ -4688,7 +4679,7 @@ AddSubClass("rogue", "soulknife", {
 				name : "Psionic Power: Psychic Whispers",
 				source : [["T", 64]],
 				description : desc([
-					"As an action, I can select my Prof. Bonus of creatures I can see and roll a psionic energy die",
+					"As an action, I can select my Prof Bonus of creatures I can see and roll a psionic energy die",
 					"For the roll of hours, I can telepathically communicate with each and they with me",
 					"To send or receive messages (no action), we must be within 1 mile of each other",
 					"A creature must be able to speak a language to do this; It can end the link at any time",
@@ -4781,7 +4772,7 @@ AddSubClass("rogue", "soulknife", {
 			minlevel : 17,
 			description : desc([
 				"When I use my psychic blade to deal sneak attack damage to a target, I can have it save",
-				"It must make a Wisdom save (DC 8 + Prof. Bonus + Dex mod) or be stunned for 1 min",
+				"It must make a Wisdom save (DC 8 + Prof Bonus + Dex mod) or be stunned for 1 min",
 				"It can repeat the save at the end of each of its turns to end being stunned",
 				"I can do this once per long rest, or by expending three psionic energy dice (3 PsiD)"
 			]),
@@ -5132,7 +5123,7 @@ AddWarlockPactBoon("Pact of the Talisman", {
 	description : desc([
 		"When the wearer of this amulet fails an ability check, they can add +1d4 to the roll",
 		"I can give the talisman to others to use; The talisman turns to ash when I die",
-		"If I lose my talisman, I can preform an 1-hour ceremony to gain a replacement",
+		"If I lose my talisman, I can preform a 1-hour ceremony to gain a replacement",
 		"This ceremony destroys the previous amulet and can be done during a short or long rest"
 	]),
 	usages: "Proficiency bonus per ",
@@ -5532,7 +5523,7 @@ AddSubClass("warlock", "the genie", {
 			choicesNotInMenu : true,
 			"dao (earth)" : {
 				name : "Dao's Wrath",
-				description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof. Bonus in extra bludgeoning damage",
+				description : " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof Bonus in extra bludgeoning damage",
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -5635,7 +5626,7 @@ AddSubClass("warlock", "the genie", {
 				dmgres : ["Cold"]
 			},
 			additional : "Fly 10 min",
-			usages : "Prof. Bonus per ",
+			usages : "Prof Bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -6163,7 +6154,7 @@ FeatsList["poisoner"] = {
 	name : "Poisoner",
 	source : [["T", 80], ["UA:F2", 2]],
 	descriptionFull : "You can prepare and deliver deadly poisons, granting you the following benefits:\n \u2022 When you make a damage roll that deals poison damage, it ignores resistance to poison damage.\n \u2022 You can apply poison to a weapon or piece of ammunition as a bonus action, instead of an action.\n \u2022 You gain proficiency with the poisoner's kit if you don't already have it. With one hour of work using a poisoner's kit and expending 50 gp worth of materials, you can create a number of doses of potent poison equal to your proficiency bonus. Once applied to a weapon or piece of ammunition, the poison retains its potency for 1 minute or until you hit with the weapon or ammunition. When a creature takes damage from the coated weapon or ammunition, that creature must succeed on a DC 14 Constitution saving throw or take 2d8 poison damage and become poisoned until the end of your next turn.",
-	description : "My poison damage rolls ignore poison resistance. As a bonus action, I can apply poison to a weapon or piece of ammo. I can use a poisoner's kit and 50 gp to create my Prof. Bonus doses of poison in 1 hour. Potent 1 min after applying. DC 14 Con save or 2d8 poison damage and poisoned until the end of my next turn.",
+	description : "My poison damage rolls ignore poison resistance. As a bonus action, I can apply poison to a weapon or piece of ammo. I can use a poisoner's kit and 50 gp to create my Prof Bonus doses of poison in 1 hour. Potent 1 min after applying. DC 14 Con save or 2d8 poison damage and poisoned until the end of my next turn.",
 	toolProfs : ["Poisoner's kit"],
 	action : [["bonus action", "Apply poison to weapon/ammo"]]
 };
@@ -6756,7 +6747,7 @@ MagicItemsList["absorbing tattoo"] = function() {
 		"\n   8\tPsychic\t\tSilver"+
 		"\n   9\tRadiant\t\tGold"+
 		"\n 10\tThunder\t\tOrange"+
-		"\n\n   " + toUni("Damage Absorption") + ". When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reactino is used, it can't be used again until the next dawn." + magicTattoosTxt.unicode,
+		"\n\n   " + toUni("Damage Absorption") + ". When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reaction is used, it can't be used again until the next dawn." + magicTattoosTxt.unicode,
 		usages : 1,
 		recovery : "dawn",
 		additional : "Immunity",
@@ -7616,7 +7607,7 @@ MagicItemsList["crystalline chronicle"] = {
 	prerequisite : "Requires attunement by a wizard",
 	prereqeval : function(v) { return classes.known.wizard ? true : false; },
 	description : "I can use this orb with spells as a wizard spellcasting focus and spellbook. It lets me use Mage Hand, Mind Sliver, and Message. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to another within. I can use 1 charge to ignore components of a wizard spell (max 100 gp).",
-	descriptionLong : "This faintly humming etched crystal sphere hums pulses with irregular flares of inner light. I can retrieve and store information within the crystal as a spellbook by touching it. It contains several spells and has 3 charges, regaining 1d3 at dawn. While holding it, I can use it as a spellcasting focus for my wizard spells, I know the Mage Hand, Mind Sliver, and Message cantrips, I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to another within, and when I cast a wizard spell, I can expend 1 charge to cast it without verbal, somatic, or material components of up to 100 gp value.",
+	descriptionLong : "This grapefruit sized, etched crystal sphere hums pulses with irregular flares of inner light. I can retrieve and store information within the crystal as a spellbook by touching it. It contains several spells and has 3 charges, regaining 1d3 at dawn. While holding it, I can use it as a spellcasting focus for my wizard spells, I know the Mage Hand, Mind Sliver, and Message cantrips, I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to another within, and when I cast a wizard spell, I can expend 1 charge to cast it without verbal, somatic, or material components of up to 100 gp value.",
 	descriptionFull : "An etched crystal sphere the size of a grapefruit hums faintly and pulses with irregular flares of inner light. While you are touching the crystal, you can retrieve and store information and spells within the crystal at the same rate as reading and writing. When found, the crystal contains the following spells: detect thoughts, intellect fortress, Rary's telepathic bond, sending, telekinesis, Tasha's mind whip, and Tenser's floating disk. It functions as a spellbook for you, with its spells and other writing psychically encoded within it."+
 	"\n   While you are holding the crystal, you can use it as a spellcasting focus for your wizard spells, and you know the mage hand, mind sliver, and message cantrips if you don't already know them."+
 	"\n   The crystal has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+

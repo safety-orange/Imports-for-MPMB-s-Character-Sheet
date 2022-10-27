@@ -15,7 +15,7 @@ SourceList["DiA"] = {
 BackgroundList["faceless"] = {
 	regExpSearch : /faceless/i,
 	name : "Faceless",
-	source : ["DiA", 203],
+	source : [["DiA", 203]],
 	skills : ["Deception", "Intimidation"],
 	gold : 10,
 	languageProfs : [1],
@@ -155,7 +155,8 @@ BackgroundFeatureList["gateguide connection"] = {
 
 CreatureList["abyssal chicken"] = {
 	name : "Abyssal Chicken",
-	source : ["DiA", 97],
+	nameAlt : ["Chicken, Abyssal"],
+	source : [["DiA", 97]],
 	size : 5,
 	type : "Fiend",
 	subtype : "demon",
@@ -198,9 +199,27 @@ CreatureList["abyssal chicken"] = {
 	}]
 }
 
+MagicItemsList["candle mace"] = { // contributed by Nod_Hero
+	name : "Candle Mace",
+	source : [["DiA", 39]],
+	type : "weapon (mace)",
+	rarity : "uncommon",
+	description : "This mace adds a +1 bonus to attack and damage rolls made with it. The head of this mace sheds bright light in a 5-ft radius and dim light for an additional 5 ft. As an action when I wield this mace, I can extinguish or ignite its light.",
+	descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of this mace sheds bright light in a 5-foot-radius and dim light for an additional 5 feet. When you wield this mace, you can extinguish or ignite its light as an action.",
+	weight : 4,
+	action : [["action", " (on/off)"]],
+	weaponsAdd : ["Candle Mace"],
+	weaponOptions : [{
+		baseWeapon : "mace",
+		regExpSearch : /^(?=.*candle)(?=.*mace).*$/i,
+		name : "Candle Mace",
+		source : [["DiA", 39]],
+		modifiers : [1, 1]
+	}]
+}
 MagicItemsList["battle standard of infernal power"] = {
 	name : "Battle Standard of Infernal Power",
-	source : ["DiA", 223],
+	source : [["DiA", 223]],
 	type : "wondrous item",
 	rarity : "very rare",
 	description : "While holding the banner, my weapon attacks and those of my allies within 300 ft of me count as magical for the purposes of overcoming damage immunities and resistances. The standard has a small unopenable cage with an incapacitated quasit within. It turns to smoke if killed or released and a new one appears.",
@@ -220,7 +239,7 @@ MagicItemsList["battle standard of infernal power"] = {
 }
 MagicItemsList["gauntlets of flaming fury"] = {
 	name : "Gauntlets of Flaming Fury",
-	source : ["DiA", 223],
+	source : [["DiA", 223]],
 	type : "wondrous item",
 	rarity : "rare",
 	description : "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This last until I sheath or let go of a weapon.",
@@ -242,7 +261,7 @@ MagicItemsList["gauntlets of flaming fury"] = {
 }
 MagicItemsList["fane-eater"] = {
 	name : "Fane-Eater",
-	source : ["DiA", 223],
+	source : [["DiA", 223]],
 	type : "weapon (battleaxe)",
 	rarity : "legendary",
 	description : "This battleaxe adds a +3 bonus to attack and damage rolls made with it. When I use it to attack a creature and roll a 20 on the attack roll, the creature takes an extra 2d8 necrotic damage, and I regain a number of hit points equal to the necrotic damage taken.",
@@ -256,14 +275,14 @@ MagicItemsList["fane-eater"] = {
 		baseWeapon : "battleaxe",
 		regExpSearch : /fane-eater/i,
 		name : "Fane-Eater",
-		source : ["DiA", 223],
+		source : [["DiA", 223]],
 		description : "Versatile (1d10); On 20 to hit: +2d8 necrotic damage and I heal same amount"
 	}
 }
 MagicItemsList["hellfire weapon"] = {
 	name : "Hellfire Weapon",
 	nameTest : "Hellfire",
-	source : ["DiA", 223],
+	source : [["DiA", 223]],
 	type : "weapon (any)",
 	rarity : "uncommon",
 	description : "This weapon is fashioned from infernal iron and traced with veins of hellfire that shed dim light in a 5-ft radius. Any humanoid killed by an attack made with this weapon has its soul funneled into the River Styx, where it's reborn instantly as a lemure devil.",
@@ -288,7 +307,7 @@ MagicItemsList["hellfire weapon"] = {
 }
 MagicItemsList["helm of devil command"] = {
 	name : "Helm of Devil Command",
-	source : ["DiA", 223],
+	source : [["DiA", 223]],
 	type : "wondrous item",
 	rarity : "very rare",
 	description : "This helm has 3 charges, regaining all 24 h after using the last. I can use 1 charge to cast Dominate Monster on a devil, but it knows I tried to charm it. It allows me to know the exact location of all devils within 1000 ft and I can telepathically communicate with one of them at a time, or broadcast my thoughts to all.",
@@ -316,7 +335,7 @@ MagicItemsList["helm of devil command"] = {
 }
 MagicItemsList["infernal puzzle box"] = {
 	name : "Infernal Puzzle Box",
-	source : ["DiA", 224],
+	source : [["DiA", 224]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts. It can't be magically opened and is immune to all damage. I can figure out how to open it in 1 hour with a DC 30 Investigation check. If failed by 5 or more, I take 12d6 psychic damage, Wis DC 18 halves.",
@@ -360,7 +379,7 @@ if (!SourceList.MToF) {
 } // dupl_end
 MagicItemsList["matalotok"] = {
 	name : "Matalotok",
-	source : ["DiA", 224],
+	source : [["DiA", 224]],
 	type : "weapon (warhammer)",
 	rarity : "legendary",
 	description : "This ancient warhammer, the Frost Father, was fashioned by Thrym. It is frigid to the touch and wreathed in mist. I'm immune to cold damage while holding it. Whenever I deal damage to a creature with it, it radiates a burst of intense cold in a 30-ft radius sphere, dealing 3d6 cold damage to all creatures within.",
@@ -372,14 +391,14 @@ MagicItemsList["matalotok"] = {
 		baseWeapon : "warhammer",
 		regExpSearch : /matalotok/i,
 		name : "Matalotok",
-		source : ["DiA", 224],
+		source : [["DiA", 224]],
 		description : "Versatile (1d10); On hit: all in 30-ft radius take 3d6 cold damage"
 	},
 	savetxt : { immune : ["cold"] }
 }
 MagicItemsList["obsidian flint dragon plate"] = {
 	name : "Obsidian Flint Dragon Plate",
-	source : ["DiA", 224],
+	source : [["DiA", 224]],
 	type : "armor (plate)",
 	rarity : "legendary",
 	description : "I gain a +2 bonus to AC and resistance to poison damage while I wear this plate armor. In addition, I gain advantage on ability checks and saving throws made to avoid or end the grappled condition on myself.",
@@ -388,7 +407,7 @@ MagicItemsList["obsidian flint dragon plate"] = {
 	armorOptions : {
 		regExpSearch : /^(?=.*obsidian)(?=.*flint)(?=.*dragon)(?=.*plate).*$/i,
 		name : "Obsidian Flint Dragon Plate",
-		source : ["DiA", 224],
+		source : [["DiA", 224]],
 		type : "heavy",
 		ac : 20,
 		stealthdis : true,
@@ -414,7 +433,7 @@ var DiA_shieldOfTheHiddenLordFullDescription = [
 ];
 MagicItemsList["shield of the hidden lord"] = {
 	name : "Shield of the Hidden Lord",
-	source : ["DiA", 225],
+	source : [["DiA", 225]],
 	type : "shield",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -464,7 +483,7 @@ var DiA_soulCoinFullDescription = [
 ];
 MagicItemsList["soul coin"] = {
 	name : "Soul Coin",
-	source : ["DiA", 225],
+	source : [["DiA", 225]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",

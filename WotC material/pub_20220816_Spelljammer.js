@@ -5,7 +5,7 @@ RequiredSheetVersion("13.1.1");
 	(the "Astral Adventurer's Guide" book and the "Boo's Astral Menagerie" book)
 	to MPMB's Character Record Sheet
 
-	Includes many contributions by NodHero
+	Includes many contributions by Nod_Hero
 
 	- ERRATA -
 	Note that this document includes the "Spelljammer: Adventures in Space" Errata
@@ -173,14 +173,14 @@ RaceList["autognome"] = {
 	trait : typePF ?
 		"Autognome (my creature type is Construct)"+
 		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier."+
-		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect."+
+		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect."+
 		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe."+
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious."+
 		"\n \u2022 Healing Machine: Cure Wounds, Healing Word, and Spare the Dying work on me. If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
 		:
 		"Autognome (my creature type is Construct; I don't need to eat, drink or breathe)"+
 		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier."+
-		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects."+
+		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects."+
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless."+
 		"\n \u2022 Healing Machine: Cure Wounds, Healing Word, and Spare the Dying work on me. If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
 };
@@ -392,6 +392,7 @@ MagicItemsList["wildspace orrery"] = {
 // Beasts from Boo's Astral Menagerie
 CreatureList["space eel"] = {
 	name : "Space Eel",
+	nameAlt : ["Eel, Space"],
 	source : [["S:AiS", 55]], // page number in Boo's Astral Menagerie
 	size : 4,
 	type : "Beast",
@@ -444,6 +445,7 @@ CreatureList["space eel"] = {
 };
 CreatureList["space guppy"] = {
 	name : "Space Guppy",
+	nameAlt : ["Guppy, Space"],
 	source : [["S:AiS", 55]], // page number in Boo's Astral Menagerie
 	size : 4,
 	type : "Beast",
@@ -474,6 +476,7 @@ CreatureList["space guppy"] = {
 };
 CreatureList["giant space hamster"] = {
 	name : "Giant Space Hamster",
+	nameAlt : ["Hamster, Giant Space"],
 	source : [["S:AiS", 56]], // page number in Boo's Astral Menagerie
 	size : 2,
 	type : "Beast",
@@ -497,6 +500,7 @@ CreatureList["giant space hamster"] = {
 };
 CreatureList["space mollymawk"] = {
 	name : "Space Mollymawk",
+	nameAlt : ["Mollymawk, Space"],
 	source : [["S:AiS", 57]], // page number in Boo's Astral Menagerie
 	size : 4,
 	type : "Beast",
@@ -530,6 +534,7 @@ CreatureList["space mollymawk"] = {
 };
 CreatureList["space swine"] = {
 	name : "Space Swine",
+	nameAlt : ["Swine, Space"],
 	source : [["S:AiS", 57]], // page number in Boo's Astral Menagerie
 	size : 3,
 	type : "Beast",

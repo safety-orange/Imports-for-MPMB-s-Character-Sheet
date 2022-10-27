@@ -13,9 +13,27 @@ SourceList["WDotMM"] = {
 };
 
 // Magic Items
+MagicItemsList["potion of comprehension"] = {
+	name : "Potion of Comprehension",
+	source : [["WDotMM", 62]],
+	type : "potion",
+	rarity : "common",
+	description : "Once as an action, I can drink this potion or administer it to another to gain the effect of the Comprehend Languages spell. The consumer understands the literal meaning of any spoken language heard or written text touched and read. This liquid is a clear concoction with bits of salt and soot swirling in it.",
+	descriptionFull : "When you drink this potion, you gain the effect of a comprehend languages spell for 1 hour. This liquid is a clear concoction with bits of salt and soot swirling in it.",
+	weight : 0.5
+};
+MagicItemsList["potion of watchful rest"] = { // contains contributions by Nod_Hero
+	name : "Potion of Watchful Rest",
+	source : [["WDotMM", 62]],
+	type : "potion",
+	rarity : "common",
+	description : "Once as an action, I can drink this weet, amber-colored potion or administer it to another to gain the following benefits for the next 8 hours: magic can't put the consumer to sleep, and they can remain awake during a long rest and still gain its benefits. This brew has no effect on creatures that don't require sleep.",
+	descriptionFull : "When you drink this potion, you gain the following benefits for the next 8 hours: magic can't put you to sleep, and you can remain awake during a long rest and still gain its benefits. This sweet, amber-colored brew has no effect on creatures that don't require sleep, such as elves.",
+	weight : 0.5
+};
 MagicItemsList["dagger of blindsight"] = {
 	name : "Dagger of Blindsight",
-	source : ["WDotMM", 86],
+	source : [["WDotMM", 86]],
 	type : "weapon (dagger)",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -38,7 +56,7 @@ MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
 AddFeatureChoice(MagicItemsList["horn of valhalla"], false, "Endless Maze (rare; 3d4+3 berserkers; prereq: simple weapons prof.)", {
 	name : "Horn of the Endless Maze",
 	sortname : "Horn of Valhalla, Endless Maze",
-	source : ["WDotMM", 163],
+	source : [["WDotMM", 163]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G", // interpretation, made it the same as Brass Horn of Valhalla,
@@ -47,7 +65,7 @@ AddFeatureChoice(MagicItemsList["horn of valhalla"], false, "Endless Maze (rare;
 });
 MagicItemsList["dodecahedron of doom"] = {
 	name : "Dodecahedron of Doom",
-	source : ["WDotMM", 174],
+	source : [["WDotMM", 174]],
 	type : "wondrous item",
 	rarity : "rare",
 	notLegalAL : true,
@@ -71,7 +89,7 @@ MagicItemsList["dodecahedron of doom"] = {
 }
 MagicItemsList["orb of gonging"] = { // contains contributions by Pengsloth
 	name : "Orb of Gonging",
-	source : ["WDotMM", 174],
+	source : [["WDotMM", 174]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "This item is a hollow, 5-inch-diameter orb with notches along its outside bronze rings. As an action, I can align the notches, causing the orb to gong loudly until the notches are no longer aligned. The sounds are spaced 6 seconds apart and can be heard out to a range of 600 ft.",
@@ -79,7 +97,7 @@ MagicItemsList["orb of gonging"] = { // contains contributions by Pengsloth
 }
 MagicItemsList["black crystal tablet"] = { // contains contributions by Pengsloth
 	name : "Black Crystal Tablet",
-	source : ["WDotMM", 284],
+	source : [["WDotMM", 284]],
 	type : "wondrous item",
 	rarity : "legendary",
 	magicItemTable : "I",
@@ -107,7 +125,7 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 }
 MagicItemsList["helm of the scavenger"] = {
 	name : "Helm of the Scavenger",
-	source : ["WDotMM", 297],
+	source : [["WDotMM", 297]],
 	type : "wondrous item",
 	rarity : "legendary",
 	notLegalAL : true,
@@ -132,7 +150,7 @@ MagicItemsList["helm of the scavenger"] = {
 }
 MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengsloth
 	name : "Shield of the Uven Rune",
-	source : ["WDotMM", 299],
+	source : [["WDotMM", 299]],
 	storyItemAL : true,
 	description : "I can use the shield as it is, or transfer its runic properties over to a weapon.",
 	descriptionFull : "This shield is made from the scale of an ancient white dragon. It has a rune burned into its outward-facing side. A character who examines the rune and succeeds on a DC 20 Intelligence (History) check recognizes it as an uven (\"enemy\" in Giant) rune that confers great power.\n   While holding the shield, you benefit from the following properties.\n   " + toUni("Winter's Friend") + ". You are immune to cold damage.\n   " + toUni("Deadly Rebuke") + ". Immediately after a creature hits you with a melee attack, you can use your reaction to deal 3d6 necrotic damage to that creature.\n   " + toUni("Bane") + ". You can cast the Bane spell from the shield (save DC 17). The spell does not require concentration and lasts for 1 minute. Once you cast the spell from the shield, you can't do so again until you finish a short or long rest.\n   " + toUni("Gift of Vengeance") + ". You can transfer the shield's magic to a nonmagical weapon by tracing the uven rune on the weapon with one finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the shield is destroyed, and the rune is etched or burned into the chosen weapon. This weapon becomes a rare magic item that requires attunement. It has the properties of a +1 weapon. The bonus increases to +3 when the weapon is used against one of the following creature types, chosen by you at the time of the magic weapon's creation: aberrations, celestials, constructs, dragons, elementals, fey, fiends, giants, or undead.",
@@ -199,7 +217,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 }
 MagicItemsList["blast scepter"] = { // contains contributions by Pengsloth
 	name : "Blast Scepter",
-	source : ["WDotMM", 310],
+	source : [["WDotMM", 310]],
 	type : "rod",
 	rarity : "very rare",
 	storyItemAL : true,
@@ -224,7 +242,7 @@ MagicItemsList["blast scepter"] = { // contains contributions by Pengsloth
 }
 MagicItemsList["chest of preserving"] = {
 	name : "Chest of Preserving",
-	source : ["WDotMM", 139],
+	source : [["WDotMM", 139]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "Food and other perishable items do not age or decay while inside this chest. It is 2.5 ft long, 1.5 ft wide, and 1 ft tall with a half-barrel lid. The chest has a lock, which can be picked with thieves' tools and a successful DC 15 Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical.",
@@ -233,7 +251,7 @@ MagicItemsList["chest of preserving"] = {
 }
 MagicItemsList["circlet of human perfection"] = { // contains contributions by Pengsloth
 	name : "Circlet of Human Perfection",
-	source : ["WDotMM", 30],
+	source : [["WDotMM", 30]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -244,7 +262,7 @@ MagicItemsList["circlet of human perfection"] = { // contains contributions by P
 }
 MagicItemsList["propeller helm"] = { // contains contributions by Pengsloth
 	name : "Propeller Helm",
-	source : ["WDotMM", 251],
+	source : [["WDotMM", 251]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -262,7 +280,7 @@ MagicItemsList["propeller helm"] = { // contains contributions by Pengsloth
 }
 MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	name : "Tearulai",
-	source : ["WDotMM", 76],
+	source : [["WDotMM", 76]],
 	type : "weapon (longsword)",
 	rarity : "very rare",
 	storyItemAL : true,
@@ -277,7 +295,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 		baseWeapon : "longsword",
 		regExpSearch : /tearulai/i,
 		name : "Tearulai",
-		source : ["WDMM", 76],
+		source : [["WDotMM", 76]],
 		description : "Versatile (1d10); On 20 to hit: +14 damage \u0026 5% chance to sever limb; Max damage vs. objects"
 	},
 	usages: 6,
@@ -314,7 +332,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 }
 MagicItemsList["vial of stardust"] = {
 	name : "Vial of Stardust",
-	source : ["WDotMM", 251],
+	source : [["WDotMM", 251]],
 	type : "potion",
 	rarity : "unknown",
 	description : "Once as an action, I can sprinkles the stardust contained in this vial over myself. After I do so, I gain the ability to cast Dream once as an action (spell save DC 15), requiring no components.",

@@ -16,7 +16,7 @@ RaceList["avariel-ua"] = {
 	regExpSearch : /^(?!.*half)((?=.*avariel)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(winged?|wings?|flying|air)\b))).*$/i,
 	name : "Avariel",
 	sortname : "Elf, Winged (Avariel)",
-	source : ["UA:ES", 1],
+	source : [["UA:ES", 1]],
 	plural : "Avariel",
 	size : 3,
 	speed : {
@@ -42,7 +42,7 @@ RaceList["grugach elf-ua"] = {
 	regExpSearch : /^(?!.*half)((?=.*grugach)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(wilds?|wilderness)\b))).*$/i,
 	name : "Grugach",
 	sortname : "Elf, Wild (Grugach)",
-	source : ["UA:ES", 1],
+	source : [["UA:ES", 1]],
 	plural : "Grugach",
 	size : 3,
 	speed : {
@@ -116,7 +116,7 @@ RaceList["shadar-kai elf-ua"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name : "Shadar-kai",
 	sortname : "Elf, Shadow (Shadar-kai)",
-	source : ["UA:ES", 2],
+	source : [["UA:ES", 2]],
 	plural : "Shadar-kai",
 	size : 3,
 	speed : {

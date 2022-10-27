@@ -16,7 +16,7 @@ RaceList["abyssal tiefling-ua"] = {
 	regExpSearch : /^(?=.*abyssal)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
 	name : "Abyssal tiefling",
 	sortname : "Tiefling, Abyssal",
-	source : ["UA:TOBM", 1],
+	source : [["UA:TOBM", 1]],
 	plural : "Abyssal tieflings",
 	size : 3,
 	speed : {

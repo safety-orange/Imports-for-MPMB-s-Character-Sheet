@@ -399,7 +399,7 @@ RaceList["dispater tiefling-ua"] = {
 	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
 	name : "Dispater tiefling",
 	sortname : "Tiefling, Dispater",
-	source : ["UA:FO", 1],
+	source : [["UA:FO", 1]],
 	plural : "Dispater tieflings",
 	size : 3,
 	speed : {
@@ -455,7 +455,7 @@ RaceList["mephistopheles tiefling-ua"] = {
 	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
 	name : "Mephistopheles tiefling",
 	sortname : "Tiefling, Mephistopheles",
-	source : ["UA:FO", 2],
+	source : [["UA:FO", 2]],
 	plural : "Mephistopheles tieflings",
 	size : 3,
 	speed : {

@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.3");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -1939,18 +1939,6 @@ RunFunctionAtEnd(function() {
 			}
 		}
 	}
-	var getLetterRange = function(str) {
-		var iCharNr = removeDiacritics(str[0].toLowerCase()).charCodeAt(0) - 97;
-		var oOpt = {
-			"A-F" : ("f").charCodeAt(0) - 97,
-			"G-Q" : ("q").charCodeAt(0) - 97,
-			"R-Z" : ("z").charCodeAt(0) - 97,
-		}
-		for (var sRng in oOpt) {
-			if (iCharNr <= oOpt[sRng]) return sRng;
-		}
-		return sRng; // higher than the last, so just return the last
-	};
 	var theObj = ClassList.artificer.features["infuse item"];
 	for (var a = 0; a < artMi.length; a++) {
 		var MI0 = artMi[a][0];
@@ -1976,7 +1964,7 @@ RunFunctionAtEnd(function() {
 			magicitemsAdd : [anArtMi.name],
 			additional : anArtMi.attunement ? "requires attunement" : undefined,
 			prereqeval : MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
-			submenu : "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" "+MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name) + "]")
+			submenu : "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" "+MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name, ["A-F", "G-Q", "R-Z"]) + "]")
 		};
 		theObj.extrachoices.push(theI);
 	};
@@ -3440,4 +3428,139 @@ CreatureList["fastieth"] = {
 		name : "Quickness (Recharge 5-6)",
 		description : "The fastieth can take the Dodge action as a bonus action."
 	}]
+};
+ERftLW_Valenar_Ancestral_Traits = [
+	"\u25C6 [Variant] Ancestral Traits: Each Valenar animal can be customized with an ancestral gift, a supernatural trait granted by its ancestral spirit. Choose a trait or roll on the table below for each Valenar animal.",
+	" d8\tTrait",
+	"  1\tBestow Luck (1/day): As a bonus action, the animal chooses one creature it can see",
+		"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
+		"\tmakes in the next hour has advantage.",
+	"  2\tBurst of Speed (recharge 6): The animal can take the Dash action as a bonus action.",
+	"  3\tCamouflage: The animal has advantage on Dexterity (Stealth) checks it makes while",
+		"\toutdoors.",
+	"  4\tLie Detector: The animal knows when a creature within 15 ft of it tells a lie.",
+	"  5\tFey Ancestry: The animal has advantage on saving throws against being charmed or",
+		"\tfrightened, and magic can't put it to sleep.",
+	"  6\tFey Step (1/day): The animal, along with anything it is wearing or carrying,",
+		"\tteleports up to 30 ft to an unoccupied space it can see.",
+	"  7\tQuickness (recharge 6): The animal can take the Dodge action as a bonus action.",
+	"  8\tShrouded Step. The animal can't be tracked except by magical means, and it leaves",
+		"\tbehind no tracks or other traces of its passage."
+].join("\n");
+CreatureList["valenar hawk"] = { // contributed by Nod_Hero
+	name : "Valenar Hawk",
+	source : [["E:RLW", 312]],
+	size : 5,
+	type : "Fey",
+	alignment : "Neutral",
+	ac : 14,
+	hp : 10,
+	hd : [4, 4],
+	speed : "10 ft, fly 60 ft",
+	scores : [8, 18, 10, 9, 16, 11],
+	skills : {
+		"perception" : 5
+	},
+	senses : "Adv. on Wis (Perception) checks using sight",
+	passivePerception : 15,
+	languages : "understands Common, Elvish, and Sylvan but can't speak",
+	challengeRating : "1/8",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Talons",
+		ability : 2,
+		damage : [1, 4, "slashing"],
+		range : "Melee (5 ft)"
+	}],
+	traits : [{
+		name : "Keen Sight",
+		description : "The hawk has advantage on Wisdom (Perception) checks that rely on sight."
+	}, {
+		name : "Bonding",
+		description : "The hawk can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hawk bonds with a different creature or until the bonded creature dies. While bonded, the hawk and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft."
+	}],
+	eval : function(prefix, lvl) {
+		AddString(prefix + 'Cnote.Left', ERftLW_Valenar_Ancestral_Traits, true);
+	},
+	removeeval : function(prefix, lvl) {
+		RemoveString(prefix + 'Cnote.Left', ERftLW_Valenar_Ancestral_Traits, true);
+	}
+};
+CreatureList["valenar hound"] = { // contributed by Nod_Hero
+	name : "Valenar Hound",
+	source : [["E:RLW", 312]],
+	size : 3,
+	type : "Fey",
+	alignment : "Neutral",
+	ac : 14,
+	hp : 19,
+	hd : [3, 8],
+	speed : "40 ft",
+	scores : [17, 15, 14, 10, 15, 11],
+	skills : {
+		"perception" : 4
+	},
+	senses : "Adv. on Wis (Perception) checks using hearing/smell",
+	passivePerception : 14,
+	languages : "understands Common, Elvish, and Sylvan but can't speak",
+	challengeRating : "1/2",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Bite",
+		ability : 1,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+		description : "Target must succeed on a DC 13 Strength saving throw or be knocked prone"
+	}],
+	traits : [{
+		name : "Keen Hearing and Smell",
+		description : "The hound has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+	}, {
+		name : "Bonding",
+		description : "The hound can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hound bonds with a different creature or until the bonded creature dies. While bonded, the hound and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft."
+	}],
+	eval : function(prefix, lvl) {
+		AddString(prefix + 'Cnote.Left', ERftLW_Valenar_Ancestral_Traits, true);
+	},
+	removeeval : function(prefix, lvl) {
+		RemoveString(prefix + 'Cnote.Left', ERftLW_Valenar_Ancestral_Traits, true);
+	}
+};
+CreatureList["valenar steed"] = { // contributed by Nod_Hero
+	name : "Valenar Steed",
+	source : [["E:RLW", 313]],
+	size : 2,
+	type : "Fey",
+	alignment : "Neutral",
+	ac : 13,
+	hp : 22,
+	hd : [3, 10],
+	speed : "60 ft",
+	scores : [14, 16, 14, 10, 15, 11],
+	skills : {
+		"perception" : 4
+	},
+	passivePerception : 14,
+	languages : "understands Common, Elvish, and Sylvan but can't speak",
+	challengeRating : "1/2",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Hooves",
+		ability : 2,
+		damage : [2, 6, "bludgeoning"],
+		range : "Melee (5 ft)"
+	}],
+	traits : [{
+		name : "Bonding",
+		description : "The steed can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the steed bonds with a different creature or until the bonded creature dies. While bonded, the steed and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft."
+	}],
+	eval : function(prefix, lvl) {
+		AddString(prefix + 'Cnote.Left', ERftLW_Valenar_Ancestral_Traits, true);
+	},
+	removeeval : function(prefix, lvl) {
+		RemoveString(prefix + 'Cnote.Left', ERftLW_Valenar_Ancestral_Traits, true);
+	}
 };

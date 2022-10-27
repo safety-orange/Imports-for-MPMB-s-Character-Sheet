@@ -30,7 +30,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 	features : {
 		"rune lore" : {
 			name : "Rune Lore",
-			source : ["UA:PCRM", 3],
+			source : [["UA:PCRM", 3]],
 			minlevel : 1,
 			description : desc([
 				"I learn the basics of scribing runes, and can activate all properties of a master rune",
@@ -42,7 +42,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 			extrachoices : ["Opal of the Ild Rune", "Orb of the Stein Rune", "Pennant of the Vind Rune", "Shard of the Kalt Rune"],	
 			"opal of the ild rune" : {
 				name : "Opal of the Ild Rune",
-				source : ["UA:PCRM", 4],
+				source : [["UA:PCRM", 4]],
 				description : " [rare, requires attunement]" + desc([
 					"- Ignite (simple): As an action, ignite touched flammable object; Fire extends 1 ft from it",
 					"- Fire Tamer (simple): As an action, extinguish touched open flame up to 10-ft radius",
@@ -60,7 +60,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 			},
 			"orb of the stein rune" : {
 				name : "Orb of the Stein Rune",
-				source : ["UA:PCRM", 5],
+				source : [["UA:PCRM", 5]],
 				description : " [rare, requires attunement]" + desc([
 					"- Indomitable Stand (simple): As an action, I gain abilities until I move",
 					"   I have advantage on all ability checks and saving throws to resist being moved",
@@ -99,7 +99,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 			},
 			"pennant of the vind rune" : {
 				name : "Pennant of the Vind Rune",
-				source : ["UA:PCRM", 5],
+				source : [["UA:PCRM", 5]],
 				description : " [rare, requires attunement]" + desc([
 					"- Comforting Wind (simple): While attuned, I can't suffocate or drown",
 					"   Also, I gain advantage on saves against inhaled poisons, toxins, and similar effects",
@@ -135,7 +135,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 			},
 			"shard of the kalt rune" : {
 				name : "Shard of the Kalt Rune",
-				source : ["UA:PCRM", 6],
+				source : [["UA:PCRM", 6]],
 				description : " [rare, requires attunement]" + desc([
 					"- Frigid Touch (simple): As an action, I freeze water that I touch a 10-ft radius",
 					"- Frost Friend (simple): While attuned, I have resistance to fire damage",
@@ -166,13 +166,13 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 		},
 		"runic magic" : {
 			name : "Runic Magic",
-			source : ["UA:PCRM", 3],
+			source : [["UA:PCRM", 3]],
 			minlevel : 1,
 			description : "\n   " + "I obtain spell slots as if gaining a level in a full spellcasting class, but don't learn spells"
 		},
 		"runic discovery" : {
 			name : "Runic Discovery",
-			source : ["UA:PCRM", 3],
+			source : [["UA:PCRM", 3]],
 			minlevel : 2,
 			description : desc([
 				"I know a number of master runes which I can attune to, even if not in my possession",
@@ -185,7 +185,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 		},
 		"living rune" : {
 			name : "Living Rune",
-			source : ["UA:PCRM", 3],
+			source : [["UA:PCRM", 3]],
 			minlevel : 4,
 			description : desc([
 				"I get 2 points that I can add to one or two of my ability scores as I see fit",
@@ -194,7 +194,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 		},
 		"rune mastery" : {
 			name : "Rune Mastery",
-			source : ["UA:PCRM", 3],
+			source : [["UA:PCRM", 3]],
 			minlevel : 5,
 			description : "\n   " + "One rune I'm attuned to doesn't count toward the limit of magic items I can attune to"
 		}

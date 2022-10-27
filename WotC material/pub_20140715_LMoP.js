@@ -15,7 +15,7 @@ SourceList["LMoP"] = {
 // Magic Items
 MagicItemsList["dragonguard"] = {
 	name : "Dragonguard",
-	source : ["LMoP", 48],
+	source : [["LMoP", 48]],
 	type : "armor (breastplate)",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -26,7 +26,7 @@ MagicItemsList["dragonguard"] = {
 	armorOptions: {
 		regExpSearch: /dragonguard/i,
 		name : "Dragonguard",
-		source : ["LMoP", 48],
+		source : [["LMoP", 48]],
 		type : "medium",
 		ac : 14,
 		weight : 20
@@ -35,7 +35,7 @@ MagicItemsList["dragonguard"] = {
 }
 MagicItemsList["hew"] = {
 	name : "Hew",
-	source : ["LMoP", 33],
+	source : [["LMoP", 33]],
 	type : "weapon (battleaxe)",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -47,14 +47,14 @@ MagicItemsList["hew"] = {
 		baseWeapon : "battleaxe",
 		regExpSearch : /\bhew\b/i,
 		name : "Hew",
-		source : ["LMoP", 33],
+		source : [["LMoP", 33]],
 		description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
 		modifiers : [1, 1]
 	}
 }
 MagicItemsList["lightbringer"] = {
 	name : "Lightbringer",
-	source : ["LMoP", 48],
+	source : [["LMoP", 48]],
 	type : "weapon (mace)",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -66,14 +66,14 @@ MagicItemsList["lightbringer"] = {
 		baseWeapon : "mace",
 		regExpSearch : /lightbringer/i,
 		name : "Lightbringer",
-		source : ["LMoP", 48],
+		source : [["LMoP", 48]],
 		description : "Command to glow as torch and deal +1d6 radiant damage to undead",
 		modifiers : [1, 1]
 	}
 }
 MagicItemsList["spider staff"] = {
 	name : "Spider Staff",
-	source : ["LMoP", 53],
+	source : [["LMoP", 53]],
 	type : "staff",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -89,7 +89,7 @@ MagicItemsList["spider staff"] = {
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*spider)(?=.*staff).*$/i,
 		name : "Spider Staff",
-		source : ["LMoP", 53],
+		source : [["LMoP", 53]],
 		description : "Versatile (1d8); +1d6 poison damage"
 	},
 	fixedDC : 15,
@@ -108,7 +108,7 @@ MagicItemsList["spider staff"] = {
 }
 MagicItemsList["staff of defense"] = {
 	name : "Staff of Defense",
-	source : ["LMoP", 53],
+	source : [["LMoP", 53]],
 	type : "staff",
 	rarity : "rare",
 	magicItemTable : "G",

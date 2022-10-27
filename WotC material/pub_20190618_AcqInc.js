@@ -16,7 +16,7 @@ SourceList["AcqInc"] = {
 BackgroundList["celebrity adventurer's scion"] = {
 	regExpSearch : /^(?=.*celebrity)(?=.*adventurer)(?=.*scion).*$/i,
 	name : "Celebrity Adventurer's Scion",
-	source : ["AcqInc", 48],
+	source : [["AcqInc", 48]],
 	skills : ["Perception", "Performance"],
 	gold : 30,
 	equipleft : [
@@ -66,13 +66,13 @@ BackgroundList["celebrity adventurer's scion"] = {
 };
 BackgroundFeatureList["name dropping"] = {
 	description : "I know and have met any number of powerful people across the land, and some might even remember me. I might be able to wrangle minor assistance from a major figure in the campaign, at the DM's discretion. Additionally, the common folk treat me with deference, and my heritage and the stories I tell might be good for a free meal or a place to sleep.",
-	source : ["AcqInc", 48]
+	source : [["AcqInc", 48]]
 };
 
 BackgroundList["failed merchant"] = {
 	regExpSearch : /^(?=.*failed)(?=.*merchant).*$/i,
 	name : "Failed Merchant",
-	source : ["AcqInc", 49],
+	source : [["AcqInc", 49]],
 	skills : ["Investigation", "Persuasion"],
 	gold : 10,
 	equipleft : [
@@ -123,13 +123,13 @@ BackgroundList["failed merchant"] = {
 };
 BackgroundFeatureList["supply chain"] = {
 	description : "From my time as a merchant, I retain connections with wholesalers, suppliers, and other merchants and entrepreneurs. I can call upon these connections when looking for items or information.",
-	source : ["AcqInc", 49]
+	source : [["AcqInc", 49]]
 };
 
 BackgroundList["gambler"] = {
 	regExpSearch : /gambler/i,
 	name : "Gambler",
-	source : ["AcqInc", 49],
+	source : [["AcqInc", 49]],
 	skills : ["Deception", "Insight"],
 	gold : 15,
 	equipleft : [
@@ -180,13 +180,13 @@ BackgroundList["gambler"] = {
 };
 BackgroundFeatureList["never tell me the odds"] = {
 	description : "Odds and probability are my bread and butter. During downtime activities that involve games of chance or figuring odds on the best plan, I can get a solid sense of which choice is likely the best one and which opportunities seem too good to be true, at the DM's determination.",
-	source : ["AcqInc", 50]
+	source : [["AcqInc", 50]]
 };
 
 BackgroundList["plaintiff"] = {
 	regExpSearch : /plaintiff/i,
 	name : "Plaintiff",
-	source : ["AcqInc", 50],
+	source : [["AcqInc", 50]],
 	skills : ["Medicine", "Persuasion"],
 	gold : 20,
 	equipleft : [
@@ -236,13 +236,13 @@ BackgroundList["plaintiff"] = {
 };
 BackgroundFeatureList["legalese"] = {
 	description : "My experience with the local legal system has given me a firm knowledge of its ins and outs. Even when the law is not on my side, I can use complex terms like \"ex injuria jus non oritur\" to frighten people into thinking I know what I'm talking about. I might be able to intimidate or deceive folks who don't know any better to get favors or special treatment.",
-	source : ["AcqInc", 50]
+	source : [["AcqInc", 50]]
 };
 
 BackgroundList["rival intern"] = {
 	regExpSearch : /^(?=.*rival)(?=.*intern).*$/i,
 	name : "Rival Intern",
-	source : ["AcqInc", 51],
+	source : [["AcqInc", 51]],
 	skills : ["History", "Investigation"],
 	gold : 10,
 	equipleft : [
@@ -293,13 +293,13 @@ BackgroundList["rival intern"] = {
 };
 BackgroundFeatureList["inside informant"] = {
 	description : "I have connections to my previous employer or other groups I dealt with during my previous employment. I can communicate with my contacts, gaining information at the DM's discretion.",
-	source : ["AcqInc", 51]
+	source : [["AcqInc", 51]]
 };
 
 RaceList["verdan"] = {
 	regExpSearch : /verdan/i,
 	name : "Verdan",
-	source : ["AcqInc", 74],
+	source : [["AcqInc", 74]],
 	plural : "Verdan",
 	size : 4, // small at 1st level, but medium from level 5+
 	speed : {
@@ -330,7 +330,7 @@ RaceList["verdan"] = {
 SpellsList["distort value"] = {
 	name : "Distort Value",
 	classes : ["bard", "sorcerer", "warlock", "wizard"],
-	source : ["AcqInc", 75],
+	source : [["AcqInc", 75]],
 	level : 1,
 	school : "Illus",
 	time : "1 min",
@@ -343,7 +343,7 @@ SpellsList["distort value"] = {
 SpellsList["fast friends"] = {
 	name : "Fast Friends",
 	classes : ["bard", "cleric", "wizard"],
-	source : ["AcqInc", 75],
+	source : [["AcqInc", 75]],
 	level : 3,
 	school : "Ench",
 	time : "1 a",
@@ -357,7 +357,7 @@ SpellsList["fast friends"] = {
 SpellsList["gift of gab"] = {
 	name : "Gift of Gab",
 	classes : ["bard", "wizard"],
-	source : ["AcqInc", 76],
+	source : [["AcqInc", 76]],
 	level : 2,
 	school : "Ench",
 	time : "1 rea",
@@ -372,7 +372,7 @@ SpellsList["gift of gab"] = {
 SpellsList["incite greed"] = {
 	name : "Incite Greed",
 	classes : ["cleric", "warlock", "wizard"],
-	source : ["AcqInc", 76],
+	source : [["AcqInc", 76]],
 	level : 3,
 	school : "Ench",
 	time : "1 a",
@@ -387,7 +387,7 @@ SpellsList["incite greed"] = {
 SpellsList["jim's glowing coin"] = {
 	name : "Jim's Glowing Coin",
 	classes : ["wizard"],
-	source : ["AcqInc", 76],
+	source : [["AcqInc", 76]],
 	level : 2,
 	school : "Ench",
 	time : "1 a",
@@ -402,7 +402,7 @@ SpellsList["jim's glowing coin"] = {
 SpellsList["jim's magic missile"] = {
 	name : "Jim's Magic Missile",
 	classes : ["wizard"],
-	source : ["AcqInc", 76],
+	source : [["AcqInc", 76]],
 	level : 1,
 	school : "Evoc",
 	time : "1 a",
@@ -421,7 +421,7 @@ SpellsList["jim's magic missile"] = {
 SpellsList["motivational speech"] = {
 	name : "Motivational Speech",
 	classes : ["bard", "cleric"],
-	source : ["AcqInc", 77],
+	source : [["AcqInc", 77]],
 	level : 3,
 	school : "Ench",
 	time : "1 min",
@@ -435,7 +435,7 @@ SpellsList["motivational speech"] = {
 // Magic Item from the adventure
 MagicItemsList["piercer"] = {
 	name : "Piercer",
-	source : ["AcqInc", 121],
+	source : [["AcqInc", 121]],
 	type : "weapon (shortsword)",
 	rarity : "rare",
 	description : "I gain a +1 bonus to attack and damage rolls made with this magical shortsword. I regain the maximum possible number of hit points from expended Hit Dice. However, I must eat twice as much food each day to avoid exhaustion, a minimum of 2 lb.",
@@ -447,7 +447,7 @@ MagicItemsList["piercer"] = {
 		baseWeapon : "shortsword",
 		regExpSearch : /piercer/i,
 		name : "Piercer",
-		source : ["AcqInc", 121],
+		source : [["AcqInc", 121]],
 		modifiers : [1, 1]
 	}
 };

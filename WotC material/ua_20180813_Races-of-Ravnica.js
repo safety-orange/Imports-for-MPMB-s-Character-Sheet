@@ -16,7 +16,7 @@ SourceList["UA:RoR"] = {
 RaceList["loxodon-ua"] = {
 	regExpSearch : /loxodon/i,
 	name : "Loxodon",
-	source : ["UA:RoR", 1],
+	source : [["UA:RoR", 1]],
 	plural : "Loxodons",
 	size : 3,
 	speed : {
@@ -28,7 +28,7 @@ RaceList["loxodon-ua"] = {
 	armorOptions : {
 		regExpSearch : /^((?=.*natural)(?=.*armou?r)|(?=.*loxodon)(?=.*(hide|skin))).*$/i,
 		name : "Natural Armor",
-		source : ["UA:RoR", 1],
+		source : [["UA:RoR", 1]],
 		ac : 13
 	},
 	armorAdd : "Natural Armor",
@@ -52,7 +52,7 @@ RaceList["loxodon-ua"] = {
 RaceList["simic hybrid-ua"] = {
 	regExpSearch : /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
 	name : "Simic hybrid",
-	source : ["UA:RoR", 3],
+	source : [["UA:RoR", 3]],
 	plural : "Simic hybrids",
 	size : 3,
 	speed : {
@@ -64,13 +64,13 @@ RaceList["simic hybrid-ua"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*grappling)(?=.*(appendage|tentacle|claw)).*$/i,
 		name : "Grappling Appendages",
-		source : ["UA:RoR", 3],
+		source : [["UA:RoR", 3]],
 		damage : [1, 6, "bludgeoning"],
 		description : "After hitting, start grapple on target as a bonus action"
 	}, {
 		regExpSearch : /^(?=.*acid)(?=.*spit).*$/i,
 		name : "Acid Spit",
-		source : ["UA:RoR", 3],
+		source : [["UA:RoR", 3]],
 		ability : 3,
 		type : "Natural",
 		damage : ["C", 10, "acid"],
@@ -127,7 +127,7 @@ RaceList["simic hybrid-ua"] = {
 						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 						break;
 					case "Acid Spit":
-						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + prof bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + Prof Bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 						AddWeapon("Acid Spit");
 						break;
@@ -171,12 +171,12 @@ RaceList["simic hybrid-ua"] = {
 };
 AddRacialVariant("simic hybrid-ua", "manta glide", {
 	regExpSearch : /manta glide/i,
-	source : ["UA:RoR", 3],
+	source : [["UA:RoR", 3]],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit."
 });
 AddRacialVariant("simic hybrid-ua", "nimble climber", {
 	regExpSearch : /nimble climber/i,
-	source : ["UA:RoR", 3],
+	source : [["UA:RoR", 3]],
 	speed : {
 		walk : { spd : 30, enc : 20 },
 		climb : { spd : 'walk', enc : 'walk' }
@@ -185,7 +185,7 @@ AddRacialVariant("simic hybrid-ua", "nimble climber", {
 });
 AddRacialVariant("simic hybrid-ua", "underwater adaptation", {
 	regExpSearch : /underwater adaptation/i,
-	source : ["UA:RoR", 3],
+	source : [["UA:RoR", 3]],
 	speed : {
 		walk : { spd : 30, enc : 20 },
 		swim : { spd : 'walk', enc : 'walk' }
@@ -197,7 +197,7 @@ AddRacialVariant("simic hybrid-ua", "underwater adaptation", {
 RaceList["vedalken-ua"] = {
 	regExpSearch : /vedalken/i,
 	name : "Vedalken",
-	source : ["UA:RoR", 4],
+	source : [["UA:RoR", 4]],
 	plural : "Vedalken",
 	size : 3,
 	speed : {
@@ -221,7 +221,7 @@ RaceList["vedalken-ua"] = {
 RaceList["viashino-ua"] = {
 	regExpSearch : /viashino/i,
 	name : "Viashino",
-	source : ["UA:RoR", 5],
+	source : [["UA:RoR", 5]],
 	plural : "Viashino",
 	size : 3,
 	speed : {
@@ -233,12 +233,12 @@ RaceList["viashino-ua"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
 		name : "Viashino bite",
-		source : ["UA:RoR", 5],
+		source : [["UA:RoR", 5]],
 		damage : [1, 4, "piercing"]
 	}, {
 		regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
 		name : "Lashing tail",
-		source : ["UA:RoR", 5],
+		source : [["UA:RoR", 5]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 4, "slashing"],

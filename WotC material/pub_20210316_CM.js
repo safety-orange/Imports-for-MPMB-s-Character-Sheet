@@ -219,21 +219,31 @@ MagicItemsList["staff of fate"] = {
 		modifiers : [3, 3]
 	}
 };
+var CM_NetherScrollOfAzumar = "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a stone golem appears within 60 ft that acts as ally. If I die, the golem turns to dust.";
 MagicItemsList["nether scroll of azumar"] = {
 	name : "Nether Scroll of Azumar",
 	source : [["CM", 210]],
 	type : "scroll",
 	rarity : "legendary",
 	storyItemAL : true,
-	attunement : false,
-	description : "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a stone golem appears within 60 ft that acts as ally. If I die, the golem turns to dust.",
+	choicesNotInMenu : true,
+	description : CM_NetherScrollOfAzumar,
 	descriptionFull : "Unlike most scrolls, a Nether Scroll of Azumar is not a consumable magic item. It takes 30 days of concentrated study\u2014at least 8 hours per day\u2014to attempt to understand this scroll. After completing this study, you must make a DC 25 Intelligence (Arcana) check. If this check fails, you take 16d10 psychic damage, and you can attempt the check again after another 30 days of concentrated study."+
 	"\n   When you succeed on the check, you gain the following benefits:"+
 	"\n   \u2022 Your Intelligence score increases by 2, to a maximum of 22. Once you gain this benefit, you can't use this scroll to increase your Intelligence again."+
 	"\n   \u2022 You gain advantage on saving throws against spells and other magical effects."+
 	"\n\n   When you gain the scroll's benefits, a stone golem magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
-	scores : [0, 0, 0, 2, 0, 0],
-	scoresMaximum : [0, 0, 0, 22, 0, 0],
-	scoresMaxLimited : true,
-	savetxt : { adv_vs : ["magic"] }
+	choices : ["Not Read", "Read"],
+	"not read" : {
+		description : CM_NetherScrollOfAzumar
+	},
+	"read" : { // contains contributions by Nod_Hero
+		description : CM_NetherScrollOfAzumar,
+		eval : function() {
+			var src = "Nether Scroll of Azumar";
+			MagicItemsList["manual of bodily health"].applyStatBonus(src, "Intelligence", 2);
+			SetProf("savetxt", true, { adv_vs : ["magic"] }, src);
+		},
+		creaturesAdd : [["Stone Golem", "stop"]]
+	}
 };

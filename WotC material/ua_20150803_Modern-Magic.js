@@ -21,7 +21,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Cantrip",
-			source : ["UA:MM", 1],
+			source : [["UA:MM", 1]],
 			minlevel : 1,
 			description : "\n   " + "I learn the On/Off cantrip if I didn't already know it",
 			spellcastingBonus : {
@@ -32,7 +32,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature1.1" : {
 			name : "Bonus Proficiency",
-			source : ["UA:MM", 1],
+			source : [["UA:MM", 1]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with sidearms and land vehicles",
 			weaponProfs : [false, false, ["Sidearms"]],
@@ -40,7 +40,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature1.2" : {
 			name : "Heart of the City",
-			source : ["UA:MM", 1],
+			source : [["UA:MM", 1]],
 			minlevel : 1,
 			description : desc([
 				"While I'm in a city, I can gain adv. on a Cha (Deception, Intimidation, Persuasion) check",
@@ -52,7 +52,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Spirits of the City",
-			source : ["UA:MM", 1],
+			source : [["UA:MM", 1]],
 			minlevel : 2,
 			description : desc([
 				"As an action, I make all city utilities in 30 ft either stop or work perfectly for 1 min",
@@ -64,13 +64,13 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature6" : {
 			name : "Block Watch",
-			source : ["UA:MM", 2],
+			source : [["UA:MM", 2]],
 			minlevel : 6,
 			description : "\n   " + "While in an urban environment, I'm proficient and expertise in Insight and Perception"
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["UA:MM", 2],
+			source : [["UA:MM", 2]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -90,7 +90,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature17" : {
 			name : "Express Transit",
-			source : ["UA:MM", 2],
+			source : [["UA:MM", 2]],
 			minlevel : 17,
 			description : desc([
 				"As an action, I can teleport from one mass transit site to another in the same city",
@@ -112,7 +112,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["UA:MM", 2],
+			source : [["UA:MM", 2]],
 			minlevel : 1,
 			description : "\n   " + "I am proficient with hacking tools and know the On/Off cantrip",
 			toolProfs : ["Hacking tools"],
@@ -124,7 +124,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature1.1" : {
 			name : "Information Surge",
-			source : ["UA:MM", 2],
+			source : [["UA:MM", 2]],
 			minlevel : 1,
 			description : desc([
 				"As an action, I can cause a computerized device within 30 ft to make an Int save",
@@ -138,7 +138,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature6" : {
 			name : "Wire Walk",
-			source : ["UA:MM", 3],
+			source : [["UA:MM", 3]],
 			minlevel : 6,
 			description : desc([
 				"As a bonus action, I can teleport through a hardwired network to a point I can see",
@@ -150,7 +150,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature10" : {
 			name : "Personal Encryption",
-			source : ["UA:MM", 3],
+			source : [["UA:MM", 3]],
 			minlevel : 10,
 			description : desc([
 				"I have adv. on saves vs. scrying, thought detection, and magics for learning my location",
@@ -159,7 +159,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature14" : {
 			name : "Technovirus",
-			source : ["UA:MM", 3],
+			source : [["UA:MM", 3]],
 			minlevel : 14,
 			description : desc([
 				"As an action, I make a melee spell attack to infect someone with a techno-organic virus",
@@ -184,7 +184,7 @@ AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
 	features : {
 		"subclassfeature2": {
 			name : "Bonus Proficiencies",
-			source : ["UA:MM", 3],
+			source : [["UA:MM", 3]],
 			minlevel : 2,
 			description : "\n   " + "I gain proficiency with sidearms and hacking tools",
 			weaponProfs : [false, false, ["Sidearms"]],
@@ -192,7 +192,7 @@ AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature2.1": {
 			name : "Technological Savant",
-			source : ["UA:MM", 3],
+			source : [["UA:MM", 3]],
 			minlevel : 2,
 			description : desc([
 				"I can use a single tablet computer (or similar) instead of a spellbook",
@@ -201,7 +201,7 @@ AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature6": {
 			name : "Program Spell",
-			source : ["UA:MM", 4],
+			source : [["UA:MM", 4]],
 			minlevel : 6,
 			description : desc([
 				"I can cast a spell into a device of at least smartphone-level of computing power",
@@ -214,7 +214,7 @@ AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature10": {
 			name : "Online Casting",
-			source : ["UA:MM", 4],
+			source : [["UA:MM", 4]],
 			minlevel : 10,
 			description : desc([
 				"I can cast a spell, that is not area-of-effect, through networked electronic devices",
@@ -227,7 +227,7 @@ AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature14": {
 			name : "Chained Device",
-			source : ["UA:MM", 4],
+			source : [["UA:MM", 4]],
 			minlevel : 14,
 			description : "\n   " + "I can use a held/worn tablet computer to concentrate on a spell I cast instead of me" + "\n   " + "If the device is separated from me, turned off, or broken, the effect is lost",
 			recovery : "long rest",

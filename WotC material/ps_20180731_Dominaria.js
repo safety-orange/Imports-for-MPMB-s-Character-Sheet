@@ -38,7 +38,7 @@ RaceList["keldon human"] = {
 	regExpSearch : /^((?=.*\bkeldon?s?\b)|(?=.*keld)(?=.*human)).*$/i,
 	name : "Keldon",
 	sortname : "Human, Keldon",
-	source : ["PS:D", 19],
+	source : [["PS:D", 19]],
 	plural : "Keldons",
 	size : 3,
 	speed : {
@@ -58,7 +58,7 @@ RaceList["keldon human"] = {
 // Add 2 beasts
 CreatureList["kavu predator"] = {
 	name : "Kavu Predator",
-	source : ["PS:D", 24],
+	source : [["PS:D", 24]],
 	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -97,7 +97,8 @@ CreatureList["kavu predator"] = {
 };
 CreatureList["steel leaf kavu"] = {
 	name : "Steel Leaf Kavu",
-	source : ["PS:D", 24],
+	nameAlt : ["Kavu, Steel Leaf"],
+	source : [["PS:D", 24]],
 	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",

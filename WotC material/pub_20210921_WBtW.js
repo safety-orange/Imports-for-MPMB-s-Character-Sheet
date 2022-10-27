@@ -66,7 +66,7 @@ BackgroundList["feylost"] = {
 		"I'm forgetful. Sometimes I can't remember even the simplest things.",
 		"I never give away anything for free and always expect something in return.",
 		"I have many vices and tend to indulge them.",
-		"I'm always changing my mind—well, almost always."
+		"I'm always changing my mind\u2014well, almost always."
 	],
 	extra : [
 		"Select a Fey Mark",
@@ -230,7 +230,7 @@ RaceList["harengon"] = {
 		"\n \u2022 Hare-Trigger: I can add my proficiency bonus to my initiative rolls."+
 		"\n \u2022 Leporine Senses: I have proficiency in the Perception skill."+
 		"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0."+
-		"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof. Bonus without provoking opportunity attacks. I can do this my Prof. Bonus times per long rest."
+		"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof Bonus without provoking opportunity attacks. I can do this my Prof Bonus times per long rest."
 };
 
 // Magic Items
@@ -690,6 +690,7 @@ if (!SourceList.X) {
 // Beasts
 CreatureList["giant swan"] = { // a giant eagle except that it has no talons, can attack twice with its beak as an action, and speaks Common and Auran
 	name : "Giant Swan",
+	nameAlt : ["Swan, Giant"],
 	source : [["WBtW", 38]],
 	size : 2, //Large
 	type : "Beast",
@@ -726,6 +727,7 @@ CreatureList["giant swan"] = { // a giant eagle except that it has no talons, ca
 }
 CreatureList["giant dragonfly"] = {
 	name : "Giant Dragonfly",
+	nameAlt : ["Dragonfly, Giant"],
 	source : [["WBtW", 234]],
 	size : 2,
 	type : "Beast",
@@ -758,6 +760,7 @@ CreatureList["giant dragonfly"] = {
 }
 CreatureList["giant snail"] = {
 	name : "Giant Snail",
+	nameAlt : ["Snail, Giant"],
 	source : [["WBtW", 234]],
 	size : 2,
 	type : "Beast",

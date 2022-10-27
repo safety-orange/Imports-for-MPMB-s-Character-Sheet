@@ -16,7 +16,7 @@ RaceList["centaur-ua"] = {
 	regExpSearch : /centaur/i,
 	name : "Centaur",
 	sortname : "Centaur",
-	source : ["UA:CnM", 1],
+	source : [["UA:CnM", 1]],
 	plural : "Centaurs",
 	size : 3,
 	speed : {
@@ -26,7 +26,7 @@ RaceList["centaur-ua"] = {
 	weaponOptions : {
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
-		source : ["UA:CnM", 2],
+		source : [["UA:CnM", 2]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
@@ -63,7 +63,7 @@ RaceList["minotaur-uacnm"] = {
 	regExpSearch : /minotaur/i,
 	name : "Minotaur",
 	sortname : "Minotaur",
-	source : ["UA:CnM", 2],
+	source : [["UA:CnM", 2]],
 	plural : "Minotaurs",
 	size : 3,
 	speed : {
@@ -73,7 +73,7 @@ RaceList["minotaur-uacnm"] = {
 	weaponOptions : {
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
-		source : ["UA:CnM", 2],
+		source : [["UA:CnM", 2]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 6, "piercing"],
@@ -93,7 +93,7 @@ RaceList["minotaur-uacnm"] = {
 	trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
 		"Horns: I have horns that I can use in melee (1d6 piercing damage).",
 		"Goring Rush: When taking a Dash action, I can make a horns attack as a bonus action.",
-		"Hammering Horns: As a reaction after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is no more than one size larger than me. It must make a Str save (DC 8 + Str mod + prof bonus) or be pushed up to 5 ft away from me.",
+		"Hammering Horns: As a reaction after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is no more than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 5 ft away from me.",
 		"Hybrid Nature: I am affected by effects that work on either humanoids or monstrosities."
 	]),
 	features : {

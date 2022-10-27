@@ -78,7 +78,7 @@ RaceList["dispater tiefling"] = {
 	regExpSearch : /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
 	name : "Dispater tiefling",
 	sortname : "Tiefling, Dispater",
-	source : ["MToF", 21],
+	source : [["MToF", 21]],
 	plural : "Dispater tieflings",
 	size : 3,
 	speed : {
@@ -377,7 +377,7 @@ RaceList["mephistopheles tiefling"] = {
 	regExpSearch : /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
 	name : "Mephistopheles tiefling",
 	sortname : "Tiefling, Mephistopheles",
-	source : ["MToF", 23],
+	source : [["MToF", 23]],
 	plural : "Mephistopheles tieflings",
 	size : 3,
 	speed : {
@@ -541,7 +541,7 @@ RaceList["eladrin-mtof"] = {
 		name : "Eladrin Season Features",
 		source : [["MToF", 62]],
 		popupName : "Eladrin Shifting Season Features",
-		additional : "save DC 8 + Cha mod + Prof. Bonus",
+		additional : "save DC 8 + Cha mod + Prof Bonus",
 		page3notes : true,
 		note : "\n  \u2022 Autumn (Eladrin Season, MToF 62)" + desc([
 			" After using Fey Step, up to 2 creatures I can see within 10 ft of me must make a Wis save",
@@ -593,7 +593,7 @@ RaceList["shadar-kai elf"] = {
 	regExpSearch : /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name : "Shadar-kai",
 	sortname : "Elf, Shadow (Shadar-kai)",
-	source : ["MToF", 62],
+	source : [["MToF", 62]],
 	plural : "Shadar-kai",
 	size : 3,
 	speed : {
@@ -938,7 +938,7 @@ if (!FeatsList["svirfneblin magic"]) {
 // Magic Items
 MagicItemsList["greater silver sword"] = {
 	name : "Greater Silver Sword",
-	source : ["MToF", 89],
+	source : [["MToF", 89]],
 	type : "weapon (greatsword)",
 	rarity : "legendary",
 	description : "This magic greatsword gives +1 to hit and damage. While holding it, I have adv. on Int, Wis, and Cha saves, immunity to being charmed, and resistance to psychic damage. If I score a critical hit with it on a creature's astral body, I can cut the cord tethering it to its material body, instead of dealing damage.",
@@ -963,7 +963,7 @@ MagicItemsList["greater silver sword"] = {
 		baseWeapon : "greatsword",
 		regExpSearch : /^(?=.*greater)(?=.*silver)(?=.*sword).*$/i,
 		name : "Greater Silver Sword",
-		source : ["MToF", 89],
+		source : [["MToF", 89]],
 		description : "Heavy, two-handed; On crit vs. astral body, cut cord instead of damage",
 		modifiers : [3, 3]
 	},

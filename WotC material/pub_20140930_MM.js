@@ -14,7 +14,7 @@ SourceList.M={
 // Dinosaurs not in the SRD
 CreatureList["allosaurus"] = {
 	name : "Allosaurus",
-	source : ["M", 79],
+	source : [["M", 79]],
 	size : 2, //Large
 	type : "Beast",
 	alignment : "Unaligned",
@@ -32,28 +32,26 @@ CreatureList["allosaurus"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Claw",
-			ability : 1,
-			damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "If used after moving 30 ft straight in the same round, see Pounce trait"
-		}, {
-			name : "Bite",
-			ability : 1,
-			damage : [2, 10, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Can be used in combination with claw while pouncing (see Pounce trait)"
-		}
-	],
+		name : "Claw",
+		ability : 1,
+		damage : [1, 8, "slashing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 30 ft straight in the same round, see Pounce trait"
+	}, {
+		name : "Bite",
+		ability : 1,
+		damage : [2, 10, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "Can be used in combination with claw while pouncing (see Pounce trait)"
+	}],
 	traits : [{
-			name : "Pounce",
-			description : "If the allosaurus moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the allosaurus can make one bite attack against it as a bonus action."
-		}
-	]
+		name : "Pounce",
+		description : "If the allosaurus moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the allosaurus can make one bite attack against it as a bonus action."
+	}]
 };
 CreatureList["ankylosaurus"] = {
 	name : "Ankylosaurus",
-	source : ["M", 79],
+	source : [["M", 79]],
 	size : 1, //Huge
 	type : "Beast",
 	alignment : "Unaligned",
@@ -68,18 +66,17 @@ CreatureList["ankylosaurus"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Tail",
-			ability : 1,
-			damage : [4, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
-			modifiers : [1, ""]
-		}
-	]
+		name : "Tail",
+		ability : 1,
+		damage : [4, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range : "Melee (10 ft)",
+		description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
+		modifiers : [1, ""]
+	}]
 };
 CreatureList["pteranodon"] = {
 	name : "Pteranodon",
-	source : ["M", 79],
+	source : [["M", 79]],
 	size : 3, //Medium
 	type : "Beast",
 	alignment : "Unaligned",
@@ -97,25 +94,23 @@ CreatureList["pteranodon"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : ""
+	}],
 	traits : [{
-			name : "Flyby",
-			description : "The pteranodon doesn't provoke opportunity attacks when it flies out of an enemy's reach."
-		}
-	]
+		name : "Flyby",
+		description : "The pteranodon doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+	}]
 };
 
 // Special familiars not in the SRD
 CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	name : "Faerie Dragon",
 	nameAlt : ["Dragon, Faerie"],
-	source : ["M", 133],
+	source : [["M", 133]],
 	size : 5, //Tiny
 	type : "Dragon",
 	alignment : "Chaotic Good",
@@ -172,7 +167,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 };
 CreatureList["crawling claw"] = {
 	name : "Crawling Claw",
-	source : ["M", 44],
+	source : [["M", 44]],
 	size : 5, //Tiny
 	type : "Undead",
 	companion : "familiar_not_al",
@@ -204,7 +199,7 @@ CreatureList["crawling claw"] = {
 };
 CreatureList["peryton"] = {
 	name : "Peryton",
-	source : ["M", 251],
+	source : [["M", 251]],
 	size : 3, //Medium
 	type : "Monstrosity",
 	companion : "steed",
@@ -255,7 +250,8 @@ CreatureList["peryton"] = {
 // Blights and spores
 CreatureList["needle blight"] = {
 	name : "Needle Blight",
-	source : ["M", 32],
+	nameAlt : ["Blight, Needle"],
+	source : [["M", 32]],
 	size : 3, //Medium
 	type : "Plant",
 	alignment : "Neutral Evil",
@@ -272,23 +268,23 @@ CreatureList["needle blight"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Claws",
-			ability : 2,
-			damage : [2, 4, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}, {
-			name : "Needles",
-			ability : 2,
-			damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range : "30/60 ft",
-			description : ""
-		}
-	]
+		name : "Claws",
+		ability : 2,
+		damage : [2, 4, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : ""
+	}, {
+		name : "Needles",
+		ability : 2,
+		damage : [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "30/60 ft",
+		description : ""
+	}]
 };
 CreatureList["twig blight"] = {
 	name : "Twig Blight",
-	source : ["M", 32],
+	nameAlt : ["Blight, Twig"],
+	source : [["M", 32]],
 	size : 4, //Small
 	type : "Plant",
 	alignment : "Neutral Evil",
@@ -306,22 +302,21 @@ CreatureList["twig blight"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Claws",
-			ability : 2,
-			damage : [1, 4, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : ""
-		}
-	],
+		name : "Claws",
+		ability : 2,
+		damage : [1, 4, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : ""
+	}],
 	traits : [{
-			name : "False Appearance",
-			description : "While the blight remains motionless, it is indistinguishable from a dead shrub."
-		}
-	]
+		name : "False Appearance",
+		description : "While the blight remains motionless, it is indistinguishable from a dead shrub."
+	}]
 };
 CreatureList["vine blight"] = {
 	name : "Vine Blight",
-	source : ["M", 32],
+	nameAlt : ["Blight, Vine"],
+	source : [["M", 32]],
 	size : 3, //Medium
 	type : "Plant",
 	alignment : "Neutral Evil",
@@ -341,28 +336,25 @@ CreatureList["vine blight"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Constrict",
-			ability : 1,
-			damage : [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range : "Melee (10 ft)",
-			description : "Large or smaller target is grappled and restrained (escape DC 12); Can't use constrict again until grapple ends"
-		}
-	],
+		name : "Constrict",
+		ability : 1,
+		damage : [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range : "Melee (10 ft)",
+		description : "Large or smaller target is grappled and restrained (escape DC 12); Can't use constrict again until grapple ends"
+	}],
 	traits : [{
-			name : "False Appearance",
-			description : "While the blight remains motionless, it is indistinguishable from a tangle of vines."
-		}
-	],
+		name : "False Appearance",
+		description : "While the blight remains motionless, it is indistinguishable from a tangle of vines."
+	}],
 	actions : [{
-			name : "Entangling Plants (Recharge 5-6)",
-			description : "As an action, grasping roots and vines sprout in a 15-ft radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
-		}
-	],
+		name : "Entangling Plants (Recharge 5-6)",
+		description : "As an action, grasping roots and vines sprout in a 15-ft radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
+	}],
 	wildshapeString : "Blindsight 60 ft (blind beyond)| Immune to blinded, deafened| Entangling Plants (Recharge 5-6): As an action, 15-ft radius is difficult terrain for nonplant creatures, for 1 minute. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to make a DC 12 Str check to free itself or another within reach| False Appearance: While motionless, it's indistinguishable from a tangle of vines."
 };
 CreatureList["gas spore"] = {
 	name : "Gas Spore",
-	source : ["M", 138],
+	source : [["M", 138]],
 	size : 2, //Large
 	type : "Plant",
 	alignment : "Unaligned",
@@ -378,23 +370,21 @@ CreatureList["gas spore"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Touch",
-			ability : 1,
-			damage : [1, "", "poison"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "DC 10 Con save or infected with Death Burst disease, see traits",
-			modifiers : [1, ""],
-			abilitytodamage : false
-		}
-	],
+		name : "Touch",
+		ability : 1,
+		damage : [1, "", "poison"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "DC 10 Con save or infected with Death Burst disease, see traits",
+		modifiers : [1, ""],
+		abilitytodamage : false
+	}],
 	traits : [{
-			name : "Death Burst",
-			description : "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
-		}, {
-			name : "Eerie Resemblance",
-			description : "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check."
-		}
-	],
+		name : "Death Burst",
+		description : "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
+	}, {
+		name : "Eerie Resemblance",
+		description : "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check."
+	}],
 	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
 };
 

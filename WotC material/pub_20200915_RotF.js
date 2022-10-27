@@ -15,31 +15,32 @@ SourceList["RotF"] = {
 
 // Winter Survival Gear (contains contributions by Nod_Hero on Discord)
 GearList["cold weather"] = {
-    infoname : "Cold Weather [10 gp]",
-    name : "Cold weather clothes",
-    source : [["RotF", 20]],
-    amount : "",
-    weight : 5,
-    type : "clothes"
+	infoname : "Cold Weather [10 gp]",
+	name : "Cold weather clothes",
+	source : [["RotF", 20]],
+	amount : "",
+	weight : 5,
+	type : "clothes"
 };
 GearList["crampons (2)"] = {
-    infoname : "Crampons (2) [2 gp]",
-    name : "Crampons",
-    source : [["RotF", 20]],
-    amount : 2,
-    weight : 0.125
+	infoname : "Crampons (2) [2 gp]",
+	name : "Crampons",
+	source : [["RotF", 20]],
+	amount : 2,
+	weight : 0.125
 };    
 GearList["snowshoes"] = {
-    infoname : "Snowshoes [2 gp]",
-    name : "Snowshoes",
-    source : [["RotF", 20]],
-    amount : "",
-    weight : 4
+	infoname : "Snowshoes [2 gp]",
+	name : "Snowshoes",
+	source : [["RotF", 20]],
+	amount : "",
+	weight : 4
 };
 
 // Creatures - new beasts (each contain contributions by BraabHimself)
 CreatureList["awakened white moose"] = {
 	name : "Awakened White Moose",
+	nameAlt : ["Moose, Awakened White"],
 	source : [["RotF", 82]],
 	size : 2,
 	type : "Beast",
@@ -180,6 +181,7 @@ CreatureList["knucklehead trout"] = {
 };
 CreatureList["mountain goat"] = {
 	name : "Mountain Goat",
+	nameAlt : ["Goat, Mountain"],
 	source : [["RotF", 304]],
 	size : 3,
 	type : "Beast",
@@ -245,6 +247,7 @@ CreatureList["seal"] = {
 };
 CreatureList["sperm whale"] = {
 	name : "Sperm Whale",
+	nameAlt : ["Whale, Sperm"],
 	source : [["RotF", 309]],
 	size : 0,
 	type : "Beast",
@@ -326,6 +329,7 @@ CreatureList["walrus"] = {
 };
 CreatureList["giant walrus"] = {
 	name : "Giant Walrus",
+	nameAlt : ["Walrus, Giant"],
 	source : [["RotF", 312]],
 	size : 1,
 	type : "Beast",
@@ -365,8 +369,8 @@ CreatureList["giant walrus"] = {
 
 // Creatures - for the Create Magos spell (each contain contributions by BraabHimself)
 CreatureList["demos magen"] = {
-	name : "Magen, Demos",
-	nameAlt : ["Demos Magen"],
+	name : "Demos Magen",
+	nameAlt : ["Magen, Demos"],
 	source : [["RotF", 300]],
 	size : 3,
 	type : "Construct",
@@ -417,8 +421,8 @@ CreatureList["demos magen"] = {
 	}]
 };
 CreatureList["galvan magen"] = {
-	name : "Magen, Galvan",
-	nameAlt : ["Galvan Magen"],
+	name : "Galvan Magen",
+	nameAlt : ["Magen, Galvan"],
 	source : [["RotF", 301]],
 	size : 3,
 	type : "Construct",
@@ -475,8 +479,8 @@ CreatureList["galvan magen"] = {
 	}]
 };
 CreatureList["hypnos magen"] = {
-	name : "Magen, Hypnos",
-	nameAlt : ["Hypnos Magen"],
+	name : "Hypnos Magen",
+	nameAlt : ["Magen, Hypnos"],
 	source : [["RotF", 301]],
 	size : 3,
 	type : "Construct",

@@ -15,12 +15,12 @@ SourceList["UA:WR"] = {
 AddSubClass("wizard", "war magic-ua", {
 	regExpSearch : /^(?=.*war)(?=.*(magic|mage)).*$/i,
 	subname : "War Magic",
-	source : ["UA:WR", 2],
+	source : [["UA:WR", 2]],
 	fullname : "War Mage",
 	features : {
 		"subclassfeature2" : { //has to be identical to a feature named in the ClassList
 			name : "Arcane Deflection",
-			source : ["UA:WR", 2],
+			source : [["UA:WR", 2]],
 			minlevel : 2,
 			description : desc([
 				"As a reaction when I'm hit by an attack, I can gain +2 to my AC against that attack",
@@ -31,7 +31,7 @@ AddSubClass("wizard", "war magic-ua", {
 		},
 		"subclassfeature2.1" : {
 			name : "Tactical Wit",
-			source : ["UA:WR", 2],
+			source : [["UA:WR", 2]],
 			minlevel : 2,
 			description : desc([
 				"I gain a bonus to my initiative rolls equal to my Intelligence modifier"
@@ -40,7 +40,7 @@ AddSubClass("wizard", "war magic-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Power Surge",
-			source : ["UA:WR", 2],
+			source : [["UA:WR", 2]],
 			minlevel : 6,
 			description : desc([
 				"When multiple targets have to save vs. one of my spells, I can have it do more damage",
@@ -51,7 +51,7 @@ AddSubClass("wizard", "war magic-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Durable Magic",
-			source : ["UA:WR", 2],
+			source : [["UA:WR", 2]],
 			minlevel : 10,
 			description : desc([
 				"While I'm maintaining concentration on a spell, I gain +2 to AC and all saving throws"
@@ -59,7 +59,7 @@ AddSubClass("wizard", "war magic-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Deflecting Shroud",
-			source : ["UA:WR", 2],
+			source : [["UA:WR", 2]],
 			minlevel : 14,
 			description : desc([
 				"When I use my Arcane Deflection feature, magical energy arcs from me",

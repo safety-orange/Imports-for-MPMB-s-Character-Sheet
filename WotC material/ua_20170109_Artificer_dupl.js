@@ -48,7 +48,7 @@ ClassList['artificer-ua'] = {
 	features : {
 		"subclassfeature1" : {
 			name : "Artificer Specialist",
-			source : ["UA:A", 2],
+			source : [["UA:A", 2]],
 			minlevel : 1,
 			description : desc([
 				"Choose an Artificer Specialism and put it in the \"Class\" field on the first page",
@@ -57,7 +57,7 @@ ClassList['artificer-ua'] = {
 		},
 		"magic item analysis" : {
 			name : "Magic Item Analysis",
-			source : ["UA:A", 2],
+			source : [["UA:A", 2]],
 			minlevel : 1,
 			description : "\n   " + "I can cast Detect Magic and Identify as rituals without requiring material components",
 			spellcastingBonus : [{
@@ -86,7 +86,7 @@ ClassList['artificer-ua'] = {
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
-			source : ["UA:A", 3],
+			source : [["UA:A", 3]],
 			minlevel : 2,
 			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
 			skillstxt : "expertise with any tool proficiencies gained from the artificer class",
@@ -103,7 +103,7 @@ ClassList['artificer-ua'] = {
 		},
 		"wondrous invention" : {
 			name : "Wondrous Invention",
-			source : ["UA:A", 3],
+			source : [["UA:A", 3]],
 			minlevel : 2,
 			description : "\n   " + 'I gain a magic item that I have crafted; Use the "Choose Feature" button above',
 			additional : levels.map(function (n) {
@@ -118,7 +118,7 @@ ClassList['artificer-ua'] = {
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
-			source : ["UA:A", 3],
+			source : [["UA:A", 3]],
 			minlevel : 3,
 			description : desc([
 				"I can cast artificer spells that I know, using Intelligence as my spellcasting ability",
@@ -130,7 +130,7 @@ ClassList['artificer-ua'] = {
 		},
 		"infuse magic" : {
 			name : "Infuse Magic",
-			source : ["UA:A", 4],
+			source : [["UA:A", 4]],
 			minlevel : 4,
 			description : desc([
 				"By spending 1 minute, I can infuse one of my artificer spells into a nonmagical item",
@@ -142,7 +142,7 @@ ClassList['artificer-ua'] = {
 		},
 		"mechanical servant" : {
 			name : "Mechanical Servant",
-			source : ["UA:A", 4],
+			source : [["UA:A", 4]],
 			minlevel : 6,
 			description : desc([
 				"I create a construct that obeys my orders; It acts on its own initiative",
@@ -164,7 +164,7 @@ ClassList['artificer-ua'] = {
 		},
 		"superior attunement" : {
 			name : "Superior Attunement",
-			source : ["UA:A", 4],
+			source : [["UA:A", 4]],
 			minlevel : 5,
 			description : "",
 			additional : levels.map(function (n) {
@@ -173,7 +173,7 @@ ClassList['artificer-ua'] = {
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
-			source : ["UA:A", 4],
+			source : [["UA:A", 4]],
 			minlevel : 20,
 			description : "\n   " + "I gain a +1 bonus to all saving throws per magic item I am currently attuned to",
 			savetxt : {
@@ -191,7 +191,7 @@ AddSubClass("artificer-ua", "alchemist", {
 	features : {
 		"subclassfeature1" : {
 			name : "Alchemist's Satchel",
-			source : ["UA:A", 5],
+			source : [["UA:A", 5]],
 			minlevel : 1,
 			description : desc([
 				"I craft an Alchemist's Satchel, a magic item with which I can create concoctions",
@@ -201,7 +201,7 @@ AddSubClass("artificer-ua", "alchemist", {
 		},
 		"subclassfeature1.1" : {
 			name : "Alchemy Formulae",
-			source : ["UA:A", 5],
+			source : [["UA:A", 5]],
 			minlevel : 1,
 			description : desc([
 				"I learn Alchemical Formulae that I can use if I have my Alchemist's Satchel within reach",
@@ -218,7 +218,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			}),
 			"healing draught" : {
 				name : "Healing Draught",
-				source : ["UA:A", 5],
+				source : [["UA:A", 5]],
 				description : desc([
 					"As an action, I can take a vial of healing liquid from my satchel, which lasts for 1 hour",
 					"Anyone can drink this as an action, healing in doing so, after which the vial disappears",
@@ -233,7 +233,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			},
 			"smoke stick" : {
 				name : "Smoke Stick",
-				source : ["UA:A", 5],
+				source : [["UA:A", 5]],
 				description : desc([
 					"As an action, I can take a smoke stick from my satchel and throw it up to 30 ft away",
 					"The stick produces smoke in a 10-ft radius around it, blocking vision, incl. darkvision",
@@ -243,7 +243,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			},
 			"swift step draught" : {
 				name : "Swift Step Draught",
-				source : ["UA:A", 5],
+				source : [["UA:A", 5]],
 				description : desc([
 					"As a bonus action, I take a vial of brown liquid from my satchel, which lasts for 1 minute",
 					"Any creature can drink this vial as an action, gaining +20 ft speed for 1 minute",
@@ -253,7 +253,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			},
 			"tanglefoot bag" : {
 				name : "Tanglefoot Bag",
-				source : ["UA:A", 6],
+				source : [["UA:A", 6]],
 				description : desc([
 					"As an action, I can hurl a bag of black tar to a point on the ground within 30 ft",
 					"It bursts and covers the ground with sticky goo in a 5-ft radius, which lasts for 1 min",
@@ -264,7 +264,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			},
 			"thunderstone" : {
 				name : "Thunderstone",
-				source : ["UA:A", 6],
+				source : [["UA:A", 6]],
 				description : desc([
 					"As an action, I can hurl a crystalline shard at a creature/object/surface within 30 ft",
 					"It shatters on impact and any creature within 10 ft must make a Constitution save",
@@ -275,7 +275,7 @@ AddSubClass("artificer-ua", "alchemist", {
 		},
 		"subclassfeature1.2" : {
 			name : "Formula: Alchemical Acid",
-			source : ["UA:A", 5],
+			source : [["UA:A", 5]],
 			minlevel : 1,
 			description : desc([
 				"As an action, I can hurl a vial of acid at a creature or object within 30 ft",
@@ -289,7 +289,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
 				name : "Alchemical Acid",
-				source : ["UA:A", 5],
+				source : [["UA:A", 5]],
 				list : "artificer",
 				ability : 4,
 				type : "Artificer",
@@ -313,7 +313,7 @@ AddSubClass("artificer-ua", "alchemist", {
 		},
 		"subclassfeature1.3" : {
 			name : "Formula: Alchemical Fire",
-			source : ["UA:A", 5],
+			source : [["UA:A", 5]],
 			minlevel : 1,
 			description : desc([
 				"As an action, I can hurl a vial of volatile liquid at a creature/object/surface within 30 ft",
@@ -326,7 +326,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*alchemical)(?=.*fire).*$/i,
 				name : "Alchemical Fire",
-				source : ["UA:A", 5],
+				source : [["UA:A", 5]],
 				list : "artificer",
 				ability : 4,
 				type : "Artificer",
@@ -360,7 +360,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 	features : {
 		"subclassfeature1" : {
 			name : "Master Smith",
-			source : ["UA:A", 6],
+			source : [["UA:A", 6]],
 			minlevel : 1,
 			description : desc(["I gain proficiency with smith's tools and I learn the mending cantrip"]),
 			spellcastingBonus : {
@@ -372,7 +372,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 		},
 		"subclassfeature1.1" : {
 			name : "Thunder Cannon",
-			source : ["UA:A", 6],
+			source : [["UA:A", 6]],
 			minlevel : 1,
 			description : desc([
 				"I craft a magical firearm, my thunder cannon, with which I am proficient",
@@ -383,7 +383,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			weaponOptions : {
 				regExpSearch : /^(?!.*(blast|monger|piercing|explosive|round))(?=.*\bthunder)(?=.*cannon\b).*$/i,
 				name : "Thunder Cannon",
-				source : ["UA:A", 6],
+				source : [["UA:A", 6]],
 				ability : 2,
 				type : "Thunder Cannon",
 				damage : [2, 6, "piercing"],
@@ -395,7 +395,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			},
 			ammoOptions : {
 				name : "Arcane Magazine",
-				source : ["UA:A", 7],
+				source : [["UA:A", 7]],
 				weight : 0.2, // based on the weight of renaissance bullets from the DMG
 				icon : "Bullets",
 				checks : [".Bullet"],
@@ -407,7 +407,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 		},
 		"subclassfeature1.2" : {
 			name : "Arcane Magazine",
-			source : ["UA:A", 6],
+			source : [["UA:A", 6]],
 			minlevel : 1,
 			description : desc([
 				"I craft a leather bag that holds my tools, ammunition, and materials for the weapon",
@@ -417,7 +417,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 		},
 		"subclassfeature3" : {
 			name : "Thunder Monger",
-			source : ["UA:A", 6],
+			source : [["UA:A", 6]],
 			minlevel : 3,
 			description : desc(["As an action, I can make an attack with my thunder cannon that does extra damage"]),
 			additional : levels.map(function (n) {
@@ -428,7 +428,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*\bthunder)(?=.*monger\b).*$/i,
 				name : "Thunder Cannon (Monger)",
-				source : ["UA:A", 6],
+				source : [["UA:A", 6]],
 				ability : 2,
 				type : "Thunder Cannon",
 				damage : [2, 6, "piercing"],
@@ -450,7 +450,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 		},
 		"subclassfeature9" : {
 			name : "Blast Wave",
-			source : ["UA:A", 6],
+			source : [["UA:A", 6]],
 			minlevel : 9,
 			description : desc([
 				"As an action, I can make a special attack with my thunder cannon in a 15-ft cone",
@@ -466,7 +466,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bblast)(?=.*wave\b).*$/i,
 				name : "Thunder Cannon (Blast Wave)",
-				source : ["UA:A", 6],
+				source : [["UA:A", 6]],
 				ability : 4,
 				type : "Thunder Cannon",
 				damage : [2, 6, "force"],
@@ -489,7 +489,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 		},
 		"subclassfeature14" : {
 			name : "Piercing Round",
-			source : ["UA:A", 6],
+			source : [["UA:A", 6]],
 			minlevel : 14,
 			description : desc([
 				"As an action, I can make a special attack with my thunder cannon in a 30-ft line",
@@ -504,7 +504,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bpiercing)(?=.*round\b).*$/i,
 				name : "Thunder Cannon (Piercing Round)",
-				source : ["UA:A", 6],
+				source : [["UA:A", 6]],
 				ability : 4,
 				type : "Thunder Cannon",
 				damage : [4, 6, "lightning"],
@@ -527,7 +527,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 		},
 		"subclassfeature17" : {
 			name : "Explosive Round",
-			source : ["UA:A", 7],
+			source : [["UA:A", 7]],
 			minlevel : 17,
 			description : desc([
 				"As an action, I can make a special exploding attack with my thunder cannon",
@@ -539,7 +539,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bexplosive)(?=.*round\b).*$/i,
 				name : "Thunder Cannon (Explosive Round)",
-				source : ["UA:A", 7],
+				source : [["UA:A", 7]],
 				ability : 4,
 				type : "Thunder Cannon",
 				damage : [4, 8, "fire"],

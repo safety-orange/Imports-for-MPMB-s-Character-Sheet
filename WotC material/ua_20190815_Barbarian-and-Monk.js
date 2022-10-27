@@ -15,13 +15,13 @@ SourceList["UA:BnM"] = {
 AddSubClass("barbarian", "path of the wild soul-ua", {
 	regExpSearch : /^(?=.*\bwild\b)(?=.*\bsoul\b).*$/i,
 	subname : "Path of the Wild Soul",
-	source : ["UA:BnM", 1],
+	source : [["UA:BnM", 1]],
 	fullname : "Wild Soul",
 	abilitySave : 3,
 	features : {
 		"subclassfeature3" : {
 			name : "Lingering Magic",
-			source : ["UA:BnM", 1],
+			source : [["UA:BnM", 1]],
 			minlevel : 3,
 			description : desc([
 				"I can cast Detect Magic without spell slots or components, using Con for spellcasting",
@@ -45,12 +45,12 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Wild Surge",
-			source : ["UA:BnM", 1],
+			source : [["UA:BnM", 1]],
 			minlevel : 3,
 			description : "\n   Whenever I enter my rage, I have to roll on the Wild Surge table (see Notes page)",
 			toNotesPage : [{
 				name : "Wild Surge Table",
-				source : ["UA:BnM", 1],
+				source : [["UA:BnM", 1]],
 				note : [
 					"Magic erupts from me while I rage. Whenever I enter my rage, I have to roll on the table below to see what happens.",
 					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",
@@ -68,7 +68,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Magic Reserves",
-			source : ["UA:BnM", 2],
+			source : [["UA:BnM", 2]],
 			minlevel : 6,
 			description : desc([
 				"As an action, I can touch a creature and roll a die to channel magic into it",
@@ -83,7 +83,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Arcane Rebuke",
-			source : ["UA:BnM", 2],
+			source : [["UA:BnM", 2]],
 			minlevel : 10,
 			description : desc([
 				"As a reaction when I have to make a save while raging, the magic in my soul lashes out",
@@ -93,7 +93,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Chaotic Fury",
-			source : ["UA:BnM", 2],
+			source : [["UA:BnM", 2]],
 			minlevel : 14,
 			description : desc([
 				"As a bonus action while raging, I can reroll the effect on the Wild Surge table",
@@ -106,11 +106,11 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 AddSubClass("monk", "way of the astral self-ua", {
 	regExpSearch : /^(?=.*astral)(?=.*(self|projection|travel))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Astral Self",
-	source : ["UA:BnM", 2],
+	source : [["UA:BnM", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Arms of the Astral Self",
-			source : ["UA:BnM", 2],
+			source : [["UA:BnM", 2]],
 			minlevel : 3,
 			description : "\n   My ki mastery allows me to summon portions of my astral self; See 3rd page notes",
 			action : [["bonus action", "Summon Astral Arms"], ["bonus action", "Astral Arm Attacks (after Attack action)"]],
@@ -118,7 +118,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*\bastral\b)(?=.*\barms?\b).*$/i,
 				name : "Astral Arms",
-				source : ["UA:BnM", 2],
+				source : [["UA:BnM", 2]],
 				ability : 5,
 				type : "Natural",
 				damage : [1, "", typePF ? "Necrotic/Radiant" : "necrotic|radiant"],
@@ -130,7 +130,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			"astral arms" : {
 				name : "Astral Arms",
 				extraname : "Way of the Astral Self 3",
-				source : ["UA:BnM", 2],
+				source : [["UA:BnM", 2]],
 				description : desc([
 					"As a bonus action, I can summon my astral arms for 10 minutes; I choose their appearance",
 					"While they are summoned, I can use Wisdom instead of Strength for Strength checks/saves",
@@ -146,14 +146,14 @@ AddSubClass("monk", "way of the astral self-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Visage of the Astral Self",
-			source : ["UA:BnM", 3],
+			source : [["UA:BnM", 3]],
 			minlevel : 6,
 			description : "\n   I can now also summon the visage of my astral self; See third page notes section",
 			action : [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage" : {
 				name : "Astral Visage",
 				extraname : "Way of the Astral Self 6",
-				source : ["UA:BnM", 3],
+				source : [["UA:BnM", 3]],
 				description : " [1 ki point]" + desc([
 					"As a bonus action (or when summoning my astral arms), I can summon my astral visage",
 					"It covers my face like a helmet or mask and I choose its appearance; It lasts for 10 minutes",
@@ -164,13 +164,13 @@ AddSubClass("monk", "way of the astral self-ua", {
 		},
 		"subclassfeature11" : {
 			name : "Awakening of the Astral Self",
-			source : ["UA:BnM", 3],
+			source : [["UA:BnM", 3]],
 			minlevel : 11,
 			description : "\n   While having both astral arms and visage summoned, I gain extra benefits, see 3rd page",
 			"deflect energy" : {
 				name : "Deflect Energy",
 				extraname : "Awakening of the Astral Self",
-				source : ["UA:BnM", 3],
+				source : [["UA:BnM", 3]],
 				description : " [if both astral arms \u0026 visage]" + desc([
 					"As a reaction when I take acid, cold, fire, force, or lightning damage, I can deflect it",
 					"By doing so, the damage is reduced by 1d10 + my Wisdom modifier + my Monk level"
@@ -179,7 +179,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			"empowered arms" : {
 				name : "Empowered Arms",
 				extraname : "Awakening of the Astral Self",
-				source : ["UA:BnM", 3],
+				source : [["UA:BnM", 3]],
 				description : " [if both astral arms \u0026 visage]" + desc([
 					"Once per turn when I hit an astral arms attack, I can add a martial arts die to its damage"
 				])
@@ -187,7 +187,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			"word of the spirit" : {
 				name : "Word of the Spirit",
 				extraname : "Awakening of the Astral Self",
-				source : ["UA:BnM", 3],
+				source : [["UA:BnM", 3]],
 				description : " [if both astral arms \u0026 visage]" + desc([
 					"I can direct my words to a creature I can see within 30 ft so that only it can hear me",
 					"Alternatively, I can amplify my voice so that it is heard by all within 600 ft of me"
@@ -201,7 +201,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 		},
 		"subclassfeature17" : {
 			name : "Complete Astral Self",
-			source : ["UA:BnM", 3],
+			source : [["UA:BnM", 3]],
 			minlevel : 17,
 			description : desc([
 				"I can now also summon the body of my astral self; See third page notes section",
@@ -211,7 +211,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			"astral body" : {
 				name : "Astral Body",
 				extraname : "Way of the Astral Self 17",
-				source : ["UA:BnM", 3],
+				source : [["UA:BnM", 3]],
 				description : " [10 ki points]" + desc([
 					"As a bonus action, I can summon the arms, visage, and body of my astral self for 10 min",
 					"This gives me the arms, visage, +2 bonus to AC while not incapacitated, and as follows:",

@@ -15,12 +15,12 @@ SourceList["UA:RS"] = {
 AddSubClass("barbarian", "ancestral guardian2-ua", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
-	source : ["UA:RS", 1],
+	source : [["UA:RS", 1]],
 	fullname : "Ancestral Guardian",
 	features : {
 		"subclassfeature3" : {
 			name : "Ancestral Protectors",
-			source : ["UA:RS", 1],
+			source : [["UA:RS", 1]],
 			minlevel : 3,
 			description : desc([
 				"While raging, the first creature I hit with an attack on my turn becomes distracted",
@@ -31,7 +31,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Spirit Shield",
-			source : ["UA:RS", 1],
+			source : [["UA:RS", 1]],
 			minlevel : 6,
 			description : desc([
 				"As a reaction while raging when an ally I see within 30 ft is damaged, I can reduce it",
@@ -42,7 +42,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 		},
 		"subclassfeature10" : {
 			name : "Consult the Spirits",
-			source : ["UA:RS", 1],
+			source : [["UA:RS", 1]],
 			minlevel : 10,
 			description : "\n   " + "Through consulting my ancestral spirits, I can cast Clairvoyance without a spell slot",
 			spellcastingBonus : {
@@ -56,7 +56,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Vengeful Ancestors",
-			source : ["UA:RS", 1],
+			source : [["UA:RS", 1]],
 			minlevel : 14,
 			description : "\n   " + "Whenever I use Spirit Shield to reduce damage, the attacker takes the reduced damage"
 		}
@@ -65,11 +65,11 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 AddSubClass("bard", "college of swords2-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
-	source : ["UA:RS", 1],
+	source : [["UA:RS", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
-			source : ["UA:RS", 2],
+			source : [["UA:RS", 2]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with medium armor and scimitars",
@@ -80,7 +80,7 @@ AddSubClass("bard", "college of swords2-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Fighting Style",
-			source : ["UA:RS", 2],
+			source : [["UA:RS", 2]],
 			minlevel : 3,
 			description : "\n   " + 'Select a Fighting Style for the college of swords using the "Choose Feature" button above',
 			choices : ["Dueling", "Two-Weapon Fighting"],
@@ -89,7 +89,7 @@ AddSubClass("bard", "college of swords2-ua", {
 		},
 		"subclassfeature3.2" : {
 			name : "Blade Flourish",
-			source : ["UA:RS", 2],
+			source : [["UA:RS", 2]],
 			minlevel : 3,
 			description : desc([
 				"As an action, I can make one melee weapon attack and use one flourish option below",
@@ -107,13 +107,13 @@ AddSubClass("bard", "college of swords2-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Cunning Flourish",
-			source : ["UA:RS", 2],
+			source : [["UA:RS", 2]],
 			minlevel : 6,
 			description : "\n   " + "When I take the Blade Flourish action, I can attack twice, but still only use one flourish"
 		},
 		"subclassfeature14" : {
 			name : "Master Flourish",
-			source : ["UA:RS", 2],
+			source : [["UA:RS", 2]],
 			minlevel : 14,
 			description : "\n   " + "When I do a Blade Flourish, I can use a d6 instead of expending a Bardic Inspiration die"
 		}
@@ -122,13 +122,13 @@ AddSubClass("bard", "college of swords2-ua", {
 AddSubClass("fighter", "arcane archer2-ua", {
 	regExpSearch : /^(?=.*arcane)(?=.*archer).*$/i,
 	subname : "Arcane Archer",
-	source : ["UA:RS", 2],
+	source : [["UA:RS", 2]],
 	fullname : "Arcane Archer",
 	abilitySave : 4,
 	features : {
 		"subclassfeature3" : {
 			name : "Magic Arrow",
-			source : ["UA:RS", 3],
+			source : [["UA:RS", 3]],
 			minlevel : 3,
 			description : desc([
 				"Whenever I fire a nonmagical arrow from a short- or longbow I can make it magical",
@@ -145,7 +145,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Shot",
-			source : ["UA:RS", 3],
+			source : [["UA:RS", 3]],
 			minlevel : 3,
 			description : desc([
 				"I can unleash magical effects when I fire a magic arrow from a short- or longbow",
@@ -163,7 +163,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			}),
 			"banishing arrow [abjuration]" : {
 				name : "Banishing Arrow [Abjuration]",
-				source : ["UA:RS", 3],
+				source : [["UA:RS", 3]],
 				description : desc([
 					"The target makes a Cha save or is banished to the Feywild until the end of its next turn",
 					"While banished, its speed is 0 and is incapacitated; It re-appearing in the same spot",
@@ -173,7 +173,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			},
 			"brute bane arrow [necromancy]" : {
 				name : "Brute Bane Arrow [Necromancy]",
-				source : ["UA:RS", 3],
+				source : [["UA:RS", 3]],
 				description : desc([
 					"The target takes extra necrotic damage and must make a Constitution save",
 					"If failed, the damage of the target's attacks is halved until the start of my next turn"
@@ -182,13 +182,13 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			},
 			"bursting arrow [evocation]" : {
 				name : "Bursting Arrow [Evocation]",
-				source : ["UA:RS", 3],
+				source : [["UA:RS", 3]],
 				description : "\n   " + "The target, in addition to the shot, and all creatures within 10 ft of it take damage",
 				additional : levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; })
 			},
 			"grasping arrow [conjuration]" : {
 				name : "Grasping Arrow [Conjuration]",
-				source : ["UA:RS", 3],
+				source : [["UA:RS", 3]],
 				description : desc([
 					"The target takes extra poison damage as brambles wrap around it for 1 minute",
 					"The brambles give it -10 ft speed and do it slashing damage every round it moves",
@@ -198,7 +198,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			},
 			"mind-scrambling arrow [enchantment]" : {
 				name : "Mind-Scrambling Arrow [Enchantment]",
-				source : ["UA:RS", 4],
+				source : [["UA:RS", 4]],
 				description : desc([
 					"The target takes extra psychic damage and must succeed on a Wisdom save",
 					"If failed, it can't attack or harm one of my allies within 30 ft of it that I choose",
@@ -208,7 +208,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			},
 			"piercing arrow [transmutation]" : {
 				name : "Piercing Arrow [Transmutation]",
-				source : ["UA:RS", 4],
+				source : [["UA:RS", 4]],
 				description : desc([
 					"With this I don't roll for the attack, but shoot the arrow in a 30-ft long, 1-ft wide line",
 					"It passes through objects, ignoring cover, but all creatures in the area take damage",
@@ -219,7 +219,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			},
 			"seeking arrow [divination]" : {
 				name : "Seeking Arrow [Divination]",
-				source : ["UA:RS", 4],
+				source : [["UA:RS", 4]],
 				description : desc([
 					"With this I don't roll for the attack, but I choose a target I have seen in the last minute",
 					"The seeking arrow moves around corners, obstacles, and ignores cover to hit the target",
@@ -231,7 +231,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			},
 			"shadow arrow [illusion]" : {
 				name : "Shadow Arrow [Illusion]",
-				source : ["UA:RS", 4],
+				source : [["UA:RS", 4]],
 				description : desc([
 					"The target takes extra psychic damage and must succeed on a Wisdom save",
 					"If failed, the target can't see anything beyond 5 ft until the end of my next turn"
@@ -241,14 +241,14 @@ AddSubClass("fighter", "arcane archer2-ua", {
 		},
 		"subclassfeature3.2" : {
 			name : "Arcane Archer's Lore",
-			source : ["UA:RS", 3],
+			source : [["UA:RS", 3]],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency with either the Arcana or Nature skill",
 			skillstxt : "Choose one from: Arcana or Nature"
 		},
 		"subclassfeature7" : {
 			name : "Curving Shot",
-			source : ["UA:RS", 3],
+			source : [["UA:RS", 3]],
 			minlevel : 7,
 			description : desc([
 				"When I miss with a magic arrow, I can use a bonus action to redirect the attack",
@@ -258,7 +258,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 		},
 		"subclassfeature15" : {
 			name : "Ever-Ready Shot",
-			source : ["UA:RS", 3],
+			source : [["UA:RS", 3]],
 			minlevel : 15,
 			description : "\n   " + "I regain one use of Arcane Shot if I have no more remaining when I roll initiative"
 		}
@@ -267,11 +267,11 @@ AddSubClass("fighter", "arcane archer2-ua", {
 AddSubClass("monk", "way of the kensei2-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
-	source : ["UA:RS", 4],
+	source : [["UA:RS", 4]],
 	features : {
 		"subclassfeature3" : {
 			name : "Path of the Kensei",
-			source : ["UA:RS", 4],
+			source : [["UA:RS", 4]],
 			minlevel : 3,
 			description : desc([
 				"Some weapons, that don't have the heavy or special property, are kensei weapons for me",
@@ -300,7 +300,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 		},
 		"ki-empowered strikes" : {
 			name : "One with the Blade",
-			source : ["UA:RS", 5],
+			source : [["UA:RS", 5]],
 			minlevel : 6,
 			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
 			calcChanges : {
@@ -316,14 +316,14 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			"precise strike" : {
 				name : "Precise Strike",
 				extraname : "Way of the Kensei 6",
-				source : ["UA:RS", 5],
+				source : [["UA:RS", 5]],
 				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
 				additional : "1 ki point"
 			},
 			"sharpen the blade" : {
 				name : "Sharpen the Blade",
 				extraname : "Way of the Kensei 11",
-				source : ["UA:RS", 5],
+				source : [["UA:RS", 5]],
 				description : desc([
 					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
 					"This bonus is equal to the number of ki points I spend; It lasts for 1 minute"
@@ -340,7 +340,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 		},
 		"subclassfeature17" : {
 			name : "Unerring Accuracy",
-			source : ["UA:RS", 5],
+			source : [["UA:RS", 5]],
 			minlevel : 17,
 			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
 		}
@@ -349,7 +349,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 AddSubClass("sorcerer", "favoured soul-uars", {
 	regExpSearch : /^(?=.*favou?red)(?=.*soul).*$/i,
 	subname : "Favored Soul",
-	source : ["UA:RS", 5],
+	source : [["UA:RS", 5]],
 	fullname : "Favored Soul",
 	spellcastingList : {
 		"class" : ["cleric", "sorcerer"]
@@ -357,7 +357,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 	features : {
 		"subclassfeature1" : {
 			name : "Divine Magic",
-			source : ["UA:RS", 5],
+			source : [["UA:RS", 5]],
 			minlevel : 1,
 			description : desc([
 				"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
@@ -372,7 +372,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 		},
 		"subclassfeature1.2" : {
 			name : "Favored by the Gods",
-			source : ["UA:RS", 5],
+			source : [["UA:RS", 5]],
 			minlevel : 1,
 			description : "\n   " + "If I fail a saving throw or miss with an attack roll, I can add 2d4 to the total",
 			recovery : "short rest",
@@ -380,7 +380,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 		},
 		"subclassfeature6" : {
 			name : "Empowered Healing",
-			source : ["UA:RS", 5],
+			source : [["UA:RS", 5]],
 			minlevel : 6,
 			description : " [1 sorcery point]" + desc([
 				"When I roll dice for healing with one of my sorcerer spells, I can reroll them once",
@@ -389,7 +389,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 		},
 		"subclassfeature14" : {
 			name : "Angelic Form",
-			source : ["UA:RS", 5],
+			source : [["UA:RS", 5]],
 			minlevel : 14,
 			description : desc([
 				'Choose an otherworldly quality using the "Choose Feature" button above',
@@ -434,7 +434,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 		},
 		"subclassfeature18" : {
 			name : "Unearthly Recovery",
-			source : ["UA:RS", 6],
+			source : [["UA:RS", 6]],
 			minlevel : 18,
 			description : desc([
 				"As a bonus action when I have less than half of my max HP remaining, I can heal myself",

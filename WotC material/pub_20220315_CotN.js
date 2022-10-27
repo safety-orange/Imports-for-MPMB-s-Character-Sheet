@@ -12,6 +12,38 @@ SourceList.CotN = {
 	date : "2022/03/15"
 };
 
+CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_Hero
+	name : "Young Horizonback Tortoise",
+	nameAlt : ["Tortoise, Young Horizonback"],
+	source: [["CotN", 26]],
+	size : 1,
+	type : "Beast",
+	alignment : "Unaligned",
+	ac : 15,
+	hp : 68,
+	hd : [8, 12],
+	speed : "30 ft",
+	scores : [19, 11, 15, 2, 12, 5],
+	senses : "",
+	passivePerception : 11,
+	languages: "understands Goblin but can't speak",
+	challengeRating : "3",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Bite",
+		ability : 1,
+		damage : [4, 6, "piercing"],
+		range : "Melee (10 ft)",
+		description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
+		modifiers : [1, ""]
+	}],
+	traits: [{
+		name: "Amphibious",
+		description: "The tortoise can breathe air and water.",
+	}]
+};
+
 MagicItemsList["breathing bubble"] = {
 	name : "Breathing Bubble",
 	source : [["W", 266], ["CotN", 212]],
@@ -114,7 +146,7 @@ MagicItemsList["ring of red fury"] = {
 	rarity : "very rare",
 	notLegalAL : true,
 	attunement : true,
-	description : "This ring allows me to breathe water and gives me a swimming speed equal to my walking speed. As a bonus action once per long rest, I can use it to, for 1 minute, have adv. on Str checks and saves, add my Prof. Bonus to damage rolls of my attacks, ignore difficult terrain, be immune to paralyzed and restrained.",
+	description : "This ring allows me to breathe water and gives me a swimming speed equal to my walking speed. As a bonus action once per long rest, I can use it to, for 1 minute, have adv. on Str checks and saves, add my Prof Bonus to damage rolls of my attacks, ignore difficult terrain, be immune to paralyzed and restrained.",
 	descriptionLong : "While wearing this ring with a stripe of ruidium running through it, I am able to breathe water and I have a swimming speed equal to my walking speed. As a bonus action once per long rest, I can use it to, for 1 minute, have adv. on my Strength checks and saves, add my proficiency bonus to the damage rolls of my attacks, have difficult terrain not cost me extra movement, and be immune to being paralyzed and restrained. When I do this bonus action, I have to make a DC 20 Charisma save or gain 1 level of exhaustion and become corrupted. If the Apotheon is killed or redeemed, this ring turns into a Ring of Free Action.",
 	descriptionFull : [
 		"This ring has a stripe of ruidium running through it. While wearing the ring, you gain the following benefits:",

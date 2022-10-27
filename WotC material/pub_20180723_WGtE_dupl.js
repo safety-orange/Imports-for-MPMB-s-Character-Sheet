@@ -239,7 +239,7 @@ if (!SourceList["UA:RoE"]) {
 		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scorestxt : "+1 Constitution and +1 to two other ability scores of my choice",
 		scores : [0, 0, 1, 0, 0, 0],
-		trait : "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
+		trait : "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
@@ -312,7 +312,7 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scores : [2, 0, 1, 0, 0, 0],
-		trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+		trait : "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
 		carryingCapacity : 2,
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
@@ -378,7 +378,7 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric : " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 		weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scores : [0, 2, 1, 0, 0, 0],
-		trait : "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+		trait : "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
@@ -427,7 +427,7 @@ if (RaceList["wood elf"]) {
 	AddRacialVariant("wood elf", "aereni", {
 		regExpSearch : /aereni/i,
 		name : "Aereni wood elf",
-		source : ["WGtE", 73],
+		source : [["WGtE", 73]],
 		plural : "Aereni wood elves",
 		weaponProfs : "",
 		skillstxt : "Proficiency and expertise with any one skill or tool",
@@ -436,7 +436,7 @@ if (RaceList["wood elf"]) {
 	AddRacialVariant("wood elf", "valenar", {
 		regExpSearch : /valenar/i,
 		name : "Valenar wood elf",
-		source : ["WGtE", 73],
+		source : [["WGtE", 73]],
 		plural : "Valenar wood elves",
 		weaponProfs : [false, false, ["scimitar", "double-bladed scimitar", "longbow", "shortbow"]],
 		trait : "Valenar " + RaceList["wood elf"].trait
@@ -445,7 +445,7 @@ if (RaceList["wood elf"]) {
 AddRacialVariant("high elf", "aereni", {
 	regExpSearch : /aereni/i,
 	name : "Aereni high elf",
-	source : ["WGtE", 73],
+	source : [["WGtE", 73]],
 	plural : "Aereni high elves",
 	weaponProfs : "",
 	skillstxt : "Proficiency and expertise with any one skill or tool",
@@ -454,7 +454,7 @@ AddRacialVariant("high elf", "aereni", {
 AddRacialVariant("high elf", "valenar", {
 	regExpSearch : /valenar/i,
 	name : "Valenar high elf",
-	source : ["WGtE", 73],
+	source : [["WGtE", 73]],
 	plural : "Valenar high elves",
 	weaponProfs : [false, false, ["scimitar", "double-bladed scimitar", "longbow", "shortbow"]],
 	trait : "Valenar " + RaceList["high elf"].trait
@@ -480,7 +480,7 @@ if (!WeaponsList["double-bladed scimitar"]){
 // Revenant blade feat
 FeatsList["revenant blade-wgte"] = {
 	name : "Revenant Blade",
-	source : ["WGtE", 74],
+	source : [["WGtE", 74]],
 	prerequisite : "Being an Elf",
 	prereqeval : function(v) { return (/^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i).test(CurrentRace.known); },
 	descriptionFull : "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While wielding a double-bladed weapon with two hands, the weapon has the finesse trait for your attacks with it, and you gain +1 AC.\n \u2022 On your turn, when you use a bonus action to make a melee attack with the blade at the opposite end of the weapon, the weapon's damage die for this attack increases to 2d4, instead of 1d4.",
@@ -508,7 +508,7 @@ FeatsList["revenant blade-wgte"] = {
 // Creature
 CreatureList["clawfoot raptor"] = {
 	name : "Clawfoot Raptor",
-	source : ["WGtE", 81],
+	source : [["WGtE", 81]],
 	size : 3,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -715,7 +715,7 @@ RaceList["dragonmark passage human-wgte"] = { // different than UA: Dragonmarks
 	regExpSearch : /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
 	name : "Human (dragonmark)",
 	sortname : "Dragonmark, Passage (Human)",
-	source : ["WGtE", 102],
+	source : [["WGtE", 102]],
 	plural : "Humans (dragonmark)",
 	size : 3,
 	speed : {
@@ -2021,7 +2021,7 @@ if (!SourceList["UA:MIoE"]) {
 }
 MagicItemsList["bag of bounty-ua"] = {
 	name : "Bag of Bounty",
-	source : ["WGtE", 116],
+	source : [["WGtE", 116]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "As an action three times per dawn, I can cast Create Food and Water, but can try and create fine food with a Cha check. If I'm proficient with cook's utensils, I add my proficiency bonus. Meal quality: modest (DC 10), comfortable (DC 13), wealthy (DC 15), aristocratic (DC 18). Failure results in a sour and squalid meal. ",
@@ -2048,7 +2048,7 @@ MagicItemsList["bag of bounty-ua"] = {
 }
 MagicItemsList["inquisitive's goggles-ua"] = {
 	name : "Inquisitive's Goggles",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "I can add my Intuition Die to my Wis (Insight) checks. When I examine an object, I can make a Wis (Perception) check to sense the aura of the last living creature to touch it (DC is 13 + days since last contact). On a success, I learn the creature's species and I can immediately use my Imprint Prey ability to target it.",
@@ -2062,7 +2062,7 @@ MagicItemsList["inquisitive's goggles-ua"] = {
 }
 MagicItemsList["keycharm-ua"] = {
 	name : "Keycharm",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "When I cast Alarm, Arcane Lock, Glyph of Warding, or a similar abjuration effect, I can tie it to the keycharm. Whoever holds the keycharm is considered to be the owner of this effect. For example, they receive the notification from Alarm, can safely avoid a Glyph of Warding, or can circumvent the Arcane Lock.",
@@ -2074,7 +2074,7 @@ MagicItemsList["keycharm-ua"] = {
 }
 MagicItemsList["rings of shared suffering-ua"] = {
 	name : "Rings of Shared Suffering",
-	source : ["WGtE", 117],
+	source : [["WGtE", 117]],
 	type : "ring",
 	rarity : "uncommon",
 	description : "I can only attune to one of these rings. As a bonus action, I can link this ring to the other of its pair, if a creature is attuned to it. From then on, when that creature takes damage, they only suffer half and I take the rest. This effect has no range limit and lasts until either of us ends it as a bonus action or removes their ring.",
@@ -2087,7 +2087,7 @@ MagicItemsList["rings of shared suffering-ua"] = {
 }
 MagicItemsList["scribe's pen-ua"] = {
 	name : "Scribe's Pen",
-	source : ["WGtE", 115],
+	source : [["WGtE", 115]],
 	type : "wondrous item",
 	rarity : "common",
 	description : "I can use this quill to write on any surface. This can be visible(traced in glowing mystical lines) or invisible to any creature without the Mark of Scribing. Detect Magic reveals the invisible writing. As an action, I or others with the Mark of Scribing can make it (in)visible. Marks on living creatures fade within a week.",

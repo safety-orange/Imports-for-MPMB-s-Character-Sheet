@@ -1,7 +1,7 @@
 var iFileName = "pub_20220125_MotM.js";
 RequiredSheetVersion("13.1.1");
 // This file adds all the player-material from Mordenkainen Presents: Monsters of the Multiverse to MPMB's Character Record Sheet
-// Includes many contributions by NodHero and BraabHimself
+// Includes many contributions by Nod_Hero and BraabHimself
 
 // Define the source
 SourceList.MotM = {
@@ -67,6 +67,14 @@ RaceList["multiverse aarakocra"] = {
 };
 var MotM_Aasimar_trait = (typePF ? "\n" : "") + " \u2022 Light Bearer: I know the Light cantrip." +
 "\n \u2022 Healing Hands: As an action once per long rest, I can touch a creature and heal it for a number of d4s equal to my Prof" + (typePF ? "." : "iciency") + " Bonus.";
+var MotM_Aasimar_HealingHands = {
+	name : "Healing Hands",
+	minlevel : 1,
+	usages : 1,
+	recovery : "long rest",
+	additional : ProficiencyBonusList.map(function(n) { return n + "d4 healing"; }),
+	action : [["action", ""]]
+};
 RaceList["multiverse aasimar"] = {
 	regExpSearch : /^(?=.*(multiverse|motm\b))(?=.*aasimar).*$/i,
 	name : "Multiverse Aasimar",
@@ -89,14 +97,9 @@ RaceList["multiverse aasimar"] = {
 		selection : ["light"],
 		firstCol : 'atwill'
 	},
-	// Do Healing Hands in the main object so it doesn't have to appear in features for variants
-	extraLimitedFeatures : [{
-		name : "Healing Hands",
-		usages : 1,
-		recovery : "long rest",
-		additional : ProficiencyBonusList.map(function(n) { return n + "d4 healing"; })
-	}],
-	action : [["action", "Healing Hands"]]
+	features : {
+		"healing hands" : MotM_Aasimar_HealingHands
+	}
 };
 AddRacialVariant("multiverse aasimar", "necrotic shroud", {
 	regExpSearch : /shroud/i,
@@ -104,8 +107,9 @@ AddRacialVariant("multiverse aasimar", "necrotic shroud", {
 	source : [["MotM", 7]],
 	abilitySave : 6,
 	trait : "Aasimar (Necrotic Shroud)" + MotM_Aasimar_trait +
-		"\n \u2022 Necrotic Shroud (3rd level): Once per long rest, I can transform for 1 minute as a bonus action (start/end), causing enemies within 10 ft to make a Cha save (DC 8 + Cha mod + Prof. Bonus) or become frightened of me until my next turn ends. Also, once on each of my turns, I can deal my Prof. Bonus in necrotic damage to one damaged by my attack or spell.",
+		"\n \u2022 Necrotic Shroud (3rd level): Once per long rest, I can transform for 1 minute as a bonus action (start/end), causing enemies within 10 ft to make a Cha save (DC 8 + Cha mod + Prof Bonus) or become frightened of me until my next turn ends. Also, once on each of my turns, I can deal my Prof Bonus in necrotic damage to one damaged by my attack or spell.",
 	features : {
+		"healing hands" : MotM_Aasimar_HealingHands,
 		"necrotic shroud" : {
 			name : "Necrotic Shroud",
 			minlevel : 3,
@@ -122,8 +126,9 @@ AddRacialVariant("multiverse aasimar", "radiant consumption", {
 	source : [["MotM", 7]],
 	plural : "Aasimar",
 	trait : "Aasimar (Radiant Consumption)" + MotM_Aasimar_trait +
-		"\n \u2022 Radiant Consumption (3rd level): Once per long rest, I can transform for 1 minute as a bonus action (start/end). I shed 10-ft radius bright light and 10-ft dim light. At the end of my turns, all in this bright light take my Prof. Bonus in radiant damage. Also, once on my turns, I can deal Prof. Bonus in radiant damage to one damaged by my attack or spell.",
+		"\n \u2022 Radiant Consumption (3rd level): Once per long rest, I can transform for 1 minute as a bonus action (start/end). I shed 10-ft radius bright light and 10-ft dim light. At the end of my turns, all in this bright light take my Prof Bonus in radiant damage. Also, once on my turns, I can deal Prof Bonus in radiant damage to one damaged by my attack or spell.",
 	features : {
+		"healing hands" : MotM_Aasimar_HealingHands,
 		"radiant consumption" : {
 			name : "Radiant Consumption",
 			minlevel : 3,
@@ -140,8 +145,9 @@ AddRacialVariant("multiverse aasimar", "radiant soul", {
 	source : [["MotM", 7]],
 	plural : "Aasimar",
 	trait : "Aasimar (Radiant Soul)" + MotM_Aasimar_trait +
-		"\n \u2022 Radiant Soul (3rd level): As a bonus action once per long rest, I can transform to gain spectral wings that give my a flying speed equal to my walking speed. These last for 1 minute or until I dismiss them as a bonus action. Once on each of my turns while active, I can deal my Prof. Bonus in radiant damage to one target damaged by my attack or spell.",
+		"\n \u2022 Radiant Soul (3rd level): As a bonus action once per long rest, I can transform to gain spectral wings that give my a flying speed equal to my walking speed. These last for 1 minute or until I dismiss them as a bonus action. Once on each of my turns while active, I can deal my Prof Bonus in radiant damage to one target damaged by my attack or spell.",
 	features : {
+		"healing hands" : MotM_Aasimar_HealingHands,
 		"radiant soul" : {
 			name : "Radiant Soul",
 			minlevel : 3,
@@ -387,7 +393,7 @@ RaceList["multiverse eladrin"] = {
 	trait : "Eladrin (my creature type is humanoid, elf)"+
 		"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest."+
 		"\n \u2022 Shifting Seasons: After finish a long rest, I can align with a season."+
-		"\n \u2022 Fey Step: Prof. Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. At 3rd level, additional effects based on my season.",
+		"\n \u2022 Fey Step: Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. At 3rd level, additional effects based on my season.",
 	features : {
 		"fey step" : {
 			name : "Fey Step",
@@ -402,7 +408,7 @@ RaceList["multiverse eladrin"] = {
 		name : "Shifting Seasons",
 		source : [["MotM", 13]],
 		popupName : "Eladrin Shifting Season Features",
-		additional : "save DC 8 + Prof. Bonus + Int/Wis/Cha mod",
+		additional : "save DC 8 + Prof Bonus + Int/Wis/Cha mod",
 		page3notes : true,
 		note : [
 			"\u2022 Autumn (Eladrin Season)",
@@ -513,7 +519,7 @@ if (!RaceList["harengon"]) {
 			"\n \u2022 Hare-Trigger: I can add my proficiency bonus to my initiative rolls."+
 			"\n \u2022 Leporine Senses: I have proficiency in the Perception skill."+
 			"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0."+
-			"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof. Bonus without provoking opportunity attacks. I can do this my Prof. Bonus times per long rest.",
+			"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof Bonus without provoking opportunity attacks. I can do this my Prof Bonus times per long rest.",
 	};
 } // dupl_end
 RaceList["multiverse firbolg"] = {
@@ -666,7 +672,7 @@ RaceList["multiverse earth genasi"] = {
 	scoresGeneric : true,
 	trait : "Earth Genasi"+
 	"\n \u2022 Earth Walk: I can move across difficult terrain without expending extra movement if I am using my walking speed on the ground or a floor."+
-	"\n \u2022 Merge with Stone: I can cast the Blade Ward cantrip as normal and as a bonus action Prof. Bonus times per long rest. At 5th level, I can cast Pass Without Trace without using a spell slot or material component once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	"\n \u2022 Merge with Stone: I can cast the Blade Ward cantrip as normal and as a bonus action Prof Bonus times per long rest. At 5th level, I can cast Pass Without Trace without using a spell slot or material component once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
 	spellcastingAbility : [4, 5, 6],
 	features : {
 		"Merge with Stone (level 1)" : {
@@ -1113,7 +1119,7 @@ RaceList["multiverse hobgoblin"] = {
 				page3notes : true,
 				note : [
 					"Whenever I use Fey Gift to take the Help action, I can choose one of these additional effects:",
-					" \u2022 Hospitality: The one I help and I each gain 1d6 + my Prof. Bonus in temporary HP",
+					" \u2022 Hospitality: The one I help and I each gain 1d6 + my Prof Bonus in temporary HP",
 					" \u2022 Passage: The one I help and I both gain +10 ft walking speed until my next turn stats",
 					" \u2022 Spite: The first time the one I help hits an attack roll before my next turn starts,",
 					"   the creature hit gains disadvantage on its next attack roll within the next minute"
@@ -1123,8 +1129,8 @@ RaceList["multiverse hobgoblin"] = {
 	},
 	trait : "Hobgoblin (my creature type is humanoid, goblinoid)"+
 		"\n \u2022 Fey Ancestry: I have adv. on saves to avoid or end being charmed."+
-		'\n \u2022 Fey Gift: Prof. Bonus per long rest, I can take the Help action as a bonus action. From 3rd-level, I can produce an additional effect when I do this: Hospitality, Passage, or Spite.'+
-		"\n \u2022 Fortune from the Many: Prof. Bonus per long rest, when I miss an attack or fail an ability check or saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +3)."
+		'\n \u2022 Fey Gift: Prof Bonus per long rest, I can take the Help action as a bonus action. From 3rd-level, I can produce an additional effect when I do this: Hospitality, Passage, or Spite.'+
+		"\n \u2022 Fortune from the Many: Prof Bonus per long rest, when I miss an attack or fail an ability check or saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +3)."
 };
 RaceList["multiverse kenku"] = {
 	regExpSearch : /^(?=.*(multiverse|motm\b))(?=.*kenku).*$/i,
@@ -1261,7 +1267,7 @@ RaceList["multiverse lizardfolk"] = {
 	trait : "Lizardfolk"+
 		"\n \u2022 Bite: My unarmed strikes with my fanged maw deal 1d6 slashing damage."+
 		"\n \u2022 Hold Breath: I can hold my breath for up to 15 minutes at a time."+
-		"\n \u2022 Hungry Jaws: Prof. Bonus per long rest, as a bonus action, I can make a special bite attack. If it hits, it deals damage and I gain temporary HP equal to my proficiency bonus."+
+		"\n \u2022 Hungry Jaws: Prof Bonus per long rest, as a bonus action, I can make a special bite attack. If it hits, it deals damage and I gain temporary HP equal to my proficiency bonus."+
 		"\n \u2022 Natural Armor: I have an AC of 13 + Dexterity modifier + shield."+
 		"\n \u2022 Nature's Intuition: I gain proficiency with two of the following  Animal Handling, Medicine, Nature, Perception, Stealth, or Survival."
 };
@@ -1291,7 +1297,7 @@ RaceList["multiverse minotaur"] = {
 	trait : "Minotaur"+(typePF ? "\n" : "")+
 		" \u2022 Horns: My unarmed strikes with horns deal 1d6 piercing damage."+
 		"\n \u2022 Goring Rush: When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action."+
-		"\n \u2022 Hammering Horns: As a bonus action after I hit a melee attack on my turn during my Attack action, I can shove the target, if it's up to one size larger than me. It must make a Str save (DC 8 + Str mod + Prof. Bonus) or be pushed up to 10 ft away from me."+
+		"\n \u2022 Hammering Horns: As a bonus action after I hit a melee attack on my turn during my Attack action, I can shove the target, if it's up to one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me."+
 		"\n \u2022 Labyrinthine Recall: " + (typePF ? "I always know which direction is north, and have adv. on any Wis (Survival) check I make to navigate or track." : "I have adv. on Survival to navigate or track and always know north.")
 };
 RaceList["multiverse orc"] = {
@@ -1342,7 +1348,7 @@ RaceList["multiverse satyr"] = {
 	savetxt : { adv_vs : ["spells"] },
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
-        regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
+		regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
 		name : "Satyr Headbutt",
 		source : [["MotM", 29]],
 		damage : [1, 6, "bludgeoning"]
@@ -1407,7 +1413,7 @@ RaceList["multiverse shadar-kai"] = {
 	scoresGeneric : true,
 	trait : "Shadar-kai (my creature type is humanoid, elf)"+
 		"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest."+
-		"\n \u2022 Blessing of the Raven Queen: Prof. Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, I then also appear translucent and have resistance to all damage until the start of my next turn.",
+		"\n \u2022 Blessing of the Raven Queen: Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, I then also appear translucent and have resistance to all damage until the start of my next turn.",
 	features : {
 		"blessing of the raven queen" : {
 			name : "Blessing of the Raven Queen",
@@ -1422,7 +1428,7 @@ RaceList["multiverse shadar-kai"] = {
 [{
 	name : "Beasthide",
 	regExpSearch : "(?=.*beast)(?=.*hide)",
-	trait : "\n \u2022 Shifting (Beasthide): Prof. Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain 1d6 + twice my proficiency bonus in temporary hit points and a +1 bonus to my AC.",
+	trait : "\n \u2022 Shifting (Beasthide): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain 1d6 + twice my proficiency bonus in temporary hit points and a +1 bonus to my AC.",
 	extra : {
 		features : {
 			"shift" : {
@@ -1438,7 +1444,7 @@ RaceList["multiverse shadar-kai"] = {
 }, {
 	name : "Longtooth",
 	regExpSearch : "(?=.*long)(?=.*(tooth|teeth))",
-	trait : "\n \u2022 Shifting (Longtooth): Prof. Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and my fangs elongate. As part of the bonus action when I shift and as a bonus action while shifted, I can make a single unarmed strike with my elongated fangs that deals 1d6 piercing damage.",
+	trait : "\n \u2022 Shifting (Longtooth): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and my fangs elongate. As part of the bonus action when I shift and as a bonus action while shifted, I can make a single unarmed strike with my elongated fangs that deals 1d6 piercing damage.",
 	extra : {
 		action : [["bonus action", "Longtooth Fangs (while shifted)"]],
 		weaponOptions : {
@@ -1454,14 +1460,14 @@ RaceList["multiverse shadar-kai"] = {
 }, {
 	name : "Swiftstride",
 	regExpSearch : "(?=.*swift)(?=.*stride)",
-	trait : "\n \u2022 Shifting (Swiftstride): Prof. Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and +10 ft to my walking speed. Additionally, as a reaction when a creature ends its turn within 5 ft of me, I can move up to 10 ft. This reactive movement doesn't provoke opportunity attacks.",
+	trait : "\n \u2022 Shifting (Swiftstride): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and +10 ft to my walking speed. Additionally, as a reaction when a creature ends its turn within 5 ft of me, I can move up to 10 ft. This reactive movement doesn't provoke opportunity attacks.",
 	extra : {
 		action : [['reaction', 'Reactive Stride (while shifted)']]
 	}
 }, {
 	name : "Wildhunt",
 	regExpSearch : "(?=.*wild)(?=.*hunt)",
-	trait : "\n \u2022 Shifting (Wildhunt): Prof. Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points. While I'm shifted, I have advantage on Wisdom checks and no creature within 30 ft of me can make an attack roll with advantage against me unless I'm incapacitated.",
+	trait : "\n \u2022 Shifting (Wildhunt): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points. While I'm shifted, I have advantage on Wisdom checks and no creature within 30 ft of me can make an attack roll with advantage against me unless I'm incapacitated.",
 	extra : {
 		vision : [
 			["Darkvision", 60],
@@ -1779,6 +1785,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["deep rothe"] = {
 		name : "Deep Roth\xE9",
+		nameAlt : ["Roth\xE9, Deep"],
 		source : [["V", 208], ["MotM", 71]],
 		size : 3, //Medium
 		type : "Beast",
@@ -1879,6 +1886,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["cranium rat"] = {
 		name : "Cranium Rat",
+		nameAlt : ["Rat, Cranium"],
 		source : [["V", 133], ["MotM", 83]],
 		size : 5, //Tiny
 		type : "Aberration", // Change in MotM from Beast

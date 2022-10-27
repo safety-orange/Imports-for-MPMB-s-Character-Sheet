@@ -23,18 +23,58 @@ BackgroundFeatureList["underdark experience"] = {
 };
 
 // Creatures
+CreatureList["cave badger"] = { // contributed by Nod_Hero
+	name : "Cave Badger",
+	nameAlt : ["Badger, Cave"],
+	source : [["OotA", 96]],
+	size : 3,
+	type : "Beast",
+	alignment : "Unaligned",
+	ac : 12,
+	hp : 13,
+	hd : [2, 8],
+	speed : "30 ft, burrow 15 ft",
+	scores : [13, 10, 15, 2, 12, 5],
+	senses : "Darkvision 30 ft, Tremorsense 60 ft; Adv. on Wis (Perception) checks using smell",
+	passivePerception : 11,
+	languages : "",
+	challengeRating : "1/4",
+	proficiencyBonus : 2,
+	attacksAction : 2,
+	attacks : [{
+		name : "Bite",
+		ability : 1,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+		description : "One bite and one claws attack as an Attack action"
+	}, {
+		name : "Claws",
+		ability : 1,
+		damage : [2, 4, "slashing"],
+		range : "Melee (5 ft)",
+		description : "One claws and one bite attack as an Attack action"
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The badger makes two attacks: one with its bite and one with its claws."
+	}],
+	traits : [{
+		name : "Keen Smell",
+		description : "The badger has advantage on Wisdom (Perception) checks that rely on smell."
+	}]
+};
 CreatureList["steeder, female"] = {
-	name : "Steeder, Female",
-	nameAlt : ["Steeder"],
-	source : ["OotA", 231],
-	size : 2, //Large
+	name : "Female Steeder",
+	nameAlt : ["Steeder, Female", "Steeder"],
+	source : [["OotA", 231]],
+	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",
 	ac : 14,
 	hp : 30,
-	hd : [4, 10], //[#, die]
+	hd : [4, 10],
 	speed : "30 ft, climb 30 ft",
-	scores : [15, 16, 14, 2, 10, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	scores : [15, 16, 14, 2, 10, 3],
 	skills : {
 		"stealth" : 7
 	},
@@ -44,40 +84,39 @@ CreatureList["steeder, female"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 2,
-			damage : [1, 8, "piercing"],
-			range : "Melee (5 ft)",
-			description : "Target also takes 2d8 acid damage, half on a DC 12 Constitution saving throw"
-		}, {
-			name : "Sticky Leg",
-			ability : 2,
-			damage : ["\u2015", "", "Grappled"],
-			range : "Melee (5 ft)",
-			description : "Medium or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
-			abilitytodamage : false
-		}
-	],
+		name : "Bite",
+		ability : 2,
+		damage : [1, 8, "piercing"],
+		range : "Melee (5 ft)",
+		description : "Target also takes 2d8 acid damage, half on a DC 12 Constitution saving throw"
+	}, {
+		name : "Sticky Leg",
+		ability : 2,
+		damage : ["\u2015", "", "Grappled"],
+		range : "Melee (5 ft)",
+		description : "Medium or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
+		abilitytodamage : false
+	}],
 	traits : [{
-			name : "Spider Climb",
-			description : "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
-		}, {
-			name : "Leap",
-			description : "The steeder can expend all its movement on its turn to jump up to 90 ft vertically or horizontally, provided that its speed is at least 30 feet."
-		}
-	]
+		name : "Spider Climb",
+		description : "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+	}, {
+		name : "Leap",
+		description : "The steeder can expend all its movement on its turn to jump up to 90 ft vertically or horizontally, provided that its speed is at least 30 feet."
+	}]
 };
 CreatureList["steeder, male"] = {
-	name : "Steeder, Male",
-	source : ["OotA", 231],
-	size : 3, //Medium
+	name : "Male Steeder",
+	nameAlt : ["Steeder, Male"],
+	source : [["OotA", 231]],
+	size : 3,
 	type : "Beast",
 	alignment : "Unaligned",
 	ac : 12,
 	hp : 13,
-	hd : [2, 8], //[#, die]
+	hd : [2, 8],
 	speed : "30 ft, climb 30 ft",
-	scores : [15, 12, 14, 2, 10, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	scores : [15, 12, 14, 2, 10, 3],
 	skills : {
 		"stealth" : 5
 	},
@@ -87,34 +126,32 @@ CreatureList["steeder, male"] = {
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-			name : "Bite",
-			ability : 1,
-			damage : [1, 8, "piercing"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Target also takes 1d8 acid damage, half on a DC 12 Constitution saving throw"
-		}, {
-			name : "Sticky Leg",
-			ability : 1,
-			damage : ["\u2015", "", "Grappled"], //[#, die, type] "" for die is allowed
-			range : "Melee (5 ft)",
-			description : "Small or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
-			abilitytodamage : false
-		}
-	],
+		name : "Bite",
+		ability : 1,
+		damage : [1, 8, "piercing"],
+		range : "Melee (5 ft)",
+		description : "Target also takes 1d8 acid damage, half on a DC 12 Constitution saving throw"
+	}, {
+		name : "Sticky Leg",
+		ability : 1,
+		damage : ["\u2015", "", "Grappled"],
+		range : "Melee (5 ft)",
+		description : "Small or smaller is stuck to the steeder's leg and grappled (escape DC 12); Can't use again until grapple ends",
+		abilitytodamage : false
+	}],
 	traits : [{
-			name : "Spider Climb",
-			description : "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
-		}, {
-			name : "Leap",
-			description : "The steeder can expend all its movement on its turn to jump up to 60 ft vertically or horizontally, provided that its speed is at least 30 feet."
-		}
-	]
+		name : "Spider Climb",
+		description : "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+	}, {
+		name : "Leap",
+		description : "The steeder can expend all its movement on its turn to jump up to 60 ft vertically or horizontally, provided that its speed is at least 30 feet."
+	}]
 };
 
 // Magic Items
 MagicItemsList["dawnbringer"] = {
 	name : "Dawnbringer",
-	source : ["OotA", 222],
+	source : [["OotA", 222]],
 	type : "weapon (longsword)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -133,7 +170,7 @@ MagicItemsList["dawnbringer"] = {
 		baseWeapon : "longsword",
 		regExpSearch : /dawnbringer/i,
 		name : "Dawnbringer",
-		source : ["OotA", 222],
+		source : [["OotA", 222]],
 		damage : [1, 8, "radiant"],
 		description : "Finesse, versatile (1d10); +1d8 damage to undead",
 		modifiers : [2, 2]
@@ -170,7 +207,7 @@ MagicItemsList["dawnbringer"] = {
 }
 MagicItemsList["piwafwi (cloak of elvenkind)"] = {
 	name : "Piwafwi",
-	source : ["OotA", 222],
+	source : [["OotA", 222]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -189,7 +226,7 @@ MagicItemsList["piwafwi (cloak of elvenkind)"] = {
 }
 MagicItemsList["piwafwi of fire resistance (cloak of elvenkind)"] = {
 	name : "Piwafwi of Fire Resistance",
-	source : ["OotA", 222],
+	source : [["OotA", 222]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -408,7 +445,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 }
 MagicItemsList["stonespeaker crystal"] = {
 	name : "Stonespeaker Crystal",
-	source : ["OotA", 223],
+	source : [["OotA", 223]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -440,7 +477,7 @@ MagicItemsList["stonespeaker crystal"] = {
 }
 MagicItemsList["wand of viscid globs"] = {
 	name : "Wand of Viscid Globs",
-	source : ["OotA", 223],
+	source : [["OotA", 223]],
 	type : "wand",
 	rarity : "rare",
 	attunement : true,
@@ -456,7 +493,7 @@ MagicItemsList["wand of viscid globs"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*wand)(?=.*viscid)(?=.*globs).*$/i,
 		name : "Wand of Viscid Globs",
-		source : ["OotA", 223],
+		source : [["OotA", 223]],
 		ability : 4,
 		type : "Spell",
 		damage : ["\u2015", "", "Restrained"],

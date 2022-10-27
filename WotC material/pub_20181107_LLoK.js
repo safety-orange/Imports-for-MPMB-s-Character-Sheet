@@ -16,7 +16,7 @@ SourceList["LLoK"] = {
 MagicItemsList["blade of the medusa"] = {
 	name : "Blade of the Medusa",
 	nameTest : "of the Medusa",
-	source : ["LLoK", 53],
+	source : [["LLoK", 53]],
 	type : "weapon (any sword)",
 	rarity : "very rare",
 	magicItemTable : "H",
@@ -48,7 +48,7 @@ MagicItemsList["blade of the medusa"] = {
 }
 MagicItemsList["galder's bubble pipe"] = {
 	name : "Galder's Bubble Pipe",
-	source : ["LLoK", 55],
+	source : [["LLoK", 55]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -72,7 +72,7 @@ MagicItemsList["galder's bubble pipe"] = {
 MagicItemsList["gambler's blade"] = {
 	name : "Gambler's Blade",
 	nameTest : "Gambler's",
-	source : ["LLoK", 55],
+	source : [["LLoK", 55]],
 	type : "weapon (any sword)",
 	rarity : "rare",
 	magicItemTable : "H",
@@ -104,7 +104,7 @@ MagicItemsList["gambler's blade"] = {
 MagicItemsList["heward's hireling armor"] = {
 	name : "Heward's Hireling Armor",
 	nameAlt : "Hireling Armor",
-	source : ["LLoK", 55],
+	source : [["LLoK", 55]],
 	type : "armor (leather)",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -116,7 +116,7 @@ MagicItemsList["heward's hireling armor"] = {
 	armorOptions : {
 		regExpSearch : /^(?=.*heward)(?=.*hireling)(?=.*armor).*$/i,
 		name : "Heward's Hireling Armor",
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		type : "light",
 		ac : 12,
 		weight : 10
@@ -137,7 +137,7 @@ if (MagicItemsList["ioun stone"]) {
 		}
 	}
 	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Supreme Intellect", {
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "As an action, I can make this faceted sphere orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I gain a +1 bonus on Intelligence checks.",
@@ -151,7 +151,7 @@ if (MagicItemsList["ioun stone"]) {
 		]
 	});
 	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Historical Knowledge", {
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "As an action, I can make this polished, steely sphere orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the History skill, or a +1 bonus with it if I'm already proficient.",
@@ -161,7 +161,7 @@ if (MagicItemsList["ioun stone"]) {
 		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("His", "Historical Knowledge", true); }
 	});
 	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Natural Knowledge", {
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "As an action, I can make this burnished, brassy stone orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the Nature skill, or a +1 bonus with it if I'm already proficient.",
@@ -171,7 +171,7 @@ if (MagicItemsList["ioun stone"]) {
 		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Nat", "Natural Knowledge", true); }
 	});
 	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Religious Knowledge", {
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "As an action, I can make this tiny golden gem orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the Religion skill, or a +1 bonus with it if I'm already proficient.",
@@ -181,7 +181,7 @@ if (MagicItemsList["ioun stone"]) {
 		removeeval : function () { MagicItemsList["ioun stone"].incrementSkill("Rel", "Religious Knowledge", true); }
 	});
 	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Language Knowledge", {
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "As an action, I can make this pulsating bit of red jeweled crystal orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I am fluent in one additional language chosen by the DM.",
@@ -189,7 +189,7 @@ if (MagicItemsList["ioun stone"]) {
 		languageProfs : [1]
 	});
 	AddFeatureChoice(MagicItemsList["ioun stone"], false, "Self-Preservation", {
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		rarity : "rare",
 		description : "As an action, I can make this silvery gem orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I gain a +1 bonus to Intelligence saving throws.",
 		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   You gain a +1 bonus to Intelligence saving throws while this silvery gem orbits your head.",
@@ -207,7 +207,7 @@ var LLoK_leatherGolemArmorFullDescription = [
 ];
 MagicItemsList["leather golem armor"] = {
 	name : "Leather Golem Armor",
-	source : ["LLoK", 55],
+	source : [["LLoK", 55]],
 	type : "armor (leather)",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -221,7 +221,7 @@ MagicItemsList["leather golem armor"] = {
 	armorOptions : {
 		regExpSearch : /^(?=.*leather)(?=.*golem)(?=.*armor).*$/i,
 		name : "Leather Golem Armor",
-		source : ["LLoK", 55],
+		source : [["LLoK", 55]],
 		type : "light",
 		ac : 12,
 		weight : 10
@@ -251,7 +251,7 @@ var LLoK_polymorphBladeFullDescription = [
 MagicItemsList["polymorph blade"] = {
 	name : "Polymorph Blade",
 	nameTest : "Polymorph",
-	source : ["LLoK", 59],
+	source : [["LLoK", 59]],
 	type : "weapon (any sword)",
 	rarity : "very rare",
 	magicItemTable : "H",
@@ -301,7 +301,7 @@ var LLoK_poweredArmorFullDescription = [
 ];
 MagicItemsList["powered armor"] = {
 	name : "Powered Armor",
-	source : ["LLoK", 56],
+	source : [["LLoK", 56]],
 	type : "armor (plate)",
 	rarity : "legendary",
 	notLegalAL : true,
@@ -316,7 +316,7 @@ MagicItemsList["powered armor"] = {
 	armorOptions : {
 		regExpSearch : /^(?=.*powered)(?=.*armor).*$/i,
 		name : "Powered Armor",
-		source : ["LLoK", 56],
+		source : [["LLoK", 56]],
 		type : "heavy",
 		ac : 19,
 		stealthdis : true,
@@ -334,7 +334,7 @@ MagicItemsList["powered armor"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*arm)(?=.*mounted)(?=.*laser).*$/i,
 		name : "Arm-Mounted Laser",
-		source : ["LLoK", 56],
+		source : [["LLoK", 56]],
 		ability : 0,
 		type : "Magic Item",
 		damage : [2, 6, "radiant"],
@@ -347,46 +347,46 @@ MagicItemsList["powered armor"] = {
 
 // Spells (contain contributions by /u/KittenWithMittens)
 SpellsList["flock of familiars"] = {
-    name: "Flock of Familiars",
-    classes: ["warlock", "wizard"],
-    source: ["LLoK", 57],
-    level: 2,
-    school: "Conj",
-    time: "1 min",
-    range: "Touch",
-    components: "V,S",
-    duration: "Conc, 1 h",
-    description : "Summon 3+1/SL familiars as Find Familiar; can see through their eyes and deliver touch spells; see B",
-    descriptionFull: "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
+	name: "Flock of Familiars",
+	classes: ["warlock", "wizard"],
+	source: ["LLoK", 57],
+	level: 2,
+	school: "Conj",
+	time: "1 min",
+	range: "Touch",
+	components: "V,S",
+	duration: "Conc, 1 h",
+	description : "Summon 3+1/SL familiars as Find Familiar; can see through their eyes and deliver touch spells; see B",
+	descriptionFull: "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
 }
 SpellsList["galder's speedy courier"] = {
-    name: "Galder's Speedy Courier",
-    classes: ["warlock", "wizard"],
-    source: ["LLoK", 57],
-    level: 4,
-    school: "Conj",
-    time: "1 a",
-    range: "10 ft",
-    components: "V,S,M\u2020",
-    compMaterial: "25 gp, or mineral goods of equivalent value, which the spell consumes",
-    duration: "10 min",
+	name: "Galder's Speedy Courier",
+	classes: ["warlock", "wizard"],
+	source: ["LLoK", 57],
+	level: 4,
+	school: "Conj",
+	time: "1 a",
+	range: "10 ft",
+	components: "V,S,M\u2020",
+	compMaterial: "25 gp, or mineral goods of equivalent value, which the spell consumes",
+	duration: "10 min",
 	description: "Send 3\xD73\xD73 ft chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
 	descriptionMetric : "Send 1\xD71\xD71 m chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
-    descriptionFull: "You summon a Small air elemental to a spot within range. The air elemental is formless, nearly transparent, immune to all damage, and cannot interact with other creatures or objects. It carries an open, empty chest whose interior dimensions are 3 feet on each side. While the spell lasts, you can deposit as many items inside the chest as will fit. You can then name a living creature you have met and seen at least once before, or any creature for which you possess a body part, lock of hair, clipping from a nail, or similar portion of the creature's body.\n   As soon as the lid of the chest is closed, the elemental and the chest disappear, then reappear adjacent to the target creature. If the target creature is on another plane, or if it is proofed against magical detection or location, the contents of the chest reappear on the ground at your feet.\n   The target creature is made aware of the chest's contents before it chooses whether or not to open it, and knows how much of the spell's duration remains in which it can retrieve them. No other creature can open the chest and retrieve its contents. When the spell expires or when all the contents of the chest have been removed, the elemental and the chest disappear. The elemental also disappears if the target creature orders it to return the items to you. When the elemental disappears, any items not taken from the chest reappear on the ground at your feet." + AtHigherLevels + "When you cast this spell using an 8th-level spell slot, you can send the chest to a creature on a different plane of existence from you."
+	descriptionFull: "You summon a Small air elemental to a spot within range. The air elemental is formless, nearly transparent, immune to all damage, and cannot interact with other creatures or objects. It carries an open, empty chest whose interior dimensions are 3 feet on each side. While the spell lasts, you can deposit as many items inside the chest as will fit. You can then name a living creature you have met and seen at least once before, or any creature for which you possess a body part, lock of hair, clipping from a nail, or similar portion of the creature's body.\n   As soon as the lid of the chest is closed, the elemental and the chest disappear, then reappear adjacent to the target creature. If the target creature is on another plane, or if it is proofed against magical detection or location, the contents of the chest reappear on the ground at your feet.\n   The target creature is made aware of the chest's contents before it chooses whether or not to open it, and knows how much of the spell's duration remains in which it can retrieve them. No other creature can open the chest and retrieve its contents. When the spell expires or when all the contents of the chest have been removed, the elemental and the chest disappear. The elemental also disappears if the target creature orders it to return the items to you. When the elemental disappears, any items not taken from the chest reappear on the ground at your feet." + AtHigherLevels + "When you cast this spell using an 8th-level spell slot, you can send the chest to a creature on a different plane of existence from you."
 }
 SpellsList["galder's tower"] = {
-    name: "Galder's Tower",
-    classes: ["wizard"],
-    source: ["LLoK", 57],
-    level: 3,
-    school: "Conj",
-    time: "10 min",
-    range: "30 ft",
-    components: "V,S,M",
-    compMaterial: "A fragment of stone, wood, or other building material",
-    duration: "24 h",
-    description: "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
-    descriptionFull: "You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:" +
+	name: "Galder's Tower",
+	classes: ["wizard"],
+	source: ["LLoK", 57],
+	level: 3,
+	school: "Conj",
+	time: "10 min",
+	range: "30 ft",
+	components: "V,S,M",
+	compMaterial: "A fragment of stone, wood, or other building material",
+	duration: "24 h",
+	description: "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
+	descriptionFull: "You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:" +
 	"\n \u2022 A bedroom with a bed, chairs, chest, and magical fireplace" +
 	"\n \u2022 A study with desks, books, bookshelves, parchments, ink, and ink pens" +
 	"\n \u2022 A dining space with a table, chairs, magical fireplace, containers, and cooking utensils" +

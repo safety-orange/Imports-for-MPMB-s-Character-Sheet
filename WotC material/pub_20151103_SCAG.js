@@ -18,7 +18,7 @@ RaceList["ghostwise halfling"] = {
 	name : "Ghostwise halfling",
 	sortname : "Halfling, Ghostwise",
 	plural : "Ghostwise halflings",
-	source : ["S", 110],
+	source : [["S", 110]],
 	size : 4,
 	speed : {
 		walk : { spd : 25, enc : 15 }
@@ -134,7 +134,7 @@ if (!RaceList["deep gnome"]) {
 AddRacialVariant("half-elf", "aquatic", {
 	regExpSearch : /aquatic/i,
 	name : "Half-aquatic elf",
-	source : ["S", 116],
+	source : [["S", 116]],
 	plural : "Half-aquatic elves",
 	speed : {
 		walk : { spd : 30, enc : 20 },
@@ -146,7 +146,7 @@ AddRacialVariant("half-elf", "aquatic", {
 AddRacialVariant("half-elf", "cantrip", {
 	regExpSearch : /cantrip/i,
 	name : "Half-high elf",
-	source : ["S", 116],
+	source : [["S", 116]],
 	plural : "Half-high elves",
 	skillstxt : "",
 	trait : "Half-High Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nCantrip:\n   I know one cantrip of my choice from the wizard spell list.\n   Intelligence is my spellcasting ability for it.",
@@ -161,7 +161,7 @@ AddRacialVariant("half-elf", "cantrip", {
 AddRacialVariant("half-elf", "drow magic", {
 	regExpSearch : /^(?=.*drow)(?=.*magic).*$/i,
 	name : "Half-drow",
-	source : ["S", 116],
+	source : [["S", 116]],
 	plural : "Half-drow",
 	skillstxt : "",
 	trait : "Half-drow (+2 Charisma and +1 to two other ability scores of my choice)\n\nDrow Magic:\n   I know the Dancing Lights cantrip.\n   Once I reach 3rd level, I can cast the Faerie Fire spell once per long rest.\n   Once I reach 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
@@ -203,7 +203,7 @@ AddRacialVariant("half-elf", "drow magic", {
 });
 AddRacialVariant("half-elf", "elf weapon training", {
 	regExpSearch : /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
-	source : ["S", 116],
+	source : [["S", 116]],
 	skillstxt : "",
 	trait : "Half-Elf (+2 Charisma and +1 to two other ability scores of my choice)",
 	weaponProfs : [false, false, ["longsword", "shortsword", "longbow", "shortbow"]]
@@ -211,7 +211,7 @@ AddRacialVariant("half-elf", "elf weapon training", {
 AddRacialVariant("half-elf", "fleet of foot", {
 	regExpSearch : /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
 	name : "Half-wood elf",
-	source : ["S", 116],
+	source : [["S", 116]],
 	plural : "Half-wood elves",
 	speed : {
 		walk : { spd : 35, enc : 25 }
@@ -222,7 +222,7 @@ AddRacialVariant("half-elf", "fleet of foot", {
 AddRacialVariant("half-elf", "mask of the wild", {
 	regExpSearch : /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
 	name : "Half-wood elf",
-	source : ["S", 116],
+	source : [["S", 116]],
 	plural : "Half-wood elves",
 	skillstxt : "",
 	trait : "Half-Wood Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nMask of the Wild:\n   I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
@@ -230,7 +230,7 @@ AddRacialVariant("half-elf", "mask of the wild", {
 AddRacialVariant("tiefling", "devil's tongue", {
 	regExpSearch : /^(?=.*devil)(?=.*tongue).*$/i,
 	name : "Devil's tongue tiefling",
-	source : ["S", 118],
+	source : [["S", 118]],
 	plural : "Devil's tongue tieflings",
 	trait : "Devil's Tongue Tiefling (+1 Intelligence, +2 Charisma)\n\nDevil's Tongue:\n   I know the Vicious Mockery cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Enthrall spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingBonus : {
@@ -277,7 +277,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 AddRacialVariant("tiefling", "hellfire", {
 	regExpSearch : /hellfire/i,
 	name : "Hellfire tiefling",
-	source : ["S", 118],
+	source : [["S", 118]],
 	plural : "Hellfire tieflings",
 	trait : "Hellfire Tiefling (+1 Intelligence, +2 Charisma)\n\nInfernal Legacy (Hellfire):\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	features : {
@@ -338,7 +338,7 @@ RunFunctionAtEnd(function() {
 		regExpSearch : /^(?=.*feral)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
 		name : "Feral tiefling",
 		sortname : "Tiefling, Feral",
-		source : ["S", 118],
+		source : [["S", 118]],
 		plural : "Feral tieflings",
 		scores : [0, 2, 0, 1, 0, 0],
 		trait : "Feral Tiefling (+2 Dexterity, +1 Intelligence)\n\nInfernal Legacy:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells."
@@ -365,12 +365,12 @@ AddSubClass("barbarian", "battlerager", {
 	regExpSearch : /(battlerager|kuldjargh)/i,
 	subname : "Path of the Battlerager",
 	fullname : "Battlerager",
-	source : ["S", 121],
+	source : [["S", 121]],
 	abilitySave : 6,
 	features : {
 		"subclassfeature3" : {
 			name : "Battlerager Armor",
-			source : ["S", 121],
+			source : [["S", 121]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with spiked armor both as an armor and as a weapon",
@@ -381,7 +381,7 @@ AddSubClass("barbarian", "battlerager", {
 			armorOptions : {
 				regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
 				name : "Spiked armor",
-				source : ["S", 121],
+				source : [["S", 121]],
 				type : "medium",
 				ac : 14,
 				stealthdis : true,
@@ -390,7 +390,7 @@ AddSubClass("barbarian", "battlerager", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
 				name : "Armor spikes",
-				source : ["S", 121],
+				source : [["S", 121]],
 				ability : 1,
 				type : "armor spikes",
 				damage : [1, 4, "piercing"],
@@ -409,20 +409,20 @@ AddSubClass("barbarian", "battlerager", {
 		},
 		"subclassfeature6" : {
 			name : "Reckless Abandon",
-			source : ["S", 121],
+			source : [["S", 121]],
 			minlevel : 6,
 			description : "\n   " + "If I use Reckless Attack during rage, I also gain temporary HP equal to my Con mod"
 		},
 		"subclassfeature10" : {
 			name : "Battlerager Charge",
-			source : ["S", 121],
+			source : [["S", 121]],
 			minlevel : 10,
 			description : "\n   " + "As a bonus action while raging, I can use the Dash action",
 			action : ["bonus action", " (in rage)"]
 		},
 		"subclassfeature14" : {
 			name : "Spiked Retribution",
-			source : ["S", 121],
+			source : [["S", 121]],
 			minlevel : 14,
 			description : "\n   " + "When I'm hit in melee by an attacker within 5 ft, it takes 3 piercing damage" + "\n   " + "This only works while I'm wearing spiked armor, in rage, and I'm not incapacitated"
 		}
@@ -431,12 +431,12 @@ AddSubClass("barbarian", "battlerager", {
 AddSubClass("cleric", "arcana domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(arcana|magic|wizardry)).*$/i,
 	subname : "Arcana Domain",
-	source : ["S", 125],
+	source : [["S", 125]],
 	spellcastingExtra : ["detect magic", "magic missile", "magic weapon", "nystul's magic aura", "dispel magic", "magic circle", "arcane eye", "leomund's secret chest", "planar binding", "teleportation circle"],
 	features : {
 		"subclassfeature1" : {
 			name : "Arcane Initiate",
-			source : ["S", 125],
+			source : [["S", 125]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with Arcana and two wizard cantrips that count as cleric cantrips",
 			skills : ["Arcana"],
@@ -449,7 +449,7 @@ AddSubClass("cleric", "arcana domain", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Arcane Abjuration",
-			source : ["S", 125],
+			source : [["S", 125]],
 			minlevel : 2,
 			description : "\n   " + "As an action, one celestial, elemental, fey, or fiend within 30 ft must make a Wis save" + "\n   " + "If it fails and is able to see/hear me, it is turned for 1 min or until it takes damage" + "\n   " + "Turned: move away, never within 30 ft of me, no reactions or actions other than Dash" + "\n   " + "Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds" + "\n   " + "If its CR is low enough and it is not on its home plane, it is banished for 1 min instead" + "\n   " + "Banished: sent to home plane, reappearing where it was if the effect ends before 1 min",
 			additional : ["", "", "", "", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1 or lower", "CR 1 or lower", "CR 1 or lower", "CR 2 or lower", "CR 2 or lower", "CR 2 or lower", "CR 3 or lower", "CR 3 or lower", "CR 3 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower"],
@@ -457,7 +457,7 @@ AddSubClass("cleric", "arcana domain", {
 		},
 		"subclassfeature6" : {
 			name : "Spell Breaker",
-			source : ["S", 126],
+			source : [["S", 126]],
 			minlevel : 6,
 			description : "\n   " + "When I restore HP to an ally with a 1st-level or higher spell, I can also end one spell" + "\n   " + "The chosen spell on the ally ends if it is equal or lower level to the spell slot level used",
 			calcChanges : {
@@ -493,7 +493,7 @@ AddSubClass("cleric", "arcana domain", {
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",
-			source : ["S", 126],
+			source : [["S", 126]],
 			minlevel : 8,
 			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
 			calcChanges : {
@@ -516,7 +516,7 @@ AddSubClass("cleric", "arcana domain", {
 		},
 		"subclassfeature17" : {
 			name : "Arcane Mastery",
-			source : ["S", 126],
+			source : [["S", 126]],
 			minlevel : 17,
 			description : "\n   " + "I add four wizards spells, a 6th, 7th, 8th, and 9th-level spell, to my domain spells" + "\n   " + "As any domain spell, these spells are automatically prepared and count as cleric spells",
 			spellcastingBonus : [{
@@ -547,11 +547,11 @@ AddSubClass("fighter", "purple dragon knight", {
 	regExpSearch : /^(((?=.*purple)(?=.*dragon)(?=.*knight))|(?=.*banneret)).*$/i,
 	subname : "Purple Dragon Knight",
 	fullname : "Purple Dragon Knight",
-	source : ["S", 128],
+	source : [["S", 128]],
 	features : {
 		"subclassfeature3" : {
 			name : "Rallying Cry",
-			source : ["S", 128],
+			source : [["S", 128]],
 			minlevel : 3,
 			description : "\n   " + "When I use Second Wind, I also heal three allies within 60 ft that can see or hear me",
 			additional : levels.map(function (n) {
@@ -561,7 +561,7 @@ AddSubClass("fighter", "purple dragon knight", {
 		},
 		"subclassfeature7" : {
 			name : "Royal Envoy",
-			source : ["S", 128],
+			source : [["S", 128]],
 			minlevel : 7,
 			description : "\n   " + "I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Performance",
 			skillstxt : "Persuasion proficiency and expertise; If already proficient, choose one from Animal Handling, Insight, Intimidation, or Performance",
@@ -569,7 +569,7 @@ AddSubClass("fighter", "purple dragon knight", {
 		},
 		"subclassfeature10" : {
 			name : "Inspiring Surge",
-			source : ["S", 128],
+			source : [["S", 128]],
 			minlevel : 10,
 			description : "\n   " + "When I use my Action Surge, I can inspire an ally within 60 ft that can see or hear me" + "\n   " + "The ally can then use its reaction to make one melee or ranged weapon attack",
 			additional : levels.map(function (n) {
@@ -578,7 +578,7 @@ AddSubClass("fighter", "purple dragon knight", {
 		},
 		"subclassfeature15" : {
 			name : "Bulwark",
-			source : ["S", 128],
+			source : [["S", 128]],
 			minlevel : 15,
 			description : "\n   " + "When I use Indomitable to reroll a Int, Wis, or Cha save, I can extend it to an ally" + "\n   " + "The ally can reroll its failed saving throw against the same effect and take the result" + "\n   " + "It only works if not incapacitated and the ally is within 60 ft and can see or hear me"
 		}
@@ -587,31 +587,31 @@ AddSubClass("fighter", "purple dragon knight", {
 AddSubClass("monk", "way of the long death", {
 	regExpSearch : /^(?=.*\blong)(?=.*\b(death|dead))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Long Death",
-	source : ["S", 130],
+	source : [["S", 130]],
 	features : {
 		"subclassfeature3" : {
 			name : "Touch of Death",
-			source : ["S", 130],
+			source : [["S", 130]],
 			minlevel : 3,
 			description : "\n   " + "If I reduce someone within 5 ft to 0 HP, I gain Wis mod + monk level temporary HP"
 		},
 		"subclassfeature6" : {
 			name : "Hour of Reaping",
-			source : ["S", 130],
+			source : [["S", 130]],
 			minlevel : 6,
 			description : "\n   " + "As an action, all creatures within 30 feet of me must make a Wisdom saving throw" + "\n   " + "On a failed save the creature is frightened until the end of my next turn",
 			action : ["action", ""]
 		},
 		"subclassfeature11" : {
 			name : "Mastery of Death",
-			source : ["S", 131],
+			source : [["S", 131]],
 			minlevel : 11,
 			additional : "1 ki point",
 			description : "\n   " + "When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead",
 			"touch of the long death" : {
 				name : "Touch of the Long Death",
 				extraname : "Way of the Long Death 17",
-				source : ["S", 131],
+				source : [["S", 131]],
 				description : " [1-10 ki points]" + "\n   " + "As an action, a target within 5 ft takes 2d10 necrotic damage per ki point I spent" + "\n   " + "It can make a Constitution saving throw to half the damage",
 				action : ["action", ""]
 			},
@@ -726,11 +726,11 @@ AddSubClass("monk", "way of the sun soul", {
 AddSubClass("paladin", "oath of the crown", {
 	regExpSearch : /^(?=.*(crown|king|country))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of the Crown",
-	source : ["S", 133],
+	source : [["S", 133]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Champion Challenge",
-			source : ["S", 133],
+			source : [["S", 133]],
 			minlevel : 3,
 			description : "\n   " + "I can compel any chosen creatures within 30 ft of me to make a Wisdom save" + "\n   " + "If failed, a target is unable to willingly move more than 30 ft away from me" + "\n   " + "The effect ends if I'm incapacitated, die, or it is moved more than 30 ft away from me",
 			action : ["action", ""],
@@ -738,28 +738,28 @@ AddSubClass("paladin", "oath of the crown", {
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Turn the Tide",
-			source : ["S", 133],
+			source : [["S", 133]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, any chosen creatures within 30 ft that can hear me regain HP" + "\n   " + "Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature7" : {
 			name : "Divine Allegiance",
-			source : ["S", 133],
+			source : [["S", 133]],
 			minlevel : 7,
 			description : "\n   " + "When a creature within 5 feet of me takes damage, I can substitute my HP for it" + "\n   " + "The creature takes no damage and I take all of it; this damage can't be prevented",
 			action : ["reaction", ""]
 		},
 		"subclassfeature15" : {
 			name : "Unyielding Spirit",
-			source : ["S", 133],
+			source : [["S", 133]],
 			minlevel : 15,
 			description : "\n   " + "I have advantage on saving throws against effects that paralyze or stun",
 			savetxt : { adv_vs : ["paralyzed", "stunned"] }
 		},
 		"subclassfeature20" : {
 			name : "Exalted Champion",
-			source : ["S", 133],
+			source : [["S", 133]],
 			minlevel : 20,
 			description : desc([
 				"As an action, I gain the following benefits for 1 hour or until I'm incapacitated:",
@@ -964,12 +964,12 @@ AddSubClass("sorcerer", "storm sorcery", {
 AddSubClass("warlock", "the undying", {
 	regExpSearch : /^(?!.*light)(?=.*warlock)(?=.*(immortal|undying|neverending|unending)).*$/i,
 	subname : "the Undying",
-	source : ["S", 139],
+	source : [["S", 139]],
 	spellcastingExtra : ["false life", "ray of sickness", "blindness/deafness", "silence", "feign death", "speak with dead", "aura of life", "death ward", "contagion", "legend lore"],
 	features : {
 		"subclassfeature1" : {
 			name : "Among the Dead",
-			source : ["S", 139],
+			source : [["S", 139]],
 			minlevel : 1,
 			description : "\n   " + "I learn the Spare the Dying cantrip and gain advantage on saving throws vs. diseases" + "\n   " + "If an undead targets me directly with an attack or spell, it must make a Wisdom save" + "\n   " + "On a fail, it must choose a new target or forfeit its attack or harmful spell" + "\n   " + "On a success or if I attack or cast a harmful spell on it, it is immune for 24 hours",
 			savetxt : { adv_vs : ["disease"] },
@@ -981,7 +981,7 @@ AddSubClass("warlock", "the undying", {
 		},
 		"subclassfeature6" : {
 			name : "Defy Death",
-			source : ["S", 140],
+			source : [["S", 140]],
 			minlevel : 6,
 			description : "\n   " + "I regain 1d8 + my Constitution modifier in HP when I succeed on a Death saving throw" + "\n   " + "I also regain this amount whenever I use Spare the Dying to stabilize a creature",
 			recovery : "long rest",
@@ -989,13 +989,13 @@ AddSubClass("warlock", "the undying", {
 		},
 		"subclassfeature10" : {
 			name : "Undying Nature",
-			source : ["S", 140],
+			source : [["S", 140]],
 			minlevel : 10,
 			description : "\n   " + "I can hold my breath indefinitely; I don't require food, water, or sleep (I still need rest)" + "\n   " + "I age more slowly, only 1 year for every 10 years that pass; I can't be magically aged"
 		},
 		"subclassfeature14" : {
 			name : "Indestructible Life",
-			source : ["S", 140],
+			source : [["S", 140]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action, I can regain HP and reattach severed body parts",
 			action : ["bonus action", ""],
@@ -1083,12 +1083,12 @@ if (ClassSubList["barbarian-totem warrior"]) {
 	if (SCAG_TotemWarriorFeature) {
 		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Elk", {
 			name : "Elk Spirit",
-			source : ["S", 122],
+			source : [["S", 122]],
 			description : "\n   While raging without heavy armor, my base walking speed increases by 15 ft"
 		});
 		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Spirit",
-			source : ["S", 122],
+			source : [["S", 122]],
 			description : "\n   While raging, I can add 10 ft to my long jump and 3 ft to my high jump distance"
 		});
 	}
@@ -1096,7 +1096,7 @@ if (ClassSubList["barbarian-totem warrior"]) {
 	if (SCAG_TotemWarriorFeature) {
 		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Elk", {
 			name : "Aspect of the Elk",
-			source : ["S", 122],
+			source : [["S", 122]],
 			description : desc([
 				"While mounted or on foot and not incapacitated, my travel pace is doubled",
 				"I can extend this benefit to up to ten companions, while they are within 60 ft of me"
@@ -1104,7 +1104,7 @@ if (ClassSubList["barbarian-totem warrior"]) {
 		});
 		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Tiger", {
 			name : "Aspect of the Tiger",
-			source : ["S", 122],
+			source : [["S", 122]],
 			description : "\n   I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
 			skillstxt : "Choose two from Athletics, Acrobatics, Stealth, and Survival"
 		});
@@ -1113,7 +1113,7 @@ if (ClassSubList["barbarian-totem warrior"]) {
 	if (SCAG_TotemWarriorFeature) {
 		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Elk", {
 			name : "Elk Attunement",
-			source : ["S", 122],
+			source : [["S", 122]],
 			description : desc([
 				"As a bonus action while raging, I can move through a Large or smaller creature's space",
 				"It must make a Strength save of DC 8 + Strength modifier + Proficiency bonus",
@@ -1123,7 +1123,7 @@ if (ClassSubList["barbarian-totem warrior"]) {
 		});
 		AddFeatureChoice(SCAG_TotemWarriorFeature, false, "Tiger", {
 			name : "Tiger Attunement",
-			source : ["S", 122],
+			source : [["S", 122]],
 			description : desc([
 				"As a bonus action while raging, I can make a melee weapon attack on these conditions:",
 				" \u2022 I move at least 20 ft in a straight line towards the target that is Large or smaller",

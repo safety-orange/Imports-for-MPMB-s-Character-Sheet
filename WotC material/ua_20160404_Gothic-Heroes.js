@@ -155,7 +155,7 @@ RaceList["dragonborn revenant-ua"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 		name : "Breath weapon",
-		source : ["UA:GH", 1],
+		source : [["UA:GH", 1]],
 		ability : 3,
 		type : "Natural",
 		damage : [2, 6, "necrotic"],
@@ -247,7 +247,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
-			source : ["UA:GH", 2],
+			source : [["UA:GH", 2]],
 			minlevel : 3,
 			description : "\n   " + "I gain proficiency with two skills or one skill and any one tool" + "\n   " + "For skills I can choose Arcana, History, Insight, Investigation, Nature, or Perception",
 			choices : ["1 Skill and 1 Tool proficiencies", "2 Skill proficiencies"],
@@ -265,7 +265,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature3.1" : {
 			name : "Combat Superiority",
-			source : ["UA:GH", 2],
+			source : [["UA:GH", 2]],
 			minlevel : 3,
 			description : "\n   " + "I gain a number of superiority dice that I can use to fuel special maneuvers (see below)" + "\n   " + "I can use only one maneuver per attack; I regain all superiority dice after a short rest" + "\n    - " + "Use after rolling to hit; I add the superiority die to my attack roll" + "\n    - " + "Use after damaging a creature; I add the superiority die to the damage roll" + "\n       " + "Also, the attack imposes disadvantage on any concentration save resulting from it" + "\n    - " + "Use after Int/Wis/Cha save, before knowing success/fail; add the die to the save total" + "\n    - " + "Use with Wis (Perception) to detect hidden or Wis (Insight) to see if lying to me" + "\n       " + "After rolling but before knowing if success/fail; I add the superiority die to the check",
 			additional : ["", "", "d8", "d8", "d8", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d12", "d12", "d12"],
@@ -274,7 +274,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature3.2" : {
 			name : "Hunter's Mysticism",
-			source : ["UA:GH", 2],
+			source : [["UA:GH", 2]],
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",			
@@ -302,7 +302,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature7" : {
 			name : "Monster Slayer",
-			source : ["UA:GH", 2],
+			source : [["UA:GH", 2]],
 			minlevel : 7,
 			usages : 1,
 			recovery : "long rest",
@@ -311,13 +311,13 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature10" : {
 			name : "Improved Combat Superiority",
-			source : ["UA:GH", 2],
+			source : [["UA:GH", 2]],
 			minlevel : 10,
 			description : "\n   " + "My superiority dice turn into d10s at 10th level and into d12s at 18th level"
 		},
 		"subclassfeature15" : {
 			name : "Relentless",
-			source : ["UA:GH", 2],
+			source : [["UA:GH", 2]],
 			minlevel : 15,
 			description : "\n   " + "I regain one superiority die if I have no more remaining when I roll initiative"
 		}
@@ -326,30 +326,30 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 AddSubClass("rogue", "inquisitive-ua", {
 	regExpSearch : /^(?=.*(rogue|miscreant))(?=.*inquisitive).*$/i,
 	subname : "Inquisitive",
-	source : ["UA:GH", 3],
+	source : [["UA:GH", 3]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ear for Deceit",
-			source : ["UA:GH", 3],
+			source : [["UA:GH", 3]],
 			minlevel : 3,
 			description : "\n   " + "When using Wis (Insight) to sense if someone is lying, I can choose to use a fixed total" + "\n   " + "This total is 8 + Wis modifier + proficiency bonus (if proficient, or twice if expertise)"
 		},
 		"subclassfeature3.1" : {
 			name : "Eye for Detail",
-			source : ["UA:GH", 3],
+			source : [["UA:GH", 3]],
 			minlevel : 3,
 			description : "\n   " + "I can use the bonus action granted by Cunning Action for the following as well:" + "\n    - " + "To make a Wisdom (Perception) check to spot a hidden creature or object" + "\n    - " + "To make an Intelligence (Investigation) check to uncover and decipher clues" + "\n    - " + "To use Insightful Fighting (see below)"
 		},
 		"subclassfeature3.2" : {
 			name : "Insightful Fighting",
-			source : ["UA:GH", 3],
+			source : [["UA:GH", 3]],
 			minlevel : 3,
 			description : "\n   " + "As an action or bonus action, I can decipher the tactics of an active opponent I can see" + "\n   " + "I have to make a Wisdom (Insight) check vs. the target's Charisma (Deception) check" + "\n   " + "If I succeed, I can use sneak attack on the target regardless of advantage/disadvantage" + "\n   " + "This benefit lasts for 1 minute or until I successfully use Insightful Fighting again",
 			action : ["action", ""]
 		},
 		"subclassfeature9" : {
 			name : "Steady Eye",
-			source : ["UA:GH", 3],
+			source : [["UA:GH", 3]],
 			minlevel : 9,
 			usages : 1,
 			recovery : "long rest",
@@ -357,14 +357,14 @@ AddSubClass("rogue", "inquisitive-ua", {
 		},
 		"subclassfeature13" : {
 			name : "Unerring Eye",
-			source : ["UA:GH", 3],
+			source : [["UA:GH", 3]],
 			minlevel : 13,
 			description : "\n   " + "As an action, I can sense magical deceptions within 30 feet of me, but not what it does" + "\n   " + "I learn the presence of illusions, shapechanged creatures, or magic designed to deceive",
 			action : ["action", ""]
 		},
 		"subclassfeature17" : {
 			name : "Eye for Weakness",
-			source : ["UA:GH", 3],
+			source : [["UA:GH", 3]],
 			minlevel : 17,
 			description : "\n   " + "While my Insightful Fighting is active, I add 2d6 to sneak attacks against that target"
 		}

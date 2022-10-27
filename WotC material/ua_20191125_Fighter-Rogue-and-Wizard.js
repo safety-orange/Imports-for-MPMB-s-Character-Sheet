@@ -65,7 +65,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 			description : desc([
 				"As a bonus action, I can have a creature I can see within 20 ft make a Strength save",
 				"It takes 2d6 + Int mod psychic damage \u0026 moves 15 ft away or towards me (my choice)",
-				"If its save succeeds, it takes half damage and isn't moved; DC 8 + Prof bonus + Int mod"
+				"If its save succeeds, it takes half damage and isn't moved; DC 8 + Prof Bonus + Int mod"
 			]),
 			action : [["bonus action", ""]],
 			usages : "Intelligence modifier per ",
@@ -92,7 +92,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 			minlevel : 15,
 			description : desc([
 				"When I hit a creature with a weapon attack, I can deal an extra +2d10 psychic damage",
-				"The target also has to make a Constitution save (DC 8 + my Prof bonus + my Int mod)",
+				"The target also has to make a Constitution save (DC 8 + my Prof Bonus + my Int mod)",
 				"If it fails, it falls prone and has disadv. on its next ability check until my next turn starts"
 			]),
 			usages : "Intelligence modifier per ",
@@ -166,7 +166,7 @@ AddSubClass("rogue", "soulknife-ua", {
 			description : desc([
 				"When I damage a creature with my psychic blade, it must make a Wisdom saving throw",
 				"If it fails, it is frightened of me until my the start of my next turn",
-				"If it succeeds, it is immune to this for 24 hours; DC 8 + my Prof bonus + my Int mod"
+				"If it succeeds, it is immune to this for 24 hours; DC 8 + my Prof Bonus + my Int mod"
 			]),
 			calcChanges : {
 				atkAdd : [
@@ -198,7 +198,7 @@ AddSubClass("rogue", "soulknife-ua", {
 			description : desc([
 				"As an action, I can deal 12d6 psychic damage to a creature I can see within 30 ft",
 				"It also makes an Int save or is stunned until my next turn starts; Half damage on success",
-				"It has disadv. on the save if I'm hidden from it; DC 10 + my Prof bonus + my Int mod",
+				"It has disadv. on the save if I'm hidden from it; DC 10 + my Prof Bonus + my Int mod",
 				"I must have a psychic blade manifested to do so and one vanishes when I use this feature"
 			]),
 			action : [["action", ""]],

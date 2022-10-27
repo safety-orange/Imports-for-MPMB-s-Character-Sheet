@@ -17,7 +17,7 @@ SourceList["UA:E"] = {
 RaceList["changeling-ua"] = {
 	regExpSearch : /changeling/i,
 	name : "Changeling",
-	source : ["UA:E", 1],
+	source : [["UA:E", 1]],
 	plural : "Changelings",
 	size : 3,
 	skills : ["Deception"],
@@ -38,7 +38,7 @@ RaceList["changeling-ua"] = {
 RaceList["warforged-ua"] = {
 	regExpSearch : /warforged/i,
 	name : "Warforged",
-	source : ["UA:E", 3],
+	source : [["UA:E", 3]],
 	plural : "Warforged",
 	size : 3,
 	speed : {
@@ -63,7 +63,7 @@ RaceList["warforged-ua"] = {
 RaceList["shifter-ua"] = {
 	regExpSearch : /shifter/i,
 	name : "Shifter",
-	source : ["UA:E", 2],
+	source : [["UA:E", 2]],
 	plural : "Shifters",
 	size : 3,
 	speed : {
@@ -92,7 +92,7 @@ RaceList["shifter-ua"] = {
 AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch : /beasthide/i,
 	name : "Beasthide shifter",
-	source : ["UA:E", 2],
+	source : [["UA:E", 2]],
 	plural : "Beasthide shifters",
 	scorestxt : "",
 	scores : [0, 1, 1, 0, 0, 0],
@@ -101,7 +101,7 @@ AddRacialVariant("shifter-ua", "beasthide", {
 AddRacialVariant("shifter-ua", "cliffwalk", {
 	regExpSearch : /cliffwalk/i,
 	name : "Cliffwalk shifter",
-	source : ["UA:E", 2],
+	source : [["UA:E", 2]],
 	plural : "Cliffwalk shifters",
 	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
@@ -110,7 +110,7 @@ AddRacialVariant("shifter-ua", "cliffwalk", {
 AddRacialVariant("shifter-ua", "longstride", {
 	regExpSearch : /longstride/i,
 	name : "Longstride shifter",
-	source : ["UA:E", 2],
+	source : [["UA:E", 2]],
 	plural : "Longstride shifters",
 	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
@@ -119,13 +119,13 @@ AddRacialVariant("shifter-ua", "longstride", {
 AddRacialVariant("shifter-ua", "longtooth", {
 	regExpSearch : /(longtooth|longteeth)/i,
 	name : "Longtooth shifter",
-	source : ["UA:E", 2],
+	source : [["UA:E", 2]],
 	plural : "Longtooth shifters",
 	weaponsAdd : ["longtooth"],
 	weaponOptions : {
 		regExpSearch : /\blongtooth\b/i,
 		name : "Longtooth",
-		source : ["UA:E", 2],
+		source : [["UA:E", 2]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 6, "piercing"],
@@ -140,14 +140,14 @@ AddRacialVariant("shifter-ua", "longtooth", {
 AddRacialVariant("shifter-ua", "razorclaw", {
 	regExpSearch : /razorclaw/i,
 	name : "Razorclaw shifter",
-	source : ["UA:E", 2],
+	source : [["UA:E", 2]],
 	plural : "Razorclaw shifters",
 	weaponsAdd : ["razorclaw"],
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\brazorclaw\b/i,
 		name : "Razorclaw",
-		source : ["UA:E", 2],
+		source : [["UA:E", 2]],
 		damage : [1, "", "slashing"],
 		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse"
 	},
@@ -158,7 +158,7 @@ AddRacialVariant("shifter-ua", "razorclaw", {
 AddRacialVariant("shifter-ua", "wildhunt", {
 	regExpSearch : /wildhunt/i,
 	name : "Wildhunt shifter",
-	source : ["UA:E", 3],
+	source : [["UA:E", 3]],
 	plural : "Wildhunt shifters",
 	scorestxt : "",
 	scores : [0, 1, 0, 0, 1, 0],
@@ -168,7 +168,7 @@ AddRacialVariant("shifter-ua", "wildhunt", {
 // 12 variants of the Dragonmark feat
 FeatsList["dragonmark-ua"] = {
 	name : "Dragonmark",
-	source : ["UA:E", 6],
+	source : [["UA:E", 6]],
 	description : "Select the type of dragonmark using the little square button in this feat line.",
 	choices : ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
 	"detection" : {
@@ -321,39 +321,39 @@ FeatsList["dragonmark-ua"] = {
 AddSubClass("wizard", "artificer-ua", {
 	regExpSearch : /^((?=.*(wizard|mage|magus))(?=.*artificer))|(?=.*infuser).*$/i,
 	subname : "Tradition of the Artificer",
-	source : ["UA:E", 3],
+	source : [["UA:E", 3]],
 	fullname : "Wizard (Artificer)",
 	features : {
 		"subclassfeature2" : {
 			name : "Infuse Potions",
-			source : ["UA:E", 3],
+			source : [["UA:E", 3]],
 			minlevel : 2,
 			description : "\n   " + "I can produce magic potions if I spend 10 minutes and expend a spell slot" + "\n   " + "I can not regain the spell slot until the potion is consumed or a week has passed",
 			additional : ["", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions"]
 		},
 		"subclassfeature2.1" : {
 			name : "Infuse Scrolls",
-			source : ["UA:E", 4],
+			source : [["UA:E", 4]],
 			minlevel : 2,
 			description : "\n   " + "I can produce a scroll after a short rest if I spend 10 minutes and my Arcane Recovery" + "\n   " + "I subtract the spell's level from the levels worth of slots I regain using Arcane Recovery" + "\n   " + "This reduction applies till the scroll is used and I finish a long rest",
 			additional : ["", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls"]
 		},
 		"subclassfeature6" : {
 			name : "Infuse Weapons and Armor",
-			source : ["UA:E", 4],
+			source : [["UA:E", 4]],
 			minlevel : 6,
 			description : "\n   " + "I can spend 10 minutes to produce a magic weapon, armor, a shield, or ammunition" + "\n   " + "The item retains its magic for 8 hours and the spell slot I expend is:" + "\n   " + "2nd: +1 ammunition (20 pieces), 3rd: +1 weapon or +1 shield, 4th: +1 armor," + "\n   " + "5th: +2 weapon or +2 ammunition (20 pieces), 6th: +3 armor.",
 			additional : ["", "", "", "", "", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor"]
 		},
 		"subclassfeature10" : {
 			name : "Superior Artificer",
-			source : ["UA:E", 4],
+			source : [["UA:E", 4]],
 			minlevel : 10,
 			description : "\n   " + "I can create one additional scroll, potion, weapon, or armor when I use Infuse"
 		},
 		"subclassfeature14" : {
 			name : "Master Artificer",
-			source : ["UA:E", 4],
+			source : [["UA:E", 4]],
 			minlevel : 14,
 			description : "\n   " + "I can produce a variety of magic items from Tables A and B from the DMG" + "\n   " + "It takes 1 week for such an item and I cannot do it again for a month",
 			usages : 1,

@@ -14,12 +14,12 @@ SourceList["UA:GSS"] = {
 AddSubClass("sorcerer", "giant soul-ua", {
 	regExpSearch : /^(?=.*giant)(?=.*soul)(?=.*sorcerer).*$/i,
 	subname : "Giant Soul",
-	source : ["UA:GSS", 1],
+	source : [["UA:GSS", 1]],
 	fullname : "Giant Soul Sorcerer",
 	features : {
 		"subclassfeature1" : {
 			name : "Jotun Resilience",
-			source : ["UA:GSS", 1],
+			source : [["UA:GSS", 1]],
 			minlevel : 1,
 			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
 			calcChanges : {
@@ -32,7 +32,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 		},
 		"subclassfeature1.1" : {
 			name : "Mark of Ordning",
-			source : ["UA:GSS", 1],
+			source : [["UA:GSS", 1]],
 			minlevel : 1,
 			description : desc([
 				'Choose a giant heritage using the "Choose Feature" button above',
@@ -121,7 +121,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Soul of Lost Ostoria",
-			source : ["UA:GSS", 1],
+			source : [["UA:GSS", 1]],
 			minlevel : 6,
 			description : "\n   " + 'Use the "Choose Feature" button above to select the giant heritage',
 			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
@@ -164,7 +164,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			},
 			"hill giant" : {
 				name : "Soul of Lost Ostoria: Hill Giant",
-				source : ["UA:GSS", 2],
+				source : [["UA:GSS", 2]],
 				description : desc([
 					"Immediately after casting any of my Mark of Ordning spells, I can magically push others",
 					"I can select up to two creatures within 5 ft of me that each have to make a Str save",
@@ -173,7 +173,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			},
 			"stone giant" : {
 				name : "Soul of Lost Ostoria: Stone Giant",
-				source : ["UA:GSS", 2],
+				source : [["UA:GSS", 2]],
 				description : desc([
 					"Immediately after casting any of my Mark of Ordning spells, I gain a bonus to AC",
 					"My AC increases with my Constitution modifier (min +1) until the end of my next turn"
@@ -181,7 +181,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			},
 			"storm giant" : {
 				name : "Soul of Lost Ostoria: Storm Giant",
-				source : ["UA:GSS", 2],
+				source : [["UA:GSS", 2]],
 				description : desc([
 					"Immediately after casting any of my Mark of Ordning spells, I shoot lightning",
 					"Up to 3 targets in 30 ft that I can see take my Con mod (min 1) in lightning damage"
@@ -190,7 +190,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 		},
 		"subclassfeature14" : {
 			name : "Rage of Fallen Ostoria",
-			source : ["UA:GSS", 2],
+			source : [["UA:GSS", 2]],
 			minlevel : 14,
 			description : desc([
 				"When I start casting a sorcerer spell using a spell slot on my turn, I can grow in size",
@@ -212,7 +212,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 		},
 		"subclassfeature18" : {
 			name : "Blessing of the All Father",
-			source : ["UA:GSS", 2],
+			source : [["UA:GSS", 2]],
 			minlevel : 18,
 			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22",
 			scores : [0, 0, 2, 0, 0, 0],

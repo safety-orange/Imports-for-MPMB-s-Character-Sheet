@@ -15,7 +15,8 @@ SourceList.TftYP={
 // Creatures
 CreatureList["giant crayfish"] = {
 	name : "Giant Crayfish",
-	source : ["TftYP", 235],
+	nameAlt : ["Crayfish, Giant"],
+	source : [["TftYP", 235]],
 	size : 2, //Large
 	type : "Beast",
 	alignment : "Unaligned",
@@ -48,7 +49,8 @@ CreatureList["giant crayfish"] = {
 };
 CreatureList["giant ice toad"] = {
 	name : "Giant Ice Toad",
-	source : ["TftYP", 235],
+	nameAlt : ["Toad, Giant Ice"],
+	source : [["TftYP", 235]],
 	size : 2, //Large
 	type : "Monstrosity",
 	alignment : "Unaligned",
@@ -92,7 +94,8 @@ CreatureList["giant ice toad"] = {
 };
 CreatureList["giant lightning eel"] = {
 	name : "Giant Lightning Eel",
-	source : ["TftYP", 236],
+	nameAlt : ["Eel, Giant Lightning"],
+	source : [["TftYP", 236]],
 	size : 2, //Large
 	type : "Beast",
 	alignment : "Unaligned",
@@ -138,7 +141,8 @@ CreatureList["giant lightning eel"] = {
 };
 CreatureList["giant subterranean lizard"] = {
 	name : "Giant Subterranean Lizard",
-	source : ["TftYP", 236],
+	nameAlt : ["Lizard, Giant Subterranean"],
+	source : [["TftYP", 236]],
 	size : 1, //Huge
 	type : "Beast",
 	alignment : "Unaligned",
@@ -178,9 +182,30 @@ CreatureList["giant subterranean lizard"] = {
 };
 
 // Magic Items
+MagicItemsList["flame tongue shortsword of gem detection"] = {	// contributed by Nod_Hero
+	name : "Flame Tongue Shortsword of Gem Detection",
+	source : [["TftYP", 178]],
+	type : "weapon (shortsword)",
+	attunement : true,
+	description : "As a bonus action, I can speak the command word to cause flames that add +2d6 fire damage and shine bright light for 40 ft \u0026 dim light for 40 ft. The flames last until I speak the word again or sheathe it. As an action, I can mentally command it to detect type and quantity of gems and jewels within 60 ft of the sword.",
+	descriptionFull : "You can use a bonus action to speak this magic sword's command word, causing flames to erupt from the blade. These flames shed bright light in a 40-foot radius and dim light for an additional 40 feet. While the sword is ablaze, it deals an extra 2d6 fire damage to any target it hits. The flames last until you use a bonus action to speak the command word again or until you drop or sheathe the sword."+
+	"\n   While you are attuned to this sword you can use an action to mentally command it to detect gems and jewels. You learn the kind and number of such objects within 60 feet of the sword.",
+	action : [
+		["bonus action", "Flame Tongue (activate/end)"],
+		["action", "Gem Detection (within 60 ft)"]
+	],
+	weaponsAdd : ["Flame Tongue Shortsword"],
+	weaponOptions : {
+		baseWeapon : "shortsword",
+		regExpSearch : /^(?=.*flame tongue)(?=.*short)(?=.*sword).*$/i,
+		name : "Flame Tongue Shortsword",
+		source : [["TftYP", 179]],
+		description : "Finesse, light; While active, +2d6 fire damage",
+	}
+};
 MagicItemsList["amulet of protection from turning"] = {
 	name : "Amulet of Protection from Turning",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "D",
@@ -194,7 +219,7 @@ MagicItemsList["amulet of protection from turning"] = {
 }
 MagicItemsList["balance of harmony"] = {
 	name : "Balance of Harmony",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "D",
@@ -217,7 +242,7 @@ MagicItemsList["balance of harmony"] = {
 }
 MagicItemsList["bracelet of rock magic"] = {
 	name : "Bracelet of Rock Magic",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -240,7 +265,7 @@ MagicItemsList["bracelet of rock magic"] = {
 }
 MagicItemsList["eagle whistle"] = {
 	name : "Eagle Whistle",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -252,7 +277,7 @@ MagicItemsList["eagle whistle"] = {
 }
 MagicItemsList["hell hound cloak"] = {
 	name : "Hell Hound Cloak",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "H",
@@ -264,7 +289,7 @@ MagicItemsList["hell hound cloak"] = {
 }
 MagicItemsList["javelin of backbiting"] = {
 	name : "Javelin of Backbiting",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "weapon (javelin)",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -278,7 +303,7 @@ MagicItemsList["javelin of backbiting"] = {
 		baseWeapon : "javelin",
 		regExpSearch : /^(?=.*javelin)(?=.*backbiting).*$/i,
 		name : "Javelin of Backbiting",
-		source : ["TftYP", 229],
+		source : [["TftYP", 229]],
 		range : "Melee, 60/150 ft",
 		description : "Thrown; +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
 		modifiers : [2,2]
@@ -287,7 +312,7 @@ MagicItemsList["javelin of backbiting"] = {
 MagicItemsList["loadstone"] = {
 	name : "Loadstone",
 	nameAlt : "Lodestone",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "D",
@@ -298,7 +323,7 @@ MagicItemsList["loadstone"] = {
 }
 MagicItemsList["mirror of the past"] = {
 	name : "Mirror of the Past",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "D",
@@ -311,7 +336,7 @@ MagicItemsList["mirror of the past"] = {
 }
 MagicItemsList["night caller"] = {
 	name : "Night Caller",
-	source : ["TftYP", 228],
+	source : [["TftYP", 228]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -336,7 +361,7 @@ MagicItemsList["night caller"] = {
 }
 MagicItemsList["potion of mind control"] = {
 	name : "Potion of Mind Control",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "potion",
 	magicItemTable : "E",
 	description : "",
@@ -358,7 +383,7 @@ MagicItemsList["potion of mind control"] = {
 }
 MagicItemsList["robe of summer"] = {
 	name : "Robe of Summer",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -370,7 +395,7 @@ MagicItemsList["robe of summer"] = {
 }
 MagicItemsList["shatterspike"] = {
 	name : "Shatterspike",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "weapon (longsword)",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -383,14 +408,14 @@ MagicItemsList["shatterspike"] = {
 		baseWeapon : "longsword",
 		regExpSearch : /Shatterspike/i,
 		name : "Shatterspike",
-		source : ["TftYP", 229],
+		source : [["TftYP", 229]],
 		description : "Versatile (1d10); Against objects: always critical hit, can choose to deal bludgeoning damage",
 		modifiers : [1, 1]
 	}
 }
 MagicItemsList["spear of backbiting"] = {
 	name : "Spear of Backbiting",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "weapon (spear)",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -404,7 +429,7 @@ MagicItemsList["spear of backbiting"] = {
 		baseWeapon : "spear",
 		regExpSearch : /^(?=.*spear)(?=.*backbiting).*$/i,
 		name : "Spear of Backbiting",
-		source : ["TftYP", 229],
+		source : [["TftYP", 229]],
 		range : "Melee, 50/90 ft",
 		description : "Thrown, versatile (1d8); +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
 		modifiers : [2,2]
@@ -412,7 +437,7 @@ MagicItemsList["spear of backbiting"] = {
 }
 MagicItemsList["stone of ill luck"] = {
 	name : "Stone of Ill Luck",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "C",
@@ -429,7 +454,7 @@ MagicItemsList["stone of ill luck"] = {
 }
 MagicItemsList["wand of entangle"] = {
 	name : "Wand of Entangle",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "wand",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -453,7 +478,7 @@ MagicItemsList["wand of entangle"] = {
 }
 MagicItemsList["waythe"] = {
 	name : "Waythe",
-	source : ["TftYP", 229],
+	source : [["TftYP", 229]],
 	type : "weapon (greatsword)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -467,7 +492,7 @@ MagicItemsList["waythe"] = {
 		baseWeapon : "greatsword",
 		regExpSearch : /waythe/i,
 		name : "Waythe",
-		source : ["TftYP", 229],
+		source : [["TftYP", 229]],
 		description : "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
 		modifiers : [1, 1]
 	},
@@ -488,7 +513,7 @@ MagicItemsList["waythe"] = {
 }
 MagicItemsList["white dragonhide cape"] = { // worn by king Snurre
 	name : "White Dragonhide Cape",
-	source : ["TftYP", 193],
+	source : [["TftYP", 193]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -498,7 +523,7 @@ MagicItemsList["white dragonhide cape"] = { // worn by king Snurre
 }
 MagicItemsList["spellcasting bolts"] = {
 	name : "Spellcasting Bolts",
-	source : ["TftYP", 209],
+	source : [["TftYP", 209]],
 	type : "weapon (crossbow bolts)",
 	rarity : "rare",
 	magicItemTable : "B",
@@ -523,7 +548,7 @@ MagicItemsList["spellcasting bolts"] = {
 }
 MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	name : "Berserker Battleaxe (Tamoachan)", // can't just be "Berserker Battleaxe" or the magic item "Berserker Axe" wouldn't work anymore
-	source : ["TftYP", 68], // Tloques' battleaxe
+	source : [["TftYP", 68]], // Tloques' battleaxe
 	type : "weapon (battleaxe)",
 	rarity : "very rare",
 	magicItemTable : "H",
@@ -568,14 +593,14 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 		baseWeapon : "battleaxe",
 		regExpSearch : /^(?=.*berserker)(?=.*battleaxe).*$/i,
 		name : "Berserker Battleaxe",
-		source : ["TftYP", 68],
+		source : [["TftYP", 68]],
 		description : "Versatile (1d10); Cursed",
 		modifiers : [2,2]
 	}
 }
 MagicItemsList["plantslayer longsword"] = {
 	name : "Plantslayer Longsword",
-	source : ["TftYP", 70], // from Stone Statue
+	source : [["TftYP", 70]], // from Stone Statue
 	type : "weapon (longsword)",
 	rarity : "rare",
 	magicItemTable : "F",
@@ -587,7 +612,7 @@ MagicItemsList["plantslayer longsword"] = {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*plantslayer)(?=.*longsword).*$/i,
 		name : "Plantslayer Longsword",
-		source : ["TftYP", 70],
+		source : [["TftYP", 70]],
 		description : "Versatile (1d10); +2d6 damage vs. plants",
 		modifiers : [1, 1]
 	}

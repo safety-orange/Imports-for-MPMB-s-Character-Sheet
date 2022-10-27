@@ -15,7 +15,7 @@ SourceList.D={
 RaceList["aasimar"] = {
 	regExpSearch : /^(?!.*(fallen|protector|scourge))((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel)))).*$/i,
 	name : "Aasimar",
-	source : ["D", 286],
+	source : [["D", 286]],
 	plural : "Aasimar",
 	size : 3,
 	speed : {
@@ -71,7 +71,7 @@ RaceList["eladrin"] = {
 	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
 	name : "Eladrin",
 	sortname : "Elf, Fey (Eladrin)",
-	source : ["D", 286],
+	source : [["D", 286]],
 	plural : "Eladrin",
 	size : 3,
 	speed : {
@@ -114,19 +114,19 @@ RaceList["eladrin"] = {
 AddSubClass("cleric", "death domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(death|dead|dying)).*$/i,
 	subname : "Death Domain",
-	source : ["D", 96],
+	source : [["D", 96]],
 	spellcastingExtra : ["false life", "ray of sickness", "blindness/deafness", "ray of enfeeblement", "animate dead", "vampiric touch", "blight", "death ward", "antilife shell", "cloudkill"],
 	features : {
 		"subclassfeature1" : {
 			name : "Bonus Proficiency",
-			source : ["D", 96],
+			source : [["D", 96]],
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with martial weapons",
 			weaponProfs : [false, true]
 		},
 		"subclassfeature1.1" : {
 			name : "Reaper",
-			source : ["D", 96],
+			source : [["D", 96]],
 			minlevel : 1,
 			description : "\n   " + "I learn one necromancy cantrip of my choice from any spell list" + "\n   " + "My necromancy, single-target cantrips can affect two targets within 5 ft of each other",
 			spellcastingBonus : {
@@ -160,20 +160,20 @@ AddSubClass("cleric", "death domain", {
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Touch of Death",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 2,
 			description : "\n   " + "When I hit a creature with a melee attack, I can deal extra necrotic damage",
 			additional : ["", "+9 damage", "+11 damage", "+13 damage", "+15 damage", "+17 damage", "+19 damage", "+21 damage", "+23 damage", "+25 damage", "+27 damage", "+29 damage", "+31 damage", "+33 damage", "+35 damage", "+37 damage", "+39 damage", "+41 damage", "+43 damage", "+45 damage"]
 		},
 		"subclassfeature6" : {
 			name : "Inescapable Destruction",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 6,
 			description : "\n   " + "When I deal necrotic damage with spells or Channel Divinity, I ignore resistance to it"
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 8,
 			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
 			additional : levels.map(function (n) {
@@ -193,7 +193,7 @@ AddSubClass("cleric", "death domain", {
 		},
 		"subclassfeature17" : {
 			name : "Improved Reaper",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 17,
 			description : "\n   " + "If I cast a 5th-level or lower necromancy spell that has one target, I can target two" + "\n   " + "They need to be within 5 ft of each other; I have to provide material comp. for both",
 			calcChanges : {
@@ -250,11 +250,11 @@ AddSubClass("cleric", "death domain", {
 AddSubClass("paladin", "oathbreaker", {
 	regExpSearch : /^((?=.*blackguard)|((?=.*(oath.*breaker|breaker.*oath))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))).*$/i,
 	subname : "Oathbreaker",
-	source : ["D", 97],
+	source : [["D", 97]],
 	features : {
 		"subclassfeature3" : {
 			name : "Channel Divinity: Control Undead",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 3,
 			description : "\n   " + "As an action, one undead (CR < paladin level) I can see in 30 ft must make a Wis save" + "\n   " + "If failed, it must obey my commands for 24 hours or until I use this on another",
 			action : ["action", ""],
@@ -262,14 +262,14 @@ AddSubClass("paladin", "oathbreaker", {
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Dreadful Aspect",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 3,
 			description : "\n   " + "As an action, anyone I choose within 30 ft that can see me must make a Wisdom save" + "\n   " + "If failed, it is frightened for 1 min or until it succeeds a save at the end of its turns" + "\n   " + "It can't save at the end of its turn if it's still within 30 ft of me",
 			action : ["action", ""]
 		},
 		"subclassfeature7" : {
 			name : "Aura of Hate",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 7,
 			description : "\n   " + "Fiends/undead within range and I add my Cha mod as bonus on melee weapon damage" + "\n   " + "Multiple Auras of Hate don't stack; only the strongest applies",
 			additional : ["", "", "", "", "", "", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "30-foot aura", "30-foot aura", "30-foot aura"],
@@ -293,14 +293,14 @@ AddSubClass("paladin", "oathbreaker", {
 		},
 		"subclassfeature15" : {
 			name : "Supernatural Resistance",
-			source : ["P", 97],
+			source : [["D", 97]],
 			minlevel : 15,
 			description : "\n   " + "I have resistance to bludgeoning/piercing/slashing damage from nonmagical weapons",
 			dmgres : [["Bludgeoning", "Bludg. (nonmagical)"], ["Piercing", "Pierc. (nonmagical)"], ["Slashing", "Slash. (nonmagical)"]]
 		},
 		"subclassfeature20" : {
 			name : "Dread Lord",
-			source : ["D", 97],
+			source : [["D", 97]],
 			minlevel : 20,
 			description : "\n   " + "As an action, I gain a 30-ft aura of gloom that reduces bright light to dim for 1 min" + "\n   " + "If frightened of me, foes starting their turn in the aura take 4d10 psychic damage" + "\n   " + "Attacks vs. my allies and me inside the aura have disadvantage if attackers need sight" + "\n   " + "As a bonus action, I can make a melee spell attack vs. a target inside the aura" + "\n   " + "If this attack hits, it does 3d10 + Charisma modifier necrotic damage",
 			recovery : "long rest",
@@ -314,7 +314,7 @@ AddSubClass("paladin", "oathbreaker", {
 WeaponsList["pistol"] = {
 	regExpSearch : /^(?=.*pistol)(?!.*automatic).*$/i,
 	name : "Pistol",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -329,7 +329,7 @@ WeaponsList["pistol"] = {
 WeaponsList["musket"] = {
 	regExpSearch : /musket/i,
 	name : "Musket",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -344,7 +344,7 @@ WeaponsList["musket"] = {
 WeaponsList["pistol automatic"] = {
 	regExpSearch : /^(?!.*rifle)(?=.*pistol)(?=.*automatic).*$/i,
 	name : "Pistol, automatic",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -359,7 +359,7 @@ WeaponsList["pistol automatic"] = {
 WeaponsList["revolver"] = {
 	regExpSearch : /revolver/i,
 	name : "Revolver",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -374,7 +374,7 @@ WeaponsList["revolver"] = {
 WeaponsList["rifle hunting"] = {
 	regExpSearch : /^(?!=laser|antimatter)(?=.*hunting)(?=.*rifle).*$/i,
 	name : "Hunting Rifle",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -389,7 +389,7 @@ WeaponsList["rifle hunting"] = {
 WeaponsList["rifle automatic"] = {
 	regExpSearch : /^(?!=.*laser|antimatter)(?=.*automatic)(?=.*rifle).*$/i,
 	name : "Automatic Rifle",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -404,7 +404,7 @@ WeaponsList["rifle automatic"] = {
 WeaponsList["shotgun"] = {
 	regExpSearch : /shotgun/i,
 	name : "Shotgun",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -419,7 +419,7 @@ WeaponsList["shotgun"] = {
 WeaponsList["laser pistol"] = {
 	regExpSearch : /^(?=.*laser)(?=.*pistol).*$/i,
 	name : "Laser Pistol",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -434,7 +434,7 @@ WeaponsList["laser pistol"] = {
 WeaponsList["antimatter rifle"] = {
 	regExpSearch : /^(?!.*laser)(?=.*antimatter)(?=.*rifle).*$/i,
 	name : "Antimatter Rifle",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -449,7 +449,7 @@ WeaponsList["antimatter rifle"] = {
 WeaponsList["laser rifle"] = {
 	regExpSearch : /^(?!.*antimatter)(?=.*laser)(?=.*rifle).*$/i,
 	name : "Laser Rifle",
-	source : ["D", 268],
+	source : [["D", 268]],
 	list : "firearm",
 	ability : 2,
 	type : "Martial",
@@ -463,7 +463,7 @@ WeaponsList["laser rifle"] = {
 };
 AmmoList["renaissance bullet"] = {
 	name : "Bullets, Renaissance",
-	source : ["D", 268],
+	source : [["D", 268]],
 	weight : 0.2,
 	icon : "Bullets",
 	checks : [".Bullet"],
@@ -474,7 +474,7 @@ AmmoList["renaissance bullet"] = {
 };
 AmmoList["modern bullet"] = {
 	name : "Bullets, Modern",
-	source : ["D", 268],
+	source : [["D", 268]],
 	weight : 0.1,
 	icon : "Bullets",
 	checks : [".Bullet"],
@@ -485,7 +485,7 @@ AmmoList["modern bullet"] = {
 };
 AmmoList["energy cell"] = {
 	name : "Energy Cell",
-	source : ["D", 268],
+	source : [["D", 268]],
 	weight : 0,
 	icon : "Bullets",
 	checks : [".Bullet"],
@@ -516,7 +516,7 @@ MagicItemsList["alchemy jug"] = {
 }
 MagicItemsList["cap of water breathing"] = {
 	name : "Cap of Water Breathing",
-	source : ["D", 157],
+	source : [["D", 157]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
@@ -526,7 +526,7 @@ MagicItemsList["cap of water breathing"] = {
 }
 MagicItemsList["cloak of invisibility"] = {
 	name : "Cloak of Invisibility",
-	source : ["D", 158],
+	source : [["D", 158]],
 	type : "wondrous item",
 	rarity : "legendary",
 	magicItemTable : "I",
@@ -540,7 +540,7 @@ MagicItemsList["cloak of invisibility"] = {
 }
 MagicItemsList["driftglobe"] = {
 	name : "Driftglobe",
-	source : ["D", 166],
+	source : [["D", 166]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : ["A", "B"],
@@ -577,7 +577,7 @@ MagicItemsList["driftglobe"] = {
 }
 MagicItemsList["efreeti chain"] = {
 	name : "Efreeti Chain",
-	source : ["D", 167],
+	source : [["D", 167]],
 	type : "armor (chain mail)",
 	rarity : "legendary",
 	magicItemTable : "I",
@@ -601,7 +601,7 @@ MagicItemsList["efreeti chain"] = {
 }
 MagicItemsList["elixir of health"] = {
 	name : "Elixir of Health",
-	source : ["D", 168],
+	source : [["D", 168]],
 	type : "potion",
 	rarity : "rare",
 	magicItemTable : "C",
@@ -611,7 +611,7 @@ MagicItemsList["elixir of health"] = {
 }
 MagicItemsList["gloves of thievery"] = {
 	name : "Gloves of Thievery",
-	source : ["D", 172],
+	source : [["D", 172]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -621,7 +621,7 @@ MagicItemsList["gloves of thievery"] = {
 }
 MagicItemsList["instrument of the bards"] = {
 	name : "Instrument of the Bards",
-	source : ["D", 176],
+	source : [["D", 176]],
 	type : "wondrous item (instrument)",
 	description : "If I play this exquisite, magical instruments while casting a spell that has a somatic or material component and charms on a failed save, it imposes disadvantage on that save. I can also use it to cast a set of spells, each once per dawn, using my spellcasting ability and spell save DC.",
 	descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.",
@@ -771,7 +771,7 @@ MagicItemsList["instrument of the bards"] = {
 MagicItemsList["mariner's armor"] = {
 	name : "Mariner's Armor",
 	nameTest : "Mariner's",
-	source : ["D", 188],
+	source : [["D", 188]],
 	type : "armor (light, medium, or heavy)",
 	rarity : "uncommon",
 	magicItemTable : "B",
@@ -787,7 +787,7 @@ MagicItemsList["mariner's armor"] = {
 }
 MagicItemsList["potion of fire breath"] = {
 	name : "Potion of Fire Breath",
-	source : ["D", 187],
+	source : [["D", 187]],
 	type : "potion",
 	rarity : "uncommon",
 	magicItemTable : "B",
@@ -797,7 +797,7 @@ MagicItemsList["potion of fire breath"] = {
 }
 MagicItemsList["potion of invulnerability"] = {
 	name : "Potion of Invulnerability",
-	source : ["D", 188],
+	source : [["D", 188]],
 	type : "potion",
 	rarity : "rare",
 	magicItemTable : "C",
@@ -807,7 +807,7 @@ MagicItemsList["potion of invulnerability"] = {
 }
 MagicItemsList["potion of longevity"] = {
 	name : "Potion of Longevity",
-	source : ["D", 188],
+	source : [["D", 188]],
 	type : "potion",
 	rarity : "very rare",
 	magicItemTable : "D",
@@ -818,7 +818,7 @@ MagicItemsList["potion of longevity"] = {
 }
 MagicItemsList["potion of vitality"] = {
 	name : "Potion of Vitality",
-	source : ["D", 188],
+	source : [["D", 188]],
 	type : "potion",
 	rarity : "very rare",
 	magicItemTable : "D",
@@ -828,7 +828,7 @@ MagicItemsList["potion of vitality"] = {
 }
 MagicItemsList["rod of resurrection"] = {
 	name : "Rod of Resurrection",
-	source : ["D", 197],
+	source : [["D", 197]],
 	type : "rod",
 	rarity : "legendary",
 	magicItemTable : "I",
@@ -862,7 +862,7 @@ MagicItemsList["rod of resurrection"] = {
 }
 MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 	name : "Rod of the Pact Keeper, +1, +2, or +3",
-	source : ["D", 197],
+	source : [["D", 197]],
 	type : "rod",
 	description : "While holding this rod, I gain a bonus to spell attack rolls and to the saving throw DCs of my warlock spells, determined by the rod's rarity: uncommon (+1), rare (+2), or very rare (+3). As an action once per long rest, I can regain one warlock spell slot while holding the rod.",
 	descriptionFull : "While holding this rod, you gain a bonus to spell attack rolls and to the saving throw DCs of your warlock spells. The bonus is determined by the rod's rarity: uncommon (+1), rare (+2), or very rare (+3).\n   In addition, you can regain one warlock spell slot as an action while holding the rod. You can't use this property again until you finish a long rest.",
@@ -921,7 +921,7 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 }
 MagicItemsList["saddle of the cavalier"] = {
 	name : "Saddle of the Cavalier",
-	source : ["D", 199],
+	source : [["D", 199]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
@@ -931,7 +931,7 @@ MagicItemsList["saddle of the cavalier"] = {
 }
 MagicItemsList["scroll of protection"] = {
 	name : "Scroll of Protection",
-	source : ["D", 199],
+	source : [["D", 199]],
 	type : "scroll",
 	rarity : "rare",
 	magicItemTable : "C",
@@ -979,7 +979,7 @@ MagicItemsList["scroll of protection"] = {
 }
 MagicItemsList["sending stones"] = {
 	name : "Sending Stones",
-	source : ["D", 199],
+	source : [["D", 199]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "C",
@@ -1002,7 +1002,7 @@ MagicItemsList["sending stones"] = {
 }
 MagicItemsList["sentinel shield"] = {
 	name : "Sentinel Shield",
-	source : ["D", 199],
+	source : [["D", 199]],
 	type : "shield",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -1015,7 +1015,7 @@ MagicItemsList["sentinel shield"] = {
 }
 MagicItemsList["staff of the adder"] = {
 	name : "Staff of the Adder",
-	source : ["D", 203],
+	source : [["D", 203]],
 	type : "staff",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -1030,7 +1030,7 @@ MagicItemsList["staff of the adder"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*snake)(?=.*head)(?=.*staff)(?=.*adder).*$/i,
 		name : "Animated Snake Head from Staff of the Adder",
-		source : ["D", 203],
+		source : [["D", 203]],
 		list : "melee",
 		ability : 1,
 		type : "Natural",
@@ -1043,7 +1043,7 @@ MagicItemsList["staff of the adder"] = {
 }
 MagicItemsList["sword of answering"] = {
 	name : "Sword of Answering",
-	source : ["D", 206],
+	source : [["D", 206]],
 	type : "weapon (longsword)",
 	rarity : "legendary",
 	magicItemTable : "I",
@@ -1068,7 +1068,7 @@ MagicItemsList["sword of answering"] = {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*sword)(?=.*answering).*$/i,
 		name : "Sword of Answering",
-		source : ["D", 206],
+		source : [["D", 206]],
 		modifiers : [3, 3]
 	},
 	choices : ["Answerer (chaotic good)", "Back Talker (chaotic evil)", "Concluder (lawful neutral)", "Last Quip (chaotic neutral)", "Rebutter (neutral good)", "Replier (neutral)", "Retorter (lawful good)", "Scather (lawful evil)", "Squelcher (neutral evil)"],
@@ -1168,7 +1168,7 @@ MagicItemsList["sword of vengeance"] = {
 }
 MagicItemsList["tentacle rod"] = {
 	name : "Tentacle Rod",
-	source : ["D", 208],
+	source : [["D", 208]],
 	type : "rod",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -1181,7 +1181,7 @@ MagicItemsList["tentacle rod"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*tentacle)(?=.*rod).*$/i,
 		name : "Tentacle Rod",
-		source : ["D", 208],
+		source : [["D", 208]],
 		ability : 0,
 		type : "Magic Item",
 		damage : [1, 6, "bludgeoning"],
@@ -1194,7 +1194,7 @@ MagicItemsList["tentacle rod"] = {
 }
 MagicItemsList["tome of the stilled tongue"] = {
 	name : "Tome of the Stilled Tongue",
-	source : ["D", 208],
+	source : [["D", 208]],
 	type : "wondrous item",
 	rarity : "legendary",
 	magicItemTable : "I",
@@ -1212,7 +1212,7 @@ MagicItemsList["tome of the stilled tongue"] = {
 MagicItemsList["weapon of warning"] = {
 	name : "Weapon of Warning",
 	nameTest : "of Warning",
-	source : ["D", 213],
+	source : [["D", 213]],
 	type : "weapon (any)",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -1257,7 +1257,7 @@ var DMG_blackrazorFullDescription = [
 ];
 MagicItemsList["blackrazor"] = {
 	name : "Blackrazor",
-	source : ["D", 216],
+	source : [["D", 216]],
 	type : "weapon (greatsword)",
 	rarity : "legendary",
 	notLegalAL : true,
@@ -1273,7 +1273,7 @@ MagicItemsList["blackrazor"] = {
 		baseWeapon : "greatsword",
 		regExpSearch : /blackrazor/i,
 		name : "Blackrazor",
-		source : ["D", 216],
+		source : [["D", 216]],
 		description : "Heavy, two-handed; Devours soul; Heals undead",
 		modifiers : [3,3]
 	},
@@ -1313,7 +1313,7 @@ var DMG_waveFullDescription = [
 if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warning"] && MagicItemsList["cap of water breathing"] && MagicItemsList["cube of force"]) {
 	MagicItemsList["wave"] = {
 		name : "Wave",
-		source : ["D", 218],
+		source : [["D", 218]],
 		type : "weapon (trident)",
 		rarity : "legendary",
 		notLegalAL : true,
@@ -1328,7 +1328,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 			baseWeapon : "trident",
 			regExpSearch : /wave/i,
 			name : "Wave",
-			source : ["D", 218],
+			source : [["D", 218]],
 			description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
 			modifiers : [3,3]
 		},
@@ -1386,7 +1386,7 @@ var DMG_whelmFullDescription = [
 ];
 MagicItemsList["whelm"] = {
 	name : "Whelm",
-	source : ["D", 218],
+	source : [["D", 218]],
 	type : "weapon (warhammer)",
 	rarity : "legendary",
 	notLegalAL : true,
@@ -1401,7 +1401,7 @@ MagicItemsList["whelm"] = {
 		baseWeapon : "warhammer",
 		regExpSearch : /whelm/i,
 		name : "Whelm",
-		source : ["D", 218],
+		source : [["D", 218]],
 		range : "Melee, 20/60 ft",
 		description : "Versatile (1d10), thrown, returning; +1d8 damage when thrown (+2d8 vs. giants)",
 		modifiers : [3,3]

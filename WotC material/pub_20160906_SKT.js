@@ -13,9 +13,64 @@ SourceList.SKT={
 };
 
 // Creatures [Crag Cat removed, because it is a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf ]
+CreatureList["ice spider"] = { // contributed by Nod_Hero
+	name : "Ice Spider",
+	nameAlt : ["Spider, Ice"],
+	source : [["SKT", 127]],
+	size : 2,
+	type : "Beast",
+	alignment : "Unaligned",
+	ac : 14,
+	hp : 26,
+	hd : [4, 10],
+	speed : "30 ft, climb 30 ft",
+	scores : [14, 16, 12, 2, 11, 4],
+	skills : {
+		"stealth" : 7
+	},
+	senses : "Blindsight 10 ft; Darkvision 60 ft",
+	passivePerception : 10,
+	languages : "",
+	challengeRating : "1",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Bite",
+		ability : 2,
+		damage : [1, 8, "piercing"],
+		range : "Melee (5 ft)",
+		description : "Target also takes 2d8 poison damage, half on a DC 11 Constitution saving throw"
+	}, {
+		name : "Icy Web (Recharge 5-6)",
+		ability : 2,
+		damage : ["\u2015", "", "Restrained"],
+		range : "30/60 ft",
+		description : "Target can escape as an action with a DC 12 Strength check, or by destroying the webbing (AC 10; 5 HP)",
+		modifiers : ["", "", false],
+		tooltip : "On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to poison and psychic damage)."
+	}],
+	traits : [{
+		name : "Bite",
+		description : "If the poison damage from the spider's bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way."
+	}, {
+		name : "Spider Climb",
+		description : "The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+	}, {
+		name : "Web Sense",
+		description : "While in contact with a web, the spider knows the exact location of any other creature in contact with the same web."
+	}, {
+		name : "Web Walker",
+		description : "The spider ignores movement restrictions caused by webbing."
+	}],
+	actions : [{
+		name : "Icy Web (Recharge 5-6)",
+		description : "See attack. On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage)."
+	}],
+	wildshapeString : "Blindsight 10 ft; Darkvision 60 ft| If the bite's poison damage reduces the target to 0 HP, the target is stable but poisoned and paralyzed for 1 hour, even after regaining HP| Spider Climb: climb difficult surfaces, including upside down, without an ability check| Web Sense: knows the exact location of any other creature in contact with the same web| Web Walker: ignores movement restrictions from webbing"
+};
 CreatureList["sheep"] = {
 	name : "Sheep",
-	source : ["SKT", 142],
+	source : [["SKT", 142]],
 	size : 4, //Small
 	type : "Beast",
 	alignment : "Unaligned",
@@ -37,7 +92,7 @@ CreatureList["sheep"] = {
 };
 CreatureList["pig"] = {
 	name : "Pig",
-	source : ["SKT", 143],
+	source : [["SKT", 143]],
 	size : 3, //Medium
 	type : "Beast",
 	alignment : "Unaligned",
@@ -55,7 +110,8 @@ CreatureList["pig"] = {
 };
 CreatureList["hulking crab"] = {
 	name : "Hulking Crab",
-	source : ["SKT", 240],
+	nameAlt : ["Crab, Hulking"],
+	source : [["SKT", 240]],
 	size : 1, //Huge
 	type : "Beast",
 	alignment : "Unaligned",
@@ -93,7 +149,7 @@ CreatureList["hulking crab"] = {
 };
 CreatureList["tressym"] = {
 	name : "Tressym",
-	source : ["SKT", 242],
+	source : [["SKT", 242]],
 	size : 5, //Tiny
 	type : "Beast",
 	companion : "familiar_not_al",
@@ -140,9 +196,51 @@ CreatureList["tressym"] = {
 };
 
 // Magic Items
+MagicItemsList["faerie dust"] = { // contains contributions by Nod_Hero
+	name : "Faerie Dust",
+	source : [["SKT", 35]],
+	type : "wondrous item",
+	description : "A pinch of this dust can substitute for the material components of any enchantment spell of 3rd level or lower. If a pinch of faerie dust is sprinkled on a creature, roll percentile dice and consult the Faerie Dust Table to determine the effect, see notes.",
+	descriptionFull : "This small pouch contains ten pinches of faerie dust. A pinch of this dust can substitute for the material components of any enchantment spell of 3rd level or lower. If a pinch of faerie dust is sprinkled on a creature, roll percentile dice and consult the Faerie Dust table to determine the effect."+
+	"\n\nFaerie Dust Table"+
+	"\n   d100\tMagical Effect"+
+	"\n  01-70\tThe creature sprinkled with dust gains a flying"+
+		"\n\tspeed of 60 feet for 10 minutes."+
+	"\n  71-80\tThe creature sprinkled with dust must succeed"+
+		"\n\ton a DC 11 Constitution saving throw or fall"+
+		"\n\tunconscious for 1 minute. The creature awakens"+
+		"\n\tif it takes damage or if it is shaken or slapped as"+
+		"\n\tan action."+
+	"\n  81-90\tThe creature sprinkled with dust must succeed on"+
+		"\n\ta DC 11 Wisdom saving throw or be affected by a"+
+		"\n\tconfusion spell."+
+	"\n  91-00\tThe creature sprinkled with dust becomes"+
+		"\n\tinvisible for 1 hour. Any equipment it is wearing"+
+		"\n\tor carrying is invisible as long as it is on the"+
+		"\n\tcreature's person. The effect on the creature ends"+
+		"\n\tif it attacks, deals any damage, or casts a spell.",
+	toNotesPage : [{
+		name : "Faerie Dust Table",
+		note : "\n   d100 \tMagical Effect"+
+			"\n  01-70\tThe creature sprinkled with dust gains a flying speed of 60 ft"+
+			"\n\tfor 10 minutes."+
+			"\n  71-80\tThe creature sprinkled with dust must succeed on a DC 11"+
+				"\n\tConstitution saving throw or fall unconscious for 1 minute."+
+				"\n\tThe creature awakens if it takes damage or if it is shaken or slapped"+
+				"\n\tas an action."+
+			"\n  81-90\tThe creature sprinkled with dust must succeed on a DC 11 Wisdom"+
+				"\n\tsaving throw or be affected by a confusion spell."+
+			"\n  91-00\tThe creature sprinkled with dust becomes invisible for 1 hour."+
+				"\n\tAny equipment it is wearing or carrying is invisible as long as it is on"+
+				"\n\tthe creature's person. The effect on the creature ends if it attacks,"+
+				"\n\tdeals any damage, or casts a spell."
+	}],
+	usages : 10,
+	recovery : "Never"
+};
 MagicItemsList["banner of the krig rune"] = {
 	name : "Banner of the Krig Rune",
-	source : ["SKT", 233],
+	source : [["SKT", 233]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -175,7 +273,7 @@ MagicItemsList["banner of the krig rune"] = {
 }
 MagicItemsList["blod stone"] = {
 	name : "Blod Stone",
-	source : ["SKT", 233],
+	source : [["SKT", 233]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "D",
@@ -186,7 +284,7 @@ MagicItemsList["blod stone"] = {
 }
 MagicItemsList["claw of the wyrm rune"] = {
 	name : "Claw of the Wyrm Rune",
-	source : ["SKT", 233],
+	source : [["SKT", 233]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -200,7 +298,7 @@ MagicItemsList["claw of the wyrm rune"] = {
 }
 MagicItemsList["conch of teleportation"] = {
 	name : "Conch of Teleportation",
-	source : ["SKT", 234],
+	source : [["SKT", 234]],
 	type : "wondrous item",
 	rarity : "very rare",
 	storyItemAL : true,
@@ -214,7 +312,7 @@ MagicItemsList["conch of teleportation"] = {
 }
 MagicItemsList["gavel of the venn rune"] = {
 	name : "Gavel of the Venn Rune",
-	source : ["SKT", 234],
+	source : [["SKT", 234]],
 	type : "wondrous item",
 	rarity : "rare",
 	magicItemTable : "G",
@@ -227,7 +325,7 @@ MagicItemsList["gavel of the venn rune"] = {
 }
 MagicItemsList["gurt's greataxe"] = {
 	name : "Gurt's Greataxe",
-	source : ["SKT", 234],
+	source : [["SKT", 234]],
 	type : "weapon (greataxe)",
 	rarity : "legendary",
 	notLegalAL : true,
@@ -242,7 +340,7 @@ MagicItemsList["gurt's greataxe"] = {
 		baseWeapon : "greataxe",
 		regExpSearch : /^(?=.*gurt)(?=.*greataxe).*$/i,
 		name : "Gurt's Greataxe",
-		source : ["SKT", 234],
+		source : [["SKT", 234]],
 		damage : [3, 12, "slashing"],
 		weight : 325,
 		description : "Heavy, two-handed; +2d12 damage against humans",
@@ -265,7 +363,7 @@ MagicItemsList["gurt's greataxe"] = {
 }
 MagicItemsList["ingot of the skold rune"] = {
 	name : "Ingot of the Skold Rune",
-	source : ["SKT", 234],
+	source : [["SKT", 234]],
 	magicItemTable : "H",
 	description : "I can use the ingot as it is, or transfer its runic properties over to a shield or two-handed melee weapon.",
 	descriptionFull : "This appears to be a simple ingot of iron ore, about a foot long and a few inches across. Inspection of its surface reveals the faint, silvery outline of the skold (shield) rune. The ingot has the following properties, which work only while it's on your person.\n   " + toUni("Runic Shield") + ". You have a +1 bonus to AC.\n   " + toUni("Shield Bond") + ". As a bonus action, choose a creature that you can see within 30 feet of you, other than yourself. Until the end of your next turn, any damage the target takes is reduced to 1, but you take half the damage prevented in this way. The damage you take can't be reduced in any way. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Shield Ward") + ". You can transfer the ingot's magic to a nonmagical item\u2014a shield or a two-handed melee weapon-by tracing the skold rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the ingot is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield.") + ". The shield is now a rare magic item that requires attunement. Its magic gives you a +1 bonus to AC, and the first time after each of your long rests that damage reduces you to 0 hit points, you are instead reduced to 1 hit point. You must be wielding the shield to gain these benefits.\n \u2022 " + toUni("Weapon.") + ". The weapon is now an uncommon magic weapon. It grants you a +1 bonus to AC while you're holding it.",
@@ -320,7 +418,7 @@ MagicItemsList["ingot of the skold rune"] = {
 }
 MagicItemsList["korolnor scepter"] = {
 	name : "Korolnor Scepter",
-	source : ["SKT", 234],
+	source : [["SKT", 234]],
 	type : "weapon (club)",
 	rarity : "legendary",
 	storyItemAL : true,
@@ -348,13 +446,13 @@ MagicItemsList["korolnor scepter"] = {
 		baseWeapon : "club",
 		regExpSearch : /^(?=.*korolnor)(?=.*scepter).*$/i,
 		name : "Korolnor Scepter",
-		source : ["SKT", 234],
+		source : [["SKT", 234]],
 		modifiers : [3, 3]
 	}
 }
 MagicItemsList["navigation orb"] = {
 	name : "Navigation Orb",
-	source : ["SKT", 235],
+	source : [["SKT", 235]],
 	type : "wondrous item",
 	rarity : "very rare",
 	storyItemAL : true,
@@ -364,7 +462,7 @@ MagicItemsList["navigation orb"] = {
 }
 MagicItemsList["opal of the ild rune"] = {
 	name : "Opal of the Ild Rune",
-	source : ["SKT", 235],
+	source : [["SKT", 235]],
 	magicItemTable : "G",
 	description : "I can use the opal as it is, or transfer its runic properties over to a suit of armor or weapon.",
 	descriptionFull : "This triangular fire opal measures about three inches on each side and is half an inch thick. The ild (fire) rune shimmers within its core, causing it to be slightly warm to the touch. The opal has the following properties, which work only while it's on your person.\n   " + toUni("Ignite") + ". As an action, you can ignite an object within 10 feet of you. The object must be flammable, and the fire starts in a circle no larger than 1 foot in diameter.\n   " + toUni("Fires Friend") + ". You have resistance to cold damage.\n   " + toUni("Fire Tamer") + ". As an action, you can extinguish any open flame within 10 feet of you. You choose how much fire to extinguish in that radius.\n   " + toUni("Gift of Flame") + ". You can transfer the opal's magic to a nonmagical item\u2014a weapon or a suit of armor\u2014by tracing the ild rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the opal is destroyed, and the rune appears in red on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Weapon.") + ". The weapon is now an uncommon magic weapon. It deals an extra 1d6 fire damage to any target it hits.\n \u2022 " + toUni("Armor.") + ". The armor is now a rare magic item that requires attunement. You have resistance to cold damage while wearing the armor.",
@@ -421,7 +519,7 @@ MagicItemsList["opal of the ild rune"] = {
 }
 MagicItemsList["orb of the stein rune"] = {
 	name : "Orb of the Stein Rune",
-	source : ["SKT", 235],
+	source : [["SKT", 235]],
 	magicItemTable : "G",
 	description : "I can use the orb as it is, or transfer its runic properties over to a shield or pair of boots.",
 	descriptionFull : "This orb of granite is about the size of an adult human's fist. The stein (stone) rune appears on it in the form of crystalline veins that run across the surface. The orb has the following properties, which work only while it's on your person.\n   " + toUni("Indomitable Stand") + ". As an action, you can channel the orb's magic to hold your ground. For the next minute or until you move any distance, you have advantage on all checks and saving throws to resist effects that force you to move. In addition, any enemy that moves to a space within 10 feet of you must succeed on a DC 12 Strength saving throw or be unable to move any farther this turn.\n   " + toUni("Stone Soul") + ". You can't be petrified.\n   " + toUni("Earthen Step") + ". You can cast Meld into Stone as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Stone") + ". You can transfer the orb's magic to a nonmagical item\u2014a shield or a pair of boots\u2014by tracing the stein rune there with your finger. The transfer takes8 hours of work that requires the two items to be within 5 feet of each other. At the end, the orb is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield.") + ". The shield is now a rare magic item that requires attunement. While you wield it, you have resistance to all damage dealt by ranged weapon attacks.\n \u2022 " + toUni("Boots.") + ". The pair of boots is now an uncommon magic item that requires attunement. While you wear the boots, you have advantage on Strength saving throws, and you can use your reaction to avoid being knocked prone.",
@@ -470,7 +568,7 @@ MagicItemsList["orb of the stein rune"] = {
 }
 MagicItemsList["pennant of the vind rune"] = {
 	name : "Pennant of the Vind Rune",
-	source : ["SKT", 235],
+	source : [["SKT", 235]],
 	magicItemTable : "H",
 	description : "I can use the pennant as it is, or transfer its runic properties over to a suit of armor, pair of boots, or cloak.",
 	descriptionFull : "This blue pennant is crafted from silk and is five feet long and whips about as if buffeted by a wind. The vind (wind) rune appears on its surface, looking almost like a cloud. The pennant has the following properties, which work only while it's on your person.\n   " + toUni("Wind Step") + ". As an action, you fly up to 20 feet. If you don't land at the end of this flight, you fall unless you have another means of staying aloft.\n   " + toUni("Comforting Wind") + ". You can't suffocate.\n   " + toUni("Winds Grasp") + ". As a reaction when you fall, you can cause yourself to take no damage from the fall. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Wind Walker") + ". While you are attuned to this rune, you can cast Levitate as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Wind") + ". You can transfer the pennant's magic to a nonmagical item\u2014a suit of armor, a pair of boots, or a cloak\u2014by tracing the vind rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the pennant is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Armor.") + ". The armor is now an uncommon magic item that requires attunement. You gain a bonus to speed of 5 feet while you wear the armor, and if it normally imposes disadvantage on Stealth checks, it no longer does so.\n \u2022 " + toUni("Boots/Cloak.") + ". The pair of boots or cloak is now a rare magic item that requires attunement. While wearing the item, you can convert up to 20 feet of your movement on each of your turns into flight. If you don't land at the end of this flight, you fall unless you have another means of staying aloft. You can also cast Feather Fall once from the item, and you regain the ability to do so when you finish a short or long rest.",
@@ -543,7 +641,7 @@ MagicItemsList["pennant of the vind rune"] = {
 }
 MagicItemsList["potion of giant size"] = {
 	name : "Potion of Giant Size",
-	source : ["SKT", 236],
+	source : [["SKT", 236]],
 	type : "potion",
 	rarity : "legendary",
 	description : "Once as an action, I can drink this potion of pale white liquid or administer it to another to grow to Huge for 24 hours. This gives Str 25, +5 ft reach, double max HP (current HP also doubles), and roll three times damage die for weapons. When its effect ends, HP above the max HP becomes temporary HP.",
@@ -552,7 +650,7 @@ MagicItemsList["potion of giant size"] = {
 }
 MagicItemsList["robe of serpents"] = {
 	name : "Robe of Serpents",
-	source : ["SKT", 236],
+	source : [["SKT", 236]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -565,7 +663,7 @@ MagicItemsList["robe of serpents"] = {
 }
 MagicItemsList["rod of the vonindod"] = {
 	name : "Rod of the Vonindod",
-	source : ["SKT", 236],
+	source : [["SKT", 236]],
 	type : "rod",
 	rarity : "rare",
 	magicItemTable : "F",
@@ -593,7 +691,7 @@ MagicItemsList["rod of the vonindod"] = {
 MagicItemsList["shard of the ise rune"] = {
 	name : "Shard of the Ise Rune",
 	type : "wondrous item",
-	source : ["SKT", 236],
+	source : [["SKT", 236]],
 	magicItemTable : "H",
 	description : "I can use the shard as it is, or transfer its runic properties over to a cloak or a pair of boots.",
 	descriptionFull : "This shard of ice is long and slender, roughly the size of a dagger. The ise (ice) rune glows within it. The shard has the following properties, which work only while it's on your person.\n   " + toUni("Frigid Touch") + ". As an action, you can touch a body of water and freeze the water in a 10-foot-radius sphere around the spot you touched. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Frost Friend") + ". You have resistance to fire damage.\n   " + toUni("Icy Mantle") + ". As an action, you can touch yourself or another creature with water on your finger. The water creates an icy mantle of protection. The next time within the next minute that the target takes bludgeoning, slashing, or piercing damage, that damage is reduced to 0, and the mantle is destroyed. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Winter's Howl") + ". As an action, you can cast Sleet Storm (spell save DC 17). You regain this ability after you finish a short or long rest.\n   " + toUni("Gift of Frost") + ". You can transfer the shard's magic to a nonmagical item\u2014a cloak or a pair of boots-by tracing the ise rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the shard is destroyed, and the rune appears in blue on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Cloak.") + ". The cloak is now a rare magic item that requires attunement. While wearing it, you have resistance to fire damage, and you have advantage on Dexterity (Stealth) checks made while in snowy terrain.\n \u2022 " + toUni("Boots.") + ". The pair of boots is now a rare magic item that requires attunement. While wearing it, you ignore difficult terrain while walking, and you can walk on water.",
@@ -643,7 +741,7 @@ MagicItemsList["shard of the ise rune"] = {
 }
 MagicItemsList["ring of hardened magma"] = {
 	name : "Ring of Hardened Magma",
-	source : ["SKT", 105], // Raven Rock ancient relic
+	source : [["SKT", 105]], // Raven Rock ancient relic
 	type : "ring",
 	rarity : "unknown",
 	storyItemAL : true,
@@ -675,7 +773,7 @@ MagicItemsList["ring of hardened magma"] = {
 }
 MagicItemsList["red dragon's thighbone"] = {
 	name : "Red Dragon's Thighbone",
-	source : ["SKT", 105], // Raven Rock ancient relic
+	source : [["SKT", 105]], // Raven Rock ancient relic
 	type : "weapon (greatclub)",
 	rarity : "very rare",
 	magicItemTable : "G",
@@ -688,13 +786,13 @@ MagicItemsList["red dragon's thighbone"] = {
 		baseWeapon : "greabclub",
 		regExpSearch : /^(?=.*red)(?=.*dragon)(?=.*thighbone).*$/i,
 		name : "Red Dragon's Thighbone",
-		source : ["SKT", 105],
+		source : [["SKT", 105]],
 		description : "Two-handed; +2d6 damage vs. dragons",
 	}
 }
 MagicItemsList["ancient relic boulder"] = {
 	name : "Ancient Relic Boulder",
-	source : ["SKT", 105], // One Stone ancient relic
+	source : [["SKT", 105]], // One Stone ancient relic
 	type : "wondrous item",
 	rarity : "unknown",
 	storyItemAL : true,

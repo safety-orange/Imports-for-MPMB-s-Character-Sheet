@@ -16,7 +16,7 @@ SourceList["UA:A3"] = {
 ClassList['artificer-ua3'] = {
 	regExpSearch : /^(?=.*artificer)(?!.*wizard).*$/i,
 	name : "Artificer",
-	source : ["UA:A3", 1],
+	source : [["UA:A3", 1]],
 	primaryAbility : "Intelligence",
 	abilitySave : 4,
 	prereqs : "Intelligence 13",
@@ -58,7 +58,7 @@ ClassList['artificer-ua3'] = {
 	features : {
 		"magical tinkering" : {
 			name : "Magical Tinkering",
-			source : ["UA:A3", 2],
+			source : [["UA:A3", 2]],
 			minlevel : 1,
 			description : desc([
 				"As an action, I use thieves' or an artisan's tools to give max 1 property to a tiny object:",
@@ -71,7 +71,7 @@ ClassList['artificer-ua3'] = {
 			extraname : "Artificer 2",
 			"infuse item" : {
 				name : "Infuse Item",
-				source : ["UA:A3", 5],
+				source : [["UA:A3", 5]],
 				description : desc([
 					"When I finish a long rest, I can turn nonmagical objects into magic items using my infusions",
 					"I can attune to it immediately; If I infuse too many items, the oldest loses its magic",
@@ -90,7 +90,7 @@ ClassList['artificer-ua3'] = {
 		},
 		"spellcasting" : {
 			name : "Spellcasting",
-			source : ["UA:A3", 3],
+			source : [["UA:A3", 3]],
 			minlevel : 1,
 			description : desc([
 				"I can cast prepared artificer cantrips/spells, using Intelligence as my spellcasting ability",
@@ -125,13 +125,13 @@ ClassList['artificer-ua3'] = {
 			extraname : "Artificer Spellcasting",
 			"don't change component column on spell sheet" : {
 				name : "[Meta] Don't alter spell sheets",
-				source : ["UA:A3", 3],
+				source : [["UA:A3", 3]],
 				description : "\n   The automation will not add M\u0192 to each artificer spell on the generated spell sheets"
 			}
 		},
 		"infuse item" : {
 			name : "Infuse Item",
-			source : ["UA:A3", 5],
+			source : [["UA:A3", 5]],
 			minlevel : 2,
 			description : desc([
 				'Use the "Choose Feature" button above to add Artificer Infusions to the third page',
@@ -147,7 +147,7 @@ ClassList['artificer-ua3'] = {
 			}),
 			"boots of the winding path (prereq: level 4 artificer)" : {
 				name : "Boots of the Winding Path",
-				source : ["UA:A3", 12],
+				source : [["UA:A3", 12]],
 				description : desc([
 					"The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
 					"It must be a space that the wearer had occupied some time during the current turn"
@@ -163,7 +163,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"enhanced defense" : {
 				name : "Enhanced Defense",
-				source : ["UA:A3", 12],
+				source : [["UA:A3", 12]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "armor/shield; +" + (n < 12 ? 1 : 2) + " magical";
@@ -179,7 +179,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"enhanced wand" : { // 2019v2
 				name : "Enhanced Wand",
-				source : ["UA:A3", 12],
+				source : [["UA:A3", 12]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "Wand of the War Mage +" + (n < 12 ? 1 : 2) + " magical";
@@ -195,7 +195,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"enhanced weapon" : {
 				name : "Enhanced Weapon",
-				source : ["UA:A3", 12],
+				source : [["UA:A3", 12]],
 				description : "",
 				additional : levels.map(function (n) {
 					return "simple/martial weapon; +" + (n < 12 ? 1 : 2) + " magical";
@@ -211,7 +211,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"many-handed pouch (prereq: level 4 artificer)" : {
 				name : "Many-Handed Pouch",
-				source : ["UA:A3", 13],
+				source : [["UA:A3", 13]],
 				description : desc([
 					"The infused pouches all share one interdimensional space the size of a single pouch",
 					"Thus, reaching into any of the pouches allows access to the same storage space",
@@ -229,7 +229,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"radiant weapon (prereq: level 8 artificer)" : {
 				name : "Radiant Weapon",
-				source : ["UA:A3", 13],
+				source : [["UA:A3", 13]],
 				description : desc([
 					"The weapon has a +1 bonus to attack and damage rolls made with it and it sheds light",
 					"As a bonus action, its wielder can start/stop the light, 30-ft radius bright + 30 ft dim light",
@@ -247,7 +247,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"repeating shot" : { // 2019v2
 				name : "Repeating Shot",
-				source : ["UA:A3", 13],
+				source : [["UA:A3", 13]],
 				description : desc([
 					"The weapon requiring ammunition has a +1 bonus to attack and damage rolls made with it",
 					"It magically produces one piece of ammunition whenever it is used to make a ranged attack",
@@ -263,7 +263,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"repulsion shield (prereq: level 8 artificer)" : { // 2019v2
 				name : "Repulsion Shield",
-				source : ["UA:A3", 14],
+				source : [["UA:A3", 14]],
 				description : desc([
 					"The shield gives its wearer an additional +1 bonus to AC",
 					"As a reaction when hit by a melee attack, the wearer can push their attacker up to 15 ft",
@@ -280,7 +280,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"resistant armor (prereq: level 8 artificer)" : {
 				name : "Resistant Armor",
-				source : ["UA:A3", 14],
+				source : [["UA:A3", 14]],
 				description : desc([
 					"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
 					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"
@@ -296,7 +296,7 @@ ClassList['artificer-ua3'] = {
 			},
 			"returning weapon" : {
 				name : "Returning Weapon",
-				source : ["UA:A3", 14],
+				source : [["UA:A3", 14]],
 				description : "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
 				additional : "simple/martial weapon with the thrown property",
 				eval : function (lvl, chc) { AddMagicItem("Returning Weapon"); },
@@ -309,7 +309,7 @@ ClassList['artificer-ua3'] = {
 		},
 		"tool expertise" : {
 			name : "Tool Expertise",
-			source : ["UA:A3", 5],
+			source : [["UA:A3", 5]],
 			minlevel : 3,
 			description : " [expertise with all tools I am proficient with]",
 			skillstxt : "expertise with all tools I am proficient with",
@@ -318,7 +318,7 @@ ClassList['artificer-ua3'] = {
 		},
 		"subclassfeature3" : {
 			name : "Artificer Specialist",
-			source : ["UA:A3", 5],
+			source : [["UA:A3", 5]],
 			minlevel : 3,
 			description : desc([
 				'Choose a specialism and put it in the "Class" field on the first page',
@@ -327,19 +327,19 @@ ClassList['artificer-ua3'] = {
 		},
 		"arcane armament" : {
 			name : "Arcane Armament",
-			source : ["UA:A3", 6],
+			source : [["UA:A3", 6]],
 			minlevel : 5,
 			description : " [as Extra Attack, but only with magic weapon]"
 		},
 		"the right cantrip for the job" : {
 			name : "The Right Cantrip for the Job",
-			source : ["UA:A3", 6],
+			source : [["UA:A3", 6]],
 			minlevel : 10,
 			description : "\n   " + "Whenever I finish a short/long rest, I can swap one of my artificer cantrips for another"
 		},
 		"spell-storing item" : {
 			name : "Spell-Storing Item",
-			source : ["UA:A3", 6],
+			source : [["UA:A3", 6]],
 			minlevel : 18,
 			description : desc([
 				"When I finish a long rest, I can infuse a 1st-/2nd-level artificer spell into an item I touch",
@@ -351,7 +351,7 @@ ClassList['artificer-ua3'] = {
 		},
 		"soul of artifice" : {
 			name : "Soul of Artifice",
-			source : ["UA:A3", 6],
+			source : [["UA:A3", 6]],
 			minlevel : 20,
 			description : " [+1 on all saves per attuned magic item (max 6)]",
 			savetxt : {
@@ -415,11 +415,11 @@ AddSubClass("artificer-ua3", "alchemist", {
 	regExpSearch : /^(?=.*alchemist)(?!.*wizard).*$/i,
 	subname : "Alchemist",
 	fullname : "Alchemist",
-	source : ["UA:A3", 6],
+	source : [["UA:A3", 6]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
-			source : ["UA:A3", 6],
+			source : [["UA:A3", 6]],
 			minlevel : 3,
 			description : "\n   I can craft magical potions for half the usual gold and in a quarter of the usual time",
 			additional : "alchemist's and herbalism kit proficiency",
@@ -432,7 +432,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Alchemical Homunculus",
-			source : ["UA:A3", 6],
+			source : [["UA:A3", 6]],
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use alchemist's supplies to create an alchemical homunculus",
@@ -459,7 +459,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 		},
 		"subclassfeature6" : {
 			name : "Alchemical Mastery",
-			source : ["UA:A3", 7],
+			source : [["UA:A3", 7]],
 			minlevel : 6,
 			description : desc([
 				"I can enhance the spell I cast when I use alchemist's supplies as my spellcasting focus",
@@ -505,7 +505,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 		},
 		"subclassfeature6.1" : {
 			name : "Alchemical Mastery: Lesser Restoration",
-			source : ["UA:A3", 7],
+			source : [["UA:A3", 7]],
 			minlevel : 6,
 			description : "\n   I can cast Lesser Restoration without a spell slot if I use alchemist's supplies as a focus",
 			usages : "Int mod per ",
@@ -527,7 +527,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 		},
 		"subclassfeature14" : {
 			name : "Chemical Savant",
-			source : ["UA:A2", 7],
+			source : [["UA:A2", 7]],
 			minlevel : 14,
 			description : desc([
 				"I always have resistance to acid and poison damage and immunity to being poisoned",
@@ -568,7 +568,6 @@ CreatureList["alchemical homunculus-ua"] = {
 	hd : [],
 	speed : "20 ft, fly 30 ft",
 	scores : [4, 15, 11, 10, 10, 7],
-	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 4,
 		"stealth" : 4
@@ -609,11 +608,11 @@ AddSubClass("artificer-ua3", "archivist", {
 	regExpSearch : /^(?=.*archivist)(?!.*wizard).*$/i,
 	subname : "Archivist",
 	fullname : "Archivist",
-	source : ["UA:A3", 7],
+	source : [["UA:A3", 7]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
-			source : ["UA:A3", 7],
+			source : [["UA:A3", 7]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with calligrapher's supplies and the forgery kit",
@@ -628,7 +627,7 @@ AddSubClass("artificer-ua3", "archivist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Artificial Mind",
-			source : ["UA:A3", 8],
+			source : [["UA:A3", 8]],
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use calligrapher's supplies on a tiny nonmagical object",
@@ -645,7 +644,7 @@ AddSubClass("artificer-ua3", "archivist", {
 			weaponOptions : {
 				regExpSearch : /^(?=.*information)(?=.*overload).*$/i,
 				name : "Information Overload",
-				source : ["UA:A3", 8],
+				source : [["UA:A3", 8]],
 				ability : 4,
 				type : "Spell",
 				damage : [1, 8, "psychic"],
@@ -667,7 +666,7 @@ AddSubClass("artificer-ua3", "archivist", {
 			extraname : "Artificial Mind",
 			"telepathic advisor" : {
 				name : "Telepathic Advisor",
-				source : ["UA:A3", 8],
+				source : [["UA:A3", 8]],
 				description : desc([
 					"While my artificial mind is on my person, it telepathically grants me two skill proficiencies",
 					"I can choose which skills when I create the artificial mind, depending on its raw material",
@@ -679,7 +678,7 @@ AddSubClass("artificer-ua3", "archivist", {
 			},
 			"manifest mind" : {
 				name : "Manifest Mind",
-				source : ["UA:A3", 8],
+				source : [["UA:A3", 8]],
 				description : desc([
 					"As a bonus action, I can have the artificial mind create a spectral presence within 60 ft",
 					"This requires the item to be on my person and it stops if the presence goes beyond 300 ft",
@@ -701,7 +700,7 @@ AddSubClass("artificer-ua3", "archivist", {
 		},
 		"subclassfeature6" : {
 			name : "Mind Network",
-			source : ["UA:A3", 9],
+			source : [["UA:A3", 9]],
 			minlevel : 6,
 			description : desc([
 				"I add my Int mod to artificer spells that deal psychic damage and information overload",
@@ -726,7 +725,7 @@ AddSubClass("artificer-ua3", "archivist", {
 		},
 		"subclassfeature14" : {
 			name : "Pure Information",
-			source : ["UA:A3", 9],
+			source : [["UA:A3", 9]],
 			minlevel : 14,
 			description : desc([
 				"When I use a spell slot to boost information overload, its target must make another save",
@@ -749,11 +748,11 @@ AddSubClass("artificer-ua3", "artillerist", {
 	regExpSearch : /^(?=.*artillerist)(?!.*wizard).*$/i,
 	subname : "Artillerist",
 	fullname : "Artillerist",
-	source : ["UA:A3", 8],
+	source : [["UA:A3", 8]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade",
-			source : ["UA:A3", 9],
+			source : [["UA:A3", 9]],
 			minlevel : 3,
 			description : desc([
 				"I can use rods, wands, and staffs as a spellcasting focus",
@@ -770,7 +769,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Turret",
-			source : ["UA:A3", 10],
+			source : [["UA:A3", 10]],
 			minlevel : 3,
 			description: desc([
 				"As an action, I can use smith's tools to summon a Medium turret within 5 ft of me",
@@ -801,7 +800,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 		},
 		"subclassfeature6" : {
 			name : "Wand Prototype",
-			source : ["UA:A3", 10],
+			source : [["UA:A3", 10]],
 			minlevel : 6,
 			description: desc([
 				"When I finish a long rest, I can use woodcarver's tools to turn a wand into a magic item",
@@ -867,7 +866,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 		},
 		"subclassfeature14" : {
 			name : "Fortified Position",
-			source : ["UA:A3", 10],
+			source : [["UA:A3", 10]],
 			minlevel : 14,
 			description: "\n   My allies and I have half cover while within 10 ft of an arcane turret I created"
 		}
@@ -885,7 +884,6 @@ CreatureList["arcane turret-ua"] = {
 	hd : [0, 0],
 	speed : "15 ft, climb 15 ft",
 	scores : [10, 10, 10, 10, 10, 10],
-	saves : ["", "", "", "", "", ""],
 	damage_immunities : "poison, psychic",
 	condition_immunities : "all conditions",
 	passivePerception : 10,
@@ -952,11 +950,11 @@ AddSubClass("artificer-ua3", "battle smith", {
 	regExpSearch : /^(?=.*battle)(?=.*smith)(?!.*wizard).*$/i,
 	subname : "Battle Smith",
 	fullname : "Battle Smith",
-	source : ["UA:A3", 11],
+	source : [["UA:A3", 11]],
 	features : {
 		"subclassfeature3" : {
 			name : "Tools of the Trade \u0026 Battle Ready",
-			source : ["UA:A3", 11],
+			source : [["UA:A3", 11]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with leatherworker's tools, smith's tools, and martial weapons",
@@ -983,7 +981,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 		},
 		"subclassfeature3.1" : {
 			name : "Iron Defender",
-			source : ["UA:A3", 11],
+			source : [["UA:A3", 11]],
 			minlevel : 3,
 			description : desc([
 				"When I end a long rest, I can use smith's tools to create an iron defender",
@@ -1028,7 +1026,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 		},
 		"subclassfeature6" : {
 			name : "Arcane Jolt",
-			source : ["UA:A3", 12],
+			source : [["UA:A3", 12]],
 			minlevel : 6,
 			description : desc([
 				"The bite attack of my iron defender is considered magical",
@@ -1045,7 +1043,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 		},
 		"subclassfeature14" : {
 			name : "Improved Defender",
-			source : ["UA:A3", 14],
+			source : [["UA:A3", 14]],
 			minlevel : 14,
 			description : desc([
 				"My iron defender's defensive pounce now also deals 1d4 + my Int mod in force damage",
@@ -1057,7 +1055,7 @@ AddSubClass("artificer-ua3", "battle smith", {
 // Add the Battle Smith's Iron Defender (new in 2019v2)
 CreatureList["iron defender-ua"] = {
 	name : "Iron Defender",
-	source : ["UA:A3", 11],
+	source : [["UA:A3", 11]],
 	size : 3,
 	type : "Construct",
 	alignment : "Neutral",
@@ -1066,7 +1064,6 @@ CreatureList["iron defender-ua"] = {
 	hd : [],
 	speed : "40 ft",
 	scores : [14, 12, 14, 4, 10, 6], //[Str, Dex, Con, Int, Wis, Cha]
-	saves : ["", "", "", "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
 	skills : { "perception" : 4 },
 	damage_immunities : "poison",
 	condition_immunities : "charmed, exhaustion, poisoned",
@@ -1175,7 +1172,7 @@ MagicItemsList["radiant weapon-ua"] = {
 }
 MagicItemsList["repulsion shield-ua"] = { // 2019v2
 	name : "Repulsion Shield",
-	source : ["UA:A3", 14],
+	source : [["UA:A3", 14]],
 	type : "shield",
 	description : "I gain a +1 bonus to Armor Class while wielding this shield. As a reaction immediately after being hit by a melee attack, I can push the attacker up to 15 ft away. Once used, this reaction can't be used again until I finish a short or long rest.",
 	descriptionFull : "A creature gains a +1 bonus to Armor Class while wielding this shield. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to push the attacker up to 15 feet away. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",

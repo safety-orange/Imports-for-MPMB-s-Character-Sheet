@@ -176,7 +176,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		var shapeStr = shape === "line" ? "5-ft by 30-ft line" : "15-ft cone";
 		var capitailzedDmgType = dmgType.charAt(0).toUpperCase() + dmgType.slice(1);
 		var saveStat = ["cold", "poison"].indexOf(dmgType) >= 0 ? "Con" : "Dex";
-		return capitailzedDmgType + " Breath Weapon: As an action once per short rest, I can deal 2d6 " + dmgType + " damage to all in a " + shapeStr + ", " + saveStat + " save halves (DC 8 + Con mod + prof bonus).\nThis damage increases to 3d6 at level 6, 4d6 at level 11, and 5d6 at level 16.";
+		return capitailzedDmgType + " Breath Weapon: As an action once per short rest, I can deal 2d6 " + dmgType + " damage to all in a " + shapeStr + ", " + saveStat + " save halves (DC 8 + Con mod + Prof Bonus).\nThis damage increases to 3d6 at level 6, 4d6 at level 11, and 5d6 at level 16.";
 	};
 	var EGtW_draconicAncestryFeature = {
 		name : "Draconic Ancestry",
@@ -506,7 +506,7 @@ if (!SourceList.V) {
 		heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 		weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 		scores : [1, 0, 0, 0, 0, 2],
-		trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
+		trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof Bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
 		abilitySave : 6,
 		spellcastingAbility : 6,
 		spellcastingBonus : {
@@ -1143,7 +1143,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				"As a bonus action, I can magically manifest a translucent image of myself within 15 ft",
 				"My echo lasts until I dismiss it as a bonus action, I manifest another, or I'm incapacitated",
 				"It is also destroyed if it is more than 30 ft away from me at the end of my turn",
-				"It has 1 HP, immunity to all conditions, uses my save bonuses, and AC 14 + Prof. Bonus",
+				"It has 1 HP, immunity to all conditions, uses my save bonuses, and AC 14 + Prof Bonus",
 				"On my turn as a free action, I can command it to move up to 30 ft in any direction",
 				"As a bonus action, I can teleport to swap places with it, at a cost of 15 ft movement",
 				"When I use the Attack action on my turn, I can have any attack originate from my echo",
@@ -1548,6 +1548,26 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Access to Dunama
 		]
 	}
 }, "Optional 1st-level wizard features");
+RunFunctionAtEnd(function() {
+	if (!ClassList.artificer) return;
+	AddFeatureChoice(ClassList.artificer.features.spellcasting, true, "Access to Dunamancy Spells", {
+		name : "Dunamancy Spells",
+		extraname : "Optional Artificer 1",
+		source : [["W", 186]],
+		description : desc([
+			"All dunamancy spells are added to the artificer spell list, each still pending DM's approval"
+		]),
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					if (spName !== "artificer" || spType.indexOf("bonus") !== -1) return;
+					spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
+				},
+				"This optional class feature expands the spell list of the artificer class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9)."
+			]
+		}
+	}, "Optional 1st-level artificer features");
+});
 
 // Backgrounds (includes contributions by remcovandalen)
 BackgroundList["grinner"] = {
@@ -2876,9 +2896,9 @@ MagicItemsList["grimoire infinitus"] = {
 		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizard spells, I can prepare 1 additional spell. See Notes page for more information.",
 		calcChanges: {
 			spellCalc: [
-                function (type, spellcasters, ability) {
-                    if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 1;
-                },
+				function (type, spellcasters, ability) {
+					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 1;
+				},
 				"When I prepare wizard spells using the grimoire, the number of wizard spells I can prepare increases by 1."
 			]
 		}
@@ -2888,9 +2908,9 @@ MagicItemsList["grimoire infinitus"] = {
 		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use it to prepare wizard spells, I can prepare 2 extra spells. It also grants me advantage on saves against spells and magical effects. See Notes page.",
 		calcChanges: {
 			spellCalc: [
-                function (type, spellcasters, ability) {
-                    if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 2;
-                },
+				function (type, spellcasters, ability) {
+					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 2;
+				},
 				"When I prepare wizard spells using the grimoire, the number of wizard spells I can prepare increases by 2."
 			]
 		},
@@ -2901,9 +2921,9 @@ MagicItemsList["grimoire infinitus"] = {
 		description : "This spellbook with unlimited pages can be used by a wizard to prepare and store spells. When I use it to prepare wizard spells, I can prepare 3 more. It also grants me adv. on saves vs. spells and magical effects and allows me to use Arcane Recovery an extra time per long rest. See Notes page for more information.",
 		calcChanges: {
 			spellCalc: [
-                function (type, spellcasters, ability) {
-                    if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 3;
-                },
+				function (type, spellcasters, ability) {
+					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 3;
+				},
 				"When I prepare wizard spells using the grimoire, the number of wizard spells I can prepare increases by 3."
 			]
 		},

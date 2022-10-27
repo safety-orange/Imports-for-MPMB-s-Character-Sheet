@@ -83,14 +83,14 @@ RaceList["autognome-ua"] = {
 		"Autognome (my type is Construct)"+
 		"\n \u2022 Cure Wounds, Healing Word, and Spare the Dying work on me."+
 		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier."+
-		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect."+
+		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect."+
 		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe."+
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious."+
 		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
 		:
 		"Autognome (type is Construct; Cure Wounds, Healing Word, Spare the Dying work on me)"+
 		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier."+
-		"\n \u2022 Built for Success: For my Prof. B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects."+
+		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects."+
 		"\n \u2022 Mechanical Nature: I have immunities/resistances and don't need to eat, drink or breathe"+
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless."+
 		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest."

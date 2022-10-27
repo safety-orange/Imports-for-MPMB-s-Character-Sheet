@@ -17,7 +17,7 @@ SourceList["PS:Z"] = {
 RaceList["kor"] = {
 	regExpSearch : /\bkor\b/i,
 	name : "Kor",
-	source : ["PS:Z", 11],
+	source : [["PS:Z", 11]],
 	plural : "Kor",
 	size : 3,
 	speed : {
@@ -38,7 +38,7 @@ RaceList["emeria merfolk"] = {
 	regExpSearch : /^(?=.*\b(emeria|wind))(?=.*(merfolk|mermaid|merman)\b).*$/i,
 	name : "Emeria Creed Merfolk",
 	sortname : "Merfolk, Emeria Creed",
-	source : ["PS:Z", 13],
+	source : [["PS:Z", 13]],
 	plural : "Emeria Creed Merfolk",
 	size : 3,
 	speed : {
@@ -65,7 +65,7 @@ RaceList["ula merfolk"] = {
 	regExpSearch : /^(?=.*\b(ula|water))(?=.*(merfolk|mermaid|merman)\b).*$/i,
 	name : "Ula Creed Merfolk",
 	sortname : "Merfolk, Ula Creed",
-	source : ["PS:Z", 13],
+	source : [["PS:Z", 13]],
 	plural : "Ula Creed Merfolk",
 	size : 3,
 	speed : {
@@ -93,7 +93,7 @@ RaceList["cosi merfolk"] = {
 	regExpSearch : /^(?=.*\b(cosi|trickster))(?=.*(merfolk|mermaid|merman)\b).*$/i,
 	name : "Cosi Creed Merfolk",
 	sortname : "Merfolk, Cosi Creed",
-	source : ["PS:Z", 13],
+	source : [["PS:Z", 13]],
 	plural : "Cosi Creed Merfolk",
 	size : 3,
 	speed : {
@@ -121,7 +121,7 @@ RaceList["zendikar vampire"] = {
 	regExpSearch : /^(?=.*vampire)(?=.*zendikar).*$/i,
 	name : "Vampire",
 	sortname : "Vampire, Zendikar",
-	source : ["PS:Z", 15],
+	source : [["PS:Z", 15]],
 	plural : "Vampires",
 	size : 3,
 	speed : {
@@ -133,7 +133,7 @@ RaceList["zendikar vampire"] = {
 	weaponOptions : {
 		regExpSearch : /^(?=.*blood)(?=.*thirst).*$/i,
 		name : "Blood Thirst",
-		source : ["PS:Z", 15],
+		source : [["PS:Z", 15]],
 		ability : 1,
 		type : "Natural",
 		damage : [1, 6, "necrotic"],
@@ -152,7 +152,7 @@ RaceList["grotag tribe goblin"] = {
 	regExpSearch : /^(?=.*\bgrotag)(?=.*goblin\b).*$/i,
 	name : "Grotag tribe goblin",
 	sortname : "Goblin, Grotag Tribe",
-	source : ["PS:Z", 17],
+	source : [["PS:Z", 17]],
 	plural : "Grotag tribe goblins",
 	size : 4,
 	speed : {
@@ -165,7 +165,7 @@ RaceList["grotag tribe goblin"] = {
 	armourOptions : {
 		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
 		name : "Goblin Grit",
-		source : ["PS:Z", 17],
+		source : [["PS:Z", 17]],
 		ac : 11
 	},
 	armorAdd : "Goblin Grit",
@@ -181,7 +181,7 @@ RaceList["lavastep tribe goblin"] = {
 	regExpSearch : /^(?=.*\blavastep)(?=.*goblin\b).*$/i,
 	name : "Lavastep tribe goblin",
 	sortname : "Goblin, Lavastep Tribe",
-	source : ["PS:Z", 17],
+	source : [["PS:Z", 17]],
 	plural : "Lavastep tribe goblins",
 	size : 4,
 	speed : {
@@ -193,7 +193,7 @@ RaceList["lavastep tribe goblin"] = {
 	armourOptions : {
 		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
 		name : "Goblin Grit",
-		source : ["PS:Z", 17],
+		source : [["PS:Z", 17]],
 		ac : 11
 	},
 	armorAdd : "Goblin Grit",
@@ -209,7 +209,7 @@ RaceList["tuktuk tribe goblin"] = {
 	regExpSearch : /^(?=.*\btuktuk)(?=.*goblin\b).*$/i,
 	name : "Tuktuk tribe goblin",
 	sortname : "Goblin, Tuktuk Tribe",
-	source : ["PS:Z", 17],
+	source : [["PS:Z", 17]],
 	plural : "Tuktuk tribe goblins",
 	size : 4,
 	speed : {
@@ -222,7 +222,7 @@ RaceList["tuktuk tribe goblin"] = {
 	armourOptions : {
 		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
 		name : "Goblin Grit",
-		source : ["PS:Z", 17],
+		source : [["PS:Z", 17]],
 		ac : 11
 	},
 	armorAdd : "Goblin Grit",
@@ -239,7 +239,7 @@ RaceList["tajuru elf"] = {
 	regExpSearch : /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\btajuru\b).*$/i,
 	name : "Tajuru elf",
 	sortname : "Elf, Tajuru",
-	source : ["PS:Z", 19],
+	source : [["PS:Z", 19]],
 	plural : "Tajuru elves",
 	size : 3,
 	speed : {
@@ -265,7 +265,7 @@ RaceList["joraga elf"] = {
 	regExpSearch : /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\bjoraga\b).*$/i,
 	name : "Joraga elf",
 	sortname : "Elf, Joraga",
-	source : ["PS:Z", 19],
+	source : [["PS:Z", 19]],
 	plural : "Joraga elves",
 	size : 3,
 	speed : {
@@ -291,7 +291,7 @@ RaceList["mul daya elf"] = {
 	regExpSearch : /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\bmul)(?=.*daya\b).*$/i,
 	name : "Mul Daya elf",
 	sortname : "Elf, Mul Daya",
-	source : ["PS:Z", 19],
+	source : [["PS:Z", 19]],
 	plural : "Mul Daya elves",
 	size : 3,
 	speed : {
@@ -352,7 +352,7 @@ RaceList["mul daya elf"] = {
 // Adds 7 creatures, 6 beasts and the null for the vampire's racial feature
 CreatureList["woodcrasher baloth"] = {
 	name : "Woodcrasher Baloth",
-	source : ["PS:Z", 33],
+	source : [["PS:Z", 33]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -388,7 +388,7 @@ CreatureList["woodcrasher baloth"] = {
 };
 CreatureList["gnarlid"] = {
 	name : "Gnarlid",
-	source : ["PS:Z", 34],
+	source : [["PS:Z", 34]],
 	size : 3,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -434,7 +434,7 @@ CreatureList["gnarlid"] = {
 };
 CreatureList["ox"] = {
 	name : "Ox",
-	source : ["PS:Z", 34],
+	source : [["PS:Z", 34]],
 	size : 2,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -462,7 +462,7 @@ CreatureList["ox"] = {
 };
 CreatureList["terastodon"] = {
 	name : "Terastodon",
-	source : ["PS:Z", 34],
+	source : [["PS:Z", 34]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -496,7 +496,7 @@ CreatureList["terastodon"] = {
 };
 CreatureList["terra stomper"] = {
 	name : "Terra Stomper",
-	source : ["PS:Z", 34],
+	source : [["PS:Z", 34]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -533,7 +533,7 @@ CreatureList["terra stomper"] = {
 };
 CreatureList["timbermaw"] = {
 	name : "Timbermaw",
-	source : ["PS:Z", 34],
+	source : [["PS:Z", 34]],
 	size : 3,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -568,7 +568,7 @@ CreatureList["timbermaw"] = {
 };
 CreatureList["vampire null"] = {
 	name : "Vampire Null",
-	source : ["PS:Z", 28],
+	source : [["PS:Z", 28]],
 	size : 3,
 	type : "Undead",
 	alignment : "Neutral Evil",

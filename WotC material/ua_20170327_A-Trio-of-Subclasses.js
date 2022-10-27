@@ -15,12 +15,12 @@ SourceList["UA:AToS"] = {
 AddSubClass("monk", "way of the drunken master-ua", {
 	regExpSearch : /^((?=.*drunken)(?=.*master))|((?=.*drunk)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Drunken Master",
-	source : ["UA:AToS", 1],
+	source : [["UA:AToS", 1]],
 	fullname : "Drunken Master",
 	features : {
 		"subclassfeature3" : {
 			name : "Drunken Technique",
-			source : ["UA:AToS", 1],
+			source : [["UA:AToS", 1]],
 			minlevel : 3,
 			description : desc([
 				"I gain proficiency with the Performance skill",
@@ -30,7 +30,7 @@ AddSubClass("monk", "way of the drunken master-ua", {
 		},
 		"subclassfeature6" : {
 			name : "Tipsy Sway",
-			source : ["UA:AToS", 1],
+			source : [["UA:AToS", 1]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction when missed in melee, attacker instead hits another I can see within 5 ft",
 			usages : 1,
@@ -39,14 +39,14 @@ AddSubClass("monk", "way of the drunken master-ua", {
 		},
 		"subclassfeature11" : {
 			name : "Drunkard's Luck",
-			source : ["UA:AToS", 1],
+			source : [["UA:AToS", 1]],
 			minlevel : 11,
 			description : "\n   " + "Before I roll for a save, I can spend 1 ki to give myself advantage on it",
 			additional : "1 ki point"
 		},
 		"subclassfeature17" : {
 			name : "Intoxicated Frenzy",
-			source : ["UA:AToS", 1],
+			source : [["UA:AToS", 1]],
 			minlevel : 17,
 			description : "\n   " + "I can make 3 extra attacks with Flurry of Blows if each is used on a different target"
 		}
@@ -55,17 +55,17 @@ AddSubClass("monk", "way of the drunken master-ua", {
 AddSubClass("paladin", "oath of redemption-ua", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
-	source : ["UA:AToS", 1],
+	source : [["UA:AToS", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Armor of Peace",
-			source : ["UA:AToS", 2],
+			source : [["UA:AToS", 2]],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
 			armorOptions : {
 				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
 				name : "Armor of Peace",
-				source : ["UA:AToS", 2],
+				source : [["UA:AToS", 2]],
 				ac : 16
 			},
 			armorAdd : "Armor of Peace",
@@ -73,14 +73,14 @@ AddSubClass("paladin", "oath of redemption-ua", {
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Emissary of Peace",
-			source : ["UA:AToS", 2],
+			source : [["UA:AToS", 2]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature3.2" : {
 			name : "Channel Divinity: Rebuke the Violent",
-			source : ["UA:AToS", 2],
+			source : [["UA:AToS", 2]],
 			minlevel : 3,
 			description : desc([
 				"As a reaction when a hostile within 10 ft damages another in melee, I can rebuke it",
@@ -90,7 +90,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 		},
 		"subclassfeature3.3" : {
 			name : "Warrior of Reconciliation",
-			source : ["UA:AToS", 2],
+			source : [["UA:AToS", 2]],
 			minlevel : 3,
 			description : desc([
 				"I can charm a creature when I reduce it to 0 HP with a simple, bludgeoning weapon",
@@ -100,7 +100,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 		},
 		"subclassfeature7" : {
 			name : "Aura of the Guardian",
-			source : ["UA:AToS", 2],
+			source : [["UA:AToS", 2]],
 			minlevel : 7,
 			description : desc([
 				"As a reaction when an ally within 10 ft takes damage, I instead take the damage",
@@ -110,14 +110,14 @@ AddSubClass("paladin", "oath of redemption-ua", {
 		},
 		"subclassfeature15" : {
 			name : "Protective Spirit",
-			source : ["UA:AToS", 2],
+			source : [["UA:AToS", 2]],
 			minlevel : 15,
 			description : "\n   " + "At the end of my turn when I'm below half HP and not incapacitated, I regain HP",
 			additional : levels.map(function (n) { return n < 15 ? "" : "1d6+" + Math.floor(n/2) + " HP"; })
 		},
 		"subclassfeature20" : {
 			name : "Emissary of Redemption",
-			source : ["UA:AToS", 3],
+			source : [["UA:AToS", 3]],
 			minlevel : 20,
 			description : desc([
 				"When taking damage from a creature, I take only half and it takes the other half",
@@ -131,12 +131,12 @@ AddSubClass("paladin", "oath of redemption-ua", {
 var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer-ua", {
 	regExpSearch : /^(?=.*monster)(?=.*slayer).*$/i,
 	subname : "Monster Slayer",
-	source : ["UA:AToS", 3],
+	source : [["UA:AToS", 3]],
 	fullname : "Monster Slayer",
 	features : {
 		"subclassfeature3" : {
 			name : "Slayer's Mysticism",
-			source : ["UA:AToS", 3],
+			source : [["UA:AToS", 3]],
 			minlevel : 3,
 			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
 			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"],
@@ -144,7 +144,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 		},
 		"subclassfeature3.1" : {
 			name : "Slayer's Eye",
-			source : ["UA:AToS", 3],
+			source : [["UA:AToS", 3]],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I can study a creature within 120 ft that I can see",
@@ -155,7 +155,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 		},
 		"subclassfeature7" : {
 			name : "Supernatural Defense",
-			source : ["UA:AToS", 3],
+			source : [["UA:AToS", 3]],
 			minlevel : 7,
 			description : desc([
 				"I add 1d6 to saves I make against abilities of the current target of my Slayer's Eye"
@@ -163,7 +163,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 		},
 		"subclassfeature11" : {
 			name : "Relentless Slayer",
-			source : ["UA:AToS", 3],
+			source : [["UA:AToS", 3]],
 			minlevel : 11,
 			description : desc([
 				"As a reaction, I can stop the target of my Slayer's Eye from escaping, if within 30 ft",
@@ -173,7 +173,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 		},
 		"subclassfeature15" : {
 			name : "Slayer's Counter",
-			source : ["UA:AToS", 3],
+			source : [["UA:AToS", 3]],
 			minlevel : 15,
 			description : desc([
 				"As a reaction when the target of my Slayer's Eye has me make a save, I can attack it",
