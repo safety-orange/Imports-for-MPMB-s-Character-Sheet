@@ -129,7 +129,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 				"breath weapon" : {
 					name : "Breath Weapon",
 					minlevel : 1,
-					usages : "Proficiency Bonus per ",
+					usages : "Proficiency bonus per ",
 					usagescalc : "event.value = How('Proficiency Bonus');",
 					recovery : "long rest",
 					additional : levels.map(function (n) {
@@ -542,7 +542,7 @@ FeatsList["gift of the chromatic dragon"] = {
 		recovery : "long rest"
 	}, {
 		name : "Chromatic Gift (Reactive Resistance)",
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}]
@@ -555,7 +555,7 @@ FeatsList["gift of the gem dragon"] = {
 	"\n   " + toUni("Telekinetic Reprisal") + ". When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes 2d8 force damage and is pushed up to 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it take 2d8 force damage and push it up to 10 ft away. If it succeeds on a Str save (DC 8 + Prof Bonus + chosen ability score modifier), it halves the damage and isn't pushed. I can do this my Prof Bonus per long rest. [+1 Int, Wis or Cha]",
 	action : [["reaction", ""]],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	choices : ["Intelligence", "Wisdom", "Charisma"],
@@ -594,7 +594,7 @@ FeatsList["gift of the metallic dragon"] = {
 		recovery : "long rest"
 	}, {
 		name : "Metallic Gift (Protective Wings)",
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}]

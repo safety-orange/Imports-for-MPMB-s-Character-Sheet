@@ -1564,7 +1564,7 @@ RunFunctionAtEnd(function () {
 				action : [["bonus action", "Defensive Field (Guardian Model)"]],
 				extraLimitedFeatures : [{
 					name : "Defensive Field (Guardian Model)",
-					usages : "Proficiency Bonus per ",
+					usages : "Proficiency bonus per ",
 					usagescalc : "event.value = How('Proficiency Bonus');",
 					recovery : "long rest"
 				}]
@@ -1625,7 +1625,7 @@ RunFunctionAtEnd(function () {
 				action : [["reaction", "Perfected Armor: Guardian"]],
 				extraLimitedFeatures : [{
 					name : "Perfected Armor: Guardian",
-					usages : "Proficiency Bonus per ",
+					usages : "Proficiency bonus per ",
 					usagescalc : "event.value = How('Proficiency Bonus');",
 					recovery : "long rest"
 				}]
@@ -1798,7 +1798,7 @@ AddSubClass("barbarian", "path of the beast", {
 				" \u2022 It uses its reaction to make a melee attack against one creature I can see of my choice",
 				" \u2022 It takes 2d12 psychic damage"
 			]),
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -1811,7 +1811,7 @@ AddSubClass("barbarian", "path of the beast", {
 				"Once on each of their turns, if they hit an attack, they can have it deal +1d6 damage",
 				"This lasts as long as I rage; I gain 5 temporary HP per creature that accepts this benefit"
 			]),
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		}
@@ -2309,7 +2309,7 @@ AddSubClass("cleric", "peace domain", {
 				]);
 			}),
 			action : [["action", ""]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -2443,7 +2443,7 @@ AddSubClass("cleric", "twilight domain", {
 				"I gain a flying speed equal to my walking speed for 1 minute"
 			]),
 			action : [["bonus action", ""]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -2663,7 +2663,7 @@ AddSubClass("druid", "circle of the stars", {
 				firstCol : "Sp"
 			}],
 			additional : "Guiding Bolt",
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -2741,7 +2741,7 @@ AddSubClass("druid", "circle of the stars", {
 				" \u2022 Woe (odd): subtract 1d6 from the number rolled for the attack, check, or save"
 			]),
 			action : [["reaction", ""]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -2901,7 +2901,7 @@ AddSubClass("druid", "circle of wildfire", {
 				"This heals or deals fire damage to the creature (my choice) equal to 2d10 + my Wis mod"
 			]),
 			action : [["reaction", ""]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -3975,7 +3975,7 @@ var TCoE_Favored_Foe = {
 	additional : levels.map(function (n) {
 		return "+1d" + (n < 6 ? 4 : n < 14 ? 6 : 8) + " damage";
 	}),
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	calcChanges : {
@@ -4078,7 +4078,7 @@ var TCoE_Natures_Veil = {
 		"This invisibility lasts until the start of my next turn"
 	]),
 	action : [["bonus action", ""]],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 };
@@ -4507,7 +4507,7 @@ var TCoE_Ranger_Subclass_Swarmkeeper = AddSubClass("ranger", "swarmkeeper", {
 				"As a bonus action, I can fly on my swarm for 1 minute: 10 ft flying speed and can hover"
 			]),
 			action : [["bonus action", ""]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -4526,7 +4526,7 @@ var TCoE_Ranger_Subclass_Swarmkeeper = AddSubClass("ranger", "swarmkeeper", {
 				"I vanish into my swarm and teleport to an unoccupied space within 30 ft that I can see"
 			]),
 			action : [["reaction", ""]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		}
@@ -5047,7 +5047,7 @@ AddSubClass("sorcerer", "clockwork soul", {
 				"I can prevent that roll from being affected by advantage and disadvantage"
 			]),
 			action : [["reaction", ""]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -5320,7 +5320,7 @@ AddSubClass("warlock", "the fathomless", {
 				"The 10-ft long tentacle lasts for 1 minute or until I summon another"
 			]),
 			action : [["bonus action", " (summon/move)"]],
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : levels.map(function (n) {
@@ -5832,7 +5832,7 @@ AddSubClass("wizard","order of scribes", {
 			description : desc([
 				"I can have wizard spells I cast on my turn originate from the mind while its manifested"
 			]),
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -7344,7 +7344,7 @@ MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
 	"+1 to spell attacks and dcs (uncommon)" : {
 		name : "Bloodwell Vial +1",
 		rarity : "uncommon",
-		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +1 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +1 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attuned to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
@@ -7357,7 +7357,7 @@ MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
 	"+2 to spell attacks and dcs (rare)" : {
 		name : "Bloodwell Vial +2",
 		rarity : "rare",
-		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +1 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +1 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attuned to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
@@ -7370,7 +7370,7 @@ MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
 	"+3 to spell attacks and dcs (very rare)" : {
 		name : "Bloodwell Vial +3",
 		rarity : "very rare",
-		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +3 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attunement to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
+		description : "While I wear or hold this vial to which I added a few drops of my blood, I gain a +3 bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attuned to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {

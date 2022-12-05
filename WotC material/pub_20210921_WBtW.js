@@ -217,7 +217,7 @@ RaceList["harengon"] = {
 		"rabbit hop" : {
 			name : "Rabbit Hop",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) {

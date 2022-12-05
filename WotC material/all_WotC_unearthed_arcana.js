@@ -19869,7 +19869,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 			]),
 			extraLimitedFeatures : [{
 				name : "Wings Unfurled",
-				usages : "Proficiency Bonus per ",
+				usages : "Proficiency bonus per ",
 				recovery : "long rest",
 				usagescalc : "event.value = How('Proficiency Bonus');",
 				altResource : "1 ki"
@@ -20563,7 +20563,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				"breath weapon" : {
 					name : "Breath Weapon",
 					minlevel : 1,
-					usages : "Proficiency Bonus per ",
+					usages : "Proficiency bonus per ",
 					usagescalc : "event.value = How('Proficiency Bonus');",
 					recovery : "long rest",
 					additional : levels.map(function (n) {
@@ -20698,7 +20698,7 @@ FeatsList["gift of the metallic dragon-ua"] = {
 		recovery : "long rest"
 	}, {
 		name : "Metallic Gift (Spectral Wings)",
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}]
@@ -20833,7 +20833,7 @@ RaceList["autognome-ua"] = {
 	},
 	extraLimitedFeatures : [{
 		name : "Built for Success",
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}],
@@ -21116,7 +21116,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				"\u25CB Full: Abjur \u0026 Conj\t\t\u25CF New: Evoc \u0026 Necro\t" + (typePF ? "\t" : Array(8).join(" ")) + "\u25D6 Crescent: Div \u0026 Trans",
 				"I can reduce the sorcery point needed for Metamagic of spells of my current phase by 1"
 			]),
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -21139,7 +21139,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				"\u25CF New: Adv. on Stealth checks; If I'm in dim light or darkness, attacks have disadv. vs me",
 				"\u25D6 Crescent: I have resistance to Necrotic and Radiant damage"
 			]),
-			dmgres : [["Necrotic", "Necro. (in crescent)"], ["Radiant", "Rad. (in crescent)"]],
+			dmgres : [["Necrotic", "Necro. (in crescent)"], ["Radiant", "Rad. (in crescent)"]]
 		},
 		"subclassfeature18" : {
 			name : "Lunar Phenomenon",
@@ -21204,45 +21204,6 @@ BackgroundList["knight of solamnia-ua"] = {
 		"A dishonorable act drove me to become a knight. I have acted with honor ever since."
 	]
 };
-BackgroundFeatureList["squire of solamnia"] = {
-	description : "I gain the Squire of Solamnia feat. In addition, the Knights of Solamnia provide me free, modest lodging and food at any of their fortresses or encampments.",
-	source : [["UA:HoKR", 2], ["UA:HoK", 3]],
-	eval : function() { AddFeat("Squire of Solamnia"); },
-	removeeval : function() { RemoveFeat("Squire of Solamnia"); }
-};
-
-BackgroundList["mage of high sorcery-ua"] = {
-	regExpSearch : /^(?=.*(mage|wizard|magus))(?=.*high)(?=.*sorcery).*$/i,
-	name : "Mage of High Sorcery",
-	source : [["UA:HoKR", 3], ["UA:HoK", 4]],
-	skills : ["Arcana", "History"],
-	gold : 10,
-	languageProfs : [2],
-	equipleft : [
-		["Bottle of colored ink", "", ""],
-		["Ink pen", "", ""]
-	],
-	equipright : [
-		["Common clothes", "", 3],
-		["Pouch (with coins)", "", 1]
-	],
-	feature : "Initiate of High Sorcery",
-	trait : [
-		"I wish to use my knowledge of magic to better people's lives.",
-		"My study of magic might reveal all manner of secrets.",
-		"Magic is a means to power, and I will use it to pursue my ambitions.",
-		"I learned magic so I'd be able to protect those I care about.",
-		"I use my magic to maintain the balance between all things.",
-		"Whether in the past, present, or future, I will be the greatest mage ever known."
-	]
-};
-BackgroundFeatureList["initiate of high sorcery"] = {
-	description : "I gain the Initiate of High Sorcery feat. In addition, the Mages of High Sorcery provide me with free, modest lodging and food indefinitely at any occupied Tower of High Sorcery and for one night at the home of an organization member.",
-	source : [["UA:HoKR", 3], ["UA:HoK", 4]],
-	eval : function() { AddFeat("Initiate of High Sorcery"); },
-	removeeval : function() { RemoveFeat("Initiate of High Sorcery"); }
-};
-
 /*	Feats
 	All the below feats are the work of PoetOfGod and have not been double-checked
 	by Safety-Orange, because the "Revised" article has already been published
@@ -21445,7 +21406,7 @@ FeatsList["adept of the red robes-ua"] = {
 		firstCol : "oncelr"
 	},
 	action : [["reaction", "Magical Balance"]],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	spellcastingAbility : 4,
@@ -21725,7 +21686,7 @@ FeatsList["knight of the crown-ua"] = {
 	prereqeval : function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt : "+1 Strength or Dexterity",
 	action : [["reaction", "Tactical Teamwork (Knight of the Crown)"]],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest"
 };
@@ -21766,7 +21727,7 @@ FeatsList["knight of the rose-ua"] = {
 		description : "When I roll initiative I can choose up to 3 other creatures I can see within 30 ft. They gain temp HP equal to a roll of my HD + my proficiency bonus + my Charisma modifier. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
 		scores : [0, 0, 0, 0, 0, 1]
 	},
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest"
 };
@@ -21811,264 +21772,6 @@ RaceList["kender-ua2"] = {
 	"\n \u2022 Taunt: As a bonus action, I can taunt a creature within 60 ft of me that can hear and understand me. They must make a Wisdom saving throw or have disadvantage on attack rolls not made against me until the start of my next turn. I can do this a number of times per long rest equal to my proficiency bonus. The DC equals 8 + proficiency bonus + Intelligence, Wisdom, or Charisma modifier (one-time choice)."
 };
 
-BackgroundList["knight of solamnia-ua2"] = {
-	regExpSearch : /^(?=.*(knight|champion|warrior))(?=.*solamnia).*$/i,
-	name : "Knight of Solamnia",
-	source : [["UA:HoKR", 2]],
-	skills : ["Athletics", "Survival"],
-	gold : 10,
-	languageProfs : [2],
-	equipleft : [
-		["Insignia of rank", "", ""],
-		["Deck of cards", "", ""]
-	],
-	equipright : [
-		["Common clothes", "", 3],
-		["Pouch (with coins)", "", 1]
-	],
-	feature : "Squire of Solamnia",
-	trait : [
-		"I pledge my sword to the greater good. If I must perish in pursuit of that good, so be it.",
-		"My comrades-in-arms are my family. I'll do whatever it takes to keep them safe.",
-		"The protection of innocent people comes first. All other concerns come second.",
-		"I joined the knights for the free meals, but their lessons grew on me over time.",
-		"I wish my deeds to become the stuff of legends\xD7just like those of the knighthood's heroic founders.",
-		"A dishonorable act drove me to become a knight. I have acted with honor ever since."
-	]
-};
-BackgroundFeatureList["squire of solamnia"] = {
-	description : "I gain the Squire of Solamnia feat. In addition, the Knights of Solamnia provide me free, modest lodging and food at any of their fortresses or encampments.",
-	source : [["UA:HoKR", 2], ["UA:HoK", 3]],
-	eval : function() { AddFeat("Squire of Solamnia"); },
-	removeeval : function() { RemoveFeat("Squire of Solamnia"); }
-};
-
-// Feats tree for Initiate of High Sorcery
-FeatsList["initiate of high sorcery-ua2"] = {
-	name : "Initiate of High Sorcery",
-	source : [["UA:HoKR", 4]],
-	description : "I learn a wizard cantrip and two 1st-levels spell from a list depending on my chosen moon. I can cast each spell once per long rest at its lowest levels without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-	descriptionFull : "You've received training from magic-users affiliated with the Mages of High Sorcery."+
-	"\n   Choose one of three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table."+
-	"\n   You can cast each of the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have."+
-	"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat)."+
-	"\n\n" + toUni("Lunar Spells")+
-	"\n" + toUni("Moon\t1st-level Spell")+
-	"\nNuitari\tChoose two from dissonant whispers, false life,"+
-	"\n\thex, and ray of sickness"+
-	"\nLunitari\tChoose two from color spray, disguise self,"+
-	"\n\tfeather fall, and longstrider"+
-	"\nSolinari\tChoose two from comprehend languages, detect"+
-	"\n\tevil and good, protection from evil and good, and"+
-	"\n\tshield",
-	prerequisite : "Sorcerer or Wizard Class or Mage of High Sorcery Background",
-	prereqeval : function (v) {
-		return classes.known.wizard || classes.known.sorcerer || CurrentBackground.known.indexOf('mage of high sorcery-ua') !== -1;
-	},
-	choices : ["Nuitari", "Lunitari", "Solinari"],
-	"nuitari" : {
-		description : "I learn a wizard cantrip and two 1st-level spells (Dissonant Whispers, False Life, Hex, or Ray of Sickness). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-		spellcastingAbility : [4,5,6],
-		allowUpCasting : true,
-		spellcastingBonus : [{
-			name : "Wizard Cantrip",
-			"class" : ["wizard"],
-			level : [0, 0],
-			firstCol : "atwill"
-		}, {
-			name : "Nuitari 1st-level spell",
-			spells : ["dissonant whispers", "false life", "hex", "ray of sickness"],
-			firstCol : "oncelr",
-			times : 2
-		}]
-	},
-	"lunitari" : {
-		description : "I learn a wizard cantrip and two 1st-level spells (Color Spray, Disguise Self, Feather Fall, Longstrider). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-		spellcastingAbility : [4,5,6],
-		allowUpCasting : true,
-		spellcastingBonus : [{
-			name : "Wizard Cantrip",
-			"class" : ["wizard"],
-			level : [0, 0],
-			firstCol : "atwill"
-		}, {
-			name : "Lunitari 1st-level spell",
-			spells : ["color spray", "disguise self", "feather fall", "longstrider"],
-			firstCol : "oncelr",
-			times : 2
-		}]
-	},
-	"solinari" : {
-		description : "I learn a wizard cantrip and two 1st-level spells (Comprehend Languages, Detect Evil and Good, Protection from Evil and Good, Shield). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-		spellcastingAbility : [4,5,6],
-		allowUpCasting : true,
-		spellcastingBonus : [{
-			name : "Wizard Cantrip",
-			"class" : ["wizard"],
-			level : [0, 0],
-			firstCol : "atwill"
-		}, {
-			name : "Solinari 1st-level spell",
-			spells : ["comprehend languages", "detect evil and good", "protection from evil and good", "shield"],
-			firstCol : "oncelr",
-			times : 2
-		}]
-	}
-};
-FeatsList["adept of the black robes-ua2"] = {
-	name : "Adept of the Black Robes",
-	source : [["UA:HoKR", 4]],
-	description : "I learn one 2nd-level Ench or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
-	descriptionFull : "You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:"+
-	"\n   " + toUni("Ambitious Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat."+
-	"\n   " + toUni("Life Channel") + ". You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
-	prerequisite : "4th level, Initiate of High Sorcery (Nuitari) feat",
-	prereqeval : function(v) {
-		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery-ua2");
-		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === 'nuitari';
-	},
-	spellcastingBonus : {
-		name : "2nd-level Evoc/Necro spell",
-		"class" : "any",
-		school : ["Evoc", "Necro"],
-		level : [2, 2],
-		firstCol : "oncelr"
-	},
-	spellcastingAbility : 'initiate of high sorcery-ua2_-_nuitari',
-	allowUpCasting : true
-};
-FeatsList["adept of the red robes-ua2"] = {
-	name : "Adept of the Red Robes",
-	source : [["UA:HoKR", 4]],
-	description : "I learn a 2nd-level Illusion or Transmutation spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When I roll 9 or lower on the d20 for an attack or ability check, I can treat the roll as a 10. I can do this a number of times per long rest equal to my proficiency bonus.",
-	descriptionFull : "You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:"+
-	"\n   " + toUni("Insightful Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat."+
-	"\n   " + toUni("Magical Balance") + ". When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	prerequisite : "4th level, Initiate of High Sorcery (Lunitari) feat",
-	prereqeval : function(v) {
-		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery-ua2");
-		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === 'lunitari';
-	},
-	usages : "Proficiency Bonus per ",
-	usagescalc : "event.value = How('Proficiency Bonus');",
-	recovery : "long rest",
-	spellcastingBonus : {
-		name : "2nd-level Illus/Trans spell",
-		"class" : "any",
-		school : ["Illus", "Trans"],
-		level : [2, 2],
-		firstCol : "oncelr"
-	},
-	spellcastingAbility : 'initiate of high sorcery-ua2_-_lunitari',
-	allowUpCasting : true
-};
-FeatsList["adept of the white robes-ua2"] = {
-	name : "Adept of the White Robes",
-	source : [["UA:HoKR", 4]],
-	description : "I learn one 2nd-level Abjur or Div spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. As a reaction when I or a creature I can see within 30 ft is damaged, I can expend a spell slot and roll d6s equal to its level to reduce the damage by that much + my spellcasting modifier.",
-	descriptionFull : "You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:"+
-	"\n   " + toUni("Protective Magic") + ". You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat."+
-	"\n   " + toUni("Protective Ward") + ". When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
-	prerequisite : "4th level, Initiate of High Sorcery (Solinari) feat",
-	prereqeval : function(v) {
-		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery-ua2");
-		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === 'solinari';
-	},
-	action : [["reaction", ""]],
-	spellcastingBonus : {
-		name : "2nd-level Abjur/Div spell",
-		"class" : "any",
-		school : ["Abjur", "Div"],
-		level : [2, 2],
-		firstCol : "oncelr"
-	},
-	spellcastingAbility : 'initiate of high sorcery-ua2_-_solinari',
-	allowUpCasting : true
-};
-
-// Feat Divinely Favored
-FeatsList["divinely favored-ua2"] = {
-	name : "Divinely Favored",
-	source : [["UA:HoKR", 4]],
-	description : "I learn a cleric cantrip, a 1st-level spell based on my alignment, and Augury. I can cast the spells each once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
-	descriptionFull : "A god has chosen you to carry a spark of their divine power."+
-	"\n   You learn one cantrip of your choice from the cleric spell list and one 1st-level spell based on the alignment of your character, as specified in the table below. You also learn the augury spell."+
-	"\n   You can cast the chosen 1st-level spell and the augury spell without a spell slot, and you must finish a long rest before you can cast either of these spells in this way again. You can also cast these spells using spell slots you have of the appropriate level."+
-	"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat)."+
-	"\n\n" + toUni("Alignment\t1st-level Spell")+
-	"\n Evil\t\tChoose one 1st level warlock spell."+
-	"\n Good\t\tChoose one 1st-level cleric spell."+
-	"\n Neutral\t\tChoose one 1st-level druid spell."+
-	"\n\n   In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat.",
-	choices : ["Evil (warlock spell)", "Good (cleric spell)", "Neutral (druid spell)"],
-	"evil (warlock spell)" : {
-		name : "Divinely Favored [Evil]",
-		description : "I learn a cleric cantrip, a 1st-level warlock spell, and Augury. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
-		spellcastingAbility : [4,5,6],
-		allowUpCasting : true,
-		spellcastingBonus : [{
-			name : "Cleric Cantrip",
-			"class" : ["cleric"],
-			level : [0, 0],
-			firstCol : "atwill"
-		}, {
-			name : "1st-level Warlock Spell",
-			"class" : ["warlock"],
-			level : [1, 1],
-			firstCol : "oncelr"
-		}, {
-			name : "Augury",
-			spells : ["augury"],
-			selection : ["augury"],
-			firstCol : "oncelr"
-		}]
-	},
-	"good (cleric spell)" : {
-		name : "Divinely Favored [Good]",
-		description : "I learn a cleric cantrip, a 1st-level cleric spell, and Augury. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
-		spellcastingAbility : [4,5,6],
-		allowUpCasting : true,
-		spellcastingBonus : [{
-			name : "Cleric Cantrip",
-			"class" : ["cleric"],
-			level : [0, 0],
-			firstCol : "atwill"
-		}, {
-			name : "1st-level Cleric Spell",
-			"class" : ["cleric"],
-			level : [1, 1],
-			firstCol : "oncelr"
-		}, {
-			name : "Augury",
-			spells : ["augury"],
-			selection : ["augury"],
-			firstCol : "oncelr"
-		}]
-	},
-	"neutral (druid spell)" : {
-		name : "Divinely Favored [Neutral]",
-		description : "I learn a cleric cantrip, a 1st-level druid spell, and Augury. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
-		spellcastingAbility : [4,5,6],
-		allowUpCasting : true,
-		spellcastingBonus : [{
-			name : "Cleric Cantrip",
-			"class" : ["cleric"],
-			level : [0, 0],
-			firstCol : "atwill"
-		}, {
-			name : "1st-level Druid Spell",
-			"class" : ["druid"],
-			level : [1, 1],
-			firstCol : "oncelr"
-		}, {
-			name : "Augury",
-			spells : ["augury"],
-			selection : ["augury"],
-			firstCol : "oncelr"
-		}]
-	}
-};
-
 // Feats tree for Squire of Solamnia
 var UA_HoKR_KnightlyManeuvers_Notes = function (n) {
 	// Get the name, source, and description from the maneuver of the Battle Master subclass, if that subclass is present
@@ -22098,7 +21801,7 @@ FeatsList["squire of solamnia-ua2"] = {
 	descriptionFull : "Your training in the ways of the Knights of Solamnia grants you these benefits:"+
 	"\n   " + toUni("Mount Up") + ". Mounting or dismounting costs you only 5 feet of movement."+
 	"\n   " + toUni("Squire Maneuvers") + ". You learn the Lunging Attack, Precision Attack, or Pushing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with another one from the list above."+
-	"\n   " + toUni("Superiority Dice") + ". You gain a number of superiority dice equal to your proficiency bonus. These dice are d6s, and you can use them only with the maneuver you gain from this feat and with any maneuvers you gain from feats that have this feat as a prerequisite. A superiority die is expended when you use it, and you regain all expended superiority dice when you finish a long rest. ",
+	"\n   " + toUni("Superiority Dice") + ". You gain a number of superiority dice equal to your proficiency bonus. These dice are d6s, and you can use them only with the maneuver you gain from this feat and with any maneuvers you gain from feats that have this feat as a prerequisite. A superiority die is expended when you use it, and you regain all expended superiority dice when you finish a long rest.",
 	prerequisite : "Fighter or Paladin Class or Knight of Solamnia Background",
 	prereqeval : function (v) {
 		return classes.known.fighter || classes.known.paladin || CurrentBackground.known.indexOf('knight of solamnia') !== -1;
@@ -22499,7 +22202,7 @@ FeatsList["elemental touched-ua"] = {
 	description : "I learn druidcraft or thaumaturgy. End of a LR pick Air, Earth, Fire, Water, as a bns action: Air. Gain fly spd = to walk spd, fall at end of turn; Earth. 30 ft rad diff terr for 1 min, move freely through diff terr; Fire. No opp atks this turn; Water. 1 visible crea w/in 15 ft Str save DC 8 + SC mod + Prof or pushed 10 ft away. Prof Uses / LR.",
 	spellcastingAbility : [4, 5, 6],
 	action : [["bonus action", ""]],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	choices : ["Druidcraft", "Thaumaturgy"],
@@ -22544,7 +22247,7 @@ FeatsList["ember of the fire giant-ua"] = {
 	"\n" + toUni("Searing Ignition") + ". When you take the Attack action on your turn, you can replace one of your attacks with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + your Constitution modifier). On a failed save, a creature takes fire damage equal to 2d6 + your proficiency bonus and is blinded until the start of your next turn; on a successful save, the creature takes half as much damage with no additional effects. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description : "I gain resistance to fire damage. When I take the Attack action on my turn I can use an attack to instead make each creature I choose within 15 ft roll a Dex save DC 8 + Prof + Con mod. On a fail they take 2d6 + Prof Fire dmg, blinded until the start of my next turn. Success halves and no other effect. Prof Uses / LR.",
 	action : ["action", "Searing Ignition (as Attack action)"],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	dmgres : ["Fire"]
@@ -22559,7 +22262,7 @@ FeatsList["fury of the frost giant-ua"] = {
 	"\n" + toUni("Frigid Vengeance") + ". When a creature hits you with an attack roll, you can use your reaction to retaliate with a burst of magical ire. The creature must succeed on a Wisdom saving throw (DC equals 8 + your proficiency bonus + your Consitution modifier) or be frightened of you until the start of its next turn. You can use your reaction in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description : "I gain resistance to cold damage. When I am hit with an attack roll I can use my reaction to make them roll a Wis save DC 8 + Prof + Con mod. On a failure they are frightened until the start of their next turn. Prof Uses / LR.",
 	action : ["reaction", "Frigid Vengeance"],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	dmgres : ["Cold"]

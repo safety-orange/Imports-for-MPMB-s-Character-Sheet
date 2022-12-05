@@ -164,7 +164,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				"\u25CB Full: Abjur \u0026 Conj\t\t\u25CF New: Evoc \u0026 Necro\t" + (typePF ? "\t" : Array(8).join(" ")) + "\u25D6 Crescent: Div \u0026 Trans",
 				"I can reduce the sorcery point needed for Metamagic of spells of my current phase by 1"
 			]),
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -187,7 +187,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				"\u25CF New: Adv. on Stealth checks; If I'm in dim light or darkness, attacks have disadv. vs me",
 				"\u25D6 Crescent: I have resistance to Necrotic and Radiant damage"
 			]),
-			dmgres : [["Necrotic", "Necro. (in crescent)"], ["Radiant", "Rad. (in crescent)"]],
+			dmgres : [["Necrotic", "Necro. (in crescent)"], ["Radiant", "Rad. (in crescent)"]]
 		},
 		"subclassfeature18" : {
 			name : "Lunar Phenomenon",
@@ -252,44 +252,56 @@ BackgroundList["knight of solamnia-ua"] = {
 		"A dishonorable act drove me to become a knight. I have acted with honor ever since."
 	]
 };
-BackgroundFeatureList["squire of solamnia"] = {
-	description : "I gain the Squire of Solamnia feat. In addition, the Knights of Solamnia provide me free, modest lodging and food at any of their fortresses or encampments.",
-	source : [["UA:HoKR", 2], ["UA:HoK", 3]],
-	eval : function() { AddFeat("Squire of Solamnia"); },
-	removeeval : function() { RemoveFeat("Squire of Solamnia"); }
-};
-
-BackgroundList["mage of high sorcery-ua"] = {
-	regExpSearch : /^(?=.*(mage|wizard|magus))(?=.*high)(?=.*sorcery).*$/i,
-	name : "Mage of High Sorcery",
-	source : [["UA:HoKR", 3], ["UA:HoK", 4]],
-	skills : ["Arcana", "History"],
-	gold : 10,
-	languageProfs : [2],
-	equipleft : [
-		["Bottle of colored ink", "", ""],
-		["Ink pen", "", ""]
-	],
-	equipright : [
-		["Common clothes", "", 3],
-		["Pouch (with coins)", "", 1]
-	],
-	feature : "Initiate of High Sorcery",
-	trait : [
-		"I wish to use my knowledge of magic to better people's lives.",
-		"My study of magic might reveal all manner of secrets.",
-		"Magic is a means to power, and I will use it to pursue my ambitions.",
-		"I learned magic so I'd be able to protect those I care about.",
-		"I use my magic to maintain the balance between all things.",
-		"Whether in the past, present, or future, I will be the greatest mage ever known."
-	]
-};
-BackgroundFeatureList["initiate of high sorcery"] = {
-	description : "I gain the Initiate of High Sorcery feat. In addition, the Mages of High Sorcery provide me with free, modest lodging and food indefinitely at any occupied Tower of High Sorcery and for one night at the home of an organization member.",
-	source : [["UA:HoKR", 3], ["UA:HoK", 4]],
-	eval : function() { AddFeat("Initiate of High Sorcery"); },
-	removeeval : function() { RemoveFeat("Initiate of High Sorcery"); }
-};
+// [dupl_start] Backgrounds identical to Dragonlance: Shadow of the Dragon Queen
+if (!SourceList["D:SotDQ"]) {
+	BackgroundFeatureList["squire of solamnia"] = {
+		description : "I gain the Squire of Solamnia feat. In addition, the Knights of Solamnia provide me free, modest lodging and food at any of their fortresses or encampments.",
+		source : [["D:SotDQ", 0], ["UA:HoKR", 2], ["UA:HoK", 3]],
+		eval : function() { AddFeat("Squire of Solamnia"); },
+		removeeval : function() { RemoveFeat("Squire of Solamnia"); }
+	};
+	BackgroundList["mage of high sorcery"] = {
+		regExpSearch : /^(?=.*(mage|wizard|magus))(?=.*high)(?=.*sorcery).*$/i,
+		name : "Mage of High Sorcery",
+		source : [["D:SotDQ", 0], ["UA:HoKR", 3], ["UA:HoK", 4]],
+		skills : ["Arcana", "History"],
+		gold : 10,
+		languageProfs : [2],
+		equipleft : [
+			["Bottle of colored ink", "", ""],
+			["Ink pen", "", ""]
+		],
+		equipright : [
+			["Common clothes", "", 3],
+			["Pouch (with coins)", "", 1]
+		],
+		feature : "Initiate of High Sorcery",
+		trait : [
+			"I wish to use my knowledge of magic to better people's lives.",
+			"My study of magic might reveal all manner of secrets.",
+			"Magic is a means to power, and I will use it to pursue my ambitions.",
+			"I learned magic so I'd be able to protect those I care about.",
+			"I use my magic to maintain the balance between all things.",
+			"Whether in the past, present, or future, I will be the greatest mage ever known."
+		],
+		extra : [
+			"Choose a Trinket",
+			"Unopened letter from first teacher",
+			"Broken black/red/white wooden wand",
+			"Scroll with incomprehensible formula",
+			"Stone-covered foldable device",
+			"Pouch with triple moon symbol",
+			"Spellbook with triple moon symbol",
+			"Lens to see Nuitari, invisible moon"
+		]
+	};
+	BackgroundFeatureList["initiate of high sorcery"] = {
+		description : "I gain the Initiate of High Sorcery feat. In addition, the Mages of High Sorcery provide me with free, modest lodging and food indefinitely at any occupied Tower of High Sorcery and for one night at the home of an organization member.",
+		source : [["D:SotDQ", 0], ["UA:HoKR", 3], ["UA:HoK", 4]],
+		eval : function() { AddFeat("Initiate of High Sorcery"); },
+		removeeval : function() { RemoveFeat("Initiate of High Sorcery"); }
+	};
+} // dupl_end
 
 /*	Feats
 	All the below feats are the work of PoetOfGod and have not been double-checked
@@ -493,7 +505,7 @@ FeatsList["adept of the red robes-ua"] = {
 		firstCol : "oncelr"
 	},
 	action : [["reaction", "Magical Balance"]],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	spellcastingAbility : 4,
@@ -773,7 +785,7 @@ FeatsList["knight of the crown-ua"] = {
 	prereqeval : function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt : "+1 Strength or Dexterity",
 	action : [["reaction", "Tactical Teamwork (Knight of the Crown)"]],
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest"
 };
@@ -814,7 +826,7 @@ FeatsList["knight of the rose-ua"] = {
 		description : "When I roll initiative I can choose up to 3 other creatures I can see within 30 ft. They gain temp HP equal to a roll of my HD + my proficiency bonus + my Charisma modifier. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
 		scores : [0, 0, 0, 0, 0, 1]
 	},
-	usages : "Proficiency Bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest"
 };

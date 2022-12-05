@@ -506,7 +506,7 @@ if (!RaceList["harengon"]) {
 			"rabbit hop" : {
 				name : "Rabbit Hop",
 				minlevel : 1,
-				usages : "Proficiency Bonus per ",
+				usages : "Proficiency bonus per ",
 				usagescalc : "event.value = How('Proficiency Bonus');",
 				recovery : "long rest",
 				additional : ProficiencyBonusList.map(function(n) {
@@ -573,7 +573,7 @@ RaceList["multiverse firbolg"] = {
 		"hidden step" : {
 			name : "Hidden Step",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			action : [["bonus action", ""]]
@@ -686,7 +686,7 @@ RaceList["multiverse earth genasi"] = {
 			},
 			extraLimitedFeatures : [{
 				name : "Blade Ward (as bonus action)",
-				usages : "Proficiency Bonus per ",
+				usages : "Proficiency bonus per ",
 				recovery : "long rest",
 				usagescalc : "event.value = How('Proficiency Bonus');"
 			}],
@@ -1043,7 +1043,7 @@ RaceList["multiverse goblin"] = {
 		"fury of the small" : {
 			name : "Fury of the Small",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) { return "+" + n + " damage"; })
@@ -1149,7 +1149,7 @@ RaceList["multiverse kenku"] = {
 		"kenku recall" : {
 			name : "Kenku Recall",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		}
@@ -1257,7 +1257,7 @@ RaceList["multiverse lizardfolk"] = {
 		"hungry jaws" : {
 			name : "Hungry Jaws",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) { return n + " temp HP"; }),
@@ -1320,7 +1320,7 @@ RaceList["multiverse orc"] = {
 		"adrenaline rush" : {
 			name : "Adrenaline Rush",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) { return "+" + n + " temp HP"; }),
@@ -1434,7 +1434,7 @@ RaceList["multiverse shadar-kai"] = {
 			"shift" : {
 				name : "Shift",
 				minlevel : 1,
-				usages : "Proficiency Bonus per ",
+				usages : "Proficiency bonus per ",
 				usagescalc : "event.value = How('Proficiency Bonus');",
 				recovery : "long rest",
 				additional : ProficiencyBonusList.map(function(n) { return "1d6 + " + (2 * n) + " temp HP"; })
@@ -1497,7 +1497,7 @@ RaceList["multiverse shadar-kai"] = {
 			"shift" : {
 				name : "Shift",
 				minlevel : 1,
-				usages : "Proficiency Bonus per ",
+				usages : "Proficiency bonus per ",
 				usagescalc : "event.value = How('Proficiency Bonus');",
 				recovery : "long rest",
 				additional : ProficiencyBonusList.map(function(n) { return 2 * n + " temp HP"; }),

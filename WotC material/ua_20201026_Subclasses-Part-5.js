@@ -109,7 +109,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 			]),
 			extraLimitedFeatures : [{
 				name : "Wings Unfurled",
-				usages : "Proficiency Bonus per ",
+				usages : "Proficiency bonus per ",
 				recovery : "long rest",
 				usagescalc : "event.value = How('Proficiency Bonus');",
 				altResource : "1 ki"

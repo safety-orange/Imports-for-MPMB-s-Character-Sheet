@@ -128,7 +128,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				"breath weapon" : {
 					name : "Breath Weapon",
 					minlevel : 1,
-					usages : "Proficiency Bonus per ",
+					usages : "Proficiency bonus per ",
 					usagescalc : "event.value = How('Proficiency Bonus');",
 					recovery : "long rest",
 					additional : levels.map(function (n) {
@@ -259,7 +259,7 @@ if (!SourceList.FToD) {
 			recovery : "long rest"
 		}, {
 			name : "Chromatic Gift (Resistance)",
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		}]
@@ -272,7 +272,7 @@ if (!SourceList.FToD) {
 		"\n \u2022 When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or take 2d8 force damage and be pushed 10 feet away from you. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 		description : "As a reaction when I take damage from a creature that is within 10 ft, I can have it make a Str save (DC 8 + Prof Bonus + chosen ability score modifier) or take 2d8 force damage and be pushed 10 ft away. I can do this my Prof Bonus per long rest. [+1 Int, Wis or Cha]",
 		action : [["reaction", ""]],
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest",
 		choices : ["Intelligence", "Wisdom", "Charisma"],
@@ -388,7 +388,7 @@ FeatsList["gift of the metallic dragon-ua"] = {
 		recovery : "long rest"
 	}, {
 		name : "Metallic Gift (Spectral Wings)",
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}]

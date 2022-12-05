@@ -69,7 +69,7 @@ RaceList["autognome-ua"] = {
 	},
 	extraLimitedFeatures : [{
 		name : "Built for Success",
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}],

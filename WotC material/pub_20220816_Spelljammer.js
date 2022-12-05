@@ -8,8 +8,8 @@ RequiredSheetVersion("13.1.1");
 	Includes many contributions by Nod_Hero
 
 	- ERRATA -
-	Note that this document includes the "Spelljammer: Adventures in Space" Errata
-	https://media.wizards.com/2022/dnd/downloads/SJA-Errata.pdf
+	Note that this document includes the second "Spelljammer: Adventures in Space" Errata
+	https://media.dndbeyond.com/compendium-images/errata/SAiS/SJA-Errata.pdf
 */
 
 
@@ -160,7 +160,7 @@ RaceList["autognome"] = {
 	},
 	extraLimitedFeatures : [{
 		name : "Built for Success",
-		usages : "Proficiency Bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest"
 	}],
@@ -199,7 +199,7 @@ RaceList["giff"] = {
 		"astral spark" : {
 			name : "Astral Spark",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) { return "+" + n + " force damage"; })
@@ -241,20 +241,20 @@ RaceList["hadozee"] = {
 		["reaction", "Glide (if 10 ft above ground)"]
 	],
 	features : {
-		"hadozee resilience" : {
-			name : "Hadozee Resilience",
+		"hadozee dodge" : {
+			name : "Hadozee Dodge",
 			minlevel : 1,
-			usages : "Proficiency Bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) { return "1d6+" + n + " damage"; }),
-			action : [["reaction", "Hadozee Resilience"]]
+			action : [["reaction", ""]]
 		}
 	},
 	trait : "Hadozee"+
 	"\n \u2022 Dexterous Feet: As a bonus action, I can manipulate an object, open or close a door or container, or pick up or set down a Tiny object."+
 	"\n \u2022 Glide: As a reaction when I fall at least 10 ft above the ground, I can extend my skin membranes to glide my walking speed horizontally, and take 0 damage from the fall."+
-	"\n \u2022 Hadozee Resilience: A number of times equal to my proficiency bonus per long rest, as a reaction when I take damage, I can reduce the damage by 1d6 + my proficiency bonus."
+	"\n \u2022 Hadozee Dodge: A number of times equal to my proficiency bonus per long rest, as a reaction when I take damage, I can reduce the damage by 1d6 + my proficiency bonus."
 };
 RaceList["plasmoid"] = {
 	regExpSearch : /plasmoid/i,
@@ -312,7 +312,7 @@ RaceList["thri-kreen"] = {
 	"\n \u2022 Chameleon Carapace: My base AC is 13 + Dex mod. As an action, " + (typePF ? "I can gain adv. on Stealth checks to hide in my current surroundings." : "I can have it match my current surroundings, granting me adv. on Stealth checks to hide in those surroundings.")+
 	"\n \u2022 Secondary Arms: " + (typePF ? "I have two slightly smaller arms below my primary pair of arms. I can use these secondary arms" : "Able") + " to manipulate objects, hold Tiny objects, or wield light weapons."+
 	"\n \u2022 Sleepless: I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity."+
-	"\n \u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action)."
+	"\n \u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can't speak, but can communicate telepathically to any willing creatures within 120 ft that understand at least one language. Any can break this (no action)."
 };
 
 // Spells from Astral Adventurer's Guide
