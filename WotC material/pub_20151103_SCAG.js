@@ -1034,15 +1034,15 @@ AddSubClass("wizard", "bladesinging", {
 				" \u2022 Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell"
 			]),
 			action : [["bonus action", " (start)"]],
-			usages: "Proficiency bonus per ",
-			usagescalc : "event.value = How('Proficiency Bonus')",
-			recovery: "long rest"
+			usages : "Proficiency bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest"
 		},
 		"subclassfeature6" : {
 			name : "Extra Attack",
 			source : [["S", 142], ["T", 77]],
 			minlevel : 6,
-			description: desc([
+			description : desc([
 				"I can attack twice instead of once when I take the Attack action on my turn",
 				"Moreover, I can cast one of my cantrips in place of one of those attacks"
 			])

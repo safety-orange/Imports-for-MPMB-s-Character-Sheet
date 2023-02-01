@@ -655,7 +655,7 @@ WeaponsList["hoopak, melee"] = {
 	damage : [1, 6, "piercing"],
 	range : "Melee",
 	weight : 2,
-	description : "Finesse; Can be used ranged (40/160 ft) with ammo, for 1d4 bludgeoning damage",
+	description : "Finesse, two-handed; Can be used ranged (40/160 ft) with ammo, for 1d4 bludgeoning damage",
 	special : true,
 	abilitytodamage : true
 };
@@ -669,7 +669,7 @@ WeaponsList["hoopak, ranged"] = {
 	damage : [1, 4, "bludgeoning"],
 	range : "40/160 ft",
 	weight : 2,
-	description : "Finesse, ammunition; Can be used in melee without ammo, for 1d6 piercing damage",
+	description : "Ammunition, finesse, two-handed; Can be used in melee without ammo, for 1d6 piercing damage",
 	special : true,
 	abilitytodamage : true
 };

@@ -10925,15 +10925,15 @@ AddSubClass("wizard", "bladesinging", {
 				" \u2022 Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell"
 			]),
 			action : [["bonus action", " (start)"]],
-			usages: "Proficiency bonus per ",
-			usagescalc : "event.value = How('Proficiency Bonus')",
-			recovery: "long rest"
+			usages : "Proficiency bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest"
 		},
 		"subclassfeature6" : {
 			name : "Extra Attack",
 			source : [["S", 142], ["T", 77]],
 			minlevel : 6,
-			description: desc([
+			description : desc([
 				"I can attack twice instead of once when I take the Attack action on my turn",
 				"Moreover, I can cast one of my cantrips in place of one of those attacks"
 			])
@@ -12681,7 +12681,7 @@ MagicItemsList["ingot of the skold rune"] = {
 	source : [["SKT", 234]],
 	magicItemTable : "H",
 	description : "I can use the ingot as it is, or transfer its runic properties over to a shield or two-handed melee weapon.",
-	descriptionFull : "This appears to be a simple ingot of iron ore, about a foot long and a few inches across. Inspection of its surface reveals the faint, silvery outline of the skold (shield) rune. The ingot has the following properties, which work only while it's on your person.\n   " + toUni("Runic Shield") + ". You have a +1 bonus to AC.\n   " + toUni("Shield Bond") + ". As a bonus action, choose a creature that you can see within 30 feet of you, other than yourself. Until the end of your next turn, any damage the target takes is reduced to 1, but you take half the damage prevented in this way. The damage you take can't be reduced in any way. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Shield Ward") + ". You can transfer the ingot's magic to a nonmagical item\u2014a shield or a two-handed melee weapon-by tracing the skold rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the ingot is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield.") + ". The shield is now a rare magic item that requires attunement. Its magic gives you a +1 bonus to AC, and the first time after each of your long rests that damage reduces you to 0 hit points, you are instead reduced to 1 hit point. You must be wielding the shield to gain these benefits.\n \u2022 " + toUni("Weapon.") + ". The weapon is now an uncommon magic weapon. It grants you a +1 bonus to AC while you're holding it.",
+	descriptionFull : "This appears to be a simple ingot of iron ore, about a foot long and a few inches across. Inspection of its surface reveals the faint, silvery outline of the skold (shield) rune. The ingot has the following properties, which work only while it's on your person.\n   " + toUni("Runic Shield") + ". You have a +1 bonus to AC.\n   " + toUni("Shield Bond") + ". As a bonus action, choose a creature that you can see within 30 feet of you, other than yourself. Until the end of your next turn, any damage the target takes is reduced to 1, but you take half the damage prevented in this way. The damage you take can't be reduced in any way. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Shield Ward") + ". You can transfer the ingot's magic to a nonmagical item\u2014a shield or a two-handed melee weapon-by tracing the skold rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the ingot is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield") + ". The shield is now a rare magic item that requires attunement. Its magic gives you a +1 bonus to AC, and the first time after each of your long rests that damage reduces you to 0 hit points, you are instead reduced to 1 hit point. You must be wielding the shield to gain these benefits.\n \u2022 " + toUni("Weapon") + ". The weapon is now an uncommon magic weapon. It grants you a +1 bonus to AC while you're holding it.",
 	choices : ["Ingot", "Transferred to a shield", "Transferred to a two-handed melee weapon"],
 	"ingot" : {
 		name : "Ingot of the Skold Rune ",
@@ -12780,7 +12780,7 @@ MagicItemsList["opal of the ild rune"] = {
 	source : [["SKT", 235]],
 	magicItemTable : "G",
 	description : "I can use the opal as it is, or transfer its runic properties over to a suit of armor or weapon.",
-	descriptionFull : "This triangular fire opal measures about three inches on each side and is half an inch thick. The ild (fire) rune shimmers within its core, causing it to be slightly warm to the touch. The opal has the following properties, which work only while it's on your person.\n   " + toUni("Ignite") + ". As an action, you can ignite an object within 10 feet of you. The object must be flammable, and the fire starts in a circle no larger than 1 foot in diameter.\n   " + toUni("Fires Friend") + ". You have resistance to cold damage.\n   " + toUni("Fire Tamer") + ". As an action, you can extinguish any open flame within 10 feet of you. You choose how much fire to extinguish in that radius.\n   " + toUni("Gift of Flame") + ". You can transfer the opal's magic to a nonmagical item\u2014a weapon or a suit of armor\u2014by tracing the ild rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the opal is destroyed, and the rune appears in red on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Weapon.") + ". The weapon is now an uncommon magic weapon. It deals an extra 1d6 fire damage to any target it hits.\n \u2022 " + toUni("Armor.") + ". The armor is now a rare magic item that requires attunement. You have resistance to cold damage while wearing the armor.",
+	descriptionFull : "This triangular fire opal measures about three inches on each side and is half an inch thick. The ild (fire) rune shimmers within its core, causing it to be slightly warm to the touch. The opal has the following properties, which work only while it's on your person.\n   " + toUni("Ignite") + ". As an action, you can ignite an object within 10 feet of you. The object must be flammable, and the fire starts in a circle no larger than 1 foot in diameter.\n   " + toUni("Fires Friend") + ". You have resistance to cold damage.\n   " + toUni("Fire Tamer") + ". As an action, you can extinguish any open flame within 10 feet of you. You choose how much fire to extinguish in that radius.\n   " + toUni("Gift of Flame") + ". You can transfer the opal's magic to a nonmagical item\u2014a weapon or a suit of armor\u2014by tracing the ild rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the opal is destroyed, and the rune appears in red on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Weapon") + ". The weapon is now an uncommon magic weapon. It deals an extra 1d6 fire damage to any target it hits.\n \u2022 " + toUni("Armor") + ". The armor is now a rare magic item that requires attunement. You have resistance to cold damage while wearing the armor.",
 	choices : ["Opal", "Transferred to a suit of armor", "Transferred to a weapon"],
 	"opal" : {
 		name : "Opal of the Ild Rune ",
@@ -12837,7 +12837,7 @@ MagicItemsList["orb of the stein rune"] = {
 	source : [["SKT", 235]],
 	magicItemTable : "G",
 	description : "I can use the orb as it is, or transfer its runic properties over to a shield or pair of boots.",
-	descriptionFull : "This orb of granite is about the size of an adult human's fist. The stein (stone) rune appears on it in the form of crystalline veins that run across the surface. The orb has the following properties, which work only while it's on your person.\n   " + toUni("Indomitable Stand") + ". As an action, you can channel the orb's magic to hold your ground. For the next minute or until you move any distance, you have advantage on all checks and saving throws to resist effects that force you to move. In addition, any enemy that moves to a space within 10 feet of you must succeed on a DC 12 Strength saving throw or be unable to move any farther this turn.\n   " + toUni("Stone Soul") + ". You can't be petrified.\n   " + toUni("Earthen Step") + ". You can cast Meld into Stone as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Stone") + ". You can transfer the orb's magic to a nonmagical item\u2014a shield or a pair of boots\u2014by tracing the stein rune there with your finger. The transfer takes8 hours of work that requires the two items to be within 5 feet of each other. At the end, the orb is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield.") + ". The shield is now a rare magic item that requires attunement. While you wield it, you have resistance to all damage dealt by ranged weapon attacks.\n \u2022 " + toUni("Boots.") + ". The pair of boots is now an uncommon magic item that requires attunement. While you wear the boots, you have advantage on Strength saving throws, and you can use your reaction to avoid being knocked prone.",
+	descriptionFull : "This orb of granite is about the size of an adult human's fist. The stein (stone) rune appears on it in the form of crystalline veins that run across the surface. The orb has the following properties, which work only while it's on your person.\n   " + toUni("Indomitable Stand") + ". As an action, you can channel the orb's magic to hold your ground. For the next minute or until you move any distance, you have advantage on all checks and saving throws to resist effects that force you to move. In addition, any enemy that moves to a space within 10 feet of you must succeed on a DC 12 Strength saving throw or be unable to move any farther this turn.\n   " + toUni("Stone Soul") + ". You can't be petrified.\n   " + toUni("Earthen Step") + ". You can cast Meld into Stone as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Stone") + ". You can transfer the orb's magic to a nonmagical item\u2014a shield or a pair of boots\u2014by tracing the stein rune there with your finger. The transfer takes8 hours of work that requires the two items to be within 5 feet of each other. At the end, the orb is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Shield") + ". The shield is now a rare magic item that requires attunement. While you wield it, you have resistance to all damage dealt by ranged weapon attacks.\n \u2022 " + toUni("Boots") + ". The pair of boots is now an uncommon magic item that requires attunement. While you wear the boots, you have advantage on Strength saving throws, and you can use your reaction to avoid being knocked prone.",
 	choices : ["Orb", "Transferred to a shield", "Transferred to a pair of boots"],
 	"orb" : {
 		name : "Orb of the Stein Rune ",
@@ -12886,7 +12886,7 @@ MagicItemsList["pennant of the vind rune"] = {
 	source : [["SKT", 235]],
 	magicItemTable : "H",
 	description : "I can use the pennant as it is, or transfer its runic properties over to a suit of armor, pair of boots, or cloak.",
-	descriptionFull : "This blue pennant is crafted from silk and is five feet long and whips about as if buffeted by a wind. The vind (wind) rune appears on its surface, looking almost like a cloud. The pennant has the following properties, which work only while it's on your person.\n   " + toUni("Wind Step") + ". As an action, you fly up to 20 feet. If you don't land at the end of this flight, you fall unless you have another means of staying aloft.\n   " + toUni("Comforting Wind") + ". You can't suffocate.\n   " + toUni("Winds Grasp") + ". As a reaction when you fall, you can cause yourself to take no damage from the fall. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Wind Walker") + ". While you are attuned to this rune, you can cast Levitate as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Wind") + ". You can transfer the pennant's magic to a nonmagical item\u2014a suit of armor, a pair of boots, or a cloak\u2014by tracing the vind rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the pennant is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Armor.") + ". The armor is now an uncommon magic item that requires attunement. You gain a bonus to speed of 5 feet while you wear the armor, and if it normally imposes disadvantage on Stealth checks, it no longer does so.\n \u2022 " + toUni("Boots/Cloak.") + ". The pair of boots or cloak is now a rare magic item that requires attunement. While wearing the item, you can convert up to 20 feet of your movement on each of your turns into flight. If you don't land at the end of this flight, you fall unless you have another means of staying aloft. You can also cast Feather Fall once from the item, and you regain the ability to do so when you finish a short or long rest.",
+	descriptionFull : "This blue pennant is crafted from silk and is five feet long and whips about as if buffeted by a wind. The vind (wind) rune appears on its surface, looking almost like a cloud. The pennant has the following properties, which work only while it's on your person.\n   " + toUni("Wind Step") + ". As an action, you fly up to 20 feet. If you don't land at the end of this flight, you fall unless you have another means of staying aloft.\n   " + toUni("Comforting Wind") + ". You can't suffocate.\n   " + toUni("Winds Grasp") + ". As a reaction when you fall, you can cause yourself to take no damage from the fall. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Wind Walker") + ". While you are attuned to this rune, you can cast Levitate as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Gift of Wind") + ". You can transfer the pennant's magic to a nonmagical item\u2014a suit of armor, a pair of boots, or a cloak\u2014by tracing the vind rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the pennant is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Armor") + ". The armor is now an uncommon magic item that requires attunement. You gain a bonus to speed of 5 feet while you wear the armor, and if it normally imposes disadvantage on Stealth checks, it no longer does so.\n \u2022 " + toUni("Boots/Cloak") + ". The pair of boots or cloak is now a rare magic item that requires attunement. While wearing the item, you can convert up to 20 feet of your movement on each of your turns into flight. If you don't land at the end of this flight, you fall unless you have another means of staying aloft. You can also cast Feather Fall once from the item, and you regain the ability to do so when you finish a short or long rest.",
 	choices : ["Pennant", "Transferred to a suit of armor", "Transferred to a pair of boots or cloak"],
 	"pennant" : {
 		name : "Pennant of the Vind Rune ",
@@ -13009,7 +13009,7 @@ MagicItemsList["shard of the ise rune"] = {
 	source : [["SKT", 236]],
 	magicItemTable : "H",
 	description : "I can use the shard as it is, or transfer its runic properties over to a cloak or a pair of boots.",
-	descriptionFull : "This shard of ice is long and slender, roughly the size of a dagger. The ise (ice) rune glows within it. The shard has the following properties, which work only while it's on your person.\n   " + toUni("Frigid Touch") + ". As an action, you can touch a body of water and freeze the water in a 10-foot-radius sphere around the spot you touched. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Frost Friend") + ". You have resistance to fire damage.\n   " + toUni("Icy Mantle") + ". As an action, you can touch yourself or another creature with water on your finger. The water creates an icy mantle of protection. The next time within the next minute that the target takes bludgeoning, slashing, or piercing damage, that damage is reduced to 0, and the mantle is destroyed. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Winter's Howl") + ". As an action, you can cast Sleet Storm (spell save DC 17). You regain this ability after you finish a short or long rest.\n   " + toUni("Gift of Frost") + ". You can transfer the shard's magic to a nonmagical item\u2014a cloak or a pair of boots-by tracing the ise rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the shard is destroyed, and the rune appears in blue on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Cloak.") + ". The cloak is now a rare magic item that requires attunement. While wearing it, you have resistance to fire damage, and you have advantage on Dexterity (Stealth) checks made while in snowy terrain.\n \u2022 " + toUni("Boots.") + ". The pair of boots is now a rare magic item that requires attunement. While wearing it, you ignore difficult terrain while walking, and you can walk on water.",
+	descriptionFull : "This shard of ice is long and slender, roughly the size of a dagger. The ise (ice) rune glows within it. The shard has the following properties, which work only while it's on your person.\n   " + toUni("Frigid Touch") + ". As an action, you can touch a body of water and freeze the water in a 10-foot-radius sphere around the spot you touched. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Frost Friend") + ". You have resistance to fire damage.\n   " + toUni("Icy Mantle") + ". As an action, you can touch yourself or another creature with water on your finger. The water creates an icy mantle of protection. The next time within the next minute that the target takes bludgeoning, slashing, or piercing damage, that damage is reduced to 0, and the mantle is destroyed. Once you use this property, you can't use it again until you finish a short or long rest.\n   " + toUni("Winter's Howl") + ". As an action, you can cast Sleet Storm (spell save DC 17). You regain this ability after you finish a short or long rest.\n   " + toUni("Gift of Frost") + ". You can transfer the shard's magic to a nonmagical item\u2014a cloak or a pair of boots-by tracing the ise rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the shard is destroyed, and the rune appears in blue on the chosen item, which gains a benefit based on its form:\n \u2022 " + toUni("Cloak") + ". The cloak is now a rare magic item that requires attunement. While wearing it, you have resistance to fire damage, and you have advantage on Dexterity (Stealth) checks made while in snowy terrain.\n \u2022 " + toUni("Boots") + ". The pair of boots is now a rare magic item that requires attunement. While wearing it, you ignore difficult terrain while walking, and you can walk on water.",
 	attunement : true,
 	choices : ["Shard", "Transferred to a cloak", "Transferred to a pair of boots"],
 	"shard" : {
@@ -26403,7 +26403,7 @@ RaceList["dragonmark detection half-elf"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", "Elvish"],
+	languageProfs : ["Common", "Elvish", 1],
 	vision : [["Darkvision", 60]],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
@@ -26951,27 +26951,6 @@ RaceList["dragonmark scribing gnome"] = {
 			}
 		}
 	},
-	spellcastingBonus : {
-		name : "Whispering Wind",
-		spells : ["message"],
-		selection : ["message"],
-		firstCol : 'atwill'
-	},
-	features : {
-		"comprehend languages" : {
-			name : "Scribe's Insight",
-			limfeaname : "Comprehend Languages",
-			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : {
-				name : "Scribe's Insight",
-				spells : ["comprehend languages"],
-				selection : ["comprehend languages"],
-				firstCol : 'oncelr'
-			}
-		}
-	},
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
@@ -27108,7 +27087,7 @@ RaceList["dragonmark storm half-elf"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", "Elvish"],
+	languageProfs : ["Common", "Elvish", 1],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Lightning"],
 	savetxt : {
@@ -39023,7 +39002,7 @@ MagicItemsList["ghost step tattoo"] = {
 	type : "wondrous item (tattoo)",
 	rarity : "very rare",
 	attunement : true,
-	description : "As a bonus action 3 times per dawn, I can become incorporeal until next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or solid objects as difficult terrain, but can't end my turn in one.",
+	description : "As a bonus action 3 times per day, I can become incorporeal until my next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or objects as difficult terrain (1d10 force damage if I end my turn in one).",
 	descriptionFull : "Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred."+
 	"\n   " + toUni("Ghostly Form") + ". The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:"+
 	"\n \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks."+
@@ -39070,7 +39049,7 @@ MagicItemsList["masquerade tattoo"] = {
 	description : "When I attune to this magic needle, it disappears and I gain a magical tattoo. As a bonus action, I can change its size, color, pattern, and location on my skin to whatever I want, but it's always obviously a tattoo. As an action once per dawn, I can use the tattoo to cast Disguise Self (DC 13 to discern the disguise).",
 	descriptionFull : "Produced by a special needle, this magic tattoo appears on your body as whatever you desire."+
 	"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin."+
-	"\n   " + toUni("Disguise Self.") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+	"\n   " + toUni("Disguise Self") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
 	usages : 1,
 	recovery : "dawn",
 	additional : "Disguise Self",
@@ -39092,7 +39071,7 @@ MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrd
 	description : "When I attune to this magic needle, it disappears and I gain a dark, abstract magical tattoo. It gives me darkvision with a range of 60 ft and advantage on Dexterity (Stealth) checks. As a reaction once per sunset when I take damage, I can become insubstantial for a moment, halving the damage I take.",
 	descriptionFull : "Produced by a special needle, this magic tattoo is dark in color and abstract."+
 	"\n   " + toUni("Shadow Essence") + ". You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks."+
-	"\n   " + toUni("Shadowy Defense.") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
+	"\n   " + toUni("Shadowy Defense") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
 	usages : 1,
 	recovery : "sunset",
 	action : ["reaction", " (halve damage)"],
@@ -47826,7 +47805,7 @@ WeaponsList["hoopak, melee"] = {
 	damage : [1, 6, "piercing"],
 	range : "Melee",
 	weight : 2,
-	description : "Finesse; Can be used ranged (40/160 ft) with ammo, for 1d4 bludgeoning damage",
+	description : "Finesse, two-handed; Can be used ranged (40/160 ft) with ammo, for 1d4 bludgeoning damage",
 	special : true,
 	abilitytodamage : true
 };
@@ -47840,7 +47819,7 @@ WeaponsList["hoopak, ranged"] = {
 	damage : [1, 4, "bludgeoning"],
 	range : "40/160 ft",
 	weight : 2,
-	description : "Finesse, ammunition; Can be used in melee without ammo, for 1d6 piercing damage",
+	description : "Ammunition, finesse, two-handed; Can be used in melee without ammo, for 1d6 piercing damage",
 	special : true,
 	abilitytodamage : true
 };
@@ -50780,7 +50759,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 		}
 	},
 	prereqeval : function(v) {
-		return classes.known.warlock && classes.known.warlock.subclass == "warlock-the seeker" ? true : "skip";
+		return classes.known.warlock && classes.known.warlock.subclass.indexOf("the seeker") !== -1 ? true : "skip";
 	}
 });
 RunFunctionAtEnd(function() {
@@ -71053,7 +71032,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 	descriptionFull : "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:"+
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20."+
 	"\n   " + toUni("Born of Flame") + ". You have resistance to fire damage."+
-	"\n   " + toUni("Searing Ignition.") + ". When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it is blinded until the start of your next turn. On a successful save, the creature takes half as much damage and isn't blinded. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   " + toUni("Searing Ignition") + ". When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it is blinded until the start of your next turn. On a successful save, the creature takes half as much damage and isn't blinded. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite : "4th-level, Strike of the Giants (Fire Giant) feat",
 	prereqeval : function(v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");

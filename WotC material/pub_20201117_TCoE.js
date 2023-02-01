@@ -6911,7 +6911,7 @@ MagicItemsList["ghost step tattoo"] = {
 	type : "wondrous item (tattoo)",
 	rarity : "very rare",
 	attunement : true,
-	description : "As a bonus action 3 times per dawn, I can become incorporeal until next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or solid objects as difficult terrain, but can't end my turn in one.",
+	description : "As a bonus action 3 times per day, I can become incorporeal until my next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or objects as difficult terrain (1d10 force damage if I end my turn in one).",
 	descriptionFull : "Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred."+
 	"\n   " + toUni("Ghostly Form") + ". The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:"+
 	"\n \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks."+
@@ -6958,7 +6958,7 @@ MagicItemsList["masquerade tattoo"] = {
 	description : "When I attune to this magic needle, it disappears and I gain a magical tattoo. As a bonus action, I can change its size, color, pattern, and location on my skin to whatever I want, but it's always obviously a tattoo. As an action once per dawn, I can use the tattoo to cast Disguise Self (DC 13 to discern the disguise).",
 	descriptionFull : "Produced by a special needle, this magic tattoo appears on your body as whatever you desire."+
 	"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin."+
-	"\n   " + toUni("Disguise Self.") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+	"\n   " + toUni("Disguise Self") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
 	usages : 1,
 	recovery : "dawn",
 	additional : "Disguise Self",
@@ -6980,7 +6980,7 @@ MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrd
 	description : "When I attune to this magic needle, it disappears and I gain a dark, abstract magical tattoo. It gives me darkvision with a range of 60 ft and advantage on Dexterity (Stealth) checks. As a reaction once per sunset when I take damage, I can become insubstantial for a moment, halving the damage I take.",
 	descriptionFull : "Produced by a special needle, this magic tattoo is dark in color and abstract."+
 	"\n   " + toUni("Shadow Essence") + ". You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks."+
-	"\n   " + toUni("Shadowy Defense.") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
+	"\n   " + toUni("Shadowy Defense") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
 	usages : 1,
 	recovery : "sunset",
 	action : ["reaction", " (halve damage)"],

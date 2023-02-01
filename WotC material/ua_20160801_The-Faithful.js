@@ -77,7 +77,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 		}
 	},
 	prereqeval : function(v) {
-		return classes.known.warlock && classes.known.warlock.subclass == "warlock-the seeker" ? true : "skip";
+		return classes.known.warlock && classes.known.warlock.subclass.indexOf("the seeker") !== -1 ? true : "skip";
 	}
 });
 RunFunctionAtEnd(function() {

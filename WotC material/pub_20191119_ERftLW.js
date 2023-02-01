@@ -400,7 +400,7 @@ RaceList["dragonmark detection half-elf"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", "Elvish"],
+	languageProfs : ["Common", "Elvish", 1],
 	vision : [["Darkvision", 60]],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
@@ -948,27 +948,6 @@ RaceList["dragonmark scribing gnome"] = {
 			}
 		}
 	},
-	spellcastingBonus : {
-		name : "Whispering Wind",
-		spells : ["message"],
-		selection : ["message"],
-		firstCol : 'atwill'
-	},
-	features : {
-		"comprehend languages" : {
-			name : "Scribe's Insight",
-			limfeaname : "Comprehend Languages",
-			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : {
-				name : "Scribe's Insight",
-				spells : ["comprehend languages"],
-				selection : ["comprehend languages"],
-				firstCol : 'oncelr'
-			}
-		}
-	},
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
@@ -1105,7 +1084,7 @@ RaceList["dragonmark storm half-elf"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	languageProfs : ["Common", "Elvish"],
+	languageProfs : ["Common", "Elvish", 1],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Lightning"],
 	savetxt : {
