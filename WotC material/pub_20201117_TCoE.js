@@ -1096,6 +1096,7 @@ if (!SourceList["E:RLW"]) {
 							Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 						}
 					}],
+					minlevelLinked : ["artificer"],
 					header : "Construct",
 					calcChanges : {
 						hp : function (totalHD, HDobj, prefix) {
@@ -7487,7 +7488,7 @@ MagicItemsList["rhythm maker's drum"] = {
 	},
 	"+2 to spell attacks and dcs (rare)" : {
 		name : "Rhythm Maker's Drum +2",
-		rarity : "uncommon",
+		rarity : "rare",
 		description : "While holding this drum, I gain a +2 bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
 		calcChanges : {
 			spellCalc : [
@@ -7500,7 +7501,7 @@ MagicItemsList["rhythm maker's drum"] = {
 	},
 	"+3 to spell attacks and dcs (very rare)" : {
 		name : "Rhythm Maker's Drum +3",
-		rarity : "uncommon",
+		rarity : "very rare",
 		description : "While holding this drum, I gain a +3 bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
 		calcChanges : {
 			spellCalc : [

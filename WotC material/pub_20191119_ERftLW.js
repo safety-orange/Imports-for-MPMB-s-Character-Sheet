@@ -2422,6 +2422,7 @@ AddSubClass("artificer", "battle smith", {
 						Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 					}
 				}],
+				minlevelLinked : ["artificer"],
 				header : "Construct",
 				calcChanges : {
 					hp : function (totalHD, HDobj, prefix) {
