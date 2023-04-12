@@ -1175,7 +1175,7 @@ var FToD_HoardItems = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*slumbering)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver) (dragon'?s? wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*slumbering)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver).(dragon'?s?.wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
 						var sWeaNmLC = v.WeaponTextName.toLowerCase();
 						var aDragons = [["black", "acid"], ["blue", "lightning"], ["green", "poison"], ["red", "fire"], ["white", "cold"], ["amethyst", "force"], ["crystal", "radiant"], ["emerald", "psychic"], ["sapphire", "thunder"], ["topaz", "necrotic"], ["brass", "fire"], ["bronze", "lightning"], ["copper", "acid"], ["gold", "fire"], ["silver", "cold"]];
 						var sDmgType = false;
@@ -1200,7 +1200,7 @@ var FToD_HoardItems = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*stirring)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver) (dragon'?s? wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*stirring)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver).(dragon'?s?.wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
 						var sWeaNmLC = v.WeaponTextName.toLowerCase();
 						var aDragons = [["black", "acid"], ["blue", "lightning"], ["green", "poison"], ["red", "fire"], ["white", "cold"], ["amethyst", "force"], ["crystal", "radiant"], ["emerald", "psychic"], ["sapphire", "thunder"], ["topaz", "necrotic"], ["brass", "fire"], ["bronze", "lightning"], ["copper", "acid"], ["gold", "fire"], ["silver", "cold"]];
 						var sDmgType = false;
@@ -1220,7 +1220,8 @@ var FToD_HoardItems = {
 			],
 			atkCalc : [
 				function (fields, v, output) {
-					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*stirring)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver) (dragon'?s? wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*stirring)(?=.*\b(dragon'?s?.wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+						v.theWea.isMagicWeapon = true;
 						output.magic = v.thisWeapon[1] + 1;
 					}
 				}, ''
@@ -1232,7 +1233,7 @@ var FToD_HoardItems = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*wakened)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver) (dragon'?s? wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*wakened)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver).(dragon'?s?.wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
 						var sWeaNmLC = v.WeaponTextName.toLowerCase();
 						var aDragons = [["black", "acid"], ["blue", "lightning"], ["green", "poison"], ["red", "fire"], ["white", "cold"], ["amethyst", "force"], ["crystal", "radiant"], ["emerald", "psychic"], ["sapphire", "thunder"], ["topaz", "necrotic"], ["brass", "fire"], ["bronze", "lightning"], ["copper", "acid"], ["gold", "fire"], ["silver", "cold"]];
 						var sDmgType = false;
@@ -1252,7 +1253,8 @@ var FToD_HoardItems = {
 			],
 			atkCalc : [
 				function (fields, v, output) {
-					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*stirring)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver) (dragon'?s? wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*wakened)(?=.*\b(dragon'?s?.wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+						v.theWea.isMagicWeapon = true;
 						output.magic = v.thisWeapon[1] + 2;
 					}
 				}, ''
@@ -1282,7 +1284,7 @@ var FToD_HoardItems = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*ascendant)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver) (dragon'?s? wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*ascendant)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver).(dragon'?s?.wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
 						var sWeaNmLC = v.WeaponTextName.toLowerCase();
 						var aDragons = [["black", "acid"], ["blue", "lightning"], ["green", "poison"], ["red", "fire"], ["white", "cold"], ["amethyst", "force"], ["crystal", "radiant"], ["emerald", "psychic"], ["sapphire", "thunder"], ["topaz", "necrotic"], ["brass", "fire"], ["bronze", "lightning"], ["copper", "acid"], ["gold", "fire"], ["silver", "cold"]];
 						var sDmgType = false;
@@ -1302,7 +1304,8 @@ var FToD_HoardItems = {
 			],
 			atkCalc : [
 				function (fields, v, output) {
-					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*stirring)(?=.*\b(black|blue|green|red|white|amethyst|crystal|emerald|sapphire|topaz|brass|bronze|copper|gold|silver) (dragon'?s? wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+					if (!v.theWea.isMagicWeapon && (v.isMeleeWeapon || v.isRangedWeapon) && /^(?=.*ascendant)(?=.*\b(dragon'?s?.wrath|DW)\b).*$/i.test(v.WeaponTextName)) {
+						v.theWea.isMagicWeapon = true;
 						output.magic = v.thisWeapon[1] + 3;
 					}
 				}, ''
