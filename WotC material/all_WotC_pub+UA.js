@@ -3474,8 +3474,8 @@ FeatsList["charger"] = {
 	name : "Charger",
 	source : [["P", 165]],
 	descriptionFull : "When you use your action to Dash, you can use a bonus action to make one melee weapon attack or to shove a creature.\n   If you move at least 10 feet in a straight line immediately before taking this bonus action, you either gain a +5 bonus to the attack's damage roll (if you chose to make a melee attack and hit) or push the target up to 10 feet away from you (if you chose to shove and you succeed).",
-	description : "When taking the Dash action and moving 10 feet or more in a straight line, I can immediately take a bonus action to make either one melee weapon attack with +5 damage or try to shove the target up to 10 feet away.",
-	action : ["bonus action", " (after Dash action)"]
+	description : "As a bonus action after taking the Dash action, I can make one melee weapon attack or shove a creature. If I move at least 10 ft in a straight line before this bonus action, I add +5 damage to the attack or increase the distance up to 10 ft for the shove.",
+	action : [["bonus action", " (after Dash action)"]]
 };
 FeatsList["crossbow expert"] = {
 	name : "Crossbow Expert",
@@ -3626,7 +3626,7 @@ FeatsList["linguist"] = {
 	name : "Linguist",
 	source : [["P", 167]],
 	descriptionFull : "You have studied languages and codes, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn three languages of your choice.\n \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it.",
-	calculate : "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (What('Int') + Nubmer(How('Proficiency Bonus')) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
+	calculate : "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (Number(What('Int')) + Number(How('Proficiency Bonus'))) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	scores : [0, 0, 0, 1, 0, 0],
 	languageProfs : [3]
 };
@@ -22474,7 +22474,7 @@ BackgroundList["dimir operative"] = {
 	],
 	equipright : [
 		["Dark-colored common clothes", "", 3],
-		["Dimi insignia", "", ""],
+		["Dimir insignia", "", ""],
 		["Belt pouch (with coins)", "", 1]
 	],
 	languageProfs : [1],
@@ -23074,7 +23074,7 @@ SpellsList["encode thoughts"] = {
 	range : "Self",
 	components : "S",
 	duration : "Up to 8 h",
-	description : "Make physical through strand of memory or vice versa; works with detect thoughts \u0026 modify memory",
+	description : "Make physical thought strand of memory or vice versa; works with detect thoughts \u0026 modify memory",
 	descriptionFull : "Putting a finger to your head, you pull a memory, an idea, or a message from your mind and transform it into a tangible string of glowing energy called a thought strand, which persists for the duration or until you cast this spell again. The thought strand appears in an unoccupied space within 5 feet of you as a Tiny, weightless, semisolid object that can be held and carried like a ribbon. It is otherwise stationary." + "\n   " + "If you cast this spell while concentrating on a spell or an ability that allows you to read or manipulate the thoughts of others (such as detect thoughts or modify memory), you can transform the thoughts or memories you read, rather than your own, into a thought strand." + "\n   " + "Casting this spell while holding a thought strand allows you to instantly receive whatever memory, idea, or message the thought strand contains. (Casting detect thoughts on the strand has the same effect.)"
 };
 // Magic Items
@@ -23844,7 +23844,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		name : "Shield of the Uven Rune ",
 		type : "shield",
 		rarity : "very rare",
-		description : "This shield made from the scale of a white dragon gives me cold damage immunity. As a reaction when I'm hit by a melee attack, I can deal 3d6 necrotic damage to the attacker. Once per short rest, I can cast Bane (DC 16) needing no concentration. I can do an 8 hour ritual to transfer the rune to a weapon, see book.",
+		description : "This shield made from the scale of a white dragon gives me cold damage immunity. As a reaction when I'm hit by a melee attack, I can deal 3d6 necrotic damage to the attacker. Once per short rest, I can cast Bane (DC 17) needing no concentration. I can do an 8 hour ritual to transfer the rune to a weapon, see book.",
 		weight : 6,
 		usages : 1,
 		recovery : "short rest",

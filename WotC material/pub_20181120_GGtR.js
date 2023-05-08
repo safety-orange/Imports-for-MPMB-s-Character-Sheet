@@ -701,7 +701,7 @@ BackgroundList["dimir operative"] = {
 	],
 	equipright : [
 		["Dark-colored common clothes", "", 3],
-		["Dimi insignia", "", ""],
+		["Dimir insignia", "", ""],
 		["Belt pouch (with coins)", "", 1]
 	],
 	languageProfs : [1],
@@ -1301,7 +1301,7 @@ SpellsList["encode thoughts"] = {
 	range : "Self",
 	components : "S",
 	duration : "Up to 8 h",
-	description : "Make physical through strand of memory or vice versa; works with detect thoughts \u0026 modify memory",
+	description : "Make physical thought strand of memory or vice versa; works with detect thoughts \u0026 modify memory",
 	descriptionFull : "Putting a finger to your head, you pull a memory, an idea, or a message from your mind and transform it into a tangible string of glowing energy called a thought strand, which persists for the duration or until you cast this spell again. The thought strand appears in an unoccupied space within 5 feet of you as a Tiny, weightless, semisolid object that can be held and carried like a ribbon. It is otherwise stationary." + "\n   " + "If you cast this spell while concentrating on a spell or an ability that allows you to read or manipulate the thoughts of others (such as detect thoughts or modify memory), you can transform the thoughts or memories you read, rather than your own, into a thought strand." + "\n   " + "Casting this spell while holding a thought strand allows you to instantly receive whatever memory, idea, or message the thought strand contains. (Casting detect thoughts on the strand has the same effect.)"
 };
 // [dupl_start] Chaos Bolt reprinted from Xanathar's Guide to Everything

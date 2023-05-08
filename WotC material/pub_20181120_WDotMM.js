@@ -161,7 +161,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		name : "Shield of the Uven Rune ",
 		type : "shield",
 		rarity : "very rare",
-		description : "This shield made from the scale of a white dragon gives me cold damage immunity. As a reaction when I'm hit by a melee attack, I can deal 3d6 necrotic damage to the attacker. Once per short rest, I can cast Bane (DC 16) needing no concentration. I can do an 8 hour ritual to transfer the rune to a weapon, see book.",
+		description : "This shield made from the scale of a white dragon gives me cold damage immunity. As a reaction when I'm hit by a melee attack, I can deal 3d6 necrotic damage to the attacker. Once per short rest, I can cast Bane (DC 17) needing no concentration. I can do an 8 hour ritual to transfer the rune to a weapon, see book.",
 		weight : 6,
 		usages : 1,
 		recovery : "short rest",
