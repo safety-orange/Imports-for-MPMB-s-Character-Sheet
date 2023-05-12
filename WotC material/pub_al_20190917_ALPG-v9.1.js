@@ -7,8 +7,9 @@ SourceList["ALPGs9"] = {
 	name : "AL Player's Guide v9.1: Inglorious Redemption",
 	abbreviation : "ALPGs9",
 	group : "Adventurers League",
-	url : "https://www.dmsguild.com/product/208178",
-	date : "2019/09/17"
+	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf", // used to be https://www.dmsguild.com/product/208178
+	date : "2019/09/17",
+	defaultExcluded : true
 };
 
 /*
@@ -24,12 +25,12 @@ SourceList["ALPGs9"] = {
 ].forEach(function (rac) {
 	var rObj = rac[1] ? RaceSubList[rac[0]] : RaceList[rac[0]];
 	if (!rObj) return;
-	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6], ["ALbackground", 0]]);
+	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6]]);
 	if (rac[0].indexOf("aasimar") !== -1) {
 		AddRacialVariant(rac[0], "winged", {
 			regExpSearch : /wing/i,
 			name : "Winged " + rObj.name,
-			source : [["ALPGs9", 6], ["ALbackground", 0]],
+			source : [["ALPGs9", 6]],
 			plural : "Winged " + rObj.plural,
 			speed : {
 				walk : { spd : 30, enc : 20 },

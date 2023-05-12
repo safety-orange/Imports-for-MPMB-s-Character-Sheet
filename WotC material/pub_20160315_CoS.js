@@ -15,7 +15,7 @@ SourceList["AL:CoS"]={
 	name : "Curse of Strahd Backgrounds", // v1.1
 	abbreviation : "AL:CoS",
 	group : "Adventurers League",
-	url : "https://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf",
+	url : "https://www.dropbox.com/s/f9ktz5u2gcu2509/Curse-of-Strahd-Backgrounds-v1.1.pdf", // used to be https://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf
 	date : "2016/04/07"
 };
 

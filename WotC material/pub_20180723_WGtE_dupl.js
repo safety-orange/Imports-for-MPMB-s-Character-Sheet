@@ -9,7 +9,7 @@ SourceList.WGtE = {
 	name : "Wayfinder's Guide to Eberron (2018)",
 	abbreviation : "WGtE",
 	group : "Playtest Material",
-	url : "https://www.dmsguild.com/product/247882/",
+	url : "https://www.dmsguild.com/product/247882/Wayfinders-Guide-to-Eberron-5e",
 	date : "2018/10/09" // the original is from 2018/07/23, but this script is based on the newer version that includes (most of) the UA:Dragonmark changes, but not on the latest version that is identical to what is in Eberron: Rising from the Last War
 };
 

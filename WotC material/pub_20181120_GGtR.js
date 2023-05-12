@@ -62,7 +62,7 @@ if (!RaceList["goblin"]) {
 		},
 		languageProfs : ["Common", "Goblin"],
 		vision : [["Darkvision", 60]],
-		age : " rearch adulthood at age 8 and live up to 60 years",
+		age : " reach adulthood at age 8 and live up to 60 years",
 		height : " are between 3 and a half and 4 feet tall (3'5\" + 2d4\")",
 		weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
 		heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",

@@ -7550,7 +7550,7 @@ SourceList["AL:EE"]={
 	name : "Elemental Evil Backgrounds [Mulmaster]",
 	abbreviation : "AL:EE",
 	group : "Adventurers League",
-	url : "https://dndadventurersleague.org/wp-content/uploads/2015/04/Mulmaster-Bonds-and-Backgrounds.pdf",
+	url : "https://www.dropbox.com/s/ljtrwzmkoijb02o/Mulmaster-Bonds-and-Backgrounds.pdf", // used to be https://dndadventurersleague.org/wp-content/uploads/2015/04/Mulmaster-Bonds-and-Backgrounds.pdf
 	date : "2015/04/15"
 };
 
@@ -7935,7 +7935,7 @@ RaceList["aarakocra"] = {
 		damage : [1, 4, "slashing"]
 	},
 	weaponsAdd : ["Talons"],
-	age : " rearch maturity by age 3 and live about 30 years",
+	age : " reach maturity by age 3 and live about 30 years",
 	height : " are about 5 feet tall",
 	weight : " weigh between 80 and 100 lb",
 	heightMetric : " are about 1,5 metres tall",
@@ -8917,7 +8917,7 @@ SourceList["AL:RoD"]={
 	abbreviation : "AL:RoD",
 	group : "Adventurers League",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf",
+	url : "https://www.dropbox.com/s/h4ijcnfun1cn580/Hillsfar-Regional-Character-Options.pdf", // used to be https://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf
 	date : "2015/07/14"
 };
 
@@ -11520,7 +11520,7 @@ SourceList["AL:CoS"]={
 	name : "Curse of Strahd Backgrounds", // v1.1
 	abbreviation : "AL:CoS",
 	group : "Adventurers League",
-	url : "https://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf",
+	url : "https://www.dropbox.com/s/f9ktz5u2gcu2509/Curse-of-Strahd-Backgrounds-v1.1.pdf", // used to be https://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf
 	date : "2016/04/07"
 };
 
@@ -13305,7 +13305,7 @@ RaceList["bugbear"] = {
 	languageProfs : ["Common", "Goblin"],
 	vision : [["Darkvision", 60]],
 	skills : ["Stealth"],
-	age : " rearch adulthood at age 16 and live up to 80 years",
+	age : " reach adulthood at age 16 and live up to 80 years",
 	height : " are between 6 and 8 feet tall (6'0\" + 2d12\")",
 	weight : " weigh between 250 and 350 lb (200 + 2d12 \xD7 2d6 lb)",
 	heightMetric : " are between 1,9 and 2,4 metres tall (185 + 5d12 cm)",
@@ -13389,7 +13389,7 @@ RaceList["goblin"] = {
 	},
 	languageProfs : ["Common", "Goblin"],
 	vision : [["Darkvision", 60]],
-	age : " rearch adulthood at age 8 and live up to 60 years",
+	age : " reach adulthood at age 8 and live up to 60 years",
 	height : " are between 3 and a half and 4 feet tall (3'5\" + 2d4\")",
 	weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
 	heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
@@ -15668,7 +15668,7 @@ SourceList["OGA"] = {
 	name : "One Grung Above",
 	abbreviation : "OGA",
 	group : "Extra Life",
-	url : "https://www.dmsguild.com/product/223738/",
+	url : "https://www.dmsguild.com/product/223738/One-Grung-Above-5e",
 	date : "2017/10/11",
 	defaultExcluded : true
 };
@@ -21416,7 +21416,7 @@ SourceList["LLoK"] = {
 	name : "Lost Laboratory of Kwalish [items, spells]",
 	abbreviation : "LLoK",
 	group : "Extra Life",
-	url : "https://www.dmsguild.com/product/258047",
+	url : "https://www.dmsguild.com/product/258047/Lost-Laboratory-of-Kwalish-5e",
 	date : "2018/11/07",
 	defaultExcluded : true
 };
@@ -26106,7 +26106,7 @@ RaceList["dankwood goblin"] = {
 	},
 	languageProfs : ["Common", "Goblin"],
 	vision : [["Darkvision", 60]],
-	age : " rearch adulthood at age 8 and live up to 60 years",
+	age : " reach adulthood at age 8 and live up to 60 years",
 	height : " are between 3 and a half and 4 feet tall (3'5\" + 2d4\")",
 	weight : " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
 	heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
@@ -44087,7 +44087,7 @@ SpellsList["borrowed knowledge"] = {
 	range : "Self",
 	components : "V,S,M\u0192",
 	compMaterial : "A book worth at least 25 gp.",
-	duration : "1 hour",
+	duration : "1 h",
 	description : "Gain proficiency with one skill; ends early if cast again (25gp)",
 	descriptionFull : "You draw on knowledge from spirits of the past. Choose one skill in which you lack proficiency. For the spell's duration, you have proficiency in the chosen skill. The spell ends early if you cast it again."
 };
@@ -48131,8 +48131,9 @@ SourceList["ALPGs9"] = {
 	name : "AL Player's Guide v9.1: Inglorious Redemption",
 	abbreviation : "ALPGs9",
 	group : "Adventurers League",
-	url : "https://www.dmsguild.com/product/208178",
-	date : "2019/09/17"
+	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf", // used to be https://www.dmsguild.com/product/208178
+	date : "2019/09/17",
+	defaultExcluded : true
 };
 
 /*
@@ -48148,12 +48149,12 @@ SourceList["ALPGs9"] = {
 ].forEach(function (rac) {
 	var rObj = rac[1] ? RaceSubList[rac[0]] : RaceList[rac[0]];
 	if (!rObj) return;
-	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6], ["ALbackground", 0]]);
+	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6]]);
 	if (rac[0].indexOf("aasimar") !== -1) {
 		AddRacialVariant(rac[0], "winged", {
 			regExpSearch : /wing/i,
 			name : "Winged " + rObj.name,
-			source : [["ALPGs9", 6], ["ALbackground", 0]],
+			source : [["ALPGs9", 6]],
 			plural : "Winged " + rObj.plural,
 			speed : {
 				walk : { spd : 30, enc : 20 },
@@ -50385,7 +50386,7 @@ SourceList["UA:GH"] = {
 	name : "Unearthed Arcana: Gothic Heroes",
 	abbreviation : "UA:GH",
 	group : "Unearthed Arcana",
-	url : "https://dnd.wizards.com/sites/default/files/media/upload/articles/UA%20Gothic%20Characters.pdf",
+	url : "https://media.dnd.wizards.com/upload/articles/UA%20Gothic%20Characters.pdf",
 	date : "2016/04/04"
 };
 

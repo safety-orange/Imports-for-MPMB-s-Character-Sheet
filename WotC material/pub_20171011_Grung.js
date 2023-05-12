@@ -8,7 +8,7 @@ SourceList["OGA"] = {
 	name : "One Grung Above",
 	abbreviation : "OGA",
 	group : "Extra Life",
-	url : "https://www.dmsguild.com/product/223738/",
+	url : "https://www.dmsguild.com/product/223738/One-Grung-Above-5e",
 	date : "2017/10/11",
 	defaultExcluded : true
 };

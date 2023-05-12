@@ -7,7 +7,7 @@ SourceList["LLoK"] = {
 	name : "Lost Laboratory of Kwalish [items, spells]",
 	abbreviation : "LLoK",
 	group : "Extra Life",
-	url : "https://www.dmsguild.com/product/258047",
+	url : "https://www.dmsguild.com/product/258047/Lost-Laboratory-of-Kwalish-5e",
 	date : "2018/11/07",
 	defaultExcluded : true
 };

@@ -448,7 +448,7 @@ SpellsList["borrowed knowledge"] = {
 	range : "Self",
 	components : "V,S,M\u0192",
 	compMaterial : "A book worth at least 25 gp.",
-	duration : "1 hour",
+	duration : "1 h",
 	description : "Gain proficiency with one skill; ends early if cast again (25gp)",
 	descriptionFull : "You draw on knowledge from spirits of the past. Choose one skill in which you lack proficiency. For the spell's duration, you have proficiency in the chosen skill. The spell ends early if you cast it again."
 };

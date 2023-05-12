@@ -2209,7 +2209,7 @@ SourceList["UA:GH"] = {
 	name : "Unearthed Arcana: Gothic Heroes",
 	abbreviation : "UA:GH",
 	group : "Unearthed Arcana",
-	url : "https://dnd.wizards.com/sites/default/files/media/upload/articles/UA%20Gothic%20Characters.pdf",
+	url : "https://media.dnd.wizards.com/upload/articles/UA%20Gothic%20Characters.pdf",
 	date : "2016/04/04"
 };
 
