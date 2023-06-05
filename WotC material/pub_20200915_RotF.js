@@ -9,7 +9,7 @@ SourceList["RotF"] = {
 	abbreviationSpellsheet : "RF",
 	group : "Adventure Books",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
+	url : "https://dnd.wizards.com/products/icewind-dale-rime-frostmaiden",
 	date : "2020/09/15"
 };
 

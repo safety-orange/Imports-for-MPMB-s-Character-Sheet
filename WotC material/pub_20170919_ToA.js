@@ -8,7 +8,7 @@ SourceList.ToA={
 	abbreviation : "ToA",
 	group : "Adventure Books",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
+	url : "https://dnd.wizards.com/products/tomb-annihilation",
 	date : "2017/09/19"
 };
 

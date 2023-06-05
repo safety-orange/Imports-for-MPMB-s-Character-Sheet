@@ -1,6 +1,6 @@
-if (sheetVersion < 13001003) { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\nYou can get the latest version on www.flapkan.com."; };
+if (sheetVersion < 13001007) { throw "This script was made for a newer version of the sheet (v13.1.7). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.1.3");
+RequiredSheetVersion("13.1.7");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -381,7 +381,7 @@ if (!SourceList.P) {
 		name : "Player's Handbook",
 		abbreviation : "PHB",
 		group : "Primary Sources",
-		url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook",
+		url : "https://dnd.wizards.com/products/rpg_playershandbook",
 		date : "2014/08/19"
 	};
 };

@@ -8,7 +8,7 @@ SourceList.MOT = {
 	abbreviation : "MOT",
 	group : "Primary Sources",
 	campaignSetting : "Magic: The Gathering",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/mythic-odysseys-theros",
+	url : "https://dnd.wizards.com/products/mythic-odysseys-theros",
 	date : "2020/07/21"
 };
 

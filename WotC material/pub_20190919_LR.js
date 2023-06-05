@@ -6,7 +6,7 @@ SourceList.LR = {
 	name : "Locathah Rising",
 	abbreviation : "LR",
 	group : "Extra Life",
-	url : "https://dnd.wizards.com/products/tabletop-games/digital-only-rpg-products/locathah-rising",
+	url : "https://www.dmsguild.com/product/289261/Locathah-Rising-5e",
 	date : "2019/09/19",
 	defaultExcluded : true
 };

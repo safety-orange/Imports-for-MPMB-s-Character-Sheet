@@ -8,7 +8,7 @@ SourceList.TftYP={
 	abbreviation : "TftYP",
 	group : "Adventure Books",
 	campaignSetting : "Anthology",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
+	url : "https://dnd.wizards.com/products/tales-yawning-portal",
 	date : "2017/04/04"
 };
 

@@ -9,7 +9,7 @@ SourceList.E={
 	abbreviationSpellsheet : "EE",
 	group : "Primary Sources",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
+	url : "https://media.dnd.wizards.com/EE-Players-Companion_0_0.pdf",
 	date : "2015/04/16"
 };
 

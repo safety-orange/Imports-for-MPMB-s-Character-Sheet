@@ -9,7 +9,7 @@ SourceList["AcqInc"] = {
 	abbreviationSpellsheet : "AI",
 	group : "Primary Sources",
 	campaignSetting : "Penny Arcade",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/acqinc",
+	url : "https://dnd.wizards.com/products/acquisitions-incorporated",
 	date : "2019/06/18"
 };
 

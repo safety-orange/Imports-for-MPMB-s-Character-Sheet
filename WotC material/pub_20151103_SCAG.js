@@ -8,7 +8,7 @@ SourceList.S={
 	abbreviation : "SCAG",
 	group : "Primary Sources",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide",
+	url : "https://dnd.wizards.com/products/sword-coast-adventurers-guide",
 	date : "2015/11/03"
 };
 

@@ -8,7 +8,7 @@ SourceList["LMoP"] = {
 	abbreviation : "LMoP",
 	group : "Adventure Books",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_starterset",
+	url : "https://www.dndbeyond.com/sources/lmop",
 	date : "2014/07/15"
 };
 

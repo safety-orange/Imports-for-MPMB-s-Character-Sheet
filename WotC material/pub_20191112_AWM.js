@@ -7,7 +7,7 @@ SourceList["AwM"] = {
 	name : "Adventure with Muk",
 	abbreviation : "AwM",
 	group : "Extra Life",
-	url : "https://dnd.wizards.com/products/tabletop-games/digital-only-rpg-products/adventure-muk",
+	url : "https://www.dmsguild.com/product/294712/Adventure-with-Muk-5e",
 	date : "2019/11/12",
 	defaultExcluded : true
 };

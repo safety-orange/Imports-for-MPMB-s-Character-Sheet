@@ -7,7 +7,7 @@ SourceList.TP={
 	name : "Tortle Package",
 	abbreviation : "TP",
 	group : "Extra Life",
-	url : "https://dnd.wizards.com/products/tabletop-games/digital-only-rpg-products/tortle-package",
+	url : "https://www.dmsguild.com/product/221716/Tortle-Package-5e",
 	date : "2017/09/15",
 	defaultExcluded : true
 };

@@ -8,7 +8,7 @@ SourceList.HotDQ={
 	abbreviation : "HotDQ",
 	group : "Adventure Books",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
+	url : "https://wpn.wizards.com/en/products/tyranny-of-dragons",
 	date : "2014/08/19"
 };
 SourceList.RoT = {
@@ -16,7 +16,7 @@ SourceList.RoT = {
 	abbreviation : "RoT",
 	group : "Adventure Books",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/rise-tiamat",
+	url : "https://wpn.wizards.com/en/products/tyranny-of-dragons",
 	date : "2014/11/04"
 };
 

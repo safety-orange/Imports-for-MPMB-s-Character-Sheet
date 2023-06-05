@@ -17,7 +17,7 @@ SourceList["DnDEK"] = {
 	name : "Dungeons & Dragons Essentials Kit [sidekick classes]",
 	abbreviation : "DnDEK",
 	group : "Primary Sources",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/essentials-kit",
+	url : "https://media.wizards.com/2020/dnd/downloads/dnd_essentials_rulebook.pdf",
 	date : "2019/09/03",
 	defaultExcluded : true
 };
@@ -62,7 +62,7 @@ ClassList["sidekick-expert"] = {
 	},
 	regExpSearch : /^(?=.*expert)(?=.*sidekick).*$/i,
 	name : "Expert (sidekick)",
-	source : [["DnDEK", 0]],
+	source : [["DnDEK", 63]],
 	primaryAbility : "Dexterity",
 	prereqs : "Can't multiclass",
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 4],
@@ -90,7 +90,7 @@ ClassList["sidekick-expert"] = {
 	features : {
 		"sidekick" : {
 			name : "Sidekick",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : desc([
 				"Unlike other classes, a sidekick has preset ability scores and skill proficiencies",
@@ -119,14 +119,14 @@ ClassList["sidekick-expert"] = {
 		},
 		"helpful" : {
 			name : "Helpful",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : "\n   I can use a bonus action to take the Help action",
 			action : ["bonus action", ""]
 		},
 		"cunning action" : {
 			name : "Cunning Action",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 64]],
 			minlevel : 2,
 			description : "\n   I can use a bonus action to take the Dash, Disengage, or Hide action",
 			action : ["bonus action", ""]
@@ -134,13 +134,13 @@ ClassList["sidekick-expert"] = {
 		"expertise" : function() {
 			var a = {
 				name : "Expertise",
-				source : [["DnDEK", 0]],
+				source : [["DnDEK", 64]],
 				minlevel : 3,
 				description : "\n   " + "I gain expertise with two skills I am proficient with",
 				skillstxt : "Expertise with any two skill proficiencies",
 				extraname : "Expertise",
 				extrachoices : ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"],
-				extraTimes : levels.map(function (n) { return n < 3 ? 0 : n < 10 ? 2 : 4; })
+				extraTimes : 2
 			}
 			for (var i = 0; i < a.extrachoices.length; i++) {
 				var attr = a.extrachoices[i].toLowerCase();
@@ -155,35 +155,13 @@ ClassList["sidekick-expert"] = {
 				}
 			}
 			return a;
-		}(),
-		"inspiring help" : {
-			name : "Inspiring Help",
-			source : [["DnDEK", 0]],
-			minlevel : 7,
-			description : desc([
-				"When I use the Help action, the creature that receives the help adds +1d6 to its d20 roll",
-				"If it was an attack roll that hits without the +1d6, it can add it to the damage instead"
-			])
-		},
-		"evasion" : {
-			name : "Evasion",
-			source : [["DnDEK", 0]],
-			minlevel : 7,
-			description : "\n   My Dexterity saves vs. areas of effect negate damage on success and halve it on failure",
-			savetxt : { text : ["Dex save vs. area effects: fail \u2015 half dmg, success \u2015 no dmg"] }
-		},
-		"reliable talent" : {
-			name : "Reliable Talent",
-			source : [["DnDEK", 0]],
-			minlevel : 11,
-			description : "\n   If I make an ability check where I add my proficiency bonus, rolls of 9 or lower are 10"
-		}
+		}()
 	}
 }
 ClassList["sidekick-warrior"] = {
 	regExpSearch : /^(?=.*warrior)(?=.*sidekick).*$/i,
 	name : "Warrior (sidekick)",
-	source : [["DnDEK", 0]],
+	source : [["DnDEK", 63]],
 	primaryAbility : "Strength",
 	prereqs : "Can't multiclass",
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3],
@@ -203,11 +181,11 @@ ClassList["sidekick-warrior"] = {
 		"\n \u2022 A longbow and a quiver of 20 arrows;" +
 		"\n \u2022 Chain shirt and a shield.",
 	subclasses : ["", []],
-	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3],
+	attacks : [1, 1, 1, 1, 1, 2],
 	features : {
 		"sidekick" : {
 			name : "Sidekick",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : desc([
 				"Unlike other classes, a sidekick has preset ability scores and skill proficiencies",
@@ -237,7 +215,7 @@ ClassList["sidekick-warrior"] = {
 		},
 		"martial role" : {
 			name : "Martial Role",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : '\n   Choose a Martial Role for the warrior using the "Choose Feature" button above',
 			choices : ["Attacker", "Defender"],
@@ -264,7 +242,7 @@ ClassList["sidekick-warrior"] = {
 		},
 		"second wind" : {
 			name : "Second Wind",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 64]],
 			minlevel : 2,
 			description : "\n   As a bonus action, I regain 1d10 + warrior level HP; I can use this once per short rest",
 			additional : levels.map(function (n) {
@@ -276,7 +254,7 @@ ClassList["sidekick-warrior"] = {
 		},
 		"improved critical" : {
 			name : "Improved Critical",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 64]],
 			minlevel : 3,
 			description : "\n   I score a critical hit with my weapon attacks on a roll of 19 and 20",
 			calcChanges : {
@@ -291,28 +269,6 @@ ClassList["sidekick-warrior"] = {
 					19
 				]
 			}
-		},
-		"battle readiness" : {
-			name : "Battle Readiness",
-			source : [["DnDEK", 0]],
-			minlevel : 7,
-			description : "\n   I have advantage on my Initiative rolls",
-			advantages : [["Initiative", true]]
-		},
-		"indomitable" : {
-			name : "Indomitable",
-			source : [["DnDEK", 0]],
-			minlevel : 9,
-			description : "\n   I can reroll a failed saving throw, but must keep the new result",
-			usages : 1,
-			recovery : "long rest"
-		},
-		"improved defense" : {
-			name : "Improved Defense",
-			source : [["DnDEK", 0]],
-			minlevel : 10,
-			description : "\n   I gain a +1 bonus to AC",
-			extraAC : { mod : 1 }
 		}
 	}
 }
@@ -340,7 +296,7 @@ ClassList["sidekick-spellcaster"] = {
 	},
 	regExpSearch : /^(?=.*(spellcaster|mage|healer))(?=.*sidekick).*$/i,
 	name : "Spellcaster (sidekick)",
-	source : [["DnDEK", 0]],
+	source : [["DnDEK", 63]],
 	primaryAbility : "Intelligence or Wisdom",
 	prereqs : "Can't multiclass",
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3],
@@ -363,7 +319,7 @@ ClassList["sidekick-spellcaster"] = {
 	features : {
 		"sidekick" : {
 			name : "Sidekick",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : desc([
 				"Unlike other classes, a sidekick has preset ability scores and skill proficiencies",
@@ -392,13 +348,13 @@ ClassList["sidekick-spellcaster"] = {
 		},
 		"subclassfeature1" : {
 			name : "Magical Role",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : '\n   Choose the magical role of the sidekick, mage or healer, and put it in the "Class" field'
 		},
 		"potent cantrips" : {
 			name : "Potent Cantrips",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 64]],
 			minlevel : 6,
 			description : "\n   I add my spellcasting ability modifier to the damage I deal with any cantrip",
 			calcChanges : {
@@ -425,96 +381,6 @@ ClassList["sidekick-spellcaster"] = {
 					"My cantrips get my spellcasting ability modifier added to their damage."
 				]
 			}
-		},
-		"empowered spells" : {
-			name : "Empowered Spells",
-			source : [["DnDEK", 0]],
-			minlevel : 10,
-			description : desc([
-				'Select one of the eight schools of magic using the "Choose Feature" button above',
-				"Whenever I cast a spell from the selected school by expending a spell slot, I empower it",
-				"I add my spellcasting ability modifier to the damage or healing I do with that spell"
-			]),
-			calcChanges : {
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						var subclass = classes.known["sidekick-spellcaster"].subclass;
-						var spSchool = GetFeatureChoice("classes", "sidekick-spellcaster", "empowered spells");
-						if (!subclass || !ClassSubList[subclass].abilitySave || !spSchool || spellObj.psionic || !spellObj.level) return;
-						for (var aSchl in spellSchoolList) {
-							if (spellSchoolList[aSchl] == spSchool) {
-								spSchool = aSchl;
-								break;
-							}
-						}
-						if (spellObj.school !== spSchool) return;
-						var spAbi = AbilityScores.abbreviations[ClassSubList[subclass].abilitySave - 1];
-						var spAbiMod = Number(What(spAbi + ' Mod'));
-						if (spAbiMod < 1) return;
-						if (genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", spAbiMod, true, true) || genericSpellDmgEdit(spellKey, spellObj, "heal", spAbiMod, true, true)) {
-							return true;
-						}
-					},
-					"Spells from my selected school get my spellcasting ability modifier added to their damage and healing."
-				]
-			},
-			choices : ["Abjuration", "Conjuration", "Divination", "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation"],
-			"abjuration" : {
-				name : "Empowered Abjurations",
-				description : desc([
-					"Whenever I cast an abjuration spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			},
-			"conjuration" : {
-				name : "Empowered Conjurations",
-				description : desc([
-					"Whenever I cast a conjuration spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			},
-			"divination" : {
-				name : "Empowered Divinations",
-				description : desc([
-					"Whenever I cast a divination spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			},
-			"enchantment" : {
-				name : "Empowered Enchantments",
-				description : desc([
-					"Whenever I cast a enchantment spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			},
-			"evocation" : {
-				name : "Empowered Evocations",
-				description : desc([
-					"Whenever I cast a evocation spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			},
-			"illusion" : {
-				name : "Empowered Illusions",
-				description : desc([
-					"Whenever I cast an illusion spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			},
-			"necromancy" : {
-				name : "Empowered Necromancy",
-				description : desc([
-					"Whenever I cast a necromancy spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			},
-			"transmutation" : {
-				name : "Empowered Transmutations",
-				description : desc([
-					"Whenever I cast a transmutation spell by expending a spell slot, I can empower its effect",
-					"I then add my spellcasting ability modifier to the damage or healing I do with that spell"
-				])
-			}
 		}
 	}
 }
@@ -523,7 +389,7 @@ AddSubClass("sidekick-spellcaster", "mage", {
 	regExpSearch : /^(?=.*mage)(?=.*sidekick).*$/i,
 	subname : "Mage",
 	fullname : "Mage (sidekick)",
-	source : [["DnDEK", 0]],
+	source : [["DnDEK", 63]],
 	abilitySave : 4,
 	spellcastingFactor : 1,
 	spellcastingList : {
@@ -540,7 +406,7 @@ AddSubClass("sidekick-spellcaster", "mage", {
 	features : {
 		"subclassfeature1" : {
 			name : "Spellcasting",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : "\n   I can cast wizard cantrips/spells I know, using Intelligence as my spellcasting ability",
 			weaponsAdd : ["Fire Bolt"],
@@ -576,7 +442,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 	regExpSearch : /^(?=.*healer)(?=.*sidekick).*$/i,
 	subname : "Healer",
 	fullname : "Healer (sidekick)",
-	source : [["DnDEK", 0]],
+	source : [["DnDEK", 63]],
 	abilitySave : 5,
 	spellcastingFactor : 1,
 	spellcastingList : {
@@ -593,7 +459,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 	features : {
 		"subclassfeature1" : {
 			name : "Spellcasting",
-			source : [["DnDEK", 0]],
+			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : "\n   I can cast cleric cantrips/spells I know, using Wisdom as my spellcasting ability",
 			weaponsAdd : ["Sacred Flame"],

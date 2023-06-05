@@ -9,14 +9,14 @@ const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
 const uglify  = require('gulp-uglify');
 
-const stableVersion = '"13.1.3"';
+const stableVersion = '"13.1.7"';
 const betaVersion   = '"13.2.0-beta1"';
 const betaFolder    = "/v13.2";
 const parentFolder  = "WotC material";
 const hasBetaFolder = fs.existsSync(`${parentFolder}${betaFolder}`);
 const aStableVer    = stableVersion.match(/\d+/g);
 const stableVerNo   = aStableVer[0] + aStableVer[1].padStart(3, '0') + aStableVer[2].padStart(3, '0');
-const tooOldcheck   = 'if (sheetVersion < ' + stableVerNo + ') { throw "This script was made for a newer version of the sheet. Please use the latest version and try again.\\nYou can get the latest version on www.flapkan.com."; };';
+const tooOldcheck   = 'if (sheetVersion < ' + stableVerNo + ') { throw "This script was made for a newer version of the sheet (v' + stableVersion.replace(/"/g, '') + '). Please use the latest version and try again.\\nYou can get the latest version at www.flapkan.com."; };';
 
 function concatAndMin(glob, fileName, beta) {
 	log.info(`Minifying and concatenating type '${glob}' for ${beta ? `beta (${betaVersion})` : `stable (${stableVersion})`} version`);

@@ -8,7 +8,7 @@ SourceList.X={
 	abbreviation : "XGtE",
 	abbreviationSpellsheet : "X",
 	group : "Primary Sources",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
+	url : "https://dnd.wizards.com/products/xanathars-guide-everything",
 	date : "2017/11/21"
 };
 

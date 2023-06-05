@@ -8,7 +8,7 @@ SourceList.OotA={
 	abbreviation : "OotA",
 	group : "Adventure Books",
 	campaignSetting : "Forgotten Realms",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
+	url : "https://dnd.wizards.com/products/outoftheabyss",
 	date : "2015/09/15"
 };
 

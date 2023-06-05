@@ -7,7 +7,7 @@ SourceList.MToF={
 	name : "Mordenkainen's Tome of Foes",
 	abbreviation : "MToF",
 	group : "Primary Sources",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/mordenkainens-tome-foes",
+	url : "https://dnd.wizards.com/products/mordenkainens-tome-foes",
 	date : "2018/05/29"
 };
 

@@ -8,7 +8,7 @@ SourceList["E:RLW"] = {
 	abbreviation : "E:RLW",
 	group : "Primary Sources",
 	campaignSetting : "Eberron",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/eberron",
+	url : "https://dnd.wizards.com/products/eberron",
 	date : "2019/11/19"
 };
 
@@ -2437,7 +2437,7 @@ AddSubClass("artificer", "battle smith", {
 					hpForceRecalc : true
 				},
 				eval : function(prefix, lvl) {
-					// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 9
+					// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 15
 					if (lvl[0] < 15) Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 				}
 			}]

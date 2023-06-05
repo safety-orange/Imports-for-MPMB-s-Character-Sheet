@@ -44,7 +44,7 @@ SourceList.T = {
 	abbreviation : "TCoE",
 	abbreviationSpellsheet : "T",
 	group : "Primary Sources",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/tashas-cauldron-everything",
+	url : "https://dnd.wizards.com/products/tashas-cauldron-everything",
 	date : "2020/11/17"
 };
 
@@ -1111,7 +1111,7 @@ if (!SourceList["E:RLW"]) {
 						hpForceRecalc : true
 					},
 					eval : function(prefix, lvl) {
-						// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 9
+						// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 15
 						if (lvl[0] < 15) Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 					}
 				}]
@@ -6523,7 +6523,7 @@ SpellsList["spirit shroud"] = {
 	}
 };
 SpellsList["summon aberration"] = {
-	name : "Summon aberration",
+	name : "Summon Aberration",
 	classes : ["warlock", "wizard"],
 	source : [["T", 109]],
 	level : 4,
