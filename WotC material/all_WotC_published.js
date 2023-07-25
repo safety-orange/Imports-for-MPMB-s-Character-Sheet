@@ -10623,8 +10623,8 @@ AddSubClass("paladin", "oath of the crown", {
 			name : "Channel Divinity: Champion Challenge",
 			source : [["S", 133]],
 			minlevel : 3,
-			description : "\n   " + "I can compel any chosen creatures within 30 ft of me to make a Wisdom save" + "\n   " + "If failed, a target is unable to willingly move more than 30 ft away from me" + "\n   " + "The effect ends if I'm incapacitated, die, or it is moved more than 30 ft away from me",
-			action : ["action", ""],
+			description : "\n   " + "As a bonus action, I can compel any chosen creatures within 30 ft of me to make a Wisdom save" + "\n   " + "If failed, a target is unable to willingly move more than 30 ft away from me" + "\n   " + "The effect ends if I'm incapacitated, die, or it is moved more than 30 ft away from me",
+			action : ["bonus action", ""],
 			spellcastingExtra : ["command", "compelled duel", "warding bond", "zone of truth", "aura of vitality", "spirit guardians", "banishment", "guardian of faith", "circle of power", "geas"]
 		},
 		"subclassfeature3.1" : {
