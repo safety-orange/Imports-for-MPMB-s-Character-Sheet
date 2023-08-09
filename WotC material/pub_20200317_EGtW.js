@@ -1340,7 +1340,7 @@ AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbog
 			minlevel : 2,
 			description : desc([
 				"As an action, I can magically double or halve the weight of a creature I can see in 30 ft",
-				"If doubled, it has -10 ft speed and disadvantage on Strength checks and Strength saves ",
+				"If doubled, it has -10 ft speed and advantage on Strength checks and Strength saves",
 				"If halved, it has +10 ft speed, can jump twice as far, and disadv. on Str checks and saves",
 				"This lasts for 1 minute or until my concentration ends (like concentrating on a spell)"
 			]),

@@ -2012,7 +2012,7 @@ AddSubClass("bard", "college of creation", {
 				ac : 16,
 				hp : 25,
 				hd : [],
-				speed : "40 ft",
+				speed : "fly 30 ft (hover)",
 				scores : [18, 14, 16, 4, 10, 6],
 				damage_immunities : "poison, psychic",
 				condition_immunities : "charmed, exhaustion, poisoned, frightened",

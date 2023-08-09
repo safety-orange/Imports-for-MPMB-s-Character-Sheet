@@ -961,7 +961,7 @@ AddSubClass("fighter", "battle master", {
 	}
 });
 AddSubClass("fighter", "eldritch knight", {
-	regExpSearch : /^(?!.*(exalted|sacred|holy|divine|nature|natural|purple.*dragon|green))(?=.*(knight|fighter|warrior|militant|warlord|phalanx|gladiator|trooper))(?=.*\b(eldritch|arcane|magic|mage|witch)\b).*$/i,
+	regExpSearch : /^(?!.*(exalted|sacred|holy|divine|nature|natural|purple.*dragon|green|arcane archer))(?=.*(knight|fighter|warrior|militant|warlord|phalanx|gladiator|trooper))(?=.*\b(eldritch|arcane|magic|mage|witch)\b).*$/i,
 	subname : "Eldritch Knight",
 	fullname : "Eldritch Knight",
 	source : [["P", 75]],

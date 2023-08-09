@@ -411,6 +411,9 @@ ClassList["sidekick-spellcaster-tcoe"] = {
 	attacks : [1],
 	abilitySave : 4,
 	spellcastingFactor : 2,
+	spellcastingTable : ClassList.artificer && ClassList.artificer.spellcastingTable ? ClassList.artificer.spellcastingTable : [[0, 0, 0, 0, 0, 0, 0, 0, 0]].concat(levels.map(function (n) {
+		return defaultSpellTable[Math.ceil(n / 2)];
+	})),
 	spellcastingList : {
 		"class" : "wizard",
 		level : [0, 5]

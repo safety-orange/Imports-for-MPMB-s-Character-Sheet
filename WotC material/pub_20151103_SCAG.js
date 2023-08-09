@@ -324,7 +324,7 @@ AddRacialVariant("tiefling", "winged", {
 		walk : { spd : 30, enc : 20 },
 		fly : { spd : 30, enc : 0 }
 	},
-	trait : "Winged Tiefling (+1 Intelligence, +2 Charisma)\n\nWings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 feet when I'm not wearing heavy armor.",
+	trait : "Winged Tiefling (+1 Intelligence, +2 Charisma)\n\nWings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 ft when I'm not wearing heavy armor.",
 	features : "",
 	spellcastingAbility : "",
 	spellcastingBonus : ""
@@ -573,7 +573,7 @@ AddSubClass("fighter", "purple dragon knight", {
 			minlevel : 10,
 			description : "\n   " + "When I use my Action Surge, I can inspire an ally within 60 ft that can see or hear me" + "\n   " + "The ally can then use its reaction to make one melee or ranged weapon attack",
 			additional : levels.map(function (n) {
-				return n < 10 ? "" : n < 18 ? "1 ally" : "2 allies";
+				return n < 10 ? "" : n < 18 ? "1 ally" : "2 allies"; // level 18 per errata
 			})
 		},
 		"subclassfeature15" : {
@@ -732,15 +732,19 @@ AddSubClass("paladin", "oath of the crown", {
 			name : "Channel Divinity: Champion Challenge",
 			source : [["S", 133]],
 			minlevel : 3,
-			description : "\n   " + "I can compel any chosen creatures within 30 ft of me to make a Wisdom save" + "\n   " + "If failed, a target is unable to willingly move more than 30 ft away from me" + "\n   " + "The effect ends if I'm incapacitated, die, or it is moved more than 30 ft away from me",
-			action : ["action", ""],
+			description : desc([
+				"As a bonus action, I can have any chosen creatures within 30 ft of me make a Wis save",
+				"If failed, a target is unable to willingly move more than 30 ft away from me",
+				"The effect ends if I'm incapacitated, die, or it is moved more than 30 ft away from me"
+			]),
+			action : [["bonus action", ""]], // changed to bonus action per errata (v1.0, 2017)
 			spellcastingExtra : ["command", "compelled duel", "warding bond", "zone of truth", "aura of vitality", "spirit guardians", "banishment", "guardian of faith", "circle of power", "geas"]
 		},
 		"subclassfeature3.1" : {
 			name : "Channel Divinity: Turn the Tide",
 			source : [["S", 133]],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, any chosen creatures within 30 ft that can hear me regain HP" + "\n   " + "Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
+			description : "\n   " + "As a bonus action, any chosen creatures within 30 ft that can hear me regains HP" + "\n   " + "Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
 			action : ["bonus action", ""]
 		},
 		"subclassfeature7" : {
