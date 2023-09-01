@@ -149,7 +149,7 @@ FeatsList["initiate of high sorcery"] = {
 	"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
 	prerequisite : "Dragonlance Campaign, plus Sorcerer, Wizard, or Mage of High Sorcery background",
 	prereqeval : function (v) {
-		return classes.known.wizard || classes.known.sorcerer || CurrentBackground.known.indexOf('mage of high sorcery') !== -1;
+		return classes.known.wizard || classes.known.sorcerer || CurrentBackground.known.indexOf('mage of high sorcery') !== -1 || /initiate of high sorcery/i.test(What("Background Feature"));
 	},
 	choices : ["Nuitari", "Lunitari", "Solinari"],
 	"nuitari" : {
@@ -365,7 +365,7 @@ FeatsList["squire of solamnia"] = {
 	"\n   " + toUni("Precise Strike") + ". Once per turn, when you make a weapon attack roll against a creature, you can cause the attack roll to have advantage. If the attack hits, you roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this benefit a number of times equal to your proficiency bonus, but a use is expended only if the attack hits. You regain all expended uses when you finish a long rest.",
 	prerequisite : "Dragonlance Campaign, plus Fighter, Paladin, or Knight of Solamnia background",
 	prereqeval : function (v) {
-		return classes.known.fighter || classes.known.paladin || CurrentBackground.known.indexOf('knight of solamnia') !== -1;
+		return classes.known.fighter || classes.known.paladin || CurrentBackground.known.indexOf('knight of solamnia') !== -1 || /squire of solamnia/i.test(What("Background Feature"));
 	},
 	limfeaname : "Precise Strike (Squire of Solamnia)",
 	usages : "Proficiency bonus per ",

@@ -2161,7 +2161,7 @@ MagicItemsList["arcane cannon"] = {
 MagicItemsList["battering shield"] = {
 	name : "Battering Shield",
 	source : [["W", 266]],
-	type : "wondrous item",
+	type : "shield",
 	rarity : "uncommon",
 	notLegalAL : true,
 	attunement : true,

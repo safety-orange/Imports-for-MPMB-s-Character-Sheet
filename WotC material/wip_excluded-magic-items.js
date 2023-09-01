@@ -948,3 +948,90 @@
 		}
 	}
 }
+{ // pub_20210921_WBtW
+	MagicItemsList["iggwilv's cauldron"] = {
+		name : "Iggwilv's Cauldron",
+		source : [["WBtW", 209]],
+		type : "wondrous item",
+		rarity : "artifact",
+		attunement : true,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; },
+		notLegalAL : true,
+		description : "",
+		descriptionFull : "Iggwilv crafted this wondrous cauldron with the help of her adoptive mother, the archfey Baba Yaga. The cauldron has two forms. Only Iggwilv or Baba Yaga can change the cauldron from one form to another (by using an action to touch it), which either can do without being attuned to the item. In its first form, the cauldron is made of solid gold and embossed on the outside with images of bare-branched trees, falling leaves, and broomsticks. In its second form, the cauldron is made of iron and embossed on the outside with images of bats, toads, cats, lizards, and snakes—eight of each animal. In either form, the cauldron is roughly 3 feet in diameter and has a 2-foot-wide mouth, a round lid with a molded handle at the top, and eight clawed feet for stability. The cauldron weighs 80 pounds when empty, and it can hold up to 100 gallons of liquid."+
+		"\n   " + toUni("Attunement") + ". Any Humanoid creature that attunes to the cauldron must succeed on a DC 15 Constitution saving throw or be aged to the point of decrepitude. In this state, the creature's speed is halved, the range of its vision and hearing is reduced to 30 feet, and it has disadvantage on all ability checks, attack rolls, and saving throws. The creature will reach the end of its natural life span in 3d8 days. Only a wish spell or divine intervention can reverse this aging effect on the creature."+
+		"\n   Three hags can attune to the cauldron simultaneously, provided they have formed a coven. If the coven disbands, the attunement ends for all three hags."+
+		"\n   " + toUni("Random Properties") + ". Regardless of the form it takes, the cauldron has the following random properties:"+
+		"\n \u2022 1 minor beneficial property (determined by rolling on the Minor Beneficial Properties table in the Dungeon Master's Guide)"+
+		"\n \u2022 1 minor detrimental property (determined by rolling on the Minor Detrimental Properties table in the Dungeon Master's Guide)"+
+		"\n   " + toUni("Gold Cauldron") + ". The gold cauldron has the following properties:"+
+		"\n \u2022 If water is poured into the cauldron and stirred for 1 minute, it transforms into a hearty, hot stew that provides one nourishing meal for up to four people per gallon of water used. The stew remains hot while in the cauldron, then cools naturally after it is removed. The outside of the cauldron remains safe to touch despite the heat of the stew."+
+		"\n \u2022 If wine is poured into the cauldron and stirred for 10 minutes, it transforms into a magical elixir that fortifies up to four people per gallon of wine used. Any creature that imbibes the elixir gains 10 temporary hit points. Any of the elixir that isn't consumed within 1 hour vanishes. Once used, this property of the cauldron can't be used again until the next dawn."+
+		"\n \u2022 When the cauldron is filled with 90 gallons of water mixed with 10 gallons of wine, it can be used as the focus for a scrying spell. When this spell is cast using the cauldron as its focus, the target of the spell fails its saving throw automatically, and the spell works even if its caster and the target are on different planes of existence. When the spell ends, all the liquid in the cauldron vanishes."+
+		"\n \u2022 Dipping the bristles of an ordinary broom into the water-filled cauldron transforms the broom into a broom of flying for 3 days. Once used, this property of the cauldron can't be used again until the next dawn."+
+		"\n   " + toUni("Iron Cauldron") + ". The iron cauldron has the following properties:"+
+		"\n \u2022 You can use an action to scream into the empty cauldron, which magically summons a swarm of bats that flies out of the cauldron and acts immediately after you in the initiative order. The swarm obeys your commands and disappears after 1 minute if it hasn't been destroyed by then. Once used, this property of the cauldron can't be used again until the next dawn."+
+		"\n \u2022 If at least 1 gallon of blood is poured into the cauldron and stirred for 1 minute, it turns into a cloud of harmless black smoke that erupts from the cauldron and dissipates quickly. At the same time, all Humanoid creatures within a certain radius of the cauldron fall unconscious for 1 hour, except those that are attuned to the cauldron or immune to being charmed. The radius of the effect is 100 feet per gallon of blood used. An unconscious creature awakens if it takes damage or if someone uses an action to shake or slap it. Once used, this property of the cauldron can't be used again until the next dawn."+
+		"\n \u2022 Tying a dead frog or toad to the end of an ordinary branch and dipping it in the water-filled cauldron transforms the branch into a wand of polymorph with 3 charges. This wand can't recharge and crumbles to ashes when its final charge is expended. Once used, this property of the cauldron can't be used again for 8 days."+
+		"\n \u2022 If you spend 1 minute touching the cauldron with a unicorn's horn while reciting the poem called \"The Witch Queen's Cauldron\" (see the accompanying sidebar), all creatures within 1,000 feet of the cauldron except those that are attuned to it become frozen in time. A time-frozen creature is incapacitated, can't move or speak, doesn't age, and is unaware of its surroundings or the passage of time. Moreover, it can't be moved, harmed in any way, or affected by any other magic. All other conditions and effects on the creature are suppressed until it is no longer frozen in time. Destroying the cauldron, sending it to another plane of existence, or touching it with a unicorn's horn for 1 minute while reciting \"The Witch Queen's Cauldron\" ends the time-freezing effect on all creatures. The effect also ends on any creature that comes into contact with an antimagic field or is touched by a unicorn's horn."+
+		"\n   " + toUni("Destroying the Cauldron") + ". The cauldron is a Medium object with AC 19, 80 hit points, and immunity to damage from any source other than a flame tongue or frost brand weapon. Reducing the cauldron to 0 hit points with such a weapon shatters the cauldron into eight pieces of roughly equal size, whereupon all ongoing effects created by the cauldron end as it loses its magic."+
+		"\n   The destruction of Iggwilv's Cauldron causes all hags in the multiverse to lose the Shared Spellcasting trait gained by being in a coven (see the \"Hag Covens\" sidebar in the Monster Manual)."+
+		"\n   " + toUni("Reconstructing the Cauldron") + ". If all eight pieces of the shattered cauldron are within 5 feet of one another, a wish spell can reassemble them, restoring the cauldron and all its properties. The cauldron's reconstruction also restores the Shared Spellcasting trait of hag covens throughout the multiverse."
+	}
+}
+{ // pub_20230815_GotG
+	MagicItemsList["adze of annam"] = {
+		name : "Adze of Annam",
+		source : [["GotG", 110]],
+		type : "weapon (greataxe)",
+		rarity : "artifact",
+		attunement : true,
+		notLegalAL : true,
+		description : "",
+		descriptionFull : "This massive adze is said to have been wielded by All-Father Annam, not as a weapon but as the tool he used to shape the various worlds of the Material Plane eons ago."+
+		"\n   " + toUni("Random Properties") + ". The adze has the following random properties, determined by rolling on the appropriate table in the Dungeon Master's Guide:"+
+		"\n \u2022 2 minor beneficial properties"+
+		"\n \u2022 1 major beneficial property"+
+		"\n \u2022 2 minor detrimental properties"+
+		"\n   " + toUni("Magic Weapon") + ". When a creature attunes to the adze, the artifact magically adjusts its size so that creature can wield it as a greataxe. The adze is a magic weapon that grants a +3 bonus to attack and damage rolls made with it. On a hit, the adze deals an additional 3d12 force damage. It also deals double damage to objects and structures."+
+		"\n   " + toUni("Divine Mattock") + ". As an action, you can call upon the might of the All-Father and use the adze to cast move earth or fabricate. Once this property is used, it can't be used again until the next dawn.",
+		weight : 7
+	}
+	MagicItemsList["bigby's beneficent bracelet"] = {
+		name : "Bigby's Beneficent Bracelet",
+		source : [["GotG", 111]],
+		type : "wondrous item",
+		rarity : "artifact",
+		attunement : true,
+		notLegalAL : true,
+		description : "",
+		descriptionFull : "This gorgeous jewelry piece, crafted by the wizard Bigby himself, consists of four gold rings attached via delicate chains to a wrist cuff studded with sapphires and diamonds."+
+		"\n   " + toUni("Random Properties") + ". The bracelet has the following random properties, determined by rolling on the appropriate table in the Dungeon Master's Guide:"+
+		"\n \u2022 1 minor beneficial properties"+
+		"\n \u2022 1 major beneficial property"+
+		"\n \u2022 1 minor detrimental properties"+
+		"\n   " + toUni("Dexterous Fingers") + ". While wearing the bracelet, you can cast mage hand."+
+		"\n   " + toUni("Force Sculpture") + ". By focusing and channeling the bracelet's magic for 1 minute, you can create a spectral copy of a Large or smaller nonmagical object. The copy appears in an unoccupied space within 10 feet of you, and it is made of tangible but translucent force that mimics the size, weight, and other properties of the object it's copying. The copy must appear on a surface or liquid that can support it. Creatures can touch and interact with the copy as if it were a nonmagical object."+
+		"\n   The copy is immune to all damage and can't be dispelled, but a disintegrate spell destroys it immediately. Otherwise, the copy disappears after 8 hours or when you dismiss it as an action."+
+		"\n   The bracelet can create up to three copies and regains all expended uses at dawn."+
+		"\n   " + toUni("Helpful Hand") + ". As an action, you can use the bracelet to cast Bigby's hand as a 9th-level spell (spell attack bonus +13). When you cast the spell this way, the spell doesn't require concentration. Once this property is used, it can't be used again until the next dawn."
+	}
+	MagicItemsList["helm of perfect potential"] = {
+		name : "Helm of Perfect Potential",
+		source : [["GotG", 112]],
+		type : "wondrous item",
+		rarity : "artifact",
+		attunement : true,
+		notLegalAL : true,
+		description : "",
+		descriptionFull : "This copper-hued helm contains a shard of the Elemental Chaos embedded in its forehead, surrounded by a motif of a rising sun. Legend says Annam fashioned this helm for his daughter Diancastra to hold the fragment of chaos she used to prove her worth to her father."+
+		"\n   " + toUni("Random Properties") + ". The helm has the following random properties, determined by rolling on the appropriate table in the Dungeon Master's Guide:"+
+		"\n \u2022 2 minor beneficial properties"+
+		"\n \u2022 1 major beneficial property"+
+		"\n \u2022 1 minor detrimental properties"+
+		"\n   " + toUni("Master of Guile") + ". While wearing the helm, you have advantage on Charisma (Deception) and Wisdom (Insight) checks."+
+		"\n   " + toUni("Arrow of Elemental Havoc") + ". As a bonus action while wearing the helm, you can launch a bolt of searing elemental energy toward a creature you can see within 90 feet of yourself. The target must make a DC 20 Dexterity saving throw. On a failed save, the creature takes 4d6 acid, cold, fire, lightning, or thunder damage (your choice). On a successful save, the creature takes half as much damage."+
+		"\n   " + toUni("Spellcasting") + ". The helm has 6 charges and regains 1d6 charges each dawn. As an action while wearing the helm, you can expend 1 or more of its charges to cast one of the following spells (save DC 20): elemental weapon (1 charge), call lightning (2 charges), wall of fire (3 charges), conjure elemental (4 charges), tsunami (5 charges)."
+	}
+}

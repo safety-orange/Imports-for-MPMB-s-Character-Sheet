@@ -356,7 +356,7 @@ FeatsList["outsized might-ua"] = {
 	descriptionFull : "You have absorbed primeval magic that allows you, despite your relatively small stature, to embody the might of titanic creatures. This grants you the following benefits:"+
 	"\n\n" + toUni("Little but Mighty") + ". You gain proficiency in either the Athletics or Acrobatics skill."+
 	"\n" + toUni("Powerful Build") + ". You count as one size larger when determining your carrying capacity and the amount you can push, drag, or lift."+
-	"\n" + toUni("Stalwart") + ".You have advantage on saving throws against being moved or knocked prone.",
+	"\n" + toUni("Stalwart") + ". You have advantage on saving throws against being moved or knocked prone.",
 	description : "I gain proficiency in Athletics or Acrobatics. I count as one size larger when determining my carrying capacity and the amount I can push, drag, or lift. I have advantage on saving throws against being moved or knocked prone.",
 	skillstxt : "Choose Athletics or Acrobatics",
 	carryingCapacity : 2,
@@ -422,7 +422,7 @@ FeatsList["keenness of the stone giant-ua"] = {
 	descriptionFull : "You've manifested the protection and spellcasting emblematic of stone giants, granting you the following benefits:"+
 	"\n\n" + toUni("Dreamer's Magic") + " You learn the detect thoughts spell and one 1st-level spell of your choice. The 1st-level spell must be from the abjuration or the divination school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level."+
 	"\nIntelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat)."+
-	"\n" + toUni("Mountain Sight") + " You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 30 feet",
+	"\n" + toUni("Mountain Sight") + ". You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 30 feet",
 	description : "I learn detect thoughts and a 1st level Abjur or Div spell. I can cast these without a spell slot once per long rest, or as normal. I gain 60 ft of Darkvision or if I already have darkvision I get an extra 30 feet of Darkvision.",
 	spellcastingAbility : [4, 5, 6],
 	spellcastingBonus : [{

@@ -7980,7 +7980,7 @@ MagicItemsList["reveler's concertina"] = {
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {
-				if (type !== "prepare" && spellcasters.indexOf('bard') !== -1) return 2;
+				if (type === "dc" && spellcasters.indexOf('bard') !== -1) return 2;
 			},
 			"While holding the Reveler's Concertina, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my bard spells."
 		]
