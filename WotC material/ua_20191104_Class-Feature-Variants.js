@@ -386,7 +386,7 @@ RunFunctionAtEnd(function () {
 						if (isNaN(curDie) || curDie < aMonkDie) {
 							fields.Damage_Die = '1d' + aMonkDie;
 						};
-						if (fields.Mod == 1 || fields.Mod == 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
+						if (fields.Mod === 1 || fields.Mod === 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
 							fields.Mod = v.StrDex;
 						}
 					};

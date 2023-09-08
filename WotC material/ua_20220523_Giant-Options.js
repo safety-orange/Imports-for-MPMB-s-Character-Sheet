@@ -1,7 +1,7 @@
 // This file adds the content from the Unearthed Arcana 2022: Giant Options article to MPMB's Character Record Sheet
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 var iFileName = "ua_20220523_Giant-Options.js";
-RequiredSheetVersion("13.1.2");
+RequiredSheetVersion("13.1.9");
 
 SourceList["UA:GO"] = {
 	name : "Unearthed Arcana: Giant Options",
@@ -58,17 +58,35 @@ AddSubClass("barbarian", "giant-ua", {
 				atkAdd : [
 					function (fields, v) {
 						if ((v.isMeleeWeapon || v.isRangedWeapon) && classes.known.barbarian && classes.known.barbarian.level && /^(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
-							fields.Damage_Type = "acid";
+							fields.Damage_Type = "Varies";
+							var isThrownWeapon = /\bthrown\b/i.test(v.WeaponText);
 							var extraDmg = classes.known.barbarian.level < 14 ? '+1d6 damage' : '+2d6 damage';
-							var extraProp = v.isRangedWeapon ? '' : /\bthrown\b/i.test(v.WeaponText) ? 'Returning; ' : 'Thrown, returning; ';
+							var extraProp = v.isRangedWeapon && !isThrownWeapon ? 'Thrown (20/60 ft), returning; ' : isThrownWeapon ? 'Returning; ' : 'Thrown, returning; ';
+							var hasRange = /\d+ ?(f.{0,2}t|m)/i.test(fields.Range);
+							if (!hasRange) {
+								fields.Range += ', 20/60 ft';
+							} else if ((!v.isRangedWeapon || isThrownWeapon) && hasRange) {
+								var rangeNmbr = fields.Range.match(/\d+([.,]\d+)?/g);
+								if (rangeNmbr.length === 1) {
+									var longRange = Number(rangeNmbr[0].replace(',', '.'));
+									if (longRange < 60) tempRange = fields.Range.replace(longRange,"long_range");
+								} else {
+									var shortRange = Number(rangeNmbr[0].replace(',', '.'));
+									var longRange = Number(rangeNmbr[1].replace(',', '.'));
+									tempRange = fields.Range;
+									if (shortRange < 20) tempRange = tempRange.replace(shortRange,"short_range");
+									if (longRange < 60) tempRange = tempRange.replace(longRange,"long_range");
+								}
+								fields.Range = tempRange.replace("short_range", 20).replace("long_range", 60);
+							}
 							fields.Description += (fields.Description ? '; ' : '') + extraProp + extraDmg;
 						}
 					},
-					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Acid'. Also, my Rage's bonus damage will be added to it if it is a melee weapon."
+					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Acid'. Also, my Rage's bonus damage will be added to it if it is a melee weapon that uses Strength."
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level && !/\brage\b/i.test(v.WeaponTextName) && /^(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
+						if (v.isMeleeWeapon && fields.Mod === 1 && classes.known.barbarian && classes.known.barbarian.level && /^(?!.*\brage\b)(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
 							output.extraDmg += classes.known.barbarian.level < 9 ? 2 : classes.known.barbarian.level < 16 ? 3 : 4;
 						}
 					},

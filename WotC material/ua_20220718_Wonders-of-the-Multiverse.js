@@ -248,12 +248,14 @@ BackgroundList["giant foundling-ua"] = {
 		"Home/family killed by warring giants"
 	]
 };
-BackgroundFeatureList["strike of the giants"] = {
-	description : "I grew up among giants, even though I'm not one. Something about this environment ensured that I grew to a remarkable size and I have learned how to embody the titanic might of giants. I'm used to moving through a world much bigger than me, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
-	source : [["UA:WotM", 4]],
-	eval : function() { AddFeat("Strike of the Giants"); },
-	removeeval : function() { RemoveFeat("Strike of the Giants"); }
-};
+if (!BackgroundFeatureList["strike of the giants"]) {
+	BackgroundFeatureList["strike of the giants"] = {
+		description : "I grew up among giants, even though I'm not one. Something about this environment ensured that I grew to a remarkable size and I have learned how to embody the titanic might of giants. I'm used to moving through a world much bigger than me, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
+		source : [["GotG", 13], ["UA:WotM", 4]],
+		eval : function() { AddFeat("Strike of the Giants"); },
+		removeeval : function() { RemoveFeat("Strike of the Giants"); }
+	};
+}
 
 BackgroundList["planar philosopher-ua"] = {
 	regExpSearch : /^(?=.*planar)(?=.*philosopher).*$/i,

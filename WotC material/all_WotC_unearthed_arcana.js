@@ -1,6 +1,6 @@
-if (sheetVersion < 13001007) { throw "This script was made for a newer version of the sheet (v13.1.7). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13001009) { throw "This script was made for a newer version of the sheet (v13.1.9). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.1.7");
+RequiredSheetVersion("13.1.9");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -16751,7 +16751,7 @@ RunFunctionAtEnd(function () {
 						if (isNaN(curDie) || curDie < aMonkDie) {
 							fields.Damage_Die = '1d' + aMonkDie;
 						};
-						if (fields.Mod == 1 || fields.Mod == 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
+						if (fields.Mod === 1 || fields.Mod === 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
 							fields.Mod = v.StrDex;
 						}
 					};
@@ -21931,17 +21931,35 @@ AddSubClass("barbarian", "giant-ua", {
 				atkAdd : [
 					function (fields, v) {
 						if ((v.isMeleeWeapon || v.isRangedWeapon) && classes.known.barbarian && classes.known.barbarian.level && /^(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
-							fields.Damage_Type = "acid";
+							fields.Damage_Type = "Varies";
+							var isThrownWeapon = /\bthrown\b/i.test(v.WeaponText);
 							var extraDmg = classes.known.barbarian.level < 14 ? '+1d6 damage' : '+2d6 damage';
-							var extraProp = v.isRangedWeapon ? '' : /\bthrown\b/i.test(v.WeaponText) ? 'Returning; ' : 'Thrown, returning; ';
+							var extraProp = v.isRangedWeapon && !isThrownWeapon ? 'Thrown (20/60 ft), returning; ' : isThrownWeapon ? 'Returning; ' : 'Thrown, returning; ';
+							var hasRange = /\d+ ?(f.{0,2}t|m)/i.test(fields.Range);
+							if (!hasRange) {
+								fields.Range += ', 20/60 ft';
+							} else if ((!v.isRangedWeapon || isThrownWeapon) && hasRange) {
+								var rangeNmbr = fields.Range.match(/\d+([.,]\d+)?/g);
+								if (rangeNmbr.length === 1) {
+									var longRange = Number(rangeNmbr[0].replace(',', '.'));
+									if (longRange < 60) tempRange = fields.Range.replace(longRange,"long_range");
+								} else {
+									var shortRange = Number(rangeNmbr[0].replace(',', '.'));
+									var longRange = Number(rangeNmbr[1].replace(',', '.'));
+									tempRange = fields.Range;
+									if (shortRange < 20) tempRange = tempRange.replace(shortRange,"short_range");
+									if (longRange < 60) tempRange = tempRange.replace(longRange,"long_range");
+								}
+								fields.Range = tempRange.replace("short_range", 20).replace("long_range", 60);
+							}
 							fields.Description += (fields.Description ? '; ' : '') + extraProp + extraDmg;
 						}
 					},
-					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Acid'. Also, my Rage's bonus damage will be added to it if it is a melee weapon."
+					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Acid'. Also, my Rage's bonus damage will be added to it if it is a melee weapon that uses Strength."
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level && !/\brage\b/i.test(v.WeaponTextName) && /^(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
+						if (v.isMeleeWeapon && fields.Mod === 1 && classes.known.barbarian && classes.known.barbarian.level && /^(?!.*\brage\b)(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
 							output.extraDmg += classes.known.barbarian.level < 9 ? 2 : classes.known.barbarian.level < 16 ? 3 : 4;
 						}
 					},
@@ -22229,7 +22247,7 @@ FeatsList["outsized might-ua"] = {
 	descriptionFull : "You have absorbed primeval magic that allows you, despite your relatively small stature, to embody the might of titanic creatures. This grants you the following benefits:"+
 	"\n\n" + toUni("Little but Mighty") + ". You gain proficiency in either the Athletics or Acrobatics skill."+
 	"\n" + toUni("Powerful Build") + ". You count as one size larger when determining your carrying capacity and the amount you can push, drag, or lift."+
-	"\n" + toUni("Stalwart") + ".You have advantage on saving throws against being moved or knocked prone.",
+	"\n" + toUni("Stalwart") + ". You have advantage on saving throws against being moved or knocked prone.",
 	description : "I gain proficiency in Athletics or Acrobatics. I count as one size larger when determining my carrying capacity and the amount I can push, drag, or lift. I have advantage on saving throws against being moved or knocked prone.",
 	skillstxt : "Choose Athletics or Acrobatics",
 	carryingCapacity : 2,
@@ -22295,7 +22313,7 @@ FeatsList["keenness of the stone giant-ua"] = {
 	descriptionFull : "You've manifested the protection and spellcasting emblematic of stone giants, granting you the following benefits:"+
 	"\n\n" + toUni("Dreamer's Magic") + " You learn the detect thoughts spell and one 1st-level spell of your choice. The 1st-level spell must be from the abjuration or the divination school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level."+
 	"\nIntelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat)."+
-	"\n" + toUni("Mountain Sight") + " You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 30 feet",
+	"\n" + toUni("Mountain Sight") + ". You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 30 feet",
 	description : "I learn detect thoughts and a 1st level Abjur or Div spell. I can cast these without a spell slot once per long rest, or as normal. I gain 60 ft of Darkvision or if I already have darkvision I get an extra 30 feet of Darkvision.",
 	spellcastingAbility : [4, 5, 6],
 	spellcastingBonus : [{
@@ -22648,12 +22666,14 @@ BackgroundList["giant foundling-ua"] = {
 		"Home/family killed by warring giants"
 	]
 };
-BackgroundFeatureList["strike of the giants"] = {
-	description : "I grew up among giants, even though I'm not one. Something about this environment ensured that I grew to a remarkable size and I have learned how to embody the titanic might of giants. I'm used to moving through a world much bigger than me, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
-	source : [["UA:WotM", 4]],
-	eval : function() { AddFeat("Strike of the Giants"); },
-	removeeval : function() { RemoveFeat("Strike of the Giants"); }
-};
+if (!BackgroundFeatureList["strike of the giants"]) {
+	BackgroundFeatureList["strike of the giants"] = {
+		description : "I grew up among giants, even though I'm not one. Something about this environment ensured that I grew to a remarkable size and I have learned how to embody the titanic might of giants. I'm used to moving through a world much bigger than me, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
+		source : [["GotG", 13], ["UA:WotM", 4]],
+		eval : function() { AddFeat("Strike of the Giants"); },
+		removeeval : function() { RemoveFeat("Strike of the Giants"); }
+	};
+}
 
 BackgroundList["planar philosopher-ua"] = {
 	regExpSearch : /^(?=.*planar)(?=.*philosopher).*$/i,

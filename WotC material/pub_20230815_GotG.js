@@ -1,5 +1,5 @@
 var iFileName = "pub_20230815_GotG.js";
-RequiredSheetVersion("13.1.8");
+RequiredSheetVersion("13.1.9");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet
 
 SourceList["GotG"] = {
@@ -57,17 +57,35 @@ AddSubClass("barbarian", "giant-ua", {
 				atkAdd : [
 					function (fields, v) {
 						if ((v.isMeleeWeapon || v.isRangedWeapon) && classes.known.barbarian && classes.known.barbarian.level && /^(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
-							fields.Damage_Type = "acid";
+							fields.Damage_Type = "Varies";
+							var isThrownWeapon = /\bthrown\b/i.test(v.WeaponText);
 							var extraDmg = classes.known.barbarian.level < 14 ? '+1d6 damage' : '+2d6 damage';
-							var extraProp = v.isRangedWeapon ? '' : /\bthrown\b/i.test(v.WeaponText) ? 'Returning; ' : 'Thrown, returning; ';
+							var extraProp = v.isRangedWeapon && !isThrownWeapon ? 'Thrown (20/60 ft), returning; ' : isThrownWeapon ? 'Returning; ' : 'Thrown, returning; ';
+							var hasRange = /\d+ ?(f.{0,2}t|m)/i.test(fields.Range);
+							if (!hasRange) {
+								fields.Range += ', 20/60 ft';
+							} else if ((!v.isRangedWeapon || isThrownWeapon) && hasRange) {
+								var rangeNmbr = fields.Range.match(/\d+([.,]\d+)?/g);
+								if (rangeNmbr.length === 1) {
+									var longRange = Number(rangeNmbr[0].replace(',', '.'));
+									if (longRange < 60) tempRange = fields.Range.replace(longRange,"long_range");
+								} else {
+									var shortRange = Number(rangeNmbr[0].replace(',', '.'));
+									var longRange = Number(rangeNmbr[1].replace(',', '.'));
+									tempRange = fields.Range;
+									if (shortRange < 20) tempRange = tempRange.replace(shortRange,"short_range");
+									if (longRange < 60) tempRange = tempRange.replace(longRange,"long_range");
+								}
+								fields.Range = tempRange.replace("short_range", 20).replace("long_range", 60);
+							}
 							fields.Description += (fields.Description ? '; ' : '') + extraProp + extraDmg;
 						}
 					},
-					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Acid'. Also, my Rage's bonus damage will be added to it if it is a melee weapon."
+					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Varies'. Also, my Rage's bonus damage will be added to it if it is a melee weapon that uses Strength."
 				],
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.barbarian && classes.known.barbarian.level && !/\brage\b/i.test(v.WeaponTextName) && /^(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
+						if (v.isMeleeWeapon && fields.Mod === 1 && classes.known.barbarian && classes.known.barbarian.level && /^(?!.*\brage\b)(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
 							output.extraDmg += classes.known.barbarian.level < 9 ? 2 : classes.known.barbarian.level < 16 ? 3 : 4;
 						}
 					},
@@ -136,7 +154,7 @@ BackgroundList["giant foundling"] = {
 };
 BackgroundFeatureList["strike of the giants"] = {
 	description : "I grew up among giants or where they lived. Something about this environment\u2014the food, water, elemental magic, or some blessing\u2014caused me to grow to a remarkable size for my kind. I'm used to moving through a world much bigger than I, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
-	source : [["GotG", 13]],
+	source : [["GotG", 13], ["UA:WotM", 4]],
 	eval : function() { AddFeat("Strike of the Giants"); },
 	removeeval : function() { RemoveFeat("Strike of the Giants"); }
 };
@@ -626,7 +644,7 @@ FeatsList["rune shaper"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		note : desc(GotG_RuneShaper).replace(/   >>(.*?)<<\.?/g, function(a, match) { return "\n" + match.toUpperCase().replace(/\.$/, "\n   "); }).replace(/Your/g, "My").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact|granting) you/ig, "$1 me").replace(/you /ig, "I ")
+		note : desc(GotG_RuneShaper).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/Your/g, "My").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact|granting) you/ig, "$1 me").replace(/you /ig, "I ")
 	}]
 };
 
@@ -847,7 +865,7 @@ MagicItemsList["glowrune pigment"] = {
 	"\n   A creature can benefit from only one painted rune at a time, so a new rune painted on a creature has no effect unless the old one is removed first. The rune's benefits last for 8 hours or until the painted creature uses its action to wipe away the rune.",
 	description : "This set of 1d4+2 paint pots can each be used to draw one rune on a creature in 10 min, which lasts for 8 hours: \u2022 No penalty from difficult terrain. \u2022 10 temp hp and adv. on death saves. \u2022 +30 ft darkvision. \u2022 Can't be knocked prone and adv. on Str saves and Con saves. \u2022 Adv. on Dex save vs. damaging effects."
 };
-MagicItemsList["delver's Claws"] = {
+MagicItemsList["delver's claws"] = {
 	name : "Delver's Claws",
 	source : [["GotG", 112]],
 	type : "wondrous item",
@@ -879,13 +897,13 @@ MagicItemsList["delver's Claws"] = {
 	additional : "invoke rune"
 };
 var GotG_HarpOfGildedPlenty = [
-	"This golden harp is sculpted in the image of the god Iallanis, depicted as a young cloud giant woman. When a creature comes within 5 feet of the harp, the instrument animates and is capable of speaking, singing, and playing by itself."+
-	"Whenever you attempt to attune to the harp, you must first make either a DC 15 Charisma (Performance) check or a DC 20 Charisma (Persuasion) check to convince the harp that you are worthy, attuning to the harp on a success. If you fail, you can't attempt to attune to the harp again until the next dawn. Once you have successfully attuned to the harp, the harp resizes to suit you."+
-	">>Stalwart Song<<. Whenever you make a Charisma check while attuned to the harp, you can treat a roll of 9 or lower on the die as a 10."+
-	">>Feast of Plenty<<. If you spend 10 minutes playing the harp, you can cast the heroes' feast spell from it. Once this property is used, it can't be used again until 1d10 + 10 days have passed."+
-	">>Soothing Melody<<. As an action, you can use the harp to cast the calm emotions spell (save DC 19). When the spell is cast using the harp, its duration increases to 1 hour, provided you maintain concentration on the spell. This property can be used five times, and it regains all uses at dawn."+
-	">>Sentience<<. The harp is a sentient, chaotic good object with an Intelligence of 13, a Wisdom of 15, and a Charisma of 20. It has hearing and darkvision to a range of 120 feet."+
-	"The harp can speak, read, and understand Common and Giant. It can also communicate telepathically with the creature attuned to it."+
+	"This golden harp is sculpted in the image of the god Iallanis, depicted as a young cloud giant woman. When a creature comes within 5 feet of the harp, the instrument animates and is capable of speaking, singing, and playing by itself.",
+	"Whenever you attempt to attune to the harp, you must first make either a DC 15 Charisma (Performance) check or a DC 20 Charisma (Persuasion) check to convince the harp that you are worthy, attuning to the harp on a success. If you fail, you can't attempt to attune to the harp again until the next dawn. Once you have successfully attuned to the harp, the harp resizes to suit you.",
+	">>Stalwart Song<<. Whenever you make a Charisma check while attuned to the harp, you can treat a roll of 9 or lower on the die as a 10.",
+	">>Feast of Plenty<<. If you spend 10 minutes playing the harp, you can cast the heroes' feast spell from it. Once this property is used, it can't be used again until 1d10 + 10 days have passed.",
+	">>Soothing Melody<<. As an action, you can use the harp to cast the calm emotions spell (save DC 19). When the spell is cast using the harp, its duration increases to 1 hour, provided you maintain concentration on the spell. This property can be used five times, and it regains all uses at dawn.",
+	">>Sentience<<. The harp is a sentient, chaotic good object with an Intelligence of 13, a Wisdom of 15, and a Charisma of 20. It has hearing and darkvision to a range of 120 feet.",
+	"The harp can speak, read, and understand Common and Giant. It can also communicate telepathically with the creature attuned to it.",
 	"The harp has a dramatic and pompous personality, taking extreme pride in the quality of music produced from its strings. If the harp is shorter than 6 feet tall, it bemoans its height."
 ];
 MagicItemsList["harp of gilded plenty"] = {
