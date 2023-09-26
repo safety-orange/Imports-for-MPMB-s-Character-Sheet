@@ -7,7 +7,7 @@ SourceList.W = {
 	name : "Explorer's Guide to Wildemount",
 	abbreviation : "EGtW",
 	abbreviationSpellsheet : "W",
-	group : "Primary Sources",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Critical Role",
 	url : "https://dnd.wizards.com/products/wildemount",
 	date : "2020/03/17"
@@ -1172,7 +1172,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				attacks : [],
 				features : [{
 					name : "Echo",
-					description : "The echo is a magical, translucent, gray image of its creator that that doesn't act and has no turn in combat. It lasts until it is destroyed, dismissed, another is manifested, or its creator is incapacitated. The echo is also destroyed if it is ever more than 30 ft away from its creator at the start of its creator's turn."
+					description : "The echo is a magical, translucent, gray image of its creator that that doesn't act and has no turn in combat. It lasts until it is destroyed, dismissed, another is manifested, or its creator is incapacitated. The echo is also destroyed if it is ever more than 30 ft away from its creator at the end of its creator's turn."
 				}],
 				traits : [{
 					name : "Swap Place",
@@ -1275,6 +1275,12 @@ AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassboga
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") === -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true]);
 				}
+			},
+			removeeval : function() {
+				// Remove access to dunamancy spells when removing subclass
+				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") !== -1) {
+					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true], "remove");
+				}
 			}
 		},
 		"subclassfeature2.1" : {
@@ -1352,6 +1358,12 @@ AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbog
 				// Always have access to dunamancy spells enabled
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") === -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true]);
+				}
+			},
+			removeeval : function() {
+				// Remove access to dunamancy spells when removing subclass
+				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") !== -1) {
+					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true], "remove");
 				}
 			}
 		},

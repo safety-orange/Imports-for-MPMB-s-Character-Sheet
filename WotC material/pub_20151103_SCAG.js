@@ -6,7 +6,7 @@ RequiredSheetVersion("13.0.8");
 SourceList.S={
 	name : "Sword Coast Adventure Guide",
 	abbreviation : "SCAG",
-	group : "Primary Sources",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Forgotten Realms",
 	url : "https://dnd.wizards.com/products/sword-coast-adventurers-guide",
 	date : "2015/11/03"

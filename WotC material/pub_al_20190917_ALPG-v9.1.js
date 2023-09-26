@@ -7,7 +7,7 @@ SourceList["ALPGs9"] = {
 	name : "AL Player's Guide v9.1: Inglorious Redemption",
 	abbreviation : "ALPGs9",
 	group : "Adventurers League",
-	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf", // used to be https://www.dmsguild.com/product/208178
+	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
 	date : "2019/09/17",
 	defaultExcluded : true
 };

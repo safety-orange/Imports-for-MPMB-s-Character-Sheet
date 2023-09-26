@@ -7,7 +7,7 @@ SourceList["AL:EE"]={
 	name : "Elemental Evil Backgrounds [Mulmaster]",
 	abbreviation : "AL:EE",
 	group : "Adventurers League",
-	url : "https://www.dropbox.com/s/ljtrwzmkoijb02o/Mulmaster-Bonds-and-Backgrounds.pdf", // used to be https://dndadventurersleague.org/wp-content/uploads/2015/04/Mulmaster-Bonds-and-Backgrounds.pdf
+	url : "https://www.dropbox.com/s/ljtrwzmkoijb02o/Mulmaster-Bonds-and-Backgrounds.pdf?dl=1", // used to be https://dndadventurersleague.org/wp-content/uploads/2015/04/Mulmaster-Bonds-and-Backgrounds.pdf
 	date : "2015/04/15"
 };
 

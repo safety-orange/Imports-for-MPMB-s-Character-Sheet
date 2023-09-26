@@ -6,7 +6,7 @@ RequiredSheetVersion("13.0.8");
 SourceList.MOT = {
 	name : "Mythic Odysseys of Theros",
 	abbreviation : "MOT",
-	group : "Primary Sources",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Magic: The Gathering",
 	url : "https://dnd.wizards.com/products/mythic-odysseys-theros",
 	date : "2020/07/21"

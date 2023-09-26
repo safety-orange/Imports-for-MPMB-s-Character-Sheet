@@ -6,7 +6,7 @@ RequiredSheetVersion("13.1.1");
 SourceList.VRGtR = {
 	name : "Van Richten's Guide to Ravenloft",
 	abbreviation : "VRGtR",
-	group : "Primary Sources",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Ravenloft",
 	url : "https://dnd.wizards.com/products/van-richtens-guide-ravenloft",
 	date : "2021/05/18"

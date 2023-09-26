@@ -6,7 +6,7 @@ RequiredSheetVersion("13.1.9");
 SourceList["E:RLW"] = {
 	name : "Eberron: Rising from the Last War",
 	abbreviation : "E:RLW",
-	group : "Primary Sources",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Eberron",
 	url : "https://dnd.wizards.com/products/eberron",
 	date : "2019/11/19"

@@ -4634,7 +4634,7 @@ SpellsList["tsunami"] = {
 	time : "1 min",
 	range : "Sight",
 	components : "V,S",
-	duration : "Conc, 6 rnd",
+	duration : "Conc, 6 rnds",
 	save : "Str",
 	description : "300\xD750\xD7300ft (l\xD7w\xD7h) wall of water moves away at 50 ft/rnd; 6d10 Bludg. dmg; save halves; see B",
 	descriptionShorter : "300\xD750\xD7300ft (l\xD7w\xD7h) wave moves away at 50 ft/rnd; 6d10 Bludg. dmg; save half; see B",

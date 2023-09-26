@@ -7,7 +7,7 @@ SourceList.SCC = {
 	name : "Strixhaven: A Curriculum of Chaos",
 	abbreviation : "SCC",
 	abbreviationSpellsheet : "SC",
-	group : "Adventure Books",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Magic: The Gathering",
 	url : "https://dnd.wizards.com/products/strixhaven-curriculum-chaos",
 	date : "2021/12/07"

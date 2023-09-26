@@ -10,7 +10,7 @@ SourceList["GotG"] = {
 	date : "2023/08/15"
 };
 
-AddSubClass("barbarian", "giant-ua", {
+AddSubClass("barbarian", "giant", {
 	regExpSearch : /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname : "Path of the Giant",
 	source : [["GotG", 11]],

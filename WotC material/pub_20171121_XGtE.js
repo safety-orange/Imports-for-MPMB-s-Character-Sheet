@@ -2754,7 +2754,7 @@ AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)",
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
-	description : "\n   " + "When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me",
+	description : desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
 	source : [["X", 57], ["UA:RCO", 6]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },

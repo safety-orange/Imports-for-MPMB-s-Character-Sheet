@@ -8,7 +8,7 @@ SourceList["AL:RoD"]={
 	abbreviation : "AL:RoD",
 	group : "Adventurers League",
 	campaignSetting : "Forgotten Realms",
-	url : "https://www.dropbox.com/s/h4ijcnfun1cn580/Hillsfar-Regional-Character-Options.pdf", // used to be https://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf
+	url : "https://www.dropbox.com/s/h4ijcnfun1cn580/Hillsfar-Regional-Character-Options.pdf?dl=1", // used to be https://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf
 	date : "2015/07/14"
 };
 

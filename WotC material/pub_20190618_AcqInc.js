@@ -7,7 +7,7 @@ SourceList["AcqInc"] = {
 	name : "Acquisitions Incorporated",
 	abbreviation : "AcqInc",
 	abbreviationSpellsheet : "AI",
-	group : "Primary Sources",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Penny Arcade",
 	url : "https://dnd.wizards.com/products/acquisitions-incorporated",
 	date : "2019/06/18"

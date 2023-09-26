@@ -9,7 +9,7 @@ SourceList.E={
 	abbreviationSpellsheet : "EE",
 	group : "Primary Sources",
 	campaignSetting : "Forgotten Realms",
-	url : "https://media.dnd.wizards.com/EE-Players-Companion_0_0.pdf",
+	url : "https://www.dropbox.com/scl/fi/h3rt7296724s6p8xgr1w2/Elemental-Evil-Players-Companion-v2017.pdf?rlkey=99p2n6gpk0qcz9r3hdjka0b9y&dl=1", // used to be https://media.dnd.wizards.com/EE-Players-Companion_0_0.pdf
 	date : "2015/04/16"
 };
 

@@ -5,7 +5,7 @@ RequiredSheetVersion("13.1.3");
 SourceList["D:SotDQ"] = {
 	name : "Dragonlance: Shadow of the Dragon Queen",
 	abbreviation : "D:SotDQ",
-	group : "Adventure Books",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Dragonlance",
 	url : "https://dnd.wizards.com/products/dragonlance",
 	date : "2022/12/06"

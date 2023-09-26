@@ -18,7 +18,7 @@ SourceList["S:AiS"] = {
 	name : "Spelljammer: Adventures in Space",
 	abbreviation : "S:AiS",
 	abbreviationSpellsheet : "SJ",
-	group : "Primary Sources",
+	group : "Campaign Sourcebooks",
 	campaignSetting : "Spelljammer",
 	url : "https://dnd.wizards.com/products/spelljammer",
 	date : "2022/08/16"

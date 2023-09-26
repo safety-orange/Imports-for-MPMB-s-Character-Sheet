@@ -8,7 +8,7 @@ SourceList.CoS={
 	abbreviation : "CoS",
 	group : "Adventure Books",
 	campaignSetting : "Ravenloft",
-	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
+	url : "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf?dl=1",
 	date : "2016/03/15"
 };
 SourceList["AL:CoS"]={

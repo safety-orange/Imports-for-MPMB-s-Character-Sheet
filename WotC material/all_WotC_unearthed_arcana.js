@@ -5956,9 +5956,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
-	description : desc([
-		"When my Eldritch Blast hits a creature once or more, I can move it 10 ft closer to me"
-	]),
+	description : desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
 	source : [["UA:WnW", 4]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass); },
