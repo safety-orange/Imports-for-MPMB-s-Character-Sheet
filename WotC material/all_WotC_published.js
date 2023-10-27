@@ -5221,6 +5221,9 @@ MagicItemsList["dragontooth dagger"] = {
 	}
 }
 
+// Beast
+// Sled dog is just a wolf under a different name, it has been added to the SRD code as a `nameAlt`
+
 // pub_20140930_MM.js
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
@@ -14391,6 +14394,7 @@ SourceList.TftYP={
 };
 
 // Creatures
+// Snow leopard is just a tiger under a different name, it has been added to the SRD code as a `nameAlt`
 CreatureList["giant crayfish"] = {
 	name : "Giant Crayfish",
 	nameAlt : ["Crayfish, Giant"],
@@ -21418,6 +21422,9 @@ MagicItemsList["smokepowder"] = {
 	}
 }
 
+// Beast
+// Falcon is just a hawk under a different name, it has been added to the SRD code as a `nameAlt`
+
 // pub_20181107_LLoK.js
 // This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet
 
@@ -23244,7 +23251,7 @@ MagicItemsList["guild signet"] = {
 	additional : "regains 1d3",
 	choices : ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
 	"azorius" : {
-		description : "\nAzorius\tensnaring strike",
+		description : "This signet ring bears a symbol of Azorius. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Ensnaring Strike (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
 		spellcastingBonus : {
@@ -24031,6 +24038,9 @@ MagicItemsList["vial of stardust"] = {
 	description : "Once as an action, I can sprinkles the stardust contained in this vial over myself. After I do so, I gain the ability to cast Dream once as an action (spell save DC 15), requiring no components.",
 	descriptionFull : "Any creature that sprinkles the contents of a Vial of Stardust over itself gains the ability to cast the Dream spell once as an action (spell save DC 15), requiring no components."
 }
+
+// Beast
+// Crow is just a raven under a different name, it has been added to the SRD code as a `nameAlt`
 
 // pub_20190521_GoS.js
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
@@ -25111,6 +25121,8 @@ BackgroundFeatureList["gateguide connection"] = {
 	source : [["DiA", 207], ["ALbackground", 0]]
 };
 
+// Creatures
+// Peacock is just a vulture under a different name, it has been added to the SRD code as a `nameAlt`
 CreatureList["abyssal chicken"] = {
 	name : "Abyssal Chicken",
 	nameAlt : ["Chicken, Abyssal"],
@@ -32077,8 +32089,9 @@ MagicItemsList["flying chariot"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	notLegalAL : true,
-	description : "I gain +1 AC while riding this chariot, as do any passengers and the creatures pulling it. If this chariot is pulled by one or more flying creatures, they too can fly.\n(The AC bonus is not added to the automation, as it is so situational.)",
-	descriptionFull : "The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC. " + "\n   " + "If this magic chariot is pulled by one or more flying creatures, it too can fly. ",
+	description : "I gain +1 AC while riding this chariot, as do any passengers and the creatures pulling it. If this chariot is pulled by one or more flying creatures, they too can fly.\n(The AC bonus is not added to the automation, as it is too situational.)",
+	descriptionFull : "The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC."+
+	"\n   If this magic chariot is pulled by one or more flying creatures, it too can fly.",
 	weight : 100
 };
 MagicItemsList["helm of the gods"] = {
@@ -32488,6 +32501,7 @@ GearList["snowshoes"] = {
 };
 
 // Creatures - new beasts (each contain contributions by BraabHimself)
+// Reindeer is just an elk under a different name and a moose uses the giant goat stat block. They have been added to the SRD code as a `nameAlt`
 CreatureList["awakened white moose"] = {
 	name : "Awakened White Moose",
 	nameAlt : ["Moose, Awakened White"],
@@ -39302,7 +39316,7 @@ MagicItemsList["eldritch claw tattoo"] = {
 		atkCalc : [
 			function (fields, v, output) {
 				if (v.baseWeaponName === "unarmed strike") {
-					output.magic = v.thisWeapon[1] + 1;
+					output.magic += 1;
 				}
 			}, ''
 		]
@@ -42736,15 +42750,15 @@ FeatsList["gift of the gem dragon"] = {
 	recovery : "long rest",
 	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof Bonus + Int mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Intelligence]';",
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + ( 8 + Number(How('Proficiency Bonus')) + Number(What('Int Mod')) ) + ' (8 + Prof Bonus + Int mod), it halves the damage and isn\\'t pushed. I can do this my Proficiency Bonus per long rest. [+1 Intelligence]';",
 		scores : [0, 0, 0, 1, 0, 0]
 	},
 	"wisdom" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof Bonus + Wis mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Wisdom]';",
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof Bonus + Wis mod), it halves the damage and isn\\'t pushed. I can do this my Proficiency Bonus per long rest. [+1 Wisdom]';",
 		scores : [0, 0, 0, 0, 1, 0]
 	},
 	"charisma" : {
-		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof Bonus + Cha mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Charisma]';",
+		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof Bonus + Cha mod), it halves the damage and isn\\'t pushed. I can do this my Proficiency Bonus per long rest. [+1 Charisma]';",
 		scores : [0, 0, 0, 0, 0, 1]
 	}
 };
@@ -46189,7 +46203,6 @@ RaceList["multiverse satyr"] = {
 	toolProfs : [["Musical instrument", 1]],
 	scoresGeneric : true,
 	skills : ["Performance", "Persuasion"],
-	toolProfs : [["Musical instrument", 1]],
 	trait : "Satyr (my creature type is fey, rather than humanoid)"+
 		"\n \u2022 Ram: My unarmed strikes with my horned head deal 1d6 bludgeoning damage."+
 		"\n \u2022 Magic Resistance: I have advantage on saves against spells."+
@@ -48661,7 +48674,7 @@ FeatsList["strike of the giants"] = {
 	choices : ["Cloud Strike", "Fire Strike", "Frost Strike", "Hill Strike", "Stone Strike", "Storm Strike"],
 	"cloud strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + ( 8 + iProfB + Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ) ) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"fire strike" : {
 		description : "I have absorbed primeval magic that gives me an echo of the might of giants. Once per turn when I hit with a melee weapon attack or thrown weapon, the target takes +1d10 fire damage. I can do this a number of times per long rest equal to my proficiency bonus."
@@ -48706,7 +48719,7 @@ FeatsList["ember of the fire giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + Number(What('Str Mod')) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
 		weaponsAdd : ["Searing Ignition"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
@@ -48726,7 +48739,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + Number(What('Con Mod')) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
 		weaponsAdd : ["Searing Ignition"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
@@ -48746,7 +48759,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + Number(What('Wis Mod')) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
 		weaponsAdd : ["Searing Ignition"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
@@ -48789,7 +48802,7 @@ FeatsList["fury of the frost giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + Number(What('Str Mod')) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
 		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
@@ -48809,7 +48822,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + Number(What('Con Mod')) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
 		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
@@ -48829,7 +48842,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + Number(What('Wis Mod')) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
 		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
@@ -48977,17 +48990,17 @@ FeatsList["soul of the storm giant"] = {
 	choices : ["Strength", "Constitution", "Charisma"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + Number(What('Str Mod')) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + Number(What('Con Mod')) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
 		scores : [0,0,1,0,0,0]
 	},
 	"charisma" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + Number(What('Cha Mod')) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Cha Mod')) ) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
 		scores : [0,0,0,0,0,1]
 	}
 };
@@ -49285,21 +49298,6 @@ MagicItemsList["crown of the wrath bringer"] = {
 		}
 	}
 };
-MagicItemsList["glowrune pigment"] = {
-	name : "Glowrune Pigment",
-	source : [["GotG", 112]],
-	type : "wondrous item",
-	rarity : "rare",
-	descriptionFull : "This set of 1d4 + 2 small paint pots contains pigments mixed from crushed luminescent gemstones. This magical paint bestows temporary magical gifts on creatures with runes drawn on their skin with this paint."+
-	"\n   One paint pot contains enough pigment to paint one rune. A creature can spend 10 minutes to paint one of the following runes onto itself or another creature:"+
-	"\n   " + toUni("Journey Rune") + ". Difficult terrain doesn't cost the painted creature extra movement."+
-	"\n   " + toUni("Life Rune") + ". The painted creature gains 10 temporary hit points and has advantage on death saving throws."+
-	"\n   " + toUni("Light Rune") + ". The painted creature gains darkvision to a range of 30 feet. If the painted creature already has darkvision from another source, the range of its darkvision increases by 30 feet."+
-	"\n   " + toUni("Mountain Rune") + ". The painted creature is immune to being knocked prone and has advantage on Strength and Constitution saving throws."+
-	"\n   " + toUni("Shield Rune") + ". The painted creature has advantage on Dexterity saving throws against effects that deal damage."+
-	"\n   A creature can benefit from only one painted rune at a time, so a new rune painted on a creature has no effect unless the old one is removed first. The rune's benefits last for 8 hours or until the painted creature uses its action to wipe away the rune.",
-	description : "This set of 1d4+2 paint pots can each be used to draw one rune on a creature in 10 min, which lasts for 8 hours: \u2022 No penalty from difficult terrain. \u2022 10 temp hp and adv. on death saves. \u2022 +30 ft darkvision. \u2022 Can't be knocked prone and adv. on Str saves and Con saves. \u2022 Adv. on Dex save vs. damaging effects."
-};
 MagicItemsList["delver's claws"] = {
 	name : "Delver's Claws",
 	source : [["GotG", 112]],
@@ -49330,6 +49328,21 @@ MagicItemsList["delver's claws"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "invoke rune"
+};
+MagicItemsList["glowrune pigment"] = {
+	name : "Glowrune Pigment",
+	source : [["GotG", 112]],
+	type : "wondrous item",
+	rarity : "rare",
+	descriptionFull : "This set of 1d4 + 2 small paint pots contains pigments mixed from crushed luminescent gemstones. This magical paint bestows temporary magical gifts on creatures with runes drawn on their skin with this paint."+
+	"\n   One paint pot contains enough pigment to paint one rune. A creature can spend 10 minutes to paint one of the following runes onto itself or another creature:"+
+	"\n   " + toUni("Journey Rune") + ". Difficult terrain doesn't cost the painted creature extra movement."+
+	"\n   " + toUni("Life Rune") + ". The painted creature gains 10 temporary hit points and has advantage on death saving throws."+
+	"\n   " + toUni("Light Rune") + ". The painted creature gains darkvision to a range of 30 feet. If the painted creature already has darkvision from another source, the range of its darkvision increases by 30 feet."+
+	"\n   " + toUni("Mountain Rune") + ". The painted creature is immune to being knocked prone and has advantage on Strength and Constitution saving throws."+
+	"\n   " + toUni("Shield Rune") + ". The painted creature has advantage on Dexterity saving throws against effects that deal damage."+
+	"\n   A creature can benefit from only one painted rune at a time, so a new rune painted on a creature has no effect unless the old one is removed first. The rune's benefits last for 8 hours or until the painted creature uses its action to wipe away the rune.",
+	description : "This set of 1d4+2 paint pots can each be used to draw one rune on a creature in 10 min, which lasts for 8 hours: \u2022 No penalty from difficult terrain. \u2022 10 temp hp and adv. on death saves. \u2022 +30 ft darkvision. \u2022 Can't be knocked prone and adv. on Str saves and Con saves. \u2022 Adv. on Dex save vs. damaging effects."
 };
 var GotG_HarpOfGildedPlenty = [
 	"This golden harp is sculpted in the image of the god Iallanis, depicted as a young cloud giant woman. When a creature comes within 5 feet of the harp, the instrument animates and is capable of speaking, singing, and playing by itself.",
@@ -49449,6 +49462,45 @@ MagicItemsList["longbow of the healing hearth"] = {
 		spells : ["guardian of faith"],
 		selection : ["guardian of faith"],
 		firstCol : 3
+	}]
+};
+MagicItemsList["lucent destroyer"] = {
+	name : "Lucent Destroyer",
+	source : [["GotG", 113]],
+	type : "weapon (musket)",
+	rarity : "very rare",
+	attunement : true,
+	descriptionFull : "This magic weapon is a triple-barreled bronze musket. You gain a +1 bonus to attack and damage rolls made with it. It requires no ammunition, its damage is radiant instead of piercing, and it doesn't have the loading property. The base of the weapon is emblazoned with the light rune."+
+	"\n   Additionally, while attuned to the weapon, you can cast dancing lights from the musket at will."+
+	"\n   " + toUni("Invoking the Rune") + ". As an action, you can invoke the weapon's rune to cast the sunbeam spell (save DC 17) with it. Once the rune has been invoked, it can't be invoked again until the next dawn."+
+	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
+	description : "I gain a +1 bonus to attack and damage rolls made with this magical musket emblazoned with the light rune. It deals radiant damage and doesn't need to be loaded with ammunition. It allows me to cast Dancing Lights at will and Sunbeam (DC 17) once per dawn by invoking the rune.",
+	weight : 10,
+	weaponsAdd : ["Lucent Destroyer"],
+	weaponOptions : [{
+		baseWeapon : "musket",
+		regExpSearch : /^(?=.*lucent)(?=.*destroyer).*$/i,
+		name : "Lucent Destroyer",
+		source : [["GotG", 113]],
+		damage : [1, 12, "radiant"],
+		description : "Two-handed",
+		modifiers : [1, 1],
+		ammo : ""
+	}],
+	usages : 1,
+	recovery : "dawn",
+	additional : "invoke rune: Sunbeam",
+	fixedDC : 17,
+	spellcastingBonus : [{
+		name : "At will",
+		spells : ["dancing lights"],
+		selection : ["dancing lights"],
+		firstCol : "atwill"
+	}, {
+		name : "Once per dawn",
+		spells : ["sunbeam"],
+		selection : ["sunbeam"],
+		firstCol : "oncelr"
 	}]
 };
 MagicItemsList["mistral mantle"] = {
@@ -49762,6 +49814,34 @@ MagicItemsList["stonebreaker's breastplate"] = {
 	recovery : "dawn",
 	additional : "Wall of Stone"
 };
+MagicItemsList["thunderbuss"] = {
+	name : "Thunderbuss",
+	source : [["GotG", 116]],
+	type : "weapon (pistol)",
+	rarity : "very rare",
+	attunement : true,
+	descriptionFull : "This magic ranged weapon is a flared pistol with the storm rune engraved along the barrel. You gain a +1 bonus to attack and damage rolls made with it. It requires no ammunition, its damage is thunder instead of piercing, and it doesn't have the loading property."+
+	"\n   " + toUni("Invoking the Rune") + ". As a bonus action, you can invoke the weapon's rune to launch a ball of energy to a point you can see within 30 feet of yourself. The energy then detonates into a 10-foot-radius sphere of turbulent wind and thunder centered on that point, and each creature in that sphere must make a DC 14 Constitution saving throw. On a failed save, a creature takes 3d6 thunder damage, and it can't take reactions until the end of your next turn. On a successful save, a creature takes half as much damage only."+
+	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn."+
+	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
+	description : "This +1 pistol deals thunder damage and requires loading nor ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
+	weight : 3,
+	weaponsAdd : ["Thunderbuss"],
+	weaponOptions : [{
+		baseWeapon : "pistol",
+		regExpSearch : /thunderbuss/i,
+		name : "Thunderbuss",
+		source : [["GotG", 116]],
+		damage : [1, 10, "thunder"],
+		description : "",
+		modifiers : [1, 1],
+		ammo : ""
+	}],
+	usages : 1,
+	recovery : "dawn",
+	additional : "invoke rune",
+	action : [["bonus action", " (invoke rune)"]]
+};
 MagicItemsList["war horn of valor"] = {
 	name : "War Horn of Valor",
 	source : [["GotG", 117]],
@@ -49810,7 +49890,7 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 	"\n   The fists last for 1 minute or until you are incapacitated. While the spectral fists are active, unarmed strikes you make on your turn have a reach of 30 feet, and when you hit a creature with an opportunity attack made with your unarmed strike, the creature must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier) or have the prone condition."+
 	"\n   Once the runes have been invoked, they can't be invoked again until the next dawn.",
 	description : "+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC 8+Prof B.+Str mod or be knocked prone.",
-	calculate : "event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod')) + ' (8+Prof+Str) or be knocked prone.';",
+	calculate : "event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8+Prof+Str) or be knocked prone.';",
 	dmgres : ["acid,cold,fire,lightn.,or poison"],
 	calcChanges : {
 		atkAdd : [
@@ -50260,6 +50340,558 @@ MagicItemsList["ring of the orator"] = {
 	recovery : "dawn",
 	additional : "regains 1d6"
 }
+
+// pub_20231017_Planescape.js
+// This file adds the Character Options content from the "Planescape: Adventures in the Multiverse" set (the "Sigil and the Outlands" book) to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["P:AitM"] = {
+	name : "Planescape: Adventures in the Multiverse",
+	abbreviation : "P:AitM",
+	group : "Campaign Sourcebooks",
+	campaignSetting : "Planescape",
+	url : "https://dndstore.wizards.com/us/product/820944/planescape-adventures-in-the-multiverse-digital-plus-physical-bundle",
+	date : "2023/10/17"
+};
+
+// Backgrounds from Sigil and the Outlands
+BackgroundList["gate warden"] = {
+	regExpSearch : /^(?=.*gate)(?=.*warden).*$/i,
+	name : "Gate Warden",
+	source : [["P:AitM", 7], ["UA:WotM", 3]],
+	skills : ["Persuasion", "Survival"],
+	gold : 10,
+	languageProfs : [["Any (Abyssal, Celestial, or Infernal recommended)", 2]],
+	equipleft : [
+		["Blank book", "", 5],
+		["Ink, 1 ounce bottle of", 1, ""],
+		["Ink pen or quill", "", ""],
+		["Ring of keys to unknown locks", "", ""]
+	],
+	equipright : [
+		["Traveler's clothes", "", 4],
+		["Pouch (with coins)", "", 1]
+	],
+	feature : "Planar Infusion",
+	trait : [
+		"Strange events and otherworldly creatures don't phase me.",
+		"I think in terms of exchange; something for something, nothing for nothing.",
+		"I speak with an unusual cadence.",
+		"I pepper my speech with borrowed words or curses from planar languages.",
+		"I've seen enough to know that you can't take anyone at face value, so I scrutinize everyone.",
+		"I have a superstitious habit I picked up from my gate-town, such as touching iron when I'm nervous or arranging objects in a specific order."
+	],
+	extra : [
+		"Select a Trinket",
+		"Vial pendant with glowing honey",
+		"Whispering lead ingot thumbprint",
+		"Two chiming lodestone spheres",
+		"Skin-safe smoldering pebble of coal",
+		"Light up white feather",
+		"Hard to remove chain-link ring"
+	]
+};
+BackgroundFeatureList["planar infusion"] = {
+	description : "I spent a good amount of time somewhere influenced by planar forces. I'm accustomed to experiences that would leave others reeling in terror or captivated by beauty, and I'm comfortable dealing with fiends and celestials. I know where to find free, modest lodging and food in the community I grew up in. Also, I gain the Scion of the Outer Planes feat.",
+	source : [["P:AitM", 7], ["UA:WotM", 3]],
+	eval : function() { AddFeat("Scion of the Outer Planes"); },
+	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+};
+
+BackgroundList["planar philosopher"] = {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher).*$/i,
+	name : "Planar Philosopher",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana"],
+	skillstxt : "Arcana, and one skill determined by your faction or one skill of your choice.",
+	gold : 10,
+	languageProfs : [2],
+	equipleft : [
+		["Portal key (e.g. bag of golden tea leaves)", "", 3],
+		["Manifesto of my guiding philosophy", "", 1]
+	],
+	equipright : [
+		["Common clothes in faction's style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	],
+	feature : "Conviction",
+	trait : [
+		"I don't venerate any gods. With time, we can be as powerful as them or greater.",
+		"Experience is everything, I live in the moment.",
+		"When things crumble, I find meaning in the dust.",
+		"Life thrives through order, and I seek to maintain that order.",
+		"When others make plans, the multiverse laughs and so do I.",
+		"I know what's right, and none will stand in my way."
+	],
+	extra : [
+		"Select a Trinket",
+		"Inscribed locket with image of mentor",
+		"Cranium rat skull with glass eyes",
+		"Torn parchment with half a puzzle",
+		"Bracelet of twisted razorvine stems",
+		"Fragment of verdigris bronze blade",
+		"Broken symbol of forgotten god"
+	]
+};
+AddBackgroundVariant("planar philosopher", "planar philosopher of athar", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*athar).*$/i,
+	name : "Planar Philosopher of Athar",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Religion"],
+	equipright : [
+		["Common clothes in Athar style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of bleak cabal", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*bleak cabal).*$/i,
+	name : "Planar Philosopher of Bleak Cabal",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Insight"],
+	equipright : [
+		["Common clothes in Bleak Cabal style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of doomguard", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*doomguard).*$/i,
+	name : "Planar Philosopher of Doomguard",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Nature"],
+	equipright : [
+		["Common clothes in Doomguard style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of fated", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*fated).*$/i,
+	name : "Planar Philosopher of Fated",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Intimidation"],
+	equipright : [
+		["Common clothes in Fated style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of fraternity of order", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*fraternity of order).*$/i,
+	name : "Planar Philosopher of Fraternity of Order",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "History"],
+	equipright : [
+		["Common clothes in Fraternity of Order style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of hands of havoc", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*hands of havoc).*$/i,
+	name : "Planar Philosopher of Hands of Havoc",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Stealth"],
+	equipright : [
+		["Common clothes in Hands of Havoc style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of harmonium", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*harmonium).*$/i,
+	name : "Planar Philosopher of Harmonium",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Perception"],
+	equipright : [
+		["Common clothes in Harmonium style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of heralds of dust", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*heralds of dust).*$/i,
+	name : "Planar Philosopher of Heralds of Dust",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Medicine"],
+	equipright : [
+		["Common clothes in Heralds of Dust style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of mercykillers", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*mercykillers).*$/i,
+	name : "Planar Philosopher of Mercykillers",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Survival"],
+	equipright : [
+		["Common clothes in Mercykillers style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of mind's eye", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*mind's eye).*$/i,
+	name : "Planar Philosopher of Mind's Eye",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Persuasion"],
+	equipright : [
+		["Common clothes in Mind's Eye style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of society of sensation", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*society of sensation).*$/i,
+	name : "Planar Philosopher of Society of Sensation",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Performance"],
+	equipright : [
+		["Common clothes in Society of Sensation style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+AddBackgroundVariant("planar philosopher", "planar philosopher of transcendent order", {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher)(?=.*transcendent order).*$/i,
+	name : "Planar Philosopher of Transcendent Order",
+	source : [["P:AitM", 8]],
+	skills : ["Arcana", "Athletics"],
+	equipright : [
+		["Common clothes in Transcendent Order style", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	]
+});
+BackgroundFeatureList["conviction"] = {
+	description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
+	source : [["P:AitM", 8], ["UA:WotM", 4]],
+	eval : function() { AddFeat("Scion of the Outer Planes"); },
+	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+};
+
+// Feats from Sigil and the Outlands
+FeatsList["scion of the outer planes"] = {
+	name : "Scion of the Outer Planes",
+	source : [["P:AitM", 12]],
+	description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I can select a plane and gain resistance to a damage type and learn a cantrip associated with that plane. I can cast the cantrip without material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+	descriptionFull : "Your connection to an Outer Plane infuses you with the energy there. Choose a type of plane listed in the Planar Infusion table. Your choice gives you resistance to a damage type and the ability to cast a cantrip, as specified in the table. You can cast this cantrip without material components, and your spellcasting ability for it is Intelligence, Wisdom, or Charisma (choose when you select this feat)."+
+	toUni("\n\nPlane\t\tResistance\tCantrip")+
+	"\nChaotic Outer\tPoison\t\tMinor Illusion"+
+	"\nEvil Outer  \tNecrotic\t\tChill Touch"+
+	"\nGood Outer  \tRadiant\t\tSacred Flame"+
+	"\nLawful Outer\tForce\t\tGuidance"+
+	"\nThe Outlands\tPsychic\t\tMage Hand",
+	prerequisite : "Planescape Campaign",
+	spellcastingAbility : [4,5,6],
+	choices : ['Astral Plane (Psychic, Message)', 'Chaotic Outer Plane (Poison, Minor Illusion)', 'Evil Outer Plane (Necrotic, Chill Touch)', 'Good Outer Plane (Radiant, Sacred Flame)', 'Lawful Outer Plane (Force, Guidance)', 'The Outlands (Psychic, Mage Hand)'],
+	'chaotic outer plane (poison, minor illusion)' : {
+		name : "Scion of the Outer Planes (Chaotic Outer Plane)",
+		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to poison damage and I know the Minor Illusion cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		spellcastingAbility : [4,5,6],
+		allowUpCasting : true,
+		spellcastingBonus : {
+			name : "Chaotic Outer Plane",
+			spells : ["minor illusion"],
+			selection : ["minor illusion"],
+			firstCol : "atwill"
+		},
+		dmgres : ["Poison"],
+		spellChanges : {
+			"minor illusion" : {
+				components : "S",
+				compMaterial : "",
+				changes : "Using Scion of the Outer Planes, I can cast Minor Illusion without material components."
+			}
+		}
+	},
+	'evil outer plane (necrotic, chill touch)' : {
+		name : "Scion of the Outer Planes (Evil Outer Plane)",
+		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an evil outer plane. This connection gives me resistance to necrotic damage and I know the Chill Touch cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		spellcastingAbility : [4,5,6],
+		allowUpCasting : true,
+		spellcastingBonus : {
+			name : "Evil Outer Plane",
+			spells : ["chill touch"],
+			selection : ["chill touch"],
+			firstCol : "atwill"
+		},
+		dmgres : ["Necrotic"]
+	},
+	'good outer plane (radiant, sacred flame)' : {
+		name : "Scion of the Outer Planes (Good Outer Plane)",
+		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an good outer plane. This connection gives me resistance to radiant damage and I know the Sacred Flame cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		spellcastingAbility : [4,5,6],
+		allowUpCasting : true,
+		spellcastingBonus : {
+			name : "Good Outer Plane",
+			spells : ["sacred flame"],
+			selection : ["sacred flame"],
+			firstCol : "atwill"
+		},
+		dmgres : ["Radiant"]
+	},
+	'lawful outer plane (force, guidance)' : {
+		name : "Scion of the Outer Planes (Lawful Outer Plane)",
+		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an lawful outer plane. This connection gives me resistance to force damage and I know the Guidance cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		spellcastingAbility : [4,5,6],
+		allowUpCasting : true,
+		spellcastingBonus : {
+			name : "Lawful Outer Plane",
+			spells : ["guidance"],
+			selection : ["guidance"],
+			firstCol : "atwill"
+		},
+		dmgres : ["Force"]
+	},
+	'the outlands (psychic, mage hand)' : {
+		name : "Scion of the Outer Planes (the Outlands)",
+		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a plane of the outlands. This gives me resistance to psychic damage and I know the Mage Hand cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		spellcastingAbility : [4,5,6],
+		allowUpCasting : true,
+		spellcastingBonus : {
+			name : "The Outlands",
+			spells : ["mage hand"],
+			selection : ["mage hand"],
+			firstCol : "atwill"
+		},
+		dmgres : ["Psychic"]
+	}
+};
+FeatsList["agent of order"] = {
+	name : "Agent of Order",
+	source : [["P:AitM", 10]],
+	description : "Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must succeed on a Wis save (DC 8 + Prof Bonus + spellcasting ability mod of Scion of the Outer Planes) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest.",
+	calculate : "try { var a = Object.keys(CurrentSpells); var b = a.find(/scion of the outer planes/i); var c = CurrentSpells[a[b]]; var dc = c && c.calcSpellScores ? c.calcSpellScores.dc : '[Error: generate spell sheet first]'; } catch(e) { var dc = '[Error: select Scion of the Outer Planes feat]'; }; event.value = 'Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must succeed on a Wis save DC ' + dc + ' (= Scion of the Outer Planes spell DC) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest. [+1 to any one ability score].';",
+	descriptionFull : "You can channel cosmic forces of order to gain these benefits:"+
+	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20."+
+	"\n   " + toUni("Stasis Strike") + ". Once per turn, when you damage a creature you can see within 60 feet of yourself, you can deal an extra 1d8 force damage to the target, and it must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + the modifier of the spellcasting ability you chose for the Scion of the Outer Planes feat) as spectral bindings try to ensnare it. On a successful save, the target escapes. On a failed save, the target has the restrained condition until the start of your next turn. These bindings manifest as chains or some other symbol of stasis. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	prerequisite : "4th-level, Scion of the Outer Planes (Lawful Outer Plane) feat",
+	prereqeval : function(v) {
+		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
+		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === 'lawful outer plane (force, guidance)';
+	},
+	scorestxt : "+1 to one ability score of your choice",
+	usages : "Proficiency bonus per ",
+	usagescalc : "event.value = How('Proficiency Bonus');",
+	recovery : "long rest"
+};
+FeatsList["baleful scion"] = {
+	name : "Baleful Scion",
+	source : [["P:AitM", 10]],
+	description : "Once per turn, when I damage a creature I can see within 60 ft, I can also deal 1d6 + my Proficiency Bonus necrotic damage to it. I then regain a number of hit points equal to this necrotic damage dealt. I can do this a number of times equal to my Proficiency Bonus per long rest. [+1 to any one ability score]",
+	descriptionFull : "You can channel cosmic forces of evil to gain these benefits:"+
+	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20."+
+	"\n   " + toUni("Life-Draining Grasp") + ". Once per turn, when you damage a creature you can see within 60 feet of yourself, you can also deal necrotic damage to it. The necrotic damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	prerequisite : "4th-level, Scion of the Outer Planes (Evil Outer Plane) feat",
+	prereqeval : function(v) {
+		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
+		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === 'evil outer plane (necrotic, chill touch)';
+	},
+	scorestxt : "+1 to one ability score of your choice",
+	usages : "Proficiency bonus per ",
+	usagescalc : "event.value = How('Proficiency Bonus');",
+	recovery : "long rest"
+};
+FeatsList["cohort of chaos"] = {
+	name : "Cohort of Chaos",
+	source : [["P:AitM", 10]],
+	description : "When I roll a 1 or a 20 on an attack roll or save, a the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens (see notes for table). As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. [+1 to any one ability score]",
+	descriptionFull : "You can channel cosmic forces of chaos to gain these benefits:"+
+	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20."+
+	"\n   " + toUni("Chaotic Flare") + ". When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll a d4 and consult the table below to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends."+
+	toUni("\n\nd4\tFlare")+
+	"\n  1\tBattle Fury: A creature of your choice that you can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."+
+	"\n  2\tDisruption Field: Waves of energy ripple around you. Every creature that starts its turn within 5 feet of you, or that moves into that area for the first time on a turn, takes 1d8 force damage."+
+	"\n  3\tUnbound: When you move, you can use some or all of your walking speed to teleport yourself once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."+
+	"\n  4\tWailing Winds: Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws."+
+	"\n\n   You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	prerequisite : "4th-level, Scion of the Outer Planes (Chaotic Outer Plane) feat",
+	prereqeval : function(v) {
+		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
+		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === 'chaotic outer plane (poison, minor illusion)';
+	},
+	scorestxt : "+1 to one ability score of your choice",
+	usages : "Proficiency bonus per ",
+	usagescalc : "event.value = How('Proficiency Bonus');",
+	recovery : "long rest",
+	additional : "force flare",
+	action : [["bonus action", " (force flare)"]],
+	toNotesPage : [{
+		name : "Chaotic Flare Table",
+		note : [
+			"When I roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through Me. I roll a d4 on the table below to determine what happens. A flare lasts until the end of my next turn, and a new flare can't occur until after the first flare ends.",
+			"As a bonus action, I can forcibly release a chaotic flare, rolling on the table as normal to determine the effects. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when you finish a long rest.",
+			"\n d4  Flare",
+			"1  Battle Fury: A creature of my choice that I can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks.",
+			"2  Disruption Field: Waves of energy ripple around me. Every creature that starts its turn within 5 ft of me, or that moves into that area for the first time on a turn, takes 1d8 force damage.",
+			"3  Unbound: When I move, I can use some or all of my walking speed to teleport once, along with any equipment I'm wearing or carrying, up to the distance used to an unoccupied space that I can see.",
+			"4  Wailing Winds: Winds swirl in a 15-ft radius sphere centered on me. Creatures in that area, myself included, have disadvantage on Wisdom saving throws."
+		]
+	}]
+};
+FeatsList["outlands envoy"] = {
+	name : "Outlands Envoy",
+	source : [["P:AitM", 10]],
+	description : "I can cast Misty Step and Tongues each once per long rest without requiring a spell slot or material components. I can also cast them using a spell slot as normal. My spellcasting ability for these spells is the same as the one for the Scion of the Outer Planes feat. [+1 to any one ability score]",
+	descriptionFull : "You have spent significant time in Sigil or the Outlands, the crossroads of the multiverse. Being steeped in converging planar energies grants you these benefits:"+
+	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20."+
+	"\n   " + toUni("Crossroads Emissary") + ". You learn the misty step and tongues spells. You can cast each spell once using this feat without a spell slot, and you must finish a long rest before you can cast that spell in this way again. When you cast tongues using this feat, you require no material components. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the one chosen when you gained the Scion of the Outer Planes feat.",
+	prerequisite : "4th-level, Scion of the Outer Planes (the Outlands) feat",
+	prereqeval : function(v) {
+		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
+		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === 'the outlands (psychic, mage hand)';
+	},
+	scorestxt : "+1 to one ability score of your choice",
+	spellcastingAbility : "scion of the outer planes",
+	spellcastingBonus : {
+		name : "Crossroads Emissary",
+		spells : ["misty step", "tongues"],
+		selection : ["misty step", "tongues"],
+		firstCol : "oncelr",
+		times : 2
+	},
+	spellChanges : {
+		"tongues" : {
+			components : SpellsList.tongues.components.replace("M", "M*"),
+			compMaterial : "When using a spell slot: "+SpellsList.tongues.compMaterial,
+			changes : "Using Outlands Envoy, I can cast Tongues once per long rest without expending a spell slot or requiring material components."
+		}
+	}
+};
+FeatsList["planar wanderer"] = {
+	name : "Planar Wanderer",
+	source : [["P:AitM", 11]],
+	description : "After each long rest, I can gain acid, cold, or fire resistance, that lasts until my next long rest ends. I know the direction to the last portal I used while on the same plane as it. As an action, I can try to open or close a portal (portal cracker). As an action once per long rest, I can detect portals (portal sense). See notes.",
+	descriptionFull : "You can draw on the forces of the multiverse to survive cosmic extremes and to traverse its infinite realms, granting you these benefits:"+
+	"\n   " + toUni("Planar Adaptation") + ". When you finish a long rest, you gain resistance to either acid, cold, or fire damage (your choice) until you finish your next long rest."+
+	"\n   " + toUni("Portal Cracker") + ". Your experience with portals allows you to open them without a portal key. As an action, you can concentrate on a portal you're aware of that is within 5 feet of yourself and make a DC 20 Intelligence (Arcana) check. On a failed check, you take 3d8 psychic damage and can't use this benefit on that portal again until you finish a long rest. On a successful check, you can force the portal open or closed for 1 hour. For that duration, the portal doesn't respond to its portal key unless a creature employing the key succeeds on a DC 20 Intelligence (Arcana) check as an action."+
+	"\n   " + toUni("Portal Sense") + ". You know the direction to the last planar portal you used while you and the portal are on the same plane of existence. Moreover, as an action, you can detect the location of any portals within 30 feet of you that aren't behind total cover. Once you detect a portal with this action, you can't use the action again until you finish a long rest.",
+	prerequisite : "4th-level, Scion of the Outer Planes feat",
+	prereqeval : function(v) {
+		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("scion of the outer planes") !== -1;
+	},
+	dmgres : ["Acid/Cold/Fire"],
+	action : [["action", " (Portal Cracker)"], ["action", " (Portal Sense)"]],
+	usages : 1,
+	recovery : "long rest",
+	additional : "Portal Sense",
+	toNotesPage : [{
+		name : "Portal Cracker",
+		note : [
+			"My experience with portals allows me to open them without a portal key.",
+			"As an action, I can concentrate on a portal I'm aware of that is within 5 ft of me and make a DC 20 Intelligence (Arcana) check.",
+			"On a failed check, I take 3d8 psychic damage and can't do this on that portal again until I finish a long rest.",
+			"On a successful check, I can force the portal open or closed for 1 hour. For that duration, the portal doesn't respond to its portal key unless a creature employing the key succeeds on a DC 20 Intelligence (Arcana) check as an action."
+		]
+	}, {
+		name : "Portal Sense",
+		additional : "1\xD7 per long rest",
+		note : [
+			"I know the direction to the last planar portal I used while I and the portal are on the same plane of existence.",
+			"As an action, I can detect the location of any portals within 30 ft of me that aren't behind total cover.",
+			"Once I detect a portal with this action, I can't use the action again until I finish a long rest."
+		],
+		amendTo : "Portal Cracker"
+	}]
+};
+FeatsList["righteous heritor"] = {
+	name : "Righteous Heritor",
+	source : [["P:AitM", 11]],
+	description : "As a reaction when I or a creature I can see within 30 ft takes damage, I can reduce the damage taken by 1d10 + my Proficiency Bonus. I can do this a number of times equal to my Proficiency Bonus per long rest. [+1 to any one ability score]",
+	descriptionFull : "You can channel cosmic forces of good to gain these benefits:"+
+	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20."+
+	"\n   " + toUni("Soothe Pain") + ". When you or a creature within 30 feet of you takes damage, you can use your reaction to reduce that damage by 1d10 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	prerequisite : "4th-level, Scion of the Outer Planes (Good Outer Plane) feat",
+	prereqeval : function(v) {
+		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
+		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === 'good outer plane (radiant, sacred flame)';
+	},
+	scorestxt : "+1 to one ability score of your choice",
+	usages : "Proficiency bonus per ",
+	usagescalc : "event.value = How('Proficiency Bonus');",
+	recovery : "long rest",
+	action : [["reaction", ""]]
+};
+
+
+// Magic Items from Sigil and the Outlands
+MagicItemsList["mimir"] = {
+	name : "Mimir",
+	source : [["P:AitM", 13]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	description : "As a bonus action, I can stow or toss this skull-shaped device in the air to activate it, making it float 1d3 ft near me. Once per dawn as an action while active, I can use it to cast Legend Lore. It speaks the revieled lore aloud. While active, it answers questions about the planes of existence I or someone I designate ask it.",
+	descriptionLong : "As a bonus action, I can toss this skull-shaped device covered with planar sigils into the air to activate it, causing it to float 1d3 ft near me but considered worn by me. I can use another bonus action to seize and stow it. It has AC 22, 25 HP, immunity to poison and psychic damage, and resistance to all other damage. Another can use an action to grab it with a successful unarmed strike or DC 22 Acrobatics check. Once per dawn as an action while active, I can use it to cast Legend Lore. It speaks the revealed lore aloud. While active, it answers questions about the planes of existence I or someone I designate ask it.",
+	descriptionFull : "This skull-shaped device is filled with knowledge. The device weighs 5 pounds and is covered with subtle etchings of planar sigils."+
+	"As a bonus action, you can toss the device into the air, whereupon it floats at a distance of 1d3 feet from you and you can access its properties. While the mimir is floating, a creature other than you can use an action to grasp or net the device, either by making a successful unarmed strike against AC 22 or a successful DC 22 Dexterity (Acrobatics) check. You can use a bonus action to seize and stow the device."+
+	"The device has AC 22, 25 hit points, immunity to poison and psychic damage, and resistance to all other damage. It is considered to be an object that is being worn while it is floating near you."+
+	toUni("\n   Esoteric Knowledge") + ". While the device is floating, you can use an action to cast legend lore from the device. The device speaks the revealed lore aloud. Once this property has been used, it can't be used again until the next dawn."+
+	toUni("\n   Planar Knowledge") + ". The device knows basic, useful information about the planes of existence. While the device is floating, it verbally answers questions you or anyone you designate poses to it about that topic. It knows the information about the planes in the Dungeon Master's Guide, as well as basic information about the gate-towns of the Outlands (presented in chapter 3 of Sigil and the Outlands).",
+	action : [["bonus action", " (activate/stow)"]],
+	weight : 5,
+	usages : 1,
+	recovery : "dawn",
+	additional : "Legend Lore",
+	spellcastingBonus : [{
+		name : "once per dawn",
+		spells : ["legend lore"],
+		selection : ["legend lore"],
+		firstCol : "oncelr"
+	}]
+};
+MagicItemsList["portal compass"] = {
+	name : "Portal Compass",
+	source : [["P:AitM", 13]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This portable arcane instrument points in the direction of the last portal it passed through while it and the portal are on the same plane of existence. If that portal no longer exists, the needle becomes static until the compass passes through a new portal.",
+	descriptionFull : "This portable arcane instrument points in the direction of the last portal it passed through while it and the portal are on the same plane of existence. If that portal no longer exists, the needle becomes static until the compass passes through a new portal."
+};
+MagicItemsList["sensory stone"] = {
+	name : "Sensory Stone",
+	source : [["P:AitM", 13]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "This stone stores a single experience. As an action, one touching the stone can experience it harmlessly. As a reaction, I can replace the experience within with a new, six-second sensation experienced by a creature within 30 ft. As a bonus action, I can destroy it to end the charmed or frightened effect on myself.",
+	descriptionFull : "This small, smooth stone contains the essence of a single experience."+
+	"As an action, you or a willing creature you designate can touch the stone and experience the sensation as if it happened to the designated creature. The illusory experience is fleeting and harmless, however real it might feel in the moment."+
+	toUni("\n   Record Sensation") + ". You can use your reaction to record a short sensation lasting no longer than 6 seconds experienced by a creature of your choice within 30 feet of yourself, infusing the essence of that experience into the stone. This replaces any sensation already stored within the stone."+
+	toUni("\n   Siphon Sensation") + ". As a bonus action, you can draw on the stone's magic to end the charmed or frightened condition on yourself, destroying the stone in the process.",
+	action : [
+		["action", " (experience)"],
+		["reaction", " (record)"],
+		["bonus action", " (destroy to end charmed/frightened)"]
+	]
+};
+
+
+// Spells from Sigil and the Outlands
+SpellsList["gate seal"] = {
+	name : "Gate Seal",
+	classes : ["sorcerer", "warlock", "wizard"],
+	source : [["P:AitM", 12]],
+	level : 4,
+	school : "Abjur",
+	time : "1 a",
+	range : "60 ft",
+	components : "V,S,M\u2020",
+	compMaterial : "A broken portal key, which the spell consumes",
+	duration : "24 h",
+	description : "30-ft cube wherein all portals close and can't be opened, and no planar travel; SL6: until dispelled",
+	descriptionFull : "You fortify the fabric of the planes in a 30-foot cube you can see within range. Within that area, portals close and can't be opened for the duration. Spells and other effects that allow planar travel or open portals, such as gate or plane shift, fail if used to enter or leave the area. The cube is stationary."+
+		AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the spell lasts until dispelled."
+};
+SpellsList["warp sense"] = {
+	name : "Warp Sense",
+	classes : ["sorcerer", "warlock", "wizard"],
+	source : [["P:AitM", 12]],
+	level : 2,
+	school : "Div",
+	time : "1 a",
+	range : "Self",
+	components : "V,S,M",
+	compMaterial : "A razorvine leaf",
+	duration : "Conc, 1 min",
+	description : "Know presence of portals in 30 ft; 1 a DC 15 spell ability chk to see destination \u0026 portal key, ends spell",
+	descriptionFull : "For the duration, you sense the presence of portals, even inactive ones, within 30 feet of yourself."+
+	"\n   If you detect a portal in this way, you can use your action to study it. Make a DC 15 ability check using your spellcasting ability. On a successful check, you learn the destination plane of the portal and what portal key it requires, then the spell ends. On a failed check, you learn nothing and can't study that portal again using this spell until you cast it again."+
+	"\n   The spell can penetrate most barriers but is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."
+};
+
+// Beast from Turn of Fortune's Wheel
+// Whirlwyrm is just a giant crocodile under a different name, it has been added to the SRD code as a `nameAlt`
 
 // pub_al_20190917_ALPG-v9.1.js
 // This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet

@@ -38,6 +38,7 @@ GearList["snowshoes"] = {
 };
 
 // Creatures - new beasts (each contain contributions by BraabHimself)
+// Reindeer is just an elk under a different name and a moose uses the giant goat stat block. They have been added to the SRD code as a `nameAlt`
 CreatureList["awakened white moose"] = {
 	name : "Awakened White Moose",
 	nameAlt : ["Moose, Awakened White"],

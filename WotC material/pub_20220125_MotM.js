@@ -1357,7 +1357,6 @@ RaceList["multiverse satyr"] = {
 	toolProfs : [["Musical instrument", 1]],
 	scoresGeneric : true,
 	skills : ["Performance", "Persuasion"],
-	toolProfs : [["Musical instrument", 1]],
 	trait : "Satyr (my creature type is fey, rather than humanoid)"+
 		"\n \u2022 Ram: My unarmed strikes with my horned head deal 1d6 bludgeoning damage."+
 		"\n \u2022 Magic Resistance: I have advantage on saves against spells."+

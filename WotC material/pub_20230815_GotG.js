@@ -226,7 +226,7 @@ FeatsList["strike of the giants"] = {
 	choices : ["Cloud Strike", "Fire Strike", "Frost Strike", "Hill Strike", "Stone Strike", "Storm Strike"],
 	"cloud strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + ( 8 + iProfB + Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ) ) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"fire strike" : {
 		description : "I have absorbed primeval magic that gives me an echo of the might of giants. Once per turn when I hit with a melee weapon attack or thrown weapon, the target takes +1d10 fire damage. I can do this a number of times per long rest equal to my proficiency bonus."
@@ -271,7 +271,7 @@ FeatsList["ember of the fire giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + Number(What('Str Mod')) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
 		weaponsAdd : ["Searing Ignition"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
@@ -291,7 +291,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + Number(What('Con Mod')) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
 		weaponsAdd : ["Searing Ignition"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
@@ -311,7 +311,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + Number(What('Wis Mod')) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
 		weaponsAdd : ["Searing Ignition"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
@@ -354,7 +354,7 @@ FeatsList["fury of the frost giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + Number(What('Str Mod')) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
 		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
@@ -374,7 +374,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + Number(What('Con Mod')) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
 		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
@@ -394,7 +394,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + Number(What('Wis Mod')) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
 		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions: [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
@@ -542,17 +542,17 @@ FeatsList["soul of the storm giant"] = {
 	choices : ["Strength", "Constitution", "Charisma"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + Number(What('Str Mod')) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + Number(What('Con Mod')) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
 		scores : [0,0,1,0,0,0]
 	},
 	"charisma" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + Number(What('Cha Mod')) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Cha Mod')) ) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
 		scores : [0,0,0,0,0,1]
 	}
 };
@@ -850,21 +850,6 @@ MagicItemsList["crown of the wrath bringer"] = {
 		}
 	}
 };
-MagicItemsList["glowrune pigment"] = {
-	name : "Glowrune Pigment",
-	source : [["GotG", 112]],
-	type : "wondrous item",
-	rarity : "rare",
-	descriptionFull : "This set of 1d4 + 2 small paint pots contains pigments mixed from crushed luminescent gemstones. This magical paint bestows temporary magical gifts on creatures with runes drawn on their skin with this paint."+
-	"\n   One paint pot contains enough pigment to paint one rune. A creature can spend 10 minutes to paint one of the following runes onto itself or another creature:"+
-	"\n   " + toUni("Journey Rune") + ". Difficult terrain doesn't cost the painted creature extra movement."+
-	"\n   " + toUni("Life Rune") + ". The painted creature gains 10 temporary hit points and has advantage on death saving throws."+
-	"\n   " + toUni("Light Rune") + ". The painted creature gains darkvision to a range of 30 feet. If the painted creature already has darkvision from another source, the range of its darkvision increases by 30 feet."+
-	"\n   " + toUni("Mountain Rune") + ". The painted creature is immune to being knocked prone and has advantage on Strength and Constitution saving throws."+
-	"\n   " + toUni("Shield Rune") + ". The painted creature has advantage on Dexterity saving throws against effects that deal damage."+
-	"\n   A creature can benefit from only one painted rune at a time, so a new rune painted on a creature has no effect unless the old one is removed first. The rune's benefits last for 8 hours or until the painted creature uses its action to wipe away the rune.",
-	description : "This set of 1d4+2 paint pots can each be used to draw one rune on a creature in 10 min, which lasts for 8 hours: \u2022 No penalty from difficult terrain. \u2022 10 temp hp and adv. on death saves. \u2022 +30 ft darkvision. \u2022 Can't be knocked prone and adv. on Str saves and Con saves. \u2022 Adv. on Dex save vs. damaging effects."
-};
 MagicItemsList["delver's claws"] = {
 	name : "Delver's Claws",
 	source : [["GotG", 112]],
@@ -895,6 +880,21 @@ MagicItemsList["delver's claws"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "invoke rune"
+};
+MagicItemsList["glowrune pigment"] = {
+	name : "Glowrune Pigment",
+	source : [["GotG", 112]],
+	type : "wondrous item",
+	rarity : "rare",
+	descriptionFull : "This set of 1d4 + 2 small paint pots contains pigments mixed from crushed luminescent gemstones. This magical paint bestows temporary magical gifts on creatures with runes drawn on their skin with this paint."+
+	"\n   One paint pot contains enough pigment to paint one rune. A creature can spend 10 minutes to paint one of the following runes onto itself or another creature:"+
+	"\n   " + toUni("Journey Rune") + ". Difficult terrain doesn't cost the painted creature extra movement."+
+	"\n   " + toUni("Life Rune") + ". The painted creature gains 10 temporary hit points and has advantage on death saving throws."+
+	"\n   " + toUni("Light Rune") + ". The painted creature gains darkvision to a range of 30 feet. If the painted creature already has darkvision from another source, the range of its darkvision increases by 30 feet."+
+	"\n   " + toUni("Mountain Rune") + ". The painted creature is immune to being knocked prone and has advantage on Strength and Constitution saving throws."+
+	"\n   " + toUni("Shield Rune") + ". The painted creature has advantage on Dexterity saving throws against effects that deal damage."+
+	"\n   A creature can benefit from only one painted rune at a time, so a new rune painted on a creature has no effect unless the old one is removed first. The rune's benefits last for 8 hours or until the painted creature uses its action to wipe away the rune.",
+	description : "This set of 1d4+2 paint pots can each be used to draw one rune on a creature in 10 min, which lasts for 8 hours: \u2022 No penalty from difficult terrain. \u2022 10 temp hp and adv. on death saves. \u2022 +30 ft darkvision. \u2022 Can't be knocked prone and adv. on Str saves and Con saves. \u2022 Adv. on Dex save vs. damaging effects."
 };
 var GotG_HarpOfGildedPlenty = [
 	"This golden harp is sculpted in the image of the god Iallanis, depicted as a young cloud giant woman. When a creature comes within 5 feet of the harp, the instrument animates and is capable of speaking, singing, and playing by itself.",
@@ -1014,6 +1014,45 @@ MagicItemsList["longbow of the healing hearth"] = {
 		spells : ["guardian of faith"],
 		selection : ["guardian of faith"],
 		firstCol : 3
+	}]
+};
+MagicItemsList["lucent destroyer"] = {
+	name : "Lucent Destroyer",
+	source : [["GotG", 113]],
+	type : "weapon (musket)",
+	rarity : "very rare",
+	attunement : true,
+	descriptionFull : "This magic weapon is a triple-barreled bronze musket. You gain a +1 bonus to attack and damage rolls made with it. It requires no ammunition, its damage is radiant instead of piercing, and it doesn't have the loading property. The base of the weapon is emblazoned with the light rune."+
+	"\n   Additionally, while attuned to the weapon, you can cast dancing lights from the musket at will."+
+	"\n   " + toUni("Invoking the Rune") + ". As an action, you can invoke the weapon's rune to cast the sunbeam spell (save DC 17) with it. Once the rune has been invoked, it can't be invoked again until the next dawn."+
+	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
+	description : "I gain a +1 bonus to attack and damage rolls made with this magical musket emblazoned with the light rune. It deals radiant damage and doesn't need to be loaded with ammunition. It allows me to cast Dancing Lights at will and Sunbeam (DC 17) once per dawn by invoking the rune.",
+	weight : 10,
+	weaponsAdd : ["Lucent Destroyer"],
+	weaponOptions : [{
+		baseWeapon : "musket",
+		regExpSearch : /^(?=.*lucent)(?=.*destroyer).*$/i,
+		name : "Lucent Destroyer",
+		source : [["GotG", 113]],
+		damage : [1, 12, "radiant"],
+		description : "Two-handed",
+		modifiers : [1, 1],
+		ammo : ""
+	}],
+	usages : 1,
+	recovery : "dawn",
+	additional : "invoke rune: Sunbeam",
+	fixedDC : 17,
+	spellcastingBonus : [{
+		name : "At will",
+		spells : ["dancing lights"],
+		selection : ["dancing lights"],
+		firstCol : "atwill"
+	}, {
+		name : "Once per dawn",
+		spells : ["sunbeam"],
+		selection : ["sunbeam"],
+		firstCol : "oncelr"
 	}]
 };
 MagicItemsList["mistral mantle"] = {
@@ -1327,6 +1366,34 @@ MagicItemsList["stonebreaker's breastplate"] = {
 	recovery : "dawn",
 	additional : "Wall of Stone"
 };
+MagicItemsList["thunderbuss"] = {
+	name : "Thunderbuss",
+	source : [["GotG", 116]],
+	type : "weapon (pistol)",
+	rarity : "very rare",
+	attunement : true,
+	descriptionFull : "This magic ranged weapon is a flared pistol with the storm rune engraved along the barrel. You gain a +1 bonus to attack and damage rolls made with it. It requires no ammunition, its damage is thunder instead of piercing, and it doesn't have the loading property."+
+	"\n   " + toUni("Invoking the Rune") + ". As a bonus action, you can invoke the weapon's rune to launch a ball of energy to a point you can see within 30 feet of yourself. The energy then detonates into a 10-foot-radius sphere of turbulent wind and thunder centered on that point, and each creature in that sphere must make a DC 14 Constitution saving throw. On a failed save, a creature takes 3d6 thunder damage, and it can't take reactions until the end of your next turn. On a successful save, a creature takes half as much damage only."+
+	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn."+
+	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
+	description : "This +1 pistol deals thunder damage and requires loading nor ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
+	weight : 3,
+	weaponsAdd : ["Thunderbuss"],
+	weaponOptions : [{
+		baseWeapon : "pistol",
+		regExpSearch : /thunderbuss/i,
+		name : "Thunderbuss",
+		source : [["GotG", 116]],
+		damage : [1, 10, "thunder"],
+		description : "",
+		modifiers : [1, 1],
+		ammo : ""
+	}],
+	usages : 1,
+	recovery : "dawn",
+	additional : "invoke rune",
+	action : [["bonus action", " (invoke rune)"]]
+};
 MagicItemsList["war horn of valor"] = {
 	name : "War Horn of Valor",
 	source : [["GotG", 117]],
@@ -1375,7 +1442,7 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 	"\n   The fists last for 1 minute or until you are incapacitated. While the spectral fists are active, unarmed strikes you make on your turn have a reach of 30 feet, and when you hit a creature with an opportunity attack made with your unarmed strike, the creature must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier) or have the prone condition."+
 	"\n   Once the runes have been invoked, they can't be invoked again until the next dawn.",
 	description : "+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC 8+Prof B.+Str mod or be knocked prone.",
-	calculate : "event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod')) + ' (8+Prof+Str) or be knocked prone.';",
+	calculate : "event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8+Prof+Str) or be knocked prone.';",
 	dmgres : ["acid,cold,fire,lightn.,or poison"],
 	calcChanges : {
 		atkAdd : [

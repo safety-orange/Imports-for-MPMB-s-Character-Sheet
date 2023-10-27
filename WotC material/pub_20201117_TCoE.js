@@ -6900,7 +6900,7 @@ MagicItemsList["eldritch claw tattoo"] = {
 		atkCalc : [
 			function (fields, v, output) {
 				if (v.baseWeaponName === "unarmed strike") {
-					output.magic = v.thisWeapon[1] + 1;
+					output.magic += 1;
 				}
 			}, ''
 		]

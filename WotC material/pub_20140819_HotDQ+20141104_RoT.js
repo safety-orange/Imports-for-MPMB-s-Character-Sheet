@@ -388,3 +388,6 @@ MagicItemsList["dragontooth dagger"] = {
 		modifiers : [1, 1]
 	}
 }
+
+// Beast
+// Sled dog is just a wolf under a different name, it has been added to the SRD code as a `nameAlt`

@@ -1485,7 +1485,7 @@ MagicItemsList["guild signet"] = {
 	additional : "regains 1d3",
 	choices : ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
 	"azorius" : {
-		description : "\nAzorius\tensnaring strike",
+		description : "This signet ring bears a symbol of Azorius. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Ensnaring Strike (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
 		spellcastingBonus : {

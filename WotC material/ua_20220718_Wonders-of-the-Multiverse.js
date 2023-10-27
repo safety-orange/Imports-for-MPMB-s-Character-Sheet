@@ -173,48 +173,52 @@ AddSubClass("cleric", "fate-ua", {
 });
 
 // Backgrounds
-BackgroundList["gate warden-ua"] = {
-	regExpSearch : /^(?=.*gate)(?=.*warden).*$/i,
-	name : "Gate Warden",
-	source : [["UA:WotM", 3]],
-	skills : ["Persuasion", "Survival"],
-	gold : 10,
-	languageProfs : [["Any (Abyssal, Celestial, or Infernal recommended)", 2]],
-	equipleft : [
-		["Blank book", "", 5],
-		["Ink, 1 ounce bottle of", 1, ""],
-		["Ink pen or quill", "", ""],
-		["Ring of keys to unknown locks", "", ""]
-	],
-	equipright : [
-		["Traveler's clothes", "", 4],
-		["Pouch (with coins)", "", 1]
-	],
-	feature : "Planar Infusion",
-	trait : [
-		"Strange events and otherworldly creatures don't phase me.",
-		"I think in terms of exchange; something for something, nothing for nothing.",
-		"I speak with an unusual cadence.",
-		"I pepper my speech with borrowed words or curses from planar languages.",
-		"I've seen enough to know that you can't take anyone at face value, so I scrutinize everyone I deal with.",
-		"I have a superstitious habit I picked up, such as touching iron when I'm nervous or arranging objects in a specific order."
-	],
-	extra : [
-		"Select a Trinket",
-		"Vial pendant with glowing honey",
-		"Whispering lead ingot thumbprint",
-		"Two chiming lodestone spheres",
-		"Skin-safe smoldering pebble of coal",
-		"Light up white feather",
-		"Hard to remove chain-link ring"
-	]
-};
-BackgroundFeatureList["planar infusion"] = {
-	description : "I spent a good amount of time somewhere influenced by planar forces. I'm accustomed to experiences that would leave others reeling in terror or captivated by beauty, and I'm comfortable dealing with fiends and celestials. I know where to find free, modest lodging and food in the community I grew up in. Also, I gain the Scion of the Outer Planes feat.",
-	source : [["UA:WotM", 3]],
-	eval : function() { AddFeat("Scion of the Outer Planes"); },
-	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
-};
+if (!BackgroundList["gate warden"]) {
+	BackgroundList["gate warden"] = {
+		regExpSearch : /^(?=.*gate)(?=.*warden).*$/i,
+		name : "Gate Warden",
+		source : [["P:AitM", 7], ["UA:WotM", 3]],
+		skills : ["Persuasion", "Survival"],
+		gold : 10,
+		languageProfs : [["Any (Abyssal, Celestial, or Infernal recommended)", 2]],
+		equipleft : [
+			["Blank book", "", 5],
+			["Ink, 1 ounce bottle of", 1, ""],
+			["Ink pen or quill", "", ""],
+			["Ring of keys to unknown locks", "", ""]
+		],
+		equipright : [
+			["Traveler's clothes", "", 4],
+			["Pouch (with coins)", "", 1]
+		],
+		feature : "Planar Infusion",
+		trait : [
+			"Strange events and otherworldly creatures don't phase me.",
+			"I think in terms of exchange; something for something, nothing for nothing.",
+			"I speak with an unusual cadence.",
+			"I pepper my speech with borrowed words or curses from planar languages.",
+			"I've seen enough to know that you can't take anyone at face value, so I scrutinize everyone I deal with.",
+			"I have a superstitious habit I picked up, such as touching iron when I'm nervous or arranging objects in a specific order."
+		],
+		extra : [
+			"Select a Trinket",
+			"Vial pendant with glowing honey",
+			"Whispering lead ingot thumbprint",
+			"Two chiming lodestone spheres",
+			"Skin-safe smoldering pebble of coal",
+			"Light up white feather",
+			"Hard to remove chain-link ring"
+		]
+	};
+}
+if (!BackgroundFeatureList["planar infusion"]) {
+	BackgroundFeatureList["planar infusion"] = {
+		description : "I spent a good amount of time somewhere influenced by planar forces. I'm accustomed to experiences that would leave others reeling in terror or captivated by beauty, and I'm comfortable dealing with fiends and celestials. I know where to find free, modest lodging and food in the community I grew up in. Also, I gain the Scion of the Outer Planes feat.",
+		source : [["P:AitM", 7], ["UA:WotM", 3]],
+		eval : function() { AddFeat("Scion of the Outer Planes"); },
+		removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+	};
+}
 
 BackgroundList["giant foundling-ua"] = {
 	regExpSearch : /^(?=.*giant)(?=.*foundling).*$/i,
@@ -287,12 +291,14 @@ BackgroundList["planar philosopher-ua"] = {
 		"Smooth stone with holy symbols"
 	]
 };
-BackgroundFeatureList["conviction"] = {
-	description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
-	source : [["UA:WotM", 4]],
-	eval : function() { AddFeat("Scion of the Outer Planes"); },
-	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
-};
+if (!BackgroundFeatureList["conviction"]) {
+	BackgroundFeatureList["conviction"] = {
+		description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
+		source : [["P:AitM", 8], ["UA:WotM", 4]],
+		eval : function() { AddFeat("Scion of the Outer Planes"); },
+		removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+	};
+}
 
 BackgroundList["rune carver-ua"] = {
 	regExpSearch : /^(?=.*rune)(?=.*carver).*$/i,
@@ -532,12 +538,12 @@ FeatsList["baleful scion-ua"] = {
 	scorestxt : "+1 to one ability score of your choice",
 	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
-	recovery : "long rest",
+	recovery : "long rest"
 };
 FeatsList["cohort of chaos-ua"] = {
 	name : "Cohort of Chaos",
 	source : [["UA:WotM", 6]],
-	description : "When I roll a 1 or a 20 on an attack roll or save, a the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens. As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. See notes. [+1 to any one ability score]",
+	description : "When I roll a 1 or a 20 on an attack roll or save, a the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens (see notes for table). As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. [+1 to any one ability score]",
 	descriptionFull : "You can channel the cosmic forces of chaos that drive the multiverse toward both freedom and disarray. Your actions are still yours to choose, but you gain these benefits:"+
 	"\n   " + toUni("Ability Score Increase") + ". Increase an ability score of your choice by 1, to a maximum of 20."+
 	"\n   " + toUni("Chaotic Flare") + ". When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll on the table below to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends."+
@@ -559,11 +565,11 @@ FeatsList["cohort of chaos-ua"] = {
 	additional : "force flare",
 	action : [["bonus action", " (force flare)"]],
 	toNotesPage : [{
-		name : "Chaotic Flare",
+		name : "Chaotic Flare Table",
 		note : [
-			"When I roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. I roll on the table below to determine what happens. A flare lasts until the end of my next turn, and a new flare can't occur until after the first flare ends.",
+			"When I roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through me. I roll on the table below to determine what happens. A flare lasts until the end of my next turn, and a new flare can't occur until after the first flare ends.",
 			"As a bonus action, I can forcibly release a chaotic flare, rolling on the table as normal to determine the effects. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when you finish a long rest.",
-			"\n D4  Flare",
+			"\n d4  Flare",
 			"1  Disruption Field: Waves of energy ripple in a 10-ft sphere centered on me. Every creature other than me that starts its turn in that area, or that moves into that area for the first time on a turn, takes 1d8 force damage.",
 			"2  Battle Fury: A creature of my choice that I can see is filled with reckless fury. The creature has advantage on attack rolls and disadvantage on ability checks.",
 			"3  Unbound: When I move, I can use some or all of my walking speed to teleport once, along with any equipment I'm wearing or carrying, up to the distance used to an unoccupied space that I can see.",
@@ -593,7 +599,7 @@ FeatsList["outlands envoy-ua"] = {
 	},
 	spellChanges : {
 		"tongues" : {
-			components : SpellsList.tongues.components+"*",
+			components : SpellsList.tongues.components.replace("M", "M*"),
 			compMaterial : "When using a spell slot: "+SpellsList.tongues.compMaterial,
 			changes : "Using Outlands Envoy, I can cast Tongues once per long rest without expending a spell slot or requiring material components."
 		}

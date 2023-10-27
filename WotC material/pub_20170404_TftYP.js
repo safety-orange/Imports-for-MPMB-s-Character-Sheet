@@ -13,6 +13,7 @@ SourceList.TftYP={
 };
 
 // Creatures
+// Snow leopard is just a tiger under a different name, it has been added to the SRD code as a `nameAlt`
 CreatureList["giant crayfish"] = {
 	name : "Giant Crayfish",
 	nameAlt : ["Crayfish, Giant"],

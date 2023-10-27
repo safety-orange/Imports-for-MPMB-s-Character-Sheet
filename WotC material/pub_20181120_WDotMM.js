@@ -338,3 +338,6 @@ MagicItemsList["vial of stardust"] = {
 	description : "Once as an action, I can sprinkles the stardust contained in this vial over myself. After I do so, I gain the ability to cast Dream once as an action (spell save DC 15), requiring no components.",
 	descriptionFull : "Any creature that sprinkles the contents of a Vial of Stardust over itself gains the ability to cast the Dream spell once as an action (spell save DC 15), requiring no components."
 }
+
+// Beast
+// Crow is just a raven under a different name, it has been added to the SRD code as a `nameAlt`

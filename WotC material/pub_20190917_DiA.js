@@ -153,6 +153,8 @@ BackgroundFeatureList["gateguide connection"] = {
 	source : [["DiA", 207], ["ALbackground", 0]]
 };
 
+// Creatures
+// Peacock is just a vulture under a different name, it has been added to the SRD code as a `nameAlt`
 CreatureList["abyssal chicken"] = {
 	name : "Abyssal Chicken",
 	nameAlt : ["Chicken, Abyssal"],

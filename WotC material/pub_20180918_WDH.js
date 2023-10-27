@@ -297,3 +297,6 @@ MagicItemsList["smokepowder"] = {
 		weight : 12 // 7000 grains per lb, 100 grains per shot (+2 for the keg itself)
 	}
 }
+
+// Beast
+// Falcon is just a hawk under a different name, it has been added to the SRD code as a `nameAlt`

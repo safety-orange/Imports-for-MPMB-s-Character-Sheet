@@ -501,8 +501,9 @@ MagicItemsList["flying chariot"] = {
 	type : "wondrous item",
 	rarity : "rare",
 	notLegalAL : true,
-	description : "I gain +1 AC while riding this chariot, as do any passengers and the creatures pulling it. If this chariot is pulled by one or more flying creatures, they too can fly.\n(The AC bonus is not added to the automation, as it is so situational.)",
-	descriptionFull : "The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC. " + "\n   " + "If this magic chariot is pulled by one or more flying creatures, it too can fly. ",
+	description : "I gain +1 AC while riding this chariot, as do any passengers and the creatures pulling it. If this chariot is pulled by one or more flying creatures, they too can fly.\n(The AC bonus is not added to the automation, as it is too situational.)",
+	descriptionFull : "The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC."+
+	"\n   If this magic chariot is pulled by one or more flying creatures, it too can fly.",
 	weight : 100
 };
 MagicItemsList["helm of the gods"] = {

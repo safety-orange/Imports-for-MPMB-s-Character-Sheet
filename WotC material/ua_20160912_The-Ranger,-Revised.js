@@ -397,10 +397,9 @@ CompanionList.companionrr = {
 		AddTooltip(sHPfld, undefined, aHPsets.join());
 		// Add Prof to the AC, if not already present
 		AddToModFld(prefix + "Comp.Use.AC", "Prof", false, "Animal Companion", "An beast conclave's animal companion adds its proficiency bonus (Prof) to its AC.");
-		// Add oProf to 
 		// Alert player of things that have to be done manually
 		app.alert({
-			cMsg : toUni("Pick Two Skills") + "\nThe Ranger's Animal Companion that you have just added, gains proficiency with two additional skills as those already selected. Because there is no automation for selecting these proficiencies, please do so manually.\n\n" + toUni("Ability Score Improvements") + "\nThe Ranger's Animal Companion gains Ability Score Improvements (ASI) whenever your character gains them. There is no automation for adding these either, so please don't forget to increase the ability scores for the animal companion when you get the reminder pop-up. Also, remember that any DCs for abilities that the beast possesses are based on ability scores and that they might need to be manually changed when changing the ability scores.\nThe 'Notes' section on the companion page automatically keeps track of how many points you can increase the ability scores and what the base value of those scores are according to the Monster Manual.",
+			cMsg : toUni("Pick Two Skills") + "\nThe Ranger's Animal Companion that you have just added, gains proficiency with two additional skills to those already selected. Because there is no automation for selecting these proficiencies, please do so manually.\n\n" + toUni("Ability Score Improvements") + "\nThe Ranger's Animal Companion gains Ability Score Improvements (ASI) whenever your character gains them. An animal companion can't use these to take feats. There is no automation for adding these ASIs either, so please don't forget to increase the ability scores for the animal companion when you get the reminder pop-up for ASI changes.\nAlso, remember that any DCs for abilities that the beast possesses are based on ability scores modifier and that they might need to be manually changed when increasing ability scores modifiers.\nThe 'Notes' section on the companion page automatically keeps track of how many points you can increase the ability scores with and what the base value of those scores are according to the Monster Manual.",
 			nIcon : 3,
 			cTitle : "Don't forget the Skills and Ability Score Improvements!"
 		});
@@ -419,10 +418,10 @@ CompanionList.companionrr = {
 		var sNote = What(prefix + "Cnote.Left");
 		var sNoteNew = sNote;
 		if (!iASIs) {
-			sNoteNew = sNote.replace(/[\r\n]? *Currently, there are \d+ points.*/, "");
+			sNoteNew = sNote.replace(/[\r\n]? *Currently, \d+ points.*/, "");
 		} else {
-			var sIncreases = "Currently, there are " + iASIs + " points to divide " + (objCrea && objCrea.scores ? "(default: " + objCrea.scores[0] + " Str, " + objCrea.scores[1] + " Dex, " + objCrea.scores[2] + " Con, " + objCrea.scores[3] + " Int, " + objCrea.scores[4] + " Wis, " + objCrea.scores[5] + " Cha)" : "among the ability scores");
-			sNoteNew = sNote.replace(/(ASI.*)([\r\n]? *Currently, there are \d+ points.*)?/, "$1\r   " + sIncreases);
+			var sIncreases = "Currently, " + iASIs + " points to divide " + (objCrea && objCrea.scores ? "(default: " + objCrea.scores[0] + " Str, " + objCrea.scores[1] + " Dex, " + objCrea.scores[2] + " Con, " + objCrea.scores[3] + " Int, " + objCrea.scores[4] + " Wis, " + objCrea.scores[5] + " Cha)" : "among the ability scores");
+			sNoteNew = sNote.replace(/(ASI.*)([\r\n]? *Currently, \d+ points.*)?/, "$1\r   " + sIncreases);
 		}
 		if (sNote !== sNoteNew) Value(prefix + "Cnote.Left", sNoteNew);
 	}
