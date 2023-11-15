@@ -19904,8 +19904,8 @@ MagicItemsList["horn of silent alarm"] = {
 	source : [["X", 137]],
 	type : "wondrous item",
 	rarity : "common",
-	description : "This horn has 4 charges, regaining 1d4 expended charges daily at dawn. As an action, I can expend 1 charge and blow it, have only one creature within 600 ft of my choice hear the horns blare, provided it isn't deafened. No other creature hears sound coming from the horn.",
-	descriptionFull : "This horn has 4 charges. When you use an action to blow it, one creature of your choice can hear the horns blare, provided the creature is within 600 feet of the horn and not deafened. No other creature hears sound coming from the horn. The horn regains 1d4 expended charges daily at dawn.",
+	description : "This horn has 4 charges, regaining 1d4 expended charges daily at dawn. As an action, I can expend 1 charge and blow it, have only one creature within 600 ft of my choice hear the horn's blare, provided it isn't deafened. No other creature hears sound coming from the horn.",
+	descriptionFull : "This horn has 4 charges. When you use an action to blow it, one creature of your choice can hear the horn's blare, provided the creature is within 600 feet of the horn and not deafened. No other creature hears sound coming from the horn. The horn regains 1d4 expended charges daily at dawn.",
 	weight : 2,
 	usages : 4,
 	recovery : "dawn",
@@ -31489,7 +31489,8 @@ MagicItemsList["stormgirdle"] = {
 		damage : [3, 6, "lightning"],
 		range : '30 ft',
 		description : "Bonus action; Dex save, success - half damage",
-		modifiers : ["dc+7", ""],
+		modifiers : [7, ""],
+		dc : true,
 		stormAvatarLightningStrike : true
 	},
 	calcChanges : {
@@ -39280,7 +39281,7 @@ MagicItemsList["coiling grasp tattoo"] = {
 		description : "Str save, success - no damage, fail - grappled; Escape DC 14 Athletics/Acrobatics",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : ["dc+6", ""]
+		modifiers : [6, ""]
 	}]
 }
 MagicItemsList["eldritch claw tattoo"] = {
@@ -43466,7 +43467,7 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : ["dc+8", ""]
+			modifiers : [8, ""]
 		}
 	},
 	"dww-ascendant" : {
@@ -43517,7 +43518,7 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : ["dc+10", ""]
+			modifiers : [10, ""]
 		}
 	},
 	dragonsWrathWeaponCreate : function() {

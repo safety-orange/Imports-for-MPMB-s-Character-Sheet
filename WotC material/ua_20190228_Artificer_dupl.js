@@ -1,5 +1,5 @@
 var iFileName = "ua_20190228_Artificer.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.9");
 // This file adds the content from the Unearthed Arcana: Artificer 2019 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -696,7 +696,8 @@ CreatureList["arcane turret-ua"] = {
 		damage : [1, 8, "fire"],
 		range : "15-ft cone",
 		description : "Dex save, success - half damage; Unattended flammable objects ignite",
-		modifiers : ["dc+oProf+oInt", ""],
+		dc : true,
+		modifiers : ["oProf+oInt", ""],
 		abilitytodamage : false,
 		tooltip : "The turret exhales fire in an adjacent 15-foot cone that the creator designate. Each creature in that area must make a Dexterity saving throw against the creator's spell save DC, taking 1d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
 	}, {
@@ -714,7 +715,8 @@ CreatureList["arcane turret-ua"] = {
 		damage : [3, 6, "force"],
 		range : "10-ft radius",
 		description : "Dex save, success - half damage; Destroys turret",
-		modifiers : ["dc+oProf+oInt", ""],
+		dc : true,
+		modifiers : ["oProf+oInt", ""],
 		abilitytodamage : false,
 		tooltip : "Detonate destroys the turret and forces each creature within 10 feet of it to make a Dexterity saving throw against your spell save DC, taking 3d6 force damage on a failed save or half as much damage on a successful one."
 	}],

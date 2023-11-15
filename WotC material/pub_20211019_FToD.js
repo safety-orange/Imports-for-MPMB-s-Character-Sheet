@@ -1276,7 +1276,7 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : ["dc+8", ""]
+			modifiers : [8, ""]
 		}
 	},
 	"dww-ascendant" : {
@@ -1327,7 +1327,7 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : ["dc+10", ""]
+			modifiers : [10, ""]
 		}
 	},
 	dragonsWrathWeaponCreate : function() {

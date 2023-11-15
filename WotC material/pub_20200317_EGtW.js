@@ -3231,7 +3231,8 @@ MagicItemsList["stormgirdle"] = {
 		damage : [3, 6, "lightning"],
 		range : '30 ft',
 		description : "Bonus action; Dex save, success - half damage",
-		modifiers : ["dc+7", ""],
+		modifiers : [7, ""],
+		dc : true,
 		stormAvatarLightningStrike : true
 	},
 	calcChanges : {

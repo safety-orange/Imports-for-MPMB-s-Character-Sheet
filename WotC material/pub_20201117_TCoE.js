@@ -6864,7 +6864,7 @@ MagicItemsList["coiling grasp tattoo"] = {
 		description : "Str save, success - no damage, fail - grappled; Escape DC 14 Athletics/Acrobatics",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : ["dc+6", ""]
+		modifiers : [6, ""]
 	}]
 }
 MagicItemsList["eldritch claw tattoo"] = {
