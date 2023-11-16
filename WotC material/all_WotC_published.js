@@ -43070,35 +43070,33 @@ MagicItemsList["dragonlance"] = {
 	"\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon."+
 	"\n   When you hit a Dragon with this weapon, the Dragon takes an extra 3d6 force damage, and any Dragon of your choice that you can see within 30 feet of you can immediately use its reaction to make a melee attack.",
 	choices : ["A lance for riders", "A pike for foot soldiers"],
+	allowDuplicates : true,
 	choicesNotInMenu : true,
 	"a lance for riders" : {
-		name : "Dragonlance ",
+		name : "Dragonlance (for riders)",
 		description : "This magic lance forged from rare metal grants me a +3 bonus to attack and damage rolls made with it. When I hit a dragon with it, the dragon takes an extra 3d6 force damage, and any Dragon of my choice that I can see within 30 ft can immediately use its reaction to make a melee attack.",
-		weaponsAdd : ["Dragonlance"]
+		weaponsAdd : ["Dragonlance "],
+		weaponOptions : {
+			baseWeapon : "lance",
+			regExpSearch : /dragonlance/i,
+			name : "Dragonlance",
+			source : [["FToD", 23]],
+			description : "Reach, disadv. within 5 ft, two-handed if not mounted; +3d6 force damage vs. dragons",
+			modifiers : [3, 3]
+		}
 	},
 	"a pike for foot soldiers" : {
-		name : "Dragonlance (Pike)",
+		name : "Dragonlance (for foot soldiers)",
 		description : "This magic pike forged from rare metal grants me a +3 bonus to attack and damage rolls made with it. When I hit a dragon with it, the dragon takes an extra 3d6 force damage, and any Dragon of my choice that I can see within 30 ft can immediately use its reaction to make a melee attack.",
-		weaponsAdd : ["Dragonlance (Pike)"]
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/\b(lance|pike)\b/i).test(v.baseWeaponName) && (/dragonlance/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + '+3d6 force damage vs. dragons';
-				}
-			},
-			'If I include the word "Dragonlance" in a the name of a lance or pike, it will be treated as the magic weapon Dragonlance. It has +3 to hit and damage and does +3d6 force damage to dragons.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/\b(lance|pike)\b/i).test(v.baseWeaponName) && (/dragonlance/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 3;
-				}
-			}, ''
-		]
+		weaponsAdd : ["Dragonlance (pike)"],
+		weaponOptions : {
+			baseWeapon : "pike",
+			regExpSearch : /^(?=.*dragonlance)(?=.*pike).*$/i,
+			name : "Dragonlance (pike)",
+			source : [["FToD", 23]],
+			description : "Heavy, reach, two-handed; +3d6 force damage vs. dragons",
+			modifiers : [3, 3]
+		}
 	}
 }
 MagicItemsList["dragon wing bow"] = function () {
@@ -43123,25 +43121,34 @@ MagicItemsList["dragon wing bow"] = function () {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /\bdragon wing\b/i.test(v.WeaponTextName) && CurrentMagicItems.known.indexOf("dragon wing bow") !== -1 && CurrentMagicItems.choices[CurrentMagicItems.known.indexOf("dragon wing bow")]) {
-						var sBowType = CurrentMagicItems.choices[CurrentMagicItems.known.indexOf("dragon wing bow")];
-						var oBowObj = MagicItemsList["dragon wing bow"][sBowType];
-						if (!oBowObj || !oBowObj.dragonWingBowDmgType) return;
+					if (v.theWea.isMagicWeapon || !v.isRangedWeapon || !/bow/i.test(v.baseWeaponName) || !/\bdragon wing\b/i.test(v.WeaponTextName)) return;
+					var oBowUse = false;
+					for (var i = 0; i < CurrentMagicItems.known.length; i++) {
+						if (CurrentMagicItems.known[i] !== "dragon wing bow") continue;
+						var oBow = MagicItemsList["dragon wing bow"][CurrentMagicItems.choices[i]];
+						// see if this one matches
+						if (oBow && oBow.dragonWingBowDragonType && v.WeaponTextName.toLowerCase().indexOf(oBow.dragonWingBowDragonType) !== -1) oBowUse = oBow;
+						// save the first one found in case none match(ed)
+						if (oBowUse === false) oBowUse = oBow;
+					}
+					if (oBowUse) {
 						v.theWea.isMagicWeapon = true;
 						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-						fields.Description += (fields.Description ? '; ' : '') + '+1d6 ' + oBowObj.dragonWingBowDmgType + ' damage; Creates own ammo';
+						fields.Description += (fields.Description ? '; ' : '') + '+1d6 ' + oBowUse.dragonWingBowDmgType + ' damage; Creates own ammo';
 					}
 				},
-				'If I include the words "Dragon Wing" in a the name of a bow, it will be treated as the magic weapon Dragon Wing Bow. The bow deals an extra 1d6 damage of the type of its associated dragon. It also requires no ammunition, creating its own if fired without loading ammunition.'
+				'If I include the words "Dragon Wing" and a dragon type in the name of a bow, it will be treated as the magic weapon Dragon Wing Bow. The bow deals an extra 1d6 damage of the type of its associated dragon. It also requires no ammunition, creating its own if fired without loading ammunition.'
 			]
 		},
 		choices : [],
+		allowDuplicates : true,
 		choicesNotInMenu : true
 	};
 	var aDragons = [["Black", "acid"], ["Blue", "lightning"], ["Green", "poison"], ["Red", "fire"], ["White", "cold"], ["Amethyst", "force"], ["Crystal", "radiant"], ["Emerald", "psychic"], ["Sapphire", "thunder"], ["Topaz", "necrotic"], ["Brass", "fire"], ["Bronze", "lightning"], ["Copper", "acid"], ["Gold", "fire"], ["Silver", "cold"]];
 	var aVowels = ["a", "e"];
 	for (var i = 0; i < aDragons.length; i++) {
 		var sDragon = aDragons[i][0];
+		var sDragonLC = sDragon.toLowerCase();
 		var sDmg = aDragons[i][1];
 		var sNameTest = sDragon + " Dragon Wing";
 		var sNameFull = sNameTest + " Bow";
@@ -43151,8 +43158,9 @@ MagicItemsList["dragon wing bow"] = function () {
 		obj[sNameChoice.toLowerCase()] = {
 			name : sNameFull,
 			nameTest : sNameTest,
-			description : "This magic bow has limb tips shaped like dragon wings and is infused with the essence of " + sAorAn + sDragon.toLowerCase() + " dragon's breath. Attacks made with it deal an extra 1d6 " + sDmg + " damage. When I pull back the string without ammunition loaded in it, the weapon creates its own that lasts until it hits or misses a target.",
-			dragonWingBowDmgType : sDmg
+			description : "This magic bow has limb tips shaped like dragon wings and is infused with the essence of " + sAorAn + sDragonLC + " dragon's breath. Attacks made with it deal an extra 1d6 " + sDmg + " damage. When I pull back the string without ammunition loaded in it, the weapon creates its own that lasts until it hits or misses a target.",
+			dragonWingBowDmgType : sDmg,
+			dragonWingBowDragonType : sDragonLC
 		}
 	}
 	return obj;
@@ -43257,6 +43265,7 @@ MagicItemsList["potion of dragon's majesty"] = function () { // NOG AFMAKEN!!!!
 		descriptionFull : "This potion looks like liquid gold, with a single scale from a chromatic, gem, or metallic dragon suspended in it. When you drink this potion, you transform into an adult dragon of the same kind as the dragon the scale came from. The transformation lasts for 1 hour. Any equipment you are wearing or carrying melds into your new form or falls to the ground (your choice). For the duration, you use the game statistics of the adult dragon instead of your own, but you retain your languages, personality, and memories. You can't use a dragon's Change Shape or its legendary or lair actions.",
 		weight : 0.5,
 		choices : [],
+		allowDuplicates : true,
 		choicesNotInMenu : true
 	}
 	var aDragons = ["Black", "Blue", "Green", "Red", "White", "Amethyst", "Crystal", "Emerald", "Sapphire", "Topaz", "Brass", "Bronze", "Copper", "Gold", "Silver"];
@@ -50575,7 +50584,7 @@ FeatsList["scion of the outer planes"] = {
 	"\nThe Outlands\tPsychic\t\tMage Hand",
 	prerequisite : "Planescape Campaign",
 	spellcastingAbility : [4,5,6],
-	choices : ['Astral Plane (Psychic, Message)', 'Chaotic Outer Plane (Poison, Minor Illusion)', 'Evil Outer Plane (Necrotic, Chill Touch)', 'Good Outer Plane (Radiant, Sacred Flame)', 'Lawful Outer Plane (Force, Guidance)', 'The Outlands (Psychic, Mage Hand)'],
+	choices : ['Chaotic Outer Plane (Poison, Minor Illusion)', 'Evil Outer Plane (Necrotic, Chill Touch)', 'Good Outer Plane (Radiant, Sacred Flame)', 'Lawful Outer Plane (Force, Guidance)', 'The Outlands (Psychic, Mage Hand)'],
 	'chaotic outer plane (poison, minor illusion)' : {
 		name : "Scion of the Outer Planes (Chaotic Outer Plane)",
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to poison damage and I know the Minor Illusion cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",

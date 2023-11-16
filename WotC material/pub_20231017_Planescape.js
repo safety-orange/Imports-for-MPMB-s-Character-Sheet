@@ -232,7 +232,7 @@ FeatsList["scion of the outer planes"] = {
 	"\nThe Outlands\tPsychic\t\tMage Hand",
 	prerequisite : "Planescape Campaign",
 	spellcastingAbility : [4,5,6],
-	choices : ['Astral Plane (Psychic, Message)', 'Chaotic Outer Plane (Poison, Minor Illusion)', 'Evil Outer Plane (Necrotic, Chill Touch)', 'Good Outer Plane (Radiant, Sacred Flame)', 'Lawful Outer Plane (Force, Guidance)', 'The Outlands (Psychic, Mage Hand)'],
+	choices : ['Chaotic Outer Plane (Poison, Minor Illusion)', 'Evil Outer Plane (Necrotic, Chill Touch)', 'Good Outer Plane (Radiant, Sacred Flame)', 'Lawful Outer Plane (Force, Guidance)', 'The Outlands (Psychic, Mage Hand)'],
 	'chaotic outer plane (poison, minor illusion)' : {
 		name : "Scion of the Outer Planes (Chaotic Outer Plane)",
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to poison damage and I know the Minor Illusion cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
