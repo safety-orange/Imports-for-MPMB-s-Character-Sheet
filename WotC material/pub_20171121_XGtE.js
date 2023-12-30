@@ -2771,7 +2771,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
 	description : desc([
 		"I can use any pact weapon I create as my spellcasting focus for warlock spells",
-		"Any pact weapon I create is a +1 magic weapon, if it isn't already a magic weapon",
+		"Any pact weapon I create is a +1 magic weapon, if it isn't already a +1 magic weapon",
 		"I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon"
 	]),
 	source : [["X", 57]],
@@ -2783,29 +2783,28 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if ((/^(shortbow|longbow|light crossbow|heavy crossbow)$/).test(v.baseWeaponName) && (/\bpact\b/i).test(v.WeaponTextName)) {
 					v.pactWeapon = true;
 				}
-				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
-				if (v.pactWeapon && !v.thisWeapon[1] && !v.pactMag) {
-					var iPactWeaBonus = 1;
+				// Test if this is a pact weapon, has no + bonus from somewhere else, and doesn't already have a improved pact weapon bonus
+				if (v.pactWeapon && !output.magic) {
 					var bContinue = true;
-					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					// Now test if this isn't a weaponOptions addition with a static + bonus set to the modifier fields
 					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
 						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
 						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
-							if (!n) {
+							if (!n || !/\d/.test(n)) {
 								var nmbr = 0;
 							} else if (isNaN(n)) {
-								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								var nmbr = n.match(/(^|\+|-)\d+\b/g);
 								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
 							} else {
 								var nmbr = Number(n);
 							}
-							return nmbr < iPactWeaBonus;
+							return nmbr < 1;
 						});
 					}
 					// if the continue boolean wasn't set to false, we can proceed
 					if (bContinue) {
-						v.pactMag = iPactWeaBonus;
-						output.magic += v.pactMag;
+						v.pactMag = 1;
+						output.magic = 1;
 					}
 				};
 			},
@@ -4823,7 +4822,7 @@ MagicItemsList["adamantine ammunition"] = {
 		itemName1stPage : ["suffix", "Adamantine"],
 		descriptionChange : ["replace", "ammunition"],
 		excludeCheck : function (inObjKey, inObj) {
-			return (/vials|flasks/i).test(inObj.icon);
+			return /vials|flasks/i.test(inObj.icon);
 		}
 	}
 }
@@ -5136,7 +5135,7 @@ MagicItemsList["hat of wizardry"] = {
 					if (!spList.notspells) spList.notspells = [];
 					spList.notspells = spList.notspells.concat(knownCantrips);
 				}
-			},
+			}
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName, isDuplicate) {
@@ -5458,7 +5457,7 @@ MagicItemsList["walloping ammunition"] = {
 		prefixOrSuffix : "suffix",
 		descriptionChange : ["replace", "ammunition"],
 		excludeCheck : function (inObjKey, inObj) {
-			return (/vials|flasks/i).test(inObj.icon);
+			return /vials|flasks/i.test(inObj.icon);
 		}
 	}
 }

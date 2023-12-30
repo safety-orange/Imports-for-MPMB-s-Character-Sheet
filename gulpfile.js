@@ -9,7 +9,7 @@ const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
 const uglify  = require('gulp-uglify');
 
-const stableVersion = '"13.1.9"';
+const stableVersion = '"13.1.12"';
 const betaVersion   = '"13.2.0-beta1"';
 const betaFolder    = "/v13.2";
 const parentFolder  = "WotC material";
@@ -45,7 +45,7 @@ function combine(minified, beta) {
 	return src([`${path}published${ext}`, `${path}unearthed_arcana${ext}`])
 		.pipe(replace(/if ?\(sheetVersion ?< ?\d+\.?\d*e?\d*\)[ {]*?throw[\s\S]*?var iFileName[\s\S]*?RequiredSheetVersion\(.*?\)[,;][\r\n]*/, ""))
 		.pipe(concat(fileName, {newLine: minified ? '' : '\n'}))
-		.pipe(header(`${tooOldcheck}\nvar iFileName = "${fileName}";${minified ? '' : '\n'}RequiredSheetVersion(${requiredVersion})${minified ? ',' : ';\n'}`))
+		.pipe(header(`${tooOldcheck}\nvar iFileName = "${fileName}";${minified ? '' : '\n'}RequiredSheetVersion(${requiredVersion});${minified ? '' : '\n'}`))
 		.pipe(dest(folder));
 }
 

@@ -1,6 +1,6 @@
-if (sheetVersion < 13001009) { throw "This script was made for a newer version of the sheet (v13.1.9). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13001012) { throw "This script was made for a newer version of the sheet (v13.1.12). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("13.1.12");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -5987,33 +5987,13 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
-				if (v.pactWeapon && !v.thisWeapon[1] && !v.pactMag) {
-					var iPactWeaBonus = 1;
-					var bContinue = true;
-					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
-					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
-						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
-						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
-							if (!n) {
-								var nmbr = 0;
-							} else if (isNaN(n)) {
-								var nmbr = n.match(/($|\+|-)\d+\b/g);
-								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
-							} else {
-								var nmbr = Number(n);
-							}
-							return nmbr < iPactWeaBonus;
-						});
-					}
-					// if the continue boolean wasn't set to false, we can proceed
-					if (bContinue) {
-						v.pactMag = iPactWeaBonus;
-						output.magic += v.pactMag;
-					}
+				// Test if this is a pact weapon, has no + bonus from somewhere else, and isn't a magic weapon
+				if (v.pactWeapon && !output.magic && !(v.theWea && v.theWea.isMagicWeapon)) {
+					v.pactMag = 1;
+					output.magic = 1;
 				};
 			},
-			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon with at least a +1 bonus, the calculation will add +1 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name or gets it from somewhere else and is not a magic weapon, the calculation will add +1 to its To Hit and Damage."
 		]
 	}
 });
@@ -6135,34 +6115,15 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				// Test if this is a pact weapon, has no + bonus in its name, is not a magic weapon, and doesn't already have a improved pact weapon bonus
 				var iPactWeaBonus = 2;
-				if (v.pactWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < iPactWeaBonus)) {
-					var bContinue = true;
-					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
-					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
-						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
-						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
-							if (!n) {
-								var nmbr = 0;
-							} else if (isNaN(n)) {
-								var nmbr = n.match(/($|\+|-)\d+\b/g);
-								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
-							} else {
-								var nmbr = Number(n);
-							}
-							return nmbr < iPactWeaBonus;
-						});
-					}
-					// if the continue boolean wasn't set to false, we can proceed
-					if (bContinue) {
-						if (v.pactMag) output.magic -= v.pactMag;
-						v.pactMag = iPactWeaBonus;
-						output.magic += v.pactMag;
-					}
+				if (v.pactWeapon && !v.thisWeapon[1] && !(v.theWea && v.theWea.isMagicWeapon) && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					v.pactMag = iPactWeaBonus;
+					output.magic += v.pactMag;
 				};
 			},
-			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +2 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name or gets it from somewhere else and is not a magic weapon, the calculation will add +2 to its To Hit and Damage."
 		]
 	}
 });
@@ -6190,34 +6151,15 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
+				// Test if this is a pact weapon, has no + bonus in its name, is not a magic weapon, and doesn't already have a improved pact weapon bonus
 				var iPactWeaBonus = 3;
-				if (v.pactWeapon && !v.thisWeapon[1] && (!v.pactMag || v.pactMag < iPactWeaBonus)) {
-					var bContinue = true;
-					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
-					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
-						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
-						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
-							if (!n) {
-								var nmbr = 0;
-							} else if (isNaN(n)) {
-								var nmbr = n.match(/($|\+|-)\d+\b/g);
-								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
-							} else {
-								var nmbr = Number(n);
-							}
-							return nmbr < iPactWeaBonus;
-						});
-					}
-					// if the continue boolean wasn't set to false, we can proceed
-					if (bContinue) {
-						if (v.pactMag) output.magic -= v.pactMag;
-						v.pactMag = iPactWeaBonus;
-						output.magic += v.pactMag;
-					}
+				if (v.pactWeapon && !v.thisWeapon[1] && !(v.theWea && v.theWea.isMagicWeapon) && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
+					if (v.pactMag) output.magic -= v.pactMag;
+					v.pactMag = iPactWeaBonus;
+					output.magic += v.pactMag;
 				};
 			},
-			"If my Pact Weapon doesn't already include a magical bonus in its name and is not a magic weapon, the calculation will add +3 to its To Hit and Damage."
+			"If my Pact Weapon doesn't already include a magical bonus in its name or gets it from somewhere else and is not a magic weapon, the calculation will add +3 to its To Hit and Damage."
 		]
 	}
 });
@@ -12125,29 +12067,28 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				// Test if this is a pact weapon, has no + bonus in its name, and doesn't already have a improved pact weapon bonus
-				if (v.pactWeapon && !v.thisWeapon[1] && !v.pactMag) {
-					var iPactWeaBonus = 1;
+				// Test if this is a pact weapon, has no + bonus from somewhere else, and doesn't already have a improved pact weapon bonus
+				if (v.pactWeapon && !output.magic) {
 					var bContinue = true;
-					// Now test if this isn't a magic weapon with a static + bonus set to the modifier fields
+					// Now test if this isn't a weaponOptions addition with a static + bonus set to the modifier fields
 					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
 						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
 						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
-							if (!n) {
+							if (!n || !/\d/.test(n)) {
 								var nmbr = 0;
 							} else if (isNaN(n)) {
-								var nmbr = n.match(/($|\+|-)\d+\b/g);
+								var nmbr = n.match(/(^|\+|-)\d+\b/g);
 								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
 							} else {
 								var nmbr = Number(n);
 							}
-							return nmbr < iPactWeaBonus;
+							return nmbr < 1;
 						});
 					}
 					// if the continue boolean wasn't set to false, we can proceed
 					if (bContinue) {
-						v.pactMag = iPactWeaBonus;
-						output.magic += v.pactMag;
+						v.pactMag = 1;
+						output.magic = 1;
 					}
 				};
 			},
@@ -17419,7 +17360,7 @@ AddWarlockPactBoon("Pact of the Talisman (ua)", {
 	description : desc([
 		"The wearer of this amulet adds 1d4 to checks with skills in which they lack proficiency",
 		"I can give the talisman to others to use; The talisman turns to ash when I die",
-		"If I lose my talisman, I can preform a 1-hour ceremony to gain a replacement",
+		"If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement",
 		"This ceremony destroys the previous amulet and can be done during a short or long rest"
 	])
 });
@@ -18324,7 +18265,7 @@ AddSubClass("warlock", "the noble genie-ua", {
 			minlevel : 1,
 			description : desc([
 				"My patron gives me a magical vessel, a Tiny object which I can use as a spellcasting focus",
-				"If I lose it, I can preform a 1-hour ceremony during a rest to receive a replacement",
+				"If I lose it, I can perform a 1-hour ceremony during a rest to receive a replacement",
 				"As an action while holding it, I can create a tether to a willing target I can see in 100 ft",
 				"This lasts for 1 hour, until I do this again, or the tethered target is reduced to 0 HP",
 				"It also ends when the tethered target ends its turn further than 100 ft from me",
@@ -19029,7 +18970,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			minlevel : 2,
 			description : desc([
 				"I've created a star map, a Tiny object which I can use as my spellcasting focus",
-				"If I lose it, I can preform a 1-hour ceremony during a rest to create a replacement",
+				"If I lose it, I can perform a 1-hour ceremony during a rest to create a replacement",
 				"I can use it to cast Augury or Guiding Bolt, even unprepared, without using a spell slot"
 			]),
 			spellcastingBonus : {

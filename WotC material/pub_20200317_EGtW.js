@@ -1601,7 +1601,7 @@ BackgroundList["grinner"] = {
 	feature : "Ballad of the Grinning Fool",
 	trait : [
 		"I love the spotlight. Everyone, look at me!",
-		"Give me a drink and am I'm your friend.",
+		"Give me a drink and I'm your friend.",
 		"Talk to me about yourself. I'm a hell of a listener.",
 		"I hate to start fights, but I love to finish them.",
 		"I can't sit still.",

@@ -749,7 +749,7 @@ MagicItemsList["ring of hardened magma"] = {
 	descriptionFull : "This ring is sized for a fire giant's finger. When a creature attunes to the ring, it magically shrinks to fit that creature's index finger, and warm orange light spills from minuscule cracks that form on its outer surface. The ring has 6 charges. While attuned to the ring, a creature can expend 1 charge to cast conjure minor elementals (summoning either four magma mephits or four magmins, as the wearer wishes) or fire shield (warm shield version only) from the ring. Once all of its charges are spent, the ring loses its spellcasting properties but retains its resizing property.",
 	attunement : true,
 	usages : 6,
-	recovery : "never",
+	recovery : "Never",
 	spellcastingAbility : "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : {

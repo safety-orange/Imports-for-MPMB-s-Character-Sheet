@@ -290,7 +290,7 @@ AddSubClass("warlock", "the noble genie-ua", {
 			minlevel : 1,
 			description : desc([
 				"My patron gives me a magical vessel, a Tiny object which I can use as a spellcasting focus",
-				"If I lose it, I can preform a 1-hour ceremony during a rest to receive a replacement",
+				"If I lose it, I can perform a 1-hour ceremony during a rest to receive a replacement",
 				"As an action while holding it, I can create a tether to a willing target I can see in 100 ft",
 				"This lasts for 1 hour, until I do this again, or the tethered target is reduced to 0 HP",
 				"It also ends when the tethered target ends its turn further than 100 ft from me",

@@ -1105,7 +1105,7 @@ AddWarlockPactBoon("Pact of the Talisman (ua)", {
 	description : desc([
 		"The wearer of this amulet adds 1d4 to checks with skills in which they lack proficiency",
 		"I can give the talisman to others to use; The talisman turns to ash when I die",
-		"If I lose my talisman, I can preform a 1-hour ceremony to gain a replacement",
+		"If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement",
 		"This ceremony destroys the previous amulet and can be done during a short or long rest"
 	])
 });

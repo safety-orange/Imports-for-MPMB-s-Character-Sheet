@@ -1,5 +1,5 @@
 var iFileName = "pub_20211019_FToD.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.12");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
@@ -1779,5 +1779,42 @@ CreatureList["giant canary"] = {
 		damage : [1, 10, "piercing"],
 		range : "Melee (5 ft)",
 		description : ""
+	}]
+};
+CreatureList["dragonnel"] = { // Alternate for Find Greater Steed spell
+	name : "Dragonnel",
+	source : [["FToD", 190]],
+	size : 2, //Large
+	type : "Dragon",
+	companion : ["steed_not_al"],
+	alignment : "Neutral",
+	ac : 13,
+	hp : 58,
+	hd : [9, 10],
+	speed : "30 ft, fly 60 ft",
+	scores : [16, 15, 12, 8, 13, 10],
+	skills : {
+		"perception" : 3
+	},
+	senses : "Blindsight 30 ft; Darkvision 120 ft",
+	passivePerception : 13,
+	languages : "understands Draconic and Common but can't speak",
+	challengeRating : "2",
+	proficiencyBonus : 2,
+	attacksAction : 2,
+	attacks : [{
+		name : "Rend",
+		ability : 1,
+		damage : [2, 6, "slashing"],
+		range : "Melee (5 ft)",
+		description : "Two rend attacks as Attack action"
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The dragonnel makes two Rend attacks."
+	}],
+	traits : [{
+		name : "Flyby",
+		description : "The dragonnel doesn't provoke an opportunity attack when it flies out of an enemy's reach."
 	}]
 };

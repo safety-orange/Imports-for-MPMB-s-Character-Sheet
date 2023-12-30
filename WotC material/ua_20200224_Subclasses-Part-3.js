@@ -357,7 +357,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			minlevel : 2,
 			description : desc([
 				"I've created a star map, a Tiny object which I can use as my spellcasting focus",
-				"If I lose it, I can preform a 1-hour ceremony during a rest to create a replacement",
+				"If I lose it, I can perform a 1-hour ceremony during a rest to create a replacement",
 				"I can use it to cast Augury or Guiding Bolt, even unprepared, without using a spell slot"
 			]),
 			spellcastingBonus : {

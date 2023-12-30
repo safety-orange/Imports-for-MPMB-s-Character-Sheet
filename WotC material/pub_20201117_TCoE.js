@@ -2647,7 +2647,7 @@ AddSubClass("druid", "circle of the stars", {
 			minlevel : 2,
 			description : desc([
 				"I've created a star map, a Tiny object which I can use as my spellcasting focus",
-				"If I lose it, I can preform a 1-hour ceremony during a rest to create a replacement",
+				"If I lose it, I can perform a 1-hour ceremony during a rest to create a replacement",
 				"While holding it, I know the Guidance cantrip and always have Guiding Bolt prepared",
 				"These count as druid spells, but do not count against the number of spells I can prepare",
 				"I can cast Guiding Bolt without expending a spell slot my Proficiency Bonus per long rest"
@@ -4151,9 +4151,9 @@ if (ClassSubList["ranger-beast master"]) {
 			}
 		}],
 		addMod : [
-			{ type : "skill", field : "All", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." },
+			{ type : "skill", field : "all", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." },
 			{ type : "skill", field : "Init", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." },
-			{ type : "save", field : "All", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." }
+			{ type : "save", field : "all", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." }
 		],
 		calcChanges : {
 			hp : function (totalHD, HDobj, prefix) {
@@ -5128,7 +5128,7 @@ AddWarlockPactBoon("Pact of the Talisman", {
 	description : desc([
 		"When the wearer of this amulet fails an ability check, they can add +1d4 to the roll",
 		"I can give the talisman to others to use; The talisman turns to ash when I die",
-		"If I lose my talisman, I can preform a 1-hour ceremony to gain a replacement",
+		"If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement",
 		"This ceremony destroys the previous amulet and can be done during a short or long rest"
 	]),
 	usages: "Proficiency bonus per ",
@@ -7238,6 +7238,7 @@ MagicItemsList["amulet of the devout"] = { // contains contributions by lizrdgiz
 	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
 	"+1 to spell attacks and dcs (uncommon)" : {
 		name : "Amulet of the Devout +1",
+		nameTest : "+1 Amulet of the Devout",
 		rarity : "uncommon",
 		description : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a +1 bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
 		calcChanges : {
@@ -7251,6 +7252,7 @@ MagicItemsList["amulet of the devout"] = { // contains contributions by lizrdgiz
 	},
 	"+2 to spell attacks and dcs (rare)" : {
 		name : "Amulet of the Devout +2",
+		nameTest : "+2 Amulet of the Devout",
 		rarity : "rare",
 		description : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a +2 bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
 		calcChanges : {
@@ -7264,6 +7266,7 @@ MagicItemsList["amulet of the devout"] = { // contains contributions by lizrdgiz
 	},
 	"+3 to spell attacks and dcs (very rare)" : {
 		name : "Amulet of the Devout +3",
+		nameTest : "+3 Amulet of the Devout",
 		rarity : "very rare",
 		description : "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a +3 bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
 		calcChanges : {
@@ -7422,7 +7425,7 @@ MagicItemsList["moon sickle"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
+					if (type !== "prepare" && (spellcasters.indexOf('druid') !== -1 || spellcasters.indexOf('ranger') !== -1)) return 1;
 				},
 				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
@@ -7436,7 +7439,7 @@ MagicItemsList["moon sickle"] = {
 		calcChanges : {
 				spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
+					if (type !== "prepare" && (spellcasters.indexOf('druid') !== -1 || spellcasters.indexOf('ranger') !== -1)) return 2;
 				},
 				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
@@ -7450,7 +7453,7 @@ MagicItemsList["moon sickle"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 3;
+					if (type !== "prepare" && (spellcasters.indexOf('druid') !== -1 || spellcasters.indexOf('ranger') !== -1)) return 3;
 				},
 				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]

@@ -6,6 +6,7 @@ RequiredSheetVersion("13.1.9");
 SourceList["P:AitM"] = {
 	name : "Planescape: Adventures in the Multiverse",
 	abbreviation : "P:AitM",
+	abbreviationSpellsheet : "PS",
 	group : "Campaign Sourcebooks",
 	campaignSetting : "Planescape",
 	url : "https://dndstore.wizards.com/us/product/820944/planescape-adventures-in-the-multiverse-digital-plus-physical-bundle",
