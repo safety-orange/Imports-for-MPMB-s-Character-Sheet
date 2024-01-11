@@ -1781,7 +1781,7 @@ CreatureList["giant canary"] = {
 		description : ""
 	}]
 };
-CreatureList["dragonnel"] = { // Alternate for Find Greater Steed spell
+CreatureList["dragonnel"] = { // Alternate for Find Greater Steed spell (contributed by Nod_Hero)
 	name : "Dragonnel",
 	source : [["FToD", 190]],
 	size : 2, //Large
