@@ -43,12 +43,12 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 			source : [["UA:SnW", 1]],
 			minlevel : 1,
 			description : "\n   My aberrant origin gives me an AC of 13 + my Dex mod when I am not wearing armor",
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*warped)(?=.*being).*$/i,
 				name : "Warped Being",
 				source : [["UA:SnW", 1]],
 				ac : 13
-			},
+			}],
 			armorAdd : "Warped Being"
 		},
 		"subclassfeature6" : {

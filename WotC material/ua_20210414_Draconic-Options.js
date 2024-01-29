@@ -25,11 +25,11 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"chromatic warding" : {
-					name: "Chromatic Warding",
+					name : "Chromatic Warding",
 					source : [["UA:DO", 2]],
-					minlevel: 3,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 3,
+					usages : 1,
+					recovery : "long rest",
 					action : [["action", ""]]
 				}
 			}
@@ -45,13 +45,13 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"metallic breath weapon" : {
-					name: "Metallic Breath Weapon",
+					name : "Metallic Breath Weapon",
 					source : [["UA:DO", 3]],
-					minlevel: 3,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 3,
+					usages : 1,
+					recovery : "long rest",
 					weaponsAdd : ["Metallic Breath Weapon"],
-					weaponOptions: [{
+					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
 						source : [["UA:DO", 3]],
@@ -78,11 +78,11 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"gem flight" : {
-					name: "Gem Flight",
+					name : "Gem Flight",
 					source : [["UA:DO", 3]],
-					minlevel: 3,
-					usages: 1,
-					recovery: "long rest"
+					minlevel : 3,
+					usages : 1,
+					recovery : "long rest"
 				}
 			}
 		}
@@ -102,7 +102,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			},
 			languageProfs : ["Common", 1],
 			weaponsAdd : ["Breath Weapon"],
-			weaponOptions: [{
+			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
 				source : oDrBrn.source,
@@ -192,7 +192,7 @@ RaceList["draconic kobold-ua"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", ""]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		}
 	},
 	trait : "Draconic Kobold"+

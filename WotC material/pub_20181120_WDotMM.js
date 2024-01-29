@@ -298,7 +298,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 		source : [["WDotMM", 76]],
 		description : "Versatile (1d10); On 20 to hit: +14 damage \u0026 5% chance to sever limb; Max damage vs. objects"
 	},
-	usages: 6,
+	usages : 6,
 	recovery : "dawn",
 	additional : "regain 1d4+2",
 	spellFirstColTitle : "Ch",

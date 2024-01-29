@@ -277,14 +277,14 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 					}
 				}
 			},
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
 				name : "Stone's Durability",
 				source : [["UA:SO", 4]],
 				ac : "13+Con",
 				dex : -10,
 				affectsWildShape : true
-			},
+			}],
 			armorAdd : "Stone's Durability"
 		},
 		"subclassfeature6" : {

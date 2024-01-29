@@ -372,13 +372,13 @@ AddSubClass("mystic", "immortal-ua", {
 					}
 				}
 			},
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
 				name : "Immortal Durability",
 				source : [["UA:TMC", 7]],
 				ac : "10+Con",
 				affectsWildShape : true
-			},
+			}],
 			armorAdd : "Immortal Durability"
 		},
 		"subclassfeature3" : {
@@ -2182,7 +2182,7 @@ PsionicsList["ma2-wind stream"] = {
 	time : "1 a",
 	range : "30-ft line",
 	duration : "Instantaneous",
-	save: "Str",
+	save : "Str",
 	description : "30-ft long 5-ft wide all crea 1d8/PP Bludgeoning dmg and knocked prone; save halves and not prone",
 	descriptionFull : "As an action, you create a line of focused air that is 30 feet long and 5 feet wide. Each creature in that area must make a Strength saving throw, taking 1d8 bludgeoning damage per psi point spent and being knocked prone on a failed save, or half as much damage on a successful one.",
 	firstCol : "1-7"

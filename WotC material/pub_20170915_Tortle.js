@@ -24,13 +24,13 @@ RaceList.tortle = {
 	},
 	languageProfs : ["Common", "Aquan"],
 	skills : ["Survival"],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*tortle)(?=.*shell).*$/i,
 		name : "Tortle's Shell",
 		source : [["TP", 4], ["W", 181]],
 		ac : 17,
 		dex : -10
-	},
+	}],
 	armorAdd : "Tortle's Shell",
 	weaponOptions : {
 		baseWeapon : "unarmed strike",

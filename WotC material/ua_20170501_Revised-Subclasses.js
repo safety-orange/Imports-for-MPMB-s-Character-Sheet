@@ -280,7 +280,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 				" - If I do an unarmed strike during an Attack action, +2 AC until my next turn starts",
 				" - As a bonus action, ranged kensei weapon attacks deal +1d4 damage in current turn"
 			]),
-			action: ["bonus action", " (with ranged)"],
+			action : ["bonus action", " (with ranged)"],
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 			calcChanges : {
 				atkAdd : [

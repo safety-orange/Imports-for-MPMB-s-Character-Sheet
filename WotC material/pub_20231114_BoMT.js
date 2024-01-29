@@ -755,14 +755,14 @@ MagicItemsList["breastplate of balance"] = {
 	recovery : "dawn",
 	additional : "regains 1d4",
 	armorAdd : "Breastplate of Balance",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /justToAddToDropDown/i,
 		name : "Breastplate of Balance",
 		source : [["BoMT", 34]],
 		type : "medium",
 		ac : 14,
 		weight : 20
-	},
+	}],
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "2 charges",
@@ -1455,11 +1455,11 @@ MagicItemsList["plate of knight's fellowship"] = {
 	"\n   The spirit is an ally to you and your companions. In combat, the spirit shares your initiative count but takes its turn immediately after yours. The spirit obeys your commands (no action required by you); if you don't issue any commands, the spirit takes the Dodge action and uses its movement to avoid danger."+
 	"\n   Once this bonus action is used, it can't be used again until the next dawn.",
 	weight : 65,
-	usages: 1,
-	recovery: "dawn",
+	usages : 1,
+	recovery : "dawn",
 	action : [["bonus action", ""]],
 	armorAdd : "Plate of Knight's Fellowship",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /justToAddToDropDown/i,
 		name : "Plate of Knight's Fellowship",
 		source : [["BoMT", 37]],
@@ -1468,7 +1468,7 @@ MagicItemsList["plate of knight's fellowship"] = {
 		stealthdis : true,
 		weight : 65,
 		strReq : 15
-	},
+	}],
 	creaturesAdd : [["Knight"]],
 	creatureOptions : [{
 		name : "Knight",
@@ -2021,8 +2021,8 @@ MagicItemsList["voidwalker armor"] = {
 	descriptionFull : "This black studded leather armor bears a red sheen. While wearing this armor, you can use a bonus action to summon a projection of yourself in an unoccupied space within 30 feet of yourself. The projection is a translucent copy of you that has immunity to all damage and conditions, and you can make attacks and cast spells with a range other than self as if standing in the projection's space. The projection disappears at the end of your turn. Once you use this bonus action, it can't be used again until the next dawn."+
 	"\n   " + toUni("Curse") + ". " + BoMT.toDescrFull(BoMT["voidwalker armor"]),
 	weight : 13,
-	usages: 1,
-	recovery: "dawn",
+	usages : 1,
+	recovery : "dawn",
 	action : [["bonus action", ""]],
 	armorAdd : "Voidwalker Armor",
 	armorOptions : [{

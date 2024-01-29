@@ -26,11 +26,11 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"chromatic warding" : {
-					name: "Chromatic Warding",
+					name : "Chromatic Warding",
 					source : [["FToD", 10]],
-					minlevel: 5,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 5,
+					usages : 1,
+					recovery : "long rest",
 					action : [["action", ""]]
 				}
 			}
@@ -47,11 +47,11 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"gem flight" : {
-					name: "Gem Flight",
+					name : "Gem Flight",
 					source : [["FToD", 11]],
-					minlevel: 5,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 5,
+					usages : 1,
+					recovery : "long rest",
 					action : [["bonus action", ""]]
 				}
 			}
@@ -67,13 +67,13 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"metallic breath weapon" : {
-					name: "Metallic Breath Weapon",
+					name : "Metallic Breath Weapon",
 					source : [["FToD", 12]],
-					minlevel: 5,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 5,
+					usages : 1,
+					recovery : "long rest",
 					weaponsAdd : ["Metallic Breath Weapon"],
-					weaponOptions: [{
+					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
 						source : [["FToD", 12]],
@@ -103,7 +103,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 				walk : { spd : 30, enc : 20 }
 			},
 			weaponsAdd : ["Breath Weapon"],
-			weaponOptions: [{
+			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
 				source : oDrBrn.source,
@@ -1022,8 +1022,8 @@ MagicItemsList["flail of tiamat"] = {
 AddFeatureChoice(MagicItemsList["figurine of wondrous power"], false, "Gold Canary", {
 	source : [["FToD", 23]],
 	rarity : "legendary",
-	description: "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a giant canary for 8 hours (or once a year an adult gold dragon for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
-	descriptionLong: "As an action, I can speak the command word and throw this gold statuette of a canary to an unoccupied space within 60 ft, where it becomes a giant canary for up to 8 hours, until I use an action to repeat the command word, or it reaches 0 HP. It is friendly to me and my allies, understands my languages, and obeys my spoken commands. If I issue no commands, the creature defends itself but takes no other actions. Once per year, I can have it become an adult gold dragon for up to 1 hour. When it reverts back to a figurine, it can't be used again until the next dawn (canary) or 1 year has passed (dragon).",
+	description : "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a giant canary for 8 hours (or once a year an adult gold dragon for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
+	descriptionLong : "As an action, I can speak the command word and throw this gold statuette of a canary to an unoccupied space within 60 ft, where it becomes a giant canary for up to 8 hours, until I use an action to repeat the command word, or it reaches 0 HP. It is friendly to me and my allies, understands my languages, and obeys my spoken commands. If I issue no commands, the creature defends itself but takes no other actions. Once per year, I can have it become an adult gold dragon for up to 1 hour. When it reverts back to a figurine, it can't be used again until the next dawn (canary) or 1 year has passed (dragon).",
 	descriptionFull : "This gold statuette is carved in the likeness of a canary and is small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living creature in one of two forms (you choose). If there isn't enough space for the creature where it would appear, the figurine doesn't become a creature. The two forms are as follows:"+
 	"\n   " + toUni("Giant Canary Form") + ". The figurine becomes a giant canary for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn."+
 	"\n   " + toUni("Gold Dragon Form") + ". While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an adult gold dragon (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed."+

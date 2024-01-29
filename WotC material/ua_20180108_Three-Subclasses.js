@@ -183,7 +183,7 @@ AddSubClass("wizard", "school of invention-ua", {
 				"Only I can attune to it; Creating a new one removes the magic from the previous"
 			]),
 			dmgres : ["Force"],
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /arcanomechanical/i,
 				name : "Arcanomechanical",
 				source : [["UA:TS", 3]],
@@ -191,7 +191,7 @@ AddSubClass("wizard", "school of invention-ua", {
 				ac : 12,
 				weight : 8,
 				invName : "Arcanomechanical armor"
-			},
+			}],
 			armorAdd : "Arcanomechanical"
 		},
 		"subclassfeature2.2" : {

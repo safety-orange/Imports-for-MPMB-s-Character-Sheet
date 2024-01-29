@@ -442,8 +442,8 @@ BackgroundList["athlete"] = { // includes contributions by Smashman
 	]
 };
 BackgroundFeatureList["echoes of victory"] = { // includes contributions by Smashman
-	description: "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
-	source: [["MOT", 31]]
+	description : "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
+	source : [["MOT", 31]]
 };
 
 // Creature: possible familiar

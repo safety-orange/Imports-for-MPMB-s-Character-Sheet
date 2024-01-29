@@ -240,7 +240,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		},
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
-		weaponOptions: [EGtW_breathWeaponObj],
+		weaponOptions : [EGtW_breathWeaponObj],
 		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -255,11 +255,11 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		features : {
 			"draconic ancestry" : EGtW_draconicAncestryFeature,
 			"forceful presence" : {
-				name: "Forceful Presence",
-				source: [["W", 168]],
-				minlevel: 1,
-				usages: 1,
-				recovery: "short rest"
+				name : "Forceful Presence",
+				source : [["W", 168]],
+				minlevel : 1,
+				usages : 1,
+				recovery : "short rest"
 			}
 		},
 		variants : []
@@ -368,7 +368,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		},
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
-		weaponOptions: [EGtW_breathWeaponObj],
+		weaponOptions : [EGtW_breathWeaponObj],
 		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -383,12 +383,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		features : {
 			"draconic ancestry" : EGtW_draconicAncestryFeature,
 			"vengeful assault" : {
-				name: "Vengeful Assault",
-				source: [["W", 168]],
-				minlevel: 1,
-				usages: 1,
-				action: [['reaction', ""]],
-				recovery: "short rest"
+				name : "Vengeful Assault",
+				source : [["W", 168]],
+				minlevel : 1,
+				usages : 1,
+				action : [['reaction', ""]],
+				recovery : "short rest"
 			}
 		},
 		variants : []
@@ -693,11 +693,11 @@ if (!SourceList.V) {
 				extraLimitedFeatures : [{
 					name : "Detect Magic",
 					usages : 1,
-					recovery: "short rest"
+					recovery : "short rest"
 				}, {
 					name : "Disguise Self",
 					usages : 1,
-					recovery: "short rest"
+					recovery : "short rest"
 				}],
 				spellChanges : {
 					"disguise self" : {
@@ -1097,13 +1097,13 @@ if (!RaceList.tortle) {
 		},
 		languageProfs : ["Common", "Aquan"],
 		skills : ["Survival"],
-		armorOptions : {
+		armorOptions : [{
 			regExpSearch : /^(?=.*tortle)(?=.*shell).*$/i,
 			name : "Tortle's Shell",
 			source : [["TP", 4], ["W", 181]],
 			ac : 17,
 			dex : -10
-		},
+		}],
 		armorAdd : "Tortle's Shell",
 		weaponOptions : {
 			baseWeapon : "unarmed strike",
@@ -1149,7 +1149,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				"When I use the Attack action on my turn, I can have any attack originate from my echo",
 				"I can also make opportunity attacks from the echo's location as if I were in its space"
 			]),
-			action: [["bonus action", " (summon/dismiss)"], ["bonus action", "Swap Location with Echo"]],
+			action : [["bonus action", " (summon/dismiss)"], ["bonus action", "Swap Location with Echo"]],
 			creaturesAdd : [["Echo"]],
 			creatureOptions : [{
 				name : "Echo",
@@ -1318,8 +1318,8 @@ AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassboga
 				"As an action, a creature holding the bead can release the spell within as if they cast it",
 				"The spell still uses my spell attack bonus and save DC; The bead vanishes once used"
 			]),
-			usages: 1,
-			recovery: "short rest"
+			usages : 1,
+			recovery : "short rest"
 		},
 		"subclassfeature14" : {
 			name : "Convergent Future",
@@ -1404,7 +1404,7 @@ AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbog
 			]),
 			action : [["action", ""]],
 			usages : 1,
-			recovery: "long rest",
+			recovery : "long rest",
 			altResource : "SS 3+",
 		}
 	}
@@ -2146,7 +2146,7 @@ MagicItemsList["amulet of the drunkard"] = {
 	description : "This amulet smells of old, ale-stained wood. While wearing it, I can regain 4d4 + 4 hit points when I drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
 	descriptionFull : "This amulet smells of old, ale-stained wood. While wearing it, you can regain 4d4 + 4 hit points when you drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
 	usages : 1,
-	recovery: "dawn"
+	recovery : "dawn"
 };
 var EGtW_ArcaneCannonFullDescription = [
 	"This Large cannon is imbued with magic. It requires no ammunition and doesn't need to be loaded. It takes one action to aim the cannon and one action to fire it. After the cannon has fired, it must recharge for 5 minutes before it can be fired again. The creature firing the cannon chooses the effect from the following options:",
@@ -2180,7 +2180,7 @@ MagicItemsList["battering shield"] = {
 	description : "This iron tower shield gives me a +1 bonus to AC, in addition to the shield's normal bonus to AC. It has 3 charges, regaining 1d3 expended charges daily at dawn. When I am holding the shield and push a creature 5 ft away, I can expend 1 charge to push that creature an additional 10 ft, knock it prone, or both.",
 	descriptionFull : "While holding this iron tower shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   Additionally, the shield has 3 charges, and it regains 1d3 expended charges daily at dawn. If you are holding the shield and push a creature within your reach at least 5 feet away, you can expend 1 charge to push that creature an additional 10 feet, knock it prone, or both.",
 	usages : 3,
-	recovery: "dawn",
+	recovery : "dawn",
 	additional : "regains 1d3",
 	shieldAdd : ["Battering Shield", 3],
 	weight : 6
@@ -2402,14 +2402,14 @@ MagicItemsList["hunter's coat"] = {
 	recovery : "dawn",
 	additional : "regains 1d3",
 	armorAdd : "Hunter's Coat",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*hunter)(?=.*coat).*$/i,
 		name : "Hunter's Coat",
 		source : [["W", 267]],
 		type : "light",
-		ac : 12,
+		ac : "11+1",
 		weight : 10
-	},
+	}],
 	weight : 10
 };
 MagicItemsList["last stand armor"] = {
@@ -2511,7 +2511,7 @@ MagicItemsList["orb of the veil"] = { // no automation for halving the fire dama
 	notLegalAL : true,
 	attunement : true,
 	description : "This orb increases my Wisdom and maximum by 2, grants me +60 ft darkvision, and adv. on Wisdom checks to find hidden doors and paths. It is cursed and once attuned to it, I become unwilling to part with it, nonmagical flames within 30 ft of me extinguish, and fire damage I deal is halved (not automated).",
-	descriptionFull: "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   " + toUni("Curse") + ". The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
+	descriptionFull : "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   " + toUni("Curse") + ". The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
 	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	scores : [0, 0, 0, 0, 2, 0],
 	scoresMaximum : [0, 0, 0, 0, "+2", 0],
@@ -2906,8 +2906,8 @@ MagicItemsList["grimoire infinitus"] = {
 	"dormant" : {
 		name : "Grimoire Infinitus [dormant]",
 		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizard spells, I can prepare 1 additional spell. See Notes page for more information.",
-		calcChanges: {
-			spellCalc: [
+		calcChanges : {
+			spellCalc : [
 				function (type, spellcasters, ability) {
 					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 1;
 				},
@@ -2918,8 +2918,8 @@ MagicItemsList["grimoire infinitus"] = {
 	"awakened" : {
 		name : "Grimoire Infinitus [awakened]",
 		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use it to prepare wizard spells, I can prepare 2 extra spells. It also grants me advantage on saves against spells and magical effects. See Notes page.",
-		calcChanges: {
-			spellCalc: [
+		calcChanges : {
+			spellCalc : [
 				function (type, spellcasters, ability) {
 					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 2;
 				},
@@ -2931,8 +2931,8 @@ MagicItemsList["grimoire infinitus"] = {
 	"exalted" : {
 		name : "Grimoire Infinitus [exalted]",
 		description : "This spellbook with unlimited pages can be used by a wizard to prepare and store spells. When I use it to prepare wizard spells, I can prepare 3 more. It also grants me adv. on saves vs. spells and magical effects and allows me to use Arcane Recovery an extra time per long rest. See Notes page for more information.",
-		calcChanges: {
-			spellCalc: [
+		calcChanges : {
+			spellCalc : [
 				function (type, spellcasters, ability) {
 					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 3;
 				},
@@ -2995,14 +2995,14 @@ MagicItemsList["hide of the feral guardian"] = {
 		name : "Hide of the Feral Guardian [dormant]",
 		description : "This +1 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +1 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to transform into a giant owl.",
 		armorAdd : "Hide of the Feral Guardian",
-		armorOptions : {
+		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
-			ac : 13,
+			ac : "12+1",
 			weight : 13
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -3017,14 +3017,14 @@ MagicItemsList["hide of the feral guardian"] = {
 		armorAdd : "Hide of the Feral Guardian [awakened]",
 		description : "This +2 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +2 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl or cave bear.",
 		armorAdd : "Hide of the Feral Guardian",
-		armorOptions : {
+		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
-			ac : 14,
+			ac : "12+2",
 			weight : 13
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -3038,14 +3038,14 @@ MagicItemsList["hide of the feral guardian"] = {
 		name : "Hide of the Feral Guardian [exalted]",
 		description : "This +3 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then grants a +2 to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl, cave bear or guardian wolf.",
 		armorAdd : "Hide of the Feral Guardian",
-		armorOptions : {
+		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
-			ac : 15,
+			ac : "12+3",
 			weight : 13
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",

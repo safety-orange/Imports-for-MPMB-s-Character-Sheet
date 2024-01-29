@@ -214,13 +214,13 @@ RaceList["firbolg"] = {
 				times : 2
 			},
 			extraLimitedFeatures : [{
-				name : "Detect Magic",
+				name : "Detect Magic (Firbolg Magic)",
 				usages : 1,
-				recovery: "short rest"
+				recovery : "short rest"
 			}, {
-				name : "Disguise Self",
+				name : "Disguise Self (Firbolg Magic)",
 				usages : 1,
-				recovery: "short rest"
+				recovery : "short rest"
 			}],
 			spellChanges : {
 				"disguise self" : {
@@ -404,12 +404,12 @@ RaceList["lizardfolk"] = {
 		damage : [1, 6, "piercing"]
 	},
 	weaponsAdd : ["Bite"],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["V", 113]],
 		ac : 13
-	},
+	}],
 	armorAdd : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
@@ -1272,7 +1272,7 @@ MagicItemsList["survival mantle"] = {
 	weight : 40,
 	savetxt : { adv_vs : ["gases"] },
 	armorAdd : "Survival Mantle",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*survival)(?=.*mantle).*$/i,
 		name : "Survival Mantle",
 		source : [["V", 81]],
@@ -1280,5 +1280,5 @@ MagicItemsList["survival mantle"] = {
 		ac : 15,
 		stealthdis : true,
 		weight : 40
-	}
+	}]
 }

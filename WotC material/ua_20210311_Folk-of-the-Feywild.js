@@ -44,7 +44,7 @@ RaceList["fairy-ua"] = {
 			extraLimitedFeatures : [{
 				name : "Faerie Fire",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		}
@@ -79,14 +79,14 @@ RaceList["feywild hobgoblin-ua"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", " (Help action)"]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fortune from the many" : {
 			name : "Fortune from the Many",
 			minlevel : 1,
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fey gift - additional effect" : {
 			name : "Fey Gifts - Additional Effects",

@@ -374,7 +374,7 @@
 			regExpSearch : /^(?=.*pestle)(?=.*yaga's)(?=.*baba).*$/i,
 			description : "Versatile (1d8); 1-3 charges per attack add 1d8 force damage per charge",
 			modifiers : [3,3],
-			type: "simple",
+			type : "simple",
 			ability : 1,
 			abilitytodamage : true,
 			damage : [1, 6, "bludgeoning"],

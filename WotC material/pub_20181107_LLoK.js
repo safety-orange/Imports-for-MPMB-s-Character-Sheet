@@ -113,14 +113,14 @@ MagicItemsList["heward's hireling armor"] = {
 	weight : 10,
 	action : [["action", " (retrieve item)"]],
 	armorAdd : "Heward's Hireling Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*heward)(?=.*hireling)(?=.*armor).*$/i,
 		name : "Heward's Hireling Armor",
 		source : [["LLoK", 55]],
 		type : "light",
-		ac : 12,
+		ac : "11+1",
 		weight : 10
-	}
+	}]
 }
 if (MagicItemsList["ioun stone"]) {
 	MagicItemsList["ioun stone"].incrementSkill = function (aSkill, iType, forceRemove) {
@@ -218,14 +218,14 @@ MagicItemsList["leather golem armor"] = {
 	dmgres : ["Lightning"],
 	cursed : true,
 	armorAdd : "Leather Golem Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*leather)(?=.*golem)(?=.*armor).*$/i,
 		name : "Leather Golem Armor",
 		source : [["LLoK", 55]],
 		type : "light",
-		ac : 12,
+		ac : "11+1",
 		weight : 10
-	},
+	}],
 	savetxt : { text : ["+1 vs. spells and magical effects"] },
 	toNotesPage : [{
 		name : "Features",
@@ -313,16 +313,16 @@ MagicItemsList["powered armor"] = {
 	savetxt : { text : ["Adv. on death saves"] },
 	action : [["bonus action", " (use energy)"]],
 	armorAdd : "Powered Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*powered)(?=.*armor).*$/i,
 		name : "Powered Armor",
 		source : [["LLoK", 56]],
 		type : "heavy",
-		ac : 19,
+		ac : "18+1",
 		stealthdis : true,
 		weight : 65,
 		strReq : 15
-	},
+	}],
 	usages : "2d10",
 	recovery : "Never",
 	additional : "energy cell",
@@ -347,46 +347,46 @@ MagicItemsList["powered armor"] = {
 
 // Spells (contain contributions by /u/KittenWithMittens)
 SpellsList["flock of familiars"] = {
-	name: "Flock of Familiars",
-	classes: ["warlock", "wizard"],
-	source: ["LLoK", 57],
-	level: 2,
-	school: "Conj",
-	time: "1 min",
-	range: "Touch",
-	components: "V,S",
-	duration: "Conc, 1 h",
+	name : "Flock of Familiars",
+	classes : ["warlock", "wizard"],
+	source : ["LLoK", 57],
+	level : 2,
+	school : "Conj",
+	time : "1 min",
+	range : "Touch",
+	components : "V,S",
+	duration : "Conc, 1 h",
 	description : "Summon 3+1/SL familiars as Find Familiar; can see through their eyes and deliver touch spells; see B",
-	descriptionFull: "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
+	descriptionFull : "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
 }
 SpellsList["galder's speedy courier"] = {
-	name: "Galder's Speedy Courier",
-	classes: ["warlock", "wizard"],
-	source: ["LLoK", 57],
-	level: 4,
-	school: "Conj",
-	time: "1 a",
-	range: "10 ft",
-	components: "V,S,M\u2020",
-	compMaterial: "25 gp, or mineral goods of equivalent value, which the spell consumes",
-	duration: "10 min",
-	description: "Send 3\xD73\xD73 ft chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
+	name : "Galder's Speedy Courier",
+	classes : ["warlock", "wizard"],
+	source : ["LLoK", 57],
+	level : 4,
+	school : "Conj",
+	time : "1 a",
+	range : "10 ft",
+	components : "V,S,M\u2020",
+	compMaterial : "25 gp, or mineral goods of equivalent value, which the spell consumes",
+	duration : "10 min",
+	description : "Send 3\xD73\xD73 ft chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
 	descriptionMetric : "Send 1\xD71\xD71 m chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
-	descriptionFull: "You summon a Small air elemental to a spot within range. The air elemental is formless, nearly transparent, immune to all damage, and cannot interact with other creatures or objects. It carries an open, empty chest whose interior dimensions are 3 feet on each side. While the spell lasts, you can deposit as many items inside the chest as will fit. You can then name a living creature you have met and seen at least once before, or any creature for which you possess a body part, lock of hair, clipping from a nail, or similar portion of the creature's body.\n   As soon as the lid of the chest is closed, the elemental and the chest disappear, then reappear adjacent to the target creature. If the target creature is on another plane, or if it is proofed against magical detection or location, the contents of the chest reappear on the ground at your feet.\n   The target creature is made aware of the chest's contents before it chooses whether or not to open it, and knows how much of the spell's duration remains in which it can retrieve them. No other creature can open the chest and retrieve its contents. When the spell expires or when all the contents of the chest have been removed, the elemental and the chest disappear. The elemental also disappears if the target creature orders it to return the items to you. When the elemental disappears, any items not taken from the chest reappear on the ground at your feet." + AtHigherLevels + "When you cast this spell using an 8th-level spell slot, you can send the chest to a creature on a different plane of existence from you."
+	descriptionFull : "You summon a Small air elemental to a spot within range. The air elemental is formless, nearly transparent, immune to all damage, and cannot interact with other creatures or objects. It carries an open, empty chest whose interior dimensions are 3 feet on each side. While the spell lasts, you can deposit as many items inside the chest as will fit. You can then name a living creature you have met and seen at least once before, or any creature for which you possess a body part, lock of hair, clipping from a nail, or similar portion of the creature's body.\n   As soon as the lid of the chest is closed, the elemental and the chest disappear, then reappear adjacent to the target creature. If the target creature is on another plane, or if it is proofed against magical detection or location, the contents of the chest reappear on the ground at your feet.\n   The target creature is made aware of the chest's contents before it chooses whether or not to open it, and knows how much of the spell's duration remains in which it can retrieve them. No other creature can open the chest and retrieve its contents. When the spell expires or when all the contents of the chest have been removed, the elemental and the chest disappear. The elemental also disappears if the target creature orders it to return the items to you. When the elemental disappears, any items not taken from the chest reappear on the ground at your feet." + AtHigherLevels + "When you cast this spell using an 8th-level spell slot, you can send the chest to a creature on a different plane of existence from you."
 }
 SpellsList["galder's tower"] = {
-	name: "Galder's Tower",
-	classes: ["wizard"],
-	source: ["LLoK", 57],
-	level: 3,
-	school: "Conj",
-	time: "10 min",
-	range: "30 ft",
-	components: "V,S,M",
-	compMaterial: "A fragment of stone, wood, or other building material",
-	duration: "24 h",
-	description: "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
-	descriptionFull: "You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:" +
+	name : "Galder's Tower",
+	classes : ["wizard"],
+	source : ["LLoK", 57],
+	level : 3,
+	school : "Conj",
+	time : "10 min",
+	range : "30 ft",
+	components : "V,S,M",
+	compMaterial : "A fragment of stone, wood, or other building material",
+	duration : "24 h",
+	description : "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
+	descriptionFull : "You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:" +
 	"\n \u2022 A bedroom with a bed, chairs, chest, and magical fireplace" +
 	"\n \u2022 A study with desks, books, bookshelves, parchments, ink, and ink pens" +
 	"\n \u2022 A dining space with a table, chairs, magical fireplace, containers, and cooking utensils" +

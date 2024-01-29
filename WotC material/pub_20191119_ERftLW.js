@@ -2124,12 +2124,12 @@ AddSubClass("artificer", "artillerist", {
 				"I can't have multiple cannons; Select \"Eldritch Cannon\" on a companion page for its stats"
 			]),
 			usages : 1,
-			recovery: "long rest",
+			recovery : "long rest",
 			altResource : "SS 1+",
 			additional : levels.map(function(n) {
 				return n < 3 ? "" : n < 15 ? "create 1 cannon" : "create 2 cannons";
 			}),
-			action: [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
+			action : [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
 			creaturesAdd : [["Eldritch Cannon"]],
 			creatureOptions : [{
 				name : "Eldritch Cannon",
@@ -2190,15 +2190,15 @@ AddSubClass("artificer", "artillerist", {
 					description : "The cannon emits a burst of positive energy that grants itself and each creature of its creator's choice within 10 ft of it a number of temporary hit points equal to 1d8 + its creator's Intelligence modifier (minimum of +1)."
 				}],
 				traits : [{
-					name: "Creator",
-					description: "As an object, the cannon only acts when activated by its creator, uses its creator's artificer spell attack and save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
+					name : "Creator",
+					description : "As an object, the cannon only acts when activated by its creator, uses its creator's artificer spell attack and save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
 				}, {
-					name: "Activation",
-					description: "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
+					name : "Activation",
+					description : "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
 				}, {
-					name: "Detonate (Artillerist 9)",
+					name : "Detonate (Artillerist 9)",
 					minlevel : 9,
-					description: "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
+					description : "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
 					eval : function(prefix, lvl) {
 						// add the Detonate attack entry
 						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "Detonate");
@@ -2216,9 +2216,9 @@ AddSubClass("artificer", "artillerist", {
 						}
 					}
 				}, {
-					name: "Shimmering Field (Artillerist 15)",
+					name : "Shimmering Field (Artillerist 15)",
 					minlevel : 15,
-					description: "The creator of the cannon and their allies have half cover while within 10 ft of the cannon."
+					description : "The creator of the cannon and their allies have half cover while within 10 ft of the cannon."
 				}],
 				minlevelLinked : ["artificer"],
 				header : "Object",

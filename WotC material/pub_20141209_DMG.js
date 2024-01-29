@@ -591,9 +591,9 @@ MagicItemsList["efreeti chain"] = {
 	armorOptions : [{
 		regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
 		name : "Efreeti Chain",
-		source: ["D", 167],
+		source : [["D", 167]],
 		type : "heavy",
-		ac : 19,
+		ac : "16+3",
 		stealthdis : true,
 		weight : 55,
 		strReq : 13
@@ -841,7 +841,7 @@ MagicItemsList["rod of resurrection"] = {
 	usages : 5,
 	recovery : "dawn",
 	additional : "regains 1",
-	spellFirstColTitle: "Ch",
+	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["heal"],
@@ -1286,9 +1286,9 @@ MagicItemsList["blackrazor"] = {
 	recovery : "day",
 	additional : "Haste",
 	spellcastingBonus : [{
-		name: "Once per day",
-		spells: ["haste"],
-		selection: ["haste"],
+		name : "Once per day",
+		spells : ["haste"],
+		selection : ["haste"],
 		firstCol : "oncelr"
 	}],
 	spellChanges : {

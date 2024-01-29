@@ -62,12 +62,12 @@ AddSubClass("paladin", "oath of redemption-ua", {
 			source : [["UA:AToS", 2]],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
 				name : "Armor of Peace",
 				source : [["UA:AToS", 2]],
 				ac : 16
-			},
+			}],
 			armorAdd : "Armor of Peace",
 			spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},

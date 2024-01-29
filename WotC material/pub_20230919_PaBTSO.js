@@ -23,15 +23,15 @@ if (!SourceList["LMoP"]) {
 		description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 		descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 		weight : 20,
-		addArmor: "Dragonguard",
-		armorOptions: {
-			regExpSearch: /dragonguard/i,
+		armorAdd : "Dragonguard",
+		armorOptions : [{
+			regExpSearch : /dragonguard/i,
 			name : "Dragonguard",
 			source : [["PaBTSO", 72], ["LMoP", 48]],
 			type : "medium",
-			ac : 14,
+			ac : "14+1",
 			weight : 20
-		},
+		}],
 		savetxt : { adv_vs : ["breath weapons of dragons"] }
 	}
 	MagicItemsList["hew"] = {
@@ -253,9 +253,9 @@ MagicItemsList["luminous war pick"] = {
 		modifiers : [1, 1]
 	},
 	spellcastingBonus : [{
-		name: "Once per dawn",
-		spells: ["daylight"],
-		selection: ["daylight"],
+		name : "Once per dawn",
+		spells : ["daylight"],
+		selection : ["daylight"],
 		firstCol : "oncelr"
 	}],
 	usages : 1,

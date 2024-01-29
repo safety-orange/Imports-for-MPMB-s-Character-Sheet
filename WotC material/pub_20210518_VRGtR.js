@@ -54,7 +54,7 @@ RaceList["dhampir"] = {
 		additional : "empower myself",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	useFromPreviousRace : {
 		message : "If you replace a race with the Dhampir lineage, you can keep the following elements of that race:"+
@@ -101,7 +101,7 @@ RaceList["hexblood"] = {
 	extraLimitedFeatures : [{
 		name : "Eerie Token",
 		usages : 1,
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	spellcastingAbility : [4, 5, 6],
 	features : {
@@ -119,12 +119,12 @@ RaceList["hexblood"] = {
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}, {
 				name : "Hex",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		}
@@ -168,7 +168,7 @@ RaceList["reborn"] = {
 		name : "Knowledge from a Past Life",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	useFromPreviousRace : {
 		message : "If you replace a race with the Reborn lineage, you can keep the following elements of that race:"+

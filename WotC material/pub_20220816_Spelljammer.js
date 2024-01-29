@@ -57,7 +57,7 @@ BackgroundList["astral drifter"] = {
 };
 BackgroundFeatureList["divine contact"] = {
 	description : "I am 20d6 years older than I look, thanks to time spent in the Astral Sea without aging. While in the Astral Sea, I crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on me. This deity saw fit to share one secret or obscure bit of cosmic lore with me. I gain the Magic Initiate [Cleric] feat.",
-	source: [["S:AiS", 7]],
+	source : [["S:AiS", 7]],
 	eval : function() { AddFeat("Magic Initiate [Cleric]"); },
 	removeeval : function() { RemoveFeat("Magic Initiate [Cleric]"); }
 };
@@ -94,7 +94,7 @@ BackgroundList["wildspacer"] = {
 };
 BackgroundFeatureList["wildspace adaptation"] = {
 	description : "I was raised in the void of Wildspace, home to asteroid miners, moon farmers, and other hardy folk. Life in Wildspace has toughened me to face the terrors and other challenges of the airless night and I've learned how to adapt to zero gravity. Being weightless doesn't give me disadvantage on any of my melee attack rolls and I gain the Tough feat.",
-	source: [["S:AiS", 8]],
+	source : [["S:AiS", 8]],
 	eval : function() { AddFeat("Tough"); },
 	removeeval : function() { RemoveFeat("Tough"); }
 };
@@ -132,7 +132,7 @@ RaceList["astral elf"] = {
 			minlevel : 1,
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["bonus action", ""]]
 		}
 	},
@@ -152,12 +152,12 @@ RaceList["autognome"] = {
 	scoresGeneric : true,
 	age : " can live for centuries, typically up to 500 years",
 	armorAdd : "Armored Casing",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["S:AiS", 2]],
 		ac : 13
-	},
+	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
 		usages : "Proficiency bonus per ",
@@ -301,12 +301,12 @@ RaceList["thri-kreen"] = {
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
 	armorAdd : "Chameleon Carapace",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["S:AiS", 4]],
 		ac : 13
-	},
+	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my creature type is Monstrosity)"+
 	"\n \u2022 Chameleon Carapace: My base AC is 13 + Dex mod. As an action, " + (typePF ? "I can gain adv. on Stealth checks to hide in my current surroundings." : "I can have it match my current surroundings, granting me adv. on Stealth checks to hide in those surroundings.")+

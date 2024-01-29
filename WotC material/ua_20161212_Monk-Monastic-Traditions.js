@@ -22,7 +22,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			source : [["UA:MMT", 1]],
 			minlevel : 3,
 			description : " [3 martial weapons proficiencies]" + "\n   " + "Martial weapons I am proficient with count as kensei weapons for me" + "\n   " + "With these, I can use Dex instead of Str and use the Martial Arts damage die" + "\n   " + "As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
-			action: ["bonus action", " (after hit)"],
+			action : ["bonus action", " (after hit)"],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {

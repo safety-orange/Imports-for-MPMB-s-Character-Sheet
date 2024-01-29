@@ -839,7 +839,7 @@ MagicItemsList["scorpion armor"] = {
 	cursed : true,
 	addMod : [{ type : "skill", field : "Init", mod : 5, text : "I gain a +5 bonus on my initiative rolls." }],
 	armorAdd : "Scorpion Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*scorpion)(?=.*armor).*$/i,
 		name : "Scorpion Armor",
 		source : [["ToA", 208]],
@@ -848,5 +848,5 @@ MagicItemsList["scorpion armor"] = {
 		stealthdis : false,
 		weight : 65,
 		strReq : 15
-	}
+	}]
 }

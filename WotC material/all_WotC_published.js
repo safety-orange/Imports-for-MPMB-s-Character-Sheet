@@ -24,15 +24,15 @@ MagicItemsList["dragonguard"] = {
 	description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 	descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 	weight : 20,
-	addArmor: "Dragonguard",
-	armorOptions: {
-		regExpSearch: /dragonguard/i,
+	armorAdd : "Dragonguard",
+	armorOptions : [{
+		regExpSearch : /dragonguard/i,
 		name : "Dragonguard",
 		source : [["LMoP", 48], ["PaBTSO", 72]],
 		type : "medium",
-		ac : 14,
+		ac : "14+1",
 		weight : 20
-	},
+	}],
 	savetxt : { adv_vs : ["breath weapons of dragons"] }
 }
 MagicItemsList["hew"] = {
@@ -6227,9 +6227,9 @@ MagicItemsList["efreeti chain"] = {
 	armorOptions : [{
 		regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
 		name : "Efreeti Chain",
-		source: ["D", 167],
+		source : [["D", 167]],
 		type : "heavy",
-		ac : 19,
+		ac : "16+3",
 		stealthdis : true,
 		weight : 55,
 		strReq : 13
@@ -6477,7 +6477,7 @@ MagicItemsList["rod of resurrection"] = {
 	usages : 5,
 	recovery : "dawn",
 	additional : "regains 1",
-	spellFirstColTitle: "Ch",
+	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["heal"],
@@ -6922,9 +6922,9 @@ MagicItemsList["blackrazor"] = {
 	recovery : "day",
 	additional : "Haste",
 	spellcastingBonus : [{
-		name: "Once per day",
-		spells: ["haste"],
-		selection: ["haste"],
+		name : "Once per day",
+		spells : ["haste"],
+		selection : ["haste"],
 		firstCol : "oncelr"
 	}],
 	spellChanges : {
@@ -7625,7 +7625,7 @@ BackgroundList["caravan specialist"] = {
 		"I enjoy the open road. Underground and tight spaces make me very nervous.",
 		"I expect others to heed my orders and have little respect or sympathy if they don't.",
 		"I am very prideful and have trouble admitting when I'm wrong.",
-		"Once I decide on a course of action, I do not waiver.",
+		"Once I decide on a course of action, I do not waver.",
 		"I like to explore, and my curiosity will sometimes get me into trouble."
 	],
 	toolProfs : ["Vehicles (land)"],
@@ -10281,7 +10281,7 @@ AddSubClass("barbarian", "battlerager", {
 				"With my spiked armor I do 3 piercing damage when I use my Attack action to grapple"
 			]),
 			action : ["bonus action", "Armor Spikes attack (in rage)"],
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
 				name : "Spiked armor",
 				source : [["S", 121]],
@@ -10289,7 +10289,7 @@ AddSubClass("barbarian", "battlerager", {
 				ac : 14,
 				stealthdis : true,
 				weight : 45
-			},
+			}],
 			weaponOptions : {
 				regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
 				name : "Armor spikes",
@@ -12760,7 +12760,7 @@ MagicItemsList["korolnor scepter"] = {
 	usages : 10,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
-	spellFirstColTitle: "Ch",
+	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "2 charges",
 		spells : ["sending"],
@@ -13369,13 +13369,13 @@ RaceList["firbolg"] = {
 				times : 2
 			},
 			extraLimitedFeatures : [{
-				name : "Detect Magic",
+				name : "Detect Magic (Firbolg Magic)",
 				usages : 1,
-				recovery: "short rest"
+				recovery : "short rest"
 			}, {
-				name : "Disguise Self",
+				name : "Disguise Self (Firbolg Magic)",
 				usages : 1,
-				recovery: "short rest"
+				recovery : "short rest"
 			}],
 			spellChanges : {
 				"disguise self" : {
@@ -13522,12 +13522,12 @@ RaceList["lizardfolk"] = {
 		damage : [1, 6, "piercing"]
 	},
 	weaponsAdd : ["Bite"],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["V", 113]],
 		ac : 13
-	},
+	}],
 	armorAdd : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
@@ -14372,7 +14372,7 @@ MagicItemsList["survival mantle"] = {
 	weight : 40,
 	savetxt : { adv_vs : ["gases"] },
 	armorAdd : "Survival Mantle",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*survival)(?=.*mantle).*$/i,
 		name : "Survival Mantle",
 		source : [["V", 81]],
@@ -14380,7 +14380,7 @@ MagicItemsList["survival mantle"] = {
 		ac : 15,
 		stealthdis : true,
 		weight : 40
-	}
+	}]
 }
 
 // pub_20170404_TftYP.js
@@ -15028,13 +15028,13 @@ RaceList.tortle = {
 	},
 	languageProfs : ["Common", "Aquan"],
 	skills : ["Survival"],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*tortle)(?=.*shell).*$/i,
 		name : "Tortle's Shell",
 		source : [["TP", 4], ["W", 181]],
 		ac : 17,
 		dex : -10
-	},
+	}],
 	armorAdd : "Tortle's Shell",
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
@@ -15664,7 +15664,7 @@ MagicItemsList["scorpion armor"] = {
 	cursed : true,
 	addMod : [{ type : "skill", field : "Init", mod : 5, text : "I gain a +5 bonus on my initiative rolls." }],
 	armorAdd : "Scorpion Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*scorpion)(?=.*armor).*$/i,
 		name : "Scorpion Armor",
 		source : [["ToA", 208]],
@@ -15673,7 +15673,7 @@ MagicItemsList["scorpion armor"] = {
 		stealthdis : false,
 		weight : 65,
 		strReq : 15
-	}
+	}]
 }
 
 // pub_20171011_One-Grung-Above.js
@@ -16987,7 +16987,7 @@ RunFunctionAtEnd(function () {
 					"\u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts",
 					"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn"
 				]),
-				action: ["bonus action", " (with ranged)"],
+				action : ["bonus action", " (with ranged)"],
 				additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 				toolProfs : ["calligrapher's or painter's supplies"],
 				extraname : "Kensei Weapon",
@@ -18414,12 +18414,12 @@ FeatsList["dragon hide"] = {
 		damage : [1, 4, "slashing"]
 	},
 	weaponsAdd : ['Retractable Claws'],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
 		name : "Dragon Hide",
 		source : [["X", 74]],
 		ac : 13
-	},
+	}],
 	armorAdd : "Dragon Hide"
 };
 FeatsList["drow high magic"] = {
@@ -21325,9 +21325,9 @@ MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Peng
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
-		name: "1 charge",
-		spells: ["command"],
-		selection: ["command"],
+		name : "1 charge",
+		spells : ["command"],
+		selection : ["command"],
 		firstCol : 1
 	}],
 	spellChanges : {
@@ -21541,14 +21541,14 @@ MagicItemsList["heward's hireling armor"] = {
 	weight : 10,
 	action : [["action", " (retrieve item)"]],
 	armorAdd : "Heward's Hireling Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*heward)(?=.*hireling)(?=.*armor).*$/i,
 		name : "Heward's Hireling Armor",
 		source : [["LLoK", 55]],
 		type : "light",
-		ac : 12,
+		ac : "11+1",
 		weight : 10
-	}
+	}]
 }
 if (MagicItemsList["ioun stone"]) {
 	MagicItemsList["ioun stone"].incrementSkill = function (aSkill, iType, forceRemove) {
@@ -21646,14 +21646,14 @@ MagicItemsList["leather golem armor"] = {
 	dmgres : ["Lightning"],
 	cursed : true,
 	armorAdd : "Leather Golem Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*leather)(?=.*golem)(?=.*armor).*$/i,
 		name : "Leather Golem Armor",
 		source : [["LLoK", 55]],
 		type : "light",
-		ac : 12,
+		ac : "11+1",
 		weight : 10
-	},
+	}],
 	savetxt : { text : ["+1 vs. spells and magical effects"] },
 	toNotesPage : [{
 		name : "Features",
@@ -21741,16 +21741,16 @@ MagicItemsList["powered armor"] = {
 	savetxt : { text : ["Adv. on death saves"] },
 	action : [["bonus action", " (use energy)"]],
 	armorAdd : "Powered Armor",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*powered)(?=.*armor).*$/i,
 		name : "Powered Armor",
 		source : [["LLoK", 56]],
 		type : "heavy",
-		ac : 19,
+		ac : "18+1",
 		stealthdis : true,
 		weight : 65,
 		strReq : 15
-	},
+	}],
 	usages : "2d10",
 	recovery : "Never",
 	additional : "energy cell",
@@ -21775,46 +21775,46 @@ MagicItemsList["powered armor"] = {
 
 // Spells (contain contributions by /u/KittenWithMittens)
 SpellsList["flock of familiars"] = {
-	name: "Flock of Familiars",
-	classes: ["warlock", "wizard"],
-	source: ["LLoK", 57],
-	level: 2,
-	school: "Conj",
-	time: "1 min",
-	range: "Touch",
-	components: "V,S",
-	duration: "Conc, 1 h",
+	name : "Flock of Familiars",
+	classes : ["warlock", "wizard"],
+	source : ["LLoK", 57],
+	level : 2,
+	school : "Conj",
+	time : "1 min",
+	range : "Touch",
+	components : "V,S",
+	duration : "Conc, 1 h",
 	description : "Summon 3+1/SL familiars as Find Familiar; can see through their eyes and deliver touch spells; see B",
-	descriptionFull: "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
+	descriptionFull : "You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n   Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n   When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd."
 }
 SpellsList["galder's speedy courier"] = {
-	name: "Galder's Speedy Courier",
-	classes: ["warlock", "wizard"],
-	source: ["LLoK", 57],
-	level: 4,
-	school: "Conj",
-	time: "1 a",
-	range: "10 ft",
-	components: "V,S,M\u2020",
-	compMaterial: "25 gp, or mineral goods of equivalent value, which the spell consumes",
-	duration: "10 min",
-	description: "Send 3\xD73\xD73 ft chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
+	name : "Galder's Speedy Courier",
+	classes : ["warlock", "wizard"],
+	source : ["LLoK", 57],
+	level : 4,
+	school : "Conj",
+	time : "1 a",
+	range : "10 ft",
+	components : "V,S,M\u2020",
+	compMaterial : "25 gp, or mineral goods of equivalent value, which the spell consumes",
+	duration : "10 min",
+	description : "Send 3\xD73\xD73 ft chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
 	descriptionMetric : "Send 1\xD71\xD71 m chest of items I put in it to named crea on same plane; SL8: other plane (25gp cons.)",
-	descriptionFull: "You summon a Small air elemental to a spot within range. The air elemental is formless, nearly transparent, immune to all damage, and cannot interact with other creatures or objects. It carries an open, empty chest whose interior dimensions are 3 feet on each side. While the spell lasts, you can deposit as many items inside the chest as will fit. You can then name a living creature you have met and seen at least once before, or any creature for which you possess a body part, lock of hair, clipping from a nail, or similar portion of the creature's body.\n   As soon as the lid of the chest is closed, the elemental and the chest disappear, then reappear adjacent to the target creature. If the target creature is on another plane, or if it is proofed against magical detection or location, the contents of the chest reappear on the ground at your feet.\n   The target creature is made aware of the chest's contents before it chooses whether or not to open it, and knows how much of the spell's duration remains in which it can retrieve them. No other creature can open the chest and retrieve its contents. When the spell expires or when all the contents of the chest have been removed, the elemental and the chest disappear. The elemental also disappears if the target creature orders it to return the items to you. When the elemental disappears, any items not taken from the chest reappear on the ground at your feet." + AtHigherLevels + "When you cast this spell using an 8th-level spell slot, you can send the chest to a creature on a different plane of existence from you."
+	descriptionFull : "You summon a Small air elemental to a spot within range. The air elemental is formless, nearly transparent, immune to all damage, and cannot interact with other creatures or objects. It carries an open, empty chest whose interior dimensions are 3 feet on each side. While the spell lasts, you can deposit as many items inside the chest as will fit. You can then name a living creature you have met and seen at least once before, or any creature for which you possess a body part, lock of hair, clipping from a nail, or similar portion of the creature's body.\n   As soon as the lid of the chest is closed, the elemental and the chest disappear, then reappear adjacent to the target creature. If the target creature is on another plane, or if it is proofed against magical detection or location, the contents of the chest reappear on the ground at your feet.\n   The target creature is made aware of the chest's contents before it chooses whether or not to open it, and knows how much of the spell's duration remains in which it can retrieve them. No other creature can open the chest and retrieve its contents. When the spell expires or when all the contents of the chest have been removed, the elemental and the chest disappear. The elemental also disappears if the target creature orders it to return the items to you. When the elemental disappears, any items not taken from the chest reappear on the ground at your feet." + AtHigherLevels + "When you cast this spell using an 8th-level spell slot, you can send the chest to a creature on a different plane of existence from you."
 }
 SpellsList["galder's tower"] = {
-	name: "Galder's Tower",
-	classes: ["wizard"],
-	source: ["LLoK", 57],
-	level: 3,
-	school: "Conj",
-	time: "10 min",
-	range: "30 ft",
-	components: "V,S,M",
-	compMaterial: "A fragment of stone, wood, or other building material",
-	duration: "24 h",
-	description: "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
-	descriptionFull: "You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:" +
+	name : "Galder's Tower",
+	classes : ["wizard"],
+	source : ["LLoK", 57],
+	level : 3,
+	school : "Conj",
+	time : "10 min",
+	range : "30 ft",
+	components : "V,S,M",
+	compMaterial : "A fragment of stone, wood, or other building material",
+	duration : "24 h",
+	description : "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
+	descriptionFull : "You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:" +
 	"\n \u2022 A bedroom with a bed, chairs, chest, and magical fireplace" +
 	"\n \u2022 A study with desks, books, bookshelves, parchments, ink, and ink pens" +
 	"\n \u2022 A dining space with a table, chairs, magical fireplace, containers, and cooking utensils" +
@@ -21888,13 +21888,13 @@ RaceList["loxodon"] = {
 	},
 	languageProfs : ["Common", "Loxodon"],
 	savetxt : { adv_vs : ["charmed", "frightened"] },
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
 		name : "Loxodon Natural Armor",
 		source : [["G", 18]],
 		ac : "12+Con",
 		dex : -10
-	},
+	}],
 	armorAdd : "Loxodon Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
@@ -24000,7 +24000,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 		source : [["WDotMM", 76]],
 		description : "Versatile (1d10); On 20 to hit: +14 damage \u0026 5% chance to sever limb; Max damage vs. objects"
 	},
-	usages: 6,
+	usages : 6,
 	recovery : "dawn",
 	additional : "regain 1d4+2",
 	spellFirstColTitle : "Ch",
@@ -25342,16 +25342,16 @@ MagicItemsList["obsidian flint dragon plate"] = {
 	description : "I gain a +2 bonus to AC and resistance to poison damage while I wear this plate armor. In addition, I gain advantage on ability checks and saving throws made to avoid or end the grappled condition on myself.",
 	descriptionFull : "You gain a +2 bonus to AC and resistance to poison damage while you wear this armor. In addition, you gain advantage on ability checks and saving throws made to avoid or end the grappled condition on yourself.",
 	armorAdd : "Obsidian Flint Dragon Plate",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*obsidian)(?=.*flint)(?=.*dragon)(?=.*plate).*$/i,
 		name : "Obsidian Flint Dragon Plate",
 		source : [["DiA", 224]],
 		type : "heavy",
-		ac : 20,
+		ac : "18+2",
 		stealthdis : true,
 		weight : 65,
 		strReq : 15
-	},
+	}],
 	dmgres : ["Poison"],
 	savetxt : { adv_vs : ["grappled"] },
 	weight : 65
@@ -27507,12 +27507,12 @@ AddSubClass("artificer", "artillerist", {
 				"I can't have multiple cannons; Select \"Eldritch Cannon\" on a companion page for its stats"
 			]),
 			usages : 1,
-			recovery: "long rest",
+			recovery : "long rest",
 			altResource : "SS 1+",
 			additional : levels.map(function(n) {
 				return n < 3 ? "" : n < 15 ? "create 1 cannon" : "create 2 cannons";
 			}),
-			action: [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
+			action : [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
 			creaturesAdd : [["Eldritch Cannon"]],
 			creatureOptions : [{
 				name : "Eldritch Cannon",
@@ -27573,15 +27573,15 @@ AddSubClass("artificer", "artillerist", {
 					description : "The cannon emits a burst of positive energy that grants itself and each creature of its creator's choice within 10 ft of it a number of temporary hit points equal to 1d8 + its creator's Intelligence modifier (minimum of +1)."
 				}],
 				traits : [{
-					name: "Creator",
-					description: "As an object, the cannon only acts when activated by its creator, uses its creator's artificer spell attack and save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
+					name : "Creator",
+					description : "As an object, the cannon only acts when activated by its creator, uses its creator's artificer spell attack and save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
 				}, {
-					name: "Activation",
-					description: "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
+					name : "Activation",
+					description : "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
 				}, {
-					name: "Detonate (Artillerist 9)",
+					name : "Detonate (Artillerist 9)",
 					minlevel : 9,
-					description: "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
+					description : "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
 					eval : function(prefix, lvl) {
 						// add the Detonate attack entry
 						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "Detonate");
@@ -27599,9 +27599,9 @@ AddSubClass("artificer", "artillerist", {
 						}
 					}
 				}, {
-					name: "Shimmering Field (Artillerist 15)",
+					name : "Shimmering Field (Artillerist 15)",
 					minlevel : 15,
-					description: "The creator of the cannon and their allies have half cover while within 10 ft of the cannon."
+					description : "The creator of the cannon and their allies have half cover while within 10 ft of the cannon."
 				}],
 				minlevelLinked : ["artificer"],
 				header : "Object",
@@ -29169,7 +29169,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		},
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
-		weaponOptions: [EGtW_breathWeaponObj],
+		weaponOptions : [EGtW_breathWeaponObj],
 		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -29184,11 +29184,11 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		features : {
 			"draconic ancestry" : EGtW_draconicAncestryFeature,
 			"forceful presence" : {
-				name: "Forceful Presence",
-				source: [["W", 168]],
-				minlevel: 1,
-				usages: 1,
-				recovery: "short rest"
+				name : "Forceful Presence",
+				source : [["W", 168]],
+				minlevel : 1,
+				usages : 1,
+				recovery : "short rest"
 			}
 		},
 		variants : []
@@ -29297,7 +29297,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		},
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
-		weaponOptions: [EGtW_breathWeaponObj],
+		weaponOptions : [EGtW_breathWeaponObj],
 		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -29312,12 +29312,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		features : {
 			"draconic ancestry" : EGtW_draconicAncestryFeature,
 			"vengeful assault" : {
-				name: "Vengeful Assault",
-				source: [["W", 168]],
-				minlevel: 1,
-				usages: 1,
-				action: [['reaction', ""]],
-				recovery: "short rest"
+				name : "Vengeful Assault",
+				source : [["W", 168]],
+				minlevel : 1,
+				usages : 1,
+				action : [['reaction', ""]],
+				recovery : "short rest"
 			}
 		},
 		variants : []
@@ -29435,7 +29435,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				"When I use the Attack action on my turn, I can have any attack originate from my echo",
 				"I can also make opportunity attacks from the echo's location as if I were in its space"
 			]),
-			action: [["bonus action", " (summon/dismiss)"], ["bonus action", "Swap Location with Echo"]],
+			action : [["bonus action", " (summon/dismiss)"], ["bonus action", "Swap Location with Echo"]],
 			creaturesAdd : [["Echo"]],
 			creatureOptions : [{
 				name : "Echo",
@@ -29604,8 +29604,8 @@ AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassboga
 				"As an action, a creature holding the bead can release the spell within as if they cast it",
 				"The spell still uses my spell attack bonus and save DC; The bead vanishes once used"
 			]),
-			usages: 1,
-			recovery: "short rest"
+			usages : 1,
+			recovery : "short rest"
 		},
 		"subclassfeature14" : {
 			name : "Convergent Future",
@@ -29690,7 +29690,7 @@ AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbog
 			]),
 			action : [["action", ""]],
 			usages : 1,
-			recovery: "long rest",
+			recovery : "long rest",
 			altResource : "SS 3+",
 		}
 	}
@@ -30432,7 +30432,7 @@ MagicItemsList["amulet of the drunkard"] = {
 	description : "This amulet smells of old, ale-stained wood. While wearing it, I can regain 4d4 + 4 hit points when I drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
 	descriptionFull : "This amulet smells of old, ale-stained wood. While wearing it, you can regain 4d4 + 4 hit points when you drink a pint of beer, ale, mead, or wine. Once the amulet has restored hit points, it can't do so again until the next dawn.",
 	usages : 1,
-	recovery: "dawn"
+	recovery : "dawn"
 };
 var EGtW_ArcaneCannonFullDescription = [
 	"This Large cannon is imbued with magic. It requires no ammunition and doesn't need to be loaded. It takes one action to aim the cannon and one action to fire it. After the cannon has fired, it must recharge for 5 minutes before it can be fired again. The creature firing the cannon chooses the effect from the following options:",
@@ -30466,7 +30466,7 @@ MagicItemsList["battering shield"] = {
 	description : "This iron tower shield gives me a +1 bonus to AC, in addition to the shield's normal bonus to AC. It has 3 charges, regaining 1d3 expended charges daily at dawn. When I am holding the shield and push a creature 5 ft away, I can expend 1 charge to push that creature an additional 10 ft, knock it prone, or both.",
 	descriptionFull : "While holding this iron tower shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   Additionally, the shield has 3 charges, and it regains 1d3 expended charges daily at dawn. If you are holding the shield and push a creature within your reach at least 5 feet away, you can expend 1 charge to push that creature an additional 10 feet, knock it prone, or both.",
 	usages : 3,
-	recovery: "dawn",
+	recovery : "dawn",
 	additional : "regains 1d3",
 	shieldAdd : ["Battering Shield", 3],
 	weight : 6
@@ -30675,14 +30675,14 @@ MagicItemsList["hunter's coat"] = {
 	recovery : "dawn",
 	additional : "regains 1d3",
 	armorAdd : "Hunter's Coat",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*hunter)(?=.*coat).*$/i,
 		name : "Hunter's Coat",
 		source : [["W", 267]],
 		type : "light",
-		ac : 12,
+		ac : "11+1",
 		weight : 10
-	},
+	}],
 	weight : 10
 };
 MagicItemsList["last stand armor"] = {
@@ -30784,7 +30784,7 @@ MagicItemsList["orb of the veil"] = { // no automation for halving the fire dama
 	notLegalAL : true,
 	attunement : true,
 	description : "This orb increases my Wisdom and maximum by 2, grants me +60 ft darkvision, and adv. on Wisdom checks to find hidden doors and paths. It is cursed and once attuned to it, I become unwilling to part with it, nonmagical flames within 30 ft of me extinguish, and fire damage I deal is halved (not automated).",
-	descriptionFull: "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   " + toUni("Curse") + ". The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
+	descriptionFull : "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   " + toUni("Curse") + ". The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
 	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	scores : [0, 0, 0, 0, 2, 0],
 	scoresMaximum : [0, 0, 0, 0, "+2", 0],
@@ -31166,8 +31166,8 @@ MagicItemsList["grimoire infinitus"] = {
 	"dormant" : {
 		name : "Grimoire Infinitus [dormant]",
 		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizard spells, I can prepare 1 additional spell. See Notes page for more information.",
-		calcChanges: {
-			spellCalc: [
+		calcChanges : {
+			spellCalc : [
 				function (type, spellcasters, ability) {
 					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 1;
 				},
@@ -31178,8 +31178,8 @@ MagicItemsList["grimoire infinitus"] = {
 	"awakened" : {
 		name : "Grimoire Infinitus [awakened]",
 		description : "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use it to prepare wizard spells, I can prepare 2 extra spells. It also grants me advantage on saves against spells and magical effects. See Notes page.",
-		calcChanges: {
-			spellCalc: [
+		calcChanges : {
+			spellCalc : [
 				function (type, spellcasters, ability) {
 					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 2;
 				},
@@ -31191,8 +31191,8 @@ MagicItemsList["grimoire infinitus"] = {
 	"exalted" : {
 		name : "Grimoire Infinitus [exalted]",
 		description : "This spellbook with unlimited pages can be used by a wizard to prepare and store spells. When I use it to prepare wizard spells, I can prepare 3 more. It also grants me adv. on saves vs. spells and magical effects and allows me to use Arcane Recovery an extra time per long rest. See Notes page for more information.",
-		calcChanges: {
-			spellCalc: [
+		calcChanges : {
+			spellCalc : [
 				function (type, spellcasters, ability) {
 					if (type === "prepare" && spellcasters.indexOf("wizard") !== -1) return 3;
 				},
@@ -31255,14 +31255,14 @@ MagicItemsList["hide of the feral guardian"] = {
 		name : "Hide of the Feral Guardian [dormant]",
 		description : "This +1 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +1 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to transform into a giant owl.",
 		armorAdd : "Hide of the Feral Guardian",
-		armorOptions : {
+		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
-			ac : 13,
+			ac : "12+1",
 			weight : 13
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -31277,14 +31277,14 @@ MagicItemsList["hide of the feral guardian"] = {
 		armorAdd : "Hide of the Feral Guardian [awakened]",
 		description : "This +2 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +2 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl or cave bear.",
 		armorAdd : "Hide of the Feral Guardian",
-		armorOptions : {
+		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
-			ac : 14,
+			ac : "12+2",
 			weight : 13
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -31298,14 +31298,14 @@ MagicItemsList["hide of the feral guardian"] = {
 		name : "Hide of the Feral Guardian [exalted]",
 		description : "This +3 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then grants a +2 to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl, cave bear or guardian wolf.",
 		armorAdd : "Hide of the Feral Guardian",
-		armorOptions : {
+		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
-			ac : 15,
+			ac : "12+3",
 			weight : 13
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -32033,8 +32033,8 @@ BackgroundList["athlete"] = { // includes contributions by Smashman
 	]
 };
 BackgroundFeatureList["echoes of victory"] = { // includes contributions by Smashman
-	description: "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
-	source: [["MOT", 31]]
+	description : "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
+	source : [["MOT", 31]]
 };
 
 // Creature: possible familiar
@@ -33091,7 +33091,7 @@ MagicItemsList["professor skant"] = { // contains contributions by Pengsloth
 	type : "wondrous item",
 	rarity : "rare",
 	description : "This sentient orb with the personality of a scholar has Int 18, Wis 11, Cha 9, and no will of its own. It can hear and see out to 60 ft. It knows and reads Common, Draconic, Elvish, and Loross. It has+9 on checks regarding history of Netheril, vampirism, tarrasque, and Elverquisst. It moves itself around using Mage Hand.",
-	descriptionLong: "This sentient orb, which calls itself Professor Skant, has the personality of a scholar, but no will of its own to cause conflicts. It's a smooth, solid, 5 lb sphere of smoky gray quartz about the size of a grapefruit with two or more pinpricks of silver light deep inside. It's alignment is lawful good and it has Intelligence 18, Wisdom 11, and Charisma 9. It knows and reads Common, Draconic, Elvish, and Loross. It has expertise in the following academic topics (+9 on checks): history of Netheril, vampirism and the traits of vampires, rituals surrounding the making, bottling, and drinking of Elverquisst, and the tarrasque.",
+	descriptionLong : "This sentient orb, which calls itself Professor Skant, has the personality of a scholar, but no will of its own to cause conflicts. It's a smooth, solid, 5 lb sphere of smoky gray quartz about the size of a grapefruit with two or more pinpricks of silver light deep inside. It's alignment is lawful good and it has Intelligence 18, Wisdom 11, and Charisma 9. It knows and reads Common, Draconic, Elvish, and Loross. It has expertise in the following academic topics (+9 on checks): history of Netheril, vampirism and the traits of vampires, rituals surrounding the making, bottling, and drinking of Elverquisst, and the tarrasque.",
 	descriptionFull : "The professor orb owned by Vellynne Harpell and stolen by Nass Lantomir calls itself Professor Skant. It is lawful good, and it has a Wisdom of 11 and a Charisma of 9 (as a professor orb, it has an Intelligence of 18). It speaks and reads Common, Draconic, Elvish, and Loross (the dead language of the Empire of Netheril). Professor Skant is a chatterbox and assumes all humanoids are dunderheads. When elaborating on its areas of expertise, it adopts an unintentionally patronizing tone. It has the following four areas of expertise:"+
 	"\n \u2022 The history of Netheril (see the \"Fate of Netheril\" sidebar)"+
 	"\n \u2022 Vampirism and the traits of vampires"+
@@ -34786,9 +34786,9 @@ AddSubClass("barbarian", "path of wild magic", {
 				"Until my next turn ends, I know the location of any spell or magic item within 60 ft",
 				"I also learn the school of magic of a spell; This doesn't reveal anything behind total cover"
 			]),
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus')",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["action", ""]]
 		},
 		"subclassfeature3.1" : {
@@ -34824,9 +34824,9 @@ AddSubClass("barbarian", "path of wild magic", {
 				" \u2022 Roll 1d3. They regain an expended spell slot of a level equal to or lower than the roll",
 				"A creature that receives the second benefit can't receive it again until after a long rest"
 			]),
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus')",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
@@ -36568,7 +36568,7 @@ var TCoE_Deft_Explorer = function () {
 			]),
 			action : [["action", ""]],
 			additional : "1d8 + Wis Mod",
-			usages: "Prof Bonus per ",
+			usages : "Prof Bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -37762,9 +37762,9 @@ AddWarlockPactBoon("Pact of the Talisman", {
 		"If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement",
 		"This ceremony destroys the previous amulet and can be done during a short or long rest"
 	]),
-	usages: "Proficiency bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",
-	recovery: "long rest"
+	recovery : "long rest"
 });
 AddFeatureChoice(ClassList.warlock.features["pact boon"], true, "Eldritch Versatility", {
 	name : "Eldritch Versatility",
@@ -37791,9 +37791,9 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		return classes.known.warlock.level >= 12 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
 	action : [["action", ""]],
-	usages: "Proficiency bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",
-	recovery: "long rest"
+	recovery : "long rest"
 });
 AddWarlockInvocation("Eldritch Mind", {
 	name : "Eldritch Mind",
@@ -37898,9 +37898,9 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact 
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 7 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
-	usages: "Proficiency bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",
-	recovery: "long rest"
+	recovery : "long rest"
 });
 AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 	name : "Rebuke of the Talisman",
@@ -38486,7 +38486,7 @@ FeatsList["artificer initiate"] = {
 	name : "Artificer Initiate",
 	source : [["T", 79], ["UA:F2", 1]],
 	descriptionFull : "You've learned some of an artificer's inventiveness:\n \u2022 You learn one cantrip of your choice from the artificer spell list, and you learn one 1st-level spell of your choice from that list. Intelligence is your spellcasting ability for these spells.\n \u2022 You can cast this feat's 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n \u2022 You gain proficiency with one type of artisan's tools of your choice, and you can use that type of tool as a spellcasting focus for any spell you cast that uses Intelligence as its spellcasting ability.",
-	description: typePF ? "I learn a cantrip and a 1st-level spell from the artificer's spell list. Int is my spellcasting ability for these. Once per long rest, I can cast the 1st-level spell at its lowest level without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for spells I cast with Int as spellcasting ability." : "I learn one cantrip and one 1st-level spell from the artificer's spell list. Intelligence is my spellcasting ability for these. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for any spell I cast that uses Intelligence as its spellcasting ability.",
+	description : typePF ? "I learn a cantrip and a 1st-level spell from the artificer's spell list. Int is my spellcasting ability for these. Once per long rest, I can cast the 1st-level spell at its lowest level without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for spells I cast with Int as spellcasting ability." : "I learn one cantrip and one 1st-level spell from the artificer's spell list. Intelligence is my spellcasting ability for these. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for any spell I cast that uses Intelligence as its spellcasting ability.",
 	spellcastingBonus : [{
 		name : "Artificer cantrip",
 		spellcastingAbility : 4,
@@ -38522,7 +38522,7 @@ FeatsList["eldritch adept"] = {
 	name : "Eldritch Adept",
 	source : [["T", 79], ["UA:F2", 1]],
 	descriptionFull : "Studying occult lore, you have unlocked eldritch power within yourself: you learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite of any kind, you can choose that invocation only if you're a warlock who meets the prerequisite.\n   Whenever you gain a level, you can replace the invocation with another one from the warlock class.",
-	description: 'I learn one Eldritch Invocation from the warlock class for which I meet the prerequisites (2nd page "Choose Feature" button). I can replace this invocation for another whenever I gain a level.',
+	description : 'I learn one Eldritch Invocation from the warlock class for which I meet the prerequisites (2nd page "Choose Feature" button). I can replace this invocation for another whenever I gain a level.',
 	bonusClassExtrachoices : [{
 		"class" : "warlock",
 		feature : "eldritch invocations",
@@ -38575,8 +38575,8 @@ RunFunctionAtEnd(function() {
 		name : "Fighting Initiate",
 		source : [["T", 80], ["UA:F2", 2]],
 		descriptionFull : "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different.\n   Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
-		description: "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain an Ability Score Improvement.",
-		prerequisite: "Proficiency with a martial weapon",
+		description : "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain an Ability Score Improvement.",
+		prerequisite : "Proficiency with a martial weapon",
 		prereqeval : function(v) {
 			return v.martialWeaponsProf || v.otherWeaponsProf.some(function (n) {
 				return WeaponsList[n] && (/Martial/i).test(WeaponsList[n].type);
@@ -38652,7 +38652,7 @@ FeatsList["gunner"] = {
 	name : "Gunner",
 	source : [["T", 80], ["UA:F2", 2]],
 	descriptionFull : "You have a quick hand and keen eye when employing firearms, granting you the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with firearms (see \"Firearms\" in the Dungeon Master's Guide).\n \u2022 You ignore the loading property of firearms.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.",
-	description: "I gain proficiency with firearms. I ignore the loading property of firearms. I don't suffer disadvantage on ranged attack rolls for being within 5 ft of a hostile creature. [+1 Dexterity]",
+	description : "I gain proficiency with firearms. I ignore the loading property of firearms. I don't suffer disadvantage on ranged attack rolls for being within 5 ft of a hostile creature. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	weaponProfs : [false, false, ["Firearms"]],
 	calcChanges : {
@@ -38670,7 +38670,7 @@ FeatsList["metamagic adept"] = {
 	name : "Metamagic Adept",
 	source : [["T", 80], ["UA:F2", 2]],
 	descriptionFull : "You've learned how to exert your will on your spells to alter how they function:\n \u2022 You learn two Metamagic options of your choice from the sorcerer class. You can use only one Metamagic option on a spell when you cast it, unless the option says otherwise. Whenever you reach a level that grants the Ability Score Improvement feature, you can replace one of these Metamagic options with another one from the sorcerer class.\n \u2022 You gain 2 sorcery points to spend on Metamagic (these points are added to any sorcery points you have from another source but can be used only on Metamagic). You regain all spent sorcery points when you finish a long rest.",
-	description: 'I learn two Metamagic options from the sorcerer class (2nd page "Choose Feature" button). I can use only one option on a spell unless it says otherwise. I gain 2 sorcery points, which I can only use for Metamagic. I regain all expended sorcery points when I finish a long rest. I can change one ' + (typePF ? '' : 'Metamagic option ') + 'whenever I gain an ' + (typePF ? 'ASI' : 'Ability Score Improvement') + '.',
+	description : 'I learn two Metamagic options from the sorcerer class (2nd page "Choose Feature" button). I can use only one option on a spell unless it says otherwise. I gain 2 sorcery points, which I can only use for Metamagic. I regain all expended sorcery points when I finish a long rest. I can change one ' + (typePF ? '' : 'Metamagic option ') + 'whenever I gain an ' + (typePF ? 'ASI' : 'Ability Score Improvement') + '.',
 	bonusClassExtrachoices : [{
 		"class" : "sorcerer",
 		feature : "metamagic",
@@ -38721,8 +38721,8 @@ FeatsList["poisoner"] = {
 	action : [["bonus action", "Apply poison to weapon/ammo"]]
 };
 FeatsList["shadow touched"] = {
-	name: "Shadow Touched",
-	source: [["T", 80]],
+	name : "Shadow Touched",
+	source : [["T", 80]],
 	descriptionFull : "Your exposure to the Shadowfell's magic has changed you, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You learn the invisibility spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You learn the invisibility spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
 	description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 	spellcastingBonus : [{
@@ -38739,7 +38739,7 @@ FeatsList["shadow touched"] = {
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
@@ -38757,10 +38757,10 @@ FeatsList["shadow touched"] = {
 	}
 };
 FeatsList["skill expert"] = {
-	name: "Skill Expert",
-	source: [["T", 80]],
+	name : "Skill Expert",
+	source : [["T", 80]],
 	descriptionFull : "You have honed your proficiency with particular skills, granting you the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain proficiency in one skill of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
-	description: "I gain proficiency in one skill and expertise in that same skill or another skill I'm proficient with. [+1 to one ability score of my choice]",
+	description : "I gain proficiency in one skill and expertise in that same skill or another skill I'm proficient with. [+1 to one ability score of my choice]",
 	skillstxt : "Proficiency with one skill, and\n   Expertise with one skill I'm proficient with",
 	scorestxt : "+1 to one ability score of my choice"
 };
@@ -38772,8 +38772,8 @@ FeatsList["slasher"] = {
 	scorestxt : "+1 Strength or Dexterity"
 };
 FeatsList["telekinetic"] = {
-	name: "Telekinetic",
-	source: [["T", 81]],
+	name : "Telekinetic",
+	source : [["T", 81]],
 	descriptionFull : "You learn to move things with your mind, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.\n \u2022 As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved 5 feet toward you or away from you. A creature can willingly fail this save.",
 	description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str save vs. this feat's spell save DC or be moved 5 ft from or towards me. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Int, Wis, or Cha]",
 	action : [["bonus action", " Shove"]],
@@ -38801,7 +38801,7 @@ FeatsList["telekinetic"] = {
 			"My Telekinetic feat allows me to cast the Mage Hand cantrip without verbal or somatic components and I can make the spectral hand invisible. If I already know the cantrip from another source, its range is also increased with 30 ft."
 		]
 	},
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Intelligence is my spellcasting ability for these. [+1 Intelligence]",
 		spellcastingAbility : 4,
@@ -38819,8 +38819,8 @@ FeatsList["telekinetic"] = {
 	}
 };
 FeatsList["telepathic"] = {
-	name: "Telepathic",
-	source: [["T", 81]],
+	name : "Telepathic",
+	source : [["T", 81]],
 	descriptionFull : "You awaken the ability to mentally connect with others, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You can speak telepathically to any creature you can see within 60 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.\n \u2022 You can cast the detect thoughts spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat. If you have spell slots of 2nd level or higher, you can cast this spell with them.",
 	description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. My spellcasting ability is the ability I increase with this feat. [+1 Int, Wis, or Cha]",
 	spellcastingBonus : {
@@ -38837,7 +38837,7 @@ FeatsList["telepathic"] = {
 			changes : "My Telepathic feat allows me to cast Detect Thoughts once per long rest without requiring a spell slot or spell components, or by using a spell slot and cast it with components as normal."
 		}
 	},
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Intelligence is my spellcasting ability for this. [+1 Int" + (typePF ? "" : "elligence") + "]",
 		spellcastingAbility : 4,
@@ -39208,7 +39208,7 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (uncommon)",
 		rarity : "uncommon",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 12 + my Dexterity modifier. I can use a shield and still gain this benefit.",
-		addArmor : "Barrier Tattoo",
+		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
@@ -39221,7 +39221,7 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (rare)",
 		rarity : "rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 15 + my Dexterity modifier (maximum of +2). I can use a shield and still gain this benefit.",
-		addArmor : "Barrier Tattoo",
+		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
@@ -39235,7 +39235,7 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (very rare)",
 		rarity : "very rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 18. I can use a shield and still gain this benefit.",
-		addArmor : "Barrier Tattoo",
+		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
@@ -40577,7 +40577,7 @@ MagicItemsList["orcus figurine"] = {
 	rarity : "",
 	storyItemAL : true,
 	attunement : false,
-	description: "This Tiny figurine smells of decaying flesh, detectable out to 5 ft. Within 30 ft of it, dead can't be brought back to life and undead can't be turned. If I hold it and pray for 1 hour, I have a 10% chance of calling a wraith for 1 hour that attacks all non-undead. Once summoned, the figurine can't do so again for 30 days.",
+	description : "This Tiny figurine smells of decaying flesh, detectable out to 5 ft. Within 30 ft of it, dead can't be brought back to life and undead can't be turned. If I hold it and pray for 1 hour, I have a 10% chance of calling a wraith for 1 hour that attacks all non-undead. Once summoned, the figurine can't do so again for 30 days.",
 	descriptionFull : "Carved from an ogre's petrified heart, the gray figurine depicts the Demon Prince of Undeath in ghastly detail, clutching his skull-topped wand in one hand and three severed heads by the hair in the other. The figurine smells like decaying flesh, and this scent is detectable out to a range of 5 feet."+
 	"\n   The figurine is a Tiny object with AC 17, 3 hit points, and immunity to all types of damage except radiant damage. A detect evil and good spell or similar magic reveals that the figurine has been desecrated. As long as it has at least 1 hit point, the figurine has the following magical properties:"+
 	"\n   \u2022 Undead within 30 feet of the figurine can't be turned."+
@@ -40677,7 +40677,7 @@ if (MagicItemsList["alchemy jug"]) {
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Blue (hot tea)", {
 		name : "Alchemy Jug (Blue)",
 		source : [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
+		description : MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
 		descriptionLong : MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "boiling hot tea (1 quart)"),
 		descriptionFull : MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar"+
@@ -40690,7 +40690,7 @@ if (MagicItemsList["alchemy jug"]) {
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Orange (soy sauce)", {
 		name : "Alchemy Jug (Orange)",
 		source : [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
+		description : MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
 		descriptionLong : MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "soy sauce (1 gallon)"),
 		descriptionFull : MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar"+
@@ -40861,7 +40861,7 @@ RaceList["dhampir"] = {
 		additional : "empower myself",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	useFromPreviousRace : {
 		message : "If you replace a race with the Dhampir lineage, you can keep the following elements of that race:"+
@@ -40908,7 +40908,7 @@ RaceList["hexblood"] = {
 	extraLimitedFeatures : [{
 		name : "Eerie Token",
 		usages : 1,
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	spellcastingAbility : [4, 5, 6],
 	features : {
@@ -40926,12 +40926,12 @@ RaceList["hexblood"] = {
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}, {
 				name : "Hex",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		}
@@ -40975,7 +40975,7 @@ RaceList["reborn"] = {
 		name : "Knowledge from a Past Life",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	useFromPreviousRace : {
 		message : "If you replace a race with the Reborn lineage, you can keep the following elements of that race:"+
@@ -41681,7 +41681,7 @@ RaceList["fairy"] = {
 			extraLimitedFeatures : [{
 				name : "Faerie Fire",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -41698,7 +41698,7 @@ RaceList["fairy"] = {
 			extraLimitedFeatures : [{
 				name : "Enlarge/Reduce",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		}
@@ -42030,14 +42030,14 @@ MagicItemsList["witchlight vane"] = {
 	}],
 	spellcastingAbility : 6,
 	spellcastingBonus : [{
-		name: "At will",
-		spells: ["dancing lights", "ray of frost"],
-		selection: ["dancing lights", "ray of frost"],
+		name : "At will",
+		spells : ["dancing lights", "ray of frost"],
+		selection : ["dancing lights", "ray of frost"],
 		firstCol : "atwill"
 	}, {
-		name: "See Notes",
-		spells: ["polymorph"],
-		selection: ["polymorph"],
+		name : "See Notes",
+		spells : ["polymorph"],
+		selection : ["polymorph"],
 		firstCol : "SP"
 	}],
 	savetxt : {
@@ -42079,14 +42079,14 @@ MagicItemsList["witchlight watch"] = {
 	action : [["action", " [initiate (un)packing]"]],
 	spellcastingAbility : 4,
 	spellcastingBonus : [{
-		name: "At will",
-		spells: ["fire bolt", "message"],
-		selection: ["fire bolt", "message"],
+		name : "At will",
+		spells : ["fire bolt", "message"],
+		selection : ["fire bolt", "message"],
 		firstCol : "atwill"
 	}, {
-		name: "See Notes",
-		spells: ["invisibility"],
-		selection: ["invisibility"],
+		name : "See Notes",
+		spells : ["invisibility"],
+		selection : ["invisibility"],
 		firstCol : "SP"
 	}],
 }
@@ -42222,11 +42222,11 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"chromatic warding" : {
-					name: "Chromatic Warding",
+					name : "Chromatic Warding",
 					source : [["FToD", 10]],
-					minlevel: 5,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 5,
+					usages : 1,
+					recovery : "long rest",
 					action : [["action", ""]]
 				}
 			}
@@ -42243,11 +42243,11 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"gem flight" : {
-					name: "Gem Flight",
+					name : "Gem Flight",
 					source : [["FToD", 11]],
-					minlevel: 5,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 5,
+					usages : 1,
+					recovery : "long rest",
 					action : [["bonus action", ""]]
 				}
 			}
@@ -42263,13 +42263,13 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"metallic breath weapon" : {
-					name: "Metallic Breath Weapon",
+					name : "Metallic Breath Weapon",
 					source : [["FToD", 12]],
-					minlevel: 5,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 5,
+					usages : 1,
+					recovery : "long rest",
 					weaponsAdd : ["Metallic Breath Weapon"],
-					weaponOptions: [{
+					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
 						source : [["FToD", 12]],
@@ -42299,7 +42299,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 				walk : { spd : 30, enc : 20 }
 			},
 			weaponsAdd : ["Breath Weapon"],
-			weaponOptions: [{
+			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
 				source : oDrBrn.source,
@@ -43218,8 +43218,8 @@ MagicItemsList["flail of tiamat"] = {
 AddFeatureChoice(MagicItemsList["figurine of wondrous power"], false, "Gold Canary", {
 	source : [["FToD", 23]],
 	rarity : "legendary",
-	description: "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a giant canary for 8 hours (or once a year an adult gold dragon for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
-	descriptionLong: "As an action, I can speak the command word and throw this gold statuette of a canary to an unoccupied space within 60 ft, where it becomes a giant canary for up to 8 hours, until I use an action to repeat the command word, or it reaches 0 HP. It is friendly to me and my allies, understands my languages, and obeys my spoken commands. If I issue no commands, the creature defends itself but takes no other actions. Once per year, I can have it become an adult gold dragon for up to 1 hour. When it reverts back to a figurine, it can't be used again until the next dawn (canary) or 1 year has passed (dragon).",
+	description : "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a giant canary for 8 hours (or once a year an adult gold dragon for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
+	descriptionLong : "As an action, I can speak the command word and throw this gold statuette of a canary to an unoccupied space within 60 ft, where it becomes a giant canary for up to 8 hours, until I use an action to repeat the command word, or it reaches 0 HP. It is friendly to me and my allies, understands my languages, and obeys my spoken commands. If I issue no commands, the creature defends itself but takes no other actions. Once per year, I can have it become an adult gold dragon for up to 1 hour. When it reverts back to a figurine, it can't be used again until the next dawn (canary) or 1 year has passed (dragon).",
 	descriptionFull : "This gold statuette is carved in the likeness of a canary and is small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living creature in one of two forms (you choose). If there isn't enough space for the creature where it would appear, the figurine doesn't become a creature. The two forms are as follows:"+
 	"\n   " + toUni("Giant Canary Form") + ". The figurine becomes a giant canary for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn."+
 	"\n   " + toUni("Gold Dragon Form") + ". While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an adult gold dragon (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed."+
@@ -45041,7 +45041,7 @@ RaceList["multiverse aarakocra"] = {
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -45247,7 +45247,7 @@ RaceList["multiverse deep gnome"] = {
 			minlevel : 1,
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"gift of the svirfneblin (level 3)" : {
 			name : "Gift of the Svirfneblin (level 3)",
@@ -45262,7 +45262,7 @@ RaceList["multiverse deep gnome"] = {
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -45286,7 +45286,7 @@ RaceList["multiverse deep gnome"] = {
 			extraLimitedFeatures : [{
 				name : "Nondetection",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 3+"
 			}]
 		}
@@ -45333,7 +45333,7 @@ RaceList["multiverse duergar"] = {
 			extraLimitedFeatures : [{
 				name : "Enlarge/Reduce",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		},
@@ -45358,7 +45358,7 @@ RaceList["multiverse duergar"] = {
 			extraLimitedFeatures : [{
 				name : "Invisibility",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		}
@@ -45395,7 +45395,7 @@ RaceList["multiverse eladrin"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", ""]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		}
 	},
 	toNotesPage : [{
@@ -45453,12 +45453,12 @@ RaceList["multiverse firbolg"] = {
 			extraLimitedFeatures : [{
 				name : "Detect Magic",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}, {
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -45518,7 +45518,7 @@ RaceList["multiverse air genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Feather Fall",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -45542,7 +45542,7 @@ RaceList["multiverse air genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Levitate",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -45609,7 +45609,7 @@ RaceList["multiverse earth genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Pass Without Trace",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -45660,7 +45660,7 @@ RaceList["multiverse fire genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Burning Hands",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -45677,7 +45677,7 @@ RaceList["multiverse fire genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Flame Blade",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -45730,7 +45730,7 @@ RaceList["multiverse water genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Create or Destroy Water",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -45747,7 +45747,7 @@ RaceList["multiverse water genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 3+"
 			}],
 			spellChanges : {
@@ -45806,7 +45806,7 @@ RaceList["multiverse githyanki"] = {
 			extraLimitedFeatures : [{
 				name : "Jump",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -45830,7 +45830,7 @@ RaceList["multiverse githyanki"] = {
 			extraLimitedFeatures : [{
 				name : "Misty Step",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -45888,7 +45888,7 @@ RaceList["multiverse githzerai"] = {
 			extraLimitedFeatures : [{
 				name : "Shield",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -45911,7 +45911,7 @@ RaceList["multiverse githzerai"] = {
 			extraLimitedFeatures : [{
 				name : "Detect Thoughts",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -45971,7 +45971,7 @@ RaceList["multiverse goliath"] = {
 			name : "Stone's Endurance",
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["reaction", ""]]
 		}
 	},
@@ -46001,14 +46001,14 @@ RaceList["multiverse hobgoblin"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", " (Help action)"]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fortune from the many" : {
 			name : "Fortune from the Many",
 			minlevel : 1,
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fey gift: additional effect" : {
 			name : "Fey Gifts: Additional Effects",
@@ -46057,7 +46057,7 @@ RaceList["multiverse kenku"] = {
 		"\n \u2022 Kenku Recall: Proficiency Bonus per long rest, I can give myself advantage on an ability check using any skill in which I have proficiency."+
 		"\n \u2022 Mimicry: I can mimic sounds and voices I have heard. Creatures hearing me can determine the imitation with a successful Wisdom (Insight) check against a DC of 8 + my Proficiency Bonus + my Charisma modifier."
 };
-var MotM_Kobold_Draconic_Cry = "\n \u2022 Draconic Cry: As a bonus action, I can let out a cry. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies within 10 ft of me who could hear the cry. I can do this a number of times per long rest equal to my Proficiency Bonus.";
+var MotM_Kobold_Draconic_Cry = "\n \u2022 Draconic Cry: As a bonus action, I can let out a cry. Until the start of my next turn, my allies and I have advantage on attack rolls against any enemies within 10 ft of me who could hear the cry. I can do this a number of times per long rest equal to my Proficiency Bonus.";
 RaceList["multiverse kobold"] = {
 	regExpSearch : /^(?=.*(multiverse|motm\b))(?=.*kobold).*$/i,
 	name : "Multiverse Kobold",
@@ -46077,7 +46077,7 @@ RaceList["multiverse kobold"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", ""]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		}
 	},
 	trait : "Kobold"+
@@ -46143,12 +46143,12 @@ RaceList["multiverse lizardfolk"] = {
 		damage : [1, 6, "slashing"],
 	},
 	weaponsAdd : ["Bite"],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["MotM", 26]],
 		ac : 13
-	},
+	}],
 	armorAdd : "Natural Armor",
 	scoresGeneric : true,
 	features : {
@@ -46317,7 +46317,7 @@ RaceList["multiverse shadar-kai"] = {
 			minlevel : 1,
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["bonus action", ""]]
 		}
 	}
@@ -46459,13 +46459,13 @@ RaceList["tortle-motm"] = { // just a plain improvement over the previous, no ne
 		walk : { spd : 30, enc : 20 }
 	},
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, Perception, Stealth, or Survival",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*tortle)(?=.*shell).*$/i,
 		name : "Tortle's Shell",
 		source : [["MotM", 34]],
 		ac : 17,
 		dex : -10
-	},
+	}],
 	armorAdd : "Tortle's Shell",
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
@@ -46522,7 +46522,7 @@ RaceList["multiverse triton"] = {
 			extraLimitedFeatures : [{
 				name : "Fog Cloud",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -46539,7 +46539,7 @@ RaceList["multiverse triton"] = {
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		},
@@ -46556,7 +46556,7 @@ RaceList["multiverse triton"] = {
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 3+"
 			}]
 		}
@@ -46565,7 +46565,7 @@ RaceList["multiverse triton"] = {
 RaceList["multiverse yuan-ti"] = {
 	regExpSearch : /^(?=.*(multiverse|motm\b))(?=.*yuan.ti).*$/i,
 	name : "Multiverse Yuan-Ti",
-	sortname: "Yuan-Ti, Multiverse",
+	sortname : "Yuan-Ti, Multiverse",
 	source : [["MotM", 36]],
 	plural : "Yuan-Ti",
 	size : [3, 4],
@@ -46609,7 +46609,7 @@ RaceList["multiverse yuan-ti"] = {
 			extraLimitedFeatures : [{
 				name : "Suggestion",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		}
@@ -46634,7 +46634,7 @@ SourceList.CotN = {
 CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_Hero
 	name : "Young Horizonback Tortoise",
 	nameAlt : ["Tortoise, Young Horizonback"],
-	source: [["CotN", 26]],
+	source : [["CotN", 26]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -46645,7 +46645,7 @@ CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_
 	scores : [19, 11, 15, 2, 12, 5],
 	senses : "",
 	passivePerception : 11,
-	languages: "understands Goblin but can't speak",
+	languages : "understands Goblin but can't speak",
 	challengeRating : "3",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -46657,9 +46657,9 @@ CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_
 		description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
 		modifiers : [1, ""]
 	}],
-	traits: [{
-		name: "Amphibious",
-		description: "The tortoise can breathe air and water.",
+	traits : [{
+		name : "Amphibious",
+		description : "The tortoise can breathe air and water.",
 	}]
 };
 
@@ -47020,7 +47020,7 @@ BackgroundList["astral drifter"] = {
 };
 BackgroundFeatureList["divine contact"] = {
 	description : "I am 20d6 years older than I look, thanks to time spent in the Astral Sea without aging. While in the Astral Sea, I crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on me. This deity saw fit to share one secret or obscure bit of cosmic lore with me. I gain the Magic Initiate [Cleric] feat.",
-	source: [["S:AiS", 7]],
+	source : [["S:AiS", 7]],
 	eval : function() { AddFeat("Magic Initiate [Cleric]"); },
 	removeeval : function() { RemoveFeat("Magic Initiate [Cleric]"); }
 };
@@ -47057,7 +47057,7 @@ BackgroundList["wildspacer"] = {
 };
 BackgroundFeatureList["wildspace adaptation"] = {
 	description : "I was raised in the void of Wildspace, home to asteroid miners, moon farmers, and other hardy folk. Life in Wildspace has toughened me to face the terrors and other challenges of the airless night and I've learned how to adapt to zero gravity. Being weightless doesn't give me disadvantage on any of my melee attack rolls and I gain the Tough feat.",
-	source: [["S:AiS", 8]],
+	source : [["S:AiS", 8]],
 	eval : function() { AddFeat("Tough"); },
 	removeeval : function() { RemoveFeat("Tough"); }
 };
@@ -47095,7 +47095,7 @@ RaceList["astral elf"] = {
 			minlevel : 1,
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["bonus action", ""]]
 		}
 	},
@@ -47115,12 +47115,12 @@ RaceList["autognome"] = {
 	scoresGeneric : true,
 	age : " can live for centuries, typically up to 500 years",
 	armorAdd : "Armored Casing",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["S:AiS", 2]],
 		ac : 13
-	},
+	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
 		usages : "Proficiency bonus per ",
@@ -47264,12 +47264,12 @@ RaceList["thri-kreen"] = {
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
 	armorAdd : "Chameleon Carapace",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["S:AiS", 4]],
 		ac : 13
-	},
+	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my creature type is Monstrosity)"+
 	"\n \u2022 Chameleon Carapace: My base AC is 13 + Dex mod. As an action, " + (typePF ? "I can gain adv. on Stealth checks to hide in my current surroundings." : "I can have it match my current surroundings, granting me adv. on Stealth checks to hide in those surroundings.")+
@@ -48773,7 +48773,7 @@ FeatsList["ember of the fire giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
 		weaponsAdd : ["Searing Ignition"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
 			source : [["GotG", 17]],
@@ -48793,7 +48793,7 @@ FeatsList["ember of the fire giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
 		weaponsAdd : ["Searing Ignition"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
 			source : [["GotG", 17]],
@@ -48813,7 +48813,7 @@ FeatsList["ember of the fire giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
 		weaponsAdd : ["Searing Ignition"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
 			source : [["GotG", 17]],
@@ -48856,7 +48856,7 @@ FeatsList["fury of the frost giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
 		weaponsAdd : ["Frigid Retaliation"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
 			source : [["GotG", 17]],
@@ -48876,7 +48876,7 @@ FeatsList["fury of the frost giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
 		weaponsAdd : ["Frigid Retaliation"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
 			source : [["GotG", 17]],
@@ -48896,7 +48896,7 @@ FeatsList["fury of the frost giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
 		weaponsAdd : ["Frigid Retaliation"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
 			source : [["GotG", 17]],
@@ -48972,7 +48972,7 @@ FeatsList["keenness of the stone giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
 		weaponsAdd : ["Stone Throw"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
 			source : [["GotG", 18]],
@@ -48989,7 +48989,7 @@ FeatsList["keenness of the stone giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
 		weaponsAdd : ["Stone Throw"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
 			source : [["GotG", 18]],
@@ -49006,7 +49006,7 @@ FeatsList["keenness of the stone giant"] = {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
 		weaponsAdd : ["Stone Throw"],
-		weaponOptions: [{
+		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
 			source : [["GotG", 18]],
@@ -49626,7 +49626,7 @@ MagicItemsList["prehistoric figurine of wondrous power"] = {
 	"\n   As an action, you can throw a prehistoric figurine of wondrous power to a point on the ground within 60 feet of yourself while speaking a command word, whereupon the figurine magically transforms into a living creature. If the space where the creature would appear is occupied by other creatures or objects, or if there isn't enough space for the creature, the figurine doesn't become a creature."+
 	"\n   The creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions. See the Monster Manual for the creature's statistics."+
 	"\n   The creature exists for a duration specific to each figurine. At the end of the duration, the creature reverts to its statuette form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until a certain amount of time has passed, as specified in the figurine's description.",
-	description: "As an action, I can speak the command word and throw one or more statuettes to an unoccupied space within 60 ft where it becomes a specific creature for a certain amount of time. It is friendly, understands my languages, and obeys my commands.",
+	description : "As an action, I can speak the command word and throw one or more statuettes to an unoccupied space within 60 ft where it becomes a specific creature for a certain amount of time. It is friendly, understands my languages, and obeys my commands.",
 	action : [["action", ""]],
 	choices : ["Carnelian Triceratops", "Jasper Tyrannosaurus Rex", "Kyanite Pteranodon", "Pyrite Plesiosaurus"],
 	"carnelian triceratops" : {
@@ -50017,15 +50017,15 @@ if (!SourceList["LMoP"]) {
 		description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 		descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 		weight : 20,
-		addArmor: "Dragonguard",
-		armorOptions: {
-			regExpSearch: /dragonguard/i,
+		armorAdd : "Dragonguard",
+		armorOptions : [{
+			regExpSearch : /dragonguard/i,
 			name : "Dragonguard",
 			source : [["PaBTSO", 72], ["LMoP", 48]],
 			type : "medium",
-			ac : 14,
+			ac : "14+1",
 			weight : 20
-		},
+		}],
 		savetxt : { adv_vs : ["breath weapons of dragons"] }
 	}
 	MagicItemsList["hew"] = {
@@ -50247,9 +50247,9 @@ MagicItemsList["luminous war pick"] = {
 		modifiers : [1, 1]
 	},
 	spellcastingBonus : [{
-		name: "Once per dawn",
-		spells: ["daylight"],
-		selection: ["daylight"],
+		name : "Once per dawn",
+		spells : ["daylight"],
+		selection : ["daylight"],
 		firstCol : "oncelr"
 	}],
 	usages : 1,
@@ -51702,14 +51702,14 @@ MagicItemsList["breastplate of balance"] = {
 	recovery : "dawn",
 	additional : "regains 1d4",
 	armorAdd : "Breastplate of Balance",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /justToAddToDropDown/i,
 		name : "Breastplate of Balance",
 		source : [["BoMT", 34]],
 		type : "medium",
 		ac : 14,
 		weight : 20
-	},
+	}],
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "2 charges",
@@ -52402,11 +52402,11 @@ MagicItemsList["plate of knight's fellowship"] = {
 	"\n   The spirit is an ally to you and your companions. In combat, the spirit shares your initiative count but takes its turn immediately after yours. The spirit obeys your commands (no action required by you); if you don't issue any commands, the spirit takes the Dodge action and uses its movement to avoid danger."+
 	"\n   Once this bonus action is used, it can't be used again until the next dawn.",
 	weight : 65,
-	usages: 1,
-	recovery: "dawn",
+	usages : 1,
+	recovery : "dawn",
 	action : [["bonus action", ""]],
 	armorAdd : "Plate of Knight's Fellowship",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /justToAddToDropDown/i,
 		name : "Plate of Knight's Fellowship",
 		source : [["BoMT", 37]],
@@ -52415,7 +52415,7 @@ MagicItemsList["plate of knight's fellowship"] = {
 		stealthdis : true,
 		weight : 65,
 		strReq : 15
-	},
+	}],
 	creaturesAdd : [["Knight"]],
 	creatureOptions : [{
 		name : "Knight",
@@ -52968,8 +52968,8 @@ MagicItemsList["voidwalker armor"] = {
 	descriptionFull : "This black studded leather armor bears a red sheen. While wearing this armor, you can use a bonus action to summon a projection of yourself in an unoccupied space within 30 feet of yourself. The projection is a translucent copy of you that has immunity to all damage and conditions, and you can make attacks and cast spells with a range other than self as if standing in the projection's space. The projection disappears at the end of your turn. Once you use this bonus action, it can't be used again until the next dawn."+
 	"\n   " + toUni("Curse") + ". " + BoMT.toDescrFull(BoMT["voidwalker armor"]),
 	weight : 13,
-	usages: 1,
-	recovery: "dawn",
+	usages : 1,
+	recovery : "dawn",
 	action : [["bonus action", ""]],
 	armorAdd : "Voidwalker Armor",
 	armorOptions : [{

@@ -1276,7 +1276,7 @@ RunFunctionAtEnd(function () {
 					"\u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts",
 					"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn"
 				]),
-				action: ["bonus action", " (with ranged)"],
+				action : ["bonus action", " (with ranged)"],
 				additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 				toolProfs : ["calligrapher's or painter's supplies"],
 				extraname : "Kensei Weapon",
@@ -3012,12 +3012,12 @@ FeatsList["dragon hide"] = {
 		damage : [1, 4, "slashing"]
 	},
 	weaponsAdd : ['Retractable Claws'],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
 		name : "Dragon Hide",
 		source : [["X", 74]],
 		ac : 13
-	},
+	}],
 	armorAdd : "Dragon Hide"
 };
 FeatsList["drow high magic"] = {

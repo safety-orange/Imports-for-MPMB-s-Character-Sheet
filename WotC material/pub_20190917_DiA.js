@@ -406,16 +406,16 @@ MagicItemsList["obsidian flint dragon plate"] = {
 	description : "I gain a +2 bonus to AC and resistance to poison damage while I wear this plate armor. In addition, I gain advantage on ability checks and saving throws made to avoid or end the grappled condition on myself.",
 	descriptionFull : "You gain a +2 bonus to AC and resistance to poison damage while you wear this armor. In addition, you gain advantage on ability checks and saving throws made to avoid or end the grappled condition on yourself.",
 	armorAdd : "Obsidian Flint Dragon Plate",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*obsidian)(?=.*flint)(?=.*dragon)(?=.*plate).*$/i,
 		name : "Obsidian Flint Dragon Plate",
 		source : [["DiA", 224]],
 		type : "heavy",
-		ac : 20,
+		ac : "18+2",
 		stealthdis : true,
 		weight : 65,
 		strReq : 15
-	},
+	}],
 	dmgres : ["Poison"],
 	savetxt : { adv_vs : ["grappled"] },
 	weight : 65

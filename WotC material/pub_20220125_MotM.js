@@ -47,7 +47,7 @@ RaceList["multiverse aarakocra"] = {
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -253,7 +253,7 @@ RaceList["multiverse deep gnome"] = {
 			minlevel : 1,
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"gift of the svirfneblin (level 3)" : {
 			name : "Gift of the Svirfneblin (level 3)",
@@ -268,7 +268,7 @@ RaceList["multiverse deep gnome"] = {
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -292,7 +292,7 @@ RaceList["multiverse deep gnome"] = {
 			extraLimitedFeatures : [{
 				name : "Nondetection",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 3+"
 			}]
 		}
@@ -339,7 +339,7 @@ RaceList["multiverse duergar"] = {
 			extraLimitedFeatures : [{
 				name : "Enlarge/Reduce",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		},
@@ -364,7 +364,7 @@ RaceList["multiverse duergar"] = {
 			extraLimitedFeatures : [{
 				name : "Invisibility",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		}
@@ -401,7 +401,7 @@ RaceList["multiverse eladrin"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", ""]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		}
 	},
 	toNotesPage : [{
@@ -460,7 +460,7 @@ if (!RaceList["fairy"]) {
 				extraLimitedFeatures : [{
 					name : "Faerie Fire",
 					usages : 1,
-					recovery: "long rest",
+					recovery : "long rest",
 					altResource : "SS 1+"
 				}]
 			},
@@ -477,7 +477,7 @@ if (!RaceList["fairy"]) {
 				extraLimitedFeatures : [{
 					name : "Enlarge/Reduce",
 					usages : 1,
-					recovery: "long rest",
+					recovery : "long rest",
 					altResource : "SS 2+"
 				}]
 			}
@@ -555,12 +555,12 @@ RaceList["multiverse firbolg"] = {
 			extraLimitedFeatures : [{
 				name : "Detect Magic",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}, {
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -620,7 +620,7 @@ RaceList["multiverse air genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Feather Fall",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -644,7 +644,7 @@ RaceList["multiverse air genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Levitate",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -711,7 +711,7 @@ RaceList["multiverse earth genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Pass Without Trace",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -762,7 +762,7 @@ RaceList["multiverse fire genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Burning Hands",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -779,7 +779,7 @@ RaceList["multiverse fire genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Flame Blade",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -832,7 +832,7 @@ RaceList["multiverse water genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Create or Destroy Water",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -849,7 +849,7 @@ RaceList["multiverse water genasi"] = {
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 3+"
 			}],
 			spellChanges : {
@@ -908,7 +908,7 @@ RaceList["multiverse githyanki"] = {
 			extraLimitedFeatures : [{
 				name : "Jump",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -932,7 +932,7 @@ RaceList["multiverse githyanki"] = {
 			extraLimitedFeatures : [{
 				name : "Misty Step",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -990,7 +990,7 @@ RaceList["multiverse githzerai"] = {
 			extraLimitedFeatures : [{
 				name : "Shield",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}],
 			spellChanges : {
@@ -1013,7 +1013,7 @@ RaceList["multiverse githzerai"] = {
 			extraLimitedFeatures : [{
 				name : "Detect Thoughts",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}],
 			spellChanges : {
@@ -1073,7 +1073,7 @@ RaceList["multiverse goliath"] = {
 			name : "Stone's Endurance",
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["reaction", ""]]
 		}
 	},
@@ -1103,14 +1103,14 @@ RaceList["multiverse hobgoblin"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", " (Help action)"]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fortune from the many" : {
 			name : "Fortune from the Many",
 			minlevel : 1,
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fey gift: additional effect" : {
 			name : "Fey Gifts: Additional Effects",
@@ -1159,7 +1159,7 @@ RaceList["multiverse kenku"] = {
 		"\n \u2022 Kenku Recall: Proficiency Bonus per long rest, I can give myself advantage on an ability check using any skill in which I have proficiency."+
 		"\n \u2022 Mimicry: I can mimic sounds and voices I have heard. Creatures hearing me can determine the imitation with a successful Wisdom (Insight) check against a DC of 8 + my Proficiency Bonus + my Charisma modifier."
 };
-var MotM_Kobold_Draconic_Cry = "\n \u2022 Draconic Cry: As a bonus action, I can let out a cry. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies within 10 ft of me who could hear the cry. I can do this a number of times per long rest equal to my Proficiency Bonus.";
+var MotM_Kobold_Draconic_Cry = "\n \u2022 Draconic Cry: As a bonus action, I can let out a cry. Until the start of my next turn, my allies and I have advantage on attack rolls against any enemies within 10 ft of me who could hear the cry. I can do this a number of times per long rest equal to my Proficiency Bonus.";
 RaceList["multiverse kobold"] = {
 	regExpSearch : /^(?=.*(multiverse|motm\b))(?=.*kobold).*$/i,
 	name : "Multiverse Kobold",
@@ -1179,7 +1179,7 @@ RaceList["multiverse kobold"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", ""]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		}
 	},
 	trait : "Kobold"+
@@ -1245,12 +1245,12 @@ RaceList["multiverse lizardfolk"] = {
 		damage : [1, 6, "slashing"],
 	},
 	weaponsAdd : ["Bite"],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["MotM", 26]],
 		ac : 13
-	},
+	}],
 	armorAdd : "Natural Armor",
 	scoresGeneric : true,
 	features : {
@@ -1419,7 +1419,7 @@ RaceList["multiverse shadar-kai"] = {
 			minlevel : 1,
 			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["bonus action", ""]]
 		}
 	}
@@ -1561,13 +1561,13 @@ RaceList["tortle-motm"] = { // just a plain improvement over the previous, no ne
 		walk : { spd : 30, enc : 20 }
 	},
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, Perception, Stealth, or Survival",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*tortle)(?=.*shell).*$/i,
 		name : "Tortle's Shell",
 		source : [["MotM", 34]],
 		ac : 17,
 		dex : -10
-	},
+	}],
 	armorAdd : "Tortle's Shell",
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
@@ -1624,7 +1624,7 @@ RaceList["multiverse triton"] = {
 			extraLimitedFeatures : [{
 				name : "Fog Cloud",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -1641,7 +1641,7 @@ RaceList["multiverse triton"] = {
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		},
@@ -1658,7 +1658,7 @@ RaceList["multiverse triton"] = {
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 3+"
 			}]
 		}
@@ -1667,7 +1667,7 @@ RaceList["multiverse triton"] = {
 RaceList["multiverse yuan-ti"] = {
 	regExpSearch : /^(?=.*(multiverse|motm\b))(?=.*yuan.ti).*$/i,
 	name : "Multiverse Yuan-Ti",
-	sortname: "Yuan-Ti, Multiverse",
+	sortname : "Yuan-Ti, Multiverse",
 	source : [["MotM", 36]],
 	plural : "Yuan-Ti",
 	size : [3, 4],
@@ -1711,7 +1711,7 @@ RaceList["multiverse yuan-ti"] = {
 			extraLimitedFeatures : [{
 				name : "Suggestion",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		}

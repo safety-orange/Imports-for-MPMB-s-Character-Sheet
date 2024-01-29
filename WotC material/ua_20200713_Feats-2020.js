@@ -19,7 +19,7 @@ if (!SourceList.T) {
 		name : "Artificer Initiate",
 		source : [["T", 79], ["UA:F2", 1]],
 		descriptionFull : "You've learned some of an artificer's inventiveness, granting you the following benefits:\n \u2022 You learn one cantrip of your choice from the artificer spell list, and you learn one 1st-level spell of your choice from that list. Intelligence is your spellcasting ability for these spells. Whenever you gain a level, you can replace one of these spells with another spell of the same level from the artificer spell list.\n \u2022 You can cast this feat's 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n \u2022 You gain proficiency with one type of artisan's tools of your choice, and you can use that type of tool as a spellcasting focus for any spell you cast that uses Intelligence as its spellcasting ability.", // only slightly different than TCoE: allowed to switch spells every level
-		description: typePF ? "I learn a cantrip and a 1st-level spell from the artificer's spell list. Int is my spellcasting ability for these. Once per long rest, I can cast the 1st-level spell at its lowest level without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for spells I cast with Int as spellcasting ability." : "I learn one cantrip and one 1st-level spell from the artificer's spell list. Intelligence is my spellcasting ability for these. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for any spell I cast that uses Intelligence as its spellcasting ability.",
+		description : typePF ? "I learn a cantrip and a 1st-level spell from the artificer's spell list. Int is my spellcasting ability for these. Once per long rest, I can cast the 1st-level spell at its lowest level without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for spells I cast with Int as spellcasting ability." : "I learn one cantrip and one 1st-level spell from the artificer's spell list. Intelligence is my spellcasting ability for these. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for any spell I cast that uses Intelligence as its spellcasting ability.",
 		spellcastingBonus : [{
 			name : "Artificer cantrip",
 			spellcastingAbility : 4,
@@ -47,7 +47,7 @@ if (!SourceList.T) {
 		name : "Eldritch Adept",
 		source : [["T", 79], ["UA:F2", 1]],
 		descriptionFull : "Studying occult lore, you have unlocked eldritch power within yourself: you learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite.\n   Whenever you gain a level, you can replace the invocation with another one from the warlock class.",
-		description: 'I learn one Eldritch Invocation from the warlock class for which I meet the prerequisites (2nd page "Choose Feature" button). I can replace this invocation for another whenever I gain a level.',
+		description : 'I learn one Eldritch Invocation from the warlock class for which I meet the prerequisites (2nd page "Choose Feature" button). I can replace this invocation for another whenever I gain a level.',
 		bonusClassExtrachoices : [{
 			"class" : "warlock",
 			feature : "eldritch invocations",
@@ -98,8 +98,8 @@ if (!SourceList.T) {
 			name : "Fighting Initiate",
 			source : [["T", 80], ["UA:F2", 2]],
 			descriptionFull : "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different.\n   Whenever you gain a level, you can replace this feat's fighting style with another one from the fighter class that you don't have.", // only slightly different than TCoE: allowed to switch style every level instead of only at ASI
-			description: "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain a level.",
-			prerequisite: "Proficiency with a martial weapon",
+			description : "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain a level.",
+			prerequisite : "Proficiency with a martial weapon",
 			prereqeval : function(v) {
 				return v.martialWeaponsProf || v.otherWeaponsProf.some(function (n) {
 					return WeaponsList[n] && (/Martial/i).test(WeaponsList[n].type);
@@ -172,14 +172,14 @@ if (!SourceList.T) {
 		});
 	});
 	FeatsList["gunner"] = {
-		name: "Gunner",
-		source: [["T", 80], ["UA:F2", 2]],
+		name : "Gunner",
+		source : [["T", 80], ["UA:F2", 2]],
 		descriptionFull : "You have a quick hand and keen eye when employing firearms, granting you the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with firearms (see \"Firearms\" in the Dungeon Master's Guide).\n \u2022 You ignore the loading property of firearms.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.",
-		description: "I gain proficiency with firearms. I ignore the loading property of firearms. I don't suffer disadvantage on ranged attack rolls for being within 5 ft of a hostile creature. [+1 Dexterity]",
-		scores: [0, 1, 0, 0, 0, 0],
-		weaponProfs: [false, false, ["Firearms"]],
-		calcChanges: {
-			atkAdd: [
+		description : "I gain proficiency with firearms. I ignore the loading property of firearms. I don't suffer disadvantage on ranged attack rolls for being within 5 ft of a hostile creature. [+1 Dexterity]",
+		scores : [0, 1, 0, 0, 0, 0],
+		weaponProfs : [false, false, ["Firearms"]],
+		calcChanges : {
+			atkAdd : [
 				function (fields, v) {
 					if ((/firearm/i).test(v.theWea.type) || (/firearm/i).test(v.theWea.list)) {
 						fields.Description = fields.Description.replace(/([;,]? ?loading|loading[;,]? ?)/i, '');
@@ -190,10 +190,10 @@ if (!SourceList.T) {
 		}
 	};
 	FeatsList["metamagic adept"] = {
-		name: "Metamagic Adept",
+		name : "Metamagic Adept",
 		source : [["T", 80], ["UA:F2", 2]],
 		descriptionFull : "You've learned how to exert your will on your spells to alter how they function. You gain the following benefits:\n \u2022 You learn two Metamagic options of your choice from the sorcerer class. You can use only one Metamagic option on a spell when you cast it, unless the option says otherwise. Whenever you gain a level, you can replace one of your Metamagic options with another one from the sorcerer class.\n \u2022 You gain 2 sorcery points to spend on Metamagic (these points are added to any sorcery points you have from another source but can be used only on Metamagic). You regain all spent sorcery points when you finish a long rest.", // only slightly different than TCoE: allowed to switch option every level instead of only at ASI
-		description: 'I learn two Metamagic options from the sorcerer class (2nd page "Choose Feature" button). I can use only one option on a spell unless it says otherwise. I gain 2 sorcery points, which I can only use for Metamagic. I regain all expended sorcery points when I finish a long rest. I can change one ' + (typePF ? '' : 'Metamagic option ') + 'whenever I gain a level.',
+		description : 'I learn two Metamagic options from the sorcerer class (2nd page "Choose Feature" button). I can use only one option on a spell unless it says otherwise. I gain 2 sorcery points, which I can only use for Metamagic. I regain all expended sorcery points when I finish a long rest. I can change one ' + (typePF ? '' : 'Metamagic option ') + 'whenever I gain a level.',
 		bonusClassExtrachoices : [{
 			"class" : "sorcerer",
 			feature : "metamagic",
@@ -267,8 +267,8 @@ FeatsList["practiced expert-ua"] = {
 	scorestxt : "+1 to one ability score of my choice"
 };
 FeatsList["shadow touched-ua"] = {
-	name: "Shadow Touched",
-	source: [["UA:F2", 3]],
+	name : "Shadow Touched",
+	source : [["UA:F2", 3]],
 	descriptionFull : "You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 You learn the darkness spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
 	description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 	spellcastingBonus : [{
@@ -285,7 +285,7 @@ FeatsList["shadow touched-ua"] = {
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,

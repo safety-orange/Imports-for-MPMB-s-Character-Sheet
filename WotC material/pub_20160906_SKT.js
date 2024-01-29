@@ -429,7 +429,7 @@ MagicItemsList["korolnor scepter"] = {
 	usages : 10,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
-	spellFirstColTitle: "Ch",
+	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "2 charges",
 		spells : ["sending"],

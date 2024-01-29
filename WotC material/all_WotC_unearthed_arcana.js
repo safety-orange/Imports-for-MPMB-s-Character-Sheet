@@ -3084,7 +3084,7 @@ ClassList.rangerua = {
 				name : "Travel Benefits",
 				extraname : "Natural Explorer",
 				source : [["UA:RR", 3]],
-				description: desc([
+				description : desc([
 					"After one hour of traveling in the wilderness I gain the following benefits:",
 					" \u2022 My allies and I are not slowed by difficult terrain and can't get lost except by magic",
 					" \u2022 I am alert to danger even when doing something else; I forage twice as much food",
@@ -4713,7 +4713,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			source : [["UA:MMT", 1]],
 			minlevel : 3,
 			description : " [3 martial weapons proficiencies]" + "\n   " + "Martial weapons I am proficient with count as kensei weapons for me" + "\n   " + "With these, I can use Dex instead of Str and use the Martial Arts damage die" + "\n   " + "As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
-			action: ["bonus action", " (after hit)"],
+			action : ["bonus action", " (after hit)"],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -5485,14 +5485,14 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 					}
 				}
 			},
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*stone)(?=.*durability).*$/i,
 				name : "Stone's Durability",
 				source : [["UA:SO", 4]],
 				ac : "13+Con",
 				dex : -10,
 				affectsWildShape : true
-			},
+			}],
 			armorAdd : "Stone's Durability"
 		},
 		"subclassfeature6" : {
@@ -6537,13 +6537,13 @@ AddSubClass("mystic", "immortal-ua", {
 					}
 				}
 			},
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*immortal)(?=.*durability).*$/i,
 				name : "Immortal Durability",
 				source : [["UA:TMC", 7]],
 				ac : "10+Con",
 				affectsWildShape : true
-			},
+			}],
 			armorAdd : "Immortal Durability"
 		},
 		"subclassfeature3" : {
@@ -8347,7 +8347,7 @@ PsionicsList["ma2-wind stream"] = {
 	time : "1 a",
 	range : "30-ft line",
 	duration : "Instantaneous",
-	save: "Str",
+	save : "Str",
 	description : "30-ft long 5-ft wide all crea 1d8/PP Bludgeoning dmg and knocked prone; save halves and not prone",
 	descriptionFull : "As an action, you create a line of focused air that is 30 feet long and 5 feet wide. Each creature in that area must make a Strength saving throw, taking 1d8 bludgeoning damage per psi point spent and being knocked prone on a failed save, or half as much damage on a successful one.",
 	firstCol : "1-7"
@@ -10242,12 +10242,12 @@ AddSubClass("paladin", "oath of redemption-ua", {
 			source : [["UA:AToS", 2]],
 			minlevel : 3,
 			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
 				name : "Armor of Peace",
 				source : [["UA:AToS", 2]],
 				ac : 16
-			},
+			}],
 			armorAdd : "Armor of Peace",
 			spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
@@ -10562,7 +10562,7 @@ SpellsList["unearthly chorus-uass"] = {
 	range : "30-ft rad",
 	components : "V",
 	duration : "Conc, 10 min",
-	save: "Cha",
+	save : "Cha",
 	description : "Use bns a to make 1 crea in range save or be friendly for 1 h; I adv on Cha (Performance) checks",
 	descriptionFull : "Music of a style you choose fills the air around you in a 30-foot radius. The music spreads around corners and can be heard from up to 100 feet away. The music moves with you, centered on you for the duration." + "\n   " + "Until the spell ends, you make Charisma (Performance) checks with advantage. In addition, you can use a bonus action on each of your turns to beguile one creature you choose within 30 feet of you that can see you and hear the music. The creature must make a Charisma saving throw. If you or your companions are attacking it, the creature automatically succeeds on the saving throw. On a failure, the creature becomes friendly to you for as long as it can hear the music and for 1 hour thereafter. You make Charisma (Deception) checks and Charisma (Persuasion) checks against creatures made friendly by this spell with advantage."
 };
@@ -11500,7 +11500,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 				" - If I do an unarmed strike during an Attack action, +2 AC until my next turn starts",
 				" - As a bonus action, ranged kensei weapon attacks deal +1d4 damage in current turn"
 			]),
-			action: ["bonus action", " (with ranged)"],
+			action : ["bonus action", " (with ranged)"],
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 			calcChanges : {
 				atkAdd : [
@@ -12755,7 +12755,7 @@ AddSubClass("wizard", "school of invention-ua", {
 				"Only I can attune to it; Creating a new one removes the magic from the previous"
 			]),
 			dmgres : ["Force"],
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /arcanomechanical/i,
 				name : "Arcanomechanical",
 				source : [["UA:TS", 3]],
@@ -12763,7 +12763,7 @@ AddSubClass("wizard", "school of invention-ua", {
 				ac : 12,
 				weight : 8,
 				invName : "Arcanomechanical armor"
-			},
+			}],
 			armorAdd : "Arcanomechanical"
 		},
 		"subclassfeature2.2" : {
@@ -13852,12 +13852,12 @@ RaceList["loxodon-ua"] = {
 	languageProfs : ["Common"],
 	savetxt : { adv_vs : ["frightened"] },
 	toolProfs : ["Mason's tools"],
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^((?=.*natural)(?=.*armou?r)|(?=.*loxodon)(?=.*(hide|skin))).*$/i,
 		name : "Natural Armor",
 		source : [["UA:RoR", 1]],
 		ac : 13
-	},
+	}],
 	armorAdd : "Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
@@ -15249,12 +15249,12 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 			source : [["UA:SnW", 1]],
 			minlevel : 1,
 			description : "\n   My aberrant origin gives me an AC of 13 + my Dex mod when I am not wearing armor",
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?=.*warped)(?=.*being).*$/i,
 				name : "Warped Being",
 				source : [["UA:SnW", 1]],
 				ac : 13
-			},
+			}],
 			armorAdd : "Warped Being"
 		},
 		"subclassfeature6" : {
@@ -18978,7 +18978,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 				spells : ["guiding bolt", "augury"],
 				selection : ["guiding bolt", "augury"],
 				firstCol : "Sp",
-				times: 2
+				times : 2
 			},
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
@@ -19382,8 +19382,8 @@ FeatsList["practiced expert-ua"] = {
 	scorestxt : "+1 to one ability score of my choice"
 };
 FeatsList["shadow touched-ua"] = {
-	name: "Shadow Touched",
-	source: [["UA:F2", 3]],
+	name : "Shadow Touched",
+	source : [["UA:F2", 3]],
 	descriptionFull : "You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 You learn the darkness spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
 	description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 	spellcastingBonus : [{
@@ -19400,7 +19400,7 @@ FeatsList["shadow touched-ua"] = {
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
@@ -20089,9 +20089,9 @@ RaceList["dhampir-ua"] = {
 	extraLimitedFeatures : [{
 		name : "Vampiric Bite",
 		additional : "empower myself",
-		usages: "Proficiency bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	scorestxt : "+2 to one ability score, and +1 to a different score of my choice",
 	trait : "Dhampir" + (typePF ? "\n " : "\t") +
@@ -20129,7 +20129,7 @@ RaceList["hexblood-ua"] = {
 	extraLimitedFeatures : [{
 		name : "Magic Token",
 		usages : 1,
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	spellcastingAbility : [4, 5, 6],
 	features : {
@@ -20147,12 +20147,12 @@ RaceList["hexblood-ua"] = {
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}, {
 				name : "Hex",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		}
@@ -20181,9 +20181,9 @@ RaceList["reborn-ua"] = {
 	},
 	extraLimitedFeatures : [{
 		name : "Knowledge from a Past Life",
-		usages: "Proficiency bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	useFromPreviousRace : {
 		message : "If you replace a race with the Reborn lineage, you can keep the following elements of that race:"+
@@ -20258,7 +20258,7 @@ RaceList["fairy-ua"] = {
 			extraLimitedFeatures : [{
 				name : "Faerie Fire",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		}
@@ -20293,14 +20293,14 @@ RaceList["feywild hobgoblin-ua"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", " (Help action)"]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fortune from the many" : {
 			name : "Fortune from the Many",
 			minlevel : 1,
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		},
 		"fey gift - additional effect" : {
 			name : "Fey Gifts - Additional Effects",
@@ -20398,11 +20398,11 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"chromatic warding" : {
-					name: "Chromatic Warding",
+					name : "Chromatic Warding",
 					source : [["UA:DO", 2]],
-					minlevel: 3,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 3,
+					usages : 1,
+					recovery : "long rest",
 					action : [["action", ""]]
 				}
 			}
@@ -20418,13 +20418,13 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"metallic breath weapon" : {
-					name: "Metallic Breath Weapon",
+					name : "Metallic Breath Weapon",
 					source : [["UA:DO", 3]],
-					minlevel: 3,
-					usages: 1,
-					recovery: "long rest",
+					minlevel : 3,
+					usages : 1,
+					recovery : "long rest",
 					weaponsAdd : ["Metallic Breath Weapon"],
-					weaponOptions: [{
+					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
 						source : [["UA:DO", 3]],
@@ -20451,11 +20451,11 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			], "\n \u2022 "),
 			features : {
 				"gem flight" : {
-					name: "Gem Flight",
+					name : "Gem Flight",
 					source : [["UA:DO", 3]],
-					minlevel: 3,
-					usages: 1,
-					recovery: "long rest"
+					minlevel : 3,
+					usages : 1,
+					recovery : "long rest"
 				}
 			}
 		}
@@ -20475,7 +20475,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			},
 			languageProfs : ["Common", 1],
 			weaponsAdd : ["Breath Weapon"],
-			weaponOptions: [{
+			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
 				source : oDrBrn.source,
@@ -20565,7 +20565,7 @@ RaceList["draconic kobold-ua"] = {
 			usages : "Proficiency bonus per ",
 			action : [["bonus action", ""]],
 			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery: "long rest"
+			recovery : "long rest"
 		}
 	},
 	trait : "Draconic Kobold"+
@@ -20763,12 +20763,12 @@ RaceList["autognome-ua"] = {
 	scoresGeneric : true,
 	age : " can live for centuries, up to 500 years",
 	armorAdd : "Armored Casing",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["UA:TotM", 2]],
 		ac : 13
-	},
+	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
 		usages : "Proficiency bonus per ",
@@ -20876,12 +20876,12 @@ RaceList["thri-kreen-ua"] = {
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
 	armorAdd : "Chameleon Carapace",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["UA:TotM", 4]],
 		ac : 13
-	},
+	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my type is Monstrosity)"+
 	"\n \u2022 Chameleon Carapace: " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide."+
@@ -21612,7 +21612,7 @@ FeatsList["squire of solamnia-ua"] = {
 	extraLimitedFeatures : [{
 		name : "Encouraging Rally (Squire of Solamnia)",
 		usages : 1,
-		recovery: "long rest"
+		recovery : "long rest"
 	}]
 };
 FeatsList["knight of the crown-ua"] = {
@@ -22379,12 +22379,12 @@ RaceList["glitchling-ua"] = {
 	scoresGeneric : true,
 	savetxt : { adv_vs : ["charmed"] },
 	armorAdd : "Armored Plating",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*plating).*$/i,
 		name : "Armored Plating",
 		source : [["UA:WotM", 2]],
 		ac : 14
-	},
+	}],
 	features : {
 		"balance chaos" : {
 			name : "Balance Chaos",

@@ -96,13 +96,13 @@ RaceList["loxodon"] = {
 	},
 	languageProfs : ["Common", "Loxodon"],
 	savetxt : { adv_vs : ["charmed", "frightened"] },
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*loxodon)(?=.*(natural|hide|skin)).*$/i,
 		name : "Loxodon Natural Armor",
 		source : [["G", 18]],
 		ac : "12+Con",
 		dex : -10
-	},
+	}],
 	armorAdd : "Loxodon Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",

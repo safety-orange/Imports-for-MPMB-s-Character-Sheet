@@ -19,7 +19,7 @@ MagicItemsList["orcus figurine"] = {
 	rarity : "",
 	storyItemAL : true,
 	attunement : false,
-	description: "This Tiny figurine smells of decaying flesh, detectable out to 5 ft. Within 30 ft of it, dead can't be brought back to life and undead can't be turned. If I hold it and pray for 1 hour, I have a 10% chance of calling a wraith for 1 hour that attacks all non-undead. Once summoned, the figurine can't do so again for 30 days.",
+	description : "This Tiny figurine smells of decaying flesh, detectable out to 5 ft. Within 30 ft of it, dead can't be brought back to life and undead can't be turned. If I hold it and pray for 1 hour, I have a 10% chance of calling a wraith for 1 hour that attacks all non-undead. Once summoned, the figurine can't do so again for 30 days.",
 	descriptionFull : "Carved from an ogre's petrified heart, the gray figurine depicts the Demon Prince of Undeath in ghastly detail, clutching his skull-topped wand in one hand and three severed heads by the hair in the other. The figurine smells like decaying flesh, and this scent is detectable out to a range of 5 feet."+
 	"\n   The figurine is a Tiny object with AC 17, 3 hit points, and immunity to all types of damage except radiant damage. A detect evil and good spell or similar magic reveals that the figurine has been desecrated. As long as it has at least 1 hit point, the figurine has the following magical properties:"+
 	"\n   \u2022 Undead within 30 feet of the figurine can't be turned."+
@@ -119,7 +119,7 @@ if (MagicItemsList["alchemy jug"]) {
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Blue (hot tea)", {
 		name : "Alchemy Jug (Blue)",
 		source : [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
+		description : MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
 		descriptionLong : MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "boiling hot tea (1 quart)"),
 		descriptionFull : MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar"+
@@ -132,7 +132,7 @@ if (MagicItemsList["alchemy jug"]) {
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Orange (soy sauce)", {
 		name : "Alchemy Jug (Orange)",
 		source : [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
+		description : MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
 		descriptionLong : MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "soy sauce (1 gallon)"),
 		descriptionFull : MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar"+

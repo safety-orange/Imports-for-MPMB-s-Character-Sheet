@@ -378,7 +378,7 @@ AddSubClass("barbarian", "battlerager", {
 				"With my spiked armor I do 3 piercing damage when I use my Attack action to grapple"
 			]),
 			action : ["bonus action", "Armor Spikes attack (in rage)"],
-			armorOptions : {
+			armorOptions : [{
 				regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
 				name : "Spiked armor",
 				source : [["S", 121]],
@@ -386,7 +386,7 @@ AddSubClass("barbarian", "battlerager", {
 				ac : 14,
 				stealthdis : true,
 				weight : 45
-			},
+			}],
 			weaponOptions : {
 				regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
 				name : "Armor spikes",

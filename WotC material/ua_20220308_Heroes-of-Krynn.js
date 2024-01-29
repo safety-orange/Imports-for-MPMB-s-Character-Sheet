@@ -773,7 +773,7 @@ FeatsList["squire of solamnia-ua"] = {
 	extraLimitedFeatures : [{
 		name : "Encouraging Rally (Squire of Solamnia)",
 		usages : 1,
-		recovery: "long rest"
+		recovery : "long rest"
 	}]
 };
 FeatsList["knight of the crown-ua"] = {

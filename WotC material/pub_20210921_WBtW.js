@@ -173,7 +173,7 @@ RaceList["fairy"] = {
 			extraLimitedFeatures : [{
 				name : "Faerie Fire",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		},
@@ -190,7 +190,7 @@ RaceList["fairy"] = {
 			extraLimitedFeatures : [{
 				name : "Enlarge/Reduce",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 2+"
 			}]
 		}
@@ -522,14 +522,14 @@ MagicItemsList["witchlight vane"] = {
 	}],
 	spellcastingAbility : 6,
 	spellcastingBonus : [{
-		name: "At will",
-		spells: ["dancing lights", "ray of frost"],
-		selection: ["dancing lights", "ray of frost"],
+		name : "At will",
+		spells : ["dancing lights", "ray of frost"],
+		selection : ["dancing lights", "ray of frost"],
 		firstCol : "atwill"
 	}, {
-		name: "See Notes",
-		spells: ["polymorph"],
-		selection: ["polymorph"],
+		name : "See Notes",
+		spells : ["polymorph"],
+		selection : ["polymorph"],
 		firstCol : "SP"
 	}],
 	savetxt : {
@@ -571,14 +571,14 @@ MagicItemsList["witchlight watch"] = {
 	action : [["action", " [initiate (un)packing]"]],
 	spellcastingAbility : 4,
 	spellcastingBonus : [{
-		name: "At will",
-		spells: ["fire bolt", "message"],
-		selection: ["fire bolt", "message"],
+		name : "At will",
+		spells : ["fire bolt", "message"],
+		selection : ["fire bolt", "message"],
 		firstCol : "atwill"
 	}, {
-		name: "See Notes",
-		spells: ["invisibility"],
-		selection: ["invisibility"],
+		name : "See Notes",
+		spells : ["invisibility"],
+		selection : ["invisibility"],
 		firstCol : "SP"
 	}],
 }

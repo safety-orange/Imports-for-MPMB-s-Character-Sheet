@@ -70,7 +70,7 @@ BackgroundList["caravan specialist"] = {
 		"I enjoy the open road. Underground and tight spaces make me very nervous.",
 		"I expect others to heed my orders and have little respect or sympathy if they don't.",
 		"I am very prideful and have trouble admitting when I'm wrong.",
-		"Once I decide on a course of action, I do not waiver.",
+		"Once I decide on a course of action, I do not waver.",
 		"I like to explore, and my curiosity will sometimes get me into trouble."
 	],
 	toolProfs : ["Vehicles (land)"],

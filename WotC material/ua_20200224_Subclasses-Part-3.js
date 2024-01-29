@@ -365,7 +365,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 				spells : ["guiding bolt", "augury"],
 				selection : ["guiding bolt", "augury"],
 				firstCol : "Sp",
-				times: 2
+				times : 2
 			},
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",

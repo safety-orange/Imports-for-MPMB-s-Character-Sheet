@@ -41,9 +41,9 @@ RaceList["dhampir-ua"] = {
 	extraLimitedFeatures : [{
 		name : "Vampiric Bite",
 		additional : "empower myself",
-		usages: "Proficiency bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	scorestxt : "+2 to one ability score, and +1 to a different score of my choice",
 	trait : "Dhampir" + (typePF ? "\n " : "\t") +
@@ -81,7 +81,7 @@ RaceList["hexblood-ua"] = {
 	extraLimitedFeatures : [{
 		name : "Magic Token",
 		usages : 1,
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	spellcastingAbility : [4, 5, 6],
 	features : {
@@ -99,12 +99,12 @@ RaceList["hexblood-ua"] = {
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}, {
 				name : "Hex",
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+"
 			}]
 		}
@@ -133,9 +133,9 @@ RaceList["reborn-ua"] = {
 	},
 	extraLimitedFeatures : [{
 		name : "Knowledge from a Past Life",
-		usages: "Proficiency bonus per ",
+		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery: "long rest"
+		recovery : "long rest"
 	}],
 	useFromPreviousRace : {
 		message : "If you replace a race with the Reborn lineage, you can keep the following elements of that race:"+

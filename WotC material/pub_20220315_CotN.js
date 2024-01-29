@@ -15,7 +15,7 @@ SourceList.CotN = {
 CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_Hero
 	name : "Young Horizonback Tortoise",
 	nameAlt : ["Tortoise, Young Horizonback"],
-	source: [["CotN", 26]],
+	source : [["CotN", 26]],
 	size : 1,
 	type : "Beast",
 	alignment : "Unaligned",
@@ -26,7 +26,7 @@ CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_
 	scores : [19, 11, 15, 2, 12, 5],
 	senses : "",
 	passivePerception : 11,
-	languages: "understands Goblin but can't speak",
+	languages : "understands Goblin but can't speak",
 	challengeRating : "3",
 	proficiencyBonus : 2,
 	attacksAction : 1,
@@ -38,9 +38,9 @@ CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_
 		description : "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
 		modifiers : [1, ""]
 	}],
-	traits: [{
-		name: "Amphibious",
-		description: "The tortoise can breathe air and water.",
+	traits : [{
+		name : "Amphibious",
+		description : "The tortoise can breathe air and water.",
 	}]
 };
 

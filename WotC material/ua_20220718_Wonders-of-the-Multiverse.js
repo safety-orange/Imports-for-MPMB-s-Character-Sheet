@@ -23,12 +23,12 @@ RaceList["glitchling-ua"] = {
 	scoresGeneric : true,
 	savetxt : { adv_vs : ["charmed"] },
 	armorAdd : "Armored Plating",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*plating).*$/i,
 		name : "Armored Plating",
 		source : [["UA:WotM", 2]],
 		ac : 14
-	},
+	}],
 	features : {
 		"balance chaos" : {
 			name : "Balance Chaos",

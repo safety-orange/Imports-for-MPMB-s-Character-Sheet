@@ -545,7 +545,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 			name : "Arcane Turret",
 			source : [["UA:A2", 7]],
 			minlevel : 3,
-			description: desc([
+			description : desc([
 				"As an action, I can use smith's tools to summon a Medium turret within 5 ft of me",
 				"I can do so a number of times per long rest for free, or by spending a spell slot",
 				"If I create more turrets than I can have active, the oldest one disappears",
@@ -557,11 +557,11 @@ AddSubClass("artificer-ua2", "artillerist", {
 			usages : levels.map(function(n) {
 				return n < 3 ? "" : n < 14 ? 1 : 2;
 			}),
-			recovery: "long rest",
+			recovery : "long rest",
 			additional : levels.map(function(n) {
 				return n < 3 ? "" : n < 14 ? "max 1 active turret"  : "max 2 active turrets";
 			}),
-			action: [["action", " (summon/detonate)"], ["bonus action", " (command)"]],
+			action : [["action", " (summon/detonate)"], ["bonus action", " (command)"]],
 			eval : function () {
 				var AScompA = isTemplVis('AScomp') ? What('Template.extras.AScomp').split(',') : false;
 				var prefix = false;
@@ -600,7 +600,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 			name : "Wand Prototype",
 			source : [["UA:A2", 8]],
 			minlevel : 6,
-			description: desc([
+			description : desc([
 				"When I finish a long rest, I can use woodcarver's tools to turn a wand into a magic item",
 				"I can only infuse a nonmagical wooden wand and it lasts until I finish my next long rest",
 				"I infuse it with an artificer cantrip, even one I don't know, with a 1 action casting time",
@@ -666,7 +666,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 			name : "Fortified Position",
 			source : [["UA:A2", 8]],
 			minlevel : 14,
-			description: "\n   My allies and I have half cover while within 10 ft of an arcane turret I created"
+			description : "\n   My allies and I have half cover while within 10 ft of an arcane turret I created"
 		}
 	}
 });
@@ -731,17 +731,17 @@ CreatureList["arcane turret-ua"] = {
 		description : "The turret emits a burst of positive energy that grants itself and each creature of the creator's choice within 10 feet of it a number of temporary hit points equal to 1d8 + the creator's Intelligence modifier (minimum of +1)."
 	}],
 	traits : [{
-		name: "Creator",
-		description: "The turret only does something when activated by its creator. It uses the spell attack and spell save DC of its creator, and has five times the creator's artificer level in HP."
+		name : "Creator",
+		description : "The turret only does something when activated by its creator. It uses the spell attack and spell save DC of its creator, and has five times the creator's artificer level in HP."
 	}, {
-		name: "Activation",
-		description: "The creator of the turret can activate it as a bonus action while within 60 ft of it. Once activated, the turret does as its creator wishes, move to an unoccupied space and use the action associated with its type:" +
+		name : "Activation",
+		description : "The creator of the turret can activate it as a bonus action while within 60 ft of it. Once activated, the turret does as its creator wishes, move to an unoccupied space and use the action associated with its type:" +
 		"\n  \u2022 Flamethrower: use the flamethrower attack." +
 		"\n  \u2022 Force Ballista: use the force ballista attack." +
 		"\n  \u2022 Defender: use the defender feature, see the features to the left."
 	}, {
-		name: "Detonate",
-		description: "The creator of the turret can use an action to detonate the turret when within 60 ft of it, see the attack section."
+		name : "Detonate",
+		description : "The creator of the turret can use an action to detonate the turret when within 60 ft of it, see the attack section."
 	}]
 };
 

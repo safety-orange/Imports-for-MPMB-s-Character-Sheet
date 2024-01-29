@@ -199,9 +199,9 @@ MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Peng
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
-		name: "1 charge",
-		spells: ["command"],
-		selection: ["command"],
+		name : "1 charge",
+		spells : ["command"],
+		selection : ["command"],
 		firstCol : 1
 	}],
 	spellChanges : {

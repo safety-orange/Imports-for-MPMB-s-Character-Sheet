@@ -61,12 +61,12 @@ RaceList["autognome-ua"] = {
 	scoresGeneric : true,
 	age : " can live for centuries, up to 500 years",
 	armorAdd : "Armored Casing",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["UA:TotM", 2]],
 		ac : 13
-	},
+	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
 		usages : "Proficiency bonus per ",
@@ -174,12 +174,12 @@ RaceList["thri-kreen-ua"] = {
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
 	armorAdd : "Chameleon Carapace",
-	armorOptions : {
+	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["UA:TotM", 4]],
 		ac : 13
-	},
+	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my type is Monstrosity)"+
 	"\n \u2022 Chameleon Carapace: " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide."+

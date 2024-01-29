@@ -798,12 +798,12 @@ if (!SourceList["E:RLW"]) {
 					"I can't have multiple cannons; Select \"Eldritch Cannon\" on a companion page for its stats"
 				]),
 				usages : 1,
-				recovery: "long rest",
+				recovery : "long rest",
 				altResource : "SS 1+",
 				additional : levels.map(function(n) {
 					return n < 3 ? "" : n < 15 ? "create 1 cannon" : "create 2 cannons";
 				}),
-				action: [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
+				action : [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
 				creaturesAdd : [["Eldritch Cannon"]],
 				creatureOptions : [{
 					name : "Eldritch Cannon",
@@ -864,15 +864,15 @@ if (!SourceList["E:RLW"]) {
 						description : "The cannon emits a burst of positive energy that grants itself and each creature of its creator's choice within 10 ft of it a number of temporary hit points equal to 1d8 + its creator's Intelligence modifier (minimum of +1)."
 					}],
 					traits : [{
-						name: "Creator",
-						description: "As an object, the cannon only acts when activated by its creator, uses its creator's artificer spell attack and save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
+						name : "Creator",
+						description : "As an object, the cannon only acts when activated by its creator, uses its creator's artificer spell attack and save DC, and has five times the artificer level in HP. It disappears after 1 hour, when reduced to 0 HP, or when its creator dismisses it as an action."
 					}, {
-						name: "Activation",
-						description: "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
+						name : "Activation",
+						description : "The creator of the cannon can activate it as a bonus action while within 60 ft of it. Once activated, the cannon does as instructed, moves and uses the action associated with its type: flamethrower attack, force ballista attack, or protector feature."
 					}, {
-						name: "Detonate (Artillerist 9)",
+						name : "Detonate (Artillerist 9)",
 						minlevel : 9,
-						description: "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
+						description : "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
 						eval : function(prefix, lvl) {
 							// add the Detonate attack entry
 							Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "Detonate");
@@ -890,9 +890,9 @@ if (!SourceList["E:RLW"]) {
 							}
 						}
 					}, {
-						name: "Shimmering Field (Artillerist 15)",
+						name : "Shimmering Field (Artillerist 15)",
 						minlevel : 15,
-						description: "The creator of the cannon and their allies have half cover while within 10 ft of the cannon."
+						description : "The creator of the cannon and their allies have half cover while within 10 ft of the cannon."
 					}],
 					minlevelLinked : ["artificer"],
 					header : "Object",
@@ -1833,9 +1833,9 @@ AddSubClass("barbarian", "path of wild magic", {
 				"Until my next turn ends, I know the location of any spell or magic item within 60 ft",
 				"I also learn the school of magic of a spell; This doesn't reveal anything behind total cover"
 			]),
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus')",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["action", ""]]
 		},
 		"subclassfeature3.1" : {
@@ -1871,9 +1871,9 @@ AddSubClass("barbarian", "path of wild magic", {
 				" \u2022 Roll 1d3. They regain an expended spell slot of a level equal to or lower than the roll",
 				"A creature that receives the second benefit can't receive it again until after a long rest"
 			]),
-			usages: "Proficiency bonus per ",
+			usages : "Proficiency bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus')",
-			recovery: "long rest",
+			recovery : "long rest",
 			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
@@ -3937,7 +3937,7 @@ var TCoE_Deft_Explorer = function () {
 			]),
 			action : [["action", ""]],
 			additional : "1d8 + Wis Mod",
-			usages: "Prof Bonus per ",
+			usages : "Prof Bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"
 		},
@@ -5131,9 +5131,9 @@ AddWarlockPactBoon("Pact of the Talisman", {
 		"If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement",
 		"This ceremony destroys the previous amulet and can be done during a short or long rest"
 	]),
-	usages: "Proficiency bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",
-	recovery: "long rest"
+	recovery : "long rest"
 });
 AddFeatureChoice(ClassList.warlock.features["pact boon"], true, "Eldritch Versatility", {
 	name : "Eldritch Versatility",
@@ -5160,9 +5160,9 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		return classes.known.warlock.level >= 12 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
 	action : [["action", ""]],
-	usages: "Proficiency bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",
-	recovery: "long rest"
+	recovery : "long rest"
 });
 AddWarlockInvocation("Eldritch Mind", {
 	name : "Eldritch Mind",
@@ -5267,9 +5267,9 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact 
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 7 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
-	usages: "Proficiency bonus per ",
+	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus')",
-	recovery: "long rest"
+	recovery : "long rest"
 });
 AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 	name : "Rebuke of the Talisman",
@@ -5730,15 +5730,15 @@ if (!SourceList.S) {
 					" \u2022 Intelligence modifier (min 1) to concentration saves for maintaining conc. on a spell"
 				]),
 				action : [["bonus action", " (start)"]],
-				usages: "Proficiency bonus per ",
+				usages : "Proficiency bonus per ",
 				usagescalc : "event.value = How('Proficiency Bonus')",
-				recovery: "long rest"
+				recovery : "long rest"
 			},
 			"subclassfeature6" : {
 				name : "Extra Attack",
 				source : [["S", 142], ["T", 77]],
 				minlevel : 6,
-				description: desc([
+				description : desc([
 					"I can attack twice instead of once when I take the Attack action on my turn",
 					"Moreover, I can cast one of my cantrips in place of one of those attacks"
 				])
@@ -5929,7 +5929,7 @@ FeatsList["artificer initiate"] = {
 	name : "Artificer Initiate",
 	source : [["T", 79], ["UA:F2", 1]],
 	descriptionFull : "You've learned some of an artificer's inventiveness:\n \u2022 You learn one cantrip of your choice from the artificer spell list, and you learn one 1st-level spell of your choice from that list. Intelligence is your spellcasting ability for these spells.\n \u2022 You can cast this feat's 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n \u2022 You gain proficiency with one type of artisan's tools of your choice, and you can use that type of tool as a spellcasting focus for any spell you cast that uses Intelligence as its spellcasting ability.",
-	description: typePF ? "I learn a cantrip and a 1st-level spell from the artificer's spell list. Int is my spellcasting ability for these. Once per long rest, I can cast the 1st-level spell at its lowest level without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for spells I cast with Int as spellcasting ability." : "I learn one cantrip and one 1st-level spell from the artificer's spell list. Intelligence is my spellcasting ability for these. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for any spell I cast that uses Intelligence as its spellcasting ability.",
+	description : typePF ? "I learn a cantrip and a 1st-level spell from the artificer's spell list. Int is my spellcasting ability for these. Once per long rest, I can cast the 1st-level spell at its lowest level without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for spells I cast with Int as spellcasting ability." : "I learn one cantrip and one 1st-level spell from the artificer's spell list. Intelligence is my spellcasting ability for these. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. I gain proficiency in one artisan's tool, which I can use as a spellcasting focus for any spell I cast that uses Intelligence as its spellcasting ability.",
 	spellcastingBonus : [{
 		name : "Artificer cantrip",
 		spellcastingAbility : 4,
@@ -5965,7 +5965,7 @@ FeatsList["eldritch adept"] = {
 	name : "Eldritch Adept",
 	source : [["T", 79], ["UA:F2", 1]],
 	descriptionFull : "Studying occult lore, you have unlocked eldritch power within yourself: you learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite of any kind, you can choose that invocation only if you're a warlock who meets the prerequisite.\n   Whenever you gain a level, you can replace the invocation with another one from the warlock class.",
-	description: 'I learn one Eldritch Invocation from the warlock class for which I meet the prerequisites (2nd page "Choose Feature" button). I can replace this invocation for another whenever I gain a level.',
+	description : 'I learn one Eldritch Invocation from the warlock class for which I meet the prerequisites (2nd page "Choose Feature" button). I can replace this invocation for another whenever I gain a level.',
 	bonusClassExtrachoices : [{
 		"class" : "warlock",
 		feature : "eldritch invocations",
@@ -6018,8 +6018,8 @@ RunFunctionAtEnd(function() {
 		name : "Fighting Initiate",
 		source : [["T", 80], ["UA:F2", 2]],
 		descriptionFull : "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different.\n   Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
-		description: "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain an Ability Score Improvement.",
-		prerequisite: "Proficiency with a martial weapon",
+		description : "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain an Ability Score Improvement.",
+		prerequisite : "Proficiency with a martial weapon",
 		prereqeval : function(v) {
 			return v.martialWeaponsProf || v.otherWeaponsProf.some(function (n) {
 				return WeaponsList[n] && (/Martial/i).test(WeaponsList[n].type);
@@ -6095,7 +6095,7 @@ FeatsList["gunner"] = {
 	name : "Gunner",
 	source : [["T", 80], ["UA:F2", 2]],
 	descriptionFull : "You have a quick hand and keen eye when employing firearms, granting you the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with firearms (see \"Firearms\" in the Dungeon Master's Guide).\n \u2022 You ignore the loading property of firearms.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.",
-	description: "I gain proficiency with firearms. I ignore the loading property of firearms. I don't suffer disadvantage on ranged attack rolls for being within 5 ft of a hostile creature. [+1 Dexterity]",
+	description : "I gain proficiency with firearms. I ignore the loading property of firearms. I don't suffer disadvantage on ranged attack rolls for being within 5 ft of a hostile creature. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	weaponProfs : [false, false, ["Firearms"]],
 	calcChanges : {
@@ -6113,7 +6113,7 @@ FeatsList["metamagic adept"] = {
 	name : "Metamagic Adept",
 	source : [["T", 80], ["UA:F2", 2]],
 	descriptionFull : "You've learned how to exert your will on your spells to alter how they function:\n \u2022 You learn two Metamagic options of your choice from the sorcerer class. You can use only one Metamagic option on a spell when you cast it, unless the option says otherwise. Whenever you reach a level that grants the Ability Score Improvement feature, you can replace one of these Metamagic options with another one from the sorcerer class.\n \u2022 You gain 2 sorcery points to spend on Metamagic (these points are added to any sorcery points you have from another source but can be used only on Metamagic). You regain all spent sorcery points when you finish a long rest.",
-	description: 'I learn two Metamagic options from the sorcerer class (2nd page "Choose Feature" button). I can use only one option on a spell unless it says otherwise. I gain 2 sorcery points, which I can only use for Metamagic. I regain all expended sorcery points when I finish a long rest. I can change one ' + (typePF ? '' : 'Metamagic option ') + 'whenever I gain an ' + (typePF ? 'ASI' : 'Ability Score Improvement') + '.',
+	description : 'I learn two Metamagic options from the sorcerer class (2nd page "Choose Feature" button). I can use only one option on a spell unless it says otherwise. I gain 2 sorcery points, which I can only use for Metamagic. I regain all expended sorcery points when I finish a long rest. I can change one ' + (typePF ? '' : 'Metamagic option ') + 'whenever I gain an ' + (typePF ? 'ASI' : 'Ability Score Improvement') + '.',
 	bonusClassExtrachoices : [{
 		"class" : "sorcerer",
 		feature : "metamagic",
@@ -6164,8 +6164,8 @@ FeatsList["poisoner"] = {
 	action : [["bonus action", "Apply poison to weapon/ammo"]]
 };
 FeatsList["shadow touched"] = {
-	name: "Shadow Touched",
-	source: [["T", 80]],
+	name : "Shadow Touched",
+	source : [["T", 80]],
 	descriptionFull : "Your exposure to the Shadowfell's magic has changed you, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You learn the invisibility spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You learn the invisibility spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
 	description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 	spellcastingBonus : [{
@@ -6182,7 +6182,7 @@ FeatsList["shadow touched"] = {
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
@@ -6200,10 +6200,10 @@ FeatsList["shadow touched"] = {
 	}
 };
 FeatsList["skill expert"] = {
-	name: "Skill Expert",
-	source: [["T", 80]],
+	name : "Skill Expert",
+	source : [["T", 80]],
 	descriptionFull : "You have honed your proficiency with particular skills, granting you the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain proficiency in one skill of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
-	description: "I gain proficiency in one skill and expertise in that same skill or another skill I'm proficient with. [+1 to one ability score of my choice]",
+	description : "I gain proficiency in one skill and expertise in that same skill or another skill I'm proficient with. [+1 to one ability score of my choice]",
 	skillstxt : "Proficiency with one skill, and\n   Expertise with one skill I'm proficient with",
 	scorestxt : "+1 to one ability score of my choice"
 };
@@ -6215,8 +6215,8 @@ FeatsList["slasher"] = {
 	scorestxt : "+1 Strength or Dexterity"
 };
 FeatsList["telekinetic"] = {
-	name: "Telekinetic",
-	source: [["T", 81]],
+	name : "Telekinetic",
+	source : [["T", 81]],
 	descriptionFull : "You learn to move things with your mind, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.\n \u2022 As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved 5 feet toward you or away from you. A creature can willingly fail this save.",
 	description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str save vs. this feat's spell save DC or be moved 5 ft from or towards me. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Int, Wis, or Cha]",
 	action : [["bonus action", " Shove"]],
@@ -6244,7 +6244,7 @@ FeatsList["telekinetic"] = {
 			"My Telekinetic feat allows me to cast the Mage Hand cantrip without verbal or somatic components and I can make the spectral hand invisible. If I already know the cantrip from another source, its range is also increased with 30 ft."
 		]
 	},
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Intelligence is my spellcasting ability for these. [+1 Intelligence]",
 		spellcastingAbility : 4,
@@ -6262,8 +6262,8 @@ FeatsList["telekinetic"] = {
 	}
 };
 FeatsList["telepathic"] = {
-	name: "Telepathic",
-	source: [["T", 81]],
+	name : "Telepathic",
+	source : [["T", 81]],
 	descriptionFull : "You awaken the ability to mentally connect with others, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You can speak telepathically to any creature you can see within 60 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.\n \u2022 You can cast the detect thoughts spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat. If you have spell slots of 2nd level or higher, you can cast this spell with them.",
 	description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. My spellcasting ability is the ability I increase with this feat. [+1 Int, Wis, or Cha]",
 	spellcastingBonus : {
@@ -6280,7 +6280,7 @@ FeatsList["telepathic"] = {
 			changes : "My Telepathic feat allows me to cast Detect Thoughts once per long rest without requiring a spell slot or spell components, or by using a spell slot and cast it with components as normal."
 		}
 	},
-	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Intelligence is my spellcasting ability for this. [+1 Int" + (typePF ? "" : "elligence") + "]",
 		spellcastingAbility : 4,
@@ -6789,7 +6789,7 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (uncommon)",
 		rarity : "uncommon",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 12 + my Dexterity modifier. I can use a shield and still gain this benefit.",
-		addArmor : "Barrier Tattoo",
+		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
@@ -6802,7 +6802,7 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (rare)",
 		rarity : "rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 15 + my Dexterity modifier (maximum of +2). I can use a shield and still gain this benefit.",
-		addArmor : "Barrier Tattoo",
+		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
@@ -6816,7 +6816,7 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (very rare)",
 		rarity : "very rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 18. I can use a shield and still gain this benefit.",
-		addArmor : "Barrier Tattoo",
+		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
