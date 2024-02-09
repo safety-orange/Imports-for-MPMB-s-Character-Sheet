@@ -1922,8 +1922,8 @@ SpellsList["gravity fissure"] = {
 	compMaterial : "A fistful of iron filings",
 	duration : "Instantaneous",
 	save : "Con",
-	description : "100-ft long 5-ft wide all 8d6+1d6/SL Force dmg, save half; all in 10 ft of line save or dmg \u0026 pull to it",
-	descriptionShorter : "100-ft long 5-ft wide all 8d6+1d6/SL Force dmg, save half; all in 10 ft of it save or dmg \u0026 pulled",
+	description : "100-ft long 5-ft wide all 8d8+1d8/SL Force dmg, save half; all in 10 ft of line save or dmg \u0026 pull to it",
+	descriptionShorter : "100-ft long 5-ft wide all 8d8+1d8/SL Force dmg, save half; all in 10 ft of it save or dmg \u0026 pulled",
 	descriptionFull : "You manifest a ravine of gravitational energy in a line originating from you that is 100 feet long and 5 feet wide. Each creature in that line must make a Constitution saving throw, taking 8d8 force damage on a failed save, or half as much damage on a successful one.\n   Each creature within 10 feet of the line but not in it must succeed on a Constitution saving throw or take 8d8 force damage and be pulled toward the line until the creature is in its area." + AtHigherLevels + "When you cast this spell using a spell slot of 7th level or higher, the damage increases by 1d8 for each slot level above 6th."
 };
 SpellsList["tether essence"] = {
