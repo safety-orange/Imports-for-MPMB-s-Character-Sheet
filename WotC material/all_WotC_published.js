@@ -16706,7 +16706,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The target takes extra psychic damage and must succeed on a Wisdom save",
 					"If failed, the target can't see anything beyond 5 ft until the end of my next turn"
 				]),
-				additional : levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 psyhic damage"; })
+				additional : levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 psychic damage"; })
 			}
 		},
 		"subclassfeature7" : {
@@ -29452,13 +29452,14 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				condition_immunities : "all conditions",
 				passivePerception : 0,
 				languages : "",
+				senses : "",
 				challengeRating : "0",
 				proficiencyBonus : 0,
 				attacksAction : 0,
 				attacks : [],
 				features : [{
 					name : "Echo",
-					description : "The echo is a magical, translucent, gray image of its creator that that doesn't act and has no turn in combat. It lasts until it is destroyed, dismissed, another is manifested, or its creator is incapacitated. The echo is also destroyed if it is ever more than 30 ft away from its creator at the end of its creator's turn."
+					description : "The echo is a magical, translucent, gray image of its creator that doesn't act and has no turn in combat. It lasts until it is destroyed, dismissed, another is manifested, or its creator is incapacitated. The echo is also destroyed if it is ever more than 30 ft away from its creator at the end of its creator's turn."
 				}],
 				traits : [{
 					name : "Swap Place",
