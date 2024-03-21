@@ -400,16 +400,16 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				}, {
 					name : "Bond of Fang and Scale (Drakewarden 7)",
 					minlevel : 7,
-					description : "The drake is now Medium and can be ridden as a mount. When it is summoned, it gains either a 40 ft swimming speed and can breathe underwater, or a 40 ft flying speed and has wings, but can't fly with a rider on its back. The drake's bite deals an extra 1d6 damage of its chosen Draconic Essence type.",
+					description : "The drake is now Medium and can be ridden as a mount. It has a flying speed equal to its walking speed, but can't fly with a rider on its back. The drake's bite deals an extra 1d6 damage of its chosen Draconic Essence type.",
 					eval : function(prefix, lvl) {
-						var sMoveStr = (typePF ? ",\n" : ", ") + "fly/swim 40 ft";
+						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
 						AddString(prefix + "Comp.Use.Attack.1.Description", "+1d6 damage of the chosen Draconic Essense type");
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 					},
 					removeeval : function(prefix, lvl) {
-						var sMoveStr = (typePF ? ",\n" : ", ") + "fly/swim 40 ft";
+						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						Value(prefix + "Comp.Use.Speed", What(prefix + "Comp.Use.Speed").replace(sMoveStr, ""));
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
@@ -419,7 +419,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				}, {
 					name : "Perfected Bond (Drakewarden 15)",
 					minlevel : 15,
-					description : "The drake is now Large and its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
+					description : "The drake is now Large and can fly while its being ridden. Its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
 					eval : function(prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
 						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, '+2d6 damage of the chosen Draconic Essense type'));
@@ -448,8 +448,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 			source : [["FToD", 15]],
 			minlevel : 7,
 			description : desc([
-				"My drake is now Medium, can serve as a mount, and has either 40 ft fly or swim speed",
-				"If I choose swimming, it can also breathe underwater; It can't fly with a rider on its back",
+				"My drake is now Medium, has a 40 ft fly speed, and can be ridden, but not while flying",
 				"The drake's bite attack deals an extra 1d6 damage chosen by its Draconic Essense",
 				"While it is summoned, I gain resistance to the damage type of its Draconic Essense"
 			]),
@@ -511,11 +510,15 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 			source : [["FToD", 15]],
 			minlevel : 15,
 			description : desc([
-				"My drake is now Large and its bite deals +1d6 damage chosen by its Draconic Essence",
+				"My drake is now Large, can serve as a mount, and adds another +1d6 damage to its bite",
 				"As a reaction when the drake or I take damage while within 30 ft of each other,",
 				"I can give myself or the drake resistance to that instance of damage",
 			]),
-			action : [["reaction", ""]]
+			action : [["reaction", ""]],
+			usages : "proficiency bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
+			recovery : "long rest",
+			additional : "reaction"
 		}
 	}
 });
@@ -726,7 +729,7 @@ SpellsList["summon draconic spirit"] = {
 	range : "60 ft",
 	components : "V,S,M\u0192",
 	compMaterial : "an object with the image of a dragon engraved on it, worth at least 500 gp",
-	duration : "Conc, 1 min",
+	duration : "Conc, 1 h",
 	description : "Summon choice of Draconic Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (500gp)",
 	descriptionFull : "You call forth a draconic spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Draconic Spirit stat block. When you cast this spell, choose a family of dragon: chromatic, gem, or metallic. The creature resembles a dragon of the chosen family, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends."+
 	"\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger."+

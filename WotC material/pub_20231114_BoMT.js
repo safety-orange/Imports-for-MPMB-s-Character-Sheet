@@ -645,7 +645,7 @@ MagicItemsList["boomerang shield"] = {
 		ability : 1,
 		type : "Shield",
 		damage : [1, 6, "slashing"],
-		range : "30/120 ft",
+		range : "20/60 ft",
 		weight : 6,
 		description : "Finesse, thrown; Reappears instantly", // Not actually finesse, but easier to code this way and shouldn't cause any issues
 		abilitytodamage : true

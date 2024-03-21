@@ -485,7 +485,7 @@ var DiA_soulCoinFullDescription = [
 ];
 MagicItemsList["soul coin"] = {
 	name : "Soul Coin",
-	source : [["DiA", 225]],
+	source : [["DiA", 225], ["CoA", 269]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	description : "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",

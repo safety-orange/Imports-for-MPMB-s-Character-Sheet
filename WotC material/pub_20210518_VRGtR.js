@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.13");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -18,7 +18,7 @@ RaceList["dhampir"] = {
 	name : "Dhampir",
 	source : [["VRGtR", 17]],
 	plural : "Dhampirs",
-	size : [3, 4],
+	size : 3,
 	speed : {
 		walk : { spd : 35, enc : 25 }
 	},
@@ -67,10 +67,11 @@ RaceList["dhampir"] = {
 		"gain proficiency in two skills of your choice, and",
 		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits : {
+			size : [3, 4],
 			skillstxt : "Choose any two skills"
 		},
-		gainTraits : ["size", "plural", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
-		replaceNameInTrait : ["Dhampir", "prefix"]
+		gainTraits : ["size", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
+		updateName : "prefix" // e.g. "Hill Dwarf Dhampir"
 	}
 };
 RaceList["hexblood"] = {
@@ -78,7 +79,7 @@ RaceList["hexblood"] = {
 	name : "Hexblood",
 	source : [["VRGtR", 18]],
 	plural : "Hexbloods",
-	size : [3, 4],
+	size : 3,
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
@@ -140,10 +141,11 @@ RaceList["hexblood"] = {
 		"gain proficiency in two skills of your choice, and",
 		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits : {
+			size : [3, 4],
 			skillstxt : "Choose any two skills"
 		},
-		gainTraits : ["size", "plural", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
-		replaceNameInTrait : ["Hexblood", "prefix"]
+		gainTraits : ["size", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
+		updateName : "prefix" // e.g. "Tiefling Hexblood"
 	}
 };
 RaceList["reborn"] = {
@@ -151,7 +153,7 @@ RaceList["reborn"] = {
 	name : "Reborn",
 	source : [["VRGtR", 21]],
 	plural : "Reborns",
-	size : [3, 4],
+	size : 3,
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
@@ -181,10 +183,11 @@ RaceList["reborn"] = {
 		"gain proficiency in two skills of your choice, and",
 		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits : {
+			size : [3, 4],
 			skillstxt : "Choose any two skills"
 		},
-		gainTraits : ["size", "plural", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
-		replaceNameInTrait : ["Reborn", "suffix"]
+		gainTraits : ["size", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
+		updateName : "suffix" // e.g. "Reborn Human"
 	}
 };
 

@@ -769,7 +769,7 @@
 			descriptionFull : "You gain telepathy out to 120 ft as described in the Monster Manual, and you can cast the detect thoughts spell at will, requiring no components. You also have disadvantage on Wisdom (Insight) and Wisdom (Perception) checks from constant whispers of memories and nearby minds.",
 			attunement : false,
 			source : [["T", 136]],
-			vision : ["telepathy", 120],
+			vision : [["telepathy", 120]],
 			spellcastingBonus : [{
 				name : "Detect Thoughts",
 				spells : ["detect thoughts"],

@@ -1461,7 +1461,6 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 };
 MagicItemsList["zephyr armor"] = {
 	name : "Zephyr Armor",
-	nameTest : "Zephyr",
 	source : [["GotG", 117]],
 	type : "armor (light)",
 	rarity : "rare",

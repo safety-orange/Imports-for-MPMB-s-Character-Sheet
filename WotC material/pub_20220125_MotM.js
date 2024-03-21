@@ -1170,7 +1170,7 @@ RaceList["multiverse kobold"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	vision : ["Darkvision", 60],
+	vision : [["Darkvision", 60]],
 	scoresGeneric : true,
 	features : {
 		"draconic cry" : {

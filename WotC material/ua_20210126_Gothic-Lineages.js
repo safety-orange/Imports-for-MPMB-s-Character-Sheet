@@ -1,5 +1,5 @@
 var iFileName = "ua_20210126_Gothic-Lineages.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.13");
 // This file adds the content from the Unearthed Arcana 2021: Gothic Lineages article to MPMB's Character Record Sheet
 // This file contains contributions by Metacomet10, MarvinTheParanoidAndroid, and CountVladmir
 
@@ -115,16 +115,15 @@ RaceList["reborn-ua"] = {
 	name : "Reborn",
 	source : [["UA:GL", 5]],
 	plural : "Reborns",
-	size : [3, 4],
+	size : 3,
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	scorestxt : "+2 to one ability score, and +1 to a different score of my choice",
+	scoresGeneric : true,
 	trait : "Reborn" + (typePF ? "\n " : "  ") +
 	"\u2022 Type: My creature type is Humanoid, as well as Construct or Undead (my choice)." +
 	"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless." +
 	"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
-	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Poison"],
 	savetxt : {
@@ -148,10 +147,11 @@ RaceList["reborn-ua"] = {
 		"gain proficiency in two skills of your choice, and",
 		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits : {
+			size : [3, 4],
 			skillstxt : "Choose any two skills"
 		},
-		gainTraits : ["size", "plural", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
-		replaceNameInTrait : ["Reborn", "suffix"]
+		gainTraits : ["size", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
+		updateName : "suffix"
 	}
 };
 AddRacialVariant("reborn-ua", "undead", {
