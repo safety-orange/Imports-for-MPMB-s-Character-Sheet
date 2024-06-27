@@ -1,0 +1,33 @@
+name: Release Creation
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.6
+
+      # Run minify
+      # - uses: actions/setup-node@v4.0.2
+      #   with:
+      #     node-version: '20'
+      # - run: npm install
+      # - run: npm run minify
+
+      # Update the GitHub release with the manifest and module archive files.
+      - name: Update Release with Files
+        id: create_version_release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          name: ${{ github.event.release.name }}
+          draft: ${{ github.event.release.unpublished }}
+          prerelease: ${{ github.event.release.prerelease }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "./WotC material/all_WotC_*.js"
+          tag: ${{ github.event.release.tag_name }}
+          body: ${{ github.event.release.body }}
