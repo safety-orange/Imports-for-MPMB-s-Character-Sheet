@@ -1,5 +1,5 @@
 var iFileName = "pub_20220816_Spelljammer.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.14");
 /*
 	This file adds the Character Options content from the "Spelljammer: Adventures in Space" set
 	(the "Astral Adventurer's Guide" book and the "Boo's Astral Menagerie" book)
@@ -151,12 +151,12 @@ RaceList["autognome"] = {
 	},
 	scoresGeneric : true,
 	age : " can live for centuries, typically up to 500 years",
-	armorAdd : "Armored Casing",
 	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["S:AiS", 2]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
@@ -300,12 +300,12 @@ RaceList["thri-kreen"] = {
 	weightMetric : " weigh between 60 and 180 kg (60 + 5d10 \xD7 4d6 / 10 kg)",
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
-	armorAdd : "Chameleon Carapace",
 	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["S:AiS", 4]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my creature type is Monstrosity)"+

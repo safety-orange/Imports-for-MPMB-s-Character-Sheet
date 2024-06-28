@@ -1,5 +1,5 @@
 var iFileName = "pub_20221206_Dragonlance.js";
-RequiredSheetVersion("13.1.3");
+RequiredSheetVersion("13.1.14");
 // This file adds the Character Options content from Dragonlance: Shadow of the Dragon Queen to MPMB's Character Record Sheet
 
 SourceList["D:SotDQ"] = {
@@ -531,7 +531,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 				spells : ["sacred flame"],
 				selection : ["sacred flame"]
 			},
-			weaponsAdd : ["Sacred Flame"],
+			weaponsAdd : { select : ["Sacred Flame"] },
 			spellChanges : {
 				"sacred flame" : {
 					description : "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5, 11, and 17",

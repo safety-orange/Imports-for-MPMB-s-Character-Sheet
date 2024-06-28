@@ -1,5 +1,5 @@
 var iFileName = "ps_20160427_Zendikar.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds all material from the Plane Shift: Zendikar article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-zendikar-2016-04-27) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 
@@ -130,7 +130,7 @@ RaceList["zendikar vampire"] = {
 	languageProfs : ["Common", "Vampire"],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Necrotic"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*blood)(?=.*thirst).*$/i,
 		name : "Blood Thirst",
 		source : [["PS:Z", 15]],
@@ -140,9 +140,9 @@ RaceList["zendikar vampire"] = {
 		range : "Melee",
 		description : "+1 piercing damage; Reduces max HP by the necrotic damage, while healing me for the same",
 		abilitytodamage : false,
-		monkweapon : false
-	},
-	weaponsAdd : ["Blood Thirst"],
+		monkweapon : false,
+		selectNow : true
+	}],
 	age : " don't mature and age in the same way that other races do. Every living vampire is either a bloodchief, infected by Ulamog's influence in the distant reaches of history, or was spawned by a bloodchief from a living human. Most vampires are thus very old, but few have any memory of their earliest years.",
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Vampire (+1 Intelligence, +2 Charisma)\nBlood Thirst: I can drain blood and life energy from a willing creature, or one that is grappled by me, incapacitated, or restrained. With a melee attack, I deal 1 piercing and 1d6 necrotic damage. The target's max HP is reduced by the necrotic damage amount and I regain HP for the same. This max HP reduction lasts until the target finished a long rest.\nNull Transformation: A humanoid killed by my blood thirst ability becomes a null."
@@ -162,13 +162,13 @@ RaceList["grotag tribe goblin"] = {
 	vision : [["Darkvision", 60]],
 	dmgres : ["Fire", "Psychic"],
 	skills : ["Animal Handling"],
-	armourOptions : {
+	armourOptions : [{
 		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
 		name : "Goblin Grit",
 		source : [["PS:Z", 17]],
-		ac : 11
-	},
-	armorAdd : "Goblin Grit",
+		ac : 11,
+		selectNow : true
+	}],
 	age : " reach adulthood at around 12 and rarely live longer than 50 years",
 	height : " average about 3 feet tall (3'\" + 2d4\")",
 	weight : " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",
@@ -190,13 +190,13 @@ RaceList["lavastep tribe goblin"] = {
 	languageProfs : ["Common", "Goblin"],
 	vision : [["Darkvision", 60]],
 	dmgres : ["Fire", "Psychic"],
-	armourOptions : {
+	armourOptions : [{
 		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
 		name : "Goblin Grit",
 		source : [["PS:Z", 17]],
-		ac : 11
-	},
-	armorAdd : "Goblin Grit",
+		ac : 11,
+		selectNow : true
+	}],
 	age : " reach adulthood at around 12 and rarely live longer than 50 years",
 	height : " average about 3 feet tall (3'\" + 2d4\")",
 	weight : " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",
@@ -219,13 +219,13 @@ RaceList["tuktuk tribe goblin"] = {
 	vision : [["Darkvision", 60]],
 	dmgres : ["Fire", "Psychic"],
 	toolProfs : [["Thieves' tools", "Dex"]],
-	armourOptions : {
+	armourOptions : [{
 		regExpSearch : /^(?=.*goblin)(?=.*grit).*$/i,
 		name : "Goblin Grit",
 		source : [["PS:Z", 17]],
-		ac : 11
-	},
-	armorAdd : "Goblin Grit",
+		ac : 11,
+		selectNow : true
+	}],
 	age : " reach adulthood at around 12 and rarely live longer than 50 years",
 	height : " average about 3 feet tall (3'\" + 2d4\")",
 	weight : " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",

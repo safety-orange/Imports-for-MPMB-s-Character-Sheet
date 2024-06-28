@@ -1,5 +1,5 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -387,7 +387,7 @@ AddSubClass("barbarian", "battlerager", {
 				stealthdis : true,
 				weight : 45
 			}],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
 				name : "Armor spikes",
 				source : [["S", 121]],
@@ -396,10 +396,10 @@ AddSubClass("barbarian", "battlerager", {
 				damage : [1, 4, "piercing"],
 				range : "Melee",
 				description : "Does 3 piercing damage when grappling during my Attack action",
-				abilitytodamage : true
-			},
+				abilitytodamage : true,
+				selectNow : true
+			}],
 			weaponProfs : [false, false, ["armor spikes"]],
-			weaponsAdd : ['Armor Spikes'],
 			eval : function() {
 				AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');
 			},
@@ -495,24 +495,8 @@ AddSubClass("cleric", "arcana domain", {
 			name : "Potent Spellcasting",
 			source : [["S", 126]],
 			minlevel : 8,
-			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Arcane Mastery",
@@ -637,7 +621,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 			]),
 			action : ["bonus action", " (2\xD7 with Attack action)"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
 				name : "Radiant Sun Bolt",
 				source : [["S", 131], ["X", 35]],
@@ -647,9 +631,9 @@ AddSubClass("monk", "way of the sun soul", {
 				range : "30 ft",
 				description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
 				monkweapon : true,
-				abilitytodamage : true
-			},
-			weaponsAdd : ['Radiant Sun Bolt'],
+				abilitytodamage : true,
+				selectNow : true
+			}],
 			"searing arc strike" : {
 				name : "Searing Arc Strike",
 				extraname : "Way of the Sun Soul 6",
@@ -695,8 +679,7 @@ AddSubClass("monk", "way of the sun soul", {
 			]),
 			action : ["action", ""],
 			additional : "0 ki points + max 3 ki points",
-			weaponsAdd : ['Searing Sunburst'],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*searing)(?=.*sunburst).*$/i,
 				name : "Searing Sunburst",
 				source : [["S", 131], ["X", 35]],
@@ -707,8 +690,9 @@ AddSubClass("monk", "way of the sun soul", {
 				description : "All in 20-ft radius; Con save - success no damage; +2d6 damage per ki point (max 3 ki)",
 				abilitytodamage : false,
 				dc : true,
-				useSpellMod : "monk"
-			}
+				useSpellMod : "monk",
+				selectNow : true
+			}]
 		},
 		"subclassfeature17" : {
 			name : "Sun Shield",

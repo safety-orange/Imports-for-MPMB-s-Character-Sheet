@@ -1,5 +1,5 @@
 var iFileName = "ua_20180514_Centaur-and-Minotaur.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,7 +23,7 @@ RaceList["centaur-ua"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : [["UA:CnM", 2]],
@@ -31,9 +31,9 @@ RaceList["centaur-ua"] = {
 		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
 		range : "Melee",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Hooves"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	skills : ["Survival"],
 	age : " reach adulthood in their late teens and live around 100 years",
 	height : " stand between 7 and 8 feet tall (front hooves to their crowns) and 6 to 8 feet long (from their chest to the back of their rumps)", // from 3.5e Races of Faerun
@@ -70,7 +70,7 @@ RaceList["minotaur-uacnm"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["UA:CnM", 2]],
@@ -79,9 +79,9 @@ RaceList["minotaur-uacnm"] = {
 		damage : [1, 6, "piercing"],
 		range : "Melee",
 		description : "One horns attack as a bonus action if taking the Dash action",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Horns"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",

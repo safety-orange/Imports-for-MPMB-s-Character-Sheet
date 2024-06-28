@@ -1,5 +1,5 @@
 var iFileName = "pub_20140715_LMoP.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
 // Define the source
@@ -22,14 +22,14 @@ MagicItemsList["dragonguard"] = {
 	description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 	descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 	weight : 20,
-	armorAdd : "Dragonguard",
 	armorOptions : [{
 		regExpSearch : /dragonguard/i,
 		name : "Dragonguard",
 		source : [["LMoP", 48], ["PaBTSO", 72]],
 		type : "medium",
 		ac : "14+1",
-		weight : 20
+		weight : 20,
+		selectNow : true
 	}],
 	savetxt : { adv_vs : ["breath weapons of dragons"] }
 }
@@ -42,15 +42,15 @@ MagicItemsList["hew"] = {
 	description : 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
 	descriptionFull : 'This rusty old battleaxe of dwarven manufacture has has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he used it for protection while he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
 	weight : 4,
-	weaponsAdd : ["Hew"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /\bhew\b/i,
-		name : "Hew",
+		name : '"Hew"',
 		source : [["LMoP", 33], ["PaBTSO", 54]],
 		description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["lightbringer"] = {
 	name : "Lightbringer",
@@ -61,15 +61,15 @@ MagicItemsList["lightbringer"] = {
 	description : "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head of shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 	descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and is made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 	weight : 4,
-	weaponsAdd : ["Lightbringer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /lightbringer/i,
 		name : "Lightbringer",
 		source : [["LMoP", 48], ["PaBTSO", 54]],
 		description : "Command to glow as torch and deal +1d6 radiant damage to undead",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
 	name : "Spider Staff",
@@ -86,14 +86,14 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 	usages : 10,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
-	weaponsAdd : ["Spider Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*spider)(?=.*staff).*$/i,
 		name : "Spider Staff",
 		source : [["LMoP", 53], ["PaBTSO", 220]],
-		description : "Versatile (1d8); +1d6 poison damage"
-	},
+		description : "Versatile (1d8); +1d6 poison damage",
+		selectNow : true
+	}],
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
@@ -125,13 +125,7 @@ MagicItemsList["staff of defense"] = { // changed to the new version introduced 
 	additional : "regains 1d6+4",
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	weaponOptions : {
-		baseWeapon : "quarterstaff",
-		regExpSearch : /staff of defense/i,
-		name : "Staff of Defense",
-		weight : 3,
-		source : [["LMoP", 53], ["PaBTSO", 220]]
-	},
+	weaponsAdd : { options : ["Staff of Defense"] },
 	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["mage armor"],

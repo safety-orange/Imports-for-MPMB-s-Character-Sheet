@@ -1,5 +1,5 @@
 var iFileName = "pub_20231114_BoMT.js";
-RequiredSheetVersion("13.1.12");
+RequiredSheetVersion("13.1.14");
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
 // Define the source
@@ -568,14 +568,14 @@ MagicItemsList["baleful talon"] = {
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this hooked, obsidian dagger."+
 	"\n   When you hit a creature with this magic weapon and roll a 19 or 20 on the attack roll, the creature must make a DC 15 Constitution saving throw as the dagger flares with sickly light. The creature takes 6d6 necrotic damage on a failed save, or half as much on a successful one. If this damage reduces the creature to 0 hit points, the creature disintegrates into dust.",
 	weight : 1,
-	weaponsAdd : ["Baleful Talon"],
 	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*baleful)(?=.*talon).*$/i,
 		name : "Baleful Talon",
 		source : [["BoMT", 34]],
 		description : "Finesse, light, thrown; Roll of 19-20: +6d6 necrotic damage, DC 15 Con save halves",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["blasted goggles"] = {
@@ -600,13 +600,13 @@ MagicItemsList["bloodrage greataxe"] = {
 	description : "I gain a +2 bonus to attack and damage rolls made with this magic greataxe while I have half my hit points or fewer.",
 	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic greataxe while you have half your hit points or fewer.",
 	weight : 7,
-	weaponsAdd : ["Bloodrage Greataxe"],
 	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /^(?=.*bloodrage)(?=.*(great|heavy|weida))(?=.*(axe|\bono|\bfu|masakari)s?\b).*$/i,
 		name : "Bloodrage Greataxe",
 		source : [["BoMT", 66]],
-		description : "Heavy, two-handed; If I'm \u2264 \u00BD HP: +2 to hit \u0026 damage"
+		description : "Heavy, two-handed; If I'm \u2264 \u00BD HP: +2 to hit \u0026 damage",
+		selectNow : true
 	}]
 };
 MagicItemsList["bloodseeker ammunition"] = {
@@ -637,7 +637,6 @@ MagicItemsList["boomerang shield"] = {
 	descriptionFull : "You can make a ranged weapon attack with this magic shield. It has a normal range of 20 feet and a long range of 60 feet, and it uses your Strength or Dexterity for the attack roll (your choice). If you're proficient with shields, you are proficient with attacks made using this shield. On a hit, it deals 1d6 slashing damage. If you throw the shield, it reappears in your hand the instant after it hits or misses a target.",
 	weight : 6,
 	shieldAdd : "Boomerang Shield",
-	weaponsAdd : ["Boomerang Shield"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*boomerang)(?=.*shield).*$/i,
 		name : "Boomerang Shield",
@@ -648,7 +647,8 @@ MagicItemsList["boomerang shield"] = {
 		range : "20/60 ft",
 		weight : 6,
 		description : "Finesse, thrown; Reappears instantly", // Not actually finesse, but easier to code this way and shouldn't cause any issues
-		abilitytodamage : true
+		abilitytodamage : true,
+		selectNow : true
 	}],
 	calcChanges : {
 		atkAdd : [
@@ -754,15 +754,10 @@ MagicItemsList["breastplate of balance"] = {
 	usages : 4,
 	recovery : "dawn",
 	additional : "regains 1d4",
-	armorAdd : "Breastplate of Balance",
-	armorOptions : [{
-		regExpSearch : /justToAddToDropDown/i,
-		name : "Breastplate of Balance",
-		source : [["BoMT", 34]],
-		type : "medium",
-		ac : 14,
-		weight : 20
-	}],
+	armorAdd : {
+		select : "Breastplate of Balance",
+		options : ["Breastplate of Balance"]
+	},
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "2 charges",
@@ -787,7 +782,6 @@ MagicItemsList["card sharp's deck"] = {
 	"\n   " + toUni("Deadly Deal") + ". As an action, you can use this deck to make a ranged spell attack by throwing a spectral card and using Dexterity for the attack roll. The card has a range of 120 feet and deals 1d8 force damage on a hit."+
 	"\n   " + toUni("Spray of Cards") + ". As an action, you can shuffle the deck and cast the Spray of Cards spell at 3rd level from the deck (spell save DC 15). Once the deck has cast the spell, it can't cast the spell again until the next dawn.",
 	action : [["action", ""]],
-	weaponsAdd : ["Deadly Deal"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*deadly)(?=.*deal).*$/i,
 		name : "Deadly Deal",
@@ -797,7 +791,8 @@ MagicItemsList["card sharp's deck"] = {
 		damage : [1, 8, "force"],
 		range : "120 ft",
 		description : "",
-		abilitytodamage : false
+		abilitytodamage : false,
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",
@@ -957,7 +952,6 @@ MagicItemsList["deck of wild cards"] = {
 	rarity : "very rare",
 	description : "As an action, I can draw a random card from this deck of heavy vellum cards and throw it. I make a ranged spell attack using Dex with a range of 30 ft, dealing 1d4 slashing damage on a hit and one of four magical effects depending on the card drawn, see Notes page. The thrown card returns to the deck after the attack.",
 	descriptionFull : BoMT.toDescrFull(BoMT["deck of wild cards"]),
-	weaponsAdd : ["Deck of Wild Cards"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*deck)(?=.*wild)(?=.*cards?).*$/i,
 		name : "Deck of Wild Cards",
@@ -967,7 +961,8 @@ MagicItemsList["deck of wild cards"] = {
 		damage : [1, 4, "slashing"],
 		range : "30 ft",
 		description : "Also random effect on hit, see Notes page",
-		abilitytodamage : false
+		abilitytodamage : false,
+		selectNow : true
 	}],
 	toNotesPage : [{
 		name : "Random Card Effects",
@@ -1116,14 +1111,14 @@ MagicItemsList["fate cutter shears"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "Sever Threads",
-	weaponsAdd : ["Fate Cutter Shears"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*fate)(?=.*cutt(er|ing))(?=.*(shears?|dagger)).*$/i,
 		name : "Fate Cutter Shears",
 		source : [["BoMT", 61]],
-		description : "Finesse, light, thrown; +1d6 force damage"
-	}
+		description : "Finesse, light, thrown; +1d6 force damage",
+		selectNow : true
+	}]
 };
 MagicItemsList["fate dealer's deck"] = {
 	name : "Fate Dealer's Deck",
@@ -1364,13 +1359,13 @@ MagicItemsList["grasping whip"] = {
 	description : "I gain a +1 bonus to attack and damage rolls made with this magic whip. When I hit a creature or object that is Large or smaller with this whip, I can pull that creature or object 5 ft toward me instead of dealing damage.",
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic whip. When you hit a creature or object that is Large or smaller with this whip, you can pull that creature or object 5 feet toward you instead of dealing damage.",
 	weight : 3,
-	weaponsAdd : ["Grasping Whip"],
 	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*grasping)(?=.*whip).*$/i,
 		name : "Grasping Whip",
 		source : [["BoMT", 67]],
 		description : "Finesse, reach; Forgo damage to pull \u2264 Large 5 ft to me",
+		selectNow : true
 	}]
 };
 MagicItemsList["hammer of runic focus"] = {
@@ -1385,13 +1380,13 @@ MagicItemsList["hammer of runic focus"] = {
 	action : [["bonus action", " (start/end)"]],
 	usages : 3,
 	recovery : "dawn",
-	weaponsAdd : ["Hammer of Runic Focus"],
 	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /^(?=.*hammer)(?=.*runic)(?=.*focus).*$/i,
 		name : "Hammer of Runic Focus",
 		source : [["BoMT", 67]],
-		description : "Versatile (1d10); +2 to hit/damage while inside its circle"
+		description : "Versatile (1d10); +2 to hit/damage while inside its circle",
+		selectNow : true
 	}]
 };
 MagicItemsList["house of cards"] = {
@@ -1458,17 +1453,10 @@ MagicItemsList["plate of knight's fellowship"] = {
 	usages : 1,
 	recovery : "dawn",
 	action : [["bonus action", ""]],
-	armorAdd : "Plate of Knight's Fellowship",
-	armorOptions : [{
-		regExpSearch : /justToAddToDropDown/i,
-		name : "Plate of Knight's Fellowship",
-		source : [["BoMT", 37]],
-		type : "heavy",
-		ac : 18,
-		stealthdis : true,
-		weight : 65,
-		strReq : 15
-	}],
+	armorAdd : {
+		select : "Plate of Knight's Fellowship",
+		options : ["Plate of Knight's Fellowship"]
+	},
 	creaturesAdd : [["Knight"]],
 	creatureOptions : [{
 		name : "Knight",
@@ -1610,14 +1598,14 @@ MagicItemsList["ruinous flail"] = {
 	weight : 2,
 	usages : 1,
 	recovery : "dawn",
-	weaponsAdd : ["Ruinous Flail"],
 	weaponOptions : [{
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*ruinous)(?=.*flail).*$/i,
 		name : "Ruinous Flail",
 		source : [["BoMT", 37]],
 		description : "Double damage to objects; Once per dawn: target DC 15 Con save or poisoned, see item",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["sage's signet"] = {
@@ -1794,13 +1782,13 @@ MagicItemsList["sling of giant felling"] = {
 	rarity : "uncommon",
 	description : "When I hit a creature with the Giant type with a ranged attack roll using this magic sling, the creature must succeed on a DC 18 Constitution saving throw or be knocked prone.",
 	descriptionFull : "When you hit a Giant creature with a ranged attack roll using this magic sling, the creature must succeed on a DC 18 Constitution saving throw or have the prone condition.",
-	weaponsAdd : ["Sling of Giant Felling"],
 	weaponOptions : [{
 		baseWeapon : "sling",
 		regExpSearch : /^(?=.*sling)(?=.*giant)(?=.*felling).*$/i,
 		name : "Sling of Giant Felling",
 		source : [["BoMT", 68]],
-		description : "Ammunition; Giants: DC 18 Con save or prone"
+		description : "Ammunition; Giants: DC 18 Con save or prone",
+		selectNow : true
 	}]
 };
 MagicItemsList["spindle of fate"] = {
@@ -1891,15 +1879,15 @@ MagicItemsList["stonemaker war pick"] = {
 		selection : ["meld into stone"],
 		firstCol : "oncelr"
 	}],
-	weaponsAdd : ["Stonemaker War Pick"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "war pick",
 		regExpSearch : /^(?=.*stonemaker)(((?=.*pick)(?=.*war))|((?!.*(heavy|great|light))(?=.*\bpicks?\b))).*$|\bkuwas?\b/i,
 		name : "Stonemaker War Pick",
 		source : [["BoMT", 68]],
 		description : "Can petrify on critical hit, see item",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 };
 MagicItemsList["sun staff"] = {
 	name : "Sun Staff",
@@ -1918,14 +1906,14 @@ MagicItemsList["sun staff"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "reroll damage",
-	weaponsAdd : ["Sun Staff"],
 	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*sun)(?=.*staff).*$/i,
 		name : "Sun Staff",
 		source : [["BoMT", 39]],
 		description : "Versatile (1d8); +1d8 fire damage",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["sword of the planes"] = {
@@ -1988,14 +1976,14 @@ MagicItemsList["tidecaller trident"] = {
 	usages : 3,
 	recovery : "dawn",
 	additional : "regains 1d3",
-	weaponsAdd : ["Tidecaller Trident"],
 	weaponOptions : [{
 		baseWeapon : "trident",
 		regExpSearch : /^(?=.*tidecaller)(?=.*trident).*$/i,
 		name : "Tidecaller Trident",
 		source : [["BoMT", 69]],
 		description : "Thrown, versatile (1d8); Adv. when underwater",
-		modifiers : [2, 2]
+		modifiers : [2, 2],
+		selectNow : true
 	}],
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
@@ -2024,14 +2012,14 @@ MagicItemsList["voidwalker armor"] = {
 	usages : 1,
 	recovery : "dawn",
 	action : [["bonus action", ""]],
-	armorAdd : "Voidwalker Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*voidwalker)(?=.*armou?r).*$/i,
 		name : "Voidwalker Armor",
 		source : [["BoMT", 39]],
 		type : "light",
 		ac : 12,
-		weight : 13
+		weight : 13,
+		selectNow : true
 	}],
 	toNotesPage : [{
 		name : "Voidwalker Curse",
@@ -2049,7 +2037,6 @@ MagicItemsList["warrior's passkey"] = {
 	"\n   " + toUni("Transforming the Key") + ". While holding the key, you can use a bonus action to transform it into a magic longsword. You are considered proficient with the sword, and you have a +1 bonus to attack and damage rolls made with it. On a hit, the sword deals 1d10 force damage. The item remains in its sword form until it leaves your grasp or you use another bonus action to revert it to its key form."+
 	"\n   If you end your attunement to the item while it's in its sword form, it automatically reverts to its key form.",
 	action : [["bonus action", " (transform)"]],
-	weaponsAdd : ["Warrior's Passkey"],
 	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*warrior)(?=.*passkey).*$/i,
@@ -2059,7 +2046,8 @@ MagicItemsList["warrior's passkey"] = {
 		modifiers : [1, 1],
 		isAlwaysProf : true,
 		description : "",
-		weight : 0
+		weight : 0,
+		selectNow : true
 	}],
 	spellcastingBonus : [{
 		name : "At will",

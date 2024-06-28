@@ -1,5 +1,5 @@
 var iFileName = "pub_20230815_GotG.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("13.1.14");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet
 
 SourceList["GotG"] = {
@@ -272,7 +272,6 @@ FeatsList["ember of the fire giant"] = {
 	"strength" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -285,14 +284,14 @@ FeatsList["ember of the fire giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -305,14 +304,14 @@ FeatsList["ember of the fire giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,1,0,0,0]
 	},
 	"wisdom" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -325,7 +324,8 @@ FeatsList["ember of the fire giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,0,0,1,0]
 	}
@@ -355,7 +355,6 @@ FeatsList["fury of the frost giant"] = {
 	"strength" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
-		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -368,14 +367,14 @@ FeatsList["fury of the frost giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
-		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -388,14 +387,14 @@ FeatsList["fury of the frost giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,1,0,0,0]
 	},
 	"wisdom" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
-		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -408,7 +407,8 @@ FeatsList["fury of the frost giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,0,0,1,0]
 	}
@@ -471,7 +471,6 @@ FeatsList["keenness of the stone giant"] = {
 	"strength" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
-		weaponsAdd : ["Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -481,14 +480,14 @@ FeatsList["keenness of the stone giant"] = {
 			damage : [1, 10, 'force'],
 			range : "60 ft",
 			description : "Bonus action; Target Strength save (DC 8 + To Hit) or be knocked prone",
-			abilitytodamage : false
+			abilitytodamage : false,
+			selectNow : true
 		}],
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
-		weaponsAdd : ["Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -498,14 +497,14 @@ FeatsList["keenness of the stone giant"] = {
 			damage : [1, 10, 'force'],
 			range : "60 ft",
 			description : "Bonus action; Target Strength save (DC 8 + To Hit) or be knocked prone",
-			abilitytodamage : false
+			abilitytodamage : false,
+			selectNow : true
 		}],
 		scores : [0,0,1,0,0,0]
 	},
 	"wisdom" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
-		weaponsAdd : ["Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -515,7 +514,8 @@ FeatsList["keenness of the stone giant"] = {
 			damage : [1, 10, 'force'],
 			range : "60 ft",
 			description : "Bonus action; Target Strength save (DC 8 + To Hit) or be knocked prone",
-			abilitytodamage : false
+			abilitytodamage : false,
+			selectNow : true
 		}],
 		scores : [0,0,0,0,1,0]
 	}
@@ -625,18 +625,41 @@ FeatsList["rune shaper"] = {
 	}, {
 		name : "Runes",
 		spells : ["fog cloud", "inflict wounds", "chromatic orb", "disguise self", "burning hands", "speak with animals", "armor of agathys", "goodberry", "longstrider", "command", "entangle", "sanctuary", "thunderwave"],
-		times : 1, // half proficiency bonus, so minimum 1
 		allowUpCasting : true,
 		// checkbox first column to check of when used once per long rest without a spell slot
 		spellFirstColTitle : "1\xD7",
-		firstCol : "checkbox"
+		firstCol : "checkbox",
+		linkTimesToHalfProf : true, // custom attribute, for use in calcChanges.spellList
+		times : 1 // half proficiency bonus, so always minimum of 1
 	}],
+	changeeval : function() {
+		if (!CurrentSpells['rune shaper']) return;
+		// See if the proficiency bonus changed to trigger the changes dialog
+		// Don't set the times attribute here, but instead on every call to the spell dialog
+		var halfProf = Math.floor( Number(How('Proficiency Bonus')) / 2 );
+		if (CurrentSpells['rune shaper'].halfProf != halfProf) {
+			CurrentSpells['rune shaper'].halfProf = halfProf;
+			CurrentUpdates.types.push("spells");
+		}
+	},
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
-				// change the times attribute to be half proficiency, rounded down
-				if (spName === 'rune shaper' && spType === 'feat-bonus' && spList.name === 'Rune Shaper') {
-					spList.times = Math.floor( Number(How('Proficiency Bonus')) / 2 );
+				// Change the times attribute to be half proficiency, rounded down
+				// Do it this way, so it is updated even if a bonus to proficiency was manually applied
+				if (spName === 'rune shaper' && spType === 'feat-bonus' && spList.name === "Comprehend languages") {
+					var halfProf = Math.floor( Number(How('Proficiency Bonus')) / 2 );
+					CurrentSpells['rune shaper'].halfProf = halfProf;
+					for (var key in CurrentSpells[spName].bonus) {
+						var aBonus = CurrentSpells['rune shaper'].bonus[key];
+						if (!isArray(aBonus)) aBonus = [aBonus];
+						for (var i = 0; i < aBonus.length; i++) {
+							if (aBonus[i].linkTimesToHalfProf) {
+								aBonus[i].times = halfProf;
+							}
+						}
+					}
+					
 				}
 			},
 			""
@@ -735,16 +758,16 @@ MagicItemsList["elven thrower"] = { // spear, but otherwise identical to Dwarven
 	descriptionFull : "You gain a +3 bonus to attack and damage rolls made with this magic weapon. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.",
 	description : "I gain a +3 bonus to attack and damage rolls made with this magic spear. When I hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to my hand.",
 	weight : 3,
-	weaponsAdd : ["Elven Thrower"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /^(?=.*elven)(?=.*thrower).*$/i,
 		name : "Elven Thrower",
 		source : [["SRD", 220], ["D", 167]],
 		range : "Melee, 20/60 ft",
 		description : "Thrown, versatile (1d8); +1d8 damage when thrown (2d8 vs. giants) and returns immediately",
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 };
 
 MagicItemsList["armor of safeguarding"] = {
@@ -861,7 +884,6 @@ MagicItemsList["delver's claws"] = {
 	"\n   " + toUni("Invoking the Rune") + "As an action, you can invoke the glove's rune to bolster yourself with the sturdiness of the earth. Spend and roll a number of your unspent Hit Dice up to a maximum equal to your proficiency bonus. You then regain a number of hit points equal to the total roll plus your Constitution modifier."+
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "This weatherworn leather glove is a simple, finesse, light melee weapon, dealing 1d4 slashing damage. While attuned, I gain 15 ft blindsight and a burrow speed equal to my walking speed. As an action once per dawn, I can invoke its mountain rune to spend up to Prof Bonus HD to regain hp (total roll + Con mod).",
-	weaponsAdd : ["Delver's Claws"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*delver)(?=.*claw).*$/i,
 		name : "Delver's Claws",
@@ -872,7 +894,8 @@ MagicItemsList["delver's claws"] = {
 		range : "Melee",
 		description : "Finesse, light",
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
 	speed : { burrow : { spd : "walk", enc : "walk" } },
 	vision : [["Blindsight", 15]],
@@ -955,14 +978,14 @@ MagicItemsList["lash of immolation"] = {
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "This +1 dark leather whip ha embers dancing around its tail. It deals +1d6 fire damage. When I score a critical hit with it, the target is restrained until my next turn starts, as fiery bands lash around it. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the fire damage to 2d6.",
 	weight : 3,
-	weaponsAdd : ["Lash of Immolation"],
 	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*last)(?=.*immolation).*$/i,
 		name : "Lash of Immolation",
 		source : [["GotG", 113]],
 		description : "Finesse, reach; +1d6 fire damage (1/dawn +2d6); Critical hit: restrained until my next turn starts",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}],
 	action : [["reaction", " (invoke rune)"]],
 	usages : 1,
@@ -984,7 +1007,6 @@ MagicItemsList["longbow of the healing hearth"] = {
 	"\n   " + toUni("Spellcasting") + ". While holding the bow, you can use an action to expend 1 or more of its charges to cast one of the following spells from it (save DC 18): create food and water (1 charge), warding bond (2 charges), guardian of faith (3 charges).",
 	description : "This +3 ivory longbow creates its own ammo if needed and has 8 charges, regaining 1d4+1 at dawn. Instead of one attack in my Attack action, I can use 1 charge to have a target I see in 150 ft use 1 HD to regain hp + my Wis mod. I can use charges to cast (DC 18): Create Food " + (typePF ? "\u0026" : "and") + " Water, Warding Bond, Guardian of Faith.",
 	weight : 2,
-	weaponsAdd : ["Longbow of the Healing Hearth"],
 	weaponOptions : [{
 		baseWeapon : "longbow",
 		regExpSearch : /^(?=.*longbow)(?=.*healing)(?=.*hearth).*$/i,
@@ -992,7 +1014,8 @@ MagicItemsList["longbow of the healing hearth"] = {
 		source : [["GotG", 113]],
 		description : "Ammunition, heavy, two-handed; Creates own ammo",
 		modifiers : [3, 3],
-		ammo : ""
+		ammo : "",
+		selectNow : true
 	}],
 	usages : 8,
 	recovery : "dawn",
@@ -1028,7 +1051,6 @@ MagicItemsList["lucent destroyer"] = {
 	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
 	description : "I gain a +1 bonus to attack and damage rolls made with this magical musket emblazoned with the light rune. It deals radiant damage and doesn't need to be loaded with ammunition. It allows me to cast Dancing Lights at will and Sunbeam (DC 17) once per dawn by invoking the rune.",
 	weight : 10,
-	weaponsAdd : ["Lucent Destroyer"],
 	weaponOptions : [{
 		baseWeapon : "musket",
 		regExpSearch : /^(?=.*lucent)(?=.*destroyer).*$/i,
@@ -1037,7 +1059,8 @@ MagicItemsList["lucent destroyer"] = {
 		damage : [1, 12, "radiant"],
 		description : "Two-handed",
 		modifiers : [1, 1],
-		ammo : ""
+		ammo : "",
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",
@@ -1198,14 +1221,14 @@ MagicItemsList["reaper's scream"] = {
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "This +2 morningstar deals necrotic damage. When I roll a 20 to hit vs. a creature, I gain 10 " + (typePF ? "temp" : "temporary") + " hp. Melee attackers that hit me take 10 necrotic " + (typePF ? "dmg" : "damage") + " while these last. As a bonus action once per dawn, I can invoke its death rune to have chosen " + (typePF ? "" : "creatures ") + "within 60 ft make a Wis save DC 15 or be stunned until my next turn starts.",
 	weight : 4,
-	weaponsAdd : ["Staff of the Rooted Hills"],
 	weaponOptions : [{
 		baseWeapon : "morningstar",
 		regExpSearch : /^(?=.*reaper)(?=.*scream).*$/i,
 		name : "Reaper's Scream",
 		source : [["GotG", 115]],
 		description : "On 20 to hit: 10 temp hp (see magic item)",
-		modifiers : [2, 2]
+		modifiers : [2, 2],
+		selectNow : true
 	}],
 	action : [["bonus action", " (invoke rune)"]],
 	usages : 1,
@@ -1286,7 +1309,6 @@ MagicItemsList["shield of the blazing dreadnought"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "activate",
-	weaponsAdd : ["Blazing Dreadnought Shield Bash"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*blazing)(?=.*dreadnought)(?=.*shield).*$/i,
 		name : "Blazing Dreadnought Shield Bash",
@@ -1298,7 +1320,8 @@ MagicItemsList["shield of the blazing dreadnought"] = {
 		description : "Str save for half damage; If failed, also knocked prone; Once per Attack action while shield is active",
 		abilitytodamage : false,
 		dc : true,
-		isNotWeapon : true
+		isNotWeapon : true,
+		selectNow : true
 	}]
 };
 MagicItemsList["staff of the rooted hills"] = {
@@ -1313,14 +1336,14 @@ MagicItemsList["staff of the rooted hills"] = {
 	"\n   Once the rune has been invoked to cast either spell, it can't be invoked again until the next dawn.",
 	description : "A creature hit with this +1 quarterstaff must make a DC 12 Str save or be restrained by spectral vines until my next turn starts. As an action once per dawn, I can invoke its hill rune to cast either Hold Person (DC 12) or Speak with Plants with it. The target of this Hold Person is wreathed in spectral vines.",
 	weight : 4,
-	weaponsAdd : ["Staff of the Rooted Hills"],
 	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*staff)(?=.*rooted)(?=.*hills).*$/i,
 		name : "Staff of the Rooted Hills",
 		source : [["GotG", 116]],
 		description : "Versatile (1d8); On hit, DC 12 Str save or restrained until my next turn starts",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",
@@ -1350,7 +1373,7 @@ MagicItemsList["stonebreaker's breastplate"] = {
 	"\n   " + toUni("Invoking the Rune") + ". As an action, you can invoke the breastplate's rune to cast the wall of stone spell (save DC 14) with it. When you cast the spell in this way, you have advantage on saving throws made to maintain concentration on the spell."+
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "While wearing this marbled granite breastplate, I have resistance to bludgeoning, piercing, and slashing damage and can't be knocked prone. As an action once per dawn, I can invoke its stone rune to cast Wall of Stone (DC 14) with it. It also grants me advantage on concentration saves for the spell cast in this way.",
-	armorAdd : "Stonebreaker's Breastplate",
+	armorAdd : { select : "Stonebreaker's Breastplate", options : ["Stonebreaker's Breastplate"] },
 	weight : 20,
 	dmgres : ["Bludgeoning", "Slashing", "Piercing"],
 	savetxt : { immune : ["knocked prone"] },
@@ -1378,7 +1401,6 @@ MagicItemsList["thunderbuss"] = {
 	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
 	description : "This +1 pistol deals thunder damage and requires loading nor ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
 	weight : 3,
-	weaponsAdd : ["Thunderbuss"],
 	weaponOptions : [{
 		baseWeapon : "pistol",
 		regExpSearch : /thunderbuss/i,
@@ -1387,7 +1409,8 @@ MagicItemsList["thunderbuss"] = {
 		damage : [1, 10, "thunder"],
 		description : "",
 		modifiers : [1, 1],
-		ammo : ""
+		ammo : "",
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",

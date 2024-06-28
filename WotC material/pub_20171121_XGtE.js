@@ -1,5 +1,5 @@
 var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -574,7 +574,7 @@ AddSubClass("cleric", "forge domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
 						}
 					},
@@ -660,24 +660,8 @@ AddSubClass("cleric", "grave domain", {
 			name : "Potent Spellcasting",
 			source : [["X", 20]],
 			minlevel : 8,
-			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Keeper of Souls",
@@ -1360,7 +1344,7 @@ RunFunctionAtEnd(function () {
 			description : "",
 			source : aWea.source,
 			weaponProfs : [false, false, [weapon]],
-			weaponsAdd : [aWea.name],
+			weaponsAdd : { select : [aWea.name] },
 			submenu : ((/simple/i).test(aWea.type) ? "\x1BSimple weapon, " : "Martial weapon, ") + ((/^(?!.*melee).*\d+.*$/i).test(aWea.range) ? "ranged" : "melee"),
 			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : true;'
 		}
@@ -1384,7 +1368,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 				]),
 				action : ["bonus action", " (2\xD7 with Attack action)"],
-				weaponOptions : {
+				weaponOptions : [{
 					regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
 					name : "Radiant Sun Bolt",
 					source : [["S", 131], ["X", 35]],
@@ -1394,9 +1378,9 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					range : "30 ft",
 					description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
 					monkweapon : true,
-					abilitytodamage : true
-				},
-				weaponsAdd : ['Radiant Sun Bolt'],
+					abilitytodamage : true,
+					selectNow : true
+				}],
 				"searing arc strike" : {
 					name : "Searing Arc Strike",
 					extraname : "Way of the Sun Soul 6",
@@ -1442,8 +1426,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 				]),
 				action : ["action", ""],
 				additional : "0 ki points + max 3 ki points",
-				weaponsAdd : ['Searing Sunburst'],
-				weaponOptions : {
+				weaponOptions : [{
 					regExpSearch : /^(?=.*searing)(?=.*sunburst).*$/i,
 					name : "Searing Sunburst",
 					source : [["S", 131], ["X", 35]],
@@ -1454,8 +1437,9 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 					description : "All in 20-ft radius; Con save - success no damage; +2d6 damage per ki point (max +6d6)",
 					abilitytodamage : false,
 					dc : true,
-					useSpellMod : "monk"
-				}
+					useSpellMod : "monk",
+					selectNow : true
+				}]
 			},
 			"subclassfeature17" : {
 				name : "Sun Shield",
@@ -3004,21 +2988,21 @@ FeatsList["dragon hide"] = {
 	descriptionFull : "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
 		source : [["X", 74]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ['Retractable Claws'],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	armorOptions : [{
 		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
 		name : "Dragon Hide",
 		source : [["X", 74]],
-		ac : 13
-	}],
-	armorAdd : "Dragon Hide"
+		ac : 13,
+		selectNow : true
+	}]
 };
 FeatsList["drow high magic"] = {
 	name : "Drow High Magic",
@@ -4912,7 +4896,6 @@ MagicItemsList["cast-off armor"] = {
 	rarity : "common",
 	description : "As an action, I can doff this armor.",
 	descriptionFull : "You can doff this armor as an action.",
-	attunement : true,
 	chooseGear : {
 		type : "armor",
 		prefixOrSuffix : "suffix",

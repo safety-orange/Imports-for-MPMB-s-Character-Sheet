@@ -1,5 +1,5 @@
 var iFileName = "pub_20140819_HotDQ+20141104_RoT.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the background features and magic items from the Hoard of the Dragon Queen and Rise of Tiamat adventure books to MPMB's Character Record Sheet
 
 // Define the source
@@ -55,13 +55,13 @@ MagicItemsList["dragongleam"] = {
 			component : "V,M\u0192"
 		}
 	},
-	weaponsAdd : ["Dragongleam"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /dragongleam/i,
 		name : "Dragongleam",
-		source : [["HotDQ", 69]]
-	}
+		source : [["HotDQ", 69]],
+		selectNow : true
+	}]
 }
 MagicItemsList["tankard of plenty"] = {
 	name : "Tankard of Plenty",
@@ -248,15 +248,15 @@ MagicItemsList["hazirawn"] = {
 	"not attuned" : {
 		name : "Hazirawn\u200A",
 		description : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. While I'm not attuned to the sword, I gain a +1 bonus on attack and damage rolls made with it. It also deals an extra 1d6 necrotic damage on attacks made with the sword.",
-		weaponsAdd : ["Hazirawn"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "greatsword",
 			regExpSearch : /hazirawn/i,
 			name : "Hazirawn",
 			source : [["HotDQ", 94]],
 			description : "Heavy, two-handed; +1d6 necrotic damage",
-			modifiers : [1, 1]
-		}
+			modifiers : [1, 1],
+			selectNow : true
+		}]
 	},
 	"attuned" : {
 		name : "Hazirawn\u200A\u200A",
@@ -267,15 +267,15 @@ MagicItemsList["hazirawn"] = {
 			usages : 4,
 			recovery : "Midnight"
 		}],
-		weaponsAdd : ["Hazirawn"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "greatsword",
 			regExpSearch : /hazirawn/i,
 			name : "Hazirawn",
 			source : [["HotDQ", 94]],
 			description : "Heavy, two-handed; +2d6 necrotic damage; Wounding (can't regain HP for 1 min, DC 15 Con save to stop)",
-			modifiers : [2,2]
-		},
+			modifiers : [2, 2],
+			selectNow : true
+		}],
 		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["detect evil and good", "detect magic"],
@@ -381,15 +381,15 @@ MagicItemsList["dragontooth dagger"] = {
 	description : "This dagger is fashioned from the tooth of a dragon. Its handle is its leather wrapped root and there is no crossguard. It adds a +1 bonus to attack and damage rolls made with it and deals +1d6 acid damage on a hit. Against the enemies of the Cult of the Dragon this increases to a +2 bonus and +2d6 acid damage.",
 	descriptionFull : "A dagger fashioned from the tooth of a dragon. While the blade is obviously a fang or predator's tooth, the handle is leather wrapped around the root of the tooth, and there is no crossguard.\n   You gain a +1 bonus to attack and damage rolls made with this weapon. On a hit with this weapon, the target takes an extra 1d6 acid damage.\n   " + toUni("Draconic Potency") + ". Against enemies of the Cult of the Dragon, the dagger's bonus to attack and damage rolls increases to 2, and the extra acid damage increases to 2d6.",
 	weight : 1,
-	weaponsAdd : ["Dragontooth Dagger"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*dragontooth)(?=.*dagger).*$/i,
 		name : "Dragontooth Dagger",
 		source : [["RoT", 94]],
 		description : "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \u0026 +2d6 acid damage",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 
 // Beast

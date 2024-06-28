@@ -1,5 +1,5 @@
 var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -396,21 +396,21 @@ RaceList["lizardfolk"] = {
 	},
 	skillstxt : "Choose two from Animal Handling, Nature, Perception, Stealth, and Survival",
 	languageProfs : ["Common", "Draconic"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bbite\b/i,
 		name : "Bite",
 		source : [["V", 113]],
-		damage : [1, 6, "piercing"]
-	},
-	weaponsAdd : ["Bite"],
+		damage : [1, 6, "piercing"],
+		selectNow : true
+	}],
 	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["V", 113]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
 	weight : " weigh around 200 lb (120 + 2d10 \xD7 2d6 lb)",
@@ -469,14 +469,14 @@ RaceList["tabaxi"] = {
 	skills : ["Perception", "Stealth"],
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(tabaxi|\bcat\b))(?=.*claw).*$/i,
 		name : "Tabaxi Claws",
 		source : [["V", 115]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ["Tabaxi Claws"],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
@@ -1243,14 +1243,14 @@ MagicItemsList["mind lash"] = {
 	weight : 3,
 	prerequisite : "Requires attunement by an illithid",
 	prereqeval : function (v) { return (/mind flayer|illithid/i).test(What("Race")); },
-	weaponsAdd : ["Mind Lash"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*mind)(?=.*lash).*$/i,
 		name : "Mind Lash",
 		source : [["V", 81]],
-		description : "Finesse, reach; +2d4 psychic damage; DC 15 Wis save or disadv. on Int/Wis/Cha saves for 1 min"
-	}
+		description : "Finesse, reach; +2d4 psychic damage; DC 15 Wis save or disadv. on Int/Wis/Cha saves for 1 min",
+		selectNow : true
+	}]
 }
 MagicItemsList["shield of far sight"] = {
 	name : "Shield of Far Sight",
@@ -1271,7 +1271,6 @@ MagicItemsList["survival mantle"] = {
 	descriptionFull : "This carapace-like augmentation encases portions of the wearer's shoulders, neck, and chest. A survival mantle is equivalent to a suit of nonmagical half plate armor and takes just as long to don or doff. It can't be worn with other kinds of armor.\n   A creature wearing a survival mantle can breathe normally in any environment (including a vacuum) and has advantage on saving throws against harmful gases (such as those created by a Cloudkill spell, a Stinking Cloud spell, inhaled poisons, and the breath weapons of some dragons).",
 	weight : 40,
 	savetxt : { adv_vs : ["gases"] },
-	armorAdd : "Survival Mantle",
 	armorOptions : [{
 		regExpSearch : /^(?=.*survival)(?=.*mantle).*$/i,
 		name : "Survival Mantle",
@@ -1279,6 +1278,7 @@ MagicItemsList["survival mantle"] = {
 		type : "medium",
 		ac : 15,
 		stealthdis : true,
-		weight : 40
+		weight : 40,
+		selectNow : true
 	}]
 }

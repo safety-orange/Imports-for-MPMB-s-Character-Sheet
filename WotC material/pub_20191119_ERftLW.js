@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -261,15 +261,15 @@ RaceList["longtooth shifter"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 		name : "Longtooth Fangs",
 		source : [["E:RLW", 34]],
 		damage : [1, 6, "piercing"],
-		description : "Only while shifted; One attack as bonus action"
-	},
-	weaponsAdd : ["Longtooth Fangs"],
+		description : "Only while shifted; One attack as bonus action",
+		selectNow : true
+	}],
 	vision : [["Darkvision", 60]],
 	skills : ["Intimidation"],
 	age : " reach young adulthood at age 10 and rarely live over 70",
@@ -2667,8 +2667,7 @@ MagicItemsList["arcane propulsion arm"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a creature missing a hand or an arm",
 	prereqeval : function (v) { return false; },
-	weaponsAdd : ["Arcane Propulsion Arm"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*arcane)(?=.*propulsion)(?=.*arm).*$/i,
 		name : "Arcane Propulsion Arm",
 		source : [["E:RLW", 276]],
@@ -2677,8 +2676,9 @@ MagicItemsList["arcane propulsion arm"] = {
 		damage : [1, 8, "force"],
 		range : "Melee, 20/60 ft",
 		description : "Thrown; Returns immediately after thrown",
-		abilitytodamage : true
-	}
+		abilitytodamage : true,
+		selectNow : true
+	}]
 }
 MagicItemsList["armblade"] = {
 	name : "Armblade",
@@ -2797,15 +2797,15 @@ MagicItemsList["dyrrn's tentacle whip"] = {
 	attunement : true,
 	weight : 3,
 	action : [["bonus action", "Tentacle Whip (draw/sheath)"]],
-	weaponsAdd : ["Dyrrn's Tentacle Whip"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*tentacle)(?=.*whip).*$/i,
 		name : "Dyrrn's Tentacle Whip",
 		source : [["E:RLW", 276]],
 		description : "Finesse, reach; +1d6 psychic dmg; On 20 to hit: stun until its next turn ends; Disadv. vs. aberrations",
-		modifiers : [2, 2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["earworm"] = {
 	name : "Earworm",
@@ -3116,8 +3116,7 @@ MagicItemsList["kyrzin's ooze"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	weaponsAdd : ["Kyrzin's Ooze Acid Breath"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*ooze)(?=.*acid)(?=.*breath).*$/i,
 		name : "Kyrzin's Ooze Acid Breath",
 		source : [["E:RLW", 278]],
@@ -3128,8 +3127,9 @@ MagicItemsList["kyrzin's ooze"] = {
 		description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : [7, ""]
-	}
+		modifiers : [7, ""],
+		selectNow : true
+	}]
 }
 MagicItemsList["living armor"] = {
 	name : "Living Armor",

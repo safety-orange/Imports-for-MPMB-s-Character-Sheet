@@ -1,5 +1,5 @@
 var iFileName = "ua_20200206_Subclasses-Part-3.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 3 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -184,14 +184,18 @@ RunFunctionAtEnd(function () {
 			submenu : "Guardian Power Armor",
 			description : guardianTxt,
 			additional : guardianAdditional,
-			armorAdd : gArmName,
-			weaponsAdd : ["Thunder Gauntlets"],
+			armorAdd : { select : gArmName, options : [gArmName] },
+			weaponsAdd : { select : ["Thunder Gauntlets"] },
 			prereqeval : prereqFunc,
 			dependentChoices : "guardian"
 		}
 		// And now add the Infiltrator variant of the armor
-		var iArm = newObj(anArm); iArm.name = "Infiltrator Power " + anArm.name;
-		iArm.weight = 0; iArm.stealthdis = false; iArm.strReq = 0;
+		var iArm = newObj(anArm);
+		iArm.name = "Infiltrator Power " + anArm.name;
+		iArm.weight = 0;
+		iArm.stealthdis = false;
+		iArm.strReq = 0;
+		iArm.selectNow = true;
 		if (iArm.regExpSearch.indexOf(".*$/") == -1) {
 			iArm.regExpSearch = iArm.regExpSearch.replace(/^/, "infiltrator.*");
 		} else {
@@ -202,8 +206,7 @@ RunFunctionAtEnd(function () {
 			submenu : "Infiltrator Power Armor",
 			description : infiltratorTxt,
 			speed : { walk : {spd : "+5", enc : "+5" } },
-			armorAdd : iArm.name,
-			weaponsAdd : ["Lightning Launcher"],
+			weaponsAdd : { select : ["Lightning Launcher"] },
 			prereqeval : prereqFunc,
 			armorOptions : [iArm],
 			dependentChoices : "infiltrator"
@@ -389,7 +392,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : "Chalice: heals 1d8+" + Math.floor(n/2) + " HP";
 			}),
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*luminous)(?=.*arrow).*$/i,
 				name : "Luminous Arrow",
 				source : [["UA:SP3", 3]],
@@ -398,9 +401,9 @@ AddSubClass("druid", "circle of the stars-ua", {
 				damage : [1, 8, "radiant"],
 				range : "60 ft",
 				description : "Use as bonus action",
-				abilitytodamage : true
-			},
-			weaponsAdd : ['Luminous Arrow']
+				abilitytodamage : true,
+				selectNow : true
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Cosmic Omen",

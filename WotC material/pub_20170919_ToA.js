@@ -1,5 +1,5 @@
 var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -679,23 +679,22 @@ CreatureList["jaculi"] = {
 };
 
 // Magic Items
-MagicItemsList["bob (battleaxe)"] = { // contributed by Nod_Hero
-	name : "Bob (battleaxe)",
-	nameAlt : "Bob",
+MagicItemsList["bob"] = { // contributed by Nod_Hero
+	name : "Bob",
 	source : [["ToA", 89]],
 	type : "weapon (battleaxe)",
 	rarity : "uncommon",
 	description : "Dwarvish runes on the head of this rusty battleaxe read 'Bob'. It adds a +1 bonus to attack and damage rolls made with it, floats on water and other liquids, and grants me advantage on Strength (Athletics) checks made to swim.",
 	descriptionFull : "Etched into the haft of the battleaxe are Dethek (Dwarvish) runes that spell the weapon's name: Bob. It floats on water and other liquids, adds a +1 bonus to attack and damage rolls made with it, and grants its bearer advantage on Strength (Athletics) checks made to swim.",
 	weight : 4,
-	weaponsAdd : ["Bob"],
 	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /\bbob\b/i,
-		name : "Bob",
+		name : '"Bob"',
 		source : [["ToA", 89]],
 		description : "Versatile (1d10); Floats",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["longsword of speaking draconic"] = { // contributed by Nod_Hero
@@ -707,12 +706,9 @@ MagicItemsList["longsword of speaking draconic"] = { // contributed by Nod_Hero
 	descriptionFull : "This longsword has a dragon-shaped hilt. While you carry it, you gain the ability to speak and understand the Draconic language.",
 	weight : 3,
 	languageProfs : ["Draconic"],
-	weaponsAdd : ["Longsword of Speaking Draconic"],
-	weaponOptions : {
-		baseWeapon : "longsword",
-		regExpSearch : /^(?=.*longsword)(?=.*speaking)(?=.*draconic).*$/i,
-		name : "Longsword of Speaking Draconic",
-		source : [["ToA", 173]]
+	weaponsAdd : {
+		select : ["Longsword of Speaking Draconic"],
+		options : ["Longsword of Speaking Draconic"]
 	}
 };
 MagicItemsList["amulet of the black skull"] = {
@@ -755,14 +751,14 @@ MagicItemsList["bookmark"] = {
 	attunement : true,
 	weight : 1,
 	action : [["bonus action", ""]],
-	weaponsAdd : ["Bookmark"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /bookmark/i,
 		name : "Bookmark",
 		source : [["ToA", 206]],
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	extraLimitedFeatures : [{
 		name : "Compulsion (Bookmark)",
 		usages : 1,
@@ -838,7 +834,6 @@ MagicItemsList["scorpion armor"] = {
 	weight : 65,
 	cursed : true,
 	addMod : [{ type : "skill", field : "Init", mod : 5, text : "I gain a +5 bonus on my initiative rolls." }],
-	armorAdd : "Scorpion Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*scorpion)(?=.*armor).*$/i,
 		name : "Scorpion Armor",
@@ -847,6 +842,7 @@ MagicItemsList["scorpion armor"] = {
 		ac : 18,
 		stealthdis : false,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}]
 }

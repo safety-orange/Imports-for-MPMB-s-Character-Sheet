@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version, 
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
@@ -114,15 +114,15 @@ if (!SourceList["UA:RoE"]) {
 			walk : { spd : 30, enc : 20 }
 		},
 		languageProfs : ["Common"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 			name : "Longtooth Fangs",
 			source : [["WGtE", 66], ["UA:RoE", 6]],
 			damage : [1, 6, "piercing"],
-			description : "Only while shifted; One attack as bonus action"
-		},
-		weaponsAdd : ["Longtooth Fangs"],
+			description : "Only while shifted; One attack as bonus action",
+			selectNow : true
+		}],
 		vision : [["Darkvision", 60]],
 		skills : ["Intimidation", "Perception"],
 		age : " reach young adulthood at age 10 and rarely live over 70",
@@ -243,11 +243,11 @@ if (!SourceList["UA:RoE"]) {
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating';
+				CurrentRace.armorAdd.select = 'Heavy Plating';
 			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating';
+				CurrentRace.armorAdd.select = 'Composite Plating';
 			} else {
-				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+				CurrentRace.armorAdd.select = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 			};
 		},
 		removeeval : function () {
@@ -255,6 +255,7 @@ if (!SourceList["UA:RoE"]) {
 				tDoc.resetForm(['AC Armor Description']);
 			};
 		},
+		armorAdd : { select : "" },
 		armorOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
@@ -292,14 +293,14 @@ if (!SourceList["UA:RoE"]) {
 			walk : { spd : 30, enc : 20 }
 		},
 		languageProfs : ["Common"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
-			name : "Warforged iron fists",
+			name : "Warforged Iron Fists",
 			source : [["WGtE", 70], ["UA:RoE", 9]],
-			damage : [1, 4, "bludgeoning"]
-		},
-		weaponsAdd : ["Warforged Iron Fists"],
+			damage : [1, 4, "bludgeoning"],
+			selectNow : true
+		}],
 		savetxt : {
 			text : ["Magic can't put me to sleep"],
 			immune : ["disease", "exhaustion from lack of rest"],
@@ -317,11 +318,11 @@ if (!SourceList["UA:RoE"]) {
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating';
+				CurrentRace.armorAdd.select = 'Heavy Plating';
 			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating';
+				CurrentRace.armorAdd.select = 'Composite Plating';
 			} else {
-				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+				CurrentRace.armorAdd.select = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 			};
 		},
 		removeeval : function () {
@@ -329,6 +330,7 @@ if (!SourceList["UA:RoE"]) {
 				tDoc.resetForm(['AC Armor Description']);
 			};
 		},
+		armorAdd : { select : "" },
 		armorOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",
@@ -382,11 +384,11 @@ if (!SourceList["UA:RoE"]) {
 		eval : function() {
 			var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 			if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-				CurrentRace.armorAdd = 'Heavy Plating';
+				CurrentRace.armorAdd.select = 'Heavy Plating';
 			} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-				CurrentRace.armorAdd = 'Composite Plating';
+				CurrentRace.armorAdd.select = 'Composite Plating';
 			} else {
-				CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+				CurrentRace.armorAdd.select = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 			};
 		},
 		removeeval : function () {
@@ -394,6 +396,7 @@ if (!SourceList["UA:RoE"]) {
 				tDoc.resetForm(['AC Armor Description']);
 			};
 		},
+		armorAdd : { select : "" },
 		armorOptions : [{
 			regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 			name : "Darkwood core",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20200721_MOT.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
 
 // Define the source
@@ -29,9 +29,9 @@ RaceList["leonin"] = { // includes contributions by BraabHimself
 		regExpSearch : /^(?=.*(leonin|\bcats?\b))(?=.*claw).*$/i,
 		name : "Leonin Claws",
 		source : [["MoT", 21]],
-		damage : [1, 4, "slashing"]
+		damage : [1, 4, "slashing"],
+		selectNow : true
 	}],
-	weaponsAdd : ["Leonin Claws"],
 	abilitySave : 3,
 	age : " mature and age at about the same rate as humans",
 	height : " are typically over 6 feet tall, with some standing over 7 feet (5'6\" + 2d10\")",
@@ -65,14 +65,14 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 	},
 	savetxt : { adv_vs : ["magic"] },
 	languageProfs : ["Common", "Sylvan"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
 		name : "Satyr Headbutt",
 		source : [["MOT", 25]],
-		damage : [1, 4, "bludgeoning"]
-	},
-	weaponsAdd : ["Satyr Headbutt"],
+		damage : [1, 4, "bludgeoning"],
+		selectNow : true
+	}],
 	toolProfs : [["Musical instrument", 1]],
 	age : " mature and age at about the same rate as humans",
 	height : " range from just under 5 feet to about 6 feet in height, with generally slender builds (4'8\" + 2d8\")",
@@ -102,15 +102,15 @@ if (!SourceList.G) {
 			walk : { spd : 40, enc : 30 }
 		},
 		languageProfs : ["Common", "Sylvan"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /\b(hoofs?|hooves)\b/i,
 			name : "Hooves",
 			source : [["MOT", 19], ["G", 15]],
 			damage : [1, 4, "bludgeoning"],
-			description : "Use as bonus action after charge 30 ft"
-		},
-		weaponsAdd : ["Hooves"],
+			description : "Use as bonus action after charge 30 ft",
+			selectNow : true
+		}],
 		action : [["bonus action", "Hooves (after charge)"]],
 		skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 		age : " mature and age at about the same rate as humans",
@@ -138,15 +138,15 @@ if (!SourceList.G) {
 			walk : { spd : 30, enc : 20 }
 		},
 		languageProfs : ["Common", "Minotaur"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /\bhorns?\b/i,
 			name : "Horns",
 			source : [["MOT", 23], ["G", 19]],
 			damage : [1, 6, "piercing"],
-			description : "Attack as a bonus action after moving 20 ft with the Dash action"
-		},
-		weaponsAdd : ["Horns"],
+			description : "Attack as a bonus action after moving 20 ft with the Dash action",
+			selectNow : true
+		}],
 		skillstxt : "Choose one from Intimidation or Persuasion",
 		age : " reach adulthood around age 17 and live up to 150 years",
 		height : " stand around 6 feet tall (5'4\" + 2d8\")",
@@ -679,31 +679,30 @@ MagicItemsList["molten bronze skin"] = {
 	choicesNotInMenu : true,
 	"breastplate" : {
 		description : "This breastplate appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
-		armorAdd : "Molten Bronze Skin",
 		armorOptions : [{
 			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
 			name : "Molten Bronze Skin",
 			source : [["MOT", 197]],
 			type : "medium",
 			ac : 14,
-			weight : 20
+			weight : 20,
+			selectNow : true
 		}]
 	},
 	"half plate" : {
 		description : "This half plate armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
-		armorAdd : "Molten Bronze Skin",
 		armorOptions : [{
 			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
 			name : "Molten Bronze Skin",
 			source : [["MOT", 197]],
 			type : "medium",
 			ac : 15,
-			weight : 40
+			weight : 40,
+			selectNow : true
 		}]
 	},
 	"plate" : {
 		description : "This plate armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
-		armorAdd : "Molten Bronze Skin",
 		armorOptions : [{
 			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
 			name : "Molten Bronze Skin",
@@ -711,7 +710,8 @@ MagicItemsList["molten bronze skin"] = {
 			type : "heavy",
 			ac : 18,
 			weight : 65,
-			strReq : 15
+			strReq : 15,
+			selectNow : true
 		}]
 	}
 };
@@ -863,13 +863,13 @@ MagicItemsList["two-birds sling"] = {
 	description : "This sling adds +1 to hit and damage rolls made with it. On a hit, I can cause the ammunition to ricochet towards a second target within 10 ft of the first, rolling a ranged attack against the second target as well.",
 	descriptionFull : "You have a +l bonus to attack and damage rolls made with this weapon."+
 	"\n   When you make a ranged attack with this sling and hit a target, you can cause the ammunition to ricochet toward a second target within 10 feet of the first, and then make a ranged attack against the second target.",
-	weaponsAdd : ["Two-Birds Sling"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "sling",
 		regExpSearch : /^(?=.*two-birds)(?=.*sling).*$/i,
 		name : "Two-Birds Sling",
 		source : [["MOT", 198]],
 		description : "Ammunition; On hit ricochet to another in 10 ft",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 };

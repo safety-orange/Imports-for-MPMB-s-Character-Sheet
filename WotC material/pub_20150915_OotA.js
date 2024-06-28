@@ -1,5 +1,5 @@
 var iFileName = "pub_20150915_OotA.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -165,16 +165,16 @@ MagicItemsList["dawnbringer"] = {
 	attunement : true,
 	weight : 3,
 	action : [["bonus action", " (start/stop)"], ["action", " (change light)"]],
-	weaponsAdd : ["Dawnbringer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /dawnbringer/i,
 		name : "Dawnbringer",
 		source : [["OotA", 222]],
 		damage : [1, 8, "radiant"],
 		description : "Finesse, versatile (1d10); +1d8 damage to undead",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -489,8 +489,7 @@ MagicItemsList["wand of viscid globs"] = {
 	recovery : "Midnight",
 	additional : "regains 1d6+1",
 	action : [["action", ""]],
-	weaponsAdd : ["Wand of Viscid Globs"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*wand)(?=.*viscid)(?=.*globs).*$/i,
 		name : "Wand of Viscid Globs",
 		source : [["OotA", 223]],
@@ -500,6 +499,7 @@ MagicItemsList["wand of viscid globs"] = {
 		range : "60 ft",
 		description : "1 charge; Lasts 1 hour or until exposed to sunlight, a pint of alcohol, oil of etherealness, or universal solvent",
 		abilitytodamage : false,
-		useSpellcastingAbility : true
-	}
+		useSpellcastingAbility : true,
+		selectNow : true
+	}]
 }

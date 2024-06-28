@@ -1,5 +1,5 @@
 var iFileName = "ua_20210126_Gothic-Lineages.js";
-RequiredSheetVersion("13.1.13");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana 2021: Gothic Lineages article to MPMB's Character Record Sheet
 // This file contains contributions by Metacomet10, MarvinTheParanoidAndroid, and CountVladmir
 
@@ -24,7 +24,6 @@ RaceList["dhampir-ua"] = {
 	},
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
-	weaponsAdd : ["Vampiric Bite"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*vampiric)(?=.*bite).*$/i,
 		name : "Vampiric Bite",
@@ -36,7 +35,8 @@ RaceList["dhampir-ua"] = {
 		description : "Adv. while at or below half HP; Can empower myself on hit",
 		isAlwaysProf : true,
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Vampiric Bite",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20211019_FToD.js";
-RequiredSheetVersion("13.1.12");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
@@ -72,7 +72,6 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 					minlevel : 5,
 					usages : 1,
 					recovery : "long rest",
-					weaponsAdd : ["Metallic Breath Weapon"],
 					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
@@ -83,7 +82,8 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 						range : "15-ft cone",
 						description : "Repulsion: Str save or pushed 20 ft \u0026 prone; Enervating: Con save or incapacitated till my next turn starts",
 						abilitytodamage : false,
-						dc : true
+						dc : true,
+						selectNow : true
 					}]
 				}
 			}
@@ -102,7 +102,6 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			speed : {
 				walk : { spd : 30, enc : 20 }
 			},
-			weaponsAdd : ["Breath Weapon"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
@@ -114,7 +113,8 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 				description : "Hits all in area; Dex save, success - half damage",
 				abilitytodamage : false,
 				dc : true,
-				dbBreathWeapon : true
+				dbBreathWeapon : true,
+				selectNow : true
 			}],
 			age : " reach adulthood by 15 and live around 80 years",
 			height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -226,8 +226,7 @@ AddSubClass("monk", "ascendant dragon", {
 				additional : levels.map(function (n) {
 					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
 				}),
-				weaponsAdd : ["Breath of the Dragon"],
-				weaponOptions : {
+				weaponOptions : [{
 					regExpSearch : /^(?=.*breath)(?=.*dragon).*$/i,
 					name : "Breath of the Dragon",
 					source : [["FToD", 13]],
@@ -239,8 +238,9 @@ AddSubClass("monk", "ascendant dragon", {
 					dc : true,
 					monkweapon : false,
 					abilitytodamage : false,
-					WotAD_BreathWeapon : true
-				},
+					WotAD_BreathWeapon : true,
+					selectNow : true
+				}],
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -302,8 +302,7 @@ AddSubClass("monk", "ascendant dragon", {
 			minlevel : 17,
 			description : "\n   I gain 10 ft blindsight and both Breath of the Dragon and Aspect of the Wyrm improve",
 			vision : [["blindsight", 10]],
-			weaponsAdd : ["Breath of the Dragon (Augmented)"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*dragon)(?=.*augment).*$/i,
 				name : "Breath of the Dragon (Augmented)",
 				source : [["FToD", 13]],
@@ -316,8 +315,9 @@ AddSubClass("monk", "ascendant dragon", {
 				monkweapon : false,
 				abilitytodamage : false,
 				WotAD_BreathWeapon : true,
-				WotAD_BreathWeaponAugmented : true
-			}
+				WotAD_BreathWeaponAugmented : true,
+				selectNow : true
+			}]
 		}
 	}
 });
@@ -470,8 +470,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 			usages : 1,
 			recovery : "long rest",
 			altResource : "SS 3+",
-			weaponsAdd : ["Drake's Breath"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*drake)(?=.*breath).*$/i,
 				name : "Drake's Breath",
 				source : [["FToD", 15]],
@@ -483,8 +482,9 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				abilitytodamage : false,
 				dc : true,
 				useSpellMod : "ranger",
-				DrakewardenDrakeBreath : true
-			},
+				DrakewardenDrakeBreath : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -887,28 +887,28 @@ MagicItemsList["dragonlance"] = {
 	"a lance for riders" : {
 		name : "Dragonlance (for riders)",
 		description : "This magic lance forged from rare metal grants me a +3 bonus to attack and damage rolls made with it. When I hit a dragon with it, the dragon takes an extra 3d6 force damage, and any Dragon of my choice that I can see within 30 ft can immediately use its reaction to make a melee attack.",
-		weaponsAdd : ["Dragonlance "],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "lance",
 			regExpSearch : /dragonlance/i,
 			name : "Dragonlance",
 			source : [["FToD", 23]],
 			description : "Reach, disadv. within 5 ft, two-handed if not mounted; +3d6 force damage vs. dragons",
-			modifiers : [3, 3]
-		}
+			modifiers : [3, 3],
+			selectNow : true
+		}]
 	},
 	"a pike for foot soldiers" : {
 		name : "Dragonlance (for foot soldiers)",
 		description : "This magic pike forged from rare metal grants me a +3 bonus to attack and damage rolls made with it. When I hit a dragon with it, the dragon takes an extra 3d6 force damage, and any Dragon of my choice that I can see within 30 ft can immediately use its reaction to make a melee attack.",
-		weaponsAdd : ["Dragonlance (pike)"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "pike",
 			regExpSearch : /^(?=.*dragonlance)(?=.*pike).*$/i,
 			name : "Dragonlance (pike)",
 			source : [["FToD", 23]],
 			description : "Heavy, reach, two-handed; +3d6 force damage vs. dragons",
-			modifiers : [3, 3]
-		}
+			modifiers : [3, 3],
+			selectNow : true
+		}]
 	}
 }
 MagicItemsList["dragon wing bow"] = function () {
@@ -1012,15 +1012,15 @@ MagicItemsList["flail of tiamat"] = {
 	recovery : "dawn",
 	additional : "Breathe Flames",
 	action : [["action", " (Breathe Flames)"]],
-	weaponsAdd : ["Flail of Tiamat"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*flail)(?=.*tiamat).*$/i,
 		name : "Flail of Tiamat",
 		source : [["FToD", 23]],
 		description : "+5d4 acid, cold, fire, lightning, or poison damage",
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 }
 AddFeatureChoice(MagicItemsList["figurine of wondrous power"], false, "Gold Canary", {
 	source : [["FToD", 23]],
@@ -1058,14 +1058,15 @@ MagicItemsList["platinum scarf"] = {
 	usages : 3,
 	recovery : "dawn",
 	action : [["action", ""]],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "light hammer",
 		regExpSearch : /^(?=.*platinum scarf)(?=.*radiant hammer).*$/i,
 		name : "Platinum Scarf's Radiant Hammer",
 		damage : [2, 4, "radiant"],
 		source : [["FToD", 24]],
 		description : "Light, thrown; +2d4 damage vs. chromatic dragons",
-	}
+		selectNow : true
+	}]
 }
 MagicItemsList["potion of dragon's majesty"] = function () { // NOG AFMAKEN!!!!
 	var obj = {
@@ -1096,7 +1097,7 @@ MagicItemsList["ruby weave gem"] = {
 	name : "Ruby Weave Gem",
 	source : [["FToD", 24]],
 	type : "wondrous item",
-	rarity : "very rare",
+	rarity : "legendary",
 	attunement : true,
 	prerequisite : "Requires attunement by a spellcaster",
 	prereqeval : function(v) { return v.isSpellcaster; },
@@ -1148,8 +1149,7 @@ MagicItemsList["topaz annihilator"] = {
 	descriptionFull : "This magic ranged weapon resembles a musket, but in lieu of any ammunition, it holds a glowing yellow scale from a topaz dragon in its heart."+
 	"\n   The weapon has a normal range of 100 feet and a long range of 300 feet, and it has the two-handed property. It deals 2d6 necrotic damage on a hit. If this damage reduces a creature or object to 0 hit points, the target is reduced to dust. A creature reduced to dust can be restored to life only by a true resurrection or wish spell."+
 	"\n   While the weapon is on your person, you can use an action to cast the disintegrate spell (save DC 18). Once this property is used, it can't be used again until the next dawn.",
-	weaponsAdd : ["Topaz Annihilator"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*Topaz)(?=.*tiamat).*$/i,
 		name : "Topaz Annihilator",
 		source : [["FToD", 24]],
@@ -1159,8 +1159,9 @@ MagicItemsList["topaz annihilator"] = {
 		range : "100/300 ft",
 		weight : 10,
 		description : "Two-handed; Targets reduced to 0 HP turn to dust",
-		abilitytodamage : true
-	},
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "dawn",
 	additional : "Disintegrate",
@@ -1276,8 +1277,7 @@ var FToD_HoardItems = {
 		recovery : "dawn",
 		limfeaname : ">>dragon<< Dragon's Wrath Breath (wakened)",
 		action : [["action", ""]],
-		weaponsAdd : ">>dragon<< DW Breath (wakened)",
-		weaponOptions : {
+		weaponOptions : [{
 			regExpSearch : "^(?=.*wakened)(?=.*>>dragon<< (dragon'?s? wrath|DW))(?=.*breath).*$",
 			name : ">>dragon<< Dragon's Wrath Breath (wakened)",
 			source : [["FToD", 25]],
@@ -1288,8 +1288,9 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : [8, ""]
-		}
+			modifiers : [8, ""],
+			selectNow : true
+		}]
 	},
 	"dww-ascendant" : {
 		description : "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +3 to its attack and damage rolls and deals +3d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target take 5 damage. As an action once per dawn, it can do a 60-ft cone, Dex DC 18 half, 12d6 damage dragon breath.",
@@ -1327,8 +1328,7 @@ var FToD_HoardItems = {
 		recovery : "dawn",
 		limfeaname : ">>dragon<< Dragon's Wrath Breath (ascendant)",
 		action : [["action", "Dragon's Wrath Breath Weapon"]],
-		weaponsAdd : ">>dragon<< DW Breath (ascendant)",
-		weaponOptions : {
+		weaponOptions : [{
 			regExpSearch : "^(?=.*ascendant)(?=.*>>dragon<< (dragon'?s? wrath|DW))(?=.*breath).*$",
 			name : ">>dragon<< Dragon's Wrath Breath (ascendant)",
 			source : [["FToD", 25]],
@@ -1339,8 +1339,9 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : [10, ""]
-		}
+			modifiers : [10, ""],
+			selectNow : true
+		}]
 	},
 	dragonsWrathWeaponCreate : function() {
 		var aTypes = [["Slumbering", "uncommon"], ["Stirring", "rare"], ["Wakened", "very rare"], ["Ascendant", "legendary"]];
@@ -1371,7 +1372,7 @@ var FToD_HoardItems = {
 				choices : []
 			}
 			for (var sAttr in oDwwObj) {
-				if (/^(description|weaponsAdd|weaponOptions|limfeaname)$/.test(sAttr)) continue;
+				if (/^(description|weaponOptions|limfeaname)$/.test(sAttr)) continue;
 				MagicItemsList[sItemNameLC][sAttr] = oDwwObj[sAttr];
 			}
 			for (var i = 0; i < aDragons.length; i++) {
@@ -1396,9 +1397,6 @@ var FToD_HoardItems = {
 				}
 				if (oDwwObj.limfeaname) {
 					MagicItemsList[sItemNameLC][sNameChoiceLC].limfeaname = [oDwwObj.limfeaname.replace(/>>dragon<</ig, sDragon)]
-				}
-				if (oDwwObj.weaponsAdd) {
-					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponsAdd = [oDwwObj.weaponsAdd.replace(/>>dragon<</ig, sDragon)]
 				}
 				if (oDwwObj.weaponOptions) {
 					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions = {};

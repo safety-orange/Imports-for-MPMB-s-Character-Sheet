@@ -1,5 +1,5 @@
 var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion("13.1.13");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
@@ -490,7 +490,6 @@ RaceList["lycanthrope-werebear"] = {
 			],
 			scoresOverride : [19, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Werebear Bite", "Werebear Claw"],
 			weaponOptions : [{
 				name : "Werebear Bite",
 				regExpSearch : /^(?=.*(werebear|lycanthrope))(?=.*bite).*$/i,
@@ -500,7 +499,8 @@ RaceList["lycanthrope-werebear"] = {
 				damage : [2, 10, "piercing"],
 				range : "Melee",
 				description : "Bear and Hybrid form only; Humanoids Con save or cursed",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}, {
 				name : "Werebear Claw",
 				regExpSearch : /^(?=.*(werebear|lycanthrope))(?=.*\bclaws?\b).*$/i,
@@ -510,7 +510,8 @@ RaceList["lycanthrope-werebear"] = {
 				damage : [2, 8, "slashing"],
 				range : "Melee",
 				description : "Bear and Hybrid form only",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			extraAC : [{
 				name : "+1 in bear/hybrid form",
@@ -585,7 +586,6 @@ RaceList["lycanthrope-wereboar"] = {
 			],
 			scoresOverride : [17, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Wereboar Tusks"],
 			weaponOptions : [{
 				name : "Wereboar Tusks",
 				regExpSearch : /^(?=.*(wereboar|lycanthrope))(?=.*tusks).*$/i,
@@ -595,7 +595,8 @@ RaceList["lycanthrope-wereboar"] = {
 				damage : [2, 6, "slashing"],
 				range : "Melee",
 				description : "Boar/hybrid form only; Humanoids Con save or cursed; Charge for +2d6 damage",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			extraAC : [{
 				name : "+1 in boar/hybrid form",
@@ -686,7 +687,6 @@ RaceList["lycanthrope-wererat"] = {
 			],
 			scoresOverride : [0, 15, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Wererat Bite"],
 			weaponOptions : [{
 				name : "Wererat Bite",
 				regExpSearch : /^(?=.*(wererat|lycanthrope))(?=.*bite).*$/i,
@@ -697,7 +697,8 @@ RaceList["lycanthrope-wererat"] = {
 				range : "Melee",
 				description : "Rat and Hybrid form only; Humanoids Con save or cursed",
 				abilitytodamage : true,
-				isWereratBite : true // for calcChanges.atkAdd
+				isWereratBite : true, // for calcChanges.atkAdd
+				selectNow : true
 			}],
 			calcChanges : {
 				atkAdd : [
@@ -774,7 +775,6 @@ RaceList["lycanthrope-weretiger"] = {
 			],
 			scoresOverride : [17, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Weretiger Bite", "Weretiger Claw"],
 			weaponOptions : [{
 				name : "Weretiger Bite",
 				regExpSearch : /^(?=.*(weretiger|lycanthrope))(?=.*bite).*$/i,
@@ -784,7 +784,8 @@ RaceList["lycanthrope-weretiger"] = {
 				damage : [1, 10, "piercing"],
 				range : "Melee",
 				description : "Tiger and Hybrid form only; Humanoids Con save or cursed",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}, {
 				name : "Weretiger Claw",
 				regExpSearch : /^(?=.*(weretiger|lycanthrope))(?=.*\bclaws?\b).*$/i,
@@ -794,7 +795,8 @@ RaceList["lycanthrope-weretiger"] = {
 				damage : [1, 8, "slashing"],
 				range : "Melee",
 				description : "Tiger and Hybrid form only; Can be use to pounce",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			vision : [["Darkvision", 60]]
 		},
@@ -881,7 +883,6 @@ RaceList["lycanthrope-werewolf"] = {
 			],
 			scoresOverride : [15, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Werewolf Bite", "Wolf-hybrid Claws"],
 			weaponOptions : [{
 				name : "Werewolf Bite",
 				regExpSearch : /^(?=.*(werewolf|lycanthrope))(?=.*bite).*$/i,
@@ -891,7 +892,8 @@ RaceList["lycanthrope-werewolf"] = {
 				damage : [1, 8, "piercing"],
 				range : "Melee",
 				description : "Wolf and Hybrid form only; Humanoids Con save or cursed",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}, {
 				name : "Wolf-hybrid Claws",
 				regExpSearch : /^(?=.*wolf)(?=.*hybrid)(?=.*\bclaws?\b).*$/i,
@@ -901,7 +903,8 @@ RaceList["lycanthrope-werewolf"] = {
 				damage : [2, 4, "slashing"],
 				range : "Melee",
 				description : "Hybrid form only",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			extraAC : [{
 				name : "+1 in wolf/hybrid form",

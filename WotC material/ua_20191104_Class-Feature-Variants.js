@@ -1,5 +1,5 @@
 var iFileName = "ua_20191104_Class-Feature-Variants.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Class Feature Variants article to MPMB's Character Record Sheet
 
 // Define the source
@@ -111,7 +111,7 @@ RunFunctionAtEnd(function() {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7) {
+						if (classes.known.cleric && (v.isWeapon || (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]].level === 0)) && /\d/.test(fields.Damage_Die)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per round +1d8 radiant damage';
 						}
 					},
@@ -405,7 +405,7 @@ RunFunctionAtEnd(function () {
 			name : aWea.name,
 			description : "",
 			source : aWea.source,
-			weaponsAdd : [aWea.name],
+			weaponsAdd : { select : [aWea.name] },
 			submenu : ((/simple/i).test(aWea.type) ? "\x1BSimple weapon, " : "Martial weapon, ") + ((/^(?!.*melee).*\d+.*$/i).test(aWea.range) ? "ranged" : "melee"),
 			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : isProficientWithWeapon("' + weapon + '", WeaponsList["' + weapon + '"]);'
 		}

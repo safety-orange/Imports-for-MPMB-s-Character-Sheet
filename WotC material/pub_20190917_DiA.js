@@ -1,5 +1,5 @@
 var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -210,13 +210,13 @@ MagicItemsList["candle mace"] = { // contributed by Nod_Hero
 	descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of this mace sheds bright light in a 5-foot-radius and dim light for an additional 5 feet. When you wield this mace, you can extinguish or ignite its light as an action.",
 	weight : 4,
 	action : [["action", " (on/off)"]],
-	weaponsAdd : ["Candle Mace"],
 	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*candle)(?=.*mace).*$/i,
 		name : "Candle Mace",
 		source : [["DiA", 39]],
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 }
 MagicItemsList["battle standard of infernal power"] = {
@@ -244,8 +244,8 @@ MagicItemsList["gauntlets of flaming fury"] = {
 	source : [["DiA", 223]],
 	type : "wondrous item",
 	rarity : "rare",
-	description : "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This last until I sheath or let go of a weapon.",
-	descriptionFull : "While you wear both of these steel gauntlets, any non- magical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheath or let go of either weapon. Once used, this property can't be used again until the next dawn.",
+	description : "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This lasts until I sheathe or let go of a weapon.",
+	descriptionFull : "While you wear both of these steel gauntlets, any non- magical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheathe or let go of either weapon. Once used, this property can't be used again until the next dawn.",
 	attunement : true,
 	action : [["bonus action", ""]],
 	usages : 1,
@@ -272,14 +272,14 @@ MagicItemsList["fane-eater"] = {
 	prerequisite : "Requires attunement by an evil cleric or paladin",
 	prereqeval : function(v) { return (classes.known.paladin || classes.known.cleric) && (/evil/i).test(What("Alignment")); },
 	weight : 4,
-	weaponsAdd : ["Fane-Eater"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /fane-eater/i,
 		name : "Fane-Eater",
 		source : [["DiA", 223]],
-		description : "Versatile (1d10); On 20 to hit: +2d8 necrotic damage and I heal same amount"
-	}
+		description : "Versatile (1d10); On 20 to hit: +2d8 necrotic damage and I heal same amount",
+		selectNow : true
+	}]
 }
 MagicItemsList["hellfire weapon"] = {
 	name : "Hellfire Weapon",
@@ -345,7 +345,7 @@ MagicItemsList["infernal puzzle box"] = {
 	descriptionFull : "An infernal puzzle box is a cube-shaped container 5 to 6 inches on a side, composed of airtight, interlocking parts made from materials found in the Nine Hells. Most of these boxes are made of infernal iron, though some are carved from bone or horn. Infernal puzzle boxes are used to safeguard diabolical contracts signed between devils and mortals, even after the terms of these contracts are fulfilled. An empty infernal puzzle box weighs 3 pounds regardless of the materials used to fashion it.\n   When an object small enough to fit inside an infernal puzzle box is placed in it, the container magically seals shut around the object, and no magic can force the box open. The sealed box becomes immune to all damage as well. Every infernal puzzle box is constructed with a unique means of opening it. The trick to solving the puzzle is always mundane, never magical. Once a creature figures out the trick or sequence of steps needed to open a particular infernal puzzle box, that creature can open the box as an action, allowing access to the box's contents.\n   A creature that spends 1 hour holding an infernal puzzle box while trying to open it can make a DC 30 Intelligence (Investigation) check. If the check succeeds, the creature figures out the trick or sequence of steps needed to open the box. If the check fails by 5 or more, the creature must make a DC 18 Wisdom saving throw, taking 42 (12d6) psychic damage on a failed save, or half as much damage on a successful one.",
 	weight : 3
 }
-// dupl_start
+// [dupl_start] reprint from Mordenkainen's Tome of Foes
 if (!SourceList.MToF) {
 	MagicItemsList["infernal tack"] = {
 		name : "Infernal Tack",
@@ -388,14 +388,14 @@ MagicItemsList["matalotok"] = {
 	descriptionFull : "Matalotok, the Frost Father, is an ancient hammer fashioned by Thrym, the god of frost giants. The favored weapon of the demon lord Kostchtchie, Matalotok is frigid to the touch and wreathed in mist.\n   You are immune to cold damage while holding Matalotok. Whenever it deals damage to a creature, the hammer radiates a burst of intense cold in a 30-foot-radius sphere. Each creature in that area takes 10 (3d6) cold damage.",
 	attunement : true,
 	weight : 2,
-	weaponsAdd : ["Matalotok"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /matalotok/i,
 		name : "Matalotok",
 		source : [["DiA", 224]],
-		description : "Versatile (1d10); On hit: all in 30-ft radius take 3d6 cold damage"
-	},
+		description : "Versatile (1d10); On hit: all in 30-ft radius take 3d6 cold damage",
+		selectNow : true
+	}],
 	savetxt : { immune : ["cold"] }
 }
 MagicItemsList["obsidian flint dragon plate"] = {
@@ -405,7 +405,6 @@ MagicItemsList["obsidian flint dragon plate"] = {
 	rarity : "legendary",
 	description : "I gain a +2 bonus to AC and resistance to poison damage while I wear this plate armor. In addition, I gain advantage on ability checks and saving throws made to avoid or end the grappled condition on myself.",
 	descriptionFull : "You gain a +2 bonus to AC and resistance to poison damage while you wear this armor. In addition, you gain advantage on ability checks and saving throws made to avoid or end the grappled condition on yourself.",
-	armorAdd : "Obsidian Flint Dragon Plate",
 	armorOptions : [{
 		regExpSearch : /^(?=.*obsidian)(?=.*flint)(?=.*dragon)(?=.*plate).*$/i,
 		name : "Obsidian Flint Dragon Plate",
@@ -414,7 +413,8 @@ MagicItemsList["obsidian flint dragon plate"] = {
 		ac : "18+2",
 		stealthdis : true,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}],
 	dmgres : ["Poison"],
 	savetxt : { adv_vs : ["grappled"] },

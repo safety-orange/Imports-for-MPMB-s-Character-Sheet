@@ -1,5 +1,5 @@
 var iFileName = "ua_20170327_A Trio-of-Subclasses.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: A Trio of Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -66,9 +66,9 @@ AddSubClass("paladin", "oath of redemption-ua", {
 				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
 				name : "Armor of Peace",
 				source : [["UA:AToS", 2]],
-				ac : 16
+				ac : 16,
+				selectNow : true
 			}],
-			armorAdd : "Armor of Peace",
 			spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
 		"subclassfeature3.1" : {

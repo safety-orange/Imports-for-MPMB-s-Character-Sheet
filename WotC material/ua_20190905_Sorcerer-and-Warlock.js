@@ -1,5 +1,5 @@
 var iFileName = "ua_20190905_Sorcerer-and-Warlock.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Sorcerer and Warlock article to MPMB's Character Record Sheet
 
 // Define the source
@@ -47,9 +47,9 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 				regExpSearch : /^(?=.*warped)(?=.*being).*$/i,
 				name : "Warped Being",
 				source : [["UA:SnW", 1]],
-				ac : 13
-			}],
-			armorAdd : "Warped Being"
+				ac : 13,
+				selectNow : true
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Psionic Sorcery",
@@ -149,9 +149,9 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 				range : "Melee (10 ft)",
 				description : "My choice of cold or lightning damage; Target -10 ft speed until my next turn starts",
 				abilitytodamage : false,
-				litdGraspOfTheDeep : true
+				litdGraspOfTheDeep : true,
+				selectNow : true
 			}],
-			weaponsAdd : ['Grasp of the Deep'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {

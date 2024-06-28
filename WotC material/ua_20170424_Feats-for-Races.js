@@ -1,5 +1,5 @@
 var iFileName = "ua_20170424_Feats-for-Races.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Feats for Races article to MPMB's Character Record Sheet
 
 // Define the source
@@ -71,14 +71,14 @@ FeatsList["dragon hide-ua"] = {
 	descriptionFull : "You inherited the might and majesty of your dragon ancestors. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.\n \u2022 Your scales harden; you gain a +1 bonus to AC while you aren't wearing armor.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me a +1 bonus to AC when I'm not wearing armor. [+1 Strength or Charisma]",
 	scorestxt : "+1 Strength or Charisma",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
 		source : [["UA:FR", 2]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ['Retractable Claws'],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm not wearing armor.",

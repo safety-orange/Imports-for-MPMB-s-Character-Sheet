@@ -1,5 +1,5 @@
 var iFileName = "ua_20191125_Fighter-Rogue-and-Wizard.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
 
 // Define the source
@@ -134,7 +134,6 @@ AddSubClass("rogue", "soulknife-ua", {
 				"Disappear if I'm incapacitated, leave my hand (not thrown), or I dismiss it (no action)"
 			]),
 			action : [["bonus action", " (create)"]],
-			weaponsAdd : ["Soulknife's Psychic Blade"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*soulknife)(?=.*psychic)(?=.*blade).*$/i,
 				name : "Soulknife's Psychic Blade",
@@ -145,7 +144,8 @@ AddSubClass("rogue", "soulknife-ua", {
 				range : "Melee, 30/60 ft",
 				description : "Finesse, light, thrown",
 				abilitytodamage : true,
-				isSoulknifePsychicBlade : true
+				isSoulknifePsychicBlade : true,
+				selectNow : true
 			}]
 		},
 		"subclassfeature3.1" : {

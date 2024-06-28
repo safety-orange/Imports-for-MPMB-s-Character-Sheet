@@ -806,13 +806,13 @@
 			descriptionFull : "You can make a bite attack as an unarmed strike. On a hit, it deals 1d6 piercing damage plus 3d6 necrotic damage. You regain a number of hit points equal to the necrotic damage dealt. While you are in sunlight, you can't regain hit points.",
 			attunement : false,
 			source : [["T", 137]],
-			weaponsAdd : ["Bite"],
 			weaponOptions : [{
 				name : "Bite",
 				source : [["T", 137]],
 				regExpSearch : /^(?=.*bite).*$/i,
 				description : "additional 3d6 necrotic damage, necrotic damage regained in hit points",
-				baseWeapon : "unarmed strike"
+				baseWeapon : "unarmed strike",
+				selectNow : true
 			}]
 		},
 		"d20 12" : {
@@ -915,7 +915,6 @@
 			savetxt : {
 				immune : ["fire"]
 			},
-			weaponsAdd : ["Red Dragon fang (ToD-N)"],
 			weaponOptions : [{
 				name : "Red Dragon fang (ToD-N)",
 				source : [["T", 137]],
@@ -927,6 +926,7 @@
 				range : "90 foot cone",
 				dc : true,
 				description : "90 foot cone; Dexterity save DC 24, half damage on success",
+				selectNow : true
 			}],
 			calcChanges : {
 				atkAdd : [

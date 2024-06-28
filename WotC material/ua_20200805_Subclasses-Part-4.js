@@ -89,7 +89,7 @@ AddSubClass("bard", "college of spirits-ua",{
 				"While holding a spiritual focus, I can add 1d6 to one damage or healing roll of bard spells"
 			]),
 			calcChanges : {
-				atkCalc : [
+				atkAdd : [
 					function (fields, v, output) {
 						if (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]] && v.thisWeapon[4].indexOf("bard") !== -1) {
 							// If RAW is selected, first test if this spell is eligible to use with a spellcasting focus

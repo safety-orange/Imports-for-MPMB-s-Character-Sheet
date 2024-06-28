@@ -1,5 +1,5 @@
 var iFileName = "pub_20220125_MotM.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from Mordenkainen Presents: Monsters of the Multiverse to MPMB's Character Record Sheet
 // Includes many contributions by Nod_Hero and BraabHimself
 
@@ -24,14 +24,14 @@ RaceList["multiverse aarakocra"] = {
 		walk : { spd : 30, enc : 20 },
 		fly : { spd : "walk", enc : 0 }
 	},
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /talon/i,
 		name : "Talons",
 		source : [["MotM", 5]],
-		damage : [1, 6, "slashing"]
-	},
-	weaponsAdd : ["Talons"],
+		damage : [1, 6, "slashing"],
+		selectNow : true
+	}],
 	spellcastingAbility : [4, 5, 6],
 	features : {
 		"wind caller" : {
@@ -190,15 +190,15 @@ RaceList["multiverse centaur"] = {
 	speed : {
 		walk : { spd : 40, enc : 30 }
 	},
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : [["MotM", 9]],
 		damage : [1, 6, "bludgeoning"],
-		description : "Use as bonus action after charge 30 ft"
-	},
-	weaponsAdd : ["Hooves"],
+		description : "Use as bonus action after charge 30 ft",
+		selectNow : true
+	}],
 	action : [["bonus action", "Hooves (after charge)"]],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	scoresGeneric : true,
@@ -1237,21 +1237,21 @@ RaceList["multiverse lizardfolk"] = {
 		swim : { spd : "walk", enc : "walk" }
 	},
 	skillstxt : "Choose two from Animal Handling, Medicine, Nature, Perception, Stealth, and Survival",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bbite\b/i,
 		name : "Bite",
 		source : [["MotM", 26]],
 		damage : [1, 6, "slashing"],
-	},
-	weaponsAdd : ["Bite"],
+		selectNow : true
+	}],
 	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["MotM", 26]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	scoresGeneric : true,
 	features : {
 		"hungry jaws" : {
@@ -1281,15 +1281,15 @@ RaceList["multiverse minotaur"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["MotM", 27]],
 		damage : [1, 6, "piercing"],
-		description : "Attack as a bonus action after moving 20 ft with the Dash action"
-	},
-	weaponsAdd : ["Horns"],
+		description : "Attack as a bonus action after moving 20 ft with the Dash action",
+		selectNow : true
+	}],
 	scoresGeneric : true,
 	abilitySave : 1,
 	vision : [["Always know north", 0], ["Adv. on Survival to navigate or track", 0]],
@@ -1346,14 +1346,14 @@ RaceList["multiverse satyr"] = {
 		walk : { spd : 35, enc : 25 }
 	},
 	savetxt : { adv_vs : ["spells"] },
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
 		name : "Satyr Headbutt",
 		source : [["MotM", 29]],
-		damage : [1, 6, "bludgeoning"]
-	},
-	weaponsAdd : ["Satyr Headbutt"],
+		damage : [1, 6, "bludgeoning"],
+		selectNow : true
+	}],
 	toolProfs : [["Musical instrument", 1]],
 	scoresGeneric : true,
 	skills : ["Performance", "Persuasion"],
@@ -1446,15 +1446,15 @@ RaceList["multiverse shadar-kai"] = {
 	trait : "\n \u2022 Shifting (Longtooth): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and my fangs elongate. As part of the bonus action when I shift and as a bonus action while shifted, I can make a single unarmed strike with my elongated fangs that deals 1d6 piercing damage.",
 	extra : {
 		action : [["bonus action", "Longtooth Fangs (while shifted)"]],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 			name : "Longtooth Fangs",
 			source : [["MotM", 32]],
 			damage : [1, 6, "piercing"],
 			description : "Only while shifted; One attack as bonus action",
-		},
-		weaponsAdd : ["Longtooth Fangs"]
+			selectNow : true
+		}]
 	}
 }, {
 	name : "Swiftstride",
@@ -1511,7 +1511,6 @@ RaceList["multiverse shadar-kai"] = {
 RaceList["tabaxi-motm"] = { // just a plain improvement over the previous, no need to make it a separate "multiverse" choice
 	regExpSearch : /tabaxi/i,
 	name : "Tabaxi",
-	sortname : "Tabaxi",
 	source : [["MotM", 33]],
 	plural : "Tabaxi",
 	size : [3, 4],
@@ -1521,14 +1520,14 @@ RaceList["tabaxi-motm"] = { // just a plain improvement over the previous, no ne
 	},
 	skills : ["Perception", "Stealth"],
 	vision : [["Darkvision", 60]],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(tabaxi|\bcat\b))(?=.*claw).*$/i,
 		name : "Tabaxi Claws",
 		source : [["MotM", 33]],
-		damage : [1, 6, "slashing"]
-	},
-	weaponsAdd : ["Tabaxi Claws"],
+		damage : [1, 6, "slashing"],
+		selectNow : true
+	}],
 	scoresGeneric : true,
 	age : " reach adulthood in their late teens and live less than 100 years [according to VGtM]",
 	height : ", when Medium sized, range from 5 to well over 6 feet tall (4'10\" + 2d10\") [according to VGtM]",
@@ -1566,17 +1565,17 @@ RaceList["tortle-motm"] = { // just a plain improvement over the previous, no ne
 		name : "Tortle's Shell",
 		source : [["MotM", 34]],
 		ac : 17,
-		dex : -10
+		dex : -10,
+		selectNow : true
 	}],
-	armorAdd : "Tortle's Shell",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 		name : "Tortle's Claws",
 		source : [["MotM", 34]],
-		damage : [1, 6, "slashing"]
-	},
-	weaponsAdd : ["Tortle's Claws"],
+		damage : [1, 6, "slashing"],
+		selectNow : true
+	}],
 	scoresGeneric : true,
 	age : " reach adulthood by the age of 15 and live an average of 50 years [according to the Tortle Package]",
 	height : ", when Medium sized, stand between 5 and 6 feet tall (4'10\" + 2d8\") [according to the Tortle Package]",

@@ -10,8 +10,8 @@ Questions or remarks are best made on the MPMB [Discord server](https://discord.
 
 &nbsp;
 
-## Get all WotC content in your character sheet
-To get all the non-duplicate content from this, all you need is the **all_WotC** files from a [release](../../releases). Be aware that the file above might be for a version of MPMB's that is still under development.
+## How to use
+To get all the non-duplicate WotC content, all you need is the **all_WotC** files from a [release](../../releases). Be aware that the files above might be for a version of MPMB's that is still under development.
 
 1. Download the latest version of the PDF from [MPMB's website](https://www.flapkan.com/#download).
 2. [Click here](https://github.com/safety-orange/Imports-for-MPMB-s-Character-Sheet/releases/latest/download/all_WotC_pub+UA.min.js) to download the latest all_WotC_pub+UA.min.js release, and save it somewhere on your machine.
@@ -19,6 +19,8 @@ To get all the non-duplicate content from this, all you need is the **all_WotC**
 4. From the menu that appears, select the option **Import a file with additional material**.
 5. In the dialog that opens, click **Add file**, and open the file you saved in step 1.
 6. Click **Apply changes** in the Import Files dialog and the sheet will process the file you added. You will get a pop-up message if it was successful or not.
+
+MPMB has a more flashy explanation, along with a video, on how to do this in [this how-to guide on his website](https://www.flapkan.com/how-to/add-more-content).
 
 &nbsp;
 

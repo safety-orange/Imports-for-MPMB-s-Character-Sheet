@@ -1,5 +1,5 @@
 var iFileName = "ua_20170109_Artificer.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Artificer article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Artificer; the ones provided here are extrapolated from other classes
 
@@ -286,7 +286,7 @@ AddSubClass("artificer-ua", "alchemist", {
 				return Math.ceil(n / 2) + "d6 acid damage";
 			}),
 			action : ["action", ""],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
 				name : "Alchemical Acid",
 				source : [["UA:A", 5]],
@@ -298,9 +298,9 @@ AddSubClass("artificer-ua", "alchemist", {
 				description : "Dex save, success - no damage; Objects automatically take maximum damage",
 				abilitytodamage : false,
 				dc : true,
-				artAlcAcid : true
-			},
-			weaponsAdd : ['Alchemical Acid'],
+				artAlcAcid : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -323,7 +323,7 @@ AddSubClass("artificer-ua", "alchemist", {
 				return Math.ceil(n / 3) + "d6 fire damage";
 			}),
 			action : ["action", ""],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*alchemical)(?=.*fire).*$/i,
 				name : "Alchemical Fire",
 				source : [["UA:A", 5]],
@@ -335,9 +335,10 @@ AddSubClass("artificer-ua", "alchemist", {
 				description : "Dex save, success - no damage; All creatures within 5-ft of the point of impact have to save",
 				abilitytodamage : false,
 				dc : true,
-				artAlcFire : true
-			},
-			weaponsAdd : ['Alchemical Fire'],
+				artAlcFire : true,
+				selectNow : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -380,7 +381,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			]),
 			weaponProfs : [false, false, ["thunder cannon"]],
 			action : ["bonus action", " (reload)"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?!.*(blast|monger|piercing|explosive|round))(?=.*\bthunder)(?=.*cannon\b).*$/i,
 				name : "Thunder Cannon",
 				source : [["UA:A", 6]],
@@ -391,9 +392,10 @@ AddSubClass("artificer-ua", "gunsmith", {
 				weight : 12, // made up, based on the weight of real rifles
 				description : "Ammunition, loading, two-handed, bonus action to reload",
 				abilitytodamage : true,
-				ammo : "Arcane Magazine"
-			},
-			ammoOptions : {
+				ammo : "Arcane Magazine",
+				selectNow : true
+			}],
+			ammoOptions : [{
 				name : "Arcane Magazine",
 				source : [["UA:A", 7]],
 				weight : 0.2, // based on the weight of renaissance bullets from the DMG
@@ -402,8 +404,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				display : 50,
 				invName : "Thunder Cannon Rounds",
 				alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
-			},
-			weaponsAdd : ['Thunder Cannon']
+			}]
 		},
 		"subclassfeature1.2" : {
 			name : "Arcane Magazine",
@@ -425,7 +426,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				return "+" + Math.floor((n - 1) / 2) + "d6 thunder damage";
 			}),
 			action : ["action", ""],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*monger\b).*$/i,
 				name : "Thunder Cannon (Monger)",
 				source : [["UA:A", 6]],
@@ -436,9 +437,9 @@ AddSubClass("artificer-ua", "gunsmith", {
 				description : "Ammunition, loading, two-handed, bonus action to reload",
 				abilitytodamage : true,
 				ammo : "Arcane Magazine",
-				artTCmonger : true
-			},
-			weaponsAdd : ['Thunder Cannon (Monger)'],
+				artTCmonger : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -463,7 +464,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				"4d6 force damage";
 			}),
 			action : ["action", ""],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bblast)(?=.*wave\b).*$/i,
 				name : "Thunder Cannon (Blast Wave)",
 				source : [["UA:A", 6]],
@@ -475,9 +476,9 @@ AddSubClass("artificer-ua", "gunsmith", {
 				dc : true,
 				abilitytodamage : false,
 				ammo : "Arcane Magazine",
-				artTCblast : true
-			},
-			weaponsAdd : ['Thunder Cannon (Blast Wave)'],
+				artTCblast : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -501,7 +502,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				"6d6 lightning damage";
 			}),
 			action : ["action", ""],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bpiercing)(?=.*round\b).*$/i,
 				name : "Thunder Cannon (Piercing Round)",
 				source : [["UA:A", 6]],
@@ -513,9 +514,9 @@ AddSubClass("artificer-ua", "gunsmith", {
 				dc : true,
 				abilitytodamage : false,
 				ammo : "Arcane Magazine",
-				artTCpiercing : true
-			},
-			weaponsAdd : ['Thunder Cannon (Piercing Round)'],
+				artTCpiercing : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -536,7 +537,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			]),
 			additional : "4d8 fire damage",
 			action : ["action", ""],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bexplosive)(?=.*round\b).*$/i,
 				name : "Thunder Cannon (Explosive Round)",
 				source : [["UA:A", 7]],
@@ -547,9 +548,9 @@ AddSubClass("artificer-ua", "gunsmith", {
 				description : "Ammunition, loading, two-handed, bonus action to reload; 30-ft radius sphere; Dex save or damage",
 				dc : true,
 				abilitytodamage : false,
-				ammo : "Arcane Magazine"
-			},
-			weaponsAdd : ['Thunder Cannon (Explosive Round)']
+				ammo : "Arcane Magazine",
+				selectNow : true
+			}]
 		}
 	}
 });

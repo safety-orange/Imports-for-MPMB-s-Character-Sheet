@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.14");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -365,24 +365,8 @@ AddSubClass("cleric", "knowledge domain", {
 			name : "Potent Spellcasting",
 			source : [["P", 60]],
 			minlevel : 8,
-			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Visions of the Past",
@@ -451,24 +435,8 @@ AddSubClass("cleric", "light domain", {
 			name : "Potent Spellcasting",
 			source : [["P", 61]],
 			minlevel : 8,
-			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Corona of Light",
@@ -529,7 +497,7 @@ AddSubClass("cleric", "nature domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 cold/fire/lightning damage';
 						}
 					},
@@ -594,7 +562,7 @@ AddSubClass("cleric", "tempest domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 thunder damage';
 						}
 					},
@@ -653,7 +621,7 @@ AddSubClass("cleric", "trickery domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 poison damage';
 						}
 					},
@@ -724,7 +692,7 @@ AddSubClass("cleric", "war domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
 						}
 					},
@@ -3061,7 +3029,7 @@ BackgroundList["soldier"] = {
 		"I'm haunted by memories of war. I can't get the violent images out of my mind.",
 		"I'm slow to make new friends, because I've lost too many old ones.",
 		"I'm full of inspiring and cautionary tales from my military experience with some relevance to almost every type of combat situation.",
-		"I can stare down a owlbear without flinching.",
+		"I can stare down an owlbear without flinching.",
 		"I enjoy my strength and like to break things.",
 		"I have a rough sense of humor.",
 		"I approach problems head-on. A simple, direct course is the best path to a solution."
@@ -3672,18 +3640,18 @@ FeatsList["polearm master"] = {
 	source : [["P", 168]],
 	descriptionFull : "You can keep your enemies at bay with reach weapons. You gain the following benefits:\n \u2022 When you take the Attack action and attack with only a glaive, halberd, quarterstaff, or spear, you can use a bonus action to make a melee attack with the opposite end of the weapon; this attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and the attack deals bludgeoning damage.\n \u2022 While you are wielding a glaive, halberd, pike, quarterstaff, or spear, other creatures provoke an opportunity attack from you when they enter your reach.",
 	description : "As a bonus action when I do the Attack action with a glaive/" + (typePF ? " " : "") + "halberd/quarterstaff/spear, I can make a 1d4 bludgeoning attack with its butt end." + (typePF ? "\n" : " ") + "While wielding a glaive/halberd/" + (typePF ? "" : " ") + "pike/quarterstaff/spear, I get an opportunity attack when a creature enters my reach.",
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)))(?=.*butt)(?=.*end).*$/i,
-		name : "Polearm butt end",
+		name : "Polearm Butt End",
 		source : [["P", 168]],
 		ability : 1,
 		type : "polearm butt end",
 		damage : [1, 4, "bludgeoning"],
 		range : "Melee",
 		description : "As bonus action after Attack action with only a glaive, halberd, spear, or quarterstaff",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Polearm Butt End"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	action : ['bonus action', 'Butt End Attack (after attack with polearm)'],
 	weaponProfs : [false, false, ["polearm butt end"]]
 };

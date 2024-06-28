@@ -1,5 +1,5 @@
 var iFileName = "ua_20180108_Three-Subclasses.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Three Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -190,9 +190,9 @@ AddSubClass("wizard", "school of invention-ua", {
 				type : "light",
 				ac : 12,
 				weight : 8,
-				invName : "Arcanomechanical armor"
-			}],
-			armorAdd : "Arcanomechanical"
+				invName : "Arcanomechanical armor",
+				selectNow : true
+			}]
 		},
 		"subclassfeature2.2" : {
 			name : "Reckless Casting",

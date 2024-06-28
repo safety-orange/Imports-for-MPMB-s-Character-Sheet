@@ -1,5 +1,5 @@
 var iFileName = "ua_20210414_Draconic-Options.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana 2021: Draconic Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -50,7 +50,6 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 					minlevel : 3,
 					usages : 1,
 					recovery : "long rest",
-					weaponsAdd : ["Metallic Breath Weapon"],
 					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
@@ -61,7 +60,8 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 						range : "15-ft cone",
 						description : "Str save or pushed 20 ft and knocked prone -or- Con save or incapacitated until my next turn starts",
 						abilitytodamage : false,
-						dc : true
+						dc : true,
+						selectNow : true
 					}]
 				}
 			}
@@ -101,7 +101,6 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				walk : { spd : 30, enc : 20 }
 			},
 			languageProfs : ["Common", 1],
-			weaponsAdd : ["Breath Weapon"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
@@ -113,7 +112,8 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				description : "Hits all in area; Dex save, success - half damage",
 				abilitytodamage : false,
 				dc : true,
-				dbBreathWeapon : true
+				dbBreathWeapon : true,
+				selectNow : true
 			}],
 			age : " reach adulthood by 15 and live around 80 years",
 			height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -227,14 +227,14 @@ AddRacialVariant("draconic kobold-ua", "cantrip", {
 AddRacialVariant("draconic kobold-ua", "tail", {
 	regExpSearch : /tail/i,
 	source : [["UA:DO", 4]],
-	weaponsAdd : ["Draconic Tail"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*draconic)(?=.*tail).*$/i,
 		name : "Draconic Tail",
 		source : [["UA:DO", 4]],
-		damage : [1, 6, "bludgeoning"]
-	},
+		damage : [1, 6, "bludgeoning"],
+		selectNow : true
+	}],
 	trait : "Draconic Kobold"+
 	'\n \u2022 Draconic Legacy (Tail): I can make unarmed strikes with my tail. The tail deals 1d6 + my Strength modifier bludgeoning damage.'+
 	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."

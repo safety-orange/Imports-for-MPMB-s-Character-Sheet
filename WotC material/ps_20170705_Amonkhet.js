@@ -1,5 +1,5 @@
 var iFileName = "ps_20170705_Amonkhet.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds all material from the Plane Shift: Amonkhet article (https://dnd.wizards.com/articles/features/plane-shift-amonkhet) to MPMB's Character Record Sheet
 // This code contains contributions by /u/MILKB0T and /u/juju2569
 
@@ -228,14 +228,14 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	size : 3,
 	speed : { walk : { spd : 30, enc : 20 } },
 	languageProfs : ["Common", "Minotaur"],
-	weaponsAdd : ["Horns"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["PS:A", 20]],
-		damage : [1, 6, "bludgeoning"]
-	},
+		damage : [1, 6, "bludgeoning"],
+		selectNow : true
+	}],
 	skills : ["Intimidation"],
 	age : " reach full maturity around the age of 20, but rarely live beyond 40",
 	height : " are well over 6 feet tall",
@@ -293,7 +293,8 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 		damage : [1, 4, "piercing"],
 		range : "Melee",
 		description : "Target must make Constitution save (DC 8 + Prof Bonus + Con mod) or take +1d4 poison damage",
-		abilitytodamage : true
+		abilitytodamage : true,
+		selectNow : true
 	}, {
 		regExpSearch : /\bconstrict\b/i,
 		name : "Constrict",
@@ -303,9 +304,9 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 		damage : [1, 6, "bludgeoning"],
 		range : "Melee",
 		description : "Target is grappled and restrained (escape DC 8+Prof+Str mod); Can't use constrict again until grapple ends",
-		abilitytodamage : true
+		abilitytodamage : true,
+		selectNow : true
 	}],
-	weaponsAdd : ["Naga Bite", "Constrict"],
 	age : " reach adulthood in their late teens and show no signs of aging beyond that point except for growing larger. They could live well over a century.",
 	height : " stand about 5 feet tall when upright, but the total length of their bodies, head to tail, ranges from 10 to as much as 20 feet",
 	weight : " weigh around 200 lb",
@@ -372,7 +373,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
 						}
 					},
@@ -445,7 +446,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
 						}
 					},
@@ -505,24 +506,8 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 			name : "Potent Spellcasting",
 			source : [["PS:A", 27]],
 			minlevel : 8,
-			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Improved Duplicity",
@@ -580,7 +565,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
 						}
 					},

@@ -1,5 +1,5 @@
 var iFileName = "pub_20200317_EGtW.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
 
 // Define the source
@@ -216,7 +216,8 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		description : "Hits all in area; Dex save, success - half damage; Usable only once per short rest",
 		abilitytodamage : false,
 		dc : true,
-		dbBreathWeapon : true
+		dbBreathWeapon : true,
+		selectNow : true
 	};
 	var EGtW_acidBreath = EGtW_breathWeaponDesc("acid", "line");
 	var EGtW_fireBreathCone = EGtW_breathWeaponDesc("fire", "cone");
@@ -241,7 +242,6 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
 		weaponOptions : [EGtW_breathWeaponObj],
-		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 		weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
@@ -369,7 +369,6 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
 		weaponOptions : [EGtW_breathWeaponObj],
-		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 		weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
@@ -850,14 +849,14 @@ if (!SourceList.E) {
 			fly : { spd : 50, enc : 0 }
 		},
 		languageProfs : ["Common", "Aarakocra", "Auran"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /talon/i,
 			name : "Talons",
 			source : [["E", 5], ["W", 166]],
-			damage : [1, 4, "slashing"]
-		},
-		weaponsAdd : ["Talons"],
+			damage : [1, 4, "slashing"],
+			selectNow : true
+		}],
 		age : " reach maturity by age 3 and live about 30 years",
 		height : " are about 5 feet tall",
 		weight : " weigh between 80 and 100 lb",
@@ -1102,17 +1101,17 @@ if (!RaceList.tortle) {
 			name : "Tortle's Shell",
 			source : [["TP", 4], ["W", 181]],
 			ac : 17,
-			dex : -10
+			dex : -10,
+			selectNow : true
 		}],
-		armorAdd : "Tortle's Shell",
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 			name : "Tortle's Claws",
 			source : [["TP", 4], ["W", 181]],
-			damage : [1, 4, "slashing"]
-		},
-		weaponsAdd : ["Tortle's Claws"],
+			damage : [1, 4, "slashing"],
+			selectNow : true
+		}],
 		age : " reach adulthood by the age of 15 and live an average of 50 years",
 		height : " stand between 5 and 6 feet tall (4'10\" + 2d8\")",
 		weight : " weigh around 450 lb (400 + 2d8 \xD7 2d4 lb)",
@@ -2195,15 +2194,15 @@ MagicItemsList["bloodaxe"] = {
 	attunement : true,
 	description : "This rust-colored magical greataxe grants a +2 bonus to attack and damage rolls made with it. The axe deals an additional 1d6 necrotic damage to creature's that aren't constructs or undead. If I reduce a creature to 0 hit points with this axe, I gain 10 temporary hit points.",
 	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic axe. The axe deals an extra 1d6 necrotic damage to creatures that aren't constructs or undead. If you reduce such a creature to 0 hit points with an attack using this axe, you gain 10 temporary hit points.\n   This axe is forged from a dark, rust-colored metal and once belonged to the goliath barbarian Grog Strongjaw of Vox Machina.",
-	weaponsAdd : ["Bloodaxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /bloodaxe/i,
 		name : "Bloodaxe",
 		source : [["W", 266]],
 		description : "Heavy, two-handed; +1d6 necrotic damage to living targets",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	weight : 7
 };
 MagicItemsList["breathing bubble"] = {
@@ -2328,16 +2327,16 @@ MagicItemsList["duskcrusher"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	weaponsAdd : ["Duskcrusher"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /duskcrusher/i,
 		name : "Duskcrusher",
 		source : [["W", 266]],
 		damage : [1, 8, "radiant"],
 		description : "Versatile (1d10); +1d8 damage vs. undead",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	weight : 2,
 	fixedDC : 15,
 	spellcastingBonus : {
@@ -2402,14 +2401,14 @@ MagicItemsList["hunter's coat"] = {
 	usages : 3,
 	recovery : "dawn",
 	additional : "regains 1d3",
-	armorAdd : "Hunter's Coat",
 	armorOptions : [{
 		regExpSearch : /^(?=.*hunter)(?=.*coat).*$/i,
 		name : "Hunter's Coat",
 		source : [["W", 267]],
 		type : "light",
 		ac : "11+1",
-		weight : 10
+		weight : 10,
+		selectNow : true
 	}],
 	weight : 10
 };
@@ -2469,14 +2468,14 @@ MagicItemsList["needle of mending"] = {
 	description : "This weapon is a magic dagger disguised as a sewing needle. As a bonus action, I can speak its command word to transform it into a dagger or back into a needle. I gain a +1 bonus to attack and damage rolls made with the dagger. As an action while holding it, I can cast the mending cantrip from it.",
 	descriptionFull : "This weapon is a magic dagger disguised as a sewing needle. When you hold it and use a bonus action to speak its command word, it transforms into a dagger or back into a needle.\n   You gain a +1 bonus to attack and damage rolls made with the dagger. While holding it, you can use an action to cast the mending cantrip from it.",
 	action : [["bonus action", " (transform)"]],
-	weaponsAdd : ["Needle of Mending"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*needle)(?=.*mending).*$/i,
 		name : "Needle of Mending",
 		source : [["W", 268]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	spellcastingBonus : {
 		name : "At will",
 		spells : ["mending"],
@@ -2995,14 +2994,14 @@ MagicItemsList["hide of the feral guardian"] = {
 	"dormant" : {
 		name : "Hide of the Feral Guardian [dormant]",
 		description : "This +1 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +1 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to transform into a giant owl.",
-		armorAdd : "Hide of the Feral Guardian",
 		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
 			ac : "12+1",
-			weight : 13
+			weight : 13,
+			selectNow : true
 		}],
 		spellChanges : {
 			"polymorph" : {
@@ -3015,16 +3014,15 @@ MagicItemsList["hide of the feral guardian"] = {
 	},
 	"awakened" : {
 		name : "Hide of the Feral Guardian [awakened]",
-		armorAdd : "Hide of the Feral Guardian [awakened]",
 		description : "This +2 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +2 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl or cave bear.",
-		armorAdd : "Hide of the Feral Guardian",
 		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
 			ac : "12+2",
-			weight : 13
+			weight : 13,
+			selectNow : true
 		}],
 		spellChanges : {
 			"polymorph" : {
@@ -3038,14 +3036,14 @@ MagicItemsList["hide of the feral guardian"] = {
 	"exalted" : {
 		name : "Hide of the Feral Guardian [exalted]",
 		description : "This +3 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then grants a +2 to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl, cave bear or guardian wolf.",
-		armorAdd : "Hide of the Feral Guardian",
 		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
 			ac : "12+3",
-			weight : 13
+			weight : 13,
+			selectNow : true
 		}],
 		spellChanges : {
 			"polymorph" : {
@@ -3138,15 +3136,15 @@ MagicItemsList["infiltrator's key"] = {
 		name : "Infiltrator's Key [awakened]",
 		description : "I can use this mithral skeleton key as thieves' tools to open locks. I'm proficient with it and gain adv. on the roll. While holding it, I have adv. on Stealth checks to move silently. As a bonus action, I can transform it into a +1 dagger that returns immediately when thrown. I can use it to cast several spells, each once per dawn.",
 		action : [["bonus action", "Infiltrator's Key (transform dagger)"]],
-		weaponsAdd : ["Infiltrator's Key"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "dagger",
 			regExpSearch : /infiltrator's key|key of the infiltrator/i,
 			name : "Infiltrator's Key",
 			source : [["W", 273]],
 			description : "Finesse, light, thrown; Returns when thrown",
-			modifiers : [1, 1]
-		},
+			modifiers : [1, 1],
+			selectNow : true
+		}],
 		spellcastingAbility : "class",
 		spellcastingBonus : {
 			name : "Once per dawn",
@@ -3163,15 +3161,15 @@ MagicItemsList["infiltrator's key"] = {
 			["bonus action", "Infiltrator's Key (transform dagger)"],
 			["bonus action", "Infiltrator's Key (create opening)"]
 		],
-		weaponsAdd : ["Infiltrator's Key"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "dagger",
 			regExpSearch : /infiltrator's key|key of the infiltrator/i,
 			name : "Infiltrator's Key",
 			source : [["W", 273]],
 			description : "Finesse, light, thrown; Returns when thrown",
-			modifiers : [1, 1]
-		},
+			modifiers : [1, 1],
+			selectNow : true
+		}],
 		spellcastingAbility : "class",
 		spellcastingBonus : {
 			name : "Once per dawn",
@@ -3223,7 +3221,7 @@ MagicItemsList["stormgirdle"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*storm avatar)(?=.*lightning strike).*$/i,
 		name : "Storm Avatar's Lightning Strike",
 		source : [["W", 273]],
@@ -3235,7 +3233,7 @@ MagicItemsList["stormgirdle"] = {
 		modifiers : [7, ""],
 		dc : true,
 		stormAvatarLightningStrike : true
-	},
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -3253,14 +3251,12 @@ MagicItemsList["stormgirdle"] = {
 	"dormant" : {
 		name : "Stormgirdle [dormant]",
 		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 21. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. See Notes page for more information.",
-		scoresOverride : [21, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Storm Avatar's Lightning Strike"]
+		scoresOverride : [21, 0, 0, 0, 0, 0]
 	},
 	"awakened" : {
 		name : "Stormgirdle [awakened]",
 		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 23. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. See Notes page for more information.",
-		scoresOverride : [23, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Storm Avatar's Lightning Strike"]
+		scoresOverride : [23, 0, 0, 0, 0, 0]
 	},
 	"exalted" : {
 		name : "Stormgirdle [exalted]",
@@ -3383,16 +3379,16 @@ MagicItemsList["verminshroud"] = {
 		},
 		speed : { climb : { spd : "walk", enc : "walk" } },
 		action : [["bonus action", "Verminshroud: Bite"]],
-		weaponsAdd : ["Verminshroud: Bite"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*verminshroud)(?=.*bite).*$/i,
 			name : "Verminshroud: Bite",
 			source : [["W", 273]],
 			damage : [1, 6, "piercing"],
 			description : "Bonus action; DC17 Con save or poisoned 1 min, repeat save end of their turns",
-			abilitytodamage : true
-		}
+			abilitytodamage : true,
+			selectNow : true
+		}]
 	}
 };
 var EGtW_WreathPrismFullDescription = [

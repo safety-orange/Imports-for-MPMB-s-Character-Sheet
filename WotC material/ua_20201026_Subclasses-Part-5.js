@@ -1,5 +1,5 @@
 var iFileName = "ua_20201026_Subclasses-Part-5.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 5 article to MPMB's Character Record Sheet
 // This file contains contributions by WondrousLittleWizard
 
@@ -68,8 +68,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 				additional : levels.map(function (n) {
 					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
 				}),
-				weaponsAdd : ["Breath of the Dragon"],
-				weaponOptions : {
+				weaponOptions : [{
 					regExpSearch : /^(?=.*breath)(?=.*dragon).*$/i,
 					name : "Breath of the Dragon",
 					source : [["UA:SP5", 1]],
@@ -81,8 +80,9 @@ AddSubClass("monk", "ascendant dragon-ua", {
 					dc : true,
 					monkweapon : false,
 					abilitytodamage : false,
-					UA_WotAD_BreathWeapon : true
-				},
+					UA_WotAD_BreathWeapon : true,
+					selectNow : true
+				}],
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -297,8 +297,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 			usages : 1,
 			recovery : "long rest",
 			altResource : "SS 3+",
-			weaponsAdd : ["Drake's Breath"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*drake)(?=.*breath).*$/i,
 				name : "Drake's Breath",
 				source : [["UA:SP5", 4]],
@@ -310,8 +309,9 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 				abilitytodamage : false,
 				dc : true,
 				useSpellMod : "ranger",
-				DrakewardenDrakeBreath : true
-			},
+				DrakewardenDrakeBreath : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {

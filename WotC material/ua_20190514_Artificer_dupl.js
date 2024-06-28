@@ -1,5 +1,5 @@
 var iFileName = "ua_20190514_Artificer.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the second Unearthed Arcana: Artificer article of 2019 to MPMB's Character Record Sheet
 // It doesn't change anything compared to the UA article of 2019/02/28, but adds additional options: more spells, subclasses, and magic items
 
@@ -640,8 +640,7 @@ AddSubClass("artificer-ua3", "archivist", {
 			additional : levels.map(function (n, idx) {
 				return n < 3 ? "" : (cantripDie[idx]) + 'd8 psychic damage';
 			}),
-			weaponsAdd : ["Information Overload"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*information)(?=.*overload).*$/i,
 				name : "Information Overload",
 				source : [["UA:A3", 8]],
@@ -653,8 +652,9 @@ AddSubClass("artificer-ua3", "archivist", {
 				dc : true,
 				monkweapon : false,
 				abilitytodamage : false,
-				isInformationOverload : true
-			},
+				isInformationOverload : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [function (fields, v) {
 					if (v.theWea.isInformationOverload && classes.known['artificer-ua3'] && classes.known['artificer-ua3'].level > 4) {

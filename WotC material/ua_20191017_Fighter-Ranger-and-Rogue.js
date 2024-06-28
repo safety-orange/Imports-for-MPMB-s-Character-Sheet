@@ -1,5 +1,5 @@
 var iFileName = "ua_20191017_Fighter-Ranger-and-Rogue.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -336,7 +336,6 @@ AddSubClass("rogue", "the revived-ua", {
 				"This is a ranged spell attack with 30 ft range, which I'm proficient with, using Dexterity",
 				"If it hits, it deals my sneak attack damage, provided I didn't use sneak attack this turn"
 			]),
-			weaponsAdd : ["Bolts from the Grave"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*bolts?)(?=.*grave).*$/i,
 				name : "Bolts from the Grave",
@@ -347,7 +346,8 @@ AddSubClass("rogue", "the revived-ua", {
 				range : "30 ft",
 				description : "Immediately after using cunning action; Only if I not yet used sneak attack this turn",
 				abilitytodamage : true,
-				isBoltsFromTheGrave : true
+				isBoltsFromTheGrave : true,
+				selectNow : true
 			}],
 			calcChanges : {
 				atkAdd : [

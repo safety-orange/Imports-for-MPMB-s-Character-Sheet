@@ -65,7 +65,7 @@ AddSubClass("cleric", "forge domain-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
 						}
 					},
@@ -146,7 +146,7 @@ AddSubClass("cleric", "grave domain-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
 						}
 					},
@@ -239,7 +239,7 @@ AddSubClass("cleric", "protection domain-ua", { // Still valid 2021-09-21
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage';
 						}
 					},

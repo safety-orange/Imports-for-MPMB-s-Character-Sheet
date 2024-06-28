@@ -1,5 +1,5 @@
 var iFileName = "pub_20190919_LR.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the Locathah from the Locathah Rising adventure from Extra Life to MPMB's Character Record Sheet
 
 SourceList.LR = {
@@ -31,9 +31,9 @@ RaceList.locathah = {
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["LR", 24]],
-		ac : 12
+		ac : 12,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	age : " mature to adulthood by the age of 10 but have been known to live up to 80 years",
 	height : " stand between 5 and 6 feet tall",
 	weight : " average about 150 pounds",

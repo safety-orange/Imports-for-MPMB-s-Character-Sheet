@@ -1,5 +1,5 @@
 var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -24,15 +24,15 @@ RaceList["centaur"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : [["G", 15], ["MOT", 19]],
 		damage : [1, 4, "bludgeoning"],
-		description : "Use as bonus action after charge 30 ft"
-	},
-	weaponsAdd : ["Hooves"],
+		description : "Use as bonus action after charge 30 ft",
+		selectNow : true
+	}],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	age : " mature and age at about the same rate as humans",
 	height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
@@ -101,9 +101,9 @@ RaceList["loxodon"] = {
 		name : "Loxodon Natural Armor",
 		source : [["G", 18]],
 		ac : "12+Con",
-		dex : -10
+		dex : -10,
+		selectNow : true
 	}],
-	armorAdd : "Loxodon Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall (6'7\" + 2d10\")",
@@ -131,15 +131,15 @@ RaceList["minotaur"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["G", 19], ["MOT", 23]],
 		damage : [1, 6, "piercing"],
-		description : "Attack as a bonus action after moving 20 ft with the Dash action"
-	},
-	weaponsAdd : ["Horns"],
+		description : "Attack as a bonus action after moving 20 ft with the Dash action",
+		selectNow : true
+	}],
 	skillstxt : "Choose one from Intimidation or Persuasion",
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " stand around 6 feet tall (5'4\" + 2d8\")",
@@ -421,7 +421,7 @@ AddSubClass("cleric", "order domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage' + (classes.known.cleric.level < 17 ? '' : ' \u0026 again if hit by ally before my next turn');
 						}
 					},
@@ -1753,8 +1753,7 @@ MagicItemsList["pyroconverger"] = {
 	descriptionFull : "A Pyroconverger is an Izzet-made flamethrower. It carries a risk of malfunction each time you use it.\n   As an action, you can cause the Pyroconverger to project fire in a 10-foot cone. Each creature in that area must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one.\n   Each time you use the Pyroconverger, roll a d10 and add the number of times you have used it since your last long rest. If the total is 11 or higher, the Pyroconverger malfunctions: you take 4d6 fire damage, and you can't use the Pyroconverger again until you finish a long rest.",
 	attunement : true,
 	weight : 1,
-	weaponsAdd : ["Pyroconverger"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /pyroconverger/i,
 		name : "Pyroconverger",
 		source : [["G", 180]],
@@ -1765,8 +1764,9 @@ MagicItemsList["pyroconverger"] = {
 		description : "Hits all in area; Dex save, success - half damage; Roll each time for malfunction, see item",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : [5, ""]
-	},
+		modifiers : [5, ""],
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "long rest",
 	additional : "if malfunction"
@@ -1782,15 +1782,15 @@ MagicItemsList["rakdos riteknife"] = {
 	attunement : true,
 	weight : 1,
 	action : [["bonus action", " (Siphon Vitality)"], ["reaction", " (Annihilation)"]],
-	weaponsAdd : ["Rakdos Riteknife"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*rakdos)(?=.*riteknife).*$/i,
 		name : "Rakdos Riteknife",
 		source : [["G", 180]],
 		description : "Finesse, light, thrown; Imprisons soul on kill (max 5); +1d4 necrotic damage per stored soul",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "long rest",
 	additional : "Annihilation"
@@ -1805,14 +1805,14 @@ MagicItemsList["skyblinder staff"] = {
 	attunement : true,
 	weight : 4,
 	action : [["reaction", " (vs. flying)"]],
-	weaponsAdd : ["Skyblinder Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
 		name : "Skyblinder Staff",
 		source : [["G", 181]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {
@@ -1841,15 +1841,15 @@ MagicItemsList["sunforger"] = {
 	attunement : true,
 	weight : 2,
 	action : [["action", " (hurl/recall)"]],
-	weaponsAdd : ["Sunforger"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /sunforger/i,
 		name : "Sunforger",
 		source : [["G", 181]],
 		description : "Versatile (1d10); As action, hurl 120 ft for 20-ft rad 6d6 fire dmg, Dex DC 15 half",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "short rest",
 	additional : "Hurl"
@@ -1863,15 +1863,15 @@ MagicItemsList["sword of the paruns"] = {
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Additionally, once on each of your turns, you can use one of the following properties if you're holding the sword:\n \u2022 Immediately after you use the Attack action to attack with the sword, you can enable one creature within 60 feet of you to use its reaction to make one weapon attack.\n \u2022 Immediately after you take the Dash action, you can enable one creature within 60 feet of you to use its reaction to move up to its speed.\n \u2022 Immediately after you take the Dodge action, you can enable one creature within 60 feet of you to use its reaction to gain the benefits of the Dodge action.",
 	attunement : true,
 	weight : 3,
-	weaponsAdd : ["Sword of the Paruns"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*sword)(?=.*paruns).*$/i,
 		name : "Sword of the Paruns",
 		source : [["G", 181]],
 		description : "Versatile (1d10); Have ally in 60 ft do something when I take the Attack, Dash, or Dodge action",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["voyager staff"] = {
 	name : "Voyager Staff",
@@ -1884,14 +1884,14 @@ MagicItemsList["voyager staff"] = {
 	weight : 4,
 	prerequisite : "Requires attunement by a spellcaster",
 	prereqeval : function(v) { return v.isSpellcaster; },
-	weaponsAdd : ["Voyager Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*voyager)(?=.*staff).*$/i,
 		name : "Voyager Staff",
 		source : [["G", 181]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {

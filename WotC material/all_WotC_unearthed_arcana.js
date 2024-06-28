@@ -1,6 +1,6 @@
-if (sheetVersion < 13001013) { throw "This script was made for a newer version of the sheet (v13.1.13). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13001014) { throw "This script was made for a newer version of the sheet (v13.1.14). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.1.13");
+RequiredSheetVersion("13.1.14");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -123,8 +123,7 @@ AddRacialVariant("shifter-ua", "longtooth", {
 	name : "Longtooth shifter",
 	source : [["UA:E", 2]],
 	plural : "Longtooth shifters",
-	weaponsAdd : ["longtooth"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\blongtooth\b/i,
 		name : "Longtooth",
 		source : [["UA:E", 2]],
@@ -133,8 +132,9 @@ AddRacialVariant("shifter-ua", "longtooth", {
 		damage : [1, 6, "piercing"],
 		range : "Melee",
 		description : "Only while shifted; Target up to my size is grappled",
-		abilitytodamage : true
-	},
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	scorestxt : "",
 	scores : [1, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled."
@@ -144,15 +144,15 @@ AddRacialVariant("shifter-ua", "razorclaw", {
 	name : "Razorclaw shifter",
 	source : [["UA:E", 2]],
 	plural : "Razorclaw shifters",
-	weaponsAdd : ["razorclaw"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\brazorclaw\b/i,
 		name : "Razorclaw",
 		source : [["UA:E", 2]],
 		damage : [1, "", "slashing"],
-		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse"
-	},
+		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
+		selectNow : true
+	}],
 	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage."
@@ -723,7 +723,7 @@ RaceList["minotaur-ua"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["UA:WA", 1]],
@@ -732,9 +732,9 @@ RaceList["minotaur-ua"] = {
 		damage : [1, 10, "piercing"],
 		range : "Melee",
 		description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Horns"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",
@@ -862,7 +862,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage';
 						}
 					},
@@ -2354,7 +2354,7 @@ RaceList["dragonborn revenant-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Draconic"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 		name : "Breath weapon",
 		source : [["UA:GH", 1]],
@@ -2365,9 +2365,9 @@ RaceList["dragonborn revenant-ua"] = {
 		description : "Hits all in area; Con save, success - half damage; Usable only once per short rest",
 		abilitytodamage : false,
 		dc : true,
-		dbBreathWeapon : true
-	},
-	weaponsAdd : ["Breath Weapon"],
+		dbBreathWeapon : true,
+		selectNow : true
+	}],
 	age : " reach adulthood by 15 and live around 80 years",
 	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 	weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
@@ -3960,7 +3960,7 @@ AddSubClass("cleric", "forge domain-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
 						}
 					},
@@ -4041,7 +4041,7 @@ AddSubClass("cleric", "grave domain-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
 						}
 					},
@@ -4134,7 +4134,7 @@ AddSubClass("cleric", "protection domain-ua", { // Still valid 2021-09-21
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage';
 						}
 					},
@@ -5491,9 +5491,9 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 				source : [["UA:SO", 4]],
 				ac : "13+Con",
 				dex : -10,
-				affectsWildShape : true
-			}],
-			armorAdd : "Stone's Durability"
+				affectsWildShape : true,
+				selectNow : true
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Stone Aegis",
@@ -5872,15 +5872,15 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	source : [["UA:WnW", 3]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
 		name : "Claw of Acamar",
 		source : [["UA:WnW", 3]],
 		pactWeapon : true,
-		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level"
-	},
-	weaponsAdd : ['Claw of Acamar']
+		description : "Pact weapon, reach; On hit: Reduces speed to 0, Expend spell slot for +2d8 necrotic damage per slot level",
+		selectNow : true
+	}]
 });
 AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 	name : "Cloak of Baalzebul",
@@ -5904,15 +5904,15 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	source : [["UA:WnW", 4]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
 		name : "Curse Bringer",
 		source : [["UA:WnW", 4]],
 		pactWeapon : true,
-		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level"
-	},
-	weaponsAdd : ['Curse Bringer']
+		description : "Pact weapon, heavy, two-handed; On hit: Reduces speed to 0, Expend spell slot for +2d8 slashing damage per slot level",
+		selectNow : true
+	}]
 });
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
 	name : "Kiss of Mephistopheles",
@@ -6007,15 +6007,15 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	source : [["UA:WnW", 4]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
 		name : "Mace of Dispater",
 		source : [["UA:WnW", 4]],
 		pactWeapon : true,
-		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level"
-	},
-	weaponsAdd : ['Mace of Dispater']
+		description : "Pact weapon; On hit: knock Huge or smaller prone, Expend spell slot for +2d8 force damage per slot level",
+		selectNow : true
+	}]
 });
 AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)", {
 	name : "Moon Bow",
@@ -6027,15 +6027,15 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	source : [["UA:WnW", 4]],
 	submenu : "[improves Pact of the Blade]",
 	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the blade'; },
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longbow",
 		regExpSearch : /^(?=.*\bmoon)(?=.*bow\b).*$/i,
 		name : "Moon Bow",
 		source : [["UA:WnW", 4]],
 		pactWeapon : true,
-		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level"
-	},
-	weaponsAdd : ['Moon Bow']
+		description : "Pact weapon, heavy, two-handed; Adv. vs. lycanthropes; On hit, expend spell slot for +2d8 radiant damage per slot level",
+		selectNow : true
+	}]
 });
 AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 	name : "Path of the Seeker",
@@ -6542,9 +6542,9 @@ AddSubClass("mystic", "immortal-ua", {
 				name : "Immortal Durability",
 				source : [["UA:TMC", 7]],
 				ac : "10+Con",
-				affectsWildShape : true
-			}],
-			armorAdd : "Immortal Durability"
+				affectsWildShape : true,
+				selectNow : true
+			}]
 		},
 		"subclassfeature3" : {
 			name : "Psionic Resilience",
@@ -6683,7 +6683,6 @@ AddSubClass("mystic", "soul knife-ua", {
 				"As a bonus action, I can parry with these to get +2 AC until the start of my next turn"
 			]),
 			action : [["bonus action", " (create/dismiss)"], ['bonus action', ' Parry']],
-			weaponsAdd : ["Soul Knife"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bsoul)(?=.*(knives|knife|weapon)\b).*$/i,
 				name : "Soul Knife",
@@ -6693,7 +6692,8 @@ AddSubClass("mystic", "soul knife-ua", {
 				damage : [1, 8, "psychic"],
 				range : "Melee",
 				description : "Finesse, light",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}]
 		},
 		"subclassfeature3" : {
@@ -10246,9 +10246,9 @@ AddSubClass("paladin", "oath of redemption-ua", {
 				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
 				name : "Armor of Peace",
 				source : [["UA:AToS", 2]],
-				ac : 16
+				ac : 16,
+				selectNow : true
 			}],
-			armorAdd : "Armor of Peace",
 			spellcastingExtra : ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
 		"subclassfeature3.1" : {
@@ -10927,14 +10927,14 @@ FeatsList["dragon hide-ua"] = {
 	descriptionFull : "You inherited the might and majesty of your dragon ancestors. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.\n \u2022 Your scales harden; you gain a +1 bonus to AC while you aren't wearing armor.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me a +1 bonus to AC when I'm not wearing armor. [+1 Strength or Charisma]",
 	scorestxt : "+1 Strength or Charisma",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
 		source : [["UA:FR", 2]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ['Retractable Claws'],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	extraAC : {
 		mod : 1,
 		text : "I gain a +1 bonus to AC while I'm not wearing armor.",
@@ -12762,9 +12762,9 @@ AddSubClass("wizard", "school of invention-ua", {
 				type : "light",
 				ac : 12,
 				weight : 8,
-				invName : "Arcanomechanical armor"
-			}],
-			armorAdd : "Arcanomechanical"
+				invName : "Arcanomechanical armor",
+				selectNow : true
+			}]
 		},
 		"subclassfeature2.2" : {
 			name : "Reckless Casting",
@@ -12919,7 +12919,7 @@ AddSubClass("cleric", "order domain-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 force damage';
 						}
 					},
@@ -12963,7 +12963,7 @@ RaceList["centaur-ua"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : [["UA:CnM", 2]],
@@ -12971,9 +12971,9 @@ RaceList["centaur-ua"] = {
 		type : "Natural",
 		damage : [1, 6, "bludgeoning"],
 		range : "Melee",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Hooves"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	skills : ["Survival"],
 	age : " reach adulthood in their late teens and live around 100 years",
 	height : " stand between 7 and 8 feet tall (front hooves to their crowns) and 6 to 8 feet long (from their chest to the back of their rumps)", // from 3.5e Races of Faerun
@@ -13010,7 +13010,7 @@ RaceList["minotaur-uacnm"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["UA:CnM", 2]],
@@ -13019,9 +13019,9 @@ RaceList["minotaur-uacnm"] = {
 		damage : [1, 6, "piercing"],
 		range : "Melee",
 		description : "One horns attack as a bonus action if taking the Dash action",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Horns"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	skills : ["Intimidation"],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
@@ -13386,15 +13386,15 @@ RaceList["longtooth shifter-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 		name : "Longtooth Fangs",
 		source : [["WGtE", 66], ["UA:RoE", 6]],
 		damage : [1, 6, "piercing"],
-		description : "Only while shifted; One attack as bonus action"
-	},
-	weaponsAdd : ["Longtooth Fangs"],
+		description : "Only while shifted; One attack as bonus action",
+		selectNow : true
+	}],
 	vision : [["Darkvision", 60]],
 	skills : ["Intimidation", "Perception"],
 	age : " reach young adulthood at age 10 and rarely live over 70",
@@ -13515,11 +13515,11 @@ RaceList["envoy warforged-ua"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			CurrentRace.armorAdd = 'Heavy Plating';
+			CurrentRace.armorAdd.select = 'Heavy Plating';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			CurrentRace.armorAdd = 'Composite Plating';
+			CurrentRace.armorAdd.select = 'Composite Plating';
 		} else {
-			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+			CurrentRace.armorAdd.select = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
 	},
 	removeeval : function () {
@@ -13527,6 +13527,7 @@ RaceList["envoy warforged-ua"] = {
 			tDoc.resetForm(['AC Armor Description']);
 		};
 	},
+	armorAdd : { select : "" },
 	armorOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -13564,14 +13565,14 @@ RaceList["juggernaut warforged-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*warforged)(?=.*iron)(?=.*fists?).*$/i,
-		name : "Warforged iron fists",
+		name : "Warforged Iron Fists",
 		source : [["WGtE", 70], ["UA:RoE", 9]],
-		damage : [1, 4, "bludgeoning"]
-	},
-	weaponsAdd : ["Warforged Iron Fists"],
+		damage : [1, 4, "bludgeoning"],
+		selectNow : true
+	}],
 	savetxt : {
 		text : ["Magic can't put me to sleep"],
 		immune : ["disease", "exhaustion from lack of rest"],
@@ -13589,11 +13590,11 @@ RaceList["juggernaut warforged-ua"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			CurrentRace.armorAdd = 'Heavy Plating';
+			CurrentRace.armorAdd.select = 'Heavy Plating';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			CurrentRace.armorAdd = 'Composite Plating';
+			CurrentRace.armorAdd.select = 'Composite Plating';
 		} else {
-			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+			CurrentRace.armorAdd.select = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
 	},
 	removeeval : function () {
@@ -13601,6 +13602,7 @@ RaceList["juggernaut warforged-ua"] = {
 			tDoc.resetForm(['AC Armor Description']);
 		};
 	},
+	armorAdd : { select : "" },
 	armorOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -13654,11 +13656,11 @@ RaceList["skirmisher warforged-ua"] = {
 	eval : function() {
 		var lightProf = tDoc.getField('Proficiency Armor Light').isBoxChecked(0);
 		if (tDoc.getField('Proficiency Armor Heavy').isBoxChecked(0)) {
-			CurrentRace.armorAdd = 'Heavy Plating';
+			CurrentRace.armorAdd.select = 'Heavy Plating';
 		} else if (tDoc.getField('Proficiency Armor Medium').isBoxChecked(0) && ((What('Dex') < 18 && lightProf) || !lightProf)) {
-			CurrentRace.armorAdd = 'Composite Plating';
+			CurrentRace.armorAdd.select = 'Composite Plating';
 		} else {
-			CurrentRace.armorAdd = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
+			CurrentRace.armorAdd.select = 'Darkwood Core' + (lightProf ? " (Prof)" : "");
 		};
 	},
 	removeeval : function () {
@@ -13666,6 +13668,7 @@ RaceList["skirmisher warforged-ua"] = {
 			tDoc.resetForm(['AC Armor Description']);
 		};
 	},
+	armorAdd : { select : "" },
 	armorOptions : [{
 		regExpSearch : /^(?=.*darkwood)(?=.*core).*$/i,
 		name : "Darkwood core",
@@ -13856,9 +13859,9 @@ RaceList["loxodon-ua"] = {
 		regExpSearch : /^((?=.*natural)(?=.*armou?r)|(?=.*loxodon)(?=.*(hide|skin))).*$/i,
 		name : "Natural Armor",
 		source : [["UA:RoR", 1]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall",
@@ -14061,7 +14064,8 @@ RaceList["viashino-ua"] = {
 		regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
 		name : "Viashino bite",
 		source : [["UA:RoR", 5]],
-		damage : [1, 4, "piercing"]
+		damage : [1, 4, "piercing"],
+		selectNow : true
 	}, {
 		regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
 		name : "Lashing tail",
@@ -14072,9 +14076,9 @@ RaceList["viashino-ua"] = {
 		range : "Melee",
 		description : "Only as reaction",
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
-	weaponsAdd : ["Viashino Bite", "Lashing Tail"],
 	age : " reach adulthood in their early teens and rarely live past 60 due to their violent lives",
 	height : " stand about as tall as humans",
 	weight : " have lithe, wiry frames and are thus lighter than a human of the same height",
@@ -15095,8 +15099,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			minlevel : 3,
 			description : "\n   My ki mastery allows me to summon portions of my astral self; See 3rd page notes",
 			action : [["bonus action", "Summon Astral Arms"], ["bonus action", "Astral Arm Attacks (after Attack action)"]],
-			weaponsAdd : ["Astral Arms"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*\bastral\b)(?=.*\barms?\b).*$/i,
 				name : "Astral Arms",
 				source : [["UA:BnM", 2]],
@@ -15106,8 +15109,9 @@ AddSubClass("monk", "way of the astral self-ua", {
 				range : "Melee",
 				description : "10 ft reach; Uses Str, Dex, or Wis; Deals necrotic or radiant damage",
 				monkweapon : true,
-				abilitytodamage : true
-			},
+				abilitytodamage : true,
+				selectNow : true
+			}],
 			"astral arms" : {
 				name : "Astral Arms",
 				extraname : "Way of the Astral Self 3",
@@ -15253,9 +15257,9 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 				regExpSearch : /^(?=.*warped)(?=.*being).*$/i,
 				name : "Warped Being",
 				source : [["UA:SnW", 1]],
-				ac : 13
-			}],
-			armorAdd : "Warped Being"
+				ac : 13,
+				selectNow : true
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Psionic Sorcery",
@@ -15355,9 +15359,9 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 				range : "Melee (10 ft)",
 				description : "My choice of cold or lightning damage; Target -10 ft speed until my next turn starts",
 				abilitytodamage : false,
-				litdGraspOfTheDeep : true
+				litdGraspOfTheDeep : true,
+				selectNow : true
 			}],
-			weaponsAdd : ['Grasp of the Deep'],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -15656,7 +15660,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage';
 						}
 					},
@@ -16307,7 +16311,6 @@ AddSubClass("rogue", "the revived-ua", {
 				"This is a ranged spell attack with 30 ft range, which I'm proficient with, using Dexterity",
 				"If it hits, it deals my sneak attack damage, provided I didn't use sneak attack this turn"
 			]),
-			weaponsAdd : ["Bolts from the Grave"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*bolts?)(?=.*grave).*$/i,
 				name : "Bolts from the Grave",
@@ -16318,7 +16321,8 @@ AddSubClass("rogue", "the revived-ua", {
 				range : "30 ft",
 				description : "Immediately after using cunning action; Only if I not yet used sneak attack this turn",
 				abilitytodamage : true,
-				isBoltsFromTheGrave : true
+				isBoltsFromTheGrave : true,
+				selectNow : true
 			}],
 			calcChanges : {
 				atkAdd : [
@@ -16496,7 +16500,7 @@ RunFunctionAtEnd(function() {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7) {
+						if (classes.known.cleric && (v.isWeapon || (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]].level === 0)) && /\d/.test(fields.Damage_Die)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per round +1d8 radiant damage';
 						}
 					},
@@ -16708,7 +16712,7 @@ RunFunctionAtEnd(function () {
 			name : aWea.name,
 			description : "",
 			source : aWea.source,
-			weaponsAdd : [aWea.name],
+			weaponsAdd : { select : [aWea.name] },
 			submenu : ((/simple/i).test(aWea.type) ? "\x1BSimple weapon, " : "Martial weapon, ") + ((/^(?!.*melee).*\d+.*$/i).test(aWea.range) ? "ranged" : "melee"),
 			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : isProficientWithWeapon("' + weapon + '", WeaponsList["' + weapon + '"]);'
 		}
@@ -17524,7 +17528,6 @@ AddSubClass("rogue", "soulknife-ua", {
 				"Disappear if I'm incapacitated, leave my hand (not thrown), or I dismiss it (no action)"
 			]),
 			action : [["bonus action", " (create)"]],
-			weaponsAdd : ["Soulknife's Psychic Blade"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*soulknife)(?=.*psychic)(?=.*blade).*$/i,
 				name : "Soulknife's Psychic Blade",
@@ -17535,7 +17538,8 @@ AddSubClass("rogue", "soulknife-ua", {
 				range : "Melee, 30/60 ft",
 				description : "Finesse, light, thrown",
 				abilitytodamage : true,
-				isSoulknifePsychicBlade : true
+				isSoulknifePsychicBlade : true,
+				selectNow : true
 			}]
 		},
 		"subclassfeature3.1" : {
@@ -18012,7 +18016,8 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				range : "Melee",
 				description : "Only in rage; On a hit once on my turn, regain Con mod in HP",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*claws?).*$/i,
 				name : "Bestial Claws",
@@ -18023,7 +18028,8 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				range : "Melee",
 				description : "Only in rage; Extra attack if used as part of Attack action",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*tail).*$/i,
 				name : "Bestial Tail",
@@ -18034,9 +18040,9 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				range : "Melee",
 				description : "Reach; Only in rage",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}],
-			weaponsAdd : ["Bestial Bite", "Bestial Claws", "Bestial Tail"],
 			additional : levels.map(function(n) {
 				return n < 6 ? "" : "chosen weapon counts as magical";
 			})
@@ -18522,24 +18528,8 @@ AddSubClass("cleric", "unity domain-ua", {
 			name : "Potent Spellcasting",
 			source : [["UA:SP2", 3]],
 			minlevel : 8,
-			description : "\n   I add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Enduring Unity",
@@ -18818,14 +18808,18 @@ RunFunctionAtEnd(function () {
 			submenu : "Guardian Power Armor",
 			description : guardianTxt,
 			additional : guardianAdditional,
-			armorAdd : gArmName,
-			weaponsAdd : ["Thunder Gauntlets"],
+			armorAdd : { select : gArmName, options : [gArmName] },
+			weaponsAdd : { select : ["Thunder Gauntlets"] },
 			prereqeval : prereqFunc,
 			dependentChoices : "guardian"
 		}
 		// And now add the Infiltrator variant of the armor
-		var iArm = newObj(anArm); iArm.name = "Infiltrator Power " + anArm.name;
-		iArm.weight = 0; iArm.stealthdis = false; iArm.strReq = 0;
+		var iArm = newObj(anArm);
+		iArm.name = "Infiltrator Power " + anArm.name;
+		iArm.weight = 0;
+		iArm.stealthdis = false;
+		iArm.strReq = 0;
+		iArm.selectNow = true;
 		if (iArm.regExpSearch.indexOf(".*$/") == -1) {
 			iArm.regExpSearch = iArm.regExpSearch.replace(/^/, "infiltrator.*");
 		} else {
@@ -18836,8 +18830,7 @@ RunFunctionAtEnd(function () {
 			submenu : "Infiltrator Power Armor",
 			description : infiltratorTxt,
 			speed : { walk : {spd : "+5", enc : "+5" } },
-			armorAdd : iArm.name,
-			weaponsAdd : ["Lightning Launcher"],
+			weaponsAdd : { select : ["Lightning Launcher"] },
 			prereqeval : prereqFunc,
 			armorOptions : [iArm],
 			dependentChoices : "infiltrator"
@@ -19002,7 +18995,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : "Chalice: heals 1d8+" + Math.floor(n/2) + " HP";
 			}),
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*luminous)(?=.*arrow).*$/i,
 				name : "Luminous Arrow",
 				source : [["UA:SP3", 3]],
@@ -19011,9 +19004,9 @@ AddSubClass("druid", "circle of the stars-ua", {
 				damage : [1, 8, "radiant"],
 				range : "60 ft",
 				description : "Use as bonus action",
-				abilitytodamage : true
-			},
-			weaponsAdd : ['Luminous Arrow']
+				abilitytodamage : true,
+				selectNow : true
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Cosmic Omen",
@@ -19537,7 +19530,7 @@ AddSubClass("bard", "college of spirits-ua",{
 				"While holding a spiritual focus, I can add 1d6 to one damage or healing roll of bard spells"
 			]),
 			calcChanges : {
-				atkCalc : [
+				atkAdd : [
 					function (fields, v, output) {
 						if (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]] && v.thisWeapon[4].indexOf("bard") !== -1) {
 							// If RAW is selected, first test if this spell is eligible to use with a spellcasting focus
@@ -19766,8 +19759,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 				additional : levels.map(function (n) {
 					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
 				}),
-				weaponsAdd : ["Breath of the Dragon"],
-				weaponOptions : {
+				weaponOptions : [{
 					regExpSearch : /^(?=.*breath)(?=.*dragon).*$/i,
 					name : "Breath of the Dragon",
 					source : [["UA:SP5", 1]],
@@ -19779,8 +19771,9 @@ AddSubClass("monk", "ascendant dragon-ua", {
 					dc : true,
 					monkweapon : false,
 					abilitytodamage : false,
-					UA_WotAD_BreathWeapon : true
-				},
+					UA_WotAD_BreathWeapon : true,
+					selectNow : true
+				}],
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -19995,8 +19988,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 			usages : 1,
 			recovery : "long rest",
 			altResource : "SS 3+",
-			weaponsAdd : ["Drake's Breath"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*drake)(?=.*breath).*$/i,
 				name : "Drake's Breath",
 				source : [["UA:SP5", 4]],
@@ -20008,8 +20000,9 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 				abilitytodamage : false,
 				dc : true,
 				useSpellMod : "ranger",
-				DrakewardenDrakeBreath : true
-			},
+				DrakewardenDrakeBreath : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -20072,7 +20065,6 @@ RaceList["dhampir-ua"] = {
 	},
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
-	weaponsAdd : ["Vampiric Bite"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*vampiric)(?=.*bite).*$/i,
 		name : "Vampiric Bite",
@@ -20084,7 +20076,8 @@ RaceList["dhampir-ua"] = {
 		description : "Adv. while at or below half HP; Can empower myself on hit",
 		isAlwaysProf : true,
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Vampiric Bite",
@@ -20423,7 +20416,6 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 					minlevel : 3,
 					usages : 1,
 					recovery : "long rest",
-					weaponsAdd : ["Metallic Breath Weapon"],
 					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
@@ -20434,7 +20426,8 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 						range : "15-ft cone",
 						description : "Str save or pushed 20 ft and knocked prone -or- Con save or incapacitated until my next turn starts",
 						abilitytodamage : false,
-						dc : true
+						dc : true,
+						selectNow : true
 					}]
 				}
 			}
@@ -20474,7 +20467,6 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				walk : { spd : 30, enc : 20 }
 			},
 			languageProfs : ["Common", 1],
-			weaponsAdd : ["Breath Weapon"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
@@ -20486,7 +20478,8 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				description : "Hits all in area; Dex save, success - half damage",
 				abilitytodamage : false,
 				dc : true,
-				dbBreathWeapon : true
+				dbBreathWeapon : true,
+				selectNow : true
 			}],
 			age : " reach adulthood by 15 and live around 80 years",
 			height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -20600,14 +20593,14 @@ AddRacialVariant("draconic kobold-ua", "cantrip", {
 AddRacialVariant("draconic kobold-ua", "tail", {
 	regExpSearch : /tail/i,
 	source : [["UA:DO", 4]],
-	weaponsAdd : ["Draconic Tail"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*draconic)(?=.*tail).*$/i,
 		name : "Draconic Tail",
 		source : [["UA:DO", 4]],
-		damage : [1, 6, "bludgeoning"]
-	},
+		damage : [1, 6, "bludgeoning"],
+		selectNow : true
+	}],
 	trait : "Draconic Kobold"+
 	'\n \u2022 Draconic Legacy (Tail): I can make unarmed strikes with my tail. The tail deals 1d6 + my Strength modifier bludgeoning damage.'+
 	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."
@@ -20762,12 +20755,12 @@ RaceList["autognome-ua"] = {
 	languageProfs : ["Common", ["Gnomish or other", 1]],
 	scoresGeneric : true,
 	age : " can live for centuries, up to 500 years",
-	armorAdd : "Armored Casing",
 	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["UA:TotM", 2]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
@@ -20875,12 +20868,12 @@ RaceList["thri-kreen-ua"] = {
 	weightMetric : " weigh between 60 and 180 kg (60 + 5d10 \xD7 4d6 / 10 kg)",
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
-	armorAdd : "Chameleon Carapace",
 	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["UA:TotM", 4]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my type is Monstrosity)"+
@@ -20971,7 +20964,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				spells : ["sacred flame"],
 				selection : ["sacred flame"]
 			},
-			weaponsAdd : ["Sacred Flame"],
+			weaponsAdd : { select : ["Sacred Flame"] },
 			spellChanges : {
 				"sacred flame" : {
 					description : "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5, 11, and 17",
@@ -22378,12 +22371,12 @@ RaceList["glitchling-ua"] = {
 	},
 	scoresGeneric : true,
 	savetxt : { adv_vs : ["charmed"] },
-	armorAdd : "Armored Plating",
 	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*plating).*$/i,
 		name : "Armored Plating",
 		source : [["UA:WotM", 2]],
-		ac : 14
+		ac : 14,
+		selectNow : true
 	}],
 	features : {
 		"balance chaos" : {
@@ -22486,23 +22479,7 @@ AddSubClass("cleric", "fate-ua", {
 			source : [["UA:WotM", 3]],
 			minlevel : 8,
 			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Visions of the Future",
@@ -22528,54 +22505,7 @@ AddSubClass("cleric", "fate-ua", {
 	}
 });
 
-// Backgrounds
-if (!BackgroundList["gate warden"]) {
-	BackgroundList["gate warden"] = {
-		regExpSearch : /^(?=.*gate)(?=.*warden).*$/i,
-		name : "Gate Warden",
-		source : [["P:AitM", 7], ["UA:WotM", 3]],
-		skills : ["Persuasion", "Survival"],
-		gold : 10,
-		languageProfs : [["Any (Abyssal, Celestial, or Infernal recommended)", 2]],
-		equipleft : [
-			["Blank book", "", 5],
-			["Ink, 1 ounce bottle of", 1, ""],
-			["Ink pen or quill", "", ""],
-			["Ring of keys to unknown locks", "", ""]
-		],
-		equipright : [
-			["Traveler's clothes", "", 4],
-			["Pouch (with coins)", "", 1]
-		],
-		feature : "Planar Infusion",
-		trait : [
-			"Strange events and otherworldly creatures don't phase me.",
-			"I think in terms of exchange; something for something, nothing for nothing.",
-			"I speak with an unusual cadence.",
-			"I pepper my speech with borrowed words or curses from planar languages.",
-			"I've seen enough to know that you can't take anyone at face value, so I scrutinize everyone I deal with.",
-			"I have a superstitious habit I picked up, such as touching iron when I'm nervous or arranging objects in a specific order."
-		],
-		extra : [
-			"Select a Trinket",
-			"Vial pendant with glowing honey",
-			"Whispering lead ingot thumbprint",
-			"Two chiming lodestone spheres",
-			"Skin-safe smoldering pebble of coal",
-			"Light up white feather",
-			"Hard to remove chain-link ring"
-		]
-	};
-}
-if (!BackgroundFeatureList["planar infusion"]) {
-	BackgroundFeatureList["planar infusion"] = {
-		description : "I spent a good amount of time somewhere influenced by planar forces. I'm accustomed to experiences that would leave others reeling in terror or captivated by beauty, and I'm comfortable dealing with fiends and celestials. I know where to find free, modest lodging and food in the community I grew up in. Also, I gain the Scion of the Outer Planes feat.",
-		source : [["P:AitM", 7], ["UA:WotM", 3]],
-		eval : function() { AddFeat("Scion of the Outer Planes"); },
-		removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
-	};
-}
-
+// Backgrounds, first those not reprinted exactly as in this UA
 BackgroundList["giant foundling-ua"] = {
 	regExpSearch : /^(?=.*giant)(?=.*foundling).*$/i,
 	name : "Giant Foundling",
@@ -22608,15 +22538,6 @@ BackgroundList["giant foundling-ua"] = {
 		"Home/family killed by warring giants"
 	]
 };
-if (!BackgroundFeatureList["strike of the giants"]) {
-	BackgroundFeatureList["strike of the giants"] = {
-		description : "I grew up among giants, even though I'm not one. Something about this environment ensured that I grew to a remarkable size and I have learned how to embody the titanic might of giants. I'm used to moving through a world much bigger than me, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
-		source : [["GotG", 13], ["UA:WotM", 4]],
-		eval : function() { AddFeat("Strike of the Giants"); },
-		removeeval : function() { RemoveFeat("Strike of the Giants"); }
-	};
-}
-
 BackgroundList["planar philosopher-ua"] = {
 	regExpSearch : /^(?=.*planar)(?=.*philosopher).*$/i,
 	name : "Planar Philosopher",
@@ -22647,15 +22568,6 @@ BackgroundList["planar philosopher-ua"] = {
 		"Smooth stone with holy symbols"
 	]
 };
-if (!BackgroundFeatureList["conviction"]) {
-	BackgroundFeatureList["conviction"] = {
-		description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
-		source : [["P:AitM", 8], ["UA:WotM", 4]],
-		eval : function() { AddFeat("Scion of the Outer Planes"); },
-		removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
-	};
-}
-
 BackgroundList["rune carver-ua"] = {
 	regExpSearch : /^(?=.*rune)(?=.*carver).*$/i,
 	name : "Rune Carver",
@@ -22698,6 +22610,7 @@ BackgroundFeatureList["rune carver apprentice"] = {
 	removeeval : function() { RemoveFeat("Rune Carver Apprentice"); }
 };
 
+// Then the backgrounds that haven't been altered in the book
 // Feats
 FeatsList["cartomancer-ua"] = {
 	name : "Cartomancer",
@@ -23077,7 +22990,6 @@ FeatsList["ember of the fire giant-ua2"] = {
 	"strength" : {
 		calculate : "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
 		scores : [1, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -23089,13 +23001,13 @@ FeatsList["ember of the fire giant-ua2"] = {
 			description : "Hits all of my choice in range; Dex save for half damage; Failed - blinded until my next turn starts",
 			dc : true,
 			abilitytodamage : false,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}]
 	},
 	"constitution" : {
 		calculate : "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B.+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
 		scores : [0, 0, 1, 0, 0, 0],
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -23107,13 +23019,13 @@ FeatsList["ember of the fire giant-ua2"] = {
 			description : "Hits all of my choice in range; Dex save for half damage; Failed - blinded until my next turn starts",
 			dc : true,
 			abilitytodamage : false,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}]
 	},
 	"wisdom" : {
 		calculate : "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
 		scores : [0, 0, 0, 0, 1, 0],
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -23125,7 +23037,8 @@ FeatsList["ember of the fire giant-ua2"] = {
 			description : "Hits all of my choice in range; Dex save for half damage; Failed - blinded until my next turn starts",
 			dc : true,
 			abilitytodamage : false,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}]
 	}
 };
@@ -23202,7 +23115,6 @@ FeatsList["keenness of the stone giant-ua2"] = {
 	"strength" : {
 		calculate : "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) or be knocked prone. [+1 Str]';",
 		scores : [1, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Stone Giant's Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
 			name : "Stone Giant's Stone Throw",
@@ -23213,13 +23125,13 @@ FeatsList["keenness of the stone giant-ua2"] = {
 			range : "60/180 ft",
 			description : "Thrown; On hit: Str save (DC 8 + To Hit) or knocked prone; Counts as magical",
 			abilitytodamage : true,
-			isMagicWeapon : true
+			isMagicWeapon : true,
+			selectNow : true
 		}]
 	},
 	"constitution" : {
 		calculate : "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B. + Con mod) or be knocked prone. [+1 Con]';",
 		scores : [0, 0, 1, 0, 0, 0],
-		weaponsAdd : ["Stone Giant's Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
 			name : "Stone Giant's Stone Throw",
@@ -23229,13 +23141,13 @@ FeatsList["keenness of the stone giant-ua2"] = {
 			damage : [1, 10, "bludgeoning"],
 			range : "60/180 ft",
 			description : "Thrown; On hit: Str save (DC 8 + To Hit) or knocked prone; Counts as magical",
-			abilitytodamage : true
+			abilitytodamage : true,
+			selectNow : true
 		}]
 	},
 	"wisdom" : {
 		calculate : "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) or be knocked prone. [+1 Wis]';",
 		scores : [0, 0, 0, 0, 1, 0],
-		weaponsAdd : ["Stone Giant's Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
 			name : "Stone Giant's Stone Throw",
@@ -23245,7 +23157,8 @@ FeatsList["keenness of the stone giant-ua2"] = {
 			damage : [1, 10, "bludgeoning"],
 			range : "60/180 ft",
 			description : "Thrown; On hit: Str save (DC 8 + To Hit) or knocked prone; Counts as magical",
-			abilitytodamage : true
+			abilitytodamage : true,
+			selectNow : true
 		}]
 	}
 };

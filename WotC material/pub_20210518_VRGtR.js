@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("13.1.13");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -35,7 +35,6 @@ RaceList["dhampir"] = {
 		}
 	},
 	vision : [["Darkvision", 60]],
-	weaponsAdd : ["Vampiric Bite"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*vampiric)(?=.*bite).*$/i,
 		name : "Vampiric Bite",
@@ -47,7 +46,8 @@ RaceList["dhampir"] = {
 		description : "Adv. while at or below half HP; Can empower myself on hit",
 		isAlwaysProf : true,
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Vampiric Bite",
@@ -269,7 +269,7 @@ AddSubClass("bard", "college of spirits",{
 				"While holding a spiritual focus, I can add 1d6 to one damage or healing roll of bard spells"
 			]),
 			calcChanges : {
-				atkCalc : [
+				atkAdd : [
 					function (fields, v, output) {
 						if (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]] && v.thisWeapon[4].indexOf("bard") !== -1) {
 							// If RAW is selected, first test if this spell is eligible to use with a spellcasting focus
@@ -573,8 +573,25 @@ BackgroundList["haunted one"] = { // Reprint from Curse of Strahd, but re-define
 		"Avenged a murder"
 	]
 };
-// [dupl_start] reprint from Curse of Strahd
-if (!BackgroundFeatureList["heart of darkness"]) {
+// [dupl_start] reprints from Curse of Strahd
+if (!SourceList.CoS) {
+	PacksList.monsterhunter = {
+		name : "Monster hunter's pack (33 gp)",
+		source : [["CoS", 209], ["VRGtR", 34]],
+		items : [
+			["Chest, with:", "", 25],
+			["Crowbar", "", 5],
+			["Hammer", "", 3],
+			["Wooden stake", 3, 1],
+			["Amulet holy symbol", "", ""],
+			["Holy water, flasks of", 1, 1],
+			["Manacles", "", 6],
+			["Steel mirror", "", 0.5],
+			["Oil, flasks of", 1, 1],
+			["Tinderbox", "", 1],
+			["Torches", 3, 1]
+		]
+	};
 	BackgroundFeatureList["heart of darkness"] = {
 		description : "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone.",
 		source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]]
@@ -668,6 +685,68 @@ BackgroundFeatureList["official inquiry"] = {
 	description : "Through a combination of fast-talking, determination, and official-looking documentation, I can gain access to a place or an individual related to a crime I'm investigating. Those who aren't involved in my investigation avoid impeding me or pass along my requests. Local law enforcement has firm opinions, viewing me as either a nuisance or one of their own.",
 	source : [["VRGtR", 35], ["ALbackground", 0]]
 };
+
+// Magic Items
+MagicItemsList["harkon's bite"] = {
+	name : "Harkon's Bite",
+	source : [["VRGtR", 137]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	description : "This necklace with a dire wolf tooth gives me a +1 on checks and saves. Curse: I can't remove it once I'm attuned to it. If I don or remove the necklace, even if I'm not attuned, I'm afflicted with werewolf lycanthropy (MM 211). This lasts until the dawn after the next full moon, unless I'm still wearing the necklace at dawn.",
+	descriptionFull : "A dire wolf tooth dangles from this simple cord necklace. While you wear it, the necklace grants you a +1 bonus to ability checks and saving throws."+
+	"\n   " + toUni("Curse") + ". Attuning to Harkon's Bite curses you until either Harkon Lukas removes the necklace from you or you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot remove the necklace."+
+	"\n   Upon donning or removing the necklace, whether you are attuned to it or not, you are afflicted with werewolf lycanthropy as detailed in the Monster Manual. The curse lasts until the dawn after the next full moon. If you are still wearing the necklace at this time, you are afflicted with the lycanthropy again.",
+	addMod : [
+		{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+		{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+		{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+	]
+}
+var VRGtR_nepentheFullDescription = [
+	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. When you hit a fiend or an undead with it, that creature takes an extra 2d10 radiant damage.",
+	"While you hold the drawn sword, it creates an aura in a 10-foot radius around you. You and all creatures friendly to you in the aura have advantage on saving throws against spells and other magical effects. If you have 17 or more levels in the paladin class, the radius of the aura increases to 30 feet.",
+	">>Sentience<<. Nepenthe is a sentient, neutral evil weapon with an Intelligence of 10, a Wisdom of 8, and a Charisma of 18. It has hearing and darkvision out to a range of 60 feet. It can read and understand Elvish. It can also speak Elvish, but only through the voice of its wielder, with whom the sword can communicate telepathically.",
+	">>Personality<<. In its lifetime, the sword has beheaded thousands of criminals, not all of whom were guilty of the crimes for which they were convicted. The sword cannot distinguish the guilty from the innocent. With each beheading, it hungers for more justice and blood. The sword is corrupt and irredeemable."
+]
+MagicItemsList["nepenthe"] = {
+	name : "Nepenthe",
+	source : [["VRGtR", 137]],
+	type : "weapon (any sword)",
+	rarity : "legendary",
+	magicItemTable : "I",
+	attunement : true,
+	prerequisite : "Requires attunement by a paladin",
+	prereqeval : function (v) { return classes.known.paladin ? true : false; },
+	description : "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura (30-ft if level 17 paladin) that grants me and my allies adv. on saves against spells and magical effects.",
+	descriptionFull : VRGtR_nepentheFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		note : desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}],
+	weaponOptions : [{
+		baseWeapon : "longsword",
+		regExpSearch : /nepenthe/i,
+		name : "Nepenthe",
+		source : [["VRGtR", 137]],
+		description : "Versatile (1d10); +2d10 radiant damage vs. fiends and undead",
+		modifiers : [3, 3],
+		selectNow : true
+	}],
+	savetxt : { adv_vs : ["spells", "magical effects"] },
+	choices : ["Paladin level 1-16 (10-ft aura)", "Paladin level 17+ (30-ft aura)"],
+	selfChoosing : function () {
+		return !classes.known.paladin ? "" : classes.known.paladin.level < 17 ? "paladin level 1-16 (10-ft aura)" : "paladin level 17+ (30-ft aura)";
+	},
+	"paladin level 1-16 (10-ft aura)" : {
+		name : "Nepenthe\u200A",
+		description : "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects."
+	},
+	"paladin level 17+ (30-ft aura)" : {
+		name : "Nepenthe\u200A\u200A",
+		description : "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 30-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects."
+	}
+}
 
 /* Dark gift
 

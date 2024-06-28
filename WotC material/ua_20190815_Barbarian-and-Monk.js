@@ -1,5 +1,5 @@
 var iFileName = "ua_20190815_Barbarian-and-Monk.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Barbarian and Monk article to MPMB's Character Record Sheet
 
 // Define the source
@@ -114,8 +114,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			minlevel : 3,
 			description : "\n   My ki mastery allows me to summon portions of my astral self; See 3rd page notes",
 			action : [["bonus action", "Summon Astral Arms"], ["bonus action", "Astral Arm Attacks (after Attack action)"]],
-			weaponsAdd : ["Astral Arms"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*\bastral\b)(?=.*\barms?\b).*$/i,
 				name : "Astral Arms",
 				source : [["UA:BnM", 2]],
@@ -125,8 +124,9 @@ AddSubClass("monk", "way of the astral self-ua", {
 				range : "Melee",
 				description : "10 ft reach; Uses Str, Dex, or Wis; Deals necrotic or radiant damage",
 				monkweapon : true,
-				abilitytodamage : true
-			},
+				abilitytodamage : true,
+				selectNow : true
+			}],
 			"astral arms" : {
 				name : "Astral Arms",
 				extraname : "Way of the Astral Self 3",

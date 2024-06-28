@@ -1,5 +1,5 @@
 var iFileName = "ua_20180813_Races-of-Ravnica.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Races of Ravnica article to MPMB's Character Record Sheet
 
 // Define the source
@@ -29,9 +29,9 @@ RaceList["loxodon-ua"] = {
 		regExpSearch : /^((?=.*natural)(?=.*armou?r)|(?=.*loxodon)(?=.*(hide|skin))).*$/i,
 		name : "Natural Armor",
 		source : [["UA:RoR", 1]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall",
@@ -234,7 +234,8 @@ RaceList["viashino-ua"] = {
 		regExpSearch : /^(?=.*viashino)(?=.*bite).*$/i,
 		name : "Viashino bite",
 		source : [["UA:RoR", 5]],
-		damage : [1, 4, "piercing"]
+		damage : [1, 4, "piercing"],
+		selectNow : true
 	}, {
 		regExpSearch : /^(?=.*lashing)(?=.*tail).*$/i,
 		name : "Lashing tail",
@@ -245,9 +246,9 @@ RaceList["viashino-ua"] = {
 		range : "Melee",
 		description : "Only as reaction",
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
-	weaponsAdd : ["Viashino Bite", "Lashing Tail"],
 	age : " reach adulthood in their early teens and rarely live past 60 due to their violent lives",
 	height : " stand about as tall as humans",
 	weight : " have lithe, wiry frames and are thus lighter than a human of the same height",

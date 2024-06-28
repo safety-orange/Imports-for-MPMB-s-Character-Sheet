@@ -1,5 +1,5 @@
 var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -377,9 +377,9 @@ AddSubClass("mystic", "immortal-ua", {
 				name : "Immortal Durability",
 				source : [["UA:TMC", 7]],
 				ac : "10+Con",
-				affectsWildShape : true
-			}],
-			armorAdd : "Immortal Durability"
+				affectsWildShape : true,
+				selectNow : true
+			}]
 		},
 		"subclassfeature3" : {
 			name : "Psionic Resilience",
@@ -518,7 +518,6 @@ AddSubClass("mystic", "soul knife-ua", {
 				"As a bonus action, I can parry with these to get +2 AC until the start of my next turn"
 			]),
 			action : [["bonus action", " (create/dismiss)"], ['bonus action', ' Parry']],
-			weaponsAdd : ["Soul Knife"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bsoul)(?=.*(knives|knife|weapon)\b).*$/i,
 				name : "Soul Knife",
@@ -528,7 +527,8 @@ AddSubClass("mystic", "soul knife-ua", {
 				damage : [1, 8, "psychic"],
 				range : "Melee",
 				description : "Finesse, light",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}]
 		},
 		"subclassfeature3" : {

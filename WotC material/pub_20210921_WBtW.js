@@ -1,5 +1,5 @@
 var iFileName = "pub_20210921_WBtW.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
 SourceList.WBtW = {
@@ -324,15 +324,15 @@ MagicItemsList["eldritch staff"] = {
 	usages : 10,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
-	weaponsAdd : ["Staff of Power"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /eldritch staff/i,
 		name : "Eldritch Staff",
 		source : [["WBtW", 209]],
 		description : "Versatile (1d8); On hit, +1d8 lightning damage per charge (max 3)",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["ornithopter of flying"] = {
 	name : "Ornithopter of Flying",
@@ -358,7 +358,7 @@ MagicItemsList["potion of advantage"] = {
 	source : [["WBtW", 212]],
 	type : "potion",
 	rarity : "uncommon",
-	description : "Once as an action, I can drink this potion of a sparkling, golden mist that moves and pours like water or administer it to another. The consumer of the potion gain advantage on one ability check, attack roll, or saving throw of its choice that it makes within the next hour.",
+	description : "Once as an action, I can drink this potion of a sparkling, golden mist that moves and pours like water or administer it to another. The consumer of the potion gains advantage on one ability check, attack roll, or saving throw of its choice that it makes within the next hour.",
 	descriptionFull : "When you drink this potion, you gain advantage on one ability check, attack roll, or saving throw of your choice that you make within the next hour."+
 	"\n   This potion takes the form of a sparkling, golden mist that moves and pours like water.",
 }
@@ -410,16 +410,16 @@ MagicItemsList["snicker-snack"] = {
 		note : WBtW_Sentient_Item_toNotes(WBtW_Snicker_Snack_Full_Description)
 	}],
 	weaponProfs : [false, false ["greatsword"]],
-	weaponsAdd : ["Snicker-Snack"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /snicker.snack/i,
 		name : "Snicker-Snack",
 		source : [["WBtW", 213]],
 		description : "Heavy, two-handed; Ignores slashing resistance; On 20 to hit: cut off head",
 		modifiers : [3, 3],
-		isSnickerSnack : true
-	},
+		isSnickerSnack : true,
+		selectNow : true
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -451,14 +451,14 @@ MagicItemsList["steel"] = {
 		name : "Features",
 		note : WBtW_Sentient_Item_toNotes(WBtW_Steel_Full_Description)
 	}],
-	weaponsAdd : ['"Steel"'],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /['"]steel['"]/i,
 		name : '"Steel"',
 		source : [["WBtW", 214]],
-		modifiers : [2, 2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["woodcutter's axe"] = {
 	name : "Woodcutter's Axe",
@@ -469,15 +469,15 @@ MagicItemsList["woodcutter's axe"] = {
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon."+
 	"\n   When you use this axe to make an attack against a plant (an ordinary plant or a creature with the Plant type) or a wooden object that isn't being worn or carried, the attack deals an extra 2d6 slashing damage on a hit.",
 	weight : 7,
-	weaponsAdd : ["Woodcutter's Axe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /^(?=.*woodcutter)(?=.*axe).*$/i,
 		name : "Woodcutter's Axe",
 		source : [["WBtW", 214]],
 		description : "Heavy, two-handed; +2d6 damage vs. plants/wood",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 var WBtW_Witchlight_Vane_Full_Description = [
 	"This ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. It weighs 3 pounds.",
@@ -506,15 +506,15 @@ MagicItemsList["witchlight vane"] = {
 		note : WBtW_Sentient_Item_toNotes(WBtW_Witchlight_Vane_Full_Description)
 	}],
 	action : [["action", " (find happiest)"]],
-	weaponsAdd : ["Witchlight Vane"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*witchlight)(?=.*vane).*$/i,
 		name : "Witchlight Vane",
 		source : [["WBtW", 27]],
 		description : "+1d8 radiant damage",
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	extraLimitedFeatures : [{
 		name : "Witchlight Vane [Polymorph] (25% chance use)",
 		usages : 1,

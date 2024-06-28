@@ -1,5 +1,5 @@
 var iFileName = "pub_20231030_CoA.js";
-RequiredSheetVersion("13.1.12");
+RequiredSheetVersion("13.1.14");
 // This file adds the magic items from the Chains of Asmodeus adventure from Extra Life to MPMB's Character Record Sheet
 
 SourceList["CoA"] = {
@@ -178,14 +178,14 @@ MagicItemsList["canian fork"] = {
 	weight : 4,
 	savetxt : { text : ["Vulnerable to radiant damage"] },
 	action : [["bonus action", " attack"]],
-	weaponsAdd : ["Canian Fork"],
 	weaponOptions : [{
 		baseWeapon : "trident",
 		regExpSearch : /^(?=.*canian)(?=.*fork).*$/i,
 		name : "Canian Fork",
 		source : [["CoA", 267]],
 		description : "Thrown, versatile (1d8); Bonus action: 1 attack",
-		modifiers : [3, 3]
+		modifiers : [3, 3],
+		selectNow : true
 	}]
 }
 MagicItemsList["condensed order"] = {
@@ -288,7 +288,6 @@ MagicItemsList["infernal plate armor"] = {
 	eval :       function() { CoA_Corruption.process(true,  "infernal plate armor") },
 	removeeval : function() { CoA_Corruption.process(false, "infernal plate armor") },
 	weight : 65,
-	armorAdd : "Infernal Plate Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*infernal)(?=.*plate).*$/i,
 		name : "Infernal Plate Armor",
@@ -297,7 +296,8 @@ MagicItemsList["infernal plate armor"] = {
 		ac : "18+2",
 		stealthdis : true,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}],
 	savetxt : { text : ["Vulnerable to force, lightning, psychic, radiant, and thunder damage"] },
 }
@@ -312,12 +312,12 @@ MagicItemsList["knife of stolen resistance"] = {
 	action : [["action", ""]],
 	usages : 1,
 	recovery : "long rest",
-	weaponsAdd : ["Knife of Stolen Resistance"],
 	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*knife)(?=.*stolen)(?=.*resistance).*$/i,
 		name : "Knife of Stolen Resistance",
-		source : [["CoA", 268]]
+		source : [["CoA", 268]],
+		selectNow : true
 	}]
 }
 MagicItemsList["ring of collecting"] = {
@@ -410,6 +410,7 @@ MagicItemsList["skull of selfish knowledge"] = {
 	descriptionFull : "You may use an action to make the magical skull devour a nonmagical book, map, or scroll. Once devoured the learning is forever available to you, but you can never write the information down or communicate it to others. It is for you alone.",
 	action : [["action", ""]]
 }
+// [dupl_start] reprint from Baldur's Gate: Descent into Avernus
 if (!MagicItemsList["soul coin"]) {
 	var DiA_soulCoinFullDescription = [
 		"Soul coins are about 5 inches across and about 1 inch thick, minted from infernal iron. Each coin weighs one-third of a pound, and is inscribed with Infernal writing and a spell that magically binds a single soul to the coin. Because each soul coin has a unique soul trapped within it, each has a story. A creature might have been imprisoned as a result of defaulting on a deal, while another might be the victim of a night hag's curse.",
@@ -441,6 +442,7 @@ if (!MagicItemsList["soul coin"]) {
 		action : [["action", ""]]
 	}
 }
+// dupl_end
 MagicItemsList["stygian spear"] = {
 	name : "Stygian Spear",
 	source : [["CoA", 270]],
@@ -461,14 +463,14 @@ MagicItemsList["stygian spear"] = {
 		name : "Stygian Javelin",
 		description : "This +2 javelin deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
 		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic javelin. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
-		weaponsAdd : ["Stygian Javelin"],
 		weaponOptions : [{
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*stygian)(?=.*javelin).*$/i,
 			name : "Stygian Javelin",
 			source : [["CoA", 270]],
 			description : "Returning, thrown; Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
-			modifiers : [2,2]
+			modifiers : [2, 2],
+			selectNow : true
 		}],
 		weight : 2
 	},
@@ -476,14 +478,14 @@ MagicItemsList["stygian spear"] = {
 		name : "Stygian\u200A Spear",
 		description : "This +2 spear deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
 		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic spear. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
-		weaponsAdd : ["Stygian Spear"],
 		weaponOptions : [{
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*stygian)(?=.*spear).*$/i,
 			name : "Stygian Spear",
 			source : [["CoA", 270]],
 			description : "Returning, thrown, versatile (1d8); Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
-			modifiers : [2,2]
+			modifiers : [2, 2],
+			selectNow : true
 		}],
 		weight : 3
 	}

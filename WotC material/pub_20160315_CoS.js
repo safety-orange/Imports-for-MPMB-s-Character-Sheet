@@ -1,5 +1,5 @@
 var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
@@ -503,7 +503,7 @@ BackgroundFeatureList["heart of darkness"] = {
 // Equipment pack
 PacksList.monsterhunter = {
 	name : "Monster hunter's pack (33 gp)",
-	source : [["CoS", 209]],
+	source : [["CoS", 209], ["VRGtR", 34]],
 	items : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -530,15 +530,15 @@ MagicItemsList["plantslayer battleaxe"] = {
 	description : "This battleaxe's handle is carved with leaves and vines. It deals an extra 1d8 slashing damage against ordinary plants and plant creatures. When a creature of non-good alignment makes an attack with it, it sprouts thorns, dealing 1 magical piercing damage to the wielder after the attack is made.",
 	descriptionFull : "The axe's handle is carved with leaves and vines, and it weighs half as much as a normal battleaxe. When the axe hits a plant, whether an ordinary plant or a plant creature, the target takes an extra 1d8 slashing damage. When a creature of non-good alignment wields the axe, it sprouts thorns whenever its wielder makes an attack with it. These thorns prick the wielder for 1 piercing damage after the attack is made, and this damage is considered magical.",
 	weight : 2,
-	weaponsAdd : ["Plantslayer Battleaxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /^(?=.*plantslayer)(?=.*battleaxe).*$/i,
 		name : "Plantslayer Battleaxe",
 		source : [["CoS", 198]],
 		description : "Versatile (1d10); +1d8 damage vs. plants",
-		weight : 2
-	}
+		weight : 2,
+		selectNow : true
+	}]
 }
 MagicItemsList["blood spear"] = {
 	name : "Blood Spear",
@@ -554,26 +554,26 @@ MagicItemsList["blood spear"] = {
 	choicesNotInMenu : true,
 	"chosen of kavan" : {
 		name : "Blood\u200A Spear",
-		weaponsAdd : ["Blood Spear"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
 			name : "Blood Spear",
 			source : [["CoS", 221]],
 			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
-			modifiers : [2,2]
-		}
+			modifiers : [2, 2],
+			selectNow : true
+		}]
 	},
 	"not a chosen of kavan" : {
 		name : "Blood\u200A\u200A Spear",
-		weaponsAdd : ["Blood Spear"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
 			name : "Blood Spear",
 			source : [["CoS", 221]],
-			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP"
-		}
+			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
+			selectNow : true
+		}]
 	}
 }
 MagicItemsList["green copper ewer"] = {
@@ -598,14 +598,14 @@ MagicItemsList["gulthias staff"] = {
 	usages : 10,
 	recovery : "Dusk",
 	additional : "regains 1d6+4",
-	weaponsAdd : ["Gulthias Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*gulthias)(?=.*staff).*$/i,
 		name : "Gulthias Staff",
 		source : [["CoS", 221]],
-		description : "Versatile (1d8); On hit, 1 charge to regain HP equal to damage dealt but DC 12 Wis save or madness"
-	},
+		description : "Versatile (1d8); On hit, 1 charge to regain HP equal to damage dealt but DC 12 Wis save or madness",
+		selectNow : true
+	}]
 }
 MagicItemsList["holy symbol of ravenkind"] = {
 	name : "Holy Symbol of Ravenkind",
@@ -700,14 +700,14 @@ MagicItemsList["lost sword"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "Crusader's Mantle",
-	weaponsAdd : ["Lost Sword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "shortsword",
 		regExpSearch : /^(?=.*lost)(?=.*sword).*$/i,
 		name : "Lost Sword",
 		source : [["CoS", 81]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	spellcastingBonus : {
 		name : "Once per dawn",
 		spells : ["crusader's mantle"],
@@ -734,14 +734,14 @@ MagicItemsList["saint markovia's thighbone"] = {
 	descriptionFull : "Saint Markovia's thighbone has the properties of a mace of disruption. If it scores one or more hits against a vampire or a vampire spawn in the course of a single battle, the thighbone crumbles into dust once the battle concludes.\n   As a youth, Markovia followed her heart and became a priest of the Morninglord soon after her eighteenth birthday. She proved to be a charismatic proselytizer and, before the age of thirty, had gained a reputation for allowing no evil to stand before her.\n   Markovia had long considered Strahd a mad tyrant, but only after his transformation into a vampire did she dare to challenge him. As she rallied her followers and prepared to march on Castle Ravenloft, Strahd sent a group of vampire spawn to her abbey. They confronted Markovia and were destroyed to a one.\n   Suffused with confidence born of a righteous victory, Markovia advanced on Castle Ravenloft. A great battle raged from the catacombs to the parapets. In the end, Markovia never returned to Barovia, and Strahd long afterward walked with a limp and a grimace of pain. It is said that he trapped Markovia in a crypt beneath his castle, and her remains linger there yet.\n   The essence of Markovia's saintliness passed partly into her bones as the rest of her body decomposed. Her remaining thighbone is imbued with power that inflicts grievous injury on the undead.\n   Mace of Disruption. When you hit a fiend or an undead with this magic weapon, that creature takes an extra 2d6 radiant damage. If the target has 25 hit points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature becomes frightened of you until the end of your next turn.\n   While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.",
 	attunement : true,
 	weight : 4,
-	weaponsAdd : ["Saint Markovia's Thighbone"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*markovia)(?=.*thighbone).*$/i,
 		name : "Saint Markovia's Thighbone",
 		source : [["CoS", 222]],
-		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if HP<26, DC 15 Wis save or die"
-	}
+		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if HP<26, DC 15 Wis save or die",
+		selectNow : true
+	}]
 }
 MagicItemsList["silver dragon shield +2"] = {
 	name : "Silver Dragon Shield +2",
@@ -776,16 +776,16 @@ MagicItemsList["sunsword"] = {
 	attunement : true,
 	weight : 3,
 	action : [["bonus action", " (start/stop)"], ["action", " (change light)"]],
-	weaponsAdd : ["Sunsword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /sunsword/i,
 		name : "Sunsword",
 		source : [["CoS", 223]],
 		damage : [1, 8, "radiant"],
 		description : "Finesse, versatile (1d10); +1d8 damage to undead",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {

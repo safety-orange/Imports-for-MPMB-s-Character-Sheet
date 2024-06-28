@@ -1,5 +1,5 @@
 var iFileName = "ua_20160404_Gothic-Heroes.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Gothic Heroes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -152,7 +152,7 @@ RaceList["dragonborn revenant-ua"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Draconic"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 		name : "Breath weapon",
 		source : [["UA:GH", 1]],
@@ -163,9 +163,9 @@ RaceList["dragonborn revenant-ua"] = {
 		description : "Hits all in area; Con save, success - half damage; Usable only once per short rest",
 		abilitytodamage : false,
 		dc : true,
-		dbBreathWeapon : true
-	},
-	weaponsAdd : ["Breath Weapon"],
+		dbBreathWeapon : true,
+		selectNow : true
+	}],
 	age : " reach adulthood by 15 and live around 80 years",
 	height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 	weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",

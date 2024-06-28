@@ -1,5 +1,5 @@
 var iFileName = "pub_20180529_MToF.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
 
 // Define the source
@@ -958,15 +958,15 @@ MagicItemsList["greater silver sword"] = {
 			}
 		}
 	},
-	weaponsAdd : ["Greater Silver Sword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /^(?=.*greater)(?=.*silver)(?=.*sword).*$/i,
 		name : "Greater Silver Sword",
 		source : [["MToF", 89]],
 		description : "Heavy, two-handed; On crit vs. astral body, cut cord instead of damage",
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	savetxt : { text : ["Adv. on Int, Wis, and Cha saves"], immune : ["charmed"] },
 	advantages : [["Intelligence", true], ["Wisdom", true], ["Charisma", true]],
 	dmgres : ["Psychic"]

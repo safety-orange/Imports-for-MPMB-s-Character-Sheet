@@ -1,5 +1,5 @@
 var iFileName = "pub_20181107_LLoK.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -112,14 +112,14 @@ MagicItemsList["heward's hireling armor"] = {
 	descriptionFull : "A number of Kwalish's experiments were attempts to research the works of the legendary mage Heward, who first crafted what he named hireling armor. While wearing this armor, you gain a +1 bonus to AC. In addition, the armor's animated straps can assist with the drawing and sheathing of weapons, such that you can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.\n   This armor also has six pockets, each of which is an extradimensional space. Each pocket can hold up to 20 pounds of material, not exceeding a volume of 2 cubic feet. The armor always weighs 10 pounds, regardless of its pockets' contents. Placing an object into one of the armor's pockets follows the normal rules for interacting with objects. Retrieving an item from a pocket of the armor requires you to use an action. When you reach into a pocket for a specific item, the item is always magically on top.\n   Placing the armor inside an extradimensional space created by a bag of holding, a Heward's handy haversack, or a similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it and deposited in a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 	weight : 10,
 	action : [["action", " (retrieve item)"]],
-	armorAdd : "Heward's Hireling Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*heward)(?=.*hireling)(?=.*armor).*$/i,
 		name : "Heward's Hireling Armor",
 		source : [["LLoK", 55]],
 		type : "light",
 		ac : "11+1",
-		weight : 10
+		weight : 10,
+		selectNow : true
 	}]
 }
 if (MagicItemsList["ioun stone"]) {
@@ -217,14 +217,14 @@ MagicItemsList["leather golem armor"] = {
 	weight : 10,
 	dmgres : ["Lightning"],
 	cursed : true,
-	armorAdd : "Leather Golem Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*leather)(?=.*golem)(?=.*armor).*$/i,
 		name : "Leather Golem Armor",
 		source : [["LLoK", 55]],
 		type : "light",
 		ac : "11+1",
-		weight : 10
+		weight : 10,
+		selectNow : true
 	}],
 	savetxt : { text : ["+1 vs. spells and magical effects"] },
 	toNotesPage : [{
@@ -312,7 +312,6 @@ MagicItemsList["powered armor"] = {
 	scoresOverride : [18, 0, 0, 0, 0, 0],
 	savetxt : { text : ["Adv. on death saves"] },
 	action : [["bonus action", " (use energy)"]],
-	armorAdd : "Powered Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*powered)(?=.*armor).*$/i,
 		name : "Powered Armor",
@@ -321,7 +320,8 @@ MagicItemsList["powered armor"] = {
 		ac : "18+1",
 		stealthdis : true,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}],
 	usages : "2d10",
 	recovery : "Never",
@@ -330,8 +330,7 @@ MagicItemsList["powered armor"] = {
 		name : "Features",
 		note : desc(LLoK_poweredArmorFullDescription).replace(/your/g, "my").replace(/you /ig, "I ")
 	}],
-	weaponsAdd : ["Arm-Mounted Laser"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*arm)(?=.*mounted)(?=.*laser).*$/i,
 		name : "Arm-Mounted Laser",
 		source : [["LLoK", 56]],
@@ -341,8 +340,9 @@ MagicItemsList["powered armor"] = {
 		range : "120 ft",
 		description : "Bonus action; Uses 1 charge or 5 HP",
 		abilitytodamage : false,
-		modifiers : [8, ""]
-	}
+		modifiers : [8, ""],
+		selectNow : true
+	}]
 }
 
 // Spells (contain contributions by /u/KittenWithMittens)

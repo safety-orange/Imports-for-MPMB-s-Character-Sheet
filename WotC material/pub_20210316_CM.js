@@ -1,5 +1,5 @@
 var iFileName = "pub_20210316_CM.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Candlekeep Mysteries adventure to MPMB's Character Record Sheet
 // All content in this file contains contributions by Ratatoskr589
 
@@ -73,7 +73,6 @@ MagicItemsList["serpent scale armor"] = {
 	attunement : false,
 	description : "This suit of magical scale mail is made from shimmering scales. Unlike normal scale mail, it does not impose disadvantage on my Dexterity (Stealth) checks and allows me to apply my full Dexterity modifier instead of the normal maximum of +2 for Medium armor.",
 	descriptionFull : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier (instead of a maximum of +2) when determining your Armor Class. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
-	armorAdd : "Serpent Scale Armor",
 	armorOptions : [{
 		regExpSearch : /serpent scale/i,
 		name : "Serpent Scale Armor",
@@ -81,7 +80,8 @@ MagicItemsList["serpent scale armor"] = {
 		type : "medium",
 		ac : 14,
 		weight : 45,
-		dex : 100
+		dex : 100,
+		selectNow : true
 	}]
 };
 MagicItemsList["serpent's fang"] = {
@@ -93,13 +93,13 @@ MagicItemsList["serpent's fang"] = {
 	description : "This single-edged magic sword is made from the scrimshawed fang of a giant serpent. Its hilt changes shape to adjust to the grasp of any creature that picks it up. The weapon deals an extra 1d10 poison damage to any target it hits.",
 	descriptionFull : "This single-edged magic sword is made from the scrimshawed fang of a giant serpent. Its hilt changes shape to adjust to the grasp of any creature that picks it up. The weapon deals an extra 1d10 poison damage to any target it hits.",
 	weight : 2,
-	weaponsAdd : ["Serpent's Fang"],
 	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*serpent)(?=.*fang).*$/i,
 		name : "Serpent's Fang",
 		source : [["CM", 98]],
 		description : "Versatile (d10); +1d10 poison damage",
+		selectNow : true
 	}]
 };
 if (MagicItemsList["alchemy jug"]) {
@@ -154,13 +154,13 @@ MagicItemsList["gloves of soul catching"] = {
 	descriptionFull : "Your Constitution score is 20 while you wear these gloves. This property of the gloves has no effect on you if your Constitution is already 20 or higher."+
 	"\n   After making a successful unarmed strike while wearing these gloves, you can use the gloves to deal an extra 2d10 force damage to the target, and you regain a number of hit points equal to the force damage dealt. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	scoresOverride : [0, 0, 20, 0, 0, 0],
-	weaponsAdd : ["Gloves of Soul Catching"],
 	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*gloves)(?=.*soul)(?=.*catching).*$/i,
 		name : "Gloves of Soul Catching",
 		source : [["CM", 169]],
-		description : "+2d10 force damage"
+		description : "+2d10 force damage",
+		selectNow : true
 	}]
 };
 MagicItemsList["watchful helm"] = {
@@ -210,14 +210,14 @@ MagicItemsList["staff of fate"] = {
 		recovery : "Special"
 	}],
 	action : [["bonus action", ""]],
-	weaponsAdd : ["Staff of Fate"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /\bstaff of fate\b/i,
 		name : "Staff of Fate",
 		source : [["CM", 183]],
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 };
 var CM_NetherScrollOfAzumar = "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a stone golem appears within 60 ft that acts as ally. If I die, the golem turns to dust.";
 MagicItemsList["nether scroll of azumar"] = {

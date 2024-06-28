@@ -1,5 +1,5 @@
 var iFileName = "ua_20150202_Eberron.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
 // Define the source
@@ -121,8 +121,7 @@ AddRacialVariant("shifter-ua", "longtooth", {
 	name : "Longtooth shifter",
 	source : [["UA:E", 2]],
 	plural : "Longtooth shifters",
-	weaponsAdd : ["longtooth"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\blongtooth\b/i,
 		name : "Longtooth",
 		source : [["UA:E", 2]],
@@ -131,8 +130,9 @@ AddRacialVariant("shifter-ua", "longtooth", {
 		damage : [1, 6, "piercing"],
 		range : "Melee",
 		description : "Only while shifted; Target up to my size is grappled",
-		abilitytodamage : true
-	},
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	scorestxt : "",
 	scores : [1, 1, 0, 0, 0, 0],
 	trait : "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled."
@@ -142,15 +142,15 @@ AddRacialVariant("shifter-ua", "razorclaw", {
 	name : "Razorclaw shifter",
 	source : [["UA:E", 2]],
 	plural : "Razorclaw shifters",
-	weaponsAdd : ["razorclaw"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\brazorclaw\b/i,
 		name : "Razorclaw",
 		source : [["UA:E", 2]],
 		damage : [1, "", "slashing"],
-		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse"
-	},
+		description : "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
+		selectNow : true
+	}],
 	scorestxt : "",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage."

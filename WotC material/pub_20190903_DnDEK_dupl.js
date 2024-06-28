@@ -1,5 +1,5 @@
 var iFileName = "pub_20190903_DnDEK.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the sidekick rules from the Dungeons & Dragons Essentials Kit adventures to MPMB's Character Record Sheet
 /* - NOTICE -
 	These sidekick classes are available as normal classes because the sheet doesn't support classes for the companion page
@@ -99,8 +99,8 @@ ClassList["sidekick-expert"] = {
 				"A sidekick does not get the benefits of a background, nor can it multiclass"
 			]),
 			scorestxt : "Starts with 10 Strength, 15 Dexterity, 12 Constitution, 13 Intelligence, 10 Wisdom, and 14 Charisma",
-			weaponsAdd : ["Shortsword", "Dagger", "Shortbow"],
-			armorAdd : "Studded Leather",
+			weaponsAdd : { select : ["Shortsword", "Dagger", "Shortbow"] },
+			armorAdd : { select : "Studded Leather" },
 			languageProfs : ["Common", 1],
 			eval : function (lvlA, choiceA) {
 				ClassList["sidekick-expert"].loadSidekickStats(true, [10, 15, 12, 13, 10, 14]);
@@ -194,8 +194,8 @@ ClassList["sidekick-warrior"] = {
 				"A sidekick does not get the benefits of a background, nor can it take feats or multiclass"
 			]),
 			scorestxt : "Starts with 15 Strength, 13 Dexterity, 14 Constitution, 10 Intelligence, 12 Wisdom, and 10 Charisma",
-			weaponsAdd : ["Longsword", "Longbow"],
-			armorAdd : "Chain Shirt",
+			weaponsAdd : { select : ["Longsword", "Longbow"] },
+			armorAdd : { select : "Chain Shirt" },
 			shieldAdd : "Shield",
 			languageProfs : ["Common", 1],
 			eval : function (lvlA, choiceA) {
@@ -328,8 +328,8 @@ ClassList["sidekick-spellcaster"] = {
 				"A sidekick does not get the benefits of a background, nor can it take feats or multiclass"
 			]),
 			scorestxt : "Starts with 10 Strength, 12 Dexterity, 10 Constitution, 15 Intelligence, 14 Wisdom, and 13 Charisma",
-			weaponsAdd : ["Quarterstaff"],
-			armorAdd : "Leather",
+			weaponsAdd : { select : ["Quarterstaff"] },
+			armorAdd : { select : "Leather" },
 			languageProfs : ["Common", 1],
 			eval : function (lvlA, choiceA) {
 				ClassList["sidekick-expert"].loadSidekickStats(true, [10, 12, 10, 15, 14, 13]);
@@ -409,7 +409,7 @@ AddSubClass("sidekick-spellcaster", "mage", {
 			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : "\n   I can cast wizard cantrips/spells I know, using Intelligence as my spellcasting ability",
-			weaponsAdd : ["Fire Bolt"],
+			weaponsAdd : { select : ["Fire Bolt"] },
 			changeeval : function (lvlA, choiceA) {
 				if (!lvlA[1]) return;
 				// set the spells known for the level
@@ -462,7 +462,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : "\n   I can cast cleric cantrips/spells I know, using Wisdom as my spellcasting ability",
-			weaponsAdd : ["Sacred Flame"],
+			weaponsAdd : { select : ["Sacred Flame"] },
 			changeeval : function (lvlA, choiceA) {
 				if (!lvlA[1]) return;
 				// set the spells known for the level

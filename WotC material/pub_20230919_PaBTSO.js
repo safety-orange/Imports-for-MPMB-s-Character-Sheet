@@ -1,5 +1,5 @@
 var iFileName = "pub_20230919_PaBTSO.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("13.1.14");
 // This file adds the magic items from the Phandelver and Below: The Shattered Obelisk adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
 // Define the source
@@ -13,6 +13,7 @@ SourceList["PaBTSO"] = {
 };
 
 // Magic Items
+// [dupl_start] reprint from Lost Mines of Phandelver
 if (!SourceList["LMoP"]) {
 	MagicItemsList["dragonguard"] = {
 		name : "Dragonguard",
@@ -23,14 +24,14 @@ if (!SourceList["LMoP"]) {
 		description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 		descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 		weight : 20,
-		armorAdd : "Dragonguard",
 		armorOptions : [{
 			regExpSearch : /dragonguard/i,
 			name : "Dragonguard",
 			source : [["PaBTSO", 72], ["LMoP", 48]],
 			type : "medium",
 			ac : "14+1",
-			weight : 20
+			weight : 20,
+			selectNow : true
 		}],
 		savetxt : { adv_vs : ["breath weapons of dragons"] }
 	}
@@ -43,15 +44,15 @@ if (!SourceList["LMoP"]) {
 		description : 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
 		descriptionFull : 'This rusty old battleaxe of dwarven manufacture has has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he used it for protection while he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
 		weight : 4,
-		weaponsAdd : ["Hew"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "battleaxe",
 			regExpSearch : /\bhew\b/i,
-			name : "Hew",
-			source : [["PaBTSO", 54], ["LMoP", 33]],
+			name : '"Hew"',
+			source : [["LMoP", 33], ["PaBTSO", 54]],
 			description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
-			modifiers : [1, 1]
-		}
+			modifiers : [1, 1],
+			selectNow : true
+		}]
 	}
 	MagicItemsList["lightbringer"] = {
 		name : "Lightbringer",
@@ -62,15 +63,15 @@ if (!SourceList["LMoP"]) {
 		description : "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head of shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 		descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and is made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 		weight : 4,
-		weaponsAdd : ["Lightbringer"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "mace",
 			regExpSearch : /lightbringer/i,
 			name : "Lightbringer",
 			source : [["PaBTSO", 54], ["LMoP", 48]],
 			description : "Command to glow as torch and deal +1d6 radiant damage to undead",
-			modifiers : [1, 1]
-		}
+			modifiers : [1, 1],
+			selectNow : true
+		}]
 	}
 	MagicItemsList["spider staff"] = {
 		name : "Spider Staff",
@@ -88,14 +89,14 @@ if (!SourceList["LMoP"]) {
 		usages : 10,
 		recovery : "dawn",
 		additional : "regains 1d6+4",
-		weaponsAdd : ["Spider Staff"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*spider)(?=.*staff).*$/i,
 			name : "Spider Staff",
 			source : [["PaBTSO", 220], ["LMoP", 53]],
-			description : "Versatile (1d8); +1d6 poison damage"
-		},
+			description : "Versatile (1d8); +1d6 poison damage",
+			selectNow : true
+		}],
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
 		spellcastingBonus : [{
@@ -129,13 +130,7 @@ if (!SourceList["LMoP"]) {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /staff of defense/i,
-			name : "Staff of Defense",
-			weight : 3,
-			source : [["PaBTSO", 220], ["LMoP", 53]],
-		},
+		weaponsAdd : { options : ["Staff of Defense"] },
 		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["mage armor"],
@@ -155,7 +150,7 @@ if (!SourceList["LMoP"]) {
 		},
 		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
 	}
-}
+} // dupl_end
 MagicItemsList["netherese ring of protection"] = {
 	name : "Netherese Ring of Protection",
 	source : [["PaBTSO", 50]],
@@ -223,15 +218,15 @@ MagicItemsList["flayer slayer"] = {
 	"\n   An Aberration hit with this greataxe takes an extra 1d12 slashing damage. If the Aberration is currently grappling a creature, the Aberration must succeed on a DC 15 Strength saving throw or release each creature it is grappling.",
 	attunement : true,
 	weight : 7,
-	weaponsAdd : ["Flayer Slayer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /flayer slayer/i,
 		name : "Flayer Slayer",
 		source : [["PaBTSO", 217]],
 		description : "Heavy, two-handed; Aberrations: +1d12 damage \u0026 DC 15 Str save or release all grappled",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["luminous war pick"] = {
 	name : "Luminous War Pick",
@@ -243,15 +238,15 @@ MagicItemsList["luminous war pick"] = {
 	"\n   While wielding the war pick, you can use a bonus action to cast the daylight spell, choosing a point on the war pick. Once you use this bonus action, it can't be used again until the next dawn.",
 	attunement : true,
 	weight : 2,
-	weaponsAdd : ["Luminous War Pick"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "war pick",
 		regExpSearch : /^(?=.*\bluminous\b)((?=.*\bkuwas?\b)|((?=.*pick)(?=.*war))|((?!.*(heavy|great|light))(?=.*\bpicks?\b))).*$/i,
 		name : "Luminous War Pick",
 		source : [["PaBTSO", 217]],
 		description : "",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["daylight"],
@@ -329,8 +324,7 @@ MagicItemsList["mindblasting cap"] = {
 	action : [["bonus action", ""]],
 	usages : 1,
 	recovery : "dawn",
-	weaponsAdd : ["Mindblasting Cap"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*mindblasting)(?=.*cap).*$/i,
 		name : "Mindblasting Cap",
 		source : [["PaBTSO", 218]],
@@ -341,8 +335,9 @@ MagicItemsList["mindblasting cap"] = {
 		description : "Int save or stunned for 1 min, re-save end of turn; Success - half damage, not stunned",
 		abilitytodamage : false,
 		modifiers : [7, 0],
-		dc : true
-	}
+		dc : true,
+		selectNow : true
+	}]
 }
 MagicItemsList["mindguard crown"] = {
 	name : "Mindguard Crown",

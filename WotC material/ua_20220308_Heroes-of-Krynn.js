@@ -2,7 +2,7 @@
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 
 var iFileName = "ua_20220308_Heroes-of-Krynn.js";
-RequiredSheetVersion("13.1.2");
+RequiredSheetVersion("13.1.14");
 
 SourceList["UA:HoK"] = {
 	name : "Unearthed Arcana: Heroes of Krynn",
@@ -81,7 +81,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				spells : ["sacred flame"],
 				selection : ["sacred flame"]
 			},
-			weaponsAdd : ["Sacred Flame"],
+			weaponsAdd : { select : ["Sacred Flame"] },
 			spellChanges : {
 				"sacred flame" : {
 					description : "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5, 11, and 17",

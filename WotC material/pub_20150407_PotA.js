@@ -1,5 +1,5 @@
 var iFileName = "pub_20150407_PotA.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the magic items from the Princes of the Apocalypse adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -70,8 +70,7 @@ MagicItemsList["claws of the umber hulk"] = {
 	weight : 1,
 	attunement : true,
 	speed : { burrow : { spd : "fixed20", enc : "fixed10" } },
-	weaponsAdd : ["Claws of the Umber Hulk"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*claws)(?=.*umber)(?=.*hulk).*$/i,
 		name : "Claws of the Umber Hulk",
 		source : [["PotA", 222]],
@@ -80,8 +79,9 @@ MagicItemsList["claws of the umber hulk"] = {
 		damage : [1, 8, "slashing"],
 		range : "Melee",
 		description : "",
-		abilitytodamage : true
-	}
+		abilitytodamage : true,
+		selectNow : true
+	}]
 }
 var PotA_tempDevastationOrbNoteTxt = [
 	"A devastation orb is an elemental bomb that can be created at the site of an elemental node by performing a ritual with an elemental weapon. The type of orb created depends on the node used. For example, an air node creates a devastation orb of air. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.\n   A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates 1d100 hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as Identify and Divination can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.\n   A special container can be crafted to contain a devastation orb and prevent it from detonating. The container must be inscribed with symbols of the orb's opposing element. For example, a case inscribed with earth symbols can be used to contain a devastation orb of air and keep it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes 1d6 rounds later, unless it is returned to the container.\n   Regardless of the type of orb, its effect is contained within a sphere with a 1 mile radius. The orb is the sphere's point of origin. The orb is destroyed after one use.",
@@ -174,15 +174,15 @@ MagicItemsList["drown"] = {
 			changes : "Can only affect a water elemental."
 		}
 	},
-	weaponsAdd : ["Drown"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "trident",
 		regExpSearch : /drown/i,
 		name : "Drown",
 		source : [["PotA", 224]],
 		description : "Thrown, versatile (1d8); +1d8 cold damage",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [
@@ -242,15 +242,15 @@ MagicItemsList["ironfang"] = {
 		}
 	},
 	vision : [["Tremorsense", "fixed 60"]],
-	weaponsAdd : ["Ironfang"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "war pick",
 		regExpSearch : /ironfang/i,
 		name : "Ironfang",
 		source : [["PotA", 224]],
 		description : "+1d8 thunder damage",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [
@@ -290,15 +290,15 @@ MagicItemsList["orcsplitter"] = {
 	descriptionFull : "A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for \"orc,\" but the runes are depicted with a gap or slash through the markings; the word \"orc\" is literally split in two.\n   You gain the following benefits while holding this magic weapon:\n \u2022 You gain a +2 bonus to attack and damage rolls made with it.\n \u2022 When you roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.\n \u2022 You can't be surprised by orcs while you're not incapacitated. You are also aware when orcs are within 120 feet of you and aren't behind total cover, although you don't know their location.\n \u2022 You and any of your friends within 30 feet of you can't be frightened while you're not incapacitated.\n\n" + toUni("Sentience") + ". Orcsplitter is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.\n   " + toUni("Personality") + ". Orcsplitter is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
 	attunement : true,
 	weight : 7,
-	weaponsAdd : ["Orcsplitter"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /orcsplitter/i,
 		name : "Orcsplitter",
 		source : [["PotA", 224]],
 		description : "Heavy, two-handed; On 20 vs. Orc: it DC 17 Con save or 0 HP",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	savetxt : { immune : ["frightened"] },
 	toNotesPage : [{
 		name : "Features",
@@ -319,15 +319,15 @@ MagicItemsList["reszur"] = {
 	description : "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speaks the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this weapon, which doesn't make noise when it hits or cuts something.\n   The name \"Reszur\" is graven on the dagger's pommel. If the wielder speaks the name, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until the wielder speaks the name again.",
 	weight : 1,
-	weaponsAdd : ["Dragontooth Dagger"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /reszur/i,
 		name : "Reszur",
 		source : [["PotA", 157]],
 		description : "Finesse, light, thrown; Doesn't make any noise",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["seeker dart"] = {
 	name : "Seeker Dart",
@@ -347,8 +347,7 @@ MagicItemsList["storm boomerang"] = {
 	magicItemTable : "F",
 	description : "This ranged weapon has 60/120 ft range, deals 1d4 bludgeoning and 3d4 thunder damage, and its target must make a DC 10 Con save or be stunned until its next turn ends. On a miss, it returns to the thrower's hand. Once it deals thunder damage, it can't do so or stun again until recharged in an air node for 1 hour.",
 	descriptionFull : "This boomerang is a ranged weapon carved from griffon bone and etched with the symbol of elemental air. When thrown, it has a range of 60/120 feet, and any creature that is proficient with the javelin is also proficient with this weapon. On a hit, the boomerang deals 1d4 bludgeoning damage and 3d4 thunder damage, and the target must succeed on a DC 10 Constitution saving throw or be stunned until the end of its next turn. On a miss, the boomerang returns to the thrower's hand.\n   Once the boomerang deals thunder damage to a target, the weapon loses its ability to deal thunder damage and its ability to stun a target. These properties return after the boomerang spends at least 1 hour inside an elemental air node.",
-	weaponsAdd : ["Storm Boomerang"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "javelin",
 		name : "Storm Boomerang",
 		regExpSearch : /^(?=.*storm)(?=.*boomerang).*$/i,
@@ -357,8 +356,9 @@ MagicItemsList["storm boomerang"] = {
 		damage : [1, 4, "bludgeoning"],
 		range : "60/120 ft",
 		weight : 2,
-		description : "Returns on a miss; Once: +3d4 thunder damage, target DC 10 Con save or stunned 1 turn"
-	},
+		description : "Returns on a miss; Once: +3d4 thunder damage, target DC 10 Con save or stunned 1 turn",
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "Air Node",
 	additional : "recharge: 1 h in air node"
@@ -390,15 +390,15 @@ MagicItemsList["tinderstrike"] = {
 			changes : "Can only affect a fire elemental."
 		}
 	},
-	weaponsAdd : ["Tinderstrike"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /tinderstrike/i,
 		name : "Tinderstrike",
 		source : [["PotA", 225]],
 		description : "Finesse, light, thrown; +2d6 fire damage",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [
@@ -450,15 +450,15 @@ MagicItemsList["windvane"] = {
 			changes : "Can only affect an air elemental."
 		}
 	},
-	weaponsAdd : ["Windvane"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /windvane/i,
 		name : "Windvane",
 		source : [["PotA", 225]],
 		description : "Finesse, thrown, versatile (1d6); +1d6 lightning damage",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [

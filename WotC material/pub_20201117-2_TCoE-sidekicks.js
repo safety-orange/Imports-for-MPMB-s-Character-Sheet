@@ -326,7 +326,7 @@ ClassList["sidekick-expert-tcoe"] = {
 		"coordinated strike" : {
 			name : "Coordinated Strike",
 			source : [["T", 144]],
-			minlevel : 7,
+			minlevel : 6,
 			description : desc([
 				"I can use Helpful to aid an ally to attack a creature up to 30 ft away from me",
 				"If I do so, I add +2d6 damage on my next attack to that creature in the current turn"

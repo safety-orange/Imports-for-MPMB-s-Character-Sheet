@@ -1,6 +1,6 @@
-if (sheetVersion < 13001013) { throw "This script was made for a newer version of the sheet (v13.1.13). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13001014) { throw "This script was made for a newer version of the sheet (v13.1.14). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_published.js";
-RequiredSheetVersion("13.1.13");
+RequiredSheetVersion("13.1.14");
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
@@ -24,14 +24,14 @@ MagicItemsList["dragonguard"] = {
 	description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 	descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 	weight : 20,
-	armorAdd : "Dragonguard",
 	armorOptions : [{
 		regExpSearch : /dragonguard/i,
 		name : "Dragonguard",
 		source : [["LMoP", 48], ["PaBTSO", 72]],
 		type : "medium",
 		ac : "14+1",
-		weight : 20
+		weight : 20,
+		selectNow : true
 	}],
 	savetxt : { adv_vs : ["breath weapons of dragons"] }
 }
@@ -44,15 +44,15 @@ MagicItemsList["hew"] = {
 	description : 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
 	descriptionFull : 'This rusty old battleaxe of dwarven manufacture has has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he used it for protection while he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
 	weight : 4,
-	weaponsAdd : ["Hew"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /\bhew\b/i,
-		name : "Hew",
+		name : '"Hew"',
 		source : [["LMoP", 33], ["PaBTSO", 54]],
 		description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["lightbringer"] = {
 	name : "Lightbringer",
@@ -63,15 +63,15 @@ MagicItemsList["lightbringer"] = {
 	description : "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head of shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 	descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and is made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 	weight : 4,
-	weaponsAdd : ["Lightbringer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /lightbringer/i,
 		name : "Lightbringer",
 		source : [["LMoP", 48], ["PaBTSO", 54]],
 		description : "Command to glow as torch and deal +1d6 radiant damage to undead",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
 	name : "Spider Staff",
@@ -88,14 +88,14 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 	usages : 10,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
-	weaponsAdd : ["Spider Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*spider)(?=.*staff).*$/i,
 		name : "Spider Staff",
 		source : [["LMoP", 53], ["PaBTSO", 220]],
-		description : "Versatile (1d8); +1d6 poison damage"
-	},
+		description : "Versatile (1d8); +1d6 poison damage",
+		selectNow : true
+	}],
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
@@ -127,13 +127,7 @@ MagicItemsList["staff of defense"] = { // changed to the new version introduced 
 	additional : "regains 1d6+4",
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	weaponOptions : {
-		baseWeapon : "quarterstaff",
-		regExpSearch : /staff of defense/i,
-		name : "Staff of Defense",
-		weight : 3,
-		source : [["LMoP", 53], ["PaBTSO", 220]]
-	},
+	weaponsAdd : { options : ["Staff of Defense"] },
 	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["mage armor"],
@@ -520,24 +514,8 @@ AddSubClass("cleric", "knowledge domain", {
 			name : "Potent Spellcasting",
 			source : [["P", 60]],
 			minlevel : 8,
-			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Visions of the Past",
@@ -606,24 +584,8 @@ AddSubClass("cleric", "light domain", {
 			name : "Potent Spellcasting",
 			source : [["P", 61]],
 			minlevel : 8,
-			description : "\n   " + "I can add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Corona of Light",
@@ -684,7 +646,7 @@ AddSubClass("cleric", "nature domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 cold/fire/lightning damage';
 						}
 					},
@@ -749,7 +711,7 @@ AddSubClass("cleric", "tempest domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 thunder damage';
 						}
 					},
@@ -808,7 +770,7 @@ AddSubClass("cleric", "trickery domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 poison damage';
 						}
 					},
@@ -879,7 +841,7 @@ AddSubClass("cleric", "war domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage';
 						}
 					},
@@ -3216,7 +3178,7 @@ BackgroundList["soldier"] = {
 		"I'm haunted by memories of war. I can't get the violent images out of my mind.",
 		"I'm slow to make new friends, because I've lost too many old ones.",
 		"I'm full of inspiring and cautionary tales from my military experience with some relevance to almost every type of combat situation.",
-		"I can stare down a owlbear without flinching.",
+		"I can stare down an owlbear without flinching.",
 		"I enjoy my strength and like to break things.",
 		"I have a rough sense of humor.",
 		"I approach problems head-on. A simple, direct course is the best path to a solution."
@@ -3827,18 +3789,18 @@ FeatsList["polearm master"] = {
 	source : [["P", 168]],
 	descriptionFull : "You can keep your enemies at bay with reach weapons. You gain the following benefits:\n \u2022 When you take the Attack action and attack with only a glaive, halberd, quarterstaff, or spear, you can use a bonus action to make a melee attack with the opposite end of the weapon; this attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and the attack deals bludgeoning damage.\n \u2022 While you are wielding a glaive, halberd, pike, quarterstaff, or spear, other creatures provoke an opportunity attack from you when they enter your reach.",
 	description : "As a bonus action when I do the Attack action with a glaive/" + (typePF ? " " : "") + "halberd/quarterstaff/spear, I can make a 1d4 bludgeoning attack with its butt end." + (typePF ? "\n" : " ") + "While wielding a glaive/halberd/" + (typePF ? "" : " ") + "pike/quarterstaff/spear, I get an opportunity attack when a creature enters my reach.",
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)))(?=.*butt)(?=.*end).*$/i,
-		name : "Polearm butt end",
+		name : "Polearm Butt End",
 		source : [["P", 168]],
 		ability : 1,
 		type : "polearm butt end",
 		damage : [1, 4, "bludgeoning"],
 		range : "Melee",
 		description : "As bonus action after Attack action with only a glaive, halberd, spear, or quarterstaff",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Polearm Butt End"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	action : ['bonus action', 'Butt End Attack (after attack with polearm)'],
 	weaponProfs : [false, false, ["polearm butt end"]]
 };
@@ -4887,13 +4849,13 @@ MagicItemsList["dragongleam"] = {
 			component : "V,M\u0192"
 		}
 	},
-	weaponsAdd : ["Dragongleam"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /dragongleam/i,
 		name : "Dragongleam",
-		source : [["HotDQ", 69]]
-	}
+		source : [["HotDQ", 69]],
+		selectNow : true
+	}]
 }
 MagicItemsList["tankard of plenty"] = {
 	name : "Tankard of Plenty",
@@ -5080,15 +5042,15 @@ MagicItemsList["hazirawn"] = {
 	"not attuned" : {
 		name : "Hazirawn\u200A",
 		description : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. While I'm not attuned to the sword, I gain a +1 bonus on attack and damage rolls made with it. It also deals an extra 1d6 necrotic damage on attacks made with the sword.",
-		weaponsAdd : ["Hazirawn"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "greatsword",
 			regExpSearch : /hazirawn/i,
 			name : "Hazirawn",
 			source : [["HotDQ", 94]],
 			description : "Heavy, two-handed; +1d6 necrotic damage",
-			modifiers : [1, 1]
-		}
+			modifiers : [1, 1],
+			selectNow : true
+		}]
 	},
 	"attuned" : {
 		name : "Hazirawn\u200A\u200A",
@@ -5099,15 +5061,15 @@ MagicItemsList["hazirawn"] = {
 			usages : 4,
 			recovery : "Midnight"
 		}],
-		weaponsAdd : ["Hazirawn"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "greatsword",
 			regExpSearch : /hazirawn/i,
 			name : "Hazirawn",
 			source : [["HotDQ", 94]],
 			description : "Heavy, two-handed; +2d6 necrotic damage; Wounding (can't regain HP for 1 min, DC 15 Con save to stop)",
-			modifiers : [2,2]
-		},
+			modifiers : [2, 2],
+			selectNow : true
+		}],
 		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["detect evil and good", "detect magic"],
@@ -5213,15 +5175,15 @@ MagicItemsList["dragontooth dagger"] = {
 	description : "This dagger is fashioned from the tooth of a dragon. Its handle is its leather wrapped root and there is no crossguard. It adds a +1 bonus to attack and damage rolls made with it and deals +1d6 acid damage on a hit. Against the enemies of the Cult of the Dragon this increases to a +2 bonus and +2d6 acid damage.",
 	descriptionFull : "A dagger fashioned from the tooth of a dragon. While the blade is obviously a fang or predator's tooth, the handle is leather wrapped around the root of the tooth, and there is no crossguard.\n   You gain a +1 bonus to attack and damage rolls made with this weapon. On a hit with this weapon, the target takes an extra 1d6 acid damage.\n   " + toUni("Draconic Potency") + ". Against enemies of the Cult of the Dragon, the dagger's bonus to attack and damage rolls increases to 2, and the extra acid damage increases to 2d6.",
 	weight : 1,
-	weaponsAdd : ["Dragontooth Dagger"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*dragontooth)(?=.*dagger).*$/i,
 		name : "Dragontooth Dagger",
 		source : [["RoT", 94]],
 		description : "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \u0026 +2d6 acid damage",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 
 // Beast
@@ -5718,7 +5680,6 @@ RaceList["lycanthrope-werebear"] = {
 			],
 			scoresOverride : [19, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Werebear Bite", "Werebear Claw"],
 			weaponOptions : [{
 				name : "Werebear Bite",
 				regExpSearch : /^(?=.*(werebear|lycanthrope))(?=.*bite).*$/i,
@@ -5728,7 +5689,8 @@ RaceList["lycanthrope-werebear"] = {
 				damage : [2, 10, "piercing"],
 				range : "Melee",
 				description : "Bear and Hybrid form only; Humanoids Con save or cursed",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}, {
 				name : "Werebear Claw",
 				regExpSearch : /^(?=.*(werebear|lycanthrope))(?=.*\bclaws?\b).*$/i,
@@ -5738,7 +5700,8 @@ RaceList["lycanthrope-werebear"] = {
 				damage : [2, 8, "slashing"],
 				range : "Melee",
 				description : "Bear and Hybrid form only",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			extraAC : [{
 				name : "+1 in bear/hybrid form",
@@ -5813,7 +5776,6 @@ RaceList["lycanthrope-wereboar"] = {
 			],
 			scoresOverride : [17, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Wereboar Tusks"],
 			weaponOptions : [{
 				name : "Wereboar Tusks",
 				regExpSearch : /^(?=.*(wereboar|lycanthrope))(?=.*tusks).*$/i,
@@ -5823,7 +5785,8 @@ RaceList["lycanthrope-wereboar"] = {
 				damage : [2, 6, "slashing"],
 				range : "Melee",
 				description : "Boar/hybrid form only; Humanoids Con save or cursed; Charge for +2d6 damage",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			extraAC : [{
 				name : "+1 in boar/hybrid form",
@@ -5914,7 +5877,6 @@ RaceList["lycanthrope-wererat"] = {
 			],
 			scoresOverride : [0, 15, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Wererat Bite"],
 			weaponOptions : [{
 				name : "Wererat Bite",
 				regExpSearch : /^(?=.*(wererat|lycanthrope))(?=.*bite).*$/i,
@@ -5925,7 +5887,8 @@ RaceList["lycanthrope-wererat"] = {
 				range : "Melee",
 				description : "Rat and Hybrid form only; Humanoids Con save or cursed",
 				abilitytodamage : true,
-				isWereratBite : true // for calcChanges.atkAdd
+				isWereratBite : true, // for calcChanges.atkAdd
+				selectNow : true
 			}],
 			calcChanges : {
 				atkAdd : [
@@ -6002,7 +5965,6 @@ RaceList["lycanthrope-weretiger"] = {
 			],
 			scoresOverride : [17, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Weretiger Bite", "Weretiger Claw"],
 			weaponOptions : [{
 				name : "Weretiger Bite",
 				regExpSearch : /^(?=.*(weretiger|lycanthrope))(?=.*bite).*$/i,
@@ -6012,7 +5974,8 @@ RaceList["lycanthrope-weretiger"] = {
 				damage : [1, 10, "piercing"],
 				range : "Melee",
 				description : "Tiger and Hybrid form only; Humanoids Con save or cursed",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}, {
 				name : "Weretiger Claw",
 				regExpSearch : /^(?=.*(weretiger|lycanthrope))(?=.*\bclaws?\b).*$/i,
@@ -6022,7 +5985,8 @@ RaceList["lycanthrope-weretiger"] = {
 				damage : [1, 8, "slashing"],
 				range : "Melee",
 				description : "Tiger and Hybrid form only; Can be use to pounce",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			vision : [["Darkvision", 60]]
 		},
@@ -6109,7 +6073,6 @@ RaceList["lycanthrope-werewolf"] = {
 			],
 			scoresOverride : [15, 0, 0, 0, 0, 0],
 			savetxt : { immune : ["bludgeoning, piercing, and slashing damage unless from magic/silver"] },
-			weaponsAdd : ["Werewolf Bite", "Wolf-hybrid Claws"],
 			weaponOptions : [{
 				name : "Werewolf Bite",
 				regExpSearch : /^(?=.*(werewolf|lycanthrope))(?=.*bite).*$/i,
@@ -6119,7 +6082,8 @@ RaceList["lycanthrope-werewolf"] = {
 				damage : [1, 8, "piercing"],
 				range : "Melee",
 				description : "Wolf and Hybrid form only; Humanoids Con save or cursed",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}, {
 				name : "Wolf-hybrid Claws",
 				regExpSearch : /^(?=.*wolf)(?=.*hybrid)(?=.*\bclaws?\b).*$/i,
@@ -6129,7 +6093,8 @@ RaceList["lycanthrope-werewolf"] = {
 				damage : [2, 4, "slashing"],
 				range : "Melee",
 				description : "Hybrid form only",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}],
 			extraAC : [{
 				name : "+1 in wolf/hybrid form",
@@ -6346,7 +6311,7 @@ AddSubClass("cleric", "death domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
 						}
 					},
@@ -6750,7 +6715,6 @@ MagicItemsList["efreeti chain"] = {
 	weight : 55,
 	languageProfs : ["Primordial"],
 	savetxt : { immune : ["fire"] },
-	armorAdd : "Efreeti Chain",
 	armorOptions : [{
 		regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
 		name : "Efreeti Chain",
@@ -6759,7 +6723,8 @@ MagicItemsList["efreeti chain"] = {
 		ac : "16+3",
 		stealthdis : true,
 		weight : 55,
-		strReq : 13
+		strReq : 13,
+		selectNow : true
 	}]
 }
 MagicItemsList["elixir of health"] = {
@@ -7189,8 +7154,7 @@ MagicItemsList["staff of the adder"] = {
 	prerequisite : "Requires attunement by a cleric, druid, or warlock",
 	prereqeval : function(v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
 	action : [["bonus action", " (animate/end)"]],
-	weaponsAdd : ["Animated Snake Head from Staff of the Adder"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*snake)(?=.*head)(?=.*staff)(?=.*adder).*$/i,
 		name : "Animated Snake Head from Staff of the Adder",
 		source : [["D", 203]],
@@ -7201,8 +7165,9 @@ MagicItemsList["staff of the adder"] = {
 		range : "Melee",
 		weight : 4,
 		description : "DC 15 Constitution save or 3d6 poison damage",
-		abilitytodamage : false
-	}
+		abilitytodamage : false,
+		selectNow : true
+	}]
 }
 MagicItemsList["sword of answering"] = {
 	name : "Sword of Answering",
@@ -7226,14 +7191,14 @@ MagicItemsList["sword of answering"] = {
 	attunement : true,
 	weight : 3,
 	action : [["reaction", ""]],
-	weaponsAdd : ["Sword of Answering"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*sword)(?=.*answering).*$/i,
 		name : "Sword of Answering",
 		source : [["D", 206]],
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	choices : ["Answerer (chaotic good)", "Back Talker (chaotic evil)", "Concluder (lawful neutral)", "Last Quip (chaotic neutral)", "Rebutter (neutral good)", "Replier (neutral)", "Retorter (lawful good)", "Scather (lawful evil)", "Squelcher (neutral evil)"],
 	"answerer (chaotic good)" : {
 		name : "Sword of Answering [Answerer]",
@@ -7341,7 +7306,7 @@ MagicItemsList["tentacle rod"] = {
 	attunement : true,
 	weight : 2,
 	action : [["action", ""]],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*tentacle)(?=.*rod).*$/i,
 		name : "Tentacle Rod",
 		source : [["D", 208]],
@@ -7352,8 +7317,9 @@ MagicItemsList["tentacle rod"] = {
 		description : "Action to use, 3 attacks; If all 3 hit same target, it DC 15 Con save, see magic item",
 		abilitytodamage : false,
 		modifiers : [9, ""],
-		weight : 2
-	}
+		weight : 2,
+		selectNow : true
+	}]
 }
 MagicItemsList["tome of the stilled tongue"] = {
 	name : "Tome of the Stilled Tongue",
@@ -7431,15 +7397,15 @@ MagicItemsList["blackrazor"] = {
 	prereqeval : function(v) { return !(/lawful/i).test(What("Alignment")); },
 	action : [["bonus action", ""]],
 	weight : 6,
-	weaponsAdd : ["Blackrazor"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /blackrazor/i,
 		name : "Blackrazor",
 		source : [["D", 216]],
 		description : "Heavy, two-handed; Devours soul; Heals undead",
-		modifiers : [3,3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
@@ -7486,15 +7452,15 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		prerequisite : "Requires attunement by a creature that worships a god of the sea",
 		prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
 		weight : 4,
-		weaponsAdd : ["Wave"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "trident",
 			regExpSearch : /wave/i,
 			name : "Wave",
 			source : [["D", 218]],
 			description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
-			modifiers : [3,3]
-		},
+			modifiers : [3, 3],
+			selectNow : true
+		}],
 		toNotesPage : [{
 			name : "Features",
 			note : desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
@@ -7559,16 +7525,16 @@ MagicItemsList["whelm"] = {
 	prerequisite : "Requires attunement by a dwarf",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
 	weight : 2,
-	weaponsAdd : ["Whelm"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /whelm/i,
 		name : "Whelm",
 		source : [["D", 218]],
 		range : "Melee, 20/60 ft",
 		description : "Versatile (1d10), thrown, returning; +1d8 damage when thrown (+2d8 vs. giants)",
-		modifiers : [3,3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
@@ -7667,8 +7633,7 @@ MagicItemsList["claws of the umber hulk"] = {
 	weight : 1,
 	attunement : true,
 	speed : { burrow : { spd : "fixed20", enc : "fixed10" } },
-	weaponsAdd : ["Claws of the Umber Hulk"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*claws)(?=.*umber)(?=.*hulk).*$/i,
 		name : "Claws of the Umber Hulk",
 		source : [["PotA", 222]],
@@ -7677,8 +7642,9 @@ MagicItemsList["claws of the umber hulk"] = {
 		damage : [1, 8, "slashing"],
 		range : "Melee",
 		description : "",
-		abilitytodamage : true
-	}
+		abilitytodamage : true,
+		selectNow : true
+	}]
 }
 var PotA_tempDevastationOrbNoteTxt = [
 	"A devastation orb is an elemental bomb that can be created at the site of an elemental node by performing a ritual with an elemental weapon. The type of orb created depends on the node used. For example, an air node creates a devastation orb of air. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.\n   A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates 1d100 hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as Identify and Divination can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.\n   A special container can be crafted to contain a devastation orb and prevent it from detonating. The container must be inscribed with symbols of the orb's opposing element. For example, a case inscribed with earth symbols can be used to contain a devastation orb of air and keep it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes 1d6 rounds later, unless it is returned to the container.\n   Regardless of the type of orb, its effect is contained within a sphere with a 1 mile radius. The orb is the sphere's point of origin. The orb is destroyed after one use.",
@@ -7771,15 +7737,15 @@ MagicItemsList["drown"] = {
 			changes : "Can only affect a water elemental."
 		}
 	},
-	weaponsAdd : ["Drown"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "trident",
 		regExpSearch : /drown/i,
 		name : "Drown",
 		source : [["PotA", 224]],
 		description : "Thrown, versatile (1d8); +1d8 cold damage",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [
@@ -7839,15 +7805,15 @@ MagicItemsList["ironfang"] = {
 		}
 	},
 	vision : [["Tremorsense", "fixed 60"]],
-	weaponsAdd : ["Ironfang"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "war pick",
 		regExpSearch : /ironfang/i,
 		name : "Ironfang",
 		source : [["PotA", 224]],
 		description : "+1d8 thunder damage",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [
@@ -7887,15 +7853,15 @@ MagicItemsList["orcsplitter"] = {
 	descriptionFull : "A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for \"orc,\" but the runes are depicted with a gap or slash through the markings; the word \"orc\" is literally split in two.\n   You gain the following benefits while holding this magic weapon:\n \u2022 You gain a +2 bonus to attack and damage rolls made with it.\n \u2022 When you roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.\n \u2022 You can't be surprised by orcs while you're not incapacitated. You are also aware when orcs are within 120 feet of you and aren't behind total cover, although you don't know their location.\n \u2022 You and any of your friends within 30 feet of you can't be frightened while you're not incapacitated.\n\n" + toUni("Sentience") + ". Orcsplitter is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.\n   " + toUni("Personality") + ". Orcsplitter is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
 	attunement : true,
 	weight : 7,
-	weaponsAdd : ["Orcsplitter"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /orcsplitter/i,
 		name : "Orcsplitter",
 		source : [["PotA", 224]],
 		description : "Heavy, two-handed; On 20 vs. Orc: it DC 17 Con save or 0 HP",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	savetxt : { immune : ["frightened"] },
 	toNotesPage : [{
 		name : "Features",
@@ -7916,15 +7882,15 @@ MagicItemsList["reszur"] = {
 	description : "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speaks the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this weapon, which doesn't make noise when it hits or cuts something.\n   The name \"Reszur\" is graven on the dagger's pommel. If the wielder speaks the name, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until the wielder speaks the name again.",
 	weight : 1,
-	weaponsAdd : ["Dragontooth Dagger"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /reszur/i,
 		name : "Reszur",
 		source : [["PotA", 157]],
 		description : "Finesse, light, thrown; Doesn't make any noise",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["seeker dart"] = {
 	name : "Seeker Dart",
@@ -7944,8 +7910,7 @@ MagicItemsList["storm boomerang"] = {
 	magicItemTable : "F",
 	description : "This ranged weapon has 60/120 ft range, deals 1d4 bludgeoning and 3d4 thunder damage, and its target must make a DC 10 Con save or be stunned until its next turn ends. On a miss, it returns to the thrower's hand. Once it deals thunder damage, it can't do so or stun again until recharged in an air node for 1 hour.",
 	descriptionFull : "This boomerang is a ranged weapon carved from griffon bone and etched with the symbol of elemental air. When thrown, it has a range of 60/120 feet, and any creature that is proficient with the javelin is also proficient with this weapon. On a hit, the boomerang deals 1d4 bludgeoning damage and 3d4 thunder damage, and the target must succeed on a DC 10 Constitution saving throw or be stunned until the end of its next turn. On a miss, the boomerang returns to the thrower's hand.\n   Once the boomerang deals thunder damage to a target, the weapon loses its ability to deal thunder damage and its ability to stun a target. These properties return after the boomerang spends at least 1 hour inside an elemental air node.",
-	weaponsAdd : ["Storm Boomerang"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "javelin",
 		name : "Storm Boomerang",
 		regExpSearch : /^(?=.*storm)(?=.*boomerang).*$/i,
@@ -7954,8 +7919,9 @@ MagicItemsList["storm boomerang"] = {
 		damage : [1, 4, "bludgeoning"],
 		range : "60/120 ft",
 		weight : 2,
-		description : "Returns on a miss; Once: +3d4 thunder damage, target DC 10 Con save or stunned 1 turn"
-	},
+		description : "Returns on a miss; Once: +3d4 thunder damage, target DC 10 Con save or stunned 1 turn",
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "Air Node",
 	additional : "recharge: 1 h in air node"
@@ -7987,15 +7953,15 @@ MagicItemsList["tinderstrike"] = {
 			changes : "Can only affect a fire elemental."
 		}
 	},
-	weaponsAdd : ["Tinderstrike"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /tinderstrike/i,
 		name : "Tinderstrike",
 		source : [["PotA", 225]],
 		description : "Finesse, light, thrown; +2d6 fire damage",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [
@@ -8047,15 +8013,15 @@ MagicItemsList["windvane"] = {
 			changes : "Can only affect an air elemental."
 		}
 	},
-	weaponsAdd : ["Windvane"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /windvane/i,
 		name : "Windvane",
 		source : [["PotA", 225]],
 		description : "Finesse, thrown, versatile (1d6); +1d6 lightning damage",
-		modifiers : [2,2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : [
@@ -8466,14 +8432,14 @@ RaceList["aarakocra"] = {
 		fly : { spd : 50, enc : 0 }
 	},
 	languageProfs : ["Common", "Aarakocra", "Auran"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /talon/i,
 		name : "Talons",
 		source : [["E", 5], ["W", 166]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ["Talons"],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	age : " reach maturity by age 3 and live about 30 years",
 	height : " are about 5 feet tall",
 	weight : " weigh between 80 and 100 lb",
@@ -10115,16 +10081,16 @@ MagicItemsList["dawnbringer"] = {
 	attunement : true,
 	weight : 3,
 	action : [["bonus action", " (start/stop)"], ["action", " (change light)"]],
-	weaponsAdd : ["Dawnbringer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /dawnbringer/i,
 		name : "Dawnbringer",
 		source : [["OotA", 222]],
 		damage : [1, 8, "radiant"],
 		description : "Finesse, versatile (1d10); +1d8 damage to undead",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -10439,8 +10405,7 @@ MagicItemsList["wand of viscid globs"] = {
 	recovery : "Midnight",
 	additional : "regains 1d6+1",
 	action : [["action", ""]],
-	weaponsAdd : ["Wand of Viscid Globs"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*wand)(?=.*viscid)(?=.*globs).*$/i,
 		name : "Wand of Viscid Globs",
 		source : [["OotA", 223]],
@@ -10450,8 +10415,9 @@ MagicItemsList["wand of viscid globs"] = {
 		range : "60 ft",
 		description : "1 charge; Lasts 1 hour or until exposed to sunlight, a pint of alcohol, oil of etherealness, or universal solvent",
 		abilitytodamage : false,
-		useSpellcastingAbility : true
-	}
+		useSpellcastingAbility : true,
+		selectNow : true
+	}]
 }
 
 // pub_20151103_SCAG.js
@@ -10817,7 +10783,7 @@ AddSubClass("barbarian", "battlerager", {
 				stealthdis : true,
 				weight : 45
 			}],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*armou?r)(?=.*spike).*$/i,
 				name : "Armor spikes",
 				source : [["S", 121]],
@@ -10826,10 +10792,10 @@ AddSubClass("barbarian", "battlerager", {
 				damage : [1, 4, "piercing"],
 				range : "Melee",
 				description : "Does 3 piercing damage when grappling during my Attack action",
-				abilitytodamage : true
-			},
+				abilitytodamage : true,
+				selectNow : true
+			}],
 			weaponProfs : [false, false, ["armor spikes"]],
-			weaponsAdd : ['Armor Spikes'],
 			eval : function() {
 				AddString('Proficiency Armor Other Description', 'Spiked Armor', ', ');
 			},
@@ -10925,24 +10891,8 @@ AddSubClass("cleric", "arcana domain", {
 			name : "Potent Spellcasting",
 			source : [["S", 126]],
 			minlevel : 8,
-			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Arcane Mastery",
@@ -11067,7 +11017,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 			]),
 			action : ["bonus action", " (2\xD7 with Attack action)"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
 				name : "Radiant Sun Bolt",
 				source : [["S", 131], ["X", 35]],
@@ -11077,9 +11027,9 @@ AddSubClass("monk", "way of the sun soul", {
 				range : "30 ft",
 				description : "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
 				monkweapon : true,
-				abilitytodamage : true
-			},
-			weaponsAdd : ['Radiant Sun Bolt'],
+				abilitytodamage : true,
+				selectNow : true
+			}],
 			"searing arc strike" : {
 				name : "Searing Arc Strike",
 				extraname : "Way of the Sun Soul 6",
@@ -11125,8 +11075,7 @@ AddSubClass("monk", "way of the sun soul", {
 			]),
 			action : ["action", ""],
 			additional : "0 ki points + max 3 ki points",
-			weaponsAdd : ['Searing Sunburst'],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*searing)(?=.*sunburst).*$/i,
 				name : "Searing Sunburst",
 				source : [["S", 131], ["X", 35]],
@@ -11137,8 +11086,9 @@ AddSubClass("monk", "way of the sun soul", {
 				description : "All in 20-ft radius; Con save - success no damage; +2d6 damage per ki point (max 3 ki)",
 				abilitytodamage : false,
 				dc : true,
-				useSpellMod : "monk"
-			}
+				useSpellMod : "monk",
+				selectNow : true
+			}]
 		},
 		"subclassfeature17" : {
 			name : "Sun Shield",
@@ -12551,7 +12501,7 @@ BackgroundFeatureList["heart of darkness"] = {
 // Equipment pack
 PacksList.monsterhunter = {
 	name : "Monster hunter's pack (33 gp)",
-	source : [["CoS", 209]],
+	source : [["CoS", 209], ["VRGtR", 34]],
 	items : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -12578,15 +12528,15 @@ MagicItemsList["plantslayer battleaxe"] = {
 	description : "This battleaxe's handle is carved with leaves and vines. It deals an extra 1d8 slashing damage against ordinary plants and plant creatures. When a creature of non-good alignment makes an attack with it, it sprouts thorns, dealing 1 magical piercing damage to the wielder after the attack is made.",
 	descriptionFull : "The axe's handle is carved with leaves and vines, and it weighs half as much as a normal battleaxe. When the axe hits a plant, whether an ordinary plant or a plant creature, the target takes an extra 1d8 slashing damage. When a creature of non-good alignment wields the axe, it sprouts thorns whenever its wielder makes an attack with it. These thorns prick the wielder for 1 piercing damage after the attack is made, and this damage is considered magical.",
 	weight : 2,
-	weaponsAdd : ["Plantslayer Battleaxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /^(?=.*plantslayer)(?=.*battleaxe).*$/i,
 		name : "Plantslayer Battleaxe",
 		source : [["CoS", 198]],
 		description : "Versatile (1d10); +1d8 damage vs. plants",
-		weight : 2
-	}
+		weight : 2,
+		selectNow : true
+	}]
 }
 MagicItemsList["blood spear"] = {
 	name : "Blood Spear",
@@ -12602,26 +12552,26 @@ MagicItemsList["blood spear"] = {
 	choicesNotInMenu : true,
 	"chosen of kavan" : {
 		name : "Blood\u200A Spear",
-		weaponsAdd : ["Blood Spear"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
 			name : "Blood Spear",
 			source : [["CoS", 221]],
 			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
-			modifiers : [2,2]
-		}
+			modifiers : [2, 2],
+			selectNow : true
+		}]
 	},
 	"not a chosen of kavan" : {
 		name : "Blood\u200A\u200A Spear",
-		weaponsAdd : ["Blood Spear"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*blood)(?=.*spear).*$/i,
 			name : "Blood Spear",
 			source : [["CoS", 221]],
-			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP"
-		}
+			description : "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
+			selectNow : true
+		}]
 	}
 }
 MagicItemsList["green copper ewer"] = {
@@ -12646,14 +12596,14 @@ MagicItemsList["gulthias staff"] = {
 	usages : 10,
 	recovery : "Dusk",
 	additional : "regains 1d6+4",
-	weaponsAdd : ["Gulthias Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*gulthias)(?=.*staff).*$/i,
 		name : "Gulthias Staff",
 		source : [["CoS", 221]],
-		description : "Versatile (1d8); On hit, 1 charge to regain HP equal to damage dealt but DC 12 Wis save or madness"
-	},
+		description : "Versatile (1d8); On hit, 1 charge to regain HP equal to damage dealt but DC 12 Wis save or madness",
+		selectNow : true
+	}]
 }
 MagicItemsList["holy symbol of ravenkind"] = {
 	name : "Holy Symbol of Ravenkind",
@@ -12748,14 +12698,14 @@ MagicItemsList["lost sword"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "Crusader's Mantle",
-	weaponsAdd : ["Lost Sword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "shortsword",
 		regExpSearch : /^(?=.*lost)(?=.*sword).*$/i,
 		name : "Lost Sword",
 		source : [["CoS", 81]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	spellcastingBonus : {
 		name : "Once per dawn",
 		spells : ["crusader's mantle"],
@@ -12782,14 +12732,14 @@ MagicItemsList["saint markovia's thighbone"] = {
 	descriptionFull : "Saint Markovia's thighbone has the properties of a mace of disruption. If it scores one or more hits against a vampire or a vampire spawn in the course of a single battle, the thighbone crumbles into dust once the battle concludes.\n   As a youth, Markovia followed her heart and became a priest of the Morninglord soon after her eighteenth birthday. She proved to be a charismatic proselytizer and, before the age of thirty, had gained a reputation for allowing no evil to stand before her.\n   Markovia had long considered Strahd a mad tyrant, but only after his transformation into a vampire did she dare to challenge him. As she rallied her followers and prepared to march on Castle Ravenloft, Strahd sent a group of vampire spawn to her abbey. They confronted Markovia and were destroyed to a one.\n   Suffused with confidence born of a righteous victory, Markovia advanced on Castle Ravenloft. A great battle raged from the catacombs to the parapets. In the end, Markovia never returned to Barovia, and Strahd long afterward walked with a limp and a grimace of pain. It is said that he trapped Markovia in a crypt beneath his castle, and her remains linger there yet.\n   The essence of Markovia's saintliness passed partly into her bones as the rest of her body decomposed. Her remaining thighbone is imbued with power that inflicts grievous injury on the undead.\n   Mace of Disruption. When you hit a fiend or an undead with this magic weapon, that creature takes an extra 2d6 radiant damage. If the target has 25 hit points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature becomes frightened of you until the end of your next turn.\n   While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.",
 	attunement : true,
 	weight : 4,
-	weaponsAdd : ["Saint Markovia's Thighbone"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*markovia)(?=.*thighbone).*$/i,
 		name : "Saint Markovia's Thighbone",
 		source : [["CoS", 222]],
-		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if HP<26, DC 15 Wis save or die"
-	}
+		description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if HP<26, DC 15 Wis save or die",
+		selectNow : true
+	}]
 }
 MagicItemsList["silver dragon shield +2"] = {
 	name : "Silver Dragon Shield +2",
@@ -12824,16 +12774,16 @@ MagicItemsList["sunsword"] = {
 	attunement : true,
 	weight : 3,
 	action : [["bonus action", " (start/stop)"], ["action", " (change light)"]],
-	weaponsAdd : ["Sunsword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /sunsword/i,
 		name : "Sunsword",
 		source : [["CoS", 223]],
 		damage : [1, 8, "radiant"],
 		description : "Finesse, versatile (1d10); +1d8 damage to undead",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -13193,8 +13143,7 @@ MagicItemsList["gurt's greataxe"] = {
 	weight : 325,
 	usages : 1,
 	recovery : "dawn",
-	weaponsAdd : ["Gurt's Greataxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /^(?=.*gurt)(?=.*greataxe).*$/i,
 		name : "Gurt's Greataxe",
@@ -13202,8 +13151,9 @@ MagicItemsList["gurt's greataxe"] = {
 		damage : [3, 12, "slashing"],
 		weight : 325,
 		description : "Heavy, two-handed; +2d12 damage against humans",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	fixedDC : 13,
 	spellcastingBonus : {
 		name : "Deals cold damage",
@@ -13299,14 +13249,14 @@ MagicItemsList["korolnor scepter"] = {
 		selection : ["teleport"],
 		firstCol : 3
 	}],
-	weaponsAdd : ["Korolnor Scepter"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "club",
 		regExpSearch : /^(?=.*korolnor)(?=.*scepter).*$/i,
 		name : "Korolnor Scepter",
 		source : [["SKT", 234]],
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 }
 MagicItemsList["navigation orb"] = {
 	name : "Navigation Orb",
@@ -13639,14 +13589,14 @@ MagicItemsList["red dragon's thighbone"] = {
 	descriptionFull : "This 14-ft long, 250 lb red dragon's thighbone can be used as a greatclub by a giant. If a creature attunes to the greatclub, it magically shrinks to a size that the creature can wield effectively. The greatclub is considered a magic weapon that deals an extra 2d8 bludgeoning damage whenever it hits a dragon (including any creature of the dragon type).",
 	attunement : true,
 	weight : 10,
-	weaponsAdd : ["Red Dragon's Thighbone"],
-	weaponOptions :{
+	weaponOptions : [{
 		baseWeapon : "greabclub",
 		regExpSearch : /^(?=.*red)(?=.*dragon)(?=.*thighbone).*$/i,
 		name : "Red Dragon's Thighbone",
 		source : [["SKT", 105]],
 		description : "Two-handed; +2d6 damage vs. dragons",
-	}
+		selectNow : true
+	}]
 }
 MagicItemsList["ancient relic boulder"] = {
 	name : "Ancient Relic Boulder",
@@ -14041,21 +13991,21 @@ RaceList["lizardfolk"] = {
 	},
 	skillstxt : "Choose two from Animal Handling, Nature, Perception, Stealth, and Survival",
 	languageProfs : ["Common", "Draconic"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bbite\b/i,
 		name : "Bite",
 		source : [["V", 113]],
-		damage : [1, 6, "piercing"]
-	},
-	weaponsAdd : ["Bite"],
+		damage : [1, 6, "piercing"],
+		selectNow : true
+	}],
 	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["V", 113]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	age : " reach maturity around age 14 and rarely live longer than 60 years",
 	height : " range from 5 to well over 6 feet tall (4'9\" + 2d10\")",
 	weight : " weigh around 200 lb (120 + 2d10 \xD7 2d6 lb)",
@@ -14114,14 +14064,14 @@ RaceList["tabaxi"] = {
 	skills : ["Perception", "Stealth"],
 	languageProfs : ["Common", 1],
 	vision : [["Darkvision", 60]],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(tabaxi|\bcat\b))(?=.*claw).*$/i,
 		name : "Tabaxi Claws",
 		source : [["V", 115]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ["Tabaxi Claws"],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	age : " reach adulthood in their late teens and live less than 100 years",
 	height : " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
 	weight : " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
@@ -14870,14 +14820,14 @@ MagicItemsList["mind lash"] = {
 	weight : 3,
 	prerequisite : "Requires attunement by an illithid",
 	prereqeval : function (v) { return (/mind flayer|illithid/i).test(What("Race")); },
-	weaponsAdd : ["Mind Lash"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*mind)(?=.*lash).*$/i,
 		name : "Mind Lash",
 		source : [["V", 81]],
-		description : "Finesse, reach; +2d4 psychic damage; DC 15 Wis save or disadv. on Int/Wis/Cha saves for 1 min"
-	}
+		description : "Finesse, reach; +2d4 psychic damage; DC 15 Wis save or disadv. on Int/Wis/Cha saves for 1 min",
+		selectNow : true
+	}]
 }
 MagicItemsList["shield of far sight"] = {
 	name : "Shield of Far Sight",
@@ -14898,7 +14848,6 @@ MagicItemsList["survival mantle"] = {
 	descriptionFull : "This carapace-like augmentation encases portions of the wearer's shoulders, neck, and chest. A survival mantle is equivalent to a suit of nonmagical half plate armor and takes just as long to don or doff. It can't be worn with other kinds of armor.\n   A creature wearing a survival mantle can breathe normally in any environment (including a vacuum) and has advantage on saving throws against harmful gases (such as those created by a Cloudkill spell, a Stinking Cloud spell, inhaled poisons, and the breath weapons of some dragons).",
 	weight : 40,
 	savetxt : { adv_vs : ["gases"] },
-	armorAdd : "Survival Mantle",
 	armorOptions : [{
 		regExpSearch : /^(?=.*survival)(?=.*mantle).*$/i,
 		name : "Survival Mantle",
@@ -14906,7 +14855,8 @@ MagicItemsList["survival mantle"] = {
 		type : "medium",
 		ac : 15,
 		stealthdis : true,
-		weight : 40
+		weight : 40,
+		selectNow : true
 	}]
 }
 
@@ -15106,14 +15056,14 @@ MagicItemsList["flame tongue shortsword of gem detection"] = {	// contributed by
 		["bonus action", "Flame Tongue (activate/end)"],
 		["action", "Gem Detection (within 60 ft)"]
 	],
-	weaponsAdd : ["Flame Tongue Shortsword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "shortsword",
 		regExpSearch : /^(?=.*flame tongue)(?=.*short)(?=.*sword).*$/i,
 		name : "Flame Tongue Shortsword",
 		source : [["TftYP", 179]],
 		description : "Finesse, light; While active, +2d6 fire damage",
-	}
+		selectNow : true
+	}]
 };
 MagicItemsList["amulet of protection from turning"] = {
 	name : "Amulet of Protection from Turning",
@@ -15210,16 +15160,16 @@ MagicItemsList["javelin of backbiting"] = {
 	attunement : true,
 	weight : 2,
 	cursed : true,
-	weaponsAdd : ["Javelin of Backbiting"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "javelin",
 		regExpSearch : /^(?=.*javelin)(?=.*backbiting).*$/i,
 		name : "Javelin of Backbiting",
 		source : [["TftYP", 229]],
 		range : "Melee, 60/150 ft",
 		description : "Thrown; +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
-		modifiers : [2,2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["loadstone"] = {
 	name : "Loadstone",
@@ -15315,15 +15265,15 @@ MagicItemsList["shatterspike"] = {
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon. If it hits an object, the hit is automatically a critical hit, and it can deal bludgeoning or slashing damage to the object (your choice). Further, damage from nonmagical sources can't harm the weapon.",
 	attunement : true,
 	weight : 3,
-	weaponsAdd : ["Shatterspike"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /Shatterspike/i,
 		name : "Shatterspike",
 		source : [["TftYP", 229]],
 		description : "Versatile (1d10); Against objects: always critical hit, can choose to deal bludgeoning damage",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["spear of backbiting"] = {
 	name : "Spear of Backbiting",
@@ -15336,16 +15286,16 @@ MagicItemsList["spear of backbiting"] = {
 	attunement : true,
 	weight : 3,
 	cursed : true,
-	weaponsAdd : ["Spear of Backbiting"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /^(?=.*spear)(?=.*backbiting).*$/i,
 		name : "Spear of Backbiting",
 		source : [["TftYP", 229]],
 		range : "Melee, 50/90 ft",
 		description : "Thrown, versatile (1d8); +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
-		modifiers : [2,2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["stone of ill luck"] = {
 	name : "Stone of Ill Luck",
@@ -15399,15 +15349,15 @@ MagicItemsList["waythe"] = {
 	descriptionFull : "Waythe is a unique greatsword most recently in the possession of a high-ranking cloud giant ambassador.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit a creature of the giant type with it, the giant takes an extra 2d6 slashing damage, and it must succeed on a DC 15 Strength saving throw or fall prone.\n   The sword also functions as a wand of enemy detection. It regains all of its expended charges at dawn and isn't at risk of crumbling if its last charge is used.\n   " + toUni("Sentience") + ". Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet.\n   The weapon can speak and understand Giant and Common, and it can communicate telepathically with its wielder.\n   " + toUni("Personality") + ". This sword believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. (It takes only 1 minute for a good-aligned character to gain attunement with the sword.) Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder.",
 	attunement : true,
 	weight : 6,
-	weaponsAdd : ["Waythe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /waythe/i,
 		name : "Waythe",
 		source : [["TftYP", 229]],
 		description : "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	usages : 7,
 	recovery : "dawn",
 	additional : "regains 1d6+1",
@@ -15500,15 +15450,15 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	calcChanges : {
 		hp : function (totalHD) { return [totalHD]; }
 	},
-	weaponsAdd : ["Berserker Battleaxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /^(?=.*berserker)(?=.*battleaxe).*$/i,
 		name : "Berserker Battleaxe",
 		source : [["TftYP", 68]],
 		description : "Versatile (1d10); Cursed",
-		modifiers : [2,2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["plantslayer longsword"] = {
 	name : "Plantslayer Longsword",
@@ -15519,15 +15469,15 @@ MagicItemsList["plantslayer longsword"] = {
 	description : "This sword is made of laminated wood, inset with jagged teeth of obsidian. I gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
 	descriptionFull : "This sword is made of laminated wood, inset with jagged teeth of obsidian. You gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
 	weight : 3,
-	weaponsAdd : ["Plantslayer Longsword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*plantslayer)(?=.*longsword).*$/i,
 		name : "Plantslayer Longsword",
 		source : [["TftYP", 70]],
 		description : "Versatile (1d10); +2d6 damage vs. plants",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 
 // pub_20170915_Tortle.js
@@ -15560,17 +15510,17 @@ RaceList.tortle = {
 		name : "Tortle's Shell",
 		source : [["TP", 4], ["W", 181]],
 		ac : 17,
-		dex : -10
+		dex : -10,
+		selectNow : true
 	}],
-	armorAdd : "Tortle's Shell",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 		name : "Tortle's Claws",
 		source : [["TP", 4], ["W", 181]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ["Tortle's Claws"],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	age : " reach adulthood by the age of 15 and live an average of 50 years",
 	height : " stand between 5 and 6 feet tall (4'10\" + 2d8\")",
 	weight : " weigh around 450 lb (400 + 2d8 \xD7 2d4 lb)",
@@ -16031,23 +15981,22 @@ CreatureList["jaculi"] = {
 };
 
 // Magic Items
-MagicItemsList["bob (battleaxe)"] = { // contributed by Nod_Hero
-	name : "Bob (battleaxe)",
-	nameAlt : "Bob",
+MagicItemsList["bob"] = { // contributed by Nod_Hero
+	name : "Bob",
 	source : [["ToA", 89]],
 	type : "weapon (battleaxe)",
 	rarity : "uncommon",
 	description : "Dwarvish runes on the head of this rusty battleaxe read 'Bob'. It adds a +1 bonus to attack and damage rolls made with it, floats on water and other liquids, and grants me advantage on Strength (Athletics) checks made to swim.",
 	descriptionFull : "Etched into the haft of the battleaxe are Dethek (Dwarvish) runes that spell the weapon's name: Bob. It floats on water and other liquids, adds a +1 bonus to attack and damage rolls made with it, and grants its bearer advantage on Strength (Athletics) checks made to swim.",
 	weight : 4,
-	weaponsAdd : ["Bob"],
 	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /\bbob\b/i,
-		name : "Bob",
+		name : '"Bob"',
 		source : [["ToA", 89]],
 		description : "Versatile (1d10); Floats",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["longsword of speaking draconic"] = { // contributed by Nod_Hero
@@ -16059,12 +16008,9 @@ MagicItemsList["longsword of speaking draconic"] = { // contributed by Nod_Hero
 	descriptionFull : "This longsword has a dragon-shaped hilt. While you carry it, you gain the ability to speak and understand the Draconic language.",
 	weight : 3,
 	languageProfs : ["Draconic"],
-	weaponsAdd : ["Longsword of Speaking Draconic"],
-	weaponOptions : {
-		baseWeapon : "longsword",
-		regExpSearch : /^(?=.*longsword)(?=.*speaking)(?=.*draconic).*$/i,
-		name : "Longsword of Speaking Draconic",
-		source : [["ToA", 173]]
+	weaponsAdd : {
+		select : ["Longsword of Speaking Draconic"],
+		options : ["Longsword of Speaking Draconic"]
 	}
 };
 MagicItemsList["amulet of the black skull"] = {
@@ -16107,14 +16053,14 @@ MagicItemsList["bookmark"] = {
 	attunement : true,
 	weight : 1,
 	action : [["bonus action", ""]],
-	weaponsAdd : ["Bookmark"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /bookmark/i,
 		name : "Bookmark",
 		source : [["ToA", 206]],
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	extraLimitedFeatures : [{
 		name : "Compulsion (Bookmark)",
 		usages : 1,
@@ -16190,7 +16136,6 @@ MagicItemsList["scorpion armor"] = {
 	weight : 65,
 	cursed : true,
 	addMod : [{ type : "skill", field : "Init", mod : 5, text : "I gain a +5 bonus on my initiative rolls." }],
-	armorAdd : "Scorpion Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*scorpion)(?=.*armor).*$/i,
 		name : "Scorpion Armor",
@@ -16199,7 +16144,8 @@ MagicItemsList["scorpion armor"] = {
 		ac : 18,
 		stealthdis : false,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}]
 }
 
@@ -16812,7 +16758,7 @@ AddSubClass("cleric", "forge domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 fire damage';
 						}
 					},
@@ -16898,24 +16844,8 @@ AddSubClass("cleric", "grave domain", {
 			name : "Potent Spellcasting",
 			source : [["X", 20]],
 			minlevel : 8,
-			description : "\n   " + "I add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Keeper of Souls",
@@ -17598,7 +17528,7 @@ RunFunctionAtEnd(function () {
 			description : "",
 			source : aWea.source,
 			weaponProfs : [false, false, [weapon]],
-			weaponsAdd : [aWea.name],
+			weaponsAdd : { select : [aWea.name] },
 			submenu : ((/simple/i).test(aWea.type) ? "\x1BSimple weapon, " : "Martial weapon, ") + ((/^(?!.*melee).*\d+.*$/i).test(aWea.range) ? "ranged" : "melee"),
 			prereqeval : 'testSource("' + weapon + '", WeaponsList["' + weapon + '"], "weapExcl") ? "skip" : true;'
 		}
@@ -18933,21 +18863,21 @@ FeatsList["dragon hide"] = {
 	descriptionFull : "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
 		name : "Retractable Claws",
 		source : [["X", 74]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ['Retractable Claws'],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	armorOptions : [{
 		regExpSearch : /^(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience)).*$/i,
 		name : "Dragon Hide",
 		source : [["X", 74]],
-		ac : 13
-	}],
-	armorAdd : "Dragon Hide"
+		ac : 13,
+		selectNow : true
+	}]
 };
 FeatsList["drow high magic"] = {
 	name : "Drow High Magic",
@@ -20182,7 +20112,6 @@ MagicItemsList["cast-off armor"] = {
 	rarity : "common",
 	description : "As an action, I can doff this armor.",
 	descriptionFull : "You can doff this armor as an action.",
-	attunement : true,
 	chooseGear : {
 		type : "armor",
 		prefixOrSuffix : "suffix",
@@ -21607,15 +21536,15 @@ MagicItemsList["greater silver sword"] = {
 			}
 		}
 	},
-	weaponsAdd : ["Greater Silver Sword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /^(?=.*greater)(?=.*silver)(?=.*sword).*$/i,
 		name : "Greater Silver Sword",
 		source : [["MToF", 89]],
 		description : "Heavy, two-handed; On crit vs. astral body, cut cord instead of damage",
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	savetxt : { text : ["Adv. on Int, Wis, and Cha saves"], immune : ["charmed"] },
 	advantages : [["Intelligence", true], ["Wisdom", true], ["Charisma", true]],
 	dmgres : ["Psychic"]
@@ -21691,7 +21620,18 @@ AmmoList["oversized arrow"] = {
 };
 
 // Magic Items
-var WDH_azuredgeFullDescription = "Forged by the archwizard Ahghairon, this intelligent battleaxe was crafted to defend Waterdeep. Its current wielder is a former member of Force Grey named Meloon Wardragon, but the weapon is searching for a new owner.\n   Azuredge has a solid steel handle etched with tiny runes, wrapped in blue dragon hide with a star sapphire set into the pommel. The axe head is forged from silver, electrum, and steel alloys whose edges constantly shimmer with a deep blue luminescence.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. The Shield spell provides no defense against the axe, which passes through that spell's barrier of magical force.\n   When you hit a fiend or an undead with the axe, cold blue flames erupt from its blade and deal an extra 2d6 radiant damage to the target.\n   >>Hurling<<. The battleaxe has 3 charges. You can expend 1 charge and make a ranged attack with the axe, hurling it as if it had the thrown property with a normal range of 60 feet and a long range of 180 feet. Whether it hits or misses, the axe flies back to you at the end of the current turn, landing in your open hand or at your feet in your space (as you choose). The axe regains all expended charges daily at dawn.\n   >>Illumination<<. While holding the axe, you can use an action to cause the axe to glow blue or to quench the glow. This glow sheds bright light in a 30-foot radius and dim light for an additional 30 feet.\n   >>Sentience<<. Azuredge is a sentient lawful neutral weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.\n   The weapon communicates telepathically with its wielder and can speak, read, and understand Common. It has a calm, delicate voice. The weapon can sense the presence of non-lawful creatures within 120 feet of it.\n   >>Personality<<. Azuredge is sworn to protect Waterdeep, and it desires to be wielded by a law-abiding person willing to dedicate everything to the city's defense. The weapon is patient and takes its time finding its ideal wielder.\n   If someone tries to use Azuredge against its will, the axe can become ten times heavier than normal, and can magically adhere to any Medium or larger object or surface it comes into contact with. Once it does so, the axe can't be wielded. Nothing short of a Wish spell can separate the axe from the item or surface to which it is adhered without destroying one or the other, though the axe can choose to end the effect at any time.";
+var WDH_azuredgeFullDescription = [
+	"Forged by the archwizard Ahghairon, this intelligent battleaxe was crafted to defend Waterdeep. Its current wielder is a former member of Force Grey named Meloon Wardragon, but the weapon is searching for a new owner.",
+	"Azuredge has a solid steel handle etched with tiny runes, wrapped in blue dragon hide with a star sapphire set into the pommel. The axe head is forged from silver, electrum, and steel alloys whose edges constantly shimmer with a deep blue luminescence.",
+	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. The Shield spell provides no defense against the axe, which passes through that spell's barrier of magical force.",
+	"When you hit a fiend or an undead with the axe, cold blue flames erupt from its blade and deal an extra 2d6 radiant damage to the target.",
+	">>Hurling<<. The battleaxe has 3 charges. You can expend 1 charge and make a ranged attack with the axe, hurling it as if it had the thrown property with a normal range of 60 feet and a long range of 180 feet. Whether it hits or misses, the axe flies back to you at the end of the current turn, landing in your open hand or at your feet in your space (as you choose). The axe regains all expended charges daily at dawn.",
+	">>Illumination<<. While holding the axe, you can use an action to cause the axe to glow blue or to quench the glow. This glow sheds bright light in a 30-foot radius and dim light for an additional 30 feet.",
+	">>Sentience<<. Azuredge is a sentient lawful neutral weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
+	"The weapon communicates telepathically with its wielder and can speak, read, and understand Common. It has a calm, delicate voice. The weapon can sense the presence of non-lawful creatures within 120 feet of it.",
+	">>Personality<<. Azuredge is sworn to protect Waterdeep, and it desires to be wielded by a law-abiding person willing to dedicate everything to the city's defense. The weapon is patient and takes its time finding its ideal wielder.",
+	"If someone tries to use Azuredge against its will, the axe can become ten times heavier than normal, and can magically adhere to any Medium or larger object or surface it comes into contact with. Once it does so, the axe can't be wielded. Nothing short of a Wish spell can separate the axe from the item or surface to which it is adhered without destroying one or the other, though the axe can choose to end the effect at any time."
+];
 MagicItemsList["azuredge"] = {
 	name : "Azuredge",
 	source : [["WDH", 189]],
@@ -21699,23 +21639,23 @@ MagicItemsList["azuredge"] = {
 	rarity : "legendary",
 	storyItemAL : true,
 	description : "This battleaxe is sentient, adds +3 to hit and damage, and deals +2d6 radiant damage vs. fiends/undead. As an action, I can stop or start its glow of bright light in a 30-ft radius and dim light for another 30 ft. It has 3 charges, regaining all at dawn, which can be used to throw it, after which it returns to my hand. See Notes.",
-	descriptionFull : WDH_azuredgeFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull : WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	attunement : true,
 	weight : 4,
 	action : [["action", " (glow/end)"]],
 	usages : 3,
 	recovery : "dawn",
 	additional : "throw",
-	weaponsAdd : ["Azuredge"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /azuredge/i,
 		name : "Azuredge",
 		source : [["WDH", 189]],
 		range : "Melee, 60/180 ft",
 		description : "Versatile (1d10), thrown (1 charge); Returning; Ignores Shield spell; +2d6 radiant damage vs. fiends/undead",
-		modifiers : [3,3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	spellcastingBonus : {
 		name : "Once per dawn",
 		spells : ["crusader's mantle"],
@@ -21724,7 +21664,7 @@ MagicItemsList["azuredge"] = {
 	},
 	toNotesPage : [{
 		name : "Features",
-		note : "\n   " + WDH_azuredgeFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+		note : "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
 	}]
 }
 MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
@@ -21765,15 +21705,15 @@ if (MagicItemsList["staff of power"]) {
 		usages : 20,
 		recovery : "dawn",
 		additional : "regains 2d8+4",
-		weaponsAdd : ["Blackstaff"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "quarterstaff",
 			regExpSearch : /blackstaff/i,
 			name : "Blackstaff",
 			source : [["WDH", 190]],
 			description : "Versatile (1d8); On hit, use 1 charge for: +1d6 force damage or, as a bonus action, Drain Magic or Dispel Magic",
-			modifiers : [2, 2]
-		},
+			modifiers : [2, 2],
+			selectNow : true
+		}],
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
@@ -21826,15 +21766,15 @@ MagicItemsList["bracer of flying daggers"] = {
 	descriptionFull : "This armband appears to have thin daggers strapped to it. As an action, you can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if you don't hurl it right away, and the daggers disappear right after they hit or miss. The bracer never runs out of daggers.",
 	attunement : true,
 	action : [["action", ""]],
-	weaponsAdd : ["Bracer of Flying Daggers"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*bracer)(?=.*flying)(?=.*dagger).*$/i,
 		name : "Bracer of Flying Daggers",
 		source : [["WDH", 190]],
 		range : "20/60 ft",
-		description : "Finesse, light, thrown; As action, throw 2; Doesn't work with Attack action"
-	}
+		description : "Finesse, light, thrown; As action, throw 2; Doesn't work with Attack action",
+		selectNow : true
+	}]
 }
 MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Pengsloth
 	name : "Dragonstaff of Ahghairon",
@@ -22067,14 +22007,14 @@ MagicItemsList["heward's hireling armor"] = {
 	descriptionFull : "A number of Kwalish's experiments were attempts to research the works of the legendary mage Heward, who first crafted what he named hireling armor. While wearing this armor, you gain a +1 bonus to AC. In addition, the armor's animated straps can assist with the drawing and sheathing of weapons, such that you can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.\n   This armor also has six pockets, each of which is an extradimensional space. Each pocket can hold up to 20 pounds of material, not exceeding a volume of 2 cubic feet. The armor always weighs 10 pounds, regardless of its pockets' contents. Placing an object into one of the armor's pockets follows the normal rules for interacting with objects. Retrieving an item from a pocket of the armor requires you to use an action. When you reach into a pocket for a specific item, the item is always magically on top.\n   Placing the armor inside an extradimensional space created by a bag of holding, a Heward's handy haversack, or a similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it and deposited in a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 	weight : 10,
 	action : [["action", " (retrieve item)"]],
-	armorAdd : "Heward's Hireling Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*heward)(?=.*hireling)(?=.*armor).*$/i,
 		name : "Heward's Hireling Armor",
 		source : [["LLoK", 55]],
 		type : "light",
 		ac : "11+1",
-		weight : 10
+		weight : 10,
+		selectNow : true
 	}]
 }
 if (MagicItemsList["ioun stone"]) {
@@ -22172,14 +22112,14 @@ MagicItemsList["leather golem armor"] = {
 	weight : 10,
 	dmgres : ["Lightning"],
 	cursed : true,
-	armorAdd : "Leather Golem Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*leather)(?=.*golem)(?=.*armor).*$/i,
 		name : "Leather Golem Armor",
 		source : [["LLoK", 55]],
 		type : "light",
 		ac : "11+1",
-		weight : 10
+		weight : 10,
+		selectNow : true
 	}],
 	savetxt : { text : ["+1 vs. spells and magical effects"] },
 	toNotesPage : [{
@@ -22267,7 +22207,6 @@ MagicItemsList["powered armor"] = {
 	scoresOverride : [18, 0, 0, 0, 0, 0],
 	savetxt : { text : ["Adv. on death saves"] },
 	action : [["bonus action", " (use energy)"]],
-	armorAdd : "Powered Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*powered)(?=.*armor).*$/i,
 		name : "Powered Armor",
@@ -22276,7 +22215,8 @@ MagicItemsList["powered armor"] = {
 		ac : "18+1",
 		stealthdis : true,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}],
 	usages : "2d10",
 	recovery : "Never",
@@ -22285,8 +22225,7 @@ MagicItemsList["powered armor"] = {
 		name : "Features",
 		note : desc(LLoK_poweredArmorFullDescription).replace(/your/g, "my").replace(/you /ig, "I ")
 	}],
-	weaponsAdd : ["Arm-Mounted Laser"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*arm)(?=.*mounted)(?=.*laser).*$/i,
 		name : "Arm-Mounted Laser",
 		source : [["LLoK", 56]],
@@ -22296,8 +22235,9 @@ MagicItemsList["powered armor"] = {
 		range : "120 ft",
 		description : "Bonus action; Uses 1 charge or 5 HP",
 		abilitytodamage : false,
-		modifiers : [8, ""]
-	}
+		modifiers : [8, ""],
+		selectNow : true
+	}]
 }
 
 // Spells (contain contributions by /u/KittenWithMittens)
@@ -22378,15 +22318,15 @@ RaceList["centaur"] = {
 		walk : { spd : 40, enc : 30 }
 	},
 	languageProfs : ["Common", "Sylvan"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : [["G", 15], ["MOT", 19]],
 		damage : [1, 4, "bludgeoning"],
-		description : "Use as bonus action after charge 30 ft"
-	},
-	weaponsAdd : ["Hooves"],
+		description : "Use as bonus action after charge 30 ft",
+		selectNow : true
+	}],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	age : " mature and age at about the same rate as humans",
 	height : " stand between 6 and 7 feet tall, with their equine bodies reaching about 4 feet at the withers (6'0\" + 1d10\")",
@@ -22420,9 +22360,9 @@ RaceList["loxodon"] = {
 		name : "Loxodon Natural Armor",
 		source : [["G", 18]],
 		ac : "12+Con",
-		dex : -10
+		dex : -10,
+		selectNow : true
 	}],
-	armorAdd : "Loxodon Natural Armor",
 	vision : [["Keen Smell", 0]],
 	age : " physically mature at the same rate as humans, but are considered young until they reach the age of 60 and live about 450 years",
 	height : " stand between 7 and 8 feet tall (6'7\" + 2d10\")",
@@ -22450,15 +22390,15 @@ RaceList["minotaur"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common", "Minotaur"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["G", 19], ["MOT", 23]],
 		damage : [1, 6, "piercing"],
-		description : "Attack as a bonus action after moving 20 ft with the Dash action"
-	},
-	weaponsAdd : ["Horns"],
+		description : "Attack as a bonus action after moving 20 ft with the Dash action",
+		selectNow : true
+	}],
 	skillstxt : "Choose one from Intimidation or Persuasion",
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " stand around 6 feet tall (5'4\" + 2d8\")",
@@ -22740,7 +22680,7 @@ AddSubClass("cleric", "order domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage' + (classes.known.cleric.level < 17 ? '' : ' \u0026 again if hit by ally before my next turn');
 						}
 					},
@@ -24048,8 +23988,7 @@ MagicItemsList["pyroconverger"] = {
 	descriptionFull : "A Pyroconverger is an Izzet-made flamethrower. It carries a risk of malfunction each time you use it.\n   As an action, you can cause the Pyroconverger to project fire in a 10-foot cone. Each creature in that area must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one.\n   Each time you use the Pyroconverger, roll a d10 and add the number of times you have used it since your last long rest. If the total is 11 or higher, the Pyroconverger malfunctions: you take 4d6 fire damage, and you can't use the Pyroconverger again until you finish a long rest.",
 	attunement : true,
 	weight : 1,
-	weaponsAdd : ["Pyroconverger"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /pyroconverger/i,
 		name : "Pyroconverger",
 		source : [["G", 180]],
@@ -24060,8 +23999,9 @@ MagicItemsList["pyroconverger"] = {
 		description : "Hits all in area; Dex save, success - half damage; Roll each time for malfunction, see item",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : [5, ""]
-	},
+		modifiers : [5, ""],
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "long rest",
 	additional : "if malfunction"
@@ -24077,15 +24017,15 @@ MagicItemsList["rakdos riteknife"] = {
 	attunement : true,
 	weight : 1,
 	action : [["bonus action", " (Siphon Vitality)"], ["reaction", " (Annihilation)"]],
-	weaponsAdd : ["Rakdos Riteknife"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*rakdos)(?=.*riteknife).*$/i,
 		name : "Rakdos Riteknife",
 		source : [["G", 180]],
 		description : "Finesse, light, thrown; Imprisons soul on kill (max 5); +1d4 necrotic damage per stored soul",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "long rest",
 	additional : "Annihilation"
@@ -24100,14 +24040,14 @@ MagicItemsList["skyblinder staff"] = {
 	attunement : true,
 	weight : 4,
 	action : [["reaction", " (vs. flying)"]],
-	weaponsAdd : ["Skyblinder Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*skyblinder)(?=.*staff).*$/i,
 		name : "Skyblinder Staff",
 		source : [["G", 181]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {
@@ -24136,15 +24076,15 @@ MagicItemsList["sunforger"] = {
 	attunement : true,
 	weight : 2,
 	action : [["action", " (hurl/recall)"]],
-	weaponsAdd : ["Sunforger"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /sunforger/i,
 		name : "Sunforger",
 		source : [["G", 181]],
 		description : "Versatile (1d10); As action, hurl 120 ft for 20-ft rad 6d6 fire dmg, Dex DC 15 half",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "short rest",
 	additional : "Hurl"
@@ -24158,15 +24098,15 @@ MagicItemsList["sword of the paruns"] = {
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Additionally, once on each of your turns, you can use one of the following properties if you're holding the sword:\n \u2022 Immediately after you use the Attack action to attack with the sword, you can enable one creature within 60 feet of you to use its reaction to make one weapon attack.\n \u2022 Immediately after you take the Dash action, you can enable one creature within 60 feet of you to use its reaction to move up to its speed.\n \u2022 Immediately after you take the Dodge action, you can enable one creature within 60 feet of you to use its reaction to gain the benefits of the Dodge action.",
 	attunement : true,
 	weight : 3,
-	weaponsAdd : ["Sword of the Paruns"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*sword)(?=.*paruns).*$/i,
 		name : "Sword of the Paruns",
 		source : [["G", 181]],
 		description : "Versatile (1d10); Have ally in 60 ft do something when I take the Attack, Dash, or Dodge action",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["voyager staff"] = {
 	name : "Voyager Staff",
@@ -24179,14 +24119,14 @@ MagicItemsList["voyager staff"] = {
 	weight : 4,
 	prerequisite : "Requires attunement by a spellcaster",
 	prereqeval : function(v) { return v.isSpellcaster; },
-	weaponsAdd : ["Voyager Staff"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*voyager)(?=.*staff).*$/i,
 		name : "Voyager Staff",
 		source : [["G", 181]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {
@@ -24270,7 +24210,10 @@ MagicItemsList["dagger of blindsight"] = {
 	descriptionFull : "This rare magic item requires attunement. A creature attuned to it gains blindsight out to a range of 30 feet. The dagger has a saw-toothed edge and a black pearl nested in its pommel.",
 	attunement : true,
 	weight : 1,
-	weaponsAdd : ["Dagger of Blindsight"],
+	weaponsAdd : {
+		select : ["Dagger of Blindsight"],
+		options : ["Dagger of Blindsight"]
+	},
 	vision : [["Blindsight", 30]]
 }
 MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
@@ -24514,19 +24457,28 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	rarity : "very rare",
 	storyItemAL : true,
 	description : "If I roll a 20 on an attack with this sword, it deals +14 slashing damage and there is a 5% chance its lobs off a limb. It deals max damage to objects and has 6 charges, regaining 1d4+2 at dawn, which it can use to cast spells. It can shed light on command and is a sentient weapon with a will of its own, see Notes page.",
-	descriptionFull : "The longsword, Tearulai, is a sentient, neutral good sword of sharpness with an emerald-colored blade and precious gemstones embedded in its hilt and pommel. The sword's magical properties are suppressed until it is removed from Valdemar's skull.\n   Evil creatures can't attune to Tearulai; any evil creature that tries to do so takes 20 psychic damage. The weapon's emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.\n   " + toUni("Sword of Sharpness") + "When you attack an object with this magic sword and hit, maximize your weapon damage dice against the target.\n   When you attack a creature with this weapon and roll a 20 on the attack roll, that target takes an extra 14 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.\n   In addition, you can speak the sword's command to cause the blade to shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light.\n\nNote: According to the SRD, it is an extra 4d6 slashing damage, although this is incorrect.\n   " + toUni("Spells") + ". The sword has 6 charges and regains 1d4 + 2 expended charges daily at dawn. A creature attuned to the sword can use an action and expend 1 or more charges to cast one of the following spells from it without material components: Fly (2 charges), Polymorph (3 charges), or Transport Via Plants (4 charges).\n   " + toUni("Sentience") + ". The sword has an Intelligence of 17, a Wisdom of 12, and a Charisma of 20. It has hearing and truesight out to a range of 120 feet. It communicates telepathically with its attuned wielder and can speak, read, and understand Common, Draconic, Elvish, and Sylvan. In addition, the sword can ascertain the true value of any gemstone brought within 5 feet of it.\n   " + toUni("Personality") + ". Tearulai admires great beauty, music, fine art, and poetry. Vain, the weapon strives to improve its appearance. It craves gemstones and seeks out better ones with which to adorn itself. Most of all, it longs to return to the forests around Myth Drannor, where it was created. If its wielder's goals run counter to its own, Tearulai attempts to take control of its wielder and escape Undermountain, whereupon it can use its Transport Via Plants spell to return whence it came.",
+	descriptionFull : [
+		"The longsword, Tearulai, is a sentient, neutral good sword of sharpness with an emerald-colored blade and precious gemstones embedded in its hilt and pommel. The sword's magical properties are suppressed until it is removed from Valdemar's skull.",
+		"Evil creatures can't attune to Tearulai; any evil creature that tries to do so takes 20 psychic damage. The weapon's emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
+		toUni("Sword of Sharpness") + ". When you attack an object with this magic sword and hit, maximize your weapon damage dice against the target.",
+		"When you attack a creature with this weapon and roll a 20 on the attack roll, that target takes an extra 14 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.",
+		"In addition, you can speak the sword's command to cause the blade to shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light.\n\nNote: According to the SRD, it is an extra 4d6 slashing damage, although this is incorrect.",
+		toUni("Spells") + ". The sword has 6 charges and regains 1d4 + 2 expended charges daily at dawn. A creature attuned to the sword can use an action and expend 1 or more charges to cast one of the following spells from it without material components: Fly (2 charges), Polymorph (3 charges), or Transport Via Plants (4 charges).",
+		toUni("Sentience") + ". The sword has an Intelligence of 17, a Wisdom of 12, and a Charisma of 20. It has hearing and truesight out to a range of 120 feet. It communicates telepathically with its attuned wielder and can speak, read, and understand Common, Draconic, Elvish, and Sylvan. In addition, the sword can ascertain the true value of any gemstone brought within 5 feet of it.",
+		toUni("Personality") + ". Tearulai admires great beauty, music, fine art, and poetry. Vain, the weapon strives to improve its appearance. It craves gemstones and seeks out better ones with which to adorn itself. Most of all, it longs to return to the forests around Myth Drannor, where it was created. If its wielder's goals run counter to its own, Tearulai attempts to take control of its wielder and escape Undermountain, whereupon it can use its Transport Via Plants spell to return whence it came."
+	].join("\n   "),
 	attunement : true,
 	prerequisite : "Requires attunement by a creature of non-evil alignment",
 	prereqeval : function(v) { return !(/evil/i).test(What("Alignment")); },
 	weight : 3,
-	weaponsAdd : ["Tearulai"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /tearulai/i,
 		name : "Tearulai",
 		source : [["WDotMM", 76]],
-		description : "Versatile (1d10); On 20 to hit: +14 damage \u0026 5% chance to sever limb; Max damage vs. objects"
-	},
+		description : "Versatile (1d10); On 20 to hit: +14 damage \u0026 5% chance to sever limb; Max damage vs. objects",
+		selectNow : true
+	}],
 	usages : 6,
 	recovery : "dawn",
 	additional : "regain 1d4+2",
@@ -25486,14 +25438,14 @@ MagicItemsList["piercer"] = {
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon.\n   A character attuned to the sword regains the maximum possible number of hit points from expended Hit Dice. However, the attuned character must eat twice as much food each day (a minimum of 2 pounds) to avoid exhaustion (see \"The Environment\" in chapter 8 of the Player's Handbook.)",
 	attunement : true,
 	weight : 3,
-	weaponsAdd : ["Piercer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "shortsword",
 		regExpSearch : /piercer/i,
 		name : "Piercer",
 		source : [["AcqInc", 121]],
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 };
 
 // pub_20190917_DiA.js
@@ -25707,13 +25659,13 @@ MagicItemsList["candle mace"] = { // contributed by Nod_Hero
 	descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of this mace sheds bright light in a 5-foot-radius and dim light for an additional 5 feet. When you wield this mace, you can extinguish or ignite its light as an action.",
 	weight : 4,
 	action : [["action", " (on/off)"]],
-	weaponsAdd : ["Candle Mace"],
 	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*candle)(?=.*mace).*$/i,
 		name : "Candle Mace",
 		source : [["DiA", 39]],
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 }
 MagicItemsList["battle standard of infernal power"] = {
@@ -25741,8 +25693,8 @@ MagicItemsList["gauntlets of flaming fury"] = {
 	source : [["DiA", 223]],
 	type : "wondrous item",
 	rarity : "rare",
-	description : "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This last until I sheath or let go of a weapon.",
-	descriptionFull : "While you wear both of these steel gauntlets, any non- magical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheath or let go of either weapon. Once used, this property can't be used again until the next dawn.",
+	description : "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This lasts until I sheathe or let go of a weapon.",
+	descriptionFull : "While you wear both of these steel gauntlets, any non- magical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheathe or let go of either weapon. Once used, this property can't be used again until the next dawn.",
 	attunement : true,
 	action : [["bonus action", ""]],
 	usages : 1,
@@ -25769,14 +25721,14 @@ MagicItemsList["fane-eater"] = {
 	prerequisite : "Requires attunement by an evil cleric or paladin",
 	prereqeval : function(v) { return (classes.known.paladin || classes.known.cleric) && (/evil/i).test(What("Alignment")); },
 	weight : 4,
-	weaponsAdd : ["Fane-Eater"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /fane-eater/i,
 		name : "Fane-Eater",
 		source : [["DiA", 223]],
-		description : "Versatile (1d10); On 20 to hit: +2d8 necrotic damage and I heal same amount"
-	}
+		description : "Versatile (1d10); On 20 to hit: +2d8 necrotic damage and I heal same amount",
+		selectNow : true
+	}]
 }
 MagicItemsList["hellfire weapon"] = {
 	name : "Hellfire Weapon",
@@ -25851,14 +25803,14 @@ MagicItemsList["matalotok"] = {
 	descriptionFull : "Matalotok, the Frost Father, is an ancient hammer fashioned by Thrym, the god of frost giants. The favored weapon of the demon lord Kostchtchie, Matalotok is frigid to the touch and wreathed in mist.\n   You are immune to cold damage while holding Matalotok. Whenever it deals damage to a creature, the hammer radiates a burst of intense cold in a 30-foot-radius sphere. Each creature in that area takes 10 (3d6) cold damage.",
 	attunement : true,
 	weight : 2,
-	weaponsAdd : ["Matalotok"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /matalotok/i,
 		name : "Matalotok",
 		source : [["DiA", 224]],
-		description : "Versatile (1d10); On hit: all in 30-ft radius take 3d6 cold damage"
-	},
+		description : "Versatile (1d10); On hit: all in 30-ft radius take 3d6 cold damage",
+		selectNow : true
+	}],
 	savetxt : { immune : ["cold"] }
 }
 MagicItemsList["obsidian flint dragon plate"] = {
@@ -25868,7 +25820,6 @@ MagicItemsList["obsidian flint dragon plate"] = {
 	rarity : "legendary",
 	description : "I gain a +2 bonus to AC and resistance to poison damage while I wear this plate armor. In addition, I gain advantage on ability checks and saving throws made to avoid or end the grappled condition on myself.",
 	descriptionFull : "You gain a +2 bonus to AC and resistance to poison damage while you wear this armor. In addition, you gain advantage on ability checks and saving throws made to avoid or end the grappled condition on yourself.",
-	armorAdd : "Obsidian Flint Dragon Plate",
 	armorOptions : [{
 		regExpSearch : /^(?=.*obsidian)(?=.*flint)(?=.*dragon)(?=.*plate).*$/i,
 		name : "Obsidian Flint Dragon Plate",
@@ -25877,7 +25828,8 @@ MagicItemsList["obsidian flint dragon plate"] = {
 		ac : "18+2",
 		stealthdis : true,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}],
 	dmgres : ["Poison"],
 	savetxt : { adv_vs : ["grappled"] },
@@ -25995,9 +25947,9 @@ RaceList.locathah = {
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["LR", 24]],
-		ac : 12
+		ac : 12,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	age : " mature to adulthood by the age of 10 but have been known to live up to 80 years",
 	height : " stand between 5 and 6 feet tall",
 	weight : " average about 150 pounds",
@@ -26189,15 +26141,15 @@ RaceList["longtooth shifter"] = {
 		walk : { spd : 30, enc : 20 }
 	},
 	languageProfs : ["Common"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 		name : "Longtooth Fangs",
 		source : [["E:RLW", 34]],
 		damage : [1, 6, "piercing"],
-		description : "Only while shifted; One attack as bonus action"
-	},
-	weaponsAdd : ["Longtooth Fangs"],
+		description : "Only while shifted; One attack as bonus action",
+		selectNow : true
+	}],
 	vision : [["Darkvision", 60]],
 	skills : ["Intimidation"],
 	age : " reach young adulthood at age 10 and rarely live over 70",
@@ -28577,8 +28529,7 @@ MagicItemsList["arcane propulsion arm"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a creature missing a hand or an arm",
 	prereqeval : function (v) { return false; },
-	weaponsAdd : ["Arcane Propulsion Arm"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*arcane)(?=.*propulsion)(?=.*arm).*$/i,
 		name : "Arcane Propulsion Arm",
 		source : [["E:RLW", 276]],
@@ -28587,8 +28538,9 @@ MagicItemsList["arcane propulsion arm"] = {
 		damage : [1, 8, "force"],
 		range : "Melee, 20/60 ft",
 		description : "Thrown; Returns immediately after thrown",
-		abilitytodamage : true
-	}
+		abilitytodamage : true,
+		selectNow : true
+	}]
 }
 MagicItemsList["armblade"] = {
 	name : "Armblade",
@@ -28707,15 +28659,15 @@ MagicItemsList["dyrrn's tentacle whip"] = {
 	attunement : true,
 	weight : 3,
 	action : [["bonus action", "Tentacle Whip (draw/sheath)"]],
-	weaponsAdd : ["Dyrrn's Tentacle Whip"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*tentacle)(?=.*whip).*$/i,
 		name : "Dyrrn's Tentacle Whip",
 		source : [["E:RLW", 276]],
 		description : "Finesse, reach; +1d6 psychic dmg; On 20 to hit: stun until its next turn ends; Disadv. vs. aberrations",
-		modifiers : [2, 2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["earworm"] = {
 	name : "Earworm",
@@ -29026,8 +28978,7 @@ MagicItemsList["kyrzin's ooze"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	weaponsAdd : ["Kyrzin's Ooze Acid Breath"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*ooze)(?=.*acid)(?=.*breath).*$/i,
 		name : "Kyrzin's Ooze Acid Breath",
 		source : [["E:RLW", 278]],
@@ -29038,8 +28989,9 @@ MagicItemsList["kyrzin's ooze"] = {
 		description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : [7, ""]
-	}
+		modifiers : [7, ""],
+		selectNow : true
+	}]
 }
 MagicItemsList["living armor"] = {
 	name : "Living Armor",
@@ -29672,7 +29624,8 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		description : "Hits all in area; Dex save, success - half damage; Usable only once per short rest",
 		abilitytodamage : false,
 		dc : true,
-		dbBreathWeapon : true
+		dbBreathWeapon : true,
+		selectNow : true
 	};
 	var EGtW_acidBreath = EGtW_breathWeaponDesc("acid", "line");
 	var EGtW_fireBreathCone = EGtW_breathWeaponDesc("fire", "cone");
@@ -29697,7 +29650,6 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
 		weaponOptions : [EGtW_breathWeaponObj],
-		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 		weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
@@ -29825,7 +29777,6 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		languageProfs : ["Common", "Draconic"],
 		vision : [["Darkvision", 60]],
 		weaponOptions : [EGtW_breathWeaponObj],
-		weaponsAdd : ["Breath Weapon"],
 		age : " reach adulthood by 15 and live around 80 years",
 		height : " stand well over 6 feet tall (5'6\" + 2d8\")",
 		weight : " weigh around 240 lb (175 + 2d8 \xD7 2d6 lb)",
@@ -31008,15 +30959,15 @@ MagicItemsList["bloodaxe"] = {
 	attunement : true,
 	description : "This rust-colored magical greataxe grants a +2 bonus to attack and damage rolls made with it. The axe deals an additional 1d6 necrotic damage to creature's that aren't constructs or undead. If I reduce a creature to 0 hit points with this axe, I gain 10 temporary hit points.",
 	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic axe. The axe deals an extra 1d6 necrotic damage to creatures that aren't constructs or undead. If you reduce such a creature to 0 hit points with an attack using this axe, you gain 10 temporary hit points.\n   This axe is forged from a dark, rust-colored metal and once belonged to the goliath barbarian Grog Strongjaw of Vox Machina.",
-	weaponsAdd : ["Bloodaxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /bloodaxe/i,
 		name : "Bloodaxe",
 		source : [["W", 266]],
 		description : "Heavy, two-handed; +1d6 necrotic damage to living targets",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	weight : 7
 };
 MagicItemsList["breathing bubble"] = {
@@ -31141,16 +31092,16 @@ MagicItemsList["duskcrusher"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	weaponsAdd : ["Duskcrusher"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /duskcrusher/i,
 		name : "Duskcrusher",
 		source : [["W", 266]],
 		damage : [1, 8, "radiant"],
 		description : "Versatile (1d10); +1d8 damage vs. undead",
-		modifiers : [2, 2]
-	},
+		modifiers : [2, 2],
+		selectNow : true
+	}],
 	weight : 2,
 	fixedDC : 15,
 	spellcastingBonus : {
@@ -31202,14 +31153,14 @@ MagicItemsList["hunter's coat"] = {
 	usages : 3,
 	recovery : "dawn",
 	additional : "regains 1d3",
-	armorAdd : "Hunter's Coat",
 	armorOptions : [{
 		regExpSearch : /^(?=.*hunter)(?=.*coat).*$/i,
 		name : "Hunter's Coat",
 		source : [["W", 267]],
 		type : "light",
 		ac : "11+1",
-		weight : 10
+		weight : 10,
+		selectNow : true
 	}],
 	weight : 10
 };
@@ -31269,14 +31220,14 @@ MagicItemsList["needle of mending"] = {
 	description : "This weapon is a magic dagger disguised as a sewing needle. As a bonus action, I can speak its command word to transform it into a dagger or back into a needle. I gain a +1 bonus to attack and damage rolls made with the dagger. As an action while holding it, I can cast the mending cantrip from it.",
 	descriptionFull : "This weapon is a magic dagger disguised as a sewing needle. When you hold it and use a bonus action to speak its command word, it transforms into a dagger or back into a needle.\n   You gain a +1 bonus to attack and damage rolls made with the dagger. While holding it, you can use an action to cast the mending cantrip from it.",
 	action : [["bonus action", " (transform)"]],
-	weaponsAdd : ["Needle of Mending"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*needle)(?=.*mending).*$/i,
 		name : "Needle of Mending",
 		source : [["W", 268]],
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	spellcastingBonus : {
 		name : "At will",
 		spells : ["mending"],
@@ -31782,14 +31733,14 @@ MagicItemsList["hide of the feral guardian"] = {
 	"dormant" : {
 		name : "Hide of the Feral Guardian [dormant]",
 		description : "This +1 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +1 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to transform into a giant owl.",
-		armorAdd : "Hide of the Feral Guardian",
 		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
 			ac : "12+1",
-			weight : 13
+			weight : 13,
+			selectNow : true
 		}],
 		spellChanges : {
 			"polymorph" : {
@@ -31802,16 +31753,15 @@ MagicItemsList["hide of the feral guardian"] = {
 	},
 	"awakened" : {
 		name : "Hide of the Feral Guardian [awakened]",
-		armorAdd : "Hide of the Feral Guardian [awakened]",
 		description : "This +2 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a +2 bonus to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl or cave bear.",
-		armorAdd : "Hide of the Feral Guardian",
 		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
 			ac : "12+2",
-			weight : 13
+			weight : 13,
+			selectNow : true
 		}],
 		spellChanges : {
 			"polymorph" : {
@@ -31825,14 +31775,14 @@ MagicItemsList["hide of the feral guardian"] = {
 	"exalted" : {
 		name : "Hide of the Feral Guardian [exalted]",
 		description : "This +3 studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then grants a +2 to melee attack and damage rolls. Once per dawn, I can cast Polymorph on myself to become a giant owl, cave bear or guardian wolf.",
-		armorAdd : "Hide of the Feral Guardian",
 		armorOptions : [{
 			regExpSearch : /^(?=.*hide)(?=.*feral guardian).*$/i,
 			name : "Hide of the Feral Guardian",
 			source : [["W", 271]],
 			type : "light",
 			ac : "12+3",
-			weight : 13
+			weight : 13,
+			selectNow : true
 		}],
 		spellChanges : {
 			"polymorph" : {
@@ -31925,15 +31875,15 @@ MagicItemsList["infiltrator's key"] = {
 		name : "Infiltrator's Key [awakened]",
 		description : "I can use this mithral skeleton key as thieves' tools to open locks. I'm proficient with it and gain adv. on the roll. While holding it, I have adv. on Stealth checks to move silently. As a bonus action, I can transform it into a +1 dagger that returns immediately when thrown. I can use it to cast several spells, each once per dawn.",
 		action : [["bonus action", "Infiltrator's Key (transform dagger)"]],
-		weaponsAdd : ["Infiltrator's Key"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "dagger",
 			regExpSearch : /infiltrator's key|key of the infiltrator/i,
 			name : "Infiltrator's Key",
 			source : [["W", 273]],
 			description : "Finesse, light, thrown; Returns when thrown",
-			modifiers : [1, 1]
-		},
+			modifiers : [1, 1],
+			selectNow : true
+		}],
 		spellcastingAbility : "class",
 		spellcastingBonus : {
 			name : "Once per dawn",
@@ -31950,15 +31900,15 @@ MagicItemsList["infiltrator's key"] = {
 			["bonus action", "Infiltrator's Key (transform dagger)"],
 			["bonus action", "Infiltrator's Key (create opening)"]
 		],
-		weaponsAdd : ["Infiltrator's Key"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "dagger",
 			regExpSearch : /infiltrator's key|key of the infiltrator/i,
 			name : "Infiltrator's Key",
 			source : [["W", 273]],
 			description : "Finesse, light, thrown; Returns when thrown",
-			modifiers : [1, 1]
-		},
+			modifiers : [1, 1],
+			selectNow : true
+		}],
 		spellcastingAbility : "class",
 		spellcastingBonus : {
 			name : "Once per dawn",
@@ -32010,7 +31960,7 @@ MagicItemsList["stormgirdle"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*storm avatar)(?=.*lightning strike).*$/i,
 		name : "Storm Avatar's Lightning Strike",
 		source : [["W", 273]],
@@ -32022,7 +31972,7 @@ MagicItemsList["stormgirdle"] = {
 		modifiers : [7, ""],
 		dc : true,
 		stormAvatarLightningStrike : true
-	},
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -32040,14 +31990,12 @@ MagicItemsList["stormgirdle"] = {
 	"dormant" : {
 		name : "Stormgirdle [dormant]",
 		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 21. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. See Notes page for more information.",
-		scoresOverride : [21, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Storm Avatar's Lightning Strike"]
+		scoresOverride : [21, 0, 0, 0, 0, 0]
 	},
 	"awakened" : {
 		name : "Stormgirdle [awakened]",
 		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 23. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. See Notes page for more information.",
-		scoresOverride : [23, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Storm Avatar's Lightning Strike"]
+		scoresOverride : [23, 0, 0, 0, 0, 0]
 	},
 	"exalted" : {
 		name : "Stormgirdle [exalted]",
@@ -32170,16 +32118,16 @@ MagicItemsList["verminshroud"] = {
 		},
 		speed : { climb : { spd : "walk", enc : "walk" } },
 		action : [["bonus action", "Verminshroud: Bite"]],
-		weaponsAdd : ["Verminshroud: Bite"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*verminshroud)(?=.*bite).*$/i,
 			name : "Verminshroud: Bite",
 			source : [["W", 273]],
 			damage : [1, 6, "piercing"],
 			description : "Bonus action; DC17 Con save or poisoned 1 min, repeat save end of their turns",
-			abilitytodamage : true
-		}
+			abilitytodamage : true,
+			selectNow : true
+		}]
 	}
 };
 var EGtW_WreathPrismFullDescription = [
@@ -32318,9 +32266,9 @@ RaceList["leonin"] = { // includes contributions by BraabHimself
 		regExpSearch : /^(?=.*(leonin|\bcats?\b))(?=.*claw).*$/i,
 		name : "Leonin Claws",
 		source : [["MoT", 21]],
-		damage : [1, 4, "slashing"]
+		damage : [1, 4, "slashing"],
+		selectNow : true
 	}],
-	weaponsAdd : ["Leonin Claws"],
 	abilitySave : 3,
 	age : " mature and age at about the same rate as humans",
 	height : " are typically over 6 feet tall, with some standing over 7 feet (5'6\" + 2d10\")",
@@ -32354,14 +32302,14 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 	},
 	savetxt : { adv_vs : ["magic"] },
 	languageProfs : ["Common", "Sylvan"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
 		name : "Satyr Headbutt",
 		source : [["MOT", 25]],
-		damage : [1, 4, "bludgeoning"]
-	},
-	weaponsAdd : ["Satyr Headbutt"],
+		damage : [1, 4, "bludgeoning"],
+		selectNow : true
+	}],
 	toolProfs : [["Musical instrument", 1]],
 	age : " mature and age at about the same rate as humans",
 	height : " range from just under 5 feet to about 6 feet in height, with generally slender builds (4'8\" + 2d8\")",
@@ -32798,31 +32746,30 @@ MagicItemsList["molten bronze skin"] = {
 	choicesNotInMenu : true,
 	"breastplate" : {
 		description : "This breastplate appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
-		armorAdd : "Molten Bronze Skin",
 		armorOptions : [{
 			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
 			name : "Molten Bronze Skin",
 			source : [["MOT", 197]],
 			type : "medium",
 			ac : 14,
-			weight : 20
+			weight : 20,
+			selectNow : true
 		}]
 	},
 	"half plate" : {
 		description : "This half plate armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
-		armorAdd : "Molten Bronze Skin",
 		armorOptions : [{
 			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
 			name : "Molten Bronze Skin",
 			source : [["MOT", 197]],
 			type : "medium",
 			ac : 15,
-			weight : 40
+			weight : 40,
+			selectNow : true
 		}]
 	},
 	"plate" : {
 		description : "This plate armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. It can't be removed unless I choose to do so, grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
-		armorAdd : "Molten Bronze Skin",
 		armorOptions : [{
 			regExpSearch : /^(?=.*molten)(?=.*bronze)(?=.*skin).*$/i,
 			name : "Molten Bronze Skin",
@@ -32830,7 +32777,8 @@ MagicItemsList["molten bronze skin"] = {
 			type : "heavy",
 			ac : 18,
 			weight : 65,
-			strReq : 15
+			strReq : 15,
+			selectNow : true
 		}]
 	}
 };
@@ -32982,15 +32930,15 @@ MagicItemsList["two-birds sling"] = {
 	description : "This sling adds +1 to hit and damage rolls made with it. On a hit, I can cause the ammunition to ricochet towards a second target within 10 ft of the first, rolling a ranged attack against the second target as well.",
 	descriptionFull : "You have a +l bonus to attack and damage rolls made with this weapon."+
 	"\n   When you make a ranged attack with this sling and hit a target, you can cause the ammunition to ricochet toward a second target within 10 feet of the first, and then make a ranged attack against the second target.",
-	weaponsAdd : ["Two-Birds Sling"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "sling",
 		regExpSearch : /^(?=.*two-birds)(?=.*sling).*$/i,
 		name : "Two-Birds Sling",
 		source : [["MOT", 198]],
 		description : "Ammunition; On hit ricochet to another in 10 ft",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 };
 
 // pub_20200915_RotF.js
@@ -34130,7 +34078,7 @@ ClassList["sidekick-expert-tcoe"] = {
 		"coordinated strike" : {
 			name : "Coordinated Strike",
 			source : [["T", 144]],
-			minlevel : 7,
+			minlevel : 6,
 			description : desc([
 				"I can use Helpful to aid an ally to attack a creature up to 30 ft away from me",
 				"If I do so, I add +2d6 damage on my next attack to that creature in the current turn"
@@ -34837,8 +34785,7 @@ MagicItemsList["arcane propulsion armor"] = {
 		descriptionChange : ["prefix", "armor"]
 	},
 	speed : { walk : { spd : "+5", enc : "+5" } },
-	weaponsAdd : ["Arcane Propulsion Gauntlets"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*arcane)(?=.*propulsion)(?=.*gauntlet).*$/i,
 		name : "Arcane Propulsion Gauntlets",
 		source : [["T", 20]],
@@ -34847,8 +34794,9 @@ MagicItemsList["arcane propulsion armor"] = {
 		damage : [1, 8, "force"],
 		range : "Melee, 20/60 ft",
 		description : "Thrown; Returns immediately after thrown",
-		abilitytodamage : true
-	}
+		abilitytodamage : true,
+		selectNow : true
+	}]
 }
 AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Magical Strength", {
 	name : "Armor of Magical Strength",
@@ -35140,8 +35088,8 @@ RunFunctionAtEnd(function () {
 			submenu : "Guardian Arcane Armor",
 			description : guardianTxt,
 			additional : guardianAdditional,
-			armorAdd : gArmName,
-			weaponsAdd : ["Thunder Gauntlets"],
+			armorAdd : { select : gArmName, options : [gArmName] },
+			weaponsAdd : { select : ["Thunder Gauntlets"] },
 			prereqeval : prereqFunc,
 			dependentChoices : "guardian"
 		}
@@ -35152,8 +35100,8 @@ RunFunctionAtEnd(function () {
 			submenu : "Infiltrator Arcane Armor",
 			description : infiltratorTxt + (anArm.stealthdis ? ", cancelling out the disadv. it imposes" : ""),
 			speed : { walk : {spd : "+5", enc : "+5" } },
-			armorAdd : iArmName,
-			weaponsAdd : ["Lightning Launcher"],
+			armorAdd : { select : iArmName, options : [iArmName] },
+			weaponsAdd : { select : ["Lightning Launcher"] },
 			prereqeval : prereqFunc,
 			advantages : [["Stealth", true]],
 			dependentChoices : "infiltrator"
@@ -35219,7 +35167,8 @@ AddSubClass("barbarian", "path of the beast", {
 				range : "Melee",
 				description : "Only in rage; On a hit once on my turn, regain Prof Bonus in HP (if below 1/2 HP)",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*claws?).*$/i,
 				name : "Bestial Claws",
@@ -35230,7 +35179,8 @@ AddSubClass("barbarian", "path of the beast", {
 				range : "Melee",
 				description : "Only in rage; Extra attack if used as part of Attack action",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*tail).*$/i,
 				name : "Bestial Tail",
@@ -35241,9 +35191,9 @@ AddSubClass("barbarian", "path of the beast", {
 				range : "Melee",
 				description : "Reach; Only in rage",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}],
-			weaponsAdd : ["Bestial Bite", "Bestial Claws", "Bestial Tail"],
 			additional : levels.map(function(n) {
 				return n < 6 ? "" : "chosen weapon counts as magical";
 			}),
@@ -35607,11 +35557,11 @@ RunFunctionAtEnd(function() {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && (!v.thisWeapon[3] || Number(SpellsList[v.thisWeapon[3]].level) !== 0)) {
+						if (classes.known.cleric && (v.isWeapon || (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]].level === 0)) && /\d/.test(fields.Damage_Die)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per round +1d8 radiant damage';
 						}
 					},
-					"Once per turn when a creature takes damage from one of my spell or weapon attacks, I can also deal 1d8 radiant damage to the target."
+					"Once per round, when a creature takes damage from one of my spell or weapon attacks, I can also deal 1d8 radiant damage to the target."
 				]
 			}
 		});
@@ -35676,24 +35626,8 @@ AddSubClass("cleric", "peace domain", {
 			name : "Potent Spellcasting",
 			source : [["T", 33]],
 			minlevel : 8,
-			description : "\n   I add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Expansive Bond",
@@ -35788,7 +35722,7 @@ AddSubClass("cleric", "twilight domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage';
 						}
 					},
@@ -35911,7 +35845,7 @@ AddSubClass("druid", "circle of the stars", {
 				"When I do so, I choose one constellation that glimmers on my body, granting me benefits",
 				"See the 3rd page's \"Notes\" section for the benefits of the possible constellations"
 			]),
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*luminous)(?=.*arrow).*$/i,
 				name : "Luminous Arrow",
 				source : [["T", 38]],
@@ -35922,9 +35856,9 @@ AddSubClass("druid", "circle of the stars", {
 				description : "Use as bonus action",
 				abilitytodamage : true,
 				useSpellMod : "druid",
-				luminousarrow : true
-			},
-			weaponsAdd : ['Luminous Arrow'],
+				luminousarrow : true,
+				selectNow : true
+			}],
 			extraname : "Starry Form",
 			"archer constellation" : {
 				name : "Archer Constellation",
@@ -36826,8 +36760,7 @@ AddSubClass("monk", "way of the astral self", {
 				"As a bonus action, I can use my ki to summon the arms of my astral self for 10 minutes"
 			]),
 			action : [["bonus action", "Summon Astral Arms"]],
-			weaponsAdd : ["Astral Arms"],
-			weaponOptions : {
+			weaponOptions : [{
 				baseWeapon : "unarmed strike",
 				regExpSearch : /^(?=.*\bastral\b)(?=.*\barms?\b).*$/i,
 				name : "Astral Arms",
@@ -36836,8 +36769,9 @@ AddSubClass("monk", "way of the astral self", {
 				range : "Melee (+5 ft)",
 				damage : [1, "", "Force"],
 				description : "+5 ft reach; Uses Str, Dex, or Wis",
-				isAstralArms : true
-			},
+				isAstralArms : true,
+				selectNow : true
+			}],
 			"astral arms" : {
 				name : "Astral Arms",
 				extraname : "Way of the Astral Self 3",
@@ -37872,7 +37806,6 @@ AddSubClass("rogue", "soulknife", {
 				"To do this, my other hand needs to be free as well and this blade does only 1d4 damage"
 			]),
 			action : [["bonus action", "Psychic Blade (after Attack action)"]],
-			weaponsAdd : ["Psychic Blade"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*psychic)(?=.*blade).*$/i,
 				name : "Psychic Blade",
@@ -37882,7 +37815,8 @@ AddSubClass("rogue", "soulknife", {
 				damage : [1, 6, "psychic"],
 				range : "Melee, 60 ft",
 				description : "Finesse, thrown; Bonus action: 1d4 instead of 1d6",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}]
 		},
 		"subclassfeature9" : {
@@ -38486,7 +38420,6 @@ AddSubClass("warlock", "the fathomless", {
 			additional : levels.map(function (n) {
 				return (n < 10 ? 1 : 2) + "d8";
 			}),
-			weaponsAdd : ['Tentacle of the Deeps'],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*tentacle)(?=.*\b(deeps?|spectral)\b).*$/i,
 				name : "Tentacle of the Deeps",
@@ -38497,7 +38430,8 @@ AddSubClass("warlock", "the fathomless", {
 				range : "Melee (10 ft)",
 				description : "On hit, -10 ft speed until my next turn starts",
 				abilitytodamage : false,
-				tentacleOfTheDeeps : true
+				tentacleOfTheDeeps : true,
+				selectNow : true
 			}],
 			calcChanges : {
 				atkAdd : [
@@ -39736,41 +39670,41 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (uncommon)",
 		rarity : "uncommon",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 12 + my Dexterity modifier. I can use a shield and still gain this benefit.",
-		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
 			source : [["T", 122]],
 			ac : 12,
-			affectsWildShape : true
+			affectsWildShape : true,
+			selectNow : true
 		}]
 	},
 	"ac 15+dex (rare)" : {
 		name : "Barrier Tattoo (rare)",
 		rarity : "rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 15 + my Dexterity modifier (maximum of +2). I can use a shield and still gain this benefit.",
-		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
 			source : [["T", 122]],
 			ac : 15,
 			dex : 2,
-			affectsWildShape : true
+			affectsWildShape : true,
+			selectNow : true
 		}]
 	},
 	"ac 18 (very rare)" : {
 		name : "Barrier Tattoo (very rare)",
 		rarity : "very rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 18. I can use a shield and still gain this benefit.",
-		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
 			source : [["T", 122]],
 			ac : 18,
 			dex : -10,
-			affectsWildShape : true
+			affectsWildShape : true,
+			selectNow : true
 		}]
 	}
 }
@@ -39799,7 +39733,6 @@ MagicItemsList["coiling grasp tattoo"] = {
 	descriptionFull : "Produced by a special needle, this magic tattoo has long intertwining designs."+
 	"\n   " + toUni("Grasping Tendrils") + ". While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature." + magicTattoosTxt.unicode,
 	action : [["action", ""]],
-	weaponsAdd : ["Coiling Grasp Tattoo"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*coiling grasp)(?=.*tattoo).*$/i,
 		name : "Coiling Grasp Tattoo",
@@ -39811,7 +39744,8 @@ MagicItemsList["coiling grasp tattoo"] = {
 		description : "Str save, success - no damage, fail - grappled; Escape DC 14 Athletics/Acrobatics",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : [6, ""]
+		modifiers : [6, ""],
+		selectNow : true
 	}]
 }
 MagicItemsList["eldritch claw tattoo"] = {
@@ -40377,7 +40311,7 @@ MagicItemsList["moon sickle"] = {
 				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
-		weaponsAdd : ["Moon Sickle +1"]
+		weaponsAdd : { select : ["Moon Sickle +1"], options : ["Moon Sickle +1"] }
 	},
 	"+2 weapon, +2 to spell attacks and dcs (rare)" : {
 		name : "Moon Sickle +2",
@@ -40391,7 +40325,7 @@ MagicItemsList["moon sickle"] = {
 				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
-		weaponsAdd : ["Moon Sickle +2"]
+		weaponsAdd : { select : ["Moon Sickle +2"], options : ["Moon Sickle +2"] }
 	},
 	"+3 weapon, +3 to spell attacks and dcs (very rare)" : {
 		name : "Moon Sickle +3",
@@ -40405,7 +40339,7 @@ MagicItemsList["moon sickle"] = {
 				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
-		weaponsAdd : ["Moon Sickle +3"]
+		weaponsAdd : { select : ["Moon Sickle +3"], options : ["Moon Sickle +3"] }
 	}
 }
 MagicItemsList["rhythm maker's drum"] = {
@@ -40932,7 +40866,7 @@ MagicItemsList["reveler's concertina"] = {
 			function (type, spellcasters, ability) {
 				if (type === "dc" && spellcasters.indexOf('bard') !== -1) return 2;
 			},
-			"While holding the Reveler's Concertina, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my bard spells."
+			"While holding the Reveler's Concertina, I gain a +2 bonus to the saving throw DCs of my bard spells."
 		]
 	}
 }
@@ -41038,13 +40972,13 @@ MagicItemsList["devotee's censer"] = {
 	usages : 1,
 	recovery : "dawn",
 	action : [["bonus action", " (incense cloud)"]],
-	weaponsAdd : ["Devotee's Censer"],
 	weaponOptions : [{
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*devotee)(?=.*censer).*$/i,
 		name : "Devotee's Censer",
 		source : [["T", 126]],
-		description : "+1d8 radiant damage"
+		description : "+1d8 radiant damage",
+		selectNow : true
 	}]
 }
 MagicItemsList["guardian emblem"] = {
@@ -41159,7 +41093,6 @@ MagicItemsList["serpent scale armor"] = {
 	attunement : false,
 	description : "This suit of magical scale mail is made from shimmering scales. Unlike normal scale mail, it does not impose disadvantage on my Dexterity (Stealth) checks and allows me to apply my full Dexterity modifier instead of the normal maximum of +2 for Medium armor.",
 	descriptionFull : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier (instead of a maximum of +2) when determining your Armor Class. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
-	armorAdd : "Serpent Scale Armor",
 	armorOptions : [{
 		regExpSearch : /serpent scale/i,
 		name : "Serpent Scale Armor",
@@ -41167,7 +41100,8 @@ MagicItemsList["serpent scale armor"] = {
 		type : "medium",
 		ac : 14,
 		weight : 45,
-		dex : 100
+		dex : 100,
+		selectNow : true
 	}]
 };
 MagicItemsList["serpent's fang"] = {
@@ -41179,13 +41113,13 @@ MagicItemsList["serpent's fang"] = {
 	description : "This single-edged magic sword is made from the scrimshawed fang of a giant serpent. Its hilt changes shape to adjust to the grasp of any creature that picks it up. The weapon deals an extra 1d10 poison damage to any target it hits.",
 	descriptionFull : "This single-edged magic sword is made from the scrimshawed fang of a giant serpent. Its hilt changes shape to adjust to the grasp of any creature that picks it up. The weapon deals an extra 1d10 poison damage to any target it hits.",
 	weight : 2,
-	weaponsAdd : ["Serpent's Fang"],
 	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*serpent)(?=.*fang).*$/i,
 		name : "Serpent's Fang",
 		source : [["CM", 98]],
 		description : "Versatile (d10); +1d10 poison damage",
+		selectNow : true
 	}]
 };
 if (MagicItemsList["alchemy jug"]) {
@@ -41240,13 +41174,13 @@ MagicItemsList["gloves of soul catching"] = {
 	descriptionFull : "Your Constitution score is 20 while you wear these gloves. This property of the gloves has no effect on you if your Constitution is already 20 or higher."+
 	"\n   After making a successful unarmed strike while wearing these gloves, you can use the gloves to deal an extra 2d10 force damage to the target, and you regain a number of hit points equal to the force damage dealt. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	scoresOverride : [0, 0, 20, 0, 0, 0],
-	weaponsAdd : ["Gloves of Soul Catching"],
 	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*gloves)(?=.*soul)(?=.*catching).*$/i,
 		name : "Gloves of Soul Catching",
 		source : [["CM", 169]],
-		description : "+2d10 force damage"
+		description : "+2d10 force damage",
+		selectNow : true
 	}]
 };
 MagicItemsList["watchful helm"] = {
@@ -41296,14 +41230,14 @@ MagicItemsList["staff of fate"] = {
 		recovery : "Special"
 	}],
 	action : [["bonus action", ""]],
-	weaponsAdd : ["Staff of Fate"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /\bstaff of fate\b/i,
 		name : "Staff of Fate",
 		source : [["CM", 183]],
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 };
 var CM_NetherScrollOfAzumar = "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a stone golem appears within 60 ft that acts as ally. If I die, the golem turns to dust.";
 MagicItemsList["nether scroll of azumar"] = {
@@ -41370,7 +41304,6 @@ RaceList["dhampir"] = {
 		}
 	},
 	vision : [["Darkvision", 60]],
-	weaponsAdd : ["Vampiric Bite"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*vampiric)(?=.*bite).*$/i,
 		name : "Vampiric Bite",
@@ -41382,7 +41315,8 @@ RaceList["dhampir"] = {
 		description : "Adv. while at or below half HP; Can empower myself on hit",
 		isAlwaysProf : true,
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Vampiric Bite",
@@ -41604,7 +41538,7 @@ AddSubClass("bard", "college of spirits",{
 				"While holding a spiritual focus, I can add 1d6 to one damage or healing roll of bard spells"
 			]),
 			calcChanges : {
-				atkCalc : [
+				atkAdd : [
 					function (fields, v, output) {
 						if (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]] && v.thisWeapon[4].indexOf("bard") !== -1) {
 							// If RAW is selected, first test if this spell is eligible to use with a spellcasting focus
@@ -41997,6 +41931,68 @@ BackgroundFeatureList["official inquiry"] = {
 	source : [["VRGtR", 35], ["ALbackground", 0]]
 };
 
+// Magic Items
+MagicItemsList["harkon's bite"] = {
+	name : "Harkon's Bite",
+	source : [["VRGtR", 137]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	description : "This necklace with a dire wolf tooth gives me a +1 on checks and saves. Curse: I can't remove it once I'm attuned to it. If I don or remove the necklace, even if I'm not attuned, I'm afflicted with werewolf lycanthropy (MM 211). This lasts until the dawn after the next full moon, unless I'm still wearing the necklace at dawn.",
+	descriptionFull : "A dire wolf tooth dangles from this simple cord necklace. While you wear it, the necklace grants you a +1 bonus to ability checks and saving throws."+
+	"\n   " + toUni("Curse") + ". Attuning to Harkon's Bite curses you until either Harkon Lukas removes the necklace from you or you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot remove the necklace."+
+	"\n   Upon donning or removing the necklace, whether you are attuned to it or not, you are afflicted with werewolf lycanthropy as detailed in the Monster Manual. The curse lasts until the dawn after the next full moon. If you are still wearing the necklace at this time, you are afflicted with the lycanthropy again.",
+	addMod : [
+		{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+		{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+		{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+	]
+}
+var VRGtR_nepentheFullDescription = [
+	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. When you hit a fiend or an undead with it, that creature takes an extra 2d10 radiant damage.",
+	"While you hold the drawn sword, it creates an aura in a 10-foot radius around you. You and all creatures friendly to you in the aura have advantage on saving throws against spells and other magical effects. If you have 17 or more levels in the paladin class, the radius of the aura increases to 30 feet.",
+	">>Sentience<<. Nepenthe is a sentient, neutral evil weapon with an Intelligence of 10, a Wisdom of 8, and a Charisma of 18. It has hearing and darkvision out to a range of 60 feet. It can read and understand Elvish. It can also speak Elvish, but only through the voice of its wielder, with whom the sword can communicate telepathically.",
+	">>Personality<<. In its lifetime, the sword has beheaded thousands of criminals, not all of whom were guilty of the crimes for which they were convicted. The sword cannot distinguish the guilty from the innocent. With each beheading, it hungers for more justice and blood. The sword is corrupt and irredeemable."
+]
+MagicItemsList["nepenthe"] = {
+	name : "Nepenthe",
+	source : [["VRGtR", 137]],
+	type : "weapon (any sword)",
+	rarity : "legendary",
+	magicItemTable : "I",
+	attunement : true,
+	prerequisite : "Requires attunement by a paladin",
+	prereqeval : function (v) { return classes.known.paladin ? true : false; },
+	description : "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura (30-ft if level 17 paladin) that grants me and my allies adv. on saves against spells and magical effects.",
+	descriptionFull : VRGtR_nepentheFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	toNotesPage : [{
+		name : "Features",
+		note : desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
+	}],
+	weaponOptions : [{
+		baseWeapon : "longsword",
+		regExpSearch : /nepenthe/i,
+		name : "Nepenthe",
+		source : [["VRGtR", 137]],
+		description : "Versatile (1d10); +2d10 radiant damage vs. fiends and undead",
+		modifiers : [3, 3],
+		selectNow : true
+	}],
+	savetxt : { adv_vs : ["spells", "magical effects"] },
+	choices : ["Paladin level 1-16 (10-ft aura)", "Paladin level 17+ (30-ft aura)"],
+	selfChoosing : function () {
+		return !classes.known.paladin ? "" : classes.known.paladin.level < 17 ? "paladin level 1-16 (10-ft aura)" : "paladin level 17+ (30-ft aura)";
+	},
+	"paladin level 1-16 (10-ft aura)" : {
+		name : "Nepenthe\u200A",
+		description : "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects."
+	},
+	"paladin level 17+ (30-ft aura)" : {
+		name : "Nepenthe\u200A\u200A",
+		description : "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 30-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects."
+	}
+}
+
 /* Dark gift
 
 MagicItemsList["living shadow"] = {
@@ -42363,15 +42359,15 @@ MagicItemsList["eldritch staff"] = {
 	usages : 10,
 	recovery : "dawn",
 	additional : "regains 1d6+4",
-	weaponsAdd : ["Staff of Power"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /eldritch staff/i,
 		name : "Eldritch Staff",
 		source : [["WBtW", 209]],
 		description : "Versatile (1d8); On hit, +1d8 lightning damage per charge (max 3)",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["ornithopter of flying"] = {
 	name : "Ornithopter of Flying",
@@ -42397,7 +42393,7 @@ MagicItemsList["potion of advantage"] = {
 	source : [["WBtW", 212]],
 	type : "potion",
 	rarity : "uncommon",
-	description : "Once as an action, I can drink this potion of a sparkling, golden mist that moves and pours like water or administer it to another. The consumer of the potion gain advantage on one ability check, attack roll, or saving throw of its choice that it makes within the next hour.",
+	description : "Once as an action, I can drink this potion of a sparkling, golden mist that moves and pours like water or administer it to another. The consumer of the potion gains advantage on one ability check, attack roll, or saving throw of its choice that it makes within the next hour.",
 	descriptionFull : "When you drink this potion, you gain advantage on one ability check, attack roll, or saving throw of your choice that you make within the next hour."+
 	"\n   This potion takes the form of a sparkling, golden mist that moves and pours like water.",
 }
@@ -42449,16 +42445,16 @@ MagicItemsList["snicker-snack"] = {
 		note : WBtW_Sentient_Item_toNotes(WBtW_Snicker_Snack_Full_Description)
 	}],
 	weaponProfs : [false, false ["greatsword"]],
-	weaponsAdd : ["Snicker-Snack"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /snicker.snack/i,
 		name : "Snicker-Snack",
 		source : [["WBtW", 213]],
 		description : "Heavy, two-handed; Ignores slashing resistance; On 20 to hit: cut off head",
 		modifiers : [3, 3],
-		isSnickerSnack : true
-	},
+		isSnickerSnack : true,
+		selectNow : true
+	}],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -42490,14 +42486,14 @@ MagicItemsList["steel"] = {
 		name : "Features",
 		note : WBtW_Sentient_Item_toNotes(WBtW_Steel_Full_Description)
 	}],
-	weaponsAdd : ['"Steel"'],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /['"]steel['"]/i,
 		name : '"Steel"',
 		source : [["WBtW", 214]],
-		modifiers : [2, 2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["woodcutter's axe"] = {
 	name : "Woodcutter's Axe",
@@ -42508,15 +42504,15 @@ MagicItemsList["woodcutter's axe"] = {
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon."+
 	"\n   When you use this axe to make an attack against a plant (an ordinary plant or a creature with the Plant type) or a wooden object that isn't being worn or carried, the attack deals an extra 2d6 slashing damage on a hit.",
 	weight : 7,
-	weaponsAdd : ["Woodcutter's Axe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /^(?=.*woodcutter)(?=.*axe).*$/i,
 		name : "Woodcutter's Axe",
 		source : [["WBtW", 214]],
 		description : "Heavy, two-handed; +2d6 damage vs. plants/wood",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 var WBtW_Witchlight_Vane_Full_Description = [
 	"This ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. It weighs 3 pounds.",
@@ -42545,15 +42541,15 @@ MagicItemsList["witchlight vane"] = {
 		note : WBtW_Sentient_Item_toNotes(WBtW_Witchlight_Vane_Full_Description)
 	}],
 	action : [["action", " (find happiest)"]],
-	weaponsAdd : ["Witchlight Vane"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "mace",
 		regExpSearch : /^(?=.*witchlight)(?=.*vane).*$/i,
 		name : "Witchlight Vane",
 		source : [["WBtW", 27]],
 		description : "+1d8 radiant damage",
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	extraLimitedFeatures : [{
 		name : "Witchlight Vane [Polymorph] (25% chance use)",
 		usages : 1,
@@ -42799,7 +42795,6 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 					minlevel : 5,
 					usages : 1,
 					recovery : "long rest",
-					weaponsAdd : ["Metallic Breath Weapon"],
 					weaponOptions : [{
 						regExpSearch : /^(?=.*metallic)(?=.*breath)(?=.*weapon).*$/i,
 						name : "Metallic breath weapon",
@@ -42810,7 +42805,8 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 						range : "15-ft cone",
 						description : "Repulsion: Str save or pushed 20 ft \u0026 prone; Enervating: Con save or incapacitated till my next turn starts",
 						abilitytodamage : false,
-						dc : true
+						dc : true,
+						selectNow : true
 					}]
 				}
 			}
@@ -42829,7 +42825,6 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			speed : {
 				walk : { spd : 30, enc : 20 }
 			},
-			weaponsAdd : ["Breath Weapon"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*weapon).*$/i,
 				name : "Breath weapon",
@@ -42841,7 +42836,8 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 				description : "Hits all in area; Dex save, success - half damage",
 				abilitytodamage : false,
 				dc : true,
-				dbBreathWeapon : true
+				dbBreathWeapon : true,
+				selectNow : true
 			}],
 			age : " reach adulthood by 15 and live around 80 years",
 			height : " stand well over 6 feet tall (5'6\" + 2d8\")",
@@ -42953,8 +42949,7 @@ AddSubClass("monk", "ascendant dragon", {
 				additional : levels.map(function (n) {
 					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
 				}),
-				weaponsAdd : ["Breath of the Dragon"],
-				weaponOptions : {
+				weaponOptions : [{
 					regExpSearch : /^(?=.*breath)(?=.*dragon).*$/i,
 					name : "Breath of the Dragon",
 					source : [["FToD", 13]],
@@ -42966,8 +42961,9 @@ AddSubClass("monk", "ascendant dragon", {
 					dc : true,
 					monkweapon : false,
 					abilitytodamage : false,
-					WotAD_BreathWeapon : true
-				},
+					WotAD_BreathWeapon : true,
+					selectNow : true
+				}],
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -43029,8 +43025,7 @@ AddSubClass("monk", "ascendant dragon", {
 			minlevel : 17,
 			description : "\n   I gain 10 ft blindsight and both Breath of the Dragon and Aspect of the Wyrm improve",
 			vision : [["blindsight", 10]],
-			weaponsAdd : ["Breath of the Dragon (Augmented)"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*dragon)(?=.*augment).*$/i,
 				name : "Breath of the Dragon (Augmented)",
 				source : [["FToD", 13]],
@@ -43043,8 +43038,9 @@ AddSubClass("monk", "ascendant dragon", {
 				monkweapon : false,
 				abilitytodamage : false,
 				WotAD_BreathWeapon : true,
-				WotAD_BreathWeaponAugmented : true
-			}
+				WotAD_BreathWeaponAugmented : true,
+				selectNow : true
+			}]
 		}
 	}
 });
@@ -43197,8 +43193,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 			usages : 1,
 			recovery : "long rest",
 			altResource : "SS 3+",
-			weaponsAdd : ["Drake's Breath"],
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*drake)(?=.*breath).*$/i,
 				name : "Drake's Breath",
 				source : [["FToD", 15]],
@@ -43210,8 +43205,9 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				abilitytodamage : false,
 				dc : true,
 				useSpellMod : "ranger",
-				DrakewardenDrakeBreath : true
-			},
+				DrakewardenDrakeBreath : true,
+				selectNow : true
+			}],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -43614,28 +43610,28 @@ MagicItemsList["dragonlance"] = {
 	"a lance for riders" : {
 		name : "Dragonlance (for riders)",
 		description : "This magic lance forged from rare metal grants me a +3 bonus to attack and damage rolls made with it. When I hit a dragon with it, the dragon takes an extra 3d6 force damage, and any Dragon of my choice that I can see within 30 ft can immediately use its reaction to make a melee attack.",
-		weaponsAdd : ["Dragonlance "],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "lance",
 			regExpSearch : /dragonlance/i,
 			name : "Dragonlance",
 			source : [["FToD", 23]],
 			description : "Reach, disadv. within 5 ft, two-handed if not mounted; +3d6 force damage vs. dragons",
-			modifiers : [3, 3]
-		}
+			modifiers : [3, 3],
+			selectNow : true
+		}]
 	},
 	"a pike for foot soldiers" : {
 		name : "Dragonlance (for foot soldiers)",
 		description : "This magic pike forged from rare metal grants me a +3 bonus to attack and damage rolls made with it. When I hit a dragon with it, the dragon takes an extra 3d6 force damage, and any Dragon of my choice that I can see within 30 ft can immediately use its reaction to make a melee attack.",
-		weaponsAdd : ["Dragonlance (pike)"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "pike",
 			regExpSearch : /^(?=.*dragonlance)(?=.*pike).*$/i,
 			name : "Dragonlance (pike)",
 			source : [["FToD", 23]],
 			description : "Heavy, reach, two-handed; +3d6 force damage vs. dragons",
-			modifiers : [3, 3]
-		}
+			modifiers : [3, 3],
+			selectNow : true
+		}]
 	}
 }
 MagicItemsList["dragon wing bow"] = function () {
@@ -43739,15 +43735,15 @@ MagicItemsList["flail of tiamat"] = {
 	recovery : "dawn",
 	additional : "Breathe Flames",
 	action : [["action", " (Breathe Flames)"]],
-	weaponsAdd : ["Flail of Tiamat"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*flail)(?=.*tiamat).*$/i,
 		name : "Flail of Tiamat",
 		source : [["FToD", 23]],
 		description : "+5d4 acid, cold, fire, lightning, or poison damage",
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 }
 AddFeatureChoice(MagicItemsList["figurine of wondrous power"], false, "Gold Canary", {
 	source : [["FToD", 23]],
@@ -43785,14 +43781,15 @@ MagicItemsList["platinum scarf"] = {
 	usages : 3,
 	recovery : "dawn",
 	action : [["action", ""]],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "light hammer",
 		regExpSearch : /^(?=.*platinum scarf)(?=.*radiant hammer).*$/i,
 		name : "Platinum Scarf's Radiant Hammer",
 		damage : [2, 4, "radiant"],
 		source : [["FToD", 24]],
 		description : "Light, thrown; +2d4 damage vs. chromatic dragons",
-	}
+		selectNow : true
+	}]
 }
 MagicItemsList["potion of dragon's majesty"] = function () { // NOG AFMAKEN!!!!
 	var obj = {
@@ -43823,7 +43820,7 @@ MagicItemsList["ruby weave gem"] = {
 	name : "Ruby Weave Gem",
 	source : [["FToD", 24]],
 	type : "wondrous item",
-	rarity : "very rare",
+	rarity : "legendary",
 	attunement : true,
 	prerequisite : "Requires attunement by a spellcaster",
 	prereqeval : function(v) { return v.isSpellcaster; },
@@ -43875,8 +43872,7 @@ MagicItemsList["topaz annihilator"] = {
 	descriptionFull : "This magic ranged weapon resembles a musket, but in lieu of any ammunition, it holds a glowing yellow scale from a topaz dragon in its heart."+
 	"\n   The weapon has a normal range of 100 feet and a long range of 300 feet, and it has the two-handed property. It deals 2d6 necrotic damage on a hit. If this damage reduces a creature or object to 0 hit points, the target is reduced to dust. A creature reduced to dust can be restored to life only by a true resurrection or wish spell."+
 	"\n   While the weapon is on your person, you can use an action to cast the disintegrate spell (save DC 18). Once this property is used, it can't be used again until the next dawn.",
-	weaponsAdd : ["Topaz Annihilator"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*Topaz)(?=.*tiamat).*$/i,
 		name : "Topaz Annihilator",
 		source : [["FToD", 24]],
@@ -43886,8 +43882,9 @@ MagicItemsList["topaz annihilator"] = {
 		range : "100/300 ft",
 		weight : 10,
 		description : "Two-handed; Targets reduced to 0 HP turn to dust",
-		abilitytodamage : true
-	},
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	usages : 1,
 	recovery : "dawn",
 	additional : "Disintegrate",
@@ -44003,8 +44000,7 @@ var FToD_HoardItems = {
 		recovery : "dawn",
 		limfeaname : ">>dragon<< Dragon's Wrath Breath (wakened)",
 		action : [["action", ""]],
-		weaponsAdd : ">>dragon<< DW Breath (wakened)",
-		weaponOptions : {
+		weaponOptions : [{
 			regExpSearch : "^(?=.*wakened)(?=.*>>dragon<< (dragon'?s? wrath|DW))(?=.*breath).*$",
 			name : ">>dragon<< Dragon's Wrath Breath (wakened)",
 			source : [["FToD", 25]],
@@ -44015,8 +44011,9 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : [8, ""]
-		}
+			modifiers : [8, ""],
+			selectNow : true
+		}]
 	},
 	"dww-ascendant" : {
 		description : "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +3 to its attack and damage rolls and deals +3d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target take 5 damage. As an action once per dawn, it can do a 60-ft cone, Dex DC 18 half, 12d6 damage dragon breath.",
@@ -44054,8 +44051,7 @@ var FToD_HoardItems = {
 		recovery : "dawn",
 		limfeaname : ">>dragon<< Dragon's Wrath Breath (ascendant)",
 		action : [["action", "Dragon's Wrath Breath Weapon"]],
-		weaponsAdd : ">>dragon<< DW Breath (ascendant)",
-		weaponOptions : {
+		weaponOptions : [{
 			regExpSearch : "^(?=.*ascendant)(?=.*>>dragon<< (dragon'?s? wrath|DW))(?=.*breath).*$",
 			name : ">>dragon<< Dragon's Wrath Breath (ascendant)",
 			source : [["FToD", 25]],
@@ -44066,8 +44062,9 @@ var FToD_HoardItems = {
 			description : "Hits all in area; Dex save, success - half damage; Usable only once per dawn",
 			abilitytodamage : false,
 			dc : true,
-			modifiers : [10, ""]
-		}
+			modifiers : [10, ""],
+			selectNow : true
+		}]
 	},
 	dragonsWrathWeaponCreate : function() {
 		var aTypes = [["Slumbering", "uncommon"], ["Stirring", "rare"], ["Wakened", "very rare"], ["Ascendant", "legendary"]];
@@ -44098,7 +44095,7 @@ var FToD_HoardItems = {
 				choices : []
 			}
 			for (var sAttr in oDwwObj) {
-				if (/^(description|weaponsAdd|weaponOptions|limfeaname)$/.test(sAttr)) continue;
+				if (/^(description|weaponOptions|limfeaname)$/.test(sAttr)) continue;
 				MagicItemsList[sItemNameLC][sAttr] = oDwwObj[sAttr];
 			}
 			for (var i = 0; i < aDragons.length; i++) {
@@ -44123,9 +44120,6 @@ var FToD_HoardItems = {
 				}
 				if (oDwwObj.limfeaname) {
 					MagicItemsList[sItemNameLC][sNameChoiceLC].limfeaname = [oDwwObj.limfeaname.replace(/>>dragon<</ig, sDragon)]
-				}
-				if (oDwwObj.weaponsAdd) {
-					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponsAdd = [oDwwObj.weaponsAdd.replace(/>>dragon<</ig, sDragon)]
 				}
 				if (oDwwObj.weaponOptions) {
 					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions = {};
@@ -45552,14 +45546,14 @@ RaceList["multiverse aarakocra"] = {
 		walk : { spd : 30, enc : 20 },
 		fly : { spd : "walk", enc : 0 }
 	},
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /talon/i,
 		name : "Talons",
 		source : [["MotM", 5]],
-		damage : [1, 6, "slashing"]
-	},
-	weaponsAdd : ["Talons"],
+		damage : [1, 6, "slashing"],
+		selectNow : true
+	}],
 	spellcastingAbility : [4, 5, 6],
 	features : {
 		"wind caller" : {
@@ -45718,15 +45712,15 @@ RaceList["multiverse centaur"] = {
 	speed : {
 		walk : { spd : 40, enc : 30 }
 	},
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\b(hoofs?|hooves)\b/i,
 		name : "Hooves",
 		source : [["MotM", 9]],
 		damage : [1, 6, "bludgeoning"],
-		description : "Use as bonus action after charge 30 ft"
-	},
-	weaponsAdd : ["Hooves"],
+		description : "Use as bonus action after charge 30 ft",
+		selectNow : true
+	}],
 	action : [["bonus action", "Hooves (after charge)"]],
 	skillstxt : "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	scoresGeneric : true,
@@ -46669,21 +46663,21 @@ RaceList["multiverse lizardfolk"] = {
 		swim : { spd : "walk", enc : "walk" }
 	},
 	skillstxt : "Choose two from Animal Handling, Medicine, Nature, Perception, Stealth, and Survival",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bbite\b/i,
 		name : "Bite",
 		source : [["MotM", 26]],
 		damage : [1, 6, "slashing"],
-	},
-	weaponsAdd : ["Bite"],
+		selectNow : true
+	}],
 	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
 		source : [["MotM", 26]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
-	armorAdd : "Natural Armor",
 	scoresGeneric : true,
 	features : {
 		"hungry jaws" : {
@@ -46713,15 +46707,15 @@ RaceList["multiverse minotaur"] = {
 	speed : {
 		walk : { spd : 30, enc : 20 }
 	},
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["MotM", 27]],
 		damage : [1, 6, "piercing"],
-		description : "Attack as a bonus action after moving 20 ft with the Dash action"
-	},
-	weaponsAdd : ["Horns"],
+		description : "Attack as a bonus action after moving 20 ft with the Dash action",
+		selectNow : true
+	}],
 	scoresGeneric : true,
 	abilitySave : 1,
 	vision : [["Always know north", 0], ["Adv. on Survival to navigate or track", 0]],
@@ -46778,14 +46772,14 @@ RaceList["multiverse satyr"] = {
 		walk : { spd : 35, enc : 25 }
 	},
 	savetxt : { adv_vs : ["spells"] },
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(satyr|\bram\b))(?=.*headbutt).*$/i,
 		name : "Satyr Headbutt",
 		source : [["MotM", 29]],
-		damage : [1, 6, "bludgeoning"]
-	},
-	weaponsAdd : ["Satyr Headbutt"],
+		damage : [1, 6, "bludgeoning"],
+		selectNow : true
+	}],
 	toolProfs : [["Musical instrument", 1]],
 	scoresGeneric : true,
 	skills : ["Performance", "Persuasion"],
@@ -46878,15 +46872,15 @@ RaceList["multiverse shadar-kai"] = {
 	trait : "\n \u2022 Shifting (Longtooth): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and my fangs elongate. As part of the bonus action when I shift and as a bonus action while shifted, I can make a single unarmed strike with my elongated fangs that deals 1d6 piercing damage.",
 	extra : {
 		action : [["bonus action", "Longtooth Fangs (while shifted)"]],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*fangs?)(?=.*long)(?=.*(tooth|teeth)).*$/i,
 			name : "Longtooth Fangs",
 			source : [["MotM", 32]],
 			damage : [1, 6, "piercing"],
 			description : "Only while shifted; One attack as bonus action",
-		},
-		weaponsAdd : ["Longtooth Fangs"]
+			selectNow : true
+		}]
 	}
 }, {
 	name : "Swiftstride",
@@ -46943,7 +46937,6 @@ RaceList["multiverse shadar-kai"] = {
 RaceList["tabaxi-motm"] = { // just a plain improvement over the previous, no need to make it a separate "multiverse" choice
 	regExpSearch : /tabaxi/i,
 	name : "Tabaxi",
-	sortname : "Tabaxi",
 	source : [["MotM", 33]],
 	plural : "Tabaxi",
 	size : [3, 4],
@@ -46953,14 +46946,14 @@ RaceList["tabaxi-motm"] = { // just a plain improvement over the previous, no ne
 	},
 	skills : ["Perception", "Stealth"],
 	vision : [["Darkvision", 60]],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(tabaxi|\bcat\b))(?=.*claw).*$/i,
 		name : "Tabaxi Claws",
 		source : [["MotM", 33]],
-		damage : [1, 6, "slashing"]
-	},
-	weaponsAdd : ["Tabaxi Claws"],
+		damage : [1, 6, "slashing"],
+		selectNow : true
+	}],
 	scoresGeneric : true,
 	age : " reach adulthood in their late teens and live less than 100 years [according to VGtM]",
 	height : ", when Medium sized, range from 5 to well over 6 feet tall (4'10\" + 2d10\") [according to VGtM]",
@@ -46998,17 +46991,17 @@ RaceList["tortle-motm"] = { // just a plain improvement over the previous, no ne
 		name : "Tortle's Shell",
 		source : [["MotM", 34]],
 		ac : 17,
-		dex : -10
+		dex : -10,
+		selectNow : true
 	}],
-	armorAdd : "Tortle's Shell",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 		name : "Tortle's Claws",
 		source : [["MotM", 34]],
-		damage : [1, 6, "slashing"]
-	},
-	weaponsAdd : ["Tortle's Claws"],
+		damage : [1, 6, "slashing"],
+		selectNow : true
+	}],
 	scoresGeneric : true,
 	age : " reach adulthood by the age of 15 and live an average of 50 years [according to the Tortle Package]",
 	height : ", when Medium sized, stand between 5 and 6 feet tall (4'10\" + 2d8\") [according to the Tortle Package]",
@@ -47648,12 +47641,12 @@ RaceList["autognome"] = {
 	},
 	scoresGeneric : true,
 	age : " can live for centuries, typically up to 500 years",
-	armorAdd : "Armored Casing",
 	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["S:AiS", 2]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
@@ -47797,12 +47790,12 @@ RaceList["thri-kreen"] = {
 	weightMetric : " weigh between 60 and 180 kg (60 + 5d10 \xD7 4d6 / 10 kg)",
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
-	armorAdd : "Chameleon Carapace",
 	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["S:AiS", 4]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my creature type is Monstrosity)"+
@@ -48596,7 +48589,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 				spells : ["sacred flame"],
 				selection : ["sacred flame"]
 			},
-			weaponsAdd : ["Sacred Flame"],
+			weaponsAdd : { select : ["Sacred Flame"] },
 			spellChanges : {
 				"sacred flame" : {
 					description : "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5, 11, and 17",
@@ -49306,7 +49299,6 @@ FeatsList["ember of the fire giant"] = {
 	"strength" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -49319,14 +49311,14 @@ FeatsList["ember of the fire giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -49339,14 +49331,14 @@ FeatsList["ember of the fire giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,1,0,0,0]
 	},
 	"wisdom" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -49359,7 +49351,8 @@ FeatsList["ember of the fire giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,0,0,1,0]
 	}
@@ -49389,7 +49382,6 @@ FeatsList["fury of the frost giant"] = {
 	"strength" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
-		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -49402,14 +49394,14 @@ FeatsList["fury of the frost giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
-		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -49422,14 +49414,14 @@ FeatsList["fury of the frost giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,1,0,0,0]
 	},
 	"wisdom" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
-		weaponsAdd : ["Frigid Retaliation"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -49442,7 +49434,8 @@ FeatsList["fury of the frost giant"] = {
 			abilitytodamage : false,
 			dc : true,
 			isNotWeapon : true,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}],
 		scores : [0,0,0,0,1,0]
 	}
@@ -49505,7 +49498,6 @@ FeatsList["keenness of the stone giant"] = {
 	"strength" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
-		weaponsAdd : ["Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -49515,14 +49507,14 @@ FeatsList["keenness of the stone giant"] = {
 			damage : [1, 10, 'force'],
 			range : "60 ft",
 			description : "Bonus action; Target Strength save (DC 8 + To Hit) or be knocked prone",
-			abilitytodamage : false
+			abilitytodamage : false,
+			selectNow : true
 		}],
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
-		weaponsAdd : ["Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -49532,14 +49524,14 @@ FeatsList["keenness of the stone giant"] = {
 			damage : [1, 10, 'force'],
 			range : "60 ft",
 			description : "Bonus action; Target Strength save (DC 8 + To Hit) or be knocked prone",
-			abilitytodamage : false
+			abilitytodamage : false,
+			selectNow : true
 		}],
 		scores : [0,0,1,0,0,0]
 	},
 	"wisdom" : {
 		description : "",
 		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
-		weaponsAdd : ["Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -49549,7 +49541,8 @@ FeatsList["keenness of the stone giant"] = {
 			damage : [1, 10, 'force'],
 			range : "60 ft",
 			description : "Bonus action; Target Strength save (DC 8 + To Hit) or be knocked prone",
-			abilitytodamage : false
+			abilitytodamage : false,
+			selectNow : true
 		}],
 		scores : [0,0,0,0,1,0]
 	}
@@ -49659,18 +49652,41 @@ FeatsList["rune shaper"] = {
 	}, {
 		name : "Runes",
 		spells : ["fog cloud", "inflict wounds", "chromatic orb", "disguise self", "burning hands", "speak with animals", "armor of agathys", "goodberry", "longstrider", "command", "entangle", "sanctuary", "thunderwave"],
-		times : 1, // half proficiency bonus, so minimum 1
 		allowUpCasting : true,
 		// checkbox first column to check of when used once per long rest without a spell slot
 		spellFirstColTitle : "1\xD7",
-		firstCol : "checkbox"
+		firstCol : "checkbox",
+		linkTimesToHalfProf : true, // custom attribute, can be used as an exsee changeeval & calcChanges.spellList
+		times : 1 // half proficiency bonus, so always minimum of 1
 	}],
+	changeeval : function() {
+		if (!CurrentSpells['rune shaper']) return;
+		// See if the proficiency bonus changed to trigger the changes dialog
+		// Don't set the times attribute here, but instead on every call to the spell dialog
+		var halfProf = Math.floor( Number(How('Proficiency Bonus')) / 2 );
+		if (CurrentSpells['rune shaper'].halfProf != halfProf) {
+			CurrentSpells['rune shaper'].halfProf = halfProf;
+			CurrentUpdates.types.push("spells");
+		}
+	},
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
-				// change the times attribute to be half proficiency, rounded down
-				if (spName === 'rune shaper' && spType === 'feat-bonus' && spList.name === 'Rune Shaper') {
-					spList.times = Math.floor( Number(How('Proficiency Bonus')) / 2 );
+				// Change the times attribute to be half proficiency, rounded down
+				// Do it this way, so it is updated even if a bonus to proficiency was manually applied
+				if (spName === 'rune shaper' && spType === 'feat-bonus' && spList.name === "Comprehend languages") {
+					var halfProf = Math.floor( Number(How('Proficiency Bonus')) / 2 );
+					CurrentSpells['rune shaper'].halfProf = halfProf;
+					for (var key in CurrentSpells[spName].bonus) {
+						var aBonus = CurrentSpells['rune shaper'].bonus[key];
+						if (!isArray(aBonus)) aBonus = [aBonus];
+						for (var i = 0; i < aBonus.length; i++) {
+							if (aBonus[i].linkTimesToHalfProf) {
+								aBonus[i].times = halfProf;
+							}
+						}
+					}
+					
 				}
 			},
 			""
@@ -49769,16 +49785,16 @@ MagicItemsList["elven thrower"] = { // spear, but otherwise identical to Dwarven
 	descriptionFull : "You gain a +3 bonus to attack and damage rolls made with this magic weapon. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.",
 	description : "I gain a +3 bonus to attack and damage rolls made with this magic spear. When I hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to my hand.",
 	weight : 3,
-	weaponsAdd : ["Elven Thrower"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /^(?=.*elven)(?=.*thrower).*$/i,
 		name : "Elven Thrower",
 		source : [["SRD", 220], ["D", 167]],
 		range : "Melee, 20/60 ft",
 		description : "Thrown, versatile (1d8); +1d8 damage when thrown (2d8 vs. giants) and returns immediately",
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 };
 
 MagicItemsList["armor of safeguarding"] = {
@@ -49895,7 +49911,6 @@ MagicItemsList["delver's claws"] = {
 	"\n   " + toUni("Invoking the Rune") + "As an action, you can invoke the glove's rune to bolster yourself with the sturdiness of the earth. Spend and roll a number of your unspent Hit Dice up to a maximum equal to your proficiency bonus. You then regain a number of hit points equal to the total roll plus your Constitution modifier."+
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "This weatherworn leather glove is a simple, finesse, light melee weapon, dealing 1d4 slashing damage. While attuned, I gain 15 ft blindsight and a burrow speed equal to my walking speed. As an action once per dawn, I can invoke its mountain rune to spend up to Prof Bonus HD to regain hp (total roll + Con mod).",
-	weaponsAdd : ["Delver's Claws"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*delver)(?=.*claw).*$/i,
 		name : "Delver's Claws",
@@ -49906,7 +49921,8 @@ MagicItemsList["delver's claws"] = {
 		range : "Melee",
 		description : "Finesse, light",
 		abilitytodamage : true,
-		monkweapon : true
+		monkweapon : true,
+		selectNow : true
 	}],
 	speed : { burrow : { spd : "walk", enc : "walk" } },
 	vision : [["Blindsight", 15]],
@@ -49989,14 +50005,14 @@ MagicItemsList["lash of immolation"] = {
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "This +1 dark leather whip ha embers dancing around its tail. It deals +1d6 fire damage. When I score a critical hit with it, the target is restrained until my next turn starts, as fiery bands lash around it. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the fire damage to 2d6.",
 	weight : 3,
-	weaponsAdd : ["Lash of Immolation"],
 	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*last)(?=.*immolation).*$/i,
 		name : "Lash of Immolation",
 		source : [["GotG", 113]],
 		description : "Finesse, reach; +1d6 fire damage (1/dawn +2d6); Critical hit: restrained until my next turn starts",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}],
 	action : [["reaction", " (invoke rune)"]],
 	usages : 1,
@@ -50018,7 +50034,6 @@ MagicItemsList["longbow of the healing hearth"] = {
 	"\n   " + toUni("Spellcasting") + ". While holding the bow, you can use an action to expend 1 or more of its charges to cast one of the following spells from it (save DC 18): create food and water (1 charge), warding bond (2 charges), guardian of faith (3 charges).",
 	description : "This +3 ivory longbow creates its own ammo if needed and has 8 charges, regaining 1d4+1 at dawn. Instead of one attack in my Attack action, I can use 1 charge to have a target I see in 150 ft use 1 HD to regain hp + my Wis mod. I can use charges to cast (DC 18): Create Food " + (typePF ? "\u0026" : "and") + " Water, Warding Bond, Guardian of Faith.",
 	weight : 2,
-	weaponsAdd : ["Longbow of the Healing Hearth"],
 	weaponOptions : [{
 		baseWeapon : "longbow",
 		regExpSearch : /^(?=.*longbow)(?=.*healing)(?=.*hearth).*$/i,
@@ -50026,7 +50041,8 @@ MagicItemsList["longbow of the healing hearth"] = {
 		source : [["GotG", 113]],
 		description : "Ammunition, heavy, two-handed; Creates own ammo",
 		modifiers : [3, 3],
-		ammo : ""
+		ammo : "",
+		selectNow : true
 	}],
 	usages : 8,
 	recovery : "dawn",
@@ -50062,7 +50078,6 @@ MagicItemsList["lucent destroyer"] = {
 	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
 	description : "I gain a +1 bonus to attack and damage rolls made with this magical musket emblazoned with the light rune. It deals radiant damage and doesn't need to be loaded with ammunition. It allows me to cast Dancing Lights at will and Sunbeam (DC 17) once per dawn by invoking the rune.",
 	weight : 10,
-	weaponsAdd : ["Lucent Destroyer"],
 	weaponOptions : [{
 		baseWeapon : "musket",
 		regExpSearch : /^(?=.*lucent)(?=.*destroyer).*$/i,
@@ -50071,7 +50086,8 @@ MagicItemsList["lucent destroyer"] = {
 		damage : [1, 12, "radiant"],
 		description : "Two-handed",
 		modifiers : [1, 1],
-		ammo : ""
+		ammo : "",
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",
@@ -50232,14 +50248,14 @@ MagicItemsList["reaper's scream"] = {
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "This +2 morningstar deals necrotic damage. When I roll a 20 to hit vs. a creature, I gain 10 " + (typePF ? "temp" : "temporary") + " hp. Melee attackers that hit me take 10 necrotic " + (typePF ? "dmg" : "damage") + " while these last. As a bonus action once per dawn, I can invoke its death rune to have chosen " + (typePF ? "" : "creatures ") + "within 60 ft make a Wis save DC 15 or be stunned until my next turn starts.",
 	weight : 4,
-	weaponsAdd : ["Staff of the Rooted Hills"],
 	weaponOptions : [{
 		baseWeapon : "morningstar",
 		regExpSearch : /^(?=.*reaper)(?=.*scream).*$/i,
 		name : "Reaper's Scream",
 		source : [["GotG", 115]],
 		description : "On 20 to hit: 10 temp hp (see magic item)",
-		modifiers : [2, 2]
+		modifiers : [2, 2],
+		selectNow : true
 	}],
 	action : [["bonus action", " (invoke rune)"]],
 	usages : 1,
@@ -50320,7 +50336,6 @@ MagicItemsList["shield of the blazing dreadnought"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "activate",
-	weaponsAdd : ["Blazing Dreadnought Shield Bash"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*blazing)(?=.*dreadnought)(?=.*shield).*$/i,
 		name : "Blazing Dreadnought Shield Bash",
@@ -50332,7 +50347,8 @@ MagicItemsList["shield of the blazing dreadnought"] = {
 		description : "Str save for half damage; If failed, also knocked prone; Once per Attack action while shield is active",
 		abilitytodamage : false,
 		dc : true,
-		isNotWeapon : true
+		isNotWeapon : true,
+		selectNow : true
 	}]
 };
 MagicItemsList["staff of the rooted hills"] = {
@@ -50347,14 +50363,14 @@ MagicItemsList["staff of the rooted hills"] = {
 	"\n   Once the rune has been invoked to cast either spell, it can't be invoked again until the next dawn.",
 	description : "A creature hit with this +1 quarterstaff must make a DC 12 Str save or be restrained by spectral vines until my next turn starts. As an action once per dawn, I can invoke its hill rune to cast either Hold Person (DC 12) or Speak with Plants with it. The target of this Hold Person is wreathed in spectral vines.",
 	weight : 4,
-	weaponsAdd : ["Staff of the Rooted Hills"],
 	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*staff)(?=.*rooted)(?=.*hills).*$/i,
 		name : "Staff of the Rooted Hills",
 		source : [["GotG", 116]],
 		description : "Versatile (1d8); On hit, DC 12 Str save or restrained until my next turn starts",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",
@@ -50384,7 +50400,7 @@ MagicItemsList["stonebreaker's breastplate"] = {
 	"\n   " + toUni("Invoking the Rune") + ". As an action, you can invoke the breastplate's rune to cast the wall of stone spell (save DC 14) with it. When you cast the spell in this way, you have advantage on saving throws made to maintain concentration on the spell."+
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	description : "While wearing this marbled granite breastplate, I have resistance to bludgeoning, piercing, and slashing damage and can't be knocked prone. As an action once per dawn, I can invoke its stone rune to cast Wall of Stone (DC 14) with it. It also grants me advantage on concentration saves for the spell cast in this way.",
-	armorAdd : "Stonebreaker's Breastplate",
+	armorAdd : { select : "Stonebreaker's Breastplate", options : ["Stonebreaker's Breastplate"] },
 	weight : 20,
 	dmgres : ["Bludgeoning", "Slashing", "Piercing"],
 	savetxt : { immune : ["knocked prone"] },
@@ -50412,7 +50428,6 @@ MagicItemsList["thunderbuss"] = {
 	"\n\nIt's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
 	description : "This +1 pistol deals thunder damage and requires loading nor ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
 	weight : 3,
-	weaponsAdd : ["Thunderbuss"],
 	weaponOptions : [{
 		baseWeapon : "pistol",
 		regExpSearch : /thunderbuss/i,
@@ -50421,7 +50436,8 @@ MagicItemsList["thunderbuss"] = {
 		damage : [1, 10, "thunder"],
 		description : "",
 		modifiers : [1, 1],
-		ammo : ""
+		ammo : "",
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",
@@ -50540,149 +50556,6 @@ SourceList["PaBTSO"] = {
 };
 
 // Magic Items
-if (!SourceList["LMoP"]) {
-	MagicItemsList["dragonguard"] = {
-		name : "Dragonguard",
-		source : [["PaBTSO", 72], ["LMoP", 48]],
-		type : "armor (breastplate)",
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
-		descriptionFull : "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
-		weight : 20,
-		armorAdd : "Dragonguard",
-		armorOptions : [{
-			regExpSearch : /dragonguard/i,
-			name : "Dragonguard",
-			source : [["PaBTSO", 72], ["LMoP", 48]],
-			type : "medium",
-			ac : "14+1",
-			weight : 20
-		}],
-		savetxt : { adv_vs : ["breath weapons of dragons"] }
-	}
-	MagicItemsList["hew"] = {
-		name : "Hew",
-		source : [["PaBTSO", 54], ["LMoP", 33]],
-		type : "weapon (battleaxe)",
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
-		descriptionFull : 'This rusty old battleaxe of dwarven manufacture has has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he used it for protection while he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
-		weight : 4,
-		weaponsAdd : ["Hew"],
-		weaponOptions : {
-			baseWeapon : "battleaxe",
-			regExpSearch : /\bhew\b/i,
-			name : "Hew",
-			source : [["PaBTSO", 54], ["LMoP", 33]],
-			description : "Versatile (1d10); Max damage against plant creatures and wooden objects",
-			modifiers : [1, 1]
-		}
-	}
-	MagicItemsList["lightbringer"] = {
-		name : "Lightbringer",
-		source : [["PaBTSO", 54], ["LMoP", 48]],
-		type : "weapon (mace)",
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head of shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
-		descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and is made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
-		weight : 4,
-		weaponsAdd : ["Lightbringer"],
-		weaponOptions : {
-			baseWeapon : "mace",
-			regExpSearch : /lightbringer/i,
-			name : "Lightbringer",
-			source : [["PaBTSO", 54], ["LMoP", 48]],
-			description : "Command to glow as torch and deal +1d6 radiant damage to undead",
-			modifiers : [1, 1]
-		}
-	}
-	MagicItemsList["spider staff"] = {
-		name : "Spider Staff",
-		source : [["PaBTSO", 220], ["LMoP", 53]],
-		type : "staff",
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "Attacks with this black adamantine quarterstaff topped with a spider deal +1d6 poison damage on a hit. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast Spider Climb (1 charge) or Web (2 charges, spell save DC 15).",descriptionFull : "The top of this magic quarterstaff is shaped like a spider. It deals an extra 1d6 poison damage on a hit when used to make a weapon attack."+
-		toUni("\n   Spells") + ". The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: spider climb (1 charge) or web (2 charges; spell save DC 15)."+
-		"\n   The staff regains 1d6+4 expended charges daily at dusk. If you expend the staff's last charge, roll a d20. On a 1, the staff crumbles to dust and is destroyed.",
-		attunement : true,
-		prerequisite : "Requires attunement by a bard, sorcerer, warlock, or wizard",
-		prereqeval : function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
-		weight : 4,
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		weaponsAdd : ["Spider Staff"],
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*spider)(?=.*staff).*$/i,
-			name : "Spider Staff",
-			source : [["PaBTSO", 220], ["LMoP", 53]],
-			description : "Versatile (1d8); +1d6 poison damage"
-		},
-		fixedDC : 15,
-		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["spider climb"],
-			selection : ["spider climb"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["web"],
-			selection : ["web"],
-			firstCol : 2
-		}]
-	}
-	MagicItemsList["staff of defense"] = {
-		name : "Staff of Defense",
-		source : [["PaBTSO", 220], ["LMoP", 53]],
-		type : "staff",
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "This slender, hollow staff is made of glass yet is as strong as oak. While holding it, I gain a +1 bonus to AC. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast Mage Armor (1 charge) or Shield (2 charges) as an action.",
-		descriptionFull : "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. While holding the staff, you have a +1 bonus to your Armor Class."+
-		toUni("\n   Spells") + ". The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: mage armor (1 charge) or shield (2 charges)."+
-		"\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed.",
-		attunement : true,
-		prerequisite : "Requires attunement by a bard, sorcerer, warlock, or wizard",
-		prereqeval : function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
-		weight : 3,
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		spellcastingAbility : "class",
-		spellFirstColTitle : "Ch",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /staff of defense/i,
-			name : "Staff of Defense",
-			weight : 3,
-			source : [["PaBTSO", 220], ["LMoP", 53]],
-		},
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["mage armor"],
-			selection : ["mage armor"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["shield"],
-			selection : ["shield"],
-			firstCol : 2
-		}],
-		spellChanges : {
-			"shield" : {
-				time : "1 a",
-				changes : "Cast as an action."
-			}
-		},
-		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
-	}
-}
 MagicItemsList["netherese ring of protection"] = {
 	name : "Netherese Ring of Protection",
 	source : [["PaBTSO", 50]],
@@ -50750,15 +50623,15 @@ MagicItemsList["flayer slayer"] = {
 	"\n   An Aberration hit with this greataxe takes an extra 1d12 slashing damage. If the Aberration is currently grappling a creature, the Aberration must succeed on a DC 15 Strength saving throw or release each creature it is grappling.",
 	attunement : true,
 	weight : 7,
-	weaponsAdd : ["Flayer Slayer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /flayer slayer/i,
 		name : "Flayer Slayer",
 		source : [["PaBTSO", 217]],
 		description : "Heavy, two-handed; Aberrations: +1d12 damage \u0026 DC 15 Str save or release all grappled",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["luminous war pick"] = {
 	name : "Luminous War Pick",
@@ -50770,15 +50643,15 @@ MagicItemsList["luminous war pick"] = {
 	"\n   While wielding the war pick, you can use a bonus action to cast the daylight spell, choosing a point on the war pick. Once you use this bonus action, it can't be used again until the next dawn.",
 	attunement : true,
 	weight : 2,
-	weaponsAdd : ["Luminous War Pick"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "war pick",
 		regExpSearch : /^(?=.*\bluminous\b)((?=.*\bkuwas?\b)|((?=.*pick)(?=.*war))|((?!.*(heavy|great|light))(?=.*\bpicks?\b))).*$/i,
 		name : "Luminous War Pick",
 		source : [["PaBTSO", 217]],
 		description : "",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["daylight"],
@@ -50856,8 +50729,7 @@ MagicItemsList["mindblasting cap"] = {
 	action : [["bonus action", ""]],
 	usages : 1,
 	recovery : "dawn",
-	weaponsAdd : ["Mindblasting Cap"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*mindblasting)(?=.*cap).*$/i,
 		name : "Mindblasting Cap",
 		source : [["PaBTSO", 218]],
@@ -50868,8 +50740,9 @@ MagicItemsList["mindblasting cap"] = {
 		description : "Int save or stunned for 1 min, re-save end of turn; Success - half damage, not stunned",
 		abilitytodamage : false,
 		modifiers : [7, 0],
-		dc : true
-	}
+		dc : true,
+		selectNow : true
+	}]
 }
 MagicItemsList["mindguard crown"] = {
 	name : "Mindguard Crown",
@@ -51658,14 +51531,14 @@ MagicItemsList["canian fork"] = {
 	weight : 4,
 	savetxt : { text : ["Vulnerable to radiant damage"] },
 	action : [["bonus action", " attack"]],
-	weaponsAdd : ["Canian Fork"],
 	weaponOptions : [{
 		baseWeapon : "trident",
 		regExpSearch : /^(?=.*canian)(?=.*fork).*$/i,
 		name : "Canian Fork",
 		source : [["CoA", 267]],
 		description : "Thrown, versatile (1d8); Bonus action: 1 attack",
-		modifiers : [3, 3]
+		modifiers : [3, 3],
+		selectNow : true
 	}]
 }
 MagicItemsList["condensed order"] = {
@@ -51768,7 +51641,6 @@ MagicItemsList["infernal plate armor"] = {
 	eval :       function() { CoA_Corruption.process(true,  "infernal plate armor") },
 	removeeval : function() { CoA_Corruption.process(false, "infernal plate armor") },
 	weight : 65,
-	armorAdd : "Infernal Plate Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*infernal)(?=.*plate).*$/i,
 		name : "Infernal Plate Armor",
@@ -51777,7 +51649,8 @@ MagicItemsList["infernal plate armor"] = {
 		ac : "18+2",
 		stealthdis : true,
 		weight : 65,
-		strReq : 15
+		strReq : 15,
+		selectNow : true
 	}],
 	savetxt : { text : ["Vulnerable to force, lightning, psychic, radiant, and thunder damage"] },
 }
@@ -51792,12 +51665,12 @@ MagicItemsList["knife of stolen resistance"] = {
 	action : [["action", ""]],
 	usages : 1,
 	recovery : "long rest",
-	weaponsAdd : ["Knife of Stolen Resistance"],
 	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*knife)(?=.*stolen)(?=.*resistance).*$/i,
 		name : "Knife of Stolen Resistance",
-		source : [["CoA", 268]]
+		source : [["CoA", 268]],
+		selectNow : true
 	}]
 }
 MagicItemsList["ring of collecting"] = {
@@ -51890,37 +51763,6 @@ MagicItemsList["skull of selfish knowledge"] = {
 	descriptionFull : "You may use an action to make the magical skull devour a nonmagical book, map, or scroll. Once devoured the learning is forever available to you, but you can never write the information down or communicate it to others. It is for you alone.",
 	action : [["action", ""]]
 }
-if (!MagicItemsList["soul coin"]) {
-	var DiA_soulCoinFullDescription = [
-		"Soul coins are about 5 inches across and about 1 inch thick, minted from infernal iron. Each coin weighs one-third of a pound, and is inscribed with Infernal writing and a spell that magically binds a single soul to the coin. Because each soul coin has a unique soul trapped within it, each has a story. A creature might have been imprisoned as a result of defaulting on a deal, while another might be the victim of a night hag's curse.",
-		">>Carrying Soul Coins<<. To hold a soul coin is to feel the soul bound within it\u2014overcome with rage or fraught with despair.",
-		"An evil creature can carry as many soul coins as it wishes (up to its maximum weight allowance). A non-evil creature can carry a number of soul coins equal to or less than its Constitution modifier without penalty. A non-evil creature carrying a number of soul coins greater than its Constitution modifier has disadvantage on its attack rolls, ability checks, and saving throws.",
-		">>Using a Soul Coin<<. A soul coin has 3 charges. A creature carrying the coin can use its action to expend 1 charge from a soul coin and use it to do one of the following:",
-		"\u2022 >>Drain Life<<. You siphon away some of the soul's essence and gain 1d10 temporary hit points.",
-		"\u2022 >>Query<<. You telepathically ask the soul a question and receive a brief telepathic response, which you can understand. The soul knows only what it knew in life, but it must answer you truthfully and to the best of its ability. The answer is no more than a sentence or two and might be cryptic.\n",
-		">>Freeing a Soul<<. Casting a spell that removes a curse on a soul coin frees the soul trapped within it, as does expending all of the coin's charges. The coin itself rusts from within and is destroyed once the soul is released. A freed soul travels to the realm of the god it served or the outer plane most closely tied to its alignment (DM's choice). The souls of lawful evil creatures released from soul coins typically emerge from the River Styx as lemure devils.",
-		"A soul can also be freed by destroying the coin that contains it. A soul coin has AC 19, 1 hit point for each charge it has remaining, and immunity to all damage except that which is dealt by a hellfire weapon or an infernal war machine's furnace.",
-		"Freeing a soul from a soul coin is considered a good act, even if the soul belongs to an evil creature.",
-		">>Hellish Currency<<. Soul coins are a currency of the Nine Hells and are highly valued by devils. The coins are used among the infernal hierarchy to barter for favors, bribe the unwilling, and reward the faithful for services rendered.",
-		"Soul coins are created by Mammon and his greater devils on Minauros, the third layer of the Nine Hells, in a vast chamber where the captured souls of evil mortals are bound into the coins. These coins are then distributed throughout the Nine Hells to be used for goods and services, infernal deals, dark bargains, and bribes."
-	];
-	MagicItemsList["soul coin"] = {
-		name : "Soul Coin",
-		source : [["DiA", 225], ["CoA", 269]],
-		type : "wondrous item",
-		rarity : "uncommon",
-		description : "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
-		descriptionFull : DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
-		toNotesPage : [{
-			name : "Features",
-			note : desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I ")
-		}],
-		weight : 0.3,
-		usages : 3,
-		recovery : "Never",
-		action : [["action", ""]]
-	}
-}
 MagicItemsList["stygian spear"] = {
 	name : "Stygian Spear",
 	source : [["CoA", 270]],
@@ -51941,14 +51783,14 @@ MagicItemsList["stygian spear"] = {
 		name : "Stygian Javelin",
 		description : "This +2 javelin deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
 		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic javelin. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
-		weaponsAdd : ["Stygian Javelin"],
 		weaponOptions : [{
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*stygian)(?=.*javelin).*$/i,
 			name : "Stygian Javelin",
 			source : [["CoA", 270]],
 			description : "Returning, thrown; Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
-			modifiers : [2,2]
+			modifiers : [2, 2],
+			selectNow : true
 		}],
 		weight : 2
 	},
@@ -51956,14 +51798,14 @@ MagicItemsList["stygian spear"] = {
 		name : "Stygian\u200A Spear",
 		description : "This +2 spear deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
 		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic spear. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
-		weaponsAdd : ["Stygian Spear"],
 		weaponOptions : [{
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*stygian)(?=.*spear).*$/i,
 			name : "Stygian Spear",
 			source : [["CoA", 270]],
 			description : "Returning, thrown, versatile (1d8); Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
-			modifiers : [2,2]
+			modifiers : [2, 2],
+			selectNow : true
 		}],
 		weight : 3
 	}
@@ -52647,14 +52489,14 @@ MagicItemsList["baleful talon"] = {
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this hooked, obsidian dagger."+
 	"\n   When you hit a creature with this magic weapon and roll a 19 or 20 on the attack roll, the creature must make a DC 15 Constitution saving throw as the dagger flares with sickly light. The creature takes 6d6 necrotic damage on a failed save, or half as much on a successful one. If this damage reduces the creature to 0 hit points, the creature disintegrates into dust.",
 	weight : 1,
-	weaponsAdd : ["Baleful Talon"],
 	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*baleful)(?=.*talon).*$/i,
 		name : "Baleful Talon",
 		source : [["BoMT", 34]],
 		description : "Finesse, light, thrown; Roll of 19-20: +6d6 necrotic damage, DC 15 Con save halves",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["blasted goggles"] = {
@@ -52679,13 +52521,13 @@ MagicItemsList["bloodrage greataxe"] = {
 	description : "I gain a +2 bonus to attack and damage rolls made with this magic greataxe while I have half my hit points or fewer.",
 	descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic greataxe while you have half your hit points or fewer.",
 	weight : 7,
-	weaponsAdd : ["Bloodrage Greataxe"],
 	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /^(?=.*bloodrage)(?=.*(great|heavy|weida))(?=.*(axe|\bono|\bfu|masakari)s?\b).*$/i,
 		name : "Bloodrage Greataxe",
 		source : [["BoMT", 66]],
-		description : "Heavy, two-handed; If I'm \u2264 \u00BD HP: +2 to hit \u0026 damage"
+		description : "Heavy, two-handed; If I'm \u2264 \u00BD HP: +2 to hit \u0026 damage",
+		selectNow : true
 	}]
 };
 MagicItemsList["bloodseeker ammunition"] = {
@@ -52716,7 +52558,6 @@ MagicItemsList["boomerang shield"] = {
 	descriptionFull : "You can make a ranged weapon attack with this magic shield. It has a normal range of 20 feet and a long range of 60 feet, and it uses your Strength or Dexterity for the attack roll (your choice). If you're proficient with shields, you are proficient with attacks made using this shield. On a hit, it deals 1d6 slashing damage. If you throw the shield, it reappears in your hand the instant after it hits or misses a target.",
 	weight : 6,
 	shieldAdd : "Boomerang Shield",
-	weaponsAdd : ["Boomerang Shield"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*boomerang)(?=.*shield).*$/i,
 		name : "Boomerang Shield",
@@ -52727,7 +52568,8 @@ MagicItemsList["boomerang shield"] = {
 		range : "20/60 ft",
 		weight : 6,
 		description : "Finesse, thrown; Reappears instantly", // Not actually finesse, but easier to code this way and shouldn't cause any issues
-		abilitytodamage : true
+		abilitytodamage : true,
+		selectNow : true
 	}],
 	calcChanges : {
 		atkAdd : [
@@ -52833,15 +52675,10 @@ MagicItemsList["breastplate of balance"] = {
 	usages : 4,
 	recovery : "dawn",
 	additional : "regains 1d4",
-	armorAdd : "Breastplate of Balance",
-	armorOptions : [{
-		regExpSearch : /justToAddToDropDown/i,
-		name : "Breastplate of Balance",
-		source : [["BoMT", 34]],
-		type : "medium",
-		ac : 14,
-		weight : 20
-	}],
+	armorAdd : {
+		select : "Breastplate of Balance",
+		options : ["Breastplate of Balance"]
+	},
 	spellFirstColTitle : "Ch",
 	spellcastingBonus : [{
 		name : "2 charges",
@@ -52866,7 +52703,6 @@ MagicItemsList["card sharp's deck"] = {
 	"\n   " + toUni("Deadly Deal") + ". As an action, you can use this deck to make a ranged spell attack by throwing a spectral card and using Dexterity for the attack roll. The card has a range of 120 feet and deals 1d8 force damage on a hit."+
 	"\n   " + toUni("Spray of Cards") + ". As an action, you can shuffle the deck and cast the Spray of Cards spell at 3rd level from the deck (spell save DC 15). Once the deck has cast the spell, it can't cast the spell again until the next dawn.",
 	action : [["action", ""]],
-	weaponsAdd : ["Deadly Deal"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*deadly)(?=.*deal).*$/i,
 		name : "Deadly Deal",
@@ -52876,7 +52712,8 @@ MagicItemsList["card sharp's deck"] = {
 		damage : [1, 8, "force"],
 		range : "120 ft",
 		description : "",
-		abilitytodamage : false
+		abilitytodamage : false,
+		selectNow : true
 	}],
 	usages : 1,
 	recovery : "dawn",
@@ -53036,7 +52873,6 @@ MagicItemsList["deck of wild cards"] = {
 	rarity : "very rare",
 	description : "As an action, I can draw a random card from this deck of heavy vellum cards and throw it. I make a ranged spell attack using Dex with a range of 30 ft, dealing 1d4 slashing damage on a hit and one of four magical effects depending on the card drawn, see Notes page. The thrown card returns to the deck after the attack.",
 	descriptionFull : BoMT.toDescrFull(BoMT["deck of wild cards"]),
-	weaponsAdd : ["Deck of Wild Cards"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*deck)(?=.*wild)(?=.*cards?).*$/i,
 		name : "Deck of Wild Cards",
@@ -53046,7 +52882,8 @@ MagicItemsList["deck of wild cards"] = {
 		damage : [1, 4, "slashing"],
 		range : "30 ft",
 		description : "Also random effect on hit, see Notes page",
-		abilitytodamage : false
+		abilitytodamage : false,
+		selectNow : true
 	}],
 	toNotesPage : [{
 		name : "Random Card Effects",
@@ -53195,14 +53032,14 @@ MagicItemsList["fate cutter shears"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "Sever Threads",
-	weaponsAdd : ["Fate Cutter Shears"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "dagger",
 		regExpSearch : /^(?=.*fate)(?=.*cutt(er|ing))(?=.*(shears?|dagger)).*$/i,
 		name : "Fate Cutter Shears",
 		source : [["BoMT", 61]],
-		description : "Finesse, light, thrown; +1d6 force damage"
-	}
+		description : "Finesse, light, thrown; +1d6 force damage",
+		selectNow : true
+	}]
 };
 MagicItemsList["fate dealer's deck"] = {
 	name : "Fate Dealer's Deck",
@@ -53443,13 +53280,13 @@ MagicItemsList["grasping whip"] = {
 	description : "I gain a +1 bonus to attack and damage rolls made with this magic whip. When I hit a creature or object that is Large or smaller with this whip, I can pull that creature or object 5 ft toward me instead of dealing damage.",
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic whip. When you hit a creature or object that is Large or smaller with this whip, you can pull that creature or object 5 feet toward you instead of dealing damage.",
 	weight : 3,
-	weaponsAdd : ["Grasping Whip"],
 	weaponOptions : [{
 		baseWeapon : "whip",
 		regExpSearch : /^(?=.*grasping)(?=.*whip).*$/i,
 		name : "Grasping Whip",
 		source : [["BoMT", 67]],
 		description : "Finesse, reach; Forgo damage to pull \u2264 Large 5 ft to me",
+		selectNow : true
 	}]
 };
 MagicItemsList["hammer of runic focus"] = {
@@ -53464,13 +53301,13 @@ MagicItemsList["hammer of runic focus"] = {
 	action : [["bonus action", " (start/end)"]],
 	usages : 3,
 	recovery : "dawn",
-	weaponsAdd : ["Hammer of Runic Focus"],
 	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /^(?=.*hammer)(?=.*runic)(?=.*focus).*$/i,
 		name : "Hammer of Runic Focus",
 		source : [["BoMT", 67]],
-		description : "Versatile (1d10); +2 to hit/damage while inside its circle"
+		description : "Versatile (1d10); +2 to hit/damage while inside its circle",
+		selectNow : true
 	}]
 };
 MagicItemsList["house of cards"] = {
@@ -53537,17 +53374,10 @@ MagicItemsList["plate of knight's fellowship"] = {
 	usages : 1,
 	recovery : "dawn",
 	action : [["bonus action", ""]],
-	armorAdd : "Plate of Knight's Fellowship",
-	armorOptions : [{
-		regExpSearch : /justToAddToDropDown/i,
-		name : "Plate of Knight's Fellowship",
-		source : [["BoMT", 37]],
-		type : "heavy",
-		ac : 18,
-		stealthdis : true,
-		weight : 65,
-		strReq : 15
-	}],
+	armorAdd : {
+		select : "Plate of Knight's Fellowship",
+		options : ["Plate of Knight's Fellowship"]
+	},
 	creaturesAdd : [["Knight"]],
 	creatureOptions : [{
 		name : "Knight",
@@ -53689,14 +53519,14 @@ MagicItemsList["ruinous flail"] = {
 	weight : 2,
 	usages : 1,
 	recovery : "dawn",
-	weaponsAdd : ["Ruinous Flail"],
 	weaponOptions : [{
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*ruinous)(?=.*flail).*$/i,
 		name : "Ruinous Flail",
 		source : [["BoMT", 37]],
 		description : "Double damage to objects; Once per dawn: target DC 15 Con save or poisoned, see item",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["sage's signet"] = {
@@ -53873,13 +53703,13 @@ MagicItemsList["sling of giant felling"] = {
 	rarity : "uncommon",
 	description : "When I hit a creature with the Giant type with a ranged attack roll using this magic sling, the creature must succeed on a DC 18 Constitution saving throw or be knocked prone.",
 	descriptionFull : "When you hit a Giant creature with a ranged attack roll using this magic sling, the creature must succeed on a DC 18 Constitution saving throw or have the prone condition.",
-	weaponsAdd : ["Sling of Giant Felling"],
 	weaponOptions : [{
 		baseWeapon : "sling",
 		regExpSearch : /^(?=.*sling)(?=.*giant)(?=.*felling).*$/i,
 		name : "Sling of Giant Felling",
 		source : [["BoMT", 68]],
-		description : "Ammunition; Giants: DC 18 Con save or prone"
+		description : "Ammunition; Giants: DC 18 Con save or prone",
+		selectNow : true
 	}]
 };
 MagicItemsList["spindle of fate"] = {
@@ -53970,15 +53800,15 @@ MagicItemsList["stonemaker war pick"] = {
 		selection : ["meld into stone"],
 		firstCol : "oncelr"
 	}],
-	weaponsAdd : ["Stonemaker War Pick"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "war pick",
 		regExpSearch : /^(?=.*stonemaker)(((?=.*pick)(?=.*war))|((?!.*(heavy|great|light))(?=.*\bpicks?\b))).*$|\bkuwas?\b/i,
 		name : "Stonemaker War Pick",
 		source : [["BoMT", 68]],
 		description : "Can petrify on critical hit, see item",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 };
 MagicItemsList["sun staff"] = {
 	name : "Sun Staff",
@@ -53997,14 +53827,14 @@ MagicItemsList["sun staff"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "reroll damage",
-	weaponsAdd : ["Sun Staff"],
 	weaponOptions : [{
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*sun)(?=.*staff).*$/i,
 		name : "Sun Staff",
 		source : [["BoMT", 39]],
 		description : "Versatile (1d8); +1d8 fire damage",
-		modifiers : [1, 1]
+		modifiers : [1, 1],
+		selectNow : true
 	}]
 };
 MagicItemsList["sword of the planes"] = {
@@ -54067,14 +53897,14 @@ MagicItemsList["tidecaller trident"] = {
 	usages : 3,
 	recovery : "dawn",
 	additional : "regains 1d3",
-	weaponsAdd : ["Tidecaller Trident"],
 	weaponOptions : [{
 		baseWeapon : "trident",
 		regExpSearch : /^(?=.*tidecaller)(?=.*trident).*$/i,
 		name : "Tidecaller Trident",
 		source : [["BoMT", 69]],
 		description : "Thrown, versatile (1d8); Adv. when underwater",
-		modifiers : [2, 2]
+		modifiers : [2, 2],
+		selectNow : true
 	}],
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
@@ -54103,14 +53933,14 @@ MagicItemsList["voidwalker armor"] = {
 	usages : 1,
 	recovery : "dawn",
 	action : [["bonus action", ""]],
-	armorAdd : "Voidwalker Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*voidwalker)(?=.*armou?r).*$/i,
 		name : "Voidwalker Armor",
 		source : [["BoMT", 39]],
 		type : "light",
 		ac : 12,
-		weight : 13
+		weight : 13,
+		selectNow : true
 	}],
 	toNotesPage : [{
 		name : "Voidwalker Curse",
@@ -54128,7 +53958,6 @@ MagicItemsList["warrior's passkey"] = {
 	"\n   " + toUni("Transforming the Key") + ". While holding the key, you can use a bonus action to transform it into a magic longsword. You are considered proficient with the sword, and you have a +1 bonus to attack and damage rolls made with it. On a hit, the sword deals 1d10 force damage. The item remains in its sword form until it leaves your grasp or you use another bonus action to revert it to its key form."+
 	"\n   If you end your attunement to the item while it's in its sword form, it automatically reverts to its key form.",
 	action : [["bonus action", " (transform)"]],
-	weaponsAdd : ["Warrior's Passkey"],
 	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*warrior)(?=.*passkey).*$/i,
@@ -54138,7 +53967,8 @@ MagicItemsList["warrior's passkey"] = {
 		modifiers : [1, 1],
 		isAlwaysProf : true,
 		description : "",
-		weight : 0
+		weight : 0,
+		selectNow : true
 	}],
 	spellcastingBonus : [{
 		name : "At will",
@@ -54375,6 +54205,37 @@ SpellsList["spray of cards"] = {
 	descriptionShorter : "All in area 2d10+1d10/SL Force dmg, blinded till their next turn ends; save half \u0026 not blinded",
 	descriptionFull : "You spray a 15-foot cone of spectral cards. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d10 force damage and has the blinded condition until the end of its next turn. On a successful save, a creature takes half as much damage only."+
 		AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd."
+};
+
+// pub_20231114_BoMT.js
+// This file adds the magic item from the Vecna: Eve of Ruin adventure to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["VEoR"] = {
+	name : "Vecna: Eve of Ruin",
+	abbreviation : "VEoR",
+	group : "Adventure Books",
+	url : "https://dndstore.wizards.com/us/en/product/924703/vecna-eve-of-ruin-digital-plus-physical-bundle",
+	date : "2024/05/21"
+};
+
+MagicItemsList["chime of exile"] = {
+	name : "Chime of Exile",
+	source : [["VEoR", 46]],
+	type : "wondrous item",
+	rarity : "very rare",
+	description : "This silver chime is engraved with delicate magic sigils. As an action once per dawn, I can hold the chime and cast the Banishment spell (save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw.",
+	descriptionFull : "This silver chime is engraved with delicate magic sigils. While holding the chime, you can use an action to cast the Banishment spell (spell save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw. Once the chime has been used to cast the spell, it can't be used this way again until the next dawn.",
+	usages : 1,
+	recovery : "dawn",
+	additional : "Banishment",
+	fixedDC : 20,
+	spellcastingBonus : [{
+		name : "Once per dawn",
+		spells : ["banishment"],
+		selection : ["banishment"],
+		firstCol : "oncelr"
+	}]
 };
 
 // pub_al_20190917_ALPG-v9.1.js

@@ -1,5 +1,5 @@
 var iFileName = "pub_20170915_Tortle.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the Tortle Race from the Tortle Package from Extra Life to MPMB's Character Record Sheet
 
 // Define the source
@@ -29,17 +29,17 @@ RaceList.tortle = {
 		name : "Tortle's Shell",
 		source : [["TP", 4], ["W", 181]],
 		ac : 17,
-		dex : -10
+		dex : -10,
+		selectNow : true
 	}],
-	armorAdd : "Tortle's Shell",
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
 		name : "Tortle's Claws",
 		source : [["TP", 4], ["W", 181]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ["Tortle's Claws"],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	age : " reach adulthood by the age of 15 and live an average of 50 years",
 	height : " stand between 5 and 6 feet tall (4'10\" + 2d8\")",
 	weight : " weigh around 450 lb (400 + 2d8 \xD7 2d4 lb)",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -1356,8 +1356,7 @@ MagicItemsList["arcane propulsion armor"] = {
 		descriptionChange : ["prefix", "armor"]
 	},
 	speed : { walk : { spd : "+5", enc : "+5" } },
-	weaponsAdd : ["Arcane Propulsion Gauntlets"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*arcane)(?=.*propulsion)(?=.*gauntlet).*$/i,
 		name : "Arcane Propulsion Gauntlets",
 		source : [["T", 20]],
@@ -1366,8 +1365,9 @@ MagicItemsList["arcane propulsion armor"] = {
 		damage : [1, 8, "force"],
 		range : "Melee, 20/60 ft",
 		description : "Thrown; Returns immediately after thrown",
-		abilitytodamage : true
-	}
+		abilitytodamage : true,
+		selectNow : true
+	}]
 }
 AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Magical Strength", {
 	name : "Armor of Magical Strength",
@@ -1659,8 +1659,8 @@ RunFunctionAtEnd(function () {
 			submenu : "Guardian Arcane Armor",
 			description : guardianTxt,
 			additional : guardianAdditional,
-			armorAdd : gArmName,
-			weaponsAdd : ["Thunder Gauntlets"],
+			armorAdd : { select : gArmName, options : [gArmName] },
+			weaponsAdd : { select : ["Thunder Gauntlets"] },
 			prereqeval : prereqFunc,
 			dependentChoices : "guardian"
 		}
@@ -1671,8 +1671,8 @@ RunFunctionAtEnd(function () {
 			submenu : "Infiltrator Arcane Armor",
 			description : infiltratorTxt + (anArm.stealthdis ? ", cancelling out the disadv. it imposes" : ""),
 			speed : { walk : {spd : "+5", enc : "+5" } },
-			armorAdd : iArmName,
-			weaponsAdd : ["Lightning Launcher"],
+			armorAdd : { select : iArmName, options : [iArmName] },
+			weaponsAdd : { select : ["Lightning Launcher"] },
 			prereqeval : prereqFunc,
 			advantages : [["Stealth", true]],
 			dependentChoices : "infiltrator"
@@ -1738,7 +1738,8 @@ AddSubClass("barbarian", "path of the beast", {
 				range : "Melee",
 				description : "Only in rage; On a hit once on my turn, regain Prof Bonus in HP (if below 1/2 HP)",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*claws?).*$/i,
 				name : "Bestial Claws",
@@ -1749,7 +1750,8 @@ AddSubClass("barbarian", "path of the beast", {
 				range : "Melee",
 				description : "Only in rage; Extra attack if used as part of Attack action",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*tail).*$/i,
 				name : "Bestial Tail",
@@ -1760,9 +1762,9 @@ AddSubClass("barbarian", "path of the beast", {
 				range : "Melee",
 				description : "Reach; Only in rage",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}],
-			weaponsAdd : ["Bestial Bite", "Bestial Claws", "Bestial Tail"],
 			additional : levels.map(function(n) {
 				return n < 6 ? "" : "chosen weapon counts as magical";
 			}),
@@ -2187,11 +2189,11 @@ RunFunctionAtEnd(function() {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && (!v.thisWeapon[3] || Number(SpellsList[v.thisWeapon[3]].level) !== 0)) {
+						if (classes.known.cleric && (v.isWeapon || (v.thisWeapon[3] && SpellsList[v.thisWeapon[3]].level === 0)) && /\d/.test(fields.Damage_Die)) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per round +1d8 radiant damage';
 						}
 					},
-					"Once per turn when a creature takes damage from one of my spell or weapon attacks, I can also deal 1d8 radiant damage to the target."
+					"Once per round, when a creature takes damage from one of my spell or weapon attacks, I can also deal 1d8 radiant damage to the target."
 				]
 			}
 		});
@@ -2271,7 +2273,7 @@ if (!SourceList.G) {
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
-							if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+							if (classes.known.cleric && v.isWeapon) {
 								fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage' + (classes.known.cleric.level < 17 ? '' : ' \u0026 again if hit by ally before my next turn');
 							}
 						},
@@ -2348,24 +2350,8 @@ AddSubClass("cleric", "peace domain", {
 			name : "Potent Spellcasting",
 			source : [["T", 33]],
 			minlevel : 8,
-			description : "\n   I add my Wisdom modifier to the damage I deal with my cleric cantrips",
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Expansive Bond",
@@ -2460,7 +2446,7 @@ AddSubClass("cleric", "twilight domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 radiant damage';
 						}
 					},
@@ -2678,7 +2664,7 @@ AddSubClass("druid", "circle of the stars", {
 				"When I do so, I choose one constellation that glimmers on my body, granting me benefits",
 				"See the 3rd page's \"Notes\" section for the benefits of the possible constellations"
 			]),
-			weaponOptions : {
+			weaponOptions : [{
 				regExpSearch : /^(?=.*luminous)(?=.*arrow).*$/i,
 				name : "Luminous Arrow",
 				source : [["T", 38]],
@@ -2689,9 +2675,9 @@ AddSubClass("druid", "circle of the stars", {
 				description : "Use as bonus action",
 				abilitytodamage : true,
 				useSpellMod : "druid",
-				luminousarrow : true
-			},
-			weaponsAdd : ['Luminous Arrow'],
+				luminousarrow : true,
+				selectNow : true
+			}],
 			extraname : "Starry Form",
 			"archer constellation" : {
 				name : "Archer Constellation",
@@ -3593,8 +3579,7 @@ AddSubClass("monk", "way of the astral self", {
 				"As a bonus action, I can use my ki to summon the arms of my astral self for 10 minutes"
 			]),
 			action : [["bonus action", "Summon Astral Arms"]],
-			weaponsAdd : ["Astral Arms"],
-			weaponOptions : {
+			weaponOptions : [{
 				baseWeapon : "unarmed strike",
 				regExpSearch : /^(?=.*\bastral\b)(?=.*\barms?\b).*$/i,
 				name : "Astral Arms",
@@ -3603,8 +3588,9 @@ AddSubClass("monk", "way of the astral self", {
 				range : "Melee (+5 ft)",
 				damage : [1, "", "Force"],
 				description : "+5 ft reach; Uses Str, Dex, or Wis",
-				isAstralArms : true
-			},
+				isAstralArms : true,
+				selectNow : true
+			}],
 			"astral arms" : {
 				name : "Astral Arms",
 				extraname : "Way of the Astral Self 3",
@@ -4713,7 +4699,6 @@ AddSubClass("rogue", "soulknife", {
 				"To do this, my other hand needs to be free as well and this blade does only 1d4 damage"
 			]),
 			action : [["bonus action", "Psychic Blade (after Attack action)"]],
-			weaponsAdd : ["Psychic Blade"],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*psychic)(?=.*blade).*$/i,
 				name : "Psychic Blade",
@@ -4723,7 +4708,8 @@ AddSubClass("rogue", "soulknife", {
 				damage : [1, 6, "psychic"],
 				range : "Melee, 60 ft",
 				description : "Finesse, thrown; Bonus action: 1d4 instead of 1d6",
-				abilitytodamage : true
+				abilitytodamage : true,
+				selectNow : true
 			}]
 		},
 		"subclassfeature9" : {
@@ -5327,7 +5313,6 @@ AddSubClass("warlock", "the fathomless", {
 			additional : levels.map(function (n) {
 				return (n < 10 ? 1 : 2) + "d8";
 			}),
-			weaponsAdd : ['Tentacle of the Deeps'],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*tentacle)(?=.*\b(deeps?|spectral)\b).*$/i,
 				name : "Tentacle of the Deeps",
@@ -5338,7 +5323,8 @@ AddSubClass("warlock", "the fathomless", {
 				range : "Melee (10 ft)",
 				description : "On hit, -10 ft speed until my next turn starts",
 				abilitytodamage : false,
-				tentacleOfTheDeeps : true
+				tentacleOfTheDeeps : true,
+				selectNow : true
 			}],
 			calcChanges : {
 				atkAdd : [
@@ -6789,41 +6775,41 @@ MagicItemsList["barrier tattoo"] = {
 		name : "Barrier Tattoo (uncommon)",
 		rarity : "uncommon",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 12 + my Dexterity modifier. I can use a shield and still gain this benefit.",
-		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
 			source : [["T", 122]],
 			ac : 12,
-			affectsWildShape : true
+			affectsWildShape : true,
+			selectNow : true
 		}]
 	},
 	"ac 15+dex (rare)" : {
 		name : "Barrier Tattoo (rare)",
 		rarity : "rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 15 + my Dexterity modifier (maximum of +2). I can use a shield and still gain this benefit.",
-		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
 			source : [["T", 122]],
 			ac : 15,
 			dex : 2,
-			affectsWildShape : true
+			affectsWildShape : true,
+			selectNow : true
 		}]
 	},
 	"ac 18 (very rare)" : {
 		name : "Barrier Tattoo (very rare)",
 		rarity : "very rare",
 		description : "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring protective imagery. While I'm not wearing armor, the tattoo grants me an AC of 18. I can use a shield and still gain this benefit.",
-		armorAdd : "Barrier Tattoo",
 		armorOptions : [{
 			regExpSearch : /^(?=.*barrier)(?=.*tattoo).*$/i,
 			name : "Barrier Tattoo",
 			source : [["T", 122]],
 			ac : 18,
 			dex : -10,
-			affectsWildShape : true
+			affectsWildShape : true,
+			selectNow : true
 		}]
 	}
 }
@@ -6852,7 +6838,6 @@ MagicItemsList["coiling grasp tattoo"] = {
 	descriptionFull : "Produced by a special needle, this magic tattoo has long intertwining designs."+
 	"\n   " + toUni("Grasping Tendrils") + ". While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature." + magicTattoosTxt.unicode,
 	action : [["action", ""]],
-	weaponsAdd : ["Coiling Grasp Tattoo"],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*coiling grasp)(?=.*tattoo).*$/i,
 		name : "Coiling Grasp Tattoo",
@@ -6864,7 +6849,8 @@ MagicItemsList["coiling grasp tattoo"] = {
 		description : "Str save, success - no damage, fail - grappled; Escape DC 14 Athletics/Acrobatics",
 		abilitytodamage : false,
 		dc : true,
-		modifiers : [6, ""]
+		modifiers : [6, ""],
+		selectNow : true
 	}]
 }
 MagicItemsList["eldritch claw tattoo"] = {
@@ -7430,7 +7416,7 @@ MagicItemsList["moon sickle"] = {
 				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
-		weaponsAdd : ["Moon Sickle +1"]
+		weaponsAdd : { select : ["Moon Sickle +1"], options : ["Moon Sickle +1"] }
 	},
 	"+2 weapon, +2 to spell attacks and dcs (rare)" : {
 		name : "Moon Sickle +2",
@@ -7444,7 +7430,7 @@ MagicItemsList["moon sickle"] = {
 				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
-		weaponsAdd : ["Moon Sickle +2"]
+		weaponsAdd : { select : ["Moon Sickle +2"], options : ["Moon Sickle +2"] }
 	},
 	"+3 weapon, +3 to spell attacks and dcs (very rare)" : {
 		name : "Moon Sickle +3",
@@ -7458,7 +7444,7 @@ MagicItemsList["moon sickle"] = {
 				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
 			]
 		},
-		weaponsAdd : ["Moon Sickle +3"]
+		weaponsAdd : { select : ["Moon Sickle +3"], options : ["Moon Sickle +3"] }
 	}
 }
 MagicItemsList["rhythm maker's drum"] = {
@@ -7985,7 +7971,7 @@ MagicItemsList["reveler's concertina"] = {
 			function (type, spellcasters, ability) {
 				if (type === "dc" && spellcasters.indexOf('bard') !== -1) return 2;
 			},
-			"While holding the Reveler's Concertina, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my bard spells."
+			"While holding the Reveler's Concertina, I gain a +2 bonus to the saving throw DCs of my bard spells."
 		]
 	}
 }
@@ -8091,13 +8077,13 @@ MagicItemsList["devotee's censer"] = {
 	usages : 1,
 	recovery : "dawn",
 	action : [["bonus action", " (incense cloud)"]],
-	weaponsAdd : ["Devotee's Censer"],
 	weaponOptions : [{
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*devotee)(?=.*censer).*$/i,
 		name : "Devotee's Censer",
 		source : [["T", 126]],
-		description : "+1d8 radiant damage"
+		description : "+1d8 radiant damage",
+		selectNow : true
 	}]
 }
 MagicItemsList["guardian emblem"] = {

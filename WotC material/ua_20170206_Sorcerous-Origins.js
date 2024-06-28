@@ -1,5 +1,5 @@
 var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -283,9 +283,9 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 				source : [["UA:SO", 4]],
 				ac : "13+Con",
 				dex : -10,
-				affectsWildShape : true
-			}],
-			armorAdd : "Stone's Durability"
+				affectsWildShape : true,
+				selectNow : true
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Stone Aegis",

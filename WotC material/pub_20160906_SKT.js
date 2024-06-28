@@ -1,5 +1,5 @@
 var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -335,8 +335,7 @@ MagicItemsList["gurt's greataxe"] = {
 	weight : 325,
 	usages : 1,
 	recovery : "dawn",
-	weaponsAdd : ["Gurt's Greataxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greataxe",
 		regExpSearch : /^(?=.*gurt)(?=.*greataxe).*$/i,
 		name : "Gurt's Greataxe",
@@ -344,8 +343,9 @@ MagicItemsList["gurt's greataxe"] = {
 		damage : [3, 12, "slashing"],
 		weight : 325,
 		description : "Heavy, two-handed; +2d12 damage against humans",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	fixedDC : 13,
 	spellcastingBonus : {
 		name : "Deals cold damage",
@@ -441,14 +441,14 @@ MagicItemsList["korolnor scepter"] = {
 		selection : ["teleport"],
 		firstCol : 3
 	}],
-	weaponsAdd : ["Korolnor Scepter"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "club",
 		regExpSearch : /^(?=.*korolnor)(?=.*scepter).*$/i,
 		name : "Korolnor Scepter",
 		source : [["SKT", 234]],
-		modifiers : [3, 3]
-	}
+		modifiers : [3, 3],
+		selectNow : true
+	}]
 }
 MagicItemsList["navigation orb"] = {
 	name : "Navigation Orb",
@@ -781,14 +781,14 @@ MagicItemsList["red dragon's thighbone"] = {
 	descriptionFull : "This 14-ft long, 250 lb red dragon's thighbone can be used as a greatclub by a giant. If a creature attunes to the greatclub, it magically shrinks to a size that the creature can wield effectively. The greatclub is considered a magic weapon that deals an extra 2d8 bludgeoning damage whenever it hits a dragon (including any creature of the dragon type).",
 	attunement : true,
 	weight : 10,
-	weaponsAdd : ["Red Dragon's Thighbone"],
-	weaponOptions :{
+	weaponOptions : [{
 		baseWeapon : "greabclub",
 		regExpSearch : /^(?=.*red)(?=.*dragon)(?=.*thighbone).*$/i,
 		name : "Red Dragon's Thighbone",
 		source : [["SKT", 105]],
 		description : "Two-handed; +2d6 damage vs. dragons",
-	}
+		selectNow : true
+	}]
 }
 MagicItemsList["ancient relic boulder"] = {
 	name : "Ancient Relic Boulder",

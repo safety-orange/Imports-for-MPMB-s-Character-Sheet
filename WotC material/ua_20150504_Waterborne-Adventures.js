@@ -1,5 +1,5 @@
 var iFileName = "ua_20150504_Waterborne-Adventures.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana: Waterborne Adventures article to MPMB's Character Record Sheet
 
 // Define the source
@@ -39,7 +39,7 @@ RaceList["minotaur-ua"] = {
 	},
 	languageProfs : ["Common"],
 	toolProfs : ["Navigator's tools", "Vehicles (water)"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /\bhorns?\b/i,
 		name : "Horns",
 		source : [["UA:WA", 1]],
@@ -48,9 +48,9 @@ RaceList["minotaur-ua"] = {
 		damage : [1, 10, "piercing"],
 		range : "Melee",
 		description : "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
-		abilitytodamage : true
-	},
-	weaponsAdd : ["Horns"],
+		abilitytodamage : true,
+		selectNow : true
+	}],
 	age : " reach adulthood around age 17 and live up to 150 years",
 	height : " are well over 6 feet tall",
 	weight : " weigh around 300 lb",

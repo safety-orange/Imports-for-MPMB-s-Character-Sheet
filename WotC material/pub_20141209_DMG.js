@@ -1,5 +1,5 @@
 var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -183,7 +183,7 @@ AddSubClass("cleric", "death domain", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && !v.isSpell) {
+						if (classes.known.cleric && v.isWeapon) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 necrotic damage';
 						}
 					},
@@ -587,7 +587,6 @@ MagicItemsList["efreeti chain"] = {
 	weight : 55,
 	languageProfs : ["Primordial"],
 	savetxt : { immune : ["fire"] },
-	armorAdd : "Efreeti Chain",
 	armorOptions : [{
 		regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
 		name : "Efreeti Chain",
@@ -596,7 +595,8 @@ MagicItemsList["efreeti chain"] = {
 		ac : "16+3",
 		stealthdis : true,
 		weight : 55,
-		strReq : 13
+		strReq : 13,
+		selectNow : true
 	}]
 }
 MagicItemsList["elixir of health"] = {
@@ -1026,8 +1026,7 @@ MagicItemsList["staff of the adder"] = {
 	prerequisite : "Requires attunement by a cleric, druid, or warlock",
 	prereqeval : function(v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
 	action : [["bonus action", " (animate/end)"]],
-	weaponsAdd : ["Animated Snake Head from Staff of the Adder"],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*snake)(?=.*head)(?=.*staff)(?=.*adder).*$/i,
 		name : "Animated Snake Head from Staff of the Adder",
 		source : [["D", 203]],
@@ -1038,8 +1037,9 @@ MagicItemsList["staff of the adder"] = {
 		range : "Melee",
 		weight : 4,
 		description : "DC 15 Constitution save or 3d6 poison damage",
-		abilitytodamage : false
-	}
+		abilitytodamage : false,
+		selectNow : true
+	}]
 }
 MagicItemsList["sword of answering"] = {
 	name : "Sword of Answering",
@@ -1063,14 +1063,14 @@ MagicItemsList["sword of answering"] = {
 	attunement : true,
 	weight : 3,
 	action : [["reaction", ""]],
-	weaponsAdd : ["Sword of Answering"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*sword)(?=.*answering).*$/i,
 		name : "Sword of Answering",
 		source : [["D", 206]],
-		modifiers : [3, 3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	choices : ["Answerer (chaotic good)", "Back Talker (chaotic evil)", "Concluder (lawful neutral)", "Last Quip (chaotic neutral)", "Rebutter (neutral good)", "Replier (neutral)", "Retorter (lawful good)", "Scather (lawful evil)", "Squelcher (neutral evil)"],
 	"answerer (chaotic good)" : {
 		name : "Sword of Answering [Answerer]",
@@ -1178,7 +1178,7 @@ MagicItemsList["tentacle rod"] = {
 	attunement : true,
 	weight : 2,
 	action : [["action", ""]],
-	weaponOptions : {
+	weaponOptions : [{
 		regExpSearch : /^(?=.*tentacle)(?=.*rod).*$/i,
 		name : "Tentacle Rod",
 		source : [["D", 208]],
@@ -1189,8 +1189,9 @@ MagicItemsList["tentacle rod"] = {
 		description : "Action to use, 3 attacks; If all 3 hit same target, it DC 15 Con save, see magic item",
 		abilitytodamage : false,
 		modifiers : [9, ""],
-		weight : 2
-	}
+		weight : 2,
+		selectNow : true
+	}]
 }
 MagicItemsList["tome of the stilled tongue"] = {
 	name : "Tome of the Stilled Tongue",
@@ -1268,15 +1269,15 @@ MagicItemsList["blackrazor"] = {
 	prereqeval : function(v) { return !(/lawful/i).test(What("Alignment")); },
 	action : [["bonus action", ""]],
 	weight : 6,
-	weaponsAdd : ["Blackrazor"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /blackrazor/i,
 		name : "Blackrazor",
 		source : [["D", 216]],
 		description : "Heavy, two-handed; Devours soul; Heals undead",
-		modifiers : [3,3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
@@ -1323,15 +1324,15 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		prerequisite : "Requires attunement by a creature that worships a god of the sea",
 		prereqeval : function(v) { return (/deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i).test(What("Faith/Deity")); },
 		weight : 4,
-		weaponsAdd : ["Wave"],
-		weaponOptions : {
+		weaponOptions : [{
 			baseWeapon : "trident",
 			regExpSearch : /wave/i,
 			name : "Wave",
 			source : [["D", 218]],
 			description : "Thrown, versatile (1d8); On crit: necrotic damage equal to half target max HP",
-			modifiers : [3,3]
-		},
+			modifiers : [3, 3],
+			selectNow : true
+		}],
 		toNotesPage : [{
 			name : "Features",
 			note : desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt
@@ -1396,16 +1397,16 @@ MagicItemsList["whelm"] = {
 	prerequisite : "Requires attunement by a dwarf",
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
 	weight : 2,
-	weaponsAdd : ["Whelm"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "warhammer",
 		regExpSearch : /whelm/i,
 		name : "Whelm",
 		source : [["D", 218]],
 		range : "Melee, 20/60 ft",
 		description : "Versatile (1d10), thrown, returning; +1d8 damage when thrown (+2d8 vs. giants)",
-		modifiers : [3,3]
-	},
+		modifiers : [3, 3],
+		selectNow : true
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt

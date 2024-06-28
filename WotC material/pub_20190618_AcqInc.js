@@ -1,5 +1,5 @@
 var iFileName = "pub_20190618_AcqInc.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
 
 // Define the source
@@ -442,12 +442,12 @@ MagicItemsList["piercer"] = {
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon.\n   A character attuned to the sword regains the maximum possible number of hit points from expended Hit Dice. However, the attuned character must eat twice as much food each day (a minimum of 2 pounds) to avoid exhaustion (see \"The Environment\" in chapter 8 of the Player's Handbook.)",
 	attunement : true,
 	weight : 3,
-	weaponsAdd : ["Piercer"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "shortsword",
 		regExpSearch : /piercer/i,
 		name : "Piercer",
 		source : [["AcqInc", 121]],
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 };

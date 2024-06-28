@@ -1,5 +1,5 @@
 var iFileName = "pub_20150416_EE.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.14");
 // This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
 
 // Define the source
@@ -25,14 +25,14 @@ RaceList["aarakocra"] = {
 		fly : { spd : 50, enc : 0 }
 	},
 	languageProfs : ["Common", "Aarakocra", "Auran"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "unarmed strike",
 		regExpSearch : /talon/i,
 		name : "Talons",
 		source : [["E", 5], ["W", 166]],
-		damage : [1, 4, "slashing"]
-	},
-	weaponsAdd : ["Talons"],
+		damage : [1, 4, "slashing"],
+		selectNow : true
+	}],
 	age : " reach maturity by age 3 and live about 30 years",
 	height : " are about 5 feet tall",
 	weight : " weigh between 80 and 100 lb",

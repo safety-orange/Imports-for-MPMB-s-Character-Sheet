@@ -1,6 +1,6 @@
 // This file adds the content from the Unearthed Arcana 2022: Giant Options article to MPMB's Character Record Sheet
 var iFileName = "ua_20220718_Wonders-of-the-Multiverse.js";
-RequiredSheetVersion("13.1.2");
+RequiredSheetVersion("13.1.14");
 
 SourceList["UA:WotM"] = {
 	name : "Unearthed Arcana: Wonders of the Multiverse",
@@ -22,12 +22,12 @@ RaceList["glitchling-ua"] = {
 	},
 	scoresGeneric : true,
 	savetxt : { adv_vs : ["charmed"] },
-	armorAdd : "Armored Plating",
 	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*plating).*$/i,
 		name : "Armored Plating",
 		source : [["UA:WotM", 2]],
-		ac : 14
+		ac : 14,
+		selectNow : true
 	}],
 	features : {
 		"balance chaos" : {
@@ -130,23 +130,7 @@ AddSubClass("cleric", "fate-ua", {
 			source : [["UA:WotM", 3]],
 			minlevel : 8,
 			description : desc("I add my Wisdom modifier to the damage I deal with my cleric cantrips"),
-			calcChanges : {
-				atkCalc : [
-					function (fields, v, output) {
-						if (classes.known.cleric && classes.known.cleric.level > 7 && v.thisWeapon[3] && v.thisWeapon[4].indexOf('cleric') !== -1 && SpellsList[v.thisWeapon[3]].level === 0) {
-							output.extraDmg += What('Wis Mod');
-						};
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				],
-				spellAdd : [
-					function (spellKey, spellObj, spName) {
-						if (spName.indexOf("cleric") == -1 || !What("Wis Mod") || Number(What("Wis Mod")) <= 0 || spellObj.psionic || spellObj.level !== 0) return;
-						return genericSpellDmgEdit(spellKey, spellObj, "\\w+\\.?", "Wis");
-					},
-					"My cleric cantrips get my Wisdom modifier added to their damage."
-				]
-			}
+			calcChanges : GenericClassFeatures["potent spellcasting"].calcChanges
 		},
 		"subclassfeature17" : {
 			name : "Visions of the Future",
@@ -172,7 +156,113 @@ AddSubClass("cleric", "fate-ua", {
 	}
 });
 
-// Backgrounds
+// Backgrounds, first those not reprinted exactly as in this UA
+BackgroundList["giant foundling-ua"] = {
+	regExpSearch : /^(?=.*giant)(?=.*foundling).*$/i,
+	name : "Giant Foundling",
+	source : [["UA:WotM", 4]],
+	skills : ["Intimidation", "Survival"],
+	gold : 10,
+	languageProfs : [2],
+	equipleft : [
+		["Backpack", "", 5],
+		["Small stone/sprig reminding of home", "", ""]
+	],
+	equipright : [
+		["Traveler's clothes", "", 4],
+		["Pouch (with coins)", "", 1]
+	],
+	feature : "Strike of the Giants",
+	trait : [
+		"What I lack in stature, I make up for with sheer spite.",
+		"Sometimes size does matter, okay? If I see a beast bigger than me, I'm immediately running away.",
+		"Crowded spaces make me uncomfortable. I'd much rather be in a wide-open field than a bustling tavern.",
+		"I like being small. It helps me stay unnoticed\u2014and underestimated.",
+		"Size is just half the story. Every avalanche begins as a single pebble.",
+		"The world always feels too big, and I'm afraid I'll never find my place in it."
+	],
+	extra : [
+		"Select an Origin Story",
+		"Found as a baby" + (typePF ? "": " by nomadic giants"),
+		"Rescued from mountain crag" + (typePF ? "": " by stone giants"),
+		"Found as a child lost in a jungle" + (typePF ? "": " by a frost giant"),
+		"Home/family killed by warring giants"
+	]
+};
+BackgroundList["planar philosopher-ua"] = {
+	regExpSearch : /^(?=.*planar)(?=.*philosopher).*$/i,
+	name : "Planar Philosopher",
+	source : [["UA:WotM", 4]],
+	skills : ["Arcana", "Persuasion"],
+	gold : 10,
+	languageProfs : [2],
+	equipright : [
+		["Common clothes", "", 3],
+		["Pouch (with coins from different planes)", "", 1]
+	],
+	feature : "Conviction",
+	trait : [
+		"I don't venerate any gods; we can be as powerful or greater than them.",
+		"Experience is everything, live in the moment.",
+		"When things crumble, I find meaning in the ashes.",
+		"Life thrives through order; I won't tolerate disruptions.",
+		"When others make plans, the multiverse laughs and so do I.",
+		"I know what's right, and no one will stand in my way."
+	],
+	extra : [
+		"Select a Trinket",
+		"Inscribed locket with image of mentor",
+		"Bleached rat skull with glass eyes",
+		"Torn parchment with half a puzzle",
+		"Bracelet of twisted razorvine stems",
+		"Fragment of verdigris bronze blade",
+		"Smooth stone with holy symbols"
+	]
+};
+BackgroundList["rune carver-ua"] = {
+	regExpSearch : /^(?=.*rune)(?=.*carver).*$/i,
+	name : "Rune Carver",
+	source : [["UA:WotM", 5]],
+	skills : ["History", "Perception"],
+	gold : 10,
+	languageProfs : ["Giant", 1],
+	equipleft : [
+		["Set of artisan's tools", "", ""],
+		["Small knife", "", 0.5],
+		["Whetstone", "", 1]
+	],
+	equipright : [
+		["Common clothes", "", 3],
+		["Pouch (with coins)", "", 1]
+	],
+	feature : "Rune Carver Apprentice",
+	trait : [
+		"Is it practical to learn an ancient language that is rarely used in everyday speech? No. But is it fun? Very.",
+		"I learned one of my ancestors was a lauded rune carver whose story was lost to time. I seek to rekindle that legacy.",
+		"The old, traditional markings of runecraft look so boring. Why not give your runes some flair?",
+		"In my studies of runes, I strive to understand how great civilizations of the past fell, so that I may prevent it from happening to societies of the present.",
+		"Life may be a whirlwind of chaos around me, but whenever I create my runes, I feel at peace.",
+		"My brain struggles to process ink words written on paper, but the tactile feeling of carved runes makes my mind sing."
+	],
+	extra : [
+		"Select a Rune Style",
+		"Use fine metal needle to inscribe",
+		"On small wooden figurines",
+		"On glass beads in necklace/bracelet",
+		"Stitched into the hems of clothing",
+		"Carved on set of animal bones",
+		"Drawn into candles"
+	]
+};
+BackgroundFeatureList["rune carver apprentice"] = {
+	description : "I've dedicated my life to studying the practice of runecraft. Whether I was personally taught by a master rune carver or learned by poring over engravings in ancient ruins, I understand how to tap into the supernatural power held within runes. Also, I gain the Rune Carver Apprentice feat.",
+	source : [["UA:WotM", 5]],
+	eval : function() { AddFeat("Rune Carver Apprentice"); },
+	removeeval : function() { RemoveFeat("Rune Carver Apprentice"); }
+};
+
+// Then the backgrounds that haven't been altered in the book
+// [dupl_start] have been reprinted in Planescape: Adventures in the Multiverse or Bigby Presents: Glory of the Giants
 if (!BackgroundList["gate warden"]) {
 	BackgroundList["gate warden"] = {
 		regExpSearch : /^(?=.*gate)(?=.*warden).*$/i,
@@ -220,38 +310,6 @@ if (!BackgroundFeatureList["planar infusion"]) {
 	};
 }
 
-BackgroundList["giant foundling-ua"] = {
-	regExpSearch : /^(?=.*giant)(?=.*foundling).*$/i,
-	name : "Giant Foundling",
-	source : [["UA:WotM", 4]],
-	skills : ["Intimidation", "Survival"],
-	gold : 10,
-	languageProfs : [2],
-	equipleft : [
-		["Backpack", "", 5],
-		["Small stone/sprig reminding of home", "", ""]
-	],
-	equipright : [
-		["Traveler's clothes", "", 4],
-		["Pouch (with coins)", "", 1]
-	],
-	feature : "Strike of the Giants",
-	trait : [
-		"What I lack in stature, I make up for with sheer spite.",
-		"Sometimes size does matter, okay? If I see a beast bigger than me, I'm immediately running away.",
-		"Crowded spaces make me uncomfortable. I'd much rather be in a wide-open field than a bustling tavern.",
-		"I like being small. It helps me stay unnoticed\u2014and underestimated.",
-		"Size is just half the story. Every avalanche begins as a single pebble.",
-		"The world always feels too big, and I'm afraid I'll never find my place in it."
-	],
-	extra : [
-		"Select an Origin Story",
-		"Found as a baby" + (typePF ? "": " by nomadic giants"),
-		"Rescued from mountain crag" + (typePF ? "": " by stone giants"),
-		"Found as a child lost in a jungle" + (typePF ? "": " by a frost giant"),
-		"Home/family killed by warring giants"
-	]
-};
 if (!BackgroundFeatureList["strike of the giants"]) {
 	BackgroundFeatureList["strike of the giants"] = {
 		description : "I grew up among giants, even though I'm not one. Something about this environment ensured that I grew to a remarkable size and I have learned how to embody the titanic might of giants. I'm used to moving through a world much bigger than me, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
@@ -261,36 +319,6 @@ if (!BackgroundFeatureList["strike of the giants"]) {
 	};
 }
 
-BackgroundList["planar philosopher-ua"] = {
-	regExpSearch : /^(?=.*planar)(?=.*philosopher).*$/i,
-	name : "Planar Philosopher",
-	source : [["UA:WotM", 4]],
-	skills : ["Arcana", "Persuasion"],
-	gold : 10,
-	languageProfs : [2],
-	equipright : [
-		["Common clothes", "", 3],
-		["Pouch (with coins from different planes)", "", 1]
-	],
-	feature : "Conviction",
-	trait : [
-		"I don't venerate any gods; we can be as powerful or greater than them.",
-		"Experience is everything, live in the moment.",
-		"When things crumble, I find meaning in the ashes.",
-		"Life thrives through order; I won't tolerate disruptions.",
-		"When others make plans, the multiverse laughs and so do I.",
-		"I know what's right, and no one will stand in my way."
-	],
-	extra : [
-		"Select a Trinket",
-		"Inscribed locket with image of mentor",
-		"Bleached rat skull with glass eyes",
-		"Torn parchment with half a puzzle",
-		"Bracelet of twisted razorvine stems",
-		"Fragment of verdigris bronze blade",
-		"Smooth stone with holy symbols"
-	]
-};
 if (!BackgroundFeatureList["conviction"]) {
 	BackgroundFeatureList["conviction"] = {
 		description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
@@ -299,48 +327,8 @@ if (!BackgroundFeatureList["conviction"]) {
 		removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
 	};
 }
+// dupl_end
 
-BackgroundList["rune carver-ua"] = {
-	regExpSearch : /^(?=.*rune)(?=.*carver).*$/i,
-	name : "Rune Carver",
-	source : [["UA:WotM", 5]],
-	skills : ["History", "Perception"],
-	gold : 10,
-	languageProfs : ["Giant", 1],
-	equipleft : [
-		["Set of artisan's tools", "", ""],
-		["Small knife", "", 0.5],
-		["Whetstone", "", 1]
-	],
-	equipright : [
-		["Common clothes", "", 3],
-		["Pouch (with coins)", "", 1]
-	],
-	feature : "Rune Carver Apprentice",
-	trait : [
-		"Is it practical to learn an ancient language that is rarely used in everyday speech? No. But is it fun? Very.",
-		"I learned one of my ancestors was a lauded rune carver whose story was lost to time. I seek to rekindle that legacy.",
-		"The old, traditional markings of runecraft look so boring. Why not give your runes some flair?",
-		"In my studies of runes, I strive to understand how great civilizations of the past fell, so that I may prevent it from happening to societies of the present.",
-		"Life may be a whirlwind of chaos around me, but whenever I create my runes, I feel at peace.",
-		"My brain struggles to process ink words written on paper, but the tactile feeling of carved runes makes my mind sing."
-	],
-	extra : [
-		"Select a Rune Style",
-		"Use fine metal needle to inscribe",
-		"On small wooden figurines",
-		"On glass beads in necklace/bracelet",
-		"Stitched into the hems of clothing",
-		"Carved on set of animal bones",
-		"Drawn into candles"
-	]
-};
-BackgroundFeatureList["rune carver apprentice"] = {
-	description : "I've dedicated my life to studying the practice of runecraft. Whether I was personally taught by a master rune carver or learned by poring over engravings in ancient ruins, I understand how to tap into the supernatural power held within runes. Also, I gain the Rune Carver Apprentice feat.",
-	source : [["UA:WotM", 5]],
-	eval : function() { AddFeat("Rune Carver Apprentice"); },
-	removeeval : function() { RemoveFeat("Rune Carver Apprentice"); }
-};
 
 // Feats
 FeatsList["cartomancer-ua"] = {
@@ -721,7 +709,6 @@ FeatsList["ember of the fire giant-ua2"] = {
 	"strength" : {
 		calculate : "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
 		scores : [1, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -733,13 +720,13 @@ FeatsList["ember of the fire giant-ua2"] = {
 			description : "Hits all of my choice in range; Dex save for half damage; Failed - blinded until my next turn starts",
 			dc : true,
 			abilitytodamage : false,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}]
 	},
 	"constitution" : {
 		calculate : "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B.+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
 		scores : [0, 0, 1, 0, 0, 0],
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -751,13 +738,13 @@ FeatsList["ember of the fire giant-ua2"] = {
 			description : "Hits all of my choice in range; Dex save for half damage; Failed - blinded until my next turn starts",
 			dc : true,
 			abilitytodamage : false,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}]
 	},
 	"wisdom" : {
 		calculate : "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
 		scores : [0, 0, 0, 0, 1, 0],
-		weaponsAdd : ["Searing Ignition"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -769,7 +756,8 @@ FeatsList["ember of the fire giant-ua2"] = {
 			description : "Hits all of my choice in range; Dex save for half damage; Failed - blinded until my next turn starts",
 			dc : true,
 			abilitytodamage : false,
-			modifiers : ["", "Prof"]
+			modifiers : ["", "Prof"],
+			selectNow : true
 		}]
 	}
 };
@@ -846,7 +834,6 @@ FeatsList["keenness of the stone giant-ua2"] = {
 	"strength" : {
 		calculate : "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) or be knocked prone. [+1 Str]';",
 		scores : [1, 0, 0, 0, 0, 0],
-		weaponsAdd : ["Stone Giant's Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
 			name : "Stone Giant's Stone Throw",
@@ -857,13 +844,13 @@ FeatsList["keenness of the stone giant-ua2"] = {
 			range : "60/180 ft",
 			description : "Thrown; On hit: Str save (DC 8 + To Hit) or knocked prone; Counts as magical",
 			abilitytodamage : true,
-			isMagicWeapon : true
+			isMagicWeapon : true,
+			selectNow : true
 		}]
 	},
 	"constitution" : {
 		calculate : "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B. + Con mod) or be knocked prone. [+1 Con]';",
 		scores : [0, 0, 1, 0, 0, 0],
-		weaponsAdd : ["Stone Giant's Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
 			name : "Stone Giant's Stone Throw",
@@ -873,13 +860,13 @@ FeatsList["keenness of the stone giant-ua2"] = {
 			damage : [1, 10, "bludgeoning"],
 			range : "60/180 ft",
 			description : "Thrown; On hit: Str save (DC 8 + To Hit) or knocked prone; Counts as magical",
-			abilitytodamage : true
+			abilitytodamage : true,
+			selectNow : true
 		}]
 	},
 	"wisdom" : {
 		calculate : "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) or be knocked prone. [+1 Wis]';",
 		scores : [0, 0, 0, 0, 1, 0],
-		weaponsAdd : ["Stone Giant's Stone Throw"],
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
 			name : "Stone Giant's Stone Throw",
@@ -889,7 +876,8 @@ FeatsList["keenness of the stone giant-ua2"] = {
 			damage : [1, 10, "bludgeoning"],
 			range : "60/180 ft",
 			description : "Thrown; On hit: Str save (DC 8 + To Hit) or knocked prone; Counts as magical",
-			abilitytodamage : true
+			abilitytodamage : true,
+			selectNow : true
 		}]
 	}
 };

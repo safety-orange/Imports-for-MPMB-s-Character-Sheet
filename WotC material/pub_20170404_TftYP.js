@@ -1,5 +1,5 @@
 var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -195,14 +195,14 @@ MagicItemsList["flame tongue shortsword of gem detection"] = {	// contributed by
 		["bonus action", "Flame Tongue (activate/end)"],
 		["action", "Gem Detection (within 60 ft)"]
 	],
-	weaponsAdd : ["Flame Tongue Shortsword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "shortsword",
 		regExpSearch : /^(?=.*flame tongue)(?=.*short)(?=.*sword).*$/i,
 		name : "Flame Tongue Shortsword",
 		source : [["TftYP", 179]],
 		description : "Finesse, light; While active, +2d6 fire damage",
-	}
+		selectNow : true
+	}]
 };
 MagicItemsList["amulet of protection from turning"] = {
 	name : "Amulet of Protection from Turning",
@@ -299,16 +299,16 @@ MagicItemsList["javelin of backbiting"] = {
 	attunement : true,
 	weight : 2,
 	cursed : true,
-	weaponsAdd : ["Javelin of Backbiting"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "javelin",
 		regExpSearch : /^(?=.*javelin)(?=.*backbiting).*$/i,
 		name : "Javelin of Backbiting",
 		source : [["TftYP", 229]],
 		range : "Melee, 60/150 ft",
 		description : "Thrown; +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
-		modifiers : [2,2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["loadstone"] = {
 	name : "Loadstone",
@@ -404,15 +404,15 @@ MagicItemsList["shatterspike"] = {
 	descriptionFull : "You have a +1 bonus to attack and damage rolls made with this magic weapon. If it hits an object, the hit is automatically a critical hit, and it can deal bludgeoning or slashing damage to the object (your choice). Further, damage from nonmagical sources can't harm the weapon.",
 	attunement : true,
 	weight : 3,
-	weaponsAdd : ["Shatterspike"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /Shatterspike/i,
 		name : "Shatterspike",
 		source : [["TftYP", 229]],
 		description : "Versatile (1d10); Against objects: always critical hit, can choose to deal bludgeoning damage",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }
 MagicItemsList["spear of backbiting"] = {
 	name : "Spear of Backbiting",
@@ -425,16 +425,16 @@ MagicItemsList["spear of backbiting"] = {
 	attunement : true,
 	weight : 3,
 	cursed : true,
-	weaponsAdd : ["Spear of Backbiting"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "spear",
 		regExpSearch : /^(?=.*spear)(?=.*backbiting).*$/i,
 		name : "Spear of Backbiting",
 		source : [["TftYP", 229]],
 		range : "Melee, 50/90 ft",
 		description : "Thrown, versatile (1d8); +1d6 damage if thrown; Returning; On 1 to hit: attack myself with adv.",
-		modifiers : [2,2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["stone of ill luck"] = {
 	name : "Stone of Ill Luck",
@@ -488,15 +488,15 @@ MagicItemsList["waythe"] = {
 	descriptionFull : "Waythe is a unique greatsword most recently in the possession of a high-ranking cloud giant ambassador.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit a creature of the giant type with it, the giant takes an extra 2d6 slashing damage, and it must succeed on a DC 15 Strength saving throw or fall prone.\n   The sword also functions as a wand of enemy detection. It regains all of its expended charges at dawn and isn't at risk of crumbling if its last charge is used.\n   " + toUni("Sentience") + ". Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet.\n   The weapon can speak and understand Giant and Common, and it can communicate telepathically with its wielder.\n   " + toUni("Personality") + ". This sword believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. (It takes only 1 minute for a good-aligned character to gain attunement with the sword.) Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder.",
 	attunement : true,
 	weight : 6,
-	weaponsAdd : ["Waythe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "greatsword",
 		regExpSearch : /waythe/i,
 		name : "Waythe",
 		source : [["TftYP", 229]],
 		description : "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
-		modifiers : [1, 1]
-	},
+		modifiers : [1, 1],
+		selectNow : true
+	}],
 	usages : 7,
 	recovery : "dawn",
 	additional : "regains 1d6+1",
@@ -589,15 +589,15 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	calcChanges : {
 		hp : function (totalHD) { return [totalHD]; }
 	},
-	weaponsAdd : ["Berserker Battleaxe"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "battleaxe",
 		regExpSearch : /^(?=.*berserker)(?=.*battleaxe).*$/i,
 		name : "Berserker Battleaxe",
 		source : [["TftYP", 68]],
 		description : "Versatile (1d10); Cursed",
-		modifiers : [2,2]
-	}
+		modifiers : [2, 2],
+		selectNow : true
+	}]
 }
 MagicItemsList["plantslayer longsword"] = {
 	name : "Plantslayer Longsword",
@@ -608,13 +608,13 @@ MagicItemsList["plantslayer longsword"] = {
 	description : "This sword is made of laminated wood, inset with jagged teeth of obsidian. I gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
 	descriptionFull : "This sword is made of laminated wood, inset with jagged teeth of obsidian. You gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, it deals an extra 2d6 damage to any creature of the plant type.",
 	weight : 3,
-	weaponsAdd : ["Plantslayer Longsword"],
-	weaponOptions : {
+	weaponOptions : [{
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*plantslayer)(?=.*longsword).*$/i,
 		name : "Plantslayer Longsword",
 		source : [["TftYP", 70]],
 		description : "Versatile (1d10); +2d6 damage vs. plants",
-		modifiers : [1, 1]
-	}
+		modifiers : [1, 1],
+		selectNow : true
+	}]
 }

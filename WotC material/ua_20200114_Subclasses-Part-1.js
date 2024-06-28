@@ -1,5 +1,5 @@
 var iFileName = "ua_20200114_Subclasses-Part-1.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 1 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -37,7 +37,8 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				range : "Melee",
 				description : "Only in rage; On a hit once on my turn, regain Con mod in HP",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*claws?).*$/i,
 				name : "Bestial Claws",
@@ -48,7 +49,8 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				range : "Melee",
 				description : "Only in rage; Extra attack if used as part of Attack action",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}, {
 				regExpSearch : /^(?=.*(bestial|beast))(?=.*tail).*$/i,
 				name : "Bestial Tail",
@@ -59,9 +61,9 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				range : "Melee",
 				description : "Reach; Only in rage",
 				abilitytodamage : true,
-				bestialNaturalWeapon : true
+				bestialNaturalWeapon : true,
+				selectNow : true
 			}],
-			weaponsAdd : ["Bestial Bite", "Bestial Claws", "Bestial Tail"],
 			additional : levels.map(function(n) {
 				return n < 6 ? "" : "chosen weapon counts as magical";
 			})

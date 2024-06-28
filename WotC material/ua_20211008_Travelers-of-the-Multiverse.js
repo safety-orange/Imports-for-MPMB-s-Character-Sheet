@@ -1,5 +1,5 @@
 var iFileName = "ua_20211008_Travelers-of-the-Multiverse.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.1.14");
 // This file adds the content from the Unearthed Arcana 2021: Travelers of the Multiverse article to MPMB's Character Record Sheet
 
 // Define the source
@@ -60,12 +60,12 @@ RaceList["autognome-ua"] = {
 	languageProfs : ["Common", ["Gnomish or other", 1]],
 	scoresGeneric : true,
 	age : " can live for centuries, up to 500 years",
-	armorAdd : "Armored Casing",
 	armorOptions : [{
 		regExpSearch : /^(?=.*armou?red)(?=.*casing).*$/i,
 		name : "Armored Casing",
 		source : [["UA:TotM", 2]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	extraLimitedFeatures : [{
 		name : "Built for Success",
@@ -173,12 +173,12 @@ RaceList["thri-kreen-ua"] = {
 	weightMetric : " weigh between 60 and 180 kg (60 + 5d10 \xD7 4d6 / 10 kg)",
 	languageProfs : ["Common", "Thri-kreen Telepathy", 1],
 	vision : [["Darkvision", 60]],
-	armorAdd : "Chameleon Carapace",
 	armorOptions : [{
 		regExpSearch : /^(?=.*carapace)(?=.*chameleon).*$/i,
 		name : "Chameleon Carapace",
 		source : [["UA:TotM", 4]],
-		ac : 13
+		ac : 13,
+		selectNow : true
 	}],
 	action : [["action", "Chameleon Carapace"]],
 	trait : "Thri-kreen (my type is Monstrosity)"+
