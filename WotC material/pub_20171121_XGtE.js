@@ -4936,7 +4936,7 @@ MagicItemsList["clockwork amulet"] = {
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once per dawn when I make an attack roll while wearing this copper amulet, I can forgo rolling the d20 to get a 10 on the die. The amulet contains tiny interlocking gears powered by magic from Mechanus, a plane of clockwork predictability. When I hold it up to my ear, I can hear faint ticking and whirring noises.",
-	descriptionFull : "This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used. this property can't be used again until the next dawn.",
+	descriptionFull : "This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used, this property can't be used again until the next dawn.",
 	usages : 1,
 	recovery : "dawn"
 }
