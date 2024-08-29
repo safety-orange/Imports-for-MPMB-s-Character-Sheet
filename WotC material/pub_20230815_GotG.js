@@ -226,26 +226,26 @@ FeatsList["strike of the giants"] = {
 	choices : ["Cloud Strike", "Fire Strike", "Frost Strike", "Hill Strike", "Stone Strike", "Storm Strike"],
 	"cloud strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + ( 8 + iProfB + Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ) ) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"fire strike" : {
 		description : "I have absorbed primeval magic that gives me an echo of the might of giants. Once per turn when I hit with a melee weapon attack or thrown weapon, the target takes +1d10 fire damage. I can do this a number of times per long rest equal to my proficiency bonus."
 	},
 	"frost strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 cold damage. It must then make a Con save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or its speed is reduced to 0 until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 cold damage. It must then make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or its speed is reduced to 0 until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"hill strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 damage. It must then make a Str save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or be knocked prone. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 damage. It must then make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or be knocked prone. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"stone strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 force damage. It must then make a Wis save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or be pushed 10 ft away from me in a straight line. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 force damage. It must then make a Wis save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or be pushed 10 ft away from me in a straight line. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"storm strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 lightning damage. It must then make a Con save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or it gets disadvantage on attack rolls until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 lightning damage. It must then make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or it gets disadvantage on attack rolls until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	}
 }
 FeatsList["ember of the fire giant"] = {
@@ -271,7 +271,7 @@ FeatsList["ember of the fire giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -291,7 +291,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -311,7 +311,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -354,7 +354,7 @@ FeatsList["fury of the frost giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -374,7 +374,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -394,7 +394,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -470,7 +470,7 @@ FeatsList["keenness of the stone giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -487,7 +487,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -504,7 +504,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -542,17 +542,17 @@ FeatsList["soul of the storm giant"] = {
 	choices : ["Strength", "Constitution", "Charisma"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
 		scores : [0,0,1,0,0,0]
 	},
 	"charisma" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Cha Mod')) ) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Cha Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
 		scores : [0,0,0,0,0,1]
 	}
 };
@@ -1465,7 +1465,7 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 	"\n   The fists last for 1 minute or until you are incapacitated. While the spectral fists are active, unarmed strikes you make on your turn have a reach of 30 feet, and when you hit a creature with an opportunity attack made with your unarmed strike, the creature must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier) or have the prone condition."+
 	"\n   Once the runes have been invoked, they can't be invoked again until the next dawn.",
 	description : "+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC 8+Prof B.+Str mod or be knocked prone.",
-	calculate : "event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8+Prof+Str) or be knocked prone.';",
+	calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod'))); event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, I pick a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Str) or be knocked prone.';",
 	dmgres : ["acid,cold,fire,lightn.,or poison"],
 	calcChanges : {
 		atkAdd : [

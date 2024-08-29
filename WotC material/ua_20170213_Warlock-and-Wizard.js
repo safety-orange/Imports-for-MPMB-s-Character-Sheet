@@ -56,7 +56,7 @@ AddSubClass("warlock", "the hexblade-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isDC && (/hexblade/i).test(v.WeaponTextName) && !v.CritChance) {
+						if (!v.isDC && /hexblade/i.test(v.WeaponTextName) && !v.CritChance) {
 							v.CritChance = 19;
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						};

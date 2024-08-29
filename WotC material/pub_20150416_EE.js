@@ -333,7 +333,7 @@ SpellsList["absorb elements"] = {
 };
 SpellsList["aganazzar's scorcher"] = {
 	name : "Aganazzar's Scorcher",
-	nameAlt : "Scorch", //as per the Spell Compandium's (DnD 3.5e) alternative name
+	nameAlt : "Scorch", //as per the Spell Compendium's (DnD 3.5e) alternative name
 	classes : ["sorcerer", "wizard"],
 	source : [["X", 150], ["E", 15]],
 	level : 2,

@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -1997,7 +1997,11 @@ AddSubClass("wizard", "divination", {
 			name : "Portent",
 			source : [["P", 116]],
 			minlevel : 2,
-			description : "\n   " + "After a long rest, I roll dice and keep the results to be used before my next rest" + "\n   " + "A result can replace an attack/save/ability check made by me or a creature I can see" + "\n   " + "I choose to switch them before the dice to be replaced are rolled; Max once per turn",
+			description : desc([
+				"After a long rest, I roll dice and keep the results to be used before my next long rest",
+				"A result can replace an attack/save/ability check made by me or a creature I can see",
+				"I choose to switch them before the dice to be replaced are rolled; Max once per turn"
+			]),
 			additional : levels.map( function(n) {
 				return n < 2 ? "" : (n < 14 ? 2 : 3) + "d20 after a long rest";
 			})
@@ -3609,7 +3613,7 @@ FeatsList["mobile"] = {
 	source : [["P", 168]],
 	descriptionFull : "You are exceptionally speedy and agile. You gain the following benefits:\n \u2022 Your speed increases by 10 feet.\n \u2022 When you use the Dash action, difficult terrain doesn't cost you extra movement on that turn.\n \u2022 When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not.",
 	description : "When I use the Dash action, difficult terrain doesn't cost me extra movement that turn. When I make a melee attack against a creature, I don't provoke opportunity attacks from that creature for the rest of the turn, whether I hit or not. [+10 ft speed]",
-	speed : { allModes : "+10" }
+	speed : { allModes : { bonus : "+10" } }
 };
 FeatsList["moderately armored"] = {
 	name : "Moderately Armored",

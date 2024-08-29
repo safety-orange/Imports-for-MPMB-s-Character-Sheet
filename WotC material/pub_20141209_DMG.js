@@ -1,5 +1,5 @@
 var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -309,190 +309,6 @@ AddSubClass("paladin", "oathbreaker", {
 		}
 	}
 });
-
-// Firearms [weapons and ammunition] (includes contributions by grungydan)
-WeaponsList["pistol"] = {
-	regExpSearch : /^(?=.*pistol)(?!.*automatic).*$/i,
-	name : "Pistol",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [1, 10, "piercing"],
-	range : "30/90 ft",
-	weight : 3,
-	description : "Ammunition, loading",
-	abilitytodamage : true,
-	ammo : "renaissance bullet",
-	defaultExcluded : true
-};
-WeaponsList["musket"] = {
-	regExpSearch : /musket/i,
-	name : "Musket",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [1, 12, "piercing"],
-	range : "40/120 ft",
-	weight : 10,
-	description : "Ammunition, loading, two-handed",
-	abilitytodamage : true,
-	ammo : "renaissance bullet",
-	defaultExcluded : true
-};
-WeaponsList["pistol automatic"] = {
-	regExpSearch : /^(?!.*rifle)(?=.*pistol)(?=.*automatic).*$/i,
-	name : "Pistol, automatic",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 6, "piercing"],
-	range : "50/150 ft",
-	weight : 3,
-	description : "Ammunition, reload (15 shots)",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["revolver"] = {
-	regExpSearch : /revolver/i,
-	name : "Revolver",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 8, "piercing"],
-	range : "40/120 ft",
-	weight : 3,
-	description : "Ammunition, reload (6 shots)",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["rifle hunting"] = {
-	regExpSearch : /^(?!=laser|antimatter)(?=.*hunting)(?=.*rifle).*$/i,
-	name : "Hunting Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 10, "piercing"],
-	range : "80/240 ft",
-	weight : 8,
-	description : "Ammunition, reload (5 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["rifle automatic"] = {
-	regExpSearch : /^(?!=.*laser|antimatter)(?=.*automatic)(?=.*rifle).*$/i,
-	name : "Automatic Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 8, "piercing"],
-	range : "80/240 ft",
-	weight : 8,
-	description : "Ammunition, burst fire, reload (30 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["shotgun"] = {
-	regExpSearch : /shotgun/i,
-	name : "Shotgun",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 8, "piercing"],
-	range : "30/90 ft",
-	weight : 7,
-	description : "Ammunition, reload (2 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["laser pistol"] = {
-	regExpSearch : /^(?=.*laser)(?=.*pistol).*$/i,
-	name : "Laser Pistol",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [3, 6, "radiant"],
-	range : "40/120 ft",
-	weight : 2,
-	description : "Ammunition, reload (50 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "energy cell",
-	defaultExcluded : true
-};
-WeaponsList["antimatter rifle"] = {
-	regExpSearch : /^(?!.*laser)(?=.*antimatter)(?=.*rifle).*$/i,
-	name : "Antimatter Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [6, 8, "necrotic"],
-	range : "120/360 ft",
-	weight : 10,
-	description : "Ammunition, reload (2 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "energy cell",
-	defaultExcluded : true
-};
-WeaponsList["laser rifle"] = {
-	regExpSearch : /^(?!.*antimatter)(?=.*laser)(?=.*rifle).*$/i,
-	name : "Laser Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [3, 8, "radiant"],
-	range : "100/300 ft",
-	weight : 7,
-	description : "Ammunition, reload (30 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "energy cell",
-	defaultExcluded : true
-};
-AmmoList["renaissance bullet"] = {
-	name : "Bullets, Renaissance",
-	source : [["D", 268]],
-	weight : 0.2,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Bullets, renaissance",
-	alternatives : [/^(?=.*bullet)(?=.*renaissance).*$/i],
-	defaultExcluded : true
-};
-AmmoList["modern bullet"] = {
-	name : "Bullets, Modern",
-	source : [["D", 268]],
-	weight : 0.1,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Bullets, modern",
-	alternatives : [/^(?=.*bullet)(?=.*modern).*$/i],
-	defaultExcluded : true
-};
-AmmoList["energy cell"] = {
-	name : "Energy Cell",
-	source : [["D", 268]],
-	weight : 0,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Energy Cell",
-	defaultExcluded : true
-};
 
 // Magic Items not found in the SRD
 MagicItemsList["alchemy jug"] = {
@@ -1190,6 +1006,7 @@ MagicItemsList["tentacle rod"] = {
 		abilitytodamage : false,
 		modifiers : [9, ""],
 		weight : 2,
+		isAlwaysProf : false,
 		selectNow : true
 	}]
 }
@@ -1433,3 +1250,371 @@ MagicItemsList["whelm"] = {
 		firstCol : "oncelr"
 	}
 }
+
+// Firearms [weapons and ammunition] (includes contributions by grungydan)
+WeaponsList["pistol"] = {
+	regExpSearch : /^(?!.*(automatic|laser|antimatter|needler|paralysis))(?=.*\bpistols?\b).*$/i,
+	name : "Pistol",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [1, 10, "piercing"],
+	range : "30/90 ft",
+	weight : 3,
+	description : "Ammunition, loading",
+	abilitytodamage : true,
+	ammo : "renaissance bullet",
+	defaultExcluded : true
+};
+WeaponsList["musket"] = {
+	regExpSearch : /musket/i,
+	name : "Musket",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [1, 12, "piercing"],
+	range : "40/120 ft",
+	weight : 10,
+	description : "Ammunition, loading, two-handed",
+	abilitytodamage : true,
+	ammo : "renaissance bullet",
+	defaultExcluded : true
+};
+AmmoList["renaissance bullet"] = {
+	name : "Bullets, Renaissance",
+	source : [["D", 268]],
+	weight : 0.2,
+	icon : "Bullets",
+	invName : "Bullets, renaissance",
+	alternatives : [/^(?=.*bullet)(?=.*renaissance).*$/i],
+	defaultExcluded : true
+};
+WeaponsList["pistol automatic"] = {
+	regExpSearch : /^(?=.*pistol)(?=.*automatic).*$/i,
+	name : "Automatic pistol",
+	nameAlt : ["Pistol, Automatic"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 6, "piercing"],
+	range : "50/150 ft",
+	weight : 3,
+	description : "Ammunition, reload (15 shots)",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+WeaponsList["revolver"] = {
+	regExpSearch : /revolver/i,
+	name : "Revolver",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 8, "piercing"],
+	range : "40/120 ft",
+	weight : 3,
+	description : "Ammunition, reload (6 shots)",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+WeaponsList["rifle hunting"] = {
+	regExpSearch : /^(((?=.*hunting)(?=.*rifle))|((?!.*(automatic|laser|antimatter))(?=.*\brifles?\b))).*$/i,
+	name : "Hunting rifle",
+	nameAlt : ["Rifle, Hunting"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 10, "piercing"],
+	range : "80/240 ft",
+	weight : 8,
+	description : "Ammunition, reload (5 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+WeaponsList["rifle automatic"] = {
+	regExpSearch : /^(?=.*automatic)(?=.*rifle).*$/i,
+	name : "Automatic rifle",
+	nameAlt : ["Rifle, Automatic"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 8, "piercing"],
+	range : "80/240 ft",
+	weight : 8,
+	description : "Ammunition, burst fire, reload (30 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true,
+	tooltip : "A weapon that has the burst fire property can make a single-target attack, or it can spray a 10-foot-cube area within normal range with shots. Each creature in the area must succeed on a DC 15 Dexterity saving throw or take the weapon's normal damage. This action uses ten pieces of ammunition."
+};
+WeaponsList["shotgun"] = {
+	regExpSearch : /shotgun/i,
+	name : "Shotgun",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 8, "piercing"],
+	range : "30/90 ft",
+	weight : 7,
+	description : "Ammunition, reload (2 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+AmmoList["modern bullet"] = {
+	name : "Bullets, Modern",
+	source : [["D", 268]],
+	weight : 0.1,
+	icon : "Bullets",
+	invName : "Bullets, modern",
+	alternatives : [/^(?=.*bullet)(?=.*modern).*$/i],
+	defaultExcluded : true
+};
+WeaponsList["laser pistol"] = {
+	regExpSearch : /^(?=.*laser)(?=.*pistol).*$/i,
+	name : "Laser pistol",
+	nameAlt : ["Pistol, Laser"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [3, 6, "radiant"],
+	range : "40/120 ft",
+	weight : 2,
+	description : "Ammunition, reload (50 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "energy cell",
+	defaultExcluded : true
+};
+WeaponsList["antimatter rifle"] = {
+	regExpSearch : /^(?=.*antimatter)(?=.*rifle).*$/i,
+	name : "Antimatter rifle",
+	nameAlt : ["Rifle, Antimatter"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [6, 8, "necrotic"],
+	range : "120/360 ft",
+	weight : 10,
+	description : "Ammunition, reload (2 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "energy cell",
+	defaultExcluded : true
+};
+WeaponsList["laser rifle"] = {
+	regExpSearch : /^(?=.*laser)(?=.*rifle).*$/i,
+	name : "Laser rifle",
+	nameAlt : ["Rifle, Laser"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [3, 8, "radiant"],
+	range : "100/300 ft",
+	weight : 7,
+	description : "Ammunition, reload (30 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "energy cell",
+	defaultExcluded : true
+};
+AmmoList["energy cell"] = {
+	name : "Energy Cell",
+	source : [["D", 268], ["QftIS", 192]],
+	weight : 0,
+	icon : "Bullets",
+	invName : "Energy Cell",
+	defaultExcluded : true
+};
+
+// Explosives as weapons and ammunition
+WeaponsList["bomb, renaissance"] = {
+	regExpSearch : /^(?=.*bomb)(?=.*renaissance).*$/i,
+	name : "Bomb, renaissance",
+	source : [["D", 267]],
+	list : "explosive",
+	ability : 0,
+	type : "Explosive",
+	damage : [3, 6, "fire"],
+	range : "60 ft",
+	weight : 1,
+	description : "Dex save for all within 5-ft radius",
+	abilitytodamage : false,
+	modifiers : [4, ""],
+	dc : true,
+	ammo : "bomb",
+	isNotWeapon : true,
+	isAlwaysProf : false,
+	tooltip : "As an action, a character can light this bomb and throw it at a point up to 60 ft away. Each creature within 5 ft of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage."+
+	"\n   A bomb costs 150 gp and weights 1 lb.",
+	defaultExcluded : true
+};
+AmmoList["bomb"] = {
+	name : "Bomb",
+	source : [["D", 267]],
+	weight : 1,
+	icon : "Flasks",
+	invName : "Bomb, renaissance",
+	defaultExcluded : true
+};
+WeaponsList["dynamite stick"] = {
+	regExpSearch : /^(?=.*dynamite)(?=.*stick).*$/i,
+	name : "Dynamite stick",
+	source : [["D", 268]],
+	list : "explosive",
+	ability : 0,
+	type : "Explosive",
+	damage : [3, 6, "bludgeoning"],
+	range : "60 ft",
+	weight : 1,
+	description : "All within 5-ft radius, Dex save halves; +1d6 damage \u0026 +5 ft radius per extra stick used (max 10d6/20 ft)",
+	abilitytodamage : false,
+	modifiers : [4, ""],
+	dc : true,
+	ammo : "dynamite stick",
+	isNotWeapon : true,
+	isAlwaysProf : false,
+	tooltip : "As an action, a creature can light a stick of dynamite and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must make a DC 12 Dexterity saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one."+
+	"\n   A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet)."+
+	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
+	defaultExcluded : true
+};
+AmmoList["dynamite stick"] = {
+	name : "Dynamite stick",
+	source : [["D", 268]],
+	weight : 1,
+	icon : "Flasks",
+	invName : "Dynamite stick",
+	defaultExcluded : true
+};
+WeaponsList["grenade, fragmentation"] = {
+	regExpSearch : /^(?=.*grenade)(?=.*frag(\b|mentation)).*$/i,
+	name : "Fragmentation Grenade",
+	nameAlt : ["Grenade, Fragmentation"],
+	source : [["D", 268]],
+	list : "explosive",
+	ability : 0,
+	type : "Explosive",
+	damage : [5, 6, "piercing"],
+	range : "60 ft",
+	weight : 1,
+	description : "All within 20-ft radius, Dex save halves",
+	abilitytodamage : false,
+	modifiers : [7, ""],
+	dc : true,
+	ammo : "grenade",
+	isNotWeapon : true,
+	isAlwaysProf : false,
+	tooltip : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+	"\n   Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
+	defaultExcluded : true
+};
+AmmoList["grenade"] = {
+	name : "Grenade",
+	source : [["D", 268]],
+	weight : 1,
+	icon : "Flasks",
+	invName : "Grenade",
+	defaultExcluded : true
+};
+
+// Explosives as "technological" magic items
+MagicItemsList["bomb, renaissance"] = {
+	name : "Bomb, renaissance",
+	source : [["D", 267]],
+	type : "explosive, renaissance",
+	rarity : "",
+	defaultExcluded : true,
+	description : "As an action, I can light this bomb and throw it at a point up to 60 ft away. Each creature within 5 ft of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
+	descriptionFull : "As an action, a character can light this bomb and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
+	action : [["action", "Throw Explosive"]],
+	weaponsAdd : { select : ["Bomb, renaissance"] },
+	eval : function() { // make sure the weapon and ammo are not excluded
+		if (CurrentSources.weapExcl.eject("bomb, renaissance") !== -1) SetWeaponsdropdown();
+		if (CurrentSources.ammoExcl.eject("bomb") !== -1) SetAmmosDropdown();
+	}
+};
+MagicItemsList["gunpowder"] = {
+	name : "Gunpowder",
+	source : [["D", 267]],
+	type : "explosive, renaissance",
+	rarity : "",
+	defaultExcluded : true,
+	description : "Gunpowder is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. Gunpowder is sold in small wooden kegs or in water-resistant powder horns.",
+	descriptionFull : "Gunpowder is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. Gunpowder is sold in small wooden kegs or in water-resistant powder horns."+
+	"\n   Setting fire to a container full of gunpowder can cause it to explode, dealing fire damage to creatures within 10 feet of it (3d6 for a powder horn). A successful DC 12 Dexterity saving throw halves the damage. Setting fire to an ounce of gunpowder causes it to flare for 1 round, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+	allowDuplicates : true,
+	choices : ["Horn (35 gp)", "Keg (250 gp)"],
+	"horn (35 gp)" : {
+		name : "Gunpowder Horn",
+		description : "This water-resistant horn contains explosive powder that is chiefly used to propel a bullet and can be formed into a bomb. The horn explodes if set on fire, dealing 3d6 fire damage to all within 10 ft, DC 12 Dex save halves. If 1 ounce is set on fire, it flares for 1 round with 20-ft radius bright and equal dim light.",
+		weight : 2
+	},
+	"keg (250 gp)" : {
+		name : "Gunpowder Keg",
+		description : "This small wooden keg contains explosive powder that is chiefly used to propel a bullet and can be formed into a bomb. The horn explodes if set on fire, dealing 3d6 fire damage to all within 10 ft, DC 12 Dex save halves. If 1 ounce is set on fire, it flares for 1 round with 20-ft radius bright light and 20-ft radius dim light.",
+		weight : 20
+	}
+}
+MagicItemsList["dynamite stick"] = {
+	name : "Dynamite stick",
+	source : [["D", 268]],
+	type : "explosive, modern",
+	rarity : "",
+	defaultExcluded : true,
+	description : "As an action, I can light a (bundle of) stick(s) of dynamite and throw it at a point up to 60 ft away. All creatures within 5-ft/stick of that point take 2d6+1d6/stick fire damage, DC 12 Dex save for half. Maximum 10d6 damage and 20-ft radius. I can also explode it using a longer fuse (roll separate initiative for it).",
+	descriptionFull : "As an action, a creature can light a stick of dynamite and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must make a DC 12 Dexterity saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one."+
+	"\n   A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet)."+
+	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
+	action : [["action", "Throw Explosive"]],
+	weaponsAdd : { select : ["Dynamite stick"] },
+	eval : function() { // make sure the weapon and ammo are not excluded
+		if (CurrentSources.weapExcl.eject("dynamite stick") !== -1) SetWeaponsdropdown();
+		if (CurrentSources.ammoExcl.eject("dynamite stick") !== -1) SetAmmosDropdown();
+	}
+};
+MagicItemsList["grenade"] = {
+	name : "Grenade",
+	source : [["D", 268], ["QftIS", 192]],
+	type : "explosive, modern",
+	rarity : "",
+	defaultExcluded : true,
+	description : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
+	descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
+	action : [["action", "Throw Explosive"]],
+	choices : ["Fragmentation Grenade", "Smoke Grenade"],
+	"fragmentation grenade" : {
+		name : "Fragmentation Grenade",
+		sortname : "Grenade, Fragmentation",
+		source : [["D", 268]],
+		defaultExcluded : true,
+		description : "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. All creatures within 20 ft of an exploding fragmentation grenade take 6d6 piercing damage, but can make a DC 15 Dexterity save to halve that damage.",
+		descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+		"\n   Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
+		weight : 1,
+		weaponsAdd : { select : ["Fragmentation Grenade"] },
+		eval : function() { // make sure the weapon and ammo are not excluded
+			if (CurrentSources.weapExcl.eject("grenade, fragmentation") !== -1) SetWeaponsdropdown();
+			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosDropdown();
+		}
+	},
+	"smoke grenade" : {
+		name : "Smoke Grenade",
+		sortname : "Grenade, Smoke",
+		source : [["D", 268]],
+		defaultExcluded : true,
+		description : "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. 1 round after a smoke grenade lands, it emits a cloud of smoke that heavily obscures a 20-ft radius area. A moderate wind (10 mph) disperses this smoke in 4 rounds, a strong wind (20+ mph) in 1 round.",
+		descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+		"\n   One round after a smoke grenade lands, it emits a cloud of smoke that creates a heavily obscured area in a 20-foot radius. A moderate wind (at least 10 miles per hour) disperses the smoke in 4 rounds; a strong wind (20 or more miles per hour) disperses it in 1 round.",
+		weight : 2
+	}
+};

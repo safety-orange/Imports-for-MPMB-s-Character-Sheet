@@ -1,6 +1,6 @@
-if (sheetVersion < 13001014) { throw "This script was made for a newer version of the sheet (v13.1.14). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13002000) { throw "This script was made for a newer version of the sheet (v13.2.0). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_published.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
@@ -2146,7 +2146,11 @@ AddSubClass("wizard", "divination", {
 			name : "Portent",
 			source : [["P", 116]],
 			minlevel : 2,
-			description : "\n   " + "After a long rest, I roll dice and keep the results to be used before my next rest" + "\n   " + "A result can replace an attack/save/ability check made by me or a creature I can see" + "\n   " + "I choose to switch them before the dice to be replaced are rolled; Max once per turn",
+			description : desc([
+				"After a long rest, I roll dice and keep the results to be used before my next long rest",
+				"A result can replace an attack/save/ability check made by me or a creature I can see",
+				"I choose to switch them before the dice to be replaced are rolled; Max once per turn"
+			]),
 			additional : levels.map( function(n) {
 				return n < 2 ? "" : (n < 14 ? 2 : 3) + "d20 after a long rest";
 			})
@@ -3758,7 +3762,7 @@ FeatsList["mobile"] = {
 	source : [["P", 168]],
 	descriptionFull : "You are exceptionally speedy and agile. You gain the following benefits:\n \u2022 Your speed increases by 10 feet.\n \u2022 When you use the Dash action, difficult terrain doesn't cost you extra movement on that turn.\n \u2022 When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not.",
 	description : "When I use the Dash action, difficult terrain doesn't cost me extra movement that turn. When I make a melee attack against a creature, I don't provoke opportunity attacks from that creature for the rest of the turn, whether I hit or not. [+10 ft speed]",
-	speed : { allModes : "+10" }
+	speed : { allModes : { bonus : "+10" } }
 };
 FeatsList["moderately armored"] = {
 	name : "Moderately Armored",
@@ -6438,190 +6442,6 @@ AddSubClass("paladin", "oathbreaker", {
 	}
 });
 
-// Firearms [weapons and ammunition] (includes contributions by grungydan)
-WeaponsList["pistol"] = {
-	regExpSearch : /^(?=.*pistol)(?!.*automatic).*$/i,
-	name : "Pistol",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [1, 10, "piercing"],
-	range : "30/90 ft",
-	weight : 3,
-	description : "Ammunition, loading",
-	abilitytodamage : true,
-	ammo : "renaissance bullet",
-	defaultExcluded : true
-};
-WeaponsList["musket"] = {
-	regExpSearch : /musket/i,
-	name : "Musket",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [1, 12, "piercing"],
-	range : "40/120 ft",
-	weight : 10,
-	description : "Ammunition, loading, two-handed",
-	abilitytodamage : true,
-	ammo : "renaissance bullet",
-	defaultExcluded : true
-};
-WeaponsList["pistol automatic"] = {
-	regExpSearch : /^(?!.*rifle)(?=.*pistol)(?=.*automatic).*$/i,
-	name : "Pistol, automatic",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 6, "piercing"],
-	range : "50/150 ft",
-	weight : 3,
-	description : "Ammunition, reload (15 shots)",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["revolver"] = {
-	regExpSearch : /revolver/i,
-	name : "Revolver",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 8, "piercing"],
-	range : "40/120 ft",
-	weight : 3,
-	description : "Ammunition, reload (6 shots)",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["rifle hunting"] = {
-	regExpSearch : /^(?!=laser|antimatter)(?=.*hunting)(?=.*rifle).*$/i,
-	name : "Hunting Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 10, "piercing"],
-	range : "80/240 ft",
-	weight : 8,
-	description : "Ammunition, reload (5 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["rifle automatic"] = {
-	regExpSearch : /^(?!=.*laser|antimatter)(?=.*automatic)(?=.*rifle).*$/i,
-	name : "Automatic Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 8, "piercing"],
-	range : "80/240 ft",
-	weight : 8,
-	description : "Ammunition, burst fire, reload (30 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["shotgun"] = {
-	regExpSearch : /shotgun/i,
-	name : "Shotgun",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [2, 8, "piercing"],
-	range : "30/90 ft",
-	weight : 7,
-	description : "Ammunition, reload (2 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "modern bullet",
-	defaultExcluded : true
-};
-WeaponsList["laser pistol"] = {
-	regExpSearch : /^(?=.*laser)(?=.*pistol).*$/i,
-	name : "Laser Pistol",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [3, 6, "radiant"],
-	range : "40/120 ft",
-	weight : 2,
-	description : "Ammunition, reload (50 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "energy cell",
-	defaultExcluded : true
-};
-WeaponsList["antimatter rifle"] = {
-	regExpSearch : /^(?!.*laser)(?=.*antimatter)(?=.*rifle).*$/i,
-	name : "Antimatter Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [6, 8, "necrotic"],
-	range : "120/360 ft",
-	weight : 10,
-	description : "Ammunition, reload (2 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "energy cell",
-	defaultExcluded : true
-};
-WeaponsList["laser rifle"] = {
-	regExpSearch : /^(?!.*antimatter)(?=.*laser)(?=.*rifle).*$/i,
-	name : "Laser Rifle",
-	source : [["D", 268]],
-	list : "firearm",
-	ability : 2,
-	type : "Martial",
-	damage : [3, 8, "radiant"],
-	range : "100/300 ft",
-	weight : 7,
-	description : "Ammunition, reload (30 shots), two-handed",
-	abilitytodamage : true,
-	ammo : "energy cell",
-	defaultExcluded : true
-};
-AmmoList["renaissance bullet"] = {
-	name : "Bullets, Renaissance",
-	source : [["D", 268]],
-	weight : 0.2,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Bullets, renaissance",
-	alternatives : [/^(?=.*bullet)(?=.*renaissance).*$/i],
-	defaultExcluded : true
-};
-AmmoList["modern bullet"] = {
-	name : "Bullets, Modern",
-	source : [["D", 268]],
-	weight : 0.1,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Bullets, modern",
-	alternatives : [/^(?=.*bullet)(?=.*modern).*$/i],
-	defaultExcluded : true
-};
-AmmoList["energy cell"] = {
-	name : "Energy Cell",
-	source : [["D", 268]],
-	weight : 0,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Energy Cell",
-	defaultExcluded : true
-};
-
 // Magic Items not found in the SRD
 MagicItemsList["alchemy jug"] = {
 	name : "Alchemy Jug",
@@ -7318,6 +7138,7 @@ MagicItemsList["tentacle rod"] = {
 		abilitytodamage : false,
 		modifiers : [9, ""],
 		weight : 2,
+		isAlwaysProf : false,
 		selectNow : true
 	}]
 }
@@ -7561,6 +7382,374 @@ MagicItemsList["whelm"] = {
 		firstCol : "oncelr"
 	}
 }
+
+// Firearms [weapons and ammunition] (includes contributions by grungydan)
+WeaponsList["pistol"] = {
+	regExpSearch : /^(?!.*(automatic|laser|antimatter|needler|paralysis))(?=.*\bpistols?\b).*$/i,
+	name : "Pistol",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [1, 10, "piercing"],
+	range : "30/90 ft",
+	weight : 3,
+	description : "Ammunition, loading",
+	abilitytodamage : true,
+	ammo : "renaissance bullet",
+	defaultExcluded : true
+};
+WeaponsList["musket"] = {
+	regExpSearch : /musket/i,
+	name : "Musket",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [1, 12, "piercing"],
+	range : "40/120 ft",
+	weight : 10,
+	description : "Ammunition, loading, two-handed",
+	abilitytodamage : true,
+	ammo : "renaissance bullet",
+	defaultExcluded : true
+};
+AmmoList["renaissance bullet"] = {
+	name : "Bullets, Renaissance",
+	source : [["D", 268]],
+	weight : 0.2,
+	icon : "Bullets",
+	invName : "Bullets, renaissance",
+	alternatives : [/^(?=.*bullet)(?=.*renaissance).*$/i],
+	defaultExcluded : true
+};
+WeaponsList["pistol automatic"] = {
+	regExpSearch : /^(?=.*pistol)(?=.*automatic).*$/i,
+	name : "Automatic pistol",
+	nameAlt : ["Pistol, Automatic"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 6, "piercing"],
+	range : "50/150 ft",
+	weight : 3,
+	description : "Ammunition, reload (15 shots)",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+WeaponsList["revolver"] = {
+	regExpSearch : /revolver/i,
+	name : "Revolver",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 8, "piercing"],
+	range : "40/120 ft",
+	weight : 3,
+	description : "Ammunition, reload (6 shots)",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+WeaponsList["rifle hunting"] = {
+	regExpSearch : /^(((?=.*hunting)(?=.*rifle))|((?!.*(automatic|laser|antimatter))(?=.*\brifles?\b))).*$/i,
+	name : "Hunting rifle",
+	nameAlt : ["Rifle, Hunting"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 10, "piercing"],
+	range : "80/240 ft",
+	weight : 8,
+	description : "Ammunition, reload (5 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+WeaponsList["rifle automatic"] = {
+	regExpSearch : /^(?=.*automatic)(?=.*rifle).*$/i,
+	name : "Automatic rifle",
+	nameAlt : ["Rifle, Automatic"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 8, "piercing"],
+	range : "80/240 ft",
+	weight : 8,
+	description : "Ammunition, burst fire, reload (30 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true,
+	tooltip : "A weapon that has the burst fire property can make a single-target attack, or it can spray a 10-foot-cube area within normal range with shots. Each creature in the area must succeed on a DC 15 Dexterity saving throw or take the weapon's normal damage. This action uses ten pieces of ammunition."
+};
+WeaponsList["shotgun"] = {
+	regExpSearch : /shotgun/i,
+	name : "Shotgun",
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [2, 8, "piercing"],
+	range : "30/90 ft",
+	weight : 7,
+	description : "Ammunition, reload (2 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "modern bullet",
+	defaultExcluded : true
+};
+AmmoList["modern bullet"] = {
+	name : "Bullets, Modern",
+	source : [["D", 268]],
+	weight : 0.1,
+	icon : "Bullets",
+	invName : "Bullets, modern",
+	alternatives : [/^(?=.*bullet)(?=.*modern).*$/i],
+	defaultExcluded : true
+};
+WeaponsList["laser pistol"] = {
+	regExpSearch : /^(?=.*laser)(?=.*pistol).*$/i,
+	name : "Laser pistol",
+	nameAlt : ["Pistol, Laser"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [3, 6, "radiant"],
+	range : "40/120 ft",
+	weight : 2,
+	description : "Ammunition, reload (50 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "energy cell",
+	defaultExcluded : true
+};
+WeaponsList["antimatter rifle"] = {
+	regExpSearch : /^(?=.*antimatter)(?=.*rifle).*$/i,
+	name : "Antimatter rifle",
+	nameAlt : ["Rifle, Antimatter"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [6, 8, "necrotic"],
+	range : "120/360 ft",
+	weight : 10,
+	description : "Ammunition, reload (2 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "energy cell",
+	defaultExcluded : true
+};
+WeaponsList["laser rifle"] = {
+	regExpSearch : /^(?=.*laser)(?=.*rifle).*$/i,
+	name : "Laser rifle",
+	nameAlt : ["Rifle, Laser"],
+	source : [["D", 268]],
+	list : "firearm",
+	ability : 2,
+	type : "Martial",
+	damage : [3, 8, "radiant"],
+	range : "100/300 ft",
+	weight : 7,
+	description : "Ammunition, reload (30 shots), two-handed",
+	abilitytodamage : true,
+	ammo : "energy cell",
+	defaultExcluded : true
+};
+AmmoList["energy cell"] = {
+	name : "Energy Cell",
+	source : [["D", 268], ["QftIS", 192]],
+	weight : 0,
+	icon : "Bullets",
+	invName : "Energy Cell",
+	defaultExcluded : true
+};
+
+// Explosives as weapons and ammunition
+WeaponsList["bomb, renaissance"] = {
+	regExpSearch : /^(?=.*bomb)(?=.*renaissance).*$/i,
+	name : "Bomb, renaissance",
+	source : [["D", 267]],
+	list : "explosive",
+	ability : 0,
+	type : "Explosive",
+	damage : [3, 6, "fire"],
+	range : "60 ft",
+	weight : 1,
+	description : "Dex save for all within 5-ft radius",
+	abilitytodamage : false,
+	modifiers : [4, ""],
+	dc : true,
+	ammo : "bomb",
+	isNotWeapon : true,
+	isAlwaysProf : false,
+	tooltip : "As an action, a character can light this bomb and throw it at a point up to 60 ft away. Each creature within 5 ft of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage."+
+	"\n   A bomb costs 150 gp and weights 1 lb.",
+	defaultExcluded : true
+};
+AmmoList["bomb"] = {
+	name : "Bomb",
+	source : [["D", 267]],
+	weight : 1,
+	icon : "Flasks",
+	invName : "Bomb, renaissance",
+	defaultExcluded : true
+};
+WeaponsList["dynamite stick"] = {
+	regExpSearch : /^(?=.*dynamite)(?=.*stick).*$/i,
+	name : "Dynamite stick",
+	source : [["D", 268]],
+	list : "explosive",
+	ability : 0,
+	type : "Explosive",
+	damage : [3, 6, "bludgeoning"],
+	range : "60 ft",
+	weight : 1,
+	description : "All within 5-ft radius, Dex save halves; +1d6 damage \u0026 +5 ft radius per extra stick used (max 10d6/20 ft)",
+	abilitytodamage : false,
+	modifiers : [4, ""],
+	dc : true,
+	ammo : "dynamite stick",
+	isNotWeapon : true,
+	isAlwaysProf : false,
+	tooltip : "As an action, a creature can light a stick of dynamite and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must make a DC 12 Dexterity saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one."+
+	"\n   A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet)."+
+	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
+	defaultExcluded : true
+};
+AmmoList["dynamite stick"] = {
+	name : "Dynamite stick",
+	source : [["D", 268]],
+	weight : 1,
+	icon : "Flasks",
+	invName : "Dynamite stick",
+	defaultExcluded : true
+};
+WeaponsList["grenade, fragmentation"] = {
+	regExpSearch : /^(?=.*grenade)(?=.*frag(\b|mentation)).*$/i,
+	name : "Fragmentation Grenade",
+	nameAlt : ["Grenade, Fragmentation"],
+	source : [["D", 268]],
+	list : "explosive",
+	ability : 0,
+	type : "Explosive",
+	damage : [5, 6, "piercing"],
+	range : "60 ft",
+	weight : 1,
+	description : "All within 20-ft radius, Dex save halves",
+	abilitytodamage : false,
+	modifiers : [7, ""],
+	dc : true,
+	ammo : "grenade",
+	isNotWeapon : true,
+	isAlwaysProf : false,
+	tooltip : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+	"\n   Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
+	defaultExcluded : true
+};
+AmmoList["grenade"] = {
+	name : "Grenade",
+	source : [["D", 268]],
+	weight : 1,
+	icon : "Flasks",
+	invName : "Grenade",
+	defaultExcluded : true
+};
+
+// Explosives as "technological" magic items
+MagicItemsList["bomb, renaissance"] = {
+	name : "Bomb, renaissance",
+	source : [["D", 267]],
+	type : "explosive, renaissance",
+	rarity : "",
+	defaultExcluded : true,
+	description : "As an action, I can light this bomb and throw it at a point up to 60 ft away. Each creature within 5 ft of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
+	descriptionFull : "As an action, a character can light this bomb and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
+	action : [["action", "Throw Explosive"]],
+	weaponsAdd : { select : ["Bomb, renaissance"] },
+	eval : function() { // make sure the weapon and ammo are not excluded
+		if (CurrentSources.weapExcl.eject("bomb, renaissance") !== -1) SetWeaponsdropdown();
+		if (CurrentSources.ammoExcl.eject("bomb") !== -1) SetAmmosDropdown();
+	}
+};
+MagicItemsList["gunpowder"] = {
+	name : "Gunpowder",
+	source : [["D", 267]],
+	type : "explosive, renaissance",
+	rarity : "",
+	defaultExcluded : true,
+	description : "Gunpowder is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. Gunpowder is sold in small wooden kegs or in water-resistant powder horns.",
+	descriptionFull : "Gunpowder is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. Gunpowder is sold in small wooden kegs or in water-resistant powder horns."+
+	"\n   Setting fire to a container full of gunpowder can cause it to explode, dealing fire damage to creatures within 10 feet of it (3d6 for a powder horn). A successful DC 12 Dexterity saving throw halves the damage. Setting fire to an ounce of gunpowder causes it to flare for 1 round, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+	allowDuplicates : true,
+	choices : ["Horn (35 gp)", "Keg (250 gp)"],
+	"horn (35 gp)" : {
+		name : "Gunpowder Horn",
+		description : "This water-resistant horn contains explosive powder that is chiefly used to propel a bullet and can be formed into a bomb. The horn explodes if set on fire, dealing 3d6 fire damage to all within 10 ft, DC 12 Dex save halves. If 1 ounce is set on fire, it flares for 1 round with 20-ft radius bright and equal dim light.",
+		weight : 2
+	},
+	"keg (250 gp)" : {
+		name : "Gunpowder Keg",
+		description : "This small wooden keg contains explosive powder that is chiefly used to propel a bullet and can be formed into a bomb. The horn explodes if set on fire, dealing 3d6 fire damage to all within 10 ft, DC 12 Dex save halves. If 1 ounce is set on fire, it flares for 1 round with 20-ft radius bright light and 20-ft radius dim light.",
+		weight : 20
+	}
+}
+MagicItemsList["dynamite stick"] = {
+	name : "Dynamite stick",
+	source : [["D", 268]],
+	type : "explosive, modern",
+	rarity : "",
+	defaultExcluded : true,
+	description : "As an action, I can light a (bundle of) stick(s) of dynamite and throw it at a point up to 60 ft away. All creatures within 5-ft/stick of that point take 2d6+1d6/stick fire damage, DC 12 Dex save for half. Maximum 10d6 damage and 20-ft radius. I can also explode it using a longer fuse (roll separate initiative for it).",
+	descriptionFull : "As an action, a creature can light a stick of dynamite and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must make a DC 12 Dexterity saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one."+
+	"\n   A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet)."+
+	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
+	action : [["action", "Throw Explosive"]],
+	weaponsAdd : { select : ["Dynamite stick"] },
+	eval : function() { // make sure the weapon and ammo are not excluded
+		if (CurrentSources.weapExcl.eject("dynamite stick") !== -1) SetWeaponsdropdown();
+		if (CurrentSources.ammoExcl.eject("dynamite stick") !== -1) SetAmmosDropdown();
+	}
+};
+MagicItemsList["grenade"] = {
+	name : "Grenade",
+	source : [["D", 268], ["QftIS", 192]],
+	type : "explosive, modern",
+	rarity : "",
+	defaultExcluded : true,
+	description : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
+	descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
+	action : [["action", "Throw Explosive"]],
+	choices : ["Fragmentation Grenade", "Smoke Grenade"],
+	"fragmentation grenade" : {
+		name : "Fragmentation Grenade",
+		sortname : "Grenade, Fragmentation",
+		source : [["D", 268]],
+		defaultExcluded : true,
+		description : "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. All creatures within 20 ft of an exploding fragmentation grenade take 6d6 piercing damage, but can make a DC 15 Dexterity save to halve that damage.",
+		descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+		"\n   Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
+		weight : 1,
+		weaponsAdd : { select : ["Fragmentation Grenade"] },
+		eval : function() { // make sure the weapon and ammo are not excluded
+			if (CurrentSources.weapExcl.eject("grenade, fragmentation") !== -1) SetWeaponsdropdown();
+			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosDropdown();
+		}
+	},
+	"smoke grenade" : {
+		name : "Smoke Grenade",
+		sortname : "Grenade, Smoke",
+		source : [["D", 268]],
+		defaultExcluded : true,
+		description : "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. 1 round after a smoke grenade lands, it emits a cloud of smoke that heavily obscures a 20-ft radius area. A moderate wind (10 mph) disperses this smoke in 4 rounds, a strong wind (20+ mph) in 1 round.",
+		descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+		"\n   One round after a smoke grenade lands, it emits a cloud of smoke that creates a heavily obscured area in a 20-foot radius. A moderate wind (at least 10 miles per hour) disperses the smoke in 4 rounds; a strong wind (20 or more miles per hour) disperses it in 1 round.",
+		weight : 2
+	}
+};
 
 // pub_20150407_PotA.js
 // This file adds the magic items from the Princes of the Apocalypse adventure to MPMB's Character Record Sheet
@@ -8740,7 +8929,7 @@ SpellsList["absorb elements"] = {
 };
 SpellsList["aganazzar's scorcher"] = {
 	name : "Aganazzar's Scorcher",
-	nameAlt : "Scorch", //as per the Spell Compandium's (DnD 3.5e) alternative name
+	nameAlt : "Scorch", //as per the Spell Compendium's (DnD 3.5e) alternative name
 	classes : ["sorcerer", "wizard"],
 	source : [["X", 150], ["E", 15]],
 	level : 2,
@@ -13421,7 +13610,7 @@ MagicItemsList["pennant of the vind rune"] = {
 		rarity : "uncommon",
 		description : "This magic armor doesn't impose disadvantage on stealth checks and gives me a 5 ft bonus to my speed.",
 		attunement : true,
-		speed : { allModes : "+5" },
+		speed : { allModes : { bonus : "+5" } },
 		chooseGear : {
 			type : "armor",
 			prefixOrSuffix : "brackets",
@@ -17956,9 +18145,7 @@ AddSubClass("rogue", "scout", {
 			minlevel : 9,
 			description : "\n   " + "I gain +10 ft to my walking speed (and swimming/climbing speed, if applicable)",
 			speed : {
-				walk : { spd : "+10", enc : "+10" },
-				climb : { spd : "_10", enc : "_10" },
-				swim : { spd : "_10", enc : "_10" }
+				allModes : { bonus : "+10", exclude : ["fly", "burrow"] }
 			}
 		},
 		"subclassfeature13" : {
@@ -18406,7 +18593,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isDC && (/curse/i).test(v.WeaponTextName) && !v.CritChance) {
+						if (!v.isDC && /curse/i.test(v.WeaponTextName) && !v.CritChance) {
 							v.CritChance = 19;
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						}
@@ -20152,7 +20339,7 @@ MagicItemsList["clockwork amulet"] = {
 	type : "wondrous item",
 	rarity : "common",
 	description : "Once per dawn when I make an attack roll while wearing this copper amulet, I can forgo rolling the d20 to get a 10 on the die. The amulet contains tiny interlocking gears powered by magic from Mechanus, a plane of clockwork predictability. When I hold it up to my ear, I can hear faint ticking and whirring noises.",
-	descriptionFull : "This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used. this property can't be used again until the next dawn.",
+	descriptionFull : "This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used, this property can't be used again until the next dawn.",
 	usages : 1,
 	recovery : "dawn"
 }
@@ -21596,8 +21783,9 @@ SourceList["WDH"] = {
 
 // Mundane Items
 WeaponsList["oversized longbow"] = {
-	regExpSearch : /^(?=.*oversized?)(?=.*longbow).*$/i,
+	regExpSearch : /^(?=.*oversized?)(?=.*(\bbows?\b|longbow)).*$/i,
 	name : "Oversized Longbow",
+	nameAlt : ["Bow, Oversized"],
 	source : [["WDH", 201]],
 	list : "ranged",
 	ability : 2,
@@ -21868,8 +22056,10 @@ MagicItemsList["smokepowder"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
-	description : "",
-	descriptionFull : "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots.\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage.\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
+	description : "The Forgotten Realms version of gunpowder.",
+	descriptionFull : "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots."+
+		"\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage."+
+		"\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
 	allowDuplicates : true,
 	choices : ["Keg (500 shots)", "Packet (5 shots)"],
 	"packet (5 shots)" : {
@@ -21879,7 +22069,7 @@ MagicItemsList["smokepowder"] = {
 		recovery : "Never",
 		additional : "shots",
 		weight : 0.1, // 7000 grains per lb, 100 grains per shot
-		extraTooltip : "AL: can be purchased for 1 treasure checkpoint. Once found, this item goes on a character's evergreen list of available items.",
+		extraTooltip : "AL: can be purchased for 1 treasure checkpoint. Once found, this item goes on a character's evergreen list of available items."
 	},
 	"keg (500 shots)" : {
 		name : "Smokepowder Keg",
@@ -26035,6 +26225,7 @@ RaceList["changeling"] = {
 WeaponsList["double-bladed scimitar"] = {
 	regExpSearch : /^(?=.*double)(?=.*scimitar).*$/i,
 	name : "Double-bladed scimitar",
+	nameAlt : ["Scimitar, Double-bladed"],
 	source : [["E:RLW", 22], ["WGtE", 74]],
 	list : "melee",
 	ability : 1,
@@ -28039,7 +28230,7 @@ AddSubClass("artificer", "artillerist", {
 					dc : true,
 					useSpellMod : "artificer",
 					abilitytodamage : false,
-					tooltip : "As an action, its creator can command the cannon to deto­nate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
+					tooltip : "As an action, its creator can command the cannon to detonate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
 				}],
 				features : [{
 					name : "Healing",
@@ -31005,11 +31196,11 @@ MagicItemsList["butcher's bib"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.isSpell && !v.CritChance && /slash/i.test(v.theWea.damage[2])) {
+				if (!v.isDC && !v.isSpell && !v.CritChance && /slash/i.test(v.theWea.damage[2])) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 					v.CritChance = 19;
 				}
-				if (!v.isSpell && v.isMeleeWeapon) {
+				if (!v.isDC && v.isMeleeWeapon) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Reroll damage once per turn';
 				}
 			},
@@ -34529,7 +34720,7 @@ ClassList["sidekick-warrior-tcoe"] = {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isSpell && !v.CritChance && classes.known["sidekick-warrior"]) {
+						if (!v.isDC && !v.isSpell && !v.CritChance && classes.known["sidekick-warrior"]) {
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 							v.CritChance = 19;
 						};
@@ -37075,12 +37266,12 @@ var TCoE_Favored_Foe = {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && (/favou?red.{1,2}enemy/i).test(v.WeaponTextName)) {
+				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +1d' + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + ' damage';
 				};
 			},
-			"If I include the words \"Favored Enemy\" in the name of a weapon, it gets the bonus damage I do against marked favored enemies added to its description."
+			'If I include the words "Favored Foe" or "Favored Enemy" in the name of a weapon, it gets the bonus damage I do against marked favored enemies added to its description.'
 		]
 	}
 };
@@ -40067,7 +40258,7 @@ MagicItemsList["all-purpose tool"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability, spell) {
-					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 1;
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (!spellcasters.length && ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 1;
 				},
 				"While holding the All-Purpose Tool, I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]
@@ -40080,7 +40271,7 @@ MagicItemsList["all-purpose tool"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability, spell) {
-					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 2;
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (!spellcasters.length && ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 2;
 				},
 				"While holding the All-Purpose Tool, I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]
@@ -40093,7 +40284,7 @@ MagicItemsList["all-purpose tool"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability, spell) {
-					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 3;
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (!spellcasters.length && ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 3;
 				},
 				"While holding the All-Purpose Tool, I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]
@@ -49253,26 +49444,26 @@ FeatsList["strike of the giants"] = {
 	choices : ["Cloud Strike", "Fire Strike", "Frost Strike", "Hill Strike", "Stone Strike", "Storm Strike"],
 	"cloud strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + ( 8 + iProfB + Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ) ) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d4 thunder damage. It must then make a Wis save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or I become invisible to it until my next turn starts, I make an attack, or I cast a spell. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"fire strike" : {
 		description : "I have absorbed primeval magic that gives me an echo of the might of giants. Once per turn when I hit with a melee weapon attack or thrown weapon, the target takes +1d10 fire damage. I can do this a number of times per long rest equal to my proficiency bonus."
 	},
 	"frost strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 cold damage. It must then make a Con save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or its speed is reduced to 0 until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 cold damage. It must then make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or its speed is reduced to 0 until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"hill strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 damage. It must then make a Str save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or be knocked prone. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 damage. It must then make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or be knocked prone. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"stone strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 force damage. It must then make a Wis save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or be pushed 10 ft away from me in a straight line. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 force damage. It must then make a Wis save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or be pushed 10 ft away from me in a straight line. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	},
 	"storm strike" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 lightning damage. It must then make a Con save DC ' + (8 + iProfB + Math.max(Number(What('Str Mod')), Number(What('Con Mod')))) + ' (8 + Prof Bonus + Str/Con mod) or it gets disadvantage on attack rolls until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Math.max( Number(What('Str Mod')), Number(What('Con Mod')) ); event.value = 'Once per turn, when I hit with a melee weapon attack or thrown weapon, the target takes +1d6 lightning damage. It must then make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof Bonus + Str/Con mod) or it gets disadvantage on attack rolls until my next turn starts. I can do this ' + iProfB + ' (Prof Bonus) times per long rest.';"
 	}
 }
 FeatsList["ember of the fire giant"] = {
@@ -49298,7 +49489,7 @@ FeatsList["ember of the fire giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -49318,7 +49509,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -49338,7 +49529,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*searing)(?=.*ignition).*$/i,
 			name : "Searing Ignition",
@@ -49381,7 +49572,7 @@ FeatsList["fury of the frost giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -49401,7 +49592,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -49421,7 +49612,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + ( 8 + iProfB + Number(What('Wis Mod')) ) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name : "Frigid Retaliation",
@@ -49497,7 +49688,7 @@ FeatsList["keenness of the stone giant"] = {
 	choices : ["Strength", "Constitution", "Wisdom"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -49514,7 +49705,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -49531,7 +49722,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"wisdom" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
 		weaponOptions : [{
 			regExpSearch : /^(?=.*stone)(?=.*throw).*$/i,
 			name : "Stone Throw",
@@ -49569,17 +49760,17 @@ FeatsList["soul of the storm giant"] = {
 	choices : ["Strength", "Constitution", "Charisma"],
 	"strength" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Str Mod')) ) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
 		scores : [1,0,0,0,0,0]
 	},
 	"constitution" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Con Mod')) ) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
 		scores : [0,0,1,0,0,0]
 	},
 	"charisma" : {
 		description : "",
-		calculate : "var iProfB = Number(How('Proficiency Bonus')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + ( 8 + iProfB + Number(What('Cha Mod')) ) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
+		calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Cha Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
 		scores : [0,0,0,0,0,1]
 	}
 };
@@ -49656,7 +49847,7 @@ FeatsList["rune shaper"] = {
 		// checkbox first column to check of when used once per long rest without a spell slot
 		spellFirstColTitle : "1\xD7",
 		firstCol : "checkbox",
-		linkTimesToHalfProf : true, // custom attribute, can be used as an exsee changeeval & calcChanges.spellList
+		linkTimesToHalfProf : true, // custom attribute, for use in calcChanges.spellList
 		times : 1 // half proficiency bonus, so always minimum of 1
 	}],
 	changeeval : function() {
@@ -50492,7 +50683,7 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 	"\n   The fists last for 1 minute or until you are incapacitated. While the spectral fists are active, unarmed strikes you make on your turn have a reach of 30 feet, and when you hit a creature with an opportunity attack made with your unarmed strike, the creature must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier) or have the prone condition."+
 	"\n   Once the runes have been invoked, they can't be invoked again until the next dawn.",
 	description : "+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC 8+Prof B.+Str mod or be knocked prone.",
-	calculate : "event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8+Prof+Str) or be knocked prone.';",
+	calculate : "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod'))); event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, I pick a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Str) or be knocked prone.';",
 	dmgres : ["acid,cold,fire,lightn.,or poison"],
 	calcChanges : {
 		atkAdd : [
@@ -50592,7 +50783,7 @@ MagicItemsList["bracers of celerity"] = {
 	descriptionFull : "This pair of lightweight bronze bracers is lined with soft, purple velvet and engraved with swirling designs."+
 	"\n   While you're wearing these bracers, all your speeds increase by 10 feet, and you have advantage on saving throws you make to avoid or end the paralyzed or restrained condition on yourself.",
 	attunement : true,
-	speed : { allModes : "+10" },
+	speed : { allModes : { bonus : "+10" } },
 	savetxt : { adv_vs : ["paralyzed", "restrained"] }
 }
 MagicItemsList["cape of enlargement"] = {
@@ -52103,11 +52294,13 @@ var BoMT = {
 		if (typeof sDescr === "string") sDescr = [sDescr];
 		return desc(sDescr, joinStr).replace(/\bf(oo|ee)t\b/ig, "ft")
 			.replace(/you aren't/ig, "I'm not").replace(/you were/ig, "I was")
-			.replace(/you are|you're/ig, "I am").replace(/\byou\b/ig, "I")
+			.replace(/you are|you're/ig, "I am").replace(/yours\b/ig, "mine")
+			.replace(/\byou\b/ig, "I")
 			.replace(/(aid|freeing|around|resurrected|beneath|between|\w\ws|by|of|to|for|on) I\b/ig, "$1 me")
 			.replace(/(toward) I\b/ig, "$1s me")
 			.replace(/(cards|items) me\b/ig, "$1 I")
 			.replace(/\bI (to|a|an)\b/ig, "me $1")
+			.replace(/yours\b/g, "mine").replace(/Yours/g, "Mine")
 			.replace(/your/g, "my").replace(/Your/g, "My")
 			.replace(/\[\[.*?\]\]/g, "")
 			.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function(a, p1, p2, p3, p4) {
@@ -53646,7 +53839,7 @@ MagicItemsList["shield of the tortoise"] = {
 	"\n   " + toUni("Curse") + ". This item is cursed. Attuning to it extends the curse to you until you are targeted by a Remove Curse spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your d20 as a 1. You can't change your initiative by any means.",
 	weight : 6,
 	shieldAdd : ["Shield of the Tortoise", 3, 6],
-	speed : { allModes : "/2" }
+	speed : { allModes : { bonus : "/2" } }
 };
 MagicItemsList["shrieking greaves"] = {
 	name : "Shrieking Greaves",
@@ -53743,8 +53936,8 @@ MagicItemsList["starshot crossbow"] = {
 	type : "weapon (any crossbow)",
 	rarity : "rare",
 	attunement : true,
-	description : "This black wooden crossbow has pearl inlays depicting three constellations. It has 3 charges, regaining 1d3 at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellation, see Notes page for the options.",
-	descriptionLong : "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charged daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellation, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
+	description : "This black wooden crossbow has pearl inlays depicting three constellations. It has 3 charges, regaining 1d3 at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes page for the options.",
+	descriptionLong : "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charged daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
 	descriptionFull : BoMT.toDescrFull(BoMT["starshot crossbow"]),
 	action : [["bonus action", ""]],
 	usages : 3,
@@ -54207,7 +54400,7 @@ SpellsList["spray of cards"] = {
 		AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd."
 };
 
-// pub_20231114_BoMT.js
+// pub_20240521_VEoR.js
 // This file adds the magic item from the Vecna: Eve of Ruin adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -54238,6 +54431,328 @@ MagicItemsList["chime of exile"] = {
 	}]
 };
 
+// pub_20240716_QftIS.js
+// This file adds the futuristic and magic item from the Quests from the Infinite Staircase adventure anthology to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["QftIS"] = {
+	name : "Quests from the Infinite Staircase",
+	abbreviation : "QftIS",
+	group : "Adventure Books",
+	url : "https://dndstore.wizards.com/us/en/product/928653/quests-from-the-infinite-staircase-digital-plus-physical-bundle",
+	date : "2024/07/16"
+};
+
+try {
+	var QftIS = { toDescrFull : BoMT.toDescrFull, to1stPerson : BoMT.to1stPerson };
+} catch (err) {
+}
+QftIS.replaceEnergyCellPlain = ">>Replacing the Energy Cell<<. While the >>THING<< has charges remaining, its energy cell can't be removed. Once the >>THING<< has 0 charges, you can replace the energy cell with a new cell by using an action or a bonus action."
+QftIS.replaceEnergyCell = "\n   " + QftIS.replaceEnergyCellPlain.replace(">>Replacing the Energy Cell<<", toUni("Replacing the Energy Cell"));
+
+// Futuristic items added as magic items, but set to be excluded by default
+MagicItemsList["antigravity belt"] = {
+	name : "Antigravity Belt",
+	source : [["QftIS", 192]],
+	type : "futuristic item", // not really magic items, so these use their own category 
+	rarity : "priceless", // as per QftIS page 192
+	defaultExcluded : true,
+	description : "This belt has 10 charges per energy cell, which can be replaced as a (bonus) action if empty. As a bonus action, I can use charges to activate it for 1 min per charge, causing me to float in place. As a bonus action and when activating it, I can move 20 ft vertically. I can push off to move horizontally at half my speed.",
+	descriptionLong : "Metal tubes ring the lower edge of this wide belt powered by an energy cell stored in a metal case near the buckle. It has 10 charges per energy cell, which can be replaced as a (bonus) action when empty. As a bonus action, I can expend charges to activate the belt for 1 min per charge. While active, I float in place. As a bonus action and as part of activating it, I can ascend or descend up to 20 ft vertically. I can move myself horizontally by being pushed or towed or by scooting myself along a surface at half my walking speed. I can deactivate it as a bonus action; If I'm still levitating when it deactivates, I fall.",
+	descriptionFull : "Metal tubes ring the lower edge of this wide belt. It is powered by an energy cell stored in a metal case near the buckle. Placing a full energy cell in the belt gives the belt 10 charges."+
+	"\n   " + toUni("Activating the Belt") + ". As a bonus action, you can expend any number of the belt's charges to activate it; the belt remains active for 1 minute per charge expended. You can use a bonus action to deactivate the belt early, but doing so doesn't recover any expended charges."+
+	"\n   When you activate the belt, and as a bonus action while it remains active, you can rise or descend vertically up to 20 feet. You remain floating in place while the property is active, and you can move yourself horizontally by being pushed or towed or by scooting yourself along a surface, such as a wall or ceiling, at half your walking speed. If you are still levitating when the belt deactivates, you fall."+
+	QftIS.replaceEnergyCell.replace(/>>THING<</g, "belt"),
+	usages : 10,
+	recovery : "E-Cell",
+	action : [
+		["bonus action", " (activate/stop)"],
+		["bonus action", "Replace Energy Cell"]
+	]
+};
+MagicItemsList["robot controller"] = {
+	name : "Robot Controller",
+	source : [["QftIS", 192]],
+	type : "futuristic item",
+	rarity : "priceless",
+	defaultExcluded : true,
+	description : "This handheld device has 3 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can use 1 charge to Control one construct within 60 ft or Disrupt all within 30 ft to become incapacitated. They can make a DC 15 Wisdom save to resist and repeat the save. See Notes page.",
+	descriptionFull : "This small handheld device features a glass pane with a glowing display that responds to your touch."+
+	"\n   The controller is powered by an energy cell stored in the device. Placing a full energy cell in the device gives the device 3 charges."+
+	"\n   As an action while holding this device, you can expend 1 of its charges to cause one of the following effects:"+
+	"\n \u2022 " + toUni("Control") + ". One Construct of your choice within 60 feet of you must succeed on a DC 15 Wisdom saving throw or have the charmed condition for 1 minute. While charmed in this way, the Construct obeys your verbal commands, and you and the Construct can communicate remotely with each other through the device. Whenever the charmed Construct takes damage, it can repeat the saving throw, ending the effect on itself on a success."+
+	"\n \u2022 " + toUni("Disrupt") + ". Constructs of your choice within 30 feet of you must succeed on a DC 15 Wisdom saving throw or have the incapacitated condition for 1 minute. An incapacitated Construct can repeat the saving throw at the end of its turns, ending the effect on itself on a success.",
+	usages : 3,
+	recovery : "E-Cell",
+	action : [["action", ""], ["bonus action", "Replace Energy Cell"]],
+	toNotesPage : [{
+		name : "Features",
+		note : [
+			"This small handheld device features a glass pane with a glowing display that responds to my touch. It is powered by an energy cell, which gives it 3 charges. As an action or a bonus action, I can replace this energy cell with a new one, but only once it is empty.",
+			"As an action, I can expend 1 charge to cause one of the following effects:"+
+			" \n \u2022 Control: One construct of my choice within 60 ft of me must succeed on a DC 15 Wisdom saving throw or have the charmed condition for 1 minute. While charmed in this way, the Construct obeys my verbal commands, and we can communicate remotely with each other through the device. Whenever the charmed construct takes damage, it can repeat the saving throw, ending the effect on itself on a success."+
+			" \n \u2022 Disrupt: All constructs of my choice within 30 ft of me must succeed on a DC 15 Wisdom saving throw or have the incapacitated condition for 1 minute. An incapacitated construct can repeat the saving throw at the end of its turns, ending the effect on itself on a success."
+		]
+	}]
+};
+// Futuristic Grenades
+WeaponsList["grenade, concussion"] = {
+	regExpSearch : /^(?=.*grenade)(?=.*concussion).*$/i,
+	name : "Concussion Grenade",
+	nameAlt : ["Grenade, Concussion"],
+	source : [["D", 268]],
+	list : "explosive",
+	ability : 0,
+	type : "Explosive",
+	damage : [6, 6, "force"],
+	range : "60 ft",
+	weight : 1,
+	description : "All within 20-ft radius, Dex save halves",
+	abilitytodamage : false,
+	modifiers : [7, ""],
+	dc : true,
+	ammo : "grenade",
+	isNotWeapon : true,
+	isAlwaysProf : false,
+	tooltip : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+	"\n   A concussion grenade explodes in a concussive blast that fills a 20-foot-radius sphere. Each creature in that area must make a DC 15 Dexterity saving throw, taking 6d6 force damage on a failed save or half as much damage on a successful one.",
+	defaultExcluded : true
+};
+if (MagicItemsList["grenade"]) {
+	AddFeatureChoice(MagicItemsList["grenade"], false, "Concussion Grenade", {
+		name : "Concussion Grenade",
+		sortname : "Grenade, Concussion",
+		source : [["QftIS", 192]],
+		type : "explosive, futuristic",
+		rarity : "priceless",
+		defaultExcluded : true,
+		description : "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. All creatures within 20 ft of an exploding concussion grenade take 6d6 force damage, but can make a DC 15 Dexterity save to halve that damage.",
+		descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+		"\n   A concussion grenade explodes in a concussive blast that fills a 20-foot-radius sphere. Each creature in that area must make a DC 15 Dexterity saving throw, taking 6d6 force damage on a failed save or half as much damage on a successful one.",
+		weaponsAdd : { select : ["Concussion Grenade"] },
+		eval : function() { // make sure the weapon and ammo are not excluded
+			if (CurrentSources.weapExcl.eject("grenade, concussion") !== -1) SetWeaponsdropdown();
+			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosDropdown();
+		}
+	}, false, true);
+	AddFeatureChoice(MagicItemsList["grenade"], false, "Sleep Grenade", {
+		name : "Sleep Grenade",
+		sortname : "Grenade, Sleep",
+		source : [["QftIS", 192]],
+		type : "explosive, futuristic",
+		rarity : "priceless",
+		defaultExcluded : true,
+		description : "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall unconscious for 1 hour, until taking damage, or until another using an action to shake awake.",
+		descriptionFull : "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away."+
+		"\n   A sleep grenade releases a cloud of soporific mist that fills a 20-foot-radius sphere, then dissipates. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the unconscious condition for 1 hour. The condition ends on a creature early if the creature takes damage or if another creature uses an action to shake it awake."
+	}, false, true);
+}
+// Futuristic Weapons
+MagicItemsList["needler pistol"] = {
+	name : "Needler pistol",
+	source : [["QftIS", 192]],
+	type : "futuristic item",
+	rarity : "priceless",
+	defaultExcluded : true,
+	description : "This pistol has 10 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire a burst needlelike darts from it in a 15-ft cone, dealing 8d4 piercing damage to all creatures in the area. Creatures can make a DC 15 Dexterity saving throw to half the damage.",
+	descriptionFull : "This strange pistol resembles a flask with a honeycomb of tubes sticking out its front. The weapon is powered by an energy cell stored at the base of the flask. Placing a full energy cell in the pistol gives the pistol 10 charges."+
+	"\n   As an action while holding this pistol, you can expend 1 of its charges to fire a burst of glowing, needlelike darts from the pistol in a 15-foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 8d4 piercing damage on a failed save or half as much damage on a successful one."+
+	QftIS.replaceEnergyCell.replace(/>>THING<</g, "pistol"),
+	usages : 10,
+	recovery : "E-Cell",
+	weight : 2, // Guess by MPMB
+	action : [["action", ""], ["bonus action", "Replace Energy Cell"]],
+	weaponOptions : [{
+		regExpSearch : /^(?=.*needler)(?=.*pistol).*$/i,
+		name : "Needler Pistol",
+		nameAlt : ["Pistol, Needler"],
+		source : [["QftIS", 192]],
+		ability : 0,
+		type : "Firearm",
+		damage : [8, 4, "piercing"],
+		range : "15-ft Cone",
+		weight : 2, // Guess by MPMB
+		description : "Dex save for half damage; Ammunition, reload (10 shots)",
+		abilitytodamage : false,
+		modifiers : [7, ""],
+		dc : true,
+		ammo : "energy cell",
+		isAlwaysProf : false,
+		tooltip : "As an action while holding this pistol, you can expend 1 of its charges to fire a burst of glowing, needlelike darts from the pistol in a 15-ft cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 8d4 piercing damage on a failed save or half as much damage on a successful one." + QftIS.replaceEnergyCell.replace(/>>THING<</g, "pistol"),
+		selectNow : true
+	}]
+};
+MagicItemsList["paralysis pistol"] = {
+	name : "Paralysis Pistol",
+	source : [["QftIS", 192]],
+	type : "technological device",
+	rarity : "priceless",
+	defaultExcluded : true,
+	description : "This pistol has 6 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire the pistol at a creature I can see within 60 ft, which must then make a DC 15 Constitution save or be paralyzed for 1 min. The target can repeat the save at the end of each of its turns.",
+	descriptionFull : "This curious-looking pistol is shaped like a large, glass bulb with a handle on the bottom and brass prongs protruding from its front. The weapon is powered by an energy cell stored in its grip. Placing a full energy cell in the pistol gives the pistol 6 charges."+
+	"\n   As an action while holding this pistol, you can expend 1 of its charges to fire a ray of crackling energy at a creature you can see within 60 feet of yourself. The target must succeed on a DC 15 Constitution saving throw or have the paralyzed condition for 1 minute. At the end of each of the target's turns, it can repeat the saving throw, ending the effect on itself on a success."+
+	QftIS.replaceEnergyCell.replace(/>>THING<</g, "pistol"),
+	usages : 6,
+	recovery : "E-Cell",
+	weight : 2, // Guess by MPMB
+	action : [["action", ""], ["bonus action", "Replace Energy Cell"]],
+	weaponOptions : [{
+		regExpSearch : /^(?=.*paralysis)(?=.*pistol).*$/i,
+		name : "Paralysis pistol",
+		nameAlt : ["Pistol, Paralysis"],
+		source : [["QftIS", 192]],
+		ability : 0,
+		type : "Firearm",
+		damage : ["Con save", "", "Paralyzed"],
+		range : "60 ft",
+		weight : 2, // Guess by MPMB
+		description : "Paralyzed for 1 min; Repeat save at end of turn; Ammunition, reload (6 shots)",
+		abilitytodamage : false,
+		modifiers : [7, ""],
+		dc : true,
+		ammo : "energy cell",
+		isAlwaysProf : false,
+		tooltip : "As an action while holding this pistol, you can expend 1 of its charges to fire a ray of crackling energy at a creature you can see within 60 ft of yourself. The target must succeed on a DC 15 Constitution saving throw or have the paralyzed condition for 1 minute. At the end of each of the target's turns, it can repeat the saving throw, ending the effect on itself on a success." + QftIS.replaceEnergyCell.replace(/>>THING<</g, "pistol"),
+		selectNow : true
+	}]
+};
+// Futuristic Armour
+QftIS.poweredArmor = [
+	"This suit of technologically advanced plate armor includes an under-suit that can fully seal, a helmet with a full face mask and crystal lenses in the eyeholes, and a set of gauntlets. The armor is powered by an energy cell stored in a compartment on the thigh plate.",
+	"Placing a full energy cell in the armor gives the armor 24 charges. A suit of powered armor functions as a suit of normal plate armor, even when it has 0 charges remaining.",
+	">>Activating the Armor<<. As an action, you can expend any number of the armor's charges to activate it; the armor remains active for 1 hour per charge expended. You can use a bonus action to deactivate the armor early, but doing so doesn't recover any expended charges.",
+	"While the armor is active, you gain the following benefits:"+
+	"\n \u2022 >>Augmented Physicality<<. You have advantage on Strength checks, and your carrying capacity is doubled."+
+	"\n \u2022 >>Environmental Adaptation<<. The armor seals airtight and provides its own atmosphere. You can breathe normally in any environment and withstand extreme temperatures, and you're unaffected by harmful gases, as well as contact and inhaled poisons."+
+	"\n \u2022 >>Force Field<<. When you would take damage, you can use your reaction to expend 1 of the armor's charges to deploy a defensive force field. Roll 3d10 and reduce the damage taken by the total rolled."+
+	"\n \u2022 >>Propulsion<<. As a bonus action, you can expend 1 of the armor's charges to gain a flying speed equal to your walking speed for 1 minute. If you're airborne when this duration ends, you fall.",
+	QftIS.replaceEnergyCellPlain.replace(/>>THING<</g, "armor")
+]
+MagicItemsList["powered armor"] = {
+	name : "Powered Armor",
+	source : [["QftIS", 192]],
+	type : "technological device",
+	rarity : "priceless",
+	defaultExcluded : true,
+	description : "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to active it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breath in, and can use Force Field and Propulsion, see Notes.",
+	descriptionFull : QftIS.toDescrFull(QftIS.poweredArmor),
+	usages : 24,
+	recovery : "E-Cell",
+	weight : 65,
+	action : [
+		["action", "Activate Powered Armor (1 h/charge)"],
+		["reaction", "Powered Armor: Force Field (1 charge)"],
+		["bonus action", "Powered Armor: Propulsion (1 charge)"],
+		["bonus action", "Replace Energy Cell"]
+	],
+	armorOptions : [{
+		regExpSearch : /^(?=.*powered)(?=.*armou?r).*$/i,
+		name : "Powered Armor",
+		source : [["QftIS", 192]],
+		type : "heavy",
+		ac : 18,
+		stealthdis : true,
+		weight : 65,
+		strReq : 15
+	}],
+	toNotesPage : [{
+		name : "Features",
+		note : QftIS.to1stPerson(QftIS.poweredArmor)
+	}]
+};
+
+// Magic Items
+QftIS.heretic = [
+	"The blasphemous weapon Heretic was created by a cult to steal power from good-aligned gods. The blade hungers to strike down servants of the Upper Planes and weaken the forces of good.",
+	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. Heretic has 6 charges for the following properties; the sword regains 1d4 + 1 charges daily at dawn:"+
+	"\n \u2022 >>Destroy Devotion<<. Once per turn when you hit a creature with this weapon, you can expend 1 of its charges to attempt to render the target powerless. The target must succeed on a DC 17 Constitution saving throw or have the paralyzed condition until the start of your next turn. Celestials have disadvantage on the save."+
+	"\n \u2022 >>Faith Hunter<<. While holding the sword, you can use an action to expend 1 or more of its charges to cast one of the following spells from it: Detect Evil and Good (1 charge), Fly (2 charges), or True Seeing (3 charges).",
+	">>Sentience<<. Heretic is a sentient, chaotic evil weapon with an Intelligence of 17, a Wisdom of 17, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
+	"The weapon can speak, read, and understand Common and Giant, and it can communicate with its wielder telepathically. Its voice is soft and deep but rises in a wild furor when it's aware Celestials or worshipers of good-aligned deities are present. While you are attuned to it, Heretic also understands every language you know.",
+	">>Personality<<. Heretic craves the destruction of good-aligned gods and their supporters. The blade is condescending and snobby, especially in the company of priests and other pious folk, at whom it often directs sneering comments. When Heretic identifies its quarry, it erupts in a frenzied need for violence."
+];
+MagicItemsList["heretic"] = {
+	name : "Heretic",
+	source : [["QftIS", 192]],
+	type : "weapon (longsword)",
+	rarity : "legendary",
+	description : "This sentient longsword adds +3 to hit and damage and has 6 charges, regaining 1d4+1 at dawn. Once per turn on a hit with it, I can use 1 charge to force a DC 17 Con save or paralyze until my next turn. As an action, I can cast spells from it: Detect Evil and Good (1 charge), Fly (2 charges), or True Seeing (3 charges).",
+	descriptionFull : QftIS.toDescrFull(QftIS.heretic),
+	attunement : true,
+	prerequisite : "Requires attunement by a non-good creature",
+	prereqeval : function(v) { return !/good/i.test(What("Alignment")); },
+	weight : 3,
+	weaponOptions : [{
+		baseWeapon : "longsword",
+		regExpSearch : /heretic/i,
+		name : "Heretic",
+		source : [["QftIS", 192]],
+		description : "Versatile (1d10); On hit, 1 charge to paralyze (DC 17 Con save)",
+		modifiers : [3, 3],
+		selectNow : true
+	}],
+	toNotesPage : [{
+		name : "Features",
+		note : QftIS.to1stPerson(QftIS.heretic) + "\n\n" + sentientItemConflictTxt
+	}],
+	usages : 6,
+	recovery : "dawn",
+	additional : "regains 1d4+1",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["detect evil and good"],
+		selection : ["detect evil and good"],
+		firstCol : 1
+	}, {
+		name : "2 charges",
+		spells : ["fly"],
+		selection : ["fly"],
+		firstCol : 2
+	}, {
+		name : "3 charges",
+		spells : ["true seeing"],
+		selection : ["true seeing"],
+		firstCol : 2
+	}]
+}
+QftIS.staffOfRuling = [
+	"An ornate carving of a serpent adorned with a coursing river spirals down the length of this redand-gold staff. While you're holding it, you can use an action to produce one of the following effects. Once the staff has produced an effect, it can't produce that effect again until the next dawn.",
+	">>Orb of Lightning<<. You create a Small orb of lightning in an unoccupied space you can see within 60 feet of yourself. You concentrate on this orb as if concentrating on a spell. As a bonus action, you can move the orb up to 20 feet in any direction.",
+	"When your concentration ends, or when a creature enters the orb's space or starts its turn there, the orb detonates in a 20-foot-radius sphere. Each creature in that area must make a DC 15 Dexterity saving throw, taking lightning damage equal to the total accumulated damage on a failed save, or half as much damage on a successful one; the orb's base damage is 6d6, and if at the end of your turn the orb hasn't detonated, its damage increases by 2d6, to a maximum of 10d6.",
+	">>Staff to Snake<<. You throw the staff to an unoccupied space within 10 feet of you, and the staff becomes a giant poisonous snake. The snake is under your control and shares your initiative count, but it takes its turn immediately after yours.",
+	"On your turn, you can mentally command the snake if it is within 60 feet of you and you don't have the incapacitated condition. You decide what action the snake takes and where it moves during its turn, or you can issue it a general command, such as to attack your enemies or guard a location.",
+	"If you use a bonus action to speak the command word again, or if the snake is reduced to 0 hit points, the snake reverts to staff form in its current space.",
+	">>Thunderclap<<. You point the staff skyward, producing a fearsome thunderclap. Each creature of your choice in a 30-foot-radius sphere centered on you must succeed on a DC 15 Constitution saving throw or have the deafened and frightened conditions until the end of your next turn."
+];
+MagicItemsList["staff of ruling"] = {
+	name : "Staff of Ruling",
+	source : [["QftIS", 192]],
+	type : "staff",
+	rarity : "rare",
+	description : "As an action, I can use this redand-gold staff with an ornate serpent carving to produce one of several effects: Orb of Lightning, Staff to Snake, or Thunderclap. Once the staff has produced an effect, it can't produce that effect again until the next dawn. See Notes page for the effect descriptions.",
+	descriptionFull : QftIS.toDescrFull(QftIS.staffOfRuling),
+	attunement : true,
+	weight : 4,
+	toNotesPage : [{
+		name : "Features",
+		note : QftIS.to1stPerson(QftIS.staffOfRuling)
+	}],
+	action : [["action", ""]],
+	extraLimitedFeatures : [{
+		name : "Staff of Ruling: Orb of Lightning",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Staff of Ruling: Staff to Snake",
+		usages : 1,
+		recovery : "dawn"
+	}, {
+		name : "Staff of Ruling: Thunderclap",
+		usages : 1,
+		recovery : "dawn"
+	}]
+}
 // pub_al_20190917_ALPG-v9.1.js
 // This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet
 

@@ -14,8 +14,9 @@ SourceList["WDH"] = {
 
 // Mundane Items
 WeaponsList["oversized longbow"] = {
-	regExpSearch : /^(?=.*oversized?)(?=.*longbow).*$/i,
+	regExpSearch : /^(?=.*oversized?)(?=.*(\bbows?\b|longbow)).*$/i,
 	name : "Oversized Longbow",
+	nameAlt : ["Bow, Oversized"],
 	source : [["WDH", 201]],
 	list : "ranged",
 	ability : 2,
@@ -286,8 +287,10 @@ MagicItemsList["smokepowder"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
-	description : "",
-	descriptionFull : "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots.\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage.\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
+	description : "The Forgotten Realms version of gunpowder.",
+	descriptionFull : "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots."+
+		"\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage."+
+		"\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
 	allowDuplicates : true,
 	choices : ["Keg (500 shots)", "Packet (5 shots)"],
 	"packet (5 shots)" : {
@@ -297,7 +300,7 @@ MagicItemsList["smokepowder"] = {
 		recovery : "Never",
 		additional : "shots",
 		weight : 0.1, // 7000 grains per lb, 100 grains per shot
-		extraTooltip : "AL: can be purchased for 1 treasure checkpoint. Once found, this item goes on a character's evergreen list of available items.",
+		extraTooltip : "AL: can be purchased for 1 treasure checkpoint. Once found, this item goes on a character's evergreen list of available items."
 	},
 	"keg (500 shots)" : {
 		name : "Smokepowder Keg",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -613,7 +613,7 @@ MagicItemsList["pennant of the vind rune"] = {
 		rarity : "uncommon",
 		description : "This magic armor doesn't impose disadvantage on stealth checks and gives me a 5 ft bonus to my speed.",
 		attunement : true,
-		speed : { allModes : "+5" },
+		speed : { allModes : { bonus : "+5" } },
 		chooseGear : {
 			type : "armor",
 			prefixOrSuffix : "brackets",

@@ -1,6 +1,6 @@
-if (sheetVersion < 13001014) { throw "This script was made for a newer version of the sheet (v13.1.14). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13002000) { throw "This script was made for a newer version of the sheet (v13.2.0). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -5185,9 +5185,7 @@ AddSubClass("rogue", "scout-ua", {
 			minlevel : 9,
 			description : "\n   " + "I gain +10 ft to my walking speed (and swimming/climbing speed, if applicable)",
 			speed : { 
-				walk : { spd : "+10", enc : "+10" },
-				climb : { spd : "_10", enc : "_10" },
-				swim : { spd : "_10", enc : "_10" }
+				allModes : { bonus : "+10", exclude : ["fly", "burrow"] }
 			}
 		},
 		"subclassfeature13" : {
@@ -5592,7 +5590,7 @@ AddSubClass("warlock", "the hexblade-ua", {
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isDC && (/hexblade/i).test(v.WeaponTextName) && !v.CritChance) {
+						if (!v.isDC && /hexblade/i.test(v.WeaponTextName) && !v.CritChance) {
 							v.CritChance = 19;
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						};
@@ -22349,7 +22347,7 @@ FeatsList["rune carver adept-ua"] = {
 	description : "At the end of a long rest, when using the Rune Carver apprentice feat, I can now inscribe a number of objects up to my Proficiency Bonus. Each object can only have one rune, and each rune must be different."
 };
 
-// This file adds the content from the Unearthed Arcana 2022: Giant Options article to MPMB's Character Record Sheet
+// This file adds the content from the Unearthed Arcana 2022: Wonders of the Multiverse article to MPMB's Character Record Sheet
 // ua_20220718_Wonders-of-the-Multiverse.js
 SourceList["UA:WotM"] = {
 	name : "Unearthed Arcana: Wonders of the Multiverse",

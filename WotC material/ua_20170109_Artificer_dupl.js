@@ -400,8 +400,6 @@ AddSubClass("artificer-ua", "gunsmith", {
 				source : [["UA:A", 7]],
 				weight : 0.2, // based on the weight of renaissance bullets from the DMG
 				icon : "Bullets",
-				checks : [".Bullet"],
-				display : 50,
 				invName : "Thunder Cannon Rounds",
 				alternatives : [/^((?=.*arcane)(?=.*magazine)|(?=.*thunder)(?=.*cannon)(?=.*rounds)).*$/i]
 			}]

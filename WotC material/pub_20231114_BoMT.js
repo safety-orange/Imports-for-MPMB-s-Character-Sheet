@@ -1,5 +1,5 @@
 var iFileName = "pub_20231114_BoMT.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
 // Define the source
@@ -182,11 +182,13 @@ var BoMT = {
 		if (typeof sDescr === "string") sDescr = [sDescr];
 		return desc(sDescr, joinStr).replace(/\bf(oo|ee)t\b/ig, "ft")
 			.replace(/you aren't/ig, "I'm not").replace(/you were/ig, "I was")
-			.replace(/you are|you're/ig, "I am").replace(/\byou\b/ig, "I")
+			.replace(/you are|you're/ig, "I am").replace(/yours\b/ig, "mine")
+			.replace(/\byou\b/ig, "I")
 			.replace(/(aid|freeing|around|resurrected|beneath|between|\w\ws|by|of|to|for|on) I\b/ig, "$1 me")
 			.replace(/(toward) I\b/ig, "$1s me")
 			.replace(/(cards|items) me\b/ig, "$1 I")
 			.replace(/\bI (to|a|an)\b/ig, "me $1")
+			.replace(/yours\b/g, "mine").replace(/Yours/g, "Mine")
 			.replace(/your/g, "my").replace(/Your/g, "My")
 			.replace(/\[\[.*?\]\]/g, "")
 			.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function(a, p1, p2, p3, p4) {
@@ -1725,7 +1727,7 @@ MagicItemsList["shield of the tortoise"] = {
 	"\n   " + toUni("Curse") + ". This item is cursed. Attuning to it extends the curse to you until you are targeted by a Remove Curse spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your d20 as a 1. You can't change your initiative by any means.",
 	weight : 6,
 	shieldAdd : ["Shield of the Tortoise", 3, 6],
-	speed : { allModes : "/2" }
+	speed : { allModes : { bonus : "/2" } }
 };
 MagicItemsList["shrieking greaves"] = {
 	name : "Shrieking Greaves",
@@ -1822,8 +1824,8 @@ MagicItemsList["starshot crossbow"] = {
 	type : "weapon (any crossbow)",
 	rarity : "rare",
 	attunement : true,
-	description : "This black wooden crossbow has pearl inlays depicting three constellations. It has 3 charges, regaining 1d3 at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellation, see Notes page for the options.",
-	descriptionLong : "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charged daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellation, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
+	description : "This black wooden crossbow has pearl inlays depicting three constellations. It has 3 charges, regaining 1d3 at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes page for the options.",
+	descriptionLong : "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charged daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
 	descriptionFull : BoMT.toDescrFull(BoMT["starshot crossbow"]),
 	action : [["bonus action", ""]],
 	usages : 3,

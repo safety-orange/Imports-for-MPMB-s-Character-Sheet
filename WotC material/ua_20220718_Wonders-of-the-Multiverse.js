@@ -1,4 +1,4 @@
-// This file adds the content from the Unearthed Arcana 2022: Giant Options article to MPMB's Character Record Sheet
+// This file adds the content from the Unearthed Arcana 2022: Wonders of the Multiverse article to MPMB's Character Record Sheet
 var iFileName = "ua_20220718_Wonders-of-the-Multiverse.js";
 RequiredSheetVersion("13.1.14");
 

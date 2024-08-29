@@ -2240,11 +2240,11 @@ MagicItemsList["butcher's bib"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.isSpell && !v.CritChance && /slash/i.test(v.theWea.damage[2])) {
+				if (!v.isDC && !v.isSpell && !v.CritChance && /slash/i.test(v.theWea.damage[2])) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 					v.CritChance = 19;
 				}
-				if (!v.isSpell && v.isMeleeWeapon) {
+				if (!v.isDC && v.isMeleeWeapon) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Reroll damage once per turn';
 				}
 			},

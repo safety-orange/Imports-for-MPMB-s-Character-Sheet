@@ -1,5 +1,5 @@
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.2.0");
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -192,9 +192,7 @@ AddSubClass("rogue", "scout-ua", {
 			minlevel : 9,
 			description : "\n   " + "I gain +10 ft to my walking speed (and swimming/climbing speed, if applicable)",
 			speed : { 
-				walk : { spd : "+10", enc : "+10" },
-				climb : { spd : "_10", enc : "_10" },
-				swim : { spd : "_10", enc : "_10" }
+				allModes : { bonus : "+10", exclude : ["fly", "burrow"] }
 			}
 		},
 		"subclassfeature13" : {

@@ -9,9 +9,9 @@ const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
 const uglify  = require('gulp-uglify');
 
-const stableVersion = '"13.1.14"';
-const betaVersion   = '"13.2.0-beta1"';
-const betaFolder    = "/v13.2";
+const stableVersion = '"13.2.0"';
+const betaVersion   = '"13.3.0-beta1"';
+const betaFolder    = "/v13.3";
 const parentFolder  = "WotC material";
 const hasBetaFolder = fs.existsSync(`${parentFolder}${betaFolder}`);
 const aStableVer    = stableVersion.match(/\d+/g);

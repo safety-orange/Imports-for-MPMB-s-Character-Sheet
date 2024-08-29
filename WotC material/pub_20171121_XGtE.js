@@ -1,5 +1,5 @@
 var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -1941,9 +1941,7 @@ AddSubClass("rogue", "scout", {
 			minlevel : 9,
 			description : "\n   " + "I gain +10 ft to my walking speed (and swimming/climbing speed, if applicable)",
 			speed : {
-				walk : { spd : "+10", enc : "+10" },
-				climb : { spd : "_10", enc : "_10" },
-				swim : { spd : "_10", enc : "_10" }
+				allModes : { bonus : "+10", exclude : ["fly", "burrow"] }
 			}
 		},
 		"subclassfeature13" : {
@@ -2531,7 +2529,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
-						if (!v.isDC && (/curse/i).test(v.WeaponTextName) && !v.CritChance) {
+						if (!v.isDC && /curse/i.test(v.WeaponTextName) && !v.CritChance) {
 							v.CritChance = 19;
 							fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
 						}

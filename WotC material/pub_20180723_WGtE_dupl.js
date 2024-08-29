@@ -468,6 +468,7 @@ if (!WeaponsList["double-bladed scimitar"]){
 	WeaponsList["double-bladed scimitar"] = {
 		regExpSearch : /^(?=.*double)(?=.*scimitar).*$/i,
 		name : "Double-bladed scimitar",
+		nameAlt : ["Scimitar, Double-bladed"],
 		source : [["E:RLW", 22], ["WGtE", 74]],
 		list : "melee",
 		ability : 1,

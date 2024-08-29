@@ -39,6 +39,7 @@ RaceList["changeling"] = {
 WeaponsList["double-bladed scimitar"] = {
 	regExpSearch : /^(?=.*double)(?=.*scimitar).*$/i,
 	name : "Double-bladed scimitar",
+	nameAlt : ["Scimitar, Double-bladed"],
 	source : [["E:RLW", 22], ["WGtE", 74]],
 	list : "melee",
 	ability : 1,
@@ -2177,7 +2178,7 @@ AddSubClass("artificer", "artillerist", {
 					dc : true,
 					useSpellMod : "artificer",
 					abilitytodamage : false,
-					tooltip : "As an action, its creator can command the cannon to deto­nate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
+					tooltip : "As an action, its creator can command the cannon to detonate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
 				}],
 				features : [{
 					name : "Healing",

@@ -851,7 +851,7 @@ if (!SourceList["E:RLW"]) {
 						dc : true,
 						useSpellMod : "artificer",
 						abilitytodamage : false,
-						tooltip : "As an action, its creator can command the cannon to deto­nate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
+						tooltip : "As an action, its creator can command the cannon to detonate if its creator is within 60 ft of it. Doing so destroys the cannon and forces each creature within 20 ft of it to make a Dexterity saving throw against its creator's artificer spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one."
 					}],
 					features : [{
 						name : "Healing",
@@ -3968,12 +3968,12 @@ var TCoE_Favored_Foe = {
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
-				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && (/favou?red.{1,2}enemy/i).test(v.WeaponTextName)) {
+				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +1d' + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + ' damage';
 				};
 			},
-			"If I include the words \"Favored Enemy\" in the name of a weapon, it gets the bonus damage I do against marked favored enemies added to its description."
+			'If I include the words "Favored Foe" or "Favored Enemy" in the name of a weapon, it gets the bonus damage I do against marked favored enemies added to its description.'
 		]
 	}
 };
@@ -7172,7 +7172,7 @@ MagicItemsList["all-purpose tool"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability, spell) {
-					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 1;
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (!spellcasters.length && ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 1;
 				},
 				"While holding the All-Purpose Tool, I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]
@@ -7185,7 +7185,7 @@ MagicItemsList["all-purpose tool"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability, spell) {
-					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 2;
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (!spellcasters.length && ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 2;
 				},
 				"While holding the All-Purpose Tool, I gain a +2 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]
@@ -7198,7 +7198,7 @@ MagicItemsList["all-purpose tool"] = {
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability, spell) {
-					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 3;
+					if (type !== "prepare" && (spellcasters.indexOf('artificer') !== -1 || (!spellcasters.length && ability === 4 && spell && SpellsList[spell] && SpellsList[spell].level === 0))) return 3;
 				},
 				"While holding the All-Purpose Tool, I gain a +3 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
 			]

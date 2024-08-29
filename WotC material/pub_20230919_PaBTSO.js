@@ -1,5 +1,5 @@
 var iFileName = "pub_20230919_PaBTSO.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.0");
 // This file adds the magic items from the Phandelver and Below: The Shattered Obelisk adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
 // Define the source
@@ -187,7 +187,7 @@ MagicItemsList["bracers of celerity"] = {
 	descriptionFull : "This pair of lightweight bronze bracers is lined with soft, purple velvet and engraved with swirling designs."+
 	"\n   While you're wearing these bracers, all your speeds increase by 10 feet, and you have advantage on saving throws you make to avoid or end the paralyzed or restrained condition on yourself.",
 	attunement : true,
-	speed : { allModes : "+10" },
+	speed : { allModes : { bonus : "+10" } },
 	savetxt : { adv_vs : ["paralyzed", "restrained"] }
 }
 MagicItemsList["cape of enlargement"] = {
