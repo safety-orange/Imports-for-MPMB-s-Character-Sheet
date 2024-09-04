@@ -7669,10 +7669,10 @@ MagicItemsList["bomb, renaissance"] = {
 	description : "As an action, I can light this bomb and throw it at a point up to 60 ft away. Each creature within 5 ft of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
 	descriptionFull : "As an action, a character can light this bomb and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
 	action : [["action", "Throw Explosive"]],
-	weaponsAdd : { select : ["Bomb, renaissance"] },
+	weaponsAdd : { select : ["Bomb, Renaissance"] },
 	eval : function() { // make sure the weapon and ammo are not excluded
 		if (CurrentSources.weapExcl.eject("bomb, renaissance") !== -1) SetWeaponsdropdown();
-		if (CurrentSources.ammoExcl.eject("bomb") !== -1) SetAmmosDropdown();
+		if (CurrentSources.ammoExcl.eject("bomb") !== -1) SetAmmosdropdown();
 	}
 };
 MagicItemsList["gunpowder"] = {
@@ -7708,10 +7708,10 @@ MagicItemsList["dynamite stick"] = {
 	"\n   A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet)."+
 	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
 	action : [["action", "Throw Explosive"]],
-	weaponsAdd : { select : ["Dynamite stick"] },
+	weaponsAdd : { select : ["Dynamite Stick"] },
 	eval : function() { // make sure the weapon and ammo are not excluded
 		if (CurrentSources.weapExcl.eject("dynamite stick") !== -1) SetWeaponsdropdown();
-		if (CurrentSources.ammoExcl.eject("dynamite stick") !== -1) SetAmmosDropdown();
+		if (CurrentSources.ammoExcl.eject("dynamite stick") !== -1) SetAmmosdropdown();
 	}
 };
 MagicItemsList["grenade"] = {
@@ -7736,7 +7736,7 @@ MagicItemsList["grenade"] = {
 		weaponsAdd : { select : ["Fragmentation Grenade"] },
 		eval : function() { // make sure the weapon and ammo are not excluded
 			if (CurrentSources.weapExcl.eject("grenade, fragmentation") !== -1) SetWeaponsdropdown();
-			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosDropdown();
+			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosdropdown();
 		}
 	},
 	"smoke grenade" : {
@@ -37264,8 +37264,8 @@ var TCoE_Favored_Foe = {
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	calcChanges : {
-		atkCalc : [
-			function (fields, v, output) {
+		atkAdd : [
+			function (fields, v) {
 				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +1d' + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + ' damage';
@@ -54532,7 +54532,7 @@ if (MagicItemsList["grenade"]) {
 		weaponsAdd : { select : ["Concussion Grenade"] },
 		eval : function() { // make sure the weapon and ammo are not excluded
 			if (CurrentSources.weapExcl.eject("grenade, concussion") !== -1) SetWeaponsdropdown();
-			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosDropdown();
+			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosdropdown();
 		}
 	}, false, true);
 	AddFeatureChoice(MagicItemsList["grenade"], false, "Sleep Grenade", {

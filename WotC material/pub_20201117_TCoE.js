@@ -3966,8 +3966,8 @@ var TCoE_Favored_Foe = {
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	calcChanges : {
-		atkCalc : [
-			function (fields, v, output) {
+		atkAdd : [
+			function (fields, v) {
 				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +1d' + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + ' damage';

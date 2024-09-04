@@ -129,7 +129,7 @@ if (MagicItemsList["grenade"]) {
 		weaponsAdd : { select : ["Concussion Grenade"] },
 		eval : function() { // make sure the weapon and ammo are not excluded
 			if (CurrentSources.weapExcl.eject("grenade, concussion") !== -1) SetWeaponsdropdown();
-			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosDropdown();
+			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosdropdown();
 		}
 	}, false, true);
 	AddFeatureChoice(MagicItemsList["grenade"], false, "Sleep Grenade", {
